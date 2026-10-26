@@ -1,0 +1,1886 @@
+{
+  "slug": "villain-era-archetype-test",
+  "code": "VILLAIN_BOUNDARY_OPENERS_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "反派时代原型测试",
+    "en": "Villain Era Archetype Test"
+  },
+  "resultHeading": {
+    "zh": "六种戏剧式开场：次数与完整读法",
+    "en": "Six theatrical openings: counts and full guides"
+  },
+  "description": {
+    "zh": "免费反派时代原型测试：18道原创日常小场面，探索布策、坦白限度、温和说不等六种戏剧式开场。六份九节完整结果与全部最高并列免费。",
+    "en": "Free Villain Era Archetype Test: 18 original scenes and six full guides to playful boundary openings. Compare specific phrases and read every highest tie."
+  },
+  "seoTitle": {
+    "zh": "反派时代原型测试：六种开场与免费完整结果",
+    "en": "Villain Era Archetype Test: Six Openings, Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "“这次我只客串，不接常驻角色。”给自己的拒绝换一句台词，也可以把范围说得清楚。用18个原创日常小场面，探索更想先用哪种开场：幕前布策者、坦白限度的主角、温和说不者、规则提问者、幕后守门者或台词改写者。六份九节完整读法提供具体句子、容易模糊的地方、相近开场比较与小练习。“反派时代”在这里是一点戏剧感：可以说出自己的限度，不需要把别人变成对手。六组是本站编辑入口，不是六种普世权力模式，也不判断你是好人、坏人或擅长掌控局面。每组曝光相同，结果只显示原始次数，全部最高并列都保留全文。你可以先读再作答、修改或重测；草稿自愿开启，只在本标签页保留最多24小时，分享只含结果名称与公开链接。不需要账号、真实冲突或他人资料。",
+    "en": "“I am making a cameo, not taking a permanent role.” A different line can still make a limit clear. Across eighteen original everyday scenes, explore which opening you would prefer first: Scene Planner, Honest Antihero, Warm Decliner, Rule Questioner, Offstage Keeper or Line Rewriter. Six nine-section guides offer concrete phrases, possible ambiguities, comparisons and small exercises. Here, villain era adds theatrical flavour to stating a limit without turning other people into opponents. The six original editorial openings are not universal power modes and judge neither goodness, badness nor control. Equal exposure produces raw counts, retaining the full guide for every highest tie. Read first, answer, edit or retake. Optional drafts stay in this tab for up to twenty-four hours, while sharing includes only result names and public links. No account, actual conflict or another person’s information is needed."
+  },
+  "instructions": {
+    "zh": "把每个小场面当成给自己写的一句轻度戏剧化开场，选这次更愿意先用的一步。不是选更善良、更厉害或让别人服从的答案，也不要求真的照做。四项都是编辑给出的有限入口，不能穷尽你的回应；不合适可退出，六份全文仍免费。六组各出现12次、在四个位置各3次、省略6次；一选加1，无反向、对错或能力加权。完整18题才显示原始次数，所有最高并列保留全文，不硬派主副型。一直选同一位置会六组各3，不证明理想均衡。无需写真实冲突、他人资料或私人经历。",
+    "en": "Treat each small scene as a lightly theatrical opening written for yourself and choose the step you would prefer to try first on this attempt. You are not selecting the kindest, strongest or most controlling answer, and need not act it out. Four editorial options cannot exhaust your replies; leave if none fits while all six guides remain free. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, correctness or ability weighting. Complete all eighteen to see raw counts and every highest tie in full, without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Enter no actual conflicts, another person’s information or private experiences."
+  },
+  "source": {
+    "kind": "frontend_original_playful_boundary_openers",
+    "formCode": "fm_villain_boundary_openers_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "34f4eeb213ce39839cd97703243a01e2d258d842170e239192ab3b13ac1ab671",
+    "resultContentSha256": "98fbdc006760a22552daf21eda481da7f8b5dd4cee7d09679b63014dfddee8ba",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "scene-planner",
+      "title": {
+        "zh": "幕前布策者",
+        "en": "Scene Planner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "honest-antihero",
+      "title": {
+        "zh": "坦白限度的主角",
+        "en": "Honest Antihero"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "warm-decliner",
+      "title": {
+        "zh": "温和说不者",
+        "en": "Warm Decliner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rule-questioner",
+      "title": {
+        "zh": "规则提问者",
+        "en": "Rule Questioner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "offstage-keeper",
+      "title": {
+        "zh": "幕后守门者",
+        "en": "Offstage Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "line-rewriter",
+      "title": {
+        "zh": "台词改写者",
+        "en": "Line Rewriter"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "VERA_01",
+      "prompt": {
+        "zh": "你已经答应给朋友的手作摊帮半小时，对方又想让你留下整个下午。给这段轻度戏剧化的小场面选一个更想先用的开场。",
+        "en": "You agreed to help at a friend’s craft stall for half an hour; they now ask for the whole afternoon. Pick the opening you prefer for this lightly theatrical scene."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把半小时内能完成的两件事排出来，再明确离开的时间。",
+            "en": "Map out two tasks for the agreed half-hour, then make the leaving time explicit."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我刚才差点为了显得可靠又答应，但我确实只能留半小时。”",
+            "en": "“I almost agreed to look dependable, but I really can only stay for half an hour.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“很高兴能帮这一段；今天下午其余时间我不接了。”",
+            "en": "“I am glad to help for this part; I am not taking on the rest of the afternoon.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问临时多出的时段能否另行招募，而不是自动延长原来的承诺。",
+            "en": "Ask whether the extra shift can be offered separately instead of automatically extending the original commitment."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_02",
+      "prompt": {
+        "zh": "你为读书会画了一张小海报，别人临时希望你再做三种版本。你不想接下新增工作，会怎样开头？",
+        "en": "You made one reading-group poster and someone now wants three more versions. You do not want the extra work. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我喜欢画这个，不代表我还有余力；新增三版这次做不了。”",
+            "en": "“Enjoying the first one does not mean I have spare capacity; I cannot do three more.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“谢谢你喜欢原稿。这次我保留这一版，其他版本先不接。”",
+            "en": "“Thank you for liking the original. I am keeping this version and declining the others.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问小组能否在加稿前重新确认范围与自愿分工。",
+            "en": "Ask the group to confirm scope and voluntary roles before adding more versions."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先说需要离开讨论十分钟，回来只确认原稿交付，不继续加任务。",
+            "en": "Say you need ten minutes away, then return only to confirm the original delivery."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_03",
+      "prompt": {
+        "zh": "一位熟人想把你随手写的私人短句放进公开活动页，你不愿公开。哪种开场更像你想用的版本？",
+        "en": "An acquaintance wants to put your private draft sentence on a public event page. You do not want it published. Which opening would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“谢谢你喜欢，不过这句我想留给自己，请不要公开。”",
+            "en": "“Thank you for liking it, but I want to keep this sentence private; please do not publish it.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问公开页面是否可以只收主动同意投稿的文字，私人草稿不默认入选。",
+            "en": "Ask whether the page can use explicitly volunteered submissions rather than treating private drafts as entries."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把自己从后续编辑讨论里退出来，只留下这次不公开的明确回复。",
+            "en": "Step out of the continuing edit discussion after leaving an explicit refusal to publish this draft."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这句还没买去公开舞台的票；它这次留在草稿本里，请别发布。”",
+            "en": "“This line has no ticket to the public stage; it stays in my notebook this time, so please do not post it.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_04",
+      "prompt": {
+        "zh": "桌游聚会临时把收拾工作全留给你，原先并没有这样的约定。你想调整安排，会先做什么？",
+        "en": "A board-game gathering unexpectedly leaves all cleanup to you, without an earlier agreement. You want to change the arrangement. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请大家把剩余清理分开自选，不把默认留下的人当作全部负责人。",
+            "en": "Ask everyone to choose separate remaining jobs rather than making the last person the default owner of all of them."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己需要暂停一下，随后只接一项明确的小任务。",
+            "en": "State that you need a pause, then take only one clearly bounded small task."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“收场字幕不能只剩我的名字；我收牌，其他部分请大家各认领一项。”",
+            "en": "“The closing credits cannot have only my name; I will pack the cards, and everyone can claim another job.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把余下事情列成短清单，标出自己能做的一项和离开的节点。",
+            "en": "Make a short list of remaining tasks, marking your one contribution and leaving point."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_05",
+      "prompt": {
+        "zh": "周末聊天群一直在更换集合时间，你已经不想持续盯着消息。你会先发哪种回复？",
+        "en": "A weekend chat keeps changing the meeting time, and you no longer want to watch every message. Which reply would you send first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我先离线，今晚八点再看一次；那时再确认我能否参加。”",
+            "en": "“I am going offline and will check once at eight tonight; I will confirm then whether I can join.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“本人的刷新按钮先下班了；八点我再来确认一次安排。”",
+            "en": "“My refresh button is off duty; I will come back at eight to check the plan once.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先写出自己能参加的两个时间段，并约定一个最终确认点。",
+            "en": "Give two times you can attend and suggest one point for the final confirmation."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我原本以为能一直跟进，但现在跟不上了；晚点再确认。”",
+            "en": "“I thought I could keep following the changes, but I cannot now; I will confirm later.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_06",
+      "prompt": {
+        "zh": "朋友半开玩笑地要你在小聚会上表演一段，你并不想演。你更想怎样把拒绝说出来？",
+        "en": "A friend half-jokingly asks you to perform at a small gathering, but you do not want to. Which refusal would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“今天这位角色没有表演支线；我不演，但可以给大家鼓掌。”",
+            "en": "“This character has no performance side quest today; I am not performing, but I can applaud.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说自己只参加聊天环节，把是否表演提前从安排里划清。",
+            "en": "Clarify that you are joining the conversation part only and keep performing outside the plan."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点不好意思拒绝，不过我确实不想演，就不接这一段了。”",
+            "en": "“I feel awkward saying no, but I really do not want to perform, so I am declining this part.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“谢谢你想到我。今晚我当观众，不上场。”",
+            "en": "“Thank you for thinking of me. Tonight I am an audience member, not a performer.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_07",
+      "prompt": {
+        "zh": "你借出一件不贵的小工具，对方想再顺手借走一整盒。你只愿借出原来那件，会怎样开场？",
+        "en": "You agreed to lend one inexpensive small tool, and the borrower now wants the whole box. You want to lend only the original tool. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把借出的那一件和归还时间说清，其余工具留在原处。",
+            "en": "Specify the one tool and return time, leaving the other tools where they are."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我刚才差点说随便拿，但其实不愿借整盒；只借这一件。”",
+            "en": "“I nearly said take whatever you need, but I do not want to lend the box; just this one tool.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一件可以，整盒这次就不借了，谢谢你理解。”",
+            "en": "“This one is fine; I am not lending the whole box this time, and thank you for understanding.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问能否每次新增借用都单独确认，不把一次同意当成整盒都可取用。",
+            "en": "Ask that extra borrowing be checked separately, instead of extending one yes to everything in the box."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_08",
+      "prompt": {
+        "zh": "你说好了帮小组读两页草稿，又收到十页新增内容。你想保留原来的范围，会先怎样回复？",
+        "en": "You agreed to read two draft pages for a group and receive ten extra pages. You want to keep the original scope. What would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我想帮忙，但十页超出我这次能做的；我只读原来的两页。”",
+            "en": "“I want to help, but ten extra pages exceed what I can do; I am reading the original two.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“谢谢你愿意给我看。今天我能反馈的仍是约好的两页。”",
+            "en": "“Thank you for sharing them with me. Today I can still comment only on the two agreed pages.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先请小组确认新增内容由谁自愿接，不把旧约定直接扩大。",
+            "en": "Ask the group to find a volunteer for the additions rather than expanding the old agreement."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先暂停接收后续草稿，给自己留一段只处理原两页的安静时间。",
+            "en": "Pause further draft messages and keep a quiet interval for the original two pages."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_09",
+      "prompt": {
+        "zh": "一个兴趣小组想让你长期负责每周通知，你只愿意偶尔代班。哪种开场更想先用？",
+        "en": "A hobby group wants you to handle every weekly notice, but you only want occasional cover. Which opening would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“很喜欢这个小组，不过每周负责人我不接；偶尔有空可以代一次。”",
+            "en": "“I like this group, but I am declining the weekly role; I can occasionally cover when available.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问能否轮流认领每一周，而不是从一次代班推成长期任命。",
+            "en": "Ask whether each week can be volunteered for separately rather than turning one cover shift into a permanent appointment."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先退出持续排班的讨论，只留下愿意被单次询问的方式。",
+            "en": "Leave the continuing rota discussion while explaining how to ask about an individual cover shift."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我的通知员角色是客串，不是常驻；偶尔代班可以逐次问我。”",
+            "en": "“My notice-writer role is a cameo, not a series regular; ask me separately about occasional cover.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_10",
+      "prompt": {
+        "zh": "你在活动报名表里勾选了不上镜，合照安排却又默认包括你。你会先怎样处理？",
+        "en": "You selected no photographs on an event form, but a group-photo plan includes you again. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请组织者按报名时的选择重新确认合照名单。",
+            "en": "Ask the organiser to check the photo list against the choices people submitted."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先从合照位置退开，并明确说自己这次不上镜。",
+            "en": "Step away from the photo position and state explicitly that you are not joining the photograph."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一集我走幕后路线；我不进照片，麻烦把名单改一下。”",
+            "en": "“I am taking the offstage route this episode; I am not in the photo, so please update the list.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认哪个环节拍照，安排自己避开那一段，并说明不上镜的选择。",
+            "en": "Confirm the photo interval, plan to step aside for it and restate your choice not to appear."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_11",
+      "prompt": {
+        "zh": "你给自己留了一个不接临时邀约的晚上，又收到一起玩桌游的消息。你不想改安排，会先说什么？",
+        "en": "You reserved an evening without last-minute invitations and receive a board-game invite. You want to keep your plan. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“今晚我先不加入，消息也晚点再回；祝你们玩得开心。”",
+            "en": "“I am not joining tonight and will check messages later; I hope you enjoy the game.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“这位角色今晚进入离线章节；桌游我不参加，改天再聊。”",
+            "en": "“This character is in an offline chapter tonight; I am skipping the game, and we can talk another day.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先重申今晚已有的空白时段安排，只讨论以后另约的可能。",
+            "en": "Restate tonight’s reserved free interval and leave any discussion of another visit for a later date."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我以前常临时改主意，但今晚想保留自己的安排，就不去了。”",
+            "en": "“I have often changed my plan at the last minute, but tonight I want to keep it, so I am not coming.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_12",
+      "prompt": {
+        "zh": "你不想在朋友的生日小游戏里回答一个私人问题。你更愿意怎样接过这一轮？",
+        "en": "You do not want to answer a personal question in a friend’s birthday game. How would you prefer to handle your turn?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“这个问题的支线暂不解锁；我跳过它，换个公开的小问题吧。”",
+            "en": "“That question’s side chapter stays locked; I am skipping it, and we can use a less personal one.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己会跳过私人问题，仍可参加其他环节。",
+            "en": "Clarify that you will skip personal questions while still joining other parts."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点怕扫兴，但这题确实不想答，就跳过了。”",
+            "en": "“I am worried about spoiling the mood, but I really do not want to answer this one, so I will pass.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“谢谢你给我留一轮；这一题我跳过，接着看大家玩。”",
+            "en": "“Thank you for including me; I will pass on this question and keep enjoying everyone’s turns.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_13",
+      "prompt": {
+        "zh": "你原本只答应把一张桌子搬回原处，现在有人希望你顺便重新布置整间活动室。你会先做什么？",
+        "en": "You agreed to move one table back, and someone now asks you to rearrange the entire activity room. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先指出原来约好的是哪张桌子，完成那一步就停下。",
+            "en": "Point out the one agreed table, finish that move and stop there."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我想显得好说话，但整间重排确实不接；我把这张桌子搬回去。”",
+            "en": "“I want to seem easygoing, but I am not taking on the room; I will move this table back.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一张我来。重新布置就留给另一次大家确认的安排吧。”",
+            "en": "“I will handle this table. Let us leave the whole-room change for a separately agreed plan.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先请大家把重新布置作为新任务重新商量，不作为原约定的附带项。",
+            "en": "Ask that rearranging the room be discussed as a new task instead of an attachment to the old agreement."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_14",
+      "prompt": {
+        "zh": "你参加的小型照片交换活动不要求写真实姓名，现在有人想统一改成实名。你不愿实名，会怎样开头？",
+        "en": "A small photo-exchange activity allowed display names, and someone now proposes real names for everyone. You do not want to use yours. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我愿意参加，不代表愿意实名；我会保留原来的展示名。”",
+            "en": "“Wanting to join does not mean wanting my real name shown; I am keeping my display name.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“很高兴一起交换作品，不过我只用展示名，谢谢大家保留这个选择。”",
+            "en": "“I am glad to exchange work together, but I use a display name only; thank you for keeping that option.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问能否保留报名时约定的显示方式，由每个人单独选择。",
+            "en": "Ask to retain the display options agreed at signup so each person can choose separately."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先暂退这次公开整理，等显示名安排确认后再决定继续参加。",
+            "en": "Step back from the public compilation until the display-name arrangement is clear, then decide whether to continue."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_15",
+      "prompt": {
+        "zh": "你只想在共同歌单里推荐一首歌，朋友又请你包办整份歌单。你更想怎样开始拒绝新增部分？",
+        "en": "You wanted to suggest one track for a shared playlist, and a friend asks you to curate the whole thing. Which opening would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“谢谢你喜欢我的推荐；这一首我愿意分享，整份歌单就不包办了。”",
+            "en": "“Thank you for liking my suggestion; I am happy to share this track, but I am not curating the whole playlist.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问能否让每位参与者各自添歌，不把一次推荐变成单人负责。",
+            "en": "Ask whether participants can add their own tracks rather than turning one suggestion into a solo assignment."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把后续歌单讨论静音，明确留一句只推荐这一首、不承担整理。",
+            "en": "Mute the continuing playlist discussion after stating that you are contributing one track, not taking on curation."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这次我投一首片尾曲，不接整季配乐；大家继续各自添歌吧。”",
+            "en": "“I am offering one closing track, not scoring the whole season; let everyone keep adding their own.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_16",
+      "prompt": {
+        "zh": "活动的发言顺序临时改了，你的部分被连续往后挪，但还没人确认你是否愿意。你想先做什么？",
+        "en": "An event’s speaking order changes and your turn keeps moving later without anyone checking with you. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请主持人重新确认大家可接受的时间，而不是继续默认同一个人让位。",
+            "en": "Ask the host to reconfirm acceptable times rather than repeatedly assuming the same person will move."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己需要离开讨论片刻，回来再确认是否还参加这个时段。",
+            "en": "Say you need a short break from the discussion and will return to decide whether this slot still works."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我的出场顺序一直在换集数；请先和我确认，再把时间往后排。”",
+            "en": "“My entrance keeps moving to another episode; please check with me before shifting it again.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先给出自己最晚能开始的时间，请把它作为排顺序的明确条件。",
+            "en": "Give the latest time you can begin and ask that it be treated as a clear scheduling condition."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_17",
+      "prompt": {
+        "zh": "有人把你拉进一个每天打卡的兴趣群，你更喜欢偶尔参与。你会先怎样划清自己的节奏？",
+        "en": "Someone adds you to a daily hobby check-in group, but you prefer occasional participation. How would you first clarify your pace?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我会把每日提醒关掉，想参与时再来；不承诺每天打卡。”",
+            "en": "“I am turning off daily reminders and will visit when I want; I am not committing to a daily check-in.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我的出场是随机客串，不是日更连载；我偶尔来，不每天打卡。”",
+            "en": "“My appearances are occasional cameos, not a daily serial; I will drop in rather than check in every day.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先明确自己只参加哪些可选活动，让每日打卡不进入个人安排。",
+            "en": "Identify which optional activities you want to join and keep daily check-ins outside your plan."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我一开始有点想跟上大家，不过每日打卡不适合我；我偶尔来。”",
+            "en": "“I initially wanted to keep up, but daily check-ins do not work for me; I will participate occasionally.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_18",
+      "prompt": {
+        "zh": "小聚会结束时，大家又想延长一个小时，你已经决定按原时间回去。你更想用哪一种收场白？",
+        "en": "At the end of a small gathering, others want another hour, and you have decided to leave at the original time. Which closing line do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“这位角色的片尾到了；我按原时间走，后面的续集留给大家。”",
+            "en": "“This character has reached the closing credits; I am leaving on time, and the sequel is yours.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认原定结束点，把自己要带走的东西收好，明确现在离开。",
+            "en": "Confirm the original finish, collect your things and make it clear that you are leaving now."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点舍不得走，也怕显得扫兴，但还是想按原计划回去。”",
+            "en": "“I am reluctant to leave and worry about seeming dull, but I still want to keep my original plan.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“今晚很开心，谢谢大家；我现在先走，祝接下来也玩得好。”",
+            "en": "“I enjoyed tonight, and thank you all; I am leaving now, and I hope you enjoy the rest.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "scene-planner",
+      "directionIds": [
+        "scene-planner"
+      ],
+      "title": {
+        "zh": "幕前布策者",
+        "en": "Scene Planner"
+      },
+      "headline": {
+        "zh": "先把自己的出场时间、任务范围和离场点写进安排。",
+        "en": "Put your time, task and leaving point into the plan."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择先列范围、定节点或把新增请求另行安排。这份“幕前布策者”读法让边界有一个可见的形状，不说明你比别人更会谋略、冷静或掌控局面。",
+        "en": "Your offered-menu choices more often began with a scope, time point or separate plan for an extra request. Scene Planner gives a limit a visible shape without establishing greater strategy, calmness or control than anyone else."
+      },
+      "seo": {
+        "title": {
+          "zh": "幕前布策者结果：反派时代测试完整说明与并列读法",
+          "en": "Scene Planner: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "读幕前布策者完整结果：从半小时帮忙、借工具和按时离场的具体例子，看范围安排、临时加码、相近开场与全部最高并列。",
+          "en": "Read the Scene Planner result: scopes, time points and commitments. Compare other openings, understand highest ties and try a phrase exercise. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "先让边界有一个可见的形状",
+            "en": "Give the limit a visible shape"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个入口经常先问“具体是哪一段”：帮忙半小时、读两页草稿，还是只搬回一张桌子。把它们写进安排，原来的同意就不容易在谈话里悄悄变大。回看你选的一项，找出你愿意先说清的是时间、数量还是结束点；三者也可能不同。结果只记录你在这些菜单里偏爱哪个开场，后续有没有执行、对方有没有理解，都没有被观察。",
+              "en": "This opening often starts by identifying the particular part: half an hour of help, two draft pages or one table moved back. Putting it into the arrangement can keep an earlier yes from quietly expanding in the conversation. Revisit one selected option and notice whether you wanted to clarify time, quantity or a finishing point first. Those are different details. The result records a preference among these openings; it has not observed follow-through or whether another person understood the limit."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "半小时帮忙不是整个下午",
+            "en": "Half an hour is a particular commitment"
+          },
+          "paragraphs": [
+            {
+              "zh": "在手作摊的例子里，可以说：“我到两点半，之前帮你把价签摆好、收一轮零钱，之后要离开。”两件事和一个时间点给承诺划出轮廓。若对方又提新任务，你可以重新确认是否接，而不是让清单无限延长。这个例子也不要求每次拒绝都附替代方案；有时一句“今天下午不接了”就足够。安排是帮助说明自己的选择，不是向别人证明你有资格离开。",
+              "en": "At the craft stall, an opening might be: “I can stay until half past two and help set out the labels and cover one change-money round before I leave.” Two tasks and a time give the commitment an outline. A further request can be considered separately rather than added to an endless list. An alternative offer is optional. Sometimes declining the afternoon is enough. A plan helps describe your choice; it is not an application for permission to leave."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "把新增请求单独放到桌面上",
+            "en": "Put the added request on the table"
+          },
+          "paragraphs": [
+            {
+              "zh": "布局不一定要写很长。对十页新增草稿，可以把“我读原两页”与“新增部分需要另找人”分成两句；对借工具，可以把那一件和归还点确认好。这样，讨论比较容易围绕具体事项，而不是围绕谁更热心。你也可以改变主意，只需重新说明现在愿意做什么。一次完整结果并不能证明你在真实关系里总会这样表达，也不评价哪一种开场更成熟。",
+              "en": "A plan can be short. Separate “I am reading the original two pages” from “the additions need another reader,” or identify the one borrowed tool and its return point. This keeps the discussion on a particular arrangement rather than on who is more generous. You can change your mind and explain the new choice too. Completing the quiz does not establish that you always speak this way in actual relationships, and it assigns no maturity ranking to the available openings."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "清单也有需要停下的时候",
+            "en": "A list also needs a stopping point"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果把每个新要求都转成更细的排程，原本想拒绝的事可能仍被接了下来。可以回看清单有没有真正留下“不接”这一种选择，还是只有怎样挤出时间。另一种常见情况是安排已经很清楚，谈话却仍在反复说明细节；此时你可以重复一句简短结论，再结束本轮讨论。这里是在试写一个可用的开场，不是在推断你控制欲强、情绪冷淡或不够灵活。",
+              "en": "Turning every added request into a finer schedule can leave you accepting something you meant to decline. Look at whether the draft really includes the option of not taking it on, rather than only ways to squeeze it in. At other times, the arrangement is already clear and the conversation keeps returning to details. A short repeated conclusion can end your part of that discussion. These are possibilities for a sentence draft, not evidence of being controlling, emotionally cold or inflexible."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "和坦白限度、先问规则怎么比",
+            "en": "Compare a limit and a process question"
+          },
+          "paragraphs": [
+            {
+              "zh": "“坦白限度的主角”可以先承认自己原本想答应、现在确实做不了；幕前布策者更常先给出具体范围。“规则提问者”可能把目光放到小组怎样分配新增任务，幕前布策者则先把自己这一份说明白。它们能出现在同一段话里，没有互相排斥的要求。若次数接近，可以把另一份全文一起读，比较哪一句能帮助你表达此刻的选择，不必寻找所谓最佳搭配或隐藏副型。",
+              "en": "Honest Antihero can begin by admitting an urge to agree and a present inability to do so; Scene Planner more often begins with a specific scope. Rule Questioner may examine how the group allocates additions, while Scene Planner first makes your own part explicit. These moves can share one sentence. Close counts can invite reading another full guide and comparing which phrase helps express your choice now. They reveal no ideal partner style, hidden secondary type or mutually exclusive way of being."
+            }
+          ]
+        },
+        {
+          "id": "frame",
+          "title": {
+            "zh": "反派式出场是一点戏剧感",
+            "en": "The dramatic entrance is a playful frame"
+          },
+          "paragraphs": [
+            {
+              "zh": "“幕前布策者”像在开场前标好自己的出场位置：我到哪里、做哪一段、何时谢幕。这个名字借的是戏剧感，没有在测试真实谋略或让别人服从的本领。你不需要把朋友写成对手，也不必隐藏信息、故意让人猜或等着证明谁错了。对一件小事说清楚范围，本身就可以是这一幕的全部内容；六组也不是文学史公认的完整原型集合。",
+              "en": "Scene Planner imagines marking your place before an entrance: where you join, what you do and when you leave. The name borrows theatrical flavour without testing strategy or an ability to secure obedience. Friends need not become opponents, and the scene requires no hidden information, guessing game or eventual proof that someone was wrong. Stating the scope of one small matter can be the whole scene. Nor do the six editorial names form a recognised, complete taxonomy of literary archetypes."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "写一句能停在这里的安排",
+            "en": "Draft an arrangement that can stop here"
+          },
+          "paragraphs": [
+            {
+              "zh": "挑一个完全虚构的小请求，用“我能做___，到___为止；新增部分这次不接”写一句。再试着删掉前半段，看看只说不接时是否仍表达清楚。两句都不需发给真实的人，也没有必须选较长版本的规定。练习要帮你看见自己的范围，而不是训练一种人设。若你发现想先表达感谢或需要暂停，可以读另一份结果，把词句按实际需要组合。",
+              "en": "Invent a small request and draft: “I can do this part until this point; I am not taking the addition.” Then remove the first half and see whether a simple refusal still expresses your choice clearly. Neither version needs to be sent to anyone, and a longer sentence is not required. The exercise makes a limit visible rather than training a persona. If you want to begin with thanks or a pause instead, another full guide can help you combine phrases for your own purpose."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "honest-antihero",
+      "directionIds": [
+        "honest-antihero"
+      ],
+      "title": {
+        "zh": "坦白限度的主角",
+        "en": "Honest Antihero"
+      },
+      "headline": {
+        "zh": "不用先演得毫无犹豫，仍然可以把限度说清。",
+        "en": "You can name a limit without first performing certainty."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择承认想答应、怕扫兴或原本估错余力，再说明这次的限度。这个原创反英雄式入口允许一句话里有犹豫，不推断受过什么伤、是否勇敢或道德高低。",
+        "en": "Your offered-menu choices more often admitted an urge to agree, awkwardness or an earlier capacity estimate before stating a limit. This original antihero-inspired opening allows hesitation without inferring suffering, courage or morality."
+      },
+      "seo": {
+        "title": {
+          "zh": "坦白限度的主角结果：反派时代测试完整说明",
+          "en": "Honest Antihero: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "读坦白限度的主角完整结果：从不接新增海报、跳过私人问题等例子，看犹豫与明确拒绝如何同在，比较相近开场、近分与全部并列。",
+          "en": "Explore the Honest Antihero result: admitting hesitation while stating a limit. Read specific examples, compare other openings and understand highest ties."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "一句话里可以同时有犹豫和结论",
+            "en": "Hesitation and a conclusion can share a sentence"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个入口常把两句话放在一起：“我有点想答应”和“这次做不了”。前一句说明自己的当下感受，后一句仍然完整，不需要靠删掉犹豫来显得有力量。回看一个选项，留意你更想承认的是不好意思、舍不得，还是最初估错了余力。它们只是菜单里不同的开场材料；题本没有检查你的真实经历，也不知道你平时会不会这样说。",
+              "en": "This opening often places two statements together: an inclination to agree and a limit on what you will do. The first describes a present feeling; the second remains complete without deleting the hesitation to sound powerful. Revisit one choice and notice whether you wanted to acknowledge awkwardness, reluctance to leave or an earlier overestimate of capacity. These are different materials for an opening. The bank has checked no personal history and does not know whether you usually speak this way outside the menus."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "喜欢原稿，也可以不接三版新增",
+            "en": "Liking the original leaves room to decline additions"
+          },
+          "paragraphs": [
+            {
+              "zh": "海报的例子可以这样说：“我很喜欢画原稿，也差点因为你喜欢就把新增都接下，但这次没有余力，三版我做不了。”把心情说出来，不等于把结论交给对方重新裁定。若觉得这句话太长，可以直接留“我这次做不了新增三版”。表达可以简短，也可以带一点自己的声音；没有一种长度能证明你更真诚，结果也不要求你向别人解释所有私事。",
+              "en": "For the poster, a draft might be: “I enjoyed making the original and almost accepted the additions because you liked it, but I do not have capacity for three more versions.” Naming a feeling does not hand the decision over for another person to adjudicate. Shorten it to declining the additions if that suits you. A sentence can be brief or carry a little of your own voice. No length proves greater sincerity, and the result requires no account of private circumstances."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "先前想答应，不会锁定现在的选择",
+            "en": "An earlier inclination does not lock the next choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "有时最难开口的部分不是“不”，而是承认自己刚才说得太满。在借工具的场面里，你可以把“差点说随便拿”和“只借这一件”区分开。若已经作出明确约定，实际怎样调整还需要具体沟通；题本里的一句开场没有替你处理所有后续。这个入口的阅读价值是让想法的变化可以被说出来，而不是把每次退缩都包装成深刻成长或一段必经的英雄旅程。",
+              "en": "Sometimes the difficult part is admitting that an earlier response sounded broader than intended. In the tool scene, distinguish almost saying “take anything” from agreeing to lend one tool. Where a definite commitment already exists, changing it still needs particular communication; a quiz opening does not settle every consequence. The useful feature here is making a changed inclination speakable. It does not turn every retreat into profound growth or require a heroic journey to justify an ordinary adjustment."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "承认感受，不必反复为结论辩护",
+            "en": "Naming a feeling need not become repeated self-defence"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果不断补充自己为什么不好意思，拒绝的那一句可能反而被淹没。可以先把结论留在纸上，再决定加哪一小段感受，而不是让解释把它冲淡。也不必为了显得诚实而贬低自己，例如把一次做不了说成“我总是不可靠”。一件小事的余力是具体情况，不是整个人的判词。这些提示只是给虚构开场改稿，不推断你存在自我价值、情绪或心理健康上的问题。",
+              "en": "Repeatedly explaining awkwardness can bury the actual limit. Keep the conclusion on the page first, then decide which small feeling belongs beside it. Honesty does not require putting yourself down by turning one unavailable afternoon into a claim of always being unreliable. Capacity for one matter is a particular circumstance, not a verdict on an entire person. These are editing suggestions for an invented opening, not an inference that you have a problem with self-worth, emotion or mental health."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与温和说不、幕前布策怎么比",
+            "en": "Compare warmth and a visible plan"
+          },
+          "paragraphs": [
+            {
+              "zh": "温和说不者可以先感谢或承认关系中的好意，再保持清楚结论；坦白限度的主角则常先承认自己有一点摇摆。幕前布策者可能先列时间与任务，不必先讲感受。同一个人可以把三种做法放在一起，也可以只用一句最直接的话。次数接近时，比较的是这次菜单里更想先用哪个开场，不是判断你更脆弱、更有同理心，或属于哪一种固定沟通人格。",
+              "en": "Warm Decliner may begin with thanks or goodwill while keeping the conclusion clear; Honest Antihero often begins by acknowledging a little internal wavering. Scene Planner can name a time and task without starting with a feeling. These moves can appear together, or a direct single sentence may be enough. Close counts compare which opening you preferred first in these menus. They do not establish greater vulnerability or empathy, or place you in a fixed communication personality."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "反英雄不等于反派，也不等于受过伤",
+            "en": "An antihero is neither simply a villain nor a history of hurt"
+          },
+          "paragraphs": [
+            {
+              "zh": "Merriam-Webster把antihero解释为缺少典型英雄品质的主角或重要人物。这个文学用词不自动表示坏人，也没有规定每个反英雄都因受伤而获得正确答案。本版只借“不用完美登场”的联想，把坦白限度写成一个原创入口。六组不是文学研究的完整分类；你无需认领某个角色、证明自己经历过困难，或相信不被理解就说明自己更正确。普通的一句做不了，已经可以读完这一幕。",
+              "en": "Merriam-Webster describes an antihero through a central or notable figure lacking conventional heroic qualities. That literary term does not automatically mean a villain, or require hurt to produce correct judgement. This edition borrows only the idea of an imperfect entrance for an original limit-stating opening. The six groups are not a complete literary classification. You need no character identity, proof of hardship or belief that being misunderstood makes you right. An ordinary statement of unavailability can finish this small scene."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把感受和限度分别写一遍",
+            "en": "Write the feeling and the limit separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "编一个完全虚构的新增请求，先写“我有点___”，再另起一句“这次我___”。检查第二句单独出现时是否仍能说明自己的选择。接着试着只保留一点感受，看两句合起来是否像你愿意用的开场。不用发送给真实的人，也不用回忆让你难受的经历。若你更想先问任务怎样分配，另一份规则提问者全文可能更有用；阅读不要求你维护这个结果的名字。",
+              "en": "Invent an additional request and write a feeling on one line, then your present limit on another. Check whether the second line still communicates the choice when it stands alone. Add only the part of the feeling you want and see whether the combined opening sounds usable to you. Send nothing to an actual person and recall no painful experience. If you would rather ask about task allocation first, the Rule Questioner guide may help. Reading does not require defending this result’s name."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warm-decliner",
+      "directionIds": [
+        "warm-decliner"
+      ],
+      "title": {
+        "zh": "温和说不者",
+        "en": "Warm Decliner"
+      },
+      "headline": {
+        "zh": "把感谢留在句子里，也把“不接这一段”留清楚。",
+        "en": "Keep the thanks and keep the refusal clear."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择先表达感谢、认可邀请或留下友善收尾，再说明不接的部分。温和说不者描述的是本次开场偏好，不证明魅力、情商、受欢迎程度或让别人同意的能力。",
+        "en": "Your offered-menu choices more often paired thanks or goodwill with a clear refusal. Warm Decliner describes an opening preference on this attempt, not charm, emotional intelligence, popularity or an ability to make people agree."
+      },
+      "seo": {
+        "title": {
+          "zh": "温和说不者结果：反派时代测试完整读法与比较",
+          "en": "Warm Decliner: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "读温和说不者完整结果：感谢与清楚拒绝怎样放在一起，比较坦白限度和台词改写，查看近分、全部最高并列与具体开场练习。",
+          "en": "Read the Warm Decliner result: thanks alongside a clear no. Explore concrete phrases, compare other openings, understand ties and keep every full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "友善和拒绝可以是同一段话",
+            "en": "Goodwill and a refusal can share an opening"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组经常先承认一件小小的好事：对方喜欢你的原稿、愿意邀请你，或活动让你玩得开心。随后仍说清楚这次不参加、不公开或不接新增部分。感谢不是把拒绝变成等待说服的半个同意。回看一个选项，看看你选中的是感谢的声线、简短的结尾，还是两句放在一起的感觉；它们都只是这份菜单里可以比较的细节。",
+              "en": "This group often acknowledges a small piece of goodwill: someone liked your first draft, invited you or made a gathering enjoyable. It then keeps the refusal to join, publish or take an addition explicit. Thanks need not turn a refusal into half an agreement awaiting persuasion. Revisit one option and notice whether its appreciative tone, short ending or combination of the two attracted you. These are details available for comparison in the menu, rather than evidence of a broad interpersonal gift."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "先谢谢喜欢，再说这一版到此为止",
+            "en": "Thank the interest and close this particular request"
+          },
+          "paragraphs": [
+            {
+              "zh": "在海报的例子里，“谢谢你喜欢原稿；这次我保留这一版，其他版本先不接”既承认了好意，也没有把新增工作接下来。你可以把感谢改成更自然的说法，甚至只留一句不接。重要的是结论仍表达你的选择，而不是必须听起来很甜。对方可能仍失望，这并不能由一句开场消除；题本没有观察后续回应，更没有检验哪种声线一定更有效。",
+              "en": "For the poster, “Thank you for liking the original; I am keeping this version and declining the others” acknowledges the interest without accepting extra work. Change the thanks to wording that sounds natural, or retain only the refusal. The point is that the conclusion still expresses your choice, not that it must sound sweet. Someone may remain disappointed, which an opening cannot necessarily remove. The bank observes no subsequent response and has tested no tone as reliably more effective than another."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "认可邀请，不等于接受整个角色",
+            "en": "Acknowledge the invitation without taking the whole role"
+          },
+          "paragraphs": [
+            {
+              "zh": "小组让你长期发通知时，可以先说喜欢这个小组，再说明只愿偶尔代班。共同歌单也是一样：喜欢推荐一首，不等于包办整份。把对活动的好感和这次愿意承担多少分开，句子就不需要替整段关系下结论。这里没有要求每次拒绝都补上额外贡献；若你不愿代班，也可以直接不接。结果更不代表你应该负责让所有人听后都感觉舒服。",
+              "en": "When a group offers the weekly notice role, you can acknowledge liking the group while declining the permanent responsibility. Enjoying one playlist suggestion likewise does not require curating the whole list. Separate goodwill towards an activity from the amount you want to undertake now. A sentence need not decide the whole relationship. No extra contribution must accompany a refusal; declining occasional cover is also possible. The result does not make you responsible for ensuring that everyone feels comfortable after hearing a limit."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "不要让感谢把最后一句盖住",
+            "en": "Do not let the thanks hide the last sentence"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果感谢写了很多，最后只剩一句含糊的“再看看”，对方可能不知道你是否还在考虑。可以把结论先写清，再决定感谢留多少，而不是用更多解释替它收尾。也可以避免答应一个并不想做的替代任务，来补偿拒绝带来的不自在。这些都是改稿时可检查的地方，不说明你讨好别人、隐藏怨气或缺少勇气；几次菜单选择没有提供那样的行为证据。",
+              "en": "If the thanks becomes lengthy and ends only with an unclear possibility of looking later, the listener may not know whether you are still considering the request. Draft the conclusion first, then decide how much appreciation belongs beside it. An unwanted substitute task need not compensate for the awkwardness of declining. These are points to inspect in an invented sentence, not evidence of people pleasing, hidden resentment or a lack of courage. A few menu selections do not supply those behavioural observations."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与坦白限度和台词改写怎么比",
+            "en": "Compare an admitted limit and a playful line"
+          },
+          "paragraphs": [
+            {
+              "zh": "坦白限度的主角可能先说自己有一点不好意思，温和说不者则更常先回应邀请中的好意。台词改写者可以用“客串而非常驻”轻轻换个框，温和说不者不一定需要比喻。同一段话可以有感谢、犹豫和一点玩笑，只要你愿意这样表达。若两组次数接近，读两份全文比较具体措辞即可；没有“最温柔的人”排名，也没有所谓更能平衡你的固定搭配。",
+              "en": "Honest Antihero may begin with feeling awkward; Warm Decliner more often starts by acknowledging goodwill in the invitation. Line Rewriter might use a cameo rather than a regular-role metaphor, while Warm Decliner needs no metaphor. One opening can contain thanks, hesitation and a little play if you want it to. Close counts can invite comparing the actual wording in both full guides. They create no ranking of the gentlest people and identify no fixed complementary style that best balances you."
+            }
+          ]
+        },
+        {
+          "id": "frame",
+          "title": {
+            "zh": "温暖声线不是把别人变成手段",
+            "en": "A warm voice does not turn someone into a means"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些反派式角色想象会把魅力和操纵放在一起，本版没有沿着那个方向给分。温和说不者只借一个有礼而清楚的出场声线：不利用赞美诱导、不把感谢当交换，也不试图让对方不能拒绝。这是本站给六组菜单写的原创入口，不是公认的“魅力者人格”。你不必漂亮、外向、擅长社交或一直保持笑容，也可以使用一条感谢和一条明确的结论。",
+              "en": "A villain-themed character image can associate charm with manipulation; this edition does not score along that path. Warm Decliner borrows a courteous, clear voice for an entrance, without using praise as a lure or making thanks into a transaction. It is an original editorial opening, not an established Charmer personality. Appearance, extraversion, social confidence and a continuous smile are not prerequisites. An appreciative phrase and a clear conclusion are available without proving any of those qualities or making another person unable to refuse."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "让一句感谢和一句结论各自站稳",
+            "en": "Let the thanks and the conclusion stand separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "编一个不涉及真实关系的小邀请，分别写下“谢谢你___”和“这次我___”。先看第二句能否独立说清选择，再把第一句放回去。若合起来太长，可以删去感谢里的重复部分；若觉得不像自己，也可以不用它。不需要把草稿发出去测试对方反应，更不用给朋友贴上这六组标签。你带走的是一种可修改的表达材料，不是必须维持的温和人设。",
+              "en": "Invent an invitation that involves no actual relationship. Write a thanks and a present choice on separate lines. Check whether the second line states the choice independently before adding the first back. Remove repeated appreciation if the combination feels long, or omit it if it does not sound like you. Do not send a draft to test somebody’s reaction or assign the six names to friends. Take away revisable wording, rather than an obligation to maintain a permanently gentle persona."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rule-questioner",
+      "directionIds": [
+        "rule-questioner"
+      ],
+      "title": {
+        "zh": "规则提问者",
+        "en": "Rule Questioner"
+      },
+      "headline": {
+        "zh": "先问安排怎样形成，让默认的一步重新成为可以讨论的选择。",
+        "en": "Ask how the arrangement was made and reopen the assumed step."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择先问新增任务、名单或轮次怎样确认。规则提问者把注意力放在安排的形成方式，不证明你更公正、勇敢或适合替别人主持判断。",
+        "en": "Your offered-menu choices more often began by asking how added tasks, lists or turns were agreed. Rule Questioner focuses on the making of an arrangement without proving greater fairness, courage or authority to judge for others."
+      },
+      "seo": {
+        "title": {
+          "zh": "规则提问者结果：反派时代测试完整说明与并列",
+          "en": "Rule Questioner: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "从临时加任务、合照名单和发言顺序读规则提问者结果，区分自己说不与重新确认流程，比较相近开场并查看全部最高并列全文。",
+          "en": "Explore the Rule Questioner result through added tasks, photo lists and speaking turns. Compare asking about a process with stating a limit, and read every tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "先把“默认如此”拆成一个问题",
+            "en": "Turn an assumption into a particular question"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个入口常把“怎么又是我”拆成更具体的问题：新增时段是否另行招募、公开文字是否逐次确认、发言时间是否问过本人。问题指向安排的一步，而不是马上判断谁是坏人。回看你选中的选项，找出那个需要重新确认的默认项。你可以只关心其中一次，不必把自己认作永远质疑规则的人；题本也没有看见真实小组的分工或任何人的意图。",
+              "en": "This opening often turns a broad frustration into a particular question: whether an extra shift needs volunteers, a public text needs separate confirmation or a changed speaking time was checked. The question concerns one step in an arrangement rather than immediately deciding who is bad. Revisit a selected option and identify its assumed step. You can care about that instance without becoming someone who always challenges rules. The bank has observed neither an actual group’s division of work nor anyone’s intentions."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "新增时段可以作为新请求出现",
+            "en": "An added shift can appear as a new request"
+          },
+          "paragraphs": [
+            {
+              "zh": "在手作摊的例子里，可以问：“原来约好半小时，下午新增的时段能不能重新找愿意的人？”它把新请求摆回桌面，不让旧的一次同意自动承担全部。随后仍可以说自己只留半小时；不需要等整个排班讨论结束才表达这一点。别人是否愿意接班、摊位怎样继续运作，都不是问出一句话就能确定的事。结果没有把提问等同于解决问题，更不把不接新增工作视为道德胜利。",
+              "en": "At the craft stall, ask whether the additional afternoon shift can be offered to someone who wants it, since the original agreement covered half an hour. This puts the added request back on the table instead of automatically attaching it to an earlier yes. You can still state your half-hour limit before the entire rota is settled. A question cannot determine who will volunteer or how the stall will continue. The result treats neither asking as solving everything nor declining an addition as a moral victory."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "核对的是哪一步曾经被同意",
+            "en": "Identify the step that was actually agreed"
+          },
+          "paragraphs": [
+            {
+              "zh": "合照与展示名的场面里，报名时的选择提供一个可以核对的起点。可以请组织者按这些选择重新确认，而不用猜测对方是否故意忽视了你。借工具、接草稿也一样：同意一件与同意新增部分可以分开讨论。这些例子不是法律判断，也没有证明某个人违反了规则；它们只是展示，一句开场怎样从模糊的不舒服落到一个可说清的安排上。",
+              "en": "The photograph and display-name scenes provide a starting point in the choices made at signup. Ask the organiser to check those choices rather than guessing whether you were deliberately ignored. Borrowing a tool or reading a draft can also separate one agreed part from additions. These examples make no legal judgement and establish no rule violation by an actual person. They show how an opening can move from a broad discomfort to one describable part of an arrangement."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "流程讨论不必吞掉自己的结论",
+            "en": "A process discussion need not consume your own decision"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一直等大家把流程说到完全满意，自己这次是否参加可能迟迟没有被表达。可以把两件事分开：先说明这次不接，再问未来能否逐次确认。反过来，也不必把每次小调整都升级成一场规则辩论；你可以只提醒一个具体选择，或决定暂退讨论。题本中的最高次数并不要求你代表所有人发言，也没有证明你知道其他人的需要或适合裁定哪种分配才公平。",
+              "en": "Waiting until everyone is satisfied with a process discussion can leave your own participation undecided. Separate the matters: decline this addition, then ask about checking future changes individually. Nor must every small adjustment become a debate about rules. One reminder or a pause may be enough. A highest count does not require speaking for everyone and establishes no knowledge of other people’s needs. It gives you no special authority to decide which allocation would be fair in an actual group."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与幕前布策、幕后守门怎么比",
+            "en": "Compare a visible plan and an offstage pause"
+          },
+          "paragraphs": [
+            {
+              "zh": "幕前布策者可能先说“我到几点、做哪一段”；规则提问者则常先问新增安排怎样形成。幕后守门者可以先把自己从持续消息或讨论中退开，再决定怎样回应。这三步可以连续发生：先离线、再说明可参与的范围、最后讨论以后怎样确认。近分时读另一份全文，是比较可用的句子和顺序，不是找出哪种人更负责、更有公共精神，或哪一组应该领导其他组。",
+              "en": "Scene Planner might first state a time and task; Rule Questioner often first asks how the addition was formed. Offstage Keeper can step out of continuing messages before deciding how to respond. All three moves can occur in sequence: go offline, explain your available scope and later discuss how changes will be checked. Read another full guide when counts are close to compare wording and order. The scores identify neither greater responsibility or public spirit nor a group entitled to lead the others."
+            }
+          ]
+        },
+        {
+          "id": "frame",
+          "title": {
+            "zh": "这一版不把提问写成惩罚权",
+            "en": "This edition gives a question no power to punish"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版把某些反派式角色里“不接受默认安排”的戏剧感，改写成一个询问流程的入口，没有把它叫作现实中的义警本领。它不鼓励绕过别人的拒绝、替别人做决定、报复或自行惩罚。六个名字只是本站写给这些小菜单的阅读入口，不是六种普世权力模式。你可以质疑一个安排，也可以承认自己尚不了解情况；一句认真核对的问话已经足够，不需要演出对抗的高潮。",
+              "en": "This edition reworks a dramatic refusal to accept an assumed arrangement into an opening that asks about a process. It does not present a real-world vigilante ability or endorse overriding refusal, deciding for others, retaliation or punishment. The six names are editorial entry points for these small menus rather than universal power modes. You can question an arrangement while admitting that you do not know the whole situation. A sincere check is enough, without staging a confrontation as the climax."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把一句质问改成可核对的问题",
+            "en": "Rewrite a broad challenge as a checkable question"
+          },
+          "paragraphs": [
+            {
+              "zh": "编一个完全虚构的新增任务，先写“这部分原先有单独确认吗”，再写自己现在愿不愿接。比较两句顺序，看看更想先说明选择，还是先问原来的约定。不要拿真实群聊做实验，也不用替任何人推断动机。若没有需要讨论的流程，保留简单拒绝也可以。练习的目标是把问题缩到具体一步，而不是训练自己赢下一场争论或维持反派式气势。",
+              "en": "Invent an additional task and ask whether that part was separately confirmed. Write your present willingness on another line, then compare which line you prefer first. Use no actual group conversation as an experiment and infer no motive for anyone. If there is no process worth discussing, keep a simple refusal. The exercise narrows a question to a particular step instead of training you to win an argument or maintain a dramatic villain-era presence. The draft remains yours to change or discard."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "offstage-keeper",
+      "directionIds": [
+        "offstage-keeper"
+      ],
+      "title": {
+        "zh": "幕后守门者",
+        "en": "Offstage Keeper"
+      },
+      "headline": {
+        "zh": "先为自己留一段不必持续回应的空间。",
+        "en": "Make room to stop continuously responding."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择先离线、暂停讨论或退出持续排班，再说明自己会如何参与。幕后守门者只描述这次开场偏好，不测内外向、回避、孤独、专注能力或关系深浅。",
+        "en": "Your offered-menu choices more often began with going offline, pausing a discussion or leaving a continuing rota. Offstage Keeper describes this opening preference, not introversion, avoidance, loneliness, focus or relationship depth."
+      },
+      "seo": {
+        "title": {
+          "zh": "幕后守门者结果：反派时代测试完整说明与比较",
+          "en": "Offstage Keeper: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "从群聊改时间、持续排班与临时邀约读幕后守门者完整结果，区分暂停和含糊消失，比较相近开场、近分与全部最高并列。",
+          "en": "Read the Offstage Keeper result: pauses, changing plans and optional participation. Compare clear limits with silence and explore every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "先给连续回应留一个停顿",
+            "en": "Put a pause into continuous responding"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组常先把“我还要一直跟着吗”变成一个明确动作：暂时离线、关闭每日提醒，或退出持续接任务的讨论。动作之后仍可以说清自己是否参加、何时再确认或哪些部分不接。回看一个选项，留意你想保留的是安静时间、单次参与，还是不被不断新增的消息牵走。题本没有测量你真实的社交次数，也没有看见你离线之后会做什么。",
+              "en": "This group often turns a question about continuing to follow a conversation into an explicit action: go offline, turn off daily reminders or leave an ongoing task discussion. That can sit beside a clear statement about participation, a later check or an addition you decline. Revisit one selected option and notice whether you wanted quiet time, occasional involvement or freedom from continuous additions. The bank has measured no actual social frequency and has not observed what you do after going offline."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "八点再看一次，不是一直等新消息",
+            "en": "Check once at eight rather than follow every update"
+          },
+          "paragraphs": [
+            {
+              "zh": "群聊不断改集合时间时，可以说：“我先离线，今晚八点再看一次；那时再确认能否参加。”这句把暂停和后续确认分开，不需要整晚盯着每条变化。若你已经决定不去，也可以直接说明，不必为了显得温和而承诺稍后再看。给出一个时间点只是这个例子的写法，不是每次暂停都必须提供的交代；怎样表达仍取决于那次具体约定。",
+              "en": "When a chat keeps changing the meeting time, a draft can say that you are going offline, will check once at eight and will confirm participation then. It separates a pause from a later decision without following every update all evening. If you have already decided not to attend, say that instead of promising another check for politeness. A time point belongs to this example; it is not a universal requirement for every pause. The particular arrangement still matters to how you express it."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "偶尔参与也可以被说得具体",
+            "en": "Make occasional participation specific"
+          },
+          "paragraphs": [
+            {
+              "zh": "兴趣群的每日打卡和小组的长期排班，都容易把一次参与接成持续角色。你可以明确只偶尔来、愿意被单次询问，或这次不参加某一环节。这样，参与多少不需要靠别人从沉默里猜。暂停也不必被解释成对整个小组不满；你可以喜欢活动，同时不接它的全部节奏。这个阅读入口没有比较谁的关系更深、谁更独立，或谁天生更适合独处。",
+              "en": "A daily check-in or continuing rota can turn one visit into an ongoing role. Explain that you participate occasionally, accept individual enquiries or are skipping a particular part. The amount of involvement then need not be inferred from silence. A pause also need not express dissatisfaction with an entire group. You can like an activity without adopting its whole pace. This reading compares neither relationship depth nor independence and does not identify people naturally better suited to being alone."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "暂停和让别人猜是两件事",
+            "en": "A pause and leaving others to guess are different moves"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果已经答应一个具体环节，却只停止回应，其他人可能仍按旧约定等你。改稿时可以看看有没有一句需要补上的信息，例如“今晚不参加”或“原来的两页我会按约定读，新增不接”。另一方面，也无需把普通暂停写成很长的自我说明。选择能表达这次决定的最小内容即可。题本没有把沉默直接判为冷淡，也没有把说明得越多当作越负责任的证据。",
+              "en": "If you already agreed to a particular part and simply stop replying, others may continue to rely on the old arrangement. Inspect the draft for a missing statement, such as declining tonight or keeping the original two pages while refusing additions. On the other hand, an ordinary pause needs no lengthy account of yourself. Keep the minimum content that expresses this decision. The quiz treats neither silence as automatically cold nor a longer explanation as proof of greater responsibility."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与布策者、温和说不者怎么比",
+            "en": "Compare a plan and a warm refusal"
+          },
+          "paragraphs": [
+            {
+              "zh": "幕前布策者可能先把可做的任务与时间列出，幕后守门者则更常先退出持续跟进。温和说不者可以先感谢邀请，再说今天不来；幕后守门者可能先把离线安排放到句子里。你可以把三步组合，也可以在不同小事上选择不同开场。近分时阅读另一份全文，是为了多拿一种表达材料，不是在确定哪个是真实的你、哪个是表面社交角色。",
+              "en": "Scene Planner may first name an available task and time, while Offstage Keeper often first leaves continuous following. Warm Decliner can thank an invitation before declining tonight; Offstage Keeper may place the offline interval first. Combine the moves or use different openings for different small matters. Reading another full guide at a close count supplies another piece of wording. It does not discover which is your real self and which is a surface social role, nor separate authentic solitude from performed friendliness."
+            }
+          ]
+        },
+        {
+          "id": "frame",
+          "title": {
+            "zh": "幕后只是这一幕的位置",
+            "en": "Offstage is a place in this scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "“幕后守门者”借一个暂退镜头的画面，让自己的参与节奏能够被看见。它不是隐士身份，也不把距离写成比亲近更高级的力量；更不意味着别人要先证明价值才配得到回应。本版六组都是编辑给这些菜单安排的入口，没有公认的六型人群或人生阶段。你可以暂时离开，也可以回来加入，把选择放回这一件小事，而不是让一次结果替整段关系定性。",
+              "en": "Offstage Keeper borrows the image of stepping outside a shot so that a preferred pace of involvement becomes visible. It is no hermit identity and does not make distance a higher form of power than closeness. Nor must other people prove their worth to earn a response. The six editorial openings describe no established population types or life stages. Step away or return as you choose, keeping the reading attached to one small matter rather than letting it define an entire relationship."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "写出暂停，再检查是否留下旧承诺",
+            "en": "Draft the pause and check the earlier commitment"
+          },
+          "paragraphs": [
+            {
+              "zh": "编一个不断更新的虚构兴趣群，写一句自己想怎样暂停。再问：这场面里有没有先前明确答应、需要另外说明的部分？若有，加上一句最具体的确认；若没有，原来的短句也许就够了。练习不用打开真实群聊，不需要截图或提交任何私人对话。你可以只在心里试一句，也可以发现自己更想直接拒绝。结果提供的是一份可修改的读法，不要求你持续留在幕后。",
+              "en": "Invent a hobby chat with continuing updates and draft how you want to pause. Ask whether the scene contains an earlier definite commitment that needs a separate statement. Add one specific confirmation if it does; otherwise the short opening may be enough. Open no actual chat and submit no screenshots or private messages. Try the line only in your head, or discover that you prefer a direct refusal. The result is a reading you can revise, not an instruction to remain offstage."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "line-rewriter",
+      "directionIds": [
+        "line-rewriter"
+      ],
+      "title": {
+        "zh": "台词改写者",
+        "en": "Line Rewriter"
+      },
+      "headline": {
+        "zh": "给场面换一句台词，也让自己的选择听得见。",
+        "en": "Change the line and keep your choice audible."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选择客串、离线章节或片尾这样的轻度戏剧比喻，同时保留自己的明确选择。台词改写者描述的是这次措辞偏好，不测幽默、社交勇气、机智或操纵能力。",
+        "en": "Your offered-menu choices more often used cameos, offline chapters or closing credits while retaining an explicit choice. Line Rewriter describes wording preferred on this attempt, not humour, social courage, wit or manipulation."
+      },
+      "seo": {
+        "title": {
+          "zh": "台词改写者结果：反派时代测试完整说明与近分",
+          "en": "Line Rewriter: Full Villain Era Archetype Test Result"
+        },
+        "description": {
+          "zh": "从客串而非常驻、片尾离场等原创台词读完整结果，区分友善玩笑与含糊反话，比较相近开场、近分和全部最高并列。",
+          "en": "Read the Line Rewriter result through cameos and closing credits. Compare a playful opening with a clear refusal, explore close counts and keep every full tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的反派人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent villain personality."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "换一个说法，仍然说出自己的选择",
+            "en": "A different phrase can still state the choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组给普通小事加一点戏剧语言：偶尔代班像客串，按时回去像片尾，暂时不看消息像离线章节。比喻后面仍有具体结论，例如不接长期角色、现在离开或八点再看一次。回看一个选项，找出你喜欢的是画面、节奏还是那句简短收尾；它们不必一直一起使用。题本没有看过你讲笑话，也不知道别人会不会觉得这句话有趣。",
+              "en": "This group adds a little theatrical language to ordinary matters: occasional cover becomes a cameo, leaving on time becomes closing credits, and going offline becomes a chapter break. A specific conclusion still follows: declining a permanent role, leaving now or checking once at eight. Revisit one option and identify the image, rhythm or short ending you liked. These need not always travel together. The bank has watched no joke-telling and does not know whether anyone else would find the line amusing."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "客串而非常驻，先把后半句说完整",
+            "en": "A cameo needs a clear second half"
+          },
+          "paragraphs": [
+            {
+              "zh": "长期发通知的例子可以写成：“我的通知员角色是客串，不是常驻；偶尔代班可以逐次问我。”后半句让比喻落到实际范围：单次询问，而不是每周默认。如果你其实连偶尔代班也不愿意，就把后半句改成这次不接。文字游戏不应替你多答应一件事，也不需要让别人先懂某个梗，才能知道你最后说的是愿意还是不愿意。",
+              "en": "For the weekly notice role, the cameo line ends by asking that occasional cover be checked individually. Its second half gives the image a practical scope instead of making every week automatic. If you do not want occasional cover either, change the ending to declining this role. Wordplay need not volunteer you for an extra task. Nor should someone have to recognise a meme before understanding whether the conclusion is yes or no. Keep the actual choice available in ordinary language."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "把比喻当成可拆卸的一小块",
+            "en": "Treat the metaphor as a removable piece"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以先写最直接的版本，再决定是否加一点自己的语言。例如“今晚不参加”已经完整，前面可加“离线章节”，也可以不加。生日小游戏里的“这一题不解锁”同样需要“我跳过”这句明确选择。这样，比喻是可拆卸的表达材料，不是拒绝必须穿上的外套。喜欢这些选项，也不代表你现实中总用玩笑回应、不能认真说话，或天生适合活跃气氛。",
+              "en": "Start with the direct version and decide whether a little of your own language belongs beside it. Declining tonight is already complete; an offline-chapter image can be added or omitted. Saying that a birthday-game question stays locked also needs an explicit decision to pass. The metaphor is therefore removable wording rather than a costume a refusal must wear. Liking these options does not mean you always answer with jokes, cannot speak seriously or are naturally responsible for enlivening a room."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "玩笑不必让拒绝变成猜谜",
+            "en": "A joke need not turn a refusal into a guessing game"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果只有一句别人不熟悉的比喻，或说了与实际想法相反的话，对方可能只听到玩笑，没听到结论。改稿时可以检查有没有清楚的“不接”“不参加”或“先离线”。也可以拿掉针对别人的揶揄，让画面停留在自己的安排上。本版不是在给反话、羞辱或让人难堪的技巧加分；若一句话需要别人被当成笑点才成立，你完全可以换一个更直接的版本。",
+              "en": "An unfamiliar metaphor or saying the opposite of what you mean can leave someone hearing only a joke. Inspect the draft for a clear refusal, non-participation or offline interval. Remove a dig at another person and keep the image attached to your own arrangement. This edition gives no points for sarcasm, humiliation or making somebody uncomfortable. If a line works only by turning someone else into its target, choose a more direct version instead. These are options for revising a sentence, not a performance test."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与温和说不、幕后守门怎么比",
+            "en": "Compare a warm refusal and an offstage pause"
+          },
+          "paragraphs": [
+            {
+              "zh": "温和说不者可能先感谢邀请，台词改写者则更常先放一个小画面。幕后守门者可能先提出离线或暂停，台词改写者可以给同样的暂停换个轻巧名字。一个人可以既感谢、又暂停、还带一点自己的措辞；这些入口没有互斥要求。近分时读其他全文，可以找出更想保留的句子部分，不是在测谁更有趣、更有魅力，或哪种组合在人群里更罕见。",
+              "en": "Warm Decliner may first thank the invitation; Line Rewriter more often places a small image first. Offstage Keeper may first propose a pause, and Line Rewriter can give the same pause a lighter name. Thanks, a pause and personally chosen wording can share one opening. The groups are not exclusive. Read another full guide at a close count to identify a phrase worth keeping, not to measure who is more entertaining or charming, or which combination is rarer in a population."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "诡计者传统比一个友善玩笑更宽",
+            "en": "Trickster traditions are wider than one friendly joke"
+          },
+          "paragraphs": [
+            {
+              "zh": "美国国会图书馆的相关馆藏介绍把trickster放在具体民间故事传统里，人物可能运用聪明、欺骗或幽默追求目标，并让社会规则受到审视。那并不等于本版的“台词改写者”。这里仅写一个使用友善比喻的原创入口，没有借任何传统角色、故事、图像或文化身份给人分型。六组也不是文学史的完整体系；一条轻巧收尾可以就停在这一件小事，不需要被包装成普世权力或看穿他人的本领。",
+              "en": "The Library of Congress places tricksters within particular storytelling traditions, where figures can use cleverness, deceit or humour and bring social norms into question. That is wider than this edition’s Line Rewriter. Here an original opening uses a friendly metaphor without borrowing a traditional character, tale, image or cultural identity to classify people. The six groups form no complete literary system. A light closing phrase can remain attached to one small matter without becoming a universal power or a claimed ability to see through others."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "先写直白版，再加一个小画面",
+            "en": "Write the plain version before adding an image"
+          },
+          "paragraphs": [
+            {
+              "zh": "编一个完全虚构的聚会邀请，先写“我按原时间离开”。再试着加上片尾、客串或其他自己编的小画面，检查不懂比喻的人是否仍能读出同一个决定。若答案不确定，把结论再说清或删掉比喻。不需要把句子发给别人验证笑点，也不需要任何表演能力。练习结束时，你可以选直白版、趣味版，或什么都不留；结果没有要求你一直负责让场面轻松。",
+              "en": "Invent a gathering invitation and write a plain decision to leave at the original time. Add a closing-credits, cameo or invented image and check whether someone unfamiliar with it could still read the same decision. Clarify the conclusion or remove the metaphor if that is uncertain. Send nothing to test its comic effect, and use no performance skill. Keep the plain version, the playful version or neither when the exercise ends. The result does not require you to keep every scene light for everyone else."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数、近分和所有最高并列",
+            "en": "Counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+              "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "全文、草稿与结果的使用范围",
+            "en": "Full guides, drafts and the result’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+              "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "次数、近分和所有最高并列",
+        "en": "Counts, close readings and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，六组各出现12次、每个位置各3次；你没有在每题同时比较全部六组。最高次数决定先显示哪些完整读法，所有最高并列都保留，不另派主副型。一直选同一位置会六组各3，不能当作理想均衡。差一两次可以多读一份全文，但没有验证过的能力分界、人格比例或边界健康程度。",
+          "en": "Eighteen choices total eighteen. Each group appears twelve times, three in each position; you did not compare all six in every question. Highest counts decide which full guides appear first, retaining every highest tie without assigning primary and secondary types. Repeating one position gives each group three counts without proving ideal balance. A small gap can invite another full reading, but supplies no validated ability boundary, personality proportion or level of healthy boundaries. Counts concern only this offered set of openings."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列都能读完",
+        "en": "Read every highest tie in full"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，每组出现12次。所有最高次数并列都保留九节全文，不派隐藏主副型。六组各3时显示六份54节，但不证明理想均衡；次数不是权力、道德、健康边界或人格比例。",
+          "en": "Eighteen choices total eighteen, with twelve appearances per group. Every highest tie retains its nine-section guide without hidden primary or secondary types. Six groups of three show all fifty-four sections without proving ideal balance. Counts are no measure of power, morality, healthy boundaries or personality proportions."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "六种开场可以交叠",
+        "en": "The six openings can overlap"
+      },
+      "paragraphs": [
+        {
+          "zh": "安排范围、承认犹豫、表达感谢、提问流程、暂停和换句台词，可以出现在同一段话里。这里只问给定场面更愿意先选哪一步，没有证明六组互相排斥或心理独立。哪一项都不合适可以停止，六份公开全文仍免费。",
+          "en": "A scope, admitted hesitation, thanks, a process question, a pause and a rewritten line can share one opening. Menus ask what you would prefer first in a particular scene without establishing exclusive or psychologically independent groups. Leave if none fits; all six public full guides stay free."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "趣味框架与名称背景",
+        "en": "The playful frame and naming background"
+      },
+      "paragraphs": [
+        {
+          "zh": "“反派时代”在本版只是把自己的限度说出来的趣味戏剧框架，不鼓励报复、操纵、羞辱、越过拒绝或把人当对手。六组名称与18道题为本站原创编辑入口，不是六种普世文学原型或心理类型，也不测道德、创伤、权力、能力、人格、职业或关系适配。反英雄不等于反派，诡计者传统也不等于本版友善改写台词；词典和馆藏只作名称背景，不验证题本。结果只描述给定菜单中的选择，不证明某种做法一定合适或有效。",
+          "en": "“Villain era” is used here as a playful theatrical frame for stating your limits, without endorsing retaliation, manipulation, humiliation, overriding refusal or treating people as opponents. Six original editorial entry points and eighteen original items are neither six universal literary archetypes nor psychological types. They measure no morality, trauma, power, ability, personality, career or relationship fit. An antihero is not synonymous with a villain, and trickster traditions are not synonymous with this edition’s friendly line rewriting. Dictionary and collection sources provide naming background, not bank validation. Results describe offered-menu choices without establishing that a response will suit or succeed in a particular situation."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "全文、草稿与结果的使用范围",
+        "en": "Full guides, drafts and the result’s scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+          "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这里的“反派时代”是什么意思？",
+        "en": "What does “villain era” mean here?"
+      },
+      "answer": {
+        "zh": "这里只借一种戏剧式自我表达：在普通小事上说明自己的限度，不要求自己总答应。它不鼓励报复、羞辱、操纵或无视别人的拒绝，也不把某种说话方式当成好坏或力量的证明。",
+        "en": "It is a playful theatrical frame for stating limits in ordinary matters rather than always agreeing. It endorses no retaliation, humiliation, manipulation or overriding refusal, and treats no opening as proof of goodness, badness or power."
+      }
+    },
+    {
+      "question": {
+        "zh": "六种结果分别是什么？",
+        "en": "What are the six readings?"
+      },
+      "answer": {
+        "zh": "幕前布策者先安排范围，坦白限度的主角承认犹豫，温和说不者回应好意，规则提问者核对流程，幕后守门者先留暂停，台词改写者加一点友善比喻。它们可组合，不是六种固定的人。",
+        "en": "Scene Planner names a scope; Honest Antihero admits hesitation; Warm Decliner acknowledges goodwill; Rule Questioner checks a process; Offstage Keeper makes a pause; Line Rewriter adds a friendly image. These can combine and are not six fixed kinds of people."
+      }
+    },
+    {
+      "question": {
+        "zh": "和沟通风格测试一样吗？",
+        "en": "Is this the same as the Communication Style Test?"
+      },
+      "answer": {
+        "zh": "已有沟通风格版用24条自述评分观察四组互动主题；本版用18个具体小场面的四选一，比较六种趣味开场先选哪一步。两者可能交叠，没有分数换算或心理独立性的证明。",
+        "en": "The existing Communication Style edition rates twenty-four self-reports across four interaction themes. This edition uses four-option choices in eighteen particular scenes to compare six playful openings. Overlap is possible; there is no score conversion or established psychological independence."
+      }
+    },
+    {
+      "question": {
+        "zh": "每题四项，六组怎样计数与并列？",
+        "en": "How do four options produce six counts and ties?"
+      },
+      "answer": {
+        "zh": "每组出现12次、在每个位置各3次、省略6次。每次选择加1，完整18题后比较原始次数，所有最高并列都保留全文。一直选同一位置会六组各3，不能解释成理想混合或人格比例。",
+        "en": "Each group appears twelve times, three in each position, and is omitted six times. Every choice adds one count. Complete all eighteen to compare raw counts and retain every highest tie in full. Repeating one position gives each group three counts without establishing ideal mixture or personality proportions."
+      }
+    },
+    {
+      "question": {
+        "zh": "反英雄、诡计者和这六组是标准心理类型吗？",
+        "en": "Are antiheroes, tricksters and these six groups standard psychological types?"
+      },
+      "answer": {
+        "zh": "不是。反英雄和诡计者是有具体文学与故事语境的名称，本版只取有限联想来写原创入口，不完整代表这些传统。词典和馆藏提供名称背景，不验证题目、效度、常模或跨语言等价；本版也不是JobCannon题本或其计分复刻。",
+        "en": "No. Antiheroes and tricksters have particular literary and storytelling contexts. This edition borrows limited associations for original openings without representing those traditions completely. Dictionary and collection sources explain names, not validity, norms or language equivalence. This is not a JobCannon bank or scoring replica."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、草稿和分享需要付费吗？",
+        "en": "Are full results, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份全文在作答前后都免费。18个小场面、72项开场与结果正文为本站原创，不测试现实权力、道德、人格、创伤或职业适配，也不能证明一句话一定适合真实处境。草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。无需输入真实冲突或他人资料，任何一题都不合适时可以停止，公开全文仍可读。",
+        "en": "All six guides are free before and after answering. The eighteen scenes, seventy-two openings and result text are original. They test no actual power, morality, personality, trauma or career fit, and cannot establish that a sentence suits a real situation. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains result names and public links only. Enter no actual conflict or another person’s information. Stop when a menu does not fit; the public full guides remain available."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.merriam-webster.com/dictionary/antihero",
+      "title": {
+        "zh": "Merriam-Webster：antihero（文学名称背景）",
+        "en": "Merriam-Webster: antihero (literary naming background)"
+      }
+    },
+    {
+      "url": "https://guides.loc.gov/folktales-oral-storytelling/animal-trickster-tales",
+      "title": {
+        "zh": "美国国会图书馆：动物与诡计者故事（馆藏语境）",
+        "en": "Library of Congress: Animal and Trickster Tales (collection context)"
+      }
+    }
+  ]
+}

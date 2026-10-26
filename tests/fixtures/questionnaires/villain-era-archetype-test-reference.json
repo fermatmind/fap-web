@@ -1,0 +1,816 @@
+{
+  "formCode": "fm_villain_boundary_openers_18",
+  "origin": "frontend_original_playful_boundary_openers",
+  "directions": [
+    {
+      "id": "scene-planner",
+      "title": {
+        "zh": "幕前布策者",
+        "en": "Scene Planner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "honest-antihero",
+      "title": {
+        "zh": "坦白限度的主角",
+        "en": "Honest Antihero"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "warm-decliner",
+      "title": {
+        "zh": "温和说不者",
+        "en": "Warm Decliner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rule-questioner",
+      "title": {
+        "zh": "规则提问者",
+        "en": "Rule Questioner"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "offstage-keeper",
+      "title": {
+        "zh": "幕后守门者",
+        "en": "Offstage Keeper"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "line-rewriter",
+      "title": {
+        "zh": "台词改写者",
+        "en": "Line Rewriter"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "VERA_01",
+      "prompt": {
+        "zh": "你已经答应给朋友的手作摊帮半小时，对方又想让你留下整个下午。给这段轻度戏剧化的小场面选一个更想先用的开场。",
+        "en": "You agreed to help at a friend’s craft stall for half an hour; they now ask for the whole afternoon. Pick the opening you prefer for this lightly theatrical scene."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把半小时内能完成的两件事排出来，再明确离开的时间。",
+            "en": "Map out two tasks for the agreed half-hour, then make the leaving time explicit."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我刚才差点为了显得可靠又答应，但我确实只能留半小时。”",
+            "en": "“I almost agreed to look dependable, but I really can only stay for half an hour.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“很高兴能帮这一段；今天下午其余时间我不接了。”",
+            "en": "“I am glad to help for this part; I am not taking on the rest of the afternoon.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问临时多出的时段能否另行招募，而不是自动延长原来的承诺。",
+            "en": "Ask whether the extra shift can be offered separately instead of automatically extending the original commitment."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_02",
+      "prompt": {
+        "zh": "你为读书会画了一张小海报，别人临时希望你再做三种版本。你不想接下新增工作，会怎样开头？",
+        "en": "You made one reading-group poster and someone now wants three more versions. You do not want the extra work. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我喜欢画这个，不代表我还有余力；新增三版这次做不了。”",
+            "en": "“Enjoying the first one does not mean I have spare capacity; I cannot do three more.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“谢谢你喜欢原稿。这次我保留这一版，其他版本先不接。”",
+            "en": "“Thank you for liking the original. I am keeping this version and declining the others.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问小组能否在加稿前重新确认范围与自愿分工。",
+            "en": "Ask the group to confirm scope and voluntary roles before adding more versions."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先说需要离开讨论十分钟，回来只确认原稿交付，不继续加任务。",
+            "en": "Say you need ten minutes away, then return only to confirm the original delivery."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_03",
+      "prompt": {
+        "zh": "一位熟人想把你随手写的私人短句放进公开活动页，你不愿公开。哪种开场更像你想用的版本？",
+        "en": "An acquaintance wants to put your private draft sentence on a public event page. You do not want it published. Which opening would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“谢谢你喜欢，不过这句我想留给自己，请不要公开。”",
+            "en": "“Thank you for liking it, but I want to keep this sentence private; please do not publish it.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问公开页面是否可以只收主动同意投稿的文字，私人草稿不默认入选。",
+            "en": "Ask whether the page can use explicitly volunteered submissions rather than treating private drafts as entries."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把自己从后续编辑讨论里退出来，只留下这次不公开的明确回复。",
+            "en": "Step out of the continuing edit discussion after leaving an explicit refusal to publish this draft."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这句还没买去公开舞台的票；它这次留在草稿本里，请别发布。”",
+            "en": "“This line has no ticket to the public stage; it stays in my notebook this time, so please do not post it.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_04",
+      "prompt": {
+        "zh": "桌游聚会临时把收拾工作全留给你，原先并没有这样的约定。你想调整安排，会先做什么？",
+        "en": "A board-game gathering unexpectedly leaves all cleanup to you, without an earlier agreement. You want to change the arrangement. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请大家把剩余清理分开自选，不把默认留下的人当作全部负责人。",
+            "en": "Ask everyone to choose separate remaining jobs rather than making the last person the default owner of all of them."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己需要暂停一下，随后只接一项明确的小任务。",
+            "en": "State that you need a pause, then take only one clearly bounded small task."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“收场字幕不能只剩我的名字；我收牌，其他部分请大家各认领一项。”",
+            "en": "“The closing credits cannot have only my name; I will pack the cards, and everyone can claim another job.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把余下事情列成短清单，标出自己能做的一项和离开的节点。",
+            "en": "Make a short list of remaining tasks, marking your one contribution and leaving point."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_05",
+      "prompt": {
+        "zh": "周末聊天群一直在更换集合时间，你已经不想持续盯着消息。你会先发哪种回复？",
+        "en": "A weekend chat keeps changing the meeting time, and you no longer want to watch every message. Which reply would you send first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我先离线，今晚八点再看一次；那时再确认我能否参加。”",
+            "en": "“I am going offline and will check once at eight tonight; I will confirm then whether I can join.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“本人的刷新按钮先下班了；八点我再来确认一次安排。”",
+            "en": "“My refresh button is off duty; I will come back at eight to check the plan once.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先写出自己能参加的两个时间段，并约定一个最终确认点。",
+            "en": "Give two times you can attend and suggest one point for the final confirmation."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我原本以为能一直跟进，但现在跟不上了；晚点再确认。”",
+            "en": "“I thought I could keep following the changes, but I cannot now; I will confirm later.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_06",
+      "prompt": {
+        "zh": "朋友半开玩笑地要你在小聚会上表演一段，你并不想演。你更想怎样把拒绝说出来？",
+        "en": "A friend half-jokingly asks you to perform at a small gathering, but you do not want to. Which refusal would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“今天这位角色没有表演支线；我不演，但可以给大家鼓掌。”",
+            "en": "“This character has no performance side quest today; I am not performing, but I can applaud.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说自己只参加聊天环节，把是否表演提前从安排里划清。",
+            "en": "Clarify that you are joining the conversation part only and keep performing outside the plan."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点不好意思拒绝，不过我确实不想演，就不接这一段了。”",
+            "en": "“I feel awkward saying no, but I really do not want to perform, so I am declining this part.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“谢谢你想到我。今晚我当观众，不上场。”",
+            "en": "“Thank you for thinking of me. Tonight I am an audience member, not a performer.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_07",
+      "prompt": {
+        "zh": "你借出一件不贵的小工具，对方想再顺手借走一整盒。你只愿借出原来那件，会怎样开场？",
+        "en": "You agreed to lend one inexpensive small tool, and the borrower now wants the whole box. You want to lend only the original tool. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把借出的那一件和归还时间说清，其余工具留在原处。",
+            "en": "Specify the one tool and return time, leaving the other tools where they are."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我刚才差点说随便拿，但其实不愿借整盒；只借这一件。”",
+            "en": "“I nearly said take whatever you need, but I do not want to lend the box; just this one tool.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一件可以，整盒这次就不借了，谢谢你理解。”",
+            "en": "“This one is fine; I am not lending the whole box this time, and thank you for understanding.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先问能否每次新增借用都单独确认，不把一次同意当成整盒都可取用。",
+            "en": "Ask that extra borrowing be checked separately, instead of extending one yes to everything in the box."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_08",
+      "prompt": {
+        "zh": "你说好了帮小组读两页草稿，又收到十页新增内容。你想保留原来的范围，会先怎样回复？",
+        "en": "You agreed to read two draft pages for a group and receive ten extra pages. You want to keep the original scope. What would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我想帮忙，但十页超出我这次能做的；我只读原来的两页。”",
+            "en": "“I want to help, but ten extra pages exceed what I can do; I am reading the original two.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“谢谢你愿意给我看。今天我能反馈的仍是约好的两页。”",
+            "en": "“Thank you for sharing them with me. Today I can still comment only on the two agreed pages.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先请小组确认新增内容由谁自愿接，不把旧约定直接扩大。",
+            "en": "Ask the group to find a volunteer for the additions rather than expanding the old agreement."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先暂停接收后续草稿，给自己留一段只处理原两页的安静时间。",
+            "en": "Pause further draft messages and keep a quiet interval for the original two pages."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_09",
+      "prompt": {
+        "zh": "一个兴趣小组想让你长期负责每周通知，你只愿意偶尔代班。哪种开场更想先用？",
+        "en": "A hobby group wants you to handle every weekly notice, but you only want occasional cover. Which opening would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“很喜欢这个小组，不过每周负责人我不接；偶尔有空可以代一次。”",
+            "en": "“I like this group, but I am declining the weekly role; I can occasionally cover when available.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问能否轮流认领每一周，而不是从一次代班推成长期任命。",
+            "en": "Ask whether each week can be volunteered for separately rather than turning one cover shift into a permanent appointment."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先退出持续排班的讨论，只留下愿意被单次询问的方式。",
+            "en": "Leave the continuing rota discussion while explaining how to ask about an individual cover shift."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我的通知员角色是客串，不是常驻；偶尔代班可以逐次问我。”",
+            "en": "“My notice-writer role is a cameo, not a series regular; ask me separately about occasional cover.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_10",
+      "prompt": {
+        "zh": "你在活动报名表里勾选了不上镜，合照安排却又默认包括你。你会先怎样处理？",
+        "en": "You selected no photographs on an event form, but a group-photo plan includes you again. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请组织者按报名时的选择重新确认合照名单。",
+            "en": "Ask the organiser to check the photo list against the choices people submitted."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先从合照位置退开，并明确说自己这次不上镜。",
+            "en": "Step away from the photo position and state explicitly that you are not joining the photograph."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一集我走幕后路线；我不进照片，麻烦把名单改一下。”",
+            "en": "“I am taking the offstage route this episode; I am not in the photo, so please update the list.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先确认哪个环节拍照，安排自己避开那一段，并说明不上镜的选择。",
+            "en": "Confirm the photo interval, plan to step aside for it and restate your choice not to appear."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_11",
+      "prompt": {
+        "zh": "你给自己留了一个不接临时邀约的晚上，又收到一起玩桌游的消息。你不想改安排，会先说什么？",
+        "en": "You reserved an evening without last-minute invitations and receive a board-game invite. You want to keep your plan. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“今晚我先不加入，消息也晚点再回；祝你们玩得开心。”",
+            "en": "“I am not joining tonight and will check messages later; I hope you enjoy the game.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“这位角色今晚进入离线章节；桌游我不参加，改天再聊。”",
+            "en": "“This character is in an offline chapter tonight; I am skipping the game, and we can talk another day.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先重申今晚已有的空白时段安排，只讨论以后另约的可能。",
+            "en": "Restate tonight’s reserved free interval and leave any discussion of another visit for a later date."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我以前常临时改主意，但今晚想保留自己的安排，就不去了。”",
+            "en": "“I have often changed my plan at the last minute, but tonight I want to keep it, so I am not coming.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_12",
+      "prompt": {
+        "zh": "你不想在朋友的生日小游戏里回答一个私人问题。你更愿意怎样接过这一轮？",
+        "en": "You do not want to answer a personal question in a friend’s birthday game. How would you prefer to handle your turn?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“这个问题的支线暂不解锁；我跳过它，换个公开的小问题吧。”",
+            "en": "“That question’s side chapter stays locked; I am skipping it, and we can use a less personal one.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己会跳过私人问题，仍可参加其他环节。",
+            "en": "Clarify that you will skip personal questions while still joining other parts."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点怕扫兴，但这题确实不想答，就跳过了。”",
+            "en": "“I am worried about spoiling the mood, but I really do not want to answer this one, so I will pass.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“谢谢你给我留一轮；这一题我跳过，接着看大家玩。”",
+            "en": "“Thank you for including me; I will pass on this question and keep enjoying everyone’s turns.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_13",
+      "prompt": {
+        "zh": "你原本只答应把一张桌子搬回原处，现在有人希望你顺便重新布置整间活动室。你会先做什么？",
+        "en": "You agreed to move one table back, and someone now asks you to rearrange the entire activity room. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先指出原来约好的是哪张桌子，完成那一步就停下。",
+            "en": "Point out the one agreed table, finish that move and stop there."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我想显得好说话，但整间重排确实不接；我把这张桌子搬回去。”",
+            "en": "“I want to seem easygoing, but I am not taking on the room; I will move this table back.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“这一张我来。重新布置就留给另一次大家确认的安排吧。”",
+            "en": "“I will handle this table. Let us leave the whole-room change for a separately agreed plan.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先请大家把重新布置作为新任务重新商量，不作为原约定的附带项。",
+            "en": "Ask that rearranging the room be discussed as a new task instead of an attachment to the old agreement."
+          },
+          "directionId": "rule-questioner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_14",
+      "prompt": {
+        "zh": "你参加的小型照片交换活动不要求写真实姓名，现在有人想统一改成实名。你不愿实名，会怎样开头？",
+        "en": "A small photo-exchange activity allowed display names, and someone now proposes real names for everyone. You do not want to use yours. How would you open?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我愿意参加，不代表愿意实名；我会保留原来的展示名。”",
+            "en": "“Wanting to join does not mean wanting my real name shown; I am keeping my display name.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“很高兴一起交换作品，不过我只用展示名，谢谢大家保留这个选择。”",
+            "en": "“I am glad to exchange work together, but I use a display name only; thank you for keeping that option.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先问能否保留报名时约定的显示方式，由每个人单独选择。",
+            "en": "Ask to retain the display options agreed at signup so each person can choose separately."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先暂退这次公开整理，等显示名安排确认后再决定继续参加。",
+            "en": "Step back from the public compilation until the display-name arrangement is clear, then decide whether to continue."
+          },
+          "directionId": "offstage-keeper"
+        }
+      ]
+    },
+    {
+      "id": "VERA_15",
+      "prompt": {
+        "zh": "你只想在共同歌单里推荐一首歌，朋友又请你包办整份歌单。你更想怎样开始拒绝新增部分？",
+        "en": "You wanted to suggest one track for a shared playlist, and a friend asks you to curate the whole thing. Which opening would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“谢谢你喜欢我的推荐；这一首我愿意分享，整份歌单就不包办了。”",
+            "en": "“Thank you for liking my suggestion; I am happy to share this track, but I am not curating the whole playlist.”"
+          },
+          "directionId": "warm-decliner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问能否让每位参与者各自添歌，不把一次推荐变成单人负责。",
+            "en": "Ask whether participants can add their own tracks rather than turning one suggestion into a solo assignment."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先把后续歌单讨论静音，明确留一句只推荐这一首、不承担整理。",
+            "en": "Mute the continuing playlist discussion after stating that you are contributing one track, not taking on curation."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这次我投一首片尾曲，不接整季配乐；大家继续各自添歌吧。”",
+            "en": "“I am offering one closing track, not scoring the whole season; let everyone keep adding their own.”"
+          },
+          "directionId": "line-rewriter"
+        }
+      ]
+    },
+    {
+      "id": "VERA_16",
+      "prompt": {
+        "zh": "活动的发言顺序临时改了，你的部分被连续往后挪，但还没人确认你是否愿意。你想先做什么？",
+        "en": "An event’s speaking order changes and your turn keeps moving later without anyone checking with you. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请主持人重新确认大家可接受的时间，而不是继续默认同一个人让位。",
+            "en": "Ask the host to reconfirm acceptable times rather than repeatedly assuming the same person will move."
+          },
+          "directionId": "rule-questioner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先说明自己需要离开讨论片刻，回来再确认是否还参加这个时段。",
+            "en": "Say you need a short break from the discussion and will return to decide whether this slot still works."
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我的出场顺序一直在换集数；请先和我确认，再把时间往后排。”",
+            "en": "“My entrance keeps moving to another episode; please check with me before shifting it again.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先给出自己最晚能开始的时间，请把它作为排顺序的明确条件。",
+            "en": "Give the latest time you can begin and ask that it be treated as a clear scheduling condition."
+          },
+          "directionId": "scene-planner"
+        }
+      ]
+    },
+    {
+      "id": "VERA_17",
+      "prompt": {
+        "zh": "有人把你拉进一个每天打卡的兴趣群，你更喜欢偶尔参与。你会先怎样划清自己的节奏？",
+        "en": "Someone adds you to a daily hobby check-in group, but you prefer occasional participation. How would you first clarify your pace?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“我会把每日提醒关掉，想参与时再来；不承诺每天打卡。”",
+            "en": "“I am turning off daily reminders and will visit when I want; I am not committing to a daily check-in.”"
+          },
+          "directionId": "offstage-keeper"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“我的出场是随机客串，不是日更连载；我偶尔来，不每天打卡。”",
+            "en": "“My appearances are occasional cameos, not a daily serial; I will drop in rather than check in every day.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先明确自己只参加哪些可选活动，让每日打卡不进入个人安排。",
+            "en": "Identify which optional activities you want to join and keep daily check-ins outside your plan."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“我一开始有点想跟上大家，不过每日打卡不适合我；我偶尔来。”",
+            "en": "“I initially wanted to keep up, but daily check-ins do not work for me; I will participate occasionally.”"
+          },
+          "directionId": "honest-antihero"
+        }
+      ]
+    },
+    {
+      "id": "VERA_18",
+      "prompt": {
+        "zh": "小聚会结束时，大家又想延长一个小时，你已经决定按原时间回去。你更想用哪一种收场白？",
+        "en": "At the end of a small gathering, others want another hour, and you have decided to leave at the original time. Which closing line do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“这位角色的片尾到了；我按原时间走，后面的续集留给大家。”",
+            "en": "“This character has reached the closing credits; I am leaving on time, and the sequel is yours.”"
+          },
+          "directionId": "line-rewriter"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先确认原定结束点，把自己要带走的东西收好，明确现在离开。",
+            "en": "Confirm the original finish, collect your things and make it clear that you are leaving now."
+          },
+          "directionId": "scene-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“我有点舍不得走，也怕显得扫兴，但还是想按原计划回去。”",
+            "en": "“I am reluctant to leave and worry about seeming dull, but I still want to keep my original plan.”"
+          },
+          "directionId": "honest-antihero"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“今晚很开心，谢谢大家；我现在先走，祝接下来也玩得好。”",
+            "en": "“I enjoyed tonight, and thank you all; I am leaving now, and I hope you enjoy the rest.”"
+          },
+          "directionId": "warm-decliner"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "questions": 18,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 12,
+    "positionsEach": 3,
+    "omittedEach": 6,
+    "reverseItems": [],
+    "completeCountVectors": 31363,
+    "highestSets": 57,
+    "meaning": "Current choices among six editorial theatrical boundary openings; no actual power/morality/personality/ability/job/healthmeasure.Allhighesttiesfull/noforcedprimarysecondary/percent."
+  },
+  "scope": {
+    "zh": "“反派时代”在本版只是把自己的限度说出来的趣味戏剧框架，不鼓励报复、操纵、羞辱、越过拒绝或把人当对手。六组名称与18道题为本站原创编辑入口，不是六种普世文学原型或心理类型，也不测道德、创伤、权力、能力、人格、职业或关系适配。反英雄不等于反派，诡计者传统也不等于本版友善改写台词；词典和馆藏只作名称背景，不验证题本。结果只描述给定菜单中的选择，不证明某种做法一定合适或有效。",
+    "en": "“Villain era” is used here as a playful theatrical frame for stating your limits, without endorsing retaliation, manipulation, humiliation, overriding refusal or treating people as opponents. Six original editorial entry points and eighteen original items are neither six universal literary archetypes nor psychological types. They measure no morality, trauma, power, ability, personality, career or relationship fit. An antihero is not synonymous with a villain, and trickster traditions are not synonymous with this edition’s friendly line rewriting. Dictionary and collection sources provide naming background, not bank validation. Results describe offered-menu choices without establishing that a response will suit or succeed in a particular situation."
+  },
+  "instructions": {
+    "zh": "把每个小场面当成给自己写的一句轻度戏剧化开场，选这次更愿意先用的一步。不是选更善良、更厉害或让别人服从的答案，也不要求真的照做。四项都是编辑给出的有限入口，不能穷尽你的回应；不合适可退出，六份全文仍免费。六组各出现12次、在四个位置各3次、省略6次；一选加1，无反向、对错或能力加权。完整18题才显示原始次数，所有最高并列保留全文，不硬派主副型。一直选同一位置会六组各3，不证明理想均衡。无需写真实冲突、他人资料或私人经历。",
+    "en": "Treat each small scene as a lightly theatrical opening written for yourself and choose the step you would prefer to try first on this attempt. You are not selecting the kindest, strongest or most controlling answer, and need not act it out. Four editorial options cannot exhaust your replies; leave if none fits while all six guides remain free. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, correctness or ability weighting. Complete all eighteen to see raw counts and every highest tie in full, without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Enter no actual conflicts, another person’s information or private experiences."
+  },
+  "sourceRead": "CurrentJobCannonEN41ZH30visible/main6guidebody23-48(24-49forcharmertrickster)/about62/entry42read. Onlyfirst3of10questions12optionsactualread; publicUIwouldnotadvancepast3, remaining7/result/scoringformulaunverified. Noequivalencetocompetitorbank,bodyorartwork. MWantiherodefinition/LOCtrickster11-18backgroundread,notvalidation. All18specificscenes72openings6namesandfullguidesoriginal. Communication24/MoralDilemma20prompts/Jung12titles/miniRisky24andall21keysreviewed;currentmenuopeningpreferencesnotratedcommunicationstylesoractualconflictfrequency,psychometricindependence/finalFJpending."
+}

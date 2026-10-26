@@ -2585,5 +2585,32 @@
       "functional"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "villain-era-archetype-test",
+    "code": "VILLAIN_BOUNDARY_OPENERS_ORIGINAL_18",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "zh": "反派时代原型测试",
+      "en": "Villain Era Archetype Test"
+    },
+    "description": {
+      "zh": "免费反派时代原型测试：18道原创日常小场面，探索布策、坦白限度、温和说不等六种戏剧式开场。六份九节完整结果与全部最高并列免费。",
+      "en": "Free Villain Era Archetype Test: 18 original scenes and six full guides to playful boundary openings. Compare specific phrases and read every highest tie."
+    },
+    "minutes": 5,
+    "formCode": "fm_villain_boundary_openers_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "scene-planner",
+      "honest-antihero",
+      "warm-decliner",
+      "rule-questioner",
+      "offstage-keeper",
+      "line-rewriter"
+    ],
+    "collection": "explore"
   }
 ]
