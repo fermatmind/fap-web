@@ -1,0 +1,1780 @@
+{
+  "id": "T165",
+  "edition": "fm_computer_literacy_practice_24_v1",
+  "authorship": "FermatMind original bilingual computer-recognition tasks and full guides. Selected current Microsoft/Google feature facts author-reviewed; explicit-input path/recipient/numeric/reference/record checks do not independently validate natural language or perform live software operations. No norm, hiring or exam certification.",
+  "questions": [
+    {
+      "id": "COMPUTER_01",
+      "prompt": {
+        "en": "The folder contains Documents/Workshop/plan-v3.docx and Documents/Archive/plan-v3.docx. The request names the Workshop copy. Which path identifies it?",
+        "zh": "文件夹里有Documents/Workshop/plan-v3.docx和Documents/Archive/plan-v3.docx。任务指定Workshop目录的那份，应选哪个路径？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Documents/Workshop/plan-v3.docx",
+            "zh": "Documents/Workshop/plan-v3.docx"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Documents/Archive/plan-v3.docx",
+            "zh": "Documents/Archive/plan-v3.docx"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Documents/Workshop/plan-v2.docx",
+            "zh": "Documents/Workshop/plan-v2.docx"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Documents/Workshop/plan-v3.xlsx",
+            "zh": "Documents/Workshop/plan-v3.xlsx"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The folder path distinguishes two files that share a name. The requested copy is inside Workshop, with version v3 and the docx extension. The other choices change the folder, version or extension. This identifies the requested location; it does not prove that either document contains approved or accurate information.",
+        "zh": "路径能区分同名文件。任务指定Workshop目录、v3版本、docx扩展名，另三项分别改目录、版本或扩展名。识别位置不等于证明该文档内容获批或准确，应继续按任务要求核内容。"
+      }
+    },
+    {
+      "id": "COMPUTER_02",
+      "prompt": {
+        "en": "In this local-file task, keep the original notes.txt in Folder A and create a second copy in Folder B. Which operation matches that requirement?",
+        "zh": "本题为本地文件操作：保留A文件夹原来的notes.txt，并在B文件夹增加一份副本。哪种操作符合要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Cut notes.txt from A, then paste into B",
+            "zh": "从A剪切notes.txt，再粘贴到B"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Copy notes.txt from A, then paste into B",
+            "zh": "从A复制notes.txt，再粘贴到B"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Rename A to B",
+            "zh": "把A文件夹重命名为B"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Delete notes.txt from A",
+            "zh": "删除A中的notes.txt"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Copying creates another file while retaining the source. Cutting and pasting moves the file instead, which conflicts with keeping the original in A. Renaming a folder or deleting the source does not create the requested second copy. The task concerns local files; cloud synchronization and managed shared drives can add other behavior.",
+        "zh": "复制会保留源文件并新增一份；剪切粘贴是移动，不符合A保留原件。改文件夹名或删原件不创建所需副本。本题限定本地文件，云同步或受管共享盘还可能有其他行为。"
+      }
+    },
+    {
+      "id": "COMPUTER_03",
+      "prompt": {
+        "en": "A saved image named sketch.png is renamed to sketch.pdf in File Explorer without using an export or conversion tool. What has this action established?",
+        "zh": "文件资源管理器把已存图像sketch.png重命名为sketch.pdf，未使用导出或转换工具。这一步能确定什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The image was converted into a valid PDF",
+            "zh": "图像已转换成有效PDF"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The image content was translated into another language",
+            "zh": "图像内容已译为另一语言"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The name changed; the rename did not convert the image into PDF",
+            "zh": "名称改变了；重命名没有把图像转换成PDF"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every application is guaranteed to open it successfully",
+            "zh": "保证所有应用都能成功打开"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A filename extension helps applications identify a format, but changing the extension alone does not rewrite the underlying file into that format. To produce a PDF, use a suitable export or conversion process and check the result. The renamed file might now open incorrectly; a new extension is not evidence of successful conversion.",
+        "zh": "扩展名帮助应用识别格式，单改扩展名不把底层内容重写成对应格式。生成PDF应使用适当导出或转换并检查结果。重命名后反而可能打不开，后缀改变不是转换成功证据。"
+      }
+    },
+    {
+      "id": "COMPUTER_04",
+      "prompt": {
+        "en": "You need to locate a file that you know is somewhere inside the current Windows 11 folder tree. Which built-in File Explorer control is designed to search names or keywords?",
+        "zh": "已知文件在当前Windows 11文件夹树内，想按文件名或关键词查找。文件资源管理器哪项内置控件用于此事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The text colour selector in a document",
+            "zh": "文档文字颜色选择器"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The speaker volume slider",
+            "zh": "扬声器音量滑块"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The printer paper-size selector",
+            "zh": "打印纸张尺寸选择器"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The folder search box",
+            "zh": "文件夹搜索框"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "File Explorer provides a search box for finding files and folders by names or keywords within its search scope. The other controls change document appearance, sound or printing. Search results can depend on the selected location and search configuration, so a missing result is not proof that the file has been deleted.",
+        "zh": "文件资源管理器搜索框可在搜索范围内按名称或关键词查文件夹和文件。其他控件处理文字颜色、音量或打印。结果受位置和搜索配置影响，没搜到不证明文件已删除。"
+      }
+    },
+    {
+      "id": "COMPUTER_05",
+      "prompt": {
+        "en": "In File Explorer Details view, you want this folder list ordered by modification time rather than by file size. Which sort criterion matches that goal?",
+        "zh": "文件资源管理器详细信息视图中，想把当前列表按修改时间排序，而非按文件大小。应选哪个排序依据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Date modified",
+            "zh": "修改日期"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Size",
+            "zh": "大小"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Name",
+            "zh": "名称"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Item type",
+            "zh": "项目类型"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Date modified orders the displayed list using modification timestamps. Size, Name and Item type use different fields. Choose the intended ascending or descending direction after selecting the criterion. A timestamp does not by itself establish approval, authorship or content quality, and sorting the view does not edit the file contents.",
+        "zh": "修改日期依据修改时间戳排序，大小、名称、类型用其他字段。选字段后仍需核升降方向。时间戳本身不证明批准、作者或内容质量，改变列表排序也不修改文件内容。"
+      }
+    },
+    {
+      "id": "COMPUTER_06",
+      "prompt": {
+        "en": "A Windows folder contains budget.xlsx, cover.png and agenda.docx. Using their displayed extensions only, which one is identified as an Excel workbook format?",
+        "zh": "Windows文件夹有budget.xlsx、cover.png、agenda.docx。仅按显示的扩展名，哪个标为Excel工作簿格式？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "cover.png",
+            "zh": "cover.png"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "budget.xlsx",
+            "zh": "budget.xlsx"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "agenda.docx",
+            "zh": "agenda.docx"
+          },
+          "directionId": "files"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "All three extensions identify Excel workbooks",
+            "zh": "三个后缀都标为Excel工作簿"
+          },
+          "directionId": "files"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The xlsx extension identifies an Excel workbook format; png identifies an image and docx a Word document format. This is a format-recognition question, not an instruction to trust or open an unknown file. Names can be misleading or extensions can be changed, so the label alone does not establish safe or valid contents.",
+        "zh": "xlsx标识Excel工作簿格式，png为图像，docx为Word文档格式。这是格式识别，不是让你信任或打开未知文件。名称可能误导，后缀也能改，所以仅标签不证明内容安全或有效。"
+      }
+    },
+    {
+      "id": "COMPUTER_07",
+      "prompt": {
+        "en": "In desktop Chrome on Windows, you are already on a long web page and want to find a word within that page, not search the whole web. Which shortcut opens the page Find bar?",
+        "zh": "Windows桌面版Chrome已打开长网页，想找该页面内的词，不是搜索整个互联网。哪个快捷键打开页面查找栏？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Ctrl + P",
+            "zh": "Ctrl + P"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ctrl + S",
+            "zh": "Ctrl + S"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ctrl + F",
+            "zh": "Ctrl + F"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ctrl + L",
+            "zh": "Ctrl + L"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Ctrl + F opens the Find bar for text in the current page. Printing, saving and focusing the address bar are different actions. A Find result depends on what text is searchable in that page; no match does not prove the information is absent from an image, another page or a document linked elsewhere.",
+        "zh": "Ctrl+F打开当前页面文字查找栏；打印、保存、聚焦地址栏是其他操作。结果取决于该页哪些文字可搜索，未匹配不证明图片、别页或链接文档中没有信息。"
+      }
+    },
+    {
+      "id": "COMPUTER_08",
+      "prompt": {
+        "en": "You bookmark a public page in Chrome so you can return to its address later. What does adding the bookmark alone guarantee about offline access?",
+        "zh": "在Chrome收藏一个公开页面，便于以后返回该地址。仅添加书签，能保证离线访问吗？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It guarantees a complete permanent offline copy",
+            "zh": "保证完整永久离线副本"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It converts the page into an editable spreadsheet",
+            "zh": "会把网页转换成可编辑表格"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It automatically emails every linked file to you",
+            "zh": "会自动把每个链接文件邮件发给你"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It does not guarantee an offline copy of the page",
+            "zh": "不能保证已有该页离线副本"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A bookmark records a way to return to a site; it is not the same operation as downloading or saving an offline copy. The site can change or become unavailable later. If offline access matters, use an appropriate saving method, check what was saved and test it under the intended conditions rather than assuming the bookmark contains the page.",
+        "zh": "书签记录返回站点的入口，不等于下载或保存离线副本。网页之后可能变更或不可用。需要离线时，应选适当保存方法、核保存内容并按目标条件测试，别假设书签包含整页。"
+      }
+    },
+    {
+      "id": "COMPUTER_09",
+      "prompt": {
+        "en": "Chrome’s Downloads page lists a file that is already saved on your computer. You select Remove from history for that entry only. According to Chrome’s documented behavior, what happens to the saved file?",
+        "zh": "Chrome下载记录列出一个已经存到电脑的文件。仅对该条记录选择从历史记录移除，按Chrome说明，已保存文件怎样？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It remains on the computer unless separately deleted",
+            "zh": "除非另行删除，否则仍在电脑上"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It is necessarily deleted from the computer immediately",
+            "zh": "一定立即从电脑删除"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It is automatically converted into a bookmark",
+            "zh": "自动转换成书签"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It is sent back to the website and removed locally",
+            "zh": "退回网站并从本地移除"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Removing an item from Chrome’s download history removes the list entry, not the file on the computer. Manage the actual file separately in its saved location if deletion is intended. This distinction prevents confusing a tidy browser list with removal of stored data. It does not promise anything about retention in backups, synchronized storage or another application.",
+        "zh": "移除Chrome下载历史只移列表条目，不删电脑文件。若要删除，应到保存位置另行处理。列表清空不等于存储数据已清除；本题也不承诺备份、同步存储或其他应用中的留存情况。"
+      }
+    },
+    {
+      "id": "COMPUTER_10",
+      "prompt": {
+        "en": "A Chrome download has completed, but you want to locate the actual saved file in its folder. Which Downloads action is intended for that task?",
+        "zh": "Chrome下载已完成，想在文件夹里定位实际保存的文件。“下载”里的哪个操作用于此事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Remove from history and assume the file opens",
+            "zh": "移除历史并认为文件会打开"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Show in folder",
+            "zh": "在文件夹中显示"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Bookmark the Downloads page as a substitute for locating the file",
+            "zh": "收藏下载页面来代替定位文件"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Mute the site’s audio",
+            "zh": "将站点声音静音"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Show in folder opens the location associated with the saved download. The download location can be changed in settings, so assuming every file is in a fixed default folder can fail. Confirm the intended file name and location once the folder opens. A completed download entry is not a security endorsement of the file.",
+        "zh": "在文件夹中显示可打开已存下载对应的位置。下载位置能在设置中改，不能假设所有文件都在固定默认目录。打开文件夹后核文件名和位置；记录显示完成也不是文件安全背书。"
+      }
+    },
+    {
+      "id": "COMPUTER_11",
+      "prompt": {
+        "en": "During a Chrome Incognito session you downloaded a file and added a bookmark. You then close all Incognito windows. Which statement matches the documented retention boundary?",
+        "zh": "Chrome无痕会话中下载一个文件并添加一个书签，然后关闭所有无痕窗口。哪项符合文档所述留存边界？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Both are necessarily erased by closing the windows",
+            "zh": "关窗口一定同时抹除二者"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The session becomes invisible to every website and network operator",
+            "zh": "会话对所有网站和网络管理方都不可见"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The saved download and bookmark can remain after the session ends",
+            "zh": "已保存的下载文件和书签在会话结束后仍可保留"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The file is automatically encrypted for every future use",
+            "zh": "文件之后所有使用都会自动加密"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Chrome limits browsing history and site data retained after an Incognito session, but saved downloads and bookmarks remain unless separately removed. Closing all Incognito windows ends that session. Incognito also does not make activity invisible to visited sites or network operators. Do not use private mode as a guarantee of anonymity, file deletion or protection from every threat.",
+        "zh": "无痕限制会话后保留的浏览记录和站点数据，但保存的下载与书签会保留，除非另行移除。关闭所有无痕窗口才结束会话；它也不让活动对网站或网络方不可见，不保证匿名、删文件或防所有威胁。"
+      }
+    },
+    {
+      "id": "COMPUTER_12",
+      "prompt": {
+        "en": "You want to keep the current reference page open while viewing a linked page in a separate tab of desktop Chrome. Which offered command directly does that?",
+        "zh": "Windows桌面版Chrome中，想保留当前参考页面，再在另一个标签页看链接页面。下列哪个命令直接符合要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Close the current tab before opening the link",
+            "zh": "打开链接前关闭当前标签页"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Print the current page instead of opening the link",
+            "zh": "打印当前页而不打开链接"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Delete the bookmark without opening the link",
+            "zh": "删除书签而不打开链接"
+          },
+          "directionId": "browser"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Open link in new tab",
+            "zh": "在新标签页中打开链接"
+          },
+          "directionId": "browser"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Opening the link in a new tab keeps the existing page available in its own tab while loading the target separately. Switch tabs to compare the pages. This is navigation, not a guarantee that either page remains unchanged, trustworthy or available forever. Avoid treating an open tab as a saved backup of information you need to preserve.",
+        "zh": "在新标签页打开链接，会保留当前标签页并另载目标，随后切换比较。这是导航方式，不保证两页永不变化、可信或永久可用；别把开着的标签页当作已保存备份。"
+      }
+    },
+    {
+      "id": "COMPUTER_13",
+      "prompt": {
+        "en": "A message is from Noor, To: you and Eli, Cc: Jo, with no Bcc recipients. Under this task’s usual Reply All behavior, you reply without changing recipients. Who receives your response other than yourself?",
+        "zh": "邮件由Noor发，收件人为你和Eli，抄送Jo，没有密送。本题按通常全部回复行为，你未改收件人，除自己外谁收到回复？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Noor, Eli and Jo",
+            "zh": "Noor、Eli和Jo"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Noor only",
+            "zh": "仅Noor"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Eli only",
+            "zh": "仅Eli"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Everyone in your address book",
+            "zh": "通讯录所有人"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Reply All addresses the sender and the visible To and Cc recipients, with your own address normally excluded. The question explicitly has no Bcc recipients or recipient edits. Check the displayed recipient fields before sending because aliases, mailing lists and configuration can change a real conversation’s delivery. Reply All is not a command to include every contact you know.",
+        "zh": "全部回复通常面向发件人和可见收件人、抄送者，通常排除自己。本题明确没有密送且未改名单。实际发送前仍应核收件字段，别名、邮件列表及配置可改变投递，全部回复不等于把通讯录都加进来。"
+      }
+    },
+    {
+      "id": "COMPUTER_14",
+      "prompt": {
+        "en": "You place two approved recipients in Outlook’s Bcc field. What is the specific purpose of that field, rather than a promise about all later handling?",
+        "zh": "在Outlook密送栏填两位已获准收件人。这个字段的具体作用是什么，而不是对后续所有处理作保证？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Make the message impossible to forward",
+            "zh": "使邮件不可能转发"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Hide their Bcc names from the other recipients of this message",
+            "zh": "向本封邮件其他收件人隐藏这两位密送姓名"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Encrypt every attachment automatically",
+            "zh": "自动加密全部附件"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Prevent every recipient from replying",
+            "zh": "禁止任何收件人回复"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Bcc hides the names entered there from other recipients of that message. It does not prevent forwarding, screenshots or a recipient revealing their involvement by replying. It also is not an attachment-encryption setting. Keep authorization and confidentiality requirements separate from whether addresses appear in the visible recipient fields.",
+        "zh": "密送向本封其他收件人隐藏密送栏姓名，不阻止转发、截图或密送者回复时暴露参与，也不是附件加密设置。可见地址字段、发送授权和保密要求应分别核对。"
+      }
+    },
+    {
+      "id": "COMPUTER_15",
+      "prompt": {
+        "en": "In Outlook.com you select Reply to a message that originally included map.pdf. You also need your outgoing reply to include that file. What should you check and do before sending?",
+        "zh": "Outlook.com中回复一封原来附map.pdf的邮件，也希望发出的回复包含该文件。发送前应核什么并怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Assume Reply always resends all original attachments",
+            "zh": "认定回复一定重发全部原附件"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Put map.pdf in the subject and assume that attaches it",
+            "zh": "把map.pdf写进主题就当作已附文件"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Check the reply attachments and attach map.pdf if it is absent",
+            "zh": "检查回复附件，若没有map.pdf则主动附上"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Change the font colour to include the file",
+            "zh": "改变字体颜色来附文件"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Outlook.com’s documented default does not include the original attachments when replying. Naming a file in a subject does not attach its bytes. Inspect the outgoing attachments and add the intended approved file if needed, then check recipients and version. This is a recognition task; the website does not access your inbox or send a real message.",
+        "zh": "Outlook.com文档所述回复默认不带原附件，主题里写文件名不等于附上内容。检查待发附件，必要时加正确且获准文件，再核收件人与版本。本题只练识别，本站不读邮箱或实际发邮件。"
+      }
+    },
+    {
+      "id": "COMPUTER_16",
+      "prompt": {
+        "en": "You choose Forward in Outlook.com for a message with two attachments. Before sending to a new recipient, which review matches its documented behavior?",
+        "zh": "Outlook.com中转发一封有两个附件的邮件给新收件人，发送前哪种核查符合文档行为？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Assume forwarding always strips every original attachment",
+            "zh": "认定转发一定去掉全部原附件"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Assume the subject line decides which attachments are sent",
+            "zh": "认定主题决定发哪些附件"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Skip reviewing because forwarding guarantees authorization",
+            "zh": "无需核查，转发保证已经获授权"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Review the quoted message and included attachments, removing anything not intended for that recipient",
+            "zh": "核引用原文与随附附件，移除不打算给该收件人的内容"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Outlook.com forwarding includes the original message and attached files by default, while allowing edits and removal of attachments before sending. Review the outgoing content and intended recipients rather than assuming it was stripped or automatically authorized. The choice does not claim that every email product has identical defaults or that forwarding is always appropriate.",
+        "zh": "Outlook.com转发默认包含原邮件及附件，发送前可改文和移除附件。应核待发内容与对象，别假设已剥离或自动获授权。本题不主张所有邮件产品默认相同，也不主张转发永远合适。"
+      }
+    },
+    {
+      "id": "COMPUTER_17",
+      "prompt": {
+        "en": "A fictional mail app labels Drafts as unsent messages and Sent as messages it has submitted for sending. A message is only in Drafts. Which conclusion follows from that label alone?",
+        "zh": "本题虚构邮箱说明：草稿是尚未发送的消息，已发送是应用已提交发送的消息。一封邮件只在草稿中，仅凭标签可得什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It has not been sent under this app’s stated label rule",
+            "zh": "按该应用题定标签规则，它尚未发送"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every recipient has read it",
+            "zh": "所有收件人已读"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The attachment is guaranteed safe",
+            "zh": "附件保证安全"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A recipient has accepted the proposal",
+            "zh": "收件人已接受提议"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The fictional label rule identifies the message as unsent. It provides no evidence about recipient reading, attachment safety or agreement. Even a Sent entry in a real system is not by itself a universal proof of delivery or reading. The task separates composing, submitting and recipient outcomes instead of treating them as one event.",
+        "zh": "题定标签规则只说明尚未发送，不支持收件人已读、附件安全或同意提议。现实里的已发送记录本身也不普遍证明投递或阅读。应分清编写、提交发送、收件结果几个事件。"
+      }
+    },
+    {
+      "id": "COMPUTER_18",
+      "prompt": {
+        "en": "A practice brief requires a subject naming project Cedar, draft version 4 and a request for review by Thursday. Which subject preserves all three details?",
+        "zh": "练习任务要求邮件主题写清Cedar项目、第4版草稿、请周四前审阅。哪个主题保留三项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Cedar final v4 — approved on Thursday",
+            "zh": "Cedar第4版定稿——周四已批准"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Cedar draft v4 — please review by Thursday",
+            "zh": "Cedar第4版草稿——请周四前审阅"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Please review Cedar draft v3 by Thursday",
+            "zh": "请周四前审阅Cedar第3版草稿"
+          },
+          "directionId": "email"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Cedar draft v4",
+            "zh": "Cedar第4版草稿"
+          },
+          "directionId": "email"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The matching subject preserves project, draft version and requested review deadline. Calling the draft final and approved invents a status. Version 3 changes the required identifier, and the shorter title omits the deadline request. The brief is fictional and supplies the scoring rule; it does not prescribe a universal organization-wide subject-line policy.",
+        "zh": "匹配主题保留项目、草稿版本和审阅期限。改成已批准定稿是编状态，第3版改了标识，较短项漏期限。本题任务是虚构计分条件，不制定所有组织通用主题政策。"
+      }
+    },
+    {
+      "id": "COMPUTER_19",
+      "prompt": {
+        "en": "In an Excel worksheet, A3=7, A4=11 and A5=4 are numeric values. What does =SUM(A3:A5) return?",
+        "zh": "Excel工作表A3=7、A4=11、A5=4，均为数值。=SUM(A3:A5)返回什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "22",
+            "zh": "22"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The range includes A3, A4 and A5. SUM adds 7, 11 and 4 to return 22. It does not count the three cells, return only the middle value or stop before the last cell in the range. These are the stated numeric inputs; text, errors or another cell range would require a separate check.",
+        "zh": "区间包含A3、A4、A5，SUM把7、11、4相加得到22，不是计三个单元格、只取中值或漏掉末格。本题输入明定数值；文字、错误或别的范围需另核。"
+      }
+    },
+    {
+      "id": "COMPUTER_20",
+      "prompt": {
+        "en": "Cell C4 contains =B4*$F$2. You copy the formula down exactly one row to C5 in Excel. Which formula preserves the relative and absolute references?",
+        "zh": "Excel的C4公式为=B4*$F$2，恰好向下复制一行到C5。哪个公式保留相对与绝对引用规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "=B4*$F$2",
+            "zh": "=B4*$F$2"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "=B5*$F$3",
+            "zh": "=B5*$F$3"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "=C5*$G$2",
+            "zh": "=C5*$G$2"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "=B5*$F$2",
+            "zh": "=B5*$F$2"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "B4 is relative, so copying one row down changes it to B5. Both the column and row of $F$2 are absolute and stay fixed. The multiplication remains the same. This applies to copying the displayed formula, not to moving cells, inserting rows or renaming a sheet, which can involve different reference behavior.",
+        "zh": "B4是相对引用，下复制一行变B5；$F$2的列和行都锁定，不变，乘法也不变。本题是复制所示公式，不是移动单元格、插行或重命名工作表，这些情况可能另有引用行为。"
+      }
+    },
+    {
+      "id": "COMPUTER_21",
+      "prompt": {
+        "en": "In Word, a subsection should be a real level-two heading that can participate in document navigation. Which offered action supplies that structure?",
+        "zh": "Word里某小节应成为可参与文档导航的真正二级标题。哪项操作提供该结构？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Apply the built-in Heading 2 style to the subsection title",
+            "zh": "对小节标题应用内置标题2样式"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Only make the letters bigger while leaving Normal style",
+            "zh": "只放大文字，仍保留正文样式"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Type several blank lines above the text",
+            "zh": "在文字上方多敲空行"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Put a screenshot of the title in the page",
+            "zh": "在页面放标题截图"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A heading style supplies a structural role that can support navigation and a table of contents. Large or bold text alone can look like a heading while remaining ordinary body text. Use a logical heading hierarchy and inspect the resulting document. This choice does not guarantee complete accessibility or correct content merely because one style was applied.",
+        "zh": "标题样式提供结构角色，可支持导航与目录。仅放大加粗可能看似标题却仍是正文。应按逻辑层级并检查结果；仅用一个样式不保证整篇无障碍或内容正确。"
+      }
+    },
+    {
+      "id": "COMPUTER_22",
+      "prompt": {
+        "en": "An Excel cell already contains the numeric value 0.25. You apply Percentage format with zero decimal places without changing the value. What is displayed?",
+        "zh": "Excel单元格已存数值0.25，在不改值的情况下应用百分比格式并设零位小数，显示什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0%",
+            "zh": "0%"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.25%",
+            "zh": "0.25%"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2500%",
+            "zh": "2500%"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Percentage formatting displays the existing decimal value multiplied by 100 with a percent sign. Here 0.25 is shown as 25% with zero decimal places. The task explicitly formats an existing numeric value, avoiding the different behavior that can occur when entering numbers into cells already formatted as percentages. Display formatting does not make the underlying value 25.",
+        "zh": "现有小数以百分比显示时乘100并加百分号，0.25在零小数位显示25%。本题明确先存数值再改格式，区别于往已设百分比格式的空格输入数字。显示变化不把底层值改成25。"
+      }
+    },
+    {
+      "id": "COMPUTER_23",
+      "prompt": {
+        "en": "A three-row Excel table has statuses: P=open, Q=closed, R=open. You apply an ordinary AutoFilter showing only open rows. Which statement describes the filtering effect?",
+        "zh": "Excel三行表状态是P=open、Q=closed、R=open，应用普通自动筛选只显示open。哪项描述符合筛选效果？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Q is permanently deleted from the workbook",
+            "zh": "Q已从工作簿永久删除"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "All three statuses are rewritten as open",
+            "zh": "三行状态都改写为open"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "P and R are shown; Q is hidden by the filter, not deleted",
+            "zh": "显示P和R，Q被筛选隐藏而非删除"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Only Q remains visible",
+            "zh": "仅Q可见"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An ordinary AutoFilter hides rows that do not meet the selected criterion. P and R match open; Q does not. The filter does not rewrite the statuses or delete Q. Check and clear filters when apparently missing rows matter, and do not assume a filtered view contains all the data in the table.",
+        "zh": "普通自动筛选隐藏不合条件的行。P、R匹配open，Q不匹配；它不改写状态、不删除Q。发现行似乎缺失时应核筛选并按需清除，别把筛后视图当作完整表。"
+      }
+    },
+    {
+      "id": "COMPUTER_24",
+      "prompt": {
+        "en": "A practice table has complete rows (ID H, quantity 8), (ID J, quantity 3), (ID K, quantity 6). The rule is to sort whole rows by quantity ascending while keeping each ID with its quantity. Which resulting order follows that rule?",
+        "zh": "练习表完整记录为(H,数量8)、(J,数量3)、(K,数量6)。规则是按数量升序整行排序，ID须与原数量绑定。哪个结果符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "H–3, J–6, K–8",
+            "zh": "H–3、J–6、K–8"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "H–8, K–6, J–3",
+            "zh": "H–8、K–6、J–3"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "K–3, H–6, J–8",
+            "zh": "K–3、H–6、J–8"
+          },
+          "directionId": "office"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "J–3, K–6, H–8",
+            "zh": "J–3、K–6、H–8"
+          },
+          "directionId": "office"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Ascending order places 3 before 6 before 8, and sorting complete records preserves the corresponding IDs J, K and H. Moving only the quantities while leaving IDs behind changes which record owns each value. The task provides its own sorting rule; use the appropriate complete table range when practising in a real spreadsheet and verify that rows stay intact.",
+        "zh": "升序为3、6、8，整条记录保留对应ID为J、K、H。只动数量而不动ID会改记录归属。本题明示排序规则；实际练习应选合适完整表范围，并核行关联未破坏。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "COMPUTER_01",
+      "proof": {
+        "kind": "exact_path",
+        "required": "Documents/Workshop/plan-v3.docx",
+        "source": "https://support.microsoft.com/en-us/windows/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5"
+      }
+    },
+    {
+      "id": "COMPUTER_02",
+      "proof": {
+        "kind": "operation_goal",
+        "retainSource": true,
+        "createCopy": true,
+        "correctOperation": "copy-paste",
+        "source": "https://support.microsoft.com/en-us/windows/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5"
+      }
+    },
+    {
+      "id": "COMPUTER_03",
+      "proof": {
+        "kind": "extension_fact",
+        "operation": "rename_only",
+        "conversion": false,
+        "source": "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/common-file-name-extensions-in-windows"
+      }
+    },
+    {
+      "id": "COMPUTER_04",
+      "proof": {
+        "kind": "feature_fact",
+        "feature": "File Explorer folder search",
+        "source": "https://support.microsoft.com/en-us/windows/meet-windows-11-easily-switch-to-windows-11-3a2aa0a7-9559-431f-91a0-d9ca0a1eb0a5"
+      }
+    },
+    {
+      "id": "COMPUTER_05",
+      "proof": {
+        "kind": "sort_field",
+        "requested": "modification time",
+        "field": "Date modified",
+        "source": "https://support.microsoft.com/en-us/accessibility/windows/use-a-screen-reader-to-explore-and-navigate-file-explorer-in-windows"
+      }
+    },
+    {
+      "id": "COMPUTER_06",
+      "proof": {
+        "kind": "extension_table",
+        "formats": {
+          "xlsx": "Excel workbook",
+          "png": "image",
+          "docx": "Word document"
+        },
+        "required": "Excel workbook",
+        "source": "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/common-file-name-extensions-in-windows"
+      }
+    },
+    {
+      "id": "COMPUTER_07",
+      "proof": {
+        "kind": "shortcut_fact",
+        "platform": "Windows desktop Chrome",
+        "action": "Find current page",
+        "shortcut": "Ctrl + F",
+        "source": "https://support.google.com/chrome/answer/157179?hl=en-HK"
+      }
+    },
+    {
+      "id": "COMPUTER_08",
+      "proof": {
+        "kind": "bookmark_fact",
+        "offlineGuarantee": false,
+        "source": "https://support.google.com/chrome/answer/188842?hl=en-UK"
+      }
+    },
+    {
+      "id": "COMPUTER_09",
+      "proof": {
+        "kind": "download_history_fact",
+        "historyEntryRemoved": true,
+        "deviceFileDeleted": false,
+        "source": "https://support.google.com/chrome/answer/95759?hl=EN-EN"
+      }
+    },
+    {
+      "id": "COMPUTER_10",
+      "proof": {
+        "kind": "download_location_fact",
+        "feature": "Show in folder",
+        "source": "https://support.google.com/chrome/answer/95759?hl=EN-EN"
+      }
+    },
+    {
+      "id": "COMPUTER_11",
+      "proof": {
+        "kind": "incognito_fact",
+        "downloadRetained": true,
+        "bookmarkRetained": true,
+        "invisibleToWebsites": false,
+        "source": "https://support.google.com/chrome/answer/95464?hl=en"
+      }
+    },
+    {
+      "id": "COMPUTER_12",
+      "proof": {
+        "kind": "tab_navigation_fact",
+        "retainCurrentTab": true,
+        "openTargetInNewTab": true,
+        "source": "https://support.google.com/chrome/answer/157179?hl=en-HK"
+      }
+    },
+    {
+      "id": "COMPUTER_13",
+      "proof": {
+        "kind": "recipient_set",
+        "sender": "Noor",
+        "to": [
+          "You",
+          "Eli"
+        ],
+        "cc": [
+          "Jo"
+        ],
+        "self": "You",
+        "bcc": [],
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_14",
+      "proof": {
+        "kind": "bcc_fact",
+        "hidesBccNames": true,
+        "preventsForward": false,
+        "encryptsAttachments": false,
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_15",
+      "proof": {
+        "kind": "reply_attachment_fact",
+        "app": "Outlook.com",
+        "originalAttachmentsIncludedByDefault": false,
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_16",
+      "proof": {
+        "kind": "forward_attachment_fact",
+        "app": "Outlook.com",
+        "includesOriginalAttachmentsByDefault": true,
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_17",
+      "proof": {
+        "kind": "stated_mail_rule",
+        "label": "Drafts",
+        "rule": {
+          "Drafts": "unsent",
+          "Sent": "submitted"
+        },
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_18",
+      "proof": {
+        "kind": "required_subject",
+        "required": {
+          "project": "Cedar",
+          "status": "draft",
+          "version": 4,
+          "deadline": "Thursday"
+        },
+        "source": "https://support.microsoft.com/en-us/outlook/create-reply-to-or-forward-email-messages-in-outlook-com"
+      }
+    },
+    {
+      "id": "COMPUTER_19",
+      "proof": {
+        "kind": "sum_range",
+        "cells": {
+          "A3": 7,
+          "A4": 11,
+          "A5": 4
+        },
+        "start": "A3",
+        "end": "A5",
+        "source": "https://support.microsoft.com/en-us/excel/functions/sum-function?faq=5"
+      }
+    },
+    {
+      "id": "COMPUTER_20",
+      "proof": {
+        "kind": "copy_formula",
+        "formula": "=B4*$F$2",
+        "rowDelta": 1,
+        "colDelta": 0,
+        "source": "https://support.microsoft.com/en-us/excel/get-started/overview-of-formulas-in-excel"
+      }
+    },
+    {
+      "id": "COMPUTER_21",
+      "proof": {
+        "kind": "heading_style_fact",
+        "requiredLevel": 2,
+        "style": "Heading 2",
+        "source": "https://support.microsoft.com/en-us/Word/add-a-heading-in-a-word-document"
+      }
+    },
+    {
+      "id": "COMPUTER_22",
+      "proof": {
+        "kind": "percentage_display",
+        "value": 0.25,
+        "decimalPlaces": 0,
+        "existingNumericValue": true,
+        "source": "https://support.microsoft.com/en-gb/excel/format-numbers-as-percentages-in-excel?nochrome=true"
+      }
+    },
+    {
+      "id": "COMPUTER_23",
+      "proof": {
+        "kind": "filter_rows",
+        "rows": [
+          {
+            "id": "P",
+            "status": "open"
+          },
+          {
+            "id": "Q",
+            "status": "closed"
+          },
+          {
+            "id": "R",
+            "status": "open"
+          }
+        ],
+        "criterion": "open",
+        "source": "https://support.microsoft.com/en-us/excel/quick-start-filter-data-by-using-an-autofilter"
+      }
+    },
+    {
+      "id": "COMPUTER_24",
+      "proof": {
+        "kind": "sort_records",
+        "rows": [
+          {
+            "id": "H",
+            "quantity": 8
+          },
+          {
+            "id": "J",
+            "quantity": 3
+          },
+          {
+            "id": "K",
+            "quantity": 6
+          }
+        ],
+        "key": "quantity",
+        "ascending": true,
+        "source": "https://support.microsoft.com/en-us/accessibility/excel/use-a-screen-reader-to-sort-or-filter-a-table-in-excel"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "files",
+      "directionIds": [
+        "files"
+      ],
+      "title": {
+        "en": "Files and Windows basics",
+        "zh": "文件与Windows基础"
+      },
+      "headline": {
+        "en": "Identify the intended file before changing anything.",
+        "zh": "操作前先认清所需文件。"
+      },
+      "summary": {
+        "en": "Review paths, copying, extensions, searching and modification-time sorting with a private practice folder.",
+        "zh": "用私有练习文件夹复习路径、复制、扩展名、查找和修改时间排序。"
+      },
+      "seo": {
+        "title": {
+          "en": "Files and Windows basics: Computer literacy guide",
+          "zh": "文件与Windows基础：计算机素养练习指南"
+        },
+        "description": {
+          "en": "Review paths, copying, extensions, searching and modification-time sorting with a private practice folder.",
+          "zh": "用私有练习文件夹复习路径、复制、扩展名、查找和修改时间排序。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records six selected recognition tasks, not measured operating speed or a hiring qualification. Zero, partial and perfect counts open the same explanations and this complete guide.",
+        "zh": "正确数记录六道选定识别题，不是实测操作速度或招聘资格。零分、部分答对和全对均可看相同解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Recognise six selected file decisions",
+            "zh": "识别六种选定文件决策"
+          },
+          "paragraphs": [
+            {
+              "en": "This group uses Windows 11 file-management concepts and explicitly described local-file tasks. It asks whether a path matches a request, whether copying preserves a source, what a filename extension establishes, how folder search helps locate a file and which field sorts by modification time. Choosing an answer is narrower than carrying out the operation correctly on a device. No files are read, moved or uploaded by this test.",
+              "zh": "本组用Windows 11文件管理概念与明确限定的本地文件任务，核路径是否匹配、复制是否保留源、后缀能说明什么、文件夹查找及修改时间排序。选择答案窄于在设备上正确完成操作，本站不读、移动或上传文件。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Same name does not mean same location",
+            "zh": "同名不等于同一位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a fictional training folder containing Practice/Current/outline-v2.docx and Practice/Old/outline-v2.docx. A request for the Current copy names both the directory and file. Check the path before editing or attaching it. Then copy a harmless sample text file into another training folder and confirm that both copies remain. Use your own disposable examples rather than experimenting on a shared project or the only copy of important work.",
+              "zh": "可设练习路径Practice/Current/outline-v2.docx和Practice/Old/outline-v2.docx。指定Current就要同时核目录与文件名，编辑或附邮件前看路径。再复制无关紧要的样本文本，核两处都保留。用自己的可丢弃样本，不在共享项目或重要唯一原件上试。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "A name is not conversion or approval",
+            "zh": "名称不是转换或批准"
+          },
+          "paragraphs": [
+            {
+              "en": "Renaming an extension does not convert the underlying file into another format. Use a suitable export or conversion tool when that is the goal, then inspect the output. Likewise, a later modification timestamp does not establish that a document is approved or accurate. Sorting the view changes its order, not its contents. A search that returns nothing can reflect scope or configuration rather than deletion. Keep those separate conclusions separate while reviewing an error.",
+              "zh": "改后缀不转换底层格式；需要转换时用合适导出工具并核输出。较晚修改时间不证明获批或准确。列表排序改顺序，不改内容。查无结果可能与范围或配置有关，不必然是删除。复盘时分清这些不同结论。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Use a small reversible checklist",
+            "zh": "用可逆的小清单练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Write the intended path and operation before touching a sample file. After copying, check the source and destination names and inspect the intended content. Do not confuse one matching folder size with proof that every byte survived. When searching, record the selected folder and terms so you can explain what was searched. Stop and check permissions if your practice would otherwise affect a managed shared drive or another person’s documents.",
+              "zh": "碰样本前先写目标路径和动作；复制后查源与目标名称及所需内容。两个文件夹大小相同不证明每字节都完好。查找时记范围与词，以便解释查了哪里；若会影响受管共享盘或他人文档，先核权限。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Use the count to select a task",
+            "zh": "按正确数选具体练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Six answers cannot certify general computer proficiency, safe handling of every file format or readiness for a job. Windows versions, account permissions and cloud synchronization can change available behavior. The source notes support selected features, without validating this bank as a hiring screen. Repeating the fixed questions after seeing their keys may improve recall. A fresh harmless task gives a better opportunity to practise the specific distinction you missed.",
+              "zh": "六次作答不能认证总体电脑熟练度、所有格式安全处理或岗位准备。系统版本、账号权限、云同步会改变行为。来源支持选定功能，不验证本题库为招聘筛查。看键后重测可能记住答案，宜换无风险新任务练漏掉的区别。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "directionIds": [
+        "browser"
+      ],
+      "title": {
+        "en": "Browser and downloads",
+        "zh": "浏览器与下载"
+      },
+      "headline": {
+        "en": "Separate a navigation record from a saved file.",
+        "zh": "分清导航记录与实际文件。"
+      },
+      "summary": {
+        "en": "Practise page Find, bookmarks, download locations, history removal, Incognito limits and opening links in new tabs.",
+        "zh": "练页面查找、书签、下载位置、移除历史、无痕边界及新标签页导航。"
+      },
+      "seo": {
+        "title": {
+          "en": "Browser and downloads: Computer literacy guide",
+          "zh": "浏览器与下载：计算机素养练习指南"
+        },
+        "description": {
+          "en": "Practise page Find, bookmarks, download locations, history removal, Incognito limits and opening links in new tabs.",
+          "zh": "练页面查找、书签、下载位置、移除历史、无痕边界及新标签页导航。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records six selected recognition tasks, not measured operating speed or a hiring qualification. Zero, partial and perfect counts open the same explanations and this complete guide.",
+        "zh": "正确数记录六道选定识别题，不是实测操作速度或招聘资格。零分、部分答对和全对均可看相同解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Desktop Chrome features with stated conditions",
+            "zh": "明确条件下的桌面Chrome功能"
+          },
+          "paragraphs": [
+            {
+              "en": "The browser items concern desktop Chrome, with Windows specified for keyboard shortcuts. They ask about finding text on the current page, remembering an address, locating a saved download, removing a download-history entry, retaining files after Incognito and keeping a reference page in another tab. A different browser or platform may provide similar features through other controls. Follow its own documentation rather than treating every key combination as universal.",
+              "zh": "浏览器题限定桌面Chrome，快捷键另明示Windows。练当前页查词、记网址、定位下载、移下载历史、无痕后文件留存及另开标签保留参考页。其他浏览器或平台可能有相近功能但控件不同，应按其说明，不把每个组合键当通用。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Removing the list entry is not removing the file",
+            "zh": "移除条目不等于删文件"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine you download a fictional workshop handout and later remove its entry from Chrome’s Downloads page. The saved handout can remain in its folder. To locate a download, use Show in folder and check its name and location. The browser’s configured download location can differ from the default. Review the actual stored file if your goal concerns retention; a tidy history list alone cannot demonstrate deletion.",
+              "zh": "假设下载一份虚构工坊讲义，再从Chrome下载历史移除条目，讲义仍可留在文件夹。定位可用在文件夹中显示，再核名字和位置；配置路径可能不同于默认。若关心留存，就检查实际文件，仅清列表不证明删除。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Privacy and availability have narrower meanings",
+            "zh": "隐私与可用性各有边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A bookmark helps return to an address without guaranteeing an offline copy or permanent availability. Incognito limits certain browser records retained after its session, while saved downloads and bookmarks can remain. It does not make browsing invisible to websites or network operators. Opening a link in a new tab preserves the existing tab for comparison; it does not freeze the source or establish that either page is trustworthy.",
+              "zh": "书签帮助返回地址，不保证离线副本或永久可用。无痕限制会话后保留的部分浏览器记录，下载与书签仍可保留，也不对网站或网络方隐身。新标签保留原页便于比较，不冻结来源或证明页面可信。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Try the distinction on a harmless page",
+            "zh": "在无风险页面练区别"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a public page containing a distinctive ordinary word. Find it within the page, then open a related link in a separate tab and return to the first tab. Add a temporary bookmark if you want to practise locating it later. With your own harmless sample download, compare the Downloads record with the file in its folder. Keep the exercise separate from confidential accounts and remove only practice material you own.",
+              "zh": "选含独特普通词的公开页，页内查词，另标签打开相关链接再回原页。可加临时书签练以后找回。用自有无风险样本下载，对照列表记录和文件夹文件，避开保密账号，只移除自己练习材料。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "This is recognition, without a speed claim",
+            "zh": "这是识别练习，不宣称操作速度"
+          },
+          "paragraphs": [
+            {
+              "en": "Six browser choices do not measure research quality, cybersecurity competence, accessibility skills or navigation speed. The site does not inspect your browser history or test a real download on your behalf. Published product behavior can evolve, and managed devices may restrict controls. Use the explanations to choose fresh practice and consult the relevant current help page when an interface differs. A count is not a certificate, percentile or hiring cutoff.",
+              "zh": "六次浏览器选择不测研究质量、网络安全、无障碍操作或导航速度。本站不查你的浏览历史，也不代测真实下载。产品会更新，受管设备可限制控件。界面不同时查相应现行帮助，按解析选新练习；正确数不是证书、百分位或招聘线。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "directionIds": [
+        "email"
+      ],
+      "title": {
+        "en": "Email and message checks",
+        "zh": "邮件与消息核对"
+      },
+      "headline": {
+        "en": "Inspect recipients, attachments and stated status separately.",
+        "zh": "分开核收件人、附件与题定状态。"
+      },
+      "summary": {
+        "en": "Review visible recipient sets, Bcc, Outlook.com attachment defaults, unsent drafts and complete message subjects.",
+        "zh": "复习可见收件集合、密送、Outlook.com附件默认、未发草稿及完整邮件主题。"
+      },
+      "seo": {
+        "title": {
+          "en": "Email and message checks: Computer literacy guide",
+          "zh": "邮件与消息核对：计算机素养练习指南"
+        },
+        "description": {
+          "en": "Review visible recipient sets, Bcc, Outlook.com attachment defaults, unsent drafts and complete message subjects.",
+          "zh": "复习可见收件集合、密送、Outlook.com附件默认、未发草稿及完整邮件主题。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records six selected recognition tasks, not measured operating speed or a hiring qualification. Zero, partial and perfect counts open the same explanations and this complete guide.",
+        "zh": "正确数记录六道选定识别题，不是实测操作速度或招聘资格。零分、部分答对和全对均可看相同解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read the product and task boundary",
+            "zh": "先读产品与任务边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Some items use Outlook.com’s documented behavior, while others give an explicit fictional rule for a label or subject. A subject-matching task is scored against its supplied brief, not a universal etiquette rule. A recipient task explicitly excludes Bcc and assumes the stated usual Reply All behavior without edits. These boundaries make the intended decision checkable while leaving room for real mailing lists, aliases and organizational policies.",
+              "zh": "部分题用Outlook.com文档行为，另一些明示虚构标签或主题规则。主题按题定任务匹配，不是通用礼仪。收件题明确无密送、未改名单，按题定通常全部回复行为。现实邮件列表、别名及组织政策仍需另核。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check the outgoing message before sending",
+            "zh": "发送前看待发邮件"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a message comes from Lina, includes you and Dev in To, and Ari in Cc, with no hidden recipients. Under the stated usual behavior, Reply All addresses Lina, Dev and Ari rather than your entire address book. Inspect the actual outgoing fields before sending. Now imagine the original carried a sample agenda: Outlook.com replies omit original attachments by default, whereas forwarding includes them unless you change the outgoing content.",
+              "zh": "假设Lina发信，收件有你和Dev，抄送Ari，无隐藏收件人。题定通常全部回复面向Lina、Dev、Ari，不是整本通讯录；发送前仍看实际字段。另假设原信有样本议程，Outlook.com回复默认不带原附件，转发默认带，除非更改待发内容。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Address visibility is not confidentiality",
+            "zh": "地址可见性不等于保密保证"
+          },
+          "paragraphs": [
+            {
+              "en": "Bcc hides entered names from other recipients of that message. It does not prevent forwarding, screenshots or someone revealing that they received it. Treat authorization, attachment content and address visibility as different checks. An unsent Drafts label under the fictional rule does not establish delivery or agreement. A complete subject preserves the requested project, version and deadline without turning a draft into an approved final document.",
+              "zh": "密送向本封其他收件人隐藏所填姓名，不阻转发、截图或自行暴露收信。授权、附件内容、地址可见性分开核。虚构规则下未发草稿不建立投递或同意。完整主题保留项目、版本、期限，不把草稿写成已批准定稿。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Use an unsent fictional draft",
+            "zh": "用不发送的虚构草稿练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Make a fictional brief with a project name, version, requested date and intended recipient list. Draft a subject and compare every required detail with it. Add only a harmless sample attachment in a local exercise if you want to practise checking names and versions. You can complete the whole routine without sending any real email. Avoid testing recipient exposure by sending to other people or using private documents as practice material.",
+              "zh": "自设项目、版本、日期、收件名单，写主题后逐项比。若练附件，只用无风险样本核名字版本，全程可不发真实邮件。不要为了测试收件暴露向别人发信，也别用私有文档作练习材料。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A correct choice does not certify workplace practice",
+            "zh": "选对不认证实际职场操作"
+          },
+          "paragraphs": [
+            {
+              "en": "Six choices cannot certify professional communication, secure handling of sensitive data or command of every email platform. The test does not connect to your mailbox, validate a recipient list or deliver messages. Real defaults and administrative settings can differ. Read the explanation for the specific error, then practise privately under your actual product’s current help. No hiring threshold, population ranking or guarantee of confidential delivery is supplied.",
+              "zh": "六次选择不认证专业沟通、敏感数据安全处理或所有邮箱熟练度。本站不连邮箱、不验证真实名单、不投递邮件；实际默认和管理设置可不同。按具体错题解析，在所用产品现行帮助下私下练，不给招聘线、人群排名或保密投递保证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "directionIds": [
+        "office"
+      ],
+      "title": {
+        "en": "Documents and spreadsheets",
+        "zh": "文档与电子表格"
+      },
+      "headline": {
+        "en": "Keep values, references, structure and records distinct.",
+        "zh": "分清数值、引用、结构与整条记录。"
+      },
+      "summary": {
+        "en": "Practise SUM, copied references, heading structure, percentage display, filtering and whole-record sorting with small original examples.",
+        "zh": "用小型原创数据练SUM、复制引用、标题结构、百分比显示、筛选及整条记录排序。"
+      },
+      "seo": {
+        "title": {
+          "en": "Documents and spreadsheets: Computer literacy guide",
+          "zh": "文档与电子表格：计算机素养练习指南"
+        },
+        "description": {
+          "en": "Practise SUM, copied references, heading structure, percentage display, filtering and whole-record sorting with small original examples.",
+          "zh": "用小型原创数据练SUM、复制引用、标题结构、百分比显示、筛选及整条记录排序。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records six selected recognition tasks, not measured operating speed or a hiring qualification. Zero, partial and perfect counts open the same explanations and this complete guide.",
+        "zh": "正确数记录六道选定识别题，不是实测操作速度或招聘资格。零分、部分答对和全对均可看相同解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six selected Office decisions",
+            "zh": "六个选定Office判断"
+          },
+          "paragraphs": [
+            {
+              "en": "The group asks about numeric SUM inputs, copying relative and absolute references, applying a structural heading, formatting an existing number as a percentage, ordinary AutoFilter and sorting complete records under an explicit rule. It does not measure spreadsheet modelling, advanced analysis, document production speed or proficiency with every Microsoft 365 application. The small fixed examples make each expected answer inspectable rather than assigning an overall professional tier.",
+              "zh": "本组核数值SUM、复制相对绝对引用、结构标题、现有值的百分比格式、普通筛选及按明示规则整条排序。不测建模、高阶分析、文档产速或所有Microsoft 365应用熟练度；固定小例子便于核答案，不派专业总体档位。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Copying changes relative references",
+            "zh": "复制会改变相对引用"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a new example in which D6 contains =C6*$H$1. Copying it down one row to D7 changes the relative C6 reference to C7, while $H$1 stays fixed. Check the resulting formula before relying on a total. Moving cells or inserting rows is a different operation. Separately, formatting an existing numeric value of 0.4 as a percentage displays 40%; it does not change that underlying value into forty.",
+              "zh": "另例D6为=C6*$H$1，下复制到D7，相对C6变C7，绝对$H$1不动。依赖合计前核所得公式；移动格或插行是别的操作。另将现有数值0.4设百分比显示40%，不把底层值改为四十。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Appearance and hidden rows need interpretation",
+            "zh": "外观与隐藏行需要解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A Word heading style provides document structure that merely enlarging text may not provide. A filtered-out Excel row remains in the table rather than being deleted by the filter. Sorting whole records preserves the relationship between an identifier and its quantity; sorting only values can break that relationship. A displayed total still depends on the correct range and inputs, so the appearance of a neat result is not enough evidence of correctness.",
+              "zh": "Word标题样式提供单纯放大文字未必有的结构。Excel筛掉的行仍在表内，不是被筛选删除。整条排序保ID与数量关系，只排数值可破坏关联。合计依赖正确范围和输入，结果整齐不证明正确。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Use a tiny sheet you can calculate by hand",
+            "zh": "用可手算的小表练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Make a private sheet with three labelled rows and harmless quantities. Calculate the total manually, then compare it with SUM over the intended range. Copy a formula once and inspect its references. Filter one category, clear the filter, and confirm that all rows return. Sort complete records and compare each identifier with its original value. In a sample document, inspect how a logical heading hierarchy affects navigation rather than judging only the font size.",
+              "zh": "自建三行带ID无风险数量表，手算再与指定SUM范围比较。复制公式一次查引用；筛一类再清筛选，核所有行回显；整条排序再比原ID和值。样本文档检查标题层级怎样影响导航，不只看字号。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recognition leaves actual operations untested",
+            "zh": "识别之外仍有未测操作"
+          },
+          "paragraphs": [
+            {
+              "en": "Six answer selections do not establish accuracy on a complex live workbook, accessible document completion or job readiness. Locale, application version and data types can affect software behavior. These tasks state numeric inputs and operations so their arithmetic and reference consequences can be recomputed. That check does not execute every action in Office or validate natural-language explanations independently. Use fresh sample tasks after reviewing the keys; repeated counts can reflect memory.",
+              "zh": "六次选项不建立复杂真实工作簿准确性、无障碍文档完成或岗位准备。地区、版本、数据类型可影响行为。本题明示输入与操作，可复算算术引用，但不执行Office每个动作，也不独立验证自然语言解析。看键后换新样本，重测正确数可反映记忆。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

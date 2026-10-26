@@ -2901,5 +2901,30 @@
       "references"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "computer-literacy",
+    "code": "FM_COMPUTER_LITERACY_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Computer Literacy Test",
+      "zh": "计算机素养"
+    },
+    "description": {
+      "en": "Practise files, browsers, email and Office with 24 original questions. All answers and four full guides are free. No timer or hiring qualification.",
+      "zh": "24道原创情景题练文件、浏览器、邮件和Office基础，四组各六题。免费查看全部答案、逐题解析、分项正确数及四份完整指南。不计时，不作招聘认证或实测操作速度。"
+    },
+    "minutes": 10,
+    "formCode": "fm_computer_literacy_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "files",
+      "browser",
+      "email",
+      "office"
+    ],
+    "collection": "explore"
   }
 ]
