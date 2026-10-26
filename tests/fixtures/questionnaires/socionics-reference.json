@@ -1,0 +1,1622 @@
+{
+  "formCode": "fm_socionics_quadra_pairs_24",
+  "origin": "FermatMindoriginal24ENZHfourchoiceinformation-pairpreferenceitems/classicalfourquadraframework/NOTstandardSocionicstestorMBTIbank",
+  "directions": [
+    {
+      "id": "alpha",
+      "title": {
+        "zh": "Alpha 阿尔法",
+        "en": "Alpha quadra"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "beta",
+      "title": {
+        "zh": "Beta 贝塔",
+        "en": "Beta quadra"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "gamma",
+      "title": {
+        "zh": "Gamma 伽马",
+        "en": "Gamma quadra"
+      },
+      "comparisons": 24
+    },
+    {
+      "id": "delta",
+      "title": {
+        "zh": "Delta 德尔塔",
+        "en": "Delta quadra"
+      },
+      "comparisons": 24
+    }
+  ],
+  "questions": [
+    {
+      "id": "SOC_QUADRA_01",
+      "prompt": {
+        "zh": "你和同伴讨论一种普通材料的整理办法，哪一组信息更值得先展开？",
+        "en": "When discussing how to organise ordinary materials, which information pair would you rather explore first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "还有哪些可能分类，以及分类理由能否自洽。",
+            "en": "Alternative categories and whether their reasoning is internally consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "最终想形成怎样的整体，以及各部分怎样按同一框架衔接。",
+            "en": "The intended overall picture and how its parts fit a consistent framework."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "这套办法接下来会走向什么结果，以及怎样检查是否有用。",
+            "en": "Where the approach is heading and how to check its practical usefulness."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "还有哪些可尝试的办法，以及每种怎样实际操作。",
+            "en": "Other possible approaches and how each could work in practice."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_02",
+      "prompt": {
+        "zh": "一项自选共同活动还没有定主题，你更想先听到哪种讨论？",
+        "en": "A voluntary shared activity has no theme yet. Which discussion would you rather hear first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "活动最终想留下怎样的整体印象，以及怎样表达那种共同感受。",
+            "en": "The overall impression the activity is heading towards and how to express its shared feeling."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这个主题对较长一段经历意味着什么，以及参与者各自真正在意什么。",
+            "en": "What the theme means over a longer sequence and what individual participants personally care about."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "每个人还有哪些可能的主题兴趣，以及怎样尊重各自的亲疏与偏好。",
+            "en": "Possible interests each person might explore and respect for individual closeness and preferences."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "不同主题还能怎样展开，以及大家怎样把兴致表达出来。",
+            "en": "Ways different themes could unfold and how people express shared enthusiasm."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_03",
+      "prompt": {
+        "zh": "共同使用一张普通工作台时，你更想先说清哪一组条件？",
+        "en": "For an ordinary shared work surface, which pair of conditions would you rather clarify first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "目前哪些调整可以直接落实，以及调整后是否更有用。",
+            "en": "Which adjustments can be implemented now and whether they improve practical use."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样改善实际使用的舒适度，以及哪种做法较省事有效。",
+            "en": "How to refine comfort in use and which procedure works conveniently."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "怎样让使用体验更顺手，以及摆放规则为什么一致。",
+            "en": "How use can feel more comfortable and why the arrangement follows consistent rules."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些范围现在需要明确划定，以及范围之间按什么规则区分。",
+            "en": "Which areas need definite boundaries now and what rules distinguish them."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_04",
+      "prompt": {
+        "zh": "在熟悉同伴的小活动里，你更愿意留意哪组信息？",
+        "en": "During a small activity with familiar people, which information pair would you rather notice?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "怎样让相处体验更自然舒适，以及彼此各自愿意怎样来往。",
+            "en": "How the experience can feel more comfortable and how each person prefers to relate."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "此刻环境给人的感受，以及大家如何交流当下的情绪。",
+            "en": "The immediate quality of the setting and how people exchange the mood of the moment."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "此刻谁愿意明确推动一步，以及共同情绪怎样表达。",
+            "en": "Who is ready to take a definite step now and how the shared feeling is expressed."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "眼前哪些界限需要落实，以及每个人愿意保持怎样的关系距离。",
+            "en": "Which immediate boundaries need action and what personal relational distance each person wants."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_05",
+      "prompt": {
+        "zh": "你准备说明一项简单规则，哪组信息更让你有兴趣整理？",
+        "en": "When explaining a simple rule, which pair would you be more interested in organising?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "还能用哪些例子理解它，以及例子与规则是否一致。",
+            "en": "Alternative examples that illuminate it and whether they remain consistent with the rule."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这项规则在整体里要解决什么，以及它与其他规则如何构成系统。",
+            "en": "Its significance within the overall picture and how it forms a system with other rules."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "它之后会带来什么实际结果，以及什么信息能验证用处。",
+            "en": "Its likely practical trajectory and what information could check its usefulness."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "它还可能用于哪些情境，以及在那里怎样实际应用。",
+            "en": "Other possible situations for it and how it could be applied there."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_06",
+      "prompt": {
+        "zh": "同伴介绍一项普通兴趣计划，你更想接着问哪一组内容？",
+        "en": "Someone describes an ordinary interest plan. Which pair would you rather ask about next?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "计划会形成怎样的整体历程，以及大家怎样表达其中的共同意义。",
+            "en": "The overall course the plan is taking and how people express its shared significance."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这段历程最重要的方向是什么，以及对方个人怎样看待其中的关系。",
+            "en": "The important direction of the sequence and how the person privately regards the relationships involved."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "对方还想探索哪些潜能，以及哪些人际联系让这些探索更有个人意义。",
+            "en": "Potential the person might explore and which personal connections make that exploration meaningful."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "还可能有什么有趣变化，以及哪些想法最能带起共同兴致。",
+            "en": "Interesting possible variations and which ideas invite shared enthusiasm."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_07",
+      "prompt": {
+        "zh": "一项普通共同安排的细节还模糊，你更想先澄清什么？",
+        "en": "Details of an ordinary shared arrangement remain unclear. What would you rather clarify first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "眼前能落实的具体步骤，以及每一步是否带来可用结果。",
+            "en": "Concrete steps available now and whether each produces a useful result."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样减少使用中的不顺手，以及哪套实际步骤能做到。",
+            "en": "Which refinements make the experience easier and which practical procedure can achieve them."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "参与时怎样更顺畅舒适，以及细节按什么一致原则组织。",
+            "en": "How participation can feel smoother and what consistent principles organise the details."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "现在可以明确落实哪些范围，以及权限和分工按什么规则区分。",
+            "en": "Which immediate boundaries can be made definite and what rules distinguish roles and authority."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_08",
+      "prompt": {
+        "zh": "你们准备一次轻松的普通聚会，哪组信息更值得先交流？",
+        "en": "For an informal ordinary gathering, which pair would you rather discuss first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "怎样把相处细节调整得舒服，以及怎样照顾各自的关系偏好。",
+            "en": "How to refine comfort in the details and respect each person’s relational preferences."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "环境怎样让人待得舒服，以及大家想表达什么共同气氛。",
+            "en": "What makes the setting comfortable and which shared atmosphere people want to express."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "哪些眼前安排需要有人明确推动，以及怎样让共同情绪有表达空间。",
+            "en": "Which immediate arrangements need a definite push and how shared feelings can find expression."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些实际边界需要当场明确，以及每个人愿意怎样参与和来往。",
+            "en": "Which immediate boundaries need clarity and how each person wants to participate and relate."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_09",
+      "prompt": {
+        "zh": "面对一种新的普通兴趣玩法，你更愿意先比较哪两类信息？",
+        "en": "For a new ordinary interest activity, which pair of information would you rather compare first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "可能的玩法变化，以及每种变化的规则是否说得通。",
+            "en": "Possible variations and whether each variation has coherent rules."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这套玩法的整体方向，以及各规则怎样服务同一个框架。",
+            "en": "The overall direction of the activity and how its rules serve one consistent framework."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "继续玩下去的变化趋势，以及怎样判断是否达到实际目的。",
+            "en": "The direction it takes over time and how to check whether it serves its practical purpose."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "还可以怎样尝试，以及不同尝试在实际中怎样运作。",
+            "en": "Other possible experiments and how the alternatives work in practice."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_10",
+      "prompt": {
+        "zh": "听到一段普通经历时，你更想听对方补充哪组内容？",
+        "en": "When hearing about an ordinary experience, which pair would you rather hear more about?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "这件事放在较长经历里有什么意义，以及共同感受怎样随过程展开。",
+            "en": "Its significance within a longer sequence and how shared feelings unfolded through it."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这件事后来在对方经历中走向哪里，以及对方怎样看待涉及的个人关系。",
+            "en": "Where it led in the person’s later experience and how they regarded the personal relationships involved."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "它让对方看见哪些新的可能，以及这些可能与个人关系有何关联。",
+            "en": "New possibilities it opened and how they relate to the person’s individual connections."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "如果换一种发展还有哪些可能，以及当时大家怎样表达感受。",
+            "en": "Alternative ways it might have developed and how people expressed their feelings together."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_11",
+      "prompt": {
+        "zh": "要改进一份普通说明卡，你更愿意先看哪一组问题？",
+        "en": "To improve an ordinary instruction card, which pair would you rather examine first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "哪些改动现在就能落实，以及读者能否据此完成实际步骤。",
+            "en": "Which changes can be implemented now and whether readers can carry out practical steps."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样改善实际使用感受，以及哪种改法已经显示有用。",
+            "en": "How to refine the experience of using it and which adjustment shows practical usefulness."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "读起来和用起来是否顺畅，以及分类与步骤是否自洽。",
+            "en": "Whether reading and using it feel smooth and its categories and steps are consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "必须明确指出哪些当下边界，以及规定之间是否有清楚层次。",
+            "en": "Which immediate boundaries need definite statements and whether rules have a clear structure."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_12",
+      "prompt": {
+        "zh": "一起处理一件普通小事时，你更希望先了解哪组信息？",
+        "en": "During an ordinary shared activity, which pair would you rather understand first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "相处细节怎样更顺适，以及各自希望保持怎样的亲近程度。",
+            "en": "How the details can feel more comfortable and how much personal closeness each person wants."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "大家当下是否自在，以及怎样表达共同的轻松或兴奋。",
+            "en": "Whether the immediate experience feels comfortable and how shared ease or excitement is expressed."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "眼前怎样明确迈出一步，以及怎样表达大家共同投入的情绪。",
+            "en": "How to take a definite immediate step and express the feelings people share about it."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "当下有哪些边界要落实，以及每个人对彼此来往的具体态度。",
+            "en": "Which current boundaries need action and each person’s particular attitude to the relationships."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_13",
+      "prompt": {
+        "zh": "讨论一个尚未成形的小点子时，你更想先展开哪组内容？",
+        "en": "When discussing an unfinished small idea, which pair would you rather develop first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "它还能变成什么，以及不同版本内部是否一致。",
+            "en": "What else it could become and whether the versions are internally consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "它最后想说明什么整体含义，以及怎样用一个框架表达。",
+            "en": "The overall significance it is heading towards and a consistent framework for expressing it."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "它接下来可能走向哪里，以及怎样查验实际价值。",
+            "en": "The trajectory it could take next and how to check its practical value."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "还有什么新的用法，以及各用法怎样实际试出来。",
+            "en": "Other possible uses and how to try each in practice."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_14",
+      "prompt": {
+        "zh": "一项自选共同计划中途调整，你更想听哪组解释？",
+        "en": "A voluntary shared plan changes midway. Which pair of explanations would you rather hear?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "调整在整个历程中意味着什么，以及怎样表达共同方向的感受。",
+            "en": "Its significance within the whole course and how the feeling of a shared direction is expressed."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "调整对后续走向的意义，以及参与者各自珍视的关系与承诺。",
+            "en": "Its significance for what comes next and the relationships and commitments individuals personally value."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "还有哪些可选方向，以及各方向怎样照顾具体的人际意愿。",
+            "en": "Other possible directions and how each respects particular personal wishes about relating."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "调整又打开了哪些可能，以及大家对这些可能怎样表达兴致。",
+            "en": "Possibilities opened by the change and how people express enthusiasm about them."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_15",
+      "prompt": {
+        "zh": "共同安排一个普通展示区域，你更想先核对哪组细节？",
+        "en": "For an ordinary shared display area, which pair would you rather check first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "哪些现场调整可以立即落实，以及是否改善实际使用。",
+            "en": "Which adjustments can be implemented on site and whether they improve actual use."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样调整触达和浏览的顺适度，以及什么做法实际有效。",
+            "en": "How to refine ease of access and browsing and which procedure works in practice."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "浏览体验是否舒适，以及展示分类有没有一致逻辑。",
+            "en": "Whether browsing feels comfortable and the categories follow consistent logic."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "现场需要明确哪些实际界线，以及标识和分区按什么系统组织。",
+            "en": "Which physical boundaries need clarity now and what system organises signs and areas."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_16",
+      "prompt": {
+        "zh": "一项普通共同活动结束后，你更愿意回顾哪组内容？",
+        "en": "After an ordinary shared activity, which pair would you rather review?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "哪些细节让相处更自然，以及个人关系中哪些意愿得到尊重。",
+            "en": "Details that made the exchange feel more comfortable and personal relational wishes that were respected."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "参与体验中哪些细节舒服，以及共同情绪怎样流动。",
+            "en": "Comfortable details in the experience and how shared moods moved through it."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "哪些明确行动影响了现场，以及大家怎样表达共同情绪。",
+            "en": "Definite actions that affected the situation and how people expressed shared feelings."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些边界和行动被落实，以及具体的人之间怎样彼此看待。",
+            "en": "Boundaries and actions that became definite and how particular people regarded one another."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_17",
+      "prompt": {
+        "zh": "选一份普通兴趣材料时，你更想比较哪组信息？",
+        "en": "When choosing ordinary interest materials, which pair would you rather compare?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "每份还能引出什么可能，以及解释是否前后一致。",
+            "en": "Possibilities each opens and whether its explanations remain consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "每份材料整体要表达的方向，以及结构怎样围绕它展开。",
+            "en": "The overall direction each expresses and how its structure develops around it."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "每份内容会把后续学习带向哪里，以及实际用处如何检查。",
+            "en": "Where each might take the next stage of learning and how its usefulness can be checked."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "每份还有哪些可探索的用途，以及怎样在实际中尝试。",
+            "en": "Possible uses each could open and how to try them in practice."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_18",
+      "prompt": {
+        "zh": "为一项普通共同活动取名字时，你更想讨论哪组信息？",
+        "en": "When naming an ordinary shared activity, which pair would you rather discuss?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "名字对整个活动方向的意义，以及怎样承载共同情绪。",
+            "en": "Its significance for the activity’s overall direction and how it carries a shared feeling."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "名字放在较长历程里意味着什么，以及参与者个人怎样认同其中的关系。",
+            "en": "Its significance across a longer sequence and how individuals personally regard the relationships involved."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "名字还可能有怎样的发展，以及怎样贴近具体参与者的个人意愿。",
+            "en": "Possible developments for the name and how it relates to particular participants’ personal wishes."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "名字还能打开哪些联想，以及大家怎样表达共同兴致。",
+            "en": "Associations a name might open and how people express shared enthusiasm."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_19",
+      "prompt": {
+        "zh": "一起商量普通器材的使用办法，你更愿意先问哪组问题？",
+        "en": "When agreeing how to use ordinary equipment, which pair would you rather ask about first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "眼前怎样落实可行步骤，以及什么能检查实际效果。",
+            "en": "How to implement feasible steps now and what can check their practical effect."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样改善使用中的感受，以及哪种具体办法确实好用。",
+            "en": "How to refine the experience of using it and which concrete procedure works well."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "怎样用起来更顺适，以及使用规则是否自洽。",
+            "en": "How use can feel smoother and whether the rules are consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些实际边界需要明确，以及不同使用情境按什么规则区分。",
+            "en": "Which practical boundaries need clarity and what rules distinguish situations of use."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_20",
+      "prompt": {
+        "zh": "与同伴商量下一次普通活动，你更愿意先交换哪组想法？",
+        "en": "When planning another ordinary activity with others, which pair would you rather exchange first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "怎样让活动细节更自然舒适，以及怎样尊重具体的人际亲疏。",
+            "en": "How details can feel more comfortable and how to respect particular degrees of personal closeness."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "怎样保留舒服的参与体验，以及大家希望怎样分享感受。",
+            "en": "How to retain a comfortable experience and how people want to share their feelings."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "哪些眼前决定需要明确推进，以及怎样表达共同投入。",
+            "en": "Which immediate decisions need a definite push and how shared engagement can be expressed."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些当下界限需要说清落实，以及每个人愿意怎样来往。",
+            "en": "Which present boundaries need definite action and how each person wants to relate."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_21",
+      "prompt": {
+        "zh": "要比较两个普通小方案，你更愿意听哪组补充？",
+        "en": "When comparing two ordinary small proposals, which pair of details would you rather hear?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "还能不能有其他版本，以及各版本逻辑是否一致。",
+            "en": "Whether other versions are possible and each has consistent reasoning."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "每个方案最后指向怎样的整体，以及结构怎样保持一致。",
+            "en": "The overall direction of each proposal and how its structure stays consistent."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "每个方案往后可能怎样发展，以及怎样验证是否实用。",
+            "en": "How each proposal might develop over time and how to verify its usefulness."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "每个方案还能打开什么可能，以及怎样具体试用。",
+            "en": "Possibilities each proposal opens and how to try it in practice."
+          },
+          "directionId": "delta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_22",
+      "prompt": {
+        "zh": "准备一次普通兴趣分享时，你更愿意先整理哪组内容？",
+        "en": "For an ordinary interest-sharing session, which pair would you rather prepare first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "分享整体想带大家走向哪里，以及怎样表达那种共同意义。",
+            "en": "The overall direction of the session and how its shared significance can be expressed."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "这段经历的较长走向，以及具体的人各自看重的关系与承诺。",
+            "en": "The longer trajectory of the experience and relationships and commitments particular people value."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "不同参与者还有哪些可能的兴趣，以及怎样尊重各自具体的关系意愿。",
+            "en": "Possible interests of different participants and respect for their particular relational wishes."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "主题还可以延伸哪些可能，以及怎样让共同兴致有表达。",
+            "en": "Possibilities the topic can open and ways shared enthusiasm can be expressed."
+          },
+          "directionId": "alpha"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_23",
+      "prompt": {
+        "zh": "一起修订普通活动的操作清单，你更想先核对哪组信息？",
+        "en": "When revising a checklist for an ordinary activity, which pair would you rather check first?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "哪些步骤现在可以落实，以及完成后是否得到可用结果。",
+            "en": "Which steps can be implemented now and whether they produce usable results."
+          },
+          "directionId": "gamma"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "哪些细节能改善使用感受，以及怎样实际检验改法。",
+            "en": "Which details refine the experience of use and how to test the adjustment in practice."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "照着做的体验是否顺畅，以及步骤分类是否自洽。",
+            "en": "Whether following it feels smooth and its categories and steps are internally consistent."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "眼前必须明确的范围有哪些，以及规则怎样区分不同情况。",
+            "en": "Which immediate boundaries need definite statements and how rules distinguish situations."
+          },
+          "directionId": "beta"
+        }
+      ]
+    },
+    {
+      "id": "SOC_QUADRA_24",
+      "prompt": {
+        "zh": "回想一次普通共同安排，哪组信息更值得你再看一眼？",
+        "en": "Looking back at an ordinary shared arrangement, which pair would you rather revisit?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "zh": "哪些细节改善了相处体验，以及具体关系里的意愿如何被尊重。",
+            "en": "Details that refined the experience and how wishes within particular relationships were respected."
+          },
+          "directionId": "delta"
+        },
+        {
+          "id": "b",
+          "label": {
+            "zh": "参与时的舒适与顺适，以及当时如何分享共同情绪。",
+            "en": "Comfort and flow during participation and how shared feelings were exchanged."
+          },
+          "directionId": "alpha"
+        },
+        {
+          "id": "c",
+          "label": {
+            "zh": "哪些明确行动改变了现场，以及共同情绪如何表达。",
+            "en": "Definite actions that changed the immediate situation and how shared feelings were expressed."
+          },
+          "directionId": "beta"
+        },
+        {
+          "id": "d",
+          "label": {
+            "zh": "哪些现实边界被明确落实，以及个人之间愿意保持怎样的距离。",
+            "en": "Practical boundaries made definite and the personal distance individuals wanted."
+          },
+          "directionId": "gamma"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 24,
+    "directions": 4,
+    "exposureEach": 24,
+    "positionEach": 6,
+    "increment": 1,
+    "total": 24,
+    "ties": "ALLhighestcounts/4FULLguidesnotexclusive16TIMtyping",
+    "allFirstOptions": "eachquadra6/allfourhighest",
+    "verificationPlan": "planned2925reachablecountvectors/15highestsets/sourceadditiveoracle/NOTexecuted/not4^24individualanswers/psychvalidation",
+    "editorialItemFamilies": [
+      {
+        "questionId": "SOC_QUADRA_01",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_02",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_03",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_04",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_05",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_06",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_07",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_08",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_09",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_10",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_11",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_12",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_13",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_14",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_15",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_16",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_17",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_18",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_19",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_20",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_21",
+        "family": 0,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Ti"
+          ],
+          "beta": [
+            "Ni",
+            "Ti"
+          ],
+          "gamma": [
+            "Ni",
+            "Te"
+          ],
+          "delta": [
+            "Ne",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_22",
+        "family": 1,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Ne",
+            "Fe"
+          ],
+          "beta": [
+            "Ni",
+            "Fe"
+          ],
+          "gamma": [
+            "Ni",
+            "Fi"
+          ],
+          "delta": [
+            "Ne",
+            "Fi"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_23",
+        "family": 2,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Ti"
+          ],
+          "beta": [
+            "Se",
+            "Ti"
+          ],
+          "gamma": [
+            "Se",
+            "Te"
+          ],
+          "delta": [
+            "Si",
+            "Te"
+          ]
+        }
+      },
+      {
+        "questionId": "SOC_QUADRA_24",
+        "family": 3,
+        "editorialInformationPairs": {
+          "alpha": [
+            "Si",
+            "Fe"
+          ],
+          "beta": [
+            "Se",
+            "Fe"
+          ],
+          "gamma": [
+            "Se",
+            "Fi"
+          ],
+          "delta": [
+            "Si",
+            "Fi"
+          ]
+        }
+      }
+    ],
+    "classicalValuedElements": {
+      "alpha": [
+        "Ne",
+        "Si",
+        "Fe",
+        "Ti"
+      ],
+      "beta": [
+        "Se",
+        "Ni",
+        "Fe",
+        "Ti"
+      ],
+      "gamma": [
+        "Se",
+        "Ni",
+        "Te",
+        "Fi"
+      ],
+      "delta": [
+        "Ne",
+        "Si",
+        "Te",
+        "Fi"
+      ]
+    },
+    "classicalTIMMembership": {
+      "alpha": [
+        "ILE",
+        "SEI",
+        "ESE",
+        "LII"
+      ],
+      "beta": [
+        "SLE",
+        "IEI",
+        "EIE",
+        "LSI"
+      ],
+      "gamma": [
+        "SEE",
+        "ILI",
+        "LIE",
+        "ESI"
+      ],
+      "delta": [
+        "IEE",
+        "SLI",
+        "LSE",
+        "EII"
+      ]
+    }
+  },
+  "scope": "Originalcontextualquadra-valuepairreflection;16pairtypesfromclassicalfourvaluedsets/editorialmappingnotfunctionmeasurementorModelAposition/TIMassignment.FourTIMseach/sixteenoverallmembershipprovidedaseducationalframeworknotidentifiedtypes;noMBTIconversion/compatibility-growthopposite-healthability-job-political-ethnicprediction. Nocompetitorbank-body-keyorstandardprotecteditemsadopted.",
+  "instructions": {
+    "zh": "把每题当作普通、条件允许且没有必须按某一种做的情境，选你此刻更愿意先了解或展开的一组信息，不选自己最擅长、最应该或别人期望的答案。24条原创四选一各给一个quadra计1次，四组都出现24次且每个位置各6次，合计24。四个quadra来自经典Socionics的受重视信息元素组合；题目中的配对与加法规则是本站编辑方法，不测八个功能强弱或Model A位置。全部最高计数并列都保留，完整说明介绍每组四个TIM，但不由这份选择鉴定你的16型、MBTI、关系相容性、健康或职业。可以随时退出，不必为保持一致选同类。",
+    "en": "Treat each item as an ordinary feasible situation with no required approach. Choose the information pair you would currently rather understand or explore first, rather than what you do best, ought to do or think others expect. Each of 24 original four-choice items adds one count to one quadra. Each group appears 24 times and six times in each position, with 24 counts overall. The four quadras refer to classical Socionics valued information-element sets. The pairings and additive mapping are editorial conventions, not measurements of eight function strengths or Model A positions. Keep every highest-count tie. Full guides explain the four TIMs in each group without identifying your 16-type, converting MBTI or predicting compatibility, health or careers. You may exit and need not force consistency across choices."
+  }
+}

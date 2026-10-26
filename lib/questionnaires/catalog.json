@@ -1300,5 +1300,30 @@
       "relatedness-satisfaction",
       "relatedness-frustration"
     ]
+  },
+  {
+    "slug": "socionics",
+    "code": "SOCIONICS_ORIGINAL_QUADRA_VALUES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "Socionics 测试（社会人格学）",
+      "en": "Socionics Test"
+    },
+    "description": {
+      "zh": "用24条原创信息配对题探索Alpha、Beta、Gamma、Delta四组倾向，最高并列全部保留。完整解释包含16个TIM的组内所属关系，不鉴定16型或换算MBTI。",
+      "en": "Explore four Socionics quadras with 24 original information-pair choices and full free guides. Keep all highest ties; no individual TIM or MBTI conversion."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_socionics_quadra_pairs_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "alpha",
+      "beta",
+      "gamma",
+      "delta"
+    ]
   }
 ]
