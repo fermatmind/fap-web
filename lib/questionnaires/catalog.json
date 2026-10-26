@@ -2771,5 +2771,32 @@
       "functional"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "apocalypse-survival-type-test",
+    "code": "APOCALYPSE_CAMP_ROLES_ORIGINAL_24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "zh": "启示录生存类型测试",
+      "en": "Apocalypse Survival Type Test"
+    },
+    "description": {
+      "zh": "免费启示录生存类型测试：24道原创纸面营地情境，探索六种虚构角色偏好，读六份九节完整结果与全部最高并列。不是实际生存能力评估。",
+      "en": "Free Apocalypse Survival Type Test: 24 original paper-camp scenes, six full fictional-role guides and every highest tie. Not an actual survival assessment."
+    },
+    "minutes": 7,
+    "formCode": "fm_apocalypse_camp_story_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "camp-planner",
+      "care-companion",
+      "map-scout",
+      "model-builder",
+      "message-diplomat",
+      "solo-chronicler"
+    ],
+    "collection": "explore"
   }
 ]

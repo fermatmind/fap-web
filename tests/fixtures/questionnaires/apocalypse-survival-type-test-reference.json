@@ -1,0 +1,1062 @@
+{
+  "formCode": "fm_apocalypse_camp_story_24",
+  "origin": "frontend_original_fictional_camp_role_preferences",
+  "directions": [
+    {
+      "id": "camp-planner",
+      "title": {
+        "zh": "营地统筹者",
+        "en": "Camp Planner"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "care-companion",
+      "title": {
+        "zh": "照护伙伴",
+        "en": "Care Companion"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "map-scout",
+      "title": {
+        "zh": "地图观察员",
+        "en": "Map Scout"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "model-builder",
+      "title": {
+        "zh": "模型搭建者",
+        "en": "Model Builder"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "message-diplomat",
+      "title": {
+        "zh": "消息联络员",
+        "en": "Message Diplomat"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "solo-chronicler",
+      "title": {
+        "zh": "独行记录者",
+        "en": "Solo Chronicler"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "CAMP_01",
+      "prompt": {
+        "zh": "你和同伴在编一个末日之后的营地故事。第一幕是一座空车站，哪段纸面任务更想由你来写？",
+        "en": "You and friends are creating a camp story set after an imagined apocalypse. Its first scene is an empty station. Which paper-based task would you most like to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把营地开场的三件小事排出顺序，给每件留一个可以调整的位置。",
+            "en": "Sequence three small opening tasks, leaving room to revise each one."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让每位虚构人物说说，第一晚最想保留的一点舒适是什么。",
+            "en": "Give each fictional character a line about one comfort they would like on the first evening."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比对地图上的旧站名，圈出故事还没解释的几个位置。",
+            "en": "Compare old station names on the map and circle places the story has not explained."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用几块现有纸片摆出可移动的营地小模型，试两种布局。",
+            "en": "Arrange existing paper pieces into a movable camp model and try two layouts."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_02",
+      "prompt": {
+        "zh": "故事里来了两位新人物，你更想补写他们到营地后的哪一小段？",
+        "en": "Two new characters arrive in the story. Which small part of their arrival would you like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他们想先安静坐一会儿，还是介绍自己喜欢的小物件。",
+            "en": "Let them choose between sitting quietly first and introducing a favourite small object."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听他们描述沿途见过的招牌，把新线索补到虚构地图上。",
+            "en": "Hear which signs they noticed on the way and add those clues to the fictional map."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给他们的纸面行李做两枚小标签，让模型里有一个放置位置。",
+            "en": "Make two little labels for their paper luggage and give it a place in the model."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段欢迎词，说明可以参与哪些小活动，也可以暂时旁观。",
+            "en": "Write a welcome explaining which small activities they can join or simply watch."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_03",
+      "prompt": {
+        "zh": "旧博物馆留下一盒没有说明的展品卡，下一页更想写哪一条线？",
+        "en": "An old museum has a box of exhibit cards without descriptions. Which thread would you write next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按卡片上残留的地名寻找对应关系，列出仍不确定的地方。",
+            "en": "Match the remaining place names and list what is still uncertain."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给卡片设计一个能反复调整的纸面展示架草图。",
+            "en": "Sketch an adjustable paper display stand for the cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一张请其他虚构居民补充记忆的便条，给不知道的部分留空。",
+            "en": "Write a note inviting fictional residents to add memories, leaving unknown parts open."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "独自给一张最想留下的卡写短注，记录自己注意到的细节。",
+            "en": "Write a private short note about one card you want to keep and its details."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_04",
+      "prompt": {
+        "zh": "营地模型的两块纸面区域之间少了一段连接，哪种补写更吸引你？",
+        "en": "Two areas in the camp model have an unfinished connection. Which addition appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画几种小模型连接件，在纸面比较摆放后是否方便移动人物卡。",
+            "en": "Sketch model connectors and compare how they let character cards move on paper."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一块虚构指示牌，让人物知道这一段在故事里通向哪里。",
+            "en": "Write a fictional sign telling characters where this part of the story leads."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的虚构角色画一条小路线，并记下沿线想看的东西。",
+            "en": "Draw a small route for your fictional character and note what they want to see."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先列连接完成前后的剧情顺序，再决定模型这一步放在哪里。",
+            "en": "List the story sequence before and after the connection and place the model step within it."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_05",
+      "prompt": {
+        "zh": "你们要给虚构营地录一段普通留言，不使用真实联络信息。你更想负责哪部分？",
+        "en": "You are making an ordinary message for the fictional camp without real contact information. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已知情况和想问的问题分开，写成别人能接话的短留言。",
+            "en": "Separate known details from questions and write a short message others can answer."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在自己的角色日志里记下这段留言，保留一个还没想明白的疑问。",
+            "en": "Record the message in your character’s journal with one unresolved question."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安排故事中留言出现、收到回复和再讨论的先后节点。",
+            "en": "Plan when the message, a reply and a later discussion occur in the story."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给每个虚构人物留一次愿意说或暂时不说的选择。",
+            "en": "Give each fictional character a choice to speak or pass for now."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_06",
+      "prompt": {
+        "zh": "第一章结束，角色可以带走一个你们自己画的小物件。你更想画哪一种？",
+        "en": "At the end of the first chapter, a character can keep one object you draw yourselves. Which would you draw?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一本小日志，收着这个角色自己看到但还没分享的片段。",
+            "en": "A little journal holding details this character noticed but has not shared yet."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张可重排的营地日程卡，给下一章留出几个空位。",
+            "en": "A rearrangeable camp schedule card with open spaces for the next chapter."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张舒适角落的小图，写着角色愿意给别人留下的一点照应。",
+            "en": "A small drawing of a comfortable corner and one kindness the character would offer."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张带着未命名地点的地图，让下一章还有可探索的空白。",
+            "en": "A map with unnamed places, leaving open areas for the next chapter."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_07",
+      "prompt": {
+        "zh": "故事里的旧温室想办第一次小型展示，你更想给这段情节加什么？",
+        "en": "The story’s old greenhouse is hosting its first little display. What would you add to this scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "排一张展示前后的剧情顺序卡，留出让大家临时换想法的空格。",
+            "en": "Arrange a before-and-after scene card with space for everyone to change an idea."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给一位有点拘谨的虚构人物写一个可以先旁观的温柔开场。",
+            "en": "Write a gentle entrance that lets a hesitant fictional character watch first."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找出温室旧标签之间有趣的差别，把它们变成下一章的线索。",
+            "en": "Find interesting differences between old greenhouse labels and turn them into clues."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画一套小展台的纸面模型，让物件卡可以换位置。",
+            "en": "Draw a paper display model with movable places for object cards."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_08",
+      "prompt": {
+        "zh": "营地开了一个只交换虚构纪念物的小集市，你更愿意描写哪部分？",
+        "en": "The camp opens a little market exchanging only fictional keepsakes. Which part would you describe?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让角色先讲讲某件小物为何让自己觉得熟悉和安心。",
+            "en": "Let a character explain why one little object feels familiar and comforting."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察摊位牌上的旧地名，发现两段故事原来指向同一个地方。",
+            "en": "Notice old place names on stall signs and connect two stories to one location."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计几格可折换的模型摊位，用来展示不同物件卡。",
+            "en": "Design rearrangeable model stalls for different object cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给第一次交换物件的两位角色写一段能互相提问的对话。",
+            "en": "Write an exchange in which two first-time visitors can ask each other questions."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_09",
+      "prompt": {
+        "zh": "旧城钟楼的明信片背面只留下几个图案，你更想怎样续写发现过程？",
+        "en": "A postcard from the old clock tower has only a few marks on its back. How would you continue the discovery?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "逐个比对图案和现有地图，保留暂时解释不通的细节。",
+            "en": "Compare each mark with the map and retain details that do not yet fit."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把明信片画进一个可翻开的纸面钟楼模型里，让线索能被展示。",
+            "en": "Place the postcard inside a fold-open paper clock-tower model that can display the clue."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一张请其他虚构居民说说是否见过图案的短便条。",
+            "en": "Write a short note asking fictional residents whether they recognise the marks."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用自己的角色视角写一页日志，记录第一次看见这些图案的感觉。",
+            "en": "Write a journal page in your character’s voice about first seeing the marks."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_10",
+      "prompt": {
+        "zh": "这一章下了一整天虚构的雨，大家在桌上重排营地场景。你更想承担什么？",
+        "en": "It rains throughout this fictional chapter, and the group rearranges its tabletop camp scene. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新摆放纸面屋顶和人物卡，比较两种模型画面的层次。",
+            "en": "Rearrange paper roofs and character cards to compare two model compositions."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让人物轮流说出想保留的场景细节，整理成一张短共识卡。",
+            "en": "Let characters name scene details they want to keep and collect them on a short agreement card."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的人物写一段窗边小日志，观察同一场雨的不同片刻。",
+            "en": "Write a little window-side journal for your character, noticing different moments in the same rain."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安排雨前、雨中和雨后各出现哪段剧情，先保留可调整的顺序。",
+            "en": "Plan which scene appears before, during and after the rain, leaving the order revisable."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_11",
+      "prompt": {
+        "zh": "两位虚构人物想给公共角落起不同名字，你更愿意补写哪段？",
+        "en": "Two fictional characters prefer different names for a shared corner. Which part would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让他们各说名字想表达的意思，再写一个可以继续商量的结尾。",
+            "en": "Let each explain the meaning they want, ending with room for more discussion."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给自己的角色留一页私下记录，写下更想用哪个名字及原因。",
+            "en": "Give your character a private page recording a preferred name and a reason."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把提名、讨论和暂定名字分成三个剧情节点。",
+            "en": "Divide naming suggestions, discussion and a provisional choice into three story points."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让角色先问彼此是否想歇一下，给这段讨论留一点轻松的余地。",
+            "en": "Have the characters ask whether either wants a break, giving the scene some breathing room."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_12",
+      "prompt": {
+        "zh": "一张旧车票可以成为下一章的开头，你更想从哪里写起？",
+        "en": "An old ticket can open the next chapter. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写自己的虚构角色把车票夹进日志，留下一句只属于这一刻的观察。",
+            "en": "Write your fictional character placing the ticket in a journal with one observation from that moment."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列这张车票可能引出的三段剧情，看看哪一段放在前面。",
+            "en": "List three possible scenes arising from the ticket and decide which might come first."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让一位角色分享它唤起的普通小回忆，其他人可以静静听。",
+            "en": "Let a character share an ordinary small memory it evokes while others can listen."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把票面站名和地图标记对照，找出值得继续问的细节。",
+            "en": "Compare its station name with map marks and find a detail worth asking about."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_13",
+      "prompt": {
+        "zh": "营地准备办一个“旧城记忆日”，你更想让自己的虚构角色负责哪一段？",
+        "en": "The camp is preparing an Old Town Memory Day. Which part would you like your fictional character to take?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把收集、布置和分享排成短剧情单，给临时改变留一点余地。",
+            "en": "Sequence collecting, setting out and sharing on a short scene list with room for changes."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意说的人分享一件普通小事，不想说的人也能安静参与。",
+            "en": "Invite willing characters to share an ordinary small memory while others can join quietly."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对照不同旧照片卡上的招牌，发现一个一直没注意到的共同点。",
+            "en": "Compare signs on different fictional photo cards and discover an overlooked connection."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为纪念物卡画一面可重新排列的小模型墙。",
+            "en": "Draw a little model wall whose keepsake cards can be rearranged."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_14",
+      "prompt": {
+        "zh": "一位外出归来的虚构人物带回几件普通旧物，你更想写哪种相遇？",
+        "en": "A returning fictional character brings back a few ordinary old objects. Which encounter would you write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先让对方挑一件想讲或不想讲的物件，把谈话的节奏留给他自己。",
+            "en": "Let them choose an object to discuss or keep private and set their own pace."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察物件上的地名和日期，把新发现补到故事地图边缘。",
+            "en": "Notice place names and dates on the objects and add discoveries to the story map."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用纸片设计一个放小物的模型格架，比较两种展示方法。",
+            "en": "Design a paper model shelf for the objects and compare two ways of displaying them."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段向营地介绍这些新物件的短消息，标清哪些来历还不知道。",
+            "en": "Write a short camp announcement that distinguishes known origins from unanswered questions."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_15",
+      "prompt": {
+        "zh": "一封虚构来信提到旧城中从未命名的小广场，你更想接着做什么？",
+        "en": "A fictional letter mentions an unnamed little square in the old town. What would you choose next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把信里的方位描述和现有图案逐项比对，圈出仍缺的一条线索。",
+            "en": "Compare the letter’s descriptions with existing marks and circle one missing clue."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "画一个可摆进营地桌面的广场模型，给人物卡试几个位置。",
+            "en": "Draw a square model for the tabletop and try a few positions for character cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一封回信，只问一个想弄清的小问题，给对方留下回答空间。",
+            "en": "Write a reply with one particular question and room for the sender’s answer."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己的人物写一页独自想象广场的日志，保留还没确定的部分。",
+            "en": "Write your character’s private imagined view of the square, retaining what remains uncertain."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_16",
+      "prompt": {
+        "zh": "你们把一间空工作坊加入故事，但里面只有纸面道具。你更想先补哪一块？",
+        "en": "You add an empty workshop to the story, containing only paper props. Which part would you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给几件道具画可替换的零件卡，让模型可以换着拼。",
+            "en": "Draw interchangeable part cards for props so the model can be assembled in different ways."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一段说明，让不同虚构人物能清楚说出自己想尝试哪个道具。",
+            "en": "Write an introduction that lets different fictional characters state which prop they want to try."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的角色留一个小工作台视角，记录他独自完成的普通小片段。",
+            "en": "Give your character a small workbench viewpoint and record an ordinary moment they complete alone."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先排工作坊出现在这一章的前后关系，再决定哪些道具需要先被介绍。",
+            "en": "Place the workshop in the chapter sequence and decide which props need introducing first."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_17",
+      "prompt": {
+        "zh": "营地想把几段不同的旧城记忆做成一张公共页面，你更愿意写哪部分？",
+        "en": "The camp wants to collect different old-town memories on one shared page. Which part would you write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给每段记忆留作者愿意公开的范围，并写清哪里可以继续补充。",
+            "en": "Let each memory keep the contributor’s chosen public scope and mark where additions can go."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先给自己的人物保留一份私人版本，只拿出愿意分享的一小段。",
+            "en": "Keep a private version for your character and share only a chosen small part."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把收集、核对和展示分成几个故事步骤，避免一页承担所有情节。",
+            "en": "Divide collecting, checking and displaying into story steps rather than putting every scene on one page."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让不想公开讲述的虚构人物也能选择一个舒服的旁观位置。",
+            "en": "Give fictional characters who do not want to share a comfortable way to watch."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_18",
+      "prompt": {
+        "zh": "这一章要用一个安静的营地傍晚收尾，你最想写哪种画面？",
+        "en": "This chapter closes on a quiet camp evening. Which image would you like to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的角色在小桌边写下一句今天独有的观察，然后合上日志。",
+            "en": "Your character writes one observation unique to today at a small table, then closes the journal."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张留有空白的明日剧情卡，让后面的安排还能慢慢调整。",
+            "en": "A next-day scene card keeps blank spaces so later plans can still change."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两位虚构人物问问彼此想聊天还是安静坐着，接受各自的选择。",
+            "en": "Two fictional characters ask whether each wants conversation or quiet and accept both choices."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "地图边缘新添一个小标记，提醒下一章还有未被解释的地方。",
+            "en": "A small mark appears at the map’s edge, leaving an unexplained place for the next chapter."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_19",
+      "prompt": {
+        "zh": "旧图书室要成为新一章的共同活动点，你更想先补哪段剧情？",
+        "en": "The old reading room becomes a shared activity point in a new chapter. Which scene would you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "列出开门、摆好物件和第一次分享的先后顺序，标出可调整的一步。",
+            "en": "Sequence opening, setting out objects and first sharing, marking one step that can change."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让每位虚构人物选一个更愿意坐的位置，不急着要求大家发言。",
+            "en": "Let each fictional character choose a preferred seat without requiring immediate conversation."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从书脊卡和旧借阅章里找出一个能连接两段故事的细节。",
+            "en": "Find a detail connecting two stories in book-spine cards and old borrowing stamps."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用纸面格子摆一个可移动的书架模型，让人物卡有不同走法。",
+            "en": "Arrange a movable bookshelf model on paper squares with different paths for character cards."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_20",
+      "prompt": {
+        "zh": "一位虚构人物想在营地安排一个普通的休闲下午，你更愿意补写什么？",
+        "en": "A fictional character wants an ordinary afternoon of leisure in camp. What would you like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他更想安静画画、听故事还是暂时独处，保留不参加的选择。",
+            "en": "Ask whether they prefer drawing quietly, listening to a story or time alone, including a choice not to join."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找出营地图里一处从未写过的小角落，让这段下午有一个新背景。",
+            "en": "Find an unwritten little corner on the camp map as a fresh background for the afternoon."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画几件可替换的纸面活动道具，让场景能换着摆。",
+            "en": "Draw interchangeable paper activity props so the scene can be arranged in different ways."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一张短邀请，把时间、内容和可以旁观的方式说清楚。",
+            "en": "Write a short invitation making the time, activity and option to watch clear."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_21",
+      "prompt": {
+        "zh": "一箱虚构物件卡被打乱，几张新标签和旧标签不一致，你更想怎样继续这段发现？",
+        "en": "A box of fictional object cards is mixed up, and several new labels differ from old ones. How would you continue the discovery?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种标签并排核对，写下观察到的差异，不急着给未知来历定论。",
+            "en": "Compare the labels side by side and note differences without settling unknown origins too quickly."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做一个分类展示的纸面模型，让不同版本能同时被看见。",
+            "en": "Make a paper display model that lets the different versions be seen together."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一条请人物补充所知来历的消息，把确定和猜测分开。",
+            "en": "Write a message inviting characters’ knowledge while separating certainty from guesses."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择一件物件，用自己的角色视角记录为什么想把它留下。",
+            "en": "Choose one object and record, in your character’s voice, why they want to keep it."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_22",
+      "prompt": {
+        "zh": "故事里的小车只是一件桌面道具，你们想给它增加一点新用途。你更想做哪部分？",
+        "en": "The story’s little cart is only a tabletop prop, and the group wants to give it another use. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画两套可替换的小纸面配件，比较放进模型后的样子。",
+            "en": "Draw two sets of interchangeable paper accessories and compare their appearance in the model."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让两位角色讨论各自想用这件道具表达什么，再留一个可选择的方案。",
+            "en": "Let two characters discuss what they want the prop to express and leave a choice between ideas."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的角色写一小段推着道具经过旧街景的独处片段。",
+            "en": "Write your character’s quiet moment taking the prop through an old street scene."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安排道具第一次出现、被注意和进入下一幕的顺序。",
+            "en": "Plan when the prop first appears, is noticed and enters the next scene."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_23",
+      "prompt": {
+        "zh": "营地收到两段不完全一致的虚构留言，你更愿意补写哪一步？",
+        "en": "The camp receives two fictional messages that do not quite agree. Which step would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个说法分别写清，回一条只询问差异的短消息。",
+            "en": "State the two accounts separately and reply with one short question about the difference."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让自己的角色在日志里记下困惑，保留暂时还不能解释的部分。",
+            "en": "Let your character record the puzzle in a journal and keep the unresolved part open."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把收到留言、核对和等待补充排成几个剧情节点。",
+            "en": "Sequence receiving, comparing and waiting for more detail as story points."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段人物互相确认是否想继续谈的对话，给暂停留出余地。",
+            "en": "Write characters checking whether each wants to keep talking, with room for a pause."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_24",
+      "prompt": {
+        "zh": "这段营地故事暂告一段落，若还能追加一页，你更想追问什么？",
+        "en": "The camp story closes for now. If you could add one page, which thread would you follow?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "某个角色一直留在私人日志里、还没说出口的一次小观察。",
+            "en": "One small observation a character has kept in a private journal without sharing yet."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果把两段剧情交换顺序，营地下一章会怎样展开。",
+            "en": "How swapping two scenes might change the camp’s next chapter."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一位角色更想怎样度过一个不必贡献任务的普通下午。",
+            "en": "How a character would like to spend an ordinary afternoon without needing to contribute a task."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "地图上那个始终没有名字的小地点，到底留下了什么线索。",
+            "en": "Which clue remains at the little place on the map that still has no name."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "本版只是虚构营地叙事偏好，不测真实生存、危机反应、急救、医疗、体力、工程或谈判能力，也不提供危险场景操作步骤、职业匹配或应急岗位分配。照护伙伴不是医疗资质，模型搭建者不是工程水平，独行记录者不代表现实独自行动更安全。六组是本站原创编辑入口，不是灾害研究证实的六种普世人类类型；既不复制竞品题本、正文或图像，也不声称常模、效度或跨语言等价。真实应急需要看具体风险和官方安排，趣味计数不能替代。",
+    "en": "This edition concerns fictional camp-story preferences, not actual survival, crisis response, first aid, medicine, physical capacity, engineering or negotiation skills. It provides no hazardous-situation procedures, career matching or emergency role allocation. Care Companion is no medical qualification, Model Builder no engineering assessment, and Solo Chronicler no claim that acting alone is safer. Six original editorial openings are not six universal human types established by disaster research. No competitor bank, text or artwork is copied, and no norms, validity or language equivalence are established. Actual emergencies depend on particular risks and official arrangements; playful counts cannot replace those."
+  },
+  "instructions": {
+    "zh": "所有场面都属于共同编造的末日之后桌面故事，只选这次更想写或参与的一段，不按现实专业能力、善良程度或真实灾难中应该怎样做来回答。四项是六个原创叙事入口中的轮换菜单，不穷尽角色可能；都不合适可以停止，六份全文仍免费。每组出现16次、在四个位置各4次、省略8次；每选一项加1，无对错、反向、能力权重或计时。完整24题后比较原始次数，全部最高并列保留全文，不硬派主副型。全选同一位置会六组各4，不证明理想团队。无需制作道具、外出、上传地图、真实地址或私人经历。",
+    "en": "Every scene belongs to a jointly invented tabletop story set after an imagined apocalypse. Choose the part you would prefer to write or join on this attempt, not actual professional ability, goodness or what should be done in a real disaster. Four options rotate among six original narrative openings without exhausting possible roles. Leave if none fits; all six guides remain free. Each group appears sixteen times, four in each position, and is omitted eight times. Every choice adds one count without correctness, reversals, ability weights or timing. Complete all twenty-four to compare raw counts and retain every highest tie in full, without forced primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Make no props, go nowhere and submit no maps, actual addresses or private experiences."
+  },
+  "scoring": {
+    "kind": "archetype",
+    "questions": 24,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 16,
+    "positionsEach": 4,
+    "omittedEach": 8,
+    "reverseItems": [],
+    "completeCountVectors": 111609,
+    "highestSets": 57,
+    "meaning": "Fictionalcamp/tabletopnarrativepreferences;notactualsurvival/medical/engineering/physical/negotiation/leadershipability/jobfit.Allhighesttiesfull/noforcedprimarysecondary/percent."
+  },
+  "sourceRead": "CurrentJobCannonEN51ZH39/sixguidebodyranges+strengthsgrowthedges/careerFAQlabels/about62/entryZH41read;notallFAQexpandedanswers. All10questions/40optionsandonefirst-optionactualsettledStrategist90Medic17sixcardsread. InitialQuestionprefixguardwrongactualStrongstartQ4/publicflowadvanced,notbrokenflow. Noall6answerpatterns/tie/formula/paidreport/accountsaveverified. CDCStayConnected25-33actualplanningcontextonly/notquizvalidation;ReadyandMass403notbypassed. All24specificpaperscenes96options6rolesandfullguidesoriginal. RelatedSuperpower20prompts/Jung12directions/mini21keysread;currentbankexactpromptduplicates0/notpsychologicalindependence/finalFJpending."
+}

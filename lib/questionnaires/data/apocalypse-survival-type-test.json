@@ -1,0 +1,2125 @@
+{
+  "slug": "apocalypse-survival-type-test",
+  "code": "APOCALYPSE_CAMP_ROLES_ORIGINAL_24",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "启示录生存类型测试",
+    "en": "Apocalypse Survival Type Test"
+  },
+  "resultHeading": {
+    "zh": "六种虚构营地角色：次数与完整读法",
+    "en": "Six fictional camp roles: counts and full guides"
+  },
+  "description": {
+    "zh": "免费启示录生存类型测试：24道原创纸面营地情境，探索六种虚构角色偏好，读六份九节完整结果与全部最高并列。不是实际生存能力评估。",
+    "en": "Free Apocalypse Survival Type Test: 24 original paper-camp scenes, six full fictional-role guides and every highest tie. Not an actual survival assessment."
+  },
+  "seoTitle": {
+    "zh": "启示录生存类型测试：六种虚构角色与完整结果",
+    "en": "Apocalypse Survival Type Test: Six Roles, Full Results"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "一张旧地图、几张展览卡片、一页还没写完的营地故事：你更想先参与哪一部分？用24个原创纸面情境，探索营地统筹者、照护伙伴、地图观察员、模型搭建者、消息联络员与独行记录者六种叙事入口。六份九节完整结果提供具体场面、写法取舍、相近角色比较与小尝试。“启示录生存”是虚构故事背景；本版不评估真实灾难中的生存、医疗、体力、工程、谈判或领导能力，不给危险操作步骤，也不提供职业匹配。六组不是通用灾难角色或科学人格类型。每组曝光相同，完整24题后读原始次数，全部最高并列都保留全文。可以先读再作答、修改或重测；无需账号、地址、照片或真实经历。草稿自愿开启，在本标签页最多保留24小时；分享只含结果名与公开链接。",
+    "en": "An old map, a few exhibition cards and a camp story with a blank page: which part would you prefer to join first? Across twenty-four original paper scenes, explore six narrative openings: Camp Planner, Care Companion, Map Scout, Model Builder, Message Diplomat and Solo Chronicler. Six nine-section guides offer particular scenes, writing tradeoffs, comparisons and small experiments. Apocalypse survival supplies a fictional setting. This edition assesses no actual disaster survival, medicine, physical capacity, engineering, negotiation or leadership, provides no hazardous procedures and recommends no careers. The six groups are neither universal disaster roles nor scientific personality types. Equal exposure produces raw counts after all twenty-four choices, retaining every highest tie in full. Read first, answer, edit or retake without an account, address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours; sharing includes only names and public links."
+  },
+  "instructions": {
+    "zh": "所有场面都属于共同编造的末日之后桌面故事，只选这次更想写或参与的一段，不按现实专业能力、善良程度或真实灾难中应该怎样做来回答。四项是六个原创叙事入口中的轮换菜单，不穷尽角色可能；都不合适可以停止，六份全文仍免费。每组出现16次、在四个位置各4次、省略8次；每选一项加1，无对错、反向、能力权重或计时。完整24题后比较原始次数，全部最高并列保留全文，不硬派主副型。全选同一位置会六组各4，不证明理想团队。无需制作道具、外出、上传地图、真实地址或私人经历。",
+    "en": "Every scene belongs to a jointly invented tabletop story set after an imagined apocalypse. Choose the part you would prefer to write or join on this attempt, not actual professional ability, goodness or what should be done in a real disaster. Four options rotate among six original narrative openings without exhausting possible roles. Leave if none fits; all six guides remain free. Each group appears sixteen times, four in each position, and is omitted eight times. Every choice adds one count without correctness, reversals, ability weights or timing. Complete all twenty-four to compare raw counts and retain every highest tie in full, without forced primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Make no props, go nowhere and submit no maps, actual addresses or private experiences."
+  },
+  "source": {
+    "kind": "frontend_original_fictional_camp_role_preferences",
+    "formCode": "fm_apocalypse_camp_story_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "9856bed8986d3e619dd0adb40ac0e4397d50e83efa39a6c178d159ac4131bbbc",
+    "resultContentSha256": "aceb167355672113b05a2ac2332566a759334b9085442e2197d0bc91c10d29fd",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "camp-planner",
+      "title": {
+        "zh": "营地统筹者",
+        "en": "Camp Planner"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "care-companion",
+      "title": {
+        "zh": "照护伙伴",
+        "en": "Care Companion"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "map-scout",
+      "title": {
+        "zh": "地图观察员",
+        "en": "Map Scout"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "model-builder",
+      "title": {
+        "zh": "模型搭建者",
+        "en": "Model Builder"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "message-diplomat",
+      "title": {
+        "zh": "消息联络员",
+        "en": "Message Diplomat"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "solo-chronicler",
+      "title": {
+        "zh": "独行记录者",
+        "en": "Solo Chronicler"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "CAMP_01",
+      "prompt": {
+        "zh": "你和同伴在编一个末日之后的营地故事。第一幕是一座空车站，哪段纸面任务更想由你来写？",
+        "en": "You and friends are creating a camp story set after an imagined apocalypse. Its first scene is an empty station. Which paper-based task would you most like to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把营地开场的三件小事排出顺序，给每件留一个可以调整的位置。",
+            "en": "Sequence three small opening tasks, leaving room to revise each one."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让每位虚构人物说说，第一晚最想保留的一点舒适是什么。",
+            "en": "Give each fictional character a line about one comfort they would like on the first evening."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比对地图上的旧站名，圈出故事还没解释的几个位置。",
+            "en": "Compare old station names on the map and circle places the story has not explained."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用几块现有纸片摆出可移动的营地小模型，试两种布局。",
+            "en": "Arrange existing paper pieces into a movable camp model and try two layouts."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_02",
+      "prompt": {
+        "zh": "故事里来了两位新人物，你更想补写他们到营地后的哪一小段？",
+        "en": "Two new characters arrive in the story. Which small part of their arrival would you like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他们想先安静坐一会儿，还是介绍自己喜欢的小物件。",
+            "en": "Let them choose between sitting quietly first and introducing a favourite small object."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听他们描述沿途见过的招牌，把新线索补到虚构地图上。",
+            "en": "Hear which signs they noticed on the way and add those clues to the fictional map."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给他们的纸面行李做两枚小标签，让模型里有一个放置位置。",
+            "en": "Make two little labels for their paper luggage and give it a place in the model."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段欢迎词，说明可以参与哪些小活动，也可以暂时旁观。",
+            "en": "Write a welcome explaining which small activities they can join or simply watch."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_03",
+      "prompt": {
+        "zh": "旧博物馆留下一盒没有说明的展品卡，下一页更想写哪一条线？",
+        "en": "An old museum has a box of exhibit cards without descriptions. Which thread would you write next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "按卡片上残留的地名寻找对应关系，列出仍不确定的地方。",
+            "en": "Match the remaining place names and list what is still uncertain."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给卡片设计一个能反复调整的纸面展示架草图。",
+            "en": "Sketch an adjustable paper display stand for the cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一张请其他虚构居民补充记忆的便条，给不知道的部分留空。",
+            "en": "Write a note inviting fictional residents to add memories, leaving unknown parts open."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "独自给一张最想留下的卡写短注，记录自己注意到的细节。",
+            "en": "Write a private short note about one card you want to keep and its details."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_04",
+      "prompt": {
+        "zh": "营地模型的两块纸面区域之间少了一段连接，哪种补写更吸引你？",
+        "en": "Two areas in the camp model have an unfinished connection. Which addition appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画几种小模型连接件，在纸面比较摆放后是否方便移动人物卡。",
+            "en": "Sketch model connectors and compare how they let character cards move on paper."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一块虚构指示牌，让人物知道这一段在故事里通向哪里。",
+            "en": "Write a fictional sign telling characters where this part of the story leads."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的虚构角色画一条小路线，并记下沿线想看的东西。",
+            "en": "Draw a small route for your fictional character and note what they want to see."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先列连接完成前后的剧情顺序，再决定模型这一步放在哪里。",
+            "en": "List the story sequence before and after the connection and place the model step within it."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_05",
+      "prompt": {
+        "zh": "你们要给虚构营地录一段普通留言，不使用真实联络信息。你更想负责哪部分？",
+        "en": "You are making an ordinary message for the fictional camp without real contact information. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把已知情况和想问的问题分开，写成别人能接话的短留言。",
+            "en": "Separate known details from questions and write a short message others can answer."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在自己的角色日志里记下这段留言，保留一个还没想明白的疑问。",
+            "en": "Record the message in your character’s journal with one unresolved question."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "安排故事中留言出现、收到回复和再讨论的先后节点。",
+            "en": "Plan when the message, a reply and a later discussion occur in the story."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给每个虚构人物留一次愿意说或暂时不说的选择。",
+            "en": "Give each fictional character a choice to speak or pass for now."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_06",
+      "prompt": {
+        "zh": "第一章结束，角色可以带走一个你们自己画的小物件。你更想画哪一种？",
+        "en": "At the end of the first chapter, a character can keep one object you draw yourselves. Which would you draw?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一本小日志，收着这个角色自己看到但还没分享的片段。",
+            "en": "A little journal holding details this character noticed but has not shared yet."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张可重排的营地日程卡，给下一章留出几个空位。",
+            "en": "A rearrangeable camp schedule card with open spaces for the next chapter."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一张舒适角落的小图，写着角色愿意给别人留下的一点照应。",
+            "en": "A small drawing of a comfortable corner and one kindness the character would offer."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一张带着未命名地点的地图，让下一章还有可探索的空白。",
+            "en": "A map with unnamed places, leaving open areas for the next chapter."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_07",
+      "prompt": {
+        "zh": "故事里的旧温室想办第一次小型展示，你更想给这段情节加什么？",
+        "en": "The story’s old greenhouse is hosting its first little display. What would you add to this scene?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "排一张展示前后的剧情顺序卡，留出让大家临时换想法的空格。",
+            "en": "Arrange a before-and-after scene card with space for everyone to change an idea."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给一位有点拘谨的虚构人物写一个可以先旁观的温柔开场。",
+            "en": "Write a gentle entrance that lets a hesitant fictional character watch first."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "找出温室旧标签之间有趣的差别，把它们变成下一章的线索。",
+            "en": "Find interesting differences between old greenhouse labels and turn them into clues."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "画一套小展台的纸面模型，让物件卡可以换位置。",
+            "en": "Draw a paper display model with movable places for object cards."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_08",
+      "prompt": {
+        "zh": "营地开了一个只交换虚构纪念物的小集市，你更愿意描写哪部分？",
+        "en": "The camp opens a little market exchanging only fictional keepsakes. Which part would you describe?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让角色先讲讲某件小物为何让自己觉得熟悉和安心。",
+            "en": "Let a character explain why one little object feels familiar and comforting."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察摊位牌上的旧地名，发现两段故事原来指向同一个地方。",
+            "en": "Notice old place names on stall signs and connect two stories to one location."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计几格可折换的模型摊位，用来展示不同物件卡。",
+            "en": "Design rearrangeable model stalls for different object cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给第一次交换物件的两位角色写一段能互相提问的对话。",
+            "en": "Write an exchange in which two first-time visitors can ask each other questions."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_09",
+      "prompt": {
+        "zh": "旧城钟楼的明信片背面只留下几个图案，你更想怎样续写发现过程？",
+        "en": "A postcard from the old clock tower has only a few marks on its back. How would you continue the discovery?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "逐个比对图案和现有地图，保留暂时解释不通的细节。",
+            "en": "Compare each mark with the map and retain details that do not yet fit."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把明信片画进一个可翻开的纸面钟楼模型里，让线索能被展示。",
+            "en": "Place the postcard inside a fold-open paper clock-tower model that can display the clue."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一张请其他虚构居民说说是否见过图案的短便条。",
+            "en": "Write a short note asking fictional residents whether they recognise the marks."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用自己的角色视角写一页日志，记录第一次看见这些图案的感觉。",
+            "en": "Write a journal page in your character’s voice about first seeing the marks."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_10",
+      "prompt": {
+        "zh": "这一章下了一整天虚构的雨，大家在桌上重排营地场景。你更想承担什么？",
+        "en": "It rains throughout this fictional chapter, and the group rearranges its tabletop camp scene. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "重新摆放纸面屋顶和人物卡，比较两种模型画面的层次。",
+            "en": "Rearrange paper roofs and character cards to compare two model compositions."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让人物轮流说出想保留的场景细节，整理成一张短共识卡。",
+            "en": "Let characters name scene details they want to keep and collect them on a short agreement card."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的人物写一段窗边小日志，观察同一场雨的不同片刻。",
+            "en": "Write a little window-side journal for your character, noticing different moments in the same rain."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安排雨前、雨中和雨后各出现哪段剧情，先保留可调整的顺序。",
+            "en": "Plan which scene appears before, during and after the rain, leaving the order revisable."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_11",
+      "prompt": {
+        "zh": "两位虚构人物想给公共角落起不同名字，你更愿意补写哪段？",
+        "en": "Two fictional characters prefer different names for a shared corner. Which part would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "让他们各说名字想表达的意思，再写一个可以继续商量的结尾。",
+            "en": "Let each explain the meaning they want, ending with room for more discussion."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给自己的角色留一页私下记录，写下更想用哪个名字及原因。",
+            "en": "Give your character a private page recording a preferred name and a reason."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把提名、讨论和暂定名字分成三个剧情节点。",
+            "en": "Divide naming suggestions, discussion and a provisional choice into three story points."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让角色先问彼此是否想歇一下，给这段讨论留一点轻松的余地。",
+            "en": "Have the characters ask whether either wants a break, giving the scene some breathing room."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_12",
+      "prompt": {
+        "zh": "一张旧车票可以成为下一章的开头，你更想从哪里写起？",
+        "en": "An old ticket can open the next chapter. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "写自己的虚构角色把车票夹进日志，留下一句只属于这一刻的观察。",
+            "en": "Write your fictional character placing the ticket in a journal with one observation from that moment."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先列这张车票可能引出的三段剧情，看看哪一段放在前面。",
+            "en": "List three possible scenes arising from the ticket and decide which might come first."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "让一位角色分享它唤起的普通小回忆，其他人可以静静听。",
+            "en": "Let a character share an ordinary small memory it evokes while others can listen."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把票面站名和地图标记对照，找出值得继续问的细节。",
+            "en": "Compare its station name with map marks and find a detail worth asking about."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_13",
+      "prompt": {
+        "zh": "营地准备办一个“旧城记忆日”，你更想让自己的虚构角色负责哪一段？",
+        "en": "The camp is preparing an Old Town Memory Day. Which part would you like your fictional character to take?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把收集、布置和分享排成短剧情单，给临时改变留一点余地。",
+            "en": "Sequence collecting, setting out and sharing on a short scene list with room for changes."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "邀请愿意说的人分享一件普通小事，不想说的人也能安静参与。",
+            "en": "Invite willing characters to share an ordinary small memory while others can join quietly."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对照不同旧照片卡上的招牌，发现一个一直没注意到的共同点。",
+            "en": "Compare signs on different fictional photo cards and discover an overlooked connection."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "为纪念物卡画一面可重新排列的小模型墙。",
+            "en": "Draw a little model wall whose keepsake cards can be rearranged."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_14",
+      "prompt": {
+        "zh": "一位外出归来的虚构人物带回几件普通旧物，你更想写哪种相遇？",
+        "en": "A returning fictional character brings back a few ordinary old objects. Which encounter would you write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先让对方挑一件想讲或不想讲的物件，把谈话的节奏留给他自己。",
+            "en": "Let them choose an object to discuss or keep private and set their own pace."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察物件上的地名和日期，把新发现补到故事地图边缘。",
+            "en": "Notice place names and dates on the objects and add discoveries to the story map."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用纸片设计一个放小物的模型格架，比较两种展示方法。",
+            "en": "Design a paper model shelf for the objects and compare two ways of displaying them."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段向营地介绍这些新物件的短消息，标清哪些来历还不知道。",
+            "en": "Write a short camp announcement that distinguishes known origins from unanswered questions."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_15",
+      "prompt": {
+        "zh": "一封虚构来信提到旧城中从未命名的小广场，你更想接着做什么？",
+        "en": "A fictional letter mentions an unnamed little square in the old town. What would you choose next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把信里的方位描述和现有图案逐项比对，圈出仍缺的一条线索。",
+            "en": "Compare the letter’s descriptions with existing marks and circle one missing clue."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "画一个可摆进营地桌面的广场模型，给人物卡试几个位置。",
+            "en": "Draw a square model for the tabletop and try a few positions for character cards."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一封回信，只问一个想弄清的小问题，给对方留下回答空间。",
+            "en": "Write a reply with one particular question and room for the sender’s answer."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给自己的人物写一页独自想象广场的日志，保留还没确定的部分。",
+            "en": "Write your character’s private imagined view of the square, retaining what remains uncertain."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_16",
+      "prompt": {
+        "zh": "你们把一间空工作坊加入故事，但里面只有纸面道具。你更想先补哪一块？",
+        "en": "You add an empty workshop to the story, containing only paper props. Which part would you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给几件道具画可替换的零件卡，让模型可以换着拼。",
+            "en": "Draw interchangeable part cards for props so the model can be assembled in different ways."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "写一段说明，让不同虚构人物能清楚说出自己想尝试哪个道具。",
+            "en": "Write an introduction that lets different fictional characters state which prop they want to try."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的角色留一个小工作台视角，记录他独自完成的普通小片段。",
+            "en": "Give your character a small workbench viewpoint and record an ordinary moment they complete alone."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先排工作坊出现在这一章的前后关系，再决定哪些道具需要先被介绍。",
+            "en": "Place the workshop in the chapter sequence and decide which props need introducing first."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_17",
+      "prompt": {
+        "zh": "营地想把几段不同的旧城记忆做成一张公共页面，你更愿意写哪部分？",
+        "en": "The camp wants to collect different old-town memories on one shared page. Which part would you write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给每段记忆留作者愿意公开的范围，并写清哪里可以继续补充。",
+            "en": "Let each memory keep the contributor’s chosen public scope and mark where additions can go."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先给自己的人物保留一份私人版本，只拿出愿意分享的一小段。",
+            "en": "Keep a private version for your character and share only a chosen small part."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把收集、核对和展示分成几个故事步骤，避免一页承担所有情节。",
+            "en": "Divide collecting, checking and displaying into story steps rather than putting every scene on one page."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让不想公开讲述的虚构人物也能选择一个舒服的旁观位置。",
+            "en": "Give fictional characters who do not want to share a comfortable way to watch."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_18",
+      "prompt": {
+        "zh": "这一章要用一个安静的营地傍晚收尾，你最想写哪种画面？",
+        "en": "This chapter closes on a quiet camp evening. Which image would you like to write?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的角色在小桌边写下一句今天独有的观察，然后合上日志。",
+            "en": "Your character writes one observation unique to today at a small table, then closes the journal."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一张留有空白的明日剧情卡，让后面的安排还能慢慢调整。",
+            "en": "A next-day scene card keeps blank spaces so later plans can still change."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两位虚构人物问问彼此想聊天还是安静坐着，接受各自的选择。",
+            "en": "Two fictional characters ask whether each wants conversation or quiet and accept both choices."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "地图边缘新添一个小标记，提醒下一章还有未被解释的地方。",
+            "en": "A small mark appears at the map’s edge, leaving an unexplained place for the next chapter."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_19",
+      "prompt": {
+        "zh": "旧图书室要成为新一章的共同活动点，你更想先补哪段剧情？",
+        "en": "The old reading room becomes a shared activity point in a new chapter. Which scene would you add first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "列出开门、摆好物件和第一次分享的先后顺序，标出可调整的一步。",
+            "en": "Sequence opening, setting out objects and first sharing, marking one step that can change."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让每位虚构人物选一个更愿意坐的位置，不急着要求大家发言。",
+            "en": "Let each fictional character choose a preferred seat without requiring immediate conversation."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "从书脊卡和旧借阅章里找出一个能连接两段故事的细节。",
+            "en": "Find a detail connecting two stories in book-spine cards and old borrowing stamps."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用纸面格子摆一个可移动的书架模型，让人物卡有不同走法。",
+            "en": "Arrange a movable bookshelf model on paper squares with different paths for character cards."
+          },
+          "directionId": "model-builder"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_20",
+      "prompt": {
+        "zh": "一位虚构人物想在营地安排一个普通的休闲下午，你更愿意补写什么？",
+        "en": "A fictional character wants an ordinary afternoon of leisure in camp. What would you like to add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问他更想安静画画、听故事还是暂时独处，保留不参加的选择。",
+            "en": "Ask whether they prefer drawing quietly, listening to a story or time alone, including a choice not to join."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找出营地图里一处从未写过的小角落，让这段下午有一个新背景。",
+            "en": "Find an unwritten little corner on the camp map as a fresh background for the afternoon."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "画几件可替换的纸面活动道具，让场景能换着摆。",
+            "en": "Draw interchangeable paper activity props so the scene can be arranged in different ways."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一张短邀请，把时间、内容和可以旁观的方式说清楚。",
+            "en": "Write a short invitation making the time, activity and option to watch clear."
+          },
+          "directionId": "message-diplomat"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_21",
+      "prompt": {
+        "zh": "一箱虚构物件卡被打乱，几张新标签和旧标签不一致，你更想怎样继续这段发现？",
+        "en": "A box of fictional object cards is mixed up, and several new labels differ from old ones. How would you continue the discovery?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种标签并排核对，写下观察到的差异，不急着给未知来历定论。",
+            "en": "Compare the labels side by side and note differences without settling unknown origins too quickly."
+          },
+          "directionId": "map-scout"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "做一个分类展示的纸面模型，让不同版本能同时被看见。",
+            "en": "Make a paper display model that lets the different versions be seen together."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一条请人物补充所知来历的消息，把确定和猜测分开。",
+            "en": "Write a message inviting characters’ knowledge while separating certainty from guesses."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选择一件物件，用自己的角色视角记录为什么想把它留下。",
+            "en": "Choose one object and record, in your character’s voice, why they want to keep it."
+          },
+          "directionId": "solo-chronicler"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_22",
+      "prompt": {
+        "zh": "故事里的小车只是一件桌面道具，你们想给它增加一点新用途。你更想做哪部分？",
+        "en": "The story’s little cart is only a tabletop prop, and the group wants to give it another use. Which part would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "画两套可替换的小纸面配件，比较放进模型后的样子。",
+            "en": "Draw two sets of interchangeable paper accessories and compare their appearance in the model."
+          },
+          "directionId": "model-builder"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让两位角色讨论各自想用这件道具表达什么，再留一个可选择的方案。",
+            "en": "Let two characters discuss what they want the prop to express and leave a choice between ideas."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的角色写一小段推着道具经过旧街景的独处片段。",
+            "en": "Write your character’s quiet moment taking the prop through an old street scene."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "安排道具第一次出现、被注意和进入下一幕的顺序。",
+            "en": "Plan when the prop first appears, is noticed and enters the next scene."
+          },
+          "directionId": "camp-planner"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_23",
+      "prompt": {
+        "zh": "营地收到两段不完全一致的虚构留言，你更愿意补写哪一步？",
+        "en": "The camp receives two fictional messages that do not quite agree. Which step would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两个说法分别写清，回一条只询问差异的短消息。",
+            "en": "State the two accounts separately and reply with one short question about the difference."
+          },
+          "directionId": "message-diplomat"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让自己的角色在日志里记下困惑，保留暂时还不能解释的部分。",
+            "en": "Let your character record the puzzle in a journal and keep the unresolved part open."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把收到留言、核对和等待补充排成几个剧情节点。",
+            "en": "Sequence receiving, comparing and waiting for more detail as story points."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写一段人物互相确认是否想继续谈的对话，给暂停留出余地。",
+            "en": "Write characters checking whether each wants to keep talking, with room for a pause."
+          },
+          "directionId": "care-companion"
+        }
+      ]
+    },
+    {
+      "id": "CAMP_24",
+      "prompt": {
+        "zh": "这段营地故事暂告一段落，若还能追加一页，你更想追问什么？",
+        "en": "The camp story closes for now. If you could add one page, which thread would you follow?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "某个角色一直留在私人日志里、还没说出口的一次小观察。",
+            "en": "One small observation a character has kept in a private journal without sharing yet."
+          },
+          "directionId": "solo-chronicler"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "如果把两段剧情交换顺序，营地下一章会怎样展开。",
+            "en": "How swapping two scenes might change the camp’s next chapter."
+          },
+          "directionId": "camp-planner"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一位角色更想怎样度过一个不必贡献任务的普通下午。",
+            "en": "How a character would like to spend an ordinary afternoon without needing to contribute a task."
+          },
+          "directionId": "care-companion"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "地图上那个始终没有名字的小地点，到底留下了什么线索。",
+            "en": "Which clue remains at the little place on the map that still has no name."
+          },
+          "directionId": "map-scout"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "camp-planner",
+      "directionIds": [
+        "camp-planner"
+      ],
+      "title": {
+        "zh": "营地统筹者",
+        "en": "Camp Planner"
+      },
+      "headline": {
+        "zh": "给下一幕留一个位置，也给还没决定的部分留白。",
+        "en": "Give the next scene a place and leave room for what is undecided."
+      },
+      "summary": {
+        "zh": "在这份纸面营地故事菜单里，你更常选先排顺序、划分剧情节点或给变化留空位。营地统筹者读的是本次叙事偏好，不证明危机决策、领导力、记忆、资源调度或真实生存能力。",
+        "en": "In these paper-camp story menus, you more often chose sequences, scene points and space for revision. Camp Planner describes this narrative preference, not crisis decisions, leadership, memory, resource management or actual survival ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "营地统筹者结果：启示录生存类型测试完整读法",
+          "en": "Camp Planner: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从空车站开场、旧城记忆日和图书室的具体剧情读营地统筹者结果，看可调整的顺序、相近角色、近分与全部最高并列全文。",
+          "en": "Read the Camp Planner result: story sequences, revisable plans and room for other roles. Compare close counts and try a fictional writing exercise."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常把哪种工作放到前面",
+            "en": "The part you more often placed first"
+          },
+          "paragraphs": [
+            {
+              "zh": "营地刚出现时，你可能先想三件小事怎样接起来；办旧城记忆日时，你可能先把收集、布置和分享分开。这个入口关心的是剧情之间的连接，而不是把每个人安排进一个固定位置。回看一个选项，找出你更喜欢的是先后顺序、给变化留空，还是让一页不承担全部情节。三者可以分别吸引你，整个角色名字也可以只暂时作为阅读入口。",
+              "en": "When the camp first appears, you may want three small events to connect; for Memory Day, collecting, arranging and sharing may become separate scenes. This opening concerns connections between story moments rather than placing everyone in a fixed role. Revisit one selected option and separate its sequence, room for change and decision not to fit every event onto one page. Each may appeal for a different reason. The role’s name can remain a temporary reading entry point instead of travelling with every preference you notice."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把车站开场排成三张小卡",
+            "en": "Arrange the station opening in three little cards"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象把第一幕写成三张卡：“看见空车站”“人物挑一个停留角落”“收到一张旧地图”。可以先排出一个顺序，再在两张之间留空，给同伴加入新想法。你不需要真的做卡片，也不用计算任何现实物资。这个小例子让“统筹”落到叙事关系上：前一幕给后一幕留下什么问题，哪一步还可以换位置。它不是一份营地建设方案，也没有正确的末日生存顺序。",
+              "en": "Imagine three cards: seeing the empty station, characters choosing a corner and receiving an old map. Arrange them, then leave a space between two so a collaborator can add an idea. No actual cards or calculations of real supplies are needed. The example makes planning a relation between scenes: what question one moment leaves for another and which step can move. It is not a camp-building plan and provides no correct survival sequence. A different order may simply produce a different story you prefer."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "顺序可以帮助读者看见变化",
+            "en": "A sequence can make a change visible to a reader"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一件纸面道具，在人物到来之前出现，和在告别时才被发现，会带出不同的阅读感觉。你可以用这种差别给小场面留一个转折，而不是一开始就解释全部来历。营地统筹者并不需要拥有所有答案；空位本身也可以成为安排的一部分。题目只是让你选择是否更想先组织这一层，没有观察你在现实压力下是否镇定、能否比别人想到更远的事。",
+              "en": "The same paper prop can feel different when it appears before an arrival or is discovered at a farewell. Use that difference to give a small scene a turn rather than explain its whole history immediately. Camp Planner need not have every answer; an open space can itself belong to the arrangement. The menus ask whether you would like to organise this layer first. They have not observed calmness under actual pressure or an ability to anticipate events further ahead than other people."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "一张局部清单也能属于这个入口",
+            "en": "A local little list can be enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "你不必把整座旧城排到最后一章。只安排图书室第一次分享的三步，或只决定一条留言何时出现，也可以使用这一组线索。随后，你可以改去写人物对话、看地图细节，甚至把原来的顺序全部拿掉。角色之间能够切换，不需要维护“我必须负责计划”的身份。一次最高计数不能证明你在现实小组里应该当负责人，也不要求别人按你的剧情草稿行动。",
+              "en": "There is no need to plot the old town through its final chapter. Arrange only the reading room’s first sharing scene or decide when one message appears. Then write dialogue, examine map details or discard the order entirely. Moving between openings requires no identity as the person who must plan. A highest count does not establish who should coordinate an actual group, and nobody is required to follow your draft. Keep the amount of structure that makes this particular fictional scene interesting to you."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "草稿的顺序可以被后来的一句话改变",
+            "en": "A later line can change the draft’s order"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每张卡都提前写得很满，同伴新写的一句普通台词可能找不到位置。可以试着把一张卡留空，或只给它写标题，看看是否更想继续这个故事。也可能你正喜欢结构紧密的版本，那就保留它，与另一版比较即可。这是一次创作上的取舍，不是在诊断你过度控制、缺少行动力或不关心他人；纸面菜单没有那样的行为证据。",
+              "en": "When every card is filled in advance, a collaborator’s ordinary new line may have nowhere to go. Leave one card empty or give it only a heading and compare whether the story becomes more inviting to continue. A tightly structured version may be what you like, in which case keep it alongside an alternative. This is a creative tradeoff rather than a diagnosis of overcontrol, inaction or lack of care. The offered menus contain no behavioural observations establishing those conclusions."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与地图观察员、消息联络员怎么比",
+            "en": "Compare a map detail and a shared message"
+          },
+          "paragraphs": [
+            {
+              "zh": "地图观察员可能先注意旧站名与标签之间的关系，营地统筹者更常先问这些发现放在哪一幕。消息联络员可能先想留言怎样让另一位人物接得上话，统筹者则先安排留言、回复和讨论的顺序。三个入口可以出现在同一页里。近分时读另一份全文，是比较你想写哪一层，不是判断谁更聪明、谁是天然领袖，或哪种组合能让现实队伍更安全。",
+              "en": "Map Scout may first notice a relationship between station names and labels; Camp Planner more often asks where the discovery belongs in the sequence. Message Diplomat may first consider wording another character can answer, while Camp Planner arranges the message, reply and discussion. All three layers can share a page. Close counts invite another full guide to compare what you want to write. They identify neither greater intelligence or natural leadership nor a combination that makes an actual group safer."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只交换两幕，看看故事怎样不同",
+            "en": "Swap two scenes and notice the different story"
+          },
+          "paragraphs": [
+            {
+              "zh": "沿用车站、人物和旧地图，先写一个三步顺序，再只把其中两步交换。比较哪一版更让你想补下一句话，也可以都保留。不要把这当成应急演练、准备程度测验或正确率练习；场景、人物和地图都只需存在于想象中。最后带走一句关于故事的观察，例如“晚一点出现的地图让我更想追问”。无需上传草稿，也不用据此给真实朋友分配角色。",
+              "en": "Use the station, characters and old map in a three-step order, then exchange only two steps. Compare which version makes you want to add a line, or retain both. This is no emergency drill, preparedness assessment or accuracy exercise; the setting, characters and map can remain entirely imagined. Keep one observation about the story, such as a later map making you want to ask another question. Upload no draft and allocate no roles to actual friends on the basis of the result."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "care-companion",
+      "directionIds": [
+        "care-companion"
+      ],
+      "title": {
+        "zh": "照护伙伴",
+        "en": "Care Companion"
+      },
+      "headline": {
+        "zh": "先给人物留一处可以说完话的地方。",
+        "en": "First leave a place where a character can finish a thought."
+      },
+      "summary": {
+        "zh": "你更常选人物的感受、被记住的小物与可自由加入的陪伴场面。照护伙伴读的是这份虚构营地菜单中的叙事兴趣，不证明医疗、共情能力、照护责任或现实危机角色。",
+        "en": "You more often chose feelings, remembered little objects and company characters can freely join. Care Companion concerns these fictional camp menus, not medicine, empathy ability, care obligations or an actual crisis role."
+      },
+      "seo": {
+        "title": {
+          "zh": "照护伙伴结果：启示录生存类型测试完整读法",
+          "en": "Care Companion: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从营地角落、记忆日与旧明信片读照护伙伴结果，比较人物细节、陪伴的界限、相近角色和全部最高并列全文。",
+          "en": "Read Care Companion through camp corners, Memory Day and old postcards. Explore fictional company, its limits, close roles and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更想先写人物怎样被接住",
+            "en": "The moment of company you wanted to write first"
+          },
+          "paragraphs": [
+            {
+              "zh": "在旧车站故事里，你可能更想给新人物留一个可选择的座位，而不是先决定整个营地的顺序。写记忆日时，你可能先想谁愿意讲那件小物的来历。这些选项把注意力放在人物如何出现在一起，不要求每个人公开过去，也不需要结尾总是快乐。回看具体选择，比直接说“我是照顾别人的人”更接近这份菜单实际记录的内容。",
+              "en": "In the old station story, you may first want to leave a seat a newcomer can choose rather than settle the camp’s whole sequence. For Memory Day, you may begin with who wants to tell an object’s history. These options concern how characters appear together. They require neither a public account of everyone’s past nor a happy ending. Revisiting a particular choice stays closer to what the menus actually recorded than taking on an identity as the person who always cares for others."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让一张明信片留下两种选择",
+            "en": "Give a postcard two possible invitations"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象人物在桌上找到一张旧明信片。你可以写一句邀请：“想讲这个地方，就坐一会儿；也可以只看看图。”另一个人物可以回答，也可以翻过卡片再离开。这个纸面片段的重点是让陪伴有不同的形式，不是劝真实朋友交代经历。它既没有医疗任务，也不涉及处理真实危险；你只是在比较哪一段对话更想写下去。",
+              "en": "Imagine a character finding an old postcard on a table. Write an invitation to sit and describe the place, or simply look at its picture. Another character can answer, turn the card over or leave. The paper scene gives company several forms instead of persuading an actual friend to explain a personal history. There is no medical task or real danger to manage. You are comparing which exchange makes you want to continue writing and whether an unanswered invitation can still belong in that scene."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "小物可以让人物关系具体一点",
+            "en": "A little object can make a relationship specific"
+          },
+          "paragraphs": [
+            {
+              "zh": "一把带旧标签的椅子、一张没人认领的书签，都能给人物之间增加一个小问题：谁记得它，谁愿意听，谁希望它暂时留在原处。你可以用这样的细节让照护不只是一句“大家互相帮助”。但题目只询问你更想参与哪一种虚构工作，没有观察你的耐心、实际情绪识别、日常照护技能，也不能证明你在关系中应该承担更多劳动。",
+              "en": "A chair with an old label or an unclaimed bookmark gives the characters a small question: who remembers it, who wants to listen and who would like it left alone for now? Such details can make fictional care more specific than everyone helping everyone. The questions only ask which invented task you would prefer to join. They have not observed patience, emotional recognition or everyday care skills and cannot establish that you should carry more work in an actual relationship because this reading appeared first."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "陪伴也可以是安静地同处一页",
+            "en": "Company can remain quiet on the same page"
+          },
+          "paragraphs": [
+            {
+              "zh": "人物可以并排整理纸片而不谈心，也可以约好读完一页就各自离开。有时你喜欢写对话，有时你更喜欢给沉默留位置；两者都能与照护伙伴这个阅读入口相容。你无需在每一幕维护温柔的形象，也不必成为营地所有人的情绪接收处。换一种场景或选项，偏好可能不同；本次最高计数没有把你固定成现实生活中的任何责任角色。",
+              "en": "Characters can sort paper side by side without a personal conversation, or agree to leave after reading one page. You may like dialogue in one scene and room for silence in another; both can fit this reading entry point. There is no gentle image to maintain in every chapter and no obligation to become the camp’s receiver of everyone’s feelings. Different settings or options may attract different choices. A highest count here assigns no ongoing responsibility in your actual life or relationships outside this fictional exercise."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "不要替每个人写好被陪伴的方式",
+            "en": "Leave the other character a say in the company"
+          },
+          "paragraphs": [
+            {
+              "zh": "一段关心如果把回应也提前写完，人物就只剩下接受安排。可以比较两个版本：一个直接把人物拉进讨论，另一个先问愿不愿意加入。你也可以让对方拒绝，并让故事正常往下走。这里的取舍属于场面写法，不是用来评价真实人的善良、边界感或情绪成熟。愿意写照护场面与有条件持续照护，是不同的问题。",
+              "en": "An offer of company that already contains the reply can leave the other character with little to do but accept. Compare one version that brings someone straight into a discussion with another that asks whether they want to join. A refusal can also let the story continue normally. This is a choice about writing a scene, not an evaluation of actual kindness, boundaries or emotional maturity. Wanting to write care and having the circumstances to provide ongoing care are separate questions that these menus cannot resolve."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与消息联络员、独行记录者怎么比",
+            "en": "Compare a message and a private record"
+          },
+          "paragraphs": [
+            {
+              "zh": "消息联络员可能先想两位人物怎样接得上话，照护伙伴更常先关心这一幕是否给某个人留了自在的位置。独行记录者可能先写一页独处的观察，照护伙伴更想写在场者之间的回应。三个入口可以共享安静的场面。近分时比较全文里的具体动作，不要把一个读成有同理心、另一个读成冷漠；菜单没有提供那样的能力或道德分界。",
+              "en": "Message Diplomat may first consider how two characters can answer each other, while Care Companion more often begins with room for one person to feel at ease in the scene. Solo Chronicler may start a page of private observations; Care Companion wants the response between those present. All three openings can use a quiet setting. Compare concrete actions in the full guides rather than turning one into empathy and another into coldness. These menus provide no boundary between levels of ability or moral worth."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给同一场相聚写两个结尾",
+            "en": "Write two endings to the same gathering"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一个完全虚构的明信片场面，写下“人物留下聊天”和“人物安静离开”两个结尾。看看哪一版更让你想补一个细节，也可以都保留。不要代入真实朋友的私人经历，不需要提交任何文字，也不用把它当共情训练或照护资格测试。最后只记录一个关于故事的发现，例如“没有交谈的结尾也能让我感到人物之间有联系”。",
+              "en": "Take an entirely invented postcard scene and write two endings: the character stays to talk, or leaves quietly. Notice which makes you want to add a detail, or keep both. Use no actual friend’s private experience, submit no writing and treat this as neither empathy training nor a test of care qualifications. Keep one observation about the fiction, such as a silent ending still suggesting a connection between characters. That small reading preference is enough without converting it into a claim about your character."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "map-scout",
+      "directionIds": [
+        "map-scout"
+      ],
+      "title": {
+        "zh": "地图观察员",
+        "en": "Map Scout"
+      },
+      "headline": {
+        "zh": "先看清纸面上的一个细节，再决定故事往哪里展开。",
+        "en": "Notice a detail on the paper before deciding where the story opens."
+      },
+      "summary": {
+        "zh": "你更常选旧地图、标签差异与未被命名的小角落。地图观察员读的是本次虚构营地故事中的观察兴趣，不证明导航、侦察、风险识别、体能或现实生存能力。",
+        "en": "You more often chose old maps, different labels and unnamed corners. Map Scout concerns observation interests in this fictional camp story, not navigation, reconnaissance, risk detection, fitness or actual survival ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "地图观察员结果：启示录生存类型测试完整读法",
+          "en": "Map Scout: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从旧站名、温室展览与混合标签读地图观察员结果，比较细节如何打开剧情、相近角色、近分与全部最高并列全文。",
+          "en": "Read Map Scout through old station names, a greenhouse exhibition and mixed labels. Compare story details, nearby roles, close counts and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更想从哪个细节开始故事",
+            "en": "The detail you wanted the story to begin with"
+          },
+          "paragraphs": [
+            {
+              "zh": "一张旧地图摆到桌上时，你可能先看名称哪里不同、哪条线没有接完，而不是马上决定人物要去哪里。面对一组混合标签，你可能更想把相近的两个放在一起，看看会出现什么新问题。这个入口记录的是你想先写哪一种细节，不是判断你在陌生地方能否辨路。纸面上的发现也可以没有答案，留下悬念同样是完整的创作选择。",
+              "en": "When an old map reaches the table, you may first look for different names or an unfinished line rather than decide where the characters should go. With mixed labels, you may want to place two similar ones together and see what question appears. This opening records the detail you would like to write first, not whether you can find your way in an unfamiliar place. A paper discovery can remain unanswered. Leaving a question open is as complete a creative choice as explaining the whole map."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让同一个站名出现两次",
+            "en": "Let one station name appear twice"
+          },
+          "paragraphs": [
+            {
+              "zh": "在虚构地图的两处写上同一个站名，再给其中一个添一枚褪色的小图标。你可以让人物发现重复，也可以只让读者先看见。接下来写的是地名来历、旧明信片还是人物记忆，都由你决定。这里不用查真实路线，也不需要走进陌生建筑；地图可以完全虚构，比例也不必准确。你只是在比较一个视觉细节怎样改变读下一句的期待。",
+              "en": "Write the same station name in two places on an invented map and give one a faded little symbol. A character may notice the repetition, or only the reader may see it first. You can continue with the name’s history, an old postcard or a character’s memory. Look up no actual route and enter no unfamiliar building; the map can be completely imaginary and need not use an accurate scale. The exercise compares how one visual detail changes the expectation of reading the next sentence."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "细节可以给故事多留一个入口",
+            "en": "A detail can leave another entrance into the story"
+          },
+          "paragraphs": [
+            {
+              "zh": "营地故事不一定要靠大事件推动。书签上的站名、展览卡片背面的编号、模型边上的小标记，都能让同一场面多一层读法。地图观察员这一组偏好可能让你更愿意先找这样的入口，再把它交给人物去回应。它没有测试观察准确率、注意力、记忆或风险判断；某个选项吸引你，也可能只是因为你喜欢那一种道具或画面。",
+              "en": "A camp story need not move through large events. A station name on a bookmark, a number behind an exhibition card or a mark beside a model can offer another reading of the same scene. These preferences may make you want to find such an entrance before handing it to the characters to answer. They have not tested observational accuracy, attention, memory or risk judgment. An option may also appeal simply because you like that particular prop or image rather than a general way of approaching stories."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "一处小角落也足够成为地图",
+            "en": "One little corner can be enough of a map"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只画图书室的一角，给一张桌子和两张纸条标出位置，不必设计整座旧城。也可以完全不用图形，只在文字里写“旧名被新标签盖住了一半”。这个入口允许细节大小不同，也允许你写完一幕后转去处理对话或顺序。最高次数不要求你承担团队侦察职责，更不能证明你适合独自外出寻找资源。这里的探索始终发生在纸面故事中。",
+              "en": "Draw only a reading-room corner with a table and two notes instead of designing the whole old town. Or use no drawing and write that a new label covers half an old name. This opening allows different scales of detail and lets you turn to dialogue or sequence after one scene. A highest count requires no scouting duty in an actual team and cannot establish that you should go out alone to find resources. Exploration in this edition remains within the paper story you choose to imagine."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "发现很多线索，也可以只留下一个",
+            "en": "You can find many clues and keep only one"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一页同时放进十种标记，读者可能不知道先看哪一处。试着只保留一个重复站名，再比较它是否更适合这幕。你也可能正喜欢密密的标签，就把另一版作为对照。删去或保留线索是叙事密度的选择，不是在纠正你分心、拖延或过度警觉。题目没有记录现实行为，不能从喜欢纸面细节推断任何注意力或心理健康状况。",
+              "en": "If ten kinds of marks appear on one page, a reader may not know where to look first. Keep only the repeated station name and compare whether it suits this scene. You may prefer the crowded labels, in which case retain another version beside them. Keeping or removing clues is a choice about narrative density, not a correction for distraction, delay or excessive alertness. The questions record no actual behaviour and cannot turn a liking for paper details into an attention or mental-health conclusion."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与营地统筹者、独行记录者怎么比",
+            "en": "Compare a sequence and a private account"
+          },
+          "paragraphs": [
+            {
+              "zh": "营地统筹者可能先决定旧地图在哪一幕出现，地图观察员更常先问地图上哪一处值得写。独行记录者可能先留下人物看到地图时的个人感受，观察员则先摆出读者也能看见的标签差异。三个入口能共用同一张纸。近分时分别读全文里的具体例子，不把顺序、细节或私人文字排成智力高低，也不据此分配现实团队工作。",
+              "en": "Camp Planner may decide which scene receives the map; Map Scout more often starts with which part of it is worth writing. Solo Chronicler may record a character’s personal impression of seeing it, while Map Scout first presents a difference in labels the reader can also notice. All three can share one sheet. Compare the concrete examples in their full guides when counts are close. Sequence, detail and private writing do not form a ranking of intelligence or a basis for allocating actual team work."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只改一个标签，比较两段开场",
+            "en": "Change one label and compare two openings"
+          },
+          "paragraphs": [
+            {
+              "zh": "给虚构阅读室画一个很小的平面图，第一版叫“旧阅览室”，第二版只把标签换成“归还故事处”。分别写一句开场，看看名字变化让你更想问什么。图不用准确，也不对应任何真实地点。不要把它当导航训练、搜寻练习或准备程度检查；最后只带走一句关于文字和画面的观察，无需提交地图、位置或个人经历。",
+              "en": "Give an invented reading room a tiny floor plan. Label the first version Old Reading Room and change only that label to Place for Returned Stories in the second. Write one opening line for each and notice the question the new name invites. The drawing need not be accurate or correspond to an actual place. Treat it as neither navigation training, a search exercise nor a preparedness check. Keep an observation about words and images, submitting no map, location or personal experience to use this reading."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "model-builder",
+      "directionIds": [
+        "model-builder"
+      ],
+      "title": {
+        "zh": "模型搭建者",
+        "en": "Model Builder"
+      },
+      "headline": {
+        "zh": "让纸面上的两块东西接起来，故事也多一种展开方式。",
+        "en": "Join two paper pieces and let the story take another shape."
+      },
+      "summary": {
+        "zh": "你更常选模型连接、道具摆法与能重新组合的小结构。模型搭建者读的是这份虚构菜单中的制作兴趣，不证明工程、维修、手工熟练度、资源利用或真实生存能力。",
+        "en": "You more often chose model connections, prop arrangements and little structures to recombine. Model Builder concerns making interests in this fictional menu, not engineering, repairs, manual skill, resource use or actual survival ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "模型搭建者结果：启示录生存类型测试完整读法",
+          "en": "Model Builder: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从纸模型、温室展览和书签工坊读模型搭建者结果，看可改动的结构、道具的限制、相近角色与全部最高并列全文。",
+          "en": "Read Model Builder through paper models, a greenhouse exhibition and bookmark workshop. Compare structures, prop limits, close roles and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更想把哪两部分接起来",
+            "en": "The two parts you wanted to bring together"
+          },
+          "paragraphs": [
+            {
+              "zh": "故事桌上出现纸片和小模型时，你可能先想它们能怎样组合，再去决定完整剧情。看见一辆模型小车，你可能更愿意给它添一个能放书签的位置；面对展览，你可能先摆出两张卡片的连接方式。这里的“搭建”是纸面创作入口，不是要求你真的动手完成，也不根据选择推断你的空间能力。你可以喜欢想象模型，却不喜欢实际制作。",
+              "en": "When paper pieces and little models appear on the story table, you may first imagine how they connect before deciding the whole plot. A model cart might invite a place for bookmarks; an exhibition might begin with the arrangement joining two cards. Building here is an entrance into paper fiction, not a requirement to make anything or evidence of spatial ability. You can enjoy imagining models without liking practical craft. The particular combination an option offers may matter more than a general identity as a maker."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "给模型小车换一种纸面用途",
+            "en": "Give the model cart another paper purpose"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一辆只存在于故事里的纸模型小车。第一幕里它摆在书桌边，第二幕里人物把一叠书签放在旁边，当作展示架的一部分。可以写它如何被重新命名，不必设计承重、车轮或真实装配。场景的趣味来自同一道具换了叙事用途，不来自工程是否可靠。所有结构都可以只用一句话表示，无需材料、工具或现场操作。",
+              "en": "Imagine a paper model cart that exists only in the story. It stands beside a desk in the first scene; in the second, a character places bookmarks beside it as part of a display. Write how it receives a new name without designing loads, wheels or actual assembly. The interest comes from a prop taking another narrative purpose, not from reliable engineering. Every structure can be represented by one sentence. No materials, tools or practical operation are needed to compare the two imagined versions."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "物件的摆法也能讲出一段关系",
+            "en": "The arrangement of objects can tell a relationship"
+          },
+          "paragraphs": [
+            {
+              "zh": "两张卡片并排、其中一张折起，和两张隔着一条空白，都可能让读者感觉到不同的关系。你可以让模型承接人物刚才的一句话，或者让人物围着它产生新的对话。这个入口给故事增加可看见的部分，而不要求物件解决营地的所有问题。题目没有检验你是否善用材料、擅长修理或能在资源紧张时保持创造力。",
+              "en": "Two cards side by side, one folded, can suggest a different relationship from two cards separated by a blank strip. Let the model answer a character’s earlier line, or give the characters another conversation around it. This opening adds a visible layer to the story without requiring objects to solve every camp problem. The menus have not examined material use, repair skills or creativity under actual scarcity. Choosing a prop arrangement shows what you wanted to work on in that offered scene and need say no more."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "想象中的模型也可以只有一个轮廓",
+            "en": "An imagined model can remain a simple outline"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只写“有两块能换位置的纸板”，不画比例，也不补齐做法。也可以保留一个很精细的虚构道具，然后转去写它的来历。细节多或少都不决定你是不是合格的模型搭建者，因为这个名字只是阅读入口。一次最高次数不会让你成为现实团队的维修人员，也不能据此建议你承担危险制作或处理设备。",
+              "en": "Write only that two pieces of card can change places, without a scale drawing or a method. Or retain a detailed invented prop and turn to its history. Neither level of detail determines whether you qualify as Model Builder, because the name is only a reading entrance. A highest count makes you no repair person for an actual group and cannot recommend hazardous construction or equipment handling. Keep the imagined object as simple as the scene needs, and change openings whenever another part of the story attracts you."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "道具不必替人物回答所有问题",
+            "en": "A prop need not answer every character’s question"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每个冲突都马上出现一个新装置，人物的选择可能没有留下展开空间。试着让一件模型只承担展示作用，看看对话会怎样继续；也可以保留复杂版本，与简单版本并排。这里比较的是故事中道具的份量，不是在评价你只会做事、不会沟通或缺少情感。菜单没有记录现实合作，无法用这一组名称判断你的性格或相处能力。",
+              "en": "When every disagreement immediately receives a new device, the characters’ choices may have little room to develop. Let one model serve only as a display and compare how the conversation continues. A complex version can remain beside the simple one. This compares the weight a prop carries in fiction, not whether you only act, fail to communicate or lack feeling. The menus record no actual collaboration and cannot use this name to establish personality, relationship skills or the sort of work you should provide for others."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与地图观察员、营地统筹者怎么比",
+            "en": "Compare a noticed detail and a sequence"
+          },
+          "paragraphs": [
+            {
+              "zh": "地图观察员可能先指出模型边缘两个标签不同，模型搭建者更常先想标签和纸板能怎样组合。营地统筹者可能先安排展示、讲述和收场的顺序，搭建者则先给展示物一个形状。三者没有高低，也可以在同一个场面轮流出现。近分时看各份全文具体在做什么，不把模型兴趣当手工能力，也不把排序兴趣当领导能力。",
+              "en": "Map Scout may notice that two labels at the model’s edge differ; Model Builder more often first imagines how labels and card might combine. Camp Planner may arrange the display, telling and closing scenes, while Model Builder gives the displayed object a shape. These openings have no hierarchy and can take turns within the same scene. With close counts, compare what each full guide actually describes. Model interest is no measure of manual ability, just as interest in a sequence is no evidence of leadership skill."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "同一道具只改一个连接",
+            "en": "Change just one connection in the same prop"
+          },
+          "paragraphs": [
+            {
+              "zh": "在想象中放两张卡片和一个小模型，先写它们并排，再写一张卡片被放到模型背面。每版补一句人物看见它时说的话，看看哪个更想继续。你不必制作任何东西，不用上传照片，也不评估耐用、安全或可行性。最后保留一个关于场面构图的发现即可，例如“换一个标签位置，让同一道具更像留言”。",
+              "en": "Imagine two cards and a little model. Write them side by side, then place one card behind the model in another version. Add one line a character says on seeing each and notice which you want to continue. Make nothing, upload no photographs and evaluate neither durability, safety nor practical feasibility. Keep an observation about the scene’s arrangement, such as a label’s changed position making the same prop feel more like a message. The exercise concerns fiction rather than construction practice or a check of practical competence."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "message-diplomat",
+      "directionIds": [
+        "message-diplomat"
+      ],
+      "title": {
+        "zh": "消息联络员",
+        "en": "Message Diplomat"
+      },
+      "headline": {
+        "zh": "让一条留言有来处，也让下一位人物接得上话。",
+        "en": "Give a message a source and the next character a way to answer."
+      },
+      "summary": {
+        "zh": "你更常选留言、不同说法与人物之间能继续的对话。消息联络员读的是这份虚构菜单中的交流写作兴趣，不证明谈判、说服、冲突处置、领导力或真实危机沟通能力。",
+        "en": "You more often chose messages, different wordings and dialogue characters can continue. Message Diplomat concerns communication writing in these fictional menus, not negotiation, persuasion, conflict management, leadership or crisis communication ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "消息联络员结果：启示录生存类型测试完整读法",
+          "en": "Message Diplomat: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从营地留言、命名角落与两种版本的消息读消息联络员结果，比较对话的接法、信息来源、相近角色及最高并列全文。",
+          "en": "Read Message Diplomat through camp notes, naming corners and differing messages. Compare dialogue, sources, nearby roles, close counts and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更想让哪一句话被接住",
+            "en": "The line you wanted another character to answer"
+          },
+          "paragraphs": [
+            {
+              "zh": "人物各自带来一张纸条时，你可能先想怎样让两种说法并排出现，而不是立即替故事选定正确版本。营地给一个角落命名时，你可能更想写提议和回应，让名称有机会继续改变。这一组选择关心人物之间文字怎样流动，不是证明你善于说服别人。也可能只是某一句台词吸引你；回看具体选项，比把自己定为调解者更贴近答题证据。",
+              "en": "When characters each bring a note, you may first want two accounts to appear together rather than immediately select the correct version for the story. Naming a camp corner may invite a proposal and reply that let the name keep changing. These choices concern how words move between characters, not an ability to persuade people. One particular line may simply appeal. Revisiting that option stays closer to the answering evidence than taking an identity as a mediator who should handle disagreements in actual life."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把一条留言写成可以回应的版本",
+            "en": "Make one note possible to answer"
+          },
+          "paragraphs": [
+            {
+              "zh": "设定一张完全虚构的纸条：“展览卡片换地方了。”你可以给它补上说话者和一个问题：“我把卡片移到书桌旁了，你想给它换个标题吗？”另一位人物既可以回复，也可以说暂时没有想法。这样写，是让剧情多一个能继续的入口，不是在教真实应急通信流程。不要写地址、真实行动计划或私人信息，所有人物与地点都可以只存在于纸面。",
+              "en": "Invent a note saying that the exhibition cards have moved. Add a speaker and a question: a character moved them beside the desk and asks whether another wants to change the title. The other character can answer or have no idea yet. This gives the plot an entrance to continue rather than teaching actual emergency communication procedures. Include no address, real action plan or private information. Every character and place can remain on paper, and the note needs no practical use outside the fictional scene."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "说法之间的距离也能成为剧情",
+            "en": "The distance between accounts can become a scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "两个人记得的旧站名不同，未必一定要在这一页裁出胜负。你可以让各自说清从哪里听来，再把未解决的问题留到另一幕。这个入口可能让你更愿意写交换信息的过程，而不只写最终结论。题本没有让你处理真实争执，没有观察你在压力下传话是否准确，也不能把这次次数换成沟通能力、可信度或谈判天分。",
+              "en": "Two characters remembering different station names need not have a winner on this page. Let each say where the account came from and leave the unresolved question for another scene. This opening may make the exchange of information more inviting to write than only its final conclusion. The questionnaire has not asked you to manage an actual disagreement or observed accurate messaging under pressure. Its counts cannot become a communication score, a measure of trustworthiness or evidence of negotiation talent because the result’s name sounds diplomatic."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "一句回复也可以完成这一幕",
+            "en": "One reply can be enough for the scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "消息联络员不需要举行长会，也不需要让每一位人物达成一致。只写一句“我看见了，等我读完这页再回你”，就能让人物关系向前一步。你可以偏爱简短纸条，也可以写长对话，然后换去做模型或私人记录。最高次数没有给你分派现实传话任务，不要求你在朋友之间承担冲突，也不证明你总能让别人理解彼此。",
+              "en": "Message Diplomat needs neither a long meeting nor agreement from every character. A reply acknowledging the note and promising to answer after a page is finished can move the relationship one step. You may prefer brief messages or a long exchange, then move to a model or private account. A highest count assigns no actual messenger duty and requires no responsibility for friends’ disagreements. It also cannot establish that you can always make others understand one another. The available choices describe a writing interest at this moment."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "清楚地传话，也可以保留未确定",
+            "en": "A clear message can still contain uncertainty"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你替每条纸条补上确定答案，故事里的误解可能消失得太快。可以写“这是一个人物的记法，另一位还没确认”，看看这种留白能否带来下一句。你也可能更喜欢直接、明确的版本，两个都能保留。这里比较的是虚构信息怎样呈现，不是在评价你现实中含糊、强势或不够诚实；题目并没有取得支持这些判断的行为材料。",
+              "en": "If every note receives a settled answer immediately, a misunderstanding may disappear before it develops into a scene. Say that one character remembers it this way and another has not confirmed it, then notice whether the open space invites a line. You may prefer a direct, settled version; keep both. This compares the presentation of fictional information, not actual vagueness, dominance or honesty. The questions have collected no behavioural material that could support those judgments or tell you how to communicate in a real emergency."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与照护伙伴、营地统筹者怎么比",
+            "en": "Compare company and the order of scenes"
+          },
+          "paragraphs": [
+            {
+              "zh": "照护伙伴可能先关心收到纸条的人愿不愿意加入，消息联络员更常先问文字怎样让对方接话。营地统筹者可能先排出留言、回复和展览的顺序，联络员则先写每一步之间说的是什么。三者可以出现在同一段对话里。近分时用全文比较这些具体层次，不把联络员当外向者、照护伙伴当高共情者或统筹者当天然负责人。",
+              "en": "Care Companion may begin with whether the recipient wants to join; Message Diplomat more often asks how the wording lets that character answer. Camp Planner may arrange the note, reply and exhibition in order, while Message Diplomat first writes what passes between those moments. All three can appear in one exchange. Compare these concrete layers in the full guides when counts are close. They establish neither an outgoing messenger, an unusually empathic companion nor a natural coordinator, because the menus assess none of those personal qualities."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给同一条纸条留两种回应",
+            "en": "Leave two possible replies to one note"
+          },
+          "paragraphs": [
+            {
+              "zh": "用虚构展览纸条写两个回应，一个提出新标题，另一个说想晚一点再决定。每版只补一句后续，比较哪一条更想继续，不必达成一致。不要借用真实聊天记录，也不向任何人发送消息。最后只保留一个写作观察，例如“延后回应让这一幕多了一个等待”。这个尝试不测说服成功率，不是谈判演练，也不需要公开任何私人关系。",
+              "en": "Give the fictional exhibition note two replies: one suggests a new title and the other asks to decide later. Add a single following line to each and compare which you want to continue, without requiring agreement. Borrow no real chat history and send no message to anyone. Keep a writing observation, such as a delayed reply adding a moment of waiting to the scene. This tests no persuasion success rate, provides no negotiation rehearsal and requires no disclosure of private relationships to use the guide."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solo-chronicler",
+      "directionIds": [
+        "solo-chronicler"
+      ],
+      "title": {
+        "zh": "独行记录者",
+        "en": "Solo Chronicler"
+      },
+      "headline": {
+        "zh": "把这一页先写给自己，再选择要不要让别人读。",
+        "en": "Write this page for yourself first, then choose whether to share it."
+      },
+      "summary": {
+        "zh": "你更常选私人笔记、安静角落与人物独自看到的细节。独行记录者读的是这份虚构营地菜单中的独处写作偏好，不证明独立生存、内向程度、孤独、韧性或现实行动能力。",
+        "en": "You more often chose private notes, quiet corners and details one character sees alone. Solo Chronicler concerns solitary writing in these fictional camp menus, not independent survival, introversion, loneliness, resilience or practical ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "独行记录者结果：启示录生存类型测试完整读法",
+          "en": "Solo Chronicler: Apocalypse Survival Type Test Result"
+        },
+        "description": {
+          "zh": "从安静夜晚、私人书签和旧城最后一页读独行记录者结果，比较记录的视角、分享的选择、相近角色与全部最高并列全文。",
+          "en": "Read Solo Chronicler through quiet evenings, private bookmarks and a final page. Compare viewpoints, choices about sharing, nearby roles and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "24题每题只选一项，六组各出现16次、每个位置各4次。次数只读本菜单里的叙事偏好，所有最高并列保留完整说明，不派隐藏主副型。全选同一位置会各4次，不证明理想团队；4/16也不是25%的生存率、医疗能力或角色纯度。",
+        "en": "Each of twenty-four questions takes one choice. Every group appears sixteen times, four in each position. Counts concern narrative preferences in these menus; every highest tie keeps its full guide without hidden primary or secondary types. Repeating one position gives each group four counts without proving an ideal team. Four out of sixteen is no twenty-five-percent survival rate, medical ability or role purity."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更想先留下一段怎样的个人记录",
+            "en": "The private account you wanted to begin with"
+          },
+          "paragraphs": [
+            {
+              "zh": "营地故事暂时安静时，你可能更想给人物留一页自己的笔记，而不是立刻把所见写成公开留言。翻到旧城最后一页，你可能先想人物决定记下什么、又让什么留白。这一组选择关心叙述视角和分享的范围，不要求人物孤身行动，也不推断你现实中喜欢独处的程度。某一幕的私人记录可以与下一幕的热闹相聚同时存在。",
+              "en": "When the camp story becomes quiet, you may want a character to keep a page of personal notes rather than immediately turn the observation into a public message. The old town’s final page may begin with what that character records and leaves blank. These choices concern viewpoint and the reach of sharing. They require no solitary action and establish no degree of actual preference for being alone. A private account in one scene can coexist with a lively gathering in the next without needing an explanation."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让书签背面只留一句话",
+            "en": "Leave only one line behind a bookmark"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象人物从阅读室带走一张空白书签，在背面写“今天的光照到旧标签上”。这句话可以留在自己的书里，也可以在后面的章节被另一位人物偶然读到。你不必解释完整的过去，更不用借真实经历来写。例子的重点是私人一句话怎样成为叙事线索，而不是证明人物不需要帮助、足够坚强或已经适应任何实际灾难。",
+              "en": "Imagine a character taking a blank bookmark from the reading room and writing that the day’s light reached an old label. The line can stay inside their own book or be found by another character in a later chapter. Explain no complete past and borrow no actual experience to write it. The example concerns a private sentence becoming a narrative thread, not proof that the character needs no help, is sufficiently strong or has adapted to any actual disaster. The bookmark can remain entirely invented."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "私人视角可以保留公开场面没说完的事",
+            "en": "A private viewpoint can keep what a public scene leaves open"
+          },
+          "paragraphs": [
+            {
+              "zh": "一场展览可能有共同标题，也可能有某个人没有当众讲出的观察。独行记录者这个入口让你先写后者，给故事留下另一层声音。那一层不必更深刻、更真实或更值得相信；它只是一个人物看到的一部分。题目没有检查你的记忆、反思能力、独立性或面对压力的方式，也不能从喜欢私人笔记推断心理健康或生活满意度。",
+              "en": "An exhibition can have a shared title and an observation one character does not say publicly. This opening invites you to write the latter first, giving the story another voice. That voice need not be deeper, truer or more trustworthy; it is one part a character sees. The questions have checked neither memory, reflective ability, independence nor responses to pressure. A liking for private notes also establishes no mental-health condition or level of life satisfaction. The contribution is a fictional viewpoint rather than a personal assessment."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "独自写一页，不等于独自过完整个故事",
+            "en": "A private page need not mean a solitary whole story"
+          },
+          "paragraphs": [
+            {
+              "zh": "人物可以白天参加展览，晚上写一句笔记；也可以把私人文字留空，等下一章再补。你喜欢这个入口，不需要拒绝其他角色，更不必把故事写成“一个人解决一切”。一次最高计数不能证明你现实中不需要支持，也不建议你在危险情境中独自行动。角色名字里的“独行”只限定这次纸面记录的视角，不是现实生存策略。",
+              "en": "A character can join an exhibition in daylight and write one private line in the evening, or leave the page blank until another chapter. Enjoying this opening requires no rejection of other roles and no story in which one person solves everything. A highest count cannot establish that you need no actual support or recommend acting alone in danger. Solo in this name describes the viewpoint of a paper account rather than a practical survival strategy. Keep it only for the scenes where it is useful."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "私人记录也可以暂时不解释",
+            "en": "A private account can remain unexplained for now"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每段笔记都马上附上完整解释，它可能失去留给读者的问题。可以比较只写一句观察，和再添一段来历的两个版本。你也可以让人物决定不公开这一页，让故事继续从别处展开。这个取舍关于信息何时进入叙事，不是在评价你封闭、过度敏感或不善沟通。题本没有观察真实关系，无法据此给任何人贴这样的标签。",
+              "en": "If each note immediately receives its complete explanation, it may lose the question it leaves for a reader. Compare a single observation with another version that adds its history. A character may also keep the page private while the story continues elsewhere. This concerns when information enters a narrative, not actual withdrawal, sensitivity or poor communication. The questionnaire has observed no real relationships that could support such labels. Neither a private page nor a public one is required to be the more mature choice in this exercise."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与地图观察员、照护伙伴怎么比",
+            "en": "Compare an outward detail and a moment of company"
+          },
+          "paragraphs": [
+            {
+              "zh": "地图观察员可能先写读者也能看见的重复站名，独行记录者更常先写某个人看见它时记下的那一句。照护伙伴可能先安排人物能自在相处的一角，记录者则先留下其中一个人的私下视角。三个入口都能写安静场面，区别在这页想先照向哪里。近分时比较全文，不把私人记录等同内向、把照护等同共情或把地图细节等同聪明。",
+              "en": "Map Scout may start with a repeated station name the reader can also see; Solo Chronicler more often begins with the line one character privately records on seeing it. Care Companion may arrange a comfortable corner for characters together, while Solo Chronicler keeps one person’s private viewpoint. All three can write quiet scenes; the difference is where this page looks first. Compare their full guides with close counts instead of making private writing mean introversion, care mean empathy or map details mean intelligence. None of those qualities was assessed."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "让同一句话在两种位置出现",
+            "en": "Place the same line in two different places"
+          },
+          "paragraphs": [
+            {
+              "zh": "沿用完全虚构的书签句子，第一版把它留在书里，第二版把它放到展览卡片上。每版只写一句读者接下来会看到什么，比较哪种位置更想继续。不要公开真实日记，也不上传任何文字。你可以发现自己更喜欢私人版本、公开版本或两者之间的变化；这只是一次叙事选择，不是独立性、社交需要或心理韧性的测试。",
+              "en": "Use the entirely invented bookmark line in two places: inside the book in one version and on an exhibition card in another. Add only what the reader sees next and compare which placement invites you to continue. Publish no actual diary and upload no writing. You may prefer the private version, the public one or the movement between them. That is a narrative choice rather than a test of independence, social needs or psychological resilience, and it needs no permanent description of who you are outside this scene."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+              "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与这份虚构题本的边界",
+            "en": "Full reading, drafts and this fictional edition’s scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+              "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数、近分与全部最高并列",
+        "en": "Raw counts, close readings and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "24次选择合计24，六组各出现16次、每个位置各4次；每题只比较其中四组。最高次数只决定先显示哪些完整读法，全部最高并列都保留，不硬派主副型。一直选同一位置会各4次，不证明团队均衡。小差距可以邀请你多读另一份全文，没有验证的能力分界、生存概率、人格比例或人群排名，也不能拿来安排真实应急角色。",
+          "en": "Twenty-four choices total twenty-four. Each group appears sixteen times, four in each position, and each question compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without forced primary or secondary types. Repeating one position gives each group four counts without proving team balance. A small gap can invite another full reading, but supplies no validated ability boundary, survival probability, personality proportion or population rank. These counts cannot allocate actual emergency roles."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "最高并列全部保留全文",
+        "en": "Keep every highest tie in full"
+      },
+      "paragraphs": [
+        {
+          "zh": "24次选择合计24，每组出现16次。完整作答后，所有最高次数都保留九节全文，不派隐藏主副型。一直选同一位置会六组各4，显示六份54节，不证明理想团队、均衡人格或准备程度；4/16也不是25%生存概率。",
+          "en": "Twenty-four choices total twenty-four, with sixteen appearances per group. After completion, every highest count keeps its nine-section guide without hidden primary or secondary types. Repeating one position gives each group four counts and all fifty-four sections without proving an ideal team, balanced personality or preparedness. Four out of sixteen is no twenty-five-percent survival probability."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "同一页可以使用多个入口",
+        "en": "Several openings can share one page"
+      },
+      "paragraphs": [
+        {
+          "zh": "安排顺序、给人物留座、看地图标签、组合模型、写留言与记私人笔记，可以出现在同一个故事里。本版只问特定菜单里更想先参与哪一部分，没有证明六组互相排斥或心理独立；不合适可以停止，全部指南仍免费。",
+          "en": "Sequences, a seat for a character, map labels, model arrangements, messages and private notes can share one story. These menus only ask which part you prefer first, establishing neither exclusive groups nor psychological independence. Stop if none fits; every full guide remains free."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "虚构任务与现实准备分开理解",
+        "en": "Understand the fictional task and actual preparedness separately"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版只是虚构营地叙事偏好，不测真实生存、危机反应、急救、医疗、体力、工程或谈判能力，也不提供危险场景操作步骤、职业匹配或应急岗位分配。照护伙伴不是医疗资质，模型搭建者不是工程水平，独行记录者不代表现实独自行动更安全。六组是本站原创编辑入口，不是灾害研究证实的六种普世人类类型；既不复制竞品题本、正文或图像，也不声称常模、效度或跨语言等价。真实应急需要看具体风险和官方安排，趣味计数不能替代。",
+          "en": "This edition concerns fictional camp-story preferences, not actual survival, crisis response, first aid, medicine, physical capacity, engineering or negotiation skills. It provides no hazardous-situation procedures, career matching or emergency role allocation. Care Companion is no medical qualification, Model Builder no engineering assessment, and Solo Chronicler no claim that acting alone is safer. Six original editorial openings are not six universal human types established by disaster research. No competitor bank, text or artwork is copied, and no norms, validity or language equivalence are established. Actual emergencies depend on particular risks and official arrangements; playful counts cannot replace those."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "完整阅读、草稿与这份虚构题本的边界",
+        "en": "Full reading, drafts and this fictional edition’s scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+          "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "启示录生存类型测试评估什么？",
+        "en": "What does the Apocalypse Survival Type Test assess?"
+      },
+      "answer": {
+        "zh": "它比较24个原创虚构营地菜单中的叙事偏好：更想安排剧情、写陪伴、看地图、组合模型、写消息还是留私人记录。不是实际生存、风险、医疗、工程、体力或领导能力测试，也不给现实角色分工。",
+        "en": "It compares narrative preferences in twenty-four original fictional camp menus: sequences, company, maps, models, messages or private accounts. It is no test of actual survival, risk judgment, medicine, engineering, physical capacity or leadership and assigns no actual roles."
+      }
+    },
+    {
+      "question": {
+        "zh": "六种结果分别是什么？",
+        "en": "What are the six readings?"
+      },
+      "answer": {
+        "zh": "营地统筹者先接剧情顺序，照护伙伴先写陪伴场面，地图观察员先看纸面细节，模型搭建者先想道具组合，消息联络员先写可回应的留言，独行记录者先留私人视角。它们能交叠，不是六种固定的人。",
+        "en": "Camp Planner begins with sequence; Care Companion with company; Map Scout with a paper detail; Model Builder with props; Message Diplomat with an answerable note; Solo Chronicler with a private viewpoint. These can overlap and are not six fixed kinds of people."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计数，近分和并列怎样看？",
+        "en": "How do counts, close readings and ties work?"
+      },
+      "answer": {
+        "zh": "每组出现16次、在四个位置各4次、省略8次；每题四项选一项，加1次。完整24题后比较原始次数，所有最高并列都保留全文。近分可以多读另一份指南，没有验证的能力阈值或人群排名。",
+        "en": "Each group appears sixteen times, four in each position, and is omitted eight times. Choose one of four per question to add one count. Complete all twenty-four to compare raw counts; every highest tie keeps its full guide. Close counts invite another guide without validated ability thresholds or population rankings."
+      }
+    },
+    {
+      "question": {
+        "zh": "和超能力、荣格原型测试有什么区别？",
+        "en": "How does this differ from Superpower or Jungian Archetype tests?"
+      },
+      "answer": {
+        "zh": "本版围绕虚构营地的24个具体写作任务，六组也是本站原创叙事入口。超能力版借五种能力比喻日常偏好，荣格原型版比较十二组现代动机主题；没有分数换算、通用类型对应或心理独立性的证明。",
+        "en": "This edition uses twenty-four particular fictional-camp writing tasks and six original narrative openings. Superpower uses five abilities as everyday metaphors; the Jungian edition compares twelve modern motivational themes. There is no score conversion, universal type correspondence or established psychological independence."
+      }
+    },
+    {
+      "question": {
+        "zh": "来源验证了这些角色或生存能力吗？",
+        "en": "Do sources validate these roles or survival ability?"
+      },
+      "answer": {
+        "zh": "没有。CDC资料只提供现实沟通与事先计划需要独立认真处理的背景，不支持本题计分、六角色、效度、常模或跨语言等价。本版题目和结果均原创，不是JobCannon题本或算法复刻。",
+        "en": "No. The CDC source only supplies context that actual communication and planning deserve separate, serious attention. It validates neither this scoring, the six roles, validity, norms nor language equivalence. The questions and readings are original rather than a JobCannon bank or algorithm replica."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、草稿和分享需要付费吗？",
+        "en": "Are full results, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份全文在作答前后都免费。24个场面、96个选项、六组名称与结果正文均为本站原创，只读纸面故事偏好，不测真实生存、医疗、体力、工程或职业适配，也不提供危险情境操作步骤。无需上传地址、照片或真实经历；草稿自愿开启，只在本标签页保留最多24小时，完成、清除或重测即删。分享只有结果名称与公开链接，不含个人答案或计数。菜单不合适可以停止，完整公开说明仍能阅读。",
+        "en": "All six guides are free before and after answering. The twenty-four scenes, ninety-six options, six names and result text are original and concern paper-story preferences. They assess no actual survival, medicine, physical capacity, engineering or career fit and provide no hazardous-situation procedures. Upload no address, photograph or actual experience. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, not private answers or counts. Stop if a menu does not fit; the full public readings remain available."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.cdc.gov/prepare-your-health/plan-ahead/stay-connected.html",
+      "title": {
+        "zh": "CDC：保持联系（现实计划背景，不验证本题）",
+        "en": "CDC: Stay Connected (actual planning context, not quiz validation)"
+      }
+    }
+  ]
+}
