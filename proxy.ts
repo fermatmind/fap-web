@@ -182,7 +182,7 @@ function resolveTestDetailBoundary(pathname: string): {
     return {
       locale,
       requestedSlug,
-      canonicalSlug: isKnownTestSlug(requestedSlug) ? resolveCanonicalSlug(requestedSlug) : null,
+      canonicalSlug: requestedSlug === "friendship-quiz" ? requestedSlug : isKnownTestSlug(requestedSlug) ? resolveCanonicalSlug(requestedSlug) : null,
     };
   } catch {
     return { locale, requestedSlug: "", canonicalSlug: null };

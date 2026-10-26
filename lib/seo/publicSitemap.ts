@@ -1,3 +1,4 @@
+import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { buildApiUrl } from "@/lib/api-base";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -238,7 +239,7 @@ export async function buildPublicSitemapResponse(family?: PublicSitemapFamily): 
       throw new Error("empty_backend_sitemap_source");
     }
 
-    const allEntries = appendFunSitemapEntries(rootEntries);
+    const allEntries = appendFriendshipSitemapEntries(appendFunSitemapEntries(rootEntries));
     const entries = family ? buildPublicSitemapFamilyMap(allEntries)[family] : allEntries;
 
     return new Response(buildPublicSitemapXml(entries), {
