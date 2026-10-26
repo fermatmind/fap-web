@@ -3182,5 +3182,30 @@
       "sales-maths"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "color-season",
+    "code": "SEASONAL_PALETTE_PREFERENCES_ORIGINAL_16",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "zh": "色彩季节测试",
+      "en": "Color Analysis Quiz"
+    },
+    "description": {
+      "zh": "免费色彩季节测试：比较16个原创三色菜单，阅读春日、夏日、秋日与冬日四份完整配色指南和24种示例色。不收照片、不作肤色鉴定。",
+      "en": "Free Color Analysis Quiz: compare 16 original three-colour menus and read all four palette guides with 24 examples. No photographs or skin typing."
+    },
+    "minutes": 5,
+    "formCode": "fm_seasonal_palette_preferences_16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "collection": "explore"
   }
 ]

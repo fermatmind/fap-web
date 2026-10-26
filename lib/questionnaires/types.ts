@@ -1,6 +1,7 @@
 import type { TenKeyConfiguration } from "./tenKey";
 
 export type Text = { en: string; zh: string };
+export type QuestionnaireColorSwatch = { hex: string; name: Text };
 export type QuestionnaireSection = { id: string; title: Text; paragraphs: Text[] };
 export type QuestionnaireProfile = {
   id: string;
@@ -8,6 +9,7 @@ export type QuestionnaireProfile = {
   title: Text;
   headline: Text;
   summary: Text;
+  paletteSwatches?: QuestionnaireColorSwatch[];
   seo?: { title: Text; description: Text };
   scoreReading: Text;
   sections: QuestionnaireSection[];
@@ -40,7 +42,7 @@ export type Questionnaire = {
     psychometricValidationCompleted: false;
   };
   directions: { id: string; title: Text; comparisons?: number; itemCount?: number }[];
-  questions: { id: string; prompt: Text; correctOptionId?: string; explanation?: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; score?: number | null }[] }[];
+  questions: { id: string; prompt: Text; correctOptionId?: string; explanation?: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; paletteSwatches?: QuestionnaireColorSwatch[]; score?: number | null }[] }[];
   profiles: QuestionnaireProfile[];
   guide: QuestionnaireSection[];
   faq: { question: Text; answer: Text }[];

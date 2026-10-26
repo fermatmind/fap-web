@@ -1,0 +1,2365 @@
+{
+  "formCode": "fm_seasonal_palette_preferences_16",
+  "origin": "frontend_original_visible_seasonal_palette_menus",
+  "directions": [
+    {
+      "id": "spring",
+      "title": {
+        "zh": "春日配色",
+        "en": "Spring Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "summer",
+      "title": {
+        "zh": "夏日柔色",
+        "en": "Summer Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "autumn",
+      "title": {
+        "zh": "秋日大地",
+        "en": "Autumn Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "winter",
+      "title": {
+        "zh": "冬日对比",
+        "en": "Winter Palette"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "CSP_01",
+      "prompt": {
+        "zh": "只在纸上给一本私人笔记本试封面，图形和色块面积完全相同。你更想先看哪组颜色？",
+        "en": "Try a private notebook cover on paper, keeping shapes and colour-block areas identical. Which colours would you look at first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "珊瑚调、杏桃调、嫩叶绿",
+            "en": "Coral tone, Peach tone, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、灰鼠尾草",
+            "en": "Dusty rose, Soft lavender, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "铁锈调、可可棕、暖奶油",
+            "en": "Rust tone, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "莓果调、冰雾蓝、深李紫",
+            "en": "Berry tone, Icy blue, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_02",
+      "prompt": {
+        "zh": "你为自己写的一张普通邀请卡选边缘配色，只比较颜色，不改变文字。哪组更愿意保留？",
+        "en": "Choose edge colours for an ordinary invitation you wrote, changing no wording. Which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、柔海军蓝",
+            "en": "Dusty rose, Soft lavender, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "铁锈调、陶土调、暖奶油",
+            "en": "Rust tone, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "莓果调、深云杉绿、深李紫",
+            "en": "Berry tone, Deep spruce, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "珊瑚调、杏桃调、浅湖绿",
+            "en": "Coral tone, Peach tone, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_03",
+      "prompt": {
+        "zh": "一张虚构小菜单只需要三个装饰色，不涉及食物或购买。哪组更吸引你？",
+        "en": "A fictional little menu needs three decorative colours without food or purchases involved. Which set attracts you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "橄榄绿、赭金调、可可棕",
+            "en": "Olive green, Ochre tone, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "莓果调、深云杉绿、粉笔白",
+            "en": "Berry tone, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "珊瑚调、杏桃调、象牙白",
+            "en": "Coral tone, Peach tone, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、珍珠灰",
+            "en": "Dusty rose, Soft lavender, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_04",
+      "prompt": {
+        "zh": "在一张自用的空白路线草图上，颜色只作装饰，地点仍用文字标明。你更想用哪组？",
+        "en": "On a private blank route sketch, colours are decorative and places still have written labels. Which set would you use?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "莓果调、深李紫、粉笔白",
+            "en": "Berry tone, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "珊瑚调、奶油黄、嫩叶绿",
+            "en": "Coral tone, Butter yellow, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "灰玫瑰、灰鼠尾草、珍珠灰",
+            "en": "Dusty rose, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "橄榄绿、赭金调、陶土调",
+            "en": "Olive green, Ochre tone, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_05",
+      "prompt": {
+        "zh": "给一条围巾的平面轮廓涂三个色块，只看纸上组合，不判断任何人穿着效果。你选哪组？",
+        "en": "Colour a flat scarf outline with three blocks, considering only the paper combination rather than its effect on a person. Which set do you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "珊瑚调、奶油黄、浅湖绿",
+            "en": "Coral tone, Butter yellow, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "灰玫瑰、柔海军蓝、珍珠灰",
+            "en": "Dusty rose, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "橄榄绿、可可棕、陶土调",
+            "en": "Olive green, Cocoa brown, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "冰雾蓝、深云杉绿、深李紫",
+            "en": "Icy blue, Deep spruce, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_06",
+      "prompt": {
+        "zh": "一个不放人物照片的自用相册，需要一组封面色块。面积与排列相同，哪组更想留下？",
+        "en": "A private album containing no people’s photographs needs cover blocks. With equal areas and arrangement, which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "粉雾蓝、柔薰衣草、灰鼠尾草",
+            "en": "Powder blue, Soft lavender, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "橄榄绿、可可棕、暖奶油",
+            "en": "Olive green, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "冰雾蓝、深云杉绿、粉笔白",
+            "en": "Icy blue, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "珊瑚调、奶油黄、象牙白",
+            "en": "Coral tone, Butter yellow, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_07",
+      "prompt": {
+        "zh": "给一张自己画的长书签选三段条纹颜色，其他细节保持不变。哪组更顺眼？",
+        "en": "Choose three stripe colours for a long bookmark you drew, leaving other details unchanged. Which set appeals more?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "橄榄绿、陶土调、暖奶油",
+            "en": "Olive green, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "冰雾蓝、深李紫、粉笔白",
+            "en": "Icy blue, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "珊瑚调、嫩叶绿、象牙白",
+            "en": "Coral tone, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "粉雾蓝、柔薰衣草、柔海军蓝",
+            "en": "Powder blue, Soft lavender, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_08",
+      "prompt": {
+        "zh": "你在纸上画一页普通月历，数字仍使用同样的深色文字。装饰色块更想选哪组？",
+        "en": "Draw an ordinary calendar page on paper, keeping the same dark text for numbers. Which decorative blocks would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "墨海军蓝、莓果调、深云杉绿",
+            "en": "Ink navy, Berry tone, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "珊瑚调、浅湖绿、象牙白",
+            "en": "Coral tone, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "粉雾蓝、灰鼠尾草、柔海军蓝",
+            "en": "Powder blue, Greyed sage, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "赭金调、可可棕、陶土调",
+            "en": "Ochre tone, Cocoa brown, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_09",
+      "prompt": {
+        "zh": "为一个靠垫轮廓试三个并排色块，不涉及实际布料或购买。你更愿意看哪组？",
+        "en": "Try three neighbouring blocks on a cushion outline without actual fabric or purchases. Which set would you prefer to view?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "杏桃调、奶油黄、嫩叶绿",
+            "en": "Peach tone, Butter yellow, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "粉雾蓝、灰鼠尾草、珍珠灰",
+            "en": "Powder blue, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "赭金调、可可棕、暖奶油",
+            "en": "Ochre tone, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "墨海军蓝、莓果调、深李紫",
+            "en": "Ink navy, Berry tone, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_10",
+      "prompt": {
+        "zh": "一张没有寄出计划的私人明信片，只需要边框的三种颜色。你选哪组？",
+        "en": "A private postcard with no plan to send it needs three border colours. Which set do you select?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "粉雾蓝、柔海军蓝、珍珠灰",
+            "en": "Powder blue, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "赭金调、陶土调、暖奶油",
+            "en": "Ochre tone, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "墨海军蓝、莓果调、粉笔白",
+            "en": "Ink navy, Berry tone, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "杏桃调、奶油黄、浅湖绿",
+            "en": "Peach tone, Butter yellow, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_11",
+      "prompt": {
+        "zh": "给一个杯子的纸上外形图涂三条色带，不给真实物品上色。哪组更想试？",
+        "en": "Colour three bands on a paper drawing of a cup without colouring an actual object. Which set would you try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "铁锈调、橄榄绿、可可棕",
+            "en": "Rust tone, Olive green, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、深云杉绿",
+            "en": "Ink navy, Icy blue, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "杏桃调、嫩叶绿、浅湖绿",
+            "en": "Peach tone, Leaf green, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "柔薰衣草、灰鼠尾草、柔海军蓝",
+            "en": "Soft lavender, Greyed sage, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_12",
+      "prompt": {
+        "zh": "自用文件夹的纸上标签需要一组装饰色，文字和标识不靠颜色区分。你更想留哪组？",
+        "en": "A paper label for a private folder needs decorative colours, with wording and identification independent of colour. Which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、深李紫",
+            "en": "Ink navy, Icy blue, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "杏桃调、嫩叶绿、象牙白",
+            "en": "Peach tone, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔薰衣草、灰鼠尾草、珍珠灰",
+            "en": "Soft lavender, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "铁锈调、橄榄绿、陶土调",
+            "en": "Rust tone, Olive green, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_13",
+      "prompt": {
+        "zh": "私人手账的一页用同样的版式与留白，只换标题旁的三个小色块。哪组更喜欢？",
+        "en": "Keep the layout and space on a private journal page, changing only three little blocks beside its heading. Which set do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "杏桃调、浅湖绿、象牙白",
+            "en": "Peach tone, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "柔薰衣草、柔海军蓝、珍珠灰",
+            "en": "Soft lavender, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "铁锈调、橄榄绿、暖奶油",
+            "en": "Rust tone, Olive green, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、粉笔白",
+            "en": "Ink navy, Icy blue, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_14",
+      "prompt": {
+        "zh": "给一个帆布袋轮廓画三条等宽色带，只做纸上设想。哪组更想画下去？",
+        "en": "Draw three equal-width bands on a canvas-bag outline as a paper idea only. Which set would you like to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、灰鼠尾草",
+            "en": "Dusty rose, Powder blue, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "铁锈调、赭金调、可可棕",
+            "en": "Rust tone, Ochre tone, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "墨海军蓝、深云杉绿、粉笔白",
+            "en": "Ink navy, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "奶油黄、嫩叶绿、浅湖绿",
+            "en": "Butter yellow, Leaf green, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_15",
+      "prompt": {
+        "zh": "你给自己画的一幅简单线稿试边框颜色，作品内容不变。哪组更愿意拿来比较？",
+        "en": "Try border colours around a simple line drawing of your own without changing its content. Which set would you compare first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "铁锈调、赭金调、陶土调",
+            "en": "Rust tone, Ochre tone, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "墨海军蓝、深李紫、粉笔白",
+            "en": "Ink navy, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "奶油黄、嫩叶绿、象牙白",
+            "en": "Butter yellow, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、柔海军蓝",
+            "en": "Dusty rose, Powder blue, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_16",
+      "prompt": {
+        "zh": "这次配色练习要留一张三色小样，色块大小与排列相同。你更愿意保留哪一组？",
+        "en": "Keep one three-colour sample from this exercise with equal block sizes and arrangements. Which set would you retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "莓果调、冰雾蓝、深云杉绿",
+            "en": "Berry tone, Icy blue, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "奶油黄、浅湖绿、象牙白",
+            "en": "Butter yellow, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、珍珠灰",
+            "en": "Dusty rose, Powder blue, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "铁锈调、赭金调、暖奶油",
+            "en": "Rust tone, Ochre tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "palettes": {
+    "spring": [
+      {
+        "hex": "#F08C78",
+        "name": {
+          "zh": "珊瑚调",
+          "en": "Coral tone"
+        }
+      },
+      {
+        "hex": "#F5BE9D",
+        "name": {
+          "zh": "杏桃调",
+          "en": "Peach tone"
+        }
+      },
+      {
+        "hex": "#F2D675",
+        "name": {
+          "zh": "奶油黄",
+          "en": "Butter yellow"
+        }
+      },
+      {
+        "hex": "#A7C878",
+        "name": {
+          "zh": "嫩叶绿",
+          "en": "Leaf green"
+        }
+      },
+      {
+        "hex": "#77C2B5",
+        "name": {
+          "zh": "浅湖绿",
+          "en": "Light lagoon"
+        }
+      },
+      {
+        "hex": "#F4E9CF",
+        "name": {
+          "zh": "象牙白",
+          "en": "Ivory"
+        }
+      }
+    ],
+    "summer": [
+      {
+        "hex": "#C390A6",
+        "name": {
+          "zh": "灰玫瑰",
+          "en": "Dusty rose"
+        }
+      },
+      {
+        "hex": "#A9BED8",
+        "name": {
+          "zh": "粉雾蓝",
+          "en": "Powder blue"
+        }
+      },
+      {
+        "hex": "#B8AED1",
+        "name": {
+          "zh": "柔薰衣草",
+          "en": "Soft lavender"
+        }
+      },
+      {
+        "hex": "#A5B8B0",
+        "name": {
+          "zh": "灰鼠尾草",
+          "en": "Greyed sage"
+        }
+      },
+      {
+        "hex": "#657B96",
+        "name": {
+          "zh": "柔海军蓝",
+          "en": "Soft navy"
+        }
+      },
+      {
+        "hex": "#E4DFE8",
+        "name": {
+          "zh": "珍珠灰",
+          "en": "Pearl grey"
+        }
+      }
+    ],
+    "autumn": [
+      {
+        "hex": "#AC6346",
+        "name": {
+          "zh": "铁锈调",
+          "en": "Rust tone"
+        }
+      },
+      {
+        "hex": "#7A8356",
+        "name": {
+          "zh": "橄榄绿",
+          "en": "Olive green"
+        }
+      },
+      {
+        "hex": "#B09547",
+        "name": {
+          "zh": "赭金调",
+          "en": "Ochre tone"
+        }
+      },
+      {
+        "hex": "#755749",
+        "name": {
+          "zh": "可可棕",
+          "en": "Cocoa brown"
+        }
+      },
+      {
+        "hex": "#BD8367",
+        "name": {
+          "zh": "陶土调",
+          "en": "Clay tone"
+        }
+      },
+      {
+        "hex": "#DECEAB",
+        "name": {
+          "zh": "暖奶油",
+          "en": "Warm cream"
+        }
+      }
+    ],
+    "winter": [
+      {
+        "hex": "#21334E",
+        "name": {
+          "zh": "墨海军蓝",
+          "en": "Ink navy"
+        }
+      },
+      {
+        "hex": "#B82C65",
+        "name": {
+          "zh": "莓果调",
+          "en": "Berry tone"
+        }
+      },
+      {
+        "hex": "#D6E6ED",
+        "name": {
+          "zh": "冰雾蓝",
+          "en": "Icy blue"
+        }
+      },
+      {
+        "hex": "#215C58",
+        "name": {
+          "zh": "深云杉绿",
+          "en": "Deep spruce"
+        }
+      },
+      {
+        "hex": "#593A66",
+        "name": {
+          "zh": "深李紫",
+          "en": "Deep plum"
+        }
+      },
+      {
+        "hex": "#F2F2EE",
+        "name": {
+          "zh": "粉笔白",
+          "en": "Chalk white"
+        }
+      }
+    ]
+  },
+  "scope": {
+    "zh": "本版是可见配色偏好的原创趣味问卷，不是肤色或外观诊断。不收集照片、肤色、静脉、发色、眼色、日晒反应、种族或他人评价，不推断专业四季归属、健康、颜值、人格或职业匹配，也不承诺某种衣服或首饰一定显气色。春夏秋冬只是四组示例配色名称，具体颜色为本站原创选择，不复刻任何专业品牌色表。结果只读这次菜单中的偏好；色块、名称和色号都供比较，不是购买建议。",
+    "en": "This is an original playful questionnaire about visible palette preferences, not complexion or appearance diagnosis. It collects no photograph, skin tone, veins, hair, eyes, sun response, ethnicity or other people’s appraisals, and infers no professional season assignment, health, attractiveness, personality or career fit. It promises no flattering effect from clothes or jewellery. The seasons name four example palettes with original colour choices, replicating no professional brand chart. Results concern these menus. Blocks, names and colour codes support comparison rather than purchasing advice."
+  },
+  "instructions": {
+    "zh": "只比较每题实际显示的三色色块与名称，色块面积和排列一致；选这次更愿意看的组合，不根据理想季节、肤色或别人评价选。16题完整后显示原始选择次数，所有最高并列保留全文。四组是本站原创示例配色，不是专业色表或对你的外观分析；没有视觉判断或没有选项合适，可以停止，四份完整指南始终开放。",
+    "en": "Compare the three colour blocks and names actually shown in each item, with equal areas and arrangement. Choose the combination you prefer to view this time, not an ideal season, complexion or another person’s judgment. All sixteen choices produce raw counts, retaining every highest tie in full. Four groups are original example palettes, not professional colour charts or an analysis of your appearance. Stop if visual judgment is unavailable or nothing fits; every full guide remains open."
+  },
+  "scoring": {
+    "kind": "archetype",
+    "questions": 16,
+    "parts": 4,
+    "exposuresEach": 16,
+    "eachPosition": 4,
+    "countVectors": 969,
+    "highestSets": 15,
+    "meaning": "Raw visible-palette preferences;everyhighesttieFULL;allonepositionfourcountsEach/all36sections;no complexion/professionalseason/personality/career/norm inference."
+  },
+  "sourceRead": "CurrentJobCannonEN55ZH47/about66 actualbrowserread;all12items48fourratings/allfirstNotatallresultSpringheading/all4LIGHT0cards/4shortbodies/only2freeWhatMeansbullets2locked/profile0.95/shareRetake/mapcardstillgeneratingnotactualcompletion.Otherpatterns/formula/ties/paid/accountsaveunverified. Noresultlibrarylinksobserved/boundedsearchnotabsenceproof/noinvented4guideread. ActualminiPERSONALITY_COLOR product24binaryresponses alreadyresponse-color;currentresponse-color24/aura21/aesthetic18 promptsoptionsread. Own16visualmenus64opts24originalexamplecolours/noappearanceinput/nochartcopy/notpsychologicalindependence/finalFJpending."
+}

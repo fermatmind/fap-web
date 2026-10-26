@@ -1,3 +1,4 @@
+import { QuestionnairePaletteSwatches } from "./QuestionnairePaletteSwatches";
 import type { QuestionnaireProfile } from "@/lib/questionnaires/types";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -6,6 +7,7 @@ export function QuestionnaireReport({ profile, locale, headingLevel = 3, idPrefi
   return <article className="space-y-7 leading-8 [overflow-wrap:anywhere]">
     <p className="font-semibold">{profile.headline[locale]}</p>
     <p>{profile.summary[locale]}</p>
+    {profile.paletteSwatches && <div><p className="font-semibold">{locale === "zh" ? "本组原创示例色" : "Original colour examples in this palette"}</p><QuestionnairePaletteSwatches swatches={profile.paletteSwatches} locale={locale} /></div>}
     <p className="rounded-lg bg-slate-50 p-4 text-sm leading-7">{profile.scoreReading[locale]}</p>
     {profile.sections.map(section => <section id={`${idPrefix}-${section.id}`} key={section.id} className="scroll-mt-24">
       <Heading className="mb-3 text-xl font-semibold">{section.title[locale]}</Heading>

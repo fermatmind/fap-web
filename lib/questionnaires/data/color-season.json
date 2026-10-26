@@ -1,0 +1,3118 @@
+{
+  "slug": "color-season",
+  "code": "SEASONAL_PALETTE_PREFERENCES_ORIGINAL_16",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "色彩季节测试",
+    "en": "Color Analysis Quiz"
+  },
+  "resultHeading": {
+    "zh": "本次可见配色偏好",
+    "en": "Your visible palette preferences"
+  },
+  "description": {
+    "zh": "免费色彩季节测试：比较16个原创三色菜单，阅读春日、夏日、秋日与冬日四份完整配色指南和24种示例色。不收照片、不作肤色鉴定。",
+    "en": "Free Color Analysis Quiz: compare 16 original three-colour menus and read all four palette guides with 24 examples. No photographs or skin typing."
+  },
+  "seoTitle": {
+    "zh": "色彩季节测试：可见配色偏好与免费完整指南",
+    "en": "Color Analysis Quiz: Palette Preferences & Free Guides"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "给私人笔记本试封面、画一条书签边线，或者为草稿添三块颜色：哪组是你今天更愿意看的？本版16道原创菜单会实际显示三色色块与名称，四组每题都出现、每个位置各4次。只观察这次可见配色偏好，不收照片、肤色、血管、发眼色或他人评价，不做专业肤色分析。春夏秋冬是本站24种原创示例色组成的四组名字，不是给人的外观身份。全部16题后显示原始次数，所有最高并列保留九节全文，不强派主副季节。四份指南和具体配色例子作答前后都免费；可以先读、返回修改、清除或重测。无法区分色块或没有合适选择时可以停止，仍能阅读全部指南，无需猜答、购物或继续人格测试。自愿草稿只在本标签页最多24小时；分享只有结果名和公开链接，不含答案或次数。",
+    "en": "Try a notebook cover, bookmark border or three blocks on a private draft: which combination would you prefer to view today? Sixteen original menus actually display three colour blocks and names. All four palettes appear in every item and four times in every position. This observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes or other people’s appraisal and performing no professional skin analysis. Spring, summer, autumn and winter name four groups of twenty-four original examples rather than personal appearance identities. All sixteen choices produce raw counts with every highest tie retaining its nine-section guide, without forced primary or secondary seasons. Every guide and palette example is free before and after answering. Read first, edit, clear or retake. Stop if colours are hard to distinguish or no option fits and still read everything, without guessing, shopping or continuing to personality tests. Optional drafts stay in this tab for up to twenty-four hours; sharing contains only result names and public links, not answers or counts."
+  },
+  "instructions": {
+    "zh": "只比较每题实际显示的三色色块与名称，色块面积和排列一致；选这次更愿意看的组合，不根据理想季节、肤色或别人评价选。16题完整后显示原始选择次数，所有最高并列保留全文。四组是本站原创示例配色，不是专业色表或对你的外观分析；没有视觉判断或没有选项合适，可以停止，四份完整指南始终开放。",
+    "en": "Compare the three colour blocks and names actually shown in each item, with equal areas and arrangement. Choose the combination you prefer to view this time, not an ideal season, complexion or another person’s judgment. All sixteen choices produce raw counts, retaining every highest tie in full. Four groups are original example palettes, not professional colour charts or an analysis of your appearance. Stop if visual judgment is unavailable or nothing fits; every full guide remains open."
+  },
+  "source": {
+    "kind": "frontend_original_visible_seasonal_palette_menus",
+    "formCode": "fm_seasonal_palette_preferences_16",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "585dc23d66c411b40cbe0bf04109a33a894235ab61785c2850ec474e807b3d7c",
+    "resultContentSha256": "dc4129d4ff95ad345f53d44b2060f971d420bb1c9237684eea5a41d5adf705bc",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "spring",
+      "title": {
+        "zh": "春日配色",
+        "en": "Spring Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "summer",
+      "title": {
+        "zh": "夏日柔色",
+        "en": "Summer Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "autumn",
+      "title": {
+        "zh": "秋日大地",
+        "en": "Autumn Palette"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "winter",
+      "title": {
+        "zh": "冬日对比",
+        "en": "Winter Palette"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "CSP_01",
+      "prompt": {
+        "zh": "只在纸上给一本私人笔记本试封面，图形和色块面积完全相同。你更想先看哪组颜色？",
+        "en": "Try a private notebook cover on paper, keeping shapes and colour-block areas identical. Which colours would you look at first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "珊瑚调、杏桃调、嫩叶绿",
+            "en": "Coral tone, Peach tone, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、灰鼠尾草",
+            "en": "Dusty rose, Soft lavender, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "铁锈调、可可棕、暖奶油",
+            "en": "Rust tone, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "莓果调、冰雾蓝、深李紫",
+            "en": "Berry tone, Icy blue, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_02",
+      "prompt": {
+        "zh": "你为自己写的一张普通邀请卡选边缘配色，只比较颜色，不改变文字。哪组更愿意保留？",
+        "en": "Choose edge colours for an ordinary invitation you wrote, changing no wording. Which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、柔海军蓝",
+            "en": "Dusty rose, Soft lavender, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "铁锈调、陶土调、暖奶油",
+            "en": "Rust tone, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "莓果调、深云杉绿、深李紫",
+            "en": "Berry tone, Deep spruce, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "珊瑚调、杏桃调、浅湖绿",
+            "en": "Coral tone, Peach tone, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_03",
+      "prompt": {
+        "zh": "一张虚构小菜单只需要三个装饰色，不涉及食物或购买。哪组更吸引你？",
+        "en": "A fictional little menu needs three decorative colours without food or purchases involved. Which set attracts you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "橄榄绿、赭金调、可可棕",
+            "en": "Olive green, Ochre tone, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "莓果调、深云杉绿、粉笔白",
+            "en": "Berry tone, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "珊瑚调、杏桃调、象牙白",
+            "en": "Coral tone, Peach tone, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "灰玫瑰、柔薰衣草、珍珠灰",
+            "en": "Dusty rose, Soft lavender, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_04",
+      "prompt": {
+        "zh": "在一张自用的空白路线草图上，颜色只作装饰，地点仍用文字标明。你更想用哪组？",
+        "en": "On a private blank route sketch, colours are decorative and places still have written labels. Which set would you use?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "莓果调、深李紫、粉笔白",
+            "en": "Berry tone, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "珊瑚调、奶油黄、嫩叶绿",
+            "en": "Coral tone, Butter yellow, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "灰玫瑰、灰鼠尾草、珍珠灰",
+            "en": "Dusty rose, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "橄榄绿、赭金调、陶土调",
+            "en": "Olive green, Ochre tone, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_05",
+      "prompt": {
+        "zh": "给一条围巾的平面轮廓涂三个色块，只看纸上组合，不判断任何人穿着效果。你选哪组？",
+        "en": "Colour a flat scarf outline with three blocks, considering only the paper combination rather than its effect on a person. Which set do you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "珊瑚调、奶油黄、浅湖绿",
+            "en": "Coral tone, Butter yellow, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "灰玫瑰、柔海军蓝、珍珠灰",
+            "en": "Dusty rose, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "橄榄绿、可可棕、陶土调",
+            "en": "Olive green, Cocoa brown, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "冰雾蓝、深云杉绿、深李紫",
+            "en": "Icy blue, Deep spruce, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_06",
+      "prompt": {
+        "zh": "一个不放人物照片的自用相册，需要一组封面色块。面积与排列相同，哪组更想留下？",
+        "en": "A private album containing no people’s photographs needs cover blocks. With equal areas and arrangement, which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "粉雾蓝、柔薰衣草、灰鼠尾草",
+            "en": "Powder blue, Soft lavender, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "橄榄绿、可可棕、暖奶油",
+            "en": "Olive green, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "冰雾蓝、深云杉绿、粉笔白",
+            "en": "Icy blue, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "珊瑚调、奶油黄、象牙白",
+            "en": "Coral tone, Butter yellow, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_07",
+      "prompt": {
+        "zh": "给一张自己画的长书签选三段条纹颜色，其他细节保持不变。哪组更顺眼？",
+        "en": "Choose three stripe colours for a long bookmark you drew, leaving other details unchanged. Which set appeals more?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "橄榄绿、陶土调、暖奶油",
+            "en": "Olive green, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "冰雾蓝、深李紫、粉笔白",
+            "en": "Icy blue, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "珊瑚调、嫩叶绿、象牙白",
+            "en": "Coral tone, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "粉雾蓝、柔薰衣草、柔海军蓝",
+            "en": "Powder blue, Soft lavender, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_08",
+      "prompt": {
+        "zh": "你在纸上画一页普通月历，数字仍使用同样的深色文字。装饰色块更想选哪组？",
+        "en": "Draw an ordinary calendar page on paper, keeping the same dark text for numbers. Which decorative blocks would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "墨海军蓝、莓果调、深云杉绿",
+            "en": "Ink navy, Berry tone, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "珊瑚调、浅湖绿、象牙白",
+            "en": "Coral tone, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F08C78",
+              "name": {
+                "zh": "珊瑚调",
+                "en": "Coral tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "粉雾蓝、灰鼠尾草、柔海军蓝",
+            "en": "Powder blue, Greyed sage, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "赭金调、可可棕、陶土调",
+            "en": "Ochre tone, Cocoa brown, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_09",
+      "prompt": {
+        "zh": "为一个靠垫轮廓试三个并排色块，不涉及实际布料或购买。你更愿意看哪组？",
+        "en": "Try three neighbouring blocks on a cushion outline without actual fabric or purchases. Which set would you prefer to view?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "杏桃调、奶油黄、嫩叶绿",
+            "en": "Peach tone, Butter yellow, Leaf green"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "粉雾蓝、灰鼠尾草、珍珠灰",
+            "en": "Powder blue, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "赭金调、可可棕、暖奶油",
+            "en": "Ochre tone, Cocoa brown, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "墨海军蓝、莓果调、深李紫",
+            "en": "Ink navy, Berry tone, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_10",
+      "prompt": {
+        "zh": "一张没有寄出计划的私人明信片，只需要边框的三种颜色。你选哪组？",
+        "en": "A private postcard with no plan to send it needs three border colours. Which set do you select?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "粉雾蓝、柔海军蓝、珍珠灰",
+            "en": "Powder blue, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "赭金调、陶土调、暖奶油",
+            "en": "Ochre tone, Clay tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "墨海军蓝、莓果调、粉笔白",
+            "en": "Ink navy, Berry tone, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "杏桃调、奶油黄、浅湖绿",
+            "en": "Peach tone, Butter yellow, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_11",
+      "prompt": {
+        "zh": "给一个杯子的纸上外形图涂三条色带，不给真实物品上色。哪组更想试？",
+        "en": "Colour three bands on a paper drawing of a cup without colouring an actual object. Which set would you try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "铁锈调、橄榄绿、可可棕",
+            "en": "Rust tone, Olive green, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、深云杉绿",
+            "en": "Ink navy, Icy blue, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "杏桃调、嫩叶绿、浅湖绿",
+            "en": "Peach tone, Leaf green, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "柔薰衣草、灰鼠尾草、柔海军蓝",
+            "en": "Soft lavender, Greyed sage, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_12",
+      "prompt": {
+        "zh": "自用文件夹的纸上标签需要一组装饰色，文字和标识不靠颜色区分。你更想留哪组？",
+        "en": "A paper label for a private folder needs decorative colours, with wording and identification independent of colour. Which set would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、深李紫",
+            "en": "Ink navy, Icy blue, Deep plum"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "杏桃调、嫩叶绿、象牙白",
+            "en": "Peach tone, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "柔薰衣草、灰鼠尾草、珍珠灰",
+            "en": "Soft lavender, Greyed sage, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "铁锈调、橄榄绿、陶土调",
+            "en": "Rust tone, Olive green, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_13",
+      "prompt": {
+        "zh": "私人手账的一页用同样的版式与留白，只换标题旁的三个小色块。哪组更喜欢？",
+        "en": "Keep the layout and space on a private journal page, changing only three little blocks beside its heading. Which set do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "杏桃调、浅湖绿、象牙白",
+            "en": "Peach tone, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F5BE9D",
+              "name": {
+                "zh": "杏桃调",
+                "en": "Peach tone"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "柔薰衣草、柔海军蓝、珍珠灰",
+            "en": "Soft lavender, Soft navy, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#B8AED1",
+              "name": {
+                "zh": "柔薰衣草",
+                "en": "Soft lavender"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "铁锈调、橄榄绿、暖奶油",
+            "en": "Rust tone, Olive green, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#7A8356",
+              "name": {
+                "zh": "橄榄绿",
+                "en": "Olive green"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "墨海军蓝、冰雾蓝、粉笔白",
+            "en": "Ink navy, Icy blue, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_14",
+      "prompt": {
+        "zh": "给一个帆布袋轮廓画三条等宽色带，只做纸上设想。哪组更想画下去？",
+        "en": "Draw three equal-width bands on a canvas-bag outline as a paper idea only. Which set would you like to continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、灰鼠尾草",
+            "en": "Dusty rose, Powder blue, Greyed sage"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#A5B8B0",
+              "name": {
+                "zh": "灰鼠尾草",
+                "en": "Greyed sage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "铁锈调、赭金调、可可棕",
+            "en": "Rust tone, Ochre tone, Cocoa brown"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#755749",
+              "name": {
+                "zh": "可可棕",
+                "en": "Cocoa brown"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "墨海军蓝、深云杉绿、粉笔白",
+            "en": "Ink navy, Deep spruce, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "奶油黄、嫩叶绿、浅湖绿",
+            "en": "Butter yellow, Leaf green, Light lagoon"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_15",
+      "prompt": {
+        "zh": "你给自己画的一幅简单线稿试边框颜色，作品内容不变。哪组更愿意拿来比较？",
+        "en": "Try border colours around a simple line drawing of your own without changing its content. Which set would you compare first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "铁锈调、赭金调、陶土调",
+            "en": "Rust tone, Ochre tone, Clay tone"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#BD8367",
+              "name": {
+                "zh": "陶土调",
+                "en": "Clay tone"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "墨海军蓝、深李紫、粉笔白",
+            "en": "Ink navy, Deep plum, Chalk white"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#21334E",
+              "name": {
+                "zh": "墨海军蓝",
+                "en": "Ink navy"
+              }
+            },
+            {
+              "hex": "#593A66",
+              "name": {
+                "zh": "深李紫",
+                "en": "Deep plum"
+              }
+            },
+            {
+              "hex": "#F2F2EE",
+              "name": {
+                "zh": "粉笔白",
+                "en": "Chalk white"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "奶油黄、嫩叶绿、象牙白",
+            "en": "Butter yellow, Leaf green, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#A7C878",
+              "name": {
+                "zh": "嫩叶绿",
+                "en": "Leaf green"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、柔海军蓝",
+            "en": "Dusty rose, Powder blue, Soft navy"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#657B96",
+              "name": {
+                "zh": "柔海军蓝",
+                "en": "Soft navy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CSP_16",
+      "prompt": {
+        "zh": "这次配色练习要留一张三色小样，色块大小与排列相同。你更愿意保留哪一组？",
+        "en": "Keep one three-colour sample from this exercise with equal block sizes and arrangements. Which set would you retain?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "莓果调、冰雾蓝、深云杉绿",
+            "en": "Berry tone, Icy blue, Deep spruce"
+          },
+          "directionId": "winter",
+          "paletteSwatches": [
+            {
+              "hex": "#B82C65",
+              "name": {
+                "zh": "莓果调",
+                "en": "Berry tone"
+              }
+            },
+            {
+              "hex": "#D6E6ED",
+              "name": {
+                "zh": "冰雾蓝",
+                "en": "Icy blue"
+              }
+            },
+            {
+              "hex": "#215C58",
+              "name": {
+                "zh": "深云杉绿",
+                "en": "Deep spruce"
+              }
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "奶油黄、浅湖绿、象牙白",
+            "en": "Butter yellow, Light lagoon, Ivory"
+          },
+          "directionId": "spring",
+          "paletteSwatches": [
+            {
+              "hex": "#F2D675",
+              "name": {
+                "zh": "奶油黄",
+                "en": "Butter yellow"
+              }
+            },
+            {
+              "hex": "#77C2B5",
+              "name": {
+                "zh": "浅湖绿",
+                "en": "Light lagoon"
+              }
+            },
+            {
+              "hex": "#F4E9CF",
+              "name": {
+                "zh": "象牙白",
+                "en": "Ivory"
+              }
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "灰玫瑰、粉雾蓝、珍珠灰",
+            "en": "Dusty rose, Powder blue, Pearl grey"
+          },
+          "directionId": "summer",
+          "paletteSwatches": [
+            {
+              "hex": "#C390A6",
+              "name": {
+                "zh": "灰玫瑰",
+                "en": "Dusty rose"
+              }
+            },
+            {
+              "hex": "#A9BED8",
+              "name": {
+                "zh": "粉雾蓝",
+                "en": "Powder blue"
+              }
+            },
+            {
+              "hex": "#E4DFE8",
+              "name": {
+                "zh": "珍珠灰",
+                "en": "Pearl grey"
+              }
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "铁锈调、赭金调、暖奶油",
+            "en": "Rust tone, Ochre tone, Warm cream"
+          },
+          "directionId": "autumn",
+          "paletteSwatches": [
+            {
+              "hex": "#AC6346",
+              "name": {
+                "zh": "铁锈调",
+                "en": "Rust tone"
+              }
+            },
+            {
+              "hex": "#B09547",
+              "name": {
+                "zh": "赭金调",
+                "en": "Ochre tone"
+              }
+            },
+            {
+              "hex": "#DECEAB",
+              "name": {
+                "zh": "暖奶油",
+                "en": "Warm cream"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "spring",
+      "directionIds": [
+        "spring"
+      ],
+      "title": {
+        "zh": "春日配色",
+        "en": "Spring Palette"
+      },
+      "headline": {
+        "zh": "从明亮暖调的纸上组合开始",
+        "en": "Start with a light, warm-looking paper palette"
+      },
+      "summary": {
+        "zh": "本次菜单更常选到珊瑚、杏桃、奶油黄等春日示例组合。它只描述这组色块偏好，不推断肤色或适合穿什么。",
+        "en": "These menus more often led to the spring examples: coral, peach and buttery yellow. This describes a preference among colour blocks, not your complexion or suitable clothing."
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#F08C78",
+          "name": {
+            "zh": "珊瑚调",
+            "en": "Coral tone"
+          }
+        },
+        {
+          "hex": "#F5BE9D",
+          "name": {
+            "zh": "杏桃调",
+            "en": "Peach tone"
+          }
+        },
+        {
+          "hex": "#F2D675",
+          "name": {
+            "zh": "奶油黄",
+            "en": "Butter yellow"
+          }
+        },
+        {
+          "hex": "#A7C878",
+          "name": {
+            "zh": "嫩叶绿",
+            "en": "Leaf green"
+          }
+        },
+        {
+          "hex": "#77C2B5",
+          "name": {
+            "zh": "浅湖绿",
+            "en": "Light lagoon"
+          }
+        },
+        {
+          "hex": "#F4E9CF",
+          "name": {
+            "zh": "象牙白",
+            "en": "Ivory"
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "zh": "春日配色完整指南｜色彩季节测试",
+          "en": "Spring Palette Guide | Color Analysis Quiz"
+        },
+        "description": {
+          "zh": "免费阅读春日配色九节全文与六种示例色；理解16题原始偏好次数、全部并列和纸上搭配方法，不作肤色鉴定。",
+          "en": "Read the free Spring palette guide with six example colours, raw counts, every highest tie and paper comparisons. No complexion analysis."
+        }
+      },
+      "scoreReading": {
+        "zh": "16题每题一选，四组每题都出现，共各16次、每个位置各4次。每选一次只记1次偏好，完整后呈现原始次数，所有最高并列保留全文，不强派主副季节。一直选同一位置会四组各4，不能说明外观平衡或春夏秋冬各占25%；次数不是肤色相似度、专业归属概率或人群排名。",
+        "en": "Each of sixteen questions takes one choice. Every palette appears in every item, sixteen times in all and four in each position. A choice adds one preference count. A complete attempt shows raw counts and every highest tie in full without forced primary or secondary seasons. Repeating one position gives each palette four counts, establishing neither appearance balance nor twenty-five percent of each season. Counts are no complexion similarity, professional assignment probability or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个结果具体指什么",
+            "en": "What this result actually describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的春日是一组原创示例色名称，不是人的季节身份。它把珊瑚、杏桃、奶油黄、嫩叶绿、浅湖绿与象牙白放在同一个可比较菜单里。你可能偏爱其中两种，或者某一道题的组合恰好顺眼。结果不能外推为你总喜欢暖色，也不要求穿遍六种颜色；下一次在另一张纸上比较仍可不同。",
+              "en": "Spring here names a group of original example colours rather than a season assigned to a person. Coral tone, peach tone, butter yellow, leaf green, light lagoon and ivory appear together in comparable menus. You might like only two members, or one particular arrangement. The result does not establish a permanent preference for warm colours and requires wearing none of them. Another paper comparison can reasonably produce a different selection."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "六种示例色与可核对色号",
+            "en": "Six examples with reference codes"
+          },
+          "paragraphs": [
+            {
+              "zh": "示例色为珊瑚调#F08C78、杏桃调#F5BE9D、奶油黄#F2D675、嫩叶绿#A7C878、浅湖绿#77C2B5和象牙白#F4E9CF。下面色块与题目来自同一个色池。色号帮助核对屏幕上的数字定义，并不保证另一设备、纸张或布料一致；颜色名称也不是品牌商品、专业色布或经测量的人体特征。",
+              "en": "The examples are coral tone #F08C78, peach tone #F5BE9D, butter yellow #F2D675, leaf green #A7C878, light lagoon #77C2B5 and ivory #F4E9CF. The displayed blocks and questions draw from this same pool. Codes identify digital definitions so a comparison can be repeated, but guarantee no match across devices, paper or fabric. These names identify neither branded products nor professional drapes or measured human characteristics."
+            }
+          ]
+        },
+        {
+          "id": "combination",
+          "title": {
+            "zh": "试一张三色便签",
+            "en": "Try a three-colour note"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以在自己的草稿上把象牙白作空白区域，用珊瑚色画一条细线，再用嫩叶绿点一个小圆。先保持三块面积一致比较，再只改一块面积，记录喜欢的是颜色还是分量。这是低成本的可撤回纸上练习，不是审美标准；不喜欢就改，不需要买衣服或请别人评价你的外表。",
+              "en": "On a private draft, leave an ivory area, add a thin coral line and place a small leaf-green circle beside it. First compare equal areas, then alter only one area and note whether colour or proportion changed your preference. This is a reversible paper experiment, not a standard of taste. Replace any part you dislike. It requires neither buying clothing nor asking another person to judge your appearance."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "题目场景为何会影响选择",
+            "en": "Why the menu context can matter"
+          },
+          "paragraphs": [
+            {
+              "zh": "笔记本、书签和邀请边框虽用同一色池，功能想象仍可能影响选择。你也许愿意让便签显眼，却希望日历安静。题本让各色组参加每一道题并轮换位置，但没有消除屏幕、环境、习惯、色觉或场景词的影响。结果只保留这次选择的范围，不能证明某种场景导致某一种偏好。",
+              "en": "A notebook, bookmark and invitation border use the same colour pool, yet imagining their functions may change a choice. You might want a visible note and a quieter calendar. Every palette participates in every item with rotated positions, but this removes neither display and lighting effects nor habits, colour perception or scenario wording. Keep the conclusion within this attempt. The result does not prove that a particular context caused a preference."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与夏日和秋日怎样比较",
+            "en": "Compare summer and autumn directly"
+          },
+          "paragraphs": [
+            {
+              "zh": "夏日示例把粉雾蓝、灰玫瑰和珍珠灰放进较柔的组合；秋日则有铁锈、可可和橄榄等较深的例子。可选同面积三色组并排，只问今天更愿意把哪组放在自己的纸上。不要把差别解释成外向内向、年龄成熟度，或者春日比另一组更健康、更精神。",
+              "en": "Summer examples include powder blue, dusty rose and pearl grey in softer-looking combinations. Autumn includes deeper examples such as rust, cocoa and olive. Place equal-sized three-colour samples beside one another and ask which you would choose for your own paper today. Keep colour comparisons separate from extraversion, age or maturity. A spring selection establishes no greater health, energy, attractiveness or psychological quality than another group."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "不把配色选择写成外观结论",
+            "en": "Keep preference separate from appearance"
+          },
+          "paragraphs": [
+            {
+              "zh": "本题不看照片，不观察皮肤、眼睛、头发、血管或日晒反应，所以没有资料判断专业冷暖、个人对比度或某色是否衬肤。即使你原本知道自己的专业分析结果，也不该用本次次数确认或否认它。两者输入与目的不同；这份指南只帮你把可见配色说具体。",
+              "en": "This quiz examines no photograph, skin, eyes, hair, veins or response to sunlight. It therefore has no basis for professional undertone, personal contrast or complexion-flattery judgments. Even if you already have a professional consultation result, do not use these counts to confirm or overturn it. The inputs and purposes differ. This guide simply helps describe a visible palette preference in concrete terms rather than infer facts about a body."
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "zh": "下一步只需做一次小比较",
+            "en": "One small comparison is enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "把刚才喜欢的三色组合记下，同时挑一个只改一色的备选。第二天用同样设备、同样面积再看，愿意可记录是否仍喜欢，但不要把重复当信度实验或验证。也可直接阅读其他三份全文、跳过测试。后续更适合画小色卡或收藏审美素材，不需要换算MBTI或职业建议。",
+              "en": "Keep a note of one three-colour arrangement you liked and an alternative changing just one colour. On another day, view both on the same device with the same areas and optionally record your preference again. Repetition here is no reliability study or validation. You can also skip answering and read the other three guides. Drawing a small colour card or collecting aesthetic references is a sufficient next step, without conversion to MBTI or career advice."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16次选择合计16，四组各有16次机会、四个位置各4次，没有反向题、权重或隐藏主副季节。所有最高并列都呈现九节全文；一直选同一位置会各4，显示四份36节，不证明理想均衡。近分可以邀请你比较另一份，不是验证过的肤色、冷暖、亮度或外观分界。每组三色组合只是本站24种示例色的一部分，不复刻任何专业色表，也不能给别人或照片分季节。",
+              "en": "Sixteen choices total sixteen, with sixteen opportunities per palette and four in each position. There are no reversals, weights or hidden primary and secondary seasons. Every highest tie keeps its nine-section guide. Repeating one position gives each palette four counts and all thirty-six sections without proving ideal balance. Close counts invite another guide rather than a validated complexion, temperature, brightness or appearance boundary. Three-colour sets use parts of twenty-four original example colours, replicating no professional chart and assigning no season to another person or photograph."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、可见色块与分享范围",
+            "en": "Free full guides, visible blocks and sharing scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节全文和具体配色例子在作答前后都免费。16题、64选项与24种示例颜色均为本版原创选择；题本只观察这次可见色块偏好，不收照片、肤色、静脉、发眼色、日晒或他人评价，不测颜值、健康、人格或职业。名称与色号供参考，不保证任何实际布料、首饰或外观效果，也无需购买。自愿草稿仅本标签页最多24小时，完成、清除或重测即删；分享只有结果名和公开链接，不含答案或次数。无法判断或不想选择可以停止，仍能读全部指南。",
+              "en": "All four nine-section guides and palette examples are free before and after answering. Sixteen questions, sixty-four options and twenty-four example colours are original selections for this edition. The bank observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes, sun response or another person’s judgment, and assesses no attractiveness, health, personality or career. Names and codes are references without guaranteed fabric, jewellery or appearance effects; no purchase is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop when judgment is unavailable or unwanted and still read every guide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summer",
+      "directionIds": [
+        "summer"
+      ],
+      "title": {
+        "zh": "夏日柔色",
+        "en": "Summer Palette"
+      },
+      "headline": {
+        "zh": "观察柔和灰调之间的细小差别",
+        "en": "Notice small differences among softened examples"
+      },
+      "summary": {
+        "zh": "本次菜单更常选到灰玫瑰、粉雾蓝、柔薰衣草等夏日示例组合。它不是对肤色、气质或个人冷暖的判断。",
+        "en": "These menus more often led to summer examples such as dusty rose, powder blue and soft lavender. This judges neither complexion nor temperament nor personal undertone."
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#C390A6",
+          "name": {
+            "zh": "灰玫瑰",
+            "en": "Dusty rose"
+          }
+        },
+        {
+          "hex": "#A9BED8",
+          "name": {
+            "zh": "粉雾蓝",
+            "en": "Powder blue"
+          }
+        },
+        {
+          "hex": "#B8AED1",
+          "name": {
+            "zh": "柔薰衣草",
+            "en": "Soft lavender"
+          }
+        },
+        {
+          "hex": "#A5B8B0",
+          "name": {
+            "zh": "灰鼠尾草",
+            "en": "Greyed sage"
+          }
+        },
+        {
+          "hex": "#657B96",
+          "name": {
+            "zh": "柔海军蓝",
+            "en": "Soft navy"
+          }
+        },
+        {
+          "hex": "#E4DFE8",
+          "name": {
+            "zh": "珍珠灰",
+            "en": "Pearl grey"
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "zh": "夏日柔色完整指南｜色彩季节测试",
+          "en": "Summer Palette Guide | Color Analysis Quiz"
+        },
+        "description": {
+          "zh": "免费阅读夏日柔色九节全文与六种示例色；比较柔海军蓝、灰玫瑰等纸上组合，保留全部最高并列，不推断肤色。",
+          "en": "Explore the free Summer palette guide: six example colours, softened paper combinations, raw counts and every highest tie. No skin typing."
+        }
+      },
+      "scoreReading": {
+        "zh": "16题每题一选，四组每题都出现，共各16次、每个位置各4次。每选一次只记1次偏好，完整后呈现原始次数，所有最高并列保留全文，不强派主副季节。一直选同一位置会四组各4，不能说明外观平衡或春夏秋冬各占25%；次数不是肤色相似度、专业归属概率或人群排名。",
+        "en": "Each of sixteen questions takes one choice. Every palette appears in every item, sixteen times in all and four in each position. A choice adds one preference count. A complete attempt shows raw counts and every highest tie in full without forced primary or secondary seasons. Repeating one position gives each palette four counts, establishing neither appearance balance nor twenty-five percent of each season. Counts are no complexion similarity, professional assignment probability or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "柔色说的是示例，不是性格",
+            "en": "Softness describes examples, not character"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的夏日指六种示例色组成的菜单。灰玫瑰、粉雾蓝、柔薰衣草、灰鼠尾草、柔海军蓝与珍珠灰提供了一组比较材料。更常选它们不等于安静、温柔、敏感或内向；你可能只是喜欢某个蓝灰组合。季节名称帮助导航，不把人固定在一类，也不说明现实穿着应该怎样。",
+              "en": "Summer names a menu of six example colours. Dusty rose, powder blue, soft lavender, greyed sage, soft navy and pearl grey provide material for comparison. Choosing them more often establishes neither quietness nor gentleness, sensitivity or introversion. You might simply like one blue-grey arrangement. Seasonal names help navigate these guides without fixing a person into a category or prescribing how someone should dress outside the quiz."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "六种色块的数字定义",
+            "en": "Digital definitions of the six blocks"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组为灰玫瑰#C390A6、粉雾蓝#A9BED8、柔薰衣草#B8AED1、灰鼠尾草#A5B8B0、柔海军蓝#657B96、珍珠灰#E4DFE8。色号可让你核对具体示例，不是专业色布编号或肤色数据。不同亮度、显示器与材质仍会改变观看效果；不能靠这些色块得出真实面部与某种灰调协调的结论。",
+              "en": "This group contains dusty rose #C390A6, powder blue #A9BED8, soft lavender #B8AED1, greyed sage #A5B8B0, soft navy #657B96 and pearl grey #E4DFE8. Codes identify these particular examples rather than professional drapes or complexion data. Brightness, displays and materials can still alter their appearance. These blocks provide no evidence that an actual face harmonises with a particular greyed colour or seasonal category."
+            }
+          ]
+        },
+        {
+          "id": "combination",
+          "title": {
+            "zh": "为私人日历做个样本",
+            "en": "Make a private calendar sample"
+          },
+          "paragraphs": [
+            {
+              "zh": "可在一张空白草稿上放珍珠灰底、粉雾蓝方块和柔海军蓝边线，文字仍用原本清晰的深色。比较色块时保留足够留白，不把浅色文字叠在浅底上。若觉得乏味，可替换一块，而不是推论自己不属于夏日。练习目标是发现一个可描述的偏好，不是完成标准搭配。",
+              "en": "Try a pearl-grey area, powder-blue square and soft-navy border on a blank private calendar draft, keeping ordinary writing in a clearly readable dark colour. Leave space between blocks and avoid pale text on a pale background. If the arrangement feels dull, replace one block rather than conclude that you do not belong to summer. The purpose is to discover a describable preference, not complete a prescribed matching formula."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "分清颜色、分量与文字",
+            "en": "Separate colour, proportion and writing"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一个粉雾蓝作为小标记和整页底色可能有不同感受。先用同面积色块比较，再有意改一块面积；不要同时改变颜色、字体、图片和场景。这样能更清楚地说出喜欢了什么，但仍只是个人观察，不是控制实验。题目虽轮换位置，也不能消除阅读名称带来的联想或色觉差异。",
+              "en": "The same powder blue may feel different as a small mark and as a full-page background. Compare equal areas first, then deliberately change one area without simultaneously changing colours, lettering, pictures and context. This can make your description clearer while remaining personal observation rather than a controlled experiment. Rotating option positions removes neither associations from colour names nor differences in colour perception, and the score cannot separate those influences."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与春日和冬日并排看",
+            "en": "Place spring and winter alongside it"
+          },
+          "paragraphs": [
+            {
+              "zh": "可把春日的杏桃、奶油黄、浅湖绿，与本组灰玫瑰、粉雾蓝、珍珠灰并排；再看冬日墨海军蓝、莓果、粉笔白的例子。相同大小更方便比较，不证明哪组客观更好。喜欢灰调也不要求回避明亮或对比配色；多组近分或并列可直接阅读全部，不必找唯一身份。",
+              "en": "Place spring peach, butter yellow and light lagoon beside summer dusty rose, powder blue and pearl grey, then view winter ink navy, berry and chalk white. Equal sizes make comparison easier without proving any group objectively better. Liking greyed examples requires avoiding neither brighter colours nor stronger contrasts. Close counts or ties simply invite reading several guides. There is no need to discover one exclusive seasonal identity."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "柔色偏好不能确定冷暖肤色",
+            "en": "Softened preferences cannot establish undertone"
+          },
+          "paragraphs": [
+            {
+              "zh": "题本不收皮肤或照片信息，灰玫瑰和柔海军蓝被选择多少次，都不能推出你的个人冷暖、头发眼睛对比度或专业季型。也不把喜欢柔和颜色解释成情绪或心理状态。如果看不清细微差别，可以停下并阅读指南，不需要猜答案；这比给不确定判断附会一个外观结论更合适。",
+              "en": "No skin or photograph information enters the bank. Counts for dusty rose or soft navy therefore cannot establish personal undertone, hair-to-eye contrast or a professional seasonal classification. A preference for softened examples is no emotional or psychological finding either. If subtle differences are hard to judge, stop and read the guides without guessing. Uncertain visual judgments need no appearance conclusion, and unanswered items do not authorise a partial seasonal assignment."
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "zh": "留下一张有说明的小色卡",
+            "en": "Keep a colour card with a short explanation"
+          },
+          "paragraphs": [
+            {
+              "zh": "选三种你确实喜欢的本组示例，写一句具体说明，例如更愿意把粉雾蓝当小区域而不是满页底色。可以再找一组别的例子并排，不需购买任何物品。文字解释可记录自己的理解，分享时只发愿意公开的色卡或指南；网站分享不带原始答案和次数，也不换算人格与职业。",
+              "en": "Select three examples you actually liked and write one specific explanation, such as preferring powder blue in a small area rather than across a whole page. Put another arrangement beside it if useful, without buying anything. A short note records your own interpretation. Share only a card or public guide you want others to see; website sharing carries no raw answers or counts and converts the result into neither personality nor career recommendations."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16次选择合计16，四组各有16次机会、四个位置各4次，没有反向题、权重或隐藏主副季节。所有最高并列都呈现九节全文；一直选同一位置会各4，显示四份36节，不证明理想均衡。近分可以邀请你比较另一份，不是验证过的肤色、冷暖、亮度或外观分界。每组三色组合只是本站24种示例色的一部分，不复刻任何专业色表，也不能给别人或照片分季节。",
+              "en": "Sixteen choices total sixteen, with sixteen opportunities per palette and four in each position. There are no reversals, weights or hidden primary and secondary seasons. Every highest tie keeps its nine-section guide. Repeating one position gives each palette four counts and all thirty-six sections without proving ideal balance. Close counts invite another guide rather than a validated complexion, temperature, brightness or appearance boundary. Three-colour sets use parts of twenty-four original example colours, replicating no professional chart and assigning no season to another person or photograph."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、可见色块与分享范围",
+            "en": "Free full guides, visible blocks and sharing scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节全文和具体配色例子在作答前后都免费。16题、64选项与24种示例颜色均为本版原创选择；题本只观察这次可见色块偏好，不收照片、肤色、静脉、发眼色、日晒或他人评价，不测颜值、健康、人格或职业。名称与色号供参考，不保证任何实际布料、首饰或外观效果，也无需购买。自愿草稿仅本标签页最多24小时，完成、清除或重测即删；分享只有结果名和公开链接，不含答案或次数。无法判断或不想选择可以停止，仍能读全部指南。",
+              "en": "All four nine-section guides and palette examples are free before and after answering. Sixteen questions, sixty-four options and twenty-four example colours are original selections for this edition. The bank observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes, sun response or another person’s judgment, and assesses no attractiveness, health, personality or career. Names and codes are references without guaranteed fabric, jewellery or appearance effects; no purchase is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop when judgment is unavailable or unwanted and still read every guide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autumn",
+      "directionIds": [
+        "autumn"
+      ],
+      "title": {
+        "zh": "秋日大地",
+        "en": "Autumn Palette"
+      },
+      "headline": {
+        "zh": "把大地色的深浅与面积分开观察",
+        "en": "Observe depth and area in earthy examples"
+      },
+      "summary": {
+        "zh": "本次菜单更常选到铁锈、橄榄、可可等秋日示例组合。它描述可见配色偏好，不判断成熟度、肤色或衣着规则。",
+        "en": "These menus more often led to autumn examples such as rust, olive and cocoa. This describes visible palette preferences, not maturity, complexion or clothing rules."
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#AC6346",
+          "name": {
+            "zh": "铁锈调",
+            "en": "Rust tone"
+          }
+        },
+        {
+          "hex": "#7A8356",
+          "name": {
+            "zh": "橄榄绿",
+            "en": "Olive green"
+          }
+        },
+        {
+          "hex": "#B09547",
+          "name": {
+            "zh": "赭金调",
+            "en": "Ochre tone"
+          }
+        },
+        {
+          "hex": "#755749",
+          "name": {
+            "zh": "可可棕",
+            "en": "Cocoa brown"
+          }
+        },
+        {
+          "hex": "#BD8367",
+          "name": {
+            "zh": "陶土调",
+            "en": "Clay tone"
+          }
+        },
+        {
+          "hex": "#DECEAB",
+          "name": {
+            "zh": "暖奶油",
+            "en": "Warm cream"
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "zh": "秋日大地完整指南｜色彩季节测试",
+          "en": "Autumn Palette Guide | Color Analysis Quiz"
+        },
+        "description": {
+          "zh": "免费阅读秋日大地九节全文、六种原创色块与纸上搭配例子；理解偏好次数和全部并列，不作专业季型或肤色判断。",
+          "en": "Read the free Autumn palette guide with six original colour examples, paper combinations, raw preference counts and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "16题每题一选，四组每题都出现，共各16次、每个位置各4次。每选一次只记1次偏好，完整后呈现原始次数，所有最高并列保留全文，不强派主副季节。一直选同一位置会四组各4，不能说明外观平衡或春夏秋冬各占25%；次数不是肤色相似度、专业归属概率或人群排名。",
+        "en": "Each of sixteen questions takes one choice. Every palette appears in every item, sixteen times in all and four in each position. A choice adds one preference count. A complete attempt shows raw counts and every highest tie in full without forced primary or secondary seasons. Repeating one position gives each palette four counts, establishing neither appearance balance nor twenty-five percent of each season. Counts are no complexion similarity, professional assignment probability or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "大地色是菜单名字",
+            "en": "Earthy colours name a menu"
+          },
+          "paragraphs": [
+            {
+              "zh": "秋日在这里包括铁锈、橄榄、赭金、可可、陶土和暖奶油六种示例。更常选这组不等于稳重、成熟、可靠或适合某种生活方式。也可能只是你喜欢其中一块橄榄绿，或者它在某题的三色组合更顺眼。把它当可继续比较的材料，而不是对自己身份的命名。",
+              "en": "Autumn here includes six examples: rust, olive, ochre, cocoa, clay and warm cream. Choosing this group more often establishes neither steadiness nor maturity, reliability or suitability for a lifestyle. You might simply like one olive block, or find its particular three-colour arrangement preferable in one question. Treat the result as material for another comparison rather than a name for your identity or a requirement for future selections."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "六种原创示例的色号",
+            "en": "Reference codes for six original examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组铁锈调#AC6346、橄榄绿#7A8356、赭金调#B09547、可可棕#755749、陶土调#BD8367和暖奶油#DECEAB，都只是数字示例。实际纸张、油墨、布料或灯光可能不同。色号不代表经认证的秋季色布、可购买的同色商品或某种皮肤数据，本站也没有用这些色块检测外观。",
+              "en": "The examples are rust tone #AC6346, olive green #7A8356, ochre tone #B09547, cocoa brown #755749, clay tone #BD8367 and warm cream #DECEAB. These are digital examples only; paper, ink, fabric and lighting may differ. Codes represent neither certified autumn drapes nor purchasable matching products or skin data. The website uses these blocks for visible comparisons and has performed no appearance examination with them."
+            }
+          ]
+        },
+        {
+          "id": "combination",
+          "title": {
+            "zh": "画一张可撤回的封面",
+            "en": "Draw a reversible cover sample"
+          },
+          "paragraphs": [
+            {
+              "zh": "可在私人草稿上把暖奶油留作大块空白，用可可画边线、橄榄画一个小形状。先看三色同面积样本，再改成封面布局，观察面积变化是否改变偏好。若需要文字，单独检查可读性，不因同一色组就假定对比充足。任何一步都能更换，不需要购物或追求标准秋日风格。",
+              "en": "Leave a warm-cream area on a private draft, draw a cocoa border and add a small olive shape. Compare equal-sized samples before arranging them like a cover, then notice whether changing area changes your preference. Check lettering for readability separately rather than assume that membership in one palette ensures sufficient contrast. Every step is replaceable. The exercise requires no shopping and no pursuit of a standard autumn appearance."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "区分深色与更大色块",
+            "en": "Distinguish a deeper colour from a larger area"
+          },
+          "paragraphs": [
+            {
+              "zh": "铁锈或可可在题目里都是相同面积色块，现实设计却可以只放一条线。你可能喜欢一个深色小点，而不愿整页用它。题本统计方向选择，不分离每一种颜色的贡献，也不知道你心里想的是哪种材料。看到次数较高时，只说这次更常选这组，别替单色或真实物品下结论。",
+              "en": "Rust and cocoa occupy equal blocks in the questions, while a real sketch could use either as a single line. You might like a small dark mark without wanting a whole page of it. The bank counts palette choices, separating neither individual colour contributions nor imagined materials. When a count is higher, say only that this group was selected more often here. It cannot establish a preference for every member or actual object."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "春日、秋日和冬日的例子",
+            "en": "Compare spring, autumn and winter examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以用春日珊瑚、奶油黄、象牙白，与秋日铁锈、赭金、暖奶油比较；冬日则提供墨海军蓝、深李紫和粉笔白。这里比较的是给定色号与组合，不是普遍的季节边界。不要据此写出某组适合所有暖肤、某组必须避开，或者把深色当成熟和专业性的证据。",
+              "en": "Compare spring coral, butter yellow and ivory with autumn rust, ochre and warm cream. Winter offers ink navy, deep plum and chalk white as another set. These comparisons concern the given codes and arrangements, not universal seasonal boundaries. They justify neither rules for everyone with a supposed warm complexion nor lists of colours to avoid. Deeper examples provide no evidence of maturity, professionalism or greater suitability for an occupation."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "不能由橄榄绿推断身体特征",
+            "en": "Olive choices reveal no body characteristics"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版没有照片、肤色、发眼色、静脉或日晒输入。即使每题都选秋日，也只说明这些菜单里的选择，不知道某种颜色是否显气色、显白或让你更好看。专业咨询与实际试色涉及不同资料；本测试不能替代或确认它们，也不要求为了一个结果改变日常穿着。",
+              "en": "This edition collects no photograph, complexion, hair or eye colour, veins or sun response. Even selecting autumn in every item describes only choices within these menus. It reveals neither a flattering colour nor a whitening, healthy-looking or attractiveness effect. Professional consultation and physical comparisons involve different information. This quiz can neither replace nor confirm them and asks for no change in everyday clothing to comply with a result."
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "zh": "记录喜欢的具体关系",
+            "en": "Record a particular relationship you liked"
+          },
+          "paragraphs": [
+            {
+              "zh": "可写下喜欢可可细线与暖奶油空白的关系，而不是只记住自己是秋日。再试把橄榄小块换成另一组示例，看你更喜欢哪张草稿。没有正确答案，也不用将重复选择当稳定特质的证明。愿意可收藏审美素材、看其他完整指南，随后就结束；无需进入MBTI或职业匹配。",
+              "en": "You could note liking a cocoa line against warm-cream space rather than remembering that you are autumn. Replace one olive block with an example from another group and compare the drafts. There is no correct answer, and repeated choices do not prove a stable trait. Collect an aesthetic reference or read the other full guides if useful, then finish. No MBTI conversion, occupational matching or further assessment is needed."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16次选择合计16，四组各有16次机会、四个位置各4次，没有反向题、权重或隐藏主副季节。所有最高并列都呈现九节全文；一直选同一位置会各4，显示四份36节，不证明理想均衡。近分可以邀请你比较另一份，不是验证过的肤色、冷暖、亮度或外观分界。每组三色组合只是本站24种示例色的一部分，不复刻任何专业色表，也不能给别人或照片分季节。",
+              "en": "Sixteen choices total sixteen, with sixteen opportunities per palette and four in each position. There are no reversals, weights or hidden primary and secondary seasons. Every highest tie keeps its nine-section guide. Repeating one position gives each palette four counts and all thirty-six sections without proving ideal balance. Close counts invite another guide rather than a validated complexion, temperature, brightness or appearance boundary. Three-colour sets use parts of twenty-four original example colours, replicating no professional chart and assigning no season to another person or photograph."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、可见色块与分享范围",
+            "en": "Free full guides, visible blocks and sharing scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节全文和具体配色例子在作答前后都免费。16题、64选项与24种示例颜色均为本版原创选择；题本只观察这次可见色块偏好，不收照片、肤色、静脉、发眼色、日晒或他人评价，不测颜值、健康、人格或职业。名称与色号供参考，不保证任何实际布料、首饰或外观效果，也无需购买。自愿草稿仅本标签页最多24小时，完成、清除或重测即删；分享只有结果名和公开链接，不含答案或次数。无法判断或不想选择可以停止，仍能读全部指南。",
+              "en": "All four nine-section guides and palette examples are free before and after answering. Sixteen questions, sixty-four options and twenty-four example colours are original selections for this edition. The bank observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes, sun response or another person’s judgment, and assesses no attractiveness, health, personality or career. Names and codes are references without guaranteed fabric, jewellery or appearance effects; no purchase is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop when judgment is unavailable or unwanted and still read every guide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "winter",
+      "directionIds": [
+        "winter"
+      ],
+      "title": {
+        "zh": "冬日对比",
+        "en": "Winter Palette"
+      },
+      "headline": {
+        "zh": "看看深浅色块如何并排",
+        "en": "Look at deeper and lighter blocks side by side"
+      },
+      "summary": {
+        "zh": "本次菜单更常选到墨海军蓝、莓果、粉笔白等冬日示例组合。它不测面部对比度，也不代表冷淡或果断的性格。",
+        "en": "These menus more often led to winter examples such as ink navy, berry and chalk white. This measures neither facial contrast nor a cold or decisive personality."
+      },
+      "paletteSwatches": [
+        {
+          "hex": "#21334E",
+          "name": {
+            "zh": "墨海军蓝",
+            "en": "Ink navy"
+          }
+        },
+        {
+          "hex": "#B82C65",
+          "name": {
+            "zh": "莓果调",
+            "en": "Berry tone"
+          }
+        },
+        {
+          "hex": "#D6E6ED",
+          "name": {
+            "zh": "冰雾蓝",
+            "en": "Icy blue"
+          }
+        },
+        {
+          "hex": "#215C58",
+          "name": {
+            "zh": "深云杉绿",
+            "en": "Deep spruce"
+          }
+        },
+        {
+          "hex": "#593A66",
+          "name": {
+            "zh": "深李紫",
+            "en": "Deep plum"
+          }
+        },
+        {
+          "hex": "#F2F2EE",
+          "name": {
+            "zh": "粉笔白",
+            "en": "Chalk white"
+          }
+        }
+      ],
+      "seo": {
+        "title": {
+          "zh": "冬日对比完整指南｜色彩季节测试",
+          "en": "Winter Palette Guide | Color Analysis Quiz"
+        },
+        "description": {
+          "zh": "免费阅读冬日对比九节全文与六种示例色；尝试小面积点色、比较原始偏好次数，保留并列，不推断面部或个人冷暖。",
+          "en": "Read the free Winter palette guide: six example colours, small accent experiments, raw counts and every highest tie. No facial analysis."
+        }
+      },
+      "scoreReading": {
+        "zh": "16题每题一选，四组每题都出现，共各16次、每个位置各4次。每选一次只记1次偏好，完整后呈现原始次数，所有最高并列保留全文，不强派主副季节。一直选同一位置会四组各4，不能说明外观平衡或春夏秋冬各占25%；次数不是肤色相似度、专业归属概率或人群排名。",
+        "en": "Each of sixteen questions takes one choice. Every palette appears in every item, sixteen times in all and four in each position. A choice adds one preference count. A complete attempt shows raw counts and every highest tie in full without forced primary or secondary seasons. Repeating one position gives each palette four counts, establishing neither appearance balance nor twenty-five percent of each season. Counts are no complexion similarity, professional assignment probability or population ranking."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "对比是色块关系，不是人的特点",
+            "en": "Contrast concerns blocks, not personal qualities"
+          },
+          "paragraphs": [
+            {
+              "zh": "冬日这一名称在本站指墨海军蓝、莓果、冰雾蓝、深云杉绿、深李紫和粉笔白六种例子。深浅并排是可观察的色块关系，不等于你有高对比面部、冷肤色、清冷气质或果断性格。你可能喜欢其中一组三色而不喜欢其余组合；结果不要求每天采用这一套，也不规定唯一风格。",
+              "en": "Winter names six examples here: ink navy, berry, icy blue, deep spruce, deep plum and chalk white. Deeper and lighter blocks placed together form a visible relationship, establishing neither high-contrast facial features nor cool undertone, aloof temperament or decisiveness. You might like one three-colour set and dislike the rest. The result requires no daily adoption of this palette and sets no exclusive style for you to follow."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "六块颜色与可重复核对的定义",
+            "en": "Six colours with repeatable digital definitions"
+          },
+          "paragraphs": [
+            {
+              "zh": "示例为墨海军蓝#21334E、莓果调#B82C65、冰雾蓝#D6E6ED、深云杉绿#215C58、深李紫#593A66、粉笔白#F2F2EE。这些是本站原创数字色池中的定义，不是检测结果、专业色布或商品承诺。屏幕亮度、材质和环境会改变观看效果，色号相同也不能保证现实物体看起来一样。",
+              "en": "The examples are ink navy #21334E, berry tone #B82C65, icy blue #D6E6ED, deep spruce #215C58, deep plum #593A66 and chalk white #F2F2EE. These definitions belong to the website’s original digital pool, not an examination, professional draping chart or product promise. Brightness, material and surroundings can alter appearance. Even a shared code cannot guarantee that a physical object will look the same as a displayed block."
+            }
+          ]
+        },
+        {
+          "id": "combination",
+          "title": {
+            "zh": "只用一小块莓果色也可以",
+            "en": "A small berry accent is enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "可先在草稿上画粉笔白区域、墨海军蓝边框与一个小莓果圆点。再把圆点面积变大，比一比自己更喜欢哪张。偏爱冬日组合不意味着必须强烈铺满，也不意味浅色文字一定清楚。文字可读性需另看；配色实验随时能撤回，不需要购置服饰或获得他人外貌评价。",
+              "en": "Start a private draft with a chalk-white area, ink-navy border and small berry dot. Enlarge only the dot and compare which draft you prefer. Liking a winter combination requires neither an intense full-page treatment nor confidence that light lettering will be readable. Check writing separately. This colour experiment is reversible and requires neither buying clothes nor obtaining another person’s judgment about how you look in the selected colours."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "不同面积可能改变结果理解",
+            "en": "Different areas may change your interpretation"
+          },
+          "paragraphs": [
+            {
+              "zh": "题目使用同样大小色块，帮助比较给定三色组；它没有问一件真实衣服或一间房间应该怎样配。较深色可能在小区域很好看，放大后却不合你意。次数也没有拆分你究竟喜欢莓果还是留白。解释时保留这些缺口，只描述在本组菜单里的选择，不宣称已经找到万能色。",
+              "en": "Questions use equally sized blocks to compare given three-colour sets. They ask neither how a real garment should look nor how a room should be decorated. A deeper example may appeal in a small area and feel different when enlarged. Counts also cannot separate a preference for berry from a preference for surrounding space. Preserve these limits when interpreting the result and claim no universally suitable colour has been discovered."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "对照夏日柔色和秋日大地",
+            "en": "Compare summer and autumn examples"
+          },
+          "paragraphs": [
+            {
+              "zh": "夏日柔海军蓝、粉雾蓝、珍珠灰与本组墨海军蓝、冰雾蓝、粉笔白可以并排观察；秋日的可可、橄榄、暖奶油提供另一组。让面积和背景一致，只记录今天的选择。差别不必被翻译成冷暖肤色、审美等级或年龄；多份结果近分、并列或都喜欢，均可直接保留。",
+              "en": "Place summer soft navy, powder blue and pearl grey beside winter ink navy, icy blue and chalk white; autumn cocoa, olive and warm cream offer another comparison. Keep areas and surrounding space consistent and record only today’s choice. Differences need no translation into personal undertone, taste rankings or age. Close counts, ties and liking several guides are all acceptable outcomes without finding a single dominant season or excluding other palettes."
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "zh": "深浅偏好不等于面部分析",
+            "en": "Light-dark preferences are no facial analysis"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里不收照片、头发、眼睛、肤色或任何身体资料，所以不能从选项推出面部对比度、色彩承受力或某种穿搭效果。也不把冷色联想写成情绪冷淡。若屏幕或色觉让你难以区分，可以停止，不必勉强选；公开全文仍可读，而不是根据不确定答案给你下外观结论。",
+              "en": "The quiz collects no photograph, hair, eyes, skin colour or other bodily information. Options therefore cannot establish facial contrast, an ability to carry colours or a clothing effect. Associations with cool-looking colours are no emotional coldness finding either. Stop if a display or colour perception makes the distinctions hard to judge. Public guides remain readable, without turning uncertain answers into an appearance conclusion or requiring a guessed selection to proceed."
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "zh": "做一个能随时替换的点色练习",
+            "en": "Try an accent you can replace at any time"
+          },
+          "paragraphs": [
+            {
+              "zh": "从本组挑一种深色、一种浅色与一种点色，先画简单的线和方块；只问自己愿不愿意继续看。可记录具体喜欢的部分，再换一色做对照。这样的观察足以完成下一步，不必采购或承诺长期风格。也可以读其他三份全文、收集配色灵感；本结果没有转为人格和职业测评的必要。",
+              "en": "Choose one deeper example, one lighter example and one accent from this group, then draw simple lines and squares. Ask only whether you want to keep looking at the arrangement. Note a specific part you liked before changing one colour for comparison. That observation is a complete next step without shopping or committing to a lasting style. Read the other guides or collect palette references if useful; this result requires no personality or career assessment."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16次选择合计16，四组各有16次机会、四个位置各4次，没有反向题、权重或隐藏主副季节。所有最高并列都呈现九节全文；一直选同一位置会各4，显示四份36节，不证明理想均衡。近分可以邀请你比较另一份，不是验证过的肤色、冷暖、亮度或外观分界。每组三色组合只是本站24种示例色的一部分，不复刻任何专业色表，也不能给别人或照片分季节。",
+              "en": "Sixteen choices total sixteen, with sixteen opportunities per palette and four in each position. There are no reversals, weights or hidden primary and secondary seasons. Every highest tie keeps its nine-section guide. Repeating one position gives each palette four counts and all thirty-six sections without proving ideal balance. Close counts invite another guide rather than a validated complexion, temperature, brightness or appearance boundary. Three-colour sets use parts of twenty-four original example colours, replicating no professional chart and assigning no season to another person or photograph."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "免费全文、可见色块与分享范围",
+            "en": "Free full guides, visible blocks and sharing scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节全文和具体配色例子在作答前后都免费。16题、64选项与24种示例颜色均为本版原创选择；题本只观察这次可见色块偏好，不收照片、肤色、静脉、发眼色、日晒或他人评价，不测颜值、健康、人格或职业。名称与色号供参考，不保证任何实际布料、首饰或外观效果，也无需购买。自愿草稿仅本标签页最多24小时，完成、清除或重测即删；分享只有结果名和公开链接，不含答案或次数。无法判断或不想选择可以停止，仍能读全部指南。",
+              "en": "All four nine-section guides and palette examples are free before and after answering. Sixteen questions, sixty-four options and twenty-four example colours are original selections for this edition. The bank observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes, sun response or another person’s judgment, and assesses no attractiveness, health, personality or career. Names and codes are references without guaranteed fabric, jewellery or appearance effects; no purchase is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop when judgment is unavailable or unwanted and still read every guide."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数、近分与全部最高并列",
+        "en": "Raw counts, close readings and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "16次选择合计16，四组各有16次机会、四个位置各4次，没有反向题、权重或隐藏主副季节。所有最高并列都呈现九节全文；一直选同一位置会各4，显示四份36节，不证明理想均衡。近分可以邀请你比较另一份，不是验证过的肤色、冷暖、亮度或外观分界。每组三色组合只是本站24种示例色的一部分，不复刻任何专业色表，也不能给别人或照片分季节。",
+          "en": "Sixteen choices total sixteen, with sixteen opportunities per palette and four in each position. There are no reversals, weights or hidden primary and secondary seasons. Every highest tie keeps its nine-section guide. Repeating one position gives each palette four counts and all thirty-six sections without proving ideal balance. Close counts invite another guide rather than a validated complexion, temperature, brightness or appearance boundary. Three-colour sets use parts of twenty-four original example colours, replicating no professional chart and assigning no season to another person or photograph."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "真正比较可见色块",
+        "en": "Compare the actual visible blocks"
+      },
+      "paragraphs": [
+        {
+          "zh": "每个选项三种示例颜色，色块面积与排列一致，并提供名称。完整指南另列色号。文字不能替你作视觉判断；屏幕、亮度、周围环境和色觉可能影响选择，无法判断时可停止，四份公开全文仍免费开放。",
+          "en": "Every option displays three examples with equal block areas and arrangement, plus names. Full guides also list codes. Words cannot make a visual judgment for you. Display, brightness, surroundings and colour perception can influence choices. Stop when judgment is unavailable; all four public guides remain free."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "同组次数不是外观相似度",
+        "en": "Counts are not appearance similarity"
+      },
+      "paragraphs": [
+        {
+          "zh": "次数比较本组16菜单里的选择，不是春夏秋冬占比、肤色匹配、专业归属概率或人群排名。接近可阅读另一份，全并列保留四份36节。没有高低优劣，也不保证现实物品或衣着效果。",
+          "en": "Counts compare selections in these sixteen menus, not seasonal percentages, complexion matches, professional assignment probabilities or population ranks. Close counts invite another guide; an all-way tie retains four guides and thirty-six sections. There is no better or worse outcome and no guaranteed effect for real objects or clothing."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "配色偏好与专业分析的边界",
+        "en": "Palette preference and professional analysis"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版是可见配色偏好的原创趣味问卷，不是肤色或外观诊断。不收集照片、肤色、静脉、发色、眼色、日晒反应、种族或他人评价，不推断专业四季归属、健康、颜值、人格或职业匹配，也不承诺某种衣服或首饰一定显气色。春夏秋冬只是四组示例配色名称，具体颜色为本站原创选择，不复刻任何专业品牌色表。结果只读这次菜单中的偏好；色块、名称和色号都供比较，不是购买建议。",
+          "en": "This is an original playful questionnaire about visible palette preferences, not complexion or appearance diagnosis. It collects no photograph, skin tone, veins, hair, eyes, sun response, ethnicity or other people’s appraisals, and infers no professional season assignment, health, attractiveness, personality or career fit. It promises no flattering effect from clothes or jewellery. The seasons name four example palettes with original colour choices, replicating no professional brand chart. Results concern these menus. Blocks, names and colour codes support comparison rather than purchasing advice."
+        }
+      ]
+    },
+    {
+      "id": "original",
+      "title": {
+        "zh": "原创题本与24种示例色",
+        "en": "Original menus and twenty-four examples"
+      },
+      "paragraphs": [
+        {
+          "zh": "16场景、64选项、24种示例颜色和所有解释均为本版原创，不复刻竞品的外观自述条目或专业品牌色表。结构核查只确认可见色池、计数与显示约定一致，不证明信效度、专业季型、心理独立或跨语言等价。",
+          "en": "Sixteen scenarios, sixty-four options, twenty-four examples and all explanations are original to this edition, replicating neither competitor appearance statements nor a professional brand chart. Structural checks confirm visible pools, counts and display conventions rather than reliability, validity, professional seasons, psychological independence or language equivalence."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "色彩季节测试会分析我的肤色吗？",
+        "en": "Does this Color Analysis Quiz analyse my complexion?"
+      },
+      "answer": {
+        "zh": "本版是可见配色偏好的原创趣味问卷，不是肤色或外观诊断。不收集照片、肤色、静脉、发色、眼色、日晒反应、种族或他人评价，不推断专业四季归属、健康、颜值、人格或职业匹配，也不承诺某种衣服或首饰一定显气色。春夏秋冬只是四组示例配色名称，具体颜色为本站原创选择，不复刻任何专业品牌色表。结果只读这次菜单中的偏好；色块、名称和色号都供比较，不是购买建议。",
+        "en": "This is an original playful questionnaire about visible palette preferences, not complexion or appearance diagnosis. It collects no photograph, skin tone, veins, hair, eyes, sun response, ethnicity or other people’s appraisals, and infers no professional season assignment, health, attractiveness, personality or career fit. It promises no flattering effect from clothes or jewellery. The seasons name four example palettes with original colour choices, replicating no professional brand chart. Results concern these menus. Blocks, names and colour codes support comparison rather than purchasing advice."
+      }
+    },
+    {
+      "question": {
+        "zh": "每道题真的显示颜色吗？",
+        "en": "Does every question actually display colours?"
+      },
+      "answer": {
+        "zh": "是，每个选项显示三块同面积颜色及名称，四份公开指南显示各自六种示例和色号。题目只问这次更愿意看的组合，不要求回想肤色、静脉或穿搭评价。无法判断时可停止，全部指南仍可读。",
+        "en": "Yes. Each option displays three equal-area blocks and names; four public guides show their six examples and codes. Questions ask which combination you prefer to view here, not complexion, veins or clothing appraisals. Stop if judgment is unavailable and still read every guide."
+      }
+    },
+    {
+      "question": {
+        "zh": "次数、最高并列和一直选同一位置怎么读？",
+        "en": "How do counts, highest ties and repeating one position work?"
+      },
+      "answer": {
+        "zh": "16题每题一选，四组每题都出现，共各16次、每个位置各4次。每选一次只记1次偏好，完整后呈现原始次数，所有最高并列保留全文，不强派主副季节。一直选同一位置会四组各4，不能说明外观平衡或春夏秋冬各占25%；次数不是肤色相似度、专业归属概率或人群排名。",
+        "en": "Each of sixteen questions takes one choice. Every palette appears in every item, sixteen times in all and four in each position. A choice adds one preference count. A complete attempt shows raw counts and every highest tie in full without forced primary or secondary seasons. Repeating one position gives each palette four counts, establishing neither appearance balance nor twenty-five percent of each season. Counts are no complexion similarity, professional assignment probability or population ranking."
+      }
+    },
+    {
+      "question": {
+        "zh": "春夏秋冬是专业色表或购物建议吗？",
+        "en": "Are the seasons professional charts or shopping advice?"
+      },
+      "answer": {
+        "zh": "它们只是24种本站原创示例颜色的四组名称，不复刻专业品牌色表，也不承诺显白、健康或颜值效果。数字色号供核对，设备、材料与灯光可能改变观看效果；可以只在私人草稿上比较，不需购买。",
+        "en": "They name four groups of twenty-four original example colours, replicating no professional brand chart and promising no whitening, health or attractiveness effect. Digital codes support reference while displays, materials and lighting may change appearance. Compare on a private draft without buying anything."
+      }
+    },
+    {
+      "question": {
+        "zh": "和人格四色、气场颜色、审美风格一样吗？",
+        "en": "Is this the same as response colour, aura colour or aesthetic style?"
+      },
+      "answer": {
+        "zh": "不是同一题本或成绩。人格四色版比较24个互动回应，气场颜色版比较21个象征表达菜单，审美风格版比较18个风格描述。本版实际显示色块，比较16个三色菜单，不换算人格、外观或职业分数；结构不同也不证明心理独立。",
+        "en": "They use different banks and scores. Response Colour compares twenty-four interaction responses, Aura Colour twenty-one symbolic-expression menus and Aesthetic Core eighteen style descriptions. This edition actually displays blocks in sixteen three-colour menus. It converts no personality, appearance or career scores, and different structures establish no psychological independence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整指南、草稿和分享需要付费吗？",
+        "en": "Are full guides, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "四份九节全文和具体配色例子在作答前后都免费。16题、64选项与24种示例颜色均为本版原创选择；题本只观察这次可见色块偏好，不收照片、肤色、静脉、发眼色、日晒或他人评价，不测颜值、健康、人格或职业。名称与色号供参考，不保证任何实际布料、首饰或外观效果，也无需购买。自愿草稿仅本标签页最多24小时，完成、清除或重测即删；分享只有结果名和公开链接，不含答案或次数。无法判断或不想选择可以停止，仍能读全部指南。",
+        "en": "All four nine-section guides and palette examples are free before and after answering. Sixteen questions, sixty-four options and twenty-four example colours are original selections for this edition. The bank observes these visible preferences, collecting no photograph, complexion, veins, hair, eyes, sun response or another person’s judgment, and assesses no attractiveness, health, personality or career. Names and codes are references without guaranteed fabric, jewellery or appearance effects; no purchase is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes result names and public links without answers or counts. Stop when judgment is unavailable or unwanted and still read every guide."
+      }
+    }
+  ]
+}
