@@ -1,0 +1,5457 @@
+{
+  "slug": "8-values-political",
+  "code": "FM_EIGHT_VALUES_MIT_70",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "eight-values",
+  "title": {
+    "en": "8 Values Political Test",
+    "zh": "8 Values 政治价值观测试"
+  },
+  "seoTitle": {
+    "en": "8 Values Political Test: Four Axes & Full Free Guides",
+    "zh": "8 Values政治价值观测试：70题、四轴八极与完整解读"
+  },
+  "description": {
+    "en": "Answer the MIT-adapted 70-item bank. Read four axes, eight complementary values and full free bilingual guides. No party label or population percentile.",
+    "zh": "MIT许可原版70题译编，原题权重保留。完整作答后分开读四轴八极及八篇免费双语指南，含互补、中间混合与反例；不强派政党或意识形态，百分数不是人口百分位。"
+  },
+  "minutes": 15,
+  "instructions": {
+    "en": "Rate all 70 statements from Strongly Disagree to Strongly Agree. Neutral/Unsure is a valid zero multiplier, distinct from an unanswered item. There are no correct answers. English items and signed weights follow the identified upstream revision; Chinese wording is this edition’s translation, not independently validated as equivalent. Items may feel broad, sensitive or dated; you can leave without receiving a partial score. Responses are opinions, not facts endorsed by FermatMind. No timer runs; 15 minutes is a rough planning estimate. Retake repeats the same fixed items.",
+    "zh": "逐一评定70条陈述，从非常不同意到非常同意。中立／不确定是有效零乘数，区别于缺答，无标准答案。英文及正负权重依所列上游版，中文为本版翻译，未独立验证等值。有些表述可能宽泛、敏感或有年代感；可退出，不给部分分数。条目是待回应观点，不代表费马背书的事实。不计时，15分钟是粗略安排参考；重测同一固定题组。"
+  },
+  "introduction": {
+    "en": "Explore the four axes of the open-source 8values questionnaire: economic, diplomatic, civil and societal. This edition preserves the pinned original 70 English statements and their cross-axis weights under the MIT License, adds an author-produced Chinese translation and eight original complete reading guides, and shows both ends of every axis. It is an adaptation of that identified bank, not IDRlabs’ modified edition or the Political Compass Test. Percentages normalize this attempt’s weighted responses; they are not population percentiles, probabilities or validated political identities. There is no closest-ideology assignment, party recommendation or voting advice. All eight guides are free before or after answering.",
+    "zh": "探索开源8values问卷的经济、外交、公民与社会四轴。本版按MIT许可保留固定原版70条英文及跨轴权重，加入作者中文译文与八篇原创完整读法，同时显示每轴两端。这是所列题本改编，不是IDRlabs修改版或Political Compass Test。百分数归一本次加权回应，不是人口百分位、概率或已验证政治身份。不作最近意识形态派型、政党推荐或投票建议；八篇指南作答前后都免费。"
+  },
+  "resultHeading": {
+    "en": "Your four axes and eight paired values",
+    "zh": "本次四轴与八项互补值"
+  },
+  "directions": [
+    {
+      "id": "econ",
+      "title": {
+        "en": "Economic axis",
+        "zh": "经济轴"
+      }
+    },
+    {
+      "id": "dipl",
+      "title": {
+        "en": "Diplomatic axis",
+        "zh": "外交轴"
+      }
+    },
+    {
+      "id": "govt",
+      "title": {
+        "en": "Civil axis",
+        "zh": "公民轴"
+      }
+    },
+    {
+      "id": "scty",
+      "title": {
+        "en": "Societal axis",
+        "zh": "社会轴"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "E8_001",
+      "prompt": {
+        "en": "Oppression by corporations is more of a concern than oppression by governments.",
+        "zh": "与政府压迫相比，企业压迫更令人担忧。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_002",
+      "prompt": {
+        "en": "It is necessary for the government to intervene in the economy to protect consumers.",
+        "zh": "政府有必要干预经济，以保护消费者。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_003",
+      "prompt": {
+        "en": "The freer the markets, the freer the people.",
+        "zh": "市场越自由，人民就越自由。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_004",
+      "prompt": {
+        "en": "It is better to maintain a balanced budget than to ensure welfare for all citizens.",
+        "zh": "与确保所有公民获得福利相比，保持预算平衡更好。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_005",
+      "prompt": {
+        "en": "Publicly-funded research is more beneficial to the people than leaving it to the market.",
+        "zh": "与交给市场相比，由公共资金支持研究对人民更有益。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_006",
+      "prompt": {
+        "en": "Tariffs on international trade are important to encourage local production.",
+        "zh": "对国际贸易征收关税，对鼓励本地生产很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_007",
+      "prompt": {
+        "en": "From each according to his ability, to each according to his needs.",
+        "zh": "各尽所能，按需分配。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_008",
+      "prompt": {
+        "en": "It would be best if social programs were abolished in favor of private charity.",
+        "zh": "最好取消社会福利项目，改由私人慈善承担。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_009",
+      "prompt": {
+        "en": "Taxes should be increased on the rich to provide for the poor.",
+        "zh": "应提高对富人的税收，以帮助穷人。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_010",
+      "prompt": {
+        "en": "Inheritance is a legitimate form of wealth.",
+        "zh": "继承是一种正当的财富来源。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_011",
+      "prompt": {
+        "en": "Basic utilities like roads and electricity should be publicly owned.",
+        "zh": "道路和电力等基础公用设施应由公共部门所有。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_012",
+      "prompt": {
+        "en": "Government intervention is a threat to the economy.",
+        "zh": "政府干预对经济是一种威胁。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_013",
+      "prompt": {
+        "en": "Those with a greater ability to pay should receive better healthcare.",
+        "zh": "支付能力更强的人应获得更好的医疗服务。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_014",
+      "prompt": {
+        "en": "Quality education is a right of all people.",
+        "zh": "优质教育是所有人的权利。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_015",
+      "prompt": {
+        "en": "The means of production should belong to the workers who use them.",
+        "zh": "生产资料应属于使用它们的劳动者。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_016",
+      "prompt": {
+        "en": "The United Nations should be abolished.",
+        "zh": "联合国应被废除。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_017",
+      "prompt": {
+        "en": "Military action by our nation is often necessary to protect it.",
+        "zh": "为了保护本国，本国采取军事行动往往是必要的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_018",
+      "prompt": {
+        "en": "I support regional unions, such as the European Union.",
+        "zh": "我支持欧盟这样的区域联盟。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_019",
+      "prompt": {
+        "en": "It is important to maintain our national sovereignty.",
+        "zh": "维护本国主权很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_020",
+      "prompt": {
+        "en": "A united world government would be beneficial to mankind.",
+        "zh": "统一的世界政府将有益于全人类。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_021",
+      "prompt": {
+        "en": "It is more important to retain peaceful relations than to further our strength.",
+        "zh": "与增强自身力量相比，维持和平关系更重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_022",
+      "prompt": {
+        "en": "Wars do not need to be justified to other countries.",
+        "zh": "不必向其他国家说明战争的正当理由。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_023",
+      "prompt": {
+        "en": "Military spending is a waste of money.",
+        "zh": "军费开支是浪费金钱。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_024",
+      "prompt": {
+        "en": "International aid is a waste of money.",
+        "zh": "国际援助是浪费金钱。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_025",
+      "prompt": {
+        "en": "My nation is great.",
+        "zh": "我的国家很伟大。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_026",
+      "prompt": {
+        "en": "Research should be conducted on an international scale.",
+        "zh": "研究应在国际范围内开展。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_027",
+      "prompt": {
+        "en": "Governments should be accountable to the international community.",
+        "zh": "各国政府应对国际社会负责。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_028",
+      "prompt": {
+        "en": "Even when protesting an authoritarian government, violence is not acceptable.",
+        "zh": "即使是在抗议专制政府时，暴力也不可接受。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_029",
+      "prompt": {
+        "en": "My religious values should be spread as much as possible.",
+        "zh": "我的宗教价值观应尽可能广泛传播。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_030",
+      "prompt": {
+        "en": "Our nation's values should be spread as much as possible.",
+        "zh": "本国的价值观应尽可能广泛传播。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_031",
+      "prompt": {
+        "en": "It is very important to maintain law and order.",
+        "zh": "维护法律和秩序非常重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_032",
+      "prompt": {
+        "en": "The general populace makes poor decisions.",
+        "zh": "一般民众会作出糟糕的决定。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_033",
+      "prompt": {
+        "en": "Physician-assisted suicide should be legal.",
+        "zh": "医生协助自杀应当合法。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_034",
+      "prompt": {
+        "en": "The sacrifice of some civil liberties is necessary to protect us from acts of terrorism.",
+        "zh": "为保护我们免受恐怖袭击，牺牲部分公民自由是必要的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_035",
+      "prompt": {
+        "en": "Government surveillance is necessary in the modern world.",
+        "zh": "在现代世界，政府监控是必要的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_036",
+      "prompt": {
+        "en": "The very existence of the state is a threat to our liberty.",
+        "zh": "国家本身的存在，就是对我们自由的威胁。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_037",
+      "prompt": {
+        "en": "Regardless of political opinions, it is important to side with your country.",
+        "zh": "无论政治意见如何，站在自己国家一边很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_038",
+      "prompt": {
+        "en": "All authority should be questioned.",
+        "zh": "所有权威都应受到质疑。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_039",
+      "prompt": {
+        "en": "A hierarchical state is best.",
+        "zh": "等级分明的国家最好。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_040",
+      "prompt": {
+        "en": "It is important that the government follows the majority opinion, even if it is wrong.",
+        "zh": "政府遵从多数意见很重要，即使多数意见是错的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_041",
+      "prompt": {
+        "en": "The stronger the leadership, the better.",
+        "zh": "领导越强有力越好。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_042",
+      "prompt": {
+        "en": "Democracy is more than a decision-making process.",
+        "zh": "民主不只是一种决策程序。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_043",
+      "prompt": {
+        "en": "Environmental regulations are essential.",
+        "zh": "环境法规不可或缺。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_044",
+      "prompt": {
+        "en": "A better world will come from automation, science, and technology.",
+        "zh": "自动化、科学和技术将带来更好的世界。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_045",
+      "prompt": {
+        "en": "Children should be educated in religious or traditional values.",
+        "zh": "儿童应接受宗教或传统价值观的教育。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_046",
+      "prompt": {
+        "en": "Traditions are of no value on their own.",
+        "zh": "传统本身没有价值。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_047",
+      "prompt": {
+        "en": "Religion should play a role in government.",
+        "zh": "宗教应在政府事务中发挥作用。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_048",
+      "prompt": {
+        "en": "Churches should be taxed the same way other institutions are taxed.",
+        "zh": "教会应像其他机构一样纳税。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_049",
+      "prompt": {
+        "en": "Climate change is currently one of the greatest threats to our way of life.",
+        "zh": "气候变化是目前对我们生活方式的最大威胁之一。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_050",
+      "prompt": {
+        "en": "It is important that we work as a united world to combat climate change.",
+        "zh": "全世界团结起来应对气候变化很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_051",
+      "prompt": {
+        "en": "Society was better many years ago than it is now.",
+        "zh": "很多年前的社会比现在更好。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_052",
+      "prompt": {
+        "en": "It is important that we maintain the traditions of our past.",
+        "zh": "保留过去的传统很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_053",
+      "prompt": {
+        "en": "It is important that we think in the long term, beyond our lifespans.",
+        "zh": "着眼于超越我们自身寿命的长远未来很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_054",
+      "prompt": {
+        "en": "Reason is more important than maintaining our culture.",
+        "zh": "与维护自身文化相比，理性更重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_055",
+      "prompt": {
+        "en": "Drug use should be legalized or decriminalized.",
+        "zh": "使用毒品应当合法化或非刑罪化。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_056",
+      "prompt": {
+        "en": "Same-sex marriage should be legal.",
+        "zh": "同性婚姻应当合法。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_057",
+      "prompt": {
+        "en": "No cultures are superior to others.",
+        "zh": "没有哪种文化比其他文化优越。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_058",
+      "prompt": {
+        "en": "Sex outside marriage is immoral.",
+        "zh": "婚外性行为是不道德的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_059",
+      "prompt": {
+        "en": "If we accept migrants at all, it is important that they assimilate into our culture.",
+        "zh": "如果我们接纳移民，他们融入我们的文化很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_060",
+      "prompt": {
+        "en": "Abortion should be prohibited in most or all cases.",
+        "zh": "在大多数或所有情况下，堕胎都应被禁止。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_061",
+      "prompt": {
+        "en": "Gun ownership should be prohibited for those without a valid reason.",
+        "zh": "没有正当理由的人应被禁止持有枪支。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_062",
+      "prompt": {
+        "en": "I support single-payer, universal healthcare.",
+        "zh": "我支持单一支付方的全民医疗保障。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_063",
+      "prompt": {
+        "en": "Prostitution should be illegal.",
+        "zh": "卖淫应当违法。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_064",
+      "prompt": {
+        "en": "Maintaining family values is essential.",
+        "zh": "维护家庭价值观不可或缺。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_065",
+      "prompt": {
+        "en": "To chase progress at all costs is dangerous.",
+        "zh": "不惜一切代价追求进步是危险的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_066",
+      "prompt": {
+        "en": "Genetic modification is a force for good, even on humans.",
+        "zh": "基因改造是一种有益力量，即使用在人类身上也是如此。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_067",
+      "prompt": {
+        "en": "We should open our borders to immigration.",
+        "zh": "我们应向移民开放边境。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_068",
+      "prompt": {
+        "en": "Governments should be as concerned about foreigners as they are about their own citizens.",
+        "zh": "各国政府对外国人的关心，应与对本国公民的关心一样多。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_069",
+      "prompt": {
+        "en": "All people - regardless of factors like culture or sexuality - should be treated equally.",
+        "zh": "所有人都应得到平等对待，无论文化、性取向等因素如何。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": "E8_070",
+      "prompt": {
+        "en": "It is important that we further my group's goals above all others.",
+        "zh": "把我所属群体的目标置于其他所有目标之上并加以推进，很重要。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly Disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "values",
+          "score": -1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "values",
+          "score": -0.5
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neutral/Unsure",
+            "zh": "中立／不确定"
+          },
+          "directionId": "values",
+          "score": 0
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "values",
+          "score": 0.5
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly Agree",
+            "zh": "非常同意"
+          },
+          "directionId": "values",
+          "score": 1
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "equality",
+      "directionIds": [
+        "econ"
+      ],
+      "title": {
+        "en": "Equality",
+        "zh": "平等"
+      },
+      "headline": {
+        "en": "Read the Equality side of the economic axis, its market complement, mixed answers and scoring limits without a party label.",
+        "zh": "读经济轴平等一端、市场互补、中间混合及计分边界，不据此派政党标签。"
+      },
+      "summary": {
+        "en": "Read the Equality side of the economic axis, its market complement, mixed answers and scoring limits without a party label.",
+        "zh": "读经济轴平等一端、市场互补、中间混合及计分边界，不据此派政党标签。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "equality-1",
+          "title": {
+            "en": "What this economic pole covers",
+            "zh": "这一经济端点覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Equality is the name used by the upstream questionnaire for the economic side that gives more weight to distribution, public provision and intervention in the included statements. The percentage summarizes those weighted responses. It does not measure compassion, human worth or commitment to every possible meaning of equality. The economic axis cannot establish a view on every social issue, and its label is distinct from a general judgment that some people deserve more rights than others.",
+              "zh": "原题本用平等命名经济轴中，在所含陈述上更重分配、公共供给与干预的一端。百分数概括这些加权回应，不测同情、人之价值或所有意义上的平等承诺。经济轴不建立每项社会议题看法，名称也不同于判断谁应有更多权利。"
+            }
+          ]
+        },
+        {
+          "id": "equality-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional respondents who support the same public school but differ on taxation and the ownership of utilities. Their economic totals can differ because the questionnaire includes several policy statements, some with opposite signs and some affecting another axis too. Agreement on one visible issue therefore does not imply an identical profile. This example explains aggregation; it recommends no school, tax policy or political organization.",
+              "zh": "设两虚构答题者都支持同一公立学校，却对税收与公用设施所有制意见不同。题本含多项政策陈述，有的反向、有的同时影响另一轴，经济总分可不同。一个议题同意不意味着画像相同；例子只解释汇总，不推荐学校、税制或政治组织。"
+            }
+          ]
+        },
+        {
+          "id": "equality-3",
+          "title": {
+            "en": "Read Markets beside Equality",
+            "zh": "把市场放在平等旁边读"
+          },
+          "paragraphs": [
+            {
+              "en": "Markets is the complementary end of this displayed economic axis. If Equality is 51.3%, the paired display is Markets 48.7%; these are not two independent measurements. A larger Equality number does not prove that someone rejects all market exchange, and a larger Markets number does not establish indifference to other people. The pair is a deliberately simplified map of this bank’s statements, not a complete account of an economy or a person.",
+              "zh": "市场是这一显示经济轴的互补端。平等51.3%时市场48.7%，不是两项独立测量。平等较大不证明拒绝所有市场交换，市场较大也不建立漠视他人。两端是本题陈述的简化图，不是经济或个人的完整说明。"
+            }
+          ]
+        },
+        {
+          "id": "equality-4",
+          "title": {
+            "en": "Middle values can have different histories",
+            "zh": "中间数可有不同来路"
+          },
+          "paragraphs": [
+            {
+              "en": "A value near 50 can come from many neutral responses, a mixture of agreements and disagreements, or a combination of both. The same total can hide different policy priorities. Exactly 50 is an arithmetic midpoint, not proof of centrism, uncertainty or a balanced character. Review the particular statements you interpreted differently rather than treating a rounded tenth of a percentage point as an established political difference.",
+              "zh": "近50可来自许多中立、同意不同意抵消或两者混合；同总分可藏不同政策重点。恰50只是算术中点，不证明中间派、不确定或性格平衡。回看解释不同的具体陈述，不把四舍五入的零点一个百分点当已建立政治差异。"
+            }
+          ]
+        },
+        {
+          "id": "equality-5",
+          "title": {
+            "en": "Check a response before drawing a conclusion",
+            "zh": "下结论前核一个回应"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one economic statement and ask what words you took to mean, which assumptions you supplied and whether your answer referred to a particular context. You can also explain what evidence would matter to you without deciding here which policy is correct. This is an optional reading aid, not political advice. Do not use another person’s percentage to infer their vote, income, morality or willingness to cooperate.",
+              "zh": "挑一经济陈述，问如何理解词、补了什么假定、是否针对特定情境。也可说明何种证据对你重要，不在此裁定政策对错。可选读法不作政治建议；不从别人百分数猜票、收入、道德或合作意愿。"
+            }
+          ]
+        },
+        {
+          "id": "equality-6",
+          "title": {
+            "en": "How this percentage is produced",
+            "zh": "百分数如何产生"
+          },
+          "paragraphs": [
+            {
+              "en": "All seventy responses are required. Each five-point response supplies a multiplier from minus one to plus one; signed economic weights are added and normalized by the sum of absolute weights, 195 in this pinned edition. The displayed pole is rounded to one decimal place and its partner is the complement to 100. Missing answers are not neutral answers. This arithmetic has no population norm, confidence interval or validated diagnostic threshold.",
+              "zh": "须七十题全部回应。五点回应给负1至正1乘数，乘带正负经济权重后求和，以本固定版绝对权重和195归一。显示端保留一位小数，另一端补至100；缺答不是中立。算术没有人群常模、置信区间或已验证诊断阈值。"
+            }
+          ]
+        },
+        {
+          "id": "equality-7",
+          "title": {
+            "en": "Edition and scope",
+            "zh": "版本与范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The English items and effects come from the MIT-licensed upstream revision identified on the entry page. The Chinese wording is this edition’s translation, without independent equivalence validation. These original reading notes are not an endorsement by upstream or IDRlabs. There is no automatic ideology assignment, voting recommendation or score-bearing public link. Use the four axes separately, and do not turn this one attempt into a fixed political identity.",
+              "zh": "英文条目与effects来自入口所列MIT上游版本，中文是本版翻译，未经独立等值验证。原创读法不代表上游或IDR背书；无自动意识形态派型、投票建议或带分公开链接。分开读四轴，不把一次作答定成固定政治身份。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Equality | 8 Values Guide",
+          "zh": "平等｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Equality side of the economic axis, its market complement, mixed answers and scoring limits without a party label.",
+          "zh": "读经济轴平等一端、市场互补、中间混合及计分边界，不据此派政党标签。"
+        }
+      }
+    },
+    {
+      "id": "markets",
+      "directionIds": [
+        "econ"
+      ],
+      "title": {
+        "en": "Markets",
+        "zh": "市场"
+      },
+      "headline": {
+        "en": "Read the Markets side of the economic axis alongside Equality, specific responses and the limits of a normalized percentage.",
+        "zh": "结合平等一端、具体回应与归一百分数边界，读经济轴市场一端。"
+      },
+      "summary": {
+        "en": "Read the Markets side of the economic axis alongside Equality, specific responses and the limits of a normalized percentage.",
+        "zh": "结合平等一端、具体回应与归一百分数边界，读经济轴市场一端。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "markets-1",
+          "title": {
+            "en": "What the name means in this bank",
+            "zh": "名称在本题本中的意思"
+          },
+          "paragraphs": [
+            {
+              "en": "Markets names the economic pole associated with responses favouring market allocation and limiting some forms of public economic intervention in the included items. The label is a scoring convention, not a professional assessment of economic knowledge or business ability. It cannot show that someone supports every market policy, understands every trade-off or values freedom more generally. Read it as a summary of these particular policy statements, not a definition of a person.",
+              "zh": "市场是题本为偏向市场配置、限制某些公共经济干预的回应所设经济端点名，是计分约定，不评经济知识或经商能力。不证明支持每项市场政策、懂所有取舍或总体更重自由；读为具体政策陈述摘要，不是人的定义。"
+            }
+          ]
+        },
+        {
+          "id": "markets-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent who prefers private ownership of one service but supports public funding for another. Their answers need not fit a single slogan. The economic total combines several signed weights, so agreement with a market-related statement can coexist with support for a public institution. This hypothetical example explains how a mixed pattern can arise. It does not recommend privatization, a spending level, an investment or a party.",
+              "zh": "设虚构答题者对一服务偏私有，却支持另一项公共资助，答案未必合一句口号。经济总分合多个正负权重，同意市场陈述可与支持公共机构共存。例子解释混合模式，不推荐私有化、开支、投资或政党。"
+            }
+          ]
+        },
+        {
+          "id": "markets-3",
+          "title": {
+            "en": "Read the Equality complement",
+            "zh": "读平等互补端"
+          },
+          "paragraphs": [
+            {
+              "en": "The Markets display is 100 minus the rounded Equality display. Markets 52.6% and Equality 47.4% describe one axis, not two separate tests. A larger Markets figure is not evidence of selfishness, and a smaller figure is not evidence of economic incompetence. The questionnaire cannot infer motives from a policy response. It also does not establish that a market-versus-distribution line exhausts all the ways institutions can be organized.",
+              "zh": "市场显示数为100减平等显示数。52.6%市场与47.4%平等是一轴，不是两测验。市场较高不证明自私，较低不证明经济无能；问卷不能从政策回应推出动机，也不证明市场与分配一线穷尽制度安排。"
+            }
+          ]
+        },
+        {
+          "id": "markets-4",
+          "title": {
+            "en": "A midpoint is not an ideology",
+            "zh": "中点不是意识形态"
+          },
+          "paragraphs": [
+            {
+              "en": "A near-equal pair may reflect neutral answers, offsetting strong responses or context-specific distinctions. Exactly 50 does not automatically mean that the respondent has no view, takes a moderate position or endorses an equal mixture of two economic systems. Different answer histories can yield the same displayed total. Small rounded differences have no established significance, and the questionnaire supplies no population percentile against which to rank people.",
+              "zh": "近相等可来自中立、强回应抵消或情境区别。恰50不自动表示无观点、温和或支持两经济体制各半。不同答案来路可有同数；小的舍入差无已建立显著性，也无人群百分位供排人。"
+            }
+          ]
+        },
+        {
+          "id": "markets-5",
+          "title": {
+            "en": "An optional interpretation check",
+            "zh": "一个可选解释核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Return to one statement where you hesitated and distinguish the general wording from the example you had in mind. You may record what would make your answer more precise, without sharing private political views with anyone. There is no preferred outcome to reach. A useful conversation asks what someone actually means rather than assigning a motive, a vote or a social role from their market percentage.",
+              "zh": "回到一条犹豫陈述，分清概括措辞和脑中例子。可记什么能让回答更精确，无需向人披露私人政治观点，没有应追求的结果。对话问实际意思，不从市场百分数派动机、选票或社会角色。"
+            }
+          ]
+        },
+        {
+          "id": "markets-6",
+          "title": {
+            "en": "The arithmetic behind the pair",
+            "zh": "互补端背后的算术"
+          },
+          "paragraphs": [
+            {
+              "en": "The pinned economic weights have an absolute sum of 195. Each response contributes its signed weight times the selected multiplier: one, one half, zero, minus one half or minus one. The primary percentage is normalized and rounded to one decimal; Markets is its displayed complement. All seventy answers are required because some statements affect more than one axis. A missing response is withheld rather than silently scored as neutral.",
+              "zh": "固定经济权重绝对值和195，每回应按1、半、0、负半或负1乘正负权重。主端归一保留一位小数，市场取其显示互补。须答七十题，因为有条目跨轴；缺答保留未完成，不默算中立。"
+            }
+          ]
+        },
+        {
+          "id": "markets-7",
+          "title": {
+            "en": "Use the edition within its limits",
+            "zh": "在版本边界内使用"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an adaptation of the identified MIT-licensed English bank with an author-produced Chinese translation and original reading guides. Translation equivalence, reliability and contemporary cultural fit have not been established here. The result is not a forecast, a political recommendation or a fixed ideology. Public sharing contains a general link without responses or percentages. Read all four axes without ranking one person’s political worth against another’s.",
+              "zh": "这是所列MIT英文题本改编，中文为作者翻译，读法原创；未建立翻译等值、可靠性或当代文化适配。不预测、不作政治推荐、不定意识形态。公开分享通用链接，无回应或百分数；读四轴，不比较人的政治价值高低。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Markets | 8 Values Guide",
+          "zh": "市场｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Markets side of the economic axis alongside Equality, specific responses and the limits of a normalized percentage.",
+          "zh": "结合平等一端、具体回应与归一百分数边界，读经济轴市场一端。"
+        }
+      }
+    },
+    {
+      "id": "nation",
+      "directionIds": [
+        "dipl"
+      ],
+      "title": {
+        "en": "Nation",
+        "zh": "国家"
+      },
+      "headline": {
+        "en": "Read the Nation end of the diplomatic axis with its Globe complement, mixed responses and limits; no nationality or loyalty verdict.",
+        "zh": "结合全球互补端、混合回应与边界，读外交轴国家一端；不裁定国籍或忠诚。"
+      },
+      "summary": {
+        "en": "Read the Nation end of the diplomatic axis with its Globe complement, mixed responses and limits; no nationality or loyalty verdict.",
+        "zh": "结合全球互补端、混合回应与边界，读外交轴国家一端；不裁定国籍或忠诚。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "nation-1",
+          "title": {
+            "en": "What this diplomatic label covers",
+            "zh": "这一外交标签覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Nation is the upstream name for one end of the diplomatic axis, connected in this bank to responses about sovereignty, national priorities and the use of national strength. It does not establish nationality, ethnic identity, loyalty, hostility or a view on every international question. Different reasons can produce the same response to a broad statement. The label summarizes a scoring direction, not a moral evaluation of a country or its people.",
+              "zh": "国家是上游为外交轴一端所用名称，本题关联主权、国家优先与国家力量使用等回应。不建立国籍、族群、忠诚、敌意或所有国际议题立场。广泛陈述的同回应可有不同原因；标签概括计分方向，不道德评价国家或人民。"
+            }
+          ]
+        },
+        {
+          "id": "nation-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent who values national decision-making authority and also supports a particular international research project. These responses can coexist. The questionnaire combines multiple statements, including some that affect civil or social scores as well as diplomacy. One answer cannot stand in for the whole axis, and the total cannot tell you why that person accepted one form of cooperation but rejected another. This example recommends no international policy.",
+              "zh": "设虚构答题者重国家决策自主，也支持某国际研究。回应可共存；问卷合多陈述，有的同时影响公民或社会轴。一答不能代全轴，总分也不说明为何接受某合作却拒另一项。例子不推荐国际政策。"
+            }
+          ]
+        },
+        {
+          "id": "nation-3",
+          "title": {
+            "en": "Read Globe as the paired end",
+            "zh": "把全球读为互补端"
+          },
+          "paragraphs": [
+            {
+              "en": "The Nation number is the displayed complement of Globe, the positive diplomatic score. If Globe is 47.8%, Nation is 52.2%. These are two labels on one normalized axis, not independent probabilities. A larger Nation value does not by itself establish support for war, rejection of all cooperation or a particular border policy. Read the actual item responses rather than filling in positions the questionnaire did not ask about.",
+              "zh": "国家数为外交正端全球数的显示互补。全球47.8%则国家52.2%，是一归一轴的两标签，不是独立概率。国家较大本身不建立支持战争、拒绝一切合作或某边境政策；读实际回应，不补题本没问立场。"
+            }
+          ]
+        },
+        {
+          "id": "nation-4",
+          "title": {
+            "en": "The middle does not identify a camp",
+            "zh": "中间不识别阵营"
+          },
+          "paragraphs": [
+            {
+              "en": "An equal or near-equal pair can arise from neutral selections, opposing views across issues or both. Exactly 50 is not an automatic moderate, internationalist or nationalist identity. Nor does a small rounded difference show a reliable political distinction between people. The same diplomatic total can combine very different opinions about aid, institutions, research and sovereignty; it supplies no explanation of which question mattered most to the respondent.",
+              "zh": "近相等可来自中立、跨议题相反或两者都有。恰50不自动是温和、国际主义或民族主义身份，小舍入差不显示可靠政治区分。同外交总分可合援助、机构、研究、主权的不同意见，也不解释哪问题对人最重要。"
+            }
+          ]
+        },
+        {
+          "id": "nation-5",
+          "title": {
+            "en": "An optional context check",
+            "zh": "一个可选情境核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one diplomatic statement and distinguish the general principle you read from a specific example you imagined. You can name where more detail would matter, without deciding which side ought to win. There is no preferred result to reach. Do not infer a person’s patriotism, immigration status, vote or trustworthiness from their percentage, and do not ask anyone to reveal private political answers to justify a label.",
+              "zh": "挑一外交陈述，分清所读一般原则和所想具体例子，可点明哪里需细节，不判哪方应赢，无应达结果。不从数猜爱国、移民身份、票或可信度，也不要求别人披露私人政治答案来证标签。"
+            }
+          ]
+        },
+        {
+          "id": "nation-6",
+          "title": {
+            "en": "How the diplomatic pair is counted",
+            "zh": "外交互补端如何计分"
+          },
+          "paragraphs": [
+            {
+              "en": "The pinned edition has an absolute diplomatic weight sum of 225. Each selected response multiplies every signed weight attached to its statement; the diplomatic total is normalized and rounded to one decimal place, then Nation complements Globe to 100. Some items contribute to several axes. All seventy valid responses are required, and missing answers are not silently made neutral. The result is neither a population rank nor a validated threshold.",
+              "zh": "固定版外交绝对权重和225。所选回应乘该陈述各正负权重，外交总分归一保留一位小数，国家补全球至100。有题跨轴；须七十个有效回应，缺答不默作中立。结果非人口排名或已验证阈值。"
+            }
+          ]
+        },
+        {
+          "id": "nation-7",
+          "title": {
+            "en": "Edition and use boundaries",
+            "zh": "版本与使用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The English bank and effects are adapted from the identified MIT revision; Chinese wording and these reading notes belong to this edition. Independent translation equivalence and contemporary political validity have not been demonstrated here. Upstream and IDRlabs do not endorse this guide. No automatic ideology, voting recommendation or private-score public link is generated. Read four axes separately rather than treating a single diplomatic total as a complete political identity.",
+              "zh": "英文题本及effects改编自所列MIT版本，中文措辞和读法为本版；未展示独立翻译等值或当代政治效度。上游与IDR不背书，无自动意识形态、投票建议或含私分公开链接。分开读四轴，不以外交一数定完整政治身份。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Nation | 8 Values Guide",
+          "zh": "国家｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Nation end of the diplomatic axis with its Globe complement, mixed responses and limits; no nationality or loyalty verdict.",
+          "zh": "结合全球互补端、混合回应与边界，读外交轴国家一端；不裁定国籍或忠诚。"
+        }
+      }
+    },
+    {
+      "id": "globe",
+      "directionIds": [
+        "dipl"
+      ],
+      "title": {
+        "en": "Globe",
+        "zh": "全球"
+      },
+      "headline": {
+        "en": "Read the Globe end of the diplomatic axis, the Nation complement and the difference between a score and a complete political view.",
+        "zh": "读外交轴全球一端、国家互补端，以及分数与完整政治观点的区别。"
+      },
+      "summary": {
+        "en": "Read the Globe end of the diplomatic axis, the Nation complement and the difference between a score and a complete political view.",
+        "zh": "读外交轴全球一端、国家互补端，以及分数与完整政治观点的区别。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "globe-1",
+          "title": {
+            "en": "What this diplomatic end describes",
+            "zh": "这一外交端点描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Globe names the side of the upstream diplomatic axis linked to responses favouring international cooperation and a wider frame of political responsibility in the included statements. It is not a measure of kindness, education, world knowledge or cultural openness. The result cannot establish agreement with every global institution or indifference to national concerns. It summarizes a fixed collection of weighted policy responses, not the full reasoning behind them.",
+              "zh": "全球是上游外交轴中关联国际合作及更广政治责任范围回应的一端，不测善良、学历、世界知识或文化开放。不建立同意所有全球机构，也不建立漠视国家关切；只概括固定加权政策回应，不含全部理由。"
+            }
+          ]
+        },
+        {
+          "id": "globe-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional respondents who both support international research but disagree about a world government. They may have different diplomatic totals despite sharing one answer. Another pair could reach the same total through different combinations. Some questions also affect another axis, so a statement’s contribution is not confined to the heading you might intuitively give it. This hypothetical example explains aggregation without recommending a particular institution or political arrangement.",
+              "zh": "设两虚构答题者都支持国际研究，却对世界政府有分歧，可同一答而外交总分不同。另一对也可用不同组合获同数。有题跨轴，贡献不限于你直觉的标题；例子解释汇总，不推荐机构或政治安排。"
+            }
+          ]
+        },
+        {
+          "id": "globe-3",
+          "title": {
+            "en": "Keep the Nation complement visible",
+            "zh": "保留国家互补端"
+          },
+          "paragraphs": [
+            {
+              "en": "Globe and Nation add to 100 after the primary display is rounded to one decimal place. Globe 52.2% and Nation 47.8% are one axis shown from two ends, not independent levels of concern. A larger Globe value does not prove the absence of national attachment or a commitment to every international agreement. A lower value does not establish hostility toward foreigners. The questionnaire cannot supply motives that were never asked for.",
+              "zh": "主端保留一位小数后，全球与国家合100。全球52.2%及国家47.8%是一轴两端，不是独立关切度。全球较大不证明无国家依恋或承诺所有国际协议，较低不建立敌视外国人；问卷不提供没问过的动机。"
+            }
+          ]
+        },
+        {
+          "id": "globe-4",
+          "title": {
+            "en": "A midpoint can conceal different views",
+            "zh": "中点可包含不同看法"
+          },
+          "paragraphs": [
+            {
+              "en": "A value near 50 can reflect neutral answers or strong responses that offset one another. Exactly 50 is an arithmetic point rather than a certified balanced ideology. Different views about sovereignty, aid, research and institutions can yield the same number. Read the response pattern before drawing a conclusion, and do not treat a tenth of a point as an established difference in political commitment or reliability.",
+              "zh": "近50可反映中立或强回应抵消。恰50是算术点，不是认证平衡意识形态；主权、援助、研究、机构的不同看法可得同数。先看回应模式，不将零点一个百分点当政治承诺或可靠性的已建立差异。"
+            }
+          ]
+        },
+        {
+          "id": "globe-5",
+          "title": {
+            "en": "An optional reading check",
+            "zh": "一个可选读法核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Return to a statement you found broad and describe the context you used to answer it. You may distinguish cooperation on one issue from support for an institution in every circumstance. There is no requirement to move your score toward either pole. These notes are not political advice. In conversation, ask what someone actually means rather than guessing their vote, nationality or moral character from a Globe percentage.",
+              "zh": "回到一条觉得太宽的陈述，描述回答所用情境，可区分某议题合作与所有情况下支持机构。不要求分数向任一端移动，读法不作政治建议。对话问实际意思，不从全球百分数猜票、国籍或品德。"
+            }
+          ]
+        },
+        {
+          "id": "globe-6",
+          "title": {
+            "en": "The fixed arithmetic and its limits",
+            "zh": "固定算术与其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The absolute diplomatic weights sum to 225 in the pinned seventy-item edition. The response multipliers are one, one half, zero, minus one half and minus one. Signed contributions are added, normalized to the possible range and rounded to one decimal place; Nation is the displayed complement. All seventy responses must be valid. Missing answers remain incomplete, and the resulting percentage has no population percentile, confidence interval or diagnostic cutoff.",
+              "zh": "固定七十题版外交绝对权重和225，回应乘数为1、半、0、负半、负1。正负贡献相加，以可能范围归一并留一位小数；国家是显示互补。须七十回应有效，缺答仍未完成；百分数无人口百分位、置信区间或诊断线。"
+            }
+          ]
+        },
+        {
+          "id": "globe-7",
+          "title": {
+            "en": "Keep the adaptation identifiable",
+            "zh": "保持改编版本可识别"
+          },
+          "paragraphs": [
+            {
+              "en": "The entry identifies the upstream MIT source and preserves its notice. English items and effects remain tied to that revision; the Chinese translation and original guides do not establish cross-language equivalence. This is not an IDRlabs score or an endorsed official political assessment. No nearest-ideology label or voting recommendation is produced. Public sharing omits private responses and percentages. Use the four axes as separate summaries, not an account of every political belief.",
+              "zh": "入口标上游MIT来源并保留通知。英文及effects绑定该版本，中文翻译与原创指南不建立跨语言等值。这不是IDR分或获背书正式政治测评，无最近意识形态标签、投票建议；公开分享省私答百分数。四轴作各自摘要，不涵盖全部政治信念。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Globe | 8 Values Guide",
+          "zh": "全球｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Globe end of the diplomatic axis, the Nation complement and the difference between a score and a complete political view.",
+          "zh": "读外交轴全球一端、国家互补端，以及分数与完整政治观点的区别。"
+        }
+      }
+    },
+    {
+      "id": "liberty",
+      "directionIds": [
+        "govt"
+      ],
+      "title": {
+        "en": "Liberty",
+        "zh": "公民自由"
+      },
+      "headline": {
+        "en": "Read the civil Liberty pole with Authority, mixed answers and the difference between normalized responses and political identity.",
+        "zh": "结合权威、中间混合及归一回应与政治身份的区别，读公民自由一端。"
+      },
+      "summary": {
+        "en": "Read the civil Liberty pole with Authority, mixed answers and the difference between normalized responses and political identity.",
+        "zh": "结合权威、中间混合及归一回应与政治身份的区别，读公民自由一端。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "liberty-1",
+          "title": {
+            "en": "Civil liberty is the named axis here",
+            "zh": "这里的命名轴关乎公民自由"
+          },
+          "paragraphs": [
+            {
+              "en": "Liberty is the positive end of the upstream civil axis, concerned in the included statements with personal freedoms and the limits of state power. It is distinct from the economic Markets pole. A larger number does not establish support for every possible freedom or identify the respondent as a member of a political movement. The label summarizes weighted responses, not courage, civic virtue or the quality of someone’s reasoning.",
+              "zh": "公民自由是上游公民轴正端，本题关联个人自由及国家权力边界，不等同经济市场端。数较大不建立支持所有可能自由，也不识别政治运动成员。标签概括加权回应，不测勇气、公民美德或论证质量。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent who opposes broad surveillance but accepts a particular restriction in another situation. Those answers need not be identical in direction. The questionnaire aggregates several statements and some cross-axis weights, so one civil-liberty answer does not determine the complete result. Another person may reach the same civil total through a different combination. This example explains scoring; it does not recommend a surveillance policy or provide legal advice.",
+              "zh": "设虚构答题者反广泛监控，却接受另一情境某限制，回应方向未必一致。问卷汇多条陈述及部分跨轴权重，一项自由回应不决定全结果；别人可经不同组合到同公民总分。例子解释计分，不推荐监控政策、不作法律建议。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-3",
+          "title": {
+            "en": "Read Authority as the complement",
+            "zh": "把权威读为互补端"
+          },
+          "paragraphs": [
+            {
+              "en": "Authority is the paired display, calculated as 100 minus the rounded Liberty percentage. The two numbers are one normalized axis rather than two independent capacities or probabilities. A larger Liberty value does not prove that someone rejects every institution or rule. A smaller value does not establish lack of concern for rights. Do not infer motives, party membership or real-world conduct from the label alone.",
+              "zh": "权威显示为100减舍入后的公民自由百分数。两数是一归一轴，不是独立能力或概率。自由较大不证明拒绝所有机构规则，较小也不建立不关心权利；不凭标签推出动机、党籍或现实行为。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-4",
+          "title": {
+            "en": "A middle value is not a stable category",
+            "zh": "中间数不是稳定类别"
+          },
+          "paragraphs": [
+            {
+              "en": "A value near 50 may reflect neutral selections, different views on different restrictions or opposing responses that offset. Exactly 50 is an arithmetic midpoint and does not certify moderation, indecision or a balanced political character. The result cannot explain whether someone interpreted a statement narrowly or broadly. Small rounded changes have no established significance, and the quiz supplies no population ranking for civil liberty.",
+              "zh": "近50可反映中立、对不同限制看法不同或相反回应抵消。恰50是算术中点，不认证温和、犹豫或政治性格平衡；不解释对陈述作窄读还是宽读。小舍入变动无已建立显著性，也无公民自由人口排名。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-5",
+          "title": {
+            "en": "An optional interpretation check",
+            "zh": "一个可选解释核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one broad statement and note what institution, situation or limit you imagined when answering. You can distinguish what you understood from what the sentence explicitly said. There is no preferred political conclusion to adopt here. These notes are not a rights assessment or legal guidance. Ask people about their own views rather than using a quiz score to decide whether they are trustworthy or deserve a particular role.",
+              "zh": "挑广泛陈述，记回答时所想机构、情境或边界，分清自己理解与句子明说内容；此处无应采政治结论。读法不是权利评估或法律指引；问人的观点，不用问卷分定其可信或应担何角色。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-6",
+          "title": {
+            "en": "The fixed civil-axis calculation",
+            "zh": "固定公民轴计算"
+          },
+          "paragraphs": [
+            {
+              "en": "In the pinned bank, absolute civil weights sum to 320. Each selected five-point multiplier is applied to the statement’s signed effects, including cross-axis effects. The civil sum is normalized to its possible range and displayed to one decimal place; Authority complements it to 100. Seventy valid responses are required. Missing answers remain incomplete rather than becoming neutral. Percentages are not population percentiles, confidence estimates or thresholds validated for political classification.",
+              "zh": "固定题本公民绝对权重和320。五点乘数乘陈述正负effects，含跨轴影响；公民和按可能范围归一，显示一位小数，权威补至100。须七十有效回应，缺答仍未完成、不作中立；百分数非人口百分位、置信估计或经验证政治分类阈值。"
+            }
+          ]
+        },
+        {
+          "id": "liberty-7",
+          "title": {
+            "en": "Edition and limits",
+            "zh": "版本与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "English items and weights are adapted from the identified MIT-licensed revision. Chinese wording is this edition’s translation, without independent equivalence validation. The reading guide is original and carries no upstream or IDRlabs endorsement. No automatic ideology or voting recommendation is produced, and public sharing contains a general link without private responses or percentages. Keep the four axes separate and the result tied to this particular attempt.",
+              "zh": "英文及权重改编自所列MIT版，中文为本版翻译、未经独立等值验证。读法原创，无上游或IDR背书；无自动意识形态或投票推荐。分享通用链接，无私答或百分数；四轴分开，结果绑定本次作答。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Liberty | 8 Values Guide",
+          "zh": "公民自由｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the civil Liberty pole with Authority, mixed answers and the difference between normalized responses and political identity.",
+          "zh": "结合权威、中间混合及归一回应与政治身份的区别，读公民自由一端。"
+        }
+      }
+    },
+    {
+      "id": "authority",
+      "directionIds": [
+        "govt"
+      ],
+      "title": {
+        "en": "Authority",
+        "zh": "权威"
+      },
+      "headline": {
+        "en": "Read the Authority end of the civil axis with Liberty, response context and limits; no character, loyalty or voting verdict.",
+        "zh": "结合公民自由、回应情境与边界，读公民轴权威一端；不裁定人格、忠诚或投票。"
+      },
+      "summary": {
+        "en": "Read the Authority end of the civil axis with Liberty, response context and limits; no character, loyalty or voting verdict.",
+        "zh": "结合公民自由、回应情境与边界，读公民轴权威一端；不裁定人格、忠诚或投票。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "authority-1",
+          "title": {
+            "en": "What the civil-axis name summarizes",
+            "zh": "公民轴名称概括什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Authority names the complementary end of the upstream civil axis, connected in this questionnaire to responses favouring stronger state power or limits on some personal freedoms. It does not measure a person’s leadership skill, obedience, moral worth or conduct toward other people. Nor does a response to one restriction establish acceptance of every restriction. This is a fixed weighted summary of the included statements, not a complete theory of political authority.",
+              "zh": "权威是上游公民轴互补端，本题关联较强国家权力或部分个人自由限制的回应。不测领导能力、服从、道德价值或待人行为；对一限制的回应也不建立接受所有限制。它是所含陈述的固定加权摘要，不是完整政治权威理论。"
+            }
+          ]
+        },
+        {
+          "id": "authority-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent who supports one kind of public rule and rejects another because they understand the two situations differently. Their total combines both responses. A second respondent can reach the same number while disagreeing on which rule should exist. Some statements affect multiple axes, so an intuitive issue label is not a substitute for the published effects. This example explains the calculation without recommending a policy, a leader or a political organization.",
+              "zh": "设虚构答题者因理解情境不同，支持一公共规则而拒另一条，总数合两回应。另一人可同数却对哪规则应存在意见不同。有题跨轴，直觉议题标题不能代公布effects；例子解释计算，不推荐政策、领导者或政治组织。"
+            }
+          ]
+        },
+        {
+          "id": "authority-3",
+          "title": {
+            "en": "Read Liberty beside Authority",
+            "zh": "把公民自由放在权威旁边读"
+          },
+          "paragraphs": [
+            {
+              "en": "Authority is 100 minus the displayed Liberty value after the primary calculation is rounded. These figures express one axis, not two independent qualities. A larger Authority figure does not by itself prove support for every powerful institution, and a lower figure does not show inability to cooperate with rules. The questionnaire cannot infer a person’s motives or behaviour from agreement with a broad statement about public power.",
+              "zh": "权威为100减主计算舍入后的自由显示数，表达一轴，不是两独立品质。权威较大本身不证明支持每个强机构，较低不显示不能遵守规则。问卷不能从广泛公共权力陈述的同意推人动机或行为。"
+            }
+          ]
+        },
+        {
+          "id": "authority-4",
+          "title": {
+            "en": "Middle and mixed values remain open",
+            "zh": "中间与混合保留开放"
+          },
+          "paragraphs": [
+            {
+              "en": "Near 50, the same pair can come from many neutral responses, offsetting strong responses or context-specific distinctions. Exactly 50 does not produce a validated moderate type, and a nearby percentage does not identify a stable political category. Consider what the actual answers were before interpreting the aggregate. The display has no population norm or established smallest meaningful difference, so a tenth of a point is not a reliable verdict about anyone.",
+              "zh": "近50同一对可来自许多中立、强回应抵消或情境区别。恰50不产经验证温和型，邻近数不识稳定政治类别。释汇总前看实际答案；显示无人群常模或已建立最小有意义差，零点一个百分点不是可靠的人之判决。"
+            }
+          ]
+        },
+        {
+          "id": "authority-5",
+          "title": {
+            "en": "An optional context check",
+            "zh": "一个可选情境核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Return to a statement that seemed ambiguous and describe the setting you supplied. Ask what detail would help you explain your response more accurately, without needing to change it. There is no desired direction to move. These notes offer no political or legal advice. Do not use another person’s result to assign duties, test loyalty or decide their voting behaviour; their stated reasons matter more than a label.",
+              "zh": "回到一歧义陈述，描述所补背景，问什么细节助更准说明回应，不需改答，没有应移动方向。读法不供政治或法律建议；不以别人数派义务、验忠诚、定投票行为，其自述理由比标签重要。"
+            }
+          ]
+        },
+        {
+          "id": "authority-6",
+          "title": {
+            "en": "How the pair is computed",
+            "zh": "互补端怎样计算"
+          },
+          "paragraphs": [
+            {
+              "en": "The civil axis uses the pinned absolute weight sum of 320. All seventy selected multipliers are applied to each statement’s signed effects; the civil contribution is normalized and rounded to one decimal, and Authority is the complement to 100. An answer can affect another axis as well. Missing responses do not receive a neutral multiplier. A full result is a normalized score, not a probability, population percentile or professional political classification.",
+              "zh": "公民轴用固定绝对权重和320。七十所选乘数应用于各陈述正负effects，公民贡献归一留一位小数，权威补至100；一答也可影响别轴。缺答不获中立乘数。完整结果是归一分，非概率、人口百分位或专业政治分类。"
+            }
+          ]
+        },
+        {
+          "id": "authority-7",
+          "title": {
+            "en": "Keep the source and limits visible",
+            "zh": "让来源与边界可见"
+          },
+          "paragraphs": [
+            {
+              "en": "The English bank and effects remain tied to the identified MIT source. Chinese translation and these original reading notes do not establish translation equivalence, reliability or contemporary cultural validity. There is no endorsement by upstream or IDRlabs, no nearest-ideology assignment and no voting recommendation. Sharing uses a general public link without responses or scores. Read the four axes separately rather than turning this attempt into a permanent political identity.",
+              "zh": "英文与effects绑定所列MIT来源。中文及原创读法不建立等值、可靠性或当代文化效度。无上游IDR背书、最近意识形态派型或投票推荐；分享通用公开链接，无答卷分数。分开读四轴，不把本次定为永久政治身份。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Authority | 8 Values Guide",
+          "zh": "权威｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Authority end of the civil axis with Liberty, response context and limits; no character, loyalty or voting verdict.",
+          "zh": "结合公民自由、回应情境与边界，读公民轴权威一端；不裁定人格、忠诚或投票。"
+        }
+      }
+    },
+    {
+      "id": "progress",
+      "directionIds": [
+        "scty"
+      ],
+      "title": {
+        "en": "Progress",
+        "zh": "进步"
+      },
+      "headline": {
+        "en": "Read the Progress end of the societal axis with Tradition, mixed responses and the limits of the upstream wording.",
+        "zh": "结合传统、混合回应与上游措辞边界，读社会轴进步一端。"
+      },
+      "summary": {
+        "en": "Read the Progress end of the societal axis with Tradition, mixed responses and the limits of the upstream wording.",
+        "zh": "结合传统、混合回应与上游措辞边界，读社会轴进步一端。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "progress-1",
+          "title": {
+            "en": "Progress is a label, not a quality grade",
+            "zh": "进步是标签，不是品质等级"
+          },
+          "paragraphs": [
+            {
+              "en": "Progress is the upstream name for the positive societal pole, connected to responses about social change, inherited norms and several science or environmental statements in this bank. The name does not mean that a larger percentage is morally better, more intelligent or more accurate. It cannot establish support for every innovation or describe a person’s entire cultural life. Read it as the label of a fixed scoring direction rather than praise or a prediction.",
+              "zh": "进步是上游社会轴正端名称，本题关联社会变化、承继规范及部分科学环境陈述。名称不表示数较大便道德更好、更聪明或更准确；不建立支持所有创新，也不描述全部文化生活。它是固定计分方向标签，不是表扬或预测。"
+            }
+          ]
+        },
+        {
+          "id": "progress-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent who welcomes a particular technology but wants to preserve a family custom. These views can coexist. The societal total combines several different issues, and some statements also contribute to another axis. Another respondent can reach the same number while prioritizing different questions. This hypothetical example explains why an aggregate is not a complete cultural portrait; it endorses no technology, family arrangement, religion or political movement.",
+              "zh": "设虚构答题者欢迎某技术却想保一家庭习俗，看法可共存。社会总分合多个议题，有题亦入另一轴；别人可用不同重点得同数。例子解释汇总非完整文化画像，不背书技术、家庭安排、宗教或政治运动。"
+            }
+          ]
+        },
+        {
+          "id": "progress-3",
+          "title": {
+            "en": "Read Tradition as the paired end",
+            "zh": "把传统读作互补端"
+          },
+          "paragraphs": [
+            {
+              "en": "Tradition is the displayed complement of Progress to 100 after the primary calculation is rounded. These are one axis, not two independent measurements of how much change or continuity someone can accept. A larger Progress value does not prove rejection of all inherited practices, and a smaller value does not establish opposition to every change. The questionnaire cannot infer a person’s faith, generation or private life from the percentage.",
+              "zh": "主端舍入后传统补进步至100，二者一轴，不独立测人可接受多少改变或延续。进步较大不证明拒绝所有承继实践，较小不建立反对每项变化；问卷不能从数推信仰、代际或私人生活。"
+            }
+          ]
+        },
+        {
+          "id": "progress-4",
+          "title": {
+            "en": "Mixed and middle values need their context",
+            "zh": "混合与中间需要情境"
+          },
+          "paragraphs": [
+            {
+              "en": "A near-equal pair can result from neutral selections, disagreement between issue areas or a combination. Exactly 50 is an arithmetic midpoint rather than a validated moderate or mixed cultural type. The same total can conceal different responses to scientific, religious, environmental and social statements. A rounded tenth of a point is not an established meaningful difference, and there is no population percentile against which this edition ranks you.",
+              "zh": "近相等可因中立、议题间意见不同或混合。恰50是算术中点，不是已验证温和或混合文化型；同数可藏科学、宗教、环境、社会陈述不同回应。舍入零点一个百分点无已建立有意义差，本版无人口百分位排名。"
+            }
+          ]
+        },
+        {
+          "id": "progress-5",
+          "title": {
+            "en": "An optional wording check",
+            "zh": "一个可选措辞核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick a statement containing a broad word such as tradition, culture or progress and describe how you understood it. Separate that interpretation from the particular example you supplied. You need not move your answer toward either pole. These notes do not tell you what to believe or how to vote. In conversation, ask about the actual issue rather than assigning another person an age, faith or moral character from a score.",
+              "zh": "选含传统、文化或进步等宽泛词的陈述，说明如何理解，分清词义与自己补的例子；无需向任端改答。读法不规定信什么或怎样投票。对话问实际议题，不从分猜他人年龄、信仰或品德。"
+            }
+          ]
+        },
+        {
+          "id": "progress-6",
+          "title": {
+            "en": "How this societal percentage is calculated",
+            "zh": "社会轴百分数怎样算"
+          },
+          "paragraphs": [
+            {
+              "en": "The pinned societal effects have an absolute sum of 292, including a weight of two on one item rather than silently replacing it with five or ten. Five-point response multipliers are applied to all signed effects; the societal sum is normalized and rounded to one decimal, with Tradition as its complement. All seventy valid answers are required. The percentage is not a probability, population norm, scientific literacy score or validated classification threshold.",
+              "zh": "固定社会effects绝对和292，包含一题权重2，不默改5或10。五点乘数应用所有正负effects，社会和归一留一位小数，传统为互补。须七十有效答卷；百分数非概率、人群常模、科学素养分或已验证分类线。"
+            }
+          ]
+        },
+        {
+          "id": "progress-7",
+          "title": {
+            "en": "Keep the edition and limits explicit",
+            "zh": "明确版本与边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The English bank and effects follow the identified MIT source. Chinese wording is an author translation whose equivalence has not been independently validated; these original guides add no psychometric validation. Upstream and IDRlabs do not endorse the interpretation. No ideology assignment, political recommendation or private-score public link is generated. Treat the four axes as separate summaries of this attempt, not a permanent explanation of your cultural identity.",
+              "zh": "英文及effects依所列MIT来源。中文为作者翻译，未独立验证等值；原创指南不增加心理测量验证。上游IDR不背书解释，无意识形态派型、政治推荐或私分公开链接。四轴作本次各自摘要，不永久解释文化身份。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Progress | 8 Values Guide",
+          "zh": "进步｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Progress end of the societal axis with Tradition, mixed responses and the limits of the upstream wording.",
+          "zh": "结合传统、混合回应与上游措辞边界，读社会轴进步一端。"
+        }
+      }
+    },
+    {
+      "id": "tradition",
+      "directionIds": [
+        "scty"
+      ],
+      "title": {
+        "en": "Tradition",
+        "zh": "传统"
+      },
+      "headline": {
+        "en": "Read the Tradition end of the societal axis alongside Progress, response context and the limits of a simplified score.",
+        "zh": "结合进步、回应情境与简化分数边界，读社会轴传统一端。"
+      },
+      "summary": {
+        "en": "Read the Tradition end of the societal axis alongside Progress, response context and the limits of a simplified score.",
+        "zh": "结合进步、回应情境与简化分数边界，读社会轴传统一端。"
+      },
+      "scoreReading": {
+        "en": "This pole is one side of its named axis. Read it with the complementary pole and the weighted item responses; percentages are not population ranks, probabilities or a fixed identity.",
+        "zh": "这一极是所属轴的一端，须与互补另一极及加权条目回应一起读；百分数不是人口排名、概率或固定身份。"
+      },
+      "sections": [
+        {
+          "id": "tradition-1",
+          "title": {
+            "en": "What this societal label covers",
+            "zh": "这一社会标签覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Tradition is the upstream name for the complementary societal pole, connected in the included statements to continuity, inherited norms and resistance to some forms of change. It does not measure family commitment, religious devotion, age, wisdom or moral worth. Nor does it establish rejection of every new idea. The label summarizes a fixed collection of weighted responses whose wording may be interpreted differently across settings, rather than a complete account of someone’s culture.",
+              "zh": "传统是上游社会轴互补端名称，本题关联延续、承继规范与对部分变化的保留。不测家庭承诺、虔诚、年龄、智慧或道德价值，也不建立拒绝所有新想法。标签概括固定加权回应，措辞可因情境有不同理解，不完整描述人的文化。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-2",
+          "title": {
+            "en": "A concrete comparison",
+            "zh": "一个具体对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional respondents who both want to preserve a local celebration but disagree on a technology-related statement. Their societal totals can differ. A second pair could reach the same total through different combinations of answers. Some questions carry effects on another axis as well. This example shows why a score is not a single story about a person; it does not recommend preserving or abandoning any particular practice.",
+              "zh": "设两虚构答题者都想保当地庆祝，却对技术陈述分歧，社会总分可不同；另一对可不同组合达同数。有题还影响另一轴。例子说明分数不等人的单一故事，不推荐保留或放弃任何具体实践。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-3",
+          "title": {
+            "en": "Keep Progress beside Tradition",
+            "zh": "让进步留在传统旁边"
+          },
+          "paragraphs": [
+            {
+              "en": "Tradition is 100 minus the rounded Progress display. The pair expresses one normalized axis rather than independent quantities of respect for the past and interest in the future. A larger Tradition number does not prove hostility to science or change, and a smaller number does not establish a lack of meaningful customs. The quiz cannot infer a person’s private faith, family relations or reasons for accepting a particular norm.",
+              "zh": "传统是100减进步舍入显示，两端表达一归一轴，不独立量尊重过去与兴趣未来。传统较大不证明敌视科学或变化，较小不建立无有意义习俗；不推私人信仰、家庭关系或接受某规范的理由。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-4",
+          "title": {
+            "en": "Read middle and mixed responses openly",
+            "zh": "开放地读中间与混合回应"
+          },
+          "paragraphs": [
+            {
+              "en": "A value near 50 can arise from many neutral answers or from strong responses that offset. Exactly 50 is not a validated moderate type, and a nearby value does not certify a stable political category. The aggregate cannot reveal whether someone answered a broad statement with one specific setting in mind. Small rounded differences have no established significance here, and percentages do not rank people against a population sample.",
+              "zh": "近50可来自许多中立或强回应抵消。恰50不是已验证温和型，邻近数不认证稳定政治类别；汇总不揭人是否用具体背景回应广泛陈述。小舍入差无已建立显著性，百分数不把人排在人群样本中。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-5",
+          "title": {
+            "en": "An optional context and wording check",
+            "zh": "一个可选情境措辞核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one statement you found difficult to answer and note which words required interpretation. You may describe the difference between a general claim and the situation you imagined, without resolving the issue here. No direction of score change is preferred. These reading notes are not political or religious advice. Ask people about their actual views rather than using a Tradition percentage to guess how they live or vote.",
+              "zh": "挑一难答陈述，记哪些词需解释，可描述一般主张与所想情境差别，不在此解决议题；不偏好向哪端改分。读法不作政治或宗教建议。问人的实际看法，不拿传统百分数猜怎样生活或投票。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-6",
+          "title": {
+            "en": "The fixed calculation behind the pair",
+            "zh": "互补端背后的固定计算"
+          },
+          "paragraphs": [
+            {
+              "en": "The societal absolute weight sum is 292 in the pinned seventy-item bank. Response multipliers from minus one to plus one are applied to the signed effects, including one effect of two and cross-axis contributions. The primary societal percentage is normalized and rounded to one decimal; Tradition is its displayed complement. Missing answers remain incomplete. The output has no population percentile, confidence interval or threshold validated for assigning an ideology.",
+              "zh": "固定七十题版社会绝对权重和292。负1至正1乘数应用于正负effects，含一项2与跨轴贡献；主社会百分数归一留一位小数，传统显示互补。缺答仍未完成；输出无人口百分位、置信区间或验证过的意识形态派型阈值。"
+            }
+          ]
+        },
+        {
+          "id": "tradition-7",
+          "title": {
+            "en": "Keep the source and purpose identifiable",
+            "zh": "让来源与用途可识别"
+          },
+          "paragraphs": [
+            {
+              "en": "The English items and effects are adapted from the named MIT revision, with its notice preserved. Chinese translation and original reading guides do not establish cross-language equivalence, reliability or contemporary cultural validity. There is no upstream or IDRlabs endorsement, no nearest-ideology label and no voting recommendation. Public sharing uses a general link without private responses or percentages. Keep all four axes visible and this result tied to one attempt rather than a permanent identity.",
+              "zh": "英文及effects改编自所列MIT版并保留通知。中文及原创读法不建立跨语言等值、可靠性或当代文化效度。无上游IDR背书、最近意识形态标签、投票建议；公开分享通用链接，无私答百分数。保留四轴，把结果绑定本次而非永久身份。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Tradition | 8 Values Guide",
+          "zh": "传统｜8 Values完整解读"
+        },
+        "description": {
+          "en": "Read the Tradition end of the societal axis alongside Progress, response context and the limits of a simplified score.",
+          "zh": "结合进步、回应情境与简化分数边界，读社会轴传统一端。"
+        }
+      }
+    }
+  ],
+  "eightValues": {
+    "upstreamCommit": "3971ed8bc0c3dda18f9b001013327f382343b74f",
+    "effects": {
+      "E8_001": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": -5,
+        "scty": 0
+      },
+      "E8_002": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_003": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_004": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_005": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_006": {
+        "econ": 5,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_007": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_008": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_009": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_010": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": -5
+      },
+      "E8_011": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_012": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_013": {
+        "econ": -10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_014": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 5
+      },
+      "E8_015": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_016": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -5,
+        "scty": 0
+      },
+      "E8_017": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_018": {
+        "econ": -5,
+        "dipl": 10,
+        "govt": 10,
+        "scty": 5
+      },
+      "E8_019": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -5,
+        "scty": 0
+      },
+      "E8_020": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_021": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_022": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_023": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_024": {
+        "econ": -5,
+        "dipl": -10,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_025": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_026": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_027": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 5,
+        "scty": 0
+      },
+      "E8_028": {
+        "econ": 0,
+        "dipl": 5,
+        "govt": -5,
+        "scty": 0
+      },
+      "E8_029": {
+        "econ": 0,
+        "dipl": -5,
+        "govt": -10,
+        "scty": -10
+      },
+      "E8_030": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -5,
+        "scty": 0
+      },
+      "E8_031": {
+        "econ": 0,
+        "dipl": -5,
+        "govt": -10,
+        "scty": -5
+      },
+      "E8_032": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_033": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_034": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_035": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_036": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_037": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -10,
+        "scty": -5
+      },
+      "E8_038": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 5
+      },
+      "E8_039": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_040": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_041": {
+        "econ": 0,
+        "dipl": -10,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_042": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_043": {
+        "econ": 5,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_044": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_045": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -5,
+        "scty": -10
+      },
+      "E8_046": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_047": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": -10
+      },
+      "E8_048": {
+        "econ": 5,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_049": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_050": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_051": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": -10
+      },
+      "E8_052": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": -10
+      },
+      "E8_053": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_054": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_055": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 2
+      },
+      "E8_056": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 10,
+        "scty": 10
+      },
+      "E8_057": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 5,
+        "scty": 10
+      },
+      "E8_058": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -5,
+        "scty": -10
+      },
+      "E8_059": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -5,
+        "scty": -10
+      },
+      "E8_060": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": -10
+      },
+      "E8_061": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": 0
+      },
+      "E8_062": {
+        "econ": 10,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_063": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": -10,
+        "scty": -10
+      },
+      "E8_064": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": -10
+      },
+      "E8_065": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": -10
+      },
+      "E8_066": {
+        "econ": 0,
+        "dipl": 0,
+        "govt": 0,
+        "scty": 10
+      },
+      "E8_067": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 10,
+        "scty": 0
+      },
+      "E8_068": {
+        "econ": 0,
+        "dipl": 10,
+        "govt": 0,
+        "scty": 0
+      },
+      "E8_069": {
+        "econ": 10,
+        "dipl": 10,
+        "govt": 10,
+        "scty": 10
+      },
+      "E8_070": {
+        "econ": -10,
+        "dipl": -10,
+        "govt": -10,
+        "scty": -10
+      }
+    }
+  },
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "The original signed-weight calculation",
+        "zh": "原版正负权重计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Five response levels supply multipliers −1, −0.5, 0, 0.5 and 1. Every item’s multiplier applies to its published signed weights on all four axes, so a statement can affect several axes. For each axis, add the contributions and calculate 100 × (M + sum) / (2 × M), where M is the absolute weight sum: 195 economic, 225 diplomatic, 320 civil and 292 societal. Round the positive pole to one decimal place; the paired pole is 100 minus that displayed value. Negative weights reverse the contribution without changing the item wording.",
+          "zh": "五级回应乘数为−1、−0.5、0、0.5、1，每题乘数应用所公布四轴正负权重，一题可跨轴。各轴贡献求和后算100×(M+和)/(2×M)，M为绝对权重和：经济195、外交225、公民320、社会292。正端保留一位小数，另一端为100减该显示数。负权重反转贡献，不改条目文字。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Four separate axes, not eight competing traits",
+        "zh": "四条分开读的轴，不是八种竞争特质"
+      },
+      "paragraphs": [
+        {
+          "en": "The economic pair is Equality–Markets, diplomatic Globe–Nation, civil Liberty–Authority and societal Progress–Tradition. Each pair adds to 100 and represents one simplified continuum. All seventy valid responses are required. A missing answer is not neutral. Exactly 50 can arise from neutral/unsure answers or offsetting views; no tie-break, highest-value ranking or ideology label is generated. All eight full reading guides appear together.",
+          "zh": "经济对为平等—市场，外交为全球—国家，公民为自由—权威，社会为进步—传统。每对合100，是一条简化连续线。须七十回应有效，缺答不是中立。恰50可来自中立／不确定或相反观点抵消，不破并列、不排最高价值、不产意识形态标签，八份完整读法同时呈现。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "What a percentage cannot establish",
+        "zh": "百分数不能建立什么"
+      },
+      "paragraphs": [
+        {
+          "en": "These percentages are not population percentiles, probabilities, knowledge marks or a diagnosis. Different answers can give the same total, and a small rounded difference has no established significance. Do not compare axes as if a larger number meant a stronger overall belief. The bank contains broad and dated wording; Chinese translation equivalence, reliability and contemporary cultural fit have not been independently established here. One attempt cannot infer a vote, nationality, religion, morality or another person’s motives.",
+          "zh": "百分数不是人口百分位、概率、知识分或诊断。不同答案可同总数，小舍入差无已建立显著性。不把跨轴大数当总体信念更强。题本含宽泛及有年代感措辞，本次未独立建立中文等值、可靠性或当代文化适配。一答不能推选票、国籍、宗教、道德或别人动机。"
+        }
+      ]
+    },
+    {
+      "id": "source-edition",
+      "title": {
+        "en": "The pinned edition and the display differences",
+        "zh": "固定版本与展示差异"
+      },
+      "paragraphs": [
+        {
+          "en": "Source: 8values/8values.github.io revision 3971ed8bc0c3dda18f9b001013327f382343b74f. The English statements and effects are preserved, including cross-axis weights and the societal weight of two. Responses are presented in ascending agreement order rather than the upstream descending buttons. Chinese is an author translation. These original guides replace the short upstream reading notes, and the less-reliable closest-ideology classifier and band labels are omitted. Upstream or IDRlabs has not endorsed this adaptation. No artwork, ads, trackers or proprietary IDR scoring is imported.",
+          "zh": "来源为8values/8values.github.io固定版本3971ed8bc0c3dda18f9b001013327f382343b74f。英文及effects保留，含跨轴权重与社会轴权重2。回应按同意程度升序呈现，区别于上游降序按钮；中文为作者翻译。原创指南替代简短原说明，省略可靠性更弱的最近意识形态分类及档位标签。上游或IDR不背书本改编，不导入图画、广告、跟踪器或专有IDR计分。"
+        }
+      ]
+    },
+    {
+      "id": "source-license",
+      "title": {
+        "en": "MIT attribution and full permission notice",
+        "zh": "MIT署名与完整许可通知"
+      },
+      "paragraphs": [
+        {
+          "en": "The MIT License\n\nCopyright (c) 2020 8values. http://8values.github.io.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n",
+          "zh": "以下保留上游英文完整版权与许可通知；本版中文题项和读法另行编写，不代表上游背书。\n\nThe MIT License\n\nCopyright (c) 2020 8values. http://8values.github.io.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "id": "private-responses",
+      "title": {
+        "en": "Drafts and public links",
+        "zh": "草稿与公开链接"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers remain in the browser and are not attached to public guide URLs. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Without a draft, refresh loses progress. Retaking the fixed items after reading the guides can change responses without proving a change in political identity. Sharing copies the entry link without answers, percentages or private identifiers; no account, email or payment is required.",
+          "zh": "答卷留浏览器，不附公开指南URL。可选标签页草稿24小时失效，完成、重测或退出并清除即删；未存草稿刷新丢进度。读指南后重答固定题可改回应，不证明政治身份改变。分享入口链接，无答卷、百分数或私有标识；不需账户、邮箱或付款。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which 8 Values edition is this?",
+        "zh": "这是哪个8 Values版本？"
+      },
+      "answer": {
+        "en": "It is a bilingual adaptation of the identified MIT-licensed upstream 70-item revision, preserving English items and effects. Chinese is this edition’s translation. It is not the modified IDRlabs edition or the Political Compass Test, and neither endorses it.",
+        "zh": "这是所列MIT许可上游70题版的双语改编，保留英文及effects；中文为本版翻译。不是IDRlabs修改版或Political Compass Test，也不获其背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do the four axes produce eight values?",
+        "zh": "四轴如何产生八项值？"
+      },
+      "answer": {
+        "en": "Each axis has two displayed complements summing to 100: Equality–Markets, Globe–Nation, Liberty–Authority and Progress–Tradition. They are four continuous summaries, not eight independent traits, a highest-value competition or an ideology classifier.",
+        "zh": "每轴两显示端合100：平等—市场、全球—国家、公民自由—权威、进步—传统。是四项连续摘要，不是八独立特质、最高价值竞赛或意识形态分类器。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are reverse and cross-axis weights handled?",
+        "zh": "反向与跨轴权重怎样处理？"
+      },
+      "answer": {
+        "en": "The selected multiplier is applied to every signed effect attached to the statement. Negative effects reverse the contribution; one statement may affect several axes. The original absolute sums are 195, 225, 320 and 292. No item is silently reassigned to a single theme.",
+        "zh": "所选乘数应用该陈述各正负effects，负effects反转贡献，一题可影响多轴。原绝对和195、225、320、292，不默把题改派单主题。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does 50 mean centrist, and are the percentages percentiles?",
+        "zh": "50是否中间派？百分数是否百分位？"
+      },
+      "answer": {
+        "en": "No. Fifty may come from neutral/unsure responses or offsetting views. Percentages normalize the fixed weighted range and are not population ranks or probabilities. Small rounded differences have no established significance; no closest ideology is assigned.",
+        "zh": "不是。50可来自中立／不确定或观点抵消。百分数归一固定加权范围，不是人群排名或概率；小舍入差无已建立显著性，不派最近意识形态。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese version independently validated?",
+        "zh": "中文版经独立验证了吗？"
+      },
+      "answer": {
+        "en": "No. Chinese is an author translation, and this edition has not independently established translation equivalence, reliability, norms or contemporary cultural validity. The English source and MIT permission do not provide those missing forms of evidence.",
+        "zh": "没有。中文为作者翻译，本版未独立建立等值、可靠性、常模或当代文化效度；英文来源与MIT许可不补这些缺失证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all full results free, and can I stop?",
+        "zh": "完整结果全免费吗？可以退出吗？"
+      },
+      "answer": {
+        "en": "Yes. All eight full guides are public and free without account, email or payment. Seventy valid answers are required for personal scores; you can exit without a partial result. No timer runs, and 15 minutes is a rough estimate.",
+        "zh": "是。八完整指南公开免费，不需账户、邮箱、付款。个人分须七十有效回应，可退出，不给部分结果。不计时，15分钟为粗估。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this recommend a party or predict my vote?",
+        "zh": "会推荐政党或预测选票吗？"
+      },
+      "answer": {
+        "en": "No. It gives no voting recommendation, party match or automatic ideology. Read the four axes separately and discuss actual reasons rather than labeling other people. Sharing copies a general entry link without private responses or percentages.",
+        "zh": "不会。无投票建议、政党匹配或自动意识形态；分开读四轴，谈实际理由，不给别人贴标签。分享通用入口链接，无私答或百分数。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "Pinned 8values English bank and signed effects",
+        "zh": "固定8values英文题本与正负effects"
+      },
+      "url": "https://github.com/8values/8values.github.io/blob/3971ed8bc0c3dda18f9b001013327f382343b74f/questions.js"
+    },
+    {
+      "title": {
+        "en": "Pinned upstream calculation",
+        "zh": "固定上游计分实现"
+      },
+      "url": "https://github.com/8values/8values.github.io/blob/3971ed8bc0c3dda18f9b001013327f382343b74f/quiz.html"
+    },
+    {
+      "title": {
+        "en": "MIT permission notice",
+        "zh": "MIT许可通知"
+      },
+      "url": "https://github.com/8values/8values.github.io/blob/3971ed8bc0c3dda18f9b001013327f382343b74f/LICENSE"
+    }
+  ],
+  "source": {
+    "kind": "eight_values_mit_adaptation",
+    "formCode": "fm_8values_upstream3971_70_enzh_v1",
+    "itemBankVersion": "fm_8values_upstream3971_70_enzh_v1",
+    "scoringVersion": "8values_3971_signed_weights_v1",
+    "resultContentVersion": "fm_8values_eight_pole_guides_v1",
+    "itemBankSha256": "034005084625d766c60481f1370f7e000f1cda3c05b24aa531cf98c495de583a",
+    "resultContentSha256": "07075ae4969f1698ec559469a67630afec0b00d9d1790245a7e8ba9e3794ca13",
+    "psychometricValidationCompleted": false
+  }
+}

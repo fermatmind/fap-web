@@ -3561,5 +3561,34 @@
       "teamwork"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "8-values-political",
+    "code": "FM_EIGHT_VALUES_MIT_70",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "8 Values Political Test",
+      "zh": "8 Values 政治价值观测试"
+    },
+    "description": {
+      "en": "Answer the MIT-adapted 70-item bank. Read four axes, eight complementary values and full free bilingual guides. No party label or population percentile.",
+      "zh": "MIT许可原版70题译编，原题权重保留。完整作答后分开读四轴八极及八篇免费双语指南，含互补、中间混合与反例；不强派政党或意识形态，百分数不是人口百分位。"
+    },
+    "minutes": 15,
+    "formCode": "fm_8values_upstream3971_70_enzh_v1",
+    "questionCount": 70,
+    "resultSlugs": [
+      "equality",
+      "markets",
+      "nation",
+      "globe",
+      "liberty",
+      "authority",
+      "progress",
+      "tradition"
+    ],
+    "collection": "explore"
   }
 ]

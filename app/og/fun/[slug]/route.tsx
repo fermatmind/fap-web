@@ -39,6 +39,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
   const questionnaireLabel = questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
+    : questionnaire?.kind === "eight-values" ? (zh ? "8values MIT许可改编" : "8values MIT adaptation")
     : questionnaire?.kind === "practice" ? (zh ? "原创练习题" : "Original practice bank")
     : questionnaire?.slug === "dark-triad" ? (zh ? "原创三组主题观察" : "Original three-theme reflection")
     : questionnaire?.slug === "moral-dilemma-test" ? (zh ? "原创五组伦理提问" : "Original reflection on five ethical questions")

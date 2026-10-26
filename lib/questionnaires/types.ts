@@ -1,3 +1,4 @@
+import type { EightValuesConfiguration } from "./eightValues";
 import type { TenKeyConfiguration } from "./tenKey";
 
 export type Text = { en: string; zh: string };
@@ -20,7 +21,8 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  eightValues?: EightValuesConfiguration;
   tenKey?: TenKeyConfiguration;
   references?: { title: Text; url: string }[];
   minimumRatedItems?: number;

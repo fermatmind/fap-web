@@ -26,6 +26,7 @@ import { QuestionnaireTypeAbReport } from "./QuestionnaireTypeAbReport";
 import { QuestionnaireChapterReport } from "./QuestionnaireChapterReport";
 import { QuestionnaireRizzReport } from "./QuestionnaireRizzReport";
 import { QuestionnaireExpressionReport } from "./QuestionnaireExpressionReport";
+import { QuestionnaireEightValuesReport } from "./QuestionnaireEightValuesReport";
 import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
 import { QuestionnaireArchetypeReport } from "./QuestionnaireArchetypeReport";
 import { QuestionnaireAlignmentReport } from "./QuestionnaireAlignmentReport";
@@ -82,6 +83,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const extraversion = result.status === "complete" && "scaleProfileIds" in result ? result : undefined;
   const affection = result.status === "complete" && "affectionFacets" in result ? result : undefined;
   const attachment = result.status === "complete" && "attachmentAxes" in result ? result : undefined;
+  const eightValues = result.status === "complete" && "eightValuesAxes" in result ? result : undefined;
   const practice = result.status === "complete" && "practice" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
@@ -184,6 +186,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}
       {affection && <QuestionnaireAffectionReport quiz={quiz} result={affection} locale={locale} />}
       {attachment && <QuestionnaireAttachmentReport quiz={quiz} result={attachment} locale={locale} />}
+      {eightValues && <QuestionnaireEightValuesReport quiz={quiz} result={eightValues} locale={locale} />}
       {practice && <QuestionnairePracticeReport quiz={quiz} result={practice} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
