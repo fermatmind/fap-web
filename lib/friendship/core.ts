@@ -3,8 +3,10 @@ export type Choice = 0 | 1;
 export type Question = { id: string; category: string; en: { prompt: string; options: [string, string] }; zh: { prompt: string; options: [string, string] } };
 export type Pack = { version: string; categories: Record<string, Record<Locale, string>>; questions: Question[] };
 export type Entry = { id: string; nickname: string; correct: number; categories: Record<string, { correct: number; total: number }>; hidden: boolean };
-export type Challenge = { id: string; nickname: string; locale: Locale; version: string; questions: Question[]; entries: Entry[]; answers?: Choice[]; closed: boolean; expires_at: string };
-export type Result = { id?: string; nickname: string; correct: number; total: number; percent: number; categories: Record<string, { correct: number; total: number }>; answers: Choice[]; guesses: Choice[]; preview: boolean; entries: Entry[] };
+export type QuestionStat = { correct: number; total: number };
+export type Progress = { nickname: string; guesses: Choice[]; answers: Choice[]; combo: number; best_combo: number };
+export type Challenge = { id: string; nickname: string; locale: Locale; version: string; questions: Question[]; entries: Entry[]; answers?: Choice[]; question_stats?: QuestionStat[]; closed: boolean; expires_at: string };
+export type Result = { id?: string; nickname: string; correct: number; total: number; percent: number; categories: Record<string, { correct: number; total: number }>; answers: Choice[]; guesses: Choice[]; preview: boolean; entries: Entry[]; question_stats?: QuestionStat[] };
 export const CATEGORIES: Pack["categories"] = { food: { en: "Food", zh: "美食" }, connection: { en: "Connection", zh: "相处" }, play: { en: "Fun & movement", zh: "玩乐与运动" }, reflection: { en: "Real talk", zh: "真心话" }, personality: { en: "Personal style", zh: "个人风格" }, daily: { en: "Daily life", zh: "日常" } };
 export const LENGTHS = [30, 60, 90, 120, 150] as const;
 export const PUBLIC_PATH = "/tests/play/friendship-quiz";
@@ -43,3 +45,9 @@ export function readSaved<T>(key: string): T | null { try { return JSON.parse(lo
 export function save(key: string, value: unknown): boolean { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } }
 export function forget(key: string): void { try { localStorage.removeItem(key); } catch { /* Storage may be disabled. */ } }
 export function validAnswers(value: unknown, max: number): value is (Choice | null)[] { return Array.isArray(value) && value.length === max && value.every(v => v === 0 || v === 1 || v === null); }
+
+export function streak(guesses: readonly (Choice | null)[], answers: readonly Choice[]): { combo: number; best: number } {
+  let combo = 0; let best = 0;
+  answers.forEach((answer, i) => { combo = guesses[i] === answer ? combo + 1 : 0; best = Math.max(best, combo); });
+  return { combo, best };
+}

@@ -4,6 +4,7 @@ import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { HomeHeroAnimation } from "@/components/marketing/home/HomeHeroAnimation";
+import { HomepageFunTests } from "@/components/marketing/HomepageFunTests";
 import { Container } from "@/components/layout/Container";
 import type { CmsArticle } from "@/lib/cms/articles";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
@@ -930,6 +931,7 @@ export function HomePageExperience({
       <HomepageCookieBannerGuard />
       <HomepageHeroV1 locale={locale} copy={copy} />
       <HomepageHighlightedTestsBanner locale={locale} copy={copy} supplementalTests={supplementalTests} />
+      <HomepageFunTests locale={locale} />
       <HomepageTrustStripV1 locale={locale} copy={copy} />
       <HomepageFamilyMatrix locale={locale} copy={copy} />
       <HomepageArticlesBanner locale={locale} articles={articles} />

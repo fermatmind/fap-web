@@ -14,7 +14,7 @@
 .fq-subnav { max-width:1120px; padding:24px; margin:auto; display:flex; flex-wrap:wrap; gap:12px 24px; font-size:.95rem; }
 .fq-body { max-width:800px; margin:0 auto; padding:16px 24px; }
 .fq-app { background:white; padding:32px; border:1px solid #e3dcef; border-radius:24px; margin:1rem auto 3rem; box-shadow:0 16px 70px #39225408; }
-.fq-app h2 { font-size:clamp(1.6rem,4vw,2.2rem); font-weight:700; letter-spacing:-.025em; line-height:1.25; margin:8px 0 20px; }
+.fq-app h2 { overflow-wrap:anywhere; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:700; letter-spacing:-.025em; line-height:1.25; margin:8px 0 20px; }
 .fq-page h3 { font-size:1.35rem; font-weight:650; margin:12px 0; }
 .fq-page h2:focus { outline:none; }
 .fq-page p { line-height:1.8; margin:12px 0; overflow-wrap:anywhere; }
@@ -70,3 +70,15 @@
 @media(max-width:640px) { .fq-hero { grid-template-columns:1fr; gap:8px; padding:28px 24px; }.fq-hero h1 { font-size:3rem; max-width:12ch; }.fq-art { width:210px; }.fq-hero p { font-size:1rem; }.fq-app { padding:24px 18px; border-radius:18px; }.fq-body { padding:0 16px; }.fq-subnav { padding:20px; }.fq-actions button { flex:1; }.fq-actions .fq-primary { margin-left:0; }.fq-ring { width:230px;height:230px; }.fq-ring>div { width:198px;height:198px; } }
 @media(prefers-reduced-motion:no-preference) { .fq-options label { transition:background .15s,border-color .15s; } }
 @media print { header,footer,nav,.fq-subnav,.fq-print-button,.fq-app,.fq-hide-print { display:none!important; }.fq-page { background:white; color:black; padding:0; }.fq-copy { max-width:none; padding:0; }.fq-sheet { border:none; padding:0; }.fq-sheet li { font-size:11pt; }.fq-copy h1 { font-size:22pt; }.fq-page a { color:black; } }
+
+.fq-options label.fq-match,.fq-feedback.fq-match { background:#ecfdf5; border-color:#059669; color:#065f46; }
+.fq-options label.fq-miss,.fq-feedback.fq-miss { background:#fff7ed; border-color:#ea580c; color:#9a3412; }
+.fq-options input:disabled { cursor:default; }
+.fq-feedback { margin:20px 0; padding:16px; border:1px solid; border-radius:12px; line-height:1.7; }
+.fq-radar { max-width:480px; margin:24px auto; }
+.fq-radar svg { display:block; width:100%; height:auto; overflow:visible; }
+.fq-radar figcaption { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 24px; font-size:.85rem; }
+.fq-radar figcaption span { display:inline-flex; align-items:center; gap:8px; }
+.fq-radar i { width:24px; height:0; display:inline-block; }
+.fq-radar-you { border-top:3px solid #7c3aed; }
+.fq-radar-average { border-top:2px dashed #64748b; }
