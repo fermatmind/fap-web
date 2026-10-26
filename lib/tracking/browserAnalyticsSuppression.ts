@@ -1,3 +1,5 @@
+import { isAnalyticsDisabledQuestionnaireUrl } from "@/lib/tracking/privacy";
+
 export type BrowserAnalyticsSuppressionDecision =
   | {
       suppressed: true;
@@ -124,7 +126,7 @@ export function getBrowserAnalyticsSuppressionDecision({
   pathname?: string | null;
   search?: string | null;
 }): BrowserAnalyticsSuppressionDecision {
-  if (isNoindexAnalyticsSuppressedPath(pathname)) {
+  if (isNoindexAnalyticsSuppressedPath(pathname) || isAnalyticsDisabledQuestionnaireUrl(pathname)) {
     return { suppressed: true, reason: "private_route" };
   }
   if (hasSensitiveAnalyticsQuery(search)) {

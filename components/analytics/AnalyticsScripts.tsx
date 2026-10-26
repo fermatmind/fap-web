@@ -2,6 +2,7 @@ import {
   getAnalyticsDeploymentEnvironment,
   parseAnalyticsAllowedHosts,
 } from "@/lib/tracking/internalTraffic";
+import { ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS } from "@/lib/tracking/privacy";
 
 type AnalyticsScriptConfig = {
   enabled: boolean;
@@ -103,6 +104,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
   var deploymentEnvironment = ${deploymentEnvironment};
   var allowedHosts = ${allowedHosts};
   var privateRouteSegments = ${privateRouteSegments};
+  var analyticsDisabledQuestionnairePaths = ${safeInlineJsonArray(ANALYTICS_DISABLED_QUESTIONNAIRE_PATHS)};
   var blockedRouteSegments = ${blockedRouteSegments};
   var sensitiveQueryKeys = ${sensitiveQueryKeys};
   var consentKey = "fm_consent_v1";
@@ -172,6 +174,15 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     var referrerHostname = referrerHost(document.referrer);
 
     if (!analyticsEnabled) return false;
+    var parts = String(window.location.pathname || "").split("?")[0].split("/").filter(Boolean).map(function (part) {
+      try { return decodeURIComponent(part).trim().toLowerCase(); } catch (error) { return part.trim().toLowerCase(); }
+    });
+    if (parts[0] === "zh" || parts[0] === "en") parts.shift();
+    var contentPath = "/" + parts.join("/");
+    for (var index = 0; index < analyticsDisabledQuestionnairePaths.length; index += 1) {
+      var prefix = analyticsDisabledQuestionnairePaths[index];
+      if (contentPath === prefix || contentPath.indexOf(prefix + "/") === 0) return false;
+    }
     if (includes(privateRouteSegments, blockedRoute)) return false;
     if (hasSensitiveQuery(window.location.search)) return false;
     if (deploymentEnvironment !== "production") return false;

@@ -3,6 +3,10 @@ import { readFileSync } from "node:fs";
 import type { Questionnaire } from "../../lib/questionnaires/types";
 
 const quiz = JSON.parse(readFileSync("lib/questionnaires/data/dark-triad.json", "utf8")) as Questionnaire;
+test.beforeEach(async ({ page }) => {
+  // Observe attempted requests as usual, but never write synthetic traffic to aggregate sinks.
+  await page.route(/\/api\/(?:v0\.5\/seo\/attribution\/events|track)(?:\?|$)|https:\/\/(?:www\.googletagmanager\.com|(?:www\.)?google-analytics\.com|hm\.baidu\.com)\//, route => route.fulfill({ status: 204 }));
+});
 async function acceptCookies(page: Page, locale: "en" | "zh") {
   const consent = page.getByRole("button", { name: locale === "zh" ? "接受" : "Accept", exact: true });
   if (await consent.count()) await consent.click();
@@ -102,9 +106,11 @@ for (const locale of ["en", "zh"] as const) {
 }
 
 test("@release Dark Triad themes all6public full guides, bilingual images and closed identities", async ({ page, request }) => {
+  const requests = observePrivateRequests(page);
   for (const locale of ["en", "zh"] as const) for (const profile of quiz.profiles) {
     const path = `/${locale}/tests/explore/dark-triad/results/${profile.id}`;
     expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(profile.title[locale]);
+    await acceptCookies(page, locale);
     await expect(page.locator("[data-dtt-mean]")).toHaveCount(0);
     for (const section of profile.sections) await expect(page.locator(`#report-${section.id} h2`)).toHaveText(section.title[locale]);
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/dark-triad/results/${profile.id}`);
@@ -113,4 +119,5 @@ test("@release Dark Triad themes all6public full guides, bilingual images and cl
     const bytes = await image.body(); expect(bytes.readUInt32BE(16)).toBe(1200); expect(bytes.readUInt32BE(20)).toBe(630);
   }
   for (const path of ["/en/tests/explore/dark-triad/results/narcissism", "/zh/tests/explore/dark-triad/results/DTT_001", "/en/tests/play/dark-triad"]) expect((await request.get(path)).status()).toBe(404);
+  expect(requests).toEqual([]);
 });
