@@ -7,7 +7,7 @@ export type Challenge = { id: string; nickname: string; locale: Locale; version:
 export type Result = { id?: string; nickname: string; correct: number; total: number; percent: number; categories: Record<string, { correct: number; total: number }>; answers: Choice[]; guesses: Choice[]; preview: boolean; entries: Entry[] };
 export const CATEGORIES: Pack["categories"] = { food: { en: "Food", zh: "美食" }, connection: { en: "Connection", zh: "相处" }, play: { en: "Fun & movement", zh: "玩乐与运动" }, reflection: { en: "Real talk", zh: "真心话" }, personality: { en: "Personal style", zh: "个人风格" }, daily: { en: "Daily life", zh: "日常" } };
 export const LENGTHS = [30, 60, 90, 120, 150] as const;
-export const PUBLIC_PATH = "/tests/friendship-quiz";
+export const PUBLIC_PATH = "/tests/play/friendship-quiz";
 export const RESOURCE_PATHS = ["", "/questions", "/how-to-play", "/scores"] as const;
 export function secret(): string { return Array.from(crypto.getRandomValues(new Uint8Array(32)), n => n.toString(16).padStart(2, "0")).join(""); }
 export function shuffled<T>(values: T[]): T[] {

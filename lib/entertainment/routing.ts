@@ -1,9 +1,15 @@
 import catalog from "./catalog.json";
 import questionnaires from "../questionnaires/catalog.json";
+import { PUBLIC_PATH, RESOURCE_PATHS } from "../friendship/core";
 
 const identities = new Map(catalog.map(quiz => [quiz.slug, quiz.resultSlugs]));
 const questionnaireIds = new Map(questionnaires.map(quiz => [`${quiz.collection}/${quiz.slug}`, quiz.resultSlugs]));
 export function isMissingFunRoute(pathname: string): boolean {
+  const localized = pathname.match(/^\/(?:en|zh)(\/.*)$/);
+  const path = localized?.[1].replace(/\/$/, "");
+  if (path === PUBLIC_PATH || path?.startsWith(`${PUBLIC_PATH}/`)) {
+    return !RESOURCE_PATHS.some(suffix => path === `${PUBLIC_PATH}${suffix}`);
+  }
   if (/^\/(?:en|zh)\/tests\/explore(?:\/|$)/.test(pathname)) {
     const match = pathname.match(/^\/(?:en|zh)\/tests\/explore\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/results\/([a-z0-9]+(?:-[a-z0-9]+)*))?\/?$/);
     if (!match) return true;

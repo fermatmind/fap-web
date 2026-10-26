@@ -14,7 +14,7 @@ export const FUN_CATEGORIES: Record<string, { en: string; zh: string }> = {
 };
 
 const catalog = [
-  { slug: "friendship-quiz", category: "social", title: { en: "How Well Do You Know Me?", zh: "朋友默契：你有多了解我？" }, description: { en: "Make a two-choice quiz about yourself. Invite friends to guess, compare categories and share a score card. No sign-up.", zh: "自己出题，朋友来猜。六类二选一，查看类别对照、并列榜单与分数卡，无需注册。" }, minQuestionCount: 30, questionCount: 150, minutes: "5–25", pathname: "/tests/friendship-quiz" },
+  { slug: "friendship-quiz", category: "social", title: { en: "How Well Do You Know Me?", zh: "朋友默契：你有多了解我？" }, description: { en: "Make a two-choice quiz about yourself. Invite friends to guess, compare categories and share a score card. No sign-up.", zh: "自己出题，朋友来猜。六类二选一，查看类别对照、并列榜单与分数卡，无需注册。" }, minQuestionCount: 30, questionCount: 150, minutes: "5–25", pathname: "/tests/play/friendship-quiz" },
   ...questionnaires.map(quiz => ({ ...quiz, minQuestionCount: quiz.questionCount, pathname: `/tests/${quiz.collection}/${quiz.slug}` })),
   ...directoryQuizzes.filter(quiz => !questionnaires.some(native => native.slug === quiz.slug)).map(quiz => ({ ...quiz, pathname: `/tests/play/${quiz.slug}` })),
 ];

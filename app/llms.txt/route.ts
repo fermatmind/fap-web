@@ -380,7 +380,7 @@ export async function GET() {
     "Languages: en, zh",
     "",
     "Friendship quiz (original two-choice game, not a measure of friendship quality):",
-    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/friendship-quiz${suffix}`)}`)),
+    ...["en", "zh"].flatMap(locale => ["", "/questions", "/how-to-play", "/scores"].map(suffix => `- ${toCanonical(siteUrl, `/${locale}/tests/play/friendship-quiz${suffix}`)}`)),
     "",
     "Primary Entries:",
     `- ${toCanonical(siteUrl, "/")}`,

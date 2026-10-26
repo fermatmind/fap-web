@@ -1,3 +1,4 @@
+import { appendFriendshipSitemapEntries } from "@/lib/friendship/sitemap";
 import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
@@ -156,7 +157,7 @@ describe("public sitemap route", () => {
       params: Promise.resolve({ family: `${family}.xml` }),
     });
     const xml = await response.text();
-    const expectedEntries = buildPublicSitemapFamilyMap(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload())))[family];
+    const expectedEntries = buildPublicSitemapFamilyMap(appendFriendshipSitemapEntries(appendFunSitemapEntries(buildPublicSitemapEntries(backendSitemapPayload()))))[family];
 
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("application/xml");

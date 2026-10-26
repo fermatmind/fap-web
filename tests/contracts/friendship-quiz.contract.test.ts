@@ -1,7 +1,7 @@
-import { generateMetadata as homeMetadata } from "@/app/(localized)/[locale]/tests/friendship-quiz/page";
-import { generateMetadata as questionsMetadata } from "@/app/(localized)/[locale]/tests/friendship-quiz/questions/page";
-import { generateMetadata as guideMetadata } from "@/app/(localized)/[locale]/tests/friendship-quiz/how-to-play/page";
-import { generateMetadata as scoresMetadata } from "@/app/(localized)/[locale]/tests/friendship-quiz/scores/page";
+import { generateMetadata as homeMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/page";
+import { generateMetadata as questionsMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/questions/page";
+import { generateMetadata as guideMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/how-to-play/page";
+import { generateMetadata as scoresMetadata } from "@/app/(localized)/[locale]/tests/play/friendship-quiz/scores/page";
 import { generateMetadata as inviteMetadata } from "@/app/(localized)/[locale]/share/friendship/[id]/page";
 import { generateMetadata as manageMetadata } from "@/app/(localized)/[locale]/share/friendship/[id]/manage/page";
 import { friendshipApi } from "@/lib/friendship/api";
@@ -28,7 +28,7 @@ describe("friendship quiz public and private contract", () => {
     try {
     for (const [suffix, build] of [["", homeMetadata], ["/questions", questionsMetadata], ["/how-to-play", guideMetadata], ["/scores", scoresMetadata]] as const) {
       const metadata = await build({ params: Promise.resolve({ locale }) });
-      expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/friendship-quiz${suffix}`);
+      expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/play/friendship-quiz${suffix}`);
     }
     for (const build of [inviteMetadata, manageMetadata]) {
       const metadata = await build({ params: Promise.resolve({ locale }) });
@@ -56,16 +56,26 @@ describe("friendship quiz public and private contract", () => {
     const sent = tracking.send.mock.calls.at(-1)![0];
     const filtered = filterTrackingPayload("share_result", sent.payload);
     expect(filtered.form_code).toBe("friendship_v1_friend_share_sheet_completed");
-    expect(sent.path).toBe("/en/tests/friendship-quiz");
+    expect(sent.path).toBe("/en/tests/play/friendship-quiz");
     expect(sent.anonymousId).toBe("");
     expect(JSON.stringify(sent)).not.toMatch(/key=|guesses|nickname|\/share\/friendship/);
     friendshipEvent("revisit_result", "zh", "creator");
     expect(filterTrackingPayload("revisit_result", tracking.send.mock.calls.at(-1)![0].payload).form_code).toBe("friendship_v1_creator");
   });
-  it("admits only the exact code-owned game without broadening assessment authority", async () => { for (const locale of ["en", "zh"]) { const allowed = await proxy(new NextRequest(`https://fermatmind.com/${locale}/tests/friendship-quiz`)); expect(allowed.status).toBe(200); const unknown = await proxy(new NextRequest(`https://fermatmind.com/${locale}/tests/friendship-quiz-made-up`)); expect(unknown.status).toBe(404); } });
+  it("admits only the eight code-owned game pages without broadening assessment authority", async () => {
+    for (const locale of ["en", "zh"]) {
+      for (const suffix of ["", "/questions", "/how-to-play", "/scores"]) {
+        const allowed = await proxy(new NextRequest(`https://fermatmind.com/${locale}/tests/play/friendship-quiz${suffix}`));
+        expect(allowed.status).toBe(200);
+      }
+      for (const path of ["/tests/not-a-real-assessment", "/tests/play/friendship-quiz/results/invented", "/tests/play/friendship-quiz/unknown"]) {
+        expect((await proxy(new NextRequest(`https://fermatmind.com/${locale}${path}`))).status).toBe(404);
+      }
+    }
+  });
   it.each([30, 60, 90, 120, 150])("selects balanced unique %i-question rounds", size => { const qs = selectQuestions(pack, size); expect(new Set(qs.map(q => q.id)).size).toBe(size); categories.forEach(cat => expect(qs.filter(q => q.category === cat)).toHaveLength(size / 6)); });
   it("replaces within category without repetition, stops honestly at exhaustion, and prefers fresh questions next round", () => { const qs = selectQuestions(pack, 150); const replacement = swapQuestion(pack, qs, 0, qs.map(q => q.id)); expect(replacement?.category).toBe(qs[0].category); expect(qs.some(q => q.id === replacement?.id)).toBe(false); expect(swapQuestion(pack, qs, 0, pack.questions.map(q => q.id))).toBeNull(); const next = selectQuestions(pack, 30, qs.map(q => q.id)); expect(next.some(q => qs.some(old => q.id === old.id))).toBe(false); });
   it("preserves all tied ranks and excludes own/hidden entries from comparisons", () => { const rows = [entry("a", 22), entry("b", 22), entry("c", 0), entry("h", 30, true)]; expect(ranked(rows).map(e => e.rank)).toEqual([1, 1, 3]); expect(average(rows, "food", "a")).toBeCloseTo(36.666); expect(average([rows[0]], "food", "a")).toBeNull(); expect(title(73, "en")).toBe("On the same wavelength"); expect(title(0, "zh")).toBe("新发现满满"); expect(validAnswers([0, null, 1], 3)).toBe(true); expect(validAnswers(["0"], 1)).toBe(false); });
-  it("publishes exactly eight static identities with bilingual metadata, never private instances", () => { const entries = appendFriendshipSitemapEntries([]); expect(entries).toHaveLength(8); expect(entries.every(e => !e.loc.includes("/share/"))).toBe(true); for (const kind of ["home", "questions", "scores", "how-to-play"] as const) { const en = resourceMetadata("en", kind); const zh = resourceMetadata("zh", kind); expect(en.alternates?.canonical).toContain("/en/tests/friendship-quiz"); expect(zh.alternates?.canonical).toContain("/zh/tests/friendship-quiz"); expect(en.alternates?.languages).toHaveProperty("zh-CN"); } });
+  it("publishes exactly eight static identities with bilingual metadata, never private instances", () => { const entries = appendFriendshipSitemapEntries([]); expect(entries).toHaveLength(8); expect(entries.every(e => !e.loc.includes("/share/"))).toBe(true); for (const kind of ["home", "questions", "scores", "how-to-play"] as const) { const en = resourceMetadata("en", kind); const zh = resourceMetadata("zh", kind); expect(en.alternates?.canonical).toContain("/en/tests/play/friendship-quiz"); expect(zh.alternates?.canonical).toContain("/zh/tests/play/friendship-quiz"); expect(en.alternates?.languages).toHaveProperty("zh-CN"); } });
   it("keeps answer authority, management keys and invitation IDs out of events and public HTML", () => { const events = readFileSync("lib/friendship/analytics.ts", "utf8"); expect(events).not.toContain("inviteId"); expect(events).not.toContain("nickname"); const page = readFileSync("app/(localized)/[locale]/share/friendship/[id]/page.tsx", "utf8"); expect(page).toContain("index: false"); expect(page).toContain('referrer: "no-referrer"'); const share = readFileSync("components/friendship/ShareTools.tsx", "utf8"); expect(share).toContain('name === "AbortError"'); expect(share).toContain("canvas.toBlob"); expect(share).not.toContain("result.entries"); });
 });
