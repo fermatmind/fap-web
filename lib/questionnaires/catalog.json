@@ -2239,5 +2239,29 @@
       "toge-inumaki"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "egen-teto",
+    "code": "EGEN_TETO_FIRST_MOVE_ORIGINAL_18",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "Egen-Teto测试",
+      "en": "Egen-Teto Test"
+    },
+    "description": {
+      "zh": "免费Egen-Teto测试：18道原创情境，比较先接住感受与先明确行动。完整Egen、Teto及9比9并列指南免费，无性别编码，不测激素或固定人格。",
+      "en": "A free Egen-Teto Test with 18 original pairs, full Egen, Teto and tie guides. Compare feelings-first and action-first choices without gender coding."
+    },
+    "minutes": 5,
+    "formCode": "fm_egen_teto_first_moves_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "egen",
+      "teto",
+      "tie"
+    ],
+    "collection": "explore"
   }
 ]

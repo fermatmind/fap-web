@@ -1,0 +1,972 @@
+{
+  "id": "T076",
+  "origin": "FermatMind original eighteen first-move pairs; no competitor item reuse",
+  "questions": [
+    {
+      "id": "ET_01",
+      "prompt": {
+        "zh": "朋友为手工展做了一个小作品，犹豫是否带去。你更想先怎样陪他看一看？",
+        "en": "A friend has made a small piece for a craft display but is unsure about bringing it. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听他说哪一部分最想让人看见，接住那份期待。",
+            "en": "First hear which part they hope someone will notice and acknowledge that wish."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把作品摆出来，和他挑一个能在展前完成的小调整。",
+            "en": "First set the piece out and choose one small adjustment possible before the display."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_02",
+      "prompt": {
+        "zh": "几位朋友约好野餐，出门前发现要下雨。你会更自然地先发哪类消息？",
+        "en": "Rain is forecast just before a picnic with friends. Which message would you naturally send first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先列两个有顶棚的地点，问大家哪一个更方便。",
+            "en": "First offer two covered locations and ask which is more convenient."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先回应大家的失落，让还想相聚的人知道心意没变。",
+            "en": "First acknowledge the disappointment and say you still value meeting up."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_03",
+      "prompt": {
+        "zh": "新朋友第一次加入桌游小聚，站在桌边还没坐下。你更想先做什么？",
+        "en": "Someone new arrives at a board-game gathering and pauses beside the table. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先和他聊一句轻松的话，让入座不那么生分。",
+            "en": "First share an easy remark so taking a seat feels less awkward."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先指出空位并说明这局如何加入，让他有明确入口。",
+            "en": "First point out a seat and explain how to join the round."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_04",
+      "prompt": {
+        "zh": "朋友为迟回你的普通消息而道歉。没有急事时，你倾向先怎样回应？",
+        "en": "A friend apologises for replying late to an ordinary message. There is no urgency. Which response would come first for you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说明以后什么消息需要及时回，让双方容易安排。",
+            "en": "First clarify which future messages need a prompt reply so both of you can plan."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先告诉他不用为这件事紧绷，再接着聊近况。",
+            "en": "First reassure them that this need not become a worry, then catch up."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_05",
+      "prompt": {
+        "zh": "几个人给朋友做一本纪念相册，迟迟选不出开头。你想先把讨论往哪边带？",
+        "en": "A group is making a memory album for a friend but cannot choose its opening. Where would you take the discussion first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请每个人讲一个最想留下的小片段，找共同的感受。",
+            "en": "First invite a small memory from each person and look for a shared feeling."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先约定开头只用三张照片，再从现有素材里筛选。",
+            "en": "First agree on a three-photo opening and sort the material you already have."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_06",
+      "prompt": {
+        "zh": "一起散步时走错了岔路，朋友有些懊恼。路线仍然安全，你会先怎样接话？",
+        "en": "During a safe walk, a wrong turn leaves your friend annoyed with themselves. How would you respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看路牌并确定下一处转弯，让接下来的路线清楚。",
+            "en": "First check the sign and establish the next turn so the route is clear."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把小失误说轻一点，让这段散步还能自在继续。",
+            "en": "First take some weight off the small mistake so the walk can stay enjoyable."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_07",
+      "prompt": {
+        "zh": "朋友请你试听一段自己做的小配乐。你更容易先给出哪类反馈？",
+        "en": "A friend asks you to hear a short tune they made. Which feedback would you be inclined to offer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说哪一个瞬间让你有画面，回应作品传来的情绪。",
+            "en": "First describe a moment that gave you an image and respond to its mood."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先指出一个可尝试的节奏变化，和他听听修改效果。",
+            "en": "First suggest one rhythm change to try and listen to what it does."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_08",
+      "prompt": {
+        "zh": "小聚快结束，有人说自己还没尽兴。你比较想先怎么回应？",
+        "en": "As a small gathering ends, someone says they wish it could last longer. How would you prefer to respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先拿出日历约下一次，让想继续相聚有具体安排。",
+            "en": "First suggest a date for another meeting so there is a concrete continuation."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先聊聊今天最舍不得结束的片刻，让这份心情被听见。",
+            "en": "First talk about the moment they most wish could continue so that feeling is heard."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_09",
+      "prompt": {
+        "zh": "两位朋友对一起看的电影意见相反，气氛有点僵。你会先试哪种说法？",
+        "en": "Two friends disagree about a film you watched together and the mood tightens. What would you try saying first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先分别接住他们喜欢或失望的地方，给彼此留点余地。",
+            "en": "First acknowledge what each enjoyed or found disappointing and leave room for both."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把讨论缩到一个具体桥段，避免整部电影的好坏拉扯。",
+            "en": "First focus the discussion on one scene instead of arguing over the whole film."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_10",
+      "prompt": {
+        "zh": "共同做晚饭时，朋友发现少买了一样配料。你比较自然的第一步是什么？",
+        "en": "While cooking together, a friend notices one ingredient was forgotten. What is your more natural first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先查看手边食材，选一个能立即用的替代方案。",
+            "en": "First check what is available and choose a usable substitution."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先让他知道一起做饭的乐趣还在，不必一直责怪自己。",
+            "en": "First say the pleasure of cooking together remains and there is no need for self-blame."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_11",
+      "prompt": {
+        "zh": "朋友想把房间一角改成阅读区，却一直没开始。你会先陪他想什么？",
+        "en": "A friend wants to make a reading corner but has not started. What would you explore with them first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先聊他希望坐在那里时有什么感觉，找一个有吸引力的画面。",
+            "en": "First ask how they hope sitting there will feel and build an inviting picture."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选一张已有的椅子和一个插座位置，缩小开始的范围。",
+            "en": "First choose an existing chair and a place near an outlet to make the first step smaller."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_12",
+      "prompt": {
+        "zh": "朋友准备带自制点心来小聚，担心做得不好。你会先怎样回应？",
+        "en": "A friend plans to bring homemade snacks and worries they will not turn out well. What would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认需要多少份和什么时候到，让准备有个清楚范围。",
+            "en": "First confirm the quantity and arrival time so preparation has a clear scope."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先回应这份愿意花心思的好意，不把聚会变成作品评比。",
+            "en": "First appreciate the care behind the offer without making the gathering a competition."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_13",
+      "prompt": {
+        "zh": "几位朋友想一起换群头像，提案越来越多。你会先怎样推动？",
+        "en": "Friends want a new group avatar, but suggestions keep multiplying. How would you move things along first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问大家希望这个头像传出什么共同感觉，再回应各自的点子。",
+            "en": "First ask what shared feeling the avatar should convey and respond to the ideas."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先约定每人留一个候选并设一次投票，让选择容易结束。",
+            "en": "First limit everyone to one candidate and arrange a vote so the choice can finish."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_14",
+      "prompt": {
+        "zh": "朋友把收藏已久的明信片拿给你看。你更想先问哪一件事？",
+        "en": "A friend shows you postcards kept for years. What would you most like to ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问想如何整理或展示，和他试一个看得见的摆法。",
+            "en": "First ask how they might organise or display them and try an arrangement."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问哪一张让他最有感触，听它和某段经历的连接。",
+            "en": "First ask which one means the most to them and hear the connection behind it."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_15",
+      "prompt": {
+        "zh": "共同拍的小短片第一次剪出来，大家都不太满意开场。你先做什么？",
+        "en": "The first edit of a short video made with friends has an opening nobody quite likes. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听大家原本期待怎样的氛围，找还想保留的那一点。",
+            "en": "First hear the atmosphere everyone hoped for and find something they still want to keep."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先复制一个试剪版，把开头缩短十秒供大家比较。",
+            "en": "First make a trial copy with ten seconds trimmed from the opening for comparison."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_16",
+      "prompt": {
+        "zh": "朋友问你要不要一起参加一个周末手作活动。你会先怎样进入讨论？",
+        "en": "A friend suggests a weekend craft session together. How would you enter the discussion first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先核对时段和材料要求，看看这周末是否安排得下。",
+            "en": "First check the time and materials to see whether it fits this weekend."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先聊一起做东西哪里让人期待，看看彼此的兴致。",
+            "en": "First talk about what sounds enjoyable in making something together and sense the interest."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_17",
+      "prompt": {
+        "zh": "一起逛旧书摊时，朋友想买又怕没有时间读。你比较想先怎么聊？",
+        "en": "At a used-book stall, a friend hesitates because they may not have time to read a book. How would you start the conversation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听是哪一页或哪段介绍吸引了他，让那份喜欢有个位置。",
+            "en": "First hear which page or description drew them in and make space for that interest."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问这周有没有一个十分钟空档，用一个小安排试试看。",
+            "en": "First ask whether a ten-minute opening exists this week and test a small plan."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_18",
+      "prompt": {
+        "zh": "朋友为一次小型同学重聚做联络，却觉得大家回复冷淡。你会先怎样帮忙？",
+        "en": "A friend organising a small reunion feels discouraged by brief replies. How would you begin helping?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把邀请整理成日期和回复截止点，减少来回确认。",
+            "en": "First put the date and reply deadline into a clear invitation to reduce uncertainty."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先听他说最在意的落差，别急着把简短回复解释成拒绝。",
+            "en": "First hear what feels disappointing without rushing to treat short replies as rejection."
+          },
+          "directionId": "egen"
+        }
+      ]
+    }
+  ],
+  "sourceRead": "JobEN109/ZH79publicrows,sixEnglishguidesmain20-89,about57,entry127;actual17publicquestionsandtwoopposite-neutralcompletions. Q17explicitgendercoding;fourcodedresultpathsnotexecuted. No paid report accessed. Own edition intentionally gender-neutral with two directions and one explicit tie;not equivalent to competitor four coded types or 17Likertitems. All21mini-registrykeysread;noEgenTeto;no mini write.",
+  "countWitnesses": [
+    {
+      "answers": {
+        "ET_01": "B",
+        "ET_02": "A",
+        "ET_03": "B",
+        "ET_04": "A",
+        "ET_05": "B",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 0,
+        "teto": 18
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "A",
+        "ET_03": "B",
+        "ET_04": "A",
+        "ET_05": "B",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 1,
+        "teto": 17
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "B",
+        "ET_04": "A",
+        "ET_05": "B",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 2,
+        "teto": 16
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "A",
+        "ET_05": "B",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 3,
+        "teto": 15
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "B",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 4,
+        "teto": 14
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "A",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 5,
+        "teto": 13
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "B",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 6,
+        "teto": 12
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "A",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 7,
+        "teto": 11
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "B",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 8,
+        "teto": 10
+      },
+      "profileId": "teto"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "A",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 9,
+        "teto": 9
+      },
+      "profileId": "tie"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "B",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 10,
+        "teto": 8
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "A",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 11,
+        "teto": 7
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "B",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 12,
+        "teto": 6
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "A",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 13,
+        "teto": 5
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "B",
+        "ET_15": "B",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 14,
+        "teto": 4
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "B",
+        "ET_15": "A",
+        "ET_16": "A",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 15,
+        "teto": 3
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "B",
+        "ET_15": "A",
+        "ET_16": "B",
+        "ET_17": "B",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 16,
+        "teto": 2
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "B",
+        "ET_15": "A",
+        "ET_16": "B",
+        "ET_17": "A",
+        "ET_18": "A"
+      },
+      "counts": {
+        "egen": 17,
+        "teto": 1
+      },
+      "profileId": "egen"
+    },
+    {
+      "answers": {
+        "ET_01": "A",
+        "ET_02": "B",
+        "ET_03": "A",
+        "ET_04": "B",
+        "ET_05": "A",
+        "ET_06": "B",
+        "ET_07": "A",
+        "ET_08": "B",
+        "ET_09": "A",
+        "ET_10": "B",
+        "ET_11": "A",
+        "ET_12": "B",
+        "ET_13": "A",
+        "ET_14": "B",
+        "ET_15": "A",
+        "ET_16": "B",
+        "ET_17": "A",
+        "ET_18": "B"
+      },
+      "counts": {
+        "egen": 18,
+        "teto": 0
+      },
+      "profileId": "egen"
+    }
+  ]
+}

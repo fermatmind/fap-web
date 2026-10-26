@@ -1,0 +1,1117 @@
+{
+  "slug": "egen-teto",
+  "code": "EGEN_TETO_FIRST_MOVE_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "directional",
+  "title": {
+    "zh": "Egen-Teto测试",
+    "en": "Egen-Teto Test"
+  },
+  "resultHeading": {
+    "zh": "开场顺序：两方向次数与完整读法",
+    "en": "First moves: two counts and full readings"
+  },
+  "seoTitle": {
+    "zh": "Egen-Teto测试：18题与免费完整结果",
+    "en": "Egen-Teto Test: 18 Original Pairs & Free Full Results"
+  },
+  "description": {
+    "zh": "免费Egen-Teto测试：18道原创情境，比较先接住感受与先明确行动。完整Egen、Teto及9比9并列指南免费，无性别编码，不测激素或固定人格。",
+    "en": "A free Egen-Teto Test with 18 original pairs, full Egen, Teto and tie guides. Compare feelings-first and action-first choices without gender coding."
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "朋友带着未完成的小作品来问意见，你想先听他期待什么，还是先试一个具体调整？这份18题原创趣味问卷借Egen和Teto来聊相处时的第一步：先接住感受，或先明确行动。每题两种回应都可以合理，场景围绕小聚、散步、手作和共同安排，不要求提交真实对话。两方向各在每个位置出现9次；完整作答后显示原始次数，较高侧有九节全文，9比9有专门九节并列说明，三份也能随时先读。它们不是两种固定人格，次数不换算温柔、行动力、激素或适配百分比。本版不使用竞品的性别编码题与四类标签，也不是其17题五点题本的翻译。想了解自己在哪些情境先听、哪些情境先做，可以把具体选项拿来比较；不合适就停止，公开全文仍免费。",
+    "en": "A friend brings an unfinished craft: would you first hear what they hoped for or try one specific adjustment? This original eighteen-pair playful questionnaire uses Egen and Teto to discuss the first move in an interaction: acknowledging a feeling or clarifying an action. Both responses can be reasonable. Ordinary gatherings, walks, crafts and shared arrangements require no actual conversation text. Each direction appears nine times in each position. A complete attempt shows raw counts and a nine-section guide for the higher side, or a dedicated nine-section guide for nine each; all three are public before answering. These are not two fixed personalities, and counts become no percentages of gentleness, drive, hormones or compatibility. This edition uses neither a competitor’s gender-coding question nor its four coded labels, and is not a translation of its seventeen five-point items. Compare the particular situations to explore when you listen or act first. Stop if the pairs do not fit; the public guides remain free."
+  },
+  "instructions": {
+    "zh": "每个情境的两种回应都可以合理，只选近期更容易先出现的一步：先回应感受，或先明确下一步。题目只比较顺序，不评价善意、能力或哪种做法更好。每题两方向各出现一次，18题中各在A、B位置9次；每选一项给该方向加1，无反向或加权。完成18题才计数：次数较高读对应全文，9比9读并列专篇。10比8只差一次改答，没有验证的分界意义。两项都不合适可以退出，三份公开指南一直免费。无需输入真实聊天、性别、激素或私人经历。",
+    "en": "Both responses in each situation can be reasonable. Choose the move more likely to come first for you recently: acknowledging a feeling or clarifying the next step. Only sequence is compared, not goodwill, ability or which response is better. Each direction appears once per question and nine times in each position across eighteen pairs. A choice adds one count without reversals or weighting. Complete all eighteen before counting: the higher count selects its full guide; nine each selects the tie guide. Ten versus eight can be reversed by one changed answer and has no validated cutoff meaning. Leave if neither fits; all three public guides stay free. Enter no actual conversations, gender, hormones or private experiences."
+  },
+  "source": {
+    "kind": "frontend_original_entertainment_forced_choice",
+    "formCode": "fm_egen_teto_first_moves_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "directional_equal_counts_v1",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "b48de28a0fe6ba853a723e6ad8cc3bd156e3604310561b14406a44bd31ce0ca7",
+    "resultContentSha256": "da0a9db94afa203bf771aa9a7cf234facb5cebc6d86a753c083368494cbf34f0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "egen",
+      "title": {
+        "zh": "Egen：先接住感受",
+        "en": "Egen: acknowledge feelings first"
+      },
+      "comparisons": 18
+    },
+    {
+      "id": "teto",
+      "title": {
+        "zh": "Teto：先明确行动",
+        "en": "Teto: clarify action first"
+      },
+      "comparisons": 18
+    }
+  ],
+  "questions": [
+    {
+      "id": "ET_01",
+      "prompt": {
+        "zh": "朋友为手工展做了一个小作品，犹豫是否带去。你更想先怎样陪他看一看？",
+        "en": "A friend has made a small piece for a craft display but is unsure about bringing it. How would you prefer to begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听他说哪一部分最想让人看见，接住那份期待。",
+            "en": "First hear which part they hope someone will notice and acknowledge that wish."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把作品摆出来，和他挑一个能在展前完成的小调整。",
+            "en": "First set the piece out and choose one small adjustment possible before the display."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_02",
+      "prompt": {
+        "zh": "几位朋友约好野餐，出门前发现要下雨。你会更自然地先发哪类消息？",
+        "en": "Rain is forecast just before a picnic with friends. Which message would you naturally send first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先列两个有顶棚的地点，问大家哪一个更方便。",
+            "en": "First offer two covered locations and ask which is more convenient."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先回应大家的失落，让还想相聚的人知道心意没变。",
+            "en": "First acknowledge the disappointment and say you still value meeting up."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_03",
+      "prompt": {
+        "zh": "新朋友第一次加入桌游小聚，站在桌边还没坐下。你更想先做什么？",
+        "en": "Someone new arrives at a board-game gathering and pauses beside the table. What would you prefer to do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先和他聊一句轻松的话，让入座不那么生分。",
+            "en": "First share an easy remark so taking a seat feels less awkward."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先指出空位并说明这局如何加入，让他有明确入口。",
+            "en": "First point out a seat and explain how to join the round."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_04",
+      "prompt": {
+        "zh": "朋友为迟回你的普通消息而道歉。没有急事时，你倾向先怎样回应？",
+        "en": "A friend apologises for replying late to an ordinary message. There is no urgency. Which response would come first for you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说明以后什么消息需要及时回，让双方容易安排。",
+            "en": "First clarify which future messages need a prompt reply so both of you can plan."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先告诉他不用为这件事紧绷，再接着聊近况。",
+            "en": "First reassure them that this need not become a worry, then catch up."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_05",
+      "prompt": {
+        "zh": "几个人给朋友做一本纪念相册，迟迟选不出开头。你想先把讨论往哪边带？",
+        "en": "A group is making a memory album for a friend but cannot choose its opening. Where would you take the discussion first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先请每个人讲一个最想留下的小片段，找共同的感受。",
+            "en": "First invite a small memory from each person and look for a shared feeling."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先约定开头只用三张照片，再从现有素材里筛选。",
+            "en": "First agree on a three-photo opening and sort the material you already have."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_06",
+      "prompt": {
+        "zh": "一起散步时走错了岔路，朋友有些懊恼。路线仍然安全，你会先怎样接话？",
+        "en": "During a safe walk, a wrong turn leaves your friend annoyed with themselves. How would you respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看路牌并确定下一处转弯，让接下来的路线清楚。",
+            "en": "First check the sign and establish the next turn so the route is clear."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把小失误说轻一点，让这段散步还能自在继续。",
+            "en": "First take some weight off the small mistake so the walk can stay enjoyable."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_07",
+      "prompt": {
+        "zh": "朋友请你试听一段自己做的小配乐。你更容易先给出哪类反馈？",
+        "en": "A friend asks you to hear a short tune they made. Which feedback would you be inclined to offer first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说哪一个瞬间让你有画面，回应作品传来的情绪。",
+            "en": "First describe a moment that gave you an image and respond to its mood."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先指出一个可尝试的节奏变化，和他听听修改效果。",
+            "en": "First suggest one rhythm change to try and listen to what it does."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_08",
+      "prompt": {
+        "zh": "小聚快结束，有人说自己还没尽兴。你比较想先怎么回应？",
+        "en": "As a small gathering ends, someone says they wish it could last longer. How would you prefer to respond first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先拿出日历约下一次，让想继续相聚有具体安排。",
+            "en": "First suggest a date for another meeting so there is a concrete continuation."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先聊聊今天最舍不得结束的片刻，让这份心情被听见。",
+            "en": "First talk about the moment they most wish could continue so that feeling is heard."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_09",
+      "prompt": {
+        "zh": "两位朋友对一起看的电影意见相反，气氛有点僵。你会先试哪种说法？",
+        "en": "Two friends disagree about a film you watched together and the mood tightens. What would you try saying first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先分别接住他们喜欢或失望的地方，给彼此留点余地。",
+            "en": "First acknowledge what each enjoyed or found disappointing and leave room for both."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先把讨论缩到一个具体桥段，避免整部电影的好坏拉扯。",
+            "en": "First focus the discussion on one scene instead of arguing over the whole film."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_10",
+      "prompt": {
+        "zh": "共同做晚饭时，朋友发现少买了一样配料。你比较自然的第一步是什么？",
+        "en": "While cooking together, a friend notices one ingredient was forgotten. What is your more natural first move?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先查看手边食材，选一个能立即用的替代方案。",
+            "en": "First check what is available and choose a usable substitution."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先让他知道一起做饭的乐趣还在，不必一直责怪自己。",
+            "en": "First say the pleasure of cooking together remains and there is no need for self-blame."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_11",
+      "prompt": {
+        "zh": "朋友想把房间一角改成阅读区，却一直没开始。你会先陪他想什么？",
+        "en": "A friend wants to make a reading corner but has not started. What would you explore with them first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先聊他希望坐在那里时有什么感觉，找一个有吸引力的画面。",
+            "en": "First ask how they hope sitting there will feel and build an inviting picture."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先选一张已有的椅子和一个插座位置，缩小开始的范围。",
+            "en": "First choose an existing chair and a place near an outlet to make the first step smaller."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_12",
+      "prompt": {
+        "zh": "朋友准备带自制点心来小聚，担心做得不好。你会先怎样回应？",
+        "en": "A friend plans to bring homemade snacks and worries they will not turn out well. What would you say first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先确认需要多少份和什么时候到，让准备有个清楚范围。",
+            "en": "First confirm the quantity and arrival time so preparation has a clear scope."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先回应这份愿意花心思的好意，不把聚会变成作品评比。",
+            "en": "First appreciate the care behind the offer without making the gathering a competition."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_13",
+      "prompt": {
+        "zh": "几位朋友想一起换群头像，提案越来越多。你会先怎样推动？",
+        "en": "Friends want a new group avatar, but suggestions keep multiplying. How would you move things along first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问大家希望这个头像传出什么共同感觉，再回应各自的点子。",
+            "en": "First ask what shared feeling the avatar should convey and respond to the ideas."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先约定每人留一个候选并设一次投票，让选择容易结束。",
+            "en": "First limit everyone to one candidate and arrange a vote so the choice can finish."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_14",
+      "prompt": {
+        "zh": "朋友把收藏已久的明信片拿给你看。你更想先问哪一件事？",
+        "en": "A friend shows you postcards kept for years. What would you most like to ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问想如何整理或展示，和他试一个看得见的摆法。",
+            "en": "First ask how they might organise or display them and try an arrangement."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问哪一张让他最有感触，听它和某段经历的连接。",
+            "en": "First ask which one means the most to them and hear the connection behind it."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_15",
+      "prompt": {
+        "zh": "共同拍的小短片第一次剪出来，大家都不太满意开场。你先做什么？",
+        "en": "The first edit of a short video made with friends has an opening nobody quite likes. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听大家原本期待怎样的氛围，找还想保留的那一点。",
+            "en": "First hear the atmosphere everyone hoped for and find something they still want to keep."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先复制一个试剪版，把开头缩短十秒供大家比较。",
+            "en": "First make a trial copy with ten seconds trimmed from the opening for comparison."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_16",
+      "prompt": {
+        "zh": "朋友问你要不要一起参加一个周末手作活动。你会先怎样进入讨论？",
+        "en": "A friend suggests a weekend craft session together. How would you enter the discussion first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先核对时段和材料要求，看看这周末是否安排得下。",
+            "en": "First check the time and materials to see whether it fits this weekend."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先聊一起做东西哪里让人期待，看看彼此的兴致。",
+            "en": "First talk about what sounds enjoyable in making something together and sense the interest."
+          },
+          "directionId": "egen"
+        }
+      ]
+    },
+    {
+      "id": "ET_17",
+      "prompt": {
+        "zh": "一起逛旧书摊时，朋友想买又怕没有时间读。你比较想先怎么聊？",
+        "en": "At a used-book stall, a friend hesitates because they may not have time to read a book. How would you start the conversation?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先听是哪一页或哪段介绍吸引了他，让那份喜欢有个位置。",
+            "en": "First hear which page or description drew them in and make space for that interest."
+          },
+          "directionId": "egen"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问这周有没有一个十分钟空档，用一个小安排试试看。",
+            "en": "First ask whether a ten-minute opening exists this week and test a small plan."
+          },
+          "directionId": "teto"
+        }
+      ]
+    },
+    {
+      "id": "ET_18",
+      "prompt": {
+        "zh": "朋友为一次小型同学重聚做联络，却觉得大家回复冷淡。你会先怎样帮忙？",
+        "en": "A friend organising a small reunion feels discouraged by brief replies. How would you begin helping?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先把邀请整理成日期和回复截止点，减少来回确认。",
+            "en": "First put the date and reply deadline into a clear invitation to reduce uncertainty."
+          },
+          "directionId": "teto"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先听他说最在意的落差，别急着把简短回复解释成拒绝。",
+            "en": "First hear what feels disappointing without rushing to treat short replies as rejection."
+          },
+          "directionId": "egen"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "egen",
+      "directionIds": [
+        "egen"
+      ],
+      "title": {
+        "zh": "Egen：先接住感受",
+        "en": "Egen: Feelings First"
+      },
+      "headline": {
+        "zh": "先让这份心情有位置，再把事情往下接。",
+        "en": "Make room for the feeling, then take the next step."
+      },
+      "summary": {
+        "zh": "在这18组选项里，你更多选择先回应感受。它只描述这份菜单里的开场顺序，不证明你总是温柔、比别人更懂人，或不会直接做决定。",
+        "en": "Across these eighteen pairs, you more often chose to acknowledge a feeling first. That describes the order of an offered opening, not proof that you are always gentle, understand people better, or cannot make a direct decision."
+      },
+      "seo": {
+        "title": {
+          "zh": "Egen：先接住感受：完整解释与近分比较",
+          "en": "Egen: Feelings First: Full Guide & Close Counts"
+        },
+        "description": {
+          "zh": "Egen结果完整解释：看18题中“先接住感受”的选择次数、具体相处例子、直接行动的补充与近分并列读法，不测性别或激素。",
+          "en": "Read an Egen result through concrete situations, warmth and action, close counts and a small experiment. Full free guide without gender or hormone claims."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题各选一次，每题只给一个方向加1。较高次数选对应说明，9比9选并列说明；10比8改一题就会并列。次数不是情感、行动、激素或人格的百分比，也没有常模分界。",
+        "en": "Each of eighteen choices adds one count to one direction. A higher count selects its guide; nine each selects the tie guide. Changing one choice turns ten versus eight into a tie. Counts are not percentages of feeling, action, hormones or personality, and have no normative cutoff."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "这个“先”具体指什么",
+            "en": "What feelings first means here"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友拿出还不满意的小作品时，你可能先问他希望哪里被看见，再讨论改哪里。这不是只安慰、不解决，而是把对方的感受当作谈下一步的入口。题目没有测试你是否真能读懂别人；听见一句话和准确理解需要之间还有距离。可以直接问“你现在想先聊聊，还是一起试个改法？”，让感受与安排都由实际对话确认。",
+              "en": "When a friend brings an unfinished craft, you might first ask what they hoped someone would notice before discussing an edit. This opening does not require reassurance instead of solutions. It treats a feeling as an entrance to the next conversation. The quiz has not tested whether you accurately understand another person. Hearing a sentence and identifying a need are different things. Ask whether they want to talk or try an adjustment, and let their answer guide you."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "雨天野餐：回应以后要落在哪里",
+            "en": "A rainy picnic needs somewhere to go"
+          },
+          "paragraphs": [
+            {
+              "zh": "野餐因雨受影响，你先说“本来很期待，确实有点可惜”。接下来可以补一句“我们还想见面吗？我找两个室内地点”。前一句让失落不必被急忙抹掉，后一句让相聚有出路。如果大家正站在雨里，先避雨会更合适；顺序可以随着现实条件改变。Egen不是要求每个场合都先处理情绪，更不是把危险或时间限制往后排。",
+              "en": "If rain interrupts a picnic, you might acknowledge that everyone had been looking forward to it. You can then ask whether the group still wants to meet and offer two indoor places. The first sentence leaves disappointment room to exist; the second gives the meeting somewhere to go. If people are already getting wet, finding shelter can come first. A preference in an ordinary menu is not a rule for every situation or a reason to postpone immediate practical needs."
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": {
+            "zh": "看对象与时机，不代替对方判断",
+            "en": "Check the person and the timing"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一个人收到晚回消息的道歉，可能想要一句“不用紧张”；拿着待办清单来时，却可能只想迅速核对时间。温暖的开场能否被接住，要看此刻对方需要什么，不靠测试标签决定。不要因为自己选了Egen，就替对方解释“你其实只是需要安慰”。把判断改成一个简短询问，允许对方说不，也允许谈话直接转向具体问题。",
+              "en": "The same friend may welcome reassurance after apologising for a late reply and want a quick schedule check when carrying a list of tasks. Whether a warm opening helps depends on that moment, not a label. An Egen reading gives no authority to tell someone that they really only need comfort. Turn that assumption into a short question. They may decline, prefer a practical answer, or change what they want during the conversation. None of these responses invalidates your result."
+            }
+          ]
+        },
+        {
+          "id": "useful",
+          "title": {
+            "zh": "这种开场可能提供什么",
+            "en": "What this opening can make possible"
+          },
+          "paragraphs": [
+            {
+              "zh": "在没有急迫风险的小事里，先回应感受可能让讨论少一点自我辩护。比如朋友忘买配料，你先说“一起做饭还挺开心的”，再找替代食材，事情就不必只围着失误转。这只是一个可尝试的对话方式，不保证对方被安慰或关系变好。效果要从对方实际回应看：他愿意接着说什么、有没有理解下一步，而不是从你的选择次数推断。",
+              "en": "In a low-stakes situation, acknowledging a feeling may give a discussion less need for self-defence. If an ingredient was forgotten, appreciating the shared cooking before finding a substitute can keep the whole evening from becoming a discussion of the mistake. This is an option to try, not a guaranteed relationship outcome. Notice the other person’s actual response: what they choose to say next and whether the plan becomes clear. Your count cannot establish that they felt comforted."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "回应不能变成替人扛住一切",
+            "en": "Acknowledgement does not mean carrying everything"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你一直忙着让大家舒服，却没说自己几点要走，开场的温柔可能遮住实际限制。可以在回应后加上自己的范围：“我愿意听十分钟，之后要出门；剩下的我们明天再聊。”这不是从Egen变成另一种人，而是同一段对话需要不止一个动作。测试没有把无边界照顾算作更好，也不能要求你接住所有人的情绪；保留自己的时间和拒绝权同样正常。",
+              "en": "A warm opening can leave a practical limit unspoken if you focus entirely on keeping everyone comfortable. Add your own scope: you can listen for ten minutes before leaving and continue tomorrow. That does not turn you into a different type. One conversation can need several moves. The bank gives no extra credit for unlimited care and cannot require you to absorb everyone’s feelings. Keeping your time, declining a request and saying what you need remain ordinary choices alongside acknowledging someone else."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "和Teto、内外向、沟通方式怎么区分",
+            "en": "Compare the task rather than the label"
+          },
+          "paragraphs": [
+            {
+              "zh": "Teto在本版里表示更先把下一步说清，不等于冷淡、强势或缺乏同理心。Egen也不等于内向、被动或更高情商；安静与热闹都可能先接住感受。本版的两项都是可接受回应，和沟通方式里是否尊重边界的问题不同。若另一份测试给了不同名称，先核它问的是社交偏好、表达方式还是此次开场顺序，不需要把几个标签拼成一个“真实类型”。",
+              "en": "Teto in this edition means clarifying an action earlier, not coldness, dominance or a lack of empathy. Egen is not introversion, passivity or higher emotional intelligence. A quiet or talkative person might choose either opening. Both offered responses are legitimate, unlike a question about whether someone respects a boundary. If another quiz gives a different label, check whether it asks about social preference, communication or this first move. Several labels need not be assembled into one supposedly true identity."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "一次低成本的两步尝试",
+            "en": "Try one small two-step opening"
+          },
+          "paragraphs": [
+            {
+              "zh": "选一件你愿意讨论的普通小事，先用一句话回应已听见的感受，再问一个具体下一步问题。例如“听起来你挺舍不得结束；要不要先约下次日期？”不要替对方加上没有说过的情绪，也不必记录私人对话。尝试后只回想两点：对方有没有机会修正你的理解，双方是否知道接下来做什么。一次顺利或不顺利都不是效度验证，更不用为了维持Egen标签重复做同一种回应。",
+              "en": "Choose an ordinary matter you are comfortable discussing. Acknowledge only the feeling you actually heard, then ask one concrete question about a next step. For example, recognise that a gathering felt too short and ask about another date. Do not invent an emotion for someone or record a private conversation. Afterwards, notice whether they could correct your understanding and whether both people knew what would happen next. One smooth or awkward attempt validates no instrument and requires no repeated performance of an Egen label."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "接近、并列与改一题的意义",
+            "en": "Read a narrow lead without overclaiming"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果是10比8，两个方向只差两次；把一条Egen改成Teto就变成9比9。这里没有“轻度”“强烈”或人群常模分界，不能把10次解读成56%的温柔。9比9有独立完整专篇，不派一个隐藏的胜者。即使次数差得更多，也只说明给定18个菜单里的选择；你可以读另一份全文，找出哪些情境会改变顺序，而不把相近读法当成测试失误。",
+              "en": "At ten versus eight, the directions differ by two counts. Switching one Egen choice to Teto produces nine each. There is no validated mild, strong or population-based boundary, and ten choices do not mean you are fifty-six percent gentle. A nine-each result has its own full guide without a hidden winner. Even a wider gap describes only these eighteen menus. Read the other guide and notice situations that could change the order rather than treating a close reading as an error."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "文化标签与完整免费范围",
+            "en": "A playful cultural name with full access"
+          },
+          "paragraphs": [
+            {
+              "zh": "Egen／Teto在这里是趣味称呼，不是激素检测、性别判定或专业心理量表。本站不使用性别编码分型，也不复制竞品题库或推断职业、恋爱适配。三份完整指南在作答前后都能免费阅读；不适合的题可以停止，缺答不出个人计数。进度仅在主动开启后临时保存在本标签页，24小时到期，完成或清除即删；分享只有结果名称和公开说明链接，不包含答卷与次数。",
+              "en": "Egen and Teto are playful names here, not hormone tests, gender classifications or professional psychological scales. This edition uses no gender coding, copies no competitor bank and predicts no job or romantic match. All three full guides are free before and after answering. Stop if the pairs do not fit; incomplete answers produce no personal count. Optional progress stays in this tab for up to twenty-four hours and clears on completion or clearing. Sharing contains a result name and public guide link, without answers or counts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teto",
+      "directionIds": [
+        "teto"
+      ],
+      "title": {
+        "zh": "Teto：先明确行动",
+        "en": "Teto: Action First"
+      },
+      "headline": {
+        "zh": "先把下一步摆到桌面，再确认大家怎样接住它。",
+        "en": "Put the next step on the table, then check how it lands."
+      },
+      "summary": {
+        "zh": "你在给定情境里更多选择先提出可执行的下一步。这不是强势、冷淡或效率优越的证明；行动开场仍然可以体贴，也需要对方同意。",
+        "en": "You more often chose to propose an actionable next step in the offered situations. This proves neither dominance, coldness nor superior efficiency. An action opening can be considerate and still needs the other person’s agreement."
+      },
+      "seo": {
+        "title": {
+          "zh": "Teto：先明确行动：完整解释与近分比较",
+          "en": "Teto: Action First: Full Guide & Close Counts"
+        },
+        "description": {
+          "zh": "Teto结果完整解释：从18题行动开场次数读具体情境、回应感受的补充、10比8近分和9比9并列，不推断能力、性别或职业。",
+          "en": "Explore a Teto result with concrete action openings, emotional acknowledgement, close counts and a small experiment. Full free guide without ability rankings."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题各选一次，每题只给一个方向加1。较高次数选对应说明，9比9选并列说明；10比8改一题就会并列。次数不是情感、行动、激素或人格的百分比，也没有常模分界。",
+        "en": "Each of eighteen choices adds one count to one direction. A higher count selects its guide; nine each selects the tie guide. Changing one choice turns ten versus eight into a tie. Counts are not percentages of feeling, action, hormones or personality, and have no normative cutoff."
+      },
+      "sections": [
+        {
+          "id": "opening",
+          "title": {
+            "zh": "行动开场不是替所有人拍板",
+            "en": "An action opening is an offer, not an order"
+          },
+          "paragraphs": [
+            {
+              "zh": "临时改野餐地点时，你可能先说出两个室内选择，让大家知道能怎么办。重点是把问题变得可讨论，不是宣布所有人必须跟从。可以问“这两个地点你们哪个方便，也可以都不选”。本题看你偏好的第一步，没有核验方案质量、领导力或执行能力。有人先回应失落、有人先找地点，都可能关心这次相聚；顺序不同不能替代对动机的了解。",
+              "en": "When a picnic changes, you might first offer two indoor places so everyone can see what is possible. The opening makes a question discussable; it does not require everyone to follow your plan. Ask which place works, leaving room to reject both. The quiz observes a preferred first move, not the quality of a plan, leadership or execution. Someone acknowledging disappointment and someone finding shelter may care about the same meeting. Sequence alone cannot tell you their motives."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "相册开头：把下一步缩到能做",
+            "en": "A memory album benefits from a smaller next step"
+          },
+          "paragraphs": [
+            {
+              "zh": "几个人选不出相册开头，你先建议只用三张照片，再从素材里筛选。这给讨论一个边界，也可能让还想讲故事的人觉得太快。可以补问“哪一段回忆一定不能漏掉？”让明确步骤和内容期待接上。如果对方尚未同意相册的目的，直接筛照片可能绕过真正的问题。行动开场适合用来发出可修改的提案，不代表事情已经得到共同授权。",
+              "en": "A group cannot choose an album opening, so you suggest three photos and start sorting. That gives the discussion a boundary, but someone may still want to explain a memory. Ask which moment must not be left out. A clear step can then connect with what the album means. If its purpose is unsettled, sorting may skip the real question. Treat your first action as a revisable proposal rather than assuming everyone has already authorised the same plan."
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": {
+            "zh": "在对方要方案时，也核对限制",
+            "en": "Check the scope even when a solution is wanted"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友拿着活动邀请来问意见，你可能先看时间和材料，这能帮助判断是否安排得下。但同样的问题也可能是在表达“我想找人一起去”。可以先简短确认“你想先核安排，还是先聊活动本身？”再按回答继续。Teto结果不证明你总能抓住重点，也不要求每次都立刻提出方案。没有足够信息时，停下来问清楚，本身也是一种明确下一步。",
+              "en": "If a friend brings an activity invitation, checking time and materials may help establish whether it fits. Yet the invitation might also mean they want company. Briefly ask whether to check arrangements or discuss the activity itself, then follow their answer. A Teto result proves no special ability to identify the issue and requires no instant solution. When information is missing, asking a clear question can be the appropriate next step. A useful action need not be a fast decision."
+            }
+          ]
+        },
+        {
+          "id": "useful",
+          "title": {
+            "zh": "明确步骤能给谈话一个落点",
+            "en": "A concrete step can give a conversation a landing"
+          },
+          "paragraphs": [
+            {
+              "zh": "共同做饭缺一味配料时，先看看手边有什么，能把注意力从“做错了”转向“现在怎么做”。处理的是这个小问题，不是给忘买东西的人下能力结论。替代方案也可以很小，例如两种现有调味先各试一点。这种方式可能帮助推进，但测试没有测效率或实际结果。要核实有没有用，应看方案是否被接受、能否实施，而不是看Teto次数高不高。",
+              "en": "If a shared meal lacks an ingredient, checking what is available can move attention from the mistake to what can happen now. The action addresses a small problem rather than judging the person who forgot something. A substitution can be a small trial with two seasonings already present. This may help a task move, but the test measures no efficiency or real outcome. Check whether the proposal was accepted and workable, instead of using a high Teto count as evidence of success."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "提案再清楚，也要留出拒绝空间",
+            "en": "Clarity still leaves room for refusal"
+          },
+          "paragraphs": [
+            {
+              "zh": "你提出下次聚会日期，对方却还在为今天匆忙结束而失落。若继续把日历往前推，可能会错过他正在说的事。可以先停一句“今天还没聊够，我听见了”，再问现在是否要约日期。也要允许对方不想继续、没有时间或不采用你的方案。明确行动与控制别人不同；本题没有把压住意见、强迫同意或忽略边界写成更高分的选项。",
+              "en": "You propose another gathering date while someone is still disappointed about today ending abruptly. Continuing with the calendar may miss what they are saying. Pause to acknowledge that they wanted more time, then ask whether scheduling now would help. They may decline the next meeting, lack time or prefer another plan. Clarifying an action differs from controlling another person. The bank does not award points for suppressing disagreement, forcing consent or ignoring a boundary, and this result cannot excuse those behaviours."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "Teto不是外向、强硬或高能力",
+            "en": "Teto is not extraversion, toughness or ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版Egen是更先接住感受，Teto是更先明确行动，两项都是合理的开场。安静的人可以先列步骤，健谈的人也可以先回应心情；这里不测社交充电方式。它也不评价直言是否尊重边界，更不把直接、竞争、冷淡混在一个能力分里。其他测评的沟通或内外向结果与此不一致时，先看各自问了什么；没有从本次数量换算MBTI、情商或工作表现的规则。",
+              "en": "Egen means acknowledging a feeling earlier; Teto means clarifying an action earlier. Both are reasonable openings. A quiet person may list steps and a talkative person may start with a feeling, so the task does not establish how you recharge socially. It also does not rate whether direct speech respects boundaries or combine competition and coldness into an ability score. If a communication or introversion result differs, examine each task. There is no conversion from these counts to MBTI, emotional intelligence or workplace performance."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把一个方案写成可拒绝的邀请",
+            "en": "Make one proposal easy to accept or decline"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一件没有急迫风险、双方愿意聊的小事，用“我们可以先试……你觉得呢？”提出一个很小的下一步。再停下来，听对方补充条件、修改或拒绝。不要为了测试记录私人内容，也不必观察别人是不是Egen。之后只回想：你是否说清提案范围，对方有没有足够空间表达另一种需要。一次尝试的作用是检查这段互动，不是证明你的行动风格正确或更成熟。",
+              "en": "Choose a low-stakes matter both people are willing to discuss. Offer a small step with a question about whether trying it would help. Then stop and listen for conditions, changes or refusal. Record no private conversation and do not classify the other person as Egen. Afterwards, consider whether the proposal’s scope was clear and whether another need could be expressed. This checks a particular interaction. It cannot establish that your action style is correct, mature or generally more useful than another opening."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "近分只提示菜单里的选择很接近",
+            "en": "A close count belongs to this menu"
+          },
+          "paragraphs": [
+            {
+              "zh": "Teto10、Egen8时，只要一题从Teto改到Egen就会9比9。不要把这个差距写成稳定类型、强弱等级或行动力百分比。9比9进入专门并列说明，不用隐藏规则破平；两侧公开全文也随时可读。即使18题全选行动开场，也只是每个二选一菜单里选了这一项，不说明现实里从不回应感受。重测变了可先看具体改了哪些情境，而非急着寻找一个永不变化的标签。",
+              "en": "With Teto ten and Egen eight, changing one Teto answer to Egen creates a tie. The gap establishes no stable type, strength level or percentage of drive. Nine each opens a dedicated tie guide without a hidden tiebreaker, while both other guides remain public. Even choosing an action opening eighteen times only describes those offered pairs; it does not show that you never acknowledge feelings. If a retake changes, inspect the particular situations rather than searching for a label that must remain permanent."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "保留文化话题，不建立生物判断",
+            "en": "Keep the topic separate from biological claims"
+          },
+          "paragraphs": [
+            {
+              "zh": "Egen／Teto用作本版趣味标题，和性别、身体、激素水平没有计分关系。18道原创题不复刻竞品五点量表或性别编码分型，三份结果也不构成职业或伴侣匹配。完整结果与公开指南不付费、不注册；不完整作答不分配计数。草稿需主动开启，只在本标签页短期保存，完成、重测或清除即删除。分享文本不含答案、次数或私人经历；愿意的话可另做完整MBTI，也可以在这里结束。",
+              "en": "Egen and Teto provide playful titles with no scoring relationship to gender, bodies or hormone levels. Eighteen original pairs do not reproduce a competitor’s five-point scale or gender coding, and the guides provide no job or partner match. Full results and public explanations require no payment or account. Incomplete attempts receive no counts. Progress needs an explicit opt-in and clears on completion, retaking or clearing. Sharing omits answers, counts and private experiences. A separate complete MBTI attempt is optional; stopping here is equally valid."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tie",
+      "directionIds": [
+        "egen",
+        "teto"
+      ],
+      "title": {
+        "zh": "Egen–Teto并列：两种开场同次",
+        "en": "Egen–Teto Tie"
+      },
+      "headline": {
+        "zh": "九次先回应感受，九次先明确行动；先保留两个读法。",
+        "en": "Nine feelings-first choices, nine action-first choices; keep both readings."
+      },
+      "summary": {
+        "zh": "9比9是这份18题菜单中的次数相等。它不证明理想平衡、适应力更强或人格居中，也不需要隐藏规则选一个胜者。请回到具体情境看两种开场分别出现在什么地方。",
+        "en": "Nine each means equal counts in this eighteen-pair menu. It proves no ideal balance, greater adaptability or middle personality, and needs no hidden winner. Return to the situations to see where each opening appeared."
+      },
+      "seo": {
+        "title": {
+          "zh": "Egen–Teto并列：两种开场同次：完整解释与近分比较",
+          "en": "Egen–Teto Tie: Full Guide & Close Counts"
+        },
+        "description": {
+          "zh": "Egen–Teto并列完整解释：9比9如何形成、与10比8近分有什么差别、怎样结合具体情境阅读两侧，不把平分说成理想平衡或能力。",
+          "en": "Understand a 9–9 Egen–Teto tie, compare a narrow lead, revisit specific choices and read both openings fully. Equal counts are not an ideal-balance score."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题各选一次，每题只给一个方向加1。较高次数选对应说明，9比9选并列说明；10比8改一题就会并列。次数不是情感、行动、激素或人格的百分比，也没有常模分界。",
+        "en": "Each of eighteen choices adds one count to one direction. A higher count selects its guide; nine each selects the tie guide. Changing one choice turns ten versus eight into a tie. Counts are not percentages of feeling, action, hormones or personality, and have no normative cutoff."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "并列先说明算术，不评价你是谁",
+            "en": "A tie states arithmetic before anything else"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题每题给一个方向加1，你选了九次先接住感受、九次先明确行动，因此没有较高的一侧。页面用并列专篇交代这种情况，不按最后一题、性别或某个秘密优先级决定胜者。同样的9比9可以来自很不一样的九组选题；总数没有保存每段生活的全部细节。把结果当作回看所选顺序的入口，比把自己定成“均衡型人格”更符合这份题本能说的范围。",
+              "en": "Each of eighteen questions adds one count to one direction. Nine choices began with a feeling and nine with an action, so neither count is higher. This guide explains that outcome without deciding a winner from the last item, gender or a secret priority. Very different sets of nine choices can produce the same total. A count does not preserve every detail of a life. Use the tie as an entrance to reviewing the selected order rather than a balanced-personality classification."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "野餐和相册，可能需要不同入口",
+            "en": "A picnic and an album can invite different openings"
+          },
+          "paragraphs": [
+            {
+              "zh": "在下雨的野餐题里，你可能先选室内地点；做相册时，却先听大家最想保留的回忆。两种选择可以分别回应两件事的重点，不矛盾，也不能仅凭次数相等就证明你总能准确切换。问卷没有看到真实对话或对方反应。可以分别说清为什么那一题让你想先行动、另一题让你想先听感受，不用为让两个答案显得一致而重写自己的解释。",
+              "en": "You may choose an indoor place first in the rainy picnic situation and listen to memories first when making an album. These can respond to different parts of the two situations without contradiction. Equal totals do not prove that you always switch accurately. The questionnaire has observed no real conversation or response from another person. Explain what in one question invited action and what in another invited listening. The two explanations need not be rewritten to make the answers look uniform."
+            }
+          ]
+        },
+        {
+          "id": "positions",
+          "title": {
+            "zh": "一直选同一位置也会9比9",
+            "en": "Repeated positions can also produce nine each"
+          },
+          "paragraphs": [
+            {
+              "zh": "两方向在每题都出现，并且分别在A、B位置各九次，所以全选A或全选B也会并列。这个设计让两侧位置次数一样，不证明题目没有偏差，更不能把同位置作答的平分当成平衡能力。若发现自己没有认真读内容，可以按实际意思重新作答；也可以停止，直接读三份全文。为了得到某个理想标签而调整字母，没有比本来的选择更“正确”。",
+              "en": "Both directions appear in every pair, with nine placements in each position. Choosing A throughout, or B throughout, therefore also produces a tie. Equal positioning does not prove unbiased items, and a same-position tie is not evidence of balanced skill. If you did not read the content, you may retake with the actual meanings in mind. You can also stop and read all three guides. Changing letters to reach an ideal label is no more correct than your original choices."
+            }
+          ]
+        },
+        {
+          "id": "readboth",
+          "title": {
+            "zh": "两侧全文都能读，不需要主副型",
+            "en": "Both guides remain whole without primary and secondary types"
+          },
+          "paragraphs": [
+            {
+              "zh": "Egen全文讨论回应感受怎样接上安排，也说明不必为所有人承担情绪；Teto全文讨论行动提案怎样留下拒绝空间，也提醒先问清对方需要。并列不是把两份各砍一半，也不是要求你同时做所有动作。你可以各挑一个具体例子比较：这一刻更缺少被理解，还是更缺少明确下一步？实际对方有自己的答案，不能由测评替他决定。",
+              "en": "The Egen guide connects acknowledgement with an arrangement and leaves room for your own limits. The Teto guide keeps a proposal open to refusal and asks what the other person needs. A tie does not cut each guide in half or require every move at once. Compare one concrete example from each: is this moment missing understanding or a clear next step? The other person has their own answer. Your result cannot decide what they need on their behalf."
+            }
+          ]
+        },
+        {
+          "id": "near",
+          "title": {
+            "zh": "9比9和10比8有多大区别",
+            "en": "How a tie differs from ten versus eight"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一条Egen选择改成Teto，9比9就成为8比10；反过来也一样。系统按可复算的次数给出对应说明，但这个边界没有验证的心理测量意义。9比9不更健康，10比8也不更坚定。即使相差更多，原始次数仍然只描述这18组给定选项，不能解释成人群排名、人格成分比例或适配概率。近分适合邀请你比较两份读法，不适合拿来替别人贴标签。",
+              "en": "Changing one Egen choice to Teto turns nine each into eight versus ten; the reverse works too. The interface selects a guide using reproducible counts, but the boundary has no validated psychometric significance. Nine each is not healthier and ten versus eight is not more decisive. Wider gaps still describe these offered pairs, not population ranks, personality ingredients or compatibility probabilities. A narrow result can invite comparison of the two readings rather than authorise a label for another person."
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": {
+            "zh": "顺序会受具体条件影响",
+            "en": "Specific conditions can change the order"
+          },
+          "paragraphs": [
+            {
+              "zh": "熟悉程度、时间是否充裕、事情是否可逆，以及对方有没有明确请求方案，都可能改变你想先做什么。题目只给短场景，无法把这些条件写全。如果你觉得“要看情况”，可以在理解结果时保留这一点；两项都不合适的题也允许停止，不用勉强完成。不要从并列推导出你在所有场合都更灵活，真实的切换是否合适还需要看那一次互动。",
+              "en": "Familiarity, available time, whether a step is reversible and an explicit request for a solution can all affect what you want to do first. Short scenarios cannot include every condition. Keep your own qualifications when reading the result, and stop if neither offered answer fits. A tie does not establish flexibility across all settings. Whether a switch was helpful belongs to that interaction. The questionnaire cannot observe the setting or the other person’s preferences simply because its totals are equal."
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "zh": "用一个询问代替猜测",
+            "en": "Replace a guess with one short question"
+          },
+          "paragraphs": [
+            {
+              "zh": "下次有人带来普通烦恼时，可以先问“你想我先听你说说，还是一起找下一步？”只在双方愿意的情况下继续，别把问题当作必须让对方二选一的命令。他可能两样都想要，或只想暂时换个话题。回想时只看你有没有允许他更正，以及下一步有没有共同理解；不记录私人内容，不用这次尝试判定对方的Egen／Teto，也不把一次效果当成题本验证。",
+              "en": "When someone brings an ordinary difficulty, ask whether they would like you to listen first or work on a next step together. Continue only if both people want to. The question is not an order to choose between two boxes: they may want both or prefer another subject. Afterwards, consider whether they could correct you and whether the next step was understood. Record no private material, classify no other person, and treat no single outcome as validation of the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "difference",
+          "title": {
+            "zh": "不是内外向中点或性别中间值",
+            "en": "Not an introversion midpoint or a gender measure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本题不问怎样充电，也不询问身体或性别编码。Egen／Teto是这份趣味开场比较的名字，和内外向、温柔强弱、情商、领导力或激素没有换算关系。竞品会使用带性别编码的文化标签，本版不据此分类；因此三份指南不能当作竞品四类的等价翻译。若你只是想理解这些词的文化用法，可以读入口的方法说明，不必提交一份个人答卷。",
+              "en": "The bank asks neither how you recharge nor about bodies or gender coding. Egen and Teto name this playful comparison of openings. Counts convert into no introversion midpoint, gentleness level, emotional intelligence, leadership or hormone measure. Some competitor labels use gender coding; this edition does not classify that way, so its three guides are not equivalent translations of four coded types. If you only want the vocabulary and method, read the public entry without completing a personal attempt."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "平分也有完整结果，不再解锁一层",
+            "en": "A tie is a full result with no extra unlock"
+          },
+          "paragraphs": [
+            {
+              "zh": "并列九节、两侧全部说明和方法都已免费开放，不需注册、再做另一测或购买来决定“真正是哪类”。缺答不算次数；可以改答、重测或结束。临时草稿由你主动开启，限本标签页24小时，完成、清除或重测后删除。分享只有并列名称与公开说明链接，不带答卷或计数。若还想了解别的偏好框架，可以另做完整MBTI；这个9比9不会被换算成其类型。",
+              "en": "This nine-section tie guide, both other explanations and the method are already free. No account, second quiz or purchase reveals a supposedly true winner. Partial attempts have no counts; edit, retake or stop as you prefer. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the tie name and public link without answers or counts. A separate full MBTI attempt is optional, and this nine-each result is never converted into its type."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "raw-wins-explanation",
+      "title": {
+        "zh": "18次选择怎样计",
+        "en": "How eighteen choices are counted"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题先接住感受或先明确行动各出现一次，两方向各有18次比较、在A和B位置各9次。每选一项该方向加1，无反向、权重、正确答案或百分比。完成18题才显示两个原始次数，其和为18；较高的一侧对应Egen或Teto完整指南。",
+          "en": "Each pair offers acknowledging a feeling and clarifying an action. Both directions appear eighteen times, nine in each position. A choice adds one count without reversals, weights, right answers or percentages. Complete all eighteen for the two raw counts, which sum to eighteen; the higher one selects its Egen or Teto full guide."
+        }
+      ]
+    },
+    {
+      "id": "ties-explanation",
+      "title": {
+        "zh": "9比9与接近次数",
+        "en": "A nine-each tie and a narrow lead"
+      },
+      "paragraphs": [
+        {
+          "zh": "9比9有独立九节全文，不靠最后一题、性别或暗规则破平。10比8只需改一题便并列，没有验证的心理分界。两方向都可合理，不表示互斥人格；全选A或全选B也会9比9，不证明理想平衡。",
+          "en": "Nine each opens a full nine-section tie guide with no last-item, gender or hidden tiebreaker. Changing one choice turns ten versus eight into a tie, without a validated psychological boundary. Both openings can be reasonable and are not exclusive personalities. Repeating A or B also yields nine each and proves no ideal balance."
+        }
+      ]
+    },
+    {
+      "id": "low-direction-explanation",
+      "title": {
+        "zh": "次数不评价好坏或身份",
+        "en": "Counts establish neither quality nor identity"
+      },
+      "paragraphs": [
+        {
+          "zh": "本站原创无性别编码版本，只借用Egen／Teto的温和回应与直接行动话题。18道二选一、两方向及9比9并列共三份完整指南；不复刻竞品17条五点题、四个性别编码标签或六页历史分类。这里的“先”不是永远只会一种回应，不把温和与行动当作互斥人格，也不测激素、性别、内外向、情商或关系适配。",
+          "en": "This original edition uses Egen and Teto as playful names for a warm opening and a direct action opening, without gender coding. Eighteen pairs lead to two directions or a nine-each tie, with three complete guides. It does not reproduce a competitor’s seventeen five-point items, four gender-coded labels or six-page taxonomy. First does not mean only; warmth and action are not mutually exclusive personalities. No hormones, gender, introversion, emotional intelligence or relationship compatibility are measured."
+        }
+      ]
+    },
+    {
+      "id": "edition",
+      "title": {
+        "zh": "两极话题与本版范围",
+        "en": "The two-pole topic and this edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "本站原创无性别编码版本，只借用Egen／Teto的温和回应与直接行动话题。18道二选一、两方向及9比9并列共三份完整指南；不复刻竞品17条五点题、四个性别编码标签或六页历史分类。这里的“先”不是永远只会一种回应，不把温和与行动当作互斥人格，也不测激素、性别、内外向、情商或关系适配。",
+          "en": "This original edition uses Egen and Teto as playful names for a warm opening and a direct action opening, without gender coding. Eighteen pairs lead to two directions or a nine-each tie, with three complete guides. It does not reproduce a competitor’s seventeen five-point items, four gender-coded labels or six-page taxonomy. First does not mean only; warmth and action are not mutually exclusive personalities. No hormones, gender, introversion, emotional intelligence or relationship compatibility are measured."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "作答、临时进度与安全分享",
+        "en": "Answering, optional progress and safe sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "并列九节、两侧全部说明和方法都已免费开放，不需注册、再做另一测或购买来决定“真正是哪类”。缺答不算次数；可以改答、重测或结束。临时草稿由你主动开启，限本标签页24小时，完成、清除或重测后删除。分享只有并列名称与公开说明链接，不带答卷或计数。若还想了解别的偏好框架，可以另做完整MBTI；这个9比9不会被换算成其类型。",
+          "en": "This nine-section tie guide, both other explanations and the method are already free. No account, second quiz or purchase reveals a supposedly true winner. Partial attempts have no counts; edit, retake or stop as you prefer. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the tie name and public link without answers or counts. A separate full MBTI attempt is optional, and this nine-each result is never converted into its type."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "Egen和Teto在这里是什么意思？",
+        "en": "What do Egen and Teto mean here?"
+      },
+      "answer": {
+        "zh": "本版把Egen用作先回应感受的趣味称呼，把Teto用作先明确下一步的称呼。只比较给定情境里的开场顺序；同一个人可以两种都用，不推断性别、激素或固定人格。",
+        "en": "In this edition, Egen playfully names acknowledging a feeling first and Teto names clarifying a next step first. Only the order within offered situations is compared. One person can use both without any inference about gender, hormones or a fixed personality."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是竞品17题或四种性别标签的翻译吗？",
+        "en": "Is this a translation of seventeen items or four gender-coded types?"
+      },
+      "answer": {
+        "zh": "本站原创无性别编码版本，只借用Egen／Teto的温和回应与直接行动话题。18道二选一、两方向及9比9并列共三份完整指南；不复刻竞品17条五点题、四个性别编码标签或六页历史分类。这里的“先”不是永远只会一种回应，不把温和与行动当作互斥人格，也不测激素、性别、内外向、情商或关系适配。",
+        "en": "This original edition uses Egen and Teto as playful names for a warm opening and a direct action opening, without gender coding. Eighteen pairs lead to two directions or a nine-each tie, with three complete guides. It does not reproduce a competitor’s seventeen five-point items, four gender-coded labels or six-page taxonomy. First does not mean only; warmth and action are not mutually exclusive personalities. No hormones, gender, introversion, emotional intelligence or relationship compatibility are measured."
+      }
+    },
+    {
+      "question": {
+        "zh": "18题怎样计分，有对错吗？",
+        "en": "How are eighteen pairs scored, and are there right answers?"
+      },
+      "answer": {
+        "zh": "每题先接住感受或先明确行动各出现一次，两方向各有18次比较、在A和B位置各9次。每选一项该方向加1，无反向、权重、正确答案或百分比。完成18题才显示两个原始次数，其和为18；较高的一侧对应Egen或Teto完整指南。",
+        "en": "Each pair offers acknowledging a feeling and clarifying an action. Both directions appear eighteen times, nine in each position. A choice adds one count without reversals, weights, right answers or percentages. Complete all eighteen for the two raw counts, which sum to eighteen; the higher one selects its Egen or Teto full guide."
+      }
+    },
+    {
+      "question": {
+        "zh": "9比9、10比8或全选同一位置怎么看？",
+        "en": "How should I read nine each, ten versus eight or repeated positions?"
+      },
+      "answer": {
+        "zh": "9比9有独立九节全文，不靠最后一题、性别或暗规则破平。10比8只需改一题便并列，没有验证的心理分界。两方向都可合理，不表示互斥人格；全选A或全选B也会9比9，不证明理想平衡。",
+        "en": "Nine each opens a full nine-section tie guide with no last-item, gender or hidden tiebreaker. Changing one choice turns ten versus eight into a tie, without a validated psychological boundary. Both openings can be reasonable and are not exclusive personalities. Repeating A or B also yields nine each and proves no ideal balance."
+      }
+    },
+    {
+      "question": {
+        "zh": "Egen就是内向，Teto就是外向吗？",
+        "en": "Does Egen mean introvert and Teto mean extrovert?"
+      },
+      "answer": {
+        "zh": "不是。安静或健谈的人都可能先听感受或先列步骤。本题没有测社交充电方式、能力、情商、MBTI类型或沟通是否尊重边界；不同测评名称无需强行一致。",
+        "en": "No. A quiet or talkative person can choose either opening. This task does not measure social recharging, ability, emotional intelligence, MBTI or respect for boundaries. Labels from different tasks need not agree."
+      }
+    },
+    {
+      "question": {
+        "zh": "会按结果推荐工作或恋爱对象吗？",
+        "en": "Does the result match me to jobs or partners?"
+      },
+      "answer": {
+        "zh": "不会。这份原创趣味题没有本站常模、效度或跨语言等价验证，原始次数不能推断关系适配或职业表现。完整结果后如想探索其他偏好，可独立完整作答MBTI，也可以结束。",
+        "en": "No. The original playful bank has no local norms, validity evidence or established language equivalence. Raw counts predict no relationship match or job performance. After the full result, a separate complete MBTI attempt is optional, and you can simply stop."
+      }
+    },
+    {
+      "question": {
+        "zh": "三份完整结果、草稿、重测和分享收费吗？",
+        "en": "Are the three full guides, drafts, retakes and sharing paid?"
+      },
+      "answer": {
+        "zh": "并列九节、两侧全部说明和方法都已免费开放，不需注册、再做另一测或购买来决定“真正是哪类”。缺答不算次数；可以改答、重测或结束。临时草稿由你主动开启，限本标签页24小时，完成、清除或重测后删除。分享只有并列名称与公开说明链接，不带答卷或计数。若还想了解别的偏好框架，可以另做完整MBTI；这个9比9不会被换算成其类型。",
+        "en": "This nine-section tie guide, both other explanations and the method are already free. No account, second quiz or purchase reveals a supposedly true winner. Partial attempts have no counts; edit, retake or stop as you prefer. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains the tie name and public link without answers or counts. A separate full MBTI attempt is optional, and this nine-each result is never converted into its type."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://jobcannon.io/assessments/egen-teto/about",
+      "title": {
+        "zh": "JobCannon Egen-Teto公开介绍：话题对照，不是本站计分依据",
+        "en": "JobCannon Egen-Teto public introduction: topic comparison, not this edition’s scoring source"
+      }
+    }
+  ]
+}
