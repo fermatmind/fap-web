@@ -1,0 +1,692 @@
+[
+  {
+    "id": "ginny",
+    "directionIds": [
+      "ginny"
+    ],
+    "title": {
+      "en": "Ginny Miller",
+      "zh": "金妮·米勒"
+    },
+    "headline": {
+      "en": "A voice that remains your own",
+      "zh": "保留自己的声音"
+    },
+    "summary": {
+      "en": "Explore the Ginny reading through authorship, a shared-zine example and comparisons with Georgia, Austin, Marcus and Max.",
+      "zh": "从共同刊物的例子理解金妮的自我表达，比较其他四位角色，阅读选择依据、取舍和小练习。"
+    },
+    "seo": {
+      "title": {
+        "en": "Ginny Quiz Result: Personal Voice & Character Guide",
+        "zh": "金妮角色测试结果：自己的声音与完整说明"
+      },
+      "description": {
+        "en": "Explore the Ginny reading through authorship, a shared-zine example and comparisons with Georgia, Austin, Marcus and Max.",
+        "zh": "从共同刊物的例子理解金妮的自我表达，比较其他四位角色，阅读选择依据、取舍和小练习。"
+      }
+    },
+    "scoreReading": {
+      "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+      "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+    },
+    "sections": [
+      {
+        "id": "context",
+        "title": {
+          "en": "Ginny and authorship",
+          "zh": "金妮与自己的讲述"
+        },
+        "paragraphs": [
+          {
+            "en": "Ginny Miller is Georgia’s daughter and a student navigating life in Wellsbury. Writing is one outlet in her story. This guide takes the limited angle of authorship: wanting a description of your experience to sound like something you would actually say. It does not treat every part of Ginny’s story as one personality. The questions ask about ordinary contributions to creative or community activities; knowledge of episodes is unnecessary.",
+            "zh": "金妮是乔治娅的女儿，在韦尔斯伯里的学校生活，写作是她表达的一条途径。本说明只借“自己讲述自己”的角度：希望关于自身经历的说法，听起来是自己会说的话。它没有把金妮整段剧情压成一种人格。题目涉及日常创作和共同活动，不考剧情记忆。"
+          }
+        ]
+      },
+      {
+        "id": "choices",
+        "title": {
+          "en": "What your selected options have in common",
+          "zh": "你选的选项有什么共同点"
+        },
+        "paragraphs": [
+          {
+            "en": "A highest Ginny count means you more often chose personal wording, an account of what something means to you, or room for different people to speak in their own terms. This can protect a project from becoming a polished description that nobody recognises. The tradeoff appears when preserving a precise personal meaning slows a shared decision. You can keep your account without requiring everyone to use the same words or agree with the interpretation.",
+            "zh": "金妮计数最高，表示你本次较常选个人措辞、说明某件事对自己的意义，或给不同的人保留各自说法。这可能让共同作品不至于变成一段谁也认不出的漂亮介绍；取舍在于，反复追求完全贴切的表达，有时会拖慢共同决定。保留自己的讲述，不要求所有人采用同一措辞或同意同一解释。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "The shared-zine example",
+          "zh": "共同刊物的例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a club wants to replace your contribution with a general slogan about belonging. You like the club but the slogan misses why you joined. A useful response separates the two issues: the group needs a short introduction, while you want a particular sentence to remain yours. You could offer a shorter personal paragraph alongside the shared introduction. If the editor has a strict space limit, decide which detail matters most rather than treating every cut as a verdict on your identity.",
+            "zh": "例如社团想用一句统一的归属感口号替代你的投稿。你喜欢社团，但那句话没说出加入的理由。可以分清两件事：集体需要短介绍，而你希望有一句话仍属于自己。你可以提供更短的个人段落，与共同介绍并列。若编辑确实有篇幅限制，就选出最重要的细节，不把每次删字都当成对身份的裁定。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Compare all five readings",
+          "zh": "比较五种读法"
+        },
+        "paragraphs": [
+          {
+            "en": "Georgia’s angle asks how an idea can be made workable; yours asks what the idea says in your own terms. Marcus attends to a small, selective exchange, which need not involve self-description. Max enjoys making expression audible and shared, while Austin builds an inviting imagined setting. A personal paragraph may also be theatrical, quiet or practical. These are overlapping choices, not five incompatible people or an independence ranking.",
+            "zh": "乔治娅的角度问想法怎样落地，你的角度问它怎样说出自己的意思。马库斯偏重小范围、细致的交流，不一定在讲自己；Max更愿意把表达带到共同现场，奥斯汀则用想象营造能进入的场景。个人段落也可以热闹、安静或实用，五种做法可以重叠，不是互斥的人，更不是独立性排名。"
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "title": {
+          "en": "A small authorship experiment",
+          "zh": "一个表达小尝试"
+        },
+        "paragraphs": [
+          {
+            "en": "Take an ordinary description you already need, such as a caption for something you made. Write a version in your natural voice and a version suited to the shared project. Keep one specific detail in both. You need not publish either. Notice which change makes the description clearer and which removes the point you cared about. A possible phrase is: “I can shorten this, but I would like this detail to remain because it explains my contribution.”",
+            "zh": "拿一段本来就需要写的普通介绍，比如作品题注，用自己的口吻和适合共同项目的口吻各写一版，两版都留一个具体细节。不必发布。看看哪些改动让意思更清楚，哪些改动删掉了自己在意的点。可以说：“我能缩短，但想保留这个细节，因为它说明了我的参与。”"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "When this reading does not explain the choice",
+          "zh": "这份读法解释不了什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Choosing personal wording may reflect the assignment rather than a lasting trait. Someone may prefer a ready-made description because of language, time or access needs, not because they lack a voice. A Ginny match assigns no adolescence, family conflict, trauma or clinical condition. It does not certify authenticity or writing ability. If the guide feels wrong, the offered choices or this editorial mapping may simply not fit you; you do not need to make your life match the character.",
+            "zh": "选个人措辞可能只是任务需要，不是持久特质。使用现成介绍也可能出于语言、时间或可访问性需要，不表示没有自己的声音。金妮结果不赋予青春期、家庭冲突、创伤或临床状况，也不认证真实自我或写作能力。若说明不贴切，可能只是选项和编辑映射不适合你，不必把生活改成角色。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How this edition produces the match",
+          "zh": "本版怎样产生匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+            "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source scope",
+          "zh": "原创同人版本与来源范围"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan quiz, its items, mappings, examples and guides. Ginny & Georgia and its characters belong to their respective rights holders; there is no affiliation or endorsement. Netflix material supplies limited fictional context, not validation of this questionnaire. No show dialogue, images or competitor question or result text is used. This edition is for entertainment, with no psychometric validation, diagnosis, developmental age, relationship prediction, MBTI conversion or career-fit inference. A character name does not transfer that character’s history or justify their actions.",
+            "zh": "费马独立创作这份非官方同人测验的题目、映射、例子和说明。《金妮与乔治娅》及角色权利归相应权利人，本站无隶属或认可关系。Netflix资料仅提供有限人物背景，不验证本站题本；不使用剧集台词、截图或竞品题库、结果正文。本版用于娱乐，没有心理测量验证，不作诊断、心理年龄、关系预测、MBTI换算或职业适配。角色名字不把人物经历转给你，也不为其行为免责。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "georgia",
+    "directionIds": [
+      "georgia"
+    ],
+    "title": {
+      "en": "Georgia Miller",
+      "zh": "乔治娅·米勒"
+    },
+    "headline": {
+      "en": "Find a route that can actually work",
+      "zh": "找到能走通的办法"
+    },
+    "summary": {
+      "en": "Read the Georgia match through practical initiative, an exhibition example, consent in coordination and comparisons with the other four characters.",
+      "zh": "通过展览安排理解乔治娅的行动与资源整合，比较其他角色，区分帮助、替人决定与本次选择。"
+    },
+    "seo": {
+      "title": {
+        "en": "Georgia Quiz Result: Resourcefulness & Character Guide",
+        "zh": "乔治娅角色测试结果：让想法落地与完整说明"
+      },
+      "description": {
+        "en": "Read the Georgia match through practical initiative, an exhibition example, consent in coordination and comparisons with the other four characters.",
+        "zh": "通过展览安排理解乔治娅的行动与资源整合，比较其他角色，区分帮助、替人决定与本次选择。"
+      }
+    },
+    "scoreReading": {
+      "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+      "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+    },
+    "sections": [
+      {
+        "id": "context",
+        "title": {
+          "en": "Georgia and practical initiative",
+          "zh": "乔治娅与主动找办法"
+        },
+        "paragraphs": [
+          {
+            "en": "Georgia Miller arrives in Wellsbury with her children and tries to build a new life. This guide selects her resourceful, active approach to circumstances, without endorsing how she acts in the story. In the quiz, that angle becomes ordinary practical initiative: working with available space, making an idea usable and negotiating a route forward. It is an editorial interpretation of fictional context, not evidence that you share her motives or history.",
+            "zh": "乔治娅带着孩子来到韦尔斯伯里，试着建立新生活。本版只借她面对条件时主动找办法的角度，不认可剧情中的全部做法。在题目里，这变成日常的实际行动：利用场地、让想法可用、商量可行路径。这是编辑对人物的有限阅读，不证明你与她有相同动机或经历。"
+          }
+        ]
+      },
+      {
+        "id": "choices",
+        "title": {
+          "en": "Turning intention into a usable arrangement",
+          "zh": "把意图变成可用安排"
+        },
+        "paragraphs": [
+          {
+            "en": "A highest Georgia count means the options you chose more often concern feasible next steps, materials, handovers or workable alternatives. The useful part is reducing the distance between an appealing idea and something people can do. The cost can be moving into solution mode before understanding what others want to preserve. Practical initiative works best when the people affected can decline, revise or own part of the arrangement. A count does not establish leadership ability.",
+            "zh": "乔治娅计数最高，表示你本次较常选择下一步、材料、衔接或替代方案。这些做法可以缩短好想法与真正能做的事之间的距离；代价可能是，还没听清别人想保留什么，就开始解决问题。受影响的人能拒绝、修改或承担自己的一部分时，主动安排才更合适。计数不证明领导能力。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "An exhibition without the planned equipment",
+          "zh": "设备不齐的展览"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose a club cannot borrow its display stand. You see that two tables and a short live explanation could still make an exhibition possible. Before committing, ask the makers whether changing the layout would hide something important in their work. Then name the smallest arrangement you can offer and what help you need. A workable plan includes permission and limits; quietly taking over every task may make the display happen but leave others without a say.",
+            "zh": "比如社团借不到展架，你发现两张桌子加简短介绍也能办展。先问制作者，改布局会不会遮掉作品的重要部分，再说清自己能提供的最小安排、还需要谁帮忙。可行计划包括同意和边界。默默包下所有事，可能让展览发生，却让其他人失去参与决定的机会。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "How the other readings change the question",
+          "zh": "其他读法换了什么问题"
+        },
+        "paragraphs": [
+          {
+            "en": "Ginny would protect the personal meaning in a contribution; Georgia asks how it can be presented with real constraints. Austin might turn an awkward table into an imaginary setting, while Max might make a live introduction the main event. Marcus might keep a smaller, unhurried exchange. These may be equally workable responses. Your highest count indicates a preference among the offered alternatives, not that you are the competent one and everyone else needs managing.",
+            "zh": "金妮先保留作品的个人意义，乔治娅则问现实限制下怎样呈现。奥斯汀可能把形状奇怪的桌子变成想象场景，Max可能让现场介绍本身成为亮点，马库斯则保留更小、更慢的交流。这些也能行得通。最高计数只是本组选项中的偏好，不表示你才有能力、别人都需要管理。"
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "title": {
+          "en": "Offer a bounded plan",
+          "zh": "提出有边界的计划"
+        },
+        "paragraphs": [
+          {
+            "en": "For a low-stakes shared activity, write three lines: what you can arrange, what remains undecided and whose agreement is needed. You might say, “I can organise the materials if this setup suits everyone; I cannot take on the whole event.” See whether naming the limit makes collaboration clearer. You may also choose to participate without organising. This is a small coordination experiment, not a test of how much responsibility you can carry.",
+            "zh": "对一件低风险共同活动写三行：自己能安排什么、哪些还没决定、需要谁同意。可以说：“如果大家觉得这样合适，我能整理材料，但没法包下整场。”观察边界说明是否让合作更清楚。也可以这次只参加、不组织。这是小型协调尝试，不是考你能背多少责任。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Resourcefulness is not permission",
+          "zh": "会找办法不等于获得许可"
+        },
+        "paragraphs": [
+          {
+            "en": "Sometimes a practical option is selected only because the available time is short. Passing on an organising role may reflect workload or access rather than passivity. The result predicts neither resilience nor parenting, financial, relationship or career outcomes. It grants no permission to conceal facts, pressure people or imitate harmful fictional conduct. If a real problem involves another person’s choice, their answer has more authority than a character match or a plan you would prefer.",
+            "zh": "实际选项可能只是赶时间时的选择。放弃组织也可能是工作量或可参与条件所限，不是被动。结果不预测抗压、养育、财务、关系或职业结局，更不允许隐瞒、施压或模仿剧情伤害。现实问题涉及他人的选择时，对方自己的回答，比角色匹配或你偏好的计划更有权威。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How this edition produces the match",
+          "zh": "本版怎样产生匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+            "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source scope",
+          "zh": "原创同人版本与来源范围"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan quiz, its items, mappings, examples and guides. Ginny & Georgia and its characters belong to their respective rights holders; there is no affiliation or endorsement. Netflix material supplies limited fictional context, not validation of this questionnaire. No show dialogue, images or competitor question or result text is used. This edition is for entertainment, with no psychometric validation, diagnosis, developmental age, relationship prediction, MBTI conversion or career-fit inference. A character name does not transfer that character’s history or justify their actions.",
+            "zh": "费马独立创作这份非官方同人测验的题目、映射、例子和说明。《金妮与乔治娅》及角色权利归相应权利人，本站无隶属或认可关系。Netflix资料仅提供有限人物背景，不验证本站题本；不使用剧集台词、截图或竞品题库、结果正文。本版用于娱乐，没有心理测量验证，不作诊断、心理年龄、关系预测、MBTI换算或职业适配。角色名字不把人物经历转给你，也不为其行为免责。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "austin",
+    "directionIds": [
+      "austin"
+    ],
+    "title": {
+      "en": "Austin Miller",
+      "zh": "奥斯汀·米勒"
+    },
+    "headline": {
+      "en": "Make room for a shared imaginary world",
+      "zh": "为共同想象留一点地方"
+    },
+    "summary": {
+      "en": "Explore Austin through a small imaginary world, a reading-corner example, practical limits and comparisons with the other four character readings.",
+      "zh": "以阅读角的小故事理解奥斯汀的共同想象，阅读相近角色区别、现实边界与可以尝试的小活动。"
+    },
+    "seo": {
+      "title": {
+        "en": "Austin Quiz Result: Shared Imagination & Character Guide",
+        "zh": "奥斯汀角色测试结果：共同想象与完整说明"
+      },
+      "description": {
+        "en": "Explore Austin through a small imaginary world, a reading-corner example, practical limits and comparisons with the other four character readings.",
+        "zh": "以阅读角的小故事理解奥斯汀的共同想象，阅读相近角色区别、现实边界与可以尝试的小活动。"
+      }
+    },
+    "scoreReading": {
+      "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+      "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+    },
+    "sections": [
+      {
+        "id": "context",
+        "title": {
+          "en": "Austin as a fictional point of reference",
+          "zh": "奥斯汀这个人物参照"
+        },
+        "paragraphs": [
+          {
+            "en": "Austin is Georgia’s son and Ginny’s younger brother. This edition selects a narrow reading of a child’s imaginative way of making a place feel approachable. It does not ask adults to become childlike or use a fictional child as a developmental standard. The quiz translates that angle into ordinary creative participation: invented maps, miniature settings and stories people can continue together. The result concerns the options offered here, not the character’s entire life.",
+            "zh": "奥斯汀是乔治娅的儿子、金妮的弟弟。本版只借儿童通过想象让地方变得亲近的有限角度，不要求成年人变得幼稚，也不把虚构儿童当发展标准。题目把这一角度放在日常共同创作里：虚构地图、微型场景、能一起续写的故事。结果描述本组选项，不解释人物的一生。"
+          }
+        ]
+      },
+      {
+        "id": "choices",
+        "title": {
+          "en": "Inviting others through play",
+          "zh": "用小小的游戏邀请别人"
+        },
+        "paragraphs": [
+          {
+            "en": "A highest Austin count means you more often selected a playful setting, a friendly invented connection or an unfinished story others can enter. This can give people a low-pressure way to contribute without a polished speech or finished product. The tradeoff is that a game may add another layer for someone who wants plain instructions. Imagination is an invitation, not an obligation; participants need to be able to ask for the straightforward version or opt out.",
+            "zh": "奥斯汀计数最高，表示你本次较常选有趣的场景、亲切的虚构联系，或留给别人接续的故事。这可以让人不必拿出完整作品、讲得很漂亮，也能轻松参与；取舍在于，对只想要直接说明的人，游戏可能多加了一层负担。想象是一种邀请，参与者应能要求简单版本或不参加。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A story trail on a reading shelf",
+          "zh": "书架上的小故事路线"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine there is an empty shelf at a shared reading corner. You place a few ordinary objects along it and invite each visitor to add one sentence to a fictional journey. Someone wants to look without adding anything; another prefers to write a factual book recommendation. Both can belong. Keep the invented story separate from practical information such as borrowing rules. The activity becomes welcoming through optional ways to take part, rather than assuming everyone finds the same game comforting.",
+            "zh": "例如共用阅读角空出一层架子，你摆几件普通小物件，邀请每位来访者给虚构旅程续一句话。有的人只看不写，有的人更愿意写真实书评，两者都能参与。故事和借阅规则等实际信息分清。多种自愿参与方式让活动亲切，而不是假设所有人都被同一游戏安慰。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Play beside expression and action",
+          "zh": "想象、表达与行动放在一起看"
+        },
+        "paragraphs": [
+          {
+            "en": "Max’s reading brings expression into the room; Austin’s gives the room a small world to explore. Ginny keeps an individual account distinct, while Austin leaves part of the creation deliberately open to others. Georgia prioritises a usable arrangement, and Marcus a selected, quiet exchange. A miniature café may involve all five: a workable table, personal menu notes, an invented story, a small conversation and a spirited introduction. The highest count does not exclude the rest.",
+            "zh": "Max把表达带到现场，奥斯汀给现场一个可探索的小世界。金妮让个人讲述保持清楚，奥斯汀则有意把一部分创作留给别人。乔治娅重可用安排，马库斯重小范围细聊。一个虚构小咖啡馆也可能同时需要五种做法：能用的桌子、个人菜单、想象故事、安静谈话和生动介绍。最高计数不排除其余。"
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "title": {
+          "en": "Try an invitation with an exit",
+          "zh": "尝试一份能自由退出的邀请"
+        },
+        "paragraphs": [
+          {
+            "en": "If it sounds enjoyable, turn one ordinary object into the starting point of a two-line fictional scene. Add a clear invitation: “You can continue this, just read it, or leave it as it is.” No one has to disclose a personal memory. Notice whether the playful format helps this particular activity. It is equally useful to discover that simple, literal instructions suit the people present better; there is no creativity grade to protect.",
+            "zh": "如果觉得有趣，可用一件普通物品写两句虚构场景，再加上：“你可以续写、只读，或原样放着。”不必让任何人交出个人回忆。看看这种形式是否适合这次活动；发现现场的人更喜欢直接说明，也同样有用，没有必须守住的创造力分数。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "No age or emotional diagnosis",
+          "zh": "不推断年龄或情绪状况"
+        },
+        "paragraphs": [
+          {
+            "en": "Choosing invented stories does not establish innocence, empathy, emotional sensitivity, intelligence or mental age. Someone may prefer practical tasks because they enjoy them, not because imagination has disappeared. Austin’s difficult fictional experiences are not inferred from your choices. This reading is neither a childhood assessment nor a coping recommendation. If you dislike the character but enjoy the option, you can keep the idea and disregard the match; fandom identification is not required.",
+            "zh": "选虚构故事不证明纯真、共情、敏感、智力或心理年龄。偏好实际任务可能只是喜欢，不表示想象力消失。奥斯汀在剧情里的困难经历不能从你的选择推出来。这不是童年评估或应对建议；即使不喜欢人物，也可以喜欢一个选项、忽略匹配，不需要认同粉丝身份。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How this edition produces the match",
+          "zh": "本版怎样产生匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+            "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source scope",
+          "zh": "原创同人版本与来源范围"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan quiz, its items, mappings, examples and guides. Ginny & Georgia and its characters belong to their respective rights holders; there is no affiliation or endorsement. Netflix material supplies limited fictional context, not validation of this questionnaire. No show dialogue, images or competitor question or result text is used. This edition is for entertainment, with no psychometric validation, diagnosis, developmental age, relationship prediction, MBTI conversion or career-fit inference. A character name does not transfer that character’s history or justify their actions.",
+            "zh": "费马独立创作这份非官方同人测验的题目、映射、例子和说明。《金妮与乔治娅》及角色权利归相应权利人，本站无隶属或认可关系。Netflix资料仅提供有限人物背景，不验证本站题本；不使用剧集台词、截图或竞品题库、结果正文。本版用于娱乐，没有心理测量验证，不作诊断、心理年龄、关系预测、MBTI换算或职业适配。角色名字不把人物经历转给你，也不为其行为免责。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcus",
+    "directionIds": [
+      "marcus"
+    ],
+    "title": {
+      "en": "Marcus Baker",
+      "zh": "马库斯·贝克"
+    },
+    "headline": {
+      "en": "Give a small exchange enough room",
+      "zh": "给小范围交流足够空间"
+    },
+    "summary": {
+      "en": "Read the Marcus match through selected attention, listening to an unfinished tune and comparisons with all four other characters, without clinical labels.",
+      "zh": "从陪听一段未完成的小曲理解马库斯的安静关注，比较其他角色，区分个人节奏与临床标签。"
+    },
+    "seo": {
+      "title": {
+        "en": "Marcus Quiz Result: Quiet Attention & Character Guide",
+        "zh": "马库斯角色测试结果：安静关注与完整说明"
+      },
+      "description": {
+        "en": "Read the Marcus match through selected attention, listening to an unfinished tune and comparisons with all four other characters, without clinical labels.",
+        "zh": "从陪听一段未完成的小曲理解马库斯的安静关注，比较其他角色，区分个人节奏与临床标签。"
+      }
+    },
+    "scoreReading": {
+      "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+      "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+    },
+    "sections": [
+      {
+        "id": "context",
+        "title": {
+          "en": "Marcus and selective presence",
+          "zh": "马库斯与有选择的陪伴"
+        },
+        "paragraphs": [
+          {
+            "en": "Marcus Baker is Maxine’s twin and a neighbour of Ginny. This guide takes only the angle of a quieter, more selective exchange. His story contains other experiences that these questions do not assess. Here, the angle appears in listening closely to one detail, leaving room around an object or choosing an unhurried conversation. You do not need to have watched the series, share a character’s relationships or admire every decision to consider this reading.",
+            "zh": "马库斯是麦克辛的双胞胎兄弟，也是金妮的邻居。本版只取安静、较有选择的交流角度；剧情里的其他经历并不由这些题来评估。在题目中，它表现为细听一处、给物件留白、选择不匆忙的谈话。不需要看过剧集、拥有相同关系或欣赏人物每个决定，才能阅读这个角度。"
+          }
+        ]
+      },
+      {
+        "id": "choices",
+        "title": {
+          "en": "What quiet attention means in this bank",
+          "zh": "本题里的安静关注是什么"
+        },
+        "paragraphs": [
+          {
+            "en": "A highest Marcus count means you more often selected a small observation, a considered contribution or a quieter setting. That can make room for detail that disappears in a fast round of reactions. It can also leave others unsure whether you want to participate if the preference remains unspoken. The useful distinction is between wanting a quieter format and wanting no contact at all. Neither answer can be inferred from the volume of someone’s voice or from this count.",
+            "zh": "马库斯计数最高，表示你本次较常选小观察、慢一点的投入或安静场合。这能给快速反应中容易消失的细节留空间；若不把偏好说出来，别人也可能不知道你愿不愿参与。值得分清的是，想要安静形式和完全不想联系并非一回事。声音大小或本次计数都不能替你回答。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Listening to an unfinished tune",
+          "zh": "陪听一段没完成的小曲"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose a friend plays an unfinished tune. Rather than immediately evaluate the whole piece, you listen and mention a pause that caught your attention. They ask for a lively rehearsal partner, not detailed feedback. You can acknowledge the different request and say what you can offer: “I would like to listen to a first version with you; I am not up for performing today.” Quiet participation becomes clearer when it is stated, and your friend can seek another kind of company without either person being at fault.",
+            "zh": "例如朋友放一段没完成的小曲，你没有马上评价整首，而是听完后提到一处停顿。对方想找的其实是热闹排练的搭档。你可以听清不同需求，再说明：“我愿意陪你听第一版，但今天不想表演。”把安静参与说出来，朋友也能去找另一种陪伴，不必把差异变成谁有问题。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Quiet is not the opposite of having a voice",
+          "zh": "安静不等于没有自己的声音"
+        },
+        "paragraphs": [
+          {
+            "en": "Ginny’s reading concerns ownership of a personal account; Marcus’s concerns the scale and pace of an exchange. A quiet person can be outspoken about meaning, and a public performer can want selected private conversation. Max centres shared expression, Austin an imagined invitation, and Georgia practical movement. None automatically listens better or cares more. You may use a lively format in one setting and a careful one-to-one exchange in another without having contradictory personalities.",
+            "zh": "金妮关心个人讲述由谁定义，马库斯关心交流的范围和节奏。安静的人也能直说自己的意义，公开表演者也会想要私人细聊。Max重共同表达，奥斯汀重想象邀请，乔治娅重实际推进。没有谁因此自动更会听、更在乎。不同场合使用不同方式，不是人格矛盾。"
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "title": {
+          "en": "Name the format you can offer",
+          "zh": "说清自己能提供的形式"
+        },
+        "paragraphs": [
+          {
+            "en": "Before a small, optional activity, name one format you would enjoy: looking at a few objects together, listening once without feedback, or talking for ten minutes. You might say, “I want to join in a quieter way; would that work here?” The other person can want something different. This is an experiment in making a preference legible, not a demand for anyone to pursue you or proof that you need to become more outgoing.",
+            "zh": "在一件可选小活动前，说出一种喜欢的参与形式：一起看几件物品、先听一遍不评价，或聊十分钟。可以问：“我想用安静一点的方式参加，这里合适吗？”对方也可以有不同需求。这是让偏好更容易被理解的小尝试，不要求别人不断追问，也不证明你应该更外向。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "What silence cannot establish",
+          "zh": "沉默证明不了什么"
+        },
+        "paragraphs": [
+          {
+            "en": "A quiet option may be convenient because of noise, language, tiredness or the task itself. Not choosing it does not establish superficiality, and choosing it does not establish depth or loyalty. This guide diagnoses no depression, social anxiety or other condition and makes no inference about loss, relationships or risk. Marcus’s fictional experiences stay his. If your current circumstances matter more than this playful mapping, use your direct knowledge of those circumstances.",
+            "zh": "安静选项可能只是适合噪声、语言、疲劳或任务条件。没选不等于肤浅，选了也不证明深刻或忠诚。本说明不诊断抑郁、社交焦虑等状况，不推断失落、关系或风险；人物经历属于人物。如果现实条件比趣味映射更能说明选择，就以自己直接知道的条件为准。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How this edition produces the match",
+          "zh": "本版怎样产生匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+            "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source scope",
+          "zh": "原创同人版本与来源范围"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan quiz, its items, mappings, examples and guides. Ginny & Georgia and its characters belong to their respective rights holders; there is no affiliation or endorsement. Netflix material supplies limited fictional context, not validation of this questionnaire. No show dialogue, images or competitor question or result text is used. This edition is for entertainment, with no psychometric validation, diagnosis, developmental age, relationship prediction, MBTI conversion or career-fit inference. A character name does not transfer that character’s history or justify their actions.",
+            "zh": "费马独立创作这份非官方同人测验的题目、映射、例子和说明。《金妮与乔治娅》及角色权利归相应权利人，本站无隶属或认可关系。Netflix资料仅提供有限人物背景，不验证本站题本；不使用剧集台词、截图或竞品题库、结果正文。本版用于娱乐，没有心理测量验证，不作诊断、心理年龄、关系预测、MBTI换算或职业适配。角色名字不把人物经历转给你，也不为其行为免责。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "max",
+    "directionIds": [
+      "max"
+    ],
+    "title": {
+      "en": "Maxine Baker (Max)",
+      "zh": "麦克辛·贝克（Max）"
+    },
+    "headline": {
+      "en": "Let expression become something shared",
+      "zh": "让表达在共同现场发生"
+    },
+    "summary": {
+      "en": "Explore Max through expressive participation, a makers’ showcase, room for quieter people and comparisons with the four other characters.",
+      "zh": "通过手工作品展示理解麦克辛的共同表达，比较其他角色，读懂热情、参与意愿和现场空间的取舍。"
+    },
+    "seo": {
+      "title": {
+        "en": "Max Quiz Result: Shared Expression & Character Guide",
+        "zh": "麦克辛角色测试结果：共同表达与完整说明"
+      },
+      "description": {
+        "en": "Explore Max through expressive participation, a makers’ showcase, room for quieter people and comparisons with the four other characters.",
+        "zh": "通过手工作品展示理解麦克辛的共同表达，比较其他角色，读懂热情、参与意愿和现场空间的取舍。"
+      }
+    },
+    "scoreReading": {
+      "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+      "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+    },
+    "sections": [
+      {
+        "id": "context",
+        "title": {
+          "en": "Max and the shared stage",
+          "zh": "麦克辛与共同现场"
+        },
+        "paragraphs": [
+          {
+            "en": "Maxine Baker, often called Max, is Marcus’s twin, Ginny’s friend and a musical-theatre participant. This edition selects expressive participation as a limited reading angle. In ordinary questions, that becomes an animated introduction, a shared celebration or a moment that gives a contribution an audience. The result is not a verdict on every aspect of Max’s relationships or behaviour. Enjoying an expressive option does not require being an actor, a fan or the loudest person in a room.",
+            "zh": "麦克辛常被叫作Max，是马库斯的双胞胎姐妹、金妮的朋友，也参加音乐剧。本版借共同表达这一有限角度，在普通题目里表现为生动介绍、一起庆祝、让一份投入有机会被看见。结果不裁定人物全部关系和行为；喜欢表达选项，不要求你是演员、粉丝或现场声音最大的人。"
+          }
+        ]
+      },
+      {
+        "id": "choices",
+        "title": {
+          "en": "Making participation visible",
+          "zh": "让参与被看见"
+        },
+        "paragraphs": [
+          {
+            "en": "A highest Max count means you more often chose an audible, animated or shared way to present something. This can help an activity feel like an occasion rather than a set of objects left on a table. Its tradeoff is assuming everyone wants the same visibility. A person may enjoy the event while declining an introduction, a photograph or applause. Shared expression works when enthusiasm includes checking who actually wants to be included in that form.",
+            "zh": "Max计数最高，表示你本次较常选择可听见、生动或共同呈现的方式。这可能让活动成为值得记住的现场，而不只是桌上一堆物品；取舍在于，不能假设所有人都想要同样的可见度。一个人可以喜欢活动，同时拒绝介绍、拍照或掌声。热情也包括先确认，对方愿不愿以这种形式参与。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Introducing a makers’ showcase",
+          "zh": "介绍一场小作品展示"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine you want every maker to have a cheerful introduction before a display. One person wants to speak; another prefers their work to be shown without personal information. Ask for each preference before writing the introduction. You could offer a menu: say a sentence yourself, let a host read an approved line, or show the work without a spoken introduction. Your energy remains useful, while recognition no longer requires everyone to perform the same kind of openness.",
+            "zh": "例如你想在作品展示前热情介绍每位制作者。有人愿意自己说，有人只想展示作品、不谈个人资料。先问偏好，再写介绍，可以给出几种选择：自己说一句、由主持人念确认过的话，或只展示作品。这样仍能发挥现场热情，但“被看见”不再要求每个人表演同一种开放。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Expression, meaning and atmosphere",
+          "zh": "表达、意义与氛围的区别"
+        },
+        "paragraphs": [
+          {
+            "en": "Ginny’s angle protects what someone wants to say; Max’s gives that expression a shared occasion. Marcus may prefer a selected listener over a room, and Austin may invite participation through an imagined scene rather than a performance. Georgia would check how the event can run. An excellent welcome can use all these perspectives. The count does not make you a natural leader, a more loving friend or an extrovert; those claims require different evidence and cannot be read from this quiz.",
+            "zh": "金妮保留一个人想说什么，Max给表达一个共同发生的时刻。马库斯可能更想要特定听众，奥斯汀可能通过想象场景而非表演邀请参与，乔治娅会看活动怎样运转。一个好开场可以借助全部角度。计数不证明天生领导者、更有爱的朋友或外向者；这些需要不同证据，不能从本测验读出。"
+          }
+        ]
+      },
+      {
+        "id": "try",
+        "title": {
+          "en": "Make a warm invitation specific",
+          "zh": "让热情邀请更具体"
+        },
+        "paragraphs": [
+          {
+            "en": "For an activity you already want to host, offer one expressive contribution and one easy way to decline it. For example: “I can introduce the work, and you can tell me what to leave out or choose no introduction.” Notice whether people use the alternatives. You can enjoy performing even if another person prefers quiet. The experiment concerns a usable invitation, not a requirement to suppress your style or make the whole room match your energy.",
+            "zh": "对本来就想主持的小活动，提供一种表达帮助，也给一种轻松拒绝的方式。例如：“我能介绍作品，你可以告诉我删什么，也可以不介绍。”看看大家是否用到不同选项。你可以喜欢表演，别人也可以喜欢安静；尝试的重点是邀请是否好用，不是压住自己的风格，或让整屋人跟上你的能量。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Visible expression is not a complete personality",
+          "zh": "看得见的表达不是整个人格"
+        },
+        "paragraphs": [
+          {
+            "en": "Choosing a lively option may reflect enjoyment of this task, familiarity with the group or a desire to try something new. It does not establish confidence in every setting, attention needs, sexuality or emotional stability. Declining a performance does not mean low warmth. This guide does not excuse interrupting, sharing someone else’s news or ignoring a refusal. If the name does not resonate, consider the specific option you liked rather than accepting a fixed fictional identity.",
+            "zh": "选热闹方式可能只是喜欢这项任务、熟悉这群人，或想试新东西，不证明所有场合都自信、需要关注、特定性取向或情绪稳定。拒绝表演也不表示不热情。本说明不为打断、擅自分享别人消息或忽略拒绝免责。如果名字不贴切，可以只看自己喜欢的具体选项，不必接受固定的虚构身份。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "How this edition produces the match",
+          "zh": "本版怎样产生匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "All 20 questions require one choice. Each chosen option adds one raw count to the character explicitly mapped to it. Each character is offered 16 times, four in each option position. An omitted character is not a rejected character. All highest counts receive their complete guides; there is no priority by name or order. Choosing A throughout produces four counts for every character and all five guides. Counts describe this set of offered choices, not resemblance percentages, hidden identities or population ranks. A one-count lead has no established psychological significance. You may read any close guide without calling it a tie.",
+            "zh": "20题全部各选一项，给选项明确对应的角色加1次。每位角色全卷出现16次，在四个位置各4次；当题没出现不算被你否定。所有最高计数都呈现完整说明，不按名字或顺序定优先级。全选A会五角色各4次，五份全文都显示。计数只描述本题提供的选择，不是相似度百分比、隐藏身份或人群排名；领先1次没有经过验证的心理学显著意义。可以阅读近分角色，但不把近分补成并列。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source scope",
+          "zh": "原创同人版本与来源范围"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan quiz, its items, mappings, examples and guides. Ginny & Georgia and its characters belong to their respective rights holders; there is no affiliation or endorsement. Netflix material supplies limited fictional context, not validation of this questionnaire. No show dialogue, images or competitor question or result text is used. This edition is for entertainment, with no psychometric validation, diagnosis, developmental age, relationship prediction, MBTI conversion or career-fit inference. A character name does not transfer that character’s history or justify their actions.",
+            "zh": "费马独立创作这份非官方同人测验的题目、映射、例子和说明。《金妮与乔治娅》及角色权利归相应权利人，本站无隶属或认可关系。Netflix资料仅提供有限人物背景，不验证本站题本；不使用剧集台词、截图或竞品题库、结果正文。本版用于娱乐，没有心理测量验证，不作诊断、心理年龄、关系预测、MBTI换算或职业适配。角色名字不把人物经历转给你，也不为其行为免责。"
+          }
+        ]
+      }
+    ]
+  }
+]

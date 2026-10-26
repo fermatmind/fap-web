@@ -1,0 +1,828 @@
+{
+  "id": "T111",
+  "form": "fermatmind_ginny_georgia_original_20_v1",
+  "version": "1.0.0",
+  "method": "Each complete choice adds one to its explicitly mapped character; every highest count receives the complete authored guide. No ordered tie breaker, percentages, threshold or second type.",
+  "questions": [
+    {
+      "id": "GIGE_01",
+      "prompt": {
+        "en": "You are contributing a page to a neighbourhood zine. What would you most enjoy making?",
+        "zh": "社区征集一本小刊物的一页内容，你最想做哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny",
+          "label": {
+            "en": "A short personal piece that says something in my own terms.",
+            "zh": "写一小段属于自己的话，不必照着大家的口吻。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "georgia",
+          "label": {
+            "en": "A useful page that turns a vague local idea into a doable project.",
+            "zh": "把一件社区想做的事写成能执行的小计划。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "austin",
+          "label": {
+            "en": "An imaginary place readers can add their own details to.",
+            "zh": "画一个想象中的地方，留空让读者续上细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "marcus",
+          "label": {
+            "en": "A small observation that rewards someone who reads slowly.",
+            "zh": "记下一处值得慢慢看的小发现。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_02",
+      "prompt": {
+        "en": "A borrowed display stand is unavailable for your club exhibition. Which replacement do you prefer?",
+        "zh": "社团展览借不到原定的展架，你偏向哪种替代安排？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "georgia",
+          "label": {
+            "en": "Negotiate a smaller setup with the materials already available.",
+            "zh": "和场地方商量，用现有材料搭一个小版本。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "austin",
+          "label": {
+            "en": "Make a playful tabletop scene that visitors can explore together.",
+            "zh": "做成桌面小场景，让参观者一起找细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "marcus",
+          "label": {
+            "en": "Show a few pieces quietly to interested visitors rather than rebuild everything.",
+            "zh": "只向有兴趣的人安静展示几件，不急着重新搭全场。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max",
+          "label": {
+            "en": "Host an informal live introduction so the work still has an audience.",
+            "zh": "改成轻松的现场介绍，让作品仍有人看见。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_03",
+      "prompt": {
+        "en": "A shared reading corner has one empty shelf. How would you like to use it?",
+        "zh": "共用阅读角空出一层书架，你想怎么用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "austin",
+          "label": {
+            "en": "A little story trail, with a note inviting the next reader to continue it.",
+            "zh": "摆一条小故事线，邀请下一位读者接着编。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "marcus",
+          "label": {
+            "en": "A few carefully chosen books with brief, personal notes.",
+            "zh": "放几本认真选过的书，附上简短的私人阅读感受。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max",
+          "label": {
+            "en": "A rotating spotlight where people introduce a favourite book aloud.",
+            "zh": "轮流推荐，让每个人有机会讲一本喜欢的书。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny",
+          "label": {
+            "en": "A place for texts that let different people describe themselves.",
+            "zh": "留给让不同的人讲述自己的文字。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_04",
+      "prompt": {
+        "en": "Someone invites you to explain a photograph you took. Which response feels closest?",
+        "zh": "有人请你解释自己拍的一张照片，你更接近哪种回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "marcus",
+          "label": {
+            "en": "Mention the unnoticed detail and let the picture do some of the talking.",
+            "zh": "说说不显眼的细节，也让照片自己表达。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max",
+          "label": {
+            "en": "Tell the little story with enough animation to bring them into it.",
+            "zh": "有声有色地讲那个小故事，让对方也进入场景。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny",
+          "label": {
+            "en": "Explain why that particular moment meant something to me.",
+            "zh": "说明为什么这个瞬间对我有意义。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "georgia",
+          "label": {
+            "en": "Describe how I found a workable angle with limited time and space.",
+            "zh": "讲讲自己怎样在有限条件下找到合适角度。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_05",
+      "prompt": {
+        "en": "Your hobby group is choosing a name. What contribution appeals to you?",
+        "zh": "兴趣小组要取一个名字，你想提供哪种帮助？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max",
+          "label": {
+            "en": "Try the candidates aloud and see which one everyone enjoys saying.",
+            "zh": "把候选名念出来，感受大家叫起来的气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny",
+          "label": {
+            "en": "Find words that represent what we actually want to express.",
+            "zh": "找能说出我们真正想表达什么的词。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "georgia",
+          "label": {
+            "en": "Narrow it to usable names and help the group reach a decision.",
+            "zh": "筛出实际可用的名字，推动大家定下来。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "austin",
+          "label": {
+            "en": "Invent a tiny mascot story that gives the name a friendly world.",
+            "zh": "编一个小吉祥物故事，让名字有个亲切的世界。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_06",
+      "prompt": {
+        "en": "A friend describes your hobby in a way that misses what you like about it. What do you choose?",
+        "zh": "朋友介绍你的爱好，却没说到你喜欢它的原因。你想怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny",
+          "label": {
+            "en": "Add my own account of what draws me to it.",
+            "zh": "补上自己的说法，讲清吸引我的地方。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "georgia",
+          "label": {
+            "en": "Offer a concrete example they can try to understand the appeal.",
+            "zh": "找一个对方能试的小例子，帮助他理解。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "austin",
+          "label": {
+            "en": "Make up an easy comparison that lets us explore it together.",
+            "zh": "编个轻松的比喻，和对方一起想象。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "marcus",
+          "label": {
+            "en": "Save the fuller explanation for a quieter conversation.",
+            "zh": "留到比较安静的谈话里，再细说一点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_07",
+      "prompt": {
+        "en": "You can make one improvement to a community noticeboard. Which do you favour?",
+        "zh": "社区公告栏允许你改进一处，你偏向哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "georgia",
+          "label": {
+            "en": "Make the next action and contact details easy to find.",
+            "zh": "把下一步怎么参加、联系谁排得清楚。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "austin",
+          "label": {
+            "en": "Add a friendly illustrated route through the notices.",
+            "zh": "画一条亲切的小路线，带人浏览消息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "marcus",
+          "label": {
+            "en": "Leave room for short notes people can read without being called on.",
+            "zh": "留一块让人安静阅读、不必当众回应的短笺区。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max",
+          "label": {
+            "en": "Create a colourful feature for people to introduce their activities.",
+            "zh": "做一个醒目的展示位，让大家介绍自己的活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_08",
+      "prompt": {
+        "en": "An ordinary walk could become a shared keepsake. What would you like to collect?",
+        "zh": "想把一次普通散步留作共同纪念，你更想收集什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "austin",
+          "label": {
+            "en": "Invented names for small places that become our own map.",
+            "zh": "给沿途小地方编名字，做成我们自己的地图。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "marcus",
+          "label": {
+            "en": "A few sounds or textures that we can revisit quietly.",
+            "zh": "留几段声音或纹理，之后安静地再看再听。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max",
+          "label": {
+            "en": "A lively little recap with everyone contributing a moment.",
+            "zh": "让每个人出一个片段，凑成热闹的小回顾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny",
+          "label": {
+            "en": "A sentence about how the walk felt from each person’s perspective.",
+            "zh": "每人写一句话，保留各自眼里的这次散步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_09",
+      "prompt": {
+        "en": "At an open studio, an artist asks what you noticed. Which reply do you prefer?",
+        "zh": "开放工作室里，创作者问你注意到了什么。你更想怎样回答？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "marcus",
+          "label": {
+            "en": "Talk closely about one detail rather than give a big reaction.",
+            "zh": "围绕一个细节细说，不急着给很大的反应。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max",
+          "label": {
+            "en": "Describe the part that made me want to react out loud.",
+            "zh": "讲讲让我忍不住想出声回应的部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny",
+          "label": {
+            "en": "Explain an interpretation, while making clear it is my reading.",
+            "zh": "说出自己的理解，也说明这只是我的读法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "georgia",
+          "label": {
+            "en": "Ask how the piece came together and discuss a practical choice.",
+            "zh": "问问作品怎么做成，聊一个具体的制作选择。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_10",
+      "prompt": {
+        "en": "A group wants a short introduction before sharing its handmade work. What role sounds enjoyable?",
+        "zh": "大家要在展示手工作品前做个短介绍，你愿意做哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max",
+          "label": {
+            "en": "Welcome the room and give each maker a moment of recognition.",
+            "zh": "先把现场带起来，让每位制作者都被介绍到。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny",
+          "label": {
+            "en": "Write an introduction that preserves each maker’s own words.",
+            "zh": "写一段能保留各位制作者原意的介绍。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "georgia",
+          "label": {
+            "en": "Set a simple running order and make sure the handovers work.",
+            "zh": "安排简明顺序，让上下场能顺利接上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "austin",
+          "label": {
+            "en": "Use a playful connecting story to tie the objects together.",
+            "zh": "用一个轻巧的故事把这些小作品串起来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_11",
+      "prompt": {
+        "en": "You are invited to add a caption to a shared travel sketch. Which approach fits?",
+        "zh": "有人邀你给共同的旅行速写加一句题注，你会偏向什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny",
+          "label": {
+            "en": "Say what that place meant to me rather than use the usual description.",
+            "zh": "写这个地方对自己的意义，不用常见的介绍话。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "georgia",
+          "label": {
+            "en": "Add a practical detail that helps someone recreate the outing.",
+            "zh": "补一个实际细节，让别人也能照着安排出行。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "austin",
+          "label": {
+            "en": "Give a tiny object in the sketch an imagined adventure.",
+            "zh": "让画里的一个小东西经历一场想象中的冒险。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "marcus",
+          "label": {
+            "en": "Point out the quiet corner that might otherwise be missed.",
+            "zh": "指出可能被忽略的安静一角。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_12",
+      "prompt": {
+        "en": "Your group receives a box of leftover craft materials. Which use interests you most?",
+        "zh": "小组收到一盒剩余手工材料，你最想怎么用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "georgia",
+          "label": {
+            "en": "Sort out a simple project everyone can actually finish.",
+            "zh": "先整理出一个大家真能做完的小项目。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "austin",
+          "label": {
+            "en": "Build a miniature world with whatever shapes suggest themselves.",
+            "zh": "顺着材料的形状拼一个微型世界。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "marcus",
+          "label": {
+            "en": "Make one small, considered piece for someone I know well.",
+            "zh": "给熟悉的人慢慢做一个小物件。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max",
+          "label": {
+            "en": "Turn the materials into props for a cheerful shared performance.",
+            "zh": "做成道具，来一次轻松的小表演。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_13",
+      "prompt": {
+        "en": "There is room for one small tradition at your regular meetup. Which would you pick?",
+        "zh": "固定聚会可以加一个小惯例，你想选哪种？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "austin",
+          "label": {
+            "en": "A shared fictional place that gains one detail each time.",
+            "zh": "共同虚构一个地方，每次添上一点新细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "marcus",
+          "label": {
+            "en": "A quiet opening minute to notice what we want to bring today.",
+            "zh": "开头安静一分钟，想想今天想带来什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max",
+          "label": {
+            "en": "A brief round of enthusiastic appreciations.",
+            "zh": "简短地轮流表达欣赏，让气氛热起来。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny",
+          "label": {
+            "en": "A chance to say one thing in our own voice, without correction.",
+            "zh": "各自用自己的话说一件事，不急着互相纠正。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_14",
+      "prompt": {
+        "en": "A friend shares an unfinished tune and asks for company. How would you like to take part?",
+        "zh": "朋友拿来一段没完成的小曲，想找人陪着听。你更想怎样参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "marcus",
+          "label": {
+            "en": "Listen together and respond to a detail when it feels natural.",
+            "zh": "一起听，在合适时回应一个细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max",
+          "label": {
+            "en": "Try a playful introduction or chorus with them.",
+            "zh": "陪着试一个有趣的开场或副歌。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny",
+          "label": {
+            "en": "Ask what they want the tune to express before offering my reading.",
+            "zh": "先问想表达什么，再说自己的感受。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "georgia",
+          "label": {
+            "en": "Help find a straightforward way to record a first version.",
+            "zh": "帮忙找个简便办法，把第一版录下来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_15",
+      "prompt": {
+        "en": "You can contribute one thing to a neighbourhood arts afternoon. Which attracts you?",
+        "zh": "社区艺术下午可以由你提供一项内容，你最被哪项吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max",
+          "label": {
+            "en": "A short, expressive welcome that invites people to join in.",
+            "zh": "来一段有感染力的欢迎，邀请大家参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny",
+          "label": {
+            "en": "A small piece of writing about what the neighbourhood means to me.",
+            "zh": "写一小段自己眼里的社区。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "georgia",
+          "label": {
+            "en": "A workable arrangement for materials, space and helpers.",
+            "zh": "把材料、场地和帮手组织成能运转的安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "austin",
+          "label": {
+            "en": "A make-believe corner where visitors can co-create a scene.",
+            "zh": "布置一个想象角，让来访者一起搭场景。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_16",
+      "prompt": {
+        "en": "A club is recording why its members joined. What would you most want your contribution to do?",
+        "zh": "社团记录成员为什么加入，你最希望自己的内容做到什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny",
+          "label": {
+            "en": "Let my own reasons remain distinct from the group’s publicity.",
+            "zh": "让自己的理由保持原样，不被统一宣传语替代。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "georgia",
+          "label": {
+            "en": "Show a possible first step for someone who wants to join.",
+            "zh": "给想加入的人一个能走出的第一步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "austin",
+          "label": {
+            "en": "Make joining feel like entering a friendly shared world.",
+            "zh": "让加入像走进一个友好的共同世界。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "marcus",
+          "label": {
+            "en": "Offer a small, honest observation without making it a performance.",
+            "zh": "留一个真切的小观察，不必变成展示。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_17",
+      "prompt": {
+        "en": "An activity venue offers two awkwardly shaped tables. What response appeals to you?",
+        "zh": "活动场地给了两张形状不太合适的桌子，你更倾向怎么安排？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "georgia",
+          "label": {
+            "en": "Combine them into a workable station and adjust the activity.",
+            "zh": "拼成能用的工作台，再调整活动方式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "austin",
+          "label": {
+            "en": "Make the unusual shape part of a playful setting.",
+            "zh": "把特别的形状变成游戏场景的一部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "marcus",
+          "label": {
+            "en": "Keep a smaller corner for unhurried conversation and making.",
+            "zh": "留一个小角落，方便慢慢做、慢慢聊。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max",
+          "label": {
+            "en": "Use them as a tiny stage for showing what people make.",
+            "zh": "把它们当小舞台，展示大家做的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_18",
+      "prompt": {
+        "en": "Someone suggests making a memory of your shared cooking afternoon. What sounds best?",
+        "zh": "有人提议纪念共同做饭的下午，你觉得哪种方式最有趣？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "austin",
+          "label": {
+            "en": "Invent a little menu from an imaginary café we create together.",
+            "zh": "共同虚构一家小店，编一份小菜单。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "marcus",
+          "label": {
+            "en": "Keep a brief note of a small detail I would like to remember.",
+            "zh": "记住一个自己想保留的小细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max",
+          "label": {
+            "en": "Make a lively introduction for each dish and its maker.",
+            "zh": "给每道菜和制作者来个生动介绍。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny",
+          "label": {
+            "en": "Write a few lines about what the afternoon meant in my own words.",
+            "zh": "用自己的话写几句这个下午的意义。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_19",
+      "prompt": {
+        "en": "You are choosing how to show a personal collection of ordinary objects. What arrangement do you prefer?",
+        "zh": "要展示一组自己收集的普通小物件，你更喜欢哪种安排？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "marcus",
+          "label": {
+            "en": "A sparse display that lets someone linger over individual details.",
+            "zh": "留白多一点，让人能停下来细看。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max",
+          "label": {
+            "en": "A playful spoken tour that brings the objects to life.",
+            "zh": "来一段有趣的口头导览，让小东西活起来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny",
+          "label": {
+            "en": "Notes explaining my personal connections to the objects.",
+            "zh": "附上说明，讲自己与这些物件的联系。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "georgia",
+          "label": {
+            "en": "A clear arrangement using the space and materials we already have.",
+            "zh": "用现有空间和材料做一个清楚好用的陈列。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIGE_20",
+      "prompt": {
+        "en": "Your group is wrapping up a small creative project. What closing contribution would you choose?",
+        "zh": "一个小创作项目接近结束，你最想怎样收尾？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max",
+          "label": {
+            "en": "Celebrate the contributions with a warm, animated send-off.",
+            "zh": "热热闹闹地感谢各人的投入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny",
+          "label": {
+            "en": "Leave a record of what each of us wanted to say.",
+            "zh": "留下一份记录，保留大家各自想说的话。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "georgia",
+          "label": {
+            "en": "Finish the practical loose ends so the work can be used.",
+            "zh": "把实际未完的部分收好，让成果能真正使用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "austin",
+          "label": {
+            "en": "Add a small imagined sequel others can continue later.",
+            "zh": "留一个想象中的续篇，之后谁都可以接着编。"
+          }
+        }
+      ]
+    }
+  ]
+}

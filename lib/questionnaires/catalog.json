@@ -1839,5 +1839,31 @@
       "chronicler",
       "investigator"
     ]
+  },
+  {
+    "slug": "ginny-and-georgia-character-quiz",
+    "code": "GINNY_GEORGIA_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Ginny & Georgia Character Quiz",
+      "zh": "金妮与乔治娅（Ginny & Georgia）角色测试"
+    },
+    "description": {
+      "en": "Answer 20 original questions about creative contributions and shared activities. Compare Ginny, Georgia, Austin, Marcus and Max, keep every highest tie and read all five complete character guides. Free, with no account required.",
+      "zh": "完成20道关于创作表达与共同活动的原创题目，比较金妮、乔治娅、奥斯汀、马库斯和Max五个角度。保留全部最高并列，五份完整角色说明免费可读，无需注册。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_ginny_georgia_original_20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "ginny",
+      "georgia",
+      "austin",
+      "marcus",
+      "max"
+    ],
+    "collection": "explore"
   }
 ]
