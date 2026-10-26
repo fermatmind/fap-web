@@ -1273,5 +1273,32 @@
       "waiting-irritation",
       "difficulty-stopping"
     ]
+  },
+  {
+    "slug": "sdt-motivation",
+    "code": "SDT_ORIGINAL_NEED_EXPERIENCES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "everyday",
+    "title": {
+      "zh": "SDT动机档案测试",
+      "en": "SDT Motivation Test"
+    },
+    "description": {
+      "zh": "用24条原创题分别观察自主、胜任、联结的满足与受阻体验。六项均分、资料不足和完整解释免费；不派固定动机型，不评能力、健康或职业。",
+      "en": "Explore six separate SDT need experiences with 24 original ratings and free full guides. No fixed motivation type, ability, health or career verdict."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_sdt_need_experiences_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "autonomy-satisfaction",
+      "autonomy-frustration",
+      "competence-satisfaction",
+      "competence-frustration",
+      "relatedness-satisfaction",
+      "relatedness-frustration"
+    ]
   }
 ]

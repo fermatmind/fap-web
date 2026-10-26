@@ -1,0 +1,2696 @@
+{
+  "slug": "sdt-motivation",
+  "code": "SDT_ORIGINAL_NEED_EXPERIENCES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "SDT动机档案测试",
+    "en": "SDT Motivation Test"
+  },
+  "resultHeading": {
+    "zh": "本次六项需要体验与完整解释",
+    "en": "Your six need experiences and full guides"
+  },
+  "description": {
+    "zh": "用24条原创题分别观察自主、胜任、联结的满足与受阻体验。六项均分、资料不足和完整解释免费；不派固定动机型，不评能力、健康或职业。",
+    "en": "Explore six separate SDT need experiences with 24 original ratings and free full guides. No fixed motivation type, ability, health or career verdict."
+  },
+  "seoTitle": {
+    "zh": "SDT动机档案测试：24题需要体验自评与完整解释",
+    "en": "SDT Motivation Test: 24-Item Need Experience Reflection"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "愿意认同一项安排、感觉能做成一步、感到被关心，可以与受到施压、尝试被否定或被排除的体验分别理解。选定近四周一个普通领域，用24条原创题回看这六项。完整结果保留六项均分或资料不足与全部正文，不把它们合成总体动力、固定动机人物或职业结论；自主、胜任、联结的概念及满足与受阻区别会在下方说明。",
+    "en": "Willingly endorsing an arrangement, feeling able to manage a step and experiencing care can be considered separately from pressure, dismissed attempts or exclusion. Choose one ordinary area over four weeks and reflect with 24 original items. Full results retain six means or insufficient-information states and all guides, without an overall motivation score, fixed persona or career verdict. The explanations distinguish the three needs and satisfaction from frustration."
+  },
+  "instructions": {
+    "zh": "先在心里选定近四周一个较常参与的普通领域，例如一门课程、一项兴趣活动或一类日常共同任务；整份题目沿用同一个领域，不必把领域名称输入网站。按每句话在该领域实际出现的频率，从1从不到5几乎总是选择；没有情境、资料不足或不愿回答都可选NA。24条原创题分别观察自主、胜任、联结的满足与受阻体验，各4条、至少3条有效才显示一位小数均分。六项分别保留；受阻题不反向，低满足不自动等于高受阻，不相减或合成总分，也不派固定动机类型。它不判断他人的真实意图、能力、健康、职业适配或你为何采取某个行动。",
+    "en": "Choose in your mind one ordinary area you took part in over the past four weeks, such as a course, an interest activity or a kind of shared everyday task. Keep the same area throughout; do not enter its name on the website. Rate how often each statement occurred there from 1 Never to 5 Almost always. Choose NA for absent context, insufficient information or declining to answer. Twenty-four original items separately explore satisfaction and frustration experiences for autonomy, competence and relatedness. Each four-item part needs three ratings for a one-decimal mean. Keep all six parts separate: frustration is not reverse-scored, low satisfaction does not automatically mean high frustration, and there is no subtraction, total or fixed motivation type. The reflection determines no other person’s actual intention, ability, health, career fit or reason for your actions."
+  },
+  "source": {
+    "kind": "FermatMindoriginal24ENZHcontextualfrequencyitems/conceptualSDTneedsreflection/NOTBPNSFS-BPNSS-IMI-MWMS-WEIMS-GCOSorJobCannonbank",
+    "formCode": "fm_sdt_need_experiences_24",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "5b217fe935ba8407a8dbccae650e3b17feab25f721432f045e1da19e8bd26ebf",
+    "resultContentSha256": "969f2ccb3bc91a9a9f2019fdcfc7350a15d37624506a74faba788488ff128083",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "autonomy-satisfaction",
+      "title": {
+        "zh": "自主满足体验",
+        "en": "Autonomy satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "autonomy-frustration",
+      "title": {
+        "zh": "自主受阻体验",
+        "en": "Autonomy frustration experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "competence-satisfaction",
+      "title": {
+        "zh": "胜任满足体验",
+        "en": "Competence satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "competence-frustration",
+      "title": {
+        "zh": "胜任受阻体验",
+        "en": "Competence frustration experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "relatedness-satisfaction",
+      "title": {
+        "zh": "联结满足体验",
+        "en": "Relatedness satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "relatedness-frustration",
+      "title": {
+        "zh": "联结受阻体验",
+        "en": "Relatedness frustration experiences"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SDT_NEEDS_01",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通安排里，我能说清自己为什么愿意按这个方案做。",
+        "en": "Over the past four weeks, in an ordinary arrangement in my chosen area, I could explain why I willingly followed that plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_02",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通活动里，我觉得自己的不同意见被压回去，只能照指定方案做。",
+        "en": "Over the past four weeks, in an ordinary activity in my chosen area, I felt my different view was shut down and I had to follow the specified plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_03",
+      "prompt": {
+        "zh": "近四周，在选定领域处理一件普通小事时，我能找到一个自己做得动的起步点。",
+        "en": "Over the past four weeks, for an ordinary activity in my chosen area, I could identify a starting point that felt manageable to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_04",
+      "prompt": {
+        "zh": "近四周，在选定领域尝试一件小事时，遇到的回应让我觉得自己连起步也不够格。",
+        "en": "Over the past four weeks, when trying an activity in my chosen area, the response I encountered left me feeling unfit even to begin."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_05",
+      "prompt": {
+        "zh": "近四周，在选定领域与人交流普通事情时，我感到对方在意我实际想表达的意思。",
+        "en": "Over the past four weeks, in ordinary exchanges in my chosen area, I felt that the other person cared about what I was trying to express."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_06",
+      "prompt": {
+        "zh": "近四周，在选定领域的共同安排中，我感到自己被故意留在交流之外。",
+        "en": "Over the past four weeks, in shared arrangements in my chosen area, I felt deliberately left outside the exchange."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_07",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通决定中，我能把自己的理由放进最后采用的做法里。",
+        "en": "Over the past four weeks, in an ordinary decision in my chosen area, I could bring my own reasons into the approach that was adopted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_08",
+      "prompt": {
+        "zh": "近四周，在选定领域参与普通安排时，我感到必须表现得赞同，实际并不愿意这样做。",
+        "en": "Over the past four weeks, while taking part in ordinary arrangements in my chosen area, I felt required to show agreement although I did not willingly endorse the approach."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_09",
+      "prompt": {
+        "zh": "近四周，在选定领域做普通活动时，具体反馈让我看得出哪一步已经能完成。",
+        "en": "Over the past four weeks, during ordinary activities in my chosen area, specific feedback helped me see a step I could already carry out."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_10",
+      "prompt": {
+        "zh": "近四周，在选定领域处理普通事情时，我遇到的评判让我觉得再试也只会显示自己不行。",
+        "en": "Over the past four weeks, in ordinary activities in my chosen area, the judgments I encountered made trying again feel like another demonstration of inadequacy."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_11",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次共同活动里，我感到自己被当作一个具体的人来关心。",
+        "en": "Over the past four weeks, in a shared activity in my chosen area, I felt cared about as a particular person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_12",
+      "prompt": {
+        "zh": "近四周，在选定领域的普通互动中，我感到别人刻意把我的参与当作多余。",
+        "en": "Over the past four weeks, in ordinary interactions in my chosen area, I felt that others deliberately treated my participation as unwanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_13",
+      "prompt": {
+        "zh": "近四周，即使在选定领域与别人合作，我仍能认同自己承担那一部分的理由。",
+        "en": "Over the past four weeks, even when collaborating in my chosen area, I could endorse my reasons for taking on my part."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_14",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通安排中，我感到别人用是否认可我来迫使我按他们的意思做。",
+        "en": "Over the past four weeks, in an ordinary arrangement in my chosen area, I felt that someone used their approval of me to pressure me into their preferred approach."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_15",
+      "prompt": {
+        "zh": "近四周，在选定领域处理普通活动时，我感到自己的尝试能对眼前的一步产生作用。",
+        "en": "Over the past four weeks, in ordinary activities in my chosen area, I felt that my attempt could make a difference to the step in front of me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_16",
+      "prompt": {
+        "zh": "近四周，在选定领域遇到困难时，我感到自己的尝试被贬得没有价值。",
+        "en": "Over the past four weeks, when encountering difficulty in my chosen area, I felt that my attempts were dismissed as worthless."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_17",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通往来中，我感到彼此之间有真实的关心。",
+        "en": "Over the past four weeks, in an ordinary exchange in my chosen area, I felt that there was real care between us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_18",
+      "prompt": {
+        "zh": "近四周，在选定领域与人相处时，我感到对方通过冷落我来表明不接纳我。",
+        "en": "Over the past four weeks, in interactions in my chosen area, I felt that someone used being cold towards me to communicate rejection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_19",
+      "prompt": {
+        "zh": "近四周，在选定领域有共同要求的小事里，我能找到自己真心认可的参与方式。",
+        "en": "Over the past four weeks, in ordinary activities with shared requirements in my chosen area, I found a way of participating that I could willingly endorse."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_20",
+      "prompt": {
+        "zh": "近四周，在选定领域提出普通做法的选择时，我感到自己的选择被威胁或施压取消。",
+        "en": "Over the past four weeks, when considering an ordinary choice of approach in my chosen area, I felt my choice was overridden through threat or pressure."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_21",
+      "prompt": {
+        "zh": "近四周，在选定领域完成一小步时，我能把它认作自己确实做成的一部分。",
+        "en": "Over the past four weeks, after a small step in my chosen area, I could recognise it as something I had actually managed to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_22",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通活动中，我感到自己被对待成无论怎么尝试都不会胜任的人。",
+        "en": "Over the past four weeks, in an ordinary activity in my chosen area, I felt treated as someone who would be incapable however I tried."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_23",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通互动里，我感到自己可以作为其中一员被接纳。",
+        "en": "Over the past four weeks, in an ordinary interaction in my chosen area, I felt accepted as someone who belonged there."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_24",
+      "prompt": {
+        "zh": "近四周，在选定领域本来应当共同参与的小事中，我感到自己被有意排除在外。",
+        "en": "Over the past four weeks, in ordinary activities meant to be shared in my chosen area, I felt intentionally excluded."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "autonomy-satisfaction",
+      "directionIds": [
+        "autonomy-satisfaction"
+      ],
+      "title": {
+        "zh": "自主满足：认同自己的参与理由",
+        "en": "Autonomy Satisfaction: Endorsing Your Participation"
+      },
+      "headline": {
+        "zh": "自主满足：认同自己的参与理由",
+        "en": "Autonomy Satisfaction: Endorsing Your Participation"
+      },
+      "summary": {
+        "zh": "从共同任务里能否认同自己的理由，理解自主满足的高低、混合与资料不足；自主可以发生在合作中，不是独立、强势或固定动机型。",
+        "en": "Explore willingly endorsed participation, including cooperation, with higher, lower and mixed readings. Autonomy is no independence or fixed motivation type."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT自主满足结果：参与理由、例子与完整解释",
+          "en": "SDT Autonomy Satisfaction: Full Result Guide"
+        },
+        "description": {
+          "zh": "自主满足完整说明：区分自愿认同与独立做事，含高低、混合、资料不足、合作例子、五项对照与计分；不派固定动机型。",
+          "en": "Read autonomy satisfaction as willing endorsement, with higher, lower and mixed examples, five comparisons and scoring. No independence or fixed-type verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "自主满足在这里指，你对参与方式或参与理由有自己的认同感。一个做法可以是别人先提出，也可以含共同规则；关键不是谁第一个说，而是你是否愿意认可自己正在做的事情。四条原创题关注选定领域近四周的这种体验，不统计你有多少独立决定，也不把顺从或反对本身当成自主。",
+              "en": "Autonomy satisfaction here concerns feeling able to endorse your participation or its reasons. Someone else may have proposed the approach, and shared rules may still apply. The issue is not who spoke first but whether you willingly stand behind what you are doing. Four original items consider that experience in your chosen area over four weeks, rather than counting independent decisions or treating agreement and disagreement as automatic evidence of autonomy."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示，这四类情境中较常报告认同自己的参与；较低表示较少报告，不能立即说你被控制。中间均分可能包含某些任务愿意、另一些任务拿不准，也可能每题都选有时。至少三条有效才显示个人均分；缺少情境保留资料不足。这里没有最理想位置，也不根据最高项给你命名为自主型。",
+              "en": "A higher mean indicates more frequent reported endorsement in these four selected situations; a lower mean indicates less, without establishing that someone controlled you. A middle mean may combine willingly chosen tasks with uncertain ones, or Sometimes responses throughout. At least three ratings are required for a personal mean. Missing context remains insufficient information. There is no ideal target or highest-score assignment of an autonomy-driven personality."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你和同伴一起安排一份兴趣活动材料，大家约好用同一格式。你原本偏好另一种版式，但理解统一后更容易互相查看，也愿意采用。这个合作决定仍可能包含自主满足。若你只是没有时间想清楚原因，就先记作尚不清楚；不能因为最后用了别人的格式，就直接判定缺少自主或需要退出合作。",
+              "en": "Imagine preparing materials for a shared interest activity. The group agrees on one format. You originally preferred another, but understand why consistency helps everyone read it and willingly adopt the arrangement. That cooperative decision can include autonomy satisfaction. If you simply had no time to consider your reasons, record uncertainty. Using another person’s format does not by itself demonstrate lost autonomy or create a reason to withdraw from cooperation."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这个格式不是我先提的，不过我认可统一之后更好交流，所以愿意这样做；这一小处我还想讨论。”它同时保留认同与不同意见。交流时可以确认哪些规则已有约定、哪些部分还有选择，不必证明每个细节都由自己决定。对方是否接受建议另看实际回应，问卷均分不能代替双方的沟通。",
+              "en": "You might say, “I did not propose this format, but I agree that consistency helps us communicate, so I am willing to use it; there is one detail I would still like to discuss.” Endorsement and disagreement can coexist. Clarify agreed requirements and remaining choices without needing to originate every detail. Whether a suggestion is accepted depends on the actual response, which a mean cannot replace or predict."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "自主受阻另看受到施压、被迫认同等体验，不是把满足均分用6减掉。胜任满足看自己觉得能做成某一步，联结满足看被关心与接纳；三者可以各有不同。愿意参与但不会做，或与人亲近却不认可安排，都值得分别理解。胜任受阻另指尝试被否定后的受挫，联结受阻另指被排除的感受，也不能从本项均分补出。六项不排名、不相减，也不由自主满足推断内在兴趣、外在奖励或行动原因。",
+              "en": "Autonomy frustration separately concerns pressure and compelled endorsement; it is not six minus the satisfaction mean. Competence satisfaction concerns feeling effective at a step, while relatedness satisfaction concerns care and acceptance. You may willingly participate while lacking confidence in a task, or feel close to people while questioning an arrangement. Competence frustration concerns felt dismissal of attempts; relatedness frustration concerns exclusion. Neither is supplied by this mean. Keep all six means separate, without ranking, subtraction or an inference about intrinsic interest, rewards or reasons for action."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，选择很多却不知道为何选择，不一定有较多认同；选择很少但真心理解共同要求，也可能有认同。必要职责、资源与关系中的权力差异要另看事实。这个均分不评独立、叛逆、领导力、智商、成熟、健康或工作适配，也不保证你的感受在别的领域或下个月相同。",
+              "en": "Many available options do not guarantee endorsement if none feels meaningful to you. Few options can still allow willing acceptance of a shared requirement. Actual duties, resources and power differences require their own facts. The mean assesses no independence, defiance, leadership, IQ, maturity, health or career fit and cannot establish that your experience will be identical in another area or next month."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想选定领域最近一次小安排，写下“实际要求”“我认可的理由”“还没想清楚的部分”，可以只回想，不必改变安排。若愿意交流，可以只问一个尚有选择的小细节。观察的目的在于分清理由与要求，不是追求更高均分、否定共同规则或证明自己必须单独做事。",
+              "en": "For an optional observation, recall one small arrangement in your selected area. Separate the actual requirement, a reason you endorse and something still unclear. Recollection is enough; no change is required. If discussion is welcome, ask about one detail where choice remains. The purpose is clearer reasons and requirements, rather than a higher mean, rejection of shared rules or proof that you must work alone."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autonomy-frustration",
+      "directionIds": [
+        "autonomy-frustration"
+      ],
+      "title": {
+        "zh": "自主受阻：分清压力与自愿认同",
+        "en": "Autonomy Frustration: Pressure and Willing Endorsement"
+      },
+      "headline": {
+        "zh": "自主受阻：分清压力与自愿认同",
+        "en": "Autonomy Frustration: Pressure and Willing Endorsement"
+      },
+      "summary": {
+        "zh": "理解被施压与被迫认同的自报体验，区分普通限制、低满足与明确受阻，含混合读法、例子、表达及观察；不裁定他人动机。",
+        "en": "Read reported pressure separately from ordinary limits and low satisfaction, with mixed examples, wording and observations; no verdict of others’ intentions."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT自主受阻结果：压力、认同与完整解释",
+          "en": "SDT Autonomy Frustration: Full Result Guide"
+        },
+        "description": {
+          "zh": "自主受阻完整说明：区分压力、普通要求与低满足，含高低、混合、资料不足、五项对照及计分；不裁定他人意图或动机类型。",
+          "en": "Read experienced pressure separately from ordinary limits and low satisfaction, with mixed examples, comparisons and scoring. No verdict of others’ intentions."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "自主受阻在这里关注，做普通事情时感到意见被压回、必须表现赞同，或选择被施压取消。它记录的是你对选定领域近四周情境的体验，不是现场调查。四条原创题没有把一切规则、不同意你或不能满足你的要求都记成受阻；感到压力与证明他人有意控制，是需要区分的两个问题。",
+              "en": "Autonomy frustration here concerns feeling that your view was shut down, agreement was compelled or a choice was overridden through pressure. Four original items record experience in your chosen area over four weeks rather than investigate an event. Rules, disagreement and an unmet request do not automatically count as frustration. Feeling pressured and establishing someone else’s deliberate controlling intention are different questions requiring different information."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组受压情境较常被报告，较低表示较少，不代表你拥有充分自由。低满足也可能是没有考虑参与理由，而没有明显施压。中间均分保留不同事件的混合，不能叫适度受控。至少三条有效才有个人均分，资料不足不是低受阻，也不会自动转换成自主满足或某种动机类型。",
+              "en": "A higher mean describes more reported pressure in these selected situations; a lower mean describes less without certifying abundant freedom. Low satisfaction may arise from unclear participation reasons without active pressure. A middle mean preserves mixed events rather than an ideal degree of control. At least three ratings permit a personal mean. Insufficient information becomes neither low frustration nor satisfaction, and no motivation type follows from it."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一次普通活动需要统一交付时间，你提出另一个可行安排。对方可能说明真实限制，也可能让你觉得只有表示赞同才会得到认可。先把记得的原话、实际限制和自己的感受分开。问卷不裁定哪一种解释为真，也不要求你争辩、违背职责或立刻作出关系与工作决定；完整情境比均分多得多。",
+              "en": "Imagine a shared activity with an agreed endpoint. You suggest another workable arrangement. Someone might explain a real constraint, or the exchange might leave you feeling that approval depends on displaying agreement. Separate remembered words, actual limits and your experience. The questionnaire cannot adjudicate the event and requires no argument, disregard of duties or immediate relationship or work decision. A complete account contains much more than a mean."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "若合适且你愿意，可以说：“我理解这次有统一要求，也想确认：哪些部分确实不能改，哪些可以提出不同意见？”这句话在澄清范围，不承诺对方会接纳，也不要求你证明自己受到控制。可以先不发出，只用来整理信息；交流是否可行与是否愿意，由现实条件决定，不由分数决定。",
+              "en": "If appropriate and welcome to you, ask, “I understand that we have shared requirements. Which parts are fixed, and where can different views be considered?” This clarifies the scope without promising acceptance or requiring proof of control. You can leave the sentence unsent and use it only to organise information. Whether an exchange is possible and desired depends on actual conditions, rather than a questionnaire result."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "自主满足与自主受阻各有题目；不要把一项低均分直接填成另一项高均分。胜任受阻侧重尝试被贬低后觉得不行，联结受阻侧重被冷落、排除或不接纳的体验。胜任满足另看能否做成一步，联结满足另看关心与接纳，它们都不等于是否被施压。一次事件可能涉及多项，也可能只涉及其中一项；问卷不寻找单一真正原因，更不把最高受阻项当成修复全部动机的万能入口。",
+              "en": "Satisfaction and frustration have separate items; a low mean for one must not be filled in as a high mean for the other. Competence frustration concerns felt inadequacy around dismissed attempts, and relatedness frustration concerns rejection or exclusion. Competence satisfaction concerns a manageable step and relatedness satisfaction care and acceptance; neither is equivalent to freedom from pressure. One event may involve several experiences or just one. The reflection identifies no single true cause and does not make the highest frustration mean a universal route to restoring motivation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，普通任务有不可改变的时间限制，不一定意味着有人施压；反过来，表面上提供几个选择，也不保证人能自愿认同。结果不判断违法、虐待、职场关系、权力归属或他人人格，也不诊断焦虑、耗竭与健康问题。少报告压力不意味着现状一定可取，较多报告也不能独自说明整个环境。",
+              "en": "A real time constraint in an ordinary task does not necessarily establish pressure, while several apparent options do not guarantee willing endorsement. Results determine no illegality, abuse, workplace relationship, authority or another person’s character and diagnose no anxiety, exhaustion or health problem. Reporting little pressure does not certify an arrangement as desirable, and reporting more cannot establish everything about an environment without additional facts."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：只回想一次不必重新经历的小事，分成“我记得的要求”“我感到的压力”“还缺的事实”三栏。不必询问他人或采取行动，也不用把感觉写成指控。若没有想回顾的情境，就到此结束。保留不确定本身有用；本观察不以降低分数或改变谁为任务。",
+              "en": "For an optional observation, recall one small event without recreating it. Separate the requirement you remember, pressure you experienced and facts still missing. No inquiry or action is required, and a feeling need not become an accusation. If there is no event you want to revisit, stop here. Retaining uncertainty is useful in itself; the observation assigns no task of lowering a score or changing anybody."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "competence-satisfaction",
+      "directionIds": [
+        "competence-satisfaction"
+      ],
+      "title": {
+        "zh": "胜任满足：看见自己能完成的一步",
+        "en": "Competence Satisfaction: A Step You Can Manage"
+      },
+      "headline": {
+        "zh": "胜任满足：看见自己能完成的一步",
+        "en": "Competence Satisfaction: A Step You Can Manage"
+      },
+      "summary": {
+        "zh": "以可起步、能看见作用和认领进展的体验理解胜任满足，含高低混合、资料不足、任务例子与对照；不把自报感受当实际能力。",
+        "en": "Explore feeling able to start, affect a step and recognise progress, with mixed examples and comparisons; reported competence is no measured ability."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT胜任满足结果：可完成感、例子与完整解释",
+          "en": "SDT Competence Satisfaction: Full Result Guide"
+        },
+        "description": {
+          "zh": "胜任满足完整说明：从可起步、反馈与进展理解感受，含高低、混合、资料不足、五项对照与计分；不推断真实技能或职业。",
+          "en": "Explore manageable steps, feedback and experienced effectiveness, with mixed examples, comparisons and scoring. No measured skill or career-fit verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "胜任满足关注做事情时感觉自己能有效参与、能完成眼前一步，而不是证明已经成为专家。四条原创题观察选定领域近四周的这种体验：起步是否觉得做得动、反馈是否让进展可见、能否感到尝试有作用。任务的实际难度、结果质量与个人技能没有被测量；小步的可完成感也可以出现在初学阶段。",
+              "en": "Competence satisfaction concerns feeling effective in an activity and able to manage a step, rather than proving expertise. Four original items consider whether a starting point felt manageable, feedback made progress visible and an attempt seemed able to affect the next step in your chosen area over four weeks. Actual task difficulty, output quality and skill are unmeasured. A beginner can experience effectiveness in a small step."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示这些情境里较常感到做得动或看得见进展，较低表示较少这样报告，不等于能力差。中间均分可能包含熟悉部分做得动、新部分尚不确定，也可能反馈时有时无。至少三条有效才显示均分；没有相应活动或反馈资料时，可保留资料不足，不凭其他五项补出胜任感。",
+              "en": "A higher mean describes more reported manageable steps or visible progress in these situations; a lower mean describes less without establishing low ability. A middle mean may combine familiar steps with uncertain new ones, or intermittent feedback. At least three ratings are needed. When relevant activities or information are absent, keep insufficient information rather than borrowing another part’s score to manufacture an experience of competence."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你在一门兴趣课程里第一次用新工具。整件作品还不会做，但演示后能独立完成一个小连接，检查结果也符合这一小步的要求。你可以感觉这一小步做得动，同时仍需要下一步说明。这不是给作品打高分，也不需要把“我会这一点”扩大成“我在所有任务里都胜任”。",
+              "en": "Imagine using a new tool in an interest course. You cannot yet produce the whole piece, but after a demonstration you complete one small connection and check it against that step’s requirement. That step can feel manageable while you still need instructions for the next. This is no high grade for the finished work and does not turn managing one part into competence across every task."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这一小步我已经能做出来，下一步需要知道怎样检查。”它把已完成与还需支持的地方放在一起。你也可以请愿意协助的人给一个具体反馈，而不是只问“我行不行”。反馈是否可靠、任务是否真的完成，还需要实际标准；均分只是你对体验的自报，不替代作品、表现或专业评价。",
+              "en": "You might say, “I can carry out this step now; next I need to know how to check it.” This keeps progress and support needs together. If help is welcome, ask for specific feedback rather than a global verdict of whether you are capable. Feedback quality and task completion still need actual criteria. A mean records experience rather than replacing the work, observed performance or a qualified assessment."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "胜任受阻另看尝试被贬低、感到被当成不行的人等体验，不能用低满足自动补成高受阻。自主满足看是否认同参与理由，联结满足看关心与接纳。你可以愿意做、也受到欢迎，却仍不清楚怎样开始；也可以会做某一步但不喜欢整个安排。自主受阻另看选择被施压，联结受阻另看被排除；能做成一步不证明这两种体验一定少。六项并存，不把最高项命名为精通追求者或推断职业。",
+              "en": "Competence frustration separately concerns experiences such as dismissed attempts or feeling treated as incapable; low satisfaction does not automatically fill in high frustration. Autonomy satisfaction concerns endorsement and relatedness satisfaction care and acceptance. You may willingly participate and feel welcome while not knowing how to start, or manage a step while disliking the arrangement. Autonomy frustration concerns pressure and relatedness frustration exclusion; managing a step establishes neither as absent. Keep all six parts, without a mastery-seeker label or career inference from a highest mean."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一项过于熟悉的小事可能很容易做，却没有明显成长；一项全新任务让人暂时不确定，也不表示缺乏学习能力。反馈缺失、说明不清、工具不合适或任务超出当前条件，都要另看事实。结果不测智商、潜力、专业水平、绩效、责任、健康或是否适合技术工作，也不承诺提高这一均分就会提高表现。",
+              "en": "A familiar activity may be easy without producing growth, and uncertainty in a new task establishes no lack of learning capacity. Missing feedback, unclear instructions, unsuitable tools and demands beyond current conditions require separate facts. Results measure no IQ, potential, expertise, performance, responsibility, health or suitability for technical work. Raising this reported mean is not established as a way to improve actual performance."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想选定领域一件已经发生的小事，标出“哪一步能做”“靠什么知道”“下一步还缺什么”。可以只回顾，不必增加任务或主动挑战更难的事。若愿意尝试，也只选本来就要做且条件允许的一步，按真实标准检查；目的在于看清反馈和条件，而不是训练高分或证明自己足够优秀。",
+              "en": "For an optional observation, recall an activity that has already happened. Note a step you could manage, how you knew and what the next step still needed. Recollection is enough; no extra task or harder challenge is required. If you choose to act, use a step already planned and feasible, checking actual criteria. Clarify feedback and conditions rather than train a higher score or demonstrate personal excellence."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "competence-frustration",
+      "directionIds": [
+        "competence-frustration"
+      ],
+      "title": {
+        "zh": "胜任受阻：尝试被否定的体验",
+        "en": "Competence Frustration: When Attempts Feel Dismissed"
+      },
+      "headline": {
+        "zh": "胜任受阻：尝试被否定的体验",
+        "en": "Competence Frustration: When Attempts Feel Dismissed"
+      },
+      "summary": {
+        "zh": "分开困难、低把握与尝试被贬低的体验，保留高低、混合及资料不足读法；从具体反馈与条件回看，不裁定能力或失败身份。",
+        "en": "Separate task difficulty, uncertainty and felt dismissal, with higher, lower and mixed readings; review feedback and conditions without an ability verdict."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT胜任受阻结果：尝试、反馈与完整解释",
+          "en": "SDT Competence Frustration: Full Result Guide"
+        },
+        "description": {
+          "zh": "胜任受阻完整说明：区分任务难度、低把握与受挫体验，含高低、混合、资料不足、五项对照及计分；不评能力或心理健康。",
+          "en": "Read experienced dismissal separately from task difficulty and uncertainty, with mixed examples, comparisons and scoring. No ability or health verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "胜任受阻在这里关注，你在尝试普通活动时，因遇到的评判或对待而觉得自己不够格、再试只会显示不行。它比“这一步还不会”多一层受挫体验。四条原创题记录选定领域近四周的自报感受，不证明别人确实在贬低，也不把任务难、出错或暂时缺少反馈自动当成受阻。",
+              "en": "Competence frustration here concerns feeling inadequate or that another attempt would merely display incapability following judgments or treatment you encountered. That experience is more than not yet knowing a step. Four original items record experiences in your selected area over four weeks. They do not establish that somebody actually demeaned you, or automatically classify difficulty, mistakes or missing feedback as active frustration."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组受挫情境较常被报告，较低表示较少，并不证明你很有能力或从不受挫。中间均分可能保留不同活动、不同回应之间的差异；没有标准分界线能把它变成某种心理状态。每部分至少三条有效才有均分，资料不足不解释成无受阻、低能力或缺乏上进心。",
+              "en": "A higher mean describes more frequently reported frustration in these selected situations; a lower mean describes less without proving high ability or freedom from discouragement. A middle mean can preserve differences among activities and responses. No established cutoff converts it into a psychological condition. At least three ratings permit a mean; insufficient information means neither absent frustration, low capability nor lack of ambition."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你在普通共同任务里第一次尝试一种步骤，对方只用一句笼统否定回应，你因而觉得再试也不会被当回事。先分开实际说了什么、自己怎样理解、任务还缺什么说明。可能有误解，也可能确实缺少有用反馈；这个问卷没有双方记录或任务标准，不能用均分决定谁对谁错，更不能给你贴上失败者标签。",
+              "en": "Imagine first trying a step in an ordinary shared task and receiving only a sweeping negative response. You feel that another attempt would not be taken seriously. Separate the actual words, your interpretation and instructions still needed. Misunderstanding or unhelpful feedback may be involved. Without both accounts and task criteria, this questionnaire cannot decide who is right or turn a mean into an identity of personal failure."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意且适合，可以问：“具体是哪一步不符合要求？能否说明可检查的标准？”也可以先只把这个问题写给自己，保留尚未得到的信息。它在寻找具体内容，不要求对方认可你的全部尝试。是否继续这项活动、需要什么支持，应结合真实要求与条件；没有必要为了证明自己能行而不断加做或重演让人难受的经历。",
+              "en": "If welcome and appropriate, ask, “Which specific step did not meet the requirement, and what criterion can be checked?” You can keep the question to yourself and record the information still missing. It seeks specifics rather than universal approval. Whether to continue and what support is needed depend on actual requirements and conditions. There is no need to add repeated attempts or recreate an unpleasant exchange to prove capability."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "胜任满足另看可起步、能看见进展与感到有效；低满足不等于高受阻。自主受阻偏被迫照做，联结受阻偏被排除或不接纳。自主满足另看认可自己的理由，联结满足另看受到关心与接纳；这两项也不会由是否受到否定自动算出。同一次评价可能触及几项，但分数不证明它们共用原因。六项不相减、不合成一个动力缺口，也不把这项高低换算成内在动机、工作热情或职业匹配。",
+              "en": "Competence satisfaction separately concerns manageable starts, visible progress and effectiveness; low satisfaction does not equal high frustration. Autonomy frustration concerns pressure to comply, while relatedness frustration concerns rejection or exclusion. Autonomy satisfaction concerns endorsed reasons and relatedness satisfaction care and acceptance; neither follows automatically from the presence or absence of dismissal. One evaluation may touch several experiences without proving a shared cause. Keep six separate means rather than one motivational deficit, and infer no intrinsic motivation, work enthusiasm or career match from this part."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，正确指出一个实际错误，不一定是在否定整个人；没有被否定，也不等于得到了足够帮助。精力、材料、说明、时间与过往经验都可能影响一次尝试，但本问卷没有检测这些原因。结果不测智商、技能、潜力、自尊、疾病或实际绩效，不对你或别人作心理诊断，也不把感到受挫当成需要承担更多任务的理由。",
+              "en": "Identifying an actual error is not necessarily rejection of a whole person, while avoiding criticism does not guarantee adequate help. Energy, materials, instructions, time and previous experience can affect an attempt, but their causes are not assessed here. Results measure no IQ, skill, potential, self-esteem, illness or actual performance, diagnose nobody and create no reason to take on more work merely because an experience felt discouraging."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一件普通尝试，把可核对的反馈、自己的感受、缺少的资源分开记。只选你愿意回顾的小事，也可以跳过。若已能找到一项具体要求，先保留它，不必立刻重做。观察关注信息是否足够具体，而不是训练抗压、降低分数或把所有受挫都改写成个人需要更努力。",
+              "en": "For an optional observation, recall an ordinary attempt and separate checkable feedback, your experience and missing resources. Choose only something you want to revisit, or skip it. If a specific requirement is already clear, retain it without immediately redoing the task. The observation concerns useful information rather than pressure training, lowering a score or reframing every discouraging experience as a personal need to try harder."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relatedness-satisfaction",
+      "directionIds": [
+        "relatedness-satisfaction"
+      ],
+      "title": {
+        "zh": "联结满足：被关心与接纳的体验",
+        "en": "Relatedness Satisfaction: Care and Acceptance"
+      },
+      "headline": {
+        "zh": "联结满足：被关心与接纳的体验",
+        "en": "Relatedness Satisfaction: Care and Acceptance"
+      },
+      "summary": {
+        "zh": "从普通交流里的真实关心与接纳理解联结满足，保留高低、混合与资料不足；关系质量不按社交数量衡量，也不推断外向、团队能力或职业。",
+        "en": "Explore experienced care and acceptance with mixed examples and limits. Connection is no count of contacts, extraversion, teamwork ability or career verdict."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT联结满足结果：关心、接纳与完整解释",
+          "en": "SDT Relatedness Satisfaction: Full Result Guide"
+        },
+        "description": {
+          "zh": "联结满足完整说明：关注真实关心与接纳，含高低、混合、资料不足、五项对照和计分；不按朋友数量判断外向或团队能力。",
+          "en": "Explore experienced care and acceptance, with mixed examples, comparisons and scoring. Connection measures no contact count, extraversion or team ability."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "联结满足关注你是否在选定领域的普通往来里感到被关心、被接纳，与人之间有真实联系。四条原创题不数朋友、聊天次数或团队规模，也不要求亲密关系越多越好。一次简短而认真听取你的交流，可能比许多表面互动更有这种体验；这里记录近四周的感受，不评价他人的真实感情或你的社交能力。",
+              "en": "Relatedness satisfaction concerns experienced care, acceptance and connection in ordinary exchanges in your chosen area. Four original items count neither friends, conversations nor team size and set no goal of having more close relationships. A brief exchange in which you feel heard may include more connection than numerous superficial contacts. The reflection records four weeks of experience without judging another person’s actual feelings or your social ability."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组情境里较常感到关心和接纳，较低表示较少，不等于遭到拒绝。中间均分可能反映不同互动对象、不同时间或不同题目之间的差异；它不证明社交需求正好适中。至少三条有效才有个人均分；没有足够互动资料就保留不足，不当成孤独、内向或不需要关系。",
+              "en": "A higher mean describes more reported care and acceptance in these selected situations; a lower mean describes less without establishing rejection. A middle mean can reflect different people, occasions or item responses and demonstrates no ideal level of social need. At least three ratings are needed. Insufficient interaction information remains insufficient rather than becoming loneliness, introversion or evidence that connection does not matter to you."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一项兴趣活动中，你只与一位同伴有过几次简短交流。对方记得你在意的一个细节，也愿意听你说明不同想法，你因而感到自己作为一个具体的人被放在心上。这里的联结不来自参加了多少次聚会，也不要求关系必须亲密或长久。是否继续交流、彼此期待什么，仍可另行商量。",
+              "en": "Imagine having only a few brief exchanges with one person in an interest activity. They remember a detail that matters to you and listen when you explain a different view, leaving you feeling noticed as a particular person. Connection here comes from neither attendance counts nor an obligation to develop a close, lasting relationship. Whether to keep talking and what each person expects remain matters for separate agreement."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“上次你记得我提到的那件小事，让我感到被认真听见。”它说明自己的体验，不要求对方作同等程度的回应。若愿意，也可以问一句对方希望怎样交流；双方的时间与边界仍需尊重。不必因为这一项低就扩大社交圈，也不因这一项高就承担更多他人的情绪或共同任务。",
+              "en": "You might say, “When you remembered that small thing I mentioned, I felt heard.” This describes your experience without requesting an equally strong response. If welcome, ask how the other person prefers to communicate, while respecting time and boundaries. A lower mean creates no duty to expand a social circle, and a higher mean creates no obligation to take on more emotional or shared responsibilities."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "联结受阻另看被冷落、排除或不接纳的体验，不是把联结满足反向计分。自主满足看是否认同参与理由，胜任满足看是否感觉能做成一步。可以被欢迎却不认可任务，也可以很会做却缺少交流。自主受阻另看选择被施压，胜任受阻另看尝试被贬低；被关心不保证这两种体验都不存在。六项不选最高型，不把高联结叫团队发动机，也不据此认为你更善合作、外向或适合某类职业。",
+              "en": "Relatedness frustration separately concerns felt rejection or exclusion rather than reverse-scored satisfaction. Autonomy satisfaction concerns endorsed reasons and competence satisfaction a manageable step. You may feel welcomed while questioning a task, or feel effective while having little interaction. Autonomy frustration concerns pressure and competence frustration dismissal; feeling cared for does not establish either as absent. Keep six separate parts without a highest-score type, team-engine label or inference about cooperation, extraversion or suitability for a particular career."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个独自完成的兴趣项目可能没有足够互动情境，并不说明关系有问题；热闹群体也不保证被关心。交流渠道、语言、安排与最近参与的活动范围要另看事实。结果不评情商、受欢迎程度、关系稳固、依恋、心理健康或真实团队表现，也不认证其他人都值得信任或你应继续某段关系。",
+              "en": "A solitary interest project may offer little interaction information without indicating a relationship problem. A busy group does not guarantee care. Communication channels, language, arrangements and recent activities need their own facts. Results assess no emotional intelligence, popularity, relationship stability, attachment, mental health or actual team performance and certify neither another person’s trustworthiness nor an obligation to continue a relationship."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想选定领域一次让你感到被认真对待的普通交流，记下具体发生的细节与自己的感受；没有这样的例子也可以只记资料不足。不必联系更多人、透露隐私或要求关系升级。观察在于分清哪些互动让你有联结体验，不是建立社交数量目标或把别人的回应当作你的价值评分。",
+              "en": "For an optional observation, recall an ordinary exchange in your chosen area in which you felt taken seriously. Note a concrete detail and your experience; if no example comes to mind, retain insufficient information. No additional contacts, private disclosures or closer relationship are required. Notice which interactions involved connection rather than set a social quota or treat somebody’s response as a rating of your worth."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relatedness-frustration",
+      "directionIds": [
+        "relatedness-frustration"
+      ],
+      "title": {
+        "zh": "联结受阻：被排除与不被接纳的体验",
+        "en": "Relatedness Frustration: Experienced Exclusion"
+      },
+      "headline": {
+        "zh": "联结受阻：被排除与不被接纳的体验",
+        "en": "Relatedness Frustration: Experienced Exclusion"
+      },
+      "summary": {
+        "zh": "区分互动少、暂时联系不上与被排除的自报体验，含高低混合、资料不足、例子和观察；均分不判断他人意图或关系去留。",
+        "en": "Separate little interaction from experienced exclusion, with mixed readings, examples and observations; means determine no intentions or relationship decision."
+      },
+      "scoreReading": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      },
+      "seo": {
+        "title": {
+          "zh": "SDT联结受阻结果：排除感、情境与完整解释",
+          "en": "SDT Relatedness Frustration: Full Result Guide"
+        },
+        "description": {
+          "zh": "联结受阻完整说明：区分互动少、联系不上与排除感，含高低、混合、资料不足、五项对照及计分；不判断关系或他人意图。",
+          "en": "Explore experienced exclusion separately from little interaction, with mixed examples, comparisons and scoring. No relationship or intention verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这项体验在观察什么",
+            "en": "What this experience concerns"
+          },
+          "paragraphs": [
+            {
+              "zh": "联结受阻关注选定领域里感到自己被有意排除、参与被当成多余，或别人通过冷落表达不接纳的体验。四条原创题保留“我感到”的立场，不把感受升级为已经查证的他人意图。互动少、独处、一次未及时回复或活动不合适，与明确感到被排斥并不相同；具体经过仍要另外了解。",
+              "en": "Relatedness frustration concerns feeling deliberately excluded, treated as unwanted or rejected through coldness in your selected area. Four original items retain the standpoint of your experience rather than turn it into verified evidence of another person’s intention. Little interaction, solitude, one delayed reply or an unsuitable activity differ from experienced rejection. Understanding the actual events requires information beyond a questionnaire response."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高、较低、混合与资料不足",
+            "en": "Higher, lower, mixed and insufficient readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高表示本组选定情境里较常报告不接纳或排除感，较低表示较少，不保证关系亲近。低满足也可能只意味着缺少互动，不等于高受阻。中间均分可能保留部分交流欢迎、部分不确定的混合；没有常模或临床分界。至少三条有效才显示均分，资料不足既不证明关系好，也不证明关系出了问题。",
+              "en": "A higher mean describes more reported exclusion or rejection in these selected situations; a lower mean describes less without certifying closeness. Low satisfaction may simply reflect little interaction rather than high frustration. A middle mean can retain welcoming and uncertain exchanges together, without a norm or clinical cutoff. At least three ratings permit a mean. Insufficient information establishes neither a good relationship nor a relationship problem."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "一个具体普通情境",
+            "en": "A concrete ordinary situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，一次本来共同安排的小活动，你没有收到某部分交流的信息，因而觉得自己被留在外面。可以先分开“我没收到什么”“原本约定怎样通知”“我现在怎样感受”“原因还有哪些未确认”。可能存在疏漏，也可能需要进一步事实；问卷不能选择一个解释，也不让一次普通事件变成对整个群体或自己的定论。",
+              "en": "Imagine not receiving part of the communication for a supposedly shared activity and feeling left outside. Separate what was missing, the agreed notification method, your experience and causes still unconfirmed. An omission or other facts may be involved, but the questionnaire cannot choose an explanation. One ordinary event need not become a verdict on the whole group or your identity, and the mean supplies no missing account."
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "zh": "一句可用的表达",
+            "en": "A possible way to express it"
+          },
+          "paragraphs": [
+            {
+              "zh": "若合适且你愿意，可以问：“这部分信息原本通过哪个渠道同步？我没有收到，想确认共同参与的安排。”它先核对实际流程，不要求你淡化感受或立刻指认谁故意排除。也可以先不交流，只整理自己已经知道与还不知道的事。是否提出问题、继续参与或结束往来，需要结合真实条件与个人意愿，不能交给均分裁决。",
+              "en": "If appropriate and welcome to you, ask, “Which channel carried that information? I did not receive it and would like to confirm the shared arrangement.” Check the process without minimising your experience or immediately identifying deliberate exclusion. You can instead leave the question unsent and organise known and unknown facts. Whether to ask, participate or end contact depends on actual circumstances and willingness, rather than a mean’s verdict."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他体验分别理解",
+            "en": "Comparisons with other experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "联结满足另看关心、接纳与联系，受阻题不反向补成满足。自主受阻偏选择被施压，胜任受阻偏尝试被贬低后的不行感；自主满足另看自愿认可参与，胜任满足另看能完成一步；即使感到排除，也不能把这两项直接补成低分。一件事可同时涉及几项，但不会因此证实共同原因。六项不相减、不合成总分，也不把受阻最高项等同于你最需要的东西或解释全部动力变化。",
+              "en": "Relatedness satisfaction separately concerns care, acceptance and connection; frustration items do not reverse into satisfaction. Autonomy frustration concerns pressured choice and competence frustration felt inadequacy around dismissed attempts. Autonomy satisfaction concerns willing participation and competence satisfaction a manageable step; exclusion does not automatically fill either in as low. One event may involve several experiences without establishing a common cause. Keep six separate means, without subtraction, a total or an inference that the highest frustration part identifies your greatest need or explains every change in motivation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and conclusions not established"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，别人暂时没有回应可能有很多原因，不能仅凭感受确认恶意；少报告排除感也不保证交流充足或关系可取。结果不判定欺凌、歧视、他人人格、法律责任或你是否受欢迎，也不诊断孤独、抑郁、耗竭或其他健康问题。它没有替你观察事件，更不要求你接近不想接近的人来验证一个分数。",
+              "en": "A delayed response can have many explanations, and a feeling alone cannot establish malice. Reporting little exclusion does not guarantee sufficient interaction or a desirable relationship. Results determine no bullying, discrimination, personality, legal responsibility or popularity and diagnose no loneliness, depression, exhaustion or other health condition. The questionnaire did not observe the event and requires no unwanted contact to verify a score."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的小观察",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：只回顾一次你愿意想起的普通互动，把可核对的信息、自己的感受和未确认的原因分开。可以不保存记录、不联系他人，也可以跳过。若发现只是渠道不清，就把它保留为待确认的小问题；若情况仍不明，也允许保持不明。这个观察不要求原谅、对质或修复关系，更不让你为提高满足分数负责。",
+              "en": "For an optional observation, recall only an ordinary exchange you want to consider. Separate checkable information, your experience and unconfirmed causes. No saved record or contact is required, and you can skip it. An unclear communication channel can remain a small open question; other uncertainty can remain unresolved too. The observation requires no forgiveness, confrontation or relationship repair and gives you no duty to increase a satisfaction score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "四条均分与NA规则",
+            "en": "Four-item means and NA rules"
+          },
+          "paragraphs": [
+            {
+              "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+              "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创版本、文献与使用范围",
+            "en": "Original edition, sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+              "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "六项分别计算，不相减合成",
+        "en": "Six separate calculations without subtraction"
+      },
+      "paragraphs": [
+        {
+          "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+          "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "三种需要、满足与受阻的区别",
+        "en": "Three needs, satisfaction and frustration"
+      },
+      "paragraphs": [
+        {
+          "zh": "SDT自我决定理论讨论自主、胜任、联结等需要及不同的动机调节方式。本版只观察同一选定领域中的六类需要体验：自主满足与受阻、胜任满足与受阻、联结满足与受阻。满足偏向积极体验，受阻偏向感到需要被压制；缺少满足不自动等于受到阻碍。自主不是必须单独决定，胜任感不是客观技能，联结不是外向或朋友数量。这里没有测需要有多重要，也没有从需要均分推断内在兴趣、奖励驱动或行动原因；不能把最高项叫你的真正动力。",
+          "en": "Self-Determination Theory discusses autonomy, competence, relatedness and different forms of motivational regulation. This edition observes only six need experiences in one selected area: satisfaction and frustration for each need. Satisfaction concerns positive experiences; frustration concerns felt thwarting. An absence of satisfaction does not automatically establish active frustration. Autonomy requires no independent decision-making, felt competence is no measured skill, and connection is no extraversion or friend count. Need importance, intrinsic interest, reward-driven action and reasons for acting are unmeasured; a highest mean does not identify your true motivator."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "混合、相同与不足都保留",
+        "en": "Mixed, equal and insufficient experiences"
+      },
+      "paragraphs": [
+        {
+          "zh": "例如，一项自主满足均分4.0，而自主受阻2.0，分别描述两组题的自报频率；不能用4减2生成净自主分。若同一对都较高，可以回看不同时间和事件，不自动判你作答矛盾；若都较低，可能只是两类体验都不常出现，不等于理想平衡。六项都独立保留，缺资料也不补分，全部六份完整说明同时可读。",
+          "en": "For example, an autonomy satisfaction mean of 4.0 and frustration mean of 2.0 describe separate reported frequencies; subtracting them creates no valid net autonomy score. If both are higher, consider different events or times rather than automatically declaring contradictory answers. If both are lower, neither experience may have occurred often, without establishing ideal balance. Keep all six parts and explicit missing information. All six full guides remain available together."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "草稿、分享与可选下一步",
+        "en": "Drafts, sharing and optional next steps"
+      },
+      "paragraphs": [
+        {
+          "zh": "答案在浏览器内计分，不上传、不进网址或分析。选定领域只需心里记住，不输入名称。草稿需主动开启，只在本标签页恢复，24小时失效，完成、重测、退出清除即删除。分享自选，只含公开测试说明与链接，不含答案或均分。完整结果免费，无需注册、邮箱或另一测试解锁；后续测评可以不做，若继续需独立完整作答，不从这里换算。",
+          "en": "Answers are scored in your browser without uploading them or putting them in URLs or analytics. Keep the selected area in mind without entering its name. Drafts require opt-in, restore only in this tab, expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public test information and a link without answers or means. Full results are free without signup, email or another test to unlock them. Further assessments are optional and require separate full answers rather than conversion."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "SDT与这份原创问卷分别是什么？",
+        "en": "What are SDT and this original questionnaire?"
+      },
+      "answer": {
+        "zh": "SDT自我决定理论讨论自主、胜任、联结等需要及不同的动机调节方式。本版只观察同一选定领域中的六类需要体验：自主满足与受阻、胜任满足与受阻、联结满足与受阻。满足偏向积极体验，受阻偏向感到需要被压制；缺少满足不自动等于受到阻碍。自主不是必须单独决定，胜任感不是客观技能，联结不是外向或朋友数量。这里没有测需要有多重要，也没有从需要均分推断内在兴趣、奖励驱动或行动原因；不能把最高项叫你的真正动力。",
+        "en": "Self-Determination Theory discusses autonomy, competence, relatedness and different forms of motivational regulation. This edition observes only six need experiences in one selected area: satisfaction and frustration for each need. Satisfaction concerns positive experiences; frustration concerns felt thwarting. An absence of satisfaction does not automatically establish active frustration. Autonomy requires no independent decision-making, felt competence is no measured skill, and connection is no extraversion or friend count. Need importance, intrinsic interest, reward-driven action and reasons for acting are unmeasured; a highest mean does not identify your true motivator."
+      }
+    },
+    {
+      "question": {
+        "zh": "低满足是不是高受阻，能相减吗？",
+        "en": "Does low satisfaction mean high frustration, and can I subtract them?"
+      },
+      "answer": {
+        "zh": "不是，不能相减。三种需要各有满足与受阻题目，分别问近四周在同一选定领域的体验；缺少积极体验不自动证明被压制。六项不合成净分、总体动力或最高类型，高低混合也不按某个人物标签解释。",
+        "en": "No. Each need has separate satisfaction and frustration items about four weeks in the same selected area. Missing positive experience does not automatically establish thwarting. Keep six means without a net score, overall motivation or highest-score type, and interpret mixed patterns without assigning a persona."
+      }
+    },
+    {
+      "question": {
+        "zh": "自主、胜任、联结是独立、能力与外向吗？",
+        "en": "Do autonomy, competence and relatedness mean independence, ability and extraversion?"
+      },
+      "answer": {
+        "zh": "不是。这里分别关注自愿认同、感到能有效完成一步、被关心与接纳的体验。合作也可以自主，初学者也可以在小步里感到胜任，少量交流也可以有联结。问卷不评实际技能、社交能力、需要重要程度或职业。",
+        "en": "No. This edition concerns willing endorsement, experienced effectiveness at a step, and care and acceptance. Cooperation can include autonomy, beginners can feel effective in a small step and few exchanges can include connection. Actual skill, social ability, need importance and career fit are unmeasured."
+      }
+    },
+    {
+      "question": {
+        "zh": "反向、NA和资料不足怎样处理？",
+        "en": "How are reverse scoring, NA and insufficient information handled?"
+      },
+      "answer": {
+        "zh": "24条都选择后，六项分别计算。每项4条，1从不至5几乎总是；没有反向题，受阻体验不反向补成满足。NA是不适用、资料不足或不愿回答，排除而不补零、中性或其他项的分数。每项至少3条有效，才以计分和除有效条数取一位小数均分1—5；不足明确保留。六项不相加、不相减、不排最高人格或最重要需要，也没有总体动机分、健康指数、常模、百分位或科学阈值。相同均分保留，小数差异不证明显著或变化；中间值可能来自不同答案组合。最低条数只是本站完整度规则，不是已验证的心理测量标准。",
+        "en": "After all 24 selections, calculate six parts separately. Each has four items rated 1 Never to 5 Almost always. There are no reverse items: frustration never reverses into satisfaction. Exclude NA for absent context, insufficient information or declining to answer, without filling zero, a midpoint or another part’s score. At least three ratings permit a one-decimal mean from 1 to 5, using scored sum divided by rated items; otherwise retain insufficient information. Do not add, subtract or rank the six means into a personality or most important need. There is no overall motivation score, health index, norm, percentile or scientific cutoff. Equal means stay equal; decimals establish no significance or change, and middle means can reflect different answers. The minimum is a website completeness convention rather than a validated psychometric standard."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是BPNSFS或其他官方标准量表吗？",
+        "en": "Is this BPNSFS or another official standard instrument?"
+      },
+      "answer": {
+        "zh": "本版是费马原创24题情境频率观察，以SDT三种基本心理需要为概念背景，分别整理满足与受阻体验；不是官方或标准量表、临床筛查或研究验证版本。没有采用BPNSFS、BPNSS、IMI、MWMS、WEIMS、GCOS等题本、键、常模、官方翻译或竞品题目、正文与算法。中英文题目、映射、例子与解释独立创作，尚无本站信度、效度或跨语言等价证据。文献提供概念背景，不验证本站题本、最低条数或分数解释；Martela与Ryan的开放论文依其CC BY 4.0许可提供背景，例子与说明为本站原创，该论文许可不扩为其他题本许可。均分不测需要的重要程度、真实能力、内外在动机调节、行动原因、他人意图、健康、产出、聘用或职业适配，也不把你分成五种固定动机人物。实际情境与职责仍需另看事实。",
+        "en": "This original FermatMind 24-item contextual frequency reflection uses the three SDT needs as conceptual background while keeping satisfaction and frustration separate. It is no official, standard, clinical or research-validated instrument. No BPNSFS, BPNSS, IMI, MWMS, WEIMS, GCOS bank, key, norm, official translation or competitor items, body or algorithm is adopted. English and Chinese questions, mappings, examples and explanations are independently authored without local reliability, validity or established language equivalence. References provide background without validating this bank, minimum or interpretations. Martela and Ryan’s open article supplies background under CC BY 4.0; examples and explanations are original, and that article’s licence covers no other bank. Means assess no need importance, actual ability, motivational regulation, causes, others’ intentions, health, output, hiring or career fit, and assign no five fixed motivation personas. Actual situations and duties require their own facts."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果能解释为什么没动力或评健康吗？",
+        "en": "Can results establish why motivation changed or assess health?"
+      },
+      "answer": {
+        "zh": "不能。它只整理本组原创题的自报频率，没有测行动原因、实际环境、疾病、耗竭、能力或表现，也不由需要分数确定内外在动机类型或职业。六份说明提供具体例子、比较与可选观察；现实问题仍需实际信息，不把最低或最高项当成万能原因。",
+        "en": "No. It organises reported frequencies in these original items without measuring causes, actual environments, illness, exhaustion, ability or performance. Need means determine no motivational regulation or career. Six guides provide examples, comparisons and optional observations; actual problems need actual information, without making a lowest or highest part a universal cause."
+      }
+    },
+    {
+      "question": {
+        "zh": "全部正文、重测与分享免费吗？",
+        "en": "Are all guides, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "免费，无需注册或邮箱。六份完整说明可先读，全部24条选择后呈现六项均分或不足状态，NA也不隐藏正文。重测清除本次选择，可选分享不含个人答案、选定领域名称或均分；后续测试需要独立作答。",
+        "en": "Yes, without signup or email. Read all six full guides first. All 24 selections produce six means or insufficient-information states, and NA never hides the body. Retaking clears selections. Optional sharing contains no answers, selected area name or means; further tests require separate answers."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "自我决定理论：理论与六个子理论概述",
+        "en": "Self-Determination Theory: theory and mini-theories overview"
+      },
+      "url": "https://selfdeterminationtheory.org/theory/"
+    },
+    {
+      "title": {
+        "zh": "Vansteenkiste、Ryan与Soenens，2020：基本心理需要理论（摘要）",
+        "en": "Vansteenkiste, Ryan and Soenens, 2020: basic psychological need theory (abstract)"
+      },
+      "url": "https://doi.org/10.1007/s11031-019-09818-1"
+    },
+    {
+      "title": {
+        "zh": "Martela与Ryan，2020：基本需要与有益体验的区别（CC BY 4.0）",
+        "en": "Martela and Ryan, 2020: needs and wellness enhancers (CC BY 4.0)"
+      },
+      "url": "https://doi.org/10.1007/s11031-019-09800-x"
+    },
+    {
+      "title": {
+        "zh": "Creative Commons Attribution 4.0许可",
+        "en": "Creative Commons Attribution 4.0 licence"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

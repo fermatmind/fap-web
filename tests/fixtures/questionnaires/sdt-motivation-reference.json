@@ -1,0 +1,1607 @@
+{
+  "formCode": "fm_sdt_need_experiences_24",
+  "origin": "FermatMindoriginal24ENZHcontextualfrequencyitems/conceptualSDTneedsreflection/NOTBPNSFS-BPNSS-IMI-MWMS-WEIMS-GCOSorJobCannonbank",
+  "directions": [
+    {
+      "id": "autonomy-satisfaction",
+      "title": {
+        "zh": "自主满足体验",
+        "en": "Autonomy satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "autonomy-frustration",
+      "title": {
+        "zh": "自主受阻体验",
+        "en": "Autonomy frustration experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "competence-satisfaction",
+      "title": {
+        "zh": "胜任满足体验",
+        "en": "Competence satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "competence-frustration",
+      "title": {
+        "zh": "胜任受阻体验",
+        "en": "Competence frustration experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "relatedness-satisfaction",
+      "title": {
+        "zh": "联结满足体验",
+        "en": "Relatedness satisfaction experiences"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "relatedness-frustration",
+      "title": {
+        "zh": "联结受阻体验",
+        "en": "Relatedness frustration experiences"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "SDT_NEEDS_01",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通安排里，我能说清自己为什么愿意按这个方案做。",
+        "en": "Over the past four weeks, in an ordinary arrangement in my chosen area, I could explain why I willingly followed that plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_02",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通活动里，我觉得自己的不同意见被压回去，只能照指定方案做。",
+        "en": "Over the past four weeks, in an ordinary activity in my chosen area, I felt my different view was shut down and I had to follow the specified plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_03",
+      "prompt": {
+        "zh": "近四周，在选定领域处理一件普通小事时，我能找到一个自己做得动的起步点。",
+        "en": "Over the past four weeks, for an ordinary activity in my chosen area, I could identify a starting point that felt manageable to me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_04",
+      "prompt": {
+        "zh": "近四周，在选定领域尝试一件小事时，遇到的回应让我觉得自己连起步也不够格。",
+        "en": "Over the past four weeks, when trying an activity in my chosen area, the response I encountered left me feeling unfit even to begin."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_05",
+      "prompt": {
+        "zh": "近四周，在选定领域与人交流普通事情时，我感到对方在意我实际想表达的意思。",
+        "en": "Over the past four weeks, in ordinary exchanges in my chosen area, I felt that the other person cared about what I was trying to express."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_06",
+      "prompt": {
+        "zh": "近四周，在选定领域的共同安排中，我感到自己被故意留在交流之外。",
+        "en": "Over the past four weeks, in shared arrangements in my chosen area, I felt deliberately left outside the exchange."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_07",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通决定中，我能把自己的理由放进最后采用的做法里。",
+        "en": "Over the past four weeks, in an ordinary decision in my chosen area, I could bring my own reasons into the approach that was adopted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_08",
+      "prompt": {
+        "zh": "近四周，在选定领域参与普通安排时，我感到必须表现得赞同，实际并不愿意这样做。",
+        "en": "Over the past four weeks, while taking part in ordinary arrangements in my chosen area, I felt required to show agreement although I did not willingly endorse the approach."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_09",
+      "prompt": {
+        "zh": "近四周，在选定领域做普通活动时，具体反馈让我看得出哪一步已经能完成。",
+        "en": "Over the past four weeks, during ordinary activities in my chosen area, specific feedback helped me see a step I could already carry out."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_10",
+      "prompt": {
+        "zh": "近四周，在选定领域处理普通事情时，我遇到的评判让我觉得再试也只会显示自己不行。",
+        "en": "Over the past four weeks, in ordinary activities in my chosen area, the judgments I encountered made trying again feel like another demonstration of inadequacy."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_11",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次共同活动里，我感到自己被当作一个具体的人来关心。",
+        "en": "Over the past four weeks, in a shared activity in my chosen area, I felt cared about as a particular person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_12",
+      "prompt": {
+        "zh": "近四周，在选定领域的普通互动中，我感到别人刻意把我的参与当作多余。",
+        "en": "Over the past four weeks, in ordinary interactions in my chosen area, I felt that others deliberately treated my participation as unwanted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_13",
+      "prompt": {
+        "zh": "近四周，即使在选定领域与别人合作，我仍能认同自己承担那一部分的理由。",
+        "en": "Over the past four weeks, even when collaborating in my chosen area, I could endorse my reasons for taking on my part."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_14",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通安排中，我感到别人用是否认可我来迫使我按他们的意思做。",
+        "en": "Over the past four weeks, in an ordinary arrangement in my chosen area, I felt that someone used their approval of me to pressure me into their preferred approach."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_15",
+      "prompt": {
+        "zh": "近四周，在选定领域处理普通活动时，我感到自己的尝试能对眼前的一步产生作用。",
+        "en": "Over the past four weeks, in ordinary activities in my chosen area, I felt that my attempt could make a difference to the step in front of me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_16",
+      "prompt": {
+        "zh": "近四周，在选定领域遇到困难时，我感到自己的尝试被贬得没有价值。",
+        "en": "Over the past four weeks, when encountering difficulty in my chosen area, I felt that my attempts were dismissed as worthless."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_17",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通往来中，我感到彼此之间有真实的关心。",
+        "en": "Over the past four weeks, in an ordinary exchange in my chosen area, I felt that there was real care between us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_18",
+      "prompt": {
+        "zh": "近四周，在选定领域与人相处时，我感到对方通过冷落我来表明不接纳我。",
+        "en": "Over the past four weeks, in interactions in my chosen area, I felt that someone used being cold towards me to communicate rejection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_19",
+      "prompt": {
+        "zh": "近四周，在选定领域有共同要求的小事里，我能找到自己真心认可的参与方式。",
+        "en": "Over the past four weeks, in ordinary activities with shared requirements in my chosen area, I found a way of participating that I could willingly endorse."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_20",
+      "prompt": {
+        "zh": "近四周，在选定领域提出普通做法的选择时，我感到自己的选择被威胁或施压取消。",
+        "en": "Over the past four weeks, when considering an ordinary choice of approach in my chosen area, I felt my choice was overridden through threat or pressure."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "autonomy-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "autonomy-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_21",
+      "prompt": {
+        "zh": "近四周，在选定领域完成一小步时，我能把它认作自己确实做成的一部分。",
+        "en": "Over the past four weeks, after a small step in my chosen area, I could recognise it as something I had actually managed to do."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_22",
+      "prompt": {
+        "zh": "近四周，在选定领域的一件普通活动中，我感到自己被对待成无论怎么尝试都不会胜任的人。",
+        "en": "Over the past four weeks, in an ordinary activity in my chosen area, I felt treated as someone who would be incapable however I tried."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "competence-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "competence-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "competence-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "competence-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "competence-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "competence-frustration",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_23",
+      "prompt": {
+        "zh": "近四周，在选定领域的一次普通互动里，我感到自己可以作为其中一员被接纳。",
+        "en": "Over the past four weeks, in an ordinary interaction in my chosen area, I felt accepted as someone who belonged there."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "SDT_NEEDS_24",
+      "prompt": {
+        "zh": "近四周，在选定领域本来应当共同参与的小事中，我感到自己被有意排除在外。",
+        "en": "Over the past four weeks, in ordinary activities meant to be shared in my chosen area, I felt intentionally excluded."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "relatedness-frustration",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "不适用／资料不足／不愿回答",
+            "en": "Not applicable / insufficient information / prefer not to answer"
+          },
+          "directionId": "relatedness-frustration",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 24,
+    "facets": 6,
+    "itemsEach": 4,
+    "minimumRatedEach": 3,
+    "reverseItems": 0,
+    "reverseRule": "NONE;frustrationisaseparateexperience,NOTreverse-codedlow satisfaction",
+    "mean": "sum/ratedrounded1decimal/independent1..5means;NAexcludednotzero;nooveralltotal,needranking,type,frustration-minus-satisfaction,healthorjobprediction",
+    "verificationPlan": "planned45reachable(rated,sum)statesx6=270individualfacetDPwitnesses;NOTexecuted/not6^24jointcoverage/normorpsychvalidation"
+  },
+  "scope": "Onechosenordinaryarea/last4weeks;threeSDTneedssatisfactionandfrustrationexperiencesseparately,notneedimportance,ability,extraversion,personality,intrinsic-extrinsicregulation,fivecompetitorprofilesorclinicalstate.Originalquestionwording,mappingandinterpretations;noofficialinstrument,manual,bank,keys,norms,translationsorcompetitorbodyadopted;notvalidated/official/endorsed.",
+  "instructions": {
+    "zh": "先在心里选定近四周一个较常参与的普通领域，例如一门课程、一项兴趣活动或一类日常共同任务；整份题目沿用同一个领域，不必把领域名称输入网站。按每句话在该领域实际出现的频率，从1从不到5几乎总是选择；没有情境、资料不足或不愿回答都可选NA。24条原创题分别观察自主、胜任、联结的满足与受阻体验，各4条、至少3条有效才显示一位小数均分。六项分别保留；受阻题不反向，低满足不自动等于高受阻，不相减或合成总分，也不派固定动机类型。它不判断他人的真实意图、能力、健康、职业适配或你为何采取某个行动。",
+    "en": "Choose in your mind one ordinary area you took part in over the past four weeks, such as a course, an interest activity or a kind of shared everyday task. Keep the same area throughout; do not enter its name on the website. Rate how often each statement occurred there from 1 Never to 5 Almost always. Choose NA for absent context, insufficient information or declining to answer. Twenty-four original items separately explore satisfaction and frustration experiences for autonomy, competence and relatedness. Each four-item part needs three ratings for a one-decimal mean. Keep all six parts separate: frustration is not reverse-scored, low satisfaction does not automatically mean high frustration, and there is no subtraction, total or fixed motivation type. The reflection determines no other person’s actual intention, ability, health, career fit or reason for your actions."
+  }
+}
