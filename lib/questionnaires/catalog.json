@@ -2291,5 +2291,30 @@
       "rubeus-hagrid"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "spelling-test",
+    "code": "FM_ENGLISH_SPELLING_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "everyday",
+    "title": {
+      "en": "Spelling Test",
+      "zh": "英语拼写测试"
+    },
+    "description": {
+      "en": "Choose correct English spellings in 24 original sentences. Get all answers, explanations and four complete revision guides free. No signup or timer.",
+      "zh": "在24个原创英文语境中识别正确拼写，查看所选、全部答案与逐题解析，附四份完整复习指南。中文说明保留英文题句和选项，免费、不计时、无需注册。"
+    },
+    "minutes": 8,
+    "formCode": "fm_english_spelling_recognition_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "double-consonants",
+      "vowel-choices",
+      "letter-order",
+      "word-endings"
+    ],
+    "collection": "explore"
   }
 ]

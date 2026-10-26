@@ -1,0 +1,1703 @@
+{
+  "id": "T160",
+  "edition": "fm_english_spelling_recognition_24_v1",
+  "authorship": "FermatMind original contexts, distractors, explanations and guides; dictionary spelling facts independently checked.",
+  "questions": [
+    {
+      "id": "SPELL_01",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: For our picnic, I packed roasted ___ in a blue container.",
+        "zh": "选择正确的英语拼写填空：For our picnic, I packed roasted ___ in a blue container."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "broccoli",
+            "zh": "broccoli"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "brocolli",
+            "zh": "brocolli"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "brocoli",
+            "zh": "brocoli"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "broccolli",
+            "zh": "broccolli"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Broccoli has cc and one l: b-r-o-c-c-o-l-i. The other options remove a c or add an l. This checks the presented spelling, not how the word sounds in a particular accent.",
+        "zh": "broccoli含cc和一个l，逐字为b-r-o-c-c-o-l-i。其余选项少了c或多了l；本题核对所给拼写，不按某种口音判断。"
+      }
+    },
+    {
+      "id": "SPELL_02",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The fictional robot faces a small ___ about which button to press.",
+        "zh": "选择正确的英语拼写填空：The fictional robot faces a small ___ about which button to press."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "dilemna",
+            "zh": "dilemna"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "dilemma",
+            "zh": "dilemma"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "dilema",
+            "zh": "dilema"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "dillemma",
+            "zh": "dillemma"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Dilemma has one l and a doubled m: d-i-l-e-m-m-a. It has no n. Check the actual letters rather than treating a remembered shape as enough.",
+        "zh": "dilemma只有一个l，m双写，字母为d-i-l-e-m-m-a，没有n。应逐字核对，不能只凭记得的大致轮廓。"
+      }
+    },
+    {
+      "id": "SPELL_03",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: A museum may ___ several copies of the same edition.",
+        "zh": "选择正确的英语拼写填空：A museum may ___ several copies of the same edition."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "posess",
+            "zh": "posess"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "posses",
+            "zh": "posses"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "possess",
+            "zh": "possess"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "possesss",
+            "zh": "possesss"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Possess contains two pairs of s letters: p-o-s-s-e-s-s. One pair occurs before e and the other ends the word. The final pair is not a single s or three s letters.",
+        "zh": "possess有两组ss：p-o-s-s-e-s-s，一组在e前，一组在末尾。末尾不是一个s，也不是三个s。"
+      }
+    },
+    {
+      "id": "SPELL_04",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: Please do not ___ the recording while the red light is on.",
+        "zh": "选择正确的英语拼写填空：Please do not ___ the recording while the red light is on."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "interupt",
+            "zh": "interupt"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "interrrupt",
+            "zh": "interrrupt"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "interrupp",
+            "zh": "interrupp"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "interrupt",
+            "zh": "interrupt"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Interrupt has rr and ends upt: i-n-t-e-r-r-u-p-t. The distractors remove or add r, or alter the ending. The dictionary spelling, not a general doubling slogan, supplies the key.",
+        "zh": "interrupt含rr，末尾为upt，逐字i-n-t-e-r-r-u-p-t。干扰项减少或增加r，或改了词尾。答案依据该词拼写，不套一个通用双写口号。"
+      }
+    },
+    {
+      "id": "SPELL_05",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: A faint pattern is ___ in several of the drawings.",
+        "zh": "选择正确的英语拼写填空：A faint pattern is ___ in several of the drawings."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "occurring",
+            "zh": "occurring"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "occuring",
+            "zh": "occuring"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ocurring",
+            "zh": "ocurring"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "occurrinng",
+            "zh": "occurrinng"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Occurring is the listed -ing form of occur. It keeps cc and doubles r before ing: o-c-c-u-r-r-i-n-g. The form, rather than the base word alone, must be checked.",
+        "zh": "occurring是occur列出的-ing形式，保留cc，在ing前双写r：o-c-c-u-r-r-i-n-g。要核对的是这个词形，而不只是原形。"
+      }
+    },
+    {
+      "id": "SPELL_06",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: That was an ___ opening move in our chess game.",
+        "zh": "选择正确的英语拼写填空：That was an ___ opening move in our chess game."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "agressive",
+            "zh": "agressive"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "aggressive",
+            "zh": "aggressive"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "aggresive",
+            "zh": "aggresive"
+          },
+          "directionId": "double-consonants"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "aggresssive",
+            "zh": "aggresssive"
+          },
+          "directionId": "double-consonants"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Aggressive has gg and ss: a-g-g-r-e-s-s-i-v-e. The three alternatives each change one of these letter runs. This spelling question makes no judgement about anyone’s personality.",
+        "zh": "aggressive含gg和ss：a-g-g-r-e-s-s-i-v-e。三个干扰项都改了一组连续字母；这里只核拼写，不评价任何人的性格。"
+      }
+    },
+    {
+      "id": "SPELL_07",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: Moving the display case was a ___ decision, not an accident.",
+        "zh": "选择正确的英语拼写填空：Moving the display case was a ___ decision, not an accident."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "delibrate",
+            "zh": "delibrate"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "deliberete",
+            "zh": "deliberete"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "deliberate",
+            "zh": "deliberate"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "delibarate",
+            "zh": "delibarate"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Deliberate is spelled d-e-l-i-b-e-r-a-t-e. In the middle, the written sequence is liber, followed by ate. Read the full word; the sentence supplies a meaning context but does not change the spelling.",
+        "zh": "deliberate逐字为d-e-l-i-b-e-r-a-t-e，中间写作liber，后接ate。句子提供语境，但不会改变词的拼写。"
+      }
+    },
+    {
+      "id": "SPELL_08",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: A stone path leads through the old ___ outside the village.",
+        "zh": "选择正确的英语拼写填空：A stone path leads through the old ___ outside the village."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "cemetary",
+            "zh": "cemetary"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "cemeteryy",
+            "zh": "cemeteryy"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "cimitery",
+            "zh": "cimitery"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "cemetery",
+            "zh": "cemetery"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Cemetery is spelled c-e-m-e-t-e-r-y. Its three written vowel letters before the final y are all e. This is a word-specific check, not a claim that every similar ending follows the same pattern.",
+        "zh": "cemetery逐字c-e-m-e-t-e-r-y，末尾y之前的三个元音字母都是e。这是该词的写法，不能推广成所有相近词尾的规则。"
+      }
+    },
+    {
+      "id": "SPELL_09",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The fictional crew made a ___ attempt to retrieve the lost map.",
+        "zh": "选择正确的英语拼写填空：The fictional crew made a ___ attempt to retrieve the lost map."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "desperate",
+            "zh": "desperate"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "desparate",
+            "zh": "desparate"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "desperete",
+            "zh": "desperete"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "disperate",
+            "zh": "disperate"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Desperate is spelled d-e-s-p-e-r-a-t-e. It has e after p and a after r. Checking those two positions is more useful here than choosing a spelling from the way an unstressed vowel sounds.",
+        "zh": "desperate为d-e-s-p-e-r-a-t-e，p后是e，r后是a。核对这两个位置比单凭非重读元音的读音选字更可靠。"
+      }
+    },
+    {
+      "id": "SPELL_10",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: A ___ marker made the sign easy to spot.",
+        "zh": "选择正确的英语拼写填空：A ___ marker made the sign easy to spot."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "flourescent",
+            "zh": "flourescent"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "fluorescent",
+            "zh": "fluorescent"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "fluoresant",
+            "zh": "fluoresant"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "fluorescint",
+            "zh": "fluorescint"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Fluorescent begins fluor and ends escent: f-l-u-o-r-e-s-c-e-n-t. Keep u before o and keep the sc in the later part. No pronunciation or listening score is inferred from this selection.",
+        "zh": "fluorescent以fluor开头，以escent结尾：f-l-u-o-r-e-s-c-e-n-t。u在o前，后半段保留sc。选择本词不能推断发音或听力成绩。"
+      }
+    },
+    {
+      "id": "SPELL_11",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The garden produced an ___ of small tomatoes.",
+        "zh": "选择正确的英语拼写填空：The garden produced an ___ of small tomatoes."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "abundence",
+            "zh": "abundence"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "abundanse",
+            "zh": "abundanse"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "abundance",
+            "zh": "abundance"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "abondance",
+            "zh": "abondance"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Abundance is spelled a-b-u-n-d-a-n-c-e. The vowel after d is a, and the ending is ance. The wrong options alter a vowel or replace c with s; the target word itself decides the answer.",
+        "zh": "abundance为a-b-u-n-d-a-n-c-e，d后是a，结尾ance。干扰项改了元音或把c写成s，答案由这个词的实际拼写决定。"
+      }
+    },
+    {
+      "id": "SPELL_12",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The station is a ___ meeting place for our group.",
+        "zh": "选择正确的英语拼写填空：The station is a ___ meeting place for our group."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "conveniant",
+            "zh": "conveniant"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "convienient",
+            "zh": "convienient"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "convenent",
+            "zh": "convenent"
+          },
+          "directionId": "vowel-choices"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "convenient",
+            "zh": "convenient"
+          },
+          "directionId": "vowel-choices"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Convenient is spelled c-o-n-v-e-n-i-e-n-t. The sequence after v is enient. Do not drop the i or swap it into the earlier syllable. This checks recognition of one written form.",
+        "zh": "convenient逐字c-o-n-v-e-n-i-e-n-t，v后为enient。不要漏掉i，也不要把它换到前一个音节。本题只核对一个书面词形的识别。"
+      }
+    },
+    {
+      "id": "SPELL_13",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The train carries ___ rather than passengers.",
+        "zh": "选择正确的英语拼写填空：The train carries ___ rather than passengers."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "freight",
+            "zh": "freight"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "frieght",
+            "zh": "frieght"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "freigth",
+            "zh": "freigth"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "fregiht",
+            "zh": "fregiht"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Freight is spelled f-r-e-i-g-h-t, with ei and then ght. The tempting ie alternative is wrong for this word. English does not have a universal rule that i must always precede e.",
+        "zh": "freight为f-r-e-i-g-h-t，先ei，后ght。本词不能写成ie；英语不存在i永远必须排在e前的通用规则。"
+      }
+    },
+    {
+      "id": "SPELL_14",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: I left one afternoon free for ___ during the trip.",
+        "zh": "选择正确的英语拼写填空：I left one afternoon free for ___ during the trip."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "liesure",
+            "zh": "liesure"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "leisure",
+            "zh": "leisure"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "leisuer",
+            "zh": "leisuer"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "leizure",
+            "zh": "leizure"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Leisure is spelled l-e-i-s-u-r-e. It uses ei before s and ends ure. Verify the letter order in this word rather than relying on a rule that ignores exceptions or regional pronunciation.",
+        "zh": "leisure逐字l-e-i-s-u-r-e，s前是ei，末尾ure。核对本词字母顺序，不依赖忽略例外或地区发音差异的口诀。"
+      }
+    },
+    {
+      "id": "SPELL_15",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: Keep the ___ in the folder with the purchase record.",
+        "zh": "选择正确的英语拼写填空：Keep the ___ in the folder with the purchase record."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "reciept",
+            "zh": "reciept"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "receitp",
+            "zh": "receitp"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "receipt",
+            "zh": "receipt"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "receept",
+            "zh": "receept"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Receipt is spelled r-e-c-e-i-p-t. The sequence after c is eipt, including p. Recognition of that written p does not show whether someone can pronounce the word or spell it from dictation.",
+        "zh": "receipt为r-e-c-e-i-p-t，c后是eipt，其中有p。认出这个书面p，不能说明能否正确发音或听写。"
+      }
+    },
+    {
+      "id": "SPELL_16",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The story begins beside an ___ stone tower.",
+        "zh": "选择正确的英语拼写填空：The story begins beside an ___ stone tower."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "aincent",
+            "zh": "aincent"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "anccient",
+            "zh": "anccient"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ancinet",
+            "zh": "ancinet"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ancient",
+            "zh": "ancient"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Ancient is spelled a-n-c-i-e-n-t. The middle sequence is cie, followed by nt. Check the position of n near the start and again near the end; a familiar overall shape is not enough.",
+        "zh": "ancient逐字a-n-c-i-e-n-t，中间是cie，后接nt。开头附近和末尾附近各有一个n，要看具体位置，不能只认大致轮廓。"
+      }
+    },
+    {
+      "id": "SPELL_17",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The game character raised a wooden ___ before entering the room.",
+        "zh": "选择正确的英语拼写填空：The game character raised a wooden ___ before entering the room."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "shield",
+            "zh": "shield"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "sheild",
+            "zh": "sheild"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "shiled",
+            "zh": "shiled"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "shieled",
+            "zh": "shieled"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Shield is spelled s-h-i-e-l-d. Here i comes before e, and l comes before d. Compare this specific word with freight instead of turning either spelling into an exception-free rule.",
+        "zh": "shield为s-h-i-e-l-d，这里i在e前，l在d前。可与freight逐词比较，不要把任一个词的写法当成没有例外的规则。"
+      }
+    },
+    {
+      "id": "SPELL_18",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: A ___ wind rattled the shutters in the story.",
+        "zh": "选择正确的英语拼写填空：A ___ wind rattled the shutters in the story."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "feirce",
+            "zh": "feirce"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "fierce",
+            "zh": "fierce"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "fierse",
+            "zh": "fierse"
+          },
+          "directionId": "letter-order"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "fiecre",
+            "zh": "fiecre"
+          },
+          "directionId": "letter-order"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Fierce is spelled f-i-e-r-c-e. Its sequence is ie, then rce. The distractors swap vowels, change c to s, or move r and c. The correct answer is the presented dictionary form.",
+        "zh": "fierce逐字f-i-e-r-c-e，先ie，后rce。干扰项交换元音、把c换成s，或调换r与c；答案是这里给定词的词典写法。"
+      }
+    },
+    {
+      "id": "SPELL_19",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The final scene conveys quiet ___ without a speech.",
+        "zh": "选择正确的英语拼写填空：The final scene conveys quiet ___ without a speech."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "happyness",
+            "zh": "happyness"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "happines",
+            "zh": "happines"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "happiness",
+            "zh": "happiness"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "happynes",
+            "zh": "happynes"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Happiness ends in iness: h-a-p-p-i-n-e-s-s. In this form, happy changes y to i before ness, and the final ss remains doubled. This is a description of this form, not every word ending in y.",
+        "zh": "happiness为h-a-p-p-i-n-e-s-s，末尾iness。这个词形中，happy的y在ness前变为i，末尾保留ss；不据此推断所有y结尾词都如此变化。"
+      }
+    },
+    {
+      "id": "SPELL_20",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The editor asked for one clear ___ supporting the proposal.",
+        "zh": "选择正确的英语拼写填空：The editor asked for one clear ___ supporting the proposal."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "arguement",
+            "zh": "arguement"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "argumant",
+            "zh": "argumant"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "argumennt",
+            "zh": "argumennt"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "argument",
+            "zh": "argument"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Argument is spelled a-r-g-u-m-e-n-t. There is no e between u and m. Compare the whole word with its base form, argue, instead of inserting every letter of the base automatically.",
+        "zh": "argument逐字a-r-g-u-m-e-n-t，u与m之间没有e。可与原形argue比较，但不能机械地把原形的每个字母都塞进派生词。"
+      }
+    },
+    {
+      "id": "SPELL_21",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The two drawings have one ___ difference near the edge.",
+        "zh": "选择正确的英语拼写填空：The two drawings have one ___ difference near the edge."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "noticeable",
+            "zh": "noticeable"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "noticable",
+            "zh": "noticable"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "noticeble",
+            "zh": "noticeble"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "noticible",
+            "zh": "noticible"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Noticeable is spelled n-o-t-i-c-e-a-b-l-e. This form keeps e before able. Its treatment of e differs from achievable, so check the individual form rather than always deleting or always keeping e.",
+        "zh": "noticeable为n-o-t-i-c-e-a-b-l-e，able前保留e。它对e的处理与achievable不同，应逐词核对，不能一律删除或一律保留e。"
+      }
+    },
+    {
+      "id": "SPELL_22",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: We chose a small, ___ target for the weekend project.",
+        "zh": "选择正确的英语拼写填空：We chose a small, ___ target for the weekend project."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "achieveable",
+            "zh": "achieveable"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "achievable",
+            "zh": "achievable"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "achievible",
+            "zh": "achievible"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "acheivable",
+            "zh": "acheivable"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Achievable is spelled a-c-h-i-e-v-a-b-l-e. It keeps ie, drops the final e of achieve before able, and uses able rather than ible. The sentence does not rate how capable a person is.",
+        "zh": "achievable逐字a-c-h-i-e-v-a-b-l-e，保留ie，在able前去掉achieve末尾的e，词尾用able而非ible。本句不评价任何人的能力。"
+      }
+    },
+    {
+      "id": "SPELL_23",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The note ended with the word ___ above the signature.",
+        "zh": "选择正确的英语拼写填空：The note ended with the word ___ above the signature."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "sincerly",
+            "zh": "sincerly"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "sinserely",
+            "zh": "sinserely"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "sincerely",
+            "zh": "sincerely"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "sincereley",
+            "zh": "sincereley"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Sincerely is spelled s-i-n-c-e-r-e-l-y. The e of sincere is retained before ly, and c remains c. The options change that e, the consonant, or add an extra e near the ending.",
+        "zh": "sincerely为s-i-n-c-e-r-e-l-y，sincere的e在ly前保留，c仍是c。干扰项漏e、改辅音，或在词尾附近多加e。"
+      }
+    },
+    {
+      "id": "SPELL_24",
+      "prompt": {
+        "en": "Choose the correctly spelled completion: The novel explores ___ through letters between two distant friends.",
+        "zh": "选择正确的英语拼写填空：The novel explores ___ through letters between two distant friends."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "lonelyness",
+            "zh": "lonelyness"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "lonelines",
+            "zh": "lonelines"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "lonleiness",
+            "zh": "lonleiness"
+          },
+          "directionId": "word-endings"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "loneliness",
+            "zh": "loneliness"
+          },
+          "directionId": "word-endings"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Loneliness is spelled l-o-n-e-l-i-n-e-s-s. Lonely changes its final y to i before ness, while the earlier e remains. Naming this word in a spelling item does not assess anyone’s social wellbeing.",
+        "zh": "loneliness逐字l-o-n-e-l-i-n-e-s-s，lonely末尾y在ness前变成i，前面的e保留。本拼写题出现这个词，不代表在评估任何人的社交或心理状况。"
+      }
+    }
+  ],
+  "dictionaryForms": [
+    {
+      "id": "SPELL_01",
+      "word": "broccoli",
+      "lemma": "broccoli",
+      "url": "https://www.merriam-webster.com/dictionary/broccoli",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_02",
+      "word": "dilemma",
+      "lemma": "dilemma",
+      "url": "https://www.merriam-webster.com/dictionary/dilemma",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_03",
+      "word": "possess",
+      "lemma": "possess",
+      "url": "https://www.merriam-webster.com/dictionary/possess",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_04",
+      "word": "interrupt",
+      "lemma": "interrupt",
+      "url": "https://www.merriam-webster.com/dictionary/interrupt",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_05",
+      "word": "occurring",
+      "lemma": "occur",
+      "url": "https://www.merriam-webster.com/dictionary/occurring",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_06",
+      "word": "aggressive",
+      "lemma": "aggressive",
+      "url": "https://www.merriam-webster.com/dictionary/aggressive",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_07",
+      "word": "deliberate",
+      "lemma": "deliberate",
+      "url": "https://www.merriam-webster.com/dictionary/deliberate",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_08",
+      "word": "cemetery",
+      "lemma": "cemetery",
+      "url": "https://www.merriam-webster.com/dictionary/cemetery",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_09",
+      "word": "desperate",
+      "lemma": "desperate",
+      "url": "https://www.merriam-webster.com/dictionary/desperate",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_10",
+      "word": "fluorescent",
+      "lemma": "fluorescent",
+      "url": "https://www.merriam-webster.com/dictionary/fluorescent",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_11",
+      "word": "abundance",
+      "lemma": "abundance",
+      "url": "https://www.merriam-webster.com/dictionary/abundance",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_12",
+      "word": "convenient",
+      "lemma": "convenient",
+      "url": "https://www.merriam-webster.com/dictionary/convenient",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_13",
+      "word": "freight",
+      "lemma": "freight",
+      "url": "https://www.merriam-webster.com/dictionary/freight",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_14",
+      "word": "leisure",
+      "lemma": "leisure",
+      "url": "https://www.merriam-webster.com/dictionary/leisure",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_15",
+      "word": "receipt",
+      "lemma": "receipt",
+      "url": "https://www.merriam-webster.com/dictionary/receipt",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_16",
+      "word": "ancient",
+      "lemma": "ancient",
+      "url": "https://www.merriam-webster.com/dictionary/ancient",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_17",
+      "word": "shield",
+      "lemma": "shield",
+      "url": "https://www.merriam-webster.com/dictionary/shield",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_18",
+      "word": "fierce",
+      "lemma": "fierce",
+      "url": "https://www.merriam-webster.com/dictionary/fierce",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_19",
+      "word": "happiness",
+      "lemma": "happiness",
+      "url": "https://www.merriam-webster.com/dictionary/happiness",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_20",
+      "word": "argument",
+      "lemma": "argument",
+      "url": "https://www.merriam-webster.com/dictionary/argument",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_21",
+      "word": "noticeable",
+      "lemma": "noticeable",
+      "url": "https://www.merriam-webster.com/dictionary/noticeable",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_22",
+      "word": "achievable",
+      "lemma": "achievable",
+      "url": "https://www.merriam-webster.com/dictionary/achievable",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_23",
+      "word": "sincerely",
+      "lemma": "sincerely",
+      "url": "https://www.merriam-webster.com/dictionary/sincerely",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    },
+    {
+      "id": "SPELL_24",
+      "word": "loneliness",
+      "lemma": "loneliness",
+      "url": "https://www.merriam-webster.com/dictionary/loneliness",
+      "readAt": "2026-10-26",
+      "readScope": "Visible dictionary headword or explicitly listed form; no definition or example sentence copied."
+    }
+  ],
+  "profiles": [
+    {
+      "id": "double-consonants",
+      "directionIds": [
+        "double-consonants"
+      ],
+      "title": {
+        "en": "Doubled consonants",
+        "zh": "双写辅音"
+      },
+      "headline": {
+        "en": "Check exactly which letter repeats.",
+        "zh": "看清究竟哪个字母双写。"
+      },
+      "summary": {
+        "en": "Review broccoli, dilemma, possess, interrupt, occurring and aggressive through letter counts, position checks and a short recall routine.",
+        "zh": "通过字母计数、位置核对和短时回忆，复习broccoli、dilemma、possess、interrupt、occurring和aggressive。"
+      },
+      "seo": {
+        "title": {
+          "en": "Doubled consonants: spelling practice guide",
+          "zh": "双写辅音：英语拼写复习指南"
+        },
+        "description": {
+          "en": "Review six English spellings with doubled consonants. Use letter checks and a recall routine; six-item accuracy is not a language proficiency level.",
+          "zh": "复习六个含双写辅音的英语拼写，用字母核对与回忆步骤找错；六题正确率不代表语言能力等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original recognition items each count one correct choice. Your count out of six describes these words on this attempt, not a percentile, school grade, CEFR level or writing score. Every answer and this complete guide are free at every count.",
+        "zh": "六道原创识别题，每题答对记1题。正确数/6只描述本次对这些词的选择，不是百分位、学段、CEFR等级或写作成绩；任何正确数都能免费看全部答案和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What this group checks",
+            "zh": "本组具体检查什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six words place repeated consonants in different positions. Broccoli has cc but only one l; dilemma has mm but one l; possess contains two separate ss pairs. Interrupt uses rr, occurring has cc and rr, and aggressive has gg and ss. They are grouped for review, not because a single doubling rule generates all six. The sentence contexts help identify the intended word without testing dictation.",
+              "zh": "六词把重复辅音放在不同位置：broccoli含cc但只有一个l，dilemma含mm但只有一个l，possess有两组ss；interrupt含rr，occurring含cc和rr，aggressive含gg和ss。分组便于复习，不代表存在一条能生成六词的双写规则。句子帮助确定目标词，不是听写。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Trace both pairs in possess",
+            "zh": "逐项核对possess的两组ss"
+          },
+          "paragraphs": [
+            {
+              "en": "Write possess as p o s s e s s and number its seven positions. Letters three and four form one pair, and six and seven form another. A spelling with one final s has lost a letter; adding a third final s adds one. This position check is more precise than remembering only that the word contains a double letter.",
+              "zh": "把possess写成p o s s e s s，给七个位置编号：第三、四位一组，第六、七位另一组。末尾一个s是少字母，末尾三个s是多字母。这样核位置，比只记“这个词有双写”更准确。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Separate the base from the required form",
+            "zh": "分清原形与所需词形"
+          },
+          "paragraphs": [
+            {
+              "en": "The task asks for occurring, not merely occur. The dictionary explicitly lists that inflected form, so check the doubled r before ing as well as the earlier cc. For the other words, locate the changed run in your selected option and compare it with the key. A mistake in one word does not establish a general difficulty with every doubled consonant.",
+              "zh": "题目要occurring，不只要occur。词典明确列出该变化形式，应同时核对ing前的rr和更前面的cc。其他词则定位所选干扰项改了哪组字母，再与答案比较。一个词出错，不足以说明所有双写辅音都有困难。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Look, cover, write and compare",
+            "zh": "看、遮、写、比"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose two of the six words. Look at their correct forms, cover them, write each from memory in a new short sentence and compare letter by letter. Mark the exact missing or extra consonant before trying again later. This is a suggested practice routine, not a measured training outcome. Do not use a repeated multiple-choice score alone as evidence that independent writing has improved.",
+              "zh": "选两个词，看正确形式后遮住，在新短句中凭记忆写出，再逐字比较。先标出少了或多了哪个辅音，隔一段时间重试。这只是练习建议，不是已测得的训练效果；不能单凭重做选择题的分数证明独立写作已提高。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recognition covers a narrow task",
+            "zh": "识别题覆盖范围有限"
+          },
+          "paragraphs": [
+            {
+              "en": "Four visible options provide cues. The set does not measure pronunciation, listening, all spelling patterns or spontaneous writing. Regional accents do not decide the displayed letter sequence, and no population norm is supplied. After seeing the answers, a higher count may reflect memory for these words. Use the explanations to choose a new writing exercise rather than an ability label.",
+              "zh": "四个可见选项提供了线索，本组不测发音、听力、全部拼写模式或即时写作。地区口音不决定屏幕上的字母序列，也没有人群常模。看过答案后正确数上升可能是记住这些词，宜用解析选择新写作练习，不贴能力标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vowel-choices",
+      "directionIds": [
+        "vowel-choices"
+      ],
+      "title": {
+        "en": "Vowel choices",
+        "zh": "元音字母选择"
+      },
+      "headline": {
+        "en": "Check the written vowel, not only its sound.",
+        "zh": "核对写出的元音字母。"
+      },
+      "summary": {
+        "en": "Review deliberate, cemetery, desperate, fluorescent, abundance and convenient by marking the exact vowel positions that differ between options.",
+        "zh": "标记选项间具体不同的元音位置，复习deliberate、cemetery、desperate、fluorescent、abundance和convenient。"
+      },
+      "seo": {
+        "title": {
+          "en": "Vowel choices: spelling practice guide",
+          "zh": "元音字母选择：英语拼写复习指南"
+        },
+        "description": {
+          "en": "Practise six vowel-choice spellings with position checks and a short writing routine. This recognition count does not grade English fluency.",
+          "zh": "用位置核对和短写练习复习六个元音选择词；识别题正确数不评英语流利程度。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original recognition items each count one correct choice. Your count out of six describes these words on this attempt, not a percentile, school grade, CEFR level or writing score. Every answer and this complete guide are free at every count.",
+        "zh": "六道原创识别题，每题答对记1题。正确数/6只描述本次对这些词的选择，不是百分位、学段、CEFR等级或写作成绩；任何正确数都能免费看全部答案和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six individual written forms",
+            "zh": "六个独立书面词形"
+          },
+          "paragraphs": [
+            {
+              "en": "These items check vowel letters within six chosen words. Deliberate and desperate require attention to their middle vowels; cemetery contains e at three positions before y. Fluorescent begins fluor, abundance ends ance, and convenient contains enient after v. The group is an editorial review aid. It is not a claim that vowels with similar sounds always use the same letters.",
+              "zh": "本组核对六个词内的元音字母。deliberate与desperate要留意中间元音，cemetery在y前的三个相关位置都是e；fluorescent以fluor开头，abundance以ance结尾，convenient在v后为enient。分组便于编辑复习，不是说相似读音总用同样字母。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Use a position check for cemetery",
+            "zh": "用位置法核对cemetery"
+          },
+          "paragraphs": [
+            {
+              "en": "Write c e m e t e r y with a space between letters. Circle the e after c, after m and after t. Now compare the offered alternatives at those same positions. Replacing the last of these e letters with a changes this target spelling. The check concerns this word; it is not a general rule for every place name or every word ending in ery.",
+              "zh": "把cemetery分字写成c e m e t e r y，圈出c、m、t后面的e，再在同一位置对照干扰项。把最后一个e换a，就改变了目标词写法。这只说明该词，不是所有地名或所有ery结尾词的通则。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Locate a difference before choosing a reason",
+            "zh": "先定位差异，再解释原因"
+          },
+          "paragraphs": [
+            {
+              "en": "In fluorescent, u precedes o; later letters retain sc and e. In convenient, the sequence after v is enient, including i. Saying that an option merely looks unfamiliar does not identify the spelling difference. Read the key alongside your selected option and name the actual deletion, substitution or reversal. The sentence supplies meaning context but cannot make an incorrect displayed form correct.",
+              "zh": "fluorescent中u在o前，后半段保留sc和e；convenient在v后为enient，其中有i。只说某选项看起来陌生，并未指出拼写差异。把答案与所选并列，说明实际漏字、替换或颠倒。语境提供意义线索，不能把错写变正确。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Practise without the visible options",
+            "zh": "离开可见选项练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one word you missed and write a short original sentence using it. Put the correct form away before writing, then check against the dictionary form or this explanation. Keep a small note of the precise letter position you changed. Repeat with another word on a later occasion. No improvement rate or guaranteed learning time is established for this suggested routine.",
+              "zh": "选一个错词，先收起正确形式，在自写短句中使用，再对照词典形式或本解析。简记自己改错的具体字母位置，之后换另一个词再做。该建议没有已建立的提高幅度或保证学习时间。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A spelling count is not a vocabulary level",
+            "zh": "拼写数不是词汇等级"
+          },
+          "paragraphs": [
+            {
+              "en": "Recognising one of four forms differs from producing the word while writing. Familiarity with these particular words, previous exposure and checking aids can affect the count. The set does not estimate vocabulary size, reading age, CEFR level or spoken proficiency. Chinese instructions leave the English stimuli unchanged; they do not convert this into a Chinese spelling test or establish cross-language equivalence.",
+              "zh": "四选一识别不同于写作时自己产出单词。对具体词的熟悉度、先前接触和查阅工具都会影响正确数。本组不估计词汇量、阅读年龄、CEFR或口语能力。中文说明保留英文刺激，不把它变成中文拼写测验，也不建立跨语言等价。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letter-order",
+      "directionIds": [
+        "letter-order"
+      ],
+      "title": {
+        "en": "Letter order",
+        "zh": "字母顺序"
+      },
+      "headline": {
+        "en": "Compare the sequence one position at a time.",
+        "zh": "逐位置比较字母顺序。"
+      },
+      "summary": {
+        "en": "Review freight, leisure, receipt, ancient, shield and fierce without treating an i-before-e slogan as an exception-free spelling rule.",
+        "zh": "复习freight、leisure、receipt、ancient、shield和fierce，不把i-before-e口诀当成没有例外的规则。"
+      },
+      "seo": {
+        "title": {
+          "en": "Letter order: spelling practice guide",
+          "zh": "字母顺序：英语拼写复习指南"
+        },
+        "description": {
+          "en": "Check six English letter sequences, including ei and ie examples. Read complete explanations without an IQ, language-level or hiring score.",
+          "zh": "核对六个英语字母序列，包括ei与ie例子，阅读完整解析；不提供智商、语言等级或招聘分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original recognition items each count one correct choice. Your count out of six describes these words on this attempt, not a percentile, school grade, CEFR level or writing score. Every answer and this complete guide are free at every count.",
+        "zh": "六道原创识别题，每题答对记1题。正确数/6只描述本次对这些词的选择，不是百分位、学段、CEFR等级或写作成绩；任何正确数都能免费看全部答案和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Order matters within a complete word",
+            "zh": "在完整词中核对顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "This group includes ei in freight, leisure and receipt, and ie in shield and fierce. Ancient has cie in its middle. Other letters also matter: receipt retains p, freight ends ght and fierce ends rce. The options change particular sequences or letters. Treat the task as recognition of complete listed forms, not as a test of one universal two-letter rule.",
+              "zh": "本组freight、leisure、receipt含ei，shield与fierce含ie，ancient中间为cie。其他字母同样重要：receipt保留p，freight末尾ght，fierce末尾rce。选项会改具体顺序或字母，应识别完整词形，而不是只套一个二字母通则。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Contrast freight with shield",
+            "zh": "对照freight与shield"
+          },
+          "paragraphs": [
+            {
+              "en": "Write freight as f r e i g h t and shield as s h i e l d. Underline ei in the first and ie in the second. Both are the selected dictionary forms, so an instruction to put i before e in every word would fail here. Keep the surrounding letters visible while learning each sequence; memorising just the underlined pair can miss a different error.",
+              "zh": "把freight分写为f r e i g h t，shield为s h i e l d，分别标出ei与ie。两者都是所选词典形式，若要求每个词都i在e前，就会在这里出错。学习时保留周围字母，只记下划线两字母仍可能漏看其他错误。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check silent letters as written letters",
+            "zh": "按书面字母核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Receipt includes p whether or not that letter is heard in a pronunciation. Ancient requires the order a n c i e n t, with n near both ends. A spelling choice cannot show whether you can pronounce either word. Compare the entire selected string with the key and locate the first position where they differ before deciding which feature to practise.",
+              "zh": "receipt书面有p，无论某个发音里是否听到它。ancient的顺序为a n c i e n t，前后附近各一个n。选择拼写不能说明会不会发音。先把所选字符串与答案完整比较，找首个不同位置，再确定练哪一处。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Use a covered sequence check",
+            "zh": "遮住后复原序列"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ei word and one ie word from the set. Look at each, cover it and write its letters slowly in a new sentence. Uncover the source and compare the full sequence, recording a reversal separately from a missing consonant. Later, try without a multiple-choice list. This routine is suggested practice; the product does not measure its transfer to everyday writing.",
+              "zh": "从题组各选一个ei词和ie词，看后遮住，在新句中慢写全部字母，再与原词完整比较，分别记录颠倒和漏辅音。之后不看选择列表再试。这是练习建议，产品没有测量它能否迁移到日常写作。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep recognition and pronunciation separate",
+            "zh": "区分识别与发音"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no audio, dictation, free-text spelling mark or pronunciation assessment in this edition. A six-item count cannot establish dyslexia, general intelligence or complete English spelling skill. Repeated attempts can benefit from remembered option positions. All worked answers and this guide remain available at zero as well as perfect accuracy; the purpose is review, not a ranked label.",
+              "zh": "本版没有音频、听写、自由输入评分或发音评估。六题正确数不能诊断阅读障碍、一般智力或完整英语拼写能力。重做可能受记住选项位置影响；零分到全对都可看全部题解和本指南，目的是复习，不是排名标签。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "word-endings",
+      "directionIds": [
+        "word-endings"
+      ],
+      "title": {
+        "en": "Word endings",
+        "zh": "词尾变化"
+      },
+      "headline": {
+        "en": "Check the whole resulting form.",
+        "zh": "核对变化后的完整词形。"
+      },
+      "summary": {
+        "en": "Review happiness, argument, noticeable, achievable, sincerely and loneliness by comparing what changes and what stays in each complete form.",
+        "zh": "比较每个完整词形中改变与保留的部分，复习happiness、argument、noticeable、achievable、sincerely和loneliness。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word endings: spelling practice guide",
+          "zh": "词尾变化：英语拼写复习指南"
+        },
+        "description": {
+          "en": "Compare six English word endings with worked letter checks. Individual forms, not a universal suffix slogan, decide these recognition keys.",
+          "zh": "通过逐字核对比较六个英语词尾，用具体词形确定答案，不套一个通用词尾口诀。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original recognition items each count one correct choice. Your count out of six describes these words on this attempt, not a percentile, school grade, CEFR level or writing score. Every answer and this complete guide are free at every count.",
+        "zh": "六道原创识别题，每题答对记1题。正确数/6只描述本次对这些词的选择，不是百分位、学段、CEFR等级或写作成绩；任何正确数都能免费看全部答案和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six specified resulting forms",
+            "zh": "六个指定变化形式"
+          },
+          "paragraphs": [
+            {
+              "en": "Happiness and loneliness change a final y to i before ness in these forms. Argument has no e between u and m. Noticeable retains e before able, while achievable drops the final e of achieve. Sincerely retains the e of sincere before ly. These contrasts explain the selected words. They do not establish a suffix rule with no exceptions for every English word.",
+              "zh": "happiness与loneliness在这些词形中把末尾y变i再接ness；argument的u与m之间没有e；noticeable在able前保留e，achievable去掉achieve末尾e；sincerely在ly前保留sincere的e。这些对照解释具体词，不建立覆盖所有英语词的无例外词尾规则。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Compare noticeable and achievable",
+            "zh": "对照noticeable与achievable"
+          },
+          "paragraphs": [
+            {
+              "en": "Write noticeable as n o t i c e a b l e and achievable as a c h i e v a b l e. The first has ea before ble; the second has va before ble. Always retaining the final e of a base word would produce a wrong answer for achievable, while always deleting it would produce a wrong answer for noticeable. Check the full target rather than one automatic operation.",
+              "zh": "noticeable分写n o t i c e a b l e，achievable为a c h i e v a b l e。前者ble前为ea，后者为va。总保留原形末尾e会错写achievable，总删e则会错写noticeable；应核对完整目标，不机械做一步变化。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Track the earlier letters too",
+            "zh": "也要追踪前面的字母"
+          },
+          "paragraphs": [
+            {
+              "en": "An ending can look right while an earlier sequence is wrong. Achievable retains ie near the start; loneliness retains the earlier e as its final y changes. Happiness still needs pp and final ss. Compare every letter in your selection against the explanation. Distinguish a base-form change from an unrelated extra letter so that your next exercise addresses the actual error.",
+              "zh": "词尾像对了，前面也可能错。achievable靠前仍保留ie；loneliness末尾y变化时，更前的e仍保留；happiness也需要pp和末尾ss。逐字比较所选与解析，区分原形变化和无关多字母，让下一步针对实际错误。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Build a small comparison card",
+            "zh": "做一张小对照卡"
+          },
+          "paragraphs": [
+            {
+              "en": "Make three rows using only words from this group: one y-to-i pair, the contrasting able forms and sincerely. On each row, mark the exact retained or removed letter. Cover the resulting words, place each into a new sentence, then compare with the card. Avoid treating a successful repeat of the same options as a new writing assessment or proof of lasting improvement.",
+              "zh": "仅用本组词做三行对照：一组y变i、两个不同的able形式，以及sincerely。每行标明究竟保留或去掉哪个字母。遮住结果词，放入新句后再对照。不要把同选项重做成功当新写作评估或持久提高证明。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Use the count to select review, not a level",
+            "zh": "用正确数选复习内容"
+          },
+          "paragraphs": [
+            {
+              "en": "The group contains six recognition decisions, with all English sentences and options preserved in both interface languages. It does not measure grammar, productive vocabulary, academic readiness or job suitability. No CEFR mapping, age norm or hiring cutoff is established. Reading an explanation can help identify a letter difference; it does not certify that the word will be produced correctly in another setting.",
+              "zh": "本组只有六次识别决定，两种界面语言都保留英文句子和选项，不测语法、产出词汇、升学准备或岗位适配。未建立CEFR映射、年龄常模或招聘线。解析帮助定位字母差异，不认证换场景后一定能正确写出。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
