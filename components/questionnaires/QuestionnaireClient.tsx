@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { QuestionnaireInkblotStimulus } from "./QuestionnaireInkblotStimulus";
+import { getInkblotStimulus } from "@/lib/questionnaires/inkblotStimuli";
 import { QuestionnaireLtsReport } from "./QuestionnaireLtsReport";
 import { QuestionnaireValuesReport } from "./QuestionnaireValuesReport";
 import { QuestionnaireSdtNeedsReport } from "./QuestionnaireSdtNeedsReport";
@@ -41,6 +43,8 @@ function subscribe(listener: () => void) {
 export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
+  const [loadedStimulusId, setLoadedStimulusId] = useState<string | null>(null);
+  const requiresStimulus = quiz.slug === "inkblot-personality-quiz";
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [saving, setSaving] = useState(false);
@@ -94,12 +98,13 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     } else clear();
     const first = quiz.questions.findIndex(q => !next[q.id]);
     submitted.current = false; viewed.current = false;
-    setAnswers(next); setPosition(first < 0 ? quiz.questions.length - 1 : first); setSaving(resume);
+    setLoadedStimulusId(null); setAnswers(next); setPosition(first < 0 ? quiz.questions.length - 1 : first); setSaving(resume);
     setMessage(""); setManualCopy(""); setStage("answer"); emit("start_test");
   }
   function advance() {
+    if (requiresStimulus && loadedStimulusId !== question?.id) return;
     if (!question || !answers[question.id]) { setMessage(zh ? "请选择一个选项再继续。" : "Choose an option before continuing."); return; }
-    if (position < quiz.questions.length - 1) { setPosition(position + 1); setMessage(""); return; }
+    if (position < quiz.questions.length - 1) { setLoadedStimulusId(null); setPosition(position + 1); setMessage(""); return; }
     if (submitted.current) return;
     if (result.status !== "complete") { setMessage(zh ? "本次结果暂不可用，请检查完整作答后重试。" : "The result is unavailable. Check that all questions are answered and try again."); return; }
     submitted.current = true; clear(); setStage("result"); setMessage(""); emit("complete_test");
@@ -126,10 +131,11 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <p className="mb-3 text-sm">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="mb-5 w-full accent-violet-700" />
       <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-8 outline-none">{question.prompt[locale]}</h2>
+      {requiresStimulus && <QuestionnaireInkblotStimulus key={question.id} stimulus={getInkblotStimulus(question.id)} locale={locale} onAvailabilityChange={available => setLoadedStimulusId(available ? question.id : null)} />}
       <fieldset className="mt-5 space-y-3"><legend className="sr-only">{question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
         <input type="radio" className="mt-1 size-5 shrink-0 accent-violet-700" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { if (submitted.current) return; const next = { ...answers, [question.id]: option.id }; setAnswers(next); setMessage(""); persist(next, saving); }} /><span className="min-w-0 leading-7 [overflow-wrap:anywhere]">{option.label[locale]}</span>
       </label>)}</fieldset>
-      <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
+      <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
       <label className="mt-6 flex items-start gap-3 text-sm leading-7 text-slate-600"><input type="checkbox" className="mt-1 size-5 shrink-0" checked={saving} onChange={event => { setSaving(event.target.checked); if (event.target.checked) persist(answers, true); else clear(); }} /><span>{zh ? "在本标签页临时保存进度，刷新或换语言后可主动恢复；24小时后失效，完成、清除或重测即删除。" : "Save progress in this tab so I can resume after a refresh or language change. It expires after 24 hours and clears on completion, exit-and-clear or retake."}</span></label>
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}

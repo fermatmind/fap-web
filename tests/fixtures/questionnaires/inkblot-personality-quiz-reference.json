@@ -1,0 +1,563 @@
+{
+  "formCode": "fm_original_inkblot_reading_10",
+  "origin": "FermatMind10originalSVGblotsandfourchoiceprompts/fiveeditorialreadingfocuses/notclinicalRorschachplates-CS-RPAS-orpersonalityperceptiontest",
+  "directions": [
+    {
+      "id": "whole-form",
+      "title": {
+        "zh": "整体轮廓",
+        "en": "Whole-form Reading"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "edge-detail",
+      "title": {
+        "zh": "边缘细节",
+        "en": "Edge-detail Reading"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "motion-association",
+      "title": {
+        "zh": "动势联想",
+        "en": "Motion Association"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "contrast-noticing",
+      "title": {
+        "zh": "色块对照",
+        "en": "Contrast Noticing"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "scene-imagining",
+      "title": {
+        "zh": "场景编想",
+        "en": "Scene Imagining"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "INK_01",
+      "prompt": {
+        "zh": "看这张原创墨迹图，此刻你更想沿哪种方式看下去？",
+        "en": "Looking at this original blot, which approach would you follow now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两块深色形当成一组，看它们围出的整体轮廓",
+            "en": "Treat the dark forms as a pair and follow their overall outline"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沿上方凸起和附近的小墨点慢慢看",
+            "en": "Trace the upper projections and nearby little dots"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两侧想成正在向外转开的姿态",
+            "en": "Imagine the sides turning outward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较深青外层与浅绿内斑的对照",
+            "en": "Compare the dark-teal exterior with the pale-green patches"
+          },
+          "directionId": "contrast-noticing"
+        }
+      ]
+    },
+    {
+      "id": "INK_02",
+      "prompt": {
+        "zh": "这张细长的墨迹图里，哪种说法更接近你现在想看的方向？",
+        "en": "For this slender blot, which description comes closest to what you want to explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看外缘几个弯折是怎样相接的",
+            "en": "Follow how several bends along the edges connect"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想象两侧形状正在向上延伸",
+            "en": "Imagine the two forms extending upward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把紫色和暖棕色当作两组色块比较",
+            "en": "Compare the purple and warm-brown areas as colour groups"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给两块竖形构想一个不必有固定含义的小场景",
+            "en": "Imagine a little scene around the vertical forms without a fixed meaning"
+          },
+          "directionId": "scene-imagining"
+        }
+      ]
+    },
+    {
+      "id": "INK_03",
+      "prompt": {
+        "zh": "面对这张横向展开的墨迹，你更想选择哪种联想？",
+        "en": "With this horizontally extending blot, which approach appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想象形状由中间向两旁舒展开来",
+            "en": "Imagine the form stretching from the middle toward the sides"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看深青与浅灰绿色区域怎样彼此衬托",
+            "en": "Look at how dark teal and pale grey-green areas contrast"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把中间相接的位置当成一个虚构场景的入口",
+            "en": "Use the central meeting point as an entrance to an imagined scene"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把左右看成一个宽的完整外形",
+            "en": "Read the mirrored sides as one broad overall form"
+          },
+          "directionId": "whole-form"
+        }
+      ]
+    },
+    {
+      "id": "INK_04",
+      "prompt": {
+        "zh": "这张中部相连的墨迹图，你更想怎样继续看？",
+        "en": "How would you continue looking at this centrally joined blot?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较外层蓝紫和内层灰紫的深浅关系",
+            "en": "Compare the darker blue-violet outside and paler grey-violet inside"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让这组形状成为一幅没有唯一答案的画面",
+            "en": "Turn the forms into an imagined picture without one correct answer"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看整体宽度和左右的对应关系",
+            "en": "Consider the overall width and correspondence between sides"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿上缘凸起和外侧几个点寻找小变化",
+            "en": "Follow little changes in the upper projections and outer dots"
+          },
+          "directionId": "edge-detail"
+        }
+      ]
+    },
+    {
+      "id": "INK_05",
+      "prompt": {
+        "zh": "两块分开的竖形墨迹之间，你现在更想关注什么？",
+        "en": "Between these separate vertical forms, what would you explore now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两块形状放进自己临时编想的小场景",
+            "en": "Place the forms in a little scene imagined for the moment"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "连同中间的白色间隔一起看整体布局",
+            "en": "Consider the arrangement together with the central white space"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看外侧边缘细小的转折和凹口",
+            "en": "Trace small turns and notches along the outer edges"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想象两块竖形一起缓慢上移",
+            "en": "Imagine the forms moving slowly upward together"
+          },
+          "directionId": "motion-association"
+        }
+      ]
+    },
+    {
+      "id": "INK_06",
+      "prompt": {
+        "zh": "这张较扁、两侧相接的墨迹，你更愿意从哪里继续？",
+        "en": "For this low, joined blot, where would you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把相接部分和两侧作为一个完整轮廓",
+            "en": "Read the joined middle and sides as a single outline"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看两端小点与主轮廓之间的细小间隔",
+            "en": "Examine little gaps between the outer dots and the main outline"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想象轮廓向外展开又向中部收拢",
+            "en": "Imagine the outline opening outward and gathering inward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较深色连通区域与浅绿色内斑",
+            "en": "Compare the connected dark region with the pale-green patches"
+          },
+          "directionId": "contrast-noticing"
+        }
+      ]
+    },
+    {
+      "id": "INK_07",
+      "prompt": {
+        "zh": "看这张中间有白隙的宽墨迹，你更想沿哪条思路看？",
+        "en": "For this broad blot with a central gap, which approach appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "沿白隙两旁不整齐的边缘看细节",
+            "en": "Follow details along the uneven edges beside the white gap"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两侧想成正在靠近或分开的形状",
+            "en": "Imagine the sides approaching or separating"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较紫色外形与灰粉色内斑",
+            "en": "Compare the purple exterior with muted-pink patches"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用左右分开的形状构想一幅暂时的小画面",
+            "en": "Imagine a temporary little scene using the separated forms"
+          },
+          "directionId": "scene-imagining"
+        }
+      ]
+    },
+    {
+      "id": "INK_08",
+      "prompt": {
+        "zh": "这张较高窄的墨迹图，此刻哪种方式更吸引你？",
+        "en": "Which approach attracts you now in this tall, narrow blot?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想象轮廓沿竖直方向伸长再收回",
+            "en": "Imagine the outline lengthening vertically and drawing back"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对照灰蓝外层和浅橄榄色内层",
+            "en": "Compare slate blue outside and pale olive inside"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "围绕两块内斑编想一个抽象的小场景",
+            "en": "Imagine an abstract little scene around the inner patches"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把高窄外形与中间相接处放在一起看",
+            "en": "Read the tall outline together with its central meeting point"
+          },
+          "directionId": "whole-form"
+        }
+      ]
+    },
+    {
+      "id": "INK_09",
+      "prompt": {
+        "zh": "这张横向暗色墨迹上，你更想继续哪种看法？",
+        "en": "For this sideways dark blot, which way of looking would you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较暗玫紫与浅棕色块如何分布",
+            "en": "Compare the distribution of dark rose and pale brown"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让横向展开的形状进入一段自己编想的画面",
+            "en": "Place the sideways forms into a scene you imagine"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看左右相接后形成的完整宽轮廓",
+            "en": "Consider the full broad outline formed by the joined sides"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留意周围小点与轮廓凸起之间的差别",
+            "en": "Notice differences between nearby dots and projections on the outline"
+          },
+          "directionId": "edge-detail"
+        }
+      ]
+    },
+    {
+      "id": "INK_10",
+      "prompt": {
+        "zh": "最后这张深蓝墨迹，你现在更愿意怎样看？",
+        "en": "For this final dark-blue blot, which approach would you choose now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把内侧浅斑和外形编成一个临时场景",
+            "en": "Make a temporary scene from the pale inner patches and outer forms"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看两侧连起来的整体形状与白色空隙",
+            "en": "Consider the whole joined form and its white spaces"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "沿深蓝边缘的高低变化寻找细节",
+            "en": "Trace small rises and dips around the dark-blue edge"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想象两侧沿中间轴展开或轻轻转动",
+            "en": "Imagine the sides opening or gently turning along the centre"
+          },
+          "directionId": "motion-association"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "rule": "full10/onechoiceonecount/fivefocuses8exposure2eachposition/allhighestties/NOclinicalcodes-reverses-personalitynorms-timedperception-eyetracking-complementarytypes-careerorMBTIconversion",
+    "verificationPlan": "reachable5countsourceDPandhighestsetsnotyetexecuted/runtimecomparisonpending/not4^10individualresponsesorpsychvalidation"
+  },
+  "scope": {
+    "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+    "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+  },
+  "instructions": {
+    "zh": "看十张费马原创抽象墨迹图，每张从四种说法中选此刻更想沿着看的方式。图旁有中性结构说明；不要求看到特定物体，也不测最先看到什么、速度、眼动或隐藏人格。五种编辑阅读焦点各出现8次，在四个位置各2次；每选一项加1，0反向。完整十题后保留全部最高并列，不硬派主副型或百分比。没有贴切选项时可退出并直接读全部五份公开说明，不把未完成解释成问题。图像加载失败时不能继续计分。",
+    "en": "Look at ten independently authored abstract blots and choose the offered way of looking you currently prefer. Neutral structural descriptions accompany the images. No particular object is required and neither first perception, speed, eye movements nor hidden personality is measured. Five editorial reading focuses each appear eight times and twice in each position. Every choice adds one count with no reverse keys. Complete ten choices for every highest tie without a forced secondary type or percentage. If no option fits, you may leave and read all five public guides; an unfinished attempt establishes no problem. Image loading failure prevents continued scoring."
+  },
+  "stimuli": [
+    {
+      "questionId": "INK_01",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-01.svg",
+      "sha256": "4c5135893f14ab216177a6dd887506392bbaeb309f3fe7c4197a4f682161f34a",
+      "description": {
+        "zh": "白底上两块分开的深青色竖形，左右镜像；内部各有浅绿色斑块，边缘附近有小墨点。",
+        "en": "On white, two separated dark-teal vertical forms mirror each other. Each contains a pale-green patch, with small dots near the edges."
+      }
+    },
+    {
+      "questionId": "INK_02",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-02.svg",
+      "sha256": "c2f6708bf9f4dd6366cc1ef635c44f759978ef35ea0214345bcfb7872e108a9a",
+      "description": {
+        "zh": "白底上两块细长紫色形状左右镜像，靠近中间但保留白隙；各有暖棕色内斑和外侧小点。",
+        "en": "On white, two slender purple mirrored forms approach a central white gap, each with a warm-brown inner patch and small outer dots."
+      }
+    },
+    {
+      "questionId": "INK_03",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-03.svg",
+      "sha256": "25c5eb332c2cb4c974e39b43fa6a4a36f1421ad12b165272ebcb30a43a5e2ec5",
+      "description": {
+        "zh": "白底上的青色形状沿水平方向展开，在中部靠近相接；左右各有较浅的灰绿色斑块。",
+        "en": "A teal form extends horizontally on white, with mirrored sides meeting near the middle and a paler grey-green patch on each side."
+      }
+    },
+    {
+      "questionId": "INK_04",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-04.svg",
+      "sha256": "a99dc8ad798f550ac8002516f57439ef6c65a6ad0bed129917f40cd65c758257",
+      "description": {
+        "zh": "白底上较宽的蓝紫色形状左右镜像，中央相连；内部灰紫色较浅斑块与外侧小点可见。",
+        "en": "A broad blue-violet mirrored form joins centrally on white, with paler grey-violet inner patches and small outer dots."
+      }
+    },
+    {
+      "questionId": "INK_05",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-05.svg",
+      "sha256": "37ff39c1eceb456d8cdd02b5b963b7bec3d4d324bf264e7be57af96a6806113e",
+      "description": {
+        "zh": "白底上两块分开的暗玫紫色竖形，中间有明显白色间隔；内部各有偏棕的浅斑块。",
+        "en": "Two separated dark-rose vertical forms stand on white with a clear central gap, each containing a lighter brownish patch."
+      }
+    },
+    {
+      "questionId": "INK_06",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-06.svg",
+      "sha256": "426d94a65a9a3e8bf66423efbd6603c4a25ef9140e46982add83251af8597fbf",
+      "description": {
+        "zh": "白底上深青色左右相接，构成较扁的整体；内部浅绿色斑块靠近中部，两端附近有小点。",
+        "en": "Dark-teal mirrored sides join into a low, wide form on white. Pale-green patches sit toward the middle, with dots near the outer ends."
+      }
+    },
+    {
+      "questionId": "INK_07",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-07.svg",
+      "sha256": "8737e879e629ab91b50bab32c8272a26a1005af4605a1c60e03e329147f15576",
+      "description": {
+        "zh": "白底上两块宽紫色形状左右镜像，中间有折线状白色间隔，内部是偏灰粉色的浅斑块。",
+        "en": "Two broad purple mirrored forms on white leave an angular central gap and contain paler muted-pink patches."
+      }
+    },
+    {
+      "questionId": "INK_08",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-08.svg",
+      "sha256": "d9f25687e344ea54d2141e00ff5b3912527453fdf9c597f306316499edc0a170",
+      "description": {
+        "zh": "白底上两块高窄的灰蓝色形状左右镜像，靠中部相接；内部各有浅橄榄色斑块，上部附近有小点。",
+        "en": "Two tall, narrow slate-blue mirrored forms approach and join centrally on white, with pale-olive inner patches and dots toward the top."
+      }
+    },
+    {
+      "questionId": "INK_09",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-09.svg",
+      "sha256": "7b963d86c58ced71a6af1ea5253c914214d07104aa4114c5c0dff7f9c9e25a14",
+      "description": {
+        "zh": "白底上暗玫紫色形状横向展开并在中间相接，两边内部有浅棕色斑块，周围有散落小点。",
+        "en": "A dark-rose form extends sideways and joins centrally on white, with pale-brown patches on both sides and scattered dots nearby."
+      }
+    },
+    {
+      "questionId": "INK_10",
+      "src": "/images/questionnaires/inkblot-original/fm-inkblot-10.svg",
+      "sha256": "8d9246c63d19633b14e61553820d0f76660981189cdcbe21cd2aa8317d892456",
+      "description": {
+        "zh": "白底上两块高低起伏的深蓝色形状左右镜像，中间靠近相接；浅蓝灰色斑块位于内侧。",
+        "en": "Two uneven dark-blue mirrored forms approach and join centrally on white, with pale blue-grey patches toward the inside."
+      }
+    }
+  ]
+}

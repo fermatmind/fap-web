@@ -1460,5 +1460,31 @@
       "epicurus",
       "epictetus"
     ]
+  },
+  {
+    "slug": "inkblot-personality-quiz",
+    "code": "ORIGINAL_INKBLOT_READING",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "墨迹人格测验",
+      "en": "Rorschach-Style Inkblot Test"
+    },
+    "description": {
+      "zh": "免费墨迹人格测验：看十张费马原创图，选择此刻更想沿着看的说法，直接读五份完整结果与全部最高并列。趣味版，不是专业Rorschach测试，不诊断或解释隐藏人格。",
+      "en": "A free Rorschach-style inkblot quiz with 10 original images and five full guides. A playful visual reflection, without clinical or personality assessment."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_original_inkblot_reading_10",
+    "questionCount": 10,
+    "resultSlugs": [
+      "whole-form",
+      "edge-detail",
+      "motion-association",
+      "contrast-noticing",
+      "scene-imagining"
+    ]
   }
 ]

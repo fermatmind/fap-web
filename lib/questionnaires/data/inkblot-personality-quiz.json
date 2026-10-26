@@ -1,0 +1,1389 @@
+{
+  "slug": "inkblot-personality-quiz",
+  "code": "ORIGINAL_INKBLOT_READING",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "墨迹人格测验",
+    "en": "Rorschach-Style Inkblot Test"
+  },
+  "resultHeading": {
+    "zh": "五种墨迹读法与全部最高并列",
+    "en": "Five inkblot readings and every highest tie"
+  },
+  "description": {
+    "zh": "免费墨迹人格测验：看十张费马原创图，选择此刻更想沿着看的说法，直接读五份完整结果与全部最高并列。趣味版，不是专业Rorschach测试，不诊断或解释隐藏人格。",
+    "en": "A free Rorschach-style inkblot quiz with 10 original images and five full guides. A playful visual reflection, without clinical or personality assessment."
+  },
+  "seoTitle": {
+    "zh": "墨迹人格测验：原创图、免费作答与完整结果",
+    "en": "Rorschach-Style Inkblot Quiz: Full Free Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "把同一幅抽象图当作整体、追一个边缘、想象动势、比较色块，或临时编想场景，你此刻更想选哪一种？本版提供十张费马独立创作的对称SVG墨迹，每图一题、四种说法，旁有中性结构说明。它不是心理学家使用的Rorschach测试，不采用历史牌卡或CS、R-PAS临床编码，也不从图像选择解释人格、无意识、共情或职业。全部十题后看相对次数与所有最高并列；五份完整说明也可直接先读，无需注册或另做测评解锁。",
+    "en": "Would you rather read an abstract image as a whole, follow an edge, imagine movement, compare regions or develop a temporary scene? This edition offers ten independently authored symmetrical SVG blots, one question per image and four offered readings, with neutral structural descriptions. It is not the professional Rorschach assessment, uses no historical plates or CS or R-PAS clinical codes, and infers no personality, unconscious content, empathy or career. Complete ten choices for relative counts and every highest tie, or read all five full guides first without signup or another assessment."
+  },
+  "instructions": {
+    "zh": "看十张费马原创抽象墨迹图，每张从四种说法中选此刻更想沿着看的方式。图旁有中性结构说明；不要求看到特定物体，也不测最先看到什么、速度、眼动或隐藏人格。五种编辑阅读焦点各出现8次，在四个位置各2次；每选一项加1，0反向。完整十题后保留全部最高并列，不硬派主副型或百分比。没有贴切选项时可退出并直接读全部五份公开说明，不把未完成解释成问题。图像加载失败时不能继续计分。",
+    "en": "Look at ten independently authored abstract blots and choose the offered way of looking you currently prefer. Neutral structural descriptions accompany the images. No particular object is required and neither first perception, speed, eye movements nor hidden personality is measured. Five editorial reading focuses each appear eight times and twice in each position. Every choice adds one count with no reverse keys. Complete ten choices for every highest tie without a forced secondary type or percentage. If no option fits, you may leave and read all five public guides; an unfinished attempt establishes no problem. Image loading failure prevents continued scoring."
+  },
+  "source": {
+    "kind": "FermatMind10originalSVGblotsandfourchoiceprompts/fiveeditorialreadingfocuses/notclinicalRorschachplates-CS-RPAS-orpersonalityperceptiontest",
+    "formCode": "fm_original_inkblot_reading_10",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "7f67b1c1d15a265e38b45b1acf0cbe5774ef5dd1a416772d185efea784b843fa",
+    "resultContentSha256": "ff47c2c74262735c7a302138a072d27539798c158b7df6c0711b681d319bb1a2",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "whole-form",
+      "title": {
+        "zh": "整体轮廓",
+        "en": "Whole-form Reading"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "edge-detail",
+      "title": {
+        "zh": "边缘细节",
+        "en": "Edge-detail Reading"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "motion-association",
+      "title": {
+        "zh": "动势联想",
+        "en": "Motion Association"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "contrast-noticing",
+      "title": {
+        "zh": "色块对照",
+        "en": "Contrast Noticing"
+      },
+      "comparisons": 8
+    },
+    {
+      "id": "scene-imagining",
+      "title": {
+        "zh": "场景编想",
+        "en": "Scene Imagining"
+      },
+      "comparisons": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "INK_01",
+      "prompt": {
+        "zh": "看这张原创墨迹图，此刻你更想沿哪种方式看下去？",
+        "en": "Looking at this original blot, which approach would you follow now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两块深色形当成一组，看它们围出的整体轮廓",
+            "en": "Treat the dark forms as a pair and follow their overall outline"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "沿上方凸起和附近的小墨点慢慢看",
+            "en": "Trace the upper projections and nearby little dots"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两侧想成正在向外转开的姿态",
+            "en": "Imagine the sides turning outward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较深青外层与浅绿内斑的对照",
+            "en": "Compare the dark-teal exterior with the pale-green patches"
+          },
+          "directionId": "contrast-noticing"
+        }
+      ]
+    },
+    {
+      "id": "INK_02",
+      "prompt": {
+        "zh": "这张细长的墨迹图里，哪种说法更接近你现在想看的方向？",
+        "en": "For this slender blot, which description comes closest to what you want to explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先看外缘几个弯折是怎样相接的",
+            "en": "Follow how several bends along the edges connect"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想象两侧形状正在向上延伸",
+            "en": "Imagine the two forms extending upward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把紫色和暖棕色当作两组色块比较",
+            "en": "Compare the purple and warm-brown areas as colour groups"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "给两块竖形构想一个不必有固定含义的小场景",
+            "en": "Imagine a little scene around the vertical forms without a fixed meaning"
+          },
+          "directionId": "scene-imagining"
+        }
+      ]
+    },
+    {
+      "id": "INK_03",
+      "prompt": {
+        "zh": "面对这张横向展开的墨迹，你更想选择哪种联想？",
+        "en": "With this horizontally extending blot, which approach appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想象形状由中间向两旁舒展开来",
+            "en": "Imagine the form stretching from the middle toward the sides"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看深青与浅灰绿色区域怎样彼此衬托",
+            "en": "Look at how dark teal and pale grey-green areas contrast"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把中间相接的位置当成一个虚构场景的入口",
+            "en": "Use the central meeting point as an entrance to an imagined scene"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先把左右看成一个宽的完整外形",
+            "en": "Read the mirrored sides as one broad overall form"
+          },
+          "directionId": "whole-form"
+        }
+      ]
+    },
+    {
+      "id": "INK_04",
+      "prompt": {
+        "zh": "这张中部相连的墨迹图，你更想怎样继续看？",
+        "en": "How would you continue looking at this centrally joined blot?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较外层蓝紫和内层灰紫的深浅关系",
+            "en": "Compare the darker blue-violet outside and paler grey-violet inside"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让这组形状成为一幅没有唯一答案的画面",
+            "en": "Turn the forms into an imagined picture without one correct answer"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看整体宽度和左右的对应关系",
+            "en": "Consider the overall width and correspondence between sides"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "沿上缘凸起和外侧几个点寻找小变化",
+            "en": "Follow little changes in the upper projections and outer dots"
+          },
+          "directionId": "edge-detail"
+        }
+      ]
+    },
+    {
+      "id": "INK_05",
+      "prompt": {
+        "zh": "两块分开的竖形墨迹之间，你现在更想关注什么？",
+        "en": "Between these separate vertical forms, what would you explore now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两块形状放进自己临时编想的小场景",
+            "en": "Place the forms in a little scene imagined for the moment"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "连同中间的白色间隔一起看整体布局",
+            "en": "Consider the arrangement together with the central white space"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看外侧边缘细小的转折和凹口",
+            "en": "Trace small turns and notches along the outer edges"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想象两块竖形一起缓慢上移",
+            "en": "Imagine the forms moving slowly upward together"
+          },
+          "directionId": "motion-association"
+        }
+      ]
+    },
+    {
+      "id": "INK_06",
+      "prompt": {
+        "zh": "这张较扁、两侧相接的墨迹，你更愿意从哪里继续？",
+        "en": "For this low, joined blot, where would you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把相接部分和两侧作为一个完整轮廓",
+            "en": "Read the joined middle and sides as a single outline"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看两端小点与主轮廓之间的细小间隔",
+            "en": "Examine little gaps between the outer dots and the main outline"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想象轮廓向外展开又向中部收拢",
+            "en": "Imagine the outline opening outward and gathering inward"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "比较深色连通区域与浅绿色内斑",
+            "en": "Compare the connected dark region with the pale-green patches"
+          },
+          "directionId": "contrast-noticing"
+        }
+      ]
+    },
+    {
+      "id": "INK_07",
+      "prompt": {
+        "zh": "看这张中间有白隙的宽墨迹，你更想沿哪条思路看？",
+        "en": "For this broad blot with a central gap, which approach appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "沿白隙两旁不整齐的边缘看细节",
+            "en": "Follow details along the uneven edges beside the white gap"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两侧想成正在靠近或分开的形状",
+            "en": "Imagine the sides approaching or separating"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "比较紫色外形与灰粉色内斑",
+            "en": "Compare the purple exterior with muted-pink patches"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用左右分开的形状构想一幅暂时的小画面",
+            "en": "Imagine a temporary little scene using the separated forms"
+          },
+          "directionId": "scene-imagining"
+        }
+      ]
+    },
+    {
+      "id": "INK_08",
+      "prompt": {
+        "zh": "这张较高窄的墨迹图，此刻哪种方式更吸引你？",
+        "en": "Which approach attracts you now in this tall, narrow blot?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "想象轮廓沿竖直方向伸长再收回",
+            "en": "Imagine the outline lengthening vertically and drawing back"
+          },
+          "directionId": "motion-association"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对照灰蓝外层和浅橄榄色内层",
+            "en": "Compare slate blue outside and pale olive inside"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "围绕两块内斑编想一个抽象的小场景",
+            "en": "Imagine an abstract little scene around the inner patches"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把高窄外形与中间相接处放在一起看",
+            "en": "Read the tall outline together with its central meeting point"
+          },
+          "directionId": "whole-form"
+        }
+      ]
+    },
+    {
+      "id": "INK_09",
+      "prompt": {
+        "zh": "这张横向暗色墨迹上，你更想继续哪种看法？",
+        "en": "For this sideways dark blot, which way of looking would you continue?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较暗玫紫与浅棕色块如何分布",
+            "en": "Compare the distribution of dark rose and pale brown"
+          },
+          "directionId": "contrast-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "让横向展开的形状进入一段自己编想的画面",
+            "en": "Place the sideways forms into a scene you imagine"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看左右相接后形成的完整宽轮廓",
+            "en": "Consider the full broad outline formed by the joined sides"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "留意周围小点与轮廓凸起之间的差别",
+            "en": "Notice differences between nearby dots and projections on the outline"
+          },
+          "directionId": "edge-detail"
+        }
+      ]
+    },
+    {
+      "id": "INK_10",
+      "prompt": {
+        "zh": "最后这张深蓝墨迹，你现在更愿意怎样看？",
+        "en": "For this final dark-blue blot, which approach would you choose now?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把内侧浅斑和外形编成一个临时场景",
+            "en": "Make a temporary scene from the pale inner patches and outer forms"
+          },
+          "directionId": "scene-imagining"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先看两侧连起来的整体形状与白色空隙",
+            "en": "Consider the whole joined form and its white spaces"
+          },
+          "directionId": "whole-form"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "沿深蓝边缘的高低变化寻找细节",
+            "en": "Trace small rises and dips around the dark-blue edge"
+          },
+          "directionId": "edge-detail"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想象两侧沿中间轴展开或轻轻转动",
+            "en": "Imagine the sides opening or gently turning along the centre"
+          },
+          "directionId": "motion-association"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "whole-form",
+      "directionIds": [
+        "whole-form"
+      ],
+      "title": {
+        "zh": "整体轮廓：先把画面当作一组",
+        "en": "Whole-form Reading: Seeing the Arrangement Together"
+      },
+      "headline": {
+        "zh": "原创墨迹选项中的趣味读法，不是人格或临床结论。",
+        "en": "A playful reading of original blot options rather than a personality or clinical conclusion."
+      },
+      "summary": {
+        "zh": "本次较常选择先看整体外形、两侧对应与白色间隔。它描述这组墨迹选项的阅读偏好，不测分析能力、秩序人格或职业。",
+        "en": "Your choices more often favoured overall outlines, mirrored relationships and white spaces. This describes reading preferences in this set, not analysis skill, an orderly personality or career."
+      },
+      "scoreReading": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      },
+      "seo": {
+        "title": {
+          "zh": "墨迹测试整体轮廓结果：例子与完整说明",
+          "en": "Whole-form Inkblot Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常选择先看整体外形、两侧对应与白色间隔。它描述这组墨迹选项的阅读偏好，不测分析能力、秩序人格或职业。",
+          "en": "Explore whole-form reading through original blots, examples and four comparisons. Full results without personality, analytical skill or career claims."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "把局部放回同一画面",
+            "en": "Placing parts in one arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "整体轮廓把注意放在这张图怎样占据纸面：左右是分开的还是连起来，宽高怎样，白色间隔与深色部分如何共同构成外形。它不是要求看出一个正确物体，也不意味着你总能把握全局。题目只让你在四个说法中选更想沿着看的方式，没有记录视线、反应时间或实际最先注意的地方。名称是本次读法的简称，不是一种稳定人格。",
+              "en": "Whole-form Reading concerns how an image occupies its space: whether sides separate or join, their width and height, and how white gaps participate in the arrangement. It requires no correct object and establishes no general ability to grasp a bigger picture. You chose an offered way to continue looking; the quiz recorded neither gaze nor reaction time or what actually attracted attention first. The name abbreviates a reading in this set rather than a stable personality."
+            }
+          ]
+        },
+        {
+          "id": "image-example",
+          "title": {
+            "zh": "用第一张图说明",
+            "en": "An example from the first image"
+          },
+          "paragraphs": [
+            {
+              "zh": "第一张原创图有两块分开的深青色竖形，内侧浅绿，中间留白。沿整体轮廓看，可以先把左右当成一组，注意中间白隙的宽度，再看这组形与白底的关系。另一个人可能更喜欢上缘的小点，两种选择都成立。你不必把图认成蝴蝶、面孔或任何对象，图上也没有藏着能判定谁正常、谁更理性的标准答案。",
+              "en": "The first original image has two separated dark-teal vertical forms, pale-green interiors and a central white gap. An overall reading might treat the sides as a pair, notice the gap’s width and consider the pair against the white ground. Someone else may prefer the little upper dots. Neither choice needs a butterfly, face or other recognised object, and the image contains no hidden answer establishing normality or greater rationality."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "怎样把计数读窄",
+            "en": "Keeping the count interpretation narrow"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高计数只表示你在这些图片和措辞中较常选了整体读法。因为每题另外一项没有出现，没选局部也不等于拒绝细节；选整体更不代表能看出系统哪里会失灵。图片的颜色、尺度、显示清晰度和中性结构文字都可能影响选择。结果不能从十次点击推断注意机制、大脑默认模式、内外向、尽责性、共情或实际工作表现。",
+              "en": "A highest count means the offered whole-form readings appealed more often with these images and words. One focus is absent from each question, and not selecting a detail establishes no rejection of detail. Choosing an overall view proves no ability to locate a failing system. Colour, scale, display clarity and structural descriptions may affect choices. Ten clicks cannot establish attention mechanisms, a brain default, introversion, conscientiousness, empathy or work performance."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-example",
+          "title": {
+            "zh": "把偏好说成一种看图方式",
+            "en": "Describing a way to view an image"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果和朋友看同一张原创图，可以说“我现在想先看左右与中间空白形成的整体”，然后听听对方想看哪里。你不需要替对方解释为什么看到不同东西，也不应把图当测谎或识人的办法。这个说法同样可以用于讨论一张抽象画的构图，但是否喜欢整幅布局，不能证明你在学习、规划或关系里也一定先看全局。",
+              "en": "With a friend looking at the same original image, you could describe wanting to examine the arrangement of sides and central space, then ask where they want to look. Neither person needs an explanation of the other’s hidden motives, and the image is no device for detecting truth or character. The wording may also help discuss an abstract composition, but liking its overall arrangement establishes no big-picture approach to learning, planning or relationships."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外四种读法比较",
+            "en": "Comparing the other four readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "边缘细节把注意放在一个凸起、凹口或小点；整体轮廓把这些部分放回同一布局。动势联想想象静止形状怎样展开或转动，色块对照看深浅与不同色区，场景编想为形状临时构想画面。它们能在看同一张图时先后发生，不构成理性对感性或细心对粗心的分组。最高并列保留全部全文，不据此造主副人格、互补搭档或MBTI对应。",
+              "en": "Edge-detail Reading follows a projection, notch or dot, while Whole-form Reading places parts in a single arrangement. Motion Association imagines unfolding or turning, Contrast Noticing compares darker and paler areas, and Scene Imagining develops a temporary picture. They can occur in sequence with one image rather than forming rational-versus-emotional or careful-versus-careless groups. Every highest tie retains its guide without creating primary and secondary personalities, complementary partners or MBTI equivalents."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "今天想看细节也不矛盾",
+            "en": "Wanting details today need not conflict"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能在第一张图喜欢看整体，在第七张却只想沿中间白隙追一个小弯折；也可能只是某个选项描述得更具体。这样的差别不需要用“我其实是另一型”来修补。低计数不证明缺少结构感，高计数不证明更可靠、适合审计或擅长工程。图像与文字共同组成这份趣味选择，不能把它们拆掉以后仍宣称测到了普遍的感知能力。",
+              "en": "You may prefer the first image’s whole arrangement but follow one bend beside the seventh image’s white gap, or simply find an option more concrete. That needs no repair through another type label. Lower counts establish no missing sense of structure; higher ones certify neither reliability nor suitability for audit or engineering. Images and wording jointly form this playful choice set, not a general perceptual capacity that remains established after removing them."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次画面描述",
+            "en": "An optional description"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，重新看一张公开原创图，用一句话描述整体布局，再用一句话描述一个细节；你也可以只看，不写。没有训练目标、正确答案或必须变得更全面的任务。不要把自己的描述拿来评估别人，更不必寻找私人记忆解释它。这个小观察只帮助区分你此刻想怎样谈论一张图，不承诺提升注意力、认知能力、情绪或人格。",
+              "en": "If you wish, revisit an original image and describe its arrangement in one sentence and a detail in another, or simply look without writing. There is no training target, correct answer or assignment to become more comprehensive. Use no description to assess another person and search for no private memory to explain it. This optional observation distinguishes how you want to discuss an image now, without promises about attention, cognition, mood or personality."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十题计数、全部最高并列与近分",
+            "en": "Ten-item counts, every highest tie and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+              "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创图像与专业方法的边界",
+            "en": "Original images and the professional-method boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+              "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edge-detail",
+      "directionIds": [
+        "edge-detail"
+      ],
+      "title": {
+        "zh": "边缘细节：沿一个小变化继续看",
+        "en": "Edge-detail Reading: Following a Small Difference"
+      },
+      "headline": {
+        "zh": "原创墨迹选项中的趣味读法，不是人格或临床结论。",
+        "en": "A playful reading of original blot options rather than a personality or clinical conclusion."
+      },
+      "summary": {
+        "zh": "本次较常选择追随边缘转折、小点和局部间隔。它记录这组图中的阅读选择，不测细心、视力、分析能力或稳定特质。",
+        "en": "Your choices more often followed edge turns, little dots and local gaps. This records choices within these images, not carefulness, eyesight, analysis ability or a stable trait."
+      },
+      "scoreReading": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      },
+      "seo": {
+        "title": {
+          "zh": "墨迹测试边缘细节结果：例子与完整说明",
+          "en": "Edge-detail Inkblot Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常选择追随边缘转折、小点和局部间隔。它记录这组图中的阅读选择，不测细心、视力、分析能力或稳定特质。",
+          "en": "Read edge-detail choices through local contours, examples and four comparisons. No eyesight, carefulness, clinical coding or ability verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "细节是一个具体位置",
+            "en": "A detail is a particular place"
+          },
+          "paragraphs": [
+            {
+              "zh": "边缘细节关注的不是整张图意味着什么，而是某一个可指明的位置：上缘的凸起、内侧白隙的一段弯折、小点与主形之间的距离。你可以看一会儿就停下，不需要找完所有差异。结果没有记录你看得是否准确、多久找到，也没有评视力或专注力。它只是对应本组选项中那些邀请你沿一个局部继续看的说法。",
+              "en": "Edge-detail Reading concerns an identifiable place rather than what an entire image means: an upper projection, a bend beside a white gap or a dot’s distance from the main form. You may look briefly and stop without finding every difference. No accuracy, search time, eyesight or attention capacity was measured. This result corresponds only to options inviting you to continue looking along a particular part of these images."
+            }
+          ]
+        },
+        {
+          "id": "image-example",
+          "title": {
+            "zh": "用第七张图说明",
+            "en": "An example from the seventh image"
+          },
+          "paragraphs": [
+            {
+              "zh": "第七张原创图是左右分开的宽紫色形状，中间留下一段折线状白隙。你可以沿其中一边，看看转折怎样改变空白的宽度，再留意附近的浅色内斑。这个观察不需要给墨迹命名，也不说明你比选整体的人看得深。大家得到的是同一张静止图，差别只在此刻更想沿哪个说法看，题目没有验证任何人的真实视觉搜索过程。",
+              "en": "The seventh original image has broad purple separated forms and an angular central gap. You might follow one side, see how bends change the gap’s width and notice a nearby pale patch. That requires no name for the blot and establishes no deeper observation than choosing an overall reading. Everyone receives the same static image; choices concern which offered account appeals. The quiz has not verified anyone’s actual visual-search process."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "次数不是发现细节的成绩",
+            "en": "A count is no detail-detection score"
+          },
+          "paragraphs": [
+            {
+              "zh": "每选一次边缘说法计数加1，但图上没有预设必须找到几个点或几个凹口。你可能只是喜欢“沿着看”的措辞，也可能因屏幕较清楚而愿意靠近某一处。最高计数不是细节能力的满分，也不表示在真实生活里总能发现问题；低计数同样不能证明粗心。它与临床Rorschach的位置编码不同，不能把本版一个选项拿去套用CS或R-PAS。",
+              "en": "Each edge-oriented choice adds one count, but there is no required number of dots or notches to find. You may like the wording about tracing, or a clear display may make one area appealing. A highest count is no maximum detail ability and establishes no habit of finding real-life problems; lower counts establish no carelessness. This differs from professional Rorschach location coding, and a website option cannot be transferred into CS or R-PAS interpretation."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-example",
+          "title": {
+            "zh": "先指出位置，再听不同读法",
+            "en": "Naming the place before hearing alternatives"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以对同伴说“我现在看的是右边外缘这一小段”，而不是“这说明我是分析型”。对方可能在同处想象运动，或根本没兴趣追边缘，这不需要谁说服谁。即使你平常做事很细，也不由这张图证明；即使工作常看细节，也可以休闲时只想看颜色。把表达留在画面和当下意愿里，比把一项计数迁移到职业、学习或人际能力更稳妥。",
+              "en": "You could point to a short section of the right edge instead of declaring an analytical type. A companion may imagine movement there or feel no interest in tracing, without either person needing to persuade the other. Everyday carefulness is not proved by the image, and detail-heavy work does not require detail-focused leisure. Keep the wording with the picture and present preference rather than transferring a count into career, learning or interpersonal ability."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与整体、颜色和联想分别读",
+            "en": "Separating arrangement, contrast and associations"
+          },
+          "paragraphs": [
+            {
+              "zh": "整体轮廓把两侧和白隙看作一组；边缘细节可以只沿其中一小段。色块对照关注深浅和不同颜色的关系，不要求边界更复杂；动势联想为静止图想象展开、靠近或转动；场景编想则临时把形状放进一幅画面。五者不是知觉层级，也不对应五种已验证的人格。差一次只是一道选择，近分可以一起看，不把某项当作需要由其他项弥补的缺陷。",
+              "en": "Whole-form Reading views sides and gaps together; Edge-detail Reading may follow a short section. Contrast Noticing concerns relationships among darker, paler or differently coloured areas without needing complex edges. Motion Association imagines unfolding, approaching or turning, while Scene Imagining places forms in a temporary picture. These are neither perceptual levels nor five validated personalities. A one-choice gap establishes no deficit for another focus to compensate; nearby guides can be read together."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "不想追一个细节也有理由",
+            "en": "There may be reasons not to follow a detail"
+          },
+          "paragraphs": [
+            {
+              "zh": "图片缩得小、屏幕不清楚、光线不舒服或你只是没兴趣，都可能让这一项不吸引你。它们不应被解释成认知问题、缺少耐心或不够认真。中性结构说明会指出一些可见位置，也可能影响选择；因此本版并不宣称测到未经提示的第一反应。你可以退出或直接阅读全文，没有必要为了一个结果勉强自己盯图，更不能据此判断别人的健康与能力。",
+              "en": "Small images, an unclear display, uncomfortable lighting or lack of interest may make this reading unappealing. None should be interpreted as a cognitive problem, impatience or lack of effort. Neutral structural descriptions identify visible places and may influence choices, so this is no unprompted first-response measure. You can leave or read guides without continuing; no result requires prolonged looking, and choices establish nothing about another person’s health or capacity."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "给一个局部写清位置",
+            "en": "Locating one part"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一张原创图，只写“哪一侧、靠上还是靠下、哪种边缘变化”，不必解释它代表什么。再看看同一处也能否被描述成色块关系，或选择到此结束。这个小观察没有提高视力、专注或分析能力的承诺，也不是临床训练。你无需记录私人联想、上传画面或分享次数；公开说明和你自己的观看过程可以一直分开。",
+              "en": "If you wish, locate one part of an original image by side, height and edge change without explaining what it represents. You might then describe that same area as a colour relationship, or stop. This promises no improvement in eyesight, attention or analysis and is no clinical training. No private associations, uploaded images or shared counts are needed. A public explanation can remain separate from your own experience of looking."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十题计数、全部最高并列与近分",
+            "en": "Ten-item counts, every highest tie and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+              "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创图像与专业方法的边界",
+            "en": "Original images and the professional-method boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+              "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motion-association",
+      "directionIds": [
+        "motion-association"
+      ],
+      "title": {
+        "zh": "动势联想：给静止形状想象变化",
+        "en": "Motion Association: Imagining Change in a Static Form"
+      },
+      "headline": {
+        "zh": "原创墨迹选项中的趣味读法，不是人格或临床结论。",
+        "en": "A playful reading of original blot options rather than a personality or clinical conclusion."
+      },
+      "summary": {
+        "zh": "本次较常选择想象墨迹展开、靠近或转动的说法。它记录选项中的联想偏好，不测行动力、精力、外向或神经类型。",
+        "en": "Your choices more often imagined unfolding, approaching or turning. This records an offered association, not initiative, energy, extraversion or neurotype."
+      },
+      "scoreReading": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      },
+      "seo": {
+        "title": {
+          "zh": "墨迹测试动势联想结果：例子与完整说明",
+          "en": "Motion Inkblot Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常选择想象墨迹展开、靠近或转动的说法。它记录选项中的联想偏好，不测行动力、精力、外向或神经类型。",
+          "en": "Explore imagined movement in static original blots through full examples and comparisons. No action, energy, neurotype or personality verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "运动来自联想，不来自图像",
+            "en": "Movement is imagined rather than displayed"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里十张图都是静止的原创墨迹，没有动画、反应速度任务或需要追踪的移动目标。动势联想只是把一个静止轮廓想成可能展开、靠近、转动或收拢的姿态。你可以觉得它有意思，也可以完全不想这样看。选择这种说法不证明真实地看到了运动，更不意味着坐不住、胆大、热爱风险或比别人行动更快。它是本组选项中的阅读名称。",
+              "en": "All ten images are static original blots, without animation, reaction-speed tasks or moving targets to track. Motion Association imagines a contour unfolding, approaching, turning or gathering. You may enjoy that or feel no interest. Choosing the wording proves neither perceived actual movement nor restlessness, courage, risk preference or faster action than someone else. It is a name for an offered way of reading these images, not a finding about bodily or neural functioning."
+            }
+          ]
+        },
+        {
+          "id": "image-example",
+          "title": {
+            "zh": "用第三张图说明",
+            "en": "An example from the third image"
+          },
+          "paragraphs": [
+            {
+              "zh": "第三张图的青色形状沿水平方向展开，两侧在中间靠近相接。你可以想象它从中间向两边伸展，也可以只看一张静止的宽图；没有哪个更正确。图像并没有真的变宽，题目也不记录你多快产生联想。若你想到别的方向，四个选项未必容纳它；可以不完成，公开结果仍可读，不需要为了得到标签而说自己看到了什么。",
+              "en": "The third image extends sideways in teal, with the mirrored sides meeting near the centre. You might imagine it stretching outward, or simply read a static broad form. Neither is more correct. The image does not actually widen, and no time to association is measured. An unoffered direction may fit better than the bounded options. You may leave and read public guides without describing something just to obtain a label."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "次数不解释真实行动",
+            "en": "Counts do not explain actual conduct"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高计数说明动势说法在这组图片与措辞中较常吸引你，不说明工作时偏行动、耐受混乱或需要刺激。一个喜欢安静阅读的人也可以给形状想象动作；一个经常运动的人也可能只想看颜色。原始次数没有衡量实际运动、身体能力、注意或情绪。它与专业墨迹评估的任何编码都不能直接对应，更不能由此换算MBTI、大五或职业。",
+              "en": "Higher counts mean the motion-oriented wording appealed more often with these images, not that you act first at work, tolerate chaos or need stimulation. A quiet reader may imagine movement, while someone physically active may prefer colour. Counts assess no actual movement, physical capacity, attention or emotion. They have no direct correspondence to professional inkblot coding and cannot convert into MBTI, Big Five or career. The connection remains with choices made in this set."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-example",
+          "title": {
+            "zh": "把画面的想象说成自己的读法",
+            "en": "Describing an imagined movement as your reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我会把这段轮廓想成向两侧舒展”，不需要说“它真的在动”或“这证明我很有行动力”。朋友可能想象相反的收拢，也可能不作动态联想，双方都不必被判成不同性格。讨论时可以把手指放在自己指的区域，再说明那是想象而非图上发生的事；不必提供私人故事或身体感受来解释。",
+              "en": "You could describe imagining part of the outline extending sideways without claiming actual movement or proof of initiative. A friend may imagine gathering inward or no movement, and neither needs a personality judgment. Point to the region and distinguish your imagined change from what the static image displays. No private story or bodily account is required. This gives a conversation about an abstract picture a specific reference rather than an explanation of what kind of person someone is."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与整体、细节、色块和场景比较",
+            "en": "Comparing form, detail, contrast and scene"
+          },
+          "paragraphs": [
+            {
+              "zh": "整体轮廓先看一组形状的布局，边缘细节沿某处转折；动势联想则临时让同一个轮廓有一个变化方向。色块对照可以只比较深浅关系，场景编想可以给图形成一幅画面，画面未必有动作。五个名称不构成从静到动的能力阶梯，也不要求你用其他类型平衡自己。最高并列都保留全文，近分不补造混合人格或“很少见”的组合。",
+              "en": "Whole-form Reading considers an arrangement and Edge-detail Reading follows a turn, while Motion Association gives the same contour an imagined direction of change. Contrast Noticing may simply compare darker and paler regions; Scene Imagining can develop a picture without action. These labels form no static-to-dynamic ability ladder and call for no other type to balance you. Every highest tie retains its guide, and close counts create neither hybrid personalities nor supposedly rare combinations."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "没有动作联想也不是问题",
+            "en": "No motion association establishes no problem"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能觉得图像明显静止，不想接受“展开”这样的说法，或只是今天更在意配色。这些选择不能被解释成想象力不足、身体迟缓或缺少活力。反过来，选了动势也不支持诊断注意或情绪问题；本题没有这类评估。屏幕大小、中性结构说明和选项措辞都在参与结果。若名称不合意，就保留自己喜欢的一句描述，不把它延伸到生活各处。",
+              "en": "You may prefer not to accept wording about unfolding, or simply care more about the palette today. Such choices establish no deficient imagination, bodily slowness or lack of vitality. Choosing motion likewise supports no attention or mood diagnosis; those were not assessed. Display size, structural descriptions and option wording all participate in the result. If the name is unhelpful, retain a description you liked without extending it across your life."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "一个可以随时停下的联想",
+            "en": "An association you may stop at any time"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一张原创图，用“如果它会变化……”开一句话，然后再用一句话说明它实际仍是静止的。也可以跳过，不需要练习到看到某种效果。这个小观察没有提升创造力、释放情绪或改善身体状态的承诺，不是临床训练。所有正文可独立阅读，分享只需公开说明链接，不含私人联想、选项或计数。",
+              "en": "If you wish, begin a sentence imagining how an original form might change, then state that it remains a static image. You may skip this without practising until some effect appears. This promises no increased creativity, emotional release or physical benefit and is no clinical training. Each guide can be read independently, and optional sharing needs only a public explanation link without private associations, chosen options or counts."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十题计数、全部最高并列与近分",
+            "en": "Ten-item counts, every highest tie and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+              "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创图像与专业方法的边界",
+            "en": "Original images and the professional-method boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+              "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrast-noticing",
+      "directionIds": [
+        "contrast-noticing"
+      ],
+      "title": {
+        "zh": "色块对照：看深浅与色区怎样相邻",
+        "en": "Contrast Noticing: Comparing Colour Regions"
+      },
+      "headline": {
+        "zh": "原创墨迹选项中的趣味读法，不是人格或临床结论。",
+        "en": "A playful reading of original blot options rather than a personality or clinical conclusion."
+      },
+      "summary": {
+        "zh": "本次较常选择对照深浅、不同颜色和内外色区。它记录看这些图的意愿，不检查色觉、审美、情绪或艺术天赋。",
+        "en": "Your choices more often compared darker and paler areas or inner and outer colours. This records an interest in these images, not colour vision, taste, mood or artistic talent."
+      },
+      "scoreReading": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      },
+      "seo": {
+        "title": {
+          "zh": "墨迹测试色块对照结果：例子与完整说明",
+          "en": "Contrast Inkblot Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常选择对照深浅、不同颜色和内外色区。它记录看这些图的意愿，不检查色觉、审美、情绪或艺术天赋。",
+          "en": "Read colour-region comparisons in original blots with full examples and four comparisons. No colour vision, mood, talent or personality conclusions."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "比较的是画面中的关系",
+            "en": "Comparing relationships in the image"
+          },
+          "paragraphs": [
+            {
+              "zh": "色块对照把两种颜色、深浅或一块内部斑形与外层放在一起看，不需要喜欢其中某一种，也没有哪种颜色代表某种人格。十张原创图使用不同配色，选择可能来自一组颜色恰好合意。题目没有色觉检测、标准照明或视觉校准，不能告诉你看得准不准。结构说明写出颜色与位置，既帮助理解，也可能引导了选择，这一影响应保留在解释里。",
+              "en": "Contrast Noticing compares colours, darker and paler areas, or inner patches with an exterior without requiring a favourite colour. No colour represents a personality here. Different palettes may simply make one comparison appealing. There is no colour-vision examination, standard lighting or visual calibration, so accuracy cannot be assessed. Structural descriptions name colours and positions; they help orientation and may also direct choices. That influence belongs in interpreting the result rather than being ignored."
+            }
+          ]
+        },
+        {
+          "id": "image-example",
+          "title": {
+            "zh": "用第四张图说明",
+            "en": "An example from the fourth image"
+          },
+          "paragraphs": [
+            {
+              "zh": "第四张原创图外层是蓝紫色，里面有较浅的灰紫斑块，两侧在中间连接。你可以先比较深浅区域的大小与相邻关系，而不是找一个物体名称。另一个人更喜欢上缘的小点，也很合理。你在自己的屏幕上看到的颜色可能与别人不同，不能因为描述不一致就判断谁的视觉或情绪有问题；这份趣味题没有提供这样的检验条件。",
+              "en": "The fourth original image has a blue-violet exterior, paler grey-violet patches and a central join. You might compare region sizes and adjacency without naming an object. Someone else may prefer its upper dots. Colours on your display can differ from another person’s, and disagreement establishes no visual or emotional problem. This playful set provides no examination conditions for such a conclusion. The example concerns where you want to continue looking in the offered image."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "颜色选择不等于心理含义",
+            "en": "Colour-related choices imply no psychological meaning"
+          },
+          "paragraphs": [
+            {
+              "zh": "计数最高只说明你较常选了比较色区的说法。它不解释为什么喜欢紫、青或棕，不推断情绪、审美水平、创造力或职业兴趣，也没有“暖色更热情、冷色更理性”的键。你可能只对其中两张图想看配色，其他图更喜欢整体。原始次数是这组有限选项的相对分布，不是对稳定色彩偏好或实际视觉注意的独立测量。",
+              "en": "A highest count means the colour-comparison wording appealed more often. It explains no liking for purple, teal or brown and infers no mood, aesthetic level, creativity or career interest. There is no key equating warm colours with warmth of character or cool colours with rationality. You may prefer palettes in only two images and overall arrangements elsewhere. Counts describe relative selections among limited options rather than independently measuring stable colour preference or actual visual attention."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-example",
+          "title": {
+            "zh": "把对照说得可以指认",
+            "en": "Making a comparison identifiable"
+          },
+          "paragraphs": [
+            {
+              "zh": "与朋友看第六张图时，可以说“我想比较中间浅绿和周围深青的分布”，再问对方想看哪里。这样讨论依赖共同可指认的区域，而不需要把颜色当作心情密码。你也可以说自己不在意配色或不喜欢当前颜色，不必为保持某个结果而赞美图。若想把这种表达带去讨论设计作品，可以借用描述方式，不能把趣味计数当成设计能力证明。",
+              "en": "With a friend viewing the sixth image, you could name the pale-green middle and surrounding dark teal, then ask what they want to examine. The conversation has an identifiable region rather than a colour code for feelings. You may dislike the palette or not care about it without praising the image to preserve a result. The descriptive wording may help discuss a design, but a playful count supplies no certificate of design ability."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与轮廓、细节和两种联想比较",
+            "en": "Comparing contours, details and two associations"
+          },
+          "paragraphs": [
+            {
+              "zh": "整体轮廓看形状与空白的共同布局，边缘细节追一处小转折；色块对照关心不同色区的关系。动势联想可以把同一区域想象成正在变动，场景编想则为它构想画面；两者都不要求偏爱某种配色。五种读法不等于艺术家、工程师或共情者等身份，也不对应MBTI认知功能。最高并列只意味着本次次数一样，不构成互补性格或需要改善的失衡。",
+              "en": "Whole-form Reading considers shapes and spaces together, Edge-detail Reading follows a local turn, and Contrast Noticing concerns relationships among regions. Motion Association may imagine a region changing; Scene Imagining may place it in a picture. Neither requires a preferred palette. These readings identify no artist, engineer or empath and correspond to no MBTI function. A highest tie simply preserves equal counts, not complementary personalities or an imbalance requiring improvement."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "不看颜色不能说明缺少什么",
+            "en": "Not choosing colour shows no deficit"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果使用灰度显示、屏幕颜色不同，或你不愿继续看配色，结果范围就更受这些条件影响。可以退出或直接读公开说明，不应为了得到完整分数而勉强看图。色块对照计数低不表示审美不足、缺少感情或不适合创作；计数高也不说明视觉更准确。本版没有临床或色觉测量效度，既不能筛查问题，也不能证明某项能力没有问题。",
+              "en": "Grayscale display, differing colours or no wish to continue make viewing conditions more relevant. You may leave or read public explanations without forcing yourself to look for a complete score. Lower counts establish no aesthetic deficit, emotional absence or unsuitability for creative activity; higher counts establish no more accurate vision. This edition has no clinical or colour-vision measurement validation, so it neither screens for a problem nor proves a capacity free of problems."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "一句只描述画面的对照",
+            "en": "One image-focused comparison"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，用一句话写清两个色区在哪里、哪块较深或较浅，再停下即可；不必解释它们象征什么。也可以只看结构文字或不继续。没有训练色觉、调整情绪或提升审美的任务，反复选择别的说法也不表示变化或退步。保持描述属于画面本身，不把它当成他人心情或人格的证据，更无需上传自己的联想。",
+              "en": "If you wish, locate two regions and describe their relative darkness in one sentence, then stop without explaining symbolism. You may read only the structural description or decline entirely. There is no assignment to train colour vision, alter mood or improve taste, and different later choices establish no progress or decline. Keep the description with the image rather than making it evidence about another person’s feelings or character. No private associations need uploading."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十题计数、全部最高并列与近分",
+            "en": "Ten-item counts, every highest tie and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+              "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创图像与专业方法的边界",
+            "en": "Original images and the professional-method boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+              "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scene-imagining",
+      "directionIds": [
+        "scene-imagining"
+      ],
+      "title": {
+        "zh": "场景编想：给形状一个临时画面",
+        "en": "Scene Imagining: Giving Forms a Temporary Scene"
+      },
+      "headline": {
+        "zh": "原创墨迹选项中的趣味读法，不是人格或临床结论。",
+        "en": "A playful reading of original blot options rather than a personality or clinical conclusion."
+      },
+      "summary": {
+        "zh": "本次较常选择为墨迹构想一幅场景的说法。它记录当下选项偏好，不测创造力、叙事能力、共情或无意识。",
+        "en": "Your choices more often developed a scene from a blot. This records current offered preferences, not creativity, narrative ability, empathy or unconscious content."
+      },
+      "scoreReading": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      },
+      "seo": {
+        "title": {
+          "zh": "墨迹测试场景编想结果：例子与完整说明",
+          "en": "Scene Inkblot Result: Examples & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常选择为墨迹构想一幅场景的说法。它记录当下选项偏好，不测创造力、叙事能力、共情或无意识。",
+          "en": "Explore scene imagining through original blots, examples and four comparisons. No creativity, unconscious-content, empathy or personality assessment."
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "画面可以临时出现，也可以没有",
+            "en": "A scene may appear temporarily, or not at all"
+          },
+          "paragraphs": [
+            {
+              "zh": "场景编想是在一张抽象图前愿意补出一幅临时画面，而不要求图上真的有某个对象。你可以把形状看成一处入口、两块漂浮的布景或完全没有名字的场面，也可以不这样想。它不是要求讲完整故事、回忆个人经历或展示创造力。题目只记录你较愿意选哪种说法，没有分析自由文本、梦、记忆或无意识内容，更不从画面判断人格。",
+              "en": "Scene Imagining concerns willingly developing a temporary picture from an abstract image without requiring an object to be present. A form might become an entrance, floating scenery or an unnamed scene, or no scene may appeal. No complete story, private memory or display of creativity is required. The quiz records preferred offered wording without analysing free text, dreams, memories or unconscious content. A scene supplies no personality verdict."
+            }
+          ]
+        },
+        {
+          "id": "image-example",
+          "title": {
+            "zh": "用第五张图说明",
+            "en": "An example from the fifth image"
+          },
+          "paragraphs": [
+            {
+              "zh": "第五张原创图有两块分开的暗玫紫色竖形，中间保留白色，内部各有浅棕色斑块。你可以暂时把它们当成一幅抽象场景的两侧，也可以只觉得是两块墨迹。这幅场景是你的临时联想，不是图作者藏下的答案。别人编想成另一幅画面也不需要解释成心理差异；本版没有为某种场景设置秘密的好坏、健康或能力分数。",
+              "en": "The fifth original image has two separated dark-rose vertical forms with white between them and pale-brown interiors. You might temporarily use them as sides of an abstract scene or simply see two blots. An imagined scene is no answer hidden by the author. Another person can imagine a different picture without that requiring a psychological explanation. No scene has a secret score for goodness, health or ability in this edition."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "喜欢场景选项不认证想象力",
+            "en": "Liking a scene option certifies no imagination level"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高计数表示，在本题提供的图片与文字里，你较常想把形状放入一个场景。它不证明创造力高、适合写作、能理解别人，或更接近某种MBTI直觉偏好。你可能只是喜欢那几句措辞，或看图时恰好想到一段普通画面。没有自由答卷、作品评价、计时或认知测试，便不能把计数当作稳定的叙事能力或头脑深处的真实样子。",
+              "en": "A highest count means you more often wanted to place forms into a scene with these images and words. It establishes no greater creativity, writing suitability, understanding of people or MBTI intuition preference. Wording may simply appeal, or an ordinary picture may come to mind today. Without free responses, work evaluation, timing or cognitive assessment, these counts cannot establish a stable narrative ability or the true contents of an inner mind."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-example",
+          "title": {
+            "zh": "描述自己的画面，保留别人的空间",
+            "en": "Describing your scene while leaving room for others"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我愿意把中间白隙想成一幅小场景的入口，但这只是我现在的看法”，而不是“你没看到故事，所以不够有想象力”。对方可能只想看边缘，或根本不想继续看图，你不必为对方补一个答案。即使自己想到了情节，也可以不说。公开说明只是谈论抽象图的一种语言，不要求你把私人故事交给网页或同伴。",
+              "en": "You can describe using a white gap as an entrance in a little scene while making clear it is your current association. Someone else preferring edges or declining further viewing needs no story supplied for them and no judgment about imagination. Even if a plot comes to mind, you may keep it private. The public guide offers language for discussing an abstract image rather than requiring a personal account for a webpage or companion."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其余四种看法并列比较",
+            "en": "Comparing the four other readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "动势联想可以只有一个转动或展开，不一定成为场景；场景编想也可以完全静止。整体轮廓关心形状怎样组成画面，边缘细节追某处小变化，色块对照比较深浅和颜色关系。你可以先看色块再想到场景，或者今天完全不想编想。五者不是从事实到幻想的能力排序，不对应创造型、理性型或共情型人格；所有最高并列都完整呈现，不硬派主副型。",
+              "en": "Motion Association may involve one turn or unfolding without a scene, while a scene can remain static. Whole-form Reading considers the arrangement, Edge-detail Reading a local change, and Contrast Noticing relationships among regions. You can move from colour to scene or prefer no scene today. These are no fact-to-fantasy ability hierarchy and correspond to no creative, rational or empathic personalities. Every highest tie appears in full without a forced primary or secondary type."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "没有故事不需要被解释",
+            "en": "No story needs no explanation"
+          },
+          "paragraphs": [
+            {
+              "zh": "有时你只看到色块，不想把它们变成事物；有时选项里的场景并不合意。它们不说明缺少想象力、情感或某种心理能力。反过来，编了很多画面也不说明把幻想当现实；本版没有测这些问题。屏幕条件、结构说明、文化熟悉度和措辞都可能影响选择。看图引起不适或只是无聊时可以退出，不能把离开理解成隐藏的私人内容。",
+              "en": "Sometimes you see regions without wanting to turn them into objects, or a scene option simply fails to fit. Neither establishes a lack of imagination, feeling or psychological capacity. Many imagined pictures likewise establish no confusion between fantasy and reality; those concerns were not assessed. Display conditions, descriptions, familiarity and wording may affect choices. You may leave when viewing is uncomfortable or boring without that implying hidden personal content."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "给画面加一个可撤回的也许",
+            "en": "Adding a revisable perhaps"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，用“也许可以想成……”描述一次普通联想，再指出图上实际可见的一处形状。两句话可以不同，也可以没有联想，只留下可见描述。无需扩展成故事、解释童年或提交答案，这不是投射解释或治疗练习。它没有提高创造力、揭露无意识或改变人格的承诺。自己的观看过程保持私有即可，分享公开链接不包含选项、计数或个人故事。",
+              "en": "If you wish, introduce an ordinary association as something the form could perhaps suggest, then identify one visible shape. The accounts may differ, and a visible description without an association is equally possible. No story expansion, childhood explanation or submitted response is needed. This is neither projective interpretation nor therapy and promises no increased creativity, revelation of unconscious material or personality change. Looking can remain private; a shared public link contains no options, counts or personal account."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十题计数、全部最高并列与近分",
+            "en": "Ten-item counts, every highest tie and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+              "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创图像与专业方法的边界",
+            "en": "Original images and the professional-method boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+              "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "十张图怎样形成五类计数",
+        "en": "How ten images produce five reading counts"
+      },
+      "paragraphs": [
+        {
+          "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+          "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "五份完整结果与全部最高并列",
+        "en": "Five full guides and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "五种读法为整体轮廓、边缘细节、动势联想、色块对照和场景编想。每份正文包含读法定义、原创图例子、计数读法、日常表达、其余四类比较、反例、可选观察、计分和范围。所有最高并列完整呈现，其他说明始终公开。它们不是五种已验证人格或能力，也没有稀有、优劣、主副型或互补搭档结论。",
+          "en": "The readings are Whole-form, Edge-detail, Motion Association, Contrast Noticing and Scene Imagining. Each full guide includes a definition, an original-image example, count interpretation, possible wording, four comparisons, counterexamples, optional observation, scoring and scope. Every highest tie appears in full, and other guides remain public. These are no validated personalities or abilities, with no rarity, superior type, fixed secondary or complementary-partner claims."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "原创趣味版，不是正式牌卡与方法",
+        "en": "An original playful edition rather than official plates or methods"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+          "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+        }
+      ]
+    },
+    {
+      "id": "images",
+      "title": {
+        "zh": "图像与结构说明怎样使用",
+        "en": "Using images and structural descriptions"
+      },
+      "paragraphs": [
+        {
+          "zh": "图像为本站自写曲线生成的十张原创SVG，全部静止，未使用外部图片、历史牌卡或官方标准素材。每张图都有中性结构说明，描述颜色、左右与空白，不告诉你必须看见某个物体。文字和显示条件可能影响答案，这不是第一反应、眼动或视力测试。图像失败时无法继续计分，可以退出或读公开全文，不用缺失图像的文字冒充已完成视觉流程。",
+          "en": "Ten original SVGs were drawn with independently written curve generation. All are static and use no external pictures, historical plates or official standard material. Neutral descriptions locate colours, sides and spaces without requiring an object. Wording and viewing conditions may influence answers; this is no first-response, eye-tracking or vision test. Image failure prevents continued scoring. You may leave or read public guides without a text-only substitute being treated as a completed visual flow."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "完整免费、草稿和安全分享",
+        "en": "Full free access, drafts and safe sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
+          "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是真正的Rorschach测试吗？",
+        "en": "Is this the professional Rorschach assessment?"
+      },
+      "answer": {
+        "zh": "本版是十张独立原创SVG与十道原创限定选项的趣味阅读，不是心理学家使用的Rorschach测试，不提供CS、R-PAS实施、编码或诊断。五类只描述本组选项中想沿着看的方式，不测神经机制、共情、创造力、视觉或认知能力、稳定人格、健康、职业或MBTI大五HSP等其他框架。没有采用历史牌卡、官方标准图像、临床常模、标准系统题本或竞品图文人设。Rorschach名称仅用于说明墨迹联想的背景，非官方产品或背书；正式方法的研究不验证这些图像、选项、计数或解释。中性结构文字与屏幕条件可能影响选择，不把结果当视觉检查。",
+        "en": "This is a playful reading of ten independently authored SVGs and ten original bounded choices, not the Rorschach assessment used by psychologists or CS or R-PAS administration, coding or diagnosis. Five labels describe offered ways you prefer to explore, not neural mechanisms, empathy, creativity, visual or cognitive ability, stable personality, health, career or MBTI, Big Five, HSP and other frameworks. No historical plates, official standard images, clinical norms, standard banks or competitor art, prose or personas are used. Rorschach names the background of inkblot association rather than an official product or endorsement. Research on professional methods validates neither these images, options, counts nor interpretations. Structural descriptions and screen conditions may affect choices; results are not a vision examination."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么需要真实图像和结构说明？",
+        "en": "Why are actual images and descriptions included?"
+      },
+      "answer": {
+        "zh": "本版实际显示十张原创SVG，不只给一段想象图片的文字。结构说明帮助定位画面，但也可能影响选择，所以不宣称测到未经提示的感知或速度。图片加载失败不能继续计分，公开结果仍然可读；这不是眼科或临床检查。",
+        "en": "This edition displays ten original SVGs rather than only describing imagined pictures. Structural descriptions help locate regions and can influence responses, so no unprompted perception or speed is claimed. Image failure prevents continued scoring, while public guides remain readable. This is no vision or clinical examination."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分、处理并列与近分？",
+        "en": "How are counts, ties and close results handled?"
+      },
+      "answer": {
+        "zh": "十题各选一项，对应阅读焦点加1，次数合计10。每题提供五种焦点中的四种；各焦点在全卷出现8次，在四个位置各2次。没出现的另一项不记为被拒绝，分母8只是选项曝光次数，不是看图能力、相似度百分比或人格强度。所有最高计数保留全文；全选同一位置会五类各2，五份全部呈现，名单顺序不设主副型。相差一次只是一道选择，不证明显著差异、稳定类型、稀有度或人群排名。近分可一起读，不造没有并列的混合人格。图像、结构文字、屏幕条件与措辞都可能影响选择；这不是独立的视力、第一反应或认知测量。",
+        "en": "Choose one option in each of ten questions; every choice adds one count and the total is ten. Each question offers four of five focuses. Every focus appears eight times and twice in each position. The absent focus is not rejected, and eight is an exposure denominator rather than an ability score, similarity percentage or personality intensity. Every highest count retains its full guide. Choosing the same position throughout gives two each and displays all five without list-order primary or secondary types. A one-choice gap establishes no significant difference, stable type, rarity or population rank. Read close guides without inventing an untied hybrid personality. Images, descriptions, display conditions and wording may affect choices; this is no independent vision, first-response or cognitive measure."
+      }
+    },
+    {
+      "question": {
+        "zh": "看到不同事物会说明人格或健康吗？",
+        "en": "Do different associations establish personality or health?"
+      },
+      "answer": {
+        "zh": "不会。本版只记录给定选项的选择，不收集自由联想、眼动、反应时间、私人故事或临床资料，没有人格、认知、神经、共情、创造力或健康测量验证。看不出特定物体、选择退出或不喜欢某个说法都不能被解释成隐藏问题。",
+        "en": "No. This edition records bounded choices without free responses, gaze, timing, personal accounts or clinical information. It has no personality, cognitive, neural, empathy, creativity or health measurement validation. Seeing no particular object, leaving or disliking wording establishes no hidden problem."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "十张原创图、十道题和五份九模块全文免费，不收邮箱，不要求注册或另一个测试解锁。答案在浏览器计数，不上传、不进入网址或分析；不收集自由联想、私人故事、反应时间或眼动。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。分享自选，只含公开读法与链接，不含答案、次数或图像联想内容。其他测评需重新完整作答，不由墨迹选择补出任何类型、健康或职业结论。",
+        "en": "All ten original images, ten choices and five full nine-section guides are free without email, signup or another test. Answers are counted in the browser without uploading or entering URLs or analytics. Free associations, private accounts, reaction times and eye movements are not collected. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading labels and links without answers, counts or private associations. Other assessments require separate full answers rather than types, health or careers inferred from blot choices."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "R-PAS公开材料：官方牌卡与专业实施背景（非本版效度证明）",
+        "en": "R-PAS public information: official plates and professional-use context, not validation of this edition"
+      },
+      "url": "https://r-pas.org/Products/ProductDetails/10"
+    },
+    {
+      "title": {
+        "zh": "R-PAS：专业实施、编码与解释的公开说明",
+        "en": "R-PAS: public information about professional administration, coding and interpretation"
+      },
+      "url": "https://r-pas.org/"
+    }
+  ]
+}
