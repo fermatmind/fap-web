@@ -3256,5 +3256,31 @@
       "review-and-learning"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "word-skills",
+    "code": "FM_WORD_WINDOWS_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Word Skills Test",
+      "zh": "Word技能测试"
+    },
+    "description": {
+      "en": "Try 25 original Word for Windows knowledge scenarios. Free answers, five full revision guides and section counts. Untimed; no signup or certification.",
+      "zh": "用25道原创情境题练习Windows桌面Word操作知识，免费查看逐题答案、五项正确数及五份完整指南。不计时，不需注册，不颁认证。"
+    },
+    "minutes": 12,
+    "formCode": "fermatmind_word_windows_original_25_v1",
+    "questionCount": 25,
+    "resultSlugs": [
+      "paragraphs-and-formatting",
+      "styles-and-structure",
+      "sections-and-tables",
+      "fields-and-mail-merge",
+      "review-and-templates"
+    ],
+    "collection": "explore"
   }
 ]

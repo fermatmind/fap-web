@@ -1,0 +1,2066 @@
+{
+  "slug": "word-skills",
+  "code": "FM_WORD_WINDOWS_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Word Skills Test",
+    "zh": "Word技能测试"
+  },
+  "seoTitle": {
+    "en": "Word Skills Test: 25 Free Questions & Worked Answers",
+    "zh": "Word技能测试：25道免费情境题、答案与逐题解析"
+  },
+  "description": {
+    "en": "Try 25 original Word for Windows knowledge scenarios. Free answers, five full revision guides and section counts. Untimed; no signup or certification.",
+    "zh": "用25道原创情境题练习Windows桌面Word操作知识，免费查看逐题答案、五项正确数及五份完整指南。不计时，不需注册，不颁认证。"
+  },
+  "minutes": 12,
+  "introduction": {
+    "en": "Which operation fits the document task? Practise 25 original scenarios for Word for Microsoft 365 on Windows, covering paragraphs and formatting, styles and structure, sections and tables, fields and mail merge, and review and templates. Every item has a keyed answer and worked explanation based on selected official Microsoft rules. All five full guides are free. You choose answers here; this website does not open Word or manipulate a document. No account, upload or mailing list is needed.",
+    "zh": "文档遇到具体任务，哪项操作符合？用25道原创情境题练习Windows桌面版Microsoft 365 Word，覆盖段落格式、样式结构、分节表格、域与邮件合并、审阅模板。每题有按选定微软官方规则核对的答案与解析，五份完整指南均免费。这里选择答案，网站不打开Word或操作文档，不需账户、文件上传或收件人名单。"
+  },
+  "instructions": {
+    "en": "Use Word for Microsoft 365 desktop on Windows as the stated context. Read each condition and choose one operation or outcome. English command names are provided with Chinese labels in that interface. There is no timer or speed bonus. All 25 valid choices are required before personal counts appear: one matching key counts as one, with five items per section. Around twelve minutes is an editorial estimate. This is a knowledge exercise, not a live Word editing, typing or certification exam.",
+    "zh": "以Windows桌面版Microsoft 365 Word为指定环境，逐题读条件，选择一个操作或结果。中文界面附常用英文命令名。无计时及速度奖励，25题有效选择后才显示个人正确数，匹配答案计一道，每项五题。约十二分钟为编辑估计。本产品是知识练习，不是Word实际编辑、打字测速或认证考试。"
+  },
+  "resultHeading": {
+    "en": "Your Word practice counts and complete explanations",
+    "zh": "本次Word练习正确数与全部解析"
+  },
+  "directions": [
+    {
+      "id": "paragraphs-and-formatting",
+      "title": {
+        "en": "Word Paragraphs & Formatting",
+        "zh": "Word段落与格式指南"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "styles-and-structure",
+      "title": {
+        "en": "Word Styles & Document Structure",
+        "zh": "Word样式与文档结构指南"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "sections-and-tables",
+      "title": {
+        "en": "Word Sections & Tables",
+        "zh": "Word分节与表格指南"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "fields-and-mail-merge",
+      "title": {
+        "en": "Word Fields & Mail Merge",
+        "zh": "Word域与邮件合并指南"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "review-and-templates",
+      "title": {
+        "en": "Word Review & Templates",
+        "zh": "Word审阅与模板指南"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "WORD_01",
+      "prompt": {
+        "en": "In Word for Microsoft 365 on Windows, a draft has unexpected gaps. Which command reveals spaces, tabs and paragraph marks for inspection?",
+        "zh": "在Windows桌面版Microsoft 365 Word中，草稿有异常间隙。哪个命令可显示空格、制表符、段落标记，方便检查？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Home > Show/Hide ¶.",
+            "zh": "开始 > 显示/隐藏编辑标记 ¶。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Review > Accept All Changes.",
+            "zh": "审阅 > 接受所有修订。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Insert > Page Number.",
+            "zh": "插入 > 页码。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Mailings > Finish & Merge.",
+            "zh": "邮件 > 完成并合并。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Show/Hide exposes formatting marks so you can distinguish an extra paragraph from a tab or spaces. Inspect the cause before deleting anything. Accepting revisions would change review decisions, while page numbering and mail merge do not diagnose these marks.",
+        "zh": "显示/隐藏编辑标记可区分多余段落、制表符和空格，先看原因再删除。接受修订会改变审阅决定；页码和邮件合并不能用来诊断这些标记。"
+      }
+    },
+    {
+      "id": "WORD_02",
+      "prompt": {
+        "en": "With the insertion point in ordinary body text, you want a manual PAGE break, rather than another paragraph or a line break. Which Windows shortcut fits?",
+        "zh": "插入点位于普通正文中，要插入手动分页符，而不是新段落或换行符。哪个Windows快捷键符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Shift+Enter.",
+            "zh": "Shift+Enter。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Ctrl+Enter.",
+            "zh": "Ctrl+Enter。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Enter.",
+            "zh": "Enter。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Ctrl+Shift+Enter.",
+            "zh": "Ctrl+Shift+Enter。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Ctrl+Enter inserts a page break in desktop Word for Windows. Shift+Enter inserts a line break, Enter starts a paragraph, and Ctrl+Shift+Enter inserts a column break. The task explicitly asks for a manual page break, not repeated blank paragraphs to push text down.",
+        "zh": "Windows桌面Word用Ctrl+Enter插入分页符；Shift+Enter为换行，Enter另起段落，Ctrl+Shift+Enter为分栏符。题目明确要手动分页，不用重复空段落把正文挤下去。"
+      }
+    },
+    {
+      "id": "WORD_03",
+      "prompt": {
+        "en": "A report needs consistent space AFTER each body paragraph. Which paragraph setting controls that gap directly, without adding empty paragraphs?",
+        "zh": "报告要求各正文段落后方有一致间距。不增加空段落，哪项段落设置直接控制这个间隙？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Font size only.",
+            "zh": "仅改变字号。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Page number format.",
+            "zh": "页码格式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Paragraph spacing: After.",
+            "zh": "段落间距：段后。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Mail merge recipient order.",
+            "zh": "邮件合并收件人顺序。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Paragraph spacing After controls the gap after a paragraph. Empty paragraphs create extra document content and can complicate later edits. Font size affects characters; page numbers and recipient order address different tasks. Choose a spacing value appropriate to the document rather than treating one value as universal.",
+        "zh": "段后间距控制该段之后的空隙。空段落会增加文档内容，后续修改时也可能添麻烦。字号影响字符，页码和收件人顺序处理其他任务。具体间距应按文档要求设置，不把某个数值视为通用标准。"
+      }
+    },
+    {
+      "id": "WORD_04",
+      "prompt": {
+        "en": "A short heading is left at the bottom of a page while its following paragraph begins on the next. Which pagination setting on that heading keeps it with the following paragraph?",
+        "zh": "短标题落在页底，后面的正文段落却从下一页开始。在标题段落上设置哪项分页选项，可让标题与下一段保持一起？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Keep lines together only.",
+            "zh": "仅勾选段中不分页（Keep lines together）。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Superscript.",
+            "zh": "上标。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Repeat Header Rows.",
+            "zh": "重复标题行。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Keep with next.",
+            "zh": "与下段同页（Keep with next）。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Keep with next connects the selected paragraph to the following paragraph during pagination. Keep lines together instead addresses lines within one paragraph and does not by itself express the heading-to-next-paragraph relationship. Apply the setting to the heading rather than replacing the gap with manual empty lines.",
+        "zh": "与下段同页建立当前段落与下一段的分页关系；段中不分页处理同一段内部各行，单独设置并不等于标题与后文相连。应对标题设定关系，而不是用手动空行补位置。"
+      }
+    },
+    {
+      "id": "WORD_05",
+      "prompt": {
+        "en": "You paste copied text into an unformatted body paragraph with no adjacent direct formatting. You want plain text using the destination paragraph format. Which paste option fits?",
+        "zh": "将复制内容粘贴到没有相邻直接格式的普通正文段落中，希望仅保留文字并采用目标段落格式。哪种粘贴选项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Keep Text Only.",
+            "zh": "只保留文本（Keep Text Only）。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Keep Source Formatting.",
+            "zh": "保留源格式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Paste as Picture.",
+            "zh": "粘贴为图片。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paragraphs-and-formatting",
+          "label": {
+            "en": "Insert as an embedded workbook.",
+            "zh": "插入为嵌入工作簿。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Keep Text Only discards the copied formatting and nontext elements. The text uses destination paragraph styling and can inherit adjacent direct formatting; the question excludes that extra condition. Keep Source Formatting preserves the incoming formatting, while a picture would not remain ordinary editable text.",
+        "zh": "只保留文本会丢弃所复制的格式及非文本元素。文字采用目标段落样式，也可能继承相邻直接格式，所以题目明确排除后者。保留源格式会带入原格式，图片则不再是普通可编辑文字。"
+      }
+    },
+    {
+      "id": "WORD_06",
+      "prompt": {
+        "en": "A chapter title in ordinary body text must participate in a heading-based automatic table of contents. Which is the appropriate built-in top-level semantic style?",
+        "zh": "普通正文中的章标题需要进入基于标题样式生成的自动目录。应使用哪个内置顶层标题样式？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Normal with manually enlarged bold text only.",
+            "zh": "只将正文手动加粗、放大。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Heading 1.",
+            "zh": "标题1（Heading 1）。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Footer.",
+            "zh": "页脚。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Caption for an unrelated figure.",
+            "zh": "无关插图的题注。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Heading 1 identifies a top-level heading for document structure and a heading-based table of contents. Making Normal text look large and bold is a visual change and does not by itself apply that heading style. Use the appropriate heading level rather than choosing it solely by appearance.",
+        "zh": "标题1为文档结构及基于标题的目录标识顶层标题。把正文放大加粗只是外观变化，并没有应用标题样式。应按层级选择标题，不只按外观挑选。"
+      }
+    },
+    {
+      "id": "WORD_07",
+      "prompt": {
+        "en": "Several paragraphs use your custom style Notice, with no direct formatting overrides. You want to change that style’s font for all of them in this document. Which action fits?",
+        "zh": "多个段落应用自定义Notice样式，没有直接格式覆盖。要在本文档内统一更改这些段落的样式字体，哪项操作符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Change the font of one character only.",
+            "zh": "只改一个字符的字体。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Update page numbers only.",
+            "zh": "仅更新页码。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Modify the Notice style and set its font.",
+            "zh": "修改Notice样式并设置字体。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Accept all tracked changes.",
+            "zh": "接受所有修订。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Modifying the applied style changes text that uses it, subject to other formatting relationships and overrides. The task explicitly excludes direct overrides and scopes the change to this document. Editing a single character creates a local change instead of updating the style definition.",
+        "zh": "修改所应用样式，会影响使用该样式的文字，但实际仍受格式关系、覆盖等条件影响。本题已排除直接覆盖，并限定本文档。只改一个字符属于局部修改，不是更新样式定义。"
+      }
+    },
+    {
+      "id": "WORD_08",
+      "prompt": {
+        "en": "Heading 1 and Heading 2 styles are applied to ordinary body paragraphs, outside tables and text boxes. Where can you browse those headings without scrolling through every page?",
+        "zh": "标题1、标题2已应用于普通正文段落，不在表格或文本框中。到哪里可浏览这些标题，而不必逐页滚动？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Mail Merge Recipients.",
+            "zh": "邮件合并收件人列表。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "The font colour palette.",
+            "zh": "字体颜色面板。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "The printer tray selector.",
+            "zh": "打印机纸盒选择器。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "The Headings tab in the Navigation pane.",
+            "zh": "导航窗格的标题选项卡。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The Navigation pane displays headings based on applied heading styles in the document body. In Word for Windows it excludes headings inside tables, text boxes, headers and footers. Those locations are explicitly excluded here; the pane is not a list of every piece of visually prominent text.",
+        "zh": "Windows Word导航窗格按正文标题样式显示标题，不显示表格、文本框、页眉、页脚内的标题。本题明确排除了这些位置；导航标题不是所有视觉醒目文字的清单。"
+      }
+    },
+    {
+      "id": "WORD_09",
+      "prompt": {
+        "en": "You added a new Heading 2 after creating an automatic table of contents. Which update choice includes new entries as well as their page numbers?",
+        "zh": "自动目录创建后又新增一个标题2。哪种更新选择能将新条目及页码一起纳入？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Update entire table.",
+            "zh": "更新整个目录（Update entire table）。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Update page numbers only.",
+            "zh": "只更新页码。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Hide all markup.",
+            "zh": "隐藏所有修订标记。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Change document zoom.",
+            "zh": "更改缩放比例。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Update entire table includes new heading entries and page-number changes. Updating page numbers only refreshes the numbers for entries already present, so it does not meet the request to add the new heading. After updating, check both the new entry and the destination it refers to.",
+        "zh": "更新整个目录会包括新增标题条目及页码变化；只更新页码只刷新已有条目的页码，不能满足新增标题需求。更新后应同时核新条目和它对应的位置。"
+      }
+    },
+    {
+      "id": "WORD_10",
+      "prompt": {
+        "en": "Built-in Heading 1 and Heading 2 are already used correctly. You need automatic chapter numbering such as 1 and 1.1. Which approach connects numbering to that hierarchy?",
+        "zh": "已正确应用内置标题1、标题2，需要1、1.1等自动章节编号。哪种做法能把编号与层级关联？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Type 1 and 1.1 manually before every title.",
+            "zh": "在每个标题前手打1或1.1。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Use a multilevel list linked to the built-in heading styles.",
+            "zh": "使用与内置标题样式关联的多级列表。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Insert a page-number field into every heading.",
+            "zh": "在每个标题中插入页码域。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "styles-and-structure",
+          "label": {
+            "en": "Convert all headings to pictures.",
+            "zh": "把标题全部变成图片。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A multilevel list associated with built-in heading styles connects numbering levels to Heading 1, Heading 2 and subsequent levels. Manually typed labels are text rather than that automatic hierarchy. Confirm the chosen list template actually links the levels to heading styles.",
+        "zh": "与内置标题样式关联的多级列表，可把编号层级连到标题1、标题2等。手打编号只是文字，不是自动层级。选列表模板时仍须确认各级确实关联标题样式。"
+      }
+    },
+    {
+      "id": "WORD_11",
+      "prompt": {
+        "en": "An appendix is already isolated by section breaks. In Page Setup, you choose Landscape and want to affect that appendix section only. Which Apply to choice fits?",
+        "zh": "附录已由分节符独立为一节。在页面设置选择横向，且只想影响该附录节。应用于应选择哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Whole document.",
+            "zh": "整篇文档。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Selected recipient only.",
+            "zh": "仅所选收件人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "This section.",
+            "zh": "本节（This section）。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "All open documents.",
+            "zh": "所有打开的文档。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "This section scopes the page setup change to the existing section. Whole document would change a broader area. Section breaks and page breaks serve different purposes; the question supplies the section boundaries rather than assuming an ordinary page break creates an independently formatted section.",
+        "zh": "本节将页面设置限定在已有节内，整篇文档则范围更大。分节符与分页符用途不同；题目已提供分节边界，没有假定普通分页会建立可独立设置的节。"
+      }
+    },
+    {
+      "id": "WORD_12",
+      "prompt": {
+        "en": "A long table crosses pages automatically. You selected its first header row and are using Print Layout. Which command repeats that row on subsequent pages?",
+        "zh": "长表格自动跨页，已选中第一行表头，当前为打印布局视图。哪个命令能使该行在后续页面重复？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Home > Underline.",
+            "zh": "开始 > 下划线。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Insert a manual page break inside every table row.",
+            "zh": "在每条表格行内插入手动分页。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Review > Reject Change.",
+            "zh": "审阅 > 拒绝修订。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Table Layout > Repeat Header Rows.",
+            "zh": "表格布局 > 重复标题行。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Repeat Header Rows repeats a selected header that includes the first row, visible in Print Layout or printing. It applies across automatic page breaks; a manual page break inside a table does not repeat the header by this mechanism. Repeated headers are edited in the first occurrence.",
+        "zh": "重复标题行要求所选表头包含第一行，可在打印布局或打印时看到。它适用于自动分页，表内手动分页不按此机制重复表头。重复表头应在首次出现处编辑。"
+      }
+    },
+    {
+      "id": "WORD_13",
+      "prompt": {
+        "en": "A table row is short enough to fit on one page, but splits at a page boundary. In Table Properties > Row, which setting should you clear to prevent that row from splitting?",
+        "zh": "某表格行本身足以完整放进一页，却在页边界断开。在表格属性 > 行中，要防止该行跨页断开，应清除哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Allow row to break across pages.",
+            "zh": "允许跨页断行（Allow row to break across pages）。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Repeat as header row.",
+            "zh": "在各页顶端以标题行形式重复出现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Different First Page header.",
+            "zh": "页眉首页不同。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Track Changes.",
+            "zh": "修订。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Clearing Allow row to break across pages prevents splitting that row during pagination. The row is explicitly small enough for one page; an oversized row introduces a different layout constraint. Repeating a header is a separate setting and does not express whether an ordinary row may split.",
+        "zh": "清除允许跨页断行可阻止该行在分页时断开。本题限定行本身能放进一页，过高行另有布局限制。重复表头是另一项设置，不表示普通行能否跨页。"
+      }
+    },
+    {
+      "id": "WORD_14",
+      "prompt": {
+        "en": "A new section already exists. You want its page numbering to begin at 1 rather than continue the preceding section. Which numbering control sets that start?",
+        "zh": "新节已经存在，要使其页码从1开始，而不是接续前节。哪个页码控制项可设置起始值？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Zoom > 100%.",
+            "zh": "缩放 > 100%。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Format Page Numbers > Start at: 1.",
+            "zh": "设置页码格式 > 起始页码：1。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Update page numbers only in the TOC.",
+            "zh": "目录中只更新页码。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Font size: 1 point.",
+            "zh": "字号：1磅。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The Start at value in Format Page Numbers sets the section’s numbering start. A table-of-contents update reads page numbering; it does not set that numbering sequence. Header/footer linkage and the position of a page-number field are separate concerns to check when preparing a real document.",
+        "zh": "设置页码格式中的起始值用于规定该节编号的开始。更新目录读取页码，不负责设置页码序列。真实文档还应另核页眉页脚链接及页码域位置。"
+      }
+    },
+    {
+      "id": "WORD_15",
+      "prompt": {
+        "en": "Section 2 has a regular header linked to Section 1. Before replacing its text with a distinct regular header, which link should you turn off in Section 2?",
+        "zh": "第2节的普通页眉链接到第1节。要把第2节普通页眉改成独立文字，应先关闭第2节的哪项链接？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Only Link to Previous in the footer.",
+            "zh": "只关闭页脚的链接到前一节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "The table’s Repeat Header Rows.",
+            "zh": "表格的重复标题行。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "Link to Previous for that header.",
+            "zh": "该页眉的链接到前一节（Link to Previous）。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sections-and-tables",
+          "label": {
+            "en": "All automatic table-of-contents entries.",
+            "zh": "全部自动目录条目。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Turn off Link to Previous in the header you intend to make independent. Headers and footers link separately, and different first-page or odd/even variants can introduce additional header types. The question specifies the regular header; unlinking only its footer does not unlink that header.",
+        "zh": "应在需要独立的页眉中关闭链接到前一节。页眉与页脚分别链接，首页不同、奇偶页不同还可能带来其他页眉类型。本题指定普通页眉，仅断开页脚不会断开它。"
+      }
+    },
+    {
+      "id": "WORD_16",
+      "prompt": {
+        "en": "You prepare a small Excel source for personalized Word letters. Which layout clearly provides separate merge fields for FirstName and City?",
+        "zh": "准备供Word个性化信函使用的Excel小型数据源。哪种布局能清楚提供FirstName与City两个独立合并字段？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Put all names and cities into one unlabelled picture.",
+            "zh": "把所有姓名、城市放进无标签图片。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Put every value in the document footer only.",
+            "zh": "只将所有值放到文档页脚。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Use a blank worksheet with no columns or records.",
+            "zh": "使用没有列与记录的空表。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Separate named FirstName and City columns, with each recipient’s values on one data row.",
+            "zh": "分别命名FirstName、City两列，每名收件人的值放同一数据行。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Named columns supply the fields you select in the merge document, with each recipient record keeping its values together. A picture and a blank sheet do not supply those separate data fields. Check names, record boundaries and the chosen source sheet before previewing letters.",
+        "zh": "命名列提供合并文档可选字段，每条收件人记录将其相关值放在一起。图片或空白表不能提供这些独立数据字段。预览信函前，应核列名、记录边界及实际所选源工作表。"
+      }
+    },
+    {
+      "id": "WORD_17",
+      "prompt": {
+        "en": "The letter’s data source is connected and has a City column. Which action inserts an actual City merge field at the cursor?",
+        "zh": "信函已连接含City列的数据源。哪项操作可在光标处插入真正的City合并域？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Mailings > Insert Merge Field > City.",
+            "zh": "邮件 > 插入合并域 > City。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Type the ordinary characters «City» by hand.",
+            "zh": "手动输入普通字符«City»。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Paste a screenshot of the column name.",
+            "zh": "粘贴列名截图。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Change the page orientation to Landscape.",
+            "zh": "把页面方向改为横向。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Insert Merge Field creates the connected field placeholder. Ordinary typed chevrons and a name can look similar but do not create that field. Preview results with more than one invented recipient to confirm that the inserted field resolves to the intended column.",
+        "zh": "插入合并域创建与数据源关联的域占位符。手打尖括号及名称可能外观相似，却没有创建该域。可用多名虚构收件人预览，确认真正读取预定列。"
+      }
+    },
+    {
+      "id": "WORD_18",
+      "prompt": {
+        "en": "A connected merge letter contains FirstName and City fields. Before finishing the merge, how can you inspect values for several individual recipients?",
+        "zh": "已连接数据源的合并信函含FirstName和City域。完成合并前，怎样查看多名收件人各自的值？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Change only the zoom percentage.",
+            "zh": "只改缩放比例。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Use Preview Results and move with Next/Previous Record.",
+            "zh": "使用预览结果，并用下一条/上一条记录切换。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Turn on bold for every field name.",
+            "zh": "把所有域名称加粗。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Accept all revisions without previewing.",
+            "zh": "不预览，直接接受所有修订。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Preview Results substitutes recipient values for field names, and record navigation lets you inspect additional records. Inspect more than the first recipient, including values of different lengths. Zoom and font changes affect presentation but do not navigate or validate recipient records.",
+        "zh": "预览结果将域名称替换为收件人值，记录导航可查看其他记录。不要只看第一人，还应查看长短不同的值。缩放或字体改变外观，不能切换或核验收件人记录。"
+      }
+    },
+    {
+      "id": "WORD_19",
+      "prompt": {
+        "en": "One recipient should be excluded from THIS merge, while the original source record stays intact. Which action fits?",
+        "zh": "某收件人本次不参与合并，但原始数据源记录需要保留。哪项操作符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Delete the source record permanently.",
+            "zh": "永久删除源记录。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Hide the Word ribbon.",
+            "zh": "隐藏Word功能区。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "In Edit Recipient List, clear that recipient’s inclusion check box.",
+            "zh": "在编辑收件人列表中，清除该收件人的纳入复选框。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Change the document’s default font.",
+            "zh": "更改文档默认字体。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The recipient-list inclusion check box controls whether that record participates in the merge. Clearing it excludes the recipient without requiring deletion of the source record. Recheck the recipient list and preview the selection before finishing; exclusion is different from erasing source data.",
+        "zh": "收件人列表的纳入复选框控制该记录是否参与合并，清除勾选即可排除，无须删除源记录。完成前应复核列表并预览；排除本次参与与擦除源数据是两回事。"
+      }
+    },
+    {
+      "id": "WORD_20",
+      "prompt": {
+        "en": "An unlocked field in the main document body is selected, and its source information has changed. Which desktop Windows shortcut updates the SELECTED field?",
+        "zh": "正文中的一个未锁定域已被选中，其源信息发生变化。哪个Windows桌面版快捷键可更新这个所选域？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Alt+F9 to toggle all field-code displays only.",
+            "zh": "仅用Alt+F9切换全部域代码显示。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Ctrl+B to toggle bold.",
+            "zh": "Ctrl+B切换加粗。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "Shift+Enter to insert a line break.",
+            "zh": "Shift+Enter插入换行。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fields-and-mail-merge",
+          "label": {
+            "en": "F9.",
+            "zh": "F9。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "F9 updates selected fields. Alt+F9 toggles the display of field codes and results rather than being the selected-field update command. Some fields and locations require specific update steps; this question specifies an unlocked field in the main body and does not promise that selecting the body updates every header or footer field.",
+        "zh": "F9更新所选域；Alt+F9切换域代码与结果显示，并非所选域更新命令。某些域及位置有专门更新步骤，本题限定正文中的未锁定域，没有承诺选择正文就更新所有页眉页脚域。"
+      }
+    },
+    {
+      "id": "WORD_21",
+      "prompt": {
+        "en": "A document contains unresolved tracked insertions and deletions. You switch the display to No Markup. What happens to those review decisions?",
+        "zh": "文档含尚未处理的插入、删除修订，切换为无标记显示后，这些审阅决定会怎样？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "They remain unresolved; No Markup hides their display rather than accepting them.",
+            "zh": "仍未处理；无标记隐藏显示，不等于接受修订。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Every revision is accepted automatically.",
+            "zh": "所有修订自动被接受。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Every revision is rejected automatically.",
+            "zh": "所有修订自动被拒绝。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "The file becomes a macro-enabled template.",
+            "zh": "文件自动变成启用宏的模板。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "No Markup changes how tracked changes are displayed. It does not resolve them. Use explicit Accept or Reject actions when making revision decisions and inspect the document appropriately before distributing a final copy. A clean-looking view alone does not prove there are no outstanding revisions.",
+        "zh": "无标记改变修订的显示方式，不处理修订本身。作决定需要明确接受或拒绝，分发定稿前也应适当检查。外观干净并不能证明没有待处理修订。"
+      }
+    },
+    {
+      "id": "WORD_22",
+      "prompt": {
+        "en": "Track Changes is on and the file already contains revisions. You turn tracking off. Which statement is correct?",
+        "zh": "修订已开启，文件中也已有修订。现在关闭修订，哪项说法正确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Earlier revisions are all accepted.",
+            "zh": "先前修订全部被接受。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "New edits stop being tracked; earlier revisions still need review decisions.",
+            "zh": "后续编辑不再跟踪，先前修订仍需处理。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Earlier revisions are all rejected.",
+            "zh": "先前修订全部被拒绝。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "The original data source is deleted.",
+            "zh": "原始数据源被删除。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Turning tracking off stops recording new tracked changes. It does not accept or reject existing ones. Recording, displaying and deciding changes are separate actions. The scenario assumes you can turn tracking off; a document with locked tracking would require the appropriate authority first.",
+        "zh": "关闭修订停止记录新的修订，不会接受或拒绝已有修订。记录、显示、处理修订是不同动作。题目假定可关闭修订；锁定跟踪的文档还涉及相应权限。"
+      }
+    },
+    {
+      "id": "WORD_23",
+      "prompt": {
+        "en": "The words “next Friday” were deleted with Track Changes and that deletion is still unresolved. You select ONLY that deletion and choose Reject. What is the direct result?",
+        "zh": "“下周五”被以修订方式删除，该删除仍待处理。只选中这项删除并拒绝，直接结果是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "All unrelated revisions are accepted.",
+            "zh": "所有无关修订均被接受。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "The deletion becomes an accepted removal.",
+            "zh": "该删除变成已接受的移除。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "The deleted words are restored.",
+            "zh": "被删文字恢复。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "A new mail-merge record is added.",
+            "zh": "新增一条邮件合并记录。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reject discards the selected proposed change. For a tracked deletion, that restores the deleted text. This differs from accepting the deletion, which keeps the removal. The question selects one deletion, not a command to reject or accept every change in the document.",
+        "zh": "拒绝会撤销所选提议改动；对删除修订而言，就是恢复被删文字。接受删除才保留移除结果。本题只选一项删除，不是拒绝或接受全文全部修订。"
+      }
+    },
+    {
+      "id": "WORD_24",
+      "prompt": {
+        "en": "Several reviewers returned separate copies of the same original with tracked edits. Which Word command is designed to consolidate those revisions before you review them?",
+        "zh": "多名审阅者返回同一原稿的不同副本，均带修订。要先归并这些修订再审阅，哪个Word命令针对这项任务？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Use page zoom as the merge operation.",
+            "zh": "用页面缩放作合并操作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Convert the copies to pictures and paste them.",
+            "zh": "把副本转成图片并粘贴。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Only change the page number format.",
+            "zh": "只更改页码格式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": "Review > Compare > Combine.",
+            "zh": "审阅 > 比较 > 合并（Combine）。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Combine consolidates revisions from reviewed copies; additional copies can be combined with the previously combined document. Compare is used to identify differences between two versions and is a distinct task. Combining does not replace the need to examine conflicts or make deliberate Accept and Reject decisions.",
+        "zh": "合并用于归并审阅副本的修订，其他副本可再与已合并文档继续归并。比较两版本差异属于另一项任务。合并并不取代冲突检查，也不取代逐项接受、拒绝的决定。"
+      }
+    },
+    {
+      "id": "WORD_25",
+      "prompt": {
+        "en": "You are saving a reusable Word template that contains NO macros and should remain macro-free. Which file extension fits?",
+        "zh": "要保存可重复使用的Word模板，其中没有宏，且希望保持为无宏模板。哪个扩展名符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": ".dotx.",
+            "zh": ".dotx。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": ".dotm, the macro-enabled template format.",
+            "zh": ".dotm，启用宏的模板格式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": ".png, a raster image.",
+            "zh": ".png，位图格式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "review-and-templates",
+          "label": {
+            "en": ".csv, a delimited text data file.",
+            "zh": ".csv，分隔文本数据文件。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The .dotx format is a Word template without macros; .dotm is the macro-enabled template format. A template supplies a reusable starting point and does not automatically make every future document unbreakable or update all existing documents. The question asks about file format, not a guarantee of document quality.",
+        "zh": ".dotx是无宏Word模板格式，.dotm为启用宏的模板格式。模板提供可复用起点，不会自动让未来文件不可损坏，也不自动更新全部既有文件。本题问文件格式，不保证文档质量。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "paragraphs-and-formatting",
+      "directionIds": [
+        "paragraphs-and-formatting"
+      ],
+      "title": {
+        "en": "Word Paragraphs & Formatting",
+        "zh": "Word段落与格式指南"
+      },
+      "headline": {
+        "en": "Inspect the marks before moving the text",
+        "zh": "先看编辑标记，再调整文字位置"
+      },
+      "summary": {
+        "en": "Review spacing, manual breaks, pagination relationships and paste behaviour in desktop Word for Windows.",
+        "zh": "复习Windows桌面Word的间距、手动分页、段落分页关系及粘贴行为。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Paragraphs & Formatting: Practice Guide",
+          "zh": "Word段落与格式：练习复习指南"
+        },
+        "description": {
+          "en": "Understand paragraph spacing, page breaks, Keep with next and Keep Text Only with fresh examples and clear practice limits.",
+          "zh": "用新例子理解段落间距、分页符、与下段同页及只保留文本，附练习范围。"
+        }
+      },
+      "scoreReading": {
+        "en": "A count out of five describes these five choices. Read the missed distinction and try it in a disposable document.",
+        "zh": "分项/5只描述这五次选择。找到漏掉的区别，再在可丢弃文档中练习。"
+      },
+      "sections": [
+        {
+          "id": "inspect",
+          "title": {
+            "en": "Locate the source of an unexpected gap",
+            "zh": "查明异常间隙来自哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "A large gap is an observation rather than a diagnosis. Turn on Show/Hide and inspect whether the draft contains spaces, tabs, an empty paragraph or a break. Those objects need different responses. In a disposable copy, place the cursor beside the mark you intend to change and predict what its removal would affect. Do not use Accept All Changes as a spacing shortcut: that command makes review decisions unrelated to the visible gap.",
+              "zh": "看到大空隙只是观察结果，还没有诊断原因。打开编辑标记，区分空格、制表符、空段落及分隔符，再决定如何处理。在副本中把光标放到目标标记旁，先预测删除会影响什么，不要把接受所有修订当成修间距的捷径，那会处理与空隙无关的审阅决定。"
+            }
+          ]
+        },
+        {
+          "id": "spacing",
+          "title": {
+            "en": "Give the gap an explicit paragraph setting",
+            "zh": "用明确的段落设置表达间距"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a short notice needs a modest gap after each paragraph. Set the paragraph spacing After value consistently instead of inserting empty paragraphs between notices. The actual value depends on the document specification; there is no universal correct gap for all readers or page sizes. After changing the setting, add another sentence and inspect the result. This checks whether the intended paragraph relationship survives an edit rather than merely matching one static screenshot.",
+              "zh": "假设几段简短通知后都需要留白，统一设置段后间距，而不是插入空段。具体数值按文档要求确定，不存在适合所有读者、纸张的通用间距。设置后再加一句话，检查段落关系是否仍符合预期；这样验证的是编辑后仍成立的规则，而不只是某一张静态截图。"
+            }
+          ]
+        },
+        {
+          "id": "breaks",
+          "title": {
+            "en": "Name the break you actually need",
+            "zh": "先分清需要哪种分隔"
+          },
+          "paragraphs": [
+            {
+              "en": "In desktop Word for Windows, Enter starts a paragraph, Shift+Enter inserts a line break, Ctrl+Enter inserts a page break and Ctrl+Shift+Enter inserts a column break. These shortcuts encode different structures. For an unscored exercise, write two short paragraphs and place a manual page break before the second. Compare that with adding blank paragraphs. Explain which object moves the second paragraph and how later text edits could expose the weakness of a spacing workaround.",
+              "zh": "Windows桌面Word中，Enter另起段落，Shift+Enter换行，Ctrl+Enter分页，Ctrl+Shift+Enter分栏，表达不同结构。不计分练习可写两段短文，在第二段前手动分页，再与增加空段落比较。说明究竟哪个对象让第二段换页，以及前文变化后靠空行定位为什么可能失效。"
+            }
+          ]
+        },
+        {
+          "id": "pagination",
+          "title": {
+            "en": "Connect a heading to its following paragraph",
+            "zh": "把标题与后文建立分页关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep with next expresses a relationship between the selected paragraph and the paragraph after it. Keep lines together instead keeps lines within a paragraph together during pagination. For a fresh example, use a heading followed by a two-line description near a page boundary. Identify which relationship you want before choosing a setting. The result still depends on available page space and other layout constraints; knowing the command does not make every document layout automatic or immune to editing.",
+              "zh": "与下段同页关联当前段及下一段；段中不分页关联同一段内部各行。可在页边界附近放一个标题和两行说明，先说清要保留哪种关系，再选设置。实际布局仍受页面空间及其他条件影响，知道命令不代表所有文档都能自动排好，也不保证编辑后永不出问题。"
+            }
+          ]
+        },
+        {
+          "id": "paste",
+          "title": {
+            "en": "Separate source formatting from destination formatting",
+            "zh": "区分源格式与目标格式"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep Text Only removes incoming formatting and nontext elements, while destination paragraph styling still applies. Adjacent direct formatting can also matter, which is why the practice item supplies an unformatted destination condition. Try an invented phrase copied from a strongly formatted paragraph into two different destinations. Predict the outcome before pasting, then inspect it. Choosing plain text is a deliberate content decision: a table may become paragraphs and a picture will not be preserved as an editable text element.",
+              "zh": "只保留文本去掉带入格式及非文本元素，但目标段落样式仍生效，相邻直接格式也可能影响结果，所以题目限定目标条件。可把自己写的一句带明显格式的文字粘到两个目标段落，先预测再检查。选择纯文本也在选择内容处理方式：表格可能变成段落，图片不会作为可编辑文字保留。"
+            }
+          ]
+        },
+        {
+          "id": "workflow",
+          "title": {
+            "en": "Practise on a small, invented document",
+            "zh": "用小型虚构文档练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Build a notice with a title, two body paragraphs and a pasted sentence. Inspect marks, apply a paragraph gap and make the title stay with its introduction. Change one thing at a time so you can describe cause and effect. Save a separate exercise copy before experimenting. This guide gives suggested actions, not evidence that a Word application was operated during this website attempt; your practice count comes from choosing answers to five stated scenarios.",
+              "zh": "可以自建含标题、两段正文及一句粘贴文字的通知，检查标记、设置段距，并让标题与引言同页。每次只改一件事，说明前因后果；实验前留独立副本。本指南提供操作练法，不代表网站答题时运行过Word，分项正确数来自五个给定情境中的答案选择。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Interpret the count within its conditions",
+            "zh": "按题目条件理解正确数"
+          },
+          "paragraphs": [
+            {
+              "en": "A 3/5 count means three keyed responses matched in this section. It is not a percentile or a judgement about how quickly you can format a real report. Every count receives the full explanations and all five guides. After reviewing a miss, change the content and page position in your exercise document so the next attempt tests the distinction with new material. Repeating the identical options may measure remembered wording rather than a transferable editing habit.",
+              "zh": "3/5只表示这五题中三次选择与答案相符，不是百分位，也不评价真实报告排版速度。任何正确数均可看全部解析及五份指南。复习后可更换练习文件内容、分页位置，用新材料考察同一区别。重复同组选项可能只是记住措辞，不等于形成可迁移的编辑习惯。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "styles-and-structure",
+      "directionIds": [
+        "styles-and-structure"
+      ],
+      "title": {
+        "en": "Word Styles & Document Structure",
+        "zh": "Word样式与文档结构指南"
+      },
+      "headline": {
+        "en": "Give headings a role that survives visual changes",
+        "zh": "让标题层级独立于外观变化"
+      },
+      "summary": {
+        "en": "Connect styles, navigation, automatic contents and multilevel numbering instead of rebuilding the outline by hand.",
+        "zh": "串联样式、导航、自动目录和多级编号，减少手工重建大纲。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Styles, Headings & Contents: Practice Guide",
+          "zh": "Word样式、标题与目录：练习复习指南"
+        },
+        "description": {
+          "en": "Review Heading styles, Navigation pane limits, whole-table updates and linked multilevel numbering with original examples.",
+          "zh": "复习标题样式、导航窗格范围、完整更新目录及关联多级编号，附原创例子。"
+        }
+      },
+      "scoreReading": {
+        "en": "Read this section as five structure choices, not a rating of your ability to manage every long document.",
+        "zh": "本分项是五个结构选择，不是管理所有长文档的能力评级。"
+      },
+      "sections": [
+        {
+          "id": "roles",
+          "title": {
+            "en": "Separate a heading’s role from its appearance",
+            "zh": "区分标题角色与外观"
+          },
+          "paragraphs": [
+            {
+              "en": "Large bold text can look like a heading without carrying a built-in heading style. A heading-based automatic table of contents relies on document structure rather than that visual impression alone. Start an invented three-section handbook and assign Heading 1 to its chapter titles, with Heading 2 for subordinate topics. Choose levels by their relationship in the outline. Font size and colour can be adjusted later without needing to replace the underlying chapter relationship with manually formatted text.",
+              "zh": "大号粗体可以看起来像标题，却没有内置标题样式。基于标题生成的自动目录依赖结构，不只看外观。可自建三章手册，对章标题应用标题1，子话题用标题2，按大纲关系确定级别。之后可改字号、颜色，而不必用手工格式替换章节关系。"
+            }
+          ]
+        },
+        {
+          "id": "modify",
+          "title": {
+            "en": "Change the shared style deliberately",
+            "zh": "有意识地修改共用样式"
+          },
+          "paragraphs": [
+            {
+              "en": "If several paragraphs use a custom style with no direct overrides, modifying that style updates its applied formatting across those paragraphs. That is different from selecting one word and changing its font locally. Before updating a real style, identify where it is used and whether the change should affect only the current document or future documents based on a template. The practice scenario excludes overrides; real documents may contain them, so inspect the applied formatting when an expected change does not appear.",
+              "zh": "多个无直接覆盖的段落使用同一自定义样式时，修改样式会影响这些段落。这与只选一个词改字体不同。真实修改前，先核使用位置，以及范围仅限本文档还是基于模板的新文件。题目排除了覆盖，但真实文件可能存在，应在预期变化没出现时检查实际应用格式。"
+            }
+          ]
+        },
+        {
+          "id": "navigation",
+          "title": {
+            "en": "Know which headings appear in Navigation",
+            "zh": "明确导航能列出哪些标题"
+          },
+          "paragraphs": [
+            {
+              "en": "The Windows Navigation pane lists heading-styled paragraphs in the document body. Headings inside tables, text boxes, headers and footers are excluded from that list. In a fresh exercise, place one heading in ordinary body text and another in a text box. Predict which appears before opening the pane. An absent entry can reflect its location rather than a spelling mistake, and a visible entry does not by itself prove that every other part of the document has a correct hierarchy.",
+              "zh": "Windows导航窗格列出正文中应用标题样式的段落，排除表格、文本框、页眉、页脚中的标题。可在正文与文本框各放一个标题，先预测再打开导航。缺条目可能由位置造成，不一定是文字错误；出现一个条目，也不证明文档其他部分层级都正确。"
+            }
+          ]
+        },
+        {
+          "id": "contents",
+          "title": {
+            "en": "Update content entries as well as page numbers",
+            "zh": "同时更新目录条目与页码"
+          },
+          "paragraphs": [
+            {
+              "en": "After adding a new heading to an existing automatic table of contents, choose Update entire table to include the entry. Updating page numbers only addresses existing entries. For an unscored exercise, add a new section called Delivery notes after creating a small contents list. Update the whole table and confirm the label and destination. Manual contents lists have a different maintenance process, so first identify which kind of contents object the document actually uses before assuming an update command will rebuild it.",
+              "zh": "已有自动目录后新增标题，应更新整个目录以纳入条目；只更新页码处理已有条目。不计分练习可在生成小目录后新增“交付说明”一节，再完整更新，核对文字与位置。手动目录的维护不同，先确认实际目录类型，再决定是否能靠更新命令重建。"
+            }
+          ]
+        },
+        {
+          "id": "numbering",
+          "title": {
+            "en": "Link outline numbers to heading levels",
+            "zh": "将大纲编号关联标题级别"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a multilevel list connected to built-in heading styles when you need a hierarchy such as 1, 1.1 and 1.2. Typing those characters manually creates text rather than a maintained numbering relationship. Inspect which level is linked to Heading 1 and which is linked to Heading 2. In a disposable document, insert a sibling subsection between two others and observe the numbering. Explain why the changed sequence follows the list structure rather than the number you previously typed.",
+              "zh": "需要1、1.1、1.2等层级时，使用关联内置标题样式的多级列表；手打这些字符只是文本，不是持续维护的编号关系。先核哪一级对应标题1、哪一级对应标题2。可在副本两小节间插入同级小节，观察编号变化，并说明它为什么随列表结构调整，而非依赖原先手打数字。"
+            }
+          ]
+        },
+        {
+          "id": "exercise",
+          "title": {
+            "en": "Test structure by changing the document",
+            "zh": "通过改文档检验结构"
+          },
+          "paragraphs": [
+            {
+              "en": "Create two chapters with two subtopics each, an automatic table of contents and linked numbering. Rename one subtopic and move another within your exercise copy, then update the contents and inspect the result. Keep the exercise small enough that you can manually explain every expected entry. This is a suggested local task rather than an action performed by the website. No private document is required for the online questions, and there is no need to upload a real organisation’s report.",
+              "zh": "可自建两章、每章两个子话题的文档，加入自动目录及关联编号，再在副本里改一个子话题名称、移动另一个，更新目录并核结果。小例子便于逐条解释预期条目。这是建议的本地练习，不是网站代为操作；在线题目不需要私密文档，也不需要上传组织真实报告。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Use errors as a structural checklist",
+            "zh": "把错题用作结构核对点"
+          },
+          "paragraphs": [
+            {
+              "en": "Five choices sample selected distinctions between visible formatting and document structure. They do not certify long-document expertise, accessibility compliance or professional writing quality. Review the specific mismatch rather than assigning a global beginner or expert label. All five guides remain available at zero and perfect counts alike. A useful next step is to explain one heading’s level, numbering link and contents entry from a new example, including any location rule that changes what appears in Navigation.",
+              "zh": "五题抽查外观格式与结构的特定区别，不认证长文档能力、无障碍合规或写作质量。复习具体错处，不自封初级或专家；零分、全对均有五份全文。下一步可用新例子说明一个标题的级别、编号关联及目录条目，并考虑位置规则如何影响导航显示。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sections-and-tables",
+      "directionIds": [
+        "sections-and-tables"
+      ],
+      "title": {
+        "en": "Word Sections & Tables",
+        "zh": "Word分节与表格指南"
+      },
+      "headline": {
+        "en": "Choose the boundary before changing the layout",
+        "zh": "先确定边界，再改布局"
+      },
+      "summary": {
+        "en": "Keep section orientation, header links, numbering and table pagination separate when diagnosing a page.",
+        "zh": "诊断页面时，分别看节方向、页眉链接、页码及表格分页。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Sections, Headers & Tables: Practice Guide",
+          "zh": "Word分节、页眉与表格：练习复习指南"
+        },
+        "description": {
+          "en": "Review section-scoped orientation, page-number starts, header links and table pagination, with fresh bounded exercises.",
+          "zh": "复习本节页面方向、页码起始、页眉链接及表格分页，附明确条件的新练习。"
+        }
+      },
+      "scoreReading": {
+        "en": "The five-item count reflects layout choices in the supplied scenarios, not a guarantee of error-free publishing.",
+        "zh": "五题正确数反映给定情境的布局选择，不保证实际排版零差错。"
+      },
+      "sections": [
+        {
+          "id": "boundary",
+          "title": {
+            "en": "Distinguish a section boundary from a page break",
+            "zh": "区分分节边界与分页"
+          },
+          "paragraphs": [
+            {
+              "en": "A section is a boundary for settings such as orientation and page numbering. An ordinary page break moves content to another page without necessarily creating an independently formatted section. The practice item starts with an appendix already bounded by section breaks, so its task is to choose the scope of the change. In a real draft, reveal formatting marks before assuming those boundaries exist. Inspect both the preceding and following content after any layout change made in a disposable copy.",
+              "zh": "节可界定页面方向、页码等设置范围；普通分页让内容换页，不一定建立独立格式的节。题目已给附录分节，要求选择修改范围。真实草稿应先显示编辑标记，确认边界实际存在。在副本改布局后，还要检查前后内容。"
+            }
+          ]
+        },
+        {
+          "id": "orientation",
+          "title": {
+            "en": "Scope orientation to the intended section",
+            "zh": "把页面方向限定到目标节"
+          },
+          "paragraphs": [
+            {
+              "en": "For an already isolated appendix, Landscape with Apply to set to This section targets that section. Whole document expresses a broader change. As an unscored exercise, make a short report with an appendix containing a wide invented table. Predict which pages should turn before applying the setting, then check the report body remains as intended. Printer settings and document layout are related but distinct; the document orientation setting can take effect without actually sending a file to a printer.",
+              "zh": "已独立分节的附录可在横向设置中选择应用于本节；整篇文档范围更大。不计分练习可建立短报告及含宽表的附录，先预测哪些页应横向，再设定并检查正文。打印机设置与文档布局有关但不同，设置文档方向无须真正发往打印机才生效。"
+            }
+          ]
+        },
+        {
+          "id": "repeat",
+          "title": {
+            "en": "Repeat the first table header on automatic pages",
+            "zh": "在自动分页处重复首行表头"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeat Header Rows applies to a header selection that includes the table’s first row. Repeated headers appear in Print Layout and printing. The behaviour concerns automatic page breaks: a manually inserted break within the table does not repeat the header by this mechanism. Try a small table whose invented rows extend naturally onto a second page, then edit its original header and inspect the repeated version. Do not duplicate header text manually and mistake the copied row for a maintained repeated header.",
+              "zh": "重复标题行要求选择包含表格第一行，在打印布局及打印时显示。它针对自动分页；表内手动分页不会按该机制重复。可用虚构行让表格自然跨到第二页，再改首行观察重复部分。不要手工复制表头后，就把那行误当持续维护的重复标题。"
+            }
+          ]
+        },
+        {
+          "id": "rows",
+          "title": {
+            "en": "Treat row splitting as a separate decision",
+            "zh": "单独处理表格行是否断开"
+          },
+          "paragraphs": [
+            {
+              "en": "Allow row to break across pages controls whether a table row may split during pagination. Clear it for a row that should remain together and is small enough to fit on a page. That size condition matters: an oversized row presents another constraint. Repeating the header does not decide whether a body row may split. In a disposable exercise, increase one row’s text slightly and observe the boundary, describing the row setting rather than assuming every blank area is an empty paragraph.",
+              "zh": "允许跨页断行控制表格行在分页时能否断开。需要整行同页、且行本身放得下一页时，可清除它。尺寸条件很重要，过高行另有约束。重复表头不决定正文行是否断开。副本练习可稍微增加一行文字，观察边界，并用行设置解释，而不假定空白全是空段。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "Set a numbering start without confusing it with display",
+            "zh": "设置编号起点，区分其他显示操作"
+          },
+          "paragraphs": [
+            {
+              "en": "In an existing new section, Format Page Numbers with Start at set to one sets its numbering start. Updating the table of contents reads page numbers rather than defining that sequence. Before finishing a real appendix, inspect the page-number field’s location and which section it belongs to. For a fresh exercise, start an appendix at one while the body uses its own numbering sequence. Verify both sides of the boundary instead of checking only the first visible number.",
+              "zh": "已有新节可在设置页码格式中将起始值设为1；更新目录读取页码，并不定义序列。完成附录前应核页码域在哪、属于哪节。新练习可让附录从1开始，正文保持自身序列，并同时检查边界两侧，不只看一个可见页码。"
+            }
+          ]
+        },
+        {
+          "id": "links",
+          "title": {
+            "en": "Unlink the particular header you intend to change",
+            "zh": "断开实际要修改的那类页眉"
+          },
+          "paragraphs": [
+            {
+              "en": "Link to Previous belongs to the header or footer being edited. Headers and footers link separately, and different first-page or odd/even variants can add further distinctions. To give a regular Section 2 header independent text, turn off that header’s link before replacing its content. Unlinking only the footer does not do the same job. Practise with obvious invented labels such as Body and Appendix so you can easily see whether an edit unexpectedly propagates to another section.",
+              "zh": "链接到前一节作用于正在编辑的页眉或页脚；二者分别链接，首页、奇偶页变体还会进一步区分。要给第2节普通页眉独立文字，应先断开该页眉链接。只断页脚并非同一件事。可用“正文”“附录”等明显虚构标签练习，便于看出修改是否意外传播。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Review one layout relationship at a time",
+            "zh": "一次复习一种布局关系"
+          },
+          "paragraphs": [
+            {
+              "en": "A correct answer selects the appropriate operation under the stated conditions. Five correct choices do not demonstrate that you have inspected a real publication, printer output or complex document. All answers and the other four full guides remain available at any count. When a choice was missed, make a new small example focusing on its boundary: section versus page, header versus footer, or repeated header versus row splitting. These distinctions are more informative than assigning a general Word ability label.",
+              "zh": "答对表示在题目条件下选中了适当操作，五题全对并不证明已检查真实出版物、打印输出或复杂文档。任何正确数都能看全部答案及其他四份指南。错题可用新小例子聚焦节与页、页眉与页脚、重复表头与断行等边界，比笼统能力标签更有复习价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fields-and-mail-merge",
+      "directionIds": [
+        "fields-and-mail-merge"
+      ],
+      "title": {
+        "en": "Word Fields & Mail Merge",
+        "zh": "Word域与邮件合并指南"
+      },
+      "headline": {
+        "en": "Check the source, field and selected records",
+        "zh": "核对源数据、合并域与所选记录"
+      },
+      "summary": {
+        "en": "Work through recipient columns, real merge fields, previews, exclusions and selected-field updates.",
+        "zh": "按收件人列、真实合并域、预览、排除及所选域更新逐步核对。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Fields & Mail Merge: Practice Guide",
+          "zh": "Word域与邮件合并：练习复习指南"
+        },
+        "description": {
+          "en": "Understand merge-field insertion, recipient previews and exclusions, source layout and F9 updates in desktop Word for Windows.",
+          "zh": "理解Windows桌面Word的合并域插入、收件人预览排除、数据源布局及F9更新。"
+        }
+      },
+      "scoreReading": {
+        "en": "Five keyed choices sample a merge workflow. The site does not connect to a mailing list or send messages.",
+        "zh": "五题选择抽查合并流程，网站不连接收件人名单，也不发送消息。"
+      },
+      "sections": [
+        {
+          "id": "source",
+          "title": {
+            "en": "Keep field names separate from recipient records",
+            "zh": "区分字段名与收件人记录"
+          },
+          "paragraphs": [
+            {
+              "en": "A simple merge source has named columns representing fields and rows representing recipient records. With columns FirstName and City, each recipient’s values stay together on one data row. A picture of a list cannot supply those two data fields. Check the actual source and sheet selected for the merge, including whether names and postal values are read as intended. Use invented recipients for practice so a formatting exercise does not require a real person’s contact information or a production mailing list.",
+              "zh": "简单合并源以命名列表示字段、数据行表示收件人记录。FirstName与City两列中，同一人的值放在同一行；名单图片不能提供这两个数据字段。应核实际源、工作表及姓名邮政值的读取。练习用虚构收件人，不需要真实联系信息或生产名单。"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": {
+            "en": "Insert a connected field rather than its lookalike",
+            "zh": "插入真正的域，不只模仿外观"
+          },
+          "paragraphs": [
+            {
+              "en": "Insert Merge Field creates the placeholder associated with a source column. Typing chevrons around a column name creates ordinary text that may resemble the placeholder without functioning as one. In a fresh exercise, use fictional columns GivenName and Room, connect the source and insert those actual fields. Add a short ordinary sentence around them. Identify which parts should vary between recipients and which should stay fixed before previewing; the distinction makes a wrong column or a typed lookalike easier to notice.",
+              "zh": "插入合并域创建关联源列的占位符；手打尖括号包住列名只是普通文字，可能像域却不起作用。新练习可用GivenName、Room虚构列，连接后插入真实域，再加固定句子。预览前先明确哪些部分应随收件人变化、哪些保持不变，便于发现选错列或手打假域。"
+            }
+          ]
+        },
+        {
+          "id": "preview",
+          "title": {
+            "en": "Inspect more than the first recipient",
+            "zh": "不要只检查第一条记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Preview Results replaces merge-field names with recipient values, while Next and Previous Record move through the selected records. Use names and locations of different lengths in an invented list so you can inspect punctuation and layout across more than one case. Preview is a review step, not proof that every possible source record is correct. A font or zoom change can improve visibility but cannot substitute for moving between records and checking the actual field values against the selected source.",
+              "zh": "预览结果将域名替换为收件人值，上一条、下一条切换所选记录。虚构名单可使用不同长度姓名、地点，检查多种标点布局情形。预览是一项复核步骤，不证明所有源记录都正确。字体或缩放改善可见性，不能代替切换记录并核对实际字段值。"
+            }
+          ]
+        },
+        {
+          "id": "include",
+          "title": {
+            "en": "Exclude a record without erasing the source",
+            "zh": "排除本次记录，不擦除源数据"
+          },
+          "paragraphs": [
+            {
+              "en": "Clearing a recipient’s inclusion check box in Edit Recipient List excludes that record from the current merge selection. It does not require deleting the source record. After changing the selection, inspect which recipients remain and preview them before finishing. In a disposable exercise, use four invented records and exclude one, then describe the difference between three selected recipients and four retained source records. This is a selection distinction rather than a request to send or publish any of the resulting letters.",
+              "zh": "在编辑收件人列表清除纳入勾选，可把记录排除于当前合并，无须删除源记录。调整后应核剩余选择并预览。副本练习可建立四条虚构记录、排除一条，说明三条被选与源中仍有四条的区别。这只是选择关系，不要求实际发送或发布信函。"
+            }
+          ]
+        },
+        {
+          "id": "update",
+          "title": {
+            "en": "Distinguish a field update from showing its code",
+            "zh": "区分更新域与显示域代码"
+          },
+          "paragraphs": [
+            {
+              "en": "F9 updates selected fields in desktop Word for Windows. Alt+F9 toggles field-code displays rather than serving as the selected-field update command. The online item specifies an unlocked field in the main document body; it does not promise that selecting the body updates every field elsewhere. When practising, identify the field, its source and its location before updating. A broken reference or a locked field is a different condition and should not be silently treated as a successful refresh.",
+              "zh": "Windows桌面Word用F9更新所选域，Alt+F9切换域代码显示，并非所选域更新命令。题目限定正文未锁定域，不承诺选中正文就更新其他位置所有域。练习前先明确域、源及位置；引用损坏或域被锁是不同条件，不能默当刷新成功。"
+            }
+          ]
+        },
+        {
+          "id": "workflow",
+          "title": {
+            "en": "Trace a fictional letter from source to preview",
+            "zh": "追踪虚构信函从源到预览"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a tiny source with clearly named columns, connect it to a practice letter and insert actual merge fields. Preview every selected fictional recipient and test one exclusion before considering the output. Keep the original source and working copy separate enough that you can identify what was changed. These are suggested local exercises; the website has not opened Word, inspected a workbook or executed a mail merge. Finishing a local exercise should still involve a deliberate review of the chosen recipients and output.",
+              "zh": "可用清楚列名建小数据源，连接练习信函并插入真实域，逐条预览虚构收件人，再测试一次排除。源与工作副本应便于区分，知道究竟改了哪里。这些是本地练法，网站没有打开Word、检查工作簿或执行合并。实际完成本地练习时，仍应明确复核所选收件人与输出。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Use the count as a workflow reminder",
+            "zh": "把正确数当作流程提醒"
+          },
+          "paragraphs": [
+            {
+              "en": "This section gives a count out of five for selected source, field and preview distinctions. It does not validate a real mailing list, certify automation skill or demonstrate that you can safely run a large communication workflow. All explanations are free at every count, with no address upload or account gate. After a missed item, vary a fictional column name or record selection and explain the expected effect. Memorising the same five option positions cannot establish transferable Word operation skill.",
+              "zh": "此分项/5只反映源、域、预览等特定区别，不验证真实名单、不认证自动化能力，也不证明能安全运行大批通信流程。所有解析免费，无需上传地址或注册。错题后可更换虚构列名、记录选择，说明预期影响；记住原选项位置不能证明可迁移操作能力。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-and-templates",
+      "directionIds": [
+        "review-and-templates"
+      ],
+      "title": {
+        "en": "Word Review & Templates",
+        "zh": "Word审阅与模板指南"
+      },
+      "headline": {
+        "en": "Separate visibility, recording and revision decisions",
+        "zh": "区分显示、记录与修订决定"
+      },
+      "summary": {
+        "en": "Understand No Markup, stopping tracking, rejecting a deletion, combining reviewed copies and choosing a template format.",
+        "zh": "理解无标记、停止跟踪、拒绝删除、归并审阅副本及模板格式选择。"
+      },
+      "seo": {
+        "title": {
+          "en": "Word Track Changes & Templates: Practice Guide",
+          "zh": "Word修订与模板：练习复习指南"
+        },
+        "description": {
+          "en": "Review unresolved changes, Combine versus Compare, and macro-free .dotx templates with original scenarios and bounded next steps.",
+          "zh": "复习待处理修订、合并与比较的区别及无宏dotx模板，附原创情境与明确练法。"
+        }
+      },
+      "scoreReading": {
+        "en": "A count out of five describes review and file-format choices, not professional approval authority or certification.",
+        "zh": "分项/5描述审阅及格式选择，不赋予专业审批权，也不是认证。"
+      },
+      "sections": [
+        {
+          "id": "visibility",
+          "title": {
+            "en": "A clean view is not a resolved review",
+            "zh": "外观干净不等于修订已处理"
+          },
+          "paragraphs": [
+            {
+              "en": "No Markup hides tracked-change display without accepting or rejecting the underlying changes. A document can therefore look final while still containing unresolved revisions. In a disposable example, make a tracked insertion and deletion, then switch display modes and describe what changed on screen and what still needs a decision. Do not use the clean appearance alone as your final-document check. The website asks about that distinction rather than opening or inspecting any private document you may work with.",
+              "zh": "无标记隐藏修订显示，不接受或拒绝底层改动，所以外观像定稿的文档仍可能含待处理修订。可在副本做插入、删除修订，再切显示方式，说明屏幕变化及仍待决定之处。不应只凭干净外观验定稿；网站只问这个区别，不打开或检查你的私密文件。"
+            }
+          ]
+        },
+        {
+          "id": "recording",
+          "title": {
+            "en": "Stopping tracking does not settle earlier edits",
+            "zh": "停止记录不处理既有改动"
+          },
+          "paragraphs": [
+            {
+              "en": "Turning Track Changes off stops recording new revisions. Earlier changes remain for review until explicit decisions are made. Recording, displaying and resolving changes are separate operations. A locked tracking setting adds an authority condition, so the practice scenario assumes tracking can be turned off. In a local exercise, stop tracking after one invented change, type another sentence and inspect the difference. Explain which edit is tracked and why turning the switch off did not automatically approve the earlier one.",
+              "zh": "关闭修订停止记录新的修订，之前改动仍待明确处理。记录、显示、处理是三件事。锁定跟踪另有权限条件，本题假定可关闭。可先做一个虚构修订，再关闭后输入另一句，检查哪项被跟踪，并解释关闭开关为什么没有自动批准此前改动。"
+            }
+          ]
+        },
+        {
+          "id": "decisions",
+          "title": {
+            "en": "Reject the particular proposed change",
+            "zh": "拒绝具体的提议改动"
+          },
+          "paragraphs": [
+            {
+              "en": "Accept keeps a proposed change, while Reject discards it. For a tracked deletion, rejecting restores the deleted text; accepting keeps the removal. The item selects one deletion rather than invoking a whole-document decision. For a fresh exercise, delete a short invented phrase with tracking on and predict both possible outcomes before choosing either. Confirm that unrelated revisions have not been resolved accidentally. The operation expresses an editorial decision and should be tied to the intended text, not to a desire to remove visible markup quickly.",
+              "zh": "接受保留提议改动，拒绝撤销它；删除修订被拒绝时恢复文字，被接受时保留删除。题目只选一项，不处理全篇。新练习可跟踪删除一句虚构短语，先预测两种结果，再选并确认无关修订没被误处理。操作表达编辑决定，应对应目标文字，不只是为了尽快去掉红色标记。"
+            }
+          ]
+        },
+        {
+          "id": "combine",
+          "title": {
+            "en": "Consolidate reviewed copies before deciding changes",
+            "zh": "归并审阅副本，再处理改动"
+          },
+          "paragraphs": [
+            {
+              "en": "Combine gathers revisions from copies of the same original; further copies can be combined with an already combined document. Compare has the distinct purpose of showing differences between two versions. Neither command removes the need to inspect the result and make deliberate decisions about suggestions. Use two invented reviewer copies in a local exercise and label them clearly. Keep the source copies available so you can trace where a suggestion came from instead of assuming consolidation means agreement or automatic conflict resolution.",
+              "zh": "合并可归并同一原稿各副本的修订，并将其他副本继续合入已合并文档。比较主要显示两版本差异。二者都不能代替核结果、决定建议。可用两个标识清楚的虚构审阅副本练习，并保留源副本以追踪建议来处，不把归并当成一致同意或自动解决冲突。"
+            }
+          ]
+        },
+        {
+          "id": "format",
+          "title": {
+            "en": "Choose the template format by macro requirements",
+            "zh": "按宏需求选模板格式"
+          },
+          "paragraphs": [
+            {
+              "en": "A .dotx file is a macro-free Word template; .dotm is the macro-enabled template format. A template offers a reusable starting point for future documents, not a guarantee that users cannot change its layout or that existing files will automatically update. The item asks for a macro-free reusable format. It does not ask you to enable macros, install a third-party template or change security settings. Practise by saving a small original notice as a template under the intended format.",
+              "zh": ".dotx是无宏Word模板，.dotm是启用宏的模板格式。模板提供新文件可复用起点，不保证用户改不坏布局，也不自动更新既有文件。本题要求无宏可复用格式，不要求启用宏、安装第三方模板或更改安全设置。可用自己写的小通知保存为目标格式练习。"
+            }
+          ]
+        },
+        {
+          "id": "handoff",
+          "title": {
+            "en": "Make a small review handoff inspectable",
+            "zh": "让小型审阅交接便于核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For an unscored local exercise, prepare a short invented notice, create separate review copies and practise one acceptance and one rejection. Then consolidate a second copy and inspect the outstanding changes before saving a separate final exercise document. Record what you decided in plain language for your own learning. This proposed activity is not a claim that a Word engine ran during the online attempt, and the practice count does not authorize you to approve someone else’s real document or disclose its revisions.",
+              "zh": "不计分练习可准备短通知、建立审阅副本，练一次接受及拒绝，再归并另一份并检查待处理项，另存练习定稿。用普通文字记下自己的决定便于学习。这不是声称网站答题运行Word，正确数也不授权批准他人真实文件或披露其修订。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Avoid turning a review count into an ability tier",
+            "zh": "不把审阅正确数变成能力等级"
+          },
+          "paragraphs": [
+            {
+              "en": "Five choices cover a few explicit review and template distinctions. They do not assess professional judgement, legal drafting, every collaboration setup or security administration. This independent bank has no Microsoft certification or hiring threshold. All five guides and every worked answer remain available at zero, partial and perfect counts. For a useful retake, first explain a new example using the terms hidden, untracked, accepted and rejected correctly. An improved score on the same fixed bank can reflect recall of its wording.",
+              "zh": "五题只覆盖明确的审阅、模板区别，不评价专业判断、法律起草、所有协作配置或安全管理。本独立题本没有微软认证或招聘线；零分、部分、全对均可看五份全文。重测前可用新例子准确解释隐藏、未跟踪、已接受、已拒绝。重复固定题本提高，也可能只是记住措辞。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_word_windows_practice",
+    "formCode": "fermatmind_word_windows_original_25_v1",
+    "itemBankVersion": "fermatmind_word_windows_original_25_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_word_five_full_revision_guides_v1",
+    "itemBankSha256": "3ccb6ce40c428d3a66f45e295e6a1f1d03c3635c314a198249480ea0c3872362",
+    "resultContentSha256": "7c291fe0938eab056c955915d2cd8d3da92b07838deb32e3e049c9f6b3ac13be",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Word paragraph pagination settings",
+        "zh": "Word段落分页设置"
+      },
+      "url": "https://support.microsoft.com/en-us/word/line-and-page-breaks"
+    },
+    {
+      "title": {
+        "en": "Word styles and structural headings",
+        "zh": "Word样式与结构标题"
+      },
+      "url": "https://support.microsoft.com/en-us/word/customize-or-create-new-styles"
+    },
+    {
+      "title": {
+        "en": "Navigation pane: Windows body-heading scope",
+        "zh": "导航窗格：Windows正文标题范围"
+      },
+      "url": "https://support.microsoft.com/en-gb/word/use-the-navigation-pane-in-word?nochrome=true"
+    },
+    {
+      "title": {
+        "en": "Automatic table of contents",
+        "zh": "自动目录"
+      },
+      "url": "https://support.microsoft.com/en-us/word/training/insert-a-table-of-contents"
+    },
+    {
+      "title": {
+        "en": "Linked heading numbering",
+        "zh": "关联标题编号"
+      },
+      "url": "https://support.microsoft.com/en-us/word/number-your-headings"
+    },
+    {
+      "title": {
+        "en": "Repeated table header conditions",
+        "zh": "重复表头条件"
+      },
+      "url": "https://support.microsoft.com/en-us/word/repeat-table-header-on-subsequent-pages"
+    },
+    {
+      "title": {
+        "en": "Word table-row splitting property",
+        "zh": "Word表格行断开属性"
+      },
+      "url": "https://learn.microsoft.com/en-us/office/vba/api/word.row.allowbreakacrosspages"
+    },
+    {
+      "title": {
+        "en": "Mail merge source and recipient selection",
+        "zh": "邮件合并数据源与收件人选择"
+      },
+      "url": "https://support.microsoft.com/en-us/word/mail-merge-using-an-excel-spreadsheet"
+    },
+    {
+      "title": {
+        "en": "Mail merge preview",
+        "zh": "邮件合并预览"
+      },
+      "url": "https://support.microsoft.com/en-us/word/mail-merge-preview-results"
+    },
+    {
+      "title": {
+        "en": "Track Changes",
+        "zh": "修订"
+      },
+      "url": "https://support.microsoft.com/en-us/word/training/track-changes-in-word"
+    },
+    {
+      "title": {
+        "en": "Combine document revisions",
+        "zh": "合并文档修订"
+      },
+      "url": "https://support.microsoft.com/en-us/word/combine-document-revisions"
+    },
+    {
+      "title": {
+        "en": "Word template formats",
+        "zh": "Word模板格式"
+      },
+      "url": "https://support.microsoft.com/en-us/word/save-a-word-document-as-a-template"
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "Count the stated choices, with no ability tier",
+        "zh": "统计给定选择，不派能力等级"
+      },
+      "paragraphs": [
+        {
+          "en": "One matching key contributes one correct item; another valid choice contributes zero. Each section has five items, giving a total out of 25. Every valid choice is required before personal counts appear. There is no timer, partial credit, percentile or employer threshold. A 3/5 section count describes three matching answers on these five scenarios.",
+          "zh": "匹配答案计一道正确，其他有效选择计零。每项五题、总计/25，全部有效选择前不显示个人正确数。无计时、部分分、百分位或雇主门槛。3/5只表示这五个情境中有三个匹配答案。"
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "en": "Read every worked answer and full guide",
+        "zh": "查看每题解析与完整指南"
+      },
+      "paragraphs": [
+        {
+          "en": "At zero, partial and perfect counts alike, the result includes all 25 prompts, selected choices, keys and worked explanations, followed by all five complete guides. Public guide pages are readable before starting and contain revision material rather than a personal score. No email or payment unlocks a withheld section.",
+          "zh": "零分、部分、全对均显示25个题干、所选、答案与解析，再给五份完整指南。开始前也可读公开全文，内容是复习材料，不是个人成绩；没有扣留章节要求邮箱或付款。"
+        }
+      ]
+    },
+    {
+      "id": "practice-environment",
+      "title": {
+        "en": "A declared desktop context, not a Word engine",
+        "zh": "声明桌面环境，不运行Word引擎"
+      },
+      "paragraphs": [
+        {
+          "en": "The scenarios use Word for Microsoft 365 on Windows and selected official Microsoft rules. Mac, web and mobile interfaces or behaviour may differ. Keys were reviewed against those rules; no Word application or live document was executed for this bank. Choosing commands does not demonstrate editing speed, document quality or skill across every configuration.",
+          "zh": "情境采用Windows桌面Microsoft 365 Word及选定官方规则，Mac、网页、移动端界面行为可能不同。答案按规则核对，没有为本题本运行Word应用或真实文档。选择命令不证明编辑速度、文档质量或所有配置下的技能。"
+        }
+      ]
+    },
+    {
+      "id": "practice-original",
+      "title": {
+        "en": "Original scenarios with a finite learning scope",
+        "zh": "原创情境及明确学习范围"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the situations, distractors, explanations and guides. The references support selected rules rather than supplying a copied exam bank. This independent exercise has no Microsoft endorsement or certification. Retaking repeats the same bank, so an increased count after reading the keys may reflect memory. Try a fresh invented document to examine transfer.",
+          "zh": "费马编写情境、干扰项、解析和指南，参考支持选定规则，不是搬来官方考题。本独立练习无微软背书或认证。重测重复固定题本，读答案后提高可能来自记忆；可用新虚构文档检验迁移。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Word version does this use?",
+        "zh": "使用哪个Word版本？"
+      },
+      "answer": {
+        "en": "Use Word for Microsoft 365 desktop on Windows. English command names accompany Chinese labels. Mac, web and mobile behaviour may differ; no universal cross-version equivalence is claimed.",
+        "zh": "以Windows桌面Microsoft 365 Word为环境，中文说明附英文命令名。Mac、网页、移动端可能不同，不声称全部版本一致。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will I edit a document or send a mail merge here?",
+        "zh": "会在这里编辑文档或发送合并邮件吗？"
+      },
+      "answer": {
+        "en": "No. Choose answers to original document scenarios. The site does not open Word, execute a merge, upload a document or connect to a recipient source. This is a knowledge exercise.",
+        "zh": "不会。这里只选择原创文档情境的答案，不打开Word、不执行合并、不上传文档或连接收件人源，是知识练习。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do the section counts mean?",
+        "zh": "分项正确数表示什么？"
+      },
+      "answer": {
+        "en": "Each matching answer counts as one, with five items per section and 25 overall. Counts describe these choices, without ability bands, norms, employment pass marks or qualifications.",
+        "zh": "匹配答案计一道，每项五题、总计25，只描述本次选择，没有能力等级、常模、招聘通过线或资格。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all answers and five full guides free?",
+        "zh": "全部答案及五份完整指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. A complete valid attempt includes every selected choice, key, worked explanation and all five full guides at any count. Public guides are readable before starting. No signup, email, payment or certificate purchase is needed.",
+        "zh": "是。完整有效作答后，无论正确数都给每个所选、答案、解析及五份全文，开始前也可读公开指南，无需注册、邮箱、付款或购买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is it timed or a Microsoft certification?",
+        "zh": "有计时吗，是微软认证吗？"
+      },
+      "answer": {
+        "en": "There is no timer or speed bonus. Around twelve minutes is an editorial estimate. The independently written bank is not endorsed by Microsoft and does not award certification.",
+        "zh": "无计时及速度奖励，约十二分钟是编辑估计。题本独立编写，无微软背书，不颁认证。"
+      }
+    },
+    {
+      "question": {
+        "en": "What can be saved or shared?",
+        "zh": "可以保存或分享什么？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake; refresh loses progress without one. Sharing copies only a public practice link, without answers, counts or private identifiers.",
+        "zh": "答案留在浏览器。可选标签页草稿24小时失效，完成、退出清除或重测时删除；未存则刷新丢失。分享只有公开练习链接，不含答案、正确数或私有标识。"
+      }
+    }
+  ]
+}
