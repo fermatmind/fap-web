@@ -1,0 +1,752 @@
+[
+  {
+    "id": "pooh",
+    "directionIds": [
+      "pooh"
+    ],
+    "title": {
+      "en": "Winnie the Pooh",
+      "zh": "维尼熊（Pooh）"
+    },
+    "headline": {
+      "en": "Enjoy an ordinary moment together",
+      "zh": "一起享受普通片刻"
+    },
+    "summary": {
+      "en": "Read Winnie the Pooh through enjoy an ordinary moment together: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“一起享受普通片刻”阅读维尼熊（Pooh）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Winnie the Pooh Test Result: Enjoy an ordinary moment together | Storybook Friends",
+        "zh": "维尼熊（Pooh）测试结果：一起享受普通片刻｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Winnie the Pooh through enjoy an ordinary moment together: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“一起享受普通片刻”阅读维尼熊（Pooh）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Pooh’s selected angle",
+          "zh": "维尼熊的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh’s name anchors a limited angle in this independent fan edition: enjoying an ordinary moment with company. The angle does not measure intellect, appetite, body size or a permanently slow temperament. A small shared pause can be part of a pleasant gathering without needing a grand activity. It is one possible contribution to the original paper-picnic, not a statement about what every friendship or every person should value.",
+            "zh": "维尼熊在本独立同人版对应有限角度：相伴享受普通片刻。不测智力、食欲、体形、永久慢性情。共同小停歇可构成愉快聚会，无需宏大活动；是原创纸上野餐一种贡献，不说每段友情、每人应看重什么。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The finished bookmarks are enough for a moment",
+          "zh": "做好的书签能让人享受一刻"
+        },
+        "paragraphs": [
+          {
+            "en": "The group has finished a few paper bookmarks and has no elaborate plan for the next minutes. You enjoy looking at what everyone made and let the quiet company be enough for now. Somebody else may want another game, and that can be discussed. The scene’s point is permission to enjoy something ordinary, not pressure to be content with everything or ignore a practical problem.",
+            "zh": "大家做好几枚纸书签，接几分钟没复杂安排。你享受看共同作品，让安静相伴暂时足够。别人想再游戏也能谈。场景重点是容许享受普通，不迫对凡事满意、不忽视实际问题。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "An ordinary pleasure beside five other contributions",
+          "zh": "普通乐趣与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Piglet chooses a small first part, Owl explains a checked detail and Tigger offers an optional playful round. Eeyore states a real preference while Kanga asks what practical help is wanted. Pooh’s selected angle enjoys the ordinary company between those contributions. These can coexist without ranking warmth, intelligence or social value. A tied guide is not evidence of a hidden condition or a requirement to become a particular kind of friend.",
+            "zh": "小猪选首个小部分，猫头鹰解释已核细节，跳跳虎给可选趣味轮；屹耳说真偏好，袋鼠妈妈问想获何实际帮助。维尼享受其间普通相伴。可共存，不排温暖、智力、社交价值；并列不证明隐藏状况、不要求成为特定朋友。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A quiet pause can coexist with a clear request",
+          "zh": "安静停歇也可伴清楚请求"
+        },
+        "paragraphs": [
+          {
+            "en": "Enjoying a small moment does not mean every arrangement works for you. You can ask to change the table, leave an activity or choose something more lively later. A count cannot establish comfort eating, cognitive difficulty or a permanently passive personality. A lower count does not mean coldness, and wanting more stimulation on one afternoon is not a judgment about your ability to appreciate friends.",
+            "zh": "享受小片刻不表示所有安排都合你。能请求换桌、离活动、以后另选热闹。次数不确立安慰性进食、认知困难、永久被动；低计数不表示冷漠，一下午想更多刺激也不评珍惜朋友能力。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one unhurried ordinary moment",
+          "zh": "试一个从容普通片刻"
+        },
+        "paragraphs": [
+          {
+            "en": "At an optional handmade gathering, leave a brief space to look at the finished pieces without immediately planning another task. Ask a willing friend whether they enjoyed that pause or would prefer something else. Let either answer shape the next choice. This explores a leisure preference, not a diagnosis, a body judgment or advice to accept relationships and situations that do not meet your needs.",
+            "zh": "可选手作聚会，留短空间看成品，不立即安排新任务。问自愿朋友是否享受停歇、或想别的，让任一回答影响下步。这探索闲暇偏好，不作诊断、体形判断、不建议接受不合需要的关系、处境。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "piglet",
+    "directionIds": [
+      "piglet"
+    ],
+    "title": {
+      "en": "Piglet",
+      "zh": "小猪（Piglet）"
+    },
+    "headline": {
+      "en": "Choose one small contribution freely",
+      "zh": "自由选择一个小贡献"
+    },
+    "summary": {
+      "en": "Read Piglet through choose one small contribution freely: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“自由选择一个小贡献”阅读小猪（Piglet）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Piglet Test Result: Choose one small contribution freely | Storybook Friends",
+        "zh": "小猪（Piglet）测试结果：自由选择一个小贡献｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Piglet through choose one small contribution freely: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“自由选择一个小贡献”阅读小猪（Piglet）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Piglet’s selected angle",
+          "zh": "小猪的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Piglet’s selected angle is choosing a modest part that you actually want to try. It does not interpret a small step as anxiety, low confidence, dependence or a need to prove courage. A person can prefer one little bookmark task because it is interesting, manageable or simply enough for today. The size of the contribution is not a measure of the person, and joining can remain a genuine choice.",
+            "zh": "小猪角度是选自己真想试的适中部分，不把小步解释为焦虑、自信低、依赖、需证勇敢。偏好小书签任务可因有趣、能做、今天已够；贡献大小不衡量人，加入可保持真选择。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "One part of the bookmark, not the whole afternoon",
+          "zh": "书签一部分，不是整下午"
+        },
+        "paragraphs": [
+          {
+            "en": "Friends have several small jobs left on a handmade bookmark. You choose one you would enjoy and decide after finishing whether to continue. Nobody needs to turn that choice into a story about fear being defeated. The useful detail is the freedom to take a manageable part without promising every remaining task, copying a friend’s pace or earning a place in the group through extra effort.",
+            "zh": "手作书签还剩几小任务，你选喜欢的，完成再决定继续否。无需讲成战胜恐惧故事。有用处是能自由接适中部分，不承诺余下全部、不照朋友节奏、不靠加努力赚小组位置。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A small step beside five other contributions",
+          "zh": "小步与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh enjoys an ordinary shared moment, Owl checks an explanation and Tigger offers play. Eeyore gives an honest preference while Kanga asks what practical assistance is wanted. Piglet’s selected angle takes one freely chosen step. None ranks bravery or the strength of a bond. A tie may offer several enjoyable contributions without assigning a worry pattern, a dependent role or a hidden attachment style.",
+            "zh": "维尼享受普通相伴，猫头鹰核解释，跳跳虎提玩乐；屹耳诚实给偏好，袋鼠妈妈问想何实际帮助。小猪接自由选一步。不排勇敢、联结强度；并列可给多种乐趣，不派担忧模式、依赖角色、隐藏依恋风格。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A small yes can stay small",
+          "zh": "一个小同意可以保持小"
+        },
+        "paragraphs": [
+          {
+            "en": "Others may assume that finishing a little task means you are available for the next one. Say what you chose and whether you want to continue, change parts or stop. You do not need to justify the boundary by claiming fear or exhaustion. Your count cannot establish anxiety or courage, and a lower count does not mean recklessness, disloyalty or an inability to contribute gently.",
+            "zh": "别人可能以为完小任务就能接下个。可说选了什么、想继续、换或停，不需用恐惧、疲倦才证明边界。次数不确立焦虑、勇气；低计数不表示冒失、不忠、不能温和贡献。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a contribution with a new choice afterwards",
+          "zh": "试一项之后能再选的贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one modest task in a voluntary creative session and say that you will decide again after it is finished. Notice whether the task itself was enjoyable and whether the next invitation leaves room to pass. Use that feedback to choose a part next time. This is an experiment with a hobby invitation, not exposure therapy, a confidence score or a test of how much loyalty you owe anyone.",
+            "zh": "自愿创作中选一适中任务，说完后再决定。注意任务有趣否、下个邀请能否拒绝，据此下次选部分。这试爱好邀请，不作暴露治疗、自信评分、不测欠谁多少忠诚。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "owl",
+    "directionIds": [
+      "owl"
+    ],
+    "title": {
+      "en": "Owl",
+      "zh": "猫头鹰（Owl）"
+    },
+    "headline": {
+      "en": "Explain what you have actually checked",
+      "zh": "解释自己实际核过的"
+    },
+    "summary": {
+      "en": "Read Owl through explain what you have actually checked: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“解释自己实际核过的”阅读猫头鹰（Owl）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Owl Test Result: Explain what you have actually checked | Storybook Friends",
+        "zh": "猫头鹰（Owl）测试结果：解释自己实际核过的｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Owl through explain what you have actually checked: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“解释自己实际核过的”阅读猫头鹰（Owl）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Owl’s selected angle",
+          "zh": "猫头鹰的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Owl’s name anchors checking a detail before explaining it. This is not a measure of intelligence, verbal talent, education or how much authority your friends should give you. An explanation can be helpful while remaining open to correction. In this original paper gathering, the angle is separating what the example shows from what you still need to check, not sounding certain about every craft or life question.",
+            "zh": "猫头鹰对应解释前核细节，不测智力、语言天赋、教育、不评朋友该给多少权威。解释可有帮助且容纠正。本原创纸聚会角度是分开示例已显示和仍需核的，不对所有手作、人生问题都显确定。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "Two explanations meet one small example",
+          "zh": "两种解释遇上一个小示例"
+        },
+        "paragraphs": [
+          {
+            "en": "A friend describes a fold differently from an earlier explanation. You try a little paper sample before repeating either account as certain, then say what the sample actually showed. Another person can still find a different way that works. The scene rewards neither a confident voice nor a long answer; it makes room for a useful explanation whose limits can be understood by the listener.",
+            "zh": "朋友对纸折解释与早先不同，你先试小纸样，不把任一说法当确定复述，再说实际显示什么。别人仍可找到另一可用法。场景不奖励自信声音、长答案，而容听者懂解释边界。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A checked detail beside five other contributions",
+          "zh": "已核细节与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh enjoys ordinary company, Piglet chooses a small part and Tigger offers optional play. Eeyore states a real preference while Kanga asks what practical help is wanted. Owl’s selected angle makes an explanation checkable. These contributions do not rank intelligence, depth or worth. A tied guide offers several readings of the choices without proving that you should teach, advise or correct everybody in a real group.",
+            "zh": "维尼享受普通相伴，小猪选小部分，跳跳虎给可选玩乐；屹耳说真偏好，袋鼠妈妈问想何实际帮助。猫头鹰使解释可核。不排智力、深度、价值；并列给多读法，不证明应教、建议、纠正真人小组所有人。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A useful explanation can be brief",
+          "zh": "有用解释可以简短"
+        },
+        "paragraphs": [
+          {
+            "en": "A long account may answer more than a friend asked. Check which detail they want to understand and stop when the example is clear enough for their next choice. You can also say that you do not know. A count cannot establish expertise or intellectual superiority, and a lower count does not mean ignorance, poor reasoning or a lack of interest in learning.",
+            "zh": "长解释可能答超朋友所问。可核想懂哪细节，到够清楚能下步选择就停，也可说不知道。次数不确立专业、智力优越；低计数不表示无知、推理差、没学习兴趣。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one explanation with an explicit limit",
+          "zh": "试一个边界明确的解释"
+        },
+        "paragraphs": [
+          {
+            "en": "For a harmless paper craft, choose one detail you can demonstrate and one detail you would still need to check. Explain that distinction to a willing collaborator, then invite a correction or another example. Ask whether the explanation helped their next step. This explores a communication choice in one hobby, not an IQ test, an educational ranking or permission to advise on matters outside what you know.",
+            "zh": "无害纸手作中，选一能示范细节、一仍需核细节，给自愿伙伴解释区别，邀纠正、另一例，问是否助下步。这探索一次爱好沟通，不测IQ、不排教育、不许可对所知外事项提建议。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tigger",
+    "directionIds": [
+      "tigger"
+    ],
+    "title": {
+      "en": "Tigger",
+      "zh": "跳跳虎（Tigger）"
+    },
+    "headline": {
+      "en": "Offer play with room to pass",
+      "zh": "给玩乐，也留不参与空间"
+    },
+    "summary": {
+      "en": "Read Tigger through offer play with room to pass: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“给玩乐，也留不参与空间”阅读跳跳虎（Tigger）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Tigger Test Result: Offer play with room to pass | Storybook Friends",
+        "zh": "跳跳虎（Tigger）测试结果：给玩乐，也留不参与空间｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Tigger through offer play with room to pass: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“给玩乐，也留不参与空间”阅读跳跳虎（Tigger）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Tigger’s selected angle",
+          "zh": "跳跳虎的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Tigger’s selected angle is offering a lighthearted optional activity. It does not measure energy levels, attention, hyperactivity, optimism or bodily ability. You can enjoy proposing one small paper game while accepting that somebody else wants a quieter afternoon. The playful contribution belongs to this original bookmark gathering, not a permanent job to animate every group or a statement that everyone should match one person’s pace.",
+            "zh": "跳跳虎角度是给轻松可选活动，不测精力、注意、过动、乐观、身体能力。可喜欢提小纸游戏，也接受别人想安静下午。贡献只关原创书签聚会，不是永久活跃所有小组任务，也不说人人应跟一人节奏。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A last round that people can skip",
+          "zh": "人人可跳过的末轮"
+        },
+        "paragraphs": [
+          {
+            "en": "The group has finished most of its handmade pieces and could try one more paper game. You invite a short playful round and make watching or passing equally welcome. The invitation remains useful even if only a few people join or nobody does. Its purpose is a possibility for enjoyment, not a demand for visible enthusiasm or proof that the gathering has enough excitement to count as successful.",
+            "zh": "小组大多作品已好，可再试纸游戏。你邀请短趣味轮，同样欢迎旁观、不参加。即使少人、无人加入，邀请仍有用；目的是享受可能，不要求显热情、不以够刺激证明聚会成功。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Play beside five other contributions",
+          "zh": "玩乐与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh enjoys ordinary company, Piglet chooses a small first part and Owl checks an explanation. Eeyore states a real preference while Kanga asks what practical help is wanted. Tigger’s selected angle offers a consensual playful round. These can coexist without ranking liveliness, attention or worth. A tie cannot establish a clinical pattern, and no result makes you responsible for keeping the room cheerful or moving.",
+            "zh": "维尼享受普通相伴，小猪选小首部分，猫头鹰核解释；屹耳说真偏好，袋鼠妈妈问想何实际帮助。跳跳虎给经同意玩趣轮。可共存，不排活泼、注意、价值；并列不确立临床模式、不派保持全场开心活络责任。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A lively idea can wait",
+          "zh": "热闹点子可以等待"
+        },
+        "paragraphs": [
+          {
+            "en": "Another game may be less welcome than a pause, and a friend’s preference for quiet is not a rejection of you. Save the idea, change it by agreement or enjoy the finished paper pieces instead. A count cannot establish boundless energy, impulsivity or an inability to rest. A lower count does not mean dullness, and you can choose a different contribution at the next gathering.",
+            "zh": "再游戏可能不如停歇受欢迎，朋友爱安静不等于拒绝你。可存点子、约好改、转享纸成品。次数不确立无限精力、冲动、无法休息；低计数不表示无趣，下次也能选另一贡献。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a playful invitation with a genuine no",
+          "zh": "试真能拒绝的玩趣邀请"
+        },
+        "paragraphs": [
+          {
+            "en": "At a voluntary handmade session, offer one short paper game and say clearly that watching or skipping is welcome. Ask willing participants afterwards whether the invitation felt easy to accept or decline. Let that practical feedback shape the next round. This explores how an invitation works, not a test of activity level, social charisma, attention or how much stimulation anybody needs in daily life.",
+            "zh": "自愿手作活动提短纸游戏，说清欢迎旁观、跳过。之后问愿意者，邀请是否易接受、拒绝；据实际反馈改下轮。这探索邀请，不测活跃水平、社交魅力、注意、不评日常需多少刺激。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eeyore",
+    "directionIds": [
+      "eeyore"
+    ],
+    "title": {
+      "en": "Eeyore",
+      "zh": "屹耳（Eeyore）"
+    },
+    "headline": {
+      "en": "Say what you would actually prefer",
+      "zh": "说自己实际偏好"
+    },
+    "summary": {
+      "en": "Read Eeyore through say what you would actually prefer: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“说自己实际偏好”阅读屹耳（Eeyore）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Eeyore Test Result: Say what you would actually prefer | Storybook Friends",
+        "zh": "屹耳（Eeyore）测试结果：说自己实际偏好｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Eeyore through say what you would actually prefer: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“说自己实际偏好”阅读屹耳（Eeyore）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Eeyore’s selected angle",
+          "zh": "屹耳的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Eeyore’s name anchors honest preference in this independent fan edition. The angle does not measure sadness, depression, pessimism or a need for others to cheer you up. You can say that a quieter paper activity appeals more than a lively round without turning the preference into a permanent identity. Honest information can help a group choose an arrangement while allowing each person to want something different.",
+            "zh": "屹耳对应本独立同人版的诚实偏好，不测悲伤、抑郁、悲观、不说需别人哄开心。可说安静纸活动更吸引，不把偏好成永久身份。诚实信息可帮选安排，也容每人想不同。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The quieter ending was the one you liked",
+          "zh": "安静结尾是自己喜欢的"
+        },
+        "paragraphs": [
+          {
+            "en": "A friend asks which part of the bookmark afternoon you actually enjoyed. You name the quiet look at the finished pieces rather than praise every activity equally. You can appreciate the invitation and still prefer one part. The useful contribution is specific feedback, not a performance of gloom, a claim to be the only realist or a demand that the whole group adopt the same mood.",
+            "zh": "朋友问书签下午实际享受哪段，你说安静看成品，不把每项同样夸。可感谢邀请且偏好一段。有用贡献是具体反馈，不表演阴郁、不自称唯一现实主义者、不要求全组同心情。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Honesty beside five other contributions",
+          "zh": "诚实与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh enjoys an ordinary moment, Piglet chooses a small part and Owl checks a detail. Tigger offers optional play while Kanga asks what practical assistance is wanted. Eeyore’s selected angle says which version actually appeals. These contributions can coexist without ranking cheerfulness, realism or friendship value. A tied reading offers several ways to approach a gathering, not a hidden mood profile or a diagnosis attached to a fictional character.",
+            "zh": "维尼享受普通片刻，小猪选小部分，猫头鹰核细节；跳跳虎给可选玩乐，袋鼠妈妈问想何实际帮助。屹耳说哪版真吸引。可共存，不排开心、现实、友情价值；并列给多方式，不是隐藏心情画像、不把人物附诊断。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A preference does not need to judge the person",
+          "zh": "偏好不需评价别人"
+        },
+        "paragraphs": [
+          {
+            "en": "Clear feedback can focus on the activity rather than the person who suggested it. Say which version suits you today and leave room for others to enjoy a different one. You do not need to prove that one preference is more authentic or perceptive. A count cannot establish depression or pessimism, and a lower count cannot show dishonesty, superficial cheerfulness or a lack of depth.",
+            "zh": "清楚反馈可只关活动、不关提议者。说今天合哪版，留别人享受不同版空间，不需证一种偏好更真实、更敏锐。次数不确立抑郁、悲观；低计数不表示不诚实、表面开心、没深度。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a specific preference without a forced smile",
+          "zh": "试无需强装开心的具体偏好"
+        },
+        "paragraphs": [
+          {
+            "en": "For a low-stakes handmade plan, name one part you would enjoy and one alternative you would rather pass on. Keep the explanation specific to today’s activity, then ask what the other willing participants prefer. Use the answers to choose together where possible. This explores communication about a hobby, not a mood screen, a treatment suggestion or an account of how you handle serious emotional difficulties.",
+            "zh": "低风险手作计划，说一喜欢部分、一想略过替代，解释只关今天，再问其他愿意者偏好，能共选则共选。这探索爱好沟通，不筛心情、不建议治疗、不解释怎样处理严重情感困难。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kanga",
+    "directionIds": [
+      "kanga"
+    ],
+    "title": {
+      "en": "Kanga",
+      "zh": "袋鼠妈妈（Kanga）"
+    },
+    "headline": {
+      "en": "Ask what practical help is wanted",
+      "zh": "先问想要什么实际帮助"
+    },
+    "summary": {
+      "en": "Read Kanga through ask what practical help is wanted: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“先问想要什么实际帮助”阅读袋鼠妈妈（Kanga）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Kanga Test Result: Ask what practical help is wanted | Storybook Friends",
+        "zh": "袋鼠妈妈（Kanga）测试结果：先问想要什么实际帮助｜故事书朋友"
+      },
+      "description": {
+        "en": "Read Kanga through ask what practical help is wanted: an original paper-picnic scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“先问想要什么实际帮助”阅读袋鼠妈妈（Kanga）：原创纸上野餐场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Kanga’s selected angle",
+          "zh": "袋鼠妈妈的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Kanga’s selected angle is asking what practical help is wanted before offering one manageable task. A fictional character’s name does not assign a parent, gender or caregiving role to you. Helpful support can be small, requested and time-limited, with room for either person to say no. The contribution is an agreed adjustment at this paper gathering, not becoming responsible for everyone’s comfort, safety or journey home.",
+            "zh": "袋鼠妈妈角度是给能做任务前，先问想何实际帮助。虚构名称不派父母、性别、照顾角色。支持可小、应请求、有时限、双方能拒绝；贡献只是纸聚会约好调整，不成为全员舒服、安全、返家责任人。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "One requested change to a paper place",
+          "zh": "纸上位置的一项应请求变化"
+        },
+        "paragraphs": [
+          {
+            "en": "A friend wants their place at the pretend picnic to be easier to use. You ask which detail they would like changed and offer a small practical hand if you want to do it. They can keep another arrangement or handle it themselves. The scene works through a request and agreement, not by noticing a supposed need and taking over someone else’s materials or choices.",
+            "zh": "朋友想纸上野餐位置好用些，你问想改何细节，愿意则给小实际帮助。对方可留另安排、自处理。场景靠请求、同意，不是发现所谓需要就接管别人的材料、选择。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Practical help beside five other contributions",
+          "zh": "实际帮助与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pooh enjoys ordinary company, Piglet chooses a small first part and Owl checks an explanation. Tigger offers play while Eeyore states a real preference. Kanga’s selected angle asks what practical adjustment someone wants. These contributions can coexist without ranking care, gender or maturity. A tie cannot establish a parental identity, a duty to organise the group or a claim that you should anticipate everyone’s needs without being asked.",
+            "zh": "维尼享受普通相伴，小猪选小首部分，猫头鹰核解释；跳跳虎给玩趣，屹耳说真偏好。袋鼠妈妈问想何实际调整。可共存，不排照顾、性别、成熟；并列不确立父母身份、不派组织小组、无须开口就预知人人所需义务。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A helpful offer can have a clear end",
+          "zh": "有帮助的提议可有清楚终点"
+        },
+        "paragraphs": [
+          {
+            "en": "A small practical request can grow if nobody says what was agreed. Name the part you can offer and check again before adding another task. You can also decline while keeping the conversation kind. A count does not prove parenting ability, protectiveness or an obligation to care. A lower count cannot show neglect, selfishness or an inability to maintain close relationships.",
+            "zh": "若不说清约什么，小实际请求会长大。可说能给哪部分，加任务前再核，也可善意交流地拒绝。次数不证明育儿、保护力、照顾义务；低计数不表示忽视、自私、不能维持亲密关系。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one requested and bounded practical offer",
+          "zh": "试一项应请求、有限实际提议"
+        },
+        "paragraphs": [
+          {
+            "en": "At an optional paper session, ask a willing friend whether one specific arrangement would help. Offer only the part you want and can do, and leave the decision with them. Afterwards, check whether it was useful rather than treating acceptance as proof of being caring. This is feedback on a small hobby interaction, not a parenting assessment, relationship diagnosis or prescription for carrying other people’s responsibilities.",
+            "zh": "可选纸活动，问自愿朋友一具体安排有帮助否，只给想且能做部分，决定留对方。之后核有用否，不把接受当有爱心证明。这反馈爱好小互动，不评育儿、不诊断关系、不规定扛别人责任。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six selected characters, giving 18 counts in total. Every character appears 12 times, three times in each answer position; absence from an item is not rejection. All highest counts receive complete guides, including all six when all A choices give three counts each. These are choices in this original bank, not match percentages, population norms, clinical labels, friendship ratings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六选定人物中一位加一次原始次数，总计18次。每人物出现12次、每答位3次；当题未出现不算被拒绝。所有最高有全文；全A各3次，六方并列。仅为原创题本选择，不是匹配百分比、人群常模、临床标签、友情评分或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original paper-picnic and bookmark situations, mappings, examples and complete readings. Disney’s official character list and 2011 film page support only basic names and the work’s identity; they do not validate these selected angles or this bank. Names belong to their respective rights holders. No book passages, film scenes, illustrations, dialogue or competitor questions and reports are reproduced. This entertainment quiz does not assign a diagnosis, an age pattern, a family role or a duty to care for others.",
+            "zh": "费马独立创作本非官方同人版的纸上野餐、书签情境、映射、例子与全文。迪士尼官方人物名单、2011电影页只支持基本名称、作品身份，不验证选定角度、题本。名称属于各权利方，不复用书文、电影场景、插画、台词、竞品题目或报告。本娱乐测验不派诊断、年龄模式、家庭角色或照顾别人义务。"
+          }
+        ]
+      }
+    ]
+  }
+]

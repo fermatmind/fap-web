@@ -2692,5 +2692,32 @@
       "sentence-editing"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "hundred-acre-wood-friend-quiz",
+    "code": "STORYBOOK_FRIENDS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Hundred Acre Wood Friend Are You?",
+      "zh": "故事书朋友测验"
+    },
+    "description": {
+      "en": "Try 18 original paper-picnic and bookmark situations. Compare Pooh, Piglet, Owl, Tigger, Eeyore and Kanga, with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia or clinical labels.",
+      "zh": "完成18道原创纸上野餐与书签情境，比较维尼熊、小猪、猫头鹰、跳跳虎、屹耳和袋鼠妈妈。所有最高并列与六份双语全文免费。非官方同人版，不考剧情、不派临床标签。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_storybook_friends_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "pooh",
+      "piglet",
+      "owl",
+      "tigger",
+      "eeyore",
+      "kanga"
+    ],
+    "collection": "explore"
   }
 ]

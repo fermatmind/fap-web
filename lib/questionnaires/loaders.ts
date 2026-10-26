@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "hundred-acre-wood-friend-quiz": async () => (await import("./data/hundred-acre-wood-friend-quiz.json")).default as Questionnaire,
   "grammar-test": async () => (await import("./data/grammar-test.json")).default as Questionnaire,
   "anime-character-archetype-test": async () => (await import("./data/anime-character-archetype-test.json")).default as Questionnaire,
   "blue-lock": async () => (await import("./data/blue-lock.json")).default as Questionnaire,

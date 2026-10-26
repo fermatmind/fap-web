@@ -1,0 +1,746 @@
+{
+  "id": "T131",
+  "version": "1.0.0",
+  "form": "fermatmind_storybook_friends_original_18_v1",
+  "method": "OwnselectedsixWinniethePooh/Piglet/Owl/Tigger/Eeyore/Kanga;18originalvoluntarypaper-picnic/bookmarkgatheringquestions72options;12exposures3perpositioneach;allhighestrawcountties. Limitededitorialanglesonly,notclinical/pathology/anxiety/depression/ADHD/IQ/age/gender/maternal/caregivingdutyorcareerassessment. Notcompetitorbank/genericset/scoringorMilne/Disneyplot/art/dialogue.",
+  "questions": [
+    {
+      "id": "SBF_01",
+      "prompt": {
+        "en": "Friends arrange an entirely original paper-picnic and bookmark gathering. What would you most enjoy?",
+        "zh": "朋友办完全原创纸上野餐与书签小聚，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pooh",
+          "label": {
+            "en": "Enjoy an ordinary quiet moment together without needing an impressive activity.",
+            "zh": "一起享受普通安静片刻，不需精彩活动。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose one small contribution I actually want to try.",
+            "zh": "选自己真想试的一项小贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "owl",
+          "label": {
+            "en": "Explain an interesting detail and check anything I am unsure about.",
+            "zh": "解释有趣细节，核自己不确定处。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tigger",
+          "label": {
+            "en": "Offer a lighthearted optional game that others can freely decline.",
+            "zh": "提别人可自由拒绝的轻松可选游戏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_02",
+      "prompt": {
+        "en": "The bookmark session has several possible ways to join. What appeals most?",
+        "zh": "书签活动有几种加入方式，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "piglet",
+          "label": {
+            "en": "Pick a modest first part that feels like my own choice.",
+            "zh": "选适中首部分，让它是自己选择。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "owl",
+          "label": {
+            "en": "Ask how one technique works, then explain what I have actually checked.",
+            "zh": "问一项技巧怎样运作，再解释已核过的。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tigger",
+          "label": {
+            "en": "Suggest a playful little round if the group wants it.",
+            "zh": "若大家愿意，建议趣味小一轮。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say honestly which version I would prefer, even if it is quieter.",
+            "zh": "诚实说喜欢哪版，即使更安静。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_03",
+      "prompt": {
+        "en": "A friend asks about a paper-fold detail at the gathering. What would you enjoy?",
+        "zh": "朋友在小聚问纸折细节，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "owl",
+          "label": {
+            "en": "Offer an explanation while being clear about what I have not verified.",
+            "zh": "给解释，也说清哪些未核实。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tigger",
+          "label": {
+            "en": "Try a cheerful optional demonstration that keeps the activity playful.",
+            "zh": "试开心可选示范，让活动有玩趣。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say which part interests me without pretending to like every version.",
+            "zh": "说哪部分感兴趣，不假装每版都喜欢。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask what practical assistance they want before offering one manageable thing.",
+            "zh": "先问想要什么实际帮助，再给一项能做的。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_04",
+      "prompt": {
+        "en": "Your friends could add a small paper game to their bookmark afternoon. What appeals most?",
+        "zh": "朋友可给书签下午添纸上小游戏，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tigger",
+          "label": {
+            "en": "Invite a playful round with a genuine option to pass.",
+            "zh": "邀请趣味一轮，真能不参加。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eeyore",
+          "label": {
+            "en": "State whether I would enjoy the game or prefer the quieter table.",
+            "zh": "说自己喜游戏还是安静桌。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kanga",
+          "label": {
+            "en": "Offer a requested little practical help without taking over the whole event.",
+            "zh": "给应请求的小实际帮助，不接管整场。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pooh",
+          "label": {
+            "en": "Enjoy a simple shared pause rather than add another activity.",
+            "zh": "享受简单共同停歇，不再添活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_05",
+      "prompt": {
+        "en": "The group suggests a very lively version of the paper-picnic. What would you prefer?",
+        "zh": "小组建议纸上野餐玩很热闹的一版，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say what I would actually enjoy without having to perform enthusiasm.",
+            "zh": "说真喜欢什么，不需表演热情。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask whether anyone wants a specific practical adjustment.",
+            "zh": "问谁想要具体实际调整。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pooh",
+          "label": {
+            "en": "Keep a small ordinary pleasure, such as looking at the finished bookmarks.",
+            "zh": "留一个普通小乐趣，如看做好的书签。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose a small part of the lively version rather than accept the whole plan.",
+            "zh": "选热闹版一小部分，不必接整套。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_06",
+      "prompt": {
+        "en": "Someone asks for a little help setting up their paper place. What appeals most?",
+        "zh": "有人请求帮布自己的纸上位置，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask what would help and offer one bounded task I want to do.",
+            "zh": "问怎样有帮助，给自己愿做的一项有限任务。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pooh",
+          "label": {
+            "en": "Make room for a comfortable ordinary pause once that task is done.",
+            "zh": "任务完后，留舒服普通停歇。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "piglet",
+          "label": {
+            "en": "Take one small setup step as a freely chosen contribution.",
+            "zh": "把一小准备步作自由选择的贡献。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "owl",
+          "label": {
+            "en": "Explain how one piece works, checking the detail if needed.",
+            "zh": "解释一部件怎样用，必要时核细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_07",
+      "prompt": {
+        "en": "The original gathering has a quiet moment between activities. What would you enjoy?",
+        "zh": "原创小聚两活动间有安静片刻，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pooh",
+          "label": {
+            "en": "Let the ordinary moment be enjoyable without filling it immediately.",
+            "zh": "让普通片刻也好享受，不马上填满。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose one little contribution for when I want to join again.",
+            "zh": "给想再加入时，选一个小贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "owl",
+          "label": {
+            "en": "Share one checked detail about a bookmark someone has asked about.",
+            "zh": "分享别人问到、自己已核的一项书签细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tigger",
+          "label": {
+            "en": "Offer an optional playful idea for those who want another round.",
+            "zh": "给还想一轮的人可选趣味点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_08",
+      "prompt": {
+        "en": "You can contribute to a handmade bookmark without making the whole thing. What appeals most?",
+        "zh": "可为手作书签贡献一部分、不需做整件，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose a small part I want, then decide whether to continue.",
+            "zh": "选想做的小部分，再决定继续否。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "owl",
+          "label": {
+            "en": "Explain one clear technique and admit when I would need to check it.",
+            "zh": "解释一项清楚技巧，也承认何时需核。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tigger",
+          "label": {
+            "en": "Try a light playful variation with the maker’s agreement.",
+            "zh": "经作者同意，试轻快趣味变式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say which material or format I honestly prefer.",
+            "zh": "诚实说偏好哪材料、形式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_09",
+      "prompt": {
+        "en": "Two explanations of the same paper-fold step sound different. What would you prefer?",
+        "zh": "同一纸折步骤的两解释不同，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "owl",
+          "label": {
+            "en": "Check a small example before repeating either explanation as certain.",
+            "zh": "先核小示例，不把任一解释当确定事实复述。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tigger",
+          "label": {
+            "en": "Make the trial enjoyable with a harmless optional paper-game twist.",
+            "zh": "给尝试无害可选纸游戏变化，使其好玩。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say which explanation is clearer to me without judging the person.",
+            "zh": "说哪个解释对自己清楚，不评解释者。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask whether the learner wants a specific practical hand with the materials.",
+            "zh": "问学习者是否想获材料方面具体实际帮助。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_10",
+      "prompt": {
+        "en": "A playful round has been suggested for the paper table. What would you enjoy doing?",
+        "zh": "有人给纸上小桌建议趣味一轮，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tigger",
+          "label": {
+            "en": "Invite others to try it while making watching or passing equally welcome.",
+            "zh": "邀请试，也同样欢迎旁观、不参加。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say whether this is the kind of play I actually want today.",
+            "zh": "说今天是否真想这种玩乐。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kanga",
+          "label": {
+            "en": "Offer one requested adjustment that makes participation more comfortable.",
+            "zh": "给应请求的一项调整，使参与舒服。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pooh",
+          "label": {
+            "en": "Enjoy the paper pieces together without needing another game.",
+            "zh": "一起享受纸作品，不需再玩游戏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_11",
+      "prompt": {
+        "en": "Friends are choosing how to finish their bookmark afternoon. What appeals most?",
+        "zh": "朋友在选怎样收书签下午，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Give my actual preference instead of saying every ending is wonderful.",
+            "zh": "给实际偏好，不说每种结尾都精彩。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask if someone wants a small practical hand with packing up.",
+            "zh": "问谁想获小实际收拾帮助。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pooh",
+          "label": {
+            "en": "Spend an unhurried moment enjoying what we made.",
+            "zh": "从容享受一起做出的东西。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose one modest closing contribution I want to make.",
+            "zh": "选自己想做的一项适中收尾贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_12",
+      "prompt": {
+        "en": "A friend would like to make their place at the paper-picnic easier to use. What would you prefer?",
+        "zh": "朋友想让纸上野餐位置好用些，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask which change they want before offering a manageable practical hand.",
+            "zh": "给能做实际帮助前，问想改哪处。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pooh",
+          "label": {
+            "en": "Enjoy a simple companionable pause while they choose.",
+            "zh": "对方选择时，享受简单相伴停歇。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "piglet",
+          "label": {
+            "en": "Take a small part they have agreed I can try.",
+            "zh": "接对方已同意、自己可试的小部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "owl",
+          "label": {
+            "en": "Explain a checked way to arrange one paper item if they ask.",
+            "zh": "若对方问，解释已核的一个纸物摆法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_13",
+      "prompt": {
+        "en": "The paper gathering has no impressive plan for the next few minutes. What appeals most?",
+        "zh": "纸上小聚接几分钟没精彩安排，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pooh",
+          "label": {
+            "en": "Enjoy the ordinary company without treating the pause as a problem.",
+            "zh": "享受普通相伴，不把停歇当问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose one little thing I feel like trying at my own pace.",
+            "zh": "按自己节奏，选一项想试小事。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "owl",
+          "label": {
+            "en": "Offer a short explanation of a detail somebody is curious about.",
+            "zh": "给别人好奇细节一个短解释。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tigger",
+          "label": {
+            "en": "Suggest a lighthearted optional activity if others want movement in the scene.",
+            "zh": "若别人想场景活络，提轻松可选活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_14",
+      "prompt": {
+        "en": "There are several small jobs left on the handmade bookmark. What would you most enjoy?",
+        "zh": "手作书签还剩几个小任务，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "piglet",
+          "label": {
+            "en": "Pick one manageable job without making a promise to do every remaining part.",
+            "zh": "选一项能做任务，不承诺包余下全部。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "owl",
+          "label": {
+            "en": "Check how one unfinished detail works before explaining it.",
+            "zh": "解释前，核一项未完细节怎样运作。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tigger",
+          "label": {
+            "en": "Try an agreed playful finishing touch that can be left out.",
+            "zh": "试约好、也可不用的趣味收尾细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eeyore",
+          "label": {
+            "en": "State which remaining job I would prefer, without pretending the options feel identical.",
+            "zh": "说更喜欢哪剩余任务，不假装选项感觉相同。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_15",
+      "prompt": {
+        "en": "Someone repeats a confident claim about the paper craft that you have not checked. What appeals most?",
+        "zh": "有人自信重复一项你未核的纸手作说法，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "owl",
+          "label": {
+            "en": "Separate what I know from what needs a small check.",
+            "zh": "分开自己已知与需小核之处。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tigger",
+          "label": {
+            "en": "Suggest a harmless optional trial that keeps the investigation playful.",
+            "zh": "建议无害可选尝试，使探索有玩趣。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Say what I find clear or unclear without making it a judgment of the speaker.",
+            "zh": "说觉得哪清楚、哪不清，不变成对发言者评价。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask if a practical arrangement would make the trial easier for someone.",
+            "zh": "问实际安排能否让谁更好尝试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_16",
+      "prompt": {
+        "en": "The group has time for one more optional paper game. What would you prefer?",
+        "zh": "小组还有时间玩一可选纸游戏，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tigger",
+          "label": {
+            "en": "Invite a playful last round that people can freely skip.",
+            "zh": "邀请趣味末轮，人人可自由跳过。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Be honest if I would rather finish with the quieter activity.",
+            "zh": "若更想以安静活动结束，就诚实说。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kanga",
+          "label": {
+            "en": "Offer a small requested practical change rather than manage everybody’s ending.",
+            "zh": "给小应请求调整，不管理所有人的收尾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pooh",
+          "label": {
+            "en": "Keep an ordinary shared moment as enough for today.",
+            "zh": "把普通共同片刻作今天已足够。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_17",
+      "prompt": {
+        "en": "A friend asks which part of the gathering you actually liked. What appeals most?",
+        "zh": "朋友问聚会实际喜欢哪部分，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eeyore",
+          "label": {
+            "en": "Name my real preference, even if it was one of the quiet parts.",
+            "zh": "说真实偏好，即使为安静部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kanga",
+          "label": {
+            "en": "Ask whether they want a specific practical suggestion for next time.",
+            "zh": "问对方想不想要下次具体实际建议。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pooh",
+          "label": {
+            "en": "Mention an ordinary little pleasure we could enjoy again.",
+            "zh": "提可再享受的普通小乐趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose a small contribution I might freely try on another day.",
+            "zh": "选改天或许自愿试的小贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SBF_18",
+      "prompt": {
+        "en": "For another original paper-picnic, someone requests help with one detail. What would you enjoy?",
+        "zh": "下次原创纸上野餐，有人请求一项细节帮助，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kanga",
+          "label": {
+            "en": "Offer a bounded practical hand after checking what is wanted.",
+            "zh": "核想要什么后，给有限实际帮助。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pooh",
+          "label": {
+            "en": "Leave room for an ordinary unhurried moment together too.",
+            "zh": "也留一起普通从容片刻的空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "piglet",
+          "label": {
+            "en": "Choose one small step, with room to decide again later.",
+            "zh": "选一个小步，也留后续再选空间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "owl",
+          "label": {
+            "en": "Share one explanation I have checked rather than sound certain about everything.",
+            "zh": "分享一项已核解释，不显得凡事确定。"
+          }
+        }
+      ]
+    }
+  ]
+}
