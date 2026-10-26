@@ -3465,5 +3465,38 @@
       "short-german-texts"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "zodiac-sign-quiz",
+    "code": "FM_ZODIAC_SIGN_STORY",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Zodiac Sign Quiz",
+      "zh": "星座测试"
+    },
+    "description": {
+      "en": "Choose 12 original story-making scenes and read all 12 free sign guides. Transparent counts keep every highest tie. No birthday or natal-chart calculation.",
+      "zh": "12道原创故事创作选择，看看本次更想采用哪些星座命名的叙事镜头。公开原始计数，保留所有最高并列，十二篇完整双语指南免费；不问生日，不算太阳、月亮、上升或四元素，不预测运势与配对。"
+    },
+    "minutes": 5,
+    "formCode": "fm_zodiac_sign_story_lenses_12_v1",
+    "questionCount": 12,
+    "resultSlugs": [
+      "aries",
+      "taurus",
+      "gemini",
+      "cancer",
+      "leo",
+      "virgo",
+      "libra",
+      "scorpio",
+      "sagittarius",
+      "capricorn",
+      "aquarius",
+      "pisces"
+    ],
+    "collection": "explore"
   }
 ]
