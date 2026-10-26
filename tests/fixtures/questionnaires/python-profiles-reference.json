@@ -1,0 +1,502 @@
+[
+  {
+    "id": "values-and-text",
+    "directionIds": [
+      "values-and-text"
+    ],
+    "title": {
+      "en": "Values and text",
+      "zh": "值与文本"
+    },
+    "headline": {
+      "en": "Trace the operator, boundary and actual object.",
+      "zh": "跟随操作符、边界与实际对象。"
+    },
+    "summary": {
+      "en": "Review negative floor division, remainder, exponentiation, slices, split/strip and truth values.",
+      "zh": "复习负数向下取整除法、余数、乘方、切片、分隔去空白及真值。"
+    },
+    "scoreReading": {
+      "en": "This count checks matching outcomes on six supplied CPython 3.14.5 tasks. It is not a developer band, percentile, employer threshold or qualification. Every worked answer and all four complete guides remain available at every count.",
+      "zh": "本正确数核六道给定CPython 3.14.5任务的匹配结果，不是开发者档位、百分位、雇主门槛或资格。任何正确数都可读全部题解与四份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Values and text: Python practice guide",
+        "zh": "值与文本：Python练习指南"
+      },
+      "description": {
+        "en": "Review negative floor division, remainder, exponentiation, slices, split/strip and truth values.",
+        "zh": "复习负数向下取整除法、余数、乘方、切片、分隔去空白及真值。"
+      }
+    },
+    "sections": [
+      {
+        "id": "six-checks",
+        "title": {
+          "en": "Six small expressions with different rules",
+          "zh": "六个小表达式，分别使用不同规则"
+        },
+        "paragraphs": [
+          {
+            "en": "The first six tasks are about the value produced by the supplied expression, rather than a general impression of Python’s flexibility. Two use a negative integer dividend, so rounding direction matters. Another distinguishes exponentiation from addition. The text tasks require an excluded slice stop and two consecutive string operations. The final item compares an empty collection with a nonempty string. Keep those operations separate when explaining why a chosen output matches.",
+            "zh": "前六题核给定表达式的值，不凭对Python灵活性的笼统印象。两题用负整数被除数，须辨取整方向；另题分乘方与加法。文本题涉及不含终点的切片和连续两步字符串操作，最后比较空集合与非空字符串。解释答案时分别跟随各项操作。"
+          }
+        ]
+      },
+      {
+        "id": "fresh-example",
+        "title": {
+          "en": "Check quotient and remainder together",
+          "zh": "把商与余数一起核对"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new unscored example, use -17 with divisor 5. The floor quotient is -4 and the remainder is 3, since -17 equals (-4)*5+3. Printing both with a colon produces -4:3. A quotient of -3 would be truncation toward zero, not the floor result. Use the integer identity to check the pair rather than memorising a sign rule without its arithmetic context.",
+            "zh": "新不计分例用-17和除数5，向下取整商-4、余数3，因为-17=(-4)*5+3，用冒号打印得-4:3。商-3是向零截断，不是向下取整。宜用整数恒等式核这对数，不脱离算式背符号。"
+          }
+        ]
+      },
+      {
+        "id": "numeric-trace",
+        "title": {
+          "en": "Write the grouped numeric calculation",
+          "zh": "写出分组后的数值计算"
+        },
+        "paragraphs": [
+          {
+            "en": "For each numeric item, write the operator first and then the exact input values. The bank’s exponentiation expression evaluates the power before adding one; it does not insert parentheses around the exponent plus one. The division examples use integers and avoid floating-point rounding questions. Do not carry a rule from a different programming language into Python without checking it, especially when a negative result makes floor and truncation disagree.",
+            "zh": "每道数值题先写操作符及确切输入。乘方题先算幂再加1，不擅自在指数加1外加括号；除法题用整数，避开浮点舍入问题。别不经核对就把其他语言规则带进Python，尤其负数时向下取整与截断不同。"
+          }
+        ]
+      },
+      {
+        "id": "text-trace",
+        "title": {
+          "en": "Track positions and intermediate text",
+          "zh": "追踪位置与中间文本"
+        },
+        "paragraphs": [
+          {
+            "en": "For a slice, number the supplied ASCII characters from zero and mark the start and excluded stop before copying any letters. For split followed by indexing and strip, write the intermediate list of fields, select the requested one and only then remove its outside whitespace. The example does not ask strip to delete spaces inside every field or ask split to preserve its literal separator in the chosen field.",
+            "zh": "切片先从零标ASCII字符位置，标起点与不含的终点再抄字母。split、索引、strip连续题先写中间字段列表，取指定段后才去两端空白；题中不是去掉每段内部所有空格，也不是让split把分隔符留在选中段。"
+          }
+        ]
+      },
+      {
+        "id": "truth-values",
+        "title": {
+          "en": "Separate empty from zero-looking text",
+          "zh": "区分空值容器与看起来像零的文本"
+        },
+        "paragraphs": [
+          {
+            "en": "The final item asks bool to test the supplied objects. An empty list and a nonempty string have different truth values; the string’s visible zero is not itself an integer conversion. When a prediction is wrong, state which object you actually tested rather than replacing it with a similarly written value. This exercise does not claim to cover custom classes whose truth-testing methods may define different behaviour.",
+            "zh": "最后一题由bool核给定对象：空列表与非空字符串真值不同，文本中可见的零并不等于整数转换。预测错时先说实际测试哪个对象，不换成写法相似的值。本练习不覆盖可自定义真值方法的所有类。"
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": {
+          "en": "Change one operand after predicting",
+          "zh": "先预测，再只改一个操作数"
+        },
+        "paragraphs": [
+          {
+            "en": "Use a fresh disposable .py file with invented numbers and labels. Predict an expression, then change only the dividend’s sign, slice boundary or string emptiness. Explain the old and new intermediate values before running it with the stated Python version. The website itself displays escaped code and scores selected outcomes; it does not execute visitor scripts, upload private files or inspect a production application as part of this practice.",
+            "zh": "用可丢弃.py和虚构数字标签，先预测一表达式，再只改被除数符号、切片边界或字符串是否为空。运行指定Python版本前解释新旧中间值。网站只显示转义代码并核所选结果，不执行访问者脚本、上传私有文件或查看生产应用。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Keep six matching keys in perspective",
+          "zh": "六个匹配答案只描述本题组"
+        },
+        "paragraphs": [
+          {
+            "en": "All six items contribute one matching key each, with no speed bonus or partial credit. Every worked explanation and all four full guides remain available after a valid complete attempt, even at zero correct. The original programs were checked with CPython 3.14.5; this is not a compatibility study of every interpreter or an assessment of independent software development. Repeating the same fixed bank after reading its keys can reflect memory rather than transfer.",
+            "zh": "六题每个匹配计一道，无速度奖励或部分分。完整有效作答后，零题答对也能看全部解析与四份全文。程序按CPython 3.14.5核过，不是所有解释器兼容研究，也不评独立开发能力。固定题组看答案后重做可能反映记忆而非迁移。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loops-and-functions",
+    "directionIds": [
+      "loops-and-functions"
+    ],
+    "title": {
+      "en": "Loops and functions",
+      "zh": "循环与函数"
+    },
+    "headline": {
+      "en": "Separate definition, iteration, call and parse time.",
+      "zh": "分清定义、迭代、调用与解析时刻。"
+    },
+    "summary": {
+      "en": "Review stepped ranges, continue, return expressions, definition-time defaults and two syntax failures.",
+      "zh": "复习带步长范围、continue、返回表达式、定义时默认值及两种语法失败。"
+    },
+    "scoreReading": {
+      "en": "This count checks matching outcomes on six supplied CPython 3.14.5 tasks. It is not a developer band, percentile, employer threshold or qualification. Every worked answer and all four complete guides remain available at every count.",
+      "zh": "本正确数核六道给定CPython 3.14.5任务的匹配结果，不是开发者档位、百分位、雇主门槛或资格。任何正确数都可读全部题解与四份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Loops and functions: Python practice guide",
+        "zh": "循环与函数：Python练习指南"
+      },
+      "description": {
+        "en": "Review stepped ranges, continue, return expressions, definition-time defaults and two syntax failures.",
+        "zh": "复习带步长范围、continue、返回表达式、定义时默认值及两种语法失败。"
+      }
+    },
+    "sections": [
+      {
+        "id": "six-checks",
+        "title": {
+          "en": "Trace iterations, calls and parsing separately",
+          "zh": "分别追踪迭代、调用与解析"
+        },
+        "paragraphs": [
+          {
+            "en": "This group has four executable scripts and two deliberately invalid ones. The range task requires its stated start, stop and step. The loop task skips an addition with continue. A function returns a value that a surrounding expression then multiplies. Another stores a default when its definition executes. Before tracing either invalid script, recognise that its parse failure prevents the later call and print from running at all.",
+            "zh": "本组六题含四段可执行脚本和两段刻意无效脚本。range要读起终点与步长；循环用continue跳过相加；函数先返回再由外部相乘；另题在定义时保存默认值。追踪无效脚本前，先认出解析失败会阻止后续调用和打印。"
+          }
+        ]
+      },
+      {
+        "id": "fresh-example",
+        "title": {
+          "en": "A later name change leaves the saved default alone",
+          "zh": "后续名称改变不替换已存默认值"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new unscored example, set anchor to 3 and define scale(n=anchor) to return n*3. Then rebind anchor to 8 and call scale without an argument. The saved default is still 3, so the returned and printed number is 9. Supplying scale(8) explicitly would instead use a different argument. Mark the definition event and call event on separate lines so the relevant moment is visible.",
+            "zh": "新不计分例先anchor=3，定义scale(n=anchor)返回n*3，再把anchor绑定为8后无参调用。已存默认值仍3，打印9；明确传scale(8)则实参不同。把定义与调用分行标注，就能看清关键时刻。"
+          }
+        ]
+      },
+      {
+        "id": "iteration",
+        "title": {
+          "en": "List the values that reach the body",
+          "zh": "列出真正进入主体的值"
+        },
+        "paragraphs": [
+          {
+            "en": "A stepped range does not mean every value between two endpoints. Write each generated integer until the excluded stop would be crossed, then add only those values. In the separate continue task, mark the iteration where execution jumps before the accumulator update. That jump skips the rest of one iteration and permits the following one; it does not behave like break. The final print sits outside the loop in the supplied indentation.",
+            "zh": "带步长range不是两端间每个数。逐个列到将越过不含终点时停止，再求和。continue题标出在更新累加器前跳转的那一轮，它跳过单轮余下部分并允许下一轮，不等于break；给定缩进把最终print放在循环外。"
+          }
+        ]
+      },
+      {
+        "id": "call-result",
+        "title": {
+          "en": "Do not move the caller’s arithmetic into the argument",
+          "zh": "不把调用处运算移进实参"
+        },
+        "paragraphs": [
+          {
+            "en": "The return task first computes the function body using the supplied argument, then uses the resulting number in the caller’s multiplication. Draw parentheses around the function call as one value before evaluating the surrounding expression. A return statement passes a value back to the caller; it is not another print, and there is no implicit display of every intermediate expression when these snippets run as independent .py scripts.",
+            "zh": "return题先按实参算函数体，再在调用处把结果相乘。把整个函数调用括为一个值后算外层表达式。return把值交回调用方，不是另一条print；作为独立.py脚本运行时，中间表达式不会自动显示。"
+          }
+        ]
+      },
+      {
+        "id": "syntax",
+        "title": {
+          "en": "Check the whole script before predicting any output",
+          "zh": "预测输出前先核整段语法"
+        },
+        "paragraphs": [
+          {
+            "en": "One definition lacks its required colon. The other ordinary positional-or-keyword parameter list places a required parameter after one with a default. Both are syntax failures before execution, not functions that return None. Special keyword-only forms follow different rules, but those forms are not present in this bank’s invalid declaration. Read the supplied code as it is; silently repairing it would create a new, unscored question.",
+            "zh": "一段函数头缺必需冒号，另一普通位置或关键字形参列表把必需形参放在默认形参后。二者都在执行前语法失败，不是返回None。关键字专用形式有不同规则，但本题未使用；须读原代码，暗自修复就变另一题。"
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": {
+          "en": "Compare one valid script with one intended syntax failure",
+          "zh": "分别核有效脚本与刻意语法失败"
+        },
+        "paragraphs": [
+          {
+            "en": "In a disposable local file, change a loop’s step or move an accumulator update while keeping the indentation explicit. In a separate file, add the missing colon and predict what becomes executable. Do not mix the files, since a syntax failure anywhere can prevent unrelated prints in the same script. Predict first, then check with the declared interpreter. This is optional revision, without a promised learning rate or a timed performance benchmark.",
+            "zh": "可在本机可丢弃文件改循环步长或更新位置，并写清缩进；另开文件补缺冒号，预测哪些语句变得可执行。不要混文件，一处语法失败可阻止同脚本其他打印。按声明解释器先预测后核验；这是可选复习，无承诺学习速率或计时基准。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "A count is a pointer to particular reasoning steps",
+          "zh": "正确数提示具体推理步骤"
+        },
+        "paragraphs": [
+          {
+            "en": "These six fixed choices are equally weighted and remain part of the 24-item bank. A mistake can concern iteration, definition timing or parsing, so the total alone cannot identify its cause. Read every explanation and use a fresh example after studying the key. No beginner-to-expert band, percentile, employer threshold or certificate is assigned. Recognising a visible option does not demonstrate that you can design, test and maintain a complete program independently.",
+            "zh": "六个固定选择等权计入24题。错误可能来自迭代、定义时机或解析，总数不能单独确定原因；读解析后宜用新例。这里不派初级到专家档位、百分位、雇主门槛或证书，识别可见选项不证明独立设计、测试和维护完整程序。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "collections-and-aliases",
+    "directionIds": [
+      "collections-and-aliases"
+    ],
+    "title": {
+      "en": "Collections and aliases",
+      "zh": "集合与别名"
+    },
+    "headline": {
+      "en": "Identify which outer or nested object changed.",
+      "zh": "辨明改变的是外层还是内层对象。"
+    },
+    "summary": {
+      "en": "Review list identity, shallow copies, dictionary updates and defaults, set size and filtered comprehensions.",
+      "zh": "复习列表身份、浅复制、字典更新和默认查找、集合大小与筛选推导式。"
+    },
+    "scoreReading": {
+      "en": "This count checks matching outcomes on six supplied CPython 3.14.5 tasks. It is not a developer band, percentile, employer threshold or qualification. Every worked answer and all four complete guides remain available at every count.",
+      "zh": "本正确数核六道给定CPython 3.14.5任务的匹配结果，不是开发者档位、百分位、雇主门槛或资格。任何正确数都可读全部题解与四份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Collections and aliases: Python practice guide",
+        "zh": "集合与别名：Python练习指南"
+      },
+      "description": {
+        "en": "Review list identity, shallow copies, dictionary updates and defaults, set size and filtered comprehensions.",
+        "zh": "复习列表身份、浅复制、字典更新和默认查找、集合大小与筛选推导式。"
+      }
+    },
+    "sections": [
+      {
+        "id": "six-checks",
+        "title": {
+          "en": "Count containers separately from their contents",
+          "zh": "把容器与其中内容分开数"
+        },
+        "paragraphs": [
+          {
+            "en": "These six tasks follow ordinary lists, dictionaries and sets, with every relevant operation visible. Assigning another name to a list differs from making a shallow outer copy. Replacing a dictionary value differs from inserting another key. A missing-key get can return a fallback without changing that dictionary. The set item counts retained members, while the comprehension filters values before transforming them. None of the questions requires guessing a set’s display order.",
+            "zh": "六题追踪普通列表、字典与集合，相关操作完整可见。给列表另一个名称不同于浅复制外层；替换字典值不同于插入新键；缺失键get可返回后备值而不改变字典；集合数保留成员，推导式先筛选再变换。无题要求猜集合显示顺序。"
+          }
+        ]
+      },
+      {
+        "id": "fresh-example",
+        "title": {
+          "en": "A copied outer list can share an inner dictionary",
+          "zh": "复制外层列表仍可共享内层字典"
+        },
+        "paragraphs": [
+          {
+            "en": "In a new unscored example, source is [{\"n\":1}]. Make copy with source.copy(), then set copy[0][\"n\"] to 3. The outer lists are distinct, but their first elements reach the same dictionary. Printing source[0][\"n\"] and source is copy with a colon gives 3:False. Draw the dictionary once and connect both outer positions to it. Merely drawing two outer lists does not establish independent nested data.",
+            "zh": "新不计分例source为[{\"n\":1}]，经source.copy()得到copy，再把copy[0][\"n\"]设3。外层列表不同，首元素却到同一字典，打印源内值与外层身份比较得3:False。字典只画一份，由两个外层位置连接，不能只因外层有两份就认定内层独立。"
+          }
+        ]
+      },
+      {
+        "id": "identity",
+        "title": {
+          "en": "Track assignment and copy as different events",
+          "zh": "把赋值与复制记为不同事件"
+        },
+        "paragraphs": [
+          {
+            "en": "When alias receives source directly, both names refer to one list, so appending through either name affects the same contents. A shallow copy instead creates a new outer list whose elements initially refer to the original element objects. Mutation of a shared inner object can remain visible from both sides. That does not mean every change to either outer list is shared. Identify precisely which list or nested value the shown assignment modifies.",
+            "zh": "alias直接接source时，两名指向一列表，经任一名追加都改同一内容。浅复制新建外层，元素最初仍引用原元素对象，修改共享内层仍可两边可见，但不表示任一外层变化都共享。须明确题给赋值改哪一层。"
+          }
+        ]
+      },
+      {
+        "id": "dictionary",
+        "title": {
+          "en": "Distinguish an update from a fallback lookup",
+          "zh": "区分更新与后备查找"
+        },
+        "paragraphs": [
+          {
+            "en": "Writing to an existing equal key replaces its value rather than keeping two historical entries for that key. Calling get on a missing key with a supplied default returns that default without inserting an entry. Keep a small two-column record of keys and current values before checking the length. Do not substitute subscription or a different dictionary method while predicting this code; those alternatives can have different failure or insertion behaviour.",
+            "zh": "写已有相等键替换当前值，不保存同键两个历史条目。缺失键的get带默认值时返回它而不插入。核长度前可列键与当前值两列；预测时别暗换下标或其他字典方法，它们可能有不同失败或插入行为。"
+          }
+        ]
+      },
+      {
+        "id": "selection",
+        "title": {
+          "en": "Apply the predicate before the expression",
+          "zh": "先应用筛选条件，再算表达式"
+        },
+        "paragraphs": [
+          {
+            "en": "The comprehension starts from its stated range, keeps only values satisfying the remainder test and squares those selected values in order. The later join converts numbers to strings and supplies the punctuation that is actually printed. A set length asks a different question: how many distinct supplied string values survive. Neither operation is a sorting request. List brackets or an assumed set order should not be added to a printed joined string.",
+            "zh": "推导式从指定range开始，保留满足余数条件的值，再按顺序平方；后续join转字符串并提供实际标点。集合长度则问给定字符串中保留多少不同值，二者都不要求排序。不能给连接文本添列表方括号或假定集合顺序。"
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": {
+          "en": "Predict the source after each operation",
+          "zh": "每次操作后也预测源的状态"
+        },
+        "paragraphs": [
+          {
+            "en": "Use invented values in a new disposable .py file. For a shallow copy, predict the outer identity and one nested mutation separately. For a dictionary lookup, predict both the returned value and the entry count. Change one feature at a time and write the prediction before running with the declared interpreter. Keep real customer data, useful files and application state outside this exercise; no upload or access to those materials is needed on the website.",
+            "zh": "用新可丢弃.py和虚构值，分别预测浅复制外层身份与一次内层修改；查字典则同时预测返回值和条目数。每次只改一处，先预测再按声明解释器运行。练习不涉及客户资料、有用文件或应用状态，网站不需要上传或访问它们。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Review the particular data operation",
+          "zh": "复习具体数据操作"
+        },
+        "paragraphs": [
+          {
+            "en": "A missed key may reflect confusion about aliasing, a fallback value or a filter boundary. The six-item count cannot distinguish those causes and does not assess managing a production dataset or preventing every unwanted mutation. Read all worked explanations and try new values after learning the fixed key. No rank, hiring recommendation, ability tier or certification is supplied. All four full guides remain available at every count after a valid complete attempt.",
+            "zh": "错题可能混淆别名、后备值或筛选边界，六题总数不能区分原因，也不评生产数据集管理或避免所有意外修改。读解析后换新值；不提供排名、招聘推荐、能力档或认证，完整有效作答后任何正确数都可读四份全文。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "errors-and-objects",
+    "directionIds": [
+      "errors-and-objects"
+    ],
+    "title": {
+      "en": "Errors and objects",
+      "zh": "错误与对象"
+    },
+    "headline": {
+      "en": "Write the path that actually reaches each event.",
+      "zh": "写出实际到达各事件的路径。"
+    },
+    "summary": {
+      "en": "Review matching exceptions, finally, instance attributes, successful context-manager entry and generator yields.",
+      "zh": "复习异常匹配、finally、实例属性、上下文成功进入及生成器产出。"
+    },
+    "scoreReading": {
+      "en": "This count checks matching outcomes on six supplied CPython 3.14.5 tasks. It is not a developer band, percentile, employer threshold or qualification. Every worked answer and all four complete guides remain available at every count.",
+      "zh": "本正确数核六道给定CPython 3.14.5任务的匹配结果，不是开发者档位、百分位、雇主门槛或资格。任何正确数都可读全部题解与四份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Errors and objects: Python practice guide",
+        "zh": "错误与对象：Python练习指南"
+      },
+      "description": {
+        "en": "Review matching exceptions, finally, instance attributes, successful context-manager entry and generator yields.",
+        "zh": "复习异常匹配、finally、实例属性、上下文成功进入及生成器产出。"
+      }
+    },
+    "sections": [
+      {
+        "id": "six-checks",
+        "title": {
+          "en": "Read the declared success and failure paths",
+          "zh": "读清声明的成功与失败路径"
+        },
+        "paragraphs": [
+          {
+            "en": "These tasks distinguish an exception raised while executing valid Python from the syntax failures in the function group. They also trace a finally block after a successful body, separate instance attributes, a context manager whose entry succeeds and a generator’s yielded numbers. Every output is deterministic for the supplied scripts. The examples do not open resources, send requests or ask you to infer what an unknown cleanup implementation would do.",
+            "zh": "本组把有效Python运行时抛异常与函数组的语法失败分开，并追踪成功主体后的finally、独立实例属性、成功进入的上下文管理器和生成器产出数。给定脚本输出确定，不打开资源、发请求或猜未知清理实现。"
+          }
+        ]
+      },
+      {
+        "id": "fresh-example",
+        "title": {
+          "en": "A failed entry does not reach the shown exit method",
+          "zh": "进入失败不会到达所示退出方法"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new unscored example, a context manager’s __enter__ appends enter and then raises ValueError. Wrap the entire with statement in a matching try/except that appends handled. Give __exit__ a body that would append exit. The printed trace is enter:handled, without body or exit. The exit guarantee requires __enter__ to return successfully; if acquiring a resource fails partway through entry, the entry implementation must manage that failure appropriately.",
+            "zh": "新不计分例让__enter__先加enter再抛ValueError，整个with外用匹配try/except加handled，__exit__若运行则加exit。打印轨迹enter:handled，没有主体或exit。退出保证须先成功进入；若进入时获取资源半途失败，进入实现须妥善处理该失败。"
+          }
+        ]
+      },
+      {
+        "id": "exception-match",
+        "title": {
+          "en": "Follow the actual exception class",
+          "zh": "沿实际异常类核匹配"
+        },
+        "paragraphs": [
+          {
+            "en": "The conversion task raises ValueError and has a matching handler. The separate lookup task raises KeyError and handles it through its base class LookupError. An except clause can match an exception class or its subclasses; names need not be identical. State whether execution reaches a handler before predicting its print. A handled runtime exception is not evidence that the surrounding script was syntactically invalid, and an unmatched exception would follow a different path.",
+            "zh": "转换题抛ValueError且有匹配处理器；另题抛KeyError，由其基类LookupError处理。except可匹配该类或子类，不要求名字相同。先判断能否到处理器，再预测打印。已处理运行时异常不意味着脚本语法无效；不匹配异常则路径不同。"
+          }
+        ]
+      },
+      {
+        "id": "cleanup",
+        "title": {
+          "en": "Keep the cleanup conditions visible",
+          "zh": "清理条件保持可见"
+        },
+        "paragraphs": [
+          {
+            "en": "In the bank’s finally item, the body succeeds and finally still appends its event. In the bank’s context-manager item, __enter__ returns successfully, the body runs and __exit__ then records exit. Those are distinct traces with explicit conditions. Do not broaden either into a claim that arbitrary setup failures are always cleaned up automatically, or that cleanup cannot itself raise. The provided code has no such hidden operations or suppressed exception.",
+            "zh": "finally题主体成功后仍加清理事件；上下文题则__enter__成功返回、主体运行，再由__exit__记退出。二者有明确条件，不扩大成任意设置失败都自动清理、或清理自身不能抛错的断言。给定代码没有这些隐藏操作或被压制异常。"
+          }
+        ]
+      },
+      {
+        "id": "objects-and-yields",
+        "title": {
+          "en": "Separate equal values from identity and yield from return",
+          "zh": "分清值相等与身份、产出与返回"
+        },
+        "paragraphs": [
+          {
+            "en": "Two Cell constructor calls create two instances. Updating one instance’s own numeric attribute does not update the other, even when their resulting numbers match. The generator task is a separate distinction: sum consumes the values yielded before return ends iteration. The number written after return is not added as another yielded item. Read which operation requests each value instead of grouping every appearance of a number into one total.",
+            "zh": "两次Cell构造得两个实例，改一方自有数值属性不改另一方，即使结果数字相同。生成器题另核sum消费return结束前yield的值，return后的数值不是另一个产出项。要看哪项操作请求值，不把出现的数字统统相加。"
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": {
+          "en": "Write an event trace before executing",
+          "zh": "执行前先写事件轨迹"
+        },
+        "paragraphs": [
+          {
+            "en": "In a disposable script with invented event labels, record entry, body, handler and exit as separate possible steps. Test a successful entry and a failing entry in separate runs, predicting which events can occur. For an instance or generator example, change only one supplied value before checking again. Run this optional revision in the stated interpreter after predicting; the website itself neither executes visitor code nor examines private files or real production errors.",
+            "zh": "在可丢弃脚本用虚构标签，把进入、主体、处理器和退出列为不同可能步骤。成功进入与失败进入分次测，先预测哪些事件能发生；实例或生成器例只改一个给定值再核。本机复习先预测后用声明解释器运行，网站不执行访问者代码或查看私有文件、真实生产错误。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Complete review without a professional label",
+          "zh": "完整复习不附职业标签"
+        },
+        "paragraphs": [
+          {
+            "en": "The section counts six matching outcomes in one original fixed bank. It cannot show whether you can operate a service, debug resource leaks or design a complete exception policy. All explanations and guides are free after a valid full attempt, without a developer band, employer cutoff or certificate. English programs and outputs remain identical across the two interfaces. Reading the keys before retaking changes the practice conditions and can reward memory rather than unfamiliar-code reasoning.",
+            "zh": "本节数原创固定题组六个匹配结果，不能说明能否运维服务、排查资源泄漏或设计完整异常策略。完整有效作答后解析指南全免费，无开发者档、雇主门槛或证书。两语代码输出相同；读过答案重测改变练习条件，可能奖励记忆而非陌生代码推理。"
+          }
+        ]
+      }
+    ]
+  }
+]

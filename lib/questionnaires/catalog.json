@@ -3132,5 +3132,30 @@
       "promises-and-errors"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "python-test",
+    "code": "FM_PYTHON314_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Python Test",
+      "zh": "Python测试"
+    },
+    "description": {
+      "en": "Predict 24 original Python programs, checked with CPython 3.14.5. Read all worked answers and four full guides. No hiring tier or certificate.",
+      "zh": "用24段原创Python程序练习预测输出或语法错误，按CPython 3.14.5实跑核过。免费查看全部所选、正确答案、逐题解析和四份完整指南，不派招聘等级或认证。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_python314_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "values-and-text",
+      "loops-and-functions",
+      "collections-and-aliases",
+      "errors-and-objects"
+    ],
+    "collection": "explore"
   }
 ]

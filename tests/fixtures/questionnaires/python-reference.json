@@ -1,0 +1,1402 @@
+{
+  "id": "T138",
+  "version": "1.0.0",
+  "form": "fermatmind_python314_original_24_v1",
+  "method": "24independently authored Python3.14.5 standalone scripts/4x6;English code and stdout identical across interfaces;noinput/network/files/thirdpartylibraries/nondeterministicsetiteration.22actualstdout+2expectedSyntaxErrors verifiedCPython3.14.5;rawpy/parse/runbytes and codehashes bound to T138-python-verification.json. No visitor codeexecution,norms,hiringtiers or certificate.",
+  "questions": [
+    {
+      "id": "PY_01",
+      "prompt": {
+        "en": "Floor division has a negative dividend: what is printed?\n\nprint(-11 // 4)",
+        "zh": "向下取整除法的被除数为负：打印什么？\n\nprint(-11 // 4)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "-3",
+            "zh": "-3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "-2",
+            "zh": "-2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "-2.75",
+            "zh": "-2.75"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The exact quotient is -2.75. Integer floor division rounds toward negative infinity, giving -3 rather than truncating toward zero. Both operands are integers, so this program prints the integer representation -3.",
+        "zh": "准确商为-2.75，整数向下取整除法朝负无穷取整，得-3，不是向零截断。两个操作数都是整数，因此打印整数形式-3。"
+      }
+    },
+    {
+      "id": "PY_02",
+      "prompt": {
+        "en": "A remainder uses the same negative dividend: what is printed?\n\nprint(-11 % 4)",
+        "zh": "同一个负被除数求余：打印什么？\n\nprint(-11 % 4)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "-3",
+            "zh": "-3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "-1",
+            "zh": "-1"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "With positive divisor 4, the remainder is 1: -11 equals (-3)*4+1. Use the floor quotient from this expression, not a quotient truncated toward zero. This rule does not come from simply copying the dividend’s sign.",
+        "zh": "除数4为正，余数为1，因为-11=(-3)*4+1。这里用向下取整商，不用向零截断商；不能简单照搬被除数符号。"
+      }
+    },
+    {
+      "id": "PY_03",
+      "prompt": {
+        "en": "Exponentiation appears before addition: what is printed?\n\nprint(2 ** 3 + 1)",
+        "zh": "乘方与加法同时出现：打印什么？\n\nprint(2 ** 3 + 1)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Exponentiation is evaluated before addition in this expression. Two cubed is eight, then adding one gives nine. The code is not 2**(3+1), and ** is exponentiation rather than the exclusive-or operator.",
+        "zh": "本表达式先乘方后加法，2的三次方为8，再加1得9。它不是2**(3+1)，且**表示乘方，不是异或。"
+      }
+    },
+    {
+      "id": "PY_04",
+      "prompt": {
+        "en": "A string slice has an excluded stop: what is printed?\n\nprint(\"delta\"[1:4])",
+        "zh": "字符串切片不含终点：打印什么？\n\nprint(\"delta\"[1:4])"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "delt",
+            "zh": "delt"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "elta",
+            "zh": "elta"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "del",
+            "zh": "del"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "elt",
+            "zh": "elt"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "String positions start at zero. The slice includes positions 1, 2 and 3, whose characters are e, l and t, and excludes position 4. The supplied ASCII string avoids any question about multi-code-point visible characters.",
+        "zh": "字符串位置从零开始，切片包含1、2、3位的e、l、t，不包含4位。给定ASCII文本避免了可见字符由多个码点组成的问题。"
+      }
+    },
+    {
+      "id": "PY_05",
+      "prompt": {
+        "en": "Split selects one field, then strip removes outer spaces: what is printed?\n\nprint(\" red | blue \".split(\"|\")[1].strip())",
+        "zh": "先分隔并取一段，再去两端空格：打印什么？\n\nprint(\" red | blue \".split(\"|\")[1].strip())"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "blue",
+            "zh": "blue"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "red",
+            "zh": "red"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "redblue",
+            "zh": "redblue"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "blue|",
+            "zh": "blue|"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Splitting on the literal vertical bar creates two fields. Index 1 selects the second, containing spaces around blue. strip removes its leading and trailing whitespace. It does not join both fields or include the separator in the output.",
+        "zh": "按竖线分成两段，索引1取第二段，内容是blue两边带空格；strip去掉它两端的空白，不会拼两段，也不保留分隔符。"
+      }
+    },
+    {
+      "id": "PY_06",
+      "prompt": {
+        "en": "An empty list and a nonempty string are converted to bool: what is printed?\n\nprint(bool([]), bool(\"0\"), sep=\":\")",
+        "zh": "空列表与非空字符串转bool：打印什么？\n\nprint(bool([]), bool(\"0\"), sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "False:False",
+            "zh": "False:False"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "False:True",
+            "zh": "False:True"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "True:True",
+            "zh": "True:True"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-text",
+          "label": {
+            "en": "True:False",
+            "zh": "True:False"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "An empty list is false in a truth-value test. The string \"0\" is nonempty and therefore true, even though its visible character is zero. print joins the two Boolean representations with the supplied colon separator.",
+        "zh": "空列表的真值为假；字符串\"0\"非空，因此为真，不因可见字符是零就变假。print按给定冒号连接两个布尔值的表示。"
+      }
+    },
+    {
+      "id": "PY_07",
+      "prompt": {
+        "en": "A stepped range is summed: what is printed?\n\nprint(sum(range(2, 9, 3)))",
+        "zh": "对指定步长的range求和：打印什么？\n\nprint(sum(range(2, 9, 3)))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The range yields 2, 5 and 8. The stop value 9 is excluded, and the step is 3. Their sum is 15. range is an iterable range object here, not a request to include every integer between the endpoints.",
+        "zh": "range依次给2、5、8，不含终点9，步长3，因此和为15。这里range是可迭代的范围对象，不是要求包含两端间每个整数。"
+      }
+    },
+    {
+      "id": "PY_08",
+      "prompt": {
+        "en": "Continue skips one value: what is printed?\n\ntotal = 0\nfor value in [2, 4, 6]:\n    if value == 4:\n        continue\n    total += value\nprint(total)",
+        "zh": "continue跳过一个数：打印什么？\n\ntotal = 0\nfor value in [2, 4, 6]:\n    if value == 4:\n        continue\n    total += value\nprint(total)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The iteration for 4 reaches continue before addition, so only 2 and 6 enter the total. continue moves to the next iteration; it does not stop the whole loop as break would. The final total is eight.",
+        "zh": "值为4时在相加前遇continue，因此只加2和6，得8。continue进入下一轮，不像break那样结束整个循环。"
+      }
+    },
+    {
+      "id": "PY_09",
+      "prompt": {
+        "en": "A function result is multiplied after return: what is printed?\n\ndef lift(n):\n    return n + 4\n\nprint(lift(3) * 2)",
+        "zh": "函数先返回，再在调用处相乘：打印什么？\n\ndef lift(n):\n    return n + 4\n\nprint(lift(3) * 2)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The call lift(3) returns 3+4, which is seven. The surrounding expression multiplies that returned value by two, giving fourteen. The multiplication is outside the function and is not part of its argument.",
+        "zh": "lift(3)返回3+4，即7，再由外部表达式乘2得14。乘法在函数外，不是实参的一部分。"
+      }
+    },
+    {
+      "id": "PY_10",
+      "prompt": {
+        "en": "A default is captured when the function is defined: what is printed?\n\nbase = 4\ndef shift(n=base):\n    return n + 1\n\nbase = 9\nprint(shift())",
+        "zh": "默认值在定义函数时求值：打印什么？\n\nbase = 4\ndef shift(n=base):\n    return n + 1\n\nbase = 9\nprint(shift())"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "An uncaught exception before anything is printed.",
+            "zh": "尚未打印即发生未捕获异常。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The default expression base is evaluated when def executes, while base is four. Rebinding base to nine later does not replace the already stored default value. Calling shift without an argument therefore returns four plus one.",
+        "zh": "执行def时base为4，默认表达式此时求值。后面把base重绑定为9，不会替换已保存默认值；无参调用shift得4+1。"
+      }
+    },
+    {
+      "id": "PY_11",
+      "prompt": {
+        "en": "The function header has no colon: choose the outcome.\n\ndef lift(n)\n    return n + 4\n\nprint(lift(3))",
+        "zh": "函数头缺冒号：选择结果。\n\ndef lift(n)\n    return n + 4\n\nprint(lift(3))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "None",
+            "zh": "None"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "This def header is missing its required colon. The supplied independent script fails parsing before any statement can execute. It does not reach the return or print call, so no numeric or None output is produced.",
+        "zh": "def头缺必需冒号，整个独立脚本在执行任何语句前解析失败，不会到return或print，也不打印数字或None。"
+      }
+    },
+    {
+      "id": "PY_12",
+      "prompt": {
+        "en": "A required positional parameter follows a defaulted one: choose the outcome.\n\ndef pair(a=2, b):\n    return a + b\n\nprint(pair(3, 4))",
+        "zh": "普通必需位置形参跟在默认形参后：选择结果。\n\ndef pair(a=2, b):\n    return a + b\n\nprint(pair(3, 4))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "None",
+            "zh": "None"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "loops-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "In this ordinary positional-or-keyword parameter list, a required parameter cannot follow a defaulted one. The function definition fails the script’s syntax check before the call. The code contains no keyword-only separator that would make a different declaration possible.",
+        "zh": "在这种普通位置或关键字形参列表中，必需形参不能放在默认形参后，脚本在调用前语法检查失败。这里没有关键字专用分隔符，不可暗改成另一种合法声明。"
+      }
+    },
+    {
+      "id": "PY_13",
+      "prompt": {
+        "en": "Two names refer to one list: what is printed?\n\nsource = [4]\nalias = source\nalias.append(9)\nprint(len(source), source is alias, sep=\":\")",
+        "zh": "两个名称指向同一列表：打印什么？\n\nsource = [4]\nalias = source\nalias.append(9)\nprint(len(source), source is alias, sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2:True",
+            "zh": "2:True"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "1:False",
+            "zh": "1:False"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2:False",
+            "zh": "2:False"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "1:True",
+            "zh": "1:True"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Assignment gives alias a reference to the same list; it does not copy that list. Appending through alias leaves source with two elements. The identity comparison is true because both names still refer to that one object.",
+        "zh": "赋值让alias引用同一列表，没有复制。经alias追加后，source有两个元素；两个名称仍指向一个对象，身份比较为True。"
+      }
+    },
+    {
+      "id": "PY_14",
+      "prompt": {
+        "en": "A shallow list copy shares its nested list: what is printed?\n\nsource = [[2]]\ncopy = source.copy()\ncopy[0][0] = 7\nprint(source[0][0], source is copy, sep=\":\")",
+        "zh": "浅列表复制仍共享内层列表：打印什么？\n\nsource = [[2]]\ncopy = source.copy()\ncopy[0][0] = 7\nprint(source[0][0], source is copy, sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2:False",
+            "zh": "2:False"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "7:False",
+            "zh": "7:False"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "7:True",
+            "zh": "7:True"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2:True",
+            "zh": "2:True"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "copy is a distinct outer list, making the identity comparison false. Its element still refers to the original inner list, so changing that inner element is visible through source too. list.copy is shallow and no recursive copy occurs.",
+        "zh": "copy是另一外层列表，身份比较为False，但元素仍引用原内层列表，因此内层改成7也经source可见。list.copy为浅复制，没有递归复制。"
+      }
+    },
+    {
+      "id": "PY_15",
+      "prompt": {
+        "en": "Assigning an existing dictionary key replaces its value: what is printed?\n\ncounts = {\"a\": 6}\ncounts[\"a\"] = 8\nprint(counts[\"a\"], len(counts), sep=\":\")",
+        "zh": "为已有字典键赋值会替换值：打印什么？\n\ncounts = {\"a\": 6}\ncounts[\"a\"] = 8\nprint(counts[\"a\"], len(counts), sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "6:2",
+            "zh": "6:2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "8:2",
+            "zh": "8:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "8:1",
+            "zh": "8:1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "6:1",
+            "zh": "6:1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The key a already exists, so assignment replaces its value with eight rather than adding a second equal key. The dictionary still has one entry. The task prints the retrieved value and entry count, not an assumed duplicate-key history.",
+        "zh": "a键已存在，赋值把它的值替换为8，不会新增第二个相等键。字典仍有一个条目，打印的是当前值及条目数，不是重复键历史。"
+      }
+    },
+    {
+      "id": "PY_16",
+      "prompt": {
+        "en": "A missing-key get uses a default without insertion: what is printed?\n\ncounts = {\"a\": 6}\nprint(counts.get(\"b\", 3), len(counts), sep=\":\")",
+        "zh": "缺失键的get用默认值且不插入：打印什么？\n\ncounts = {\"a\": 6}\nprint(counts.get(\"b\", 3), len(counts), sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "3:2",
+            "zh": "3:2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "None:1",
+            "zh": "None:1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "An uncaught exception before anything is printed.",
+            "zh": "尚未打印即发生未捕获异常。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "3:1",
+            "zh": "3:1"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The dictionary has no b key, so get returns the supplied default three. This lookup does not insert b, leaving one entry. It differs from subscripting a missing key, which would raise KeyError for this ordinary dictionary.",
+        "zh": "字典无b键，get返回给定默认值3，且不插入b，因此仍有一个条目。这与普通字典用下标取缺失键、抛KeyError不同。"
+      }
+    },
+    {
+      "id": "PY_17",
+      "prompt": {
+        "en": "A set receives a repeated string: what is printed?\n\nprint(len({\"oak\", \"oak\", \"pine\"}))",
+        "zh": "集合收到重复字符串：打印什么？\n\nprint(len({\"oak\", \"oak\", \"pine\"}))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The equal oak strings represent one set member, while pine is another. The set therefore has two members. Only length is printed; this question does not assume a particular ordering when a set is iterated or displayed.",
+        "zh": "相等的oak字符串对应一个集合成员，pine为另一个，因此长度2。只打印长度，不假定集合迭代或显示的顺序。"
+      }
+    },
+    {
+      "id": "PY_18",
+      "prompt": {
+        "en": "A comprehension selects even values before squaring: what is printed?\n\nvalues = [n * n for n in range(1, 5) if n % 2 == 0]\nprint(\",\".join(str(n) for n in values))",
+        "zh": "推导式先选偶数再平方：打印什么？\n\nvalues = [n * n for n in range(1, 5) if n % 2 == 0]\nprint(\",\".join(str(n) for n in values))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "1,9",
+            "zh": "1,9"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "4,16",
+            "zh": "4,16"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "4,16,36",
+            "zh": "4,16,36"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-aliases",
+          "label": {
+            "en": "2,4",
+            "zh": "2,4"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "range supplies one through four; the condition keeps two and four. Squaring gives four and sixteen in that order. The second line converts those numbers to strings and joins them with a comma, without list brackets in the printed output.",
+        "zh": "range给1至4，条件保留2和4，平方后依次为4、16。第二行转字符串并用逗号连接，输出中没有列表方括号。"
+      }
+    },
+    {
+      "id": "PY_19",
+      "prompt": {
+        "en": "A failed integer conversion has a matching handler: what is printed?\n\ntry:\n    int(\"reef\")\nexcept ValueError:\n    print(\"handled\")",
+        "zh": "整数转换失败且有匹配处理器：打印什么？\n\ntry:\n    int(\"reef\")\nexcept ValueError:\n    print(\"handled\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "reef",
+            "zh": "reef"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "None",
+            "zh": "None"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "handled",
+            "zh": "handled"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "An uncaught exception before anything is printed.",
+            "zh": "尚未打印即发生未捕获异常。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The text reef is not an integer literal accepted by int, so conversion raises ValueError. The matching except clause handles it and prints handled. The program’s own Python syntax is valid, and no uncaught exception remains.",
+        "zh": "reef不是int接受的整数字面文本，转换抛ValueError，匹配except处理后打印handled。Python自身语法有效，也没有未捕获异常。"
+      }
+    },
+    {
+      "id": "PY_20",
+      "prompt": {
+        "en": "A base exception class handles its subclass: what is printed?\n\ntry:\n    raise KeyError(\"missing\")\nexcept LookupError:\n    print(\"lookup\")",
+        "zh": "基异常类处理其子类：打印什么？\n\ntry:\n    raise KeyError(\"missing\")\nexcept LookupError:\n    print(\"lookup\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "missing",
+            "zh": "missing"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "KeyError",
+            "zh": "KeyError"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "An uncaught exception before anything is printed.",
+            "zh": "尚未打印即发生未捕获异常。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "lookup",
+            "zh": "lookup"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "KeyError is a subclass of LookupError. This except clause therefore matches the raised exception and prints lookup. Matching is based on the exception class hierarchy, not on whether the two class names are textually identical.",
+        "zh": "KeyError是LookupError子类，因此except匹配并打印lookup。匹配依据异常类继承，不要求两个类名文字相同。"
+      }
+    },
+    {
+      "id": "PY_21",
+      "prompt": {
+        "en": "Finally runs after a successful try body: what is printed?\n\nevents = []\ntry:\n    events.append(\"work\")\nfinally:\n    events.append(\"done\")\nprint(\":\".join(events))",
+        "zh": "try体成功后执行finally：打印什么？\n\nevents = []\ntry:\n    events.append(\"work\")\nfinally:\n    events.append(\"done\")\nprint(\":\".join(events))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "work:done",
+            "zh": "work:done"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "done:work",
+            "zh": "done:work"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "work",
+            "zh": "work"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "done",
+            "zh": "done"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The try body appends work without raising an exception, then finally appends done. The joined result is work:done. finally is not restricted to error cases; this task has no return, exception suppression or competing cleanup path.",
+        "zh": "try无异常地加入work，随后finally加入done，连接为work:done。finally不限错误情形；本题没有return、异常压制或其他竞争清理路径。"
+      }
+    },
+    {
+      "id": "PY_22",
+      "prompt": {
+        "en": "Two instances receive separate numeric attributes: what is printed?\n\nclass Cell:\n    def __init__(self, n):\n        self.n = n\n\nleft = Cell(2)\nright = Cell(5)\nleft.n += 3\nprint(left.n, right.n, left is right, sep=\":\")",
+        "zh": "两个实例各有数值属性：打印什么？\n\nclass Cell:\n    def __init__(self, n):\n        self.n = n\n\nleft = Cell(2)\nright = Cell(5)\nleft.n += 3\nprint(left.n, right.n, left is right, sep=\":\")"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "5:8:True",
+            "zh": "5:8:True"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "5:5:False",
+            "zh": "5:5:False"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "5:8:False",
+            "zh": "5:8:False"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "2:5:False",
+            "zh": "2:5:False"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Each constructor call creates a separate instance and assigns its own n attribute. Adding three changes only left.n, from two to five; right.n remains five. Equal printed numeric values do not make the two instances the same object.",
+        "zh": "每次构造创建独立实例并设自有n属性。加3只把left.n从2改5，right.n仍5；数值打印相等不意味着实例是同一对象。"
+      }
+    },
+    {
+      "id": "PY_23",
+      "prompt": {
+        "en": "A context manager enters successfully, runs its body and exits: what is printed?\n\nevents = []\nclass Gate:\n    def __enter__(self):\n        events.append(\"enter\")\n        return self\n    def __exit__(self, kind, value, trace):\n        events.append(\"exit\")\n        return False\n\nwith Gate():\n    events.append(\"body\")\nprint(\":\".join(events))",
+        "zh": "上下文管理器成功进入后执行主体与退出：打印什么？\n\nevents = []\nclass Gate:\n    def __enter__(self):\n        events.append(\"enter\")\n        return self\n    def __exit__(self, kind, value, trace):\n        events.append(\"exit\")\n        return False\n\nwith Gate():\n    events.append(\"body\")\nprint(\":\".join(events))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "body:enter:exit",
+            "zh": "body:enter:exit"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "enter:exit:body",
+            "zh": "enter:exit:body"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "enter:body:exit",
+            "zh": "enter:body:exit"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "enter:body",
+            "zh": "enter:body"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "__enter__ returns successfully before the body appends its event; __exit__ then appends exit. The trace is enter:body:exit. This supplied success path does not establish that __exit__ runs if __enter__ itself raises an exception.",
+        "zh": "__enter__先成功返回，再由主体加body，最后__exit__加exit，轨迹enter:body:exit。给定成功路径不证明__enter__自身抛异常时仍会运行__exit__。"
+      }
+    },
+    {
+      "id": "PY_24",
+      "prompt": {
+        "en": "A generator returns after yielding two values: what is printed?\n\ndef pieces():\n    yield 4\n    yield 7\n    return 99\n\nprint(sum(pieces()))",
+        "zh": "生成器产出两个值后return：打印什么？\n\ndef pieces():\n    yield 4\n    yield 7\n    return 99\n\nprint(sum(pieces()))"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "110",
+            "zh": "110"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "99",
+            "zh": "99"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "errors-and-objects",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The generator yields four and seven, which sum consumes and adds to eleven. return 99 ends the generator rather than yielding another number into this iteration. A generator’s return value has a different role from the values it yields.",
+        "zh": "生成器yield 4和7，sum消费并相加得11。return 99结束生成器，不会再向此次迭代产出99；返回值与产出值作用不同。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "PY_01",
+      "code": "print(-11 // 4)",
+      "outcome": "stdout",
+      "expected_stdout": "-3\n",
+      "expected_label": {
+        "en": "-3",
+        "zh": "-3"
+      },
+      "python_verification": "T138-python-verification.json#PY_01",
+      "verified": true
+    },
+    {
+      "id": "PY_02",
+      "code": "print(-11 % 4)",
+      "outcome": "stdout",
+      "expected_stdout": "1\n",
+      "expected_label": {
+        "en": "1",
+        "zh": "1"
+      },
+      "python_verification": "T138-python-verification.json#PY_02",
+      "verified": true
+    },
+    {
+      "id": "PY_03",
+      "code": "print(2 ** 3 + 1)",
+      "outcome": "stdout",
+      "expected_stdout": "9\n",
+      "expected_label": {
+        "en": "9",
+        "zh": "9"
+      },
+      "python_verification": "T138-python-verification.json#PY_03",
+      "verified": true
+    },
+    {
+      "id": "PY_04",
+      "code": "print(\"delta\"[1:4])",
+      "outcome": "stdout",
+      "expected_stdout": "elt\n",
+      "expected_label": {
+        "en": "elt",
+        "zh": "elt"
+      },
+      "python_verification": "T138-python-verification.json#PY_04",
+      "verified": true
+    },
+    {
+      "id": "PY_05",
+      "code": "print(\" red | blue \".split(\"|\")[1].strip())",
+      "outcome": "stdout",
+      "expected_stdout": "blue\n",
+      "expected_label": {
+        "en": "blue",
+        "zh": "blue"
+      },
+      "python_verification": "T138-python-verification.json#PY_05",
+      "verified": true
+    },
+    {
+      "id": "PY_06",
+      "code": "print(bool([]), bool(\"0\"), sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "False:True\n",
+      "expected_label": {
+        "en": "False:True",
+        "zh": "False:True"
+      },
+      "python_verification": "T138-python-verification.json#PY_06",
+      "verified": true
+    },
+    {
+      "id": "PY_07",
+      "code": "print(sum(range(2, 9, 3)))",
+      "outcome": "stdout",
+      "expected_stdout": "15\n",
+      "expected_label": {
+        "en": "15",
+        "zh": "15"
+      },
+      "python_verification": "T138-python-verification.json#PY_07",
+      "verified": true
+    },
+    {
+      "id": "PY_08",
+      "code": "total = 0\nfor value in [2, 4, 6]:\n    if value == 4:\n        continue\n    total += value\nprint(total)",
+      "outcome": "stdout",
+      "expected_stdout": "8\n",
+      "expected_label": {
+        "en": "8",
+        "zh": "8"
+      },
+      "python_verification": "T138-python-verification.json#PY_08",
+      "verified": true
+    },
+    {
+      "id": "PY_09",
+      "code": "def lift(n):\n    return n + 4\n\nprint(lift(3) * 2)",
+      "outcome": "stdout",
+      "expected_stdout": "14\n",
+      "expected_label": {
+        "en": "14",
+        "zh": "14"
+      },
+      "python_verification": "T138-python-verification.json#PY_09",
+      "verified": true
+    },
+    {
+      "id": "PY_10",
+      "code": "base = 4\ndef shift(n=base):\n    return n + 1\n\nbase = 9\nprint(shift())",
+      "outcome": "stdout",
+      "expected_stdout": "5\n",
+      "expected_label": {
+        "en": "5",
+        "zh": "5"
+      },
+      "python_verification": "T138-python-verification.json#PY_10",
+      "verified": true
+    },
+    {
+      "id": "PY_11",
+      "code": "def lift(n)\n    return n + 4\n\nprint(lift(3))",
+      "outcome": "syntax-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Syntax error before execution.",
+        "zh": "执行前发生语法错误。"
+      },
+      "python_verification": "T138-python-verification.json#PY_11",
+      "verified": true
+    },
+    {
+      "id": "PY_12",
+      "code": "def pair(a=2, b):\n    return a + b\n\nprint(pair(3, 4))",
+      "outcome": "syntax-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Syntax error before execution.",
+        "zh": "执行前发生语法错误。"
+      },
+      "python_verification": "T138-python-verification.json#PY_12",
+      "verified": true
+    },
+    {
+      "id": "PY_13",
+      "code": "source = [4]\nalias = source\nalias.append(9)\nprint(len(source), source is alias, sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "2:True\n",
+      "expected_label": {
+        "en": "2:True",
+        "zh": "2:True"
+      },
+      "python_verification": "T138-python-verification.json#PY_13",
+      "verified": true
+    },
+    {
+      "id": "PY_14",
+      "code": "source = [[2]]\ncopy = source.copy()\ncopy[0][0] = 7\nprint(source[0][0], source is copy, sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "7:False\n",
+      "expected_label": {
+        "en": "7:False",
+        "zh": "7:False"
+      },
+      "python_verification": "T138-python-verification.json#PY_14",
+      "verified": true
+    },
+    {
+      "id": "PY_15",
+      "code": "counts = {\"a\": 6}\ncounts[\"a\"] = 8\nprint(counts[\"a\"], len(counts), sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "8:1\n",
+      "expected_label": {
+        "en": "8:1",
+        "zh": "8:1"
+      },
+      "python_verification": "T138-python-verification.json#PY_15",
+      "verified": true
+    },
+    {
+      "id": "PY_16",
+      "code": "counts = {\"a\": 6}\nprint(counts.get(\"b\", 3), len(counts), sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "3:1\n",
+      "expected_label": {
+        "en": "3:1",
+        "zh": "3:1"
+      },
+      "python_verification": "T138-python-verification.json#PY_16",
+      "verified": true
+    },
+    {
+      "id": "PY_17",
+      "code": "print(len({\"oak\", \"oak\", \"pine\"}))",
+      "outcome": "stdout",
+      "expected_stdout": "2\n",
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "python_verification": "T138-python-verification.json#PY_17",
+      "verified": true
+    },
+    {
+      "id": "PY_18",
+      "code": "values = [n * n for n in range(1, 5) if n % 2 == 0]\nprint(\",\".join(str(n) for n in values))",
+      "outcome": "stdout",
+      "expected_stdout": "4,16\n",
+      "expected_label": {
+        "en": "4,16",
+        "zh": "4,16"
+      },
+      "python_verification": "T138-python-verification.json#PY_18",
+      "verified": true
+    },
+    {
+      "id": "PY_19",
+      "code": "try:\n    int(\"reef\")\nexcept ValueError:\n    print(\"handled\")",
+      "outcome": "stdout",
+      "expected_stdout": "handled\n",
+      "expected_label": {
+        "en": "handled",
+        "zh": "handled"
+      },
+      "python_verification": "T138-python-verification.json#PY_19",
+      "verified": true
+    },
+    {
+      "id": "PY_20",
+      "code": "try:\n    raise KeyError(\"missing\")\nexcept LookupError:\n    print(\"lookup\")",
+      "outcome": "stdout",
+      "expected_stdout": "lookup\n",
+      "expected_label": {
+        "en": "lookup",
+        "zh": "lookup"
+      },
+      "python_verification": "T138-python-verification.json#PY_20",
+      "verified": true
+    },
+    {
+      "id": "PY_21",
+      "code": "events = []\ntry:\n    events.append(\"work\")\nfinally:\n    events.append(\"done\")\nprint(\":\".join(events))",
+      "outcome": "stdout",
+      "expected_stdout": "work:done\n",
+      "expected_label": {
+        "en": "work:done",
+        "zh": "work:done"
+      },
+      "python_verification": "T138-python-verification.json#PY_21",
+      "verified": true
+    },
+    {
+      "id": "PY_22",
+      "code": "class Cell:\n    def __init__(self, n):\n        self.n = n\n\nleft = Cell(2)\nright = Cell(5)\nleft.n += 3\nprint(left.n, right.n, left is right, sep=\":\")",
+      "outcome": "stdout",
+      "expected_stdout": "5:5:False\n",
+      "expected_label": {
+        "en": "5:5:False",
+        "zh": "5:5:False"
+      },
+      "python_verification": "T138-python-verification.json#PY_22",
+      "verified": true
+    },
+    {
+      "id": "PY_23",
+      "code": "events = []\nclass Gate:\n    def __enter__(self):\n        events.append(\"enter\")\n        return self\n    def __exit__(self, kind, value, trace):\n        events.append(\"exit\")\n        return False\n\nwith Gate():\n    events.append(\"body\")\nprint(\":\".join(events))",
+      "outcome": "stdout",
+      "expected_stdout": "enter:body:exit\n",
+      "expected_label": {
+        "en": "enter:body:exit",
+        "zh": "enter:body:exit"
+      },
+      "python_verification": "T138-python-verification.json#PY_23",
+      "verified": true
+    },
+    {
+      "id": "PY_24",
+      "code": "def pieces():\n    yield 4\n    yield 7\n    return 99\n\nprint(sum(pieces()))",
+      "outcome": "stdout",
+      "expected_stdout": "11\n",
+      "expected_label": {
+        "en": "11",
+        "zh": "11"
+      },
+      "python_verification": "T138-python-verification.json#PY_24",
+      "verified": true
+    }
+  ]
+}
