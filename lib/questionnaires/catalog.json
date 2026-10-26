@@ -2667,5 +2667,30 @@
       "keeper"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "grammar-test",
+    "code": "FM_ENGLISH_GRAMMAR_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "English Grammar Test",
+      "zh": "英语语法测试"
+    },
+    "description": {
+      "en": "Try 24 original English grammar questions on verb forms, agreement, function words and punctuation. Every answer and four full review guides are free.",
+      "zh": "完成24道原创英语语法题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看全部所选、正确答案、解析及四份完整指南，不计时，不换算CEFR或考试等级。"
+    },
+    "minutes": 10,
+    "formCode": "fm_english_grammar_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "tense-forms",
+      "agreement-reference",
+      "function-words",
+      "sentence-editing"
+    ],
+    "collection": "explore"
   }
 ]

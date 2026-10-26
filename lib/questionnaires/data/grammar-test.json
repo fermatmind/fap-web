@@ -1,0 +1,1797 @@
+{
+  "slug": "grammar-test",
+  "code": "FM_ENGLISH_GRAMMAR_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "English Grammar Test",
+    "zh": "英语语法测试"
+  },
+  "seoTitle": {
+    "en": "English Grammar Test: 24 Questions, Answers & Review",
+    "zh": "英语语法测试：24道原创题、答案解析与四份复习指南"
+  },
+  "description": {
+    "en": "Try 24 original English grammar questions on verb forms, agreement, function words and punctuation. Every answer and four full review guides are free.",
+    "zh": "完成24道原创英语语法题，复习动词形式、一致与指代、冠词功能词、标点与所有关系。免费查看全部所选、正确答案、解析及四份完整指南，不计时，不换算CEFR或考试等级。"
+  },
+  "minutes": 10,
+  "instructions": {
+    "en": "Choose one answer for each of 24 original grammar tasks. Follow the requested standard written construction and any explicit constraint, such as keeping one sentence or naming the owner count. English stimuli and alternatives remain English in both interfaces; instructions and explanations are bilingual. Finish every item to see your selected options, keys, explanations and all four complete guides. No timer is used. If practising without help, save reference checks until afterwards; any aids or prior exposure can affect your count.",
+    "zh": "24道原创语法任务，每题单选。按指定标准书面结构和明示条件作答，例如保留一个句子或固定拥有者数量。两种界面都保留英文题句与选项，说明和解析双语。完成全部题目后，可看每题所选、答案、解析和四份完整指南。不计时。若练无辅助识别，可完成后再查参考；使用辅助或见过题目都会影响正确数。"
+  },
+  "introduction": {
+    "en": "Practise 24 independently written English grammar tasks, six each on verb forms and time, agreement and reference, articles and function words, and punctuation and possession. The questions state their intended constructions so that another legitimate meaning or style choice is not silently treated as an error. Your report gives correct counts for this edition, every worked answer and four full revision guides at every count. It is not a calibrated language-level test, a free-writing mark, an exam conversion or a proofreading qualification.",
+    "zh": "通过24道独立编写的英语语法任务，练动词形式与时间、一致与指代、冠词功能词，以及标点所有关系，每组六题。题目明示所要求的结构，避免把适合其他含义或风格的合法表达无提示地判错。报告在任何正确数下都提供本版题数、全部题解和四份完整复习指南，不是经校准的语言等级测试、自由写作评分、考试换算或校对资格。"
+  },
+  "resultHeading": {
+    "en": "Your grammar practice results and every explanation",
+    "zh": "本次语法练习结果与全部解析"
+  },
+  "directions": [
+    {
+      "id": "tense-forms",
+      "title": {
+        "en": "Verb forms and time",
+        "zh": "动词形式与时间"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "agreement-reference",
+      "title": {
+        "en": "Agreement and reference",
+        "zh": "一致关系与指代"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "function-words",
+      "title": {
+        "en": "Articles and function words",
+        "zh": "冠词与功能词"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "sentence-editing",
+      "title": {
+        "en": "Punctuation and possession",
+        "zh": "标点与所有关系"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "GRAMMAR_01",
+      "prompt": {
+        "en": "Complete the past-simple negative using did not.\n\nThe crew ___ the spare cable yesterday.",
+        "zh": "用did not结构完成一般过去时否定句。\n\nThe crew ___ the spare cable yesterday."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "did not pack",
+            "zh": "did not pack"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "did not packed",
+            "zh": "did not packed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "did not packing",
+            "zh": "did not packing"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "did not to pack",
+            "zh": "did not to pack"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Did carries the past-tense marking, and the following main verb stays in its base form: did not pack. Adding -ed again or inserting -ing or to does not fit this requested construction. The question fixes the construction instead of asking you to guess a speaker’s intended time frame.",
+        "zh": "Did承担过去时标记，后面的实义动词保留原形，构成did not pack。再加-ed、改成-ing或插入to都不符合本题指定结构。题目已固定结构，不要求猜测说话者打算采用的时间视角。"
+      }
+    },
+    {
+      "id": "GRAMMAR_02",
+      "prompt": {
+        "en": "Use the present continuous to describe the action in progress.\n\nThe two camera operators ___ the rehearsal right now.",
+        "zh": "用现在进行时描述正在发生的动作。\n\nThe two camera operators ___ the rehearsal right now."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "is filming",
+            "zh": "is filming"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "are filming",
+            "zh": "are filming"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "are film",
+            "zh": "are film"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "are filmed",
+            "zh": "are filmed"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The plural subject requires are, and the requested continuous form requires the -ing participle filming. Are filmed is a passive form, not the active action of the operators recording the rehearsal. Right now supports the stated in-progress meaning.",
+        "zh": "复数主语要求are，指定的进行形式要求-ing分词filming。Are filmed是被动形式，不是摄影师正在拍摄排练的主动动作。Right now与题目指定的正在进行语义一致。"
+      }
+    },
+    {
+      "id": "GRAMMAR_03",
+      "prompt": {
+        "en": "Use the past perfect simple for the earlier completed action.\n\nWhen the courier arrived, we ___ the parcel, so it was ready to leave.",
+        "zh": "用过去完成时表示更早完成的动作。\n\nWhen the courier arrived, we ___ the parcel, so it was ready to leave."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "have sealed",
+            "zh": "have sealed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "had seal",
+            "zh": "had seal"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "had sealed",
+            "zh": "had sealed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "were sealed",
+            "zh": "were sealed"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Past perfect simple uses had plus a past participle. The regular verb seal gives sealed, so had sealed expresses the completed preparation before the courier arrived. Have sealed is present perfect; had seal lacks the participle; were sealed changes the voice and subject meaning.",
+        "zh": "过去完成时由had加过去分词构成，规则动词seal的分词为sealed，因此had sealed表示快递员到来前完成的准备。Have sealed是现在完成时，had seal缺分词，were sealed改变了语态和主语含义。"
+      }
+    },
+    {
+      "id": "GRAMMAR_04",
+      "prompt": {
+        "en": "Use the present perfect simple, not a continuous form.\n\nOur illustrator ___ three maps for this edition so far.",
+        "zh": "用现在完成时，且不用进行形式。\n\nOur illustrator ___ three maps for this edition so far."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "have created",
+            "zh": "have created"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "has create",
+            "zh": "has create"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "has creating",
+            "zh": "has creating"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "has created",
+            "zh": "has created"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The singular subject our illustrator takes has. Present perfect simple then needs the past participle created. The displayed alternatives have the wrong auxiliary agreement or an unsuitable main-verb form. So far supplies a time frame reaching the present; the instruction fixes the simple form.",
+        "zh": "单数主语our illustrator对应has，现在完成时随后用过去分词created。其他选项的助动词一致关系或实义动词形式不适合。So far提供延续到现在的时间范围，说明已指定非进行形式。"
+      }
+    },
+    {
+      "id": "GRAMMAR_05",
+      "prompt": {
+        "en": "Use the future perfect simple for completion by the future deadline.\n\nBy noon tomorrow, we ___ every ticket for the event.",
+        "zh": "用将来完成形式表示未来期限前完成。\n\nBy noon tomorrow, we ___ every ticket for the event."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "will have printed",
+            "zh": "will have printed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "will has printed",
+            "zh": "will has printed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "will have print",
+            "zh": "will have print"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "will having printed",
+            "zh": "will having printed"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The requested future perfect simple has the pattern will have plus a past participle, giving will have printed. Have stays in the base form after will. The other options break that pattern. This is a grammar-form task, not a forecast that the real work will be finished.",
+        "zh": "所要求的将来完成形式为will have加过去分词，得到will have printed。Will后的have保留原形，其余选项破坏了这一结构。这是语法形式练习，不预测真实工作一定按时完成。"
+      }
+    },
+    {
+      "id": "GRAMMAR_06",
+      "prompt": {
+        "en": "Complete the present-simple passive.\n\nThe removable filter ___ by the technician after each session.",
+        "zh": "完成一般现在时被动结构。\n\nThe removable filter ___ by the technician after each session."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "is wash",
+            "zh": "is wash"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "is washed",
+            "zh": "is washed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "are washed",
+            "zh": "are washed"
+          },
+          "directionId": "tense-forms"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "is washing",
+            "zh": "is washing"
+          },
+          "directionId": "tense-forms"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Present-simple passive uses the present form of be plus a past participle. The singular filter takes is, and wash supplies washed. Is washing would make the filter the actor; are washed disagrees with the singular subject; is wash lacks the participle.",
+        "zh": "一般现在时被动由be的现在时形式加过去分词构成。单数filter对应is，wash的分词为washed。Is washing使滤网成了动作执行者，are washed与单数主语不一致，is wash缺少分词。"
+      }
+    },
+    {
+      "id": "GRAMMAR_07",
+      "prompt": {
+        "en": "Choose the present-tense verb agreeing with the subject’s singular head.\n\nThe inventory of spare lamps ___ a revision today.",
+        "zh": "选择与主语单数中心词一致的现在时动词。\n\nThe inventory of spare lamps ___ a revision today."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "need",
+            "zh": "need"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "needing",
+            "zh": "needing"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "needs",
+            "zh": "needs"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "to need",
+            "zh": "to need"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The head of the subject is inventory, not lamps inside the of-phrase. The requested present-tense statement therefore takes needs. Needing and to need are non-finite forms and do not supply this sentence’s finite verb. A nearby plural noun does not change the head’s number.",
+        "zh": "主语中心词是inventory，不是of短语中的lamps，因此指定的现在时陈述句用needs。Needing和to need是非限定形式，不能作本句所需的限定动词。邻近复数名词不会改变中心词的数。"
+      }
+    },
+    {
+      "id": "GRAMMAR_08",
+      "prompt": {
+        "en": "Complete the present-tense statement about two distinct people.\n\nAsha and Ben ___ the evening session together.",
+        "zh": "完成关于两个不同人物的现在时陈述句。\n\nAsha and Ben ___ the evening session together."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "leads",
+            "zh": "leads"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "leading",
+            "zh": "leading"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "to lead",
+            "zh": "to lead"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "lead",
+            "zh": "lead"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Asha and Ben names two distinct people joined by and, giving a plural subject. Lead is the matching present-tense form. Leads is the third-person singular form; leading and to lead would require a different sentence structure. The task does not involve a single combined title or entity.",
+        "zh": "Asha和Ben是由and连接的两个不同人物，构成复数主语，对应现在时lead。Leads为第三人称单数，leading和to lead需要其他句子结构。本题不涉及合成的单一名称或实体。"
+      }
+    },
+    {
+      "id": "GRAMMAR_09",
+      "prompt": {
+        "en": "Choose the present-tense verb for each as the subject.\n\nEach of the numbered folders ___ a signed cover sheet.",
+        "zh": "选择以each作主语时的现在时动词。\n\nEach of the numbered folders ___ a signed cover sheet."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "contains",
+            "zh": "contains"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "contain",
+            "zh": "contain"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "containing",
+            "zh": "containing"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "to contain",
+            "zh": "to contain"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Each is the singular head even though the of-phrase mentions several folders. Contains agrees with each. The other finite option, contain, is plural in this statement; the -ing and to forms do not independently complete it. Check the grammatical head before the closest noun.",
+        "zh": "虽然of短语提到多个文件夹，中心词each仍为单数，对应contains。另一个限定动词选项contain在此对应复数；-ing与to形式不能独立完成本句。应先找语法中心词，再看最近的名词。"
+      }
+    },
+    {
+      "id": "GRAMMAR_10",
+      "prompt": {
+        "en": "Replace the speaker and a companion with one object pronoun after for.\n\nMira and I are waiting here. Please keep two seats for ___.",
+        "zh": "用一个宾格代词替换for后面的说话者及其同伴。\n\nMira and I are waiting here. Please keep two seats for ___."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "we",
+            "zh": "we"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "us",
+            "zh": "us"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "our",
+            "zh": "our"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ours",
+            "zh": "ours"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Us is the object form for the speaker plus another person, and it fits after for. We is a subject form; our would need a following noun, and ours expresses possession rather than the intended people receiving the seats. The referents are explicitly stated.",
+        "zh": "Us是包含说话者及另一人的宾格形式，适合放在for后。We为主格，our需要后接名词，ours表示所有关系，不能表达这里要留座的人。题面已明确指代对象。"
+      }
+    },
+    {
+      "id": "GRAMMAR_11",
+      "prompt": {
+        "en": "Replace the two named objects with the plural subject pronoun.\n\nThe blue folder and the grey folder are sealed. ___ belong in the locked drawer.",
+        "zh": "用复数主格代词替换明确给出的两个物体。\n\nThe blue folder and the grey folder are sealed. ___ belong in the locked drawer."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Them",
+            "zh": "Them"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Their",
+            "zh": "Their"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "They",
+            "zh": "They"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Theirs",
+            "zh": "Theirs"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "They supplies a plural subject for belong and refers to the two folders. Them is an object form; their is a possessive determiner, while theirs would mean things belonging to someone rather than replace these named folders as the intended reference. The instruction fixes the reference.",
+        "zh": "They可作belong的复数主语，指题面的两个文件夹。Them是宾格，their是物主限定词；theirs表示属于某人的东西，不是按要求指回已点明的两个文件夹。说明已经固定指代目标。"
+      }
+    },
+    {
+      "id": "GRAMMAR_12",
+      "prompt": {
+        "en": "Complete the comma-separated extra-information clause about a person.\n\nOur tutor, ___ designed the worksheet, will explain the first example.",
+        "zh": "完成补充人物信息、由逗号隔开的从句。\n\nOur tutor, ___ designed the worksheet, will explain the first example."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "which",
+            "zh": "which"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "that",
+            "zh": "that"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "whose",
+            "zh": "whose"
+          },
+          "directionId": "agreement-reference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "who",
+            "zh": "who"
+          },
+          "directionId": "agreement-reference"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Who can be the subject of designed while referring to a person in this non-defining relative clause. Which refers to things here; that is excluded from this comma-separated construction, and whose needs an accompanying noun. This differs from defining clauses, where that can refer to people.",
+        "zh": "Who在本非限定性关系从句中可指人并作designed的主语。Which在此指物，that不能用于这种逗号隔开的结构，whose需要连用名词。这与可以用that指人的限定性从句不同。"
+      }
+    },
+    {
+      "id": "GRAMMAR_13",
+      "prompt": {
+        "en": "Choose an indefinite article for the first mention, using the next word’s initial sound.\n\nThe parcel contains ___ empty frame; we do not know which frame it is.",
+        "zh": "按后一个词的起始发音，为首次提到的事物选不定冠词。\n\nThe parcel contains ___ empty frame; we do not know which frame it is."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "an",
+            "zh": "an"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "a",
+            "zh": "a"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "many",
+            "zh": "many"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "these",
+            "zh": "these"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Empty begins with a vowel sound, so the indefinite article is an. It is the sound immediately following the article that matters, even though frame begins with a consonant. Many and these do not fit this singular frame. The instruction asks for an indefinite first mention.",
+        "zh": "Empty以元音开头，所以不定冠词用an。即使frame以辅音开头，也要看紧接冠词的empty的发音。Many和these不适合单数frame；本题明确要求首次提到时的不定冠词。"
+      }
+    },
+    {
+      "id": "GRAMMAR_14",
+      "prompt": {
+        "en": "Choose an indefinite article for the first mention, using the next word’s initial sound.\n\nI found ___ useful diagram in the archive, one I had never seen before.",
+        "zh": "按后一个词的起始发音，为首次提到的事物选不定冠词。\n\nI found ___ useful diagram in the archive, one I had never seen before."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "an",
+            "zh": "an"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "a",
+            "zh": "a"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "several",
+            "zh": "several"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "those",
+            "zh": "those"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Useful starts with the consonant sound /j/, like the start of yes, so a is the indefinite article. The written letter u alone does not decide between a and an. Several and those require a plural noun, whereas diagram is singular here.",
+        "zh": "Useful以类似yes开头的辅音/j/起始，所以不定冠词用a。不能只看字母u来决定a或an。Several和those要求复数名词，题面的diagram是单数。"
+      }
+    },
+    {
+      "id": "GRAMMAR_15",
+      "prompt": {
+        "en": "Choose the conventional time preposition, preserving the stated exact clock time.\n\nThe appointment starts ___ 14:20.",
+        "zh": "保留所给准确钟点，选择惯用的时间介词。\n\nThe appointment starts ___ 14:20."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "on",
+            "zh": "on"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "in",
+            "zh": "in"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "at",
+            "zh": "at"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "during",
+            "zh": "during"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "At is the conventional preposition for an exact clock time. On is used with days or dates and in with periods such as months in the rules practised here. During would need an interval or event expression rather than this bare clock-time label.",
+        "zh": "准确钟点通常用at。这里所练规则中，on用于星期或日期，in用于月份等时段。During需要一段时间或事件表达，而不是本题这个单独的钟点标签。"
+      }
+    },
+    {
+      "id": "GRAMMAR_16",
+      "prompt": {
+        "en": "Choose the conventional time preposition before this named day.\n\nThe induction session takes place ___ Wednesday.",
+        "zh": "为指定星期选择惯用时间介词。\n\nThe induction session takes place ___ Wednesday."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "at",
+            "zh": "at"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "in",
+            "zh": "in"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "during",
+            "zh": "during"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "on",
+            "zh": "on"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "On goes with the named day Wednesday in this construction. At fits clock times and in fits months or broader periods in the rules practised here. During Wednesday is not the conventional preposition choice requested for this ordinary calendar statement.",
+        "zh": "本结构中，星期Wednesday前用on。这里所练规则里，at对应钟点，in对应月份或较长时段。During Wednesday不是这句普通日历陈述所要求的惯用介词选择。"
+      }
+    },
+    {
+      "id": "GRAMMAR_17",
+      "prompt": {
+        "en": "Choose the conventional time preposition for a month without a day or date.\n\nThe new course begins ___ September.",
+        "zh": "为不带具体日、日期的月份选择惯用时间介词。\n\nThe new course begins ___ September."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "in",
+            "zh": "in"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "at",
+            "zh": "at"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "on",
+            "zh": "on"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "inside",
+            "zh": "inside"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "In is the conventional time preposition for the month September. On would normally introduce a particular day or date; at does not fit this month expression, and inside is not the conventional calendar expression requested. The item does not ask you to choose a deadline preposition.",
+        "zh": "月份September通常用时间介词in。On一般引入具体星期或日期，at不适合此月份表达，inside不是题目要求的惯用日历表达。本题也不要求选择表示期限的介词。"
+      }
+    },
+    {
+      "id": "GRAMMAR_18",
+      "prompt": {
+        "en": "Choose the verb form immediately following can in this active statement.\n\nThis badge can ___ the side door.",
+        "zh": "为这个主动陈述句中紧接can的动词选择形式。\n\nThis badge can ___ the side door."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "unlocks",
+            "zh": "unlocks"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "unlock",
+            "zh": "unlock"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "to unlock",
+            "zh": "to unlock"
+          },
+          "directionId": "function-words"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "unlocking",
+            "zh": "unlocking"
+          },
+          "directionId": "function-words"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Can takes an infinitive without to, so the next word is unlock. The modal does not take a third-person -s on the following verb. To unlock and unlocking do not fit this direct can-plus-main-verb construction. This checks a form, not whether a real badge grants access.",
+        "zh": "Can后接不带to的不定式，所以用unlock。情态动词后的动词不加第三人称-s，to unlock和unlocking也不适合这里can直接接实义动词的结构。本题核形式，不判断真实门禁授权。"
+      }
+    },
+    {
+      "id": "GRAMMAR_19",
+      "prompt": {
+        "en": "Keep both clauses in one sentence with no conjunction; choose the standard punctuation.\n\nThe lantern was unlit ___ the caretaker replaced its battery.",
+        "zh": "不加连词、保留为一个句子，选择标准连接标点。\n\nThe lantern was unlit ___ the caretaker replaced its battery."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": ",",
+            "zh": ","
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": ".",
+            "zh": "."
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": ";",
+            "zh": ";"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "and",
+            "zh": "and"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Both displayed parts are independent clauses, and the instruction asks for one sentence without a conjunction. A semicolon joins them. A comma alone would splice the clauses. A full stop would make two sentences, while and would add the conjunction excluded by the instruction. Those alternatives can work in differently specified edits.",
+        "zh": "题面的两部分都是独立分句，说明要求不加连词且保留一个句子，因此用分号连接。逗号单独连接会造成comma splice；句号会分成两句，and则加入了说明排除的连词。后两种做法可用于要求不同的改写。"
+      }
+    },
+    {
+      "id": "GRAMMAR_20",
+      "prompt": {
+        "en": "Choose the standard punctuation before however when it links these two independent clauses in one sentence.\n\nThe booking was confirmed ___ however, the venue remained closed.",
+        "zh": "However在一个句子中连接这两个独立分句，选择它前面的标准标点。\n\nThe booking was confirmed ___ however, the venue remained closed."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": ",",
+            "zh": ","
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "?,",
+            "zh": "?,"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": ":,",
+            "zh": ":,"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": ";",
+            "zh": ";"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A semicolon before however and the existing comma after it connect these independent clauses in the requested pattern. However is not a coordinating conjunction that makes a comma alone sufficient. The mixed punctuation options do not provide the standard structure asked for.",
+        "zh": "在所要求的结构中，however前用分号，并保留其后的逗号，连接两个独立分句。However不是可使单独逗号足够的并列连词，另两种混合标点也不符合指定的标准结构。"
+      }
+    },
+    {
+      "id": "GRAMMAR_21",
+      "prompt": {
+        "en": "Choose the possessive form for exactly one owner.\n\nExactly one volunteer owns this notebook. It is the ___ notebook.",
+        "zh": "为明确的一位拥有者选择所有格。\n\nExactly one volunteer owns this notebook. It is the ___ notebook."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "volunteer’s",
+            "zh": "volunteer’s"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "volunteers’",
+            "zh": "volunteers’"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "volunteers",
+            "zh": "volunteers"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "volunteer",
+            "zh": "volunteer"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "One volunteer is a singular owner, so the requested possessive adds apostrophe plus s: volunteer’s. Volunteers’ would indicate plural owners, while the bare forms do not supply the possessive requested. The item fixes the ownership relation instead of asking whether a noun could work as a modifier elsewhere.",
+        "zh": "一位volunteer为单数拥有者，所要求的所有格加撇号和s，成为volunteer’s。Volunteers’表示复数拥有者，其他原形不提供本题要求的所有格。题目固定所有关系，不讨论名词在其他场合能否作修饰语。"
+      }
+    },
+    {
+      "id": "GRAMMAR_22",
+      "prompt": {
+        "en": "Choose the possessive form for the two plural owners.\n\nTwo neighbours jointly own this ladder. It is the ___ ladder.",
+        "zh": "为两个复数拥有者选择所有格。\n\nTwo neighbours jointly own this ladder. It is the ___ ladder."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "neighbour’s",
+            "zh": "neighbour’s"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "neighbours’",
+            "zh": "neighbours’"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "neighbours",
+            "zh": "neighbours"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "neighbour",
+            "zh": "neighbour"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The plural owners are neighbours, a regular plural ending in s, so the possessive adds an apostrophe after that s. Neighbour’s indicates one owner. The other forms do not give the requested plural possessive. The number of ladders does not determine the number of owners.",
+        "zh": "复数拥有者neighbours以s结尾，所有格在该s后加撇号。Neighbour’s表示一个拥有者，其他形式没有给出所要求的复数所有格。梯子的数量不能决定拥有者的数量。"
+      }
+    },
+    {
+      "id": "GRAMMAR_23",
+      "prompt": {
+        "en": "Choose the possessive determiner referring to the robot.\n\nThe robot returned to ___ charging station.",
+        "zh": "选择指回该机器人的物主限定词。\n\nThe robot returned to ___ charging station."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "it’s",
+            "zh": "it’s"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "its’",
+            "zh": "its’"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "its",
+            "zh": "its"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "it",
+            "zh": "it"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Its expresses the station’s relation to the robot without an apostrophe. It’s expands to it is or it has, neither of which fits before charging station here. Its’ is not the standard possessive form, and it is not a determiner for this noun phrase.",
+        "zh": "Its不用撇号，表达充电站与机器人的所有关系。It’s可展开为it is或it has，都不适合这里charging station前的位置。Its’不是标准物主形式，it也不是该名词短语所需的限定词。"
+      }
+    },
+    {
+      "id": "GRAMMAR_24",
+      "prompt": {
+        "en": "Choose the contraction that means it is.\n\nThe room has been checked. ___ ready for the next session.",
+        "zh": "选择明确表示it is的缩约形式。\n\nThe room has been checked. ___ ready for the next session."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Its",
+            "zh": "Its"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Its’",
+            "zh": "Its’"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It",
+            "zh": "It"
+          },
+          "directionId": "sentence-editing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It’s",
+            "zh": "It’s"
+          },
+          "directionId": "sentence-editing"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "It’s expands to It is, which completes the second sentence before ready. Its is possessive and supplies no verb here; Its’ is not the standard form. It alone leaves the ordinary written sentence without its finite verb. The instruction specifies it is rather than inviting another meaning.",
+        "zh": "It’s展开为It is，可在ready前完成第二句。Its为物主形式，这里不能提供动词；Its’不是标准形式；只有It会使普通书面句缺少限定动词。说明已明确要求it is，不需猜其他含义。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "tense-forms",
+      "directionIds": [
+        "tense-forms"
+      ],
+      "title": {
+        "en": "Verb forms and time",
+        "zh": "动词形式与时间"
+      },
+      "headline": {
+        "en": "Build the requested structure before judging the ending.",
+        "zh": "先搭所要求的结构，再核词尾。"
+      },
+      "summary": {
+        "en": "Review past negatives, present continuous, two perfect forms, future perfect and present passive through six specified constructions.",
+        "zh": "通过六个指定结构，复习过去时否定、现在进行、过去与现在完成、将来完成和现在被动。"
+      },
+      "seo": {
+        "title": {
+          "en": "Verb forms and time: grammar practice guide",
+          "zh": "动词形式与时间：英语语法复习指南"
+        },
+        "description": {
+          "en": "Review six specified English verb constructions with worked examples and a new-sentence routine. Counts do not estimate language proficiency.",
+          "zh": "结合例子与造句步骤复习六个指定动词结构，正确题数不估计总体语言能力。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching answers on six selected grammar items. It is not a writing grade, percentile or CEFR level. Every explanation and this full guide are available whether your count is zero, partial or perfect.",
+        "zh": "正确数记录六道选定语法题中与答案一致的选择，不是写作等级、百分位或CEFR等级。零分、部分答对和全对都能看全部解析及本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six forms, with the meaning fixed",
+            "zh": "六种形式，先固定语义"
+          },
+          "paragraphs": [
+            {
+              "en": "These items name the requested construction rather than treating one time expression as an automatic tense selector. Did not takes a base verb. Present continuous needs a present form of be and an -ing form. Perfect simple constructions use a form of have and a past participle, while the passive includes be and a past participle. Each auxiliary contributes something different.",
+              "zh": "本组明示所要求的结构，不把某个时间词当成自动选时态的按钮。Did not后接原形，现在进行时用be的现在时加-ing，完成形式用have的相应形式加过去分词，被动则包含be与过去分词。不同助动词各有作用。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Change a completed action’s viewpoint",
+            "zh": "改变完成动作的观察点"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a new fictional example: The conservator had repaired the hinge before the cabinet was moved. Had repaired places the repair before a later past event. Now describe a plan from today: By Friday, the conservator will have repaired the hinge. The deadline and viewpoint have changed. These are illustrative sentences, not new scored questions or promises that the work will happen.",
+              "zh": "看一组新虚构例句：The conservator had repaired the hinge before the cabinet was moved，had repaired把修理放在另一个过去事件之前。若从今天说计划，可写By Friday, the conservator will have repaired the hinge。期限与观察点都变了，例句不新增计分，也不承诺真实修理会发生。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check auxiliary, agreement and participle separately",
+            "zh": "分别核助动词、一致与分词"
+          },
+          "paragraphs": [
+            {
+              "en": "When reviewing a mistake, mark the first auxiliary, identify its subject and inspect the main verb form. In has created, has agrees with a singular subject and created is the participle. In will have printed, have stays in its base form after will. A passive form also changes who or what receives the action; a similar-looking ending does not preserve the same meaning.",
+              "zh": "复习错题时标出第一个助动词、它的主语，再看实义动词形式。Has created中，has与单数主语一致，created是分词；will have printed中，will后的have保留原形。被动还改变谁或什么承受动作，词尾相似不代表意思相同。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Write the rule beside a new sentence",
+            "zh": "把规则写在新句子旁"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one construction you missed and write a fresh short sentence. State the intended time relationship and whether the subject acts or receives an action. Then change only one feature, such as singular to plural or active to passive, and explain the necessary edits. Compare with the linked grammar reference after writing. This is a revision activity, without a measured improvement rate.",
+              "zh": "选一个错结构，自写短句，说明时间关系及主语是执行还是承受动作。再只改一个特征，例如单复数或主动被动，并解释必要改动。写完再对照语法参考。这是复习活动，没有测得的提高幅度。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A specified form is narrower than fluent use",
+            "zh": "指定形式小于流利运用"
+          },
+          "paragraphs": [
+            {
+              "en": "The six tasks do not cover every tense, aspect, irregular participle or conversational choice. Recognising a requested form does not show that you can choose it spontaneously in a long text. Other constructions may express different meanings in other contexts. Repeating these fixed items after reading the keys may reflect memory. Use new sentences to continue practising rather than assigning yourself a permanent grammar level.",
+              "zh": "六题不覆盖所有时态、体、特殊分词或会话选择。识别指定结构不代表能在长文里即时选用；其他语境可用其他结构表达不同意思。看答案后重做固定题可能体现记忆，继续练新句子，不给自己定永久语法等级。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agreement-reference",
+      "directionIds": [
+        "agreement-reference"
+      ],
+      "title": {
+        "en": "Agreement and reference",
+        "zh": "一致关系与指代"
+      },
+      "headline": {
+        "en": "Find the grammatical head and the intended referent.",
+        "zh": "找语法中心词与指定指代对象。"
+      },
+      "summary": {
+        "en": "Review singular heads, two-person subjects, each, subject and object pronouns, and a non-defining clause about a person.",
+        "zh": "复习单数中心词、双人主语、each、主宾格代词，以及补充人物信息的非限定性从句。"
+      },
+      "seo": {
+        "title": {
+          "en": "Agreement and reference: grammar practice guide",
+          "zh": "一致关系与指代：英语语法复习指南"
+        },
+        "description": {
+          "en": "Practise agreement and pronoun reference with six explained choices and fresh examples. This is selected grammar review, without speaker ranking.",
+          "zh": "结合六题解析和新例子复习一致与代词指代，练选定结构，不给使用者排名。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching answers on six selected grammar items. It is not a writing grade, percentile or CEFR level. Every explanation and this full guide are available whether your count is zero, partial or perfect.",
+        "zh": "正确数记录六道选定语法题中与答案一致的选择，不是写作等级、百分位或CEFR等级。零分、部分答对和全对都能看全部解析及本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The closest noun may not control the verb",
+            "zh": "最近的名词未必决定动词"
+          },
+          "paragraphs": [
+            {
+              "en": "An of-phrase can put a plural noun beside a verb whose subject head is singular. Each remains singular in the construction practised here, while two distinct people joined by and form a plural subject. Pronoun questions additionally fix whom or what the pronoun replaces. A form must fit both its sentence role and its intended reference, not just sound familiar.",
+              "zh": "Of短语可让复数名词靠近动词，但主语中心词仍为单数。这里练习的each为单数，and连接两个不同人物则成复数主语。代词题还明确替代谁或什么，选择必须同时符合句法位置和指定指代，而非只凭熟悉感。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Remove the inserted phrase temporarily",
+            "zh": "暂时移开插入的短语"
+          },
+          "paragraphs": [
+            {
+              "en": "Try this original example: The stack of blue cards needs a label. Temporarily set aside of blue cards and read The stack needs a label. Then restore the phrase without changing needs. Compare The blue cards need labels, where cards itself is the subject head. This is a way to inspect the structure, not a rule to delete information from a final message.",
+              "zh": "看新例句The stack of blue cards needs a label。暂时移开of blue cards，读The stack needs a label，再放回短语，needs不变。对照The blue cards need labels，cards本身才是中心词。这是分析结构的方法，不要求最终消息删去信息。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Separate role from reference",
+            "zh": "分清句法角色与指代"
+          },
+          "paragraphs": [
+            {
+              "en": "For a pronoun, identify its role first: subject, object after a verb or preposition, or possessive expression. Then recover the explicitly named referent. In the relative-clause item, commas mark added information about a person, so the subject form who fits. Do not generalise that choice to every relative clause: defining clauses can allow that for people, and some object positions allow variation.",
+              "zh": "代词先分主语、动词或介词后的宾语、所有表达，再找明确指代对象。关系从句题的逗号标出人物补充信息，who适合作从句主语；不能推广为所有关系从句都只能用who，限定性从句可用that指人，部分宾语位置也有变体。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Change number while keeping the reference clear",
+            "zh": "改变数，保持指代明确"
+          },
+          "paragraphs": [
+            {
+              "en": "Write two sentences about one fictional object, then rewrite them about two objects. Mark every subject, verb and pronoun that must change. Check whether the second sentence still points to the same objects and whether a possessive form has accidentally replaced a subject form. Review the short chains aloud and against a reference. The exercise is suggested practice, not an assessment of anyone’s intelligence.",
+              "zh": "先写关于一个虚构物体的两句，再改为两个物体，标出要变的主语、动词和代词。核对第二句是否仍指相同物体，有无误用物主形式替代主格。可朗读并查参考，这只是练习建议，不评智力。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Do not turn a usage choice into a speaker label",
+            "zh": "不把用法选择变成使用者标签"
+          },
+          "paragraphs": [
+            {
+              "en": "This set uses explicitly specified standard written constructions. It avoids making a collective noun, a disputed gerund pronoun or a dialect preference into a universal single-answer trap. The six counts do not measure all reference skills, editing competence or spoken fluency. Reading the explanation can help identify a missed structure; it does not establish a CEFR band or an employment qualification.",
+              "zh": "本组使用明示的标准书面结构，避免把集合名词、有争议的动名词代词或方言偏好设成普遍单一答案陷阱。六题正确数不测全部指代、编辑或口语能力；解析帮助定位漏看结构，不建立CEFR或岗位资格。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "function-words",
+      "directionIds": [
+        "function-words"
+      ],
+      "title": {
+        "en": "Articles and function words",
+        "zh": "冠词与功能词"
+      },
+      "headline": {
+        "en": "Use the sound, calendar expression or governing verb.",
+        "zh": "看发音、时间表达或支配动词。"
+      },
+      "summary": {
+        "en": "Review a and an before the next word’s sound, at/on/in in specified calendar expressions, and the base verb after can.",
+        "zh": "复习按后词发音选a或an、指定时间表达中的at/on/in，以及can后的动词原形。"
+      },
+      "seo": {
+        "title": {
+          "en": "Articles and function words: grammar practice guide",
+          "zh": "冠词与功能词：英语语法复习指南"
+        },
+        "description": {
+          "en": "Review six article, time-preposition and modal-form tasks. Use explicit conditions and checked rules without a vocabulary or CEFR estimate.",
+          "zh": "复习六个冠词、时间介词和情态形式任务，按明确条件与已核规则作答，不估词汇量或CEFR。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching answers on six selected grammar items. It is not a writing grade, percentile or CEFR level. Every explanation and this full guide are available whether your count is zero, partial or perfect.",
+        "zh": "正确数记录六道选定语法题中与答案一致的选择，不是写作等级、百分位或CEFR等级。零分、部分答对和全对都能看全部解析及本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Small words depend on a local construction",
+            "zh": "小词依赖具体结构"
+          },
+          "paragraphs": [
+            {
+              "en": "The two article items request an indefinite first mention, so the task is choosing a or an rather than inventing a shared reference that would justify the. The sound of the next word matters, including an adjective before the noun. Time items ask for conventional prepositions with a clock time, day or month. The modal item fixes can and asks for its following verb form.",
+              "zh": "冠词题要求首次提到时的不定形式，因此在a与an间按发音选择，不另设共同已知对象来用the。要看紧接的词，包括名词前形容词。时间题要求钟点、星期、月份的惯用介词；情态题则固定can，核后接词形。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Listen to the word after the article",
+            "zh": "听紧接冠词的那个词"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare a useful tool with an unusual tool. Both nouns are tool, and both adjectives begin with the letter u, yet their first sounds differ. Useful begins with /j/, while unusual begins with a vowel sound. The contrast is about pronunciation rather than a rule that one written vowel always requires an. These new phrases illustrate the rule without adding scored vocabulary items.",
+              "zh": "比较a useful tool和an unusual tool。名词相同，两个形容词都以字母u开头，但useful起始为辅音/j/，unusual以元音起始。规则看发音，不是见到某元音字母总用an。这些新短语解释规则，不新增词汇计分题。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Read the unit of time before choosing",
+            "zh": "先读时间单位，再选介词"
+          },
+          "paragraphs": [
+            {
+              "en": "A bare clock label, a named day and a month without a date are different calendar expressions. In this set, at, on and in match those three structures respectively. Do not turn that short mapping into a rule for every time phrase: deadlines, durations, holidays and regional expressions can need other choices. After can, inspect the base verb rather than adding to or a third-person ending.",
+              "zh": "单独钟点、星期和不带日期的月份是不同时间表达，本组分别对应at、on、in。但不能把小对照表用于所有时间短语，期限、时长、节日及地区表达可能不同。Can后核原形，不加to或第三人称词尾。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Make one controlled contrast",
+            "zh": "做一组只改一个条件的对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one missed rule. For an article, keep the noun and change its preceding adjective, then explain the sound difference. For time, write a month, day and exact clock time in three separate sentences. For can, change only the subject and check that the following base verb stays the same. Verify your examples with a grammar reference after drafting, without assuming the pattern covers every exception.",
+              "zh": "选一个漏看的规则。冠词练习保留名词、换前面的形容词并说明起始发音；时间练习分三句写月份、星期与钟点；can练习只换主语，核后面原形不变。写完查参考，不把此模式当成覆盖所有例外。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Six selected choices cannot establish complete command",
+            "zh": "六次选择不能证明完整掌握"
+          },
+          "paragraphs": [
+            {
+              "en": "Function words carry meaning across many constructions beyond these items. A matching answer does not demonstrate that you can select every article, preposition or modal in spontaneous writing. The count is not vocabulary size, language level or a measure of native-like usage. Both interfaces preserve the same English stimuli, but translated instructions may affect the experience; measurement equivalence has not been established.",
+              "zh": "功能词用于远多于本组的结构。选对不代表能在即时写作中正确选所有冠词、介词或情态词。正确数不是词汇量、语言等级或母语式用法指标。两种界面保留相同英文刺激，但翻译说明可能影响体验，未建立测量等价。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sentence-editing",
+      "directionIds": [
+        "sentence-editing"
+      ],
+      "title": {
+        "en": "Punctuation and possession",
+        "zh": "标点与所有关系"
+      },
+      "headline": {
+        "en": "Keep the requested sentence boundary and ownership explicit.",
+        "zh": "保留指定句界与所有关系。"
+      },
+      "summary": {
+        "en": "Review two semicolon patterns, singular and plural possessives, possessive its and the contraction it’s, with the task constraints stated.",
+        "zh": "明确题目条件，复习两个分号结构、单复数所有格、物主its和缩约it’s。"
+      },
+      "seo": {
+        "title": {
+          "en": "Punctuation and possession: grammar practice guide",
+          "zh": "标点与所有关系：英语语法复习指南"
+        },
+        "description": {
+          "en": "Review six punctuation and possession tasks with complete examples and a checking routine. The result does not certify proofreading or writing ability.",
+          "zh": "结合完整例子和核对步骤复习六个标点及所有关系任务，不认证校对或写作能力。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching answers on six selected grammar items. It is not a writing grade, percentile or CEFR level. Every explanation and this full guide are available whether your count is zero, partial or perfect.",
+        "zh": "正确数记录六道选定语法题中与答案一致的选择，不是写作等级、百分位或CEFR等级。零分、部分答对和全对都能看全部解析及本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The edit has to meet the stated constraint",
+            "zh": "改写要符合明示条件"
+          },
+          "paragraphs": [
+            {
+              "en": "A full stop and a semicolon can both separate independent clauses, but they produce different sentence boundaries. The first task specifically requires one sentence without an added conjunction. The however item asks for the standard semicolon-before, comma-after pattern. Possessive questions fix the number of owners. The final items distinguish a possessive determiner from the explicitly requested contraction of it is.",
+              "zh": "句号与分号都可分隔独立分句，却形成不同句界。第一题明确要求不加连词、保留一个句子；however题要求前分号后逗号的标准结构。所有格题固定拥有者数量，末两题区分物主限定词与明确要求的it is缩约。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Count the owners before placing the apostrophe",
+            "zh": "先数拥有者，再放撇号"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine one illustrator who owns a studio: the illustrator’s studio. Now imagine two illustrators sharing one studio: the illustrators’ studio. The studio stays singular while the owners become plural. These new examples show why counting the owned objects is not enough. Proper names ending in s and other style-sensitive cases need their own stated convention; they are outside this selected practice.",
+              "zh": "想象一位插画师有一间工作室：the illustrator’s studio。再想象两位共有一间：the illustrators’ studio。工作室仍为单数，拥有者变复数，所以只数物件不够。以s结尾的人名等风格敏感情形需另明约定，不在本组范围。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Expand a contraction before accepting it",
+            "zh": "先展开缩约形式再判断"
+          },
+          "paragraphs": [
+            {
+              "en": "When considering it’s, temporarily write it is or it has and check whether the sentence still works. Before a noun phrase showing possession, its may be needed instead. For punctuation, underline each independent clause and inspect the connecting word. However does not work like and in a comma-plus-conjunction pattern. These checks explain a choice; they do not mean every long sentence requires a semicolon.",
+              "zh": "看到it’s可先展开成it is或it has，再核整句是否成立；名词短语前表达所属时可能需要its。标点题则划出独立分句、核连接词，however不能像and那样套逗号加连词模式。这些步骤解释选择，不代表长句一律用分号。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Try two edits with different goals",
+            "zh": "为两个不同目标分别改写"
+          },
+          "paragraphs": [
+            {
+              "en": "Write two short independent clauses of your own. First keep them in one sentence without a conjunction, then make two sentences and adjust capitals as needed. Compare the punctuation and the effect on reading. Separately write singular-owner and plural-owner phrases for one shared object. State the intended ownership before checking the apostrophe. Use fresh examples after reviewing the fixed questions so that recall does not replace editing practice.",
+              "zh": "自写两个独立短分句，先不加连词保留一个句子，再拆成两句并调整大小写，比较标点和阅读效果。另写一个物体的单数拥有者与复数拥有者短语，先说清所属再核撇号。看完固定题后换新例子，避免记忆替代改写练习。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "These edits do not certify an editor",
+            "zh": "这些改写不认证编辑能力"
+          },
+          "paragraphs": [
+            {
+              "en": "The section covers selected mechanics, not essay structure, argument quality, clarity under pressure or every style guide. Different legitimate edits can serve different aims; the scored questions narrow the requested aim to make their keys inspectable. Six correct choices are not a hiring threshold or professional proofreading qualification. Every explanation and the full guide remain available even when all six answers are incorrect.",
+              "zh": "本组练选定书写规则，不测篇章结构、论证质量、压力下清晰表达或所有风格指南。不同合法改写可服务不同目标，计分题缩小指定目标以便核答案。六题全对不是招聘线或专业校对资格；即使全错也能看全部解析和完整指南。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "Correct counts for this edition",
+        "zh": "本版正确数怎样计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Each matching key adds one; each incorrect choice adds zero. Four groups of six add to a count out of 24. All 24 valid choices are required before a result appears. There is no weighting, reverse scoring or speed bonus, and no missing response is silently filled in.",
+          "zh": "每个与答案一致的选择记1题，答错记0题，四组各六题合计为正确数/24。24题均需有效选择才出结果，不加权、不反向、不按速度加分，缺答不会静默补齐。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Review the construction, not a personal label",
+        "zh": "复习结构，不给自己贴标签"
+      },
+      "paragraphs": [
+        {
+          "en": "A count such as 3/6 refers to the six selected items under your practice conditions. It does not establish a general grammar-accuracy rate or predict how you will write an email. Zero, partial and perfect counts all show every answer and all four complete guides. Use the particular auxiliary, referent, sound or sentence boundary you missed to choose new practice.",
+          "zh": "例如3/6只指本组六题在当前条件下的作答，不建立总体语法准确率，也不预测邮件写作表现。零分、部分答对和全对都看全部答案与四份完整指南。应按漏看的助动词、指代、发音或句界选择新练习。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "Selected recognition tasks, without level calibration",
+        "zh": "选定识别任务，未做等级校准"
+      },
+      "paragraphs": [
+        {
+          "en": "This original fixed bank has no CEFR calibration, IELTS or TOEFL conversion, population norms, school grade, hiring cutoff or psychometric validation. It does not assess listening, speaking or spontaneous writing. Grammar usage can vary by context, register and variety; the questions specify the selected written construction. Repeated exposure or checking aids may change the count.",
+          "zh": "本原创固定题组没有CEFR校准、雅思托福换算、人群常模、学段、招聘线或心理测量验证，不评听说和即时写作。语法用法可能随语境、语域和变体变化，本题明确所练书面结构。重复接触和查阅工具会影响正确数。"
+        }
+      ]
+    },
+    {
+      "id": "source-context",
+      "title": {
+        "en": "Original sentences with checked grammar facts",
+        "zh": "原创句子与已核语法事实"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the contexts, alternatives, explanations, examples and guides. Selected British Council, Cambridge Grammar and Purdue OWL reference facts support the answer review. Their exercise banks, example sentences, copyrighted explanations and competitor result descriptions are not reproduced. The references do not endorse this test or supply its norms.",
+          "zh": "费马编写语境、选项、解析、例子和指南，结合British Council、Cambridge Grammar及Purdue OWL的选定语法事实核答案。不搬其练习题库、例句、版权解析或竞品结果文字；参考机构不因此背书本测试，也未提供本题组常模。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this English grammar test include?",
+        "zh": "英语语法测试包含哪些内容？"
+      },
+      "answer": {
+        "en": "There are 24 original multiple-choice items, six each on verb forms and time, agreement and reference, articles and function words, and punctuation and possession. Every answer is explained after completion, and all four full public guides can also be read before starting.",
+        "zh": "24道原创单选题，动词形式与时间、一致与指代、冠词功能词、标点所有关系各六题。完成后每题都有解析，四份完整公开指南也可开始前阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will I receive a CEFR level or writing grade?",
+        "zh": "会给CEFR等级或写作等级吗？"
+      },
+      "answer": {
+        "en": "No. Counts describe this fixed set of selected grammar choices. There is no calibrated CEFR mapping, exam conversion, writing grade or proofreading qualification. Recognising a form does not demonstrate spontaneous writing, listening or speaking.",
+        "zh": "不会。正确数只描述本固定题组的选定语法选择，没有校准过的CEFR映射、考试换算、写作等级或校对资格。认出形式不证明即时写作、听力或口语能力。"
+      }
+    },
+    {
+      "question": {
+        "en": "How does this differ from the English proficiency practice?",
+        "zh": "与英语水平练习有什么区别？"
+      },
+      "answer": {
+        "en": "This set contains 24 new grammar-only tasks. The separate English proficiency practice mixes grammar with vocabulary, reading and functional messages. The two banks are distinct; neither converts raw counts to a calibrated overall language level.",
+        "zh": "本组是24道全新的语法专项题；独立的英语水平练习把语法与词汇、阅读、任务消息组合。两组题库不同，都不把原始正确数换成经校准的总体语言等级。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are some instructions very specific?",
+        "zh": "为什么部分题目条件写得很具体？"
+      },
+      "answer": {
+        "en": "Meaning, sentence boundaries and usage conventions can change which forms fit. The question states the construction or editing goal, such as past perfect or one sentence without a conjunction. An alternative may work in another context without meeting this task’s explicit request.",
+        "zh": "意思、句界与用法约定会改变可用形式。因此题目明示结构或改写目标，例如过去完成时、一个句子且不加连词。某选项可在其他语境成立，却不满足本题明确要求。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is it free and untimed, and can I retake it?",
+        "zh": "免费、不计时吗，可以重测吗？"
+      },
+      "answer": {
+        "en": "All answers, explanations and four full guides are free, without an account, email or payment. There is no timer. A retake uses the same 24 original questions, not a calibrated parallel form. After seeing the answers, a higher count may reflect memory.",
+        "zh": "全部答案、解析和四份完整指南免费，不需账户、邮箱或付款。不计时，重测仍是相同24道原创题，不是经校准的平行题本；看答案后提高可能来自记忆。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do Chinese instructions keep English sentences, and what is shared?",
+        "zh": "中文说明为何保留英文题句，分享包含什么？"
+      },
+      "answer": {
+        "en": "English remains the target language; instructions and explanations are bilingual while stimuli and alternatives remain English. Cross-language measurement equivalence is not established. Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Sharing copies a public test link without answers or counts.",
+        "zh": "被练习的是英语，说明解析双语，题句选项保留英文；未建立跨语言测量等价。答案留在浏览器，可选标签页草稿24小时失效，完成、退出并清除或重测后删除。分享只复制公开测试链接，不含答卷或正确数。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "British Council: Past simple",
+        "zh": "British Council语法：一般过去时"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-simple"
+    },
+    {
+      "title": {
+        "en": "British Council: Present continuous",
+        "zh": "British Council语法：现在进行时"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-continuous"
+    },
+    {
+      "title": {
+        "en": "British Council: Past perfect",
+        "zh": "British Council语法：过去完成时"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-perfect"
+    },
+    {
+      "title": {
+        "en": "British Council: Present perfect",
+        "zh": "British Council语法：现在完成时"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect"
+    },
+    {
+      "title": {
+        "en": "British Council: Passive voice",
+        "zh": "British Council语法：被动语态"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/active-passive-voice"
+    },
+    {
+      "title": {
+        "en": "British Council: Personal pronouns",
+        "zh": "British Council语法：人称代词"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/personal-pronouns"
+    },
+    {
+      "title": {
+        "en": "British Council: Relative clauses",
+        "zh": "British Council语法：关系从句"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses"
+    },
+    {
+      "title": {
+        "en": "British Council: A and an",
+        "zh": "British Council语法：不定冠词"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/indefinite-article"
+    },
+    {
+      "title": {
+        "en": "British Council: Time expressions",
+        "zh": "British Council语法：时间表达"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/when-time-dates"
+    },
+    {
+      "title": {
+        "en": "British Council: Future perfect",
+        "zh": "British Council语法：将来完成形式"
+      },
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/future-continuous-future-perfect"
+    },
+    {
+      "title": {
+        "en": "Cambridge Grammar: Infinitives",
+        "zh": "Cambridge语法：不定式"
+      },
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/infinitives"
+    },
+    {
+      "title": {
+        "en": "Purdue OWL: Agreement",
+        "zh": "Purdue OWL：主谓一致"
+      },
+      "url": "https://owl.purdue.edu/owl/general_writing/grammar/subject_verb_agreement.html"
+    },
+    {
+      "title": {
+        "en": "Purdue OWL: Semicolons",
+        "zh": "Purdue OWL：分号"
+      },
+      "url": "https://owl.purdue.edu/owl/general_writing/punctuation/commas/commas_vs_semicolons.html"
+    },
+    {
+      "title": {
+        "en": "Purdue OWL: Apostrophes",
+        "zh": "Purdue OWL：撇号"
+      },
+      "url": "https://owl.purdue.edu/owl/general_writing/punctuation/apostrophe_introduction.html"
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_english_grammar_practice",
+    "formCode": "fm_english_grammar_practice_24_v1",
+    "itemBankVersion": "fm_english_grammar_practice_24_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_grammar_four_review_guides_v1",
+    "itemBankSha256": "a1700efe4649326bca180e2f3447332c51cea5b14de12ccf8e2a9bc2eae467d7",
+    "resultContentSha256": "d94dd9513c187df30aeb1bf334a71c729fd099501d4ddc984a907f9f5921f4e9",
+    "psychometricValidationCompleted": false
+  }
+}
