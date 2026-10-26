@@ -3498,5 +3498,41 @@
       "pisces"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "love-personality",
+    "code": "LOVE_PERSONALITY",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Love Personality Test",
+      "zh": "恋爱人格测试"
+    },
+    "description": {
+      "en": "Take 24 paired choices about expression, response, space and repair. Read all 15 full public result guides, including ties. Free, with no signup.",
+      "zh": "通过24道原创二选一题，回看表达、回应、靠近与空间、分歧修复四种互动入口。免费作答，15种含并列结果均有完整公开说明，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "love_personality_forced_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "clear-expression",
+      "attuned-response",
+      "space-regulation",
+      "repair-engagement",
+      "expression-response-tie",
+      "expression-space-tie",
+      "expression-repair-tie",
+      "response-space-tie",
+      "response-repair-tie",
+      "space-repair-tie",
+      "expression-response-space-tie",
+      "expression-response-repair-tie",
+      "expression-space-repair-tie",
+      "response-space-repair-tie",
+      "four-directions-tied"
+    ],
+    "collection": "explore"
   }
 ]

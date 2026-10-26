@@ -1,0 +1,4612 @@
+{
+  "slug": "love-personality",
+  "code": "LOVE_PERSONALITY",
+  "kind": "directional",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "title": {
+    "en": "Love Personality Test",
+    "zh": "恋爱人格测试"
+  },
+  "seoTitle": {
+    "en": "Love Personality Test: 24 Choices & Full Results",
+    "zh": "恋爱人格测试：24题互动选择与完整并列解读"
+  },
+  "description": {
+    "en": "Take 24 paired choices about expression, response, space and repair. Read all 15 full public result guides, including ties. Free, with no signup.",
+    "zh": "通过24道原创二选一题，回看表达、回应、靠近与空间、分歧修复四种互动入口。免费作答，15种含并列结果均有完整公开说明，无需注册。"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "How do you tend to open a relationship conversation: put something into words, check a response, adjust space or consider a repair step? This original FermatMind questionnaire compares your choices across four entries. It records this attempt rather than a fixed love type. All single and tied explanations are public, so you can read them before deciding to answer.",
+    "zh": "想表达在意、回应对方、调整联系节奏或面对分歧时，你更自然从哪里开始？这份费马原创题本用24道成对选择，回看清楚表达、留意回应、调节靠近与空间、参与分歧修复四个入口。结果记录本次回答，不是固定恋爱人格；15种单独或并列说明都可先读。"
+  },
+  "instructions": {
+    "en": "For each pair, choose the response closer to your current, more natural choice. Use experiences you are comfortable reflecting on; neither option is a correct answer. Complete all 24 for raw counts and a full explanation. If neither option fits or this topic is not useful, you can stop. No partner’s answers, contact details or private messages are needed.",
+    "zh": "每题比较两种做法，选择当前更接近自己、更自然的一项，可以回看你愿意观察的关系经历。两项没有正确答案，完整答完24题后才显示原始次数与完整说明；两项都不适用或不想继续时，可以结束。无需伴侣作答、联系方式或私人聊天记录。"
+  },
+  "source": {
+    "kind": "original-mini-program-web-adaptation",
+    "formCode": "love_personality_forced_choice_24",
+    "itemBankVersion": "0.1.1-preview+web-en.1",
+    "scoringVersion": "0.1.1-preview.web-raw-count.1",
+    "resultContentVersion": "0.2.1-preview+web-en.1",
+    "itemBankSha256": "a76daf7e0cc5b9dc22c4388568b686313ba776136fd673966c6b4bd3ef3ad995",
+    "resultContentSha256": "66af65ac25b0f3978a0573aa4d61909a0f758f6c1100bd5ac297f483cd5f46ba",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "CLEAR_EXPRESSION",
+      "title": {
+        "en": "Clear Expression",
+        "zh": "清楚表达"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ATTUNED_RESPONSE",
+      "title": {
+        "en": "Attuned Response",
+        "zh": "留意回应"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "SPACE_REGULATION",
+      "title": {
+        "en": "Space Regulation",
+        "zh": "调节靠近与空间"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "REPAIR_ENGAGEMENT",
+      "title": {
+        "en": "Repair Engagement",
+        "zh": "参与分歧修复"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "LOVE_PERSONALITY_FC_001",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I want someone to know I care, I more naturally put my feelings and needs into words.",
+            "zh": "想让对方知道我的在意时，我更自然地把感受和需要说清楚。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When I want someone to know I care, I more naturally first notice whether they are willing to respond right now.",
+            "zh": "想让对方知道我的在意时，我更自然地先观察对方当下是否愿意回应。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_002",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When something affects both of us, I would rather first hear how the other person understands it.",
+            "zh": "遇到一件影响彼此的事，我更愿意先听对方怎样理解。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When something affects both of us, I would rather directly explain what it means to me.",
+            "zh": "遇到一件影响彼此的事，我更愿意直接说明它对我的意义。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_003",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I need support, I tend to make a specific request.",
+            "zh": "需要支持时，我更倾向提出一个具体请求。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When I need support, I tend to notice the ways the other person is already responding.",
+            "zh": "需要支持时，我更倾向留意对方已经给出的回应方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_004",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When the atmosphere between us changes, I more often first check whether the other person has noticed something similar.",
+            "zh": "关系气氛有变化时，我更常先确认对方是否也有类似感受。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When the atmosphere between us changes, I more often first describe what I have noticed.",
+            "zh": "关系气氛有变化时，我更常先说出自己注意到的变化。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_005",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I want more contact, I would rather directly say how often I hope we can be in touch.",
+            "zh": "想增加联系时，我更愿意直接说出期待的频率。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When I want more contact, I would rather first leave room for both of us to adjust.",
+            "zh": "想增加联系时，我更愿意先为彼此保留可调整的空间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_006",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When we have different ideas about plans, I more naturally first adjust the rhythm of togetherness and time alone.",
+            "zh": "对安排有不同想法时，我更自然地先调整靠近与独处的节奏。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When we have different ideas about plans, I more naturally explain my priorities.",
+            "zh": "对安排有不同想法时，我更自然地说明自己的优先顺序。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_007",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When something important is on my mind, I would rather make it clear sooner.",
+            "zh": "心里有重要内容时，我更愿意尽早说清楚。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When something important is on my mind, I would rather choose a time when we both have more capacity.",
+            "zh": "心里有重要内容时，我更愿意选择双方都比较有余量的时机。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_008",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When I need time alone, I tend to first make space and reconnect after I feel more settled.",
+            "zh": "需要独处时，我更倾向先留出空间，等状态稳定后再联系。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I need time alone, I tend to explain why and give a rough idea of my plans.",
+            "zh": "需要独处时，我更倾向把原因和大致安排说明白。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_009",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When a disagreement first appears, I more naturally explain my view fully.",
+            "zh": "分歧刚出现时，我更自然地把自己的看法说完整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When a disagreement first appears, I more naturally look for how we could continue discussing it later.",
+            "zh": "分歧刚出现时，我更自然地寻找之后可以怎样继续讨论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_010",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When I notice we have misunderstood each other, I would rather first take part in repairing the current interaction.",
+            "zh": "意识到彼此误解时，我更愿意先参与修复当下的互动。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I notice we have misunderstood each other, I would rather explain what I originally meant again.",
+            "zh": "意识到彼此误解时，我更愿意重新说明原本的意思。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_011",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When I still have questions about something, I tend to ask a clear question.",
+            "zh": "对一件事仍有疑问时，我更倾向提出清楚的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When I still have questions about something, I tend to agree on a step that lets us keep working on it.",
+            "zh": "对一件事仍有疑问时，我更倾向约定一个能继续处理的步骤。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_012",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When something I did affects the other person, I would rather first discuss how to deal with it next.",
+            "zh": "自己的做法影响到对方时，我更愿意先商量接下来可以怎样处理。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CLEAR_EXPRESSION",
+          "label": {
+            "en": "When something I did affects the other person, I would rather first describe its specific impact.",
+            "zh": "自己的做法影响到对方时，我更愿意先说明这个做法带来的具体影响。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_013",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When the other person’s mood changes, I more naturally ask whether they want to talk now.",
+            "zh": "对方情绪有变化时，我更自然地询问现在是否想说。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When the other person’s mood changes, I more naturally give them some room to gather their thoughts.",
+            "zh": "对方情绪有变化时，我更自然地给对方一点整理空间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_014",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When the other person shares a source of stress, I would rather first slow the conversation and leave some pauses.",
+            "zh": "对方分享压力时，我更愿意先把交流节奏放慢，留出一些停顿。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When the other person shares a source of stress, I would rather first check whether they want listening or help thinking through options.",
+            "zh": "对方分享压力时，我更愿意先确认对方希望被倾听还是一起想办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_015",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When our preferred contact rhythms differ, I tend to first understand the signals the other person is giving.",
+            "zh": "双方联系节奏不同，我更倾向先理解对方发出的信号。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When our preferred contact rhythms differ, I tend to first negotiate a range that gives us both breathing room.",
+            "zh": "双方联系节奏不同，我更倾向先协商一个都能呼吸的范围。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_016",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When the other person is temporarily quiet, I more often keep some distance and wait for a new signal.",
+            "zh": "对方暂时沉默时，我更常保留距离并等待新的信号。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When the other person is temporarily quiet, I more often check how they would like me to respond to the silence.",
+            "zh": "对方暂时沉默时，我更常确认这份沉默需要怎样被回应。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_017",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When a discussion is not going well, I more naturally notice which parts of the other person’s message have not been heard.",
+            "zh": "讨论不顺时，我更自然地留意对方哪些话还没被听见。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When a discussion is not going well, I more naturally encourage us to find another thing to try.",
+            "zh": "讨论不顺时，我更自然地推动双方找到下一次尝试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_018",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When the other person points out an impact on them, I would rather work together to establish what could make amends.",
+            "zh": "对方指出受影响时，我更愿意一起确认可以怎样弥补。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When the other person points out an impact on them, I would rather first understand the specific feelings involved.",
+            "zh": "对方指出受影响时，我更愿意先理解具体感受。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_019",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "After an argument ends, I tend to ask whether the other person wants to add anything.",
+            "zh": "一次争执结束后，我更倾向问对方还有什么需要补充。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "After an argument ends, I tend to take the initiative to arrange a review of what happened.",
+            "zh": "一次争执结束后，我更倾向主动安排一次复盘。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_020",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When our views still differ, I more often look for something on which we can first resume cooperation.",
+            "zh": "彼此看法仍不一致，我更常寻找可以先恢复合作的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ATTUNED_RESPONSE",
+          "label": {
+            "en": "When our views still differ, I more often respond to the part that matters most to the other person.",
+            "zh": "彼此看法仍不一致，我更常回应对方最在意的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_021",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When an argument heats up, I more naturally first pause the current conversation.",
+            "zh": "争执升温时，我更自然地先暂停当前对话。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When an argument heats up, I more naturally first find one specific point we could keep working on.",
+            "zh": "争执升温时，我更自然地先找一个可以继续处理的具体点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_022",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When we are both very tired, I would rather first complete one small repair action.",
+            "zh": "双方都很疲惫时，我更愿意先完成一个小的修复动作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When we are both very tired, I would rather first reduce the intensity of the interaction.",
+            "zh": "双方都很疲惫时，我更愿意先降低互动强度。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_023",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When the relationship feels pulled in different directions, I tend to renegotiate contact and space.",
+            "zh": "关系出现拉扯时，我更倾向重新商量联系与空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When the relationship feels pulled in different directions, I tend to renegotiate how we handle disagreements.",
+            "zh": "关系出现拉扯时，我更倾向重新商量分歧怎样被处理。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_PERSONALITY_FC_024",
+      "prompt": {
+        "en": "Which of these two responses is closer to your more natural choice right now?",
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "REPAIR_ENGAGEMENT",
+          "label": {
+            "en": "When we need to regain calm, I would rather establish how we will pick up the conversation later.",
+            "zh": "需要恢复平静时，我更愿意确认之后会怎样重新接上对话。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SPACE_REGULATION",
+          "label": {
+            "en": "When we need to regain calm, I would rather protect the time each of us needs to gather our thoughts.",
+            "zh": "需要恢复平静时，我更愿意保护各自整理的时间。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "clear-expression",
+      "directionIds": [
+        "CLEAR_EXPRESSION"
+      ],
+      "title": {
+        "en": "Clear Expression",
+        "zh": "清楚表达"
+      },
+      "headline": {
+        "en": "Clear Expression received the most choices in this attempt",
+        "zh": "本次题组中，清楚表达被选中的次数最多"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, you more often selected putting observations, feelings, needs or arrangements into words.",
+        "zh": "这 24 道题里，你更多次选中了把观察、感受、需要和安排说清楚的那一项。"
+      },
+      "seo": {
+        "title": {
+          "en": "Clear Expression: Love Personality Test Result",
+          "zh": "清楚表达：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read Clear Expression in this original Love Personality Test: raw choice counts, request examples, timing, listening and the limits of a leading count.",
+          "zh": "完整阅读恋爱人格测试“清楚表达”的原始选择次数、具体请求与对话例子、时机与倾听的取舍；次数最多不代表更会沟通或伴侣更理解你。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each chosen option adds one count to its direction. Each of the four directions appears in 12 comparisons. Clear Expression has the highest count in this attempt. This is an internal comparison, not a population rank, accuracy rate, intensity or percentile.",
+        "zh": "计分方式：每道题都是两个选项的二选一，你选中的方向得 1 次；四个方向各参与 12 次比较。本次清楚表达次数最多。这个数字只在本次作答内部成立，不是人群排名、准确率、浓度或百分位。"
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "en": "What this entry means",
+            "zh": "这个互动入口指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression is FermatMind’s name for an entry into interaction: making observations, feelings, needs, boundaries and arrangements available for discussion. The label does not establish extraversion, communication skill or emotional intelligence, and it cannot tell you how another person will understand or answer.",
+              "zh": "清楚表达是费马测试自建的记忆符号，标记一种互动入口：把观察、感受、需要、边界和安排放到对话中，便于双方核对。它不等同外向、沟通能力或情商，也不保证对方如何理解或回应。"
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "en": "What the selected choices concern",
+            "zh": "本次题目中的具体观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The relevant choices include naming what matters to you, explaining the personal meaning of something affecting both people, making a specific request for support and describing a change you noticed. Their shared feature is putting information into the conversation where both people can check it. The count records your selections rather than proving these actions occurred or worked.",
+              "zh": "想让对方知道你的在意时，你倾向把感受和需要直接说出来；遇到影响彼此的事，你先说明它对你的意义；需要支持时，你提出具体请求；关系气氛变化时，你先说出自己注意到的变化。这些选择共同指向：先把可核对的信息放到对话中。"
+            }
+          ]
+        },
+        {
+          "id": "interaction-entries",
+          "title": {
+            "en": "Choices supporting this entry",
+            "zh": "题目支持的互动入口"
+          },
+          "paragraphs": [
+            {
+              "en": "When you want someone to know you care, you select expressing your feelings and needs.",
+              "zh": "想让对方知道自己的在意时，选择把感受和需要说清楚。"
+            },
+            {
+              "en": "When something affects both people, you select directly explaining its meaning for you.",
+              "zh": "遇到影响彼此的事时，选择直接说明它对自己的意义。"
+            },
+            {
+              "en": "When you need support, you select a request specific enough to answer.",
+              "zh": "需要支持时，选择提出一个具体、可回应的请求。"
+            },
+            {
+              "en": "When something important is on your mind, you select explaining sooner rather than waiting for a different moment.",
+              "zh": "心里有重要内容时，选择尽早说清楚，而不是等时机。"
+            }
+          ]
+        },
+        {
+          "id": "expression-and-response-pattern",
+          "title": {
+            "en": "Expression and response in context",
+            "zh": "表达与回应的具体表现"
+          },
+          "paragraphs": [
+            {
+              "en": "In this bank, you more often selected first explaining an observation, need or arrangement. A question about your action affecting someone concerns describing that impact; it does not score responsibility or communication ability. Understanding, acceptance and a response still depend on both people’s wishes, timing, information and actual feedback.",
+              "zh": "本次选择显示，你较常选中先说明观察、需要或安排的入口。自己的做法影响到对方时，题目观察的是说明具体影响，不是责任高低或沟通能力。对方是否理解、接受或回应，仍要看双方意愿、时机、信息和实际反馈。"
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "en": "Compare different circumstances",
+            "zh": "不同情境如何核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare a familiar relationship with a less familiar one: do you put the same things into words?",
+              "zh": "可以核对：面对熟悉和不熟悉的关系对象时，你的表达方式有没有变化？"
+            },
+            {
+              "en": "Under pressure, you might become briefer or need to explain more fully. A specific recollection can help you check which happened.",
+              "zh": "情绪或压力增加时，你可能说得更简短，也可能更需要说完整；请用具体经历判断。"
+            },
+            {
+              "en": "If the other person does not want to continue, you might wait or leave one necessary piece of information. The count cannot determine your usual choice.",
+              "zh": "对方暂时不愿继续时，你可能等待，也可能先留下一句必要信息；哪种更常见需回看实际情境。"
+            },
+            {
+              "en": "A different relationship stage or more serious event may call for a different response. Check an experience rather than assuming the label will persist.",
+              "zh": "关系阶段或事件严重程度变化后，这个入口是否仍常见，需要通过经历核对。"
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "en": "When this entry may be useful",
+            "zh": "可能有帮助的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Expressing information creates something observable to check together. Whether it helps depends on explicit feedback.",
+              "zh": "这种做法提供一个可观察的信息核对入口；是否有用要看对方的明确反馈。"
+            },
+            {
+              "en": "A specific request can clarify what you are asking for; it cannot guarantee acceptance or a reply.",
+              "zh": "具体请求可以用来标出你在请求什么；它不保证对方接受或回应。"
+            },
+            {
+              "en": "When both people want to talk, stating a view can provide a starting point. Assess progress through what actually follows.",
+              "zh": "当双方愿意继续交流时，把看法放到桌面上可作为讨论的一个起点；实际进展需要回看后续发生了什么。"
+            },
+            {
+              "en": "After a boundary or arrangement is expressed, you can check whether both people understood the same thing without presuming agreement.",
+              "zh": "边界和安排被说出后，可以检查双方对同一句话的理解是否一致；不预设检查结果。"
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "en": "Tradeoffs to check",
+            "zh": "单独依赖时的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Check the timing: did the situation allow both people to participate, or was one person doing all the talking?",
+              "zh": "可以检查：开口的时机是否允许双方继续，还是只有一方在输出？"
+            },
+            {
+              "en": "Revisit a conversation after stating your need. Was there room for the other person to express theirs?",
+              "zh": "回看一次具体对话：你说完自己的需要后，有没有留出对方表达的空间？"
+            },
+            {
+              "en": "If an explanation was heard as a lecture, ask what each person needed at that moment rather than inventing the cause.",
+              "zh": "如果完整说明被对方理解为讲道理，可以核对当时双方分别需要什么，而不预设原因。"
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "en": "Concrete conversation examples",
+            "zh": "具体对话与场景例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, you say what support would help during a tiring week instead of leaving a sigh to carry the message.",
+              "zh": "想让对方知道你最近很累时，你直接说出需要什么支持，而不是只叹气。"
+            },
+            {
+              "en": "When weekend plans differ, you explain your priority and then ask how the other person sees it.",
+              "zh": "对周末安排有不同想法，你说明自己的优先顺序，再问对方怎么看。"
+            },
+            {
+              "en": "After a small misunderstanding, you restate your intended meaning instead of waiting for a question. These are examples to compare, not predictions about you.",
+              "zh": "一次小误会发生后，你重新说明原本的意思，而不是等对方来问。"
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "en": "One optional next step",
+            "zh": "可以尝试的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "Before opening a topic, ask whether the other person has capacity to listen now.",
+              "zh": "下次开口前，先问一句：对方现在有余量听吗？"
+            },
+            {
+              "en": "After your part, leave an opening such as, “How is it on your side?”",
+              "zh": "说完自己的部分后，补一句：你那边是什么感受？"
+            },
+            {
+              "en": "Try one concise point, then ask whether they want the fuller explanation. You may draft it privately rather than try it on someone.",
+              "zh": "试着把一个完整说明拆成两步：先给一句结论，再问要不要展开。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Questions for a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Can you recall explaining clearly but receiving a different response from the one you expected?",
+              "zh": "有没有一次，你说得很清楚，但对方的实际回应与你预期不同？"
+            },
+            {
+              "en": "What stopped you the last time you wanted to say something and did not?",
+              "zh": "最近一次你想说但没说的时刻，是什么拦住了你？"
+            },
+            {
+              "en": "When you kept only the most important sentence, what actually happened next?",
+              "zh": "如果你只留最重要的一句，后续实际发生了什么？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The count does not establish greater extraversion or communication skill.",
+              "zh": "不表示你更外向或更会沟通。"
+            },
+            {
+              "en": "It does not establish greater honesty, maturity or emotional intelligence.",
+              "zh": "不表示你更坦诚、更成熟或情商更高。"
+            },
+            {
+              "en": "It guarantees neither fewer misunderstandings nor another person’s understanding.",
+              "zh": "不能保证减少误会，也不能保证对方更理解你。"
+            },
+            {
+              "en": "It measures neither partner fit, relationship quality nor its outcome.",
+              "zh": "不表示伴侣适配、关系质量或关系结局。"
+            },
+            {
+              "en": "It does not mean you express yourself this way in every relationship.",
+              "zh": "不表示你在所有关系里都这样表达。"
+            },
+            {
+              "en": "This interpretation concerns relative choices in these 24 questions. Responses can vary with the person, familiarity, current pressure and the seriousness of an event. A lower count does not mean being unable to love, immature or less capable.",
+              "zh": "这里只解释本次 24 题里你相对更常选择的方向。行为会随关系对象、熟悉程度、当下压力和事件严重程度变化；较低方向不表示不会爱、不成熟或能力不足。"
+            },
+            {
+              "en": "This original self-exploration questionnaire has not completed reliability, validity or population-norm studies and has no official certification. Its self-reported choice counts are not an attachment assessment, relationship diagnosis or commercial relationship course.",
+              "zh": "本内容用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方认证。结果仅基于本次自报选择的次数比较，不等同依恋类型诊断、关系诊断或任何商业恋爱课程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "attuned-response",
+      "directionIds": [
+        "ATTUNED_RESPONSE"
+      ],
+      "title": {
+        "en": "Attuned Response",
+        "zh": "留意回应"
+      },
+      "headline": {
+        "en": "Attuned Response received the most choices in this attempt",
+        "zh": "本次题组中，留意回应被选中的次数最多"
+      },
+      "summary": {
+        "en": "In these 24 paired choices, listening, checking and noticing willingness to engage received your most selections.",
+        "zh": "回答这 24 题时，你先听、先核对、先看对方当下状态这类选项被你选中的次数最多。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attuned Response: Love Personality Test Result",
+          "zh": "留意回应：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read Attuned Response in the Love Personality Test: checking meaning, listening, your own needs and why counts cannot reveal another person’s feelings.",
+          "zh": "完整阅读恋爱人格测试“留意回应”：如何核对意思、听见具体需要，也说出自己的部分；自报次数不能读出对方感受或证明同理心。"
+        }
+      },
+      "scoreReading": {
+        "en": "The chosen direction receives one count per question, and each direction appears 12 times. Attuned Response is highest in this attempt. Counts compare these choices only; they are not population positions, accuracy, intensity or percentiles.",
+        "zh": "得分规则：每道题选中的方向记 1 次，四个方向各出场 12 次。这次留意回应排在第一。这个次数只对本次作答有意义——它不是人群排名，不是准确率，也不代表浓度或百分位。"
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "en": "What this entry means",
+            "zh": "这个互动入口指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Attuned Response is FermatMind’s name for listening and checking what someone is expressing, noticing whether they want to continue, and adjusting a response using observable information. It does not establish kindness, consideration or empathy. A quiet face or a pause still needs interpretation through direct feedback rather than presumed mind-reading.",
+              "zh": "留意回应是费马测试自建的记忆符号，标记一种互动入口：倾听并核对对方正在表达什么，留意对方是否愿意继续交流，根据当下可观察的信号调整回应。它不等同善良、体贴或有同理心。"
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "en": "What the selected choices concern",
+            "zh": "本次题目中的具体观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Your selections more often favoured hearing someone out, checking a meaning or asking whether the moment suits continued conversation. In the stress example, the choice concerns asking whether listening or help with options is wanted. It records an approach chosen in this bank, rather than how considerate you are or how accurately you understand feelings.",
+              "zh": "本次题组中，你较常选中先听、先核对、先看对方当下是否愿意继续的入口。对方分享压力时，题目观察的是先确认对方希望被倾听还是一起想办法。这反映的是本次作答入口，不是体贴程度或读心能力。"
+            }
+          ]
+        },
+        {
+          "id": "interaction-entries",
+          "title": {
+            "en": "Choices supporting this entry",
+            "zh": "题目支持的互动入口"
+          },
+          "paragraphs": [
+            {
+              "en": "When someone is temporarily quiet, you select checking whether they want to continue.",
+              "zh": "对方暂时沉默时，选择先确认对方是否愿意继续。"
+            },
+            {
+              "en": "When someone shares stress, you select checking whether listening or thinking through options is wanted.",
+              "zh": "对方分享压力时，选择先确认对方希望被倾听还是一起想办法。"
+            },
+            {
+              "en": "When discussion stalls, you select checking which part of the message has not been heard.",
+              "zh": "讨论不顺时，选择核对哪句话还没有被听见。"
+            },
+            {
+              "en": "When a mood changes, you select asking whether the person wants to speak now.",
+              "zh": "对方情绪有变化时，选择先询问现在是否想说。"
+            }
+          ]
+        },
+        {
+          "id": "expression-and-response-pattern",
+          "title": {
+            "en": "Expression and response in context",
+            "zh": "表达与回应的具体表现"
+          },
+          "paragraphs": [
+            {
+              "en": "Before responding, the selected entry gives attention to what seems to matter to the other person. In a stalled conversation it checks unheard points; after an argument it asks whether anything remains to add. Observable information and an explicit answer can guide a response. The count cannot establish what someone meant without that check.",
+              "zh": "回应前你倾向先理解对方最在意的部分。讨论不顺时，你留意哪些话还没被听见；一次争执结束后，你问对方还有什么需要补充。你调整回应的依据来自现场可观察的信号，而不是预设的脚本。"
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "en": "Compare different circumstances",
+            "zh": "不同情境如何核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare a calm moment and a tired one: did the way you checked the desired response change?",
+              "zh": "可以核对：对方平静或疲惫时，你核对回应方式的做法有没有变化？"
+            },
+            {
+              "en": "With familiar and unfamiliar people, you might rely on different signals or ask directly in both cases. Use recollections to check.",
+              "zh": "面对熟悉或不熟悉的人，你可能依据不同信号，也可能都会直接询问；请以经历判断。"
+            },
+            {
+              "en": "When your own pressure rises, noticing signals may be harder or you may slow down more. This change was not measured.",
+              "zh": "自己的压力增加时，你可能更难留意信号，也可能更会放慢核对；题目未测量这个变化。"
+            },
+            {
+              "en": "If a quick answer is necessary, you might offer a provisional response or ask first. The result does not decide the sequence.",
+              "zh": "必须快速表态时，你是先给临时回应还是先询问，需用具体情境核对。"
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "en": "When this entry may be useful",
+            "zh": "可能有帮助的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "This entry offers a way to check observable signals; it does not reveal something the other person has not said.",
+              "zh": "这种做法提供一个核对可观察信号的入口，不代表你已经知道对方没说出的内容。"
+            },
+            {
+              "en": "Asking whether listening or help is wanted gives you a checkpoint for choosing a response. Explicit feedback decides whether it fits.",
+              "zh": "先询问对方想被倾听还是一起想办法，可作为选择回应方式的检查点；是否合适以对方的明确反馈为准。"
+            },
+            {
+              "en": "If someone does not want to continue, asking whether a pause would help is one possibility, not a guarantee of a particular feeling.",
+              "zh": "当对方暂时不愿继续时，询问是否需要停顿可以作为一个尝试；它不保证对方的感受或反应。"
+            },
+            {
+              "en": "When a discussion is difficult, compare what happened after the check without assuming it improved the conversation.",
+              "zh": "讨论不顺时，可以回看核对之后实际发生了什么，而不预设对话效果。"
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "en": "Tradeoffs to check",
+            "zh": "单独依赖时的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "While noticing another person’s signals, check whether your own needs were also expressed.",
+              "zh": "可以检查：持续留意对方信号时，你自己的需要是否也被说出来？"
+            },
+            {
+              "en": "When someone was silent, which part of your interpretation came from observable information and which part was a guess?",
+              "zh": "对方沉默时，你的判断来自可观察信号还是猜测？可以通过直接询问核对。"
+            },
+            {
+              "en": "Revisit a conversation in which you followed someone’s pace. Did you also make your own direction clear?",
+              "zh": "回看一次跟随对方节奏的对话：你是否也表达了自己的方向？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "en": "Concrete conversation examples",
+            "zh": "具体对话与场景例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, when someone comes home unusually quiet, you ask whether the day was tiring before opening your own topic.",
+              "zh": "对方下班后话变少，你先问今天是不是很累，而不是直接说自己的事。"
+            },
+            {
+              "en": "If a discussion changes atmosphere, you check whether a particular statement was misunderstood.",
+              "zh": "讨论到一半气氛不对，你先问对方刚才那句话是不是被误解了。"
+            },
+            {
+              "en": "When someone describes a frustration, you ask whether they want suggestions or simply someone to listen. These scenes illustrate choices, not a verified ability to read them.",
+              "zh": "对方说起一件烦心事，你先确认对方想要的是建议还是只想被倾听。"
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "en": "One optional next step",
+            "zh": "可以尝试的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "After responding, add one of your own needs or views.",
+              "zh": "下次回应完对方后，补一句自己的需要或看法。"
+            },
+            {
+              "en": "When a signal is unclear, ask rather than turn a guess into a fact.",
+              "zh": "当你不确定信号时，直接问，而不是猜。"
+            },
+            {
+              "en": "Choose an ordinary moment to describe your own state before asking about theirs. A private draft is enough if you prefer not to start a conversation.",
+              "zh": "每天挑一次，先说出自己的状态，再问对方。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Questions for a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Have you paid so much attention to signals that you left out what you wanted to say?",
+              "zh": "有没有一次，你太在意对方的信号，反而没顾上自己想说什么？"
+            },
+            {
+              "en": "When judging someone’s state, what was observed and what was inferred?",
+              "zh": "你判断对方状态时，依据的是信号，还是自己的猜测？"
+            },
+            {
+              "en": "When you state your need first, what response have you actually seen?",
+              "zh": "如果你先说出自己的需要，对方通常是什么反应？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This does not establish greater kindness, consideration or empathy.",
+              "zh": "不表示你更善良、更体贴或更有同理心。"
+            },
+            {
+              "en": "It does not establish mind-reading or an ability to heal someone.",
+              "zh": "不表示你能看穿对方情绪，也不能疗愈对方。"
+            },
+            {
+              "en": "It does not make you responsible for another person’s emotions.",
+              "zh": "不表示你要为对方的情绪负责。"
+            },
+            {
+              "en": "It does not prove other people experience you as warm or reliable.",
+              "zh": "不表示别人一定觉得你温暖可靠。"
+            },
+            {
+              "en": "It does not mean this is your response in every relationship.",
+              "zh": "不表示你在所有关系里都这样回应。"
+            },
+            {
+              "en": "This interpretation concerns relative choices in these 24 questions. Responses can vary with the person, familiarity, current pressure and the seriousness of an event. A lower count does not mean being unable to love, immature or less capable.",
+              "zh": "这里只解释本次 24 题里你相对更常选择的方向。行为会随关系对象、熟悉程度、当下压力和事件严重程度变化；较低方向不表示不会爱、不成熟或能力不足。"
+            },
+            {
+              "en": "This original self-exploration questionnaire has not completed reliability, validity or population-norm studies and has no official certification. Its self-reported choice counts are not an attachment assessment, relationship diagnosis or commercial relationship course.",
+              "zh": "本内容用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方认证。结果仅基于本次自报选择的次数比较，不等同依恋类型诊断、关系诊断或任何商业恋爱课程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space-regulation",
+      "directionIds": [
+        "SPACE_REGULATION"
+      ],
+      "title": {
+        "en": "Space Regulation",
+        "zh": "调节靠近与空间"
+      },
+      "headline": {
+        "en": "Space Regulation received the most choices in this attempt",
+        "zh": "本次题组中，调节靠近与空间被选中的次数最多"
+      },
+      "summary": {
+        "en": "You more often chose adjusting contact, leaving space or attending to timing across these 24 comparisons.",
+        "zh": "整份问卷里，你更常选的是先调整联系强度、先留出空间、先看时机的那些选项。"
+      },
+      "seo": {
+        "title": {
+          "en": "Space Regulation: Love Personality Test Result",
+          "zh": "调节靠近与空间：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read Space Regulation in the Love Personality Test: contact rhythm, pauses, return arrangements and why a choice count does not establish attachment style.",
+          "zh": "完整阅读恋爱人格测试“调节靠近与空间”：联系节奏、暂停与重新联系的具体例子；本次选择次数不判定依恋类型或亲密能力。"
+        }
+      },
+      "scoreReading": {
+        "en": "A choice adds one count to its direction. Each of the four directions participates in 12 comparisons. Space Regulation is highest this time. This is relative to this attempt, not a population position, percentile, accuracy rate or intensity.",
+        "zh": "怎么计分：二选一里你选谁，谁就记 1 次；四个方向各被比较 12 次。本次调节靠近与空间次数最高。这个数字不能拿出去当人群位置或百分位看，也不是准确率或浓度，只是本次作答的相对结果。"
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "en": "What this entry means",
+            "zh": "这个互动入口指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Space Regulation is FermatMind’s label for an interaction entry that adjusts contact intensity and attends to possible pauses, time alone or reconnection. It does not establish avoidant attachment, coldness or fear of intimacy. The question is which offered action you selected, rather than why you chose it or how someone else experienced the distance.",
+              "zh": "调节靠近与空间是费马测试自建的记忆符号，标记一种互动入口：调整联系强度，识别需要暂停、独处或重新连接的时机。它不等同回避型依恋、冷漠或害怕亲密。"
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "en": "What the selected choices concern",
+            "zh": "本次题目中的具体观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Relevant choices include leaving room to adjust increased contact, changing the rhythm of time together and alone, first making space when solitude is needed, and pausing a heated conversation. Their shared focus is timing and interaction intensity. Selecting them does not diagnose attachment or establish a fixed personality.",
+              "zh": "想增加联系时，你倾向先为彼此保留可调整的空间；对安排有不同想法，你先调整靠近与独处的节奏；需要独处时，你先留出空间；争执升温时，题目观察的是先暂停当前对话。这些选择共同指向交流强度与时机的调整，不代表回避型依恋或固定人格。"
+            }
+          ]
+        },
+        {
+          "id": "interaction-entries",
+          "title": {
+            "en": "Choices supporting this entry",
+            "zh": "题目支持的互动入口"
+          },
+          "paragraphs": [
+            {
+              "en": "When you want more contact, you select first keeping room for adjustment.",
+              "zh": "想增加联系时，选择先为彼此保留可调整的空间。"
+            },
+            {
+              "en": "When you need time alone, you select making space before deciding when to reconnect from your actual state.",
+              "zh": "需要独处时，选择先留出空间，再根据实际状态决定何时联系。"
+            },
+            {
+              "en": "When an argument heats up, you select pausing that conversation.",
+              "zh": "争执升温时，选择先暂停当前对话。"
+            },
+            {
+              "en": "When both people are tired, you select reducing the intensity of interaction.",
+              "zh": "双方都很疲惫时，选择先降低互动强度。"
+            }
+          ]
+        },
+        {
+          "id": "expression-and-response-pattern",
+          "title": {
+            "en": "Expression and response in context",
+            "zh": "表达与回应的具体表现"
+          },
+          "paragraphs": [
+            {
+              "en": "This attempt more often favoured reducing intensity, leaving pauses or adjusting the contact rhythm. Whether you reconnect after a pause is not directly established by these items. Describing a possible return time is an action to consider, whose use depends on willingness, timing, information and feedback; it is not a result-derived prediction.",
+              "zh": "本次选择显示，你较常把降低交流强度、留出停顿或调整联系节奏作为入口。暂停后是否重新联系不由题目直接测得；‘说明何时再联系’只是可尝试的行动，效果取决于双方意愿、时机、信息和实际反馈。"
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "en": "Compare different circumstances",
+            "zh": "不同情境如何核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Pressure might increase your wish for space or your wish for contact. Check a specific experience.",
+              "zh": "压力增加时，你可能更想留空间，也可能更想靠近；请以具体经历判断。"
+            },
+            {
+              "en": "Do you describe your need for space differently with familiar and less familiar people?",
+              "zh": "面对熟悉和不熟悉的关系对象时，你说明空间需要的方式有没有变化？"
+            },
+            {
+              "en": "When someone explicitly asks for company, you might keep your arrangement or adjust it. The questionnaire does not predict which.",
+              "zh": "对方表达希望陪伴时，你可能保留原有节奏，也可能调整安排；题目没有预测哪种会发生。"
+            },
+            {
+              "en": "Changes in life or relationship stage may change the entry you use. An actual recollection is more informative than treating the label as permanent.",
+              "zh": "生活阶段或关系阶段变化后，这个入口是否仍常见，需要通过实际经历核对。"
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "en": "When this entry may be useful",
+            "zh": "可能有帮助的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "A pause is one possible way to adjust intensity during rising conflict, subject to safety and explicit feedback.",
+              "zh": "争执升温时，暂停可以作为调整交流强度的一个尝试；是否适用要看安全条件和双方的明确反馈。"
+            },
+            {
+              "en": "Noticing your available capacity gives you information for deciding whether to continue or stop.",
+              "zh": "留意自己当下的余量，可作为决定是继续还是停顿的一个检查点。"
+            },
+            {
+              "en": "Describing a possible reconnection arrangement allows a check of what a pause means to each person; it does not promise the plan will happen.",
+              "zh": "暂停时说明可能的重新联系安排，可以用来核对双方对暂停的理解；不保证后续一定如期发生。"
+            },
+            {
+              "en": "Making space is an observable action, from which another person’s feelings cannot be inferred.",
+              "zh": "给出空间是一个可观察的行动入口，不能由此推断对方的感受。"
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "en": "Tradeoffs to check",
+            "zh": "单独依赖时的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "After a pause, ask if your understandings of the next step differ rather than assume what someone made of the silence.",
+              "zh": "暂停后如果双方对后续安排的理解不同，可以用明确询问核对，不预设对方如何解读。"
+            },
+            {
+              "en": "While adjusting your pace, check the need the other person actually expressed.",
+              "zh": "可以回看：调整自己节奏时，对方当下明确表达的需要是什么？"
+            },
+            {
+              "en": "If distance keeps changing, look for information both people can check about the contact rhythm.",
+              "zh": "如果靠近与空间反复调整，可以检查双方是否对联系节奏有可核对的信息。"
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "en": "Concrete conversation examples",
+            "zh": "具体对话与场景例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, during an increasingly heated discussion you propose a ten-minute pause and, if both agree, a time to return.",
+              "zh": "一次讨论越来越激烈，你提出先停十分钟，约好回来继续。"
+            },
+            {
+              "en": "In a busy week, you describe needing two evenings alone and a possible Friday reconnection.",
+              "zh": "这周事情很多，你直接告诉对方需要两晚独处时间，并说好周五再联系。"
+            },
+            {
+              "en": "After several days of frequent contact, you discuss a frequency each person is willing to accept. These examples are possible arrangements, not a universally suitable schedule.",
+              "zh": "对方连续几天找你，你先商量一个双方都能接受的联系频率。"
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "en": "One optional next step",
+            "zh": "可以尝试的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If a pause is wanted and safe, include a possible return arrangement when describing it.",
+              "zh": "下次想暂停时，把回来的时间一起说出来。"
+            },
+            {
+              "en": "In an ordinary moment when you do not need space, consider whether you want to initiate contact.",
+              "zh": "试着在不需要空间的时候，主动靠近一次。"
+            },
+            {
+              "en": "Before deciding that space is wanted, ask whether the other person would prefer space or company. Their request does not remove your own right to stop.",
+              "zh": "暂停前先问一句：对方现在需要的是空间，还是陪伴？"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Questions for a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When did you last choose to move closer or initiate contact?",
+              "zh": "你上一次主动靠近对方，是什么时候？"
+            },
+            {
+              "en": "In a particular pause, were you seeking time alone, avoiding a difficult topic, or doing something else?",
+              "zh": "你留空间的时候，是真的需要独处，还是在避免一次难谈的对话？"
+            },
+            {
+              "en": "When someone else needed space, what information helped you recognise that need?",
+              "zh": "如果对方也需要空间，你能认出那个信号吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish avoidant attachment or fear of intimacy.",
+              "zh": "不表示你是回避型依恋或害怕亲密。"
+            },
+            {
+              "en": "It does not mean being cold, caring less or undervaluing a relationship.",
+              "zh": "不表示你冷漠、不够爱或不重视关系。"
+            },
+            {
+              "en": "It does not mean independence removes every need for other people.",
+              "zh": "不表示你独立到不需要任何人。"
+            },
+            {
+              "en": "It does not create a fixed identity based on interpersonal distance.",
+              "zh": "不表示存在固定的亲密距离身份。"
+            },
+            {
+              "en": "It does not mean you regulate contact this way in every relationship.",
+              "zh": "不表示你在所有关系里都这样调节。"
+            },
+            {
+              "en": "This interpretation concerns relative choices in these 24 questions. Responses can vary with the person, familiarity, current pressure and the seriousness of an event. A lower count does not mean being unable to love, immature or less capable.",
+              "zh": "这里只解释本次 24 题里你相对更常选择的方向。行为会随关系对象、熟悉程度、当下压力和事件严重程度变化；较低方向不表示不会爱、不成熟或能力不足。"
+            },
+            {
+              "en": "This original self-exploration questionnaire has not completed reliability, validity or population-norm studies and has no official certification. Its self-reported choice counts are not an attachment assessment, relationship diagnosis or commercial relationship course.",
+              "zh": "本内容用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方认证。结果仅基于本次自报选择的次数比较，不等同依恋类型诊断、关系诊断或任何商业恋爱课程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repair-engagement",
+      "directionIds": [
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Repair Engagement",
+        "zh": "参与分歧修复"
+      },
+      "headline": {
+        "en": "Repair Engagement received the most choices in this attempt",
+        "zh": "本次题组中，参与分歧修复被选中的次数最多"
+      },
+      "summary": {
+        "en": "Clarifying impact, discussing another step and finding a way to resume cooperation received the most choices in this bank.",
+        "zh": "看完你的回答，次数最多的方向是参与分歧修复——先澄清影响、先找下一步、先恢复合作的那类选项。"
+      },
+      "seo": {
+        "title": {
+          "en": "Repair Engagement: Love Personality Test Result",
+          "zh": "参与分歧修复：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read Repair Engagement in the Love Personality Test: impact, possible next steps, willingness and boundaries, without grading relationship ability or outcomes.",
+          "zh": "完整阅读恋爱人格测试“参与分歧修复”：核对影响、提出可拒绝的小步骤与安全边界；次数不证明修复能力，也不预测关系结果。"
+        }
+      },
+      "scoreReading": {
+        "en": "The direction attached to a chosen option receives one count. Every direction appears in 12 comparisons. Repair Engagement is highest in this attempt. This is not a population percentile, accuracy rate or intensity, and it does not grade relationship competence.",
+        "zh": "计分方式：每次选中记 1 次，四个方向各参与 12 次比较。本次参与分歧修复次数最多。这个数字只在本次题组内部成立，不是人群百分位，不是准确率，更不是浓度。"
+      },
+      "sections": [
+        {
+          "id": "construct-definition",
+          "title": {
+            "en": "What this entry means",
+            "zh": "这个互动入口指什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Repair Engagement is FermatMind’s name for an entry after misunderstanding or disagreement: clarifying impact, taking the part that is yours, considering a small step either person may refuse, and checking whether continued discussion is safe. It does not establish maturity or skill at maintaining relationships. A counted choice cannot determine responsibility for harm.",
+              "zh": "参与分歧修复是费马测试自建的记忆符号，标记一种互动入口：误解或分歧后愿意澄清影响，承担自己能够承担的部分，提出双方可以拒绝的小步骤，并判断是否具备继续对话的安全条件。它不等同更会经营关系或更成熟。"
+            }
+          ]
+        },
+        {
+          "id": "core-observation",
+          "title": {
+            "en": "What the selected choices concern",
+            "zh": "本次题目中的具体观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The relevant options look for how to continue a discussion, take part in dealing with a misunderstanding, discuss what to do after an impact, or find one workable point as a disagreement heats up. They describe selected entries into an interaction. They do not establish repair ability, another person’s willingness or the eventual effect.",
+              "zh": "分歧刚出现时，你倾向寻找之后可以怎样继续讨论；意识到彼此误解时，你愿意先参与处理当下的互动；自己的做法影响到对方时，你倾向先商量接下来可以怎样处理；争执升温时，题目观察的是先找一个可以继续处理的具体点。这是本次作答入口，不代表修复能力或关系效果。"
+            }
+          ]
+        },
+        {
+          "id": "interaction-entries",
+          "title": {
+            "en": "Choices supporting this entry",
+            "zh": "题目支持的互动入口"
+          },
+          "paragraphs": [
+            {
+              "en": "When disagreement begins, you select looking for how the discussion could continue.",
+              "zh": "分歧刚出现时，选择寻找之后可以怎样继续讨论。"
+            },
+            {
+              "en": "When misunderstanding becomes apparent, you select taking part in addressing the interaction.",
+              "zh": "意识到彼此误解时，选择先参与处理当下的互动。"
+            },
+            {
+              "en": "When your action affects someone, you select discussing what could be done next.",
+              "zh": "自己的做法影响到对方时，选择先商量接下来可以怎样处理。"
+            },
+            {
+              "en": "When an argument heats up, you select finding one specific point that could still be addressed.",
+              "zh": "争执升温时，选择先找一个可以继续处理的具体点。"
+            }
+          ]
+        },
+        {
+          "id": "expression-and-response-pattern",
+          "title": {
+            "en": "Expression and response in context",
+            "zh": "表达与回应的具体表现"
+          },
+          "paragraphs": [
+            {
+              "en": "Your selections more often favoured clarifying impact, discussing later handling or finding a small step. These responses do not establish greater maturity or a better relationship outcome. A proposal and its reception remain separate observations: the count cannot predict whether someone will want to continue.",
+              "zh": "本次题组显示，你较常选中澄清影响、商量后续处理或寻找小步骤的入口。这些选择不证明你更成熟或更会经营关系，也不能预测对方是否愿意继续。"
+            }
+          ]
+        },
+        {
+          "id": "context-variations",
+          "title": {
+            "en": "Compare different circumstances",
+            "zh": "不同情境如何核对"
+          },
+          "paragraphs": [
+            {
+              "en": "A small disagreement and an event involving principles or safety may need different responses. This variation was not measured.",
+              "zh": "事件较轻或涉及原则、安全时，你可能采取不同入口；题目没有测量这个变化。"
+            },
+            {
+              "en": "If the other person does or does not want to continue, you might negotiate, pause or end contact. Check the actual circumstances.",
+              "zh": "对方愿意或不愿意继续时，你会继续商量、暂停还是结束接触，请以实际经历判断。"
+            },
+            {
+              "en": "Under your own pressure, you might want immediate handling or more time. The score cannot predict the order.",
+              "zh": "自己压力增加时，你可能更想立即处理，也可能需要等待；本次结果不预测顺序。"
+            },
+            {
+              "en": "If the same issue returns, assess actual feedback rather than assume repeating a repair attempt will help.",
+              "zh": "同类问题重复出现时，这个入口是否仍常见，需要回看实际反馈。"
+            }
+          ]
+        },
+        {
+          "id": "possible-contributions",
+          "title": {
+            "en": "When this entry may be useful",
+            "zh": "可能有帮助的条件"
+          },
+          "paragraphs": [
+            {
+              "en": "When it is safe and both people want to continue, one specific point can offer a possible restart. Assess its use through what follows.",
+              "zh": "在安全且双方愿意继续交流时，找一个具体处理点可作为重新开始的尝试；是否有用需看后续反馈。"
+            },
+            {
+              "en": "Checking a particular impact can define the subject being discussed without deciding responsibility in advance.",
+              "zh": "核对具体影响可以帮助界定当下在讨论什么；不代表责任已经确定。"
+            },
+            {
+              "en": "A small proposal is an observable entry into conversation, not a guarantee of acceptance, refusal or any response.",
+              "zh": "提出小步骤只是一个可观察的沟通入口，不保证对方接受、拒绝或回应。"
+            },
+            {
+              "en": "Review what happened after discussing a next step. The original choice does not establish relationship quality or its future.",
+              "zh": "可以回看：商量后续处理之后，实际发生了什么？不从这个选择推导关系质量或结局。"
+            }
+          ]
+        },
+        {
+          "id": "possible-costs",
+          "title": {
+            "en": "Tradeoffs to check",
+            "zh": "单独依赖时的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Before proposing further handling, check whether the other person wants continued discussion now.",
+              "zh": "提出后续处理前，可以检查对方当下是否愿意继续，不预设此时继续就一定合适。"
+            },
+            {
+              "en": "Revisit a repair attempt: were you addressing an impact you actually caused, or also assuming responsibility that belonged elsewhere?",
+              "zh": "回看一次修复尝试：你处理的是自己确实造成的影响，还是把其他责任也放进来了？"
+            },
+            {
+              "en": "In unsafe or repeatedly unworkable situations, stopping is an option. This result never requires continued contact.",
+              "zh": "对于不安全或反复无效的情境，停止修复也是可选项；本结果不要求继续接触。"
+            }
+          ]
+        },
+        {
+          "id": "real-world-scenes",
+          "title": {
+            "en": "Concrete conversation examples",
+            "zh": "具体对话与场景例子"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, after an argument you ask whether the other person wants to discuss what happened and what could change.",
+              "zh": "一次争执后，你第二天主动说：昨天那件事，我想再聊聊怎么避免。"
+            },
+            {
+              "en": "If you recognise that your words caused an impact, you acknowledge the specific impact and ask whether a proposed action would be welcome.",
+              "zh": "你意识到自己说重了话，先承认影响，再问对方希望你怎么弥补。"
+            },
+            {
+              "en": "When both people are tired and willing, you might agree on a small ordinary activity and a later conversation. Neither sharing a meal nor restarting a discussion is obligatory.",
+              "zh": "双方都累了谈不下去，你提出先做一件小事（比如一起吃饭），再约时间谈正事。"
+            }
+          ]
+        },
+        {
+          "id": "counterbalance-prompts",
+          "title": {
+            "en": "One optional next step",
+            "zh": "可以尝试的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a repair attempt, check safety and whether the other person actually wants to talk.",
+              "zh": "修复前先问一句：这件事的安全边界是什么？对方真的愿意谈吗？"
+            },
+            {
+              "en": "Take responsibility only for what is yours rather than absorbing another person’s conduct into your task.",
+              "zh": "只承担自己确实造成的那部分，不替对方的问题买单。"
+            },
+            {
+              "en": "If attempts are repeatedly refused, allow yourself to stop. A count never requires pursuing someone.",
+              "zh": "如果对方反复拒绝修复，允许自己停下来，而不是继续追着修。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Questions for a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Have you included responsibility that was not yours in a repair attempt?",
+              "zh": "你有没有把不属于自己的责任也揽进修复里？"
+            },
+            {
+              "en": "Were you mainly trying to keep the conversation going, or checking what the other person actually wanted?",
+              "zh": "修复时你更关注让对话继续，还是让对方真正好受？"
+            },
+            {
+              "en": "In a situation involving violence, coercion or ongoing harm, did immediate safety take priority?",
+              "zh": "遇到暴力、胁迫或持续伤害时，你会优先保护自己的安全吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish greater maturity or relationship skill.",
+              "zh": "不表示你更会经营关系或更成熟。"
+            },
+            {
+              "en": "It does not mean you can save a relationship or that every relationship should continue.",
+              "zh": "不表示你能挽救关系，也不表示所有关系都应该继续。"
+            },
+            {
+              "en": "It does not mean every disagreement can be resolved through conversation.",
+              "zh": "不表示分歧一定可以通过沟通解决。"
+            },
+            {
+              "en": "It never makes repair a one-person responsibility.",
+              "zh": "不要求你单方面承担修复责任。"
+            },
+            {
+              "en": "It does not seek shared causes or shared blame for violence, coercion, control or harm.",
+              "zh": "不为暴力、胁迫、控制或伤害寻找双向原因。"
+            },
+            {
+              "en": "This interpretation concerns relative choices in these 24 questions. Responses can vary with the person, familiarity, current pressure and the seriousness of an event. A lower count does not mean being unable to love, immature or less capable.",
+              "zh": "这里只解释本次 24 题里你相对更常选择的方向。行为会随关系对象、熟悉程度、当下压力和事件严重程度变化；较低方向不表示不会爱、不成熟或能力不足。"
+            },
+            {
+              "en": "This original self-exploration questionnaire has not completed reliability, validity or population-norm studies and has no official certification. Its self-reported choice counts are not an attachment assessment, relationship diagnosis or commercial relationship course.",
+              "zh": "本内容用于娱乐与自我探索，尚未完成信度、效度、常模等心理测量学验证，也未获得任何官方认证。结果仅基于本次自报选择的次数比较，不等同依恋类型诊断、关系诊断或任何商业恋爱课程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-response-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "ATTUNED_RESPONSE"
+      ],
+      "title": {
+        "en": "Clear Expression & Attuned Response — Tied",
+        "zh": "表达与回应并列"
+      },
+      "headline": {
+        "en": "Clear Expression & Attuned Response have equal highest counts in this attempt",
+        "zh": "本次选择中，清楚表达与留意回应的原始次数并列最高"
+      },
+      "summary": {
+        "en": "In these 24 choices, putting something into words and first listening were selected equally often, jointly above the other entries.",
+        "zh": "这次题组里，说清楚和先听这两个方向被选中的次数一样多，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression & Response Tie: Love Personality Result",
+          "zh": "表达与回应并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore an Expression–Response tie: equal highest choice counts, speaking and listening examples, checking feedback and why the tie sets no fixed sequence.",
+          "zh": "理解表达与回应原始次数并列最高：比较说清楚与先倾听的具体情境、信息核对与取舍，不把并列解释成固定组合或自动顺序。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "每道题只给被选中的方向记 1 次；本次清楚表达和留意回应的次数相同，并且都高于另外两个方向。系统完整保留并列，不用题号、代码或选项位置分出先后——两个方向同时居首，就是本次的真实结果。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Clear Expression counts selections that state feelings, needs, boundaries or arrangements. Here its count equals Attuned Response.",
+              "zh": "清楚表达：你的清楚表达次数，来自把感受、需要、边界或安排直接说清楚的题目；这一次它和留意回应并列居首。"
+            },
+            {
+              "en": "Attuned Response: Attuned Response counts first listening, checking a meaning or considering willingness to engage. Here its count equals Clear Expression.",
+              "zh": "留意回应：你的留意回应次数，来自先听、先核对、先看对方当下状态的题目；这一次它和清楚表达拿到的次数一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall wanting to explain something while also noticing someone’s state. Which action actually came first, and what information guided it?",
+              "zh": "最近一次你想表达某件事，同时又在观察对方状态的时刻，最后哪一边占了上风？"
+            },
+            {
+              "en": "Compare a very familiar person with someone you have recently met. Did the space taken by speaking and listening change?",
+              "zh": "和特别熟的人、刚认识的人分别相处时，你说的和听的比例是否不同？"
+            },
+            {
+              "en": "When someone was visibly upset, did you open your topic, ask permission or wait? The score does not supply that detail.",
+              "zh": "对方情绪明显不好时，你是先开口还是先等？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When a decision affects both people, do you first describe its meaning for you or ask for their view?",
+              "zh": "遇到影响彼此的事，你更常先说明自己的意思，还是先问对方怎么想？"
+            },
+            {
+              "en": "Which subjects seem to call for a direct statement, and which have led you to check the moment first?",
+              "zh": "哪些话题适合直接说，哪些话题你其实会先看时机？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "In a specific conversation, where did explaining your side and checking theirs appear in the sequence?",
+              "zh": "对话里，你说清楚的部分和核对对方的部分，通常哪个更靠前？"
+            },
+            {
+              "en": "Can you recall finishing an explanation before discovering that the other person had not been listening?",
+              "zh": "你有没有过把话都说完了，才发现对方根本没在听的情况？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下清楚表达或留意回应哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "Under pressure, did you first speak or listen? Use a specific episode rather than this tied result.",
+              "zh": "压力出现时，你实际先做的是说话还是倾听？"
+            },
+            {
+              "en": "What were your roles, time constraints and the other person’s observable circumstances?",
+              "zh": "当时的角色、时间限制和对方状态分别是什么？"
+            },
+            {
+              "en": "Looking back, what did that choice make room for, and what did it leave out?",
+              "zh": "事后看，那个选择帮助了什么，又漏掉了什么？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "When the atmosphere stiffens, do you try to explain the issue or first check willingness to talk?",
+              "zh": "气氛变僵时，你是倾向把话说开，还是先确认对方愿不愿意谈？"
+            },
+            {
+              "en": "If someone remains quiet, what did you actually do: ask again, wait, or end the discussion?",
+              "zh": "如果对方一直沉默，你更常追问，还是更常等？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a recent important conversation and mark the sentences in which you explained something and the places where you checked understanding.",
+              "zh": "找最近一次重要对话，标出你开口说清楚和停下来核对的句子。"
+            },
+            {
+              "en": "Recall a moment when someone seemed about to speak and stopped. Separate what you observed from what you assumed.",
+              "zh": "回看一次对方欲言又止的场景，你当时做了什么。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a direct explanation, consider asking, “Do you have room to hear something now?”",
+              "zh": "下次想直接说清楚前，先问一句：对方现在有余量听吗？"
+            },
+            {
+              "en": "After listening and checking, include your own need if you want it heard.",
+              "zh": "下次想先听时，说完核对的话之后，补上你自己的需要。"
+            },
+            {
+              "en": "Compare one conversation with more speaking and one with more listening. Ask which fitted its circumstances rather than declare either universally better.",
+              "zh": "记录一次说多听少和一次听多说少的对话，哪种更适合当时。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which offered choices in this bank led you toward explaining, and which toward listening?",
+              "zh": "这次作答里，说清楚和先听的题目各把你带向哪种反应？"
+            },
+            {
+              "en": "Would the situation change with someone you fully trust? Treat this as a question, not a predicted switch.",
+              "zh": "如果对方是你完全信任的人，你的比例会变吗？"
+            },
+            {
+              "en": "Compare an explanation that was not received as expected with an episode in which listening first seemed useful.",
+              "zh": "回想一次你话说完但对方没接住，和一次你先听反而谈拢的经历。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Two co-leading counts are not a fixed love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "They do not prove that you are both articulate and considerate or a more complete partner.",
+              "zh": "不表示你既会表达又体贴，是更全面的伴侣。"
+            },
+            {
+              "en": "They cannot guarantee another person understands you.",
+              "zh": "不表示你能保证对方更理解你。"
+            },
+            {
+              "en": "They reveal no other person’s feelings or judgment of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "They predict neither compatibility nor how long a relationship will last.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "The tie records equal highest counts in this attempt. How speaking and listening combine, or when you choose one, needs actual examples; the test does not decide it.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于两种方式如何配合、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-space-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "SPACE_REGULATION"
+      ],
+      "title": {
+        "en": "Clear Expression & Space Regulation — Tied",
+        "zh": "表达与空间并列"
+      },
+      "headline": {
+        "en": "Clear Expression & Space Regulation have equal highest counts in this attempt",
+        "zh": "本次选择中，清楚表达与调节靠近与空间的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Stating something clearly and first making space received equal highest counts across these 24 choices.",
+        "zh": "这次题组里，把话说明白和先留出空间这两个方向被选中的次数相同，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression & Space Tie: Love Personality Result",
+          "zh": "表达与空间并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore an Expression–Space tie: direct words, timing, possible pauses and return arrangements. Equal highest counts do not decide when to speak or step back.",
+          "zh": "理解表达与空间原始次数并列最高：比较直说、选择时机、暂停与重新联系的例子；并列不替你决定何时靠近或退开。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "计分时每道题选中谁，谁就记 1 次；本次清楚表达和调节靠近与空间的次数打平，且都高于其余方向。并列原样保留，不使用题号、字母顺序或选项位置破同分。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Clear Expression counts selections such as explaining sooner and stating an arrangement. Its count equals Space Regulation here.",
+              "zh": "清楚表达：你的清楚表达次数，来自尽早说、说明白、把安排讲清楚的题目；这一次它和调节空间次数相同。"
+            },
+            {
+              "en": "Space Regulation: Space Regulation counts leaving room, adjusting contact intensity and pausing a conversation. Its count equals Clear Expression here.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自先留出空间、调整联系强度、暂停当前对话的题目；这一次它和清楚表达打了平手。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall wanting to speak soon while also wanting a suitable moment. What did you ultimately do, and why at that time?",
+              "zh": "最近一次你想尽早说，同时又想等一个合适时机的时刻，最后怎么处理的？"
+            },
+            {
+              "en": "Compare needing solitude with needing to express a request. Did your priorities differ?",
+              "zh": "需要独处和需要表达需求时，你的优先顺序是否不同？"
+            },
+            {
+              "en": "When someone was busy or tired, did you continue, ask about timing or leave the subject for later?",
+              "zh": "对方正忙或正累时，你是照说，还是先看时间点？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For an important topic, do your examples show immediate explanation or waiting until both people have capacity?",
+              "zh": "重要的话，你更常马上说，还是更常选双方都从容的时机？"
+            },
+            {
+              "en": "Which information needed to be timely, and which could safely wait?",
+              "zh": "哪些内容必须及时说，哪些可以等一等？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When expressing a need for space, did you state it directly or only change your availability?",
+              "zh": "你表达的时候，是先把话说完，还是先说明自己需要一点空间？"
+            },
+            {
+              "en": "Have you held something back and later discovered the other person did not know there was an issue?",
+              "zh": "有没有一次你憋着没说，后来发现对方根本不知道发生了什么？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下清楚表达或调节空间哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In the particular pressured moment, did you first speak or step away?",
+              "zh": "压力出现时，你先说还是先退开？"
+            },
+            {
+              "en": "What was observable about the other person’s state, and what did you know about your own?",
+              "zh": "当时对方的状态和你自己的状态分别是什么？"
+            },
+            {
+              "en": "Afterward, did that action clarify the situation, increase uncertainty or have another effect?",
+              "zh": "事后看，那个选择让事情更清楚，还是更远了？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "When an atmosphere changes, did you explain what was wrong or first step back?",
+              "zh": "气氛不对时，你更常把话摊开，还是更常先各退一步？"
+            },
+            {
+              "en": "Before a pause, did you describe whether and how you intended to return?",
+              "zh": "暂停之前，你会把回来的安排说清楚吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Examine an occasion when you waited and talked later. Was the pause wanted, and what information did it give each person?",
+              "zh": "找一次你选择先不说、后来再谈的经历，核对当时真的需要空间吗。"
+            },
+            {
+              "en": "Examine an occasion when a direct explanation surprised someone. Check timing without assuming it was the only cause.",
+              "zh": "找一次你直接说了、对方措手不及的经历，核对时机是不是问题。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Before speaking, check available capacity; before stepping back, describe a possible return arrangement if safe and wanted.",
+              "zh": "下次想说前，先确认对方当前的余量；下次想退开前，把回来的时间一起说。"
+            },
+            {
+              "en": "In an ordinary moment when you do not need distance, consider saying what your plans are.",
+              "zh": "试着在不需要空间时主动说一次自己的安排。"
+            },
+            {
+              "en": "Compare a useful direct statement and a useful pause. Write what differed about their circumstances rather than nominate a winning style.",
+              "zh": "记录一次直说成功和一次留空间成功的场景，比较它们分别赢在哪里。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which paired choices drew you toward explaining and which toward space?",
+              "zh": "这次作答里，直说和留空间的题目分别对应你的哪种反应？"
+            },
+            {
+              "en": "If the other person seemed well rested, would you want to speak sooner? A tie does not answer that hypothetical.",
+              "zh": "如果对方最近状态很好，你会不会更愿意直说？"
+            },
+            {
+              "en": "The last time you needed solitude, did you explain your reason and any intended next contact?",
+              "zh": "你上一次需要独处时，有没有把原因告诉对方？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This does not create a fixed combination or love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "Wanting space does not establish avoidance, fear of intimacy or insufficient love.",
+              "zh": "不表示你需要空间就是回避、害怕亲密或不够爱。"
+            },
+            {
+              "en": "The tie does not prove ideal honesty and good judgment about distance.",
+              "zh": "不表示你既坦诚又有分寸，是更理想的伴侣。"
+            },
+            {
+              "en": "It does not reveal another person’s feelings or opinion.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It does not predict compatibility or relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "This result records equal highest counts, not a rule for choosing between direct speech and space. Compare actual timing, wishes and feedback to understand the tradeoff.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于直说和留空间如何取舍、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-repair-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Clear Expression & Repair Engagement — Tied",
+        "zh": "表达与修复并列"
+      },
+      "headline": {
+        "en": "Clear Expression & Repair Engagement have equal highest counts in this attempt",
+        "zh": "本次选择中，清楚表达与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Explaining a view and looking for a way to address a disagreement received equal highest counts in this attempt.",
+        "zh": "这次题组里，把话说完整和把分歧接回去这两个方向被选中的次数一样多，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression & Repair Tie: Love Personality Result",
+          "zh": "表达与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore an Expression–Repair tie: clarifying meaning, checking impact and offering a next step. Equal counts do not require a relationship to continue.",
+          "zh": "理解表达与修复原始次数并列最高：比较澄清意思、核对影响与后续步骤；不评价成熟度，不要求任何关系继续。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "每道题选中哪个方向，哪个方向就记 1 次；本次清楚表达和参与分歧修复的数量相等，且都高于另外两个方向。并列完整保留，不用题号、代码或选项位置去分先后。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Clear Expression counts explaining a view fully, restating intended meaning and asking a clear question. It ties with Repair Engagement here.",
+              "zh": "清楚表达：你的清楚表达次数，来自把看法说完整、重新说明原意、提出清楚问题的题目；这一次它和参与修复并列居首。"
+            },
+            {
+              "en": "Repair Engagement: Repair Engagement counts finding a next step, agreeing on continued handling or considering amends. It ties with Clear Expression here.",
+              "zh": "参与分歧修复：你的参与修复次数，来自寻找下一步、约定继续处理的步骤、一起确认弥补方式的题目；这一次它和清楚表达拿到的次数一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "In a recent disagreement, did you explain your position or look for how to continue the discussion? Identify what actually happened.",
+              "zh": "最近一次分歧里，你更常把立场讲完，还是更常找下一步怎么谈？"
+            },
+            {
+              "en": "After a misunderstanding, did you first clarify meaning or address the interaction around it?",
+              "zh": "误解发生后，你先澄清原意，还是先修复气氛？"
+            },
+            {
+              "en": "After an argument ended, did you explain further, arrange a later review or choose neither?",
+              "zh": "争执结束后，你是把话说透，还是主动约下一次复盘？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When disagreement first appeared, did you finish your view or look for a path to another discussion?",
+              "zh": "分歧刚出现时，你更常把看法说完，还是更常先找继续谈的路径？"
+            },
+            {
+              "en": "Which disagreements seemed suitable for immediate clarification, and which needed an agreed later time?",
+              "zh": "哪些分歧适合当场说清，哪些适合先约定时间再谈？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "While you explained your meaning, what explicit feedback showed what the other person heard?",
+              "zh": "你解释自己的意思时，对方是在听内容，还是在看你的态度？"
+            },
+            {
+              "en": "Can you recall a carefully reasoned explanation after which the interaction became harder? Do not presume the explanation was the only cause.",
+              "zh": "有没有一次你把道理说得很清楚，但关系反而更僵了？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下清楚表达或参与修复哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In a pressured disagreement, did you first explain or look for a repair point?",
+              "zh": "压力下的分歧里，你实际先做的是说清楚还是找修复点？"
+            },
+            {
+              "en": "How serious was the event, and what did each person say about their capacity?",
+              "zh": "当时的事件严重程度和双方状态分别是什么？"
+            },
+            {
+              "en": "Looking back, was missing information, the interaction process or something else the main obstacle?",
+              "zh": "事后看，那次对话缺的是内容还是过程？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "Before discussing amends, did you establish the particular impact or jump to a proposed solution?",
+              "zh": "修复的时候，你是先确认影响，还是先给出弥补方案？"
+            },
+            {
+              "en": "If the other person did not want to talk, did you respect that choice or keep pursuing discussion?",
+              "zh": "如果对方不想谈，你还会继续追着修吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review an explanation after which someone became more upset. Check what happened in the process rather than diagnose their reaction.",
+              "zh": "找一次你解释得很清楚但对方更生气的情景，核对是不是过程出了问题。"
+            },
+            {
+              "en": "Review a rushed repair attempt. Was the other person’s account heard before a next step was offered?",
+              "zh": "找一次你急着修复、跳过对方情绪的情景，核对效果如何。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "After your explanation, leave room for the other person to say what did not make sense to them.",
+              "zh": "下次分歧里，先说完自己的部分，再问对方哪里没接住。"
+            },
+            {
+              "en": "Before arranging a review, check that the other person wants one.",
+              "zh": "下次想约复盘前，先确认对方真的愿意谈。"
+            },
+            {
+              "en": "Compare a disagreement that needed clarification with one that needed a different process. Keep safety and responsibility separate from a wish to resume contact.",
+              "zh": "记录一次说清更重要和一次修复更重要的分歧。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which choices led you toward explaining, and which toward a next step?",
+              "zh": "这次作答里，说清楚和找下一步的题目分别把你带向哪里？"
+            },
+            {
+              "en": "If a disagreement involves a principle or safety, would continuing a repair attempt be appropriate?",
+              "zh": "如果分歧涉及原则或安全，你还会急着修复吗？"
+            },
+            {
+              "en": "Have you apologised for a responsibility that was not yours?",
+              "zh": "你有没有为不属于自己的责任道过歉？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The tie is not a fixed love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "It does not establish greater maturity or relationship-management skill.",
+              "zh": "不表示你更会经营关系或更成熟。"
+            },
+            {
+              "en": "It does not mean every disagreement is solvable through discussion or every relationship must be repaired.",
+              "zh": "不表示所有分歧都能靠沟通解决，也不表示关系必须修复。"
+            },
+            {
+              "en": "It does not reveal another person’s feelings or opinion.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It predicts neither partner fit nor how long a relationship will last.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "This tie records two equal highest counts. How clarification and repair are combined or sequenced must be checked against actual experiences; continuing contact is never required by the result.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于说清和修复如何搭配、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-space-tie",
+      "directionIds": [
+        "ATTUNED_RESPONSE",
+        "SPACE_REGULATION"
+      ],
+      "title": {
+        "en": "Attuned Response & Space Regulation — Tied",
+        "zh": "回应与空间并列"
+      },
+      "headline": {
+        "en": "Attuned Response & Space Regulation have equal highest counts in this attempt",
+        "zh": "本次选择中，留意回应与调节靠近与空间的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Checking for a response and first leaving space received equal highest counts across these 24 choices.",
+        "zh": "这次题组里，先接信号和先留空间这两个方向被选中的次数相同，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Response & Space Tie: Love Personality Result",
+          "zh": "回应与空间并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore a Response–Space tie: asking, silence and room to think, with concrete checks. Equal counts cannot tell you what another person wants.",
+          "zh": "理解回应与空间原始次数并列最高：比较询问、沉默与整理时间的具体例子；次数不替对方表达意愿，也不说明你更体贴。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "每道题只给被选中的方向加 1 次；本次留意回应和调节靠近与空间的次数打平，且都高于另外两个方向。系统保留全部并列，不借助题号、代码或选项位置做任何区分。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Attuned Response: Attuned Response counts asking whether someone wants to talk, checking a response and asking about silence. Its count equals Space Regulation here.",
+              "zh": "留意回应：你的留意回应次数，来自询问是否想说、跟随对方回应方式、确认沉默含义的题目；这一次它和调节空间并列居首。"
+            },
+            {
+              "en": "Space Regulation: Space Regulation counts room to gather thoughts, a slower conversation and keeping distance. Its count equals Attuned Response here.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自给对方整理空间、放慢交流节奏并留出停顿、保留距离的题目；这一次它和留意回应拿到的次数一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "When someone’s mood changed, did you ask about it or first leave room? Describe the action without claiming to know their feelings.",
+              "zh": "对方情绪有变化时，你更常问，还是更常先给空间？"
+            },
+            {
+              "en": "When someone stayed quiet, did you check what was wanted or wait for another signal?",
+              "zh": "对方沉默时，你是去确认这份沉默，还是先等新信号？"
+            },
+            {
+              "en": "When preferred contact frequencies differed, did you first understand the signal or negotiate a range?",
+              "zh": "联系频率不一致时，你先理解对方信号，还是先协商范围？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When information was unclear, did you ask or hold back? What did you know at the time?",
+              "zh": "对方的信号不明朗时，你更常开口问，还是更常按兵不动？"
+            },
+            {
+              "en": "Which examples suggest that a question fitted the moment, and which suggest that space was wanted?",
+              "zh": "哪些时候主动问更好，哪些时候给空间更好？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When checking someone’s state, what explicit feedback showed how the question was received?",
+              "zh": "你核对对方状态时，对方能感觉到你在问，还是觉得你在试探？"
+            },
+            {
+              "en": "Have you left space when the other person later said they had wanted you to speak?",
+              "zh": "有没有一次你留了空间，对方却希望你先开口？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下留意回应或调节空间哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "Under pressure, did you move closer to ask or first step back?",
+              "zh": "压力出现时，你更常凑近问，还是更常退一步？"
+            },
+            {
+              "en": "What did the other person actually request, and how did that compare with your assumption?",
+              "zh": "当时对方需要的和你以为对方需要的，是否一致？"
+            },
+            {
+              "en": "Looking back, which parts of the decision came from information and which from guessing?",
+              "zh": "事后看，你的判断有多少来自信号，多少来自猜测？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "If someone wanted company, was that what you offered, or did you assume distance was preferable?",
+              "zh": "对方需要陪伴时，你给的是陪伴还是空间？"
+            },
+            {
+              "en": "After a pause, did you choose to reconnect, leave an arrangement or do something else?",
+              "zh": "暂停之后，你会主动重新联系吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review a quiet moment when you waited: did a new signal arrive, and what did it actually establish?",
+              "zh": "找一次对方沉默你选择了等待的经历，核对后来信号是否真的来了。"
+            },
+            {
+              "en": "Review a direct question after which someone explicitly said they felt more at ease. Compare the circumstances rather than make a universal rule.",
+              "zh": "找一次你主动询问后对方反而轻松的经历，比较两种做法的差异。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "When unsure and safe to ask, consider, “Would you prefer company or some space?”",
+              "zh": "下次不确定时，直接问一句：你现在需要陪伴还是空间？"
+            },
+            {
+              "en": "Before leaving room, describe a possible reconnection arrangement if you want one.",
+              "zh": "下次想给空间前，把重新联系的安排一起说出来。"
+            },
+            {
+              "en": "Compare a well-received question with a pause someone said they wanted. Their clear feedback is more informative than the tied count.",
+              "zh": "记录一次问对了和一次退对了的场景。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which choices prompted asking, and which prompted giving space?",
+              "zh": "这次作答里，询问和给空间的题目分别对应你的哪种反应？"
+            },
+            {
+              "en": "What tends to happen when you also state your own need?",
+              "zh": "如果你先说出自己的需要，对方通常怎么回应？"
+            },
+            {
+              "en": "Have you interpreted silence as rejection before obtaining enough information?",
+              "zh": "你有没有把对方的沉默误读成拒绝？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This does not establish a fixed love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "A wish for space does not establish avoidance, coldness or fear of intimacy.",
+              "zh": "不表示你需要空间就是回避、冷漠或害怕亲密。"
+            },
+            {
+              "en": "The count does not establish greater kindness, consideration or empathy.",
+              "zh": "不表示你更体贴、更善良或有更强的同理心。"
+            },
+            {
+              "en": "It does not reveal another person’s feelings or judgment.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It does not predict relationship fit or duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "Equal counts do not settle the choice between a question and space. Examine actual requests, timing and information, without treating a guess about silence as a fact.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于询问和留空间如何取舍、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-repair-tie",
+      "directionIds": [
+        "ATTUNED_RESPONSE",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Attuned Response & Repair Engagement — Tied",
+        "zh": "回应与修复并列"
+      },
+      "headline": {
+        "en": "Attuned Response & Repair Engagement have equal highest counts in this attempt",
+        "zh": "本次选择中，留意回应与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "First understanding someone and looking for another step received equal highest counts in this attempt.",
+        "zh": "这次题组里，先理解对方和先推进修复这两个方向被选中的次数一样多，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Response & Repair Tie: Love Personality Result",
+          "zh": "回应与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore a Response–Repair tie: listening, explicit requests and possible action. Equal counts do not prove empathy, repair skill or a required next step.",
+          "zh": "理解回应与修复原始次数并列最高：区分倾听、明确请求与可选行动；并列不证明同理心或修复能力，也不规定下一步。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "计分时每道题选中谁，谁就记 1 次；本次留意回应和参与分歧修复的数量相等，且都高于另外两个方向。并列原样保留，不用题号、代码或选项位置分先后。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Attuned Response: Attuned Response counts noticing unheard points, understanding a stated feeling and asking whether anything remains to add. It ties with Repair Engagement here.",
+              "zh": "留意回应：你的留意回应次数，来自留意没被听见的话、先理解具体感受、问还有什么补充的题目；这一次它和参与修复并列居首。"
+            },
+            {
+              "en": "Repair Engagement: Repair Engagement counts another attempt, considering amends and arranging a review. It ties with Attuned Response here.",
+              "zh": "参与分歧修复：你的参与修复次数，来自推动找到下一次尝试、确认如何弥补、主动安排复盘的题目；这一次它和留意回应拿到的次数一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "When discussion stalled, did you check an unheard point or encourage another attempt?",
+              "zh": "讨论不顺时，你更常找没被听见的话，还是更常推动下一次尝试？"
+            },
+            {
+              "en": "When someone described an impact, did you first hear the specific feeling or discuss possible amends?",
+              "zh": "对方指出受影响时，你先理解感受，还是先确认弥补？"
+            },
+            {
+              "en": "After an argument, did you ask about anything left unsaid or propose a later review?",
+              "zh": "争执结束后，你先问对方还有什么补充，还是先约复盘？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When someone was still upset, did you listen first or suggest a next step? Check their stated wishes rather than infer that one was better.",
+              "zh": "对方还没消气时，你更常先听，还是更常先约下一步？"
+            },
+            {
+              "en": "In which experience did listening itself form part of addressing a misunderstanding?",
+              "zh": "哪些时候倾听本身就是在修复？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "After checking a feeling, was there an opening to continue if both people wanted it?",
+              "zh": "你核对对方感受之后，有没有留下可以继续谈的入口？"
+            },
+            {
+              "en": "Have you kept asking questions without clarifying what would happen next, and what feedback did you receive?",
+              "zh": "有没有一次你只问不推进，对方反而觉得你在绕？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下留意回应或参与修复哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "During a pressured disagreement, did understanding or a proposed repair come first?",
+              "zh": "压力下的分歧里，你实际先做的是理解还是修复？"
+            },
+            {
+              "en": "What did the other person actually say, and what kind of event was being discussed?",
+              "zh": "当时对方的状态和事件的性质分别是什么？"
+            },
+            {
+              "en": "Afterward, did the situation appear to need listening, action or something outside those two options?",
+              "zh": "事后看，那次最缺的是倾听还是行动？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a repair attempt, did you confirm willingness to talk?",
+              "zh": "修复之前，你确认过对方真的愿意谈吗？"
+            },
+            {
+              "en": "If attempts were repeatedly refused, did you stop or continue proposing them? A result cannot require pursuit.",
+              "zh": "如果对方反复拒绝修复，你还会继续推进吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review an episode in which listening before a later discussion was explicitly welcomed.",
+              "zh": "找一次你先安抚情绪、再谈正事反而顺利的经历。"
+            },
+            {
+              "en": "Review an attempt to resolve something quickly that skipped the other person’s account. Separate the observed outcome from assumptions about why it happened.",
+              "zh": "找一次你急着修复、跳过倾听而失败的对话。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Before offering a repair step, allow the other person to finish if they want to speak.",
+              "zh": "下次修复前，先完整听完对方，再提步骤。"
+            },
+            {
+              "en": "After listening, ask whether anything should happen next instead of assuming discussion needs an action.",
+              "zh": "下次只倾听不动时，补一句：那我们接下来可以怎么处理？"
+            },
+            {
+              "en": "Compare an occasion where listening was enough for the stated request with one where a concrete agreed action was wanted.",
+              "zh": "记录一次倾听足够和一次需要行动的场景。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which questions led you toward understanding and which toward another step?",
+              "zh": "这次作答里，理解和推进的题目分别把你带向哪里？"
+            },
+            {
+              "en": "Have you assumed listening alone completed what the other person was asking for?",
+              "zh": "你有没有把倾听当成修复的全部？"
+            },
+            {
+              "en": "If listening without advice is requested, are you willing to leave it there?",
+              "zh": "如果对方需要的只是倾听，你会满足于不给建议吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The two counts do not create a fixed love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "They do not establish greater maturity or skill at maintaining relationships.",
+              "zh": "不表示你更会经营关系或更成熟。"
+            },
+            {
+              "en": "They do not mean every disagreement can be talked through or every relationship should be repaired.",
+              "zh": "不表示所有分歧都能靠沟通解决，也不表示关系必须修复。"
+            },
+            {
+              "en": "They reveal no other person’s feelings or opinion of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "They do not predict compatibility or relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "The tie records equal counts for listening-related choices and repair-related choices. How they work together or when either is wanted depends on actual experiences and willingness.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于倾听和推进如何搭配、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space-repair-tie",
+      "directionIds": [
+        "SPACE_REGULATION",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Space Regulation & Repair Engagement — Tied",
+        "zh": "空间与修复并列"
+      },
+      "headline": {
+        "en": "Space Regulation & Repair Engagement have equal highest counts in this attempt",
+        "zh": "本次选择中，调节靠近与空间与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Pausing and looking for a repair step received equal highest counts across these 24 choices.",
+        "zh": "这次题组里，先暂停和先修复这两个方向被选中的次数相同，且都排在最高位。"
+      },
+      "seo": {
+        "title": {
+          "en": "Space & Repair Tie: Love Personality Result",
+          "zh": "空间与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Explore a Space–Repair tie: pausing, reconnection and willingness, with examples. Equal highest counts set no automatic order and guarantee no resolution.",
+          "zh": "理解空间与修复原始次数并列最高：核对暂停、重新联系和继续讨论的意愿；并列不规定顺序，也不保证分歧解决。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each selected option adds one count to its direction. These two directions have equal counts, both above the other two. The result retains both leaders; question order, codes and option position never choose a winner. Equal counts do not establish a permanent combination or how these responses work together.",
+        "zh": "每道题只给被选中的方向记 1 次；本次调节靠近与空间和参与分歧修复的次数打平，且都高于另外两个方向。并列会原样保留，不因题号顺序、字母顺序或选项位置而分先后。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Space Regulation: Space Regulation counts pausing a conversation, lowering interaction intensity and protecting time to gather thoughts. It ties with Repair Engagement here.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自先暂停当前对话、先降低互动强度、保护整理时间的题目；这一次它和参与修复并列居首。"
+            },
+            {
+              "en": "Repair Engagement: Repair Engagement counts a specific workable point, a small repair action and a possible return to discussion. It ties with Space Regulation here.",
+              "zh": "参与分歧修复：你的参与修复次数，来自先找一个可以继续处理的具体点、先完成小的修复动作、确认重新接上对话的题目；这一次它和调节空间拿到的次数一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "As an argument heated up, did you propose a pause or continue looking for one point to address?",
+              "zh": "争执升温时，你更常提议暂停，还是更常继续找修复点？"
+            },
+            {
+              "en": "When both people were tired, did you lower intensity or propose a small action?",
+              "zh": "双方都很疲惫时，你先降强度，还是先做一个小动作？"
+            },
+            {
+              "en": "When contact felt strained, did you renegotiate space or how a disagreement would be handled?",
+              "zh": "关系出现拉扯时，你先重新商量空间，还是先重新商量分歧？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Before emotions had settled, did you stop the discussion or continue despite the strain?",
+              "zh": "情绪还没降下来时，你更常暂停，还是更常硬着头皮谈？"
+            },
+            {
+              "en": "Which issues needed time before discussion, and which seemed workable then? Safety can rule out continued contact entirely.",
+              "zh": "哪些分歧必须停下来再谈，哪些可以当场处理？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When proposing a pause, did you also describe a possible return arrangement?",
+              "zh": "你提议暂停时，会把回来的安排一起说清楚吗？"
+            },
+            {
+              "en": "Has someone interpreted a pause differently from how you intended it? Use their actual statement rather than infer a motive.",
+              "zh": "有没有一次你暂停了，对方却觉得你在逃避？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie cannot identify which of these directions appears first, takes over or switches automatically under pressure. The questionnaire did not measure that sequence.",
+              "zh": "本次并列不能说明压力下调节空间或参与修复哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "As conflict rose, did you step back or move toward another step?",
+              "zh": "冲突升温时，你实际先做的是退一步还是进一步？"
+            },
+            {
+              "en": "How tired were both people, and how important or unsafe was the topic?",
+              "zh": "当时双方的疲惫程度和话题的重要性分别是什么？"
+            },
+            {
+              "en": "Looking back, was space, a concrete action or something else missing?",
+              "zh": "事后看，那次缺的是空间还是行动？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "In a particular episode, which actually came first: the pause or a repair proposal?",
+              "zh": "暂停和修复之间，你更常让哪一个先发生？"
+            },
+            {
+              "en": "If the other person wanted neither, how did you respect that choice while keeping your own boundaries?",
+              "zh": "如果对方不想暂停也不想修复，你会怎么办？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review a pause after which both people were willing to return. What changed before the later conversation?",
+              "zh": "找一次暂停后双方都冷静、后来谈拢的经历。"
+            },
+            {
+              "en": "Compare an occasion when pressing to continue made the discussion harder. Do not generalise from one episode to every conflict.",
+              "zh": "找一次你坚持当场谈、结果越谈越僵的经历，比较暂停的价值。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a pause, describe a possible time to return without demanding agreement.",
+              "zh": "下次暂停时，把回来的时间一起约定。"
+            },
+            {
+              "en": "If you want immediate repair, first ask whether continuing now is wanted and safe.",
+              "zh": "下次想立刻修复时，先问一句：现在都冷静了吗？"
+            },
+            {
+              "en": "Compare a useful pause and a useful same-day discussion. Notice the conditions that differed instead of treating the tie as an automatic switch.",
+              "zh": "记录一次暂停更对和一次当场谈更对的场景。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which choices drew you toward pausing, and which toward repair?",
+              "zh": "这次作答里，暂停和修复的题目分别对应你的哪种反应？"
+            },
+            {
+              "en": "In a particular pause, did you need time, wish to avoid a hard subject or have another reason?",
+              "zh": "你提议暂停时，是真的需要时间，还是在避开难谈的话？"
+            },
+            {
+              "en": "If someone wants to talk immediately, what would let you acknowledge that request while keeping your own right to stop?",
+              "zh": "如果对方需要的是当场谈，你能接受吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This tie does not create a fixed love personality.",
+              "zh": "不表示这两种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "Needing space does not establish avoidance, coldness or fear of intimacy.",
+              "zh": "不表示你需要空间就是回避、冷漠或害怕亲密。"
+            },
+            {
+              "en": "The count does not establish maturity or repair skill, and it does not mean every disagreement can be repaired.",
+              "zh": "不表示你更会经营关系或更成熟，也不表示所有分歧都能修复。"
+            },
+            {
+              "en": "It does not reveal another person’s feelings or opinion.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It predicts neither compatibility nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "This tie records equal highest counts for pause-related and repair-related choices. It does not dictate an order, guarantee resolution or require either person to keep talking.",
+              "zh": "并列只记录本次 24 题里两个方向原始次数相同；至于暂停和修复如何取舍、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-response-space-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "ATTUNED_RESPONSE",
+        "SPACE_REGULATION"
+      ],
+      "title": {
+        "en": "Clear Expression / Attuned Response / Space Regulation — Tied",
+        "zh": "表达、回应与空间并列"
+      },
+      "headline": {
+        "en": "Three directions share the highest count in this attempt",
+        "zh": "本次选择中，清楚表达、留意回应与调节靠近与空间的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Putting something into words, listening first and leaving space received equal highest counts. The attempt supplies no unique leading entry.",
+        "zh": "这次题组里，说清楚、先听、留空间三个方向被选中的次数相同，本次没有形成唯一的顶部方向。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression, Response & Space: Love Personality Tie",
+          "zh": "表达、回应与空间并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read the Expression–Response–Space tie: three equal highest counts, conversation examples and ways to examine timing without inventing a combined personality.",
+          "zh": "理解表达、回应与空间三方向并列：完整计数读法、具体对话与时机核对；不推导混合人格、压力切换或关系适配。"
+        }
+      },
+      "scoreReading": {
+        "en": "These three directions have exactly equal counts, above the remaining direction in this 24-question attempt. All co-leaders are retained without using question order, codes or option position as a tiebreaker. The result establishes no complex personality, multiple identity or automatic way of combining the responses.",
+        "zh": "本次 24 题里，清楚表达、留意回应、调节靠近与空间被选中的次数完全相同，且都高于参与分歧修复。系统对并列不做任何处理，不靠题号、字母顺序或选项位置来分出先后。这不是多重人格或复杂人格，只是这次题组没有出现唯一领先的方向。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Counts come from selecting statements that put observations, feelings, needs, views or arrangements into words. Here this direction shares the highest count.",
+              "zh": "清楚表达：你的清楚表达次数，来自把观察、感受、需要或安排直接说清楚的题目；三个方向并列时，它和另外两个次数相同。"
+            },
+            {
+              "en": "Attuned Response: Counts come from selecting listening, checking a meaning, asking about willingness or noticing what remains unheard. Here this direction shares the highest count.",
+              "zh": "留意回应：你的留意回应次数，来自先听、先核对、先看对方当下状态的题目；它在这组并列里与其余两个方向一样多。"
+            },
+            {
+              "en": "Space Regulation: Counts come from selecting adjusted contact, a slower pace, room to gather thoughts or a pause. Here this direction shares the highest count.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自调整联系强度、留出空间、暂停当前对话的题目；它在这组并列里与其余两个方向打了平手。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall an important conversation. Where did speaking, listening and leaving room actually appear? Mark the actions separately rather than assume they formed a helpful sequence.",
+              "zh": "最近一次重要对话里，你开口说、停下来听、和先缓一缓的时刻分别出现在哪里？"
+            },
+            {
+              "en": "Compare a calm moment and a moment when someone was unsettled. Was the mix different, and what explicit feedback did you have?",
+              "zh": "对方情绪平稳和情绪起伏时，你的三种做法比例是否不同？"
+            },
+            {
+              "en": "After time alone, did you explain your state or ask about theirs first? The tie does not tell you which.",
+              "zh": "独处一天后回来，你先说还是先听？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When something affects both people, do examples show you first explaining, asking or waiting?",
+              "zh": "遇到影响彼此的事，你更常先说明、先询问，还是先等？"
+            },
+            {
+              "en": "Which subjects were suitable for immediate conversation, and which needed more capacity from both people?",
+              "zh": "哪些事情适合直接谈，哪些适合等双方都从容再说？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "What actual sequence did explanation, checking and pausing follow in one conversation?",
+              "zh": "你的表达、核对和暂停，通常按什么顺序出现？"
+            },
+            {
+              "en": "Have you used all three in a conversation that both people later described as useful? Do not assume the three-count tie proves that occurred.",
+              "zh": "有没有一次你三种都用上了，对话反而顺畅了？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The equal counts cannot identify which direction appears first, takes over or switches automatically under pressure. This bank did not measure a sequence or predict your reaction to stress.",
+              "zh": "本次并列不能说明压力下这三个方向哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In the pressured moment, did you first speak, listen or step away?",
+              "zh": "压力出现时，你实际先做的是说、听还是退？"
+            },
+            {
+              "en": "What roles, time pressure and observable circumstances affected that moment?",
+              "zh": "当时的角色、时间压力和对方状态分别是什么？"
+            },
+            {
+              "en": "Looking back, what did the first action make possible and what did it leave out?",
+              "zh": "事后看，哪种先手帮了忙，哪种添了乱？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "When the atmosphere stiffened, did you explain the issue, ask whether discussion was wanted or step back?",
+              "zh": "气氛变僵时，你更常把话说开、先问意愿，还是先退一步？"
+            },
+            {
+              "en": "If you made space, what information did the other person have about why and about any intended return?",
+              "zh": "如果你先让出空间，对方会不会反过来担心你生气了？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a recent conversation and separately mark your spoken explanation, your listening or checking, and any room you left.",
+              "zh": "找最近一次对话，分别标出你说、你听、你留空间的句子。"
+            },
+            {
+              "en": "Review a pause followed by a later discussion. What changed during the pause, and was returning wanted by both people?",
+              "zh": "回看一次你先退开、后来谈成的经历，核对暂停的作用。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Before opening a topic, consider asking about capacity. Before taking space, describe a possible return if safe and wanted.",
+              "zh": "下次开口前，先问：对方现在有余量吗？下次退开前，把回来的安排说好。"
+            },
+            {
+              "en": "In an ordinary, mutually wanted conversation, notice opportunities for speaking, listening and pausing. You do not need to perform all three.",
+              "zh": "试着在一次对话里，把说、听、留空间各用一次。"
+            },
+            {
+              "en": "If you want a private note, record the order that actually occurred and the feedback you received. One experience is not evidence of a permanent best sequence.",
+              "zh": "结束当天记一笔：今天哪种顺序让对话更顺。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which questions led you toward speaking, listening and space?",
+              "zh": "这次作答里，说、听、留空间三组题目各把你带向哪种反应？"
+            },
+            {
+              "en": "Would being with someone you fully trust change what you want to do? This is for reflection, not a prediction.",
+              "zh": "如果对方是你最信任的人，你的比例会变吗？"
+            },
+            {
+              "en": "Recall a conversation in which several approaches were used. What happened at each point, beyond the label you might give it?",
+              "zh": "回想一次三管齐下反而顺利的对话，当时是怎么做到的？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Three co-leading counts do not form a fixed love personality.",
+              "zh": "不表示这三种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "They do not establish an ideally honest, considerate and well-balanced partner.",
+              "zh": "不表示你既坦诚又体贴又有分寸，是更全面的伴侣。"
+            },
+            {
+              "en": "They cannot guarantee another person feels understood or at ease.",
+              "zh": "不表示你能保证对方更理解你或更自在。"
+            },
+            {
+              "en": "They reveal no other person’s feelings or opinion of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "They predict neither compatibility nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "Three equal highest counts mean there is no unique leader in this attempt. How speaking, listening and space appear in practice requires experiences, not an inferred switching pattern. A lower Repair Engagement count is not a deficit or a judgment about love.",
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向；三种方式如何轮流出现、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-response-repair-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "ATTUNED_RESPONSE",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Clear Expression / Attuned Response / Repair Engagement — Tied",
+        "zh": "表达、回应与修复并列"
+      },
+      "headline": {
+        "en": "Three directions share the highest count in this attempt",
+        "zh": "本次选择中，清楚表达、留意回应与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Explaining, listening and looking for another step received equal highest counts, with no single leading direction in this attempt.",
+        "zh": "这次题组里，说清楚、先听、找下一步三个方向被选中的次数相同，本次没有形成唯一的顶部方向。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression, Response & Repair: Love Personality Tie",
+          "zh": "表达、回应与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read the Expression–Response–Repair tie: three equal highest counts, hearing both accounts and possible steps, without claiming maturity or a fixed sequence.",
+          "zh": "理解表达、回应与修复三方向并列：核对双方说过什么、是否愿意继续与可选步骤；不以次数判断成熟或固定反应顺序。"
+        }
+      },
+      "scoreReading": {
+        "en": "These three directions have exactly equal counts, above the remaining direction in this 24-question attempt. All co-leaders are retained without using question order, codes or option position as a tiebreaker. The result establishes no complex personality, multiple identity or automatic way of combining the responses.",
+        "zh": "本次 24 题里，清楚表达、留意回应、参与分歧修复被选中的次数完全相同，且都高于调节靠近与空间。系统保留全部并列，题号、代码、选项位置都不参与排序。这不表示多重人格或身份分裂——只是这次题组里没有哪个方向明显领先。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Counts come from selecting statements that put observations, feelings, needs, views or arrangements into words. Here this direction shares the highest count.",
+              "zh": "清楚表达：你的清楚表达次数，来自把看法说完整、重新说明原意、提出清楚问题的题目；三个方向并列时，它和另外两个次数相同。"
+            },
+            {
+              "en": "Attuned Response: Counts come from selecting listening, checking a meaning, asking about willingness or noticing what remains unheard. Here this direction shares the highest count.",
+              "zh": "留意回应：你的留意回应次数，来自留意没被听见的话、先理解具体感受、问还有什么补充的题目；它在这组并列里与其余两个方向一样多。"
+            },
+            {
+              "en": "Repair Engagement: Counts come from selecting a possible next step, discussing an impact or considering how to resume a discussion. Here this direction shares the highest count.",
+              "zh": "参与分歧修复：你的参与修复次数，来自寻找下一步、约定继续处理的步骤、确认弥补方式的题目；它在这组并列里与其余两个方向打了平手。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "In a recent disagreement, where did explaining a view, listening and finding a next step each appear?",
+              "zh": "最近一次分歧里，你说清立场、听对方、找下一步的时刻分别出现在哪里？"
+            },
+            {
+              "en": "After a misunderstanding, did you clarify meaning, try to understand or propose repair first? Check the episode rather than this tie.",
+              "zh": "误解发生后，你的顺序是先澄清、先理解，还是先修复？"
+            },
+            {
+              "en": "After an argument ended, did you explain further, ask what remained unsaid or arrange another discussion?",
+              "zh": "争执结束后，你是把话说透、问补充，还是约复盘？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "At the start of disagreement, did you finish your view, hear the other person or look for a way forward?",
+              "zh": "分歧刚出现时，你更常把看法说完、先听对方，还是先找路径？"
+            },
+            {
+              "en": "Which events seemed suitable for handling then, and which required stopping first? Some situations rule out continued discussion.",
+              "zh": "哪些分歧适合当场处理，哪些适合先停再谈？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "While explaining, did you also check what the other person actually heard?",
+              "zh": "你说得清楚时，有没有同时核对对方听进去了？"
+            },
+            {
+              "en": "Have you worked hard on a repair attempt while not leaving space to hear the other person’s account?",
+              "zh": "有没有一次你修复得很用力，却跳过了倾听？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The equal counts cannot identify which direction appears first, takes over or switches automatically under pressure. This bank did not measure a sequence or predict your reaction to stress.",
+              "zh": "本次并列不能说明压力下这三个方向哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In a pressured disagreement, did speaking, listening or repair come first?",
+              "zh": "压力下的分歧里，你实际先做的是说、听还是修？"
+            },
+            {
+              "en": "How serious was the event, and what did each person say about their capacity or wishes?",
+              "zh": "当时的事件严重程度和双方状态分别是什么？"
+            },
+            {
+              "en": "Looking back, was missing information, listening, action or something else most relevant?",
+              "zh": "事后看，那次缺的是内容、倾听还是行动？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a repair proposal, did you check whether the person had finished what they wanted to say?",
+              "zh": "修复之前，你会先确认对方的话都说完了吗？"
+            },
+            {
+              "en": "If discussion was not wanted, could you leave the proposed next step unpursued?",
+              "zh": "如果对方并不想谈，你还能忍住不推进吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review a conversation where an explanation was heard and an agreed next step followed. Identify the actual feedback at each point.",
+              "zh": "找一次你把话说清、对方听进去、后来修复成功的对话。"
+            },
+            {
+              "en": "Compare a conversation where explaining without listening did not address the difficulty. Avoid assigning a single cause without enough information.",
+              "zh": "找一次你只说不听、修复失败的对话，核对缺了哪一环。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "If both people want to continue, consider making room for your own account, theirs and only then any agreed next step. This is a possible draft, not a required order.",
+              "zh": "下次分歧里，先说完自己的部分，再核对对方，最后才约下一步。"
+            },
+            {
+              "en": "Before moving directly to repair, ask whether there is more the other person wants heard.",
+              "zh": "下次想直接进入修复前，先问：对方的话都说完了吗？"
+            },
+            {
+              "en": "Privately record the sequence from one episode. Notice where effort went without treating ease as proof of relationship skill.",
+              "zh": "结束后按时间顺序写下三种先手，看哪一步最省力。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which choices drew you toward explaining, listening and repair?",
+              "zh": "这次作答里，说、听、修三组题目各把你带向哪种反应？"
+            },
+            {
+              "en": "If a disagreement involved safety or a serious principle, would a repair proposal be appropriate?",
+              "zh": "如果分歧涉及原则或安全，你还会继续找修复点吗？"
+            },
+            {
+              "en": "Recall assuming responsibility for someone else’s conduct. What part was actually yours?",
+              "zh": "回忆一次你替对方承担了责任的分歧，那件事本该谁负责？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "These equal counts do not establish a fixed love personality.",
+              "zh": "不表示这三种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "They do not establish greater maturity or skill at maintaining relationships.",
+              "zh": "不表示你更会经营关系或更成熟。"
+            },
+            {
+              "en": "They do not mean all disagreements are solvable through conversation or that every relationship should continue.",
+              "zh": "不表示所有分歧都能靠沟通解决，也不表示关系必须修复。"
+            },
+            {
+              "en": "They reveal no other person’s feelings or opinion of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "They predict neither compatibility nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "Three equal highest counts identify no single leading entry. Their real order and fit require concrete examples. The lower Space Regulation count does not establish inability to pause, deficient boundaries or any responsibility for harm.",
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向；三种方式如何轮流出现、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expression-space-repair-tie",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "SPACE_REGULATION",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Clear Expression / Space Regulation / Repair Engagement — Tied",
+        "zh": "表达、空间与修复并列"
+      },
+      "headline": {
+        "en": "Three directions share the highest count in this attempt",
+        "zh": "本次选择中，清楚表达、调节靠近与空间与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Explaining, leaving space and considering repair received equal highest counts. No single leading entry was formed in this attempt.",
+        "zh": "这次题组里，说清楚、留空间、找下一步三个方向被选中的次数相同，本次没有形成唯一的顶部方向。"
+      },
+      "seo": {
+        "title": {
+          "en": "Expression, Space & Repair: Love Personality Tie",
+          "zh": "表达、空间与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read the Expression–Space–Repair tie: three equal highest counts, boundaries, pauses and possible steps, without treating the remaining direction as a deficit.",
+          "zh": "理解表达、空间与修复三方向并列：边界、暂停和后续步骤的具体情境；较低方向不代表缺失，并列不预言如何切换。"
+        }
+      },
+      "scoreReading": {
+        "en": "These three directions have exactly equal counts, above the remaining direction in this 24-question attempt. All co-leaders are retained without using question order, codes or option position as a tiebreaker. The result establishes no complex personality, multiple identity or automatic way of combining the responses.",
+        "zh": "本次 24 题里，清楚表达、调节靠近与空间、参与分歧修复被选中的次数完全相同，且都高于留意回应。系统不借助任何顺序信息破同分，方向之外的一切都不参与排序。别把它理解成复杂人格或多重身份——它只说明这次题组没有形成唯一的顶部方向。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Counts come from selecting statements that put observations, feelings, needs, views or arrangements into words. Here this direction shares the highest count.",
+              "zh": "清楚表达：你的清楚表达次数，来自尽早说、说明白、把安排讲清楚的题目；三个方向并列时，它和另外两个次数相同。"
+            },
+            {
+              "en": "Space Regulation: Counts come from selecting adjusted contact, a slower pace, room to gather thoughts or a pause. Here this direction shares the highest count.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自先暂停当前对话、先降低互动强度、保护整理时间的题目；它在这组并列里与其余两个方向一样多。"
+            },
+            {
+              "en": "Repair Engagement: Counts come from selecting a possible next step, discussing an impact or considering how to resume a discussion. Here this direction shares the highest count.",
+              "zh": "参与分歧修复：你的参与修复次数，来自先找一个可以继续处理的具体点、先完成小的修复动作、确认重新接上对话的题目；它在这组并列里与其余两个方向打了平手。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "As a disagreement heated up, where did explaining, stepping back and finding a repair point appear in the actual sequence?",
+              "zh": "冲突升温时，你说、你退、你找修复点的顺序是怎么排的？"
+            },
+            {
+              "en": "When both people were tired, did you clarify something, lower intensity or suggest a small action?",
+              "zh": "双方都很疲惫时，你先讲清楚、先降强度，还是先做小动作？"
+            },
+            {
+              "en": "After needing time alone, how did any later conversation actually resume? The count cannot establish that reconnection occurred.",
+              "zh": "需要独处的那几天，你后来是怎么重新接上对话的？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Before emotions settled, did you explain immediately or first pause?",
+              "zh": "情绪还没降下来时，你更常当场说清，还是先暂停？"
+            },
+            {
+              "en": "Which disagreements seemed better left until later, and which were workable then, according to actual feedback?",
+              "zh": "哪些分歧适合先停再谈，哪些当场处理反而更顺？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When pausing, did you describe a possible return arrangement?",
+              "zh": "你暂停时，会把回来的安排一起说清楚吗？"
+            },
+            {
+              "en": "Have you moved quickly toward repair without making your own boundary clear?",
+              "zh": "有没有一次你修复得很急，反而没说清自己的边界？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The equal counts cannot identify which direction appears first, takes over or switches automatically under pressure. This bank did not measure a sequence or predict your reaction to stress.",
+              "zh": "本次并列不能说明压力下这三个方向哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "As conflict rose, did you first speak, step back or propose repair?",
+              "zh": "冲突升温时，你实际先做的是说、退还是修？"
+            },
+            {
+              "en": "How tired were both people, and how important or unsafe was the topic?",
+              "zh": "当时双方的疲惫程度和话题的重要性分别是什么？"
+            },
+            {
+              "en": "Looking back, was space, information, action or something outside these options missing?",
+              "zh": "事后看，那次缺的是空间、内容还是行动？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "After a pause, did you propose something, wait for the other person or choose not to reconnect?",
+              "zh": "暂停之后，你更常先找修复点，还是先等对方开口？"
+            },
+            {
+              "en": "If the other person wanted neither a pause arrangement nor repair, how did you handle their choice and your own boundary?",
+              "zh": "如果对方两个都不想要，你会怎么处理？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review a pause after which both people wanted a later conversation. Identify the information each person had before returning.",
+              "zh": "找一次暂停后双方冷静、后来谈拢的经历，核对暂停的价值。"
+            },
+            {
+              "en": "Review an occasion where you stated a boundary and received an explicit response. The tie does not predict respect or acceptance.",
+              "zh": "找一次你说清边界后对方反而尊重的经历。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "When proposing a pause, include a possible return if you want one. Before immediate repair, check whether continuing is wanted and safe.",
+              "zh": "下次想暂停时，把回来的时间一起说；下次想立刻修时，先问冷静了吗。"
+            },
+            {
+              "en": "In a safe, ordinary episode, notice speaking, pausing and repair as possible options. It is not necessary to use all three.",
+              "zh": "试着在一次冲突里，把说清、暂停、修复各用一次。"
+            },
+            {
+              "en": "Afterward, compare the actual sequence and feedback. Do not infer that a different order would certainly have produced a better result.",
+              "zh": "结束后对比：哪种顺序让双方都更轻松。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which items drew you toward explaining, space and repair?",
+              "zh": "这次作答里，说、退、修三组题目各把你带向哪种反应？"
+            },
+            {
+              "en": "In a particular pause, did you need solitude, want to avoid that topic for now or have another reason?",
+              "zh": "你提议暂停的时候，是真需要一个人待着，还是暂时不想谈那件事？"
+            },
+            {
+              "en": "If someone wanted discussion immediately, how could you acknowledge that request while retaining your own right to pause?",
+              "zh": "如果对方需要的是当场谈，你能放下暂停的习惯吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The three counts do not establish a fixed love personality.",
+              "zh": "不表示这三种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "A preference for space does not establish avoidance, coldness or fear of intimacy.",
+              "zh": "不表示你需要空间就是回避、冷漠或害怕亲密。"
+            },
+            {
+              "en": "The result does not establish maturity or repair skill, and not all disagreements can be repaired.",
+              "zh": "不表示你更会经营关系或更成熟，也不表示所有分歧都能修复。"
+            },
+            {
+              "en": "It reveals no other person’s feelings or judgment of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It predicts neither compatibility nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "The tie records three equal highest counts. How expression, space and repair are chosen or sequenced needs actual experience. A lower Attuned Response count does not mean an inability to listen or make you responsible for another person’s conduct.",
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向；三种方式如何轮流出现、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-space-repair-tie",
+      "directionIds": [
+        "ATTUNED_RESPONSE",
+        "SPACE_REGULATION",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Attuned Response / Space Regulation / Repair Engagement — Tied",
+        "zh": "回应、空间与修复并列"
+      },
+      "headline": {
+        "en": "Three directions share the highest count in this attempt",
+        "zh": "本次选择中，留意回应、调节靠近与空间与参与分歧修复的原始次数并列最高"
+      },
+      "summary": {
+        "en": "Listening, leaving space and finding another step received equal highest counts, without a single leading direction in this attempt.",
+        "zh": "这次题组里，先听、留空间、找下一步三个方向被选中的次数相同，本次没有形成唯一的顶部方向。"
+      },
+      "seo": {
+        "title": {
+          "en": "Response, Space & Repair: Love Personality Tie",
+          "zh": "回应、空间与修复并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read the Response–Space–Repair tie: three equal highest counts, listening, capacity and possible next steps, without treating a lower count as inability.",
+          "zh": "理解回应、空间与修复三方向并列：倾听、交流余量与后续步骤的核对；不把较低次数当成表达能力不足或迁就义务。"
+        }
+      },
+      "scoreReading": {
+        "en": "These three directions have exactly equal counts, above the remaining direction in this 24-question attempt. All co-leaders are retained without using question order, codes or option position as a tiebreaker. The result establishes no complex personality, multiple identity or automatic way of combining the responses.",
+        "zh": "本次 24 题里，留意回应、调节靠近与空间、参与分歧修复被选中的次数完全相同，且都高于清楚表达。系统完整保留并列，不用任何外部顺序给方向排队。这并不意味着你人格复杂——只是这一次题组没有产生唯一领先的方向。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Attuned Response: Counts come from selecting listening, checking a meaning, asking about willingness or noticing what remains unheard. Here this direction shares the highest count.",
+              "zh": "留意回应：你的留意回应次数，来自询问是否想说、跟随对方回应方式、确认沉默含义的题目；三个方向并列时，它和另外两个次数相同。"
+            },
+            {
+              "en": "Space Regulation: Counts come from selecting adjusted contact, a slower pace, room to gather thoughts or a pause. Here this direction shares the highest count.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自给对方整理空间、放慢交流节奏并留出停顿、保留距离的题目；它在这组并列里与其余两个方向一样多。"
+            },
+            {
+              "en": "Repair Engagement: Counts come from selecting a possible next step, discussing an impact or considering how to resume a discussion. Here this direction shares the highest count.",
+              "zh": "参与分歧修复：你的参与修复次数，来自推动找到下一次尝试、确认如何弥补、主动安排复盘的题目；它在这组并列里与其余两个方向打了平手。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "When someone’s mood changed, did you ask, leave room or propose a next step first?",
+              "zh": "对方情绪起伏时，你先问、先让出空间，还是先约下一步？"
+            },
+            {
+              "en": "When someone remained quiet, did you check, wait or look for a repair entry? Keep what was observed separate from a guess about the silence.",
+              "zh": "对方沉默时，你是去确认、等待，还是找修复入口？"
+            },
+            {
+              "en": "After an argument ended, did you ask for anything left unsaid, protect time to reflect or arrange a review?",
+              "zh": "争执结束后，你问补充、保护整理时间，还是约复盘？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "While someone was still upset, did you listen, step back or propose something next?",
+              "zh": "对方还没消气时，你更常先听、先退，还是先约下一步？"
+            },
+            {
+              "en": "In which particular moment was not intervening a response the other person explicitly wanted?",
+              "zh": "哪些时候什么都不做，本身就是回应？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "After checking a feeling, did you immediately propose a next step, or check whether time and space were wanted?",
+              "zh": "你核对对方感受之后，会不会顺手就约了下一步，反而没留空间？"
+            },
+            {
+              "en": "Has repeated questioning without a clear arrangement been received differently from how you intended it?",
+              "zh": "有没有一次你只问不动，对方反而觉得你在绕？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The equal counts cannot identify which direction appears first, takes over or switches automatically under pressure. This bank did not measure a sequence or predict your reaction to stress.",
+              "zh": "本次并列不能说明压力下这三个方向哪个先出现、占上风或自动切换；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In a pressured disagreement, did you first listen, step back or propose repair?",
+              "zh": "压力下的分歧里，你实际先做的是听、退还是修？"
+            },
+            {
+              "en": "What did you know about the other person’s state and the nature of the event?",
+              "zh": "当时对方的状态和事件的性质分别是什么？"
+            },
+            {
+              "en": "Looking back, did the request concern listening, space, action or something not covered by these choices?",
+              "zh": "事后看，那次最缺的是倾听、空间还是行动？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "Before repair, did you check current willingness and capacity to discuss it?",
+              "zh": "修复之前，你会先确认对方现在有余量谈吗？"
+            },
+            {
+              "en": "If space alone was requested, could you leave out a repair proposal for now?",
+              "zh": "如果对方需要的只是空间，你会忍住不推进吗？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "Review an episode with listening, a pause and a later agreed conversation. Check what each step actually established.",
+              "zh": "找一次你先安抚、再给空间、最后谈成的经历。"
+            },
+            {
+              "en": "Compare a rushed repair attempt that skipped listening or space. Describe observed feedback rather than claim that one sequence always works.",
+              "zh": "找一次你急着修复、跳过倾听和空间而失败的对话。"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Before repair, allow the other person’s account if wanted, then check whether discussion is wanted now.",
+              "zh": "下次修复前，先完整听完，再确认对方是否想现在谈。"
+            },
+            {
+              "en": "After listening, you may ask what, if anything, should happen next. Do not assume listening needs a follow-up action.",
+              "zh": "下次只倾听不动时，试着补一句：那我们接下来可以怎么处理？"
+            },
+            {
+              "en": "Privately note the actual order of listening, space and repair. A step that is absent might be unnecessary in that situation rather than a weakness.",
+              "zh": "结束后按时间顺序写下听、退、修三步，看哪一步最容易被跳过。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Which questions led you toward listening, space and repair?",
+              "zh": "这次作答里，听、退、修三组题目各把你带向哪种反应？"
+            },
+            {
+              "en": "Have you treated listening as the whole task without checking what was actually requested?",
+              "zh": "你有没有把倾听当成修复的全部，而忘了确认对方想要什么？"
+            },
+            {
+              "en": "If the request was simply for space, could you leave a further proposal unpursued?",
+              "zh": "如果对方需要的只是空间，你能忍住不推进吗？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Three co-leading counts do not form a fixed love personality.",
+              "zh": "不表示这三种方式组成了固定的恋爱人格。"
+            },
+            {
+              "en": "Wanting space does not establish avoidance, coldness or fear of intimacy.",
+              "zh": "不表示你需要空间就是回避、冷漠或害怕亲密。"
+            },
+            {
+              "en": "The result establishes neither consideration, maturity nor repair skill, and not every disagreement can be repaired.",
+              "zh": "不表示你更体贴、更成熟或更会经营关系，也不表示所有分歧都能修复。"
+            },
+            {
+              "en": "It reveals no other person’s feelings or judgment.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It predicts neither partner fit nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "Three equal highest counts establish no unique leader. How listening, space and repair occur needs real examples. A lower Clear Expression count is not inability to speak, absence of needs or a requirement to accommodate someone else.",
+              "zh": "三方向并列只说明本次题组没有形成唯一顶部方向；三种方式如何轮流出现、何时切换，需要你回到具体经历核对，测试不替你下结论。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "four-directions-tied",
+      "directionIds": [
+        "CLEAR_EXPRESSION",
+        "ATTUNED_RESPONSE",
+        "SPACE_REGULATION",
+        "REPAIR_ENGAGEMENT"
+      ],
+      "title": {
+        "en": "Four Directions Tied",
+        "zh": "四个方向完全并列"
+      },
+      "headline": {
+        "en": "All four raw counts are equal in this attempt",
+        "zh": "本次选择中，四个方向的原始次数完全相同"
+      },
+      "summary": {
+        "en": "Each of the four directions was chosen equally often across these 24 questions. This attempt therefore assigns no single leading direction.",
+        "zh": "这次题组里，四个方向被选中的次数一样多，因此不指定顶部方向。"
+      },
+      "seo": {
+        "title": {
+          "en": "All Four Directions Tied: Love Personality Result",
+          "zh": "四个方向完全并列：恋爱人格测试完整说明"
+        },
+        "description": {
+          "en": "Read the four-way Love Personality Test tie: six choices per direction, no unique leader, concrete reflection and why equal counts do not mean perfect balance.",
+          "zh": "完整阅读恋爱人格测试四方向完全并列：每方向6次选择、没有唯一顶部方向；结合具体经历观察，不解释为完美平衡或测试失效。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each of the 24 answers contributes one count. With four equal totals, every direction has six choices out of its 12 comparisons. No single leader is assigned and no question order, code or option position breaks the tie. This is neither perfect balance nor evidence that the test failed.",
+        "zh": "四方向并列的意思是：本次 24 题里，清楚表达、留意回应、调节靠近与空间、参与分歧修复被选中的次数完全相同。评分不做任何破同分处理，不排先后，也不判定没有方向。这既不代表测试失效，也不代表你是平衡到没有偏好——只是这次题组里，没有哪一个方向出现得更多。"
+      },
+      "sections": [
+        {
+          "id": "direction-counts",
+          "title": {
+            "en": "What each tied count comes from",
+            "zh": "各并列方向如何计数"
+          },
+          "paragraphs": [
+            {
+              "en": "Clear Expression: Counts come from selecting statements that put observations, feelings, needs, views or arrangements into words. Here this direction has the same six choices as the other three.",
+              "zh": "清楚表达：你的清楚表达次数，来自把观察、感受、需要或安排直接说清楚的题目；四个方向完全并列时，它和其余三个一样多。"
+            },
+            {
+              "en": "Attuned Response: Counts come from selecting listening, checking a meaning, asking about willingness or noticing what remains unheard. Here this direction has the same six choices as the other three.",
+              "zh": "留意回应：你的留意回应次数，来自先听、先核对、先看对方当下状态的题目；它在这组并列里与其余三个方向次数相同。"
+            },
+            {
+              "en": "Space Regulation: Counts come from selecting adjusted contact, a slower pace, room to gather thoughts or a pause. Here this direction has the same six choices as the other three.",
+              "zh": "调节靠近与空间：你的调节空间次数，来自调整联系强度、留出空间、暂停当前对话的题目；它在这组并列里与其余三个方向打了平手。"
+            },
+            {
+              "en": "Repair Engagement: Counts come from selecting a possible next step, discussing an impact or considering how to resume a discussion. Here this direction has the same six choices as the other three.",
+              "zh": "参与分歧修复：你的参与修复次数，来自寻找下一步、约定继续处理的步骤、确认弥补方式的题目；它在这组并列里与其余三个方向一样多。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-review",
+          "title": {
+            "en": "Situations to compare",
+            "zh": "可以比较的具体情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall one complete disagreement or important conversation. Which of the four actions actually appeared, and which did not?",
+              "zh": "回忆最近一次完整的冲突或深谈，四个方向各自出现过吗？"
+            },
+            {
+              "en": "Compare moments when the other person said they had capacity with moments when they did not. Did your choices differ?",
+              "zh": "对方状态好和状态差时，你的四种做法比例是否不同？"
+            },
+            {
+              "en": "If you want to reflect on an ordinary week, note examples of explaining, listening, space and repair privately. Counts from a journal and this questionnaire are different observations.",
+              "zh": "最近一周，你主动说、认真听、留空间、找修复的时刻分别有几次？"
+            }
+          ]
+        },
+        {
+          "id": "decision-review-questions",
+          "title": {
+            "en": "Decisions and timing",
+            "zh": "决定与时机核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Did the paired choices feel quick or difficult to choose between? Hesitation can be reflected on but was not scored.",
+              "zh": "这次作答时，你是很快选，还是经常犹豫？犹豫本身也是一种信息。"
+            },
+            {
+              "en": "Were you trying to keep several needs in view recently? The equal scores cannot establish why you chose them.",
+              "zh": "有没有可能，你最近正处在一个什么都想兼顾的阶段？"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-questions",
+          "title": {
+            "en": "Words and feedback",
+            "zh": "表达与反馈核对"
+          },
+          "paragraphs": [
+            {
+              "en": "What actual sequence did expression, checking, pausing and repair follow in a particular conversation?",
+              "zh": "你的表达、核对、暂停和修复，通常按什么顺序出现？"
+            },
+            {
+              "en": "What word would you choose for the recent situation, and what concrete event supports it?",
+              "zh": "如果必须用一个词形容最近的关系状态，你会选什么？"
+            }
+          ]
+        },
+        {
+          "id": "pressure-is-not-a-sequence",
+          "title": {
+            "en": "Pressure needs its own example",
+            "zh": "压力下的顺序需要另行观察"
+          },
+          "paragraphs": [
+            {
+              "en": "The equal counts cannot identify which direction appears first, takes over or switches automatically under pressure. This bank did not measure a sequence or predict your reaction to stress.",
+              "zh": "本次并列不能说明压力下哪个方向先出现、占上风或自动切换，也不能说明你压力下会怎样；题组没有测量这种顺序。"
+            },
+            {
+              "en": "In a recent pressured moment, which action actually came first?",
+              "zh": "回想最近一次你急起来的时刻，第一反应更像哪一种？"
+            },
+            {
+              "en": "Looking back, what did that action make possible, leave out or complicate?",
+              "zh": "事后看，那个第一反应帮了忙还是添了乱？"
+            }
+          ]
+        },
+        {
+          "id": "space-or-repair-review-questions",
+          "title": {
+            "en": "Space and continued discussion",
+            "zh": "空间与继续讨论的意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "During a disagreement, what did you first do rather than what does the tied label suggest?",
+              "zh": "遇到分歧时，你更常先说、先听、先退，还是先找修复点？"
+            },
+            {
+              "en": "If none of the offered responses fitted what someone wanted, what other options or boundaries were available?",
+              "zh": "如果对方需要的一样都没有，你会怎么办？"
+            }
+          ]
+        },
+        {
+          "id": "real-world-checkpoints",
+          "title": {
+            "en": "Check an actual example",
+            "zh": "回看真实经历"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no need to assign yourself a label. If useful, observe ordinary actions over time rather than turn these equal scores into a claim of balance.",
+              "zh": "不急着给自己贴标签，先用一周的真实行为来观察四个方向各自出现的次数。"
+            },
+            {
+              "en": "You may ask a trusted person about a specific observed interaction if both want that conversation. Their account is another perspective, not a validation of the test or a required partner assessment.",
+              "zh": "找信任的人确认：你观察到的我，更常是哪一种？"
+            }
+          ]
+        },
+        {
+          "id": "balancing-actions",
+          "title": {
+            "en": "Optional actions, not a required sequence",
+            "zh": "可选小步骤，不规定顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to revisit the questionnaire, choose another ordinary moment. This bank has no validated mandatory retest interval.",
+              "zh": "如果愿意重新观察，可以换一个更接近日常状态的时点再答；本题本没有规定必须等待的重测间隔。"
+            },
+            {
+              "en": "Give concrete experiences priority over using choice counts to define yourself.",
+              "zh": "任何时候，都以具体经历为准，而不是用次数解释自己。"
+            },
+            {
+              "en": "Where violence, coercion or continuing harm is involved, immediate safety takes priority over a repair attempt. Equal scores never create a duty to keep contact.",
+              "zh": "遇到暴力、胁迫或持续伤害时，优先保护安全，而不是修复。"
+            }
+          ]
+        },
+        {
+          "id": "reflection-questions",
+          "title": {
+            "en": "Keep the questions open",
+            "zh": "保留开放的观察问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Did any direction being included in this tie surprise you?",
+              "zh": "这次并列里，有没有哪个方向其实让你很意外？"
+            },
+            {
+              "en": "If you considered only concrete actions from an ordinary week, what examples would support each direction?",
+              "zh": "如果必须用一周的真实行为投票，四个方向里你会投给哪个？"
+            },
+            {
+              "en": "Were several kinds of response relevant to the recent situation? Treat this as an open question rather than the explanation for the tie.",
+              "zh": "最近的关系阶段，是不是刚好需要你四种都用上？"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Read the count within its limits",
+            "zh": "次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish perfect balance or being equally good at everything.",
+              "zh": "不表示你四个方向完美平衡或面面俱到。"
+            },
+            {
+              "en": "It establishes neither four mature relationship abilities nor failure of the questionnaire.",
+              "zh": "不表示你拥有四种成熟的关系能力，也不表示测试失效。"
+            },
+            {
+              "en": "It reveals no other person’s feelings or opinion of you.",
+              "zh": "不表示对方对你的感受或评价。"
+            },
+            {
+              "en": "It predicts neither partner fit nor relationship duration.",
+              "zh": "不预测关系会不会长久或适配。"
+            },
+            {
+              "en": "Four equal counts mean no direction was selected more often in these 24 choices. They do not answer what kind of person you are. Experiences provide information that a tied count cannot supply.",
+              "zh": "四方向并列只表示本次 24 题里四个原始次数相同、不指定顶部方向；它不回答你是什么样的人。想观察自己，回到具体经历比盯着这次次数更有效。"
+            },
+            {
+              "en": "This original self-exploration bank has not completed psychometric validation. It does not assign blame for harm. Safety takes priority over repair, and no result requires continued contact.",
+              "zh": "本原创题本尚未完成心理测量学验证，也不判断伤害中的责任归属。现实安全优先于修复，任何结果都不要求你继续接触。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "four-interaction-entries",
+      "title": {
+        "en": "Four entries into a conversation",
+        "zh": "四个入口分别观察什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Clear Expression concerns putting information into words; Attuned Response concerns listening and checking; Space Regulation concerns contact and timing; Repair Engagement concerns a possible step after disagreement. These are names for the offered choices, not measures of communication ability, empathy, attachment or maturity.",
+          "zh": "清楚表达看把信息说出来，留意回应看倾听与核对，调节靠近与空间看联系强度和时机，参与分歧修复看分歧后的可选步骤。它们是题目做法的记忆名称，不是沟通能力、同理心、依恋或成熟度的分数。"
+        }
+      ]
+    },
+    {
+      "id": "raw-count-method",
+      "title": {
+        "en": "One chosen option, one count",
+        "zh": "每次选择如何计数"
+      },
+      "paragraphs": [
+        {
+          "en": "Every question compares two different directions. Each of the six pairs appears four times; each direction has 12 comparisons, with six options in each position. The chosen direction receives one count. The 24 counts are distributed across the four directions; they are not independent ability ratings. Interpretations wait until all questions are complete.",
+          "zh": "六种两两配对各出现4次；每方向共参与12次比较，在A、B位置各6次。每题选中哪个方向，哪个方向记1次，24次选择分配给四个方向。这是题组内相对选择，不是四项独立能力评分；未完整作答不生成解释。"
+        }
+      ]
+    },
+    {
+      "id": "read-every-tie",
+      "title": {
+        "en": "A tie remains a full result",
+        "zh": "并列本身就是完整结果"
+      },
+      "paragraphs": [
+        {
+          "en": "The highest count may belong to one, two, three or four directions. All 15 possible leading sets have their own full guide. Equal highest counts are kept together without using question order, codes or option position to choose a winner. A tied result cannot establish how responses combine or switch under pressure; a lower count does not establish a missing capacity.",
+          "zh": "最高次数可能由1、2、3或4个方向共同拥有，15种可能的顶部集合都配有完整说明。系统不靠题号、代码或选项位置破同分。并列不说明几种做法怎样组合或在压力下怎样切换，较低次数也不表示缺少某种能力。"
+        }
+      ]
+    },
+    {
+      "id": "use-an-example",
+      "title": {
+        "en": "Use an example rather than a label",
+        "zh": "把结果带回一个具体例子"
+      },
+      "paragraphs": [
+        {
+          "en": "For a fictional weekend-plan disagreement, compare stating what matters to you, checking what the other person wants, proposing time apart or asking whether a later discussion is wanted. The useful entry depends on actual information and willingness. You can draft one sentence privately or finish here; the questionnaire does not require a real conversation or predict the response.",
+          "zh": "例如在虚构的周末安排分歧中，可以比较说出自己在意什么、问对方希望怎样、提出暂停，或核对是否愿意另约时间讨论。哪种入口合适，要看真实信息和双方意愿。可以只在私人草稿上写一句，或在这里结束；测试不要求你找真人实践，也不预测回应。"
+        }
+      ]
+    },
+    {
+      "id": "method-and-safety",
+      "title": {
+        "en": "The model’s scope",
+        "zh": "这份模型能说明的范围"
+      },
+      "paragraphs": [
+        {
+          "en": "This is FermatMind’s original four-entry self-exploration model, migrated from its own mini-program bank. It has not completed psychometric validation and is not a Capacity to Love scale, attachment test or partner-matching system. It does not assess someone else’s wishes or predict a relationship. Do not use these counts to decide whom to date or marry, whether to stay or leave, or who is responsible for harm. Violence, coercion or ongoing harm is not a shared communication-style problem: safety takes priority, and no result requires continued contact.",
+          "zh": "本题本来自费马自有小程序的四入口自我探索模型，尚未完成心理测量学验证，不是爱的能力量表、依恋类型测评或伴侣配对系统，也不评估他人意愿或预测关系。不要据此决定婚恋、关系去留或伤害责任。暴力、胁迫或持续伤害不归因于双方沟通风格；现实安全优先，结果不要求继续接触。"
+        }
+      ]
+    },
+    {
+      "id": "private-by-choice",
+      "title": {
+        "en": "Drafts and sharing are optional",
+        "zh": "草稿与分享由你选择"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay in the page while you work. Only choosing to save adds a versioned draft to this browser tab for up to 24 hours; completion, retake or clearing removes it. A saved draft can be resumed after refreshing or changing interface language. Sharing copies a result name and its public explanation link, without answers or raw counts. There is no account requirement.",
+          "zh": "作答时答案保留在当前页面；只有主动保存，才会在本浏览器标签页留下带版本草稿，最多24小时。完成、重测或清除即移除；已保存草稿可在刷新或换语言后恢复。分享只复制结果名称与公开说明链接，不含答卷和原始次数，无需账号。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "How are the raw counts and ties calculated?",
+        "zh": "原始次数与并列如何计算？"
+      },
+      "answer": {
+        "en": "Complete all 24 paired choices. Each selected option adds one count to its direction, which appears in 12 comparisons. Every direction with the highest count remains a co-leader. No item order or option position breaks a tie, and incomplete attempts receive no interpreted ranking.",
+        "zh": "24题全部有效后，每个选中方向加1次，各方向分母为12次比较。共同最高的方向全部保留，不用题号或选项位置破同分；未完成时不生成解释排序。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a fixed love type or a Capacity to Love scale?",
+        "zh": "这是固定恋爱类型或爱的能力量表吗？"
+      },
+      "answer": {
+        "en": "No. This is FermatMind’s original comparison of four interaction entries. It has not completed psychometric validation and does not establish attachment style, relationship ability, partner fit or another person’s feelings. A lower count is not a deficit.",
+        "zh": "不是。这是费马原创的四种互动入口相对选择，尚未完成心理测量学验证，不判定依恋、爱的能力、伴侣适配或他人感受。较低次数不表示缺失。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every full result before answering?",
+        "zh": "没作答也能读全部完整结果吗？"
+      },
+      "answer": {
+        "en": "Yes. All 15 public guides are free and available without signup, including every two-way, three-way and four-way tie. They explain a possible count pattern, not a private person’s answers. After your own complete attempt, the matching explanation and all four counts appear.",
+        "zh": "可以。15份公开指南均免费、无需注册，包含全部双向、三向和四向并列。它们解释可能的计数结构，不是他人的私人答卷；你完整作答后才显示本次对应说明和四项次数。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if neither response fits me?",
+        "zh": "两个选项都不适合怎么办？"
+      },
+      "answer": {
+        "en": "You can stop or read the guides without answering. This original bank uses a required choice between two responses; it has no missing-option score or substitute zero. Partial answers do not produce a full interpretation.",
+        "zh": "可以结束或先读指南。本原题本每题二选一，没有把不适用记成零分的机制；未完整回答不生成完整解释。"
+      }
+    },
+    {
+      "question": {
+        "en": "Will it tell me who to date or whether to stay?",
+        "zh": "会告诉我该和谁在一起或是否继续关系吗？"
+      },
+      "answer": {
+        "en": "No. Counts do not predict fit, duration, responsibility or relationship outcomes. They never require contact, disclosure or repair. You can use a private draft for reflection or end the activity here.",
+        "zh": "不会。次数不预测适配、长久、责任或关系结局，也不要求联系、披露或修复。可以只写私人草稿，也可以在此结束。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "答案会被保存或分享到外部吗？"
+      },
+      "answer": {
+        "en": "Saving is optional and tab-local for up to 24 hours. Completion, retake or clearing removes the draft. The copy action shares only a result name and public guide URL, without answers or counts. You do not need an account or a partner’s information.",
+        "zh": "保存由你主动选择，最多在本标签页保留24小时，完成、重测或清除即移除。复制仅分享名称与公开说明URL，不含答卷或次数，无需账号和伴侣资料。"
+      }
+    }
+  ]
+}
