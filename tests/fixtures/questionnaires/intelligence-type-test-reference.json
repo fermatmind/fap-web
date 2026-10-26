@@ -1,0 +1,807 @@
+{
+  "formCode": "fm_thinking_approach_choices_18",
+  "origin": "FermatMind original18ordinarytask-firststepchoices/sixeditorialapproachmetaphors;notGardnerMI,JobSixSmarts,IDR40orIQ/ability/learningstylemeasurement",
+  "directions": [
+    {
+      "id": "verbal-framing",
+      "title": {
+        "zh": "语句定框：先把任务说清楚",
+        "en": "Verbal Framing: Putting the Task into Words"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rule-mapping",
+      "title": {
+        "zh": "规则拆解：先列条件与关系",
+        "en": "Rule Mapping: Laying Out Conditions and Relations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sound-sequencing",
+      "title": {
+        "zh": "声音节律：先找声音与顺序",
+        "en": "Sound Sequencing: Exploring Sound and Sequence"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hands-on-trial",
+      "title": {
+        "zh": "实作试探：先做一个小样",
+        "en": "Hands-on Trial: Making a Small First Version"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dialogue-testing",
+      "title": {
+        "zh": "对话核对：先交换彼此的理解",
+        "en": "Dialogue Testing: Comparing Understandings"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "environmental-noticing",
+      "title": {
+        "zh": "环境线索：先看周围的具体条件",
+        "en": "Environmental Noticing: Looking at the Conditions"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "THINK_01",
+      "prompt": {
+        "zh": "你要为一个临时小展览设计入口提示，想从哪一步开始？",
+        "en": "You are designing an entrance cue for a temporary small exhibition. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一句话说明访客接下来可以体验什么",
+            "en": "Put what visitors can experience next into one sentence"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "列出进入、停留和离开的条件与顺序",
+            "en": "List conditions and sequences for entering, staying and leaving"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想一段简短声音或停顿，区分入口和展区",
+            "en": "Explore a short sound or pause separating entrance and display"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请一位同伴说说他怎样理解这个入口",
+            "en": "Ask a companion how they understand the entrance"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_02",
+      "prompt": {
+        "zh": "共享角落需要一个提醒人归还物品的设计，你更愿意先试？",
+        "en": "A shared corner needs a reminder to return objects. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理什么物品应回到什么位置的对应表",
+            "en": "Map which objects belong in which locations"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "设想用不同的短音或节奏提示两个步骤",
+            "en": "Imagine short sounds or rhythms marking two steps"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用现有小盒摆一个可以实际试放的样例",
+            "en": "Arrange available boxes into a sample people can try"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "观察光线、桌面和物品材质如何影响放置",
+            "en": "Observe how light, surfaces and materials affect placement"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_03",
+      "prompt": {
+        "zh": "为新接触的桌面游戏做一段介绍，你更想先？",
+        "en": "You are making an introduction to an unfamiliar tabletop game. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试着用轻敲和停顿表示轮次怎样交替",
+            "en": "Try taps and pauses to represent alternating turns"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把棋子摆出来，走一轮可撤回的小演示",
+            "en": "Place pieces and try a short reversible demonstration"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问准备参与的人最想先弄清哪件事",
+            "en": "Ask participants what they most want clarified first"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写出目标和开局动作各一句话",
+            "en": "Write one sentence each for the aim and opening action"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_04",
+      "prompt": {
+        "zh": "共享桌面要重新布置，你更想先了解什么？",
+        "en": "A shared tabletop is being rearranged. What would you look into first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用手边物品摆出一种可移动的试放布局",
+            "en": "Make a movable trial arrangement with available objects"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与使用者轮流说清各自想保留的用途",
+            "en": "Take turns clarifying the uses each person wants retained"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看日光、反光和空气流动经过哪里",
+            "en": "Notice where daylight, reflections and airflow pass"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列明哪些物品必须靠近、分开或能随时移动",
+            "en": "List which objects must be near, apart or movable"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_05",
+      "prompt": {
+        "zh": "朋友请你一起安排一段短散步，你更想先从哪儿想起？",
+        "en": "A friend asks you to help plan a short walk. Where would your thinking start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊聊双方希望这段路有什么体验",
+            "en": "Discuss what each of you wants from the walk"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意沿路阴影、地面和可停留的位置",
+            "en": "Notice shade, ground surfaces and places to pause"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用几句简短说明勾勒起点和途中安排",
+            "en": "Outline the start and stops in a few short sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想路段的声音、安静处和行进节奏",
+            "en": "Consider sounds, quiet spots and the rhythm of the route"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_06",
+      "prompt": {
+        "zh": "一张旧物展示台需要重新分类，你更想先试？",
+        "en": "A display table of old objects needs a new grouping. What would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较物件表面、磨损和所在环境的痕迹",
+            "en": "Compare surfaces, wear and traces of their surroundings"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给每组写一个能说明共同点的小标题",
+            "en": "Write a short heading explaining what each group shares"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选定一条分类规则，再检查例外放在哪里",
+            "en": "Choose a grouping rule and check where exceptions fit"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "移动几件实物，看看不同摆法产生什么关系",
+            "en": "Move a few objects and examine relations between arrangements"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    },
+    {
+      "id": "THINK_07",
+      "prompt": {
+        "zh": "你要写一份免费小活动的参加说明，最想先怎么理清？",
+        "en": "You are preparing instructions for a free small activity. How would you begin clarifying them?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先写出参加者要做什么和最后会看到什么",
+            "en": "Write what participants do and what they see at the end"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "列出名额、时间与先后步骤之间的条件",
+            "en": "Map conditions connecting capacity, timing and steps"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设想口头提示的节奏，让两个环节容易区分",
+            "en": "Imagine a spoken cue rhythm distinguishing two stages"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请一个不熟悉活动的人说出他的第一疑问",
+            "en": "Ask someone unfamiliar with the activity for their first question"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_08",
+      "prompt": {
+        "zh": "家中小物的存放提示经常被忽略，你更想先改变？",
+        "en": "Storage cues for small household objects are often overlooked. What would you change first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把取出和放回的对应关系重新列清楚",
+            "en": "Restate the correspondences between taking and returning"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试想一个轻声提示或有节奏的两步口令",
+            "en": "Imagine a quiet cue or rhythmic two-step phrase"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用纸片和盒子做一版可以试用的提示",
+            "en": "Make a usable trial cue with paper and containers"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看遮挡、潮湿或光线是否让提示难被发现",
+            "en": "Check whether obstruction, moisture or light hides the cue"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_09",
+      "prompt": {
+        "zh": "你要安排一个不用屏幕的小谜题角，想先研究什么？",
+        "en": "You are arranging a small screen-free puzzle corner. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用声音的长短或间隔设计一段线索",
+            "en": "Explore a clue made from sound lengths or intervals"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "拿几样可移动的小物搭一版试玩",
+            "en": "Build a trial using a few movable objects"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同伴怎样理解谜题目标，再交换想法",
+            "en": "Ask a companion how they understand the aim and compare views"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一段短文字把任务背景和要求写清",
+            "en": "Write a short text making the setting and task clear"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_10",
+      "prompt": {
+        "zh": "给一个可重复使用的包装样例出主意时，你更想先？",
+        "en": "When considering a reusable packaging example, what would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "折一个小样，看看打开和合上的过程",
+            "en": "Fold a small version and explore opening and closing"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请使用者描述拿取、携带和收纳的想法",
+            "en": "Ask users to describe taking, carrying and storing it"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察材料表面与水分、光照接触后的变化",
+            "en": "Observe surface changes after contact with moisture and light"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列出容纳、重复使用和收起时需要同时满足的条件",
+            "en": "List conditions for containing, reusing and putting away"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_11",
+      "prompt": {
+        "zh": "为一段很短的空闲设计活动，你更愿意先考虑？",
+        "en": "You are choosing an activity for a brief free interval. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "与同行的人交换各自此刻想做什么",
+            "en": "Compare what companions would like to do now"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看眼前天气、位置和可用空间有什么线索",
+            "en": "Look at the weather, location and available space"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一两句说明这段时间想体验什么",
+            "en": "Write a sentence or two describing the intended experience"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想一段声音、节拍或安静间隔作为活动线索",
+            "en": "Explore a sound, beat or quiet interval as a cue"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_12",
+      "prompt": {
+        "zh": "几张旧照片和几件物品要放在同一小展台，你更想先？",
+        "en": "Old photographs and objects will share a small display. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较照片里的场景与物件上的环境痕迹",
+            "en": "Compare photographed settings with environmental traces on objects"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为照片与物件写几句相互连接的说明",
+            "en": "Write short descriptions connecting photographs and objects"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "列出年代、用途或来源之间可核对的关系",
+            "en": "Map checkable relations between dates, uses or origins"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "实际摆几种组合，感受顺序和间距的变化",
+            "en": "Arrange several combinations and examine sequence and spacing"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    },
+    {
+      "id": "THINK_13",
+      "prompt": {
+        "zh": "一个日常流程要给新手做提示，你更愿意先？",
+        "en": "A routine needs a cue for newcomers. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把第一步和结束条件各说成一句清楚的话",
+            "en": "State the first action and ending condition in clear sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把必要条件和可省略步骤分开列出",
+            "en": "Separate necessary conditions from optional steps"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用停顿和重音区分一段口头提示的顺序",
+            "en": "Use pauses and emphasis to distinguish a spoken sequence"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请新手复述他理解的起点，再核对差别",
+            "en": "Ask a newcomer to restate the starting point and compare"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_14",
+      "prompt": {
+        "zh": "遇到一种没接触过的拼装材料，你更想先怎样接近？",
+        "en": "You encounter an unfamiliar construction material. How would you approach it first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较接口规则和能组合的几种条件",
+            "en": "Compare joining rules and possible combinations"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听一听轻触材料时声音怎样随位置改变",
+            "en": "Explore how gentle contact sounds differ across positions"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一个很小且能拆回的连接样例",
+            "en": "Make a small connection that can be taken apart"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "观察材质、表面和周围条件怎样影响接触",
+            "en": "Observe how material, surface and surroundings affect contact"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_15",
+      "prompt": {
+        "zh": "你在为一次短故事接龙出主意，更想先试？",
+        "en": "You are considering a short shared storytelling activity. What would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用语速和停顿想出交接话语的节奏",
+            "en": "Explore a handover rhythm through pace and pauses"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "摆几张可交接的卡片试一轮流程",
+            "en": "Use handover cards to try one round"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问参与者想接哪种情节，再交换理解",
+            "en": "Ask what developments participants want and compare understandings"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写出开头、转折与暂时结束的短句",
+            "en": "Write short opening, turning-point and temporary-ending phrases"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_16",
+      "prompt": {
+        "zh": "一个可移动的共享角落准备调整，你更想先？",
+        "en": "A movable shared corner is being adjusted. What would you begin with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用小物替代大件，先摆一个可撤回的方案",
+            "en": "Use small objects as stand-ins for a reversible trial layout"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分别听使用者讲他们如何理解这块空间",
+            "en": "Hear how different users understand the space"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察光线、声音和周边通道的实际条件",
+            "en": "Observe light, sound and access around the location"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列出移动前后必须保留的条件及相互关系",
+            "en": "List conditions and relations that must survive the move"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_17",
+      "prompt": {
+        "zh": "到了一个陌生小广场，你想给朋友做介绍，先从哪里展开？",
+        "en": "You reach an unfamiliar small square and want to introduce it to a friend. Where would you start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问朋友想了解路线、用途还是活动，再对照彼此的看法",
+            "en": "Ask what the friend wants to know and compare your views"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察地面、阴影、植物和周围变化",
+            "en": "Observe ground surfaces, shade, plants and nearby changes"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用三句简短的话勾勒眼前场景",
+            "en": "Sketch the scene in three short sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听周围声响怎样交替，想一个介绍节奏",
+            "en": "Listen to alternating sounds and explore an introductory rhythm"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_18",
+      "prompt": {
+        "zh": "为一组日常小物建立临时目录，你更想先？",
+        "en": "You are making a temporary catalogue of everyday objects. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "查看材质和使用环境留下的具体痕迹",
+            "en": "Examine material and traces left by use conditions"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先给物件取清楚的名称并写简短描述",
+            "en": "Give objects clear names and short descriptions"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计几条归组条件并检查难分类的例子",
+            "en": "Set grouping conditions and examine awkward cases"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "摆出一种实物顺序，看目录怎么跟着调整",
+            "en": "Arrange a physical sequence and adjust the catalogue around it"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "rule": "full18/onechoiceonecount/6editorialapproachmetaphors12exposure3eachposition/allglobalhighestties/nofixedorderwinner-secondarytype-orpercentile",
+    "verificationPlan": "sourceexactreachable6countDPandhighestsetstoperform/runtimepending/not4^18individualresponsesorpsychvalidation"
+  },
+  "scope": {
+    "zh": "智能类型是常见搜索名称，本版以原创思考入口趣味版明确承接：语句、规则、声音、实作、对话与环境六种当下选择隐喻，不是六种已验证智能、Gardner八领域、多元智能量表、JobCannon原创六人设、IDR题本或智商测试。题目不观察任务完成质量、速度或能力，也不评学习效率、成绩、职业、感官与身体条件或人格价值。选择可能受任务、接触机会和当时方便程度影响。Gardner明确区分喜好、兴趣与能力；仅把其公开说明用作概念边界，不为本题目映射与计数提供背书。与偏好学习媒介的自评或八领域研究话题分别阅读，不相互换算。",
+    "en": "Intelligence Type Test is the common search name; this edition explicitly offers an original thinking-approach reflection. Words, rules, sound, hands-on trials, dialogue and environmental conditions are six metaphors for current choices, not six established intelligences, Gardner’s eight domains, a Multiple Intelligences instrument, JobCannon’s original personas, IDR items or IQ. No task quality, speed or ability is observed, and counts assess neither learning efficiency, grades, careers, sensory or physical conditions nor personal worth. Tasks, opportunities and present convenience can affect choices. Gardner’s public distinctions between preferences, interests and capacities supply conceptual limits without endorsing these mappings or counts. Read this separately from preferred learning-media reflections or eight-domain research, without score conversions."
+  },
+  "instructions": {
+    "zh": "按你目前在这些普通任务里更想从哪一步开始，完成18道原创四选一。题目请你设想，不要求实际发声、行动或提交私人经历；没有对错，也不选哪句显得更聪明。六种思考入口各出现12次、每位置3次，一次选择加1，0反向。全卷完成才显示六项相对次数与全部最高并列，逐份完整读法都保留；不把选择次数当能力、IQ或最佳学习方式。可以先读结果或直接退出。",
+    "en": "Choose the first step you currently feel drawn to in each of eighteen ordinary imagined tasks. No sound, action or private experience must be performed or submitted; there are no right answers or clever-looking choices to select. Six thinking entrances each appear twelve times and three times in every position. Each choice adds one count, with no reversals. Finish the full set for six relative counts and every highest tie with each full guide retained. Counts measure neither ability, IQ nor a best learning method. You can read guides first or leave."
+  }
+}

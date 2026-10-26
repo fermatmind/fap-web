@@ -1588,5 +1588,32 @@
     "resultSlugs": [
       "control-continuum"
     ]
+  },
+  {
+    "slug": "intelligence-type-test",
+    "code": "THINKING_APPROACH_ORIGINAL_CHOICES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "智能类型测试",
+      "en": "Intelligence Type Test"
+    },
+    "description": {
+      "zh": "免费智能类型测试：18道原创情境题，比较六种思考入口，最高并列都保留完整解释，含例子、反例与计分。不测IQ、能力或最佳学习方式。",
+      "en": "Take 18 original scenario choices to explore six thinking approaches. Read every highest tie in full, with examples and limits. No IQ or ability score."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_thinking_approach_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "verbal-framing",
+      "rule-mapping",
+      "sound-sequencing",
+      "hands-on-trial",
+      "dialogue-testing",
+      "environmental-noticing"
+    ]
   }
 ]

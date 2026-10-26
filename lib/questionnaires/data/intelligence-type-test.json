@@ -1,0 +1,1873 @@
+{
+  "slug": "intelligence-type-test",
+  "code": "THINKING_APPROACH_ORIGINAL_CHOICES",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "智能类型测试",
+    "en": "Intelligence Type Test"
+  },
+  "resultHeading": {
+    "zh": "本次思考入口：计数与完整读法",
+    "en": "Your thinking entrances: counts and full guides"
+  },
+  "description": {
+    "zh": "免费智能类型测试：18道原创情境题，比较六种思考入口，最高并列都保留完整解释，含例子、反例与计分。不测IQ、能力或最佳学习方式。",
+    "en": "Take 18 original scenario choices to explore six thinking approaches. Read every highest tie in full, with examples and limits. No IQ or ability score."
+  },
+  "seoTitle": {
+    "zh": "智能类型测试：18道原创题与免费完整结果",
+    "en": "Intelligence Type Test: Free Thinking-Approach Quiz"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "面对普通任务，你现在更想先把它说清、拆开条件、找声音顺序、做个小样、交换理解，还是看看实际环境？这份原创思考入口趣味版用18道四选一记录当下选择，六类各有相同曝光和位置安排。完成后显示六项次数与所有最高并列，每份完整九节说明直接可读，包含具体例子、反例、取舍、比较、计分与可选回顾。这里的智能类型是常见入口名称，六类是本站编辑隐喻；它不测智力、能力、学习效率、成绩或职业，也不是Gardner八领域、多元智能量表、JobCannon六人设或IDR题本。你不必实际表演题中任务，没有人因更常选某个入口就更聪明；也可以先读六份公开说明再决定是否开始。",
+    "en": "When considering an ordinary task, would you first put it into words, map conditions, explore sound and sequence, make a small version, compare understandings or observe the setting? This original thinking-approach edition records current choices through eighteen scenarios with four options each. Six editorial entrances receive equal exposure and positions. A complete attempt shows six counts and every highest tie, with each nine-section guide freely available: examples, counterexamples, trade-offs, comparisons, scoring and optional reflection. Intelligence Type Test is the common entry name. These six metaphors measure neither intelligence, ability, learning efficiency, grades nor careers and are not Gardner’s eight domains, a Multiple Intelligences instrument, JobCannon’s personas or IDR items. No actual performance is required and one entrance never makes a person smarter. You can read all six public guides before deciding whether to begin."
+  },
+  "instructions": {
+    "zh": "按你目前在这些普通任务里更想从哪一步开始，完成18道原创四选一。题目请你设想，不要求实际发声、行动或提交私人经历；没有对错，也不选哪句显得更聪明。六种思考入口各出现12次、每位置3次，一次选择加1，0反向。全卷完成才显示六项相对次数与全部最高并列，逐份完整读法都保留；不把选择次数当能力、IQ或最佳学习方式。可以先读结果或直接退出。",
+    "en": "Choose the first step you currently feel drawn to in each of eighteen ordinary imagined tasks. No sound, action or private experience must be performed or submitted; there are no right answers or clever-looking choices to select. Six thinking entrances each appear twelve times and three times in every position. Each choice adds one count, with no reversals. Finish the full set for six relative counts and every highest tie with each full guide retained. Counts measure neither ability, IQ nor a best learning method. You can read guides first or leave."
+  },
+  "source": {
+    "kind": "FermatMind original18ordinarytask-firststepchoices/sixeditorialapproachmetaphors;notGardnerMI,JobSixSmarts,IDR40orIQ/ability/learningstylemeasurement",
+    "formCode": "fm_thinking_approach_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "e0ad44d3f8ac627bbbb0291ae3954a43314ae8e60927fabaa190343c337578b6",
+    "resultContentSha256": "886f280e7b1118c0a7186beb34fc784f10f8b6f576e672b9e13927dbbe6aa9bb",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "verbal-framing",
+      "title": {
+        "zh": "语句定框：先把任务说清楚",
+        "en": "Verbal Framing: Putting the Task into Words"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rule-mapping",
+      "title": {
+        "zh": "规则拆解：先列条件与关系",
+        "en": "Rule Mapping: Laying Out Conditions and Relations"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sound-sequencing",
+      "title": {
+        "zh": "声音节律：先找声音与顺序",
+        "en": "Sound Sequencing: Exploring Sound and Sequence"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hands-on-trial",
+      "title": {
+        "zh": "实作试探：先做一个小样",
+        "en": "Hands-on Trial: Making a Small First Version"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dialogue-testing",
+      "title": {
+        "zh": "对话核对：先交换彼此的理解",
+        "en": "Dialogue Testing: Comparing Understandings"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "environmental-noticing",
+      "title": {
+        "zh": "环境线索：先看周围的具体条件",
+        "en": "Environmental Noticing: Looking at the Conditions"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "THINK_01",
+      "prompt": {
+        "zh": "你要为一个临时小展览设计入口提示，想从哪一步开始？",
+        "en": "You are designing an entrance cue for a temporary small exhibition. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一句话说明访客接下来可以体验什么",
+            "en": "Put what visitors can experience next into one sentence"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "列出进入、停留和离开的条件与顺序",
+            "en": "List conditions and sequences for entering, staying and leaving"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想一段简短声音或停顿，区分入口和展区",
+            "en": "Explore a short sound or pause separating entrance and display"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请一位同伴说说他怎样理解这个入口",
+            "en": "Ask a companion how they understand the entrance"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_02",
+      "prompt": {
+        "zh": "共享角落需要一个提醒人归还物品的设计，你更愿意先试？",
+        "en": "A shared corner needs a reminder to return objects. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "整理什么物品应回到什么位置的对应表",
+            "en": "Map which objects belong in which locations"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "设想用不同的短音或节奏提示两个步骤",
+            "en": "Imagine short sounds or rhythms marking two steps"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用现有小盒摆一个可以实际试放的样例",
+            "en": "Arrange available boxes into a sample people can try"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "观察光线、桌面和物品材质如何影响放置",
+            "en": "Observe how light, surfaces and materials affect placement"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_03",
+      "prompt": {
+        "zh": "为新接触的桌面游戏做一段介绍，你更想先？",
+        "en": "You are making an introduction to an unfamiliar tabletop game. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "试着用轻敲和停顿表示轮次怎样交替",
+            "en": "Try taps and pauses to represent alternating turns"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把棋子摆出来，走一轮可撤回的小演示",
+            "en": "Place pieces and try a short reversible demonstration"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问准备参与的人最想先弄清哪件事",
+            "en": "Ask participants what they most want clarified first"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写出目标和开局动作各一句话",
+            "en": "Write one sentence each for the aim and opening action"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_04",
+      "prompt": {
+        "zh": "共享桌面要重新布置，你更想先了解什么？",
+        "en": "A shared tabletop is being rearranged. What would you look into first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用手边物品摆出一种可移动的试放布局",
+            "en": "Make a movable trial arrangement with available objects"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "与使用者轮流说清各自想保留的用途",
+            "en": "Take turns clarifying the uses each person wants retained"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "看看日光、反光和空气流动经过哪里",
+            "en": "Notice where daylight, reflections and airflow pass"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列明哪些物品必须靠近、分开或能随时移动",
+            "en": "List which objects must be near, apart or movable"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_05",
+      "prompt": {
+        "zh": "朋友请你一起安排一段短散步，你更想先从哪儿想起？",
+        "en": "A friend asks you to help plan a short walk. Where would your thinking start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "聊聊双方希望这段路有什么体验",
+            "en": "Discuss what each of you wants from the walk"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留意沿路阴影、地面和可停留的位置",
+            "en": "Notice shade, ground surfaces and places to pause"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用几句简短说明勾勒起点和途中安排",
+            "en": "Outline the start and stops in a few short sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想想路段的声音、安静处和行进节奏",
+            "en": "Consider sounds, quiet spots and the rhythm of the route"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_06",
+      "prompt": {
+        "zh": "一张旧物展示台需要重新分类，你更想先试？",
+        "en": "A display table of old objects needs a new grouping. What would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较物件表面、磨损和所在环境的痕迹",
+            "en": "Compare surfaces, wear and traces of their surroundings"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给每组写一个能说明共同点的小标题",
+            "en": "Write a short heading explaining what each group shares"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "选定一条分类规则，再检查例外放在哪里",
+            "en": "Choose a grouping rule and check where exceptions fit"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "移动几件实物，看看不同摆法产生什么关系",
+            "en": "Move a few objects and examine relations between arrangements"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    },
+    {
+      "id": "THINK_07",
+      "prompt": {
+        "zh": "你要写一份免费小活动的参加说明，最想先怎么理清？",
+        "en": "You are preparing instructions for a free small activity. How would you begin clarifying them?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先写出参加者要做什么和最后会看到什么",
+            "en": "Write what participants do and what they see at the end"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "列出名额、时间与先后步骤之间的条件",
+            "en": "Map conditions connecting capacity, timing and steps"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设想口头提示的节奏，让两个环节容易区分",
+            "en": "Imagine a spoken cue rhythm distinguishing two stages"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请一个不熟悉活动的人说出他的第一疑问",
+            "en": "Ask someone unfamiliar with the activity for their first question"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_08",
+      "prompt": {
+        "zh": "家中小物的存放提示经常被忽略，你更想先改变？",
+        "en": "Storage cues for small household objects are often overlooked. What would you change first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把取出和放回的对应关系重新列清楚",
+            "en": "Restate the correspondences between taking and returning"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "试想一个轻声提示或有节奏的两步口令",
+            "en": "Imagine a quiet cue or rhythmic two-step phrase"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用纸片和盒子做一版可以试用的提示",
+            "en": "Make a usable trial cue with paper and containers"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看遮挡、潮湿或光线是否让提示难被发现",
+            "en": "Check whether obstruction, moisture or light hides the cue"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_09",
+      "prompt": {
+        "zh": "你要安排一个不用屏幕的小谜题角，想先研究什么？",
+        "en": "You are arranging a small screen-free puzzle corner. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用声音的长短或间隔设计一段线索",
+            "en": "Explore a clue made from sound lengths or intervals"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "拿几样可移动的小物搭一版试玩",
+            "en": "Build a trial using a few movable objects"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问同伴怎样理解谜题目标，再交换想法",
+            "en": "Ask a companion how they understand the aim and compare views"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用一段短文字把任务背景和要求写清",
+            "en": "Write a short text making the setting and task clear"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_10",
+      "prompt": {
+        "zh": "给一个可重复使用的包装样例出主意时，你更想先？",
+        "en": "When considering a reusable packaging example, what would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "折一个小样，看看打开和合上的过程",
+            "en": "Fold a small version and explore opening and closing"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "请使用者描述拿取、携带和收纳的想法",
+            "en": "Ask users to describe taking, carrying and storing it"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察材料表面与水分、光照接触后的变化",
+            "en": "Observe surface changes after contact with moisture and light"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列出容纳、重复使用和收起时需要同时满足的条件",
+            "en": "List conditions for containing, reusing and putting away"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_11",
+      "prompt": {
+        "zh": "为一段很短的空闲设计活动，你更愿意先考虑？",
+        "en": "You are choosing an activity for a brief free interval. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "与同行的人交换各自此刻想做什么",
+            "en": "Compare what companions would like to do now"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看眼前天气、位置和可用空间有什么线索",
+            "en": "Look at the weather, location and available space"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写一两句说明这段时间想体验什么",
+            "en": "Write a sentence or two describing the intended experience"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "想一段声音、节拍或安静间隔作为活动线索",
+            "en": "Explore a sound, beat or quiet interval as a cue"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_12",
+      "prompt": {
+        "zh": "几张旧照片和几件物品要放在同一小展台，你更想先？",
+        "en": "Old photographs and objects will share a small display. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较照片里的场景与物件上的环境痕迹",
+            "en": "Compare photographed settings with environmental traces on objects"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "为照片与物件写几句相互连接的说明",
+            "en": "Write short descriptions connecting photographs and objects"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "列出年代、用途或来源之间可核对的关系",
+            "en": "Map checkable relations between dates, uses or origins"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "实际摆几种组合，感受顺序和间距的变化",
+            "en": "Arrange several combinations and examine sequence and spacing"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    },
+    {
+      "id": "THINK_13",
+      "prompt": {
+        "zh": "一个日常流程要给新手做提示，你更愿意先？",
+        "en": "A routine needs a cue for newcomers. What would you do first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把第一步和结束条件各说成一句清楚的话",
+            "en": "State the first action and ending condition in clear sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把必要条件和可省略步骤分开列出",
+            "en": "Separate necessary conditions from optional steps"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用停顿和重音区分一段口头提示的顺序",
+            "en": "Use pauses and emphasis to distinguish a spoken sequence"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请新手复述他理解的起点，再核对差别",
+            "en": "Ask a newcomer to restate the starting point and compare"
+          },
+          "directionId": "dialogue-testing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_14",
+      "prompt": {
+        "zh": "遇到一种没接触过的拼装材料，你更想先怎样接近？",
+        "en": "You encounter an unfamiliar construction material. How would you approach it first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "比较接口规则和能组合的几种条件",
+            "en": "Compare joining rules and possible combinations"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "听一听轻触材料时声音怎样随位置改变",
+            "en": "Explore how gentle contact sounds differ across positions"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "做一个很小且能拆回的连接样例",
+            "en": "Make a small connection that can be taken apart"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "观察材质、表面和周围条件怎样影响接触",
+            "en": "Observe how material, surface and surroundings affect contact"
+          },
+          "directionId": "environmental-noticing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_15",
+      "prompt": {
+        "zh": "你在为一次短故事接龙出主意，更想先试？",
+        "en": "You are considering a short shared storytelling activity. What would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用语速和停顿想出交接话语的节奏",
+            "en": "Explore a handover rhythm through pace and pauses"
+          },
+          "directionId": "sound-sequencing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "摆几张可交接的卡片试一轮流程",
+            "en": "Use handover cards to try one round"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "问参与者想接哪种情节，再交换理解",
+            "en": "Ask what developments participants want and compare understandings"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "写出开头、转折与暂时结束的短句",
+            "en": "Write short opening, turning-point and temporary-ending phrases"
+          },
+          "directionId": "verbal-framing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_16",
+      "prompt": {
+        "zh": "一个可移动的共享角落准备调整，你更想先？",
+        "en": "A movable shared corner is being adjusted. What would you begin with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用小物替代大件，先摆一个可撤回的方案",
+            "en": "Use small objects as stand-ins for a reversible trial layout"
+          },
+          "directionId": "hands-on-trial"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分别听使用者讲他们如何理解这块空间",
+            "en": "Hear how different users understand the space"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "观察光线、声音和周边通道的实际条件",
+            "en": "Observe light, sound and access around the location"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "列出移动前后必须保留的条件及相互关系",
+            "en": "List conditions and relations that must survive the move"
+          },
+          "directionId": "rule-mapping"
+        }
+      ]
+    },
+    {
+      "id": "THINK_17",
+      "prompt": {
+        "zh": "到了一个陌生小广场，你想给朋友做介绍，先从哪里展开？",
+        "en": "You reach an unfamiliar small square and want to introduce it to a friend. Where would you start?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "问朋友想了解路线、用途还是活动，再对照彼此的看法",
+            "en": "Ask what the friend wants to know and compare your views"
+          },
+          "directionId": "dialogue-testing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "观察地面、阴影、植物和周围变化",
+            "en": "Observe ground surfaces, shade, plants and nearby changes"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用三句简短的话勾勒眼前场景",
+            "en": "Sketch the scene in three short sentences"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "听周围声响怎样交替，想一个介绍节奏",
+            "en": "Listen to alternating sounds and explore an introductory rhythm"
+          },
+          "directionId": "sound-sequencing"
+        }
+      ]
+    },
+    {
+      "id": "THINK_18",
+      "prompt": {
+        "zh": "为一组日常小物建立临时目录，你更想先？",
+        "en": "You are making a temporary catalogue of everyday objects. What would you start with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "查看材质和使用环境留下的具体痕迹",
+            "en": "Examine material and traces left by use conditions"
+          },
+          "directionId": "environmental-noticing"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先给物件取清楚的名称并写简短描述",
+            "en": "Give objects clear names and short descriptions"
+          },
+          "directionId": "verbal-framing"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "设计几条归组条件并检查难分类的例子",
+            "en": "Set grouping conditions and examine awkward cases"
+          },
+          "directionId": "rule-mapping"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "摆出一种实物顺序，看目录怎么跟着调整",
+            "en": "Arrange a physical sequence and adjust the catalogue around it"
+          },
+          "directionId": "hands-on-trial"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "verbal-framing",
+      "directionIds": [
+        "verbal-framing"
+      ],
+      "title": {
+        "zh": "语句定框：先把任务说清楚",
+        "en": "Verbal Framing: Putting the Task into Words"
+      },
+      "headline": {
+        "zh": "把“要做什么”变成可以核对的句子。",
+        "en": "Turn what the task asks into wording that can be checked."
+      },
+      "summary": {
+        "zh": "本次较常选择命名、概括和说明作为起点。读清楚表达能帮什么、何时需要实物或反馈，以及为何这不等于语言能力或聪明程度。",
+        "en": "You more often chose naming, summarising and describing as starting points. Explore what wording can offer, when objects or feedback are needed, and why this establishes no verbal ability or intelligence."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这份读法在指什么",
+            "en": "What this reading points to"
+          },
+          "paragraphs": [
+            {
+              "zh": "当语句定框是最高计数之一，意思只是十八个设想里，你较常选先命名、简述目标或写出说明的选项。它不说明你天生善言、记忆好或比别人更会解释，也不等于所有任务都该从文字开始。本版把语句看成一种能拿出来核对的起点：我说的目标是什么，另一个人读到的是不是同一件事。你可以把这个名字当作本次选择的索引，随时放下。",
+              "en": "When Verbal Framing has a highest count, you more often chose naming, describing an aim or writing a cue in these eighteen imagined tasks. It establishes no natural eloquence, strong memory or superior explanation, and it does not make words the right beginning for every task. This edition treats wording as an inspectable starting point: what aim am I stating, and does someone else read the same task? The name is an index to your choices today. You can set it aside whenever another approach fits the situation better."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "名字、目标与可核对的描述",
+            "en": "Names, aims and checkable descriptions"
+          },
+          "paragraphs": [
+            {
+              "zh": "给旧物取名、为展台写标题、把流程的起点写成一句话，都把原先含糊的想法放到一个可修改的载体上。它可能方便同伴指出词义或要求哪里不同，但文字也会留下没写出的假设。比如“参加活动”可能包括报名、到场或完成某一步，不同人未必自动理解一致。这里关心你想先做哪种整理，不把是否选这项当成你实际写作清晰、词汇量多或语言天赋强的证据。",
+              "en": "Naming an old object, heading a display or stating the opening action of a routine places an unclear idea on a revisable surface. That can give a companion something specific to question, while leaving unstated assumptions behind the words. Attending an activity, for example, might mean registering, arriving or completing a step; readers need not assume the same requirement. The count concerns whether you wanted this kind of initial organisation. It is not evidence that your actual writing is clear, your vocabulary extensive or your language aptitude strong."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "把一个模糊要求展开",
+            "en": "Unpacking one vague request"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想有人请你做一个“容易使用”的归还角落。你可以先写“拿走之后，把物品放回对应盒子”，再问这句话有没有交代盒子怎么辨认、共用物该放哪里。另一种起点可能是直接试放，或请使用者讲解他的理解；这些方式能为句子补上真实信息。例子只展示一种整理过程，不表示你选了语句选项就一定会做得更好，也不保证一段好说明能解决摆放或使用上的所有问题。",
+              "en": "Suppose someone requests an easy-to-use return corner. You could write that an object goes back into its corresponding box, then ask whether the sentence explains how to identify a box or where shared objects belong. Trying the arrangement or hearing a user explain it could supply information missing from the wording. These approaches can contribute to the same task rather than compete as abilities. The example illustrates an organising process, not a promise that choosing words makes your execution better or that a good description solves every problem of placement and use."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：说清楚并不等于做得到",
+            "en": "Counterexample: description is not performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能把一段口头故事概括得很有条理，却没有试过主持接龙；也可能写作很熟练，但这次只想先摆卡片。这两种情形都合理，说明先做什么与做得怎样需要分开。一个没选语句选项的人，仍可能在真实任务里写出好说明。相反，选了文字也可能只是当时手边方便写，不表示你有固定的语言型智能。本卷没有让你实际写、读或表达，因此不能据此评语言水平。",
+              "en": "You might outline a shared story carefully without having facilitated a round, or be an experienced writer who wants to place cards first today. Both show why a starting choice must be separated from performance. Someone not choosing a wording option could still produce an excellent explanation in a real task. Choosing it may simply reflect having paper readily available, without a fixed verbal intelligence. No actual writing, reading or speaking was assessed here. A count therefore cannot evaluate language proficiency, describe your memory or decide which task you should be allowed to attempt."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与规则和对话怎样相邻",
+            "en": "How this sits beside rules and dialogue"
+          },
+          "paragraphs": [
+            {
+              "zh": "语句定框侧重把意思表述出来；规则拆解侧重条件之间怎样连接；对话核对侧重不同人理解哪里一致或不同。一张报名说明可能同时需要这三步。计数接近时，可以分别看你选的是想清楚措辞、检验条件还是请人回应，而不是硬挑一个永久身份。声音节律、实作与环境线索也不被排除在外：句子可以被说出来、贴在物品旁，或在实际条件下重新修改。",
+              "en": "Verbal Framing makes meaning explicit; Rule Mapping examines connections between conditions; Dialogue Testing compares different people’s understandings. An activity notice could need all three. When counts are close, distinguish wanting to clarify wording, inspect a condition or invite a response rather than select a permanent identity. Sound, hands-on work and environmental noticing remain available too. A sentence can be spoken, placed beside an object or revised after observing a setting. These are possible contributions to a task, not separate kinds of people or a ranking of the ways someone ought to think."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，只改一句话",
+            "en": "If useful, revise one sentence"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以找一个普通任务，用一句话写出准备做什么，再标出一个自己还不确定的词。你不必展示给别人，也不需要证明这个起点比别的方式有效；如果实物、图示或询问更方便，可以直接换一种。回顾的重点是这个小载体是否帮你看见一个具体问题，而不是把每件事都变成文字作业。不要用结果要求自己写更多、公开表达，或替同伴认定他应该通过阅读学习。",
+              "en": "If useful, state one ordinary task in a sentence and mark one word you are uncertain about. Nobody needs to see it, and you need not prove that this beginning is more effective than another. Switch to an object, diagram or question if that fits better. The point is whether a small representation exposes a particular question, not converting every activity into a writing assignment. The result supplies no obligation to write more, speak publicly or decide that a companion should be taught through reading. You can end the reflection without doing the exercise."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "选择索引能支持多大结论",
+            "en": "How far an index of choices can reach"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法只依据你在本组选项里作出的选择，没有记录表达质量、理解速度、接触经验或他人反馈。相同计数可以来自不同题目，不证明同样的思维过程。本版六类是编辑组织的任务入口隐喻，不是语言智能、学习风格或人格量表的验证结果；未建立常模、准确率或跨语言等价。中文和英文都可独立读完整说明，但语言切换本身也不是重复测得相同心理特质的证明。",
+              "en": "This reading uses choices among the available options without observing expression quality, comprehension speed, experience or feedback. Equal counts can come from different questions and need not imply the same process. The six editorial task entrances are metaphors, not validated verbal-intelligence, learning-style or personality scores. There are no established norms, accuracy rates or language-equivalence findings for this edition. Chinese and English each provide a complete guide, while switching interface languages is not evidence of measuring the same psychological trait twice. The defensible conclusion remains the narrower one: these options appeared among your preferred starts today."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：语句定框与完整解释",
+          "en": "Intelligence Type Result: Verbal Framing Guide"
+        },
+        "description": {
+          "zh": "读语句定框的完整说明：命名与描述怎样提供一个起点，何时需要实物或反馈，含情境例子与反例。计数不评语言能力或聪明程度。",
+          "en": "Read the verbal-framing guide: wording as a starting point, practical examples, counterexamples and limits. Choice counts establish no language ability."
+        }
+      }
+    },
+    {
+      "id": "rule-mapping",
+      "directionIds": [
+        "rule-mapping"
+      ],
+      "title": {
+        "zh": "规则拆解：先列条件与关系",
+        "en": "Rule Mapping: Laying Out Conditions and Relations"
+      },
+      "headline": {
+        "zh": "把“什么时候、依赖什么”放在一起核对。",
+        "en": "Bring conditions and dependencies together for inspection."
+      },
+      "summary": {
+        "zh": "本次较常从归组条件、步骤依赖和例外开始。看条件表能揭开什么，也保留规则不完整、情境变化和执行反馈的反例，不把它当逻辑能力分。",
+        "en": "You more often began with grouping conditions, dependencies and exceptions. Explore what a condition map can reveal while retaining incomplete rules, changed settings and practical feedback, without a logical-ability score."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这里的规则不是服从标签",
+            "en": "Rules here are not an obedience label"
+          },
+          "paragraphs": [
+            {
+              "zh": "规则拆解为最高之一，只表示你在本卷较常选择列条件、检查顺序或弄清归组依据。这里的规则可以是你想检验的一条临时整理方法，不等于服从权威、喜欢管人或性格刻板，也不说明你数学强、逻辑快或特别冷静。这个名字把注意力放到关系上：某一步依赖什么，哪些条件可以同时成立，有没有一件例子放不进去。它是本次选择的整理词，不是对你脑力的评价。",
+              "en": "A highest Rule Mapping count means you more often chose conditions, sequences or grouping criteria in this bank. A rule can be a provisional organising idea you want to examine, rather than obedience to authority, control over people or a rigid personality. It establishes no mathematical strength, quick logic or unusual calmness. The name directs attention to relations: what a step depends on, which conditions can coexist and whether an example fits. It is a word for organising today’s choices, not an evaluation of your reasoning power or how you behave in every situation."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "把默认条件显露出来",
+            "en": "Making assumed conditions visible"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一个物品既能放进工具盒又能放进共用盒，先列归组依据可能让这个交叉显出来。你可以问分类按用途、使用者还是归还位置，哪些例外需要暂时保留。这个起点可能帮助发现一条说明没有覆盖的情形，也可能把本来灵活的用法写得过死。题目只让你选择想先看什么，没有让你证明规则正确或解决难题；选择这类选项不等于你已经完成了推理或得出了可靠结论。",
+              "en": "If an object fits both a tool box and a shared box, listing criteria may expose the overlap. You could ask whether grouping depends on purpose, user or return location, and which exceptions need to remain open. This beginning might reveal a case an instruction misses, while also risking an overly narrow account of flexible use. Questions only asked what you wanted to inspect first. They did not ask you to prove a rule or solve a difficult problem. Choosing the option therefore does not mean that reasoning has been completed or a conclusion established."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "用一个难归类的小例子核对",
+            "en": "Checking one awkward example"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想你要给几件旧物建立临时目录。先按材料分类时，一件由木、金属和布组合的小物会让规则出现问题。你可以记录复合材料、改用主要用途，或暂时保留多组归属；哪一种合适要看目录服务谁。与同伴交流、实际摆放和查看物件痕迹都可能提供补充。例子展示的是规则需要被用途和实例检验，并不是宣称规则拆解者一定善于发现例外，或应替所有人规定唯一分类。",
+              "en": "Imagine a temporary catalogue grouped by material. An object combining wood, metal and fabric makes the rule awkward. You could record mixed materials, group by main use or retain more than one membership; the choice depends on who needs the catalogue. Conversation, physical arrangement and traces on the object can add evidence. The example shows that a rule needs inspection against purposes and cases. It does not claim that someone with this result reliably detects exceptions or should prescribe a single classification for everyone. A useful provisional map can remain open to revision."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：喜欢条件表也可能算错",
+            "en": "Counterexample: liking a map does not ensure correct reasoning"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以想先列报名条件，却仍看漏一个时间冲突；也可以不选规则选项，却在实际整理中发现了一条关键限制。偏好某个入口与解决问题的正确率并不是一回事。再如，规则写得一致，也未必适合不断变化的共享空间，或得到使用者的认同。这个结果没有给你计时、出标准答案题或核对推理过程，因此不能当数学、智商、谨慎程度或现实决策质量的证据。",
+              "en": "You may want to list registration conditions and still miss a timing conflict, or choose another entrance and discover a decisive constraint while working. Preferring a start and solving a problem correctly are different matters. A consistent rule may also fail to suit a changing shared space or its users. This quiz did not time you, set right-answer problems or inspect your reasoning process. It cannot establish mathematical ability, IQ, carefulness or decision quality. Nor does a lower count indicate that you cannot reason; it records fewer selections of these particular starting options."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与语句、实作和环境怎样配合",
+            "en": "Working beside words, trials and surroundings"
+          },
+          "paragraphs": [
+            {
+              "zh": "语句定框可能先说清目录的用途，规则拆解再看条件如何连接，实作试探用一小组物件检验，环境线索补上存放条件。它们可以相互来回，而不是依次证明谁更聪明。对话核对也能指出一条看似一致的规则让别人理解成了什么。若多项并列，分别读完整报告即可，不把名单顺序当主副型；差一次只说明选项选择次数不同，没有证明哪一种过程在你的生活里占优势。",
+              "en": "Verbal Framing might state a catalogue’s purpose, Rule Mapping inspect conditions, Hands-on Trial test a small group of objects and Environmental Noticing add storage constraints. These can inform one another without proving who is smarter. Dialogue can reveal how another person interpreted an apparently consistent rule. With tied counts, read each full guide rather than turn list order into a primary and secondary type. One extra selection records a difference in choices, without establishing which process dominates your life or which teaching method would improve your outcomes. Other entrances remain available in every future task."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，保留一个例外",
+            "en": "If useful, retain one exception"
+          },
+          "paragraphs": [
+            {
+              "zh": "找一条普通的整理规则，写下它服务的目的，再挑一个不太好放进去的例子。可以只留下问题，不急着补更多规则；也可以换成试摆、询问或观察实际条件。练习没有通过标准，不保证提高逻辑能力、效率或分数。若你更想结束这次测试，就不必继续。这个结果也不授权你给同伴、学生或工作对象贴上逻辑强弱标签，或因为自己的规则清楚就要求别人照做。",
+              "en": "Choose an ordinary organising rule, state its purpose and find one example that fits awkwardly. You can leave a question open without adding more rules, or turn to a trial arrangement, conversation or observation. This exercise has no pass criterion and promises no stronger logic, efficiency or score. Ending the test is equally acceptable. The result supplies no authority to label a companion, student or colleague as stronger or weaker at reasoning, or to require compliance because your own rule is clear. Its use is optional examination of one small task."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "可复算次数不同于推理验证",
+            "en": "Reproducible counts are not reasoning validation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷可以复算哪些选项归到规则拆解，却没有评价你所想规则的内容、适用范围或实际后果。均衡曝光和位置安排也只描述题本结构，不证明消除了顺从偏差、建立了效度或测出了独立智能。六类由本站组织为趣味入口，没有研究常模、显著差异或职业结论。两个界面语言中的相近计数亦不证明语言等价；合理读法仍是，本次相对更常选择了条件与关系这个起点。",
+              "en": "The bank can reproduce which options counted toward Rule Mapping without evaluating the rules you imagined, their scope or consequences. Balanced exposure and position describe item structure, not eliminated response bias, established validity or an independent intelligence. These are six editorial entrances for reflection, without research norms, meaningful-difference thresholds or career conclusions. Similar counts across interface languages would not establish language equivalence either. The narrower reading is that condition-and-relation options occurred more often among your selected starts this time. Any claim about actual reasoning needs evidence this attempt did not collect."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：规则拆解与完整解释",
+          "en": "Intelligence Type Result: Rule Mapping Guide"
+        },
+        "description": {
+          "zh": "读规则拆解的完整说明：条件、归组与例外怎样参与任务，含小例子、反例、并列与方法边界。不评数学、智商或决策质量。",
+          "en": "Explore rule mapping through conditions, grouping and exceptions, with examples and limits. This reflection provides no maths, IQ or decision-quality score."
+        }
+      }
+    },
+    {
+      "id": "sound-sequencing",
+      "directionIds": [
+        "sound-sequencing"
+      ],
+      "title": {
+        "zh": "声音节律：先找声音与顺序",
+        "en": "Sound Sequencing: Exploring Sound and Sequence"
+      },
+      "headline": {
+        "zh": "把声音、停顿或先后变化当作一种起点。",
+        "en": "Use sound, pauses or changing sequence as a possible beginning."
+      },
+      "summary": {
+        "zh": "本次较常选择声音、重音、间隔或节奏线索。完整读法讨论这种表征可以怎样参与任务，也说明它不测音乐能力、听觉条件或最佳学习方式。",
+        "en": "You more often chose sound, emphasis, intervals or rhythm cues. Explore how that representation might contribute to a task without measuring musical ability, hearing conditions or a best learning method."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这是声音线索的选择记录",
+            "en": "A record of choosing sound cues"
+          },
+          "paragraphs": [
+            {
+              "zh": "声音节律为最高计数之一，表示你在本卷较常想从声音、间隔、停顿或语速展开设想。它不是音乐天赋、听觉学习者或记忆能力的标签，也不表示你必须用声音理解事情。几种选项涉及想象口头提示或轻敲次序，不要求你实际演奏或听出某个标准答案。你可以把它看成“这次我想怎样把任务显出来”的一个入口，而非“我的头脑只能通过什么工作”的结论。",
+              "en": "A highest Sound Sequencing count means you more often wanted to begin with sounds, intervals, pauses or pace in these imagined tasks. It is no label for musical aptitude, an auditory learner or memory ability, and it does not require you to understand things through sound. Several options concern imagining a spoken cue or tapping sequence without performing music or detecting a correct answer. Read the name as one way you wanted to represent tasks today, rather than a conclusion about the only channel through which your mind can work."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "区分节奏、内容与实际效果",
+            "en": "Separate rhythm, content and actual effect"
+          },
+          "paragraphs": [
+            {
+              "zh": "一段介绍可以有相同文字却采用不同停顿，一组动作也可以用不同间隔来表示先后。声音节律选项把注意力放在这种顺序和变化上，不一定涉及歌曲或背景音乐。一个你觉得有趣的节奏，别人未必理解成相同提示；没有试过，也不知道它是否方便使用。本卷只记录你愿意先探索哪种线索，不测你辨别音高、理解语言、协调动作或让别人记住内容的实际表现。",
+              "en": "The same introduction can use different pauses, and the order of actions can be represented through intervals. Sound Sequencing options direct attention to this sequence and variation, without necessarily involving songs or background music. A rhythm you find interesting need not communicate the same cue to someone else, and its convenience remains unknown until examined. This bank records which clue you wanted to explore first. It did not test pitch discrimination, language comprehension, movement coordination or whether someone remembered a message. A selected sound-based representation is not evidence of success on those separate tasks."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "让一个交接环节显出间隔",
+            "en": "Representing the interval in a handover"
+          },
+          "paragraphs": [
+            {
+              "zh": "在故事接龙里，你可以设想一句结束提示后留一个停顿，再把下一轮交给同伴。另一个方案可能是移动一张卡片、写下轮次或直接询问谁想接续。它们处理的都是交接，效果要看参与者怎样理解，而不是由谁在本测试分数更高决定。声音在这个例子里只是可讨论的线索，不能从中推断你有主持能力、节拍感或更适合通过听讲学习。你也完全可以选择安静的可见提示。",
+              "en": "In shared storytelling, you might imagine an ending phrase, a pause and a handover to the next companion. Moving a card, writing turn numbers or asking who wants to continue are other possible representations of the same transition. Their usefulness depends on participants’ understanding rather than who scored higher here. Sound is a cue that can be discussed, not proof of facilitation skills, rhythm perception or better learning through lectures. A quiet visible cue remains an equally available choice, and nobody needs to perform a sound to justify selecting this result."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：先想到节奏不证明听得准",
+            "en": "Counterexample: imagining rhythm is not accurate perception"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能很想用停顿说明流程，却未必能准确辨别两段旋律；熟练的乐手也可能在整理物品时更想先做实物样例。这些情况不会让结果失效，而是说明兴趣、方便程度、动作选择和能力不应该合在一起。低计数也不说明你不喜欢音乐、听觉差或不懂口头内容。题目没有提供声音刺激、观察识别表现或了解个人接触条件，因此不能从勾选选项倒推出这些结论。",
+              "en": "Someone may want to explain a sequence through pauses without accurately distinguishing two melodies. An experienced musician may prefer a physical arrangement when organising objects. Such cases show why interest, convenience, chosen action and ability must remain separate. A lower count likewise establishes no dislike of music, poor hearing or difficulty with spoken content. There were no audio stimuli, observed recognition performances or questions about access and experience. These facts cannot be reconstructed from an option selection. The result can remain a modest reflection without turning into a claim about sensory function or musical competence."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与语句、实作和对话怎样相接",
+            "en": "Connecting with words, trials and dialogue"
+          },
+          "paragraphs": [
+            {
+              "zh": "语句定框关心说的内容能否清楚，声音节律关心如何用先后和变化呈现；同一段话可能同时需要两者。实作试探可以让一个提示被实际试用，对话核对则问别人如何理解。环境线索也可能提醒你场地里有什么声音或安静需求。计数不能证明哪一项更有效，也不强迫你在声音和文字间二选一。若多项最高并列，全文逐份保留，不由目录中哪个名字排前决定唯一类型。",
+              "en": "Verbal Framing concerns what is stated clearly, while Sound Sequencing explores how order and variation can represent it. The same phrase can involve both. A hands-on trial can make a cue available to try, dialogue can ask how it was understood, and environmental noticing can examine the sounds or quiet needs of the setting. Counts establish no superior method or obligation to choose between sound and text. When several counts share the maximum, each full guide remains present. A position in the list cannot select a sole type or make another matched entrance less important."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，比较两种提示",
+            "en": "If useful, compare two representations"
+          },
+          "paragraphs": [
+            {
+              "zh": "为一个普通且不重要的小流程，想两种提示：一种只用文字或摆放，另一种考虑停顿、节奏或口头次序。你可以只在心里比较它们分别遗漏什么，不必发声、录音或把别人当实验对象。也不需要寻找支持“我就是声音型”的证据。这个可选回顾没有分数提升承诺，若当时不方便，直接保留结果或结束即可；真实活动仍按参与者的需要和可用条件安排。",
+              "en": "For an ordinary low-stakes sequence, imagine two cues: one using wording or placement and another considering pauses, rhythm or spoken order. You can compare what each leaves out without producing sound, recording anything or making other people experimental subjects. There is no need to collect evidence that you are a sound type. This optional reflection promises no score improvement. If it is inconvenient, retain the guide or finish here. An actual activity still needs to fit its participants and available conditions; the quiz supplies no instruction to impose audio on yourself or anyone else."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "这不是八领域音乐智能测量",
+            "en": "This is not a measure of musical intelligence"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版六个入口由编辑定义，声音节律只是其中一个计数方向，并未采用音乐能力题、研究常模或多元智能量表。它不能从一个趣味选择推到稳定的心理结构，也没有验证声音提示会提高你的成绩。均衡曝光与位置说明选项安排，不能保证消除偏差。中文英文都解释相同计数规则，但尚无跨语言等价验证。本结果的证据只限于这些选项中哪些被你较常选到，不覆盖日常生活所有情境。",
+              "en": "The six entrances are editorial definitions, and Sound Sequencing is one counting direction without musical-ability tasks, research norms or a Multiple Intelligences instrument. A reflection choice cannot establish a stable psychological structure, and this edition has not shown that audio cues improve your grades. Equal exposure and position describe option arrangement without guaranteeing eliminated bias. Chinese and English explain the same counting rules, while language equivalence remains untested. Evidence is limited to which of these options you selected more often, not every setting in daily life or a general theory of how you learn."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：声音节律与完整解释",
+          "en": "Intelligence Type Result: Sound Sequencing Guide"
+        },
+        "description": {
+          "zh": "读声音节律的完整说明：声音、停顿与顺序的任务线索，含例子、反例及完整计分。不测音乐能力、听觉或最佳学习方式。",
+          "en": "Explore sound, pauses and sequence as task cues, with examples and counterexamples. No musical-ability, hearing or best-learning-method verdict is made."
+        }
+      }
+    },
+    {
+      "id": "hands-on-trial",
+      "directionIds": [
+        "hands-on-trial"
+      ],
+      "title": {
+        "zh": "实作试探：先做一个小样",
+        "en": "Hands-on Trial: Making a Small First Version"
+      },
+      "headline": {
+        "zh": "用一个可调整的小样，让问题变得具体。",
+        "en": "Make a small adjustable version so a question becomes concrete."
+      },
+      "summary": {
+        "zh": "本次较常选择试摆、拼接或可撤回的小演示。看小样能暴露什么，也保留它无法代表全部条件的反例；计数不测动手能力、执行力或学习效率。",
+        "en": "You more often chose trial arrangements, connections or reversible demonstrations. Explore what a small version exposes and what it leaves out, without treating counts as practical ability, drive or learning efficiency."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "先做小样是一种设想入口",
+            "en": "A small trial is an imagined starting point"
+          },
+          "paragraphs": [
+            {
+              "zh": "实作试探为最高之一，指你较常选择先摆、先折、先拼或做一个可调整的短演示。这个名称不表示你身体协调、执行力强、比别人务实或不爱思考，也不要求你真的动手完成题中活动。本卷让你选想从哪里开始，未观察你是否做得好。小样的意义在于让一个问题能被看见和修改，而不是把行动本身当作永远更好、比文字或讨论更真实的方式。",
+              "en": "A highest Hands-on Trial count means you more often chose arranging, folding, connecting or making an adjustable demonstration as the imagined start. It establishes no coordination, drive, greater practicality or dislike of thought, and it requires no performance of the activity. The bank asked where you wanted to begin without observing how well you did it. A small version can make a question visible and revisable. Acting is not automatically better than wording or discussion, and this result makes no claim that practical representations are more real or suitable for everyone."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "让一种方案暂时有个形状",
+            "en": "Giving a provisional idea a shape"
+          },
+          "paragraphs": [
+            {
+              "zh": "把几只盒子摆出来，可能暴露手原来够不到的位置；把卡片实际交接一轮，可能发现顺序不清。它们都把一部分设想变成可检查的安排，但小样只包含当时放进去的条件。没有参与的人、实际尺寸或日后的使用情况，都可能被忽略。题目只把愿意先试这个动作计为一次，没有测制作质量、空间技能、速度或坚持程度。你可以同时喜欢思考、说明或观察，不因选了小样就被限制为动手型。",
+              "en": "Placing boxes may expose an awkward reach, and handing over cards once may reveal an unclear sequence. Each turns part of an idea into an arrangement that can be inspected, while including only the conditions built into it. Absent participants, actual dimensions or later use can remain unrepresented. Choosing this start earns one count without assessing construction quality, spatial skill, speed or persistence. You may also enjoy thought, explanation or observation. A prototype option cannot confine you to a hands-on identity or establish that you should avoid abstract tasks and written material."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "试摆不是替完整条件作保证",
+            "en": "A trial arrangement does not certify all conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想共享桌面上有几样经常挪动的小物。你可以先用纸片代表它们，摆出一版位置，再看使用者是否同意所需的空间和关系。纸片易移动，却不一定显示物件高度、反光或实际取用方式；规则、环境观察和对话都能补充这些信息。这个例子说明小样是一种暂时外化问题的办法，不是在预测你擅长装修、手工或设计，也不因为某个样例看起来顺眼就认定真实布局会更有效。",
+              "en": "Imagine frequently moved objects on a shared desk. Paper stand-ins could supply a first layout, after which users could examine the space and relations it assumes. Paper is easy to move but may not represent height, reflections or actual retrieval. Rules, environmental observation and conversation can add those conditions. The example treats a trial as a provisional way to make a question visible. It predicts no talent for making, decorating or design, and an appealing sample does not prove that the real arrangement works better. A small version remains something to question rather than certify."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：想试一试不代表已经会",
+            "en": "Counterexample: wanting to try is not already knowing how"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很愿意折一个包装小样，却不熟悉材料；一个熟练的制作者也可能在这次任务里先询问使用者。两者都说明起点选择不能替代技能证据。相反，较少选择实作选项，可能只是因为当时手边没有物件、任务不合适或更想先想清条件。题目没有调查原因，也不据此推断懒惰、拖延、身体条件或学习困难。你不需要通过表演一个动作来证明这个名字适合自己。",
+              "en": "You might want to fold packaging without knowing the material, while an experienced maker might first ask a user about the task. Both distinguish starting choice from skill evidence. Fewer hands-on selections might reflect unavailable objects, a poor fit or wanting conditions clarified first. The bank did not investigate those reasons and infers no laziness, procrastination, physical condition or learning difficulty. You need not perform a movement to prove the label fits. Nor does the result show that repeated practice will produce a particular outcome or that instructions are unnecessary for you."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与条件、对话和环境来回核对",
+            "en": "Returning to conditions, dialogue and surroundings"
+          },
+          "paragraphs": [
+            {
+              "zh": "规则拆解可能提出小样要满足什么，对话核对可能指出谁的用途还没被考虑，环境线索则提醒真实位置有哪些条件。实作试探提供的是可以一起查看的暂时安排。语句与声音也能给这个安排补上说明或次序，不必把这些入口看成互相排斥。若几个计数接近或并列，可以分别看各自回答了哪一个问题；本卷没有证明一套固定的步骤顺序，也不选哪类人适合当负责人。",
+              "en": "Rule Mapping may specify a condition, Dialogue Testing identify an unconsidered use and Environmental Noticing add facts about the real location. Hands-on Trial contributes a provisional arrangement that people can inspect together. Wording or sound can make its description or sequence clearer, without mutually exclusive entrances. When counts are close or tied, consider the different question each representation addresses. This bank establishes no universally effective order of steps and selects no preferred leader, team member or occupational role. Every matched full report remains available rather than resolving uncertainty through the order of labels."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，用可撤回的替代物",
+            "en": "If useful, use reversible stand-ins"
+          },
+          "paragraphs": [
+            {
+              "zh": "为一个普通整理问题，用几张纸片设想一种布局，再写下一个纸片没能代表的条件。你可以不制作、只在心里想，也可以先询问或描述；这不是需要完成的作业。回顾的目标是识别小样的范围，不能保证提高效率、分数或技能。也不要因为结果写着实作，就跳过实际任务所需的说明与判断。可以在任何时候结束，不把继续活动当成获得完整解释的条件。",
+              "en": "For an ordinary organising question, use paper stand-ins to imagine one layout and note a condition they do not represent. You can keep the exercise mental or begin with a question or description instead; it is no assignment. The purpose is to notice the scope of a small version, without promised gains in efficiency, score or skill. A Hands-on Trial result supplies no reason to skip the instructions and judgment a real task needs. You can finish at any time, and continuing an activity is never a condition for receiving the full explanation."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "选择次数不等于动作或空间能力",
+            "en": "Choice counts are not motor or spatial ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "十八道题没有动作质量、空间旋转、速度或任务完成的标准答案，也没有请他人评价你的表现。六种隐喻的计数可以复算，不代表测出了独立能力或确定了学习媒介。均衡曝光不会让设想选择自动变成真实行为证据。本站没有这一版本的信效度、常模、显著差异或跨语言等价研究；完整双语说明只保证能按本方法理解内容，不为个人技巧或未来表现提供认证。",
+              "en": "The eighteen questions contain no scored movement quality, spatial rotation, speed or right-answer task completion, and nobody else rated your performance. Reproducible counts across six metaphors do not identify independent abilities or a teaching medium. Balanced exposure cannot turn imagined choices into observed behaviour. This edition has no established reliability, validity, norms, meaningful-difference threshold or language-equivalence study. Complete bilingual explanations make the method and content readable without certifying personal skill or future performance. The result can describe selected entrances while leaving practical capabilities entirely unmeasured."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：实作试探与完整解释",
+          "en": "Intelligence Type Result: Hands-on Trial Guide"
+        },
+        "description": {
+          "zh": "读实作试探的完整说明：可调整的小样能暴露什么、遗漏什么，含具体例子和反例。选择次数不评动手能力、执行力或学习效率。",
+          "en": "Read how small reversible trials can expose a question and omit conditions, with examples and limits. Counts establish no practical ability or efficiency."
+        }
+      }
+    },
+    {
+      "id": "dialogue-testing",
+      "directionIds": [
+        "dialogue-testing"
+      ],
+      "title": {
+        "zh": "对话核对：先交换彼此的理解",
+        "en": "Dialogue Testing: Comparing Understandings"
+      },
+      "headline": {
+        "zh": "把不同人的理解放在一起，看看哪里需要再问。",
+        "en": "Bring different understandings together and see what needs another question."
+      },
+      "summary": {
+        "zh": "本次较常选择询问、复述和交换理解。读对话怎样为任务提供信息，同时保留误解、沉默和独立思考的空间；它不测社交智能、同理心或读人能力。",
+        "en": "You more often chose questions, restatement and comparing understandings. Explore what conversation can add while retaining misunderstanding, silence and independent thought, without a social-intelligence or empathy score."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "交换理解不等于读懂他人",
+            "en": "Comparing understandings is not reading minds"
+          },
+          "paragraphs": [
+            {
+              "zh": "对话核对为最高之一，表示你在这些题目里较常想先问别人怎样理解任务、需要什么或哪里不清楚。它不说明你很外向、有同理心、会读空气或能准确知道别人的感受。这里把对话看成获得明确信息与发现分歧的入口，而不是把猜测当事实。没有人必须回答，也不需要把私人经历交给你。你可以用这个名字回顾本次选择，不把它变成社交资格或交往义务。",
+              "en": "A highest Dialogue Testing count means you more often wanted to ask how someone understands a task, what they need or what remains unclear. It establishes no extraversion, empathy, room-reading or accurate knowledge of feelings. Dialogue is treated as an entrance for explicit information and differences rather than making guesses into facts. Nobody must answer or offer a private experience. Use the name to inspect these choices without turning it into a social qualification or an obligation to interact. It does not describe every conversation you have or what others experience around you."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "让两种说法能够被比较",
+            "en": "Making two accounts available for comparison"
+          },
+          "paragraphs": [
+            {
+              "zh": "你说“把角落整理好”，同伴可能想到方便拿取，也可能想到减少桌面物品。先交换各自的理解，可能让两个目标显出来，而不必先裁定谁更懂整理。复述也可以是核对：我理解你想保留一个空位，对吗？这不保证双方一致，更不表示询问的人已经处理好冲突。题目记录的是愿意先做这种核对的选项，没有观察倾听质量、关系信任或他人是否愿意表达。",
+              "en": "When you say that a corner should be organised, a companion might imagine easier retrieval or fewer objects on the surface. Comparing accounts may expose different aims without deciding who understands organising better. Restatement can also invite correction: have I understood that you want a space kept clear? Agreement is not guaranteed, and asking a question does not mean a conflict was resolved. This count records selecting that initial comparison. It did not observe listening quality, trust in a relationship or whether another person wanted to contribute, and those outcomes cannot be assumed."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "同一活动可以有不同需求",
+            "en": "One activity can contain different requirements"
+          },
+          "paragraphs": [
+            {
+              "zh": "安排短散步时，你可以问朋友想看路线、找一个停留处还是随意走走，再说说自己的打算。实际天气、路面和时间也需要另看，不能由一次对话完全决定。文字、环境观察和条件表可能帮助双方把差别讲得具体。这个例子不证明对话核对者天生照顾别人或总能建立信任；它只展示把需求说出来后，有哪些东西可以继续核对，也允许一方暂时没有想法或不想讨论。",
+              "en": "For a short walk, you might ask whether a friend wants to examine a route, find a place to pause or wander, then state your own intention. Weather, ground surfaces and time require other evidence rather than being settled by conversation alone. Wording, observation and conditions can make differences concrete. The example establishes no natural caring or reliable trust-building for people with this result. It simply shows what can become available for comparison when requirements are stated, while allowing someone to have no view yet or prefer not to discuss it."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：多问一句仍可能理解错",
+            "en": "Counterexample: another question can still leave a misunderstanding"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能很想问新手哪里不清楚，却在对方回应后仍误解他的意思；一个没有选对话选项的人，也可能在实际交流中准确核对信息。选择与表现不能互换。对方安静也不证明需要你引导、缺少想法或已经同意。这个结果不授权你替别人命名情绪、判断人格或追问不愿分享的事；本卷没有观察互动双方，也不能从你的计数推断别人对这次交往的评价。",
+              "en": "You may want to ask a newcomer what is unclear and still misunderstand the response. Someone choosing another entrance may compare information carefully during an actual conversation. Selection and performance are not interchangeable. Another person’s silence establishes no need for your guidance, absence of ideas or agreement. This result gives no authority to name their emotions, judge their personality or pursue something they prefer not to share. Only your imagined choices were recorded, without observing either participant. The count therefore cannot reveal another person’s evaluation of an interaction or certify that your questions were helpful."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "对话可以核对，也需要其他信息",
+            "en": "Dialogue can compare accounts and still need other evidence"
+          },
+          "paragraphs": [
+            {
+              "zh": "语句定框让一项理解有清楚说法，对话核对把多个说法放在一起；规则拆解追问条件怎样连接，实作与环境线索则提供具体试用或观察。它们可以交替，不是外向和内向人的分组。声音节律也可能参与口头次序，但不代表讲话越多越有效。多个方向并列时，分别读全文即可；本卷没有测谁最适合协调团队，更不会因某个名字排前而只显示那一份报告。",
+              "en": "Verbal Framing states an account clearly; Dialogue Testing places several accounts beside one another. Rule Mapping examines conditions, while trials and environmental noticing provide concrete arrangements or observations. These can alternate without dividing extraverts and introverts. Sound Sequencing may shape spoken order without making more talk more effective. With several highest counts, read each full text. The quiz did not test who should coordinate a group, and it never shows only the first-listed result. Counts do not require you to seek another person’s opinion when independent work or a pause suits the task."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，问一个可拒绝的小问题",
+            "en": "If useful, ask one optional task question"
+          },
+          "paragraphs": [
+            {
+              "zh": "在合适的普通任务里，你可以先说“我想确认你说的是什么，也可以稍后再谈”，再问一个具体问题。也可以只写下自己尚未理解的部分，暂时不找人回应。这不是社交训练处方，不保证关系更好或结果分数提高。重点是分开自己已经知道、正在猜测和需要询问的内容，而不是把多提问当成好表现。别人选择不回答，或你选择不继续，都不意味着少了一种智能。",
+              "en": "For an appropriate ordinary task, you could say that you would like to clarify a point and can return to it later, then ask one specific question. You can also note what you do not yet understand without seeking a response. This is no prescribed social training or promise of a better relationship or score. The optional aim is to separate information, guesses and questions rather than treat more questioning as good performance. Someone declining to answer, or your decision to stop, does not indicate a missing intelligence. No interaction is needed to unlock the guide."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "没有观察互动，就不作社交能力结论",
+            "en": "Unobserved interaction supplies no social-ability verdict"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份选择题没有让你处理真实冲突、辨认标准答案或接受他人评价。它不测EQ、社交智能、同理心准确率或关系安全；六种入口也不是研究确认的独立能力。选项曝光和位置相同，只说明安排可以核对，不代表排除了所有偏差。中文英文提供同样完整的规则说明，但尚无本版跨语言等价、常模或信效度研究。可以可靠指出哪些选项被计了几次，不能因此认证现实社交表现。",
+              "en": "This choice bank required no real conflict handling, scored recognition or ratings from other people. It measures neither EQ, social intelligence, empathy accuracy nor relationship safety, and its six entrances are not established independent abilities. Equal exposure and positions make arrangement inspectable without eliminating every response bias. Both languages provide complete rules, while this edition has no established language equivalence, norms, reliability or validity evidence. The arithmetic can identify which options received counts. It cannot certify performance in real social settings, reveal someone else’s intentions or decide whether a relationship should continue."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：对话核对与完整解释",
+          "en": "Intelligence Type Result: Dialogue Testing Guide"
+        },
+        "description": {
+          "zh": "读对话核对的完整说明：询问、复述和交换理解怎样参与任务，保留误解与不回答的空间。不测社交智能、同理心或读人能力。",
+          "en": "Read how questions and restatement compare understandings, with examples and limits. This is no social-intelligence, empathy or mind-reading assessment."
+        }
+      }
+    },
+    {
+      "id": "environmental-noticing",
+      "directionIds": [
+        "environmental-noticing"
+      ],
+      "title": {
+        "zh": "环境线索：先看周围的具体条件",
+        "en": "Environmental Noticing: Looking at the Conditions"
+      },
+      "headline": {
+        "zh": "让位置、材料和周围变化进入问题。",
+        "en": "Bring location, materials and surrounding changes into the question."
+      },
+      "summary": {
+        "zh": "本次较常选择观察光线、材质、场地或变化痕迹。看这些信息如何补足设想，也说明观察不自动等于准确判断、自然知识或环境价值取向。",
+        "en": "You more often chose light, material, location or traces of change as starting points. Explore how those observations can inform a task without establishing accurate judgment, natural knowledge or environmental values."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "环境线索不只指户外",
+            "en": "Environmental conditions are not limited to outdoors"
+          },
+          "paragraphs": [
+            {
+              "zh": "环境线索为最高之一，指你在本卷较常想先看实际位置、材料、光照、声音或物件留下的变化痕迹。它可以发生在桌面与室内，不等于喜欢远足、懂自然或更有环保意识。这里的名字只表示你想让眼前条件进入任务，而不是立刻从观察得到原因或答案。你不需要去户外、辨认植物或改变生活方式来证明这个结果；它也不评谁更关注现实、谁更缺乏观察力。",
+              "en": "A highest Environmental Noticing count means you more often wanted to begin with location, material, light, sound or traces of change. That can happen at a desk or indoors, without indicating enjoyment of hiking, natural knowledge or environmental commitment. The name means bringing surrounding conditions into the task rather than deriving causes or answers immediately from observation. No outdoor activity, plant identification or lifestyle change is needed to justify this result. It does not rank attention to reality or call people with other counts unobservant. It remains an index to the conditions you selected as starting clues."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "把场地与材料当作信息",
+            "en": "Treating location and material as information"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一个提示在日光与反光下可能呈现不同，纸片上的布局也可能漏掉真实物件的厚度或表面。先看这些条件，是为设想补充某一类信息，但观察到变化并不等于知道其原因。你也可能只碰巧想到了一个熟悉位置，或手边更容易接触这类线索。题目没有评观察准确性、经验深浅或是否发现了别人没发现的事，计数因此不能被叫作自然智能、视觉能力或现实判断力的分数。",
+              "en": "A cue can appear differently under daylight or reflections, and a paper layout can omit an object’s thickness or surface. Looking at those conditions offers a kind of information, while observing change does not identify its cause. You might also have pictured a familiar location or found these clues easier to imagine. The bank evaluated neither observation accuracy, depth of experience nor discoveries others missed. Counts cannot therefore be labelled naturalistic intelligence, visual ability or practical judgment. This is a possible entrance for asking what the setting contributes, not a test of what you can reliably infer from it."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "为一个角落补上现场条件",
+            "en": "Adding site conditions to a shared corner"
+          },
+          "paragraphs": [
+            {
+              "zh": "在给归还角落做提示时，你可能先看是否有反光、遮挡或物品表面不易贴标签。接下来仍可以用文字写清对应关系、做一个可移动样例，或问使用者怎样理解。观察让问题更具体，却不保证你提出的解释正确；一个角度看到的条件也未必代表所有时段。这个例子没有把环境线索者写成更细心的人，而是展示一份方案还可能缺哪些现场信息，以及为什么需要继续核对。",
+              "en": "For a return corner, you might first notice reflection, obstruction or a surface awkward for a label. Wording, a movable sample or a user’s account could then add other information. Observation makes a question more concrete without guaranteeing the explanation you propose. Conditions seen from one angle or time need not represent all use. This example does not describe people with this result as more attentive. It illustrates site information a plan may still lack and why further checking remains possible. A visible trace can generate a question without becoming a settled conclusion."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：注意到痕迹不等于知道成因",
+            "en": "Counterexample: a noticed trace does not reveal its cause"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以注意到旧物表面有磨损，却不清楚是搬运、使用还是保存条件所致；另一个人可能先写说明，之后也认真查看痕迹。两者都不支持把起点选择当成能力排名。低计数也不意味着你不喜欢自然、不关心周围或缺乏耐心。题目没有测真实识别、长期观察、专业知识或视觉表现，更不能从选择推断你的身体、感官、健康与生活条件。观察本身和如何解释观察应分别看待。",
+              "en": "You may notice wear without knowing whether transport, use or storage produced it. Someone beginning with wording may later inspect the same trace carefully. Neither case supports an ability ranking based on first choices. A lower count establishes no dislike of nature, indifference to surroundings or impatience. There was no scored identification, prolonged observation, specialist-knowledge or visual-performance task, and selections reveal no physical, sensory, health or living conditions. Observation and interpretation require separate consideration. The guide can remain useful without explaining who you are, what experiences formed the choice or what you will notice next time."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "把观察与规则、试样和对话连起来",
+            "en": "Connecting observation with conditions, samples and dialogue"
+          },
+          "paragraphs": [
+            {
+              "zh": "环境线索提供可进一步核对的现场信息；规则拆解组织条件间的关系，实作试探让一版安排可被试用，对话核对则加入不同使用者的理解。语句可以记录发现，声音节律也可能是某种周边变化的表达。它们不是一个自然型和五个非自然型的对照，也不互相证明优劣。如果你的最高计数有多个，可以分别看每份全文在提醒什么；本卷保留全部最高，不用固定顺序替你裁定唯一身份。",
+              "en": "Environmental Noticing supplies site information that can be examined further. Rule Mapping organises conditions, Hands-on Trial offers an arrangement and Dialogue Testing adds users’ understandings. Words can record a finding, while sound or sequence may represent a surrounding change. These are not one natural type versus five unnatural types, and none proves another inferior. If several counts share the maximum, consider the different question each full guide raises. All highest matches are retained rather than using a fixed order to decide your identity. No result excludes the other entrances from your next activity."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "如果愿意，只记录一个条件",
+            "en": "If useful, record one condition"
+          },
+          "paragraphs": [
+            {
+              "zh": "在一个熟悉、普通的整理任务中，只留意一个具体条件，例如光照或物件表面，再问它会影响哪一步。你可以用文字、心中设想或已有照片回顾，不必记录地点、上传图片或公开生活情况。也可以只保留一个不知道原因的问题，不必继续寻找。这个可选动作不保证提高观察力、学习效果或计数；若别的入口更合适，或你想结束，直接停下即可，不用维持某种自然型形象。",
+              "en": "In a familiar ordinary organising task, note one condition such as light or an object’s surface and ask which step it affects. You can use wording, imagination or an existing photograph without recording a location, uploading an image or disclosing your living circumstances. Leaving a question unexplained is acceptable too. This optional action promises no improved observation, learning outcome or count. Choose another entrance or finish if that fits better. There is no natural-type image to maintain, no requirement to spend time outdoors and no need to prove the result through further activity."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "计数没有测自然知识或稳定智能",
+            "en": "Counts did not test natural knowledge or stable intelligence"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版环境方向来自编辑定义的情境选项，不是Gardner自然智能题本、生态知识考试或环境价值量表。它未观察真实行为、核对观察结果或建立独立能力结构，最多能复算本次选了哪些入口。相同曝光与位置不会自动提供准确率、常模或显著差异。中英文全文和方法一致可读，也没有本版语言等价验证。不要用结果为专业能力、学习安排、工作选择或他人的思考方式作结论；这些都需要本卷未提供的信息。",
+              "en": "This direction comes from editorial scenario options, not a naturalistic-intelligence instrument, ecology examination or environmental-values scale. It observed no behaviour, checked no observation outcome and established no independent ability structure. It can reproduce which entrances you selected today. Equal exposure and position do not supply accuracy, norms or meaningful differences. Complete explanations make the method readable in both languages without established equivalence. The result should not decide expertise, teaching arrangements, work choices or another person’s way of thinking. Those conclusions require information this attempt never supplied, however appealing the metaphor may feel."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十八次选择与所有最高并列",
+            "en": "Eighteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+              "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "趣味范围、可选下一步与隐私",
+            "en": "Reflection scope, optional next steps and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+              "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+            }
+          ]
+        }
+      ],
+      "scoreReading": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      },
+      "seo": {
+        "title": {
+          "zh": "智能类型测试结果：环境线索与完整解释",
+          "en": "Intelligence Type Result: Environmental Noticing"
+        },
+        "description": {
+          "zh": "读环境线索的完整说明：光照、材料、位置与变化痕迹怎样补充任务信息，含例子与反例。不测自然知识、观察准确率或固定智能。",
+          "en": "Explore light, material and location as task information, with examples and counterexamples. This is no natural-knowledge or observation-accuracy test."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "十八次选择与所有最高并列",
+        "en": "Eighteen choices and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+          "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "全部最高并列逐份呈现",
+        "en": "Every highest tie receives its full guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "六项同为最高时呈现六份全文，名单顺序不裁定谁更重要。相差一两次也没有已验证的显著差异，不能从次数把别人派为固定类型。你可以自由比较其他公开结果，而不需要重测去解锁。",
+          "en": "Six equal maxima produce six full guides without list order deciding importance. A difference of one or two choices has no established meaningful-difference threshold and cannot assign someone else a fixed type. Compare other public guides without retaking to unlock them."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "任务入口隐喻与能力分开",
+        "en": "Task entrances and ability remain separate"
+      },
+      "paragraphs": [
+        {
+          "zh": "偏好、兴趣、实际能力和更有效的学习方式不是同一问题。Gardner公开资源区分这些概念，也提醒自报的局限；这里只把它作为概念边界，未借其声称本版六类获验证或认可。本题没有标准答案、能力任务或课程效果研究。",
+          "en": "Preferences, interests, ability and effective teaching are different questions. Gardner’s public resources distinguish these concepts and discuss self-report limits; they supply conceptual boundaries without validating or endorsing this six-entrance edition. No right-answer ability tasks or teaching-effect study were conducted."
+        }
+      ]
+    },
+    {
+      "id": "scope-privacy",
+      "title": {
+        "zh": "趣味范围、可选下一步与隐私",
+        "en": "Reflection scope, optional next steps and privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+          "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "它会告诉我有多聪明或是哪种智能吗？",
+        "en": "Does this tell me how intelligent I am?"
+      },
+      "answer": {
+        "zh": "本版显示六种原创思考入口的本次选择次数，智能类型是常见入口名，不是能力测量。没有完成质量、反应速度、标准答案、IQ或常模，也不把最高次数说成最强智能。六类不是Gardner八领域或已验证的心理六型。",
+        "en": "This shows counts for six original thinking entrances in this attempt. Intelligence Type Test is the common entry name, not ability measurement. There are no observed task qualities, response-speed scores, right answers, IQ or norms, and a highest count is not a strongest intelligence. The six entrances are neither Gardner’s eight domains nor an established psychological six-type system."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样处理计分、并列与近分？",
+        "en": "How do counting, ties and close results work?"
+      },
+      "answer": {
+        "zh": "18道四选一全部完成后，每次为所选入口加1，0反向；六类各出现12次，每位置3次。次数范围0—12，分母12为选项曝光，不是相似度或能力百分比。所有最高计数都匹配，各自全文一起呈现，不按固定名单顺序淘汰并列，也不派主副型。全选A时六类各3次，六份全文均保留。差1次没有显著性或常模含义，低次数不说明缺少某种智能；被选项限制与任务情境都影响可选的起点。不完整或无效输入不生成结果，换参照可重测，不将两次差异当成长证明。",
+        "en": "Complete all eighteen four-option questions. Each choice adds one count with no reverse keys. Six entrances each appear twelve times and three times in every position. Counts range from zero to twelve; twelve is option exposure, not a similarity or ability percentage. Every maximum is matched and each full text appears together, without a fixed-order tie winner or primary and secondary type. All A responses give three counts to each entrance and retain all six guides. One extra choice has no established significance or normative meaning; fewer counts establish no missing intelligence. Available options and task contexts limit the starts represented. Incomplete or invalid input produces no result. You may retake with another reference without treating a difference as evidence of development."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是最适合我的学习方式吗？",
+        "en": "Is this my best way to learn?"
+      },
+      "answer": {
+        "zh": "本卷只让你在设想任务里选一个起点，没有比较你采用不同方法之后的实际表现，因此不能规定阅读、听讲、实作或合作哪种最适合你。学习媒介偏好、八领域研究、IQ及本趣味入口分别阅读，也不相互换算。",
+        "en": "The bank asks for a starting choice in imagined tasks without comparing performance after different methods. It cannot prescribe reading, listening, practical work or collaboration as best for you. Learning-media preferences, eight-domain research, IQ and this reflection should be read separately without converting their scores."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以用结果安排课程、团队或职业吗？",
+        "en": "Can this decide teaching, teams or careers?"
+      },
+      "answer": {
+        "zh": "不应这样使用。题目没有评估能力、教学效果、真实协作或职业要求，也不替他人作答、从聊天推类型。可以只回顾某个普通任务的起点，或直接结束。",
+        "en": "No such use is supported. Questions assess no ability, teaching effect, real collaboration or job requirement. Do not answer for someone else or infer a type from their messages. You may reflect on a start for one ordinary task or finish here."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么不是IDR八领域或JobCannon六类型？",
+        "en": "Why is this not IDR’s eight-domain or JobCannon’s six-type quiz?"
+      },
+      "answer": {
+        "zh": "同一常用测试名可以对应不同产品。本版明确使用18道原创四选一及六种编辑任务入口，不复制对方题本、人物名称、正文或固定顺序并列规则；也不声称与其分数等价。先看版本、目的和计分，再决定是否适合你。",
+        "en": "A common test name can identify different products. This edition explicitly uses eighteen original four-option scenarios and six editorial task entrances without copying competitor banks, persona names, text or fixed-order tie rules. Scores are not claimed equivalent. Check edition, purpose and counting before deciding whether it suits you."
+      }
+    },
+    {
+      "question": {
+        "zh": "全文、重测和分享免费吗？",
+        "en": "Are full results, retakes and sharing free?"
+      },
+      "answer": {
+        "zh": "智能类型是本入口的常见名称，本版明确为原创思考入口趣味版：六类是编辑隐喻，不测智能、IQ、学习效率、成绩或职业，也不替代八领域研究或学习媒介自评。题目与六份全文免费，不要求注册、邮箱或另做测评解锁；你可以直接结束或自选后续。答案在浏览器计分，不上传、不进入链接或分析。主动开启的本标签页草稿24小时后失效，完成、重测、退出清除即删。分享只测试名、匹配说明名称与公开链接，没有答卷、次数或位置参数。公开结果页是通用读法，不是私人作答。",
+        "en": "Intelligence Type Test is the common entry name; this edition explicitly offers an original thinking-approach reflection. Its six editorial metaphors measure neither intelligence, IQ, learning efficiency, grades nor careers, and do not replace eight-domain research or learning-media reflections. All questions and six full guides are free without registration, email or another assessment. You can finish or choose an optional next step. Answers are scored in the browser without uploading or entering links or analytics. Opted-in tab drafts expire after twenty-four hours and clear on completion, retake or exit-and-clear. Sharing contains the test name, matched guide names and public links without answers, counts or answer-position parameters. Public result pages are general explanations, not private attempts."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Howard Gardner资源中心：能力、自报与学习风格的概念边界",
+        "en": "Howard Gardner Resource Center: ability, self-report and learning-style distinctions"
+      },
+      "url": "https://www.howardgardner.com/resource-center"
+    },
+    {
+      "title": {
+        "zh": "Gardner（2022）：多元智能测试与自报的局限背景",
+        "en": "Gardner (2022): background on MI tests and self-report limits"
+      },
+      "url": "https://www.multipleintelligencesoasis.org/blog/2022/3/3/is-there-a-test-for-multiple-intelligences-should-there-be"
+    }
+  ]
+}
