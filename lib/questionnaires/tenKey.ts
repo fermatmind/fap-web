@@ -3,6 +3,13 @@ import type { Questionnaire, Text } from "./types";
 export type TenKeyRound = { id: "whole" | "decimals" | "references"; title: Text; values: string[] };
 export type TenKeyConfiguration = { durationSeconds: 60; rounds: TenKeyRound[] };
 export type TenKeyEntry = { text: string; atMs: number };
+type TenKeyReviewRow = { expected: string; entered: string; correct: boolean; matchingCharacters: number; comparedCharacters: number };
+export type TenKeyRoundResult = Readonly<{ status: "unavailable" }> | Readonly<{ status: "incomplete" }> | Readonly<{
+  status: "complete"; elapsedMs: number; observedElapsedMs: number; confirmedEntries: number; correctEntries: number;
+  wrongEntries: number; confirmedCharacters: number; separators: number; correctCharacters: number; comparedCharacters: number;
+  confirmedKph: number; exactEntryKph: number; entryAccuracy: number | null; entryErrorRate: number | null;
+  characterAccuracy: number | null; rows: TenKeyReviewRow[];
+}>;
 export const TEN_KEY_DURATION_MS = 60_000;
 const ids = ["whole", "decimals", "references"] as const;
 const bilingual = (value: Text | undefined) => Boolean(value && typeof value.en === "string" && value.en.trim() && typeof value.zh === "string" && value.zh.trim());
@@ -28,15 +35,15 @@ export function isTenKeyConfigurationValid(quiz: Questionnaire): boolean {
     && quiz.profiles[index].sections.every(section => bilingual(section.title) && Array.isArray(section.paragraphs) && section.paragraphs.length > 0 && section.paragraphs.every(bilingual)));
 }
 
-export function scoreTenKeyRound(round: TenKeyRound, entries: readonly TenKeyEntry[], observedElapsedMs: number) {
-  if (!isTenKeyRoundValid(round) || !Array.isArray(entries) || entries.length > round.values.length || !Number.isFinite(observedElapsedMs) || observedElapsedMs < 0) return { status: "unavailable" } as const;
+export function scoreTenKeyRound(round: TenKeyRound, entries: readonly TenKeyEntry[], observedElapsedMs: number): TenKeyRoundResult {
+  if (!isTenKeyRoundValid(round) || !Array.isArray(entries) || entries.length > round.values.length || !Number.isFinite(observedElapsedMs) || observedElapsedMs < 0) return { status: "unavailable" };
   let previous = 0;
   for (const entry of entries) {
     if (!entry || typeof entry.text !== "string" || entry.text.length > 24 || !/^[0-9.]*$/.test(entry.text)
-      || !Number.isFinite(entry.atMs) || entry.atMs < previous || entry.atMs >= TEN_KEY_DURATION_MS || entry.atMs > observedElapsedMs) return { status: "unavailable" } as const;
+      || !Number.isFinite(entry.atMs) || entry.atMs < previous || entry.atMs >= TEN_KEY_DURATION_MS || entry.atMs > observedElapsedMs) return { status: "unavailable" };
     previous = entry.atMs;
   }
-  if (observedElapsedMs < TEN_KEY_DURATION_MS) return { status: "incomplete" } as const;
+  if (observedElapsedMs < TEN_KEY_DURATION_MS) return { status: "incomplete" };
   const rows = entries.map((entry, index) => {
     const expected = round.values[index];
     return { expected, entered: entry.text, correct: expected === entry.text,
@@ -57,5 +64,5 @@ export function scoreTenKeyRound(round: TenKeyRound, entries: readonly TenKeyEnt
     entryAccuracy: rows.length ? correctEntries / rows.length * 100 : null,
     entryErrorRate: rows.length ? (rows.length - correctEntries) / rows.length * 100 : null,
     characterAccuracy: comparedCharacters ? correctCharacters / comparedCharacters * 100 : null,
-    rows } as const;
+    rows };
 }
