@@ -1,3 +1,5 @@
+import type { TenKeyConfiguration } from "./tenKey";
+
 export type Text = { en: string; zh: string };
 export type QuestionnaireSection = { id: string; title: Text; paragraphs: Text[] };
 export type QuestionnaireProfile = {
@@ -16,7 +18,8 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  tenKey?: TenKeyConfiguration;
   references?: { title: Text; url: string }[];
   minimumRatedItems?: number;
   instructions?: Text;

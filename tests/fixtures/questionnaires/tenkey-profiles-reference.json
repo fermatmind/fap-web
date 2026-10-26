@@ -1,0 +1,377 @@
+[
+  {
+    "id": "whole",
+    "directionIds": [
+      "whole"
+    ],
+    "title": {
+      "en": "Whole-number entry",
+      "zh": "整数录入"
+    },
+    "headline": {
+      "en": "Keep the integer’s order intact",
+      "zh": "保留整数的原始顺序"
+    },
+    "summary": {
+      "en": "Whole-number entry: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+      "zh": "整数录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+    },
+    "seo": {
+      "title": {
+        "en": "Whole-number entry Guide: Worked KPH & Accuracy | 10-Key Test",
+        "zh": "整数录入指南：KPH与准确率算例｜10-Key 测试"
+      },
+      "description": {
+        "en": "Whole-number entry: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+        "zh": "整数录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+      }
+    },
+    "scoreReading": {
+      "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+      "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "What this mode asks you to do",
+          "zh": "这个模式练什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The whole-number list contains independently constructed digit strings with no decimal point. Read the current source, enter the same digits and confirm once before moving to the next row. The task is copying a visible sequence, not doing mental arithmetic or selecting a favourite response. A source such as 4821 must remain 4821; 4812 is a different entry even though it uses the same four digits. The report keeps both exact-entry and character-position readings visible.",
+            "zh": "整数列表由独立编写的数字串组成，不含小数点。看当前源文本，输入相同数字，确认一次后进入下一条。任务是抄录可见顺序，不做心算，也不选择偏好。源文本4821必须仍为4821；4812虽然使用同样四个数字，却是另一条输入。报告同时保留整条核对和逐位字符读法。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A complete worked minute",
+          "zh": "完整的一分钟算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose a full 60-second round confirms 4821, 703 and 90564 against sources 4821, 730 and 90564. The confirmed text contains 12 digits plus three separators: 15 equivalents, or 900 confirmed-equivalent KPH. Two entries are entirely right, contributing five and six equivalents including separators: 660 exact-entry KPH. One of three entries is wrong, so the entry error rate is 33.3%. Ten of twelve character positions match, giving 83.3% positional accuracy. These distinct denominators explain why the two accuracies differ.",
+            "zh": "假设完整60秒内，源文本依次是4821、730、90564，确认输入为4821、703、90564。已确认文本共12位数字，加3个分隔符，为15个等价值，确认等价KPH为900。两条完全正确，各含分隔符贡献5和6个等价值，完全正确条目KPH为660。一条错误，条目错误率33.3%；12个字符位置中10个相同，逐位准确率83.3%。两个分母不同，所以两种准确率会不同。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Correct before confirming",
+          "zh": "确认前可以改错"
+        },
+        "paragraphs": [
+          {
+            "en": "Backspace and ordinary editing are available while the entry is still in the input box. Only the final confirmed text contributes to throughput and accuracy, so repeatedly typing and deleting digits does not earn extra KPH. Once confirmed, an entry remains in the review rather than being silently rewritten. At the deadline, an unconfirmed tail is shown separately and excluded from both the entry count and throughput. A blank Enter confirms an empty, incorrect entry; it does not skip the source without a record.",
+            "zh": "输入框里尚未确认时，可以退格或正常编辑。只有最后确认的文本参与产出和准确率，反复输入、删除不会多得KPH。确认后的条目留在复核中，不再悄悄改写。截止时未确认的尾串单列，既不计条目，也不计产出。空白时按Enter会确认一条空的错误输入，不会无记录地跳过源文本。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Read speed together with the actual work",
+          "zh": "把速度与实际完成的内容一起看"
+        },
+        "paragraphs": [
+          {
+            "en": "A high confirmed-equivalent KPH can coexist with many wrong entries. Compare it with exact-entry KPH and the copied rows instead of treating one headline as a qualification. A short source and a long source contribute different numbers of characters, so changing modes or versions also changes the task. This edition uses a full minute rather than extrapolating a few seconds. No rank, passing threshold or trained-clerk benchmark is assigned, and an empty minute cannot establish how capable someone is.",
+            "zh": "确认等价KPH较高时，也可能有许多错误条目。应同时看完全正确条目KPH和逐条复核，不把一个标题数字当资格。长短源文本贡献字符不同，换模式或版本也改变了任务。本版使用完整一分钟，不拿几秒钟外推；不派排名、及格线或熟练文员基准。空白的一分钟也不能判断一个人的能力。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a comparison you can interpret",
+          "zh": "做一次能解释的比较"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want another attempt, keep the same mode, browser and input device and note that you have already seen the list. Choose a comfortable pace and inspect one or two copied rows afterwards. You might try reading a short group before confirming, or checking the last digit, without assuming one technique works for everyone. Stop when you want. The useful outcome is a specific observation about this practice, not a promise that repeating it will improve employability or eliminate errors.",
+            "zh": "若想再练，可保持模式、浏览器和输入设备一致，同时记住自己已经见过列表。选舒服的节奏，之后复核一两条。可以试读一个小组再确认，或确认前核最后一位，但不假定某技巧适合所有人。想停就停。收获是对这次练习的具体观察，不保证重复练习能改善就业或消除错误。"
+          }
+        ]
+      },
+      {
+        "id": "units",
+        "title": {
+          "en": "Exact units and denominators",
+          "zh": "明确单位与分母"
+        },
+        "paragraphs": [
+          {
+            "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+            "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Practice scope, device and privacy",
+          "zh": "练习范围、设备与隐私"
+        },
+        "paragraphs": [
+          {
+            "en": "These fixed synthetic numbers, task rules and worked guides are independently authored by FermatMind for local practice. Scores describe this edition, device, mode and uninterrupted minute, with prior exposure and any assistance affecting comparability. They are not employer norms, hiring certification, an IQ measure or a prediction of job performance. Browser key codes describe reported events rather than proving a physical keypad. Inputs stay in this page’s memory, with no answer upload, saved draft, answer URL or answer analytics. Hiding the page or a detected clock discrepancy cancels and clears the round; reload starts again.",
+            "zh": "这些固定合成数字、任务规则和例解均由费马独立编写，用于本机练习。成绩描述本版本、设备、模式和这段未中断的一分钟；见过题目或使用辅助都会影响可比性。不是雇主常模、招聘认证、智力测量或工作表现预测。浏览器键码只描述所报告事件，不能证明实体小键盘。输入只留本页内存，不上传、不存草稿、不进入答案网址或答案分析。隐藏页面或检测到时钟偏差会取消并清空本轮；刷新后重新开始。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "decimals",
+    "directionIds": [
+      "decimals"
+    ],
+    "title": {
+      "en": "Decimal entry",
+      "zh": "小数录入"
+    },
+    "headline": {
+      "en": "Keep the decimal point where it belongs",
+      "zh": "把小数点留在原来的位置"
+    },
+    "summary": {
+      "en": "Decimal entry: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+      "zh": "小数录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+    },
+    "seo": {
+      "title": {
+        "en": "Decimal entry Guide: Worked KPH & Accuracy | 10-Key Test",
+        "zh": "小数录入指南：KPH与准确率算例｜10-Key 测试"
+      },
+      "description": {
+        "en": "Decimal entry: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+        "zh": "小数录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+      }
+    },
+    "scoreReading": {
+      "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+      "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Copy notation rather than numerical value",
+          "zh": "抄录写法，而非换算数值"
+        },
+        "paragraphs": [
+          {
+            "en": "The decimal mode uses synthetic values written with a period and exactly two decimal places. It is a transcription task: 12.50 and 12.5 represent the same numerical quantity in some contexts, but they are different strings here. Preserve the displayed notation rather than rounding, adding a currency sign or replacing the period with a comma. The list does not represent real payments or financial records. It offers a stable source for checking which characters were actually confirmed.",
+            "zh": "小数模式使用合成数值，以英文句点作小数点，并固定保留两位小数。这是抄录任务：12.50与12.5在某些语境里数值相同，但在这里是不同字符串。应保留所示写法，不四舍五入、不加货币符号、不把句点换成逗号。列表不是真实付款或财务记录，只提供可稳定核对的源文本。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A worked example with two different mistakes",
+          "zh": "含两种不同错误的算例"
+        },
+        "paragraphs": [
+          {
+            "en": "For sources 12.50, 7.05 and 81.40, imagine confirming 1250, 7.50 and 81.40 in a full minute. Thirteen characters plus three separators give 960 confirmed-equivalent KPH. Only 81.40 is an exact entry, so its five characters and one separator give 360 exact-entry KPH. Two of three entries are wrong: 66.7% entry error. Nine of fourteen compared character positions match: 64.3% positional accuracy. Losing a point shifts the later positions; this positional measure does not realign the string to award edit-distance credit.",
+            "zh": "源文本为12.50、7.05、81.40，假设完整一分钟确认1250、7.50、81.40。13个字符加3个分隔符，确认等价KPH为960。只有81.40整条正确，5字符加1分隔符，完全正确条目KPH为360。三条中错两条，条目错误率66.7%；14个比较位置中9个相同，逐位准确率64.3%。漏小数点会让后续位置错开；本逐位指标不会重新对齐字符串来给编辑距离分。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Make corrections without inflating throughput",
+          "zh": "改错不增加额外产出"
+        },
+        "paragraphs": [
+          {
+            "en": "You may edit an unconfirmed entry, including its decimal point. The final text confirmed by Enter or the on-screen confirmation button is the text scored. Deleted characters and Backspace are excluded from the KPH numerator. Pasting and dropping text are blocked; the exercise remains local practice rather than a secure examination. Finish any input-method composition before confirming. At the deadline, unfinished composition or an unconfirmed tail does not become a saved entry automatically.",
+            "zh": "可以编辑未确认条目，包括小数点。按Enter或屏幕确认按钮时留下的最终文本才参与计分。已删字符和退格不进入KPH分子。粘贴与拖入文本被阻止；这仍是本机练习，不是安全考试。先结束输入法组合，再确认。到截止时，尚未完成的组合或未确认尾串不会自动变成已提交条目。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Separate format errors from a personal conclusion",
+          "zh": "把格式错误与个人结论分开"
+        },
+        "paragraphs": [
+          {
+            "en": "The review shows the expected string and confirmed text so that a missing point or a swapped digit can be checked directly. It does not infer carelessness, numerical ability or readiness to handle money. A touchscreen, number row and numeric keypad can give different experiences; browser-reported key codes are only a limited observation of input events. Compare attempts with their mode, version, device and prior exposure in mind. There is no conversion to an employer score or another site’s accuracy-adjusted KPH.",
+            "zh": "复核并列显示源字符串和确认文本，方便直接查漏小数点或数字换位，不推断粗心、数学能力或处理金钱的准备程度。触屏、数字行和小键盘体验可能不同；浏览器键码只是对输入事件的有限观察。比较时要连同模式、版本、设备和是否见过题目一起看，不换算雇主成绩，也不换算别站按准确率调整的KPH。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one notation check",
+          "zh": "试一次写法核对"
+        },
+        "paragraphs": [
+          {
+            "en": "For a later voluntary attempt in this mode, choose one small check such as looking at the point and the two following digits before confirming. Keep the rest of the setup similar if you want to compare the two attempts, and record that the fixed list is now familiar. Review actual rows rather than assume an improvement from one summary number. This is a possible practice routine, not a proven training intervention, financial advice or a requirement to pursue a data-entry role.",
+            "zh": "之后若自愿再练这个模式，可以选一个小检查，例如确认前看看小数点和后面两位。若想比较，尽量保持其他设置相似，并记住固定列表现在已经熟悉。应看实际条目，不从一个汇总数字就断定进步。这是一种可尝试的练习方式，不是已验证训练干预、财务建议，也不要求从事数据录入工作。"
+          }
+        ]
+      },
+      {
+        "id": "units",
+        "title": {
+          "en": "Exact units and denominators",
+          "zh": "明确单位与分母"
+        },
+        "paragraphs": [
+          {
+            "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+            "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Practice scope, device and privacy",
+          "zh": "练习范围、设备与隐私"
+        },
+        "paragraphs": [
+          {
+            "en": "These fixed synthetic numbers, task rules and worked guides are independently authored by FermatMind for local practice. Scores describe this edition, device, mode and uninterrupted minute, with prior exposure and any assistance affecting comparability. They are not employer norms, hiring certification, an IQ measure or a prediction of job performance. Browser key codes describe reported events rather than proving a physical keypad. Inputs stay in this page’s memory, with no answer upload, saved draft, answer URL or answer analytics. Hiding the page or a detected clock discrepancy cancels and clears the round; reload starts again.",
+            "zh": "这些固定合成数字、任务规则和例解均由费马独立编写，用于本机练习。成绩描述本版本、设备、模式和这段未中断的一分钟；见过题目或使用辅助都会影响可比性。不是雇主常模、招聘认证、智力测量或工作表现预测。浏览器键码只描述所报告事件，不能证明实体小键盘。输入只留本页内存，不上传、不存草稿、不进入答案网址或答案分析。隐藏页面或检测到时钟偏差会取消并清空本轮；刷新后重新开始。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "references",
+    "directionIds": [
+      "references"
+    ],
+    "title": {
+      "en": "Leading-zero reference codes",
+      "zh": "前导零编号录入"
+    },
+    "headline": {
+      "en": "Preserve every leading zero",
+      "zh": "保留每一个前导零"
+    },
+    "summary": {
+      "en": "Leading-zero reference codes: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+      "zh": "前导零编号录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+    },
+    "seo": {
+      "title": {
+        "en": "Leading-zero reference codes Guide: Worked KPH & Accuracy | 10-Key Test",
+        "zh": "前导零编号录入指南：KPH与准确率算例｜10-Key 测试"
+      },
+      "description": {
+        "en": "Leading-zero reference codes: full practice guide with an original worked minute, exact-entry and character denominators, editing rules, device limits and a small optional review routine.",
+        "zh": "前导零编号录入完整练习指南：原创一分钟算例、整条与字符分母、编辑规则、设备限制及可选复习方法。"
+      }
+    },
+    "scoreReading": {
+      "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+      "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "A reference code is a string",
+          "zh": "编号是一段字符串"
+        },
+        "paragraphs": [
+          {
+            "en": "The reference mode uses six-character synthetic codes beginning with two zeros. Treat every zero as part of the displayed identifier rather than as an optional numerical prefix. The source 000482 therefore differs from 482 even though a number parser might convert them to the same integer. The input is a text field so the browser does not intentionally strip those zeros. These codes are invented practice material, not customer identifiers, account numbers or real records to look up elsewhere.",
+            "zh": "编号模式使用六字符合成编号，前面有两个零。每个零都是所示标识的一部分，不是可省略的数值前缀。因此000482不同于482，即使数字解析器可能把它们变成同一个整数。输入使用文本框，浏览器不会故意删前导零。这些编号是虚构练习材料，不是客户标识、账号或需要去别处查询的真实记录。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A full example with a shortened code",
+          "zh": "包含缩短编号的完整算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Take sources 000482, 003196 and 004173, and confirmed entries 482, 003196 and 004713 over 60 seconds. Fifteen entered characters plus three separators give 1,080 confirmed-equivalent KPH. Only 003196 is entirely right, so six characters plus one separator give 420 exact-entry KPH. Two of three entries are wrong, an error rate of 66.7%. Ten of eighteen compared positions match, or 55.6% positional accuracy. The shortened first code earns no exact-entry credit and its shifted positions are not silently realigned.",
+            "zh": "源文本000482、003196、004173，60秒内确认482、003196、004713。15个输入字符加3个分隔符，确认等价KPH为1080。只有003196整条正确，6字符加1分隔符，完全正确条目KPH为420。三条中错两条，错误率66.7%；18个比较位置中10个相同，逐位准确率55.6%。缩短的首条没有整条正确分，错开的字符也不会被悄悄重新对齐。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Check boundaries as well as digits",
+          "zh": "除了数字，也核对条目边界"
+        },
+        "paragraphs": [
+          {
+            "en": "Confirm one code at a time. Combining two source rows in one input or pressing Enter on an empty box produces an incorrect entry for the current row rather than moving the scoring alignment around. Once confirmed, the row stays in the review. An unconfirmed tail at the deadline is listed separately and excluded. This makes the entry boundary explicit, while allowing Backspace and normal editing before confirmation. It does not claim to measure every physical key pressed during the minute.",
+            "zh": "每次确认一个编号。把两行合进同一输入，或在空白框按Enter，都会给当前源行形成错误条目，不会让后续计分对齐方式游移。确认后该行留在复核中；截止时未确认尾串单列并排除。这样条目边界清楚，确认前仍能退格、正常编辑，但不声称测到了分钟内每一次物理按键。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Compare only the task you actually did",
+          "zh": "比较实际完成的这项任务"
+        },
+        "paragraphs": [
+          {
+            "en": "The leading-zero list asks for a narrower format than general typing or a complete administrative workflow. A result cannot establish memory, attention as a trait, job suitability or ability to handle private records. Keep the source mode and input method beside the numbers when comparing attempts. An event reported as Numpad can come from software or an accessibility device as well as a keyboard. The report describes observed events, not a verified device or an anti-cheating assessment.",
+            "zh": "前导零列表比一般打字或完整行政流程更窄。成绩不能确立记忆、作为人格特征的注意力、职业适合度或处理私密记录的能力。比较时应把源模式和输入方式与成绩放在一起。被报告为Numpad的事件也可能来自软件或辅助设备。报告描述观察到的事件，不认证设备，也不作防作弊评估。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a short boundary check",
+          "zh": "试一次短小的边界检查"
+        },
+        "paragraphs": [
+          {
+            "en": "If you return to the same reference mode, you might check the first two characters and the total code length before confirming each row. You can instead keep your current method and inspect where mismatches appeared afterwards. Prior exposure to the fixed list affects comparison, so do not treat a higher number as proof of general improvement. Use only the invented source provided here; no personal or workplace records are needed for this local exercise, and stopping creates no certification or failure label.",
+            "zh": "若回来练同一编号模式，可以试在确认前核前两位和总长度。也可以保留自己的方法，之后看不匹配出现在哪里。固定列表见过后会影响比较，因此不把更高数字当普遍能力进步的证明。只用这里提供的虚构源文本即可，不需要个人或工作记录；停止练习不会产生资格认证或失败标签。"
+          }
+        ]
+      },
+      {
+        "id": "units",
+        "title": {
+          "en": "Exact units and denominators",
+          "zh": "明确单位与分母"
+        },
+        "paragraphs": [
+          {
+            "en": "Every complete round lasts 60 seconds. Confirmed-equivalent KPH = (characters in confirmed entries + one separator per entry) ÷ 60 × 3,600. Exact-entry KPH uses only entirely correct entries, including their separator. Backspace and discarded characters are not throughput; a confirmation button represents the same one separator as Enter, not a measured physical keypress. Entry error rate = wrong confirmed entries ÷ all confirmed entries. Positional character accuracy = matching character positions ÷ the sum of the larger source/entered length for each confirmed entry. With no confirmed entries, accuracy and error rate are unavailable.",
+            "zh": "每个完整回合持续60秒。确认等价KPH＝（已确认条目的字符数＋每条一个分隔符）÷60×3600。完全正确条目KPH只累计整条正确的字符及分隔符。退格和被删字符不计产出；确认按钮与Enter同样代表一个分隔符，不是实测物理按键。条目错误率＝错误确认条目数÷全部确认条目数。逐位字符准确率＝相同位置字符数÷各条源文本与输入长度较大值的总和。没有确认条目时，准确率和错误率资料不足。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Practice scope, device and privacy",
+          "zh": "练习范围、设备与隐私"
+        },
+        "paragraphs": [
+          {
+            "en": "These fixed synthetic numbers, task rules and worked guides are independently authored by FermatMind for local practice. Scores describe this edition, device, mode and uninterrupted minute, with prior exposure and any assistance affecting comparability. They are not employer norms, hiring certification, an IQ measure or a prediction of job performance. Browser key codes describe reported events rather than proving a physical keypad. Inputs stay in this page’s memory, with no answer upload, saved draft, answer URL or answer analytics. Hiding the page or a detected clock discrepancy cancels and clears the round; reload starts again.",
+            "zh": "这些固定合成数字、任务规则和例解均由费马独立编写，用于本机练习。成绩描述本版本、设备、模式和这段未中断的一分钟；见过题目或使用辅助都会影响可比性。不是雇主常模、招聘认证、智力测量或工作表现预测。浏览器键码只描述所报告事件，不能证明实体小键盘。输入只留本页内存，不上传、不存草稿、不进入答案网址或答案分析。隐藏页面或检测到时钟偏差会取消并清空本轮；刷新后重新开始。"
+          }
+        ]
+      }
+    ]
+  }
+]

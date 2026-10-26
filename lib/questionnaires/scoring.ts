@@ -1,4 +1,5 @@
 import { isPracticeConfigurationValid, scorePracticeQuestionnaire } from "./practice";
+import { isTenKeyConfigurationValid } from "./tenKey";
 import { isCompassConfigurationValid, scoreCompassQuestionnaire } from "./compass";
 import { isOptimismConfigurationValid, scoreOptimismQuestionnaire } from "./optimism";
 import type { Questionnaire, QuestionnaireAnswers } from "./types";
@@ -154,9 +155,9 @@ export function scoreArchetypeQuestionnaire(quiz: Questionnaire, answers: unknow
   return { status: "complete", answered, counts, profileIds: quiz.profiles.filter(p => counts[p.directionIds[0]] === highest).map(p => p.id) };
 }
 
-export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "practice" ? isPracticeConfigurationValid(quiz) : quiz.kind === "compass" ? isCompassConfigurationValid(quiz) : quiz.kind === "optimism" ? isOptimismConfigurationValid(quiz) : quiz.kind === "attachment" ? isAttachmentConfigurationValid(quiz) : quiz.kind === "affection" ? isAffectionConfigurationValid(quiz) : quiz.kind === "extraversion" ? isExtraversionConfigurationValid(quiz) : quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
+export const isQuestionnaireConfigurationValid = (quiz: Questionnaire) => quiz.kind === "ten-key" ? isTenKeyConfigurationValid(quiz) : quiz.kind === "practice" ? isPracticeConfigurationValid(quiz) : quiz.kind === "compass" ? isCompassConfigurationValid(quiz) : quiz.kind === "optimism" ? isOptimismConfigurationValid(quiz) : quiz.kind === "attachment" ? isAttachmentConfigurationValid(quiz) : quiz.kind === "affection" ? isAffectionConfigurationValid(quiz) : quiz.kind === "extraversion" ? isExtraversionConfigurationValid(quiz) : quiz.kind === "alignment" ? isAlignmentConfigurationValid(quiz) : quiz.kind === "likert"
   ? isLikertConfigurationValid(quiz) : quiz.kind === "archetype" ? isArchetypeConfigurationValid(quiz) : isDirectionalConfigurationValid(quiz);
-export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "practice" ? scorePracticeQuestionnaire(quiz, answers) : quiz.kind === "compass" ? scoreCompassQuestionnaire(quiz, answers) : quiz.kind === "optimism" ? scoreOptimismQuestionnaire(quiz, answers) : quiz.kind === "attachment" ? scoreAttachmentQuestionnaire(quiz, answers) : quiz.kind === "affection" ? scoreAffectionQuestionnaire(quiz, answers) : quiz.kind === "extraversion" ? scoreExtraversionQuestionnaire(quiz, answers) : quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
+export const scoreQuestionnaire = (quiz: Questionnaire, answers: unknown) => quiz.kind === "ten-key" ? { status: "unavailable", answered: 0 } as const : quiz.kind === "practice" ? scorePracticeQuestionnaire(quiz, answers) : quiz.kind === "compass" ? scoreCompassQuestionnaire(quiz, answers) : quiz.kind === "optimism" ? scoreOptimismQuestionnaire(quiz, answers) : quiz.kind === "attachment" ? scoreAttachmentQuestionnaire(quiz, answers) : quiz.kind === "affection" ? scoreAffectionQuestionnaire(quiz, answers) : quiz.kind === "extraversion" ? scoreExtraversionQuestionnaire(quiz, answers) : quiz.kind === "alignment" ? scoreAlignmentQuestionnaire(quiz, answers) : quiz.kind === "likert"
   ? scoreLikertQuestionnaire(quiz, answers) : quiz.kind === "archetype" ? scoreArchetypeQuestionnaire(quiz, answers) : scoreDirectionalQuestionnaire(quiz, answers);
 
 export function readQuestionnaireDraft(quiz: Questionnaire, raw: string | null, now = Date.now()): QuestionnaireAnswers | null {

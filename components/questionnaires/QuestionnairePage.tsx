@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { QuestionnaireCharacterSource } from "./QuestionnaireCharacterSource";
 import { QuestionnairePpsAttribution } from "./QuestionnairePpsAttribution";
 import { QuestionnaireClient } from "@/components/questionnaires/QuestionnaireClient";
+import { TenKeyPage } from "./TenKeyPage";
 import { QuestionnaireDarkTriadClient } from "./QuestionnaireDarkTriadClient";
 import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
 import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
@@ -27,6 +28,7 @@ export default async function QuestionnairePage({ params }: Props) {
   const quiz = await loadQuestionnaire(slug);
   if (!quiz) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
+  if (quiz.kind === "ten-key") return <TenKeyPage quiz={quiz} locale={locale} />;
   const path = questionnairePath(locale, slug);
   return <main className="bg-slate-50 py-10 text-slate-950 [overflow-wrap:anywhere]"><Container className="max-w-3xl">
     <JsonLd id="questionnaire-breadcrumb" data={buildBreadcrumbJsonLd([{ name: "FermatMind", path: `/${locale}` }, { name: zh ? "全部测试" : "All tests", path: `/${locale}/tests` }, { name: quiz.title[locale], path }])} />

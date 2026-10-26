@@ -33,7 +33,7 @@ export function MoreTests({ locale }: { locale: Locale }) {
           {catalog.filter(q => q.category === key).map(q => <article key={q.slug} className="flex min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-5">
             <h4 className="text-lg font-semibold leading-snug [overflow-wrap:anywhere]"><a className="underline decoration-slate-300 underline-offset-4 hover:decoration-slate-700" href={`/${locale}${q.pathname}`}>{q.title[locale]}</a></h4>
             <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{q.description[locale]}</p>
-            <p className="mt-4 text-sm font-medium">{locale === "zh" ? `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} 题 · 约 ${q.minutes} 分钟 · 全部免费` : `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} questions · about ${q.minutes} min · fully free`}</p>
+            <p className="mt-4 text-sm font-medium">{q.slug === "ten-key-test" ? (locale === "zh" ? "3种输入模式 · 每轮60秒 · 全部免费" : "3 entry modes · 60 seconds per round · fully free") : locale === "zh" ? `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} 题 · 约 ${q.minutes} 分钟 · 全部免费` : `${q.minQuestionCount === q.questionCount ? q.questionCount : `${q.minQuestionCount}–${q.questionCount}`} questions · about ${q.minutes} min · fully free`}</p>
           </article>)}
         </div>
       </section>)}

@@ -2877,5 +2877,29 @@
       "logic"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "ten-key-test",
+    "code": "FERMATMIND_TEN_KEY_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "10-Key Test",
+      "zh": "10-Key 测试"
+    },
+    "description": {
+      "en": "Choose whole numbers, decimals or leading-zero codes for a real 60-second number-entry round. See confirmed-equivalent KPH, exact-entry KPH, entry errors, character accuracy and every copied row. All three complete practice guides are free.",
+      "zh": "选择整数、小数或前导零编号，真实计时60秒录入数字。查看确认等价KPH、完全正确条目KPH、条目错误率、逐位准确率和每条核对。三份完整练习指南均免费。"
+    },
+    "minutes": 2,
+    "formCode": "fermatmind_ten_key_original_60s_v1",
+    "questionCount": 3,
+    "resultSlugs": [
+      "whole",
+      "decimals",
+      "references"
+    ],
+    "collection": "explore"
   }
 ]
