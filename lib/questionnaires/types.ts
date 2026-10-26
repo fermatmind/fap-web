@@ -16,7 +16,7 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   references?: { title: Text; url: string }[];
   minimumRatedItems?: number;
   instructions?: Text;
@@ -37,7 +37,7 @@ export type Questionnaire = {
     psychometricValidationCompleted: false;
   };
   directions: { id: string; title: Text; comparisons?: number; itemCount?: number }[];
-  questions: { id: string; prompt: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; score?: number | null }[] }[];
+  questions: { id: string; prompt: Text; correctOptionId?: string; explanation?: Text; reverse?: boolean; options: { id: string; label: Text; directionId: string; score?: number | null }[] }[];
   profiles: QuestionnaireProfile[];
   guide: QuestionnaireSection[];
   faq: { question: Text; answer: Text }[];

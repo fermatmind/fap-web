@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { QuestionnaireChakraReport } from "./QuestionnaireChakraReport";
+import { QuestionnairePracticeReport } from "./QuestionnairePracticeReport";
 import { QuestionnaireEgogramReport } from "./QuestionnaireEgogramReport";
 import { QuestionnaireSocialReport } from "./QuestionnaireSocialReport";
 import { QuestionnaireGritReport } from "./QuestionnaireGritReport";
@@ -72,10 +73,11 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const extraversion = result.status === "complete" && "scaleProfileIds" in result ? result : undefined;
   const affection = result.status === "complete" && "affectionFacets" in result ? result : undefined;
   const attachment = result.status === "complete" && "attachmentAxes" in result ? result : undefined;
+  const practice = result.status === "complete" && "practice" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
-  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: "self_report", page_type: "test_detail" });
+  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: "test_detail" });
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
   const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: "questionnaire_result_mbti", targetAction: "questionnaire_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
   const mbtiHref = appendSeoCtaContextParamsToHref(mbtiBase, buildSeoCtaContextParams(recommendation));
@@ -85,7 +87,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   useEffect(() => {
     if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
-      trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: "self_report", page_type: "test_detail" });
+      trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: "test_detail" });
     }
   }, [stage, hasCompleteResult, quiz, locale]);
 
@@ -123,7 +125,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     if (!hasCompleteResult) return;
     const matchedIds = compass?.compassProfileIds ?? alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
     const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
-    const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (extraversion || optimism) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
+    const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (practice || extraversion || optimism) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link."); }
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
@@ -131,7 +133,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
 
   return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
     {stage === "welcome" && <>
-      <h2 className="text-2xl font-semibold">{zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`}</h2>
+      <h2 className="text-2xl font-semibold">{quiz.kind === "practice" ? (zh ? `开始${quiz.questions.length}题练习` : `Start your ${quiz.questions.length}-question practice`) : (zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`)}</h2>
       <p className="my-4 leading-7">{quiz.instructions?.[locale] ?? (zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete.")}</p>
       {!ready && <p role="status" className="my-3 text-sm text-slate-600">{zh ? "正在准备测试…" : "Preparing the test…"}</p>}
       <div className="flex flex-wrap gap-3"><button disabled={!ready} className={`${button} bg-violet-700 text-white`} onClick={() => start()}>{zh ? "开始测试" : "Start test"}</button>{draft && <button disabled={!ready} className={button} onClick={() => start(true)}>{zh ? "恢复本标签页进度" : "Resume this tab's progress"}</button>}</div>
@@ -164,9 +166,10 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}
       {affection && <QuestionnaireAffectionReport quiz={quiz} result={affection} locale={locale} />}
       {attachment && <QuestionnaireAttachmentReport quiz={quiz} result={attachment} locale={locale} />}
+      {practice && <QuestionnairePracticeReport quiz={quiz} result={practice} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
-      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(optimism?.total === null || extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["egogram", "social-intelligence-test", "grit-test", "toxic-trait", "locus-of-control", "growth-mindset-fixed-mindset", "maturity-test", "light-triad-test", "values", "sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>
+      {practice ? <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "先复习，再选择下一步" : "Review first, then choose what comes next"}</h3><p className="my-4 leading-7 text-slate-600">{zh ? "可以先回看逐题解析和分项说明，再从全部测试中选择其他练习。本题正确数只描述当前题本，不换算成MBTI类型或职业兴趣。若另想探索喜欢怎样的工作活动，可以独立完整作答RIASEC；也可以在这里结束。" : "Review the item explanations and section guides, then choose another exercise from all tests. Correct counts describe this bank and are not converted into MBTI types or career interests. To explore preferred work activities separately, RIASEC requires its own full attempt. You can also stop here."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试与练习" : "Back to all tests and practice"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/holland-career-interest-test-riasec`}>{zh ? "可选：另做RIASEC职业兴趣测试" : "Optional: take a separate RIASEC career-interest test"}</Link></section> : <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(optimism?.total === null || extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["egogram", "social-intelligence-test", "grit-test", "toxic-trait", "locus-of-control", "growth-mindset-fixed-mindset", "maturity-test", "light-triad-test", "values", "sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>}
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;
