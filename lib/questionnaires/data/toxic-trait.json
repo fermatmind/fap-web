@@ -1,0 +1,2209 @@
+{
+  "slug": "toxic-trait",
+  "code": "INTERPERSONAL_HABITS_ORIGINAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "有毒特征测试",
+    "en": "Toxic Trait Test"
+  },
+  "resultHeading": {
+    "zh": "五类互动习惯：完整自我观察结果",
+    "en": "Five interaction practices: your complete reflection"
+  },
+  "description": {
+    "zh": "免费有毒特征测试原创自我观察版：20道符合度题，分开回看转述、比较、暗示、先解释与旧争议。五份完整说明免费，不生成总毒性百分比或人格标签。",
+    "en": "A free Toxic Trait Test reflection: 20 accuracy items and five full guides to interaction habits. No overall toxicity percentage or personality labels."
+  },
+  "seoTitle": {
+    "zh": "有毒特征测试：20题与五类互动习惯免费完整结果",
+    "en": "Toxic Trait Test: Free Interaction Habits Reflection"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "转述一条消息前核对了吗？朋友分享近况时，话题转到了谁更好或更难吗？一次分歧里，想改什么、为什么解释和哪些旧事相关，可以分开回看。本版用20条符合度题组织五种具体做法，给你五份完整说明和可选表达，不把一个人定为有毒或无毒。16条为本次新原创，4条中文来自自有压力反应预览版并新写英文；不是标准毒性量表，也不等同于原小程序整份产品。五部分各四条全部有效才显示独立均分，资料不足明确保留，所有正文始终免费。你可以先读任一说明，不必输入姓名、对话或他人经历，也不需要做另一测评解锁。",
+    "en": "Did you check before passing on an account? When a friend shared news, did the topic shift into who did better or had it harder? In a disagreement, requested changes, explanations and relevant history can be considered separately. This edition organises twenty accuracy items around five specific practices, with full guides and optional wording rather than a verdict that someone is toxic or non-toxic. Sixteen items are new; four Chinese items come from an owned pressure-response preview with new English translations. This is not a standard toxicity scale or the whole mini-program product. Each four-item part needs all ratings for its own mean; missing information stays explicit and all text stays free. Read any guide first, without supplying names, conversations or others’ experiences or taking another assessment."
+  },
+  "instructions": {
+    "zh": "以过去三个月普通、可自主选择的互动为参照，评价每句话有多符合自己的做法，不替别人作答。1完全不符合至5非常符合；3表示不确定或视情况，也作为有效评分，不是稳定的中立频率。没有相关情境、资料不足或不愿回答请选择单独的NA。全部20条选择后显示五部分；每部分四条全部有效才有描述性均分。无总毒性分、人格标签或排名，五份完整说明一直免费可读。",
+    "en": "Refer to ordinary interactions with room to choose over the past three months. Rate how accurately each sentence describes your own practice, without answering for someone else. Ratings run from 1 Very inaccurate to 5 Very accurate. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Choose the separate NA for no relevant situation, insufficient information or preferring not to answer. All twenty selections finish the attempt; each part needs all four numeric ratings for a descriptive mean. There is no overall toxicity score, personality label or ranking. All five full guides remain free to read."
+  },
+  "source": {
+    "kind": "FermatMind original interpersonal-habits self-reflection edition: sixteen new bilingual items plus four exact owned PERSONALITY_SHADOW DEFENSIVE_PROTECTION Chinese items with new English translations. Not a validated toxicity scale or whole mini-program migration.",
+    "formCode": "fm_interpersonal_habits_accuracy_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "d203beec9fc61c2535bda147b0596d51a008e43ee55cff8b58baf03643609787",
+    "resultContentSha256": "dea46957d333f976066552c37c5d289fa83af7a7a058d3ee1de3c86080c828b0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "unchecked-retelling",
+      "title": {
+        "zh": "未核对就转述",
+        "en": "Retelling Before Checking"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "comparison-turns",
+      "title": {
+        "zh": "把话题转向比较",
+        "en": "Turning Updates into Comparisons"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "indirect-objections",
+      "title": {
+        "zh": "让异议留在暗示里",
+        "en": "Leaving Objections in Hints"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "explanation-first",
+      "title": {
+        "zh": "被质疑时先说明立场",
+        "en": "Explaining Your Position First"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "past-dispute-carryover",
+      "title": {
+        "zh": "把旧争议带进新问题",
+        "en": "Carrying Old Disputes Forward"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "HABIT_01",
+      "prompt": {
+        "zh": "听到关于不在场者的说法时，我会先转给别人，之后才核对事实。",
+        "en": "When I hear a claim about an absent person, I pass it on before checking the facts."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_02",
+      "prompt": {
+        "zh": "别人分享一件进展时，我会很快讲自己做过更大或更难的事。",
+        "en": "When someone shares progress, I quickly describe something bigger or harder that I have done."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_03",
+      "prompt": {
+        "zh": "我不同意一个普通安排时，会先用暗示表达不满，而不是说清具体异议。",
+        "en": "When I disagree with an ordinary arrangement, I signal dissatisfaction through hints before stating my specific objection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_04",
+      "prompt": {
+        "zh": "收到批评时，我会立刻解释背景，之后才听具体影响。",
+        "en": "When receiving criticism, I immediately explain the background before hearing about the specific impact."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_05",
+      "prompt": {
+        "zh": "讨论一个新分歧时，我会把此前已谈妥的争议再次列作对方的过错。",
+        "en": "While discussing a new disagreement, I bring up a previously settled dispute again as the other person’s fault."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_06",
+      "prompt": {
+        "zh": "听来的故事有空白时，我会加入自己的猜测，却没有说明那是猜测。",
+        "en": "When a story I heard has gaps, I add my own guesses without identifying them as guesses."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_07",
+      "prompt": {
+        "zh": "朋友讲自己的困难时，我会把话题变成谁的经历更辛苦。",
+        "en": "When a friend describes a difficulty, I turn the conversation into whose experience was harder."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_08",
+      "prompt": {
+        "zh": "别人问我是否有意见时，我会说没事，之后却期待对方从语气猜到我的异议。",
+        "en": "When asked whether I object, I say it is fine but later expect the person to infer my objection from my tone."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_09",
+      "prompt": {
+        "zh": "自己的决定被质疑时，我会连续补充理由来保护原立场。",
+        "en": "When my decision is questioned, I keep adding reasons to protect my original position."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_10",
+      "prompt": {
+        "zh": "一次小安排出了问题时，我会把不相关的旧争执也放进这次讨论。",
+        "en": "When a small arrangement goes wrong, I bring unrelated old disputes into the current discussion."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_11",
+      "prompt": {
+        "zh": "转述别人的经历前，我会跳过确认哪些细节可以分享这一步。",
+        "en": "Before retelling another person’s experience, I skip checking which details may be shared."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_12",
+      "prompt": {
+        "zh": "别人想单独庆祝一件小事时，我会加入与其他人表现的比较。",
+        "en": "When someone wants to celebrate a small event on its own, I introduce comparisons with other people’s performance."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_13",
+      "prompt": {
+        "zh": "我希望一个小安排改变时，会让对方猜我究竟想改哪一部分。",
+        "en": "When I want a small arrangement changed, I leave the other person to guess which part I want changed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_14",
+      "prompt": {
+        "zh": "别人指出遗漏时，我会先强调我已经做过的部分。",
+        "en": "When someone points out an omission, I first emphasise the parts I have already done."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_15",
+      "prompt": {
+        "zh": "双方已约定这次只谈一件事时，我仍会列出过去的其他不满。",
+        "en": "After we agree to discuss one issue this time, I still list other complaints from the past."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_16",
+      "prompt": {
+        "zh": "发现先前转述的消息不准确后，我会只在自己心里改正，没有告诉原来的听众。",
+        "en": "After finding that a claim I repeated was inaccurate, I correct it privately without updating the original listeners."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "unchecked-retelling",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_17",
+      "prompt": {
+        "zh": "对方已经说不想比较时，我仍会用排名或输赢来继续这个话题。",
+        "en": "After someone says they do not want comparisons, I continue framing the topic through rankings or winning and losing."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "comparison-turns",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_18",
+      "prompt": {
+        "zh": "发现对方误解了我的暗示时，我会再加暗示，而不是说明具体请求。",
+        "en": "When someone misunderstands my hint, I add another hint rather than stating the specific request."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "indirect-objections",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_19",
+      "prompt": {
+        "zh": "误会发生时，我会急着证明本意，不太能先停下来核对结果。",
+        "en": "When a misunderstanding occurs, I rush to prove my intention and find it difficult to pause and check the outcome first."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "explanation-first",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HABIT_20",
+      "prompt": {
+        "zh": "对方要核对当前事件的细节时，我会回到旧争议，而没有先回应当前问题。",
+        "en": "When someone asks to check details of the present event, I return to an old dispute before addressing the current question."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "past-dispute-carryover",
+          "label": {
+            "zh": "没有相关情境／资料不足／不愿回答",
+            "en": "No relevant situation / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "unchecked-retelling",
+      "directionIds": [
+        "unchecked-retelling"
+      ],
+      "title": {
+        "zh": "未核对就转述：给信息加上核对的一步",
+        "en": "Retelling Before Checking: Adding a Verification Step"
+      },
+      "summary": {
+        "zh": "回看未经核实或未确认可分享范围的转述，以及发现错误后有没有更新原听众；分数不能证明动机、真实性或实际伤害。",
+        "en": "Reflect on passing on unverified accounts, checking what may be shared and updating listeners after an error. A score proves neither motive, truth nor actual harm."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "这部分只看信息从你这里传出去时的四个环节：先核事实还是先转述、有没有把猜测标明、是否确认可分享的细节，以及纠错有没有回到原听众。它不统计你说了多少话，也不把谈论不在场的人一概叫作伤害。别人主动请你传达一条已确认的消息，与未经核对就把猜测传成事实，是不同的情境。这里没有问你为何这样做，也没有收集原话、姓名或事件，因此不能用均分裁定一件事的真相。",
+              "en": "This part follows four points at which an account leaves your hands: whether checking precedes retelling, whether guesses are identified, whether shareable details are confirmed, and whether a correction reaches the original listeners. It does not count how much you talk or classify every discussion of an absent person as harmful. Relaying a confirmed message at someone’s request differs from passing a guess along as a fact. No names, original messages or event records are collected. Your mean therefore cannot establish what happened, why you spoke, or whether a particular account was true."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "符合度怎样读",
+            "en": "Reading accuracy ratings"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分更高表示这四句话在本次回想中较符合你的自述，不表示转述次数更多、伤害更重或你就是爱造谣的人。每条同为3，可能是在不同场合做法不一，也可能是不确定；这个类别仍参与运算，却不能被解释成稳定的中间习惯。较低的均分同样不能认证所有消息可靠：你也许少有转述机会，或只记得几件容易核对的事。先看四句话中哪一句让你犹豫，比把一个小数当作道德等级更有信息。",
+              "en": "A higher mean means that these four sentences fit your present recollection more closely. It does not establish more frequent retelling, greater harm, or an identity as someone who spreads rumours. Four ratings of three might reflect different practices across settings or uncertainty about the examples. That category enters the arithmetic without becoming a stable middle habit. A lower mean cannot certify that every message is reliable either: opportunities may have been scarce or easier cases more memorable. Notice which sentence was difficult to rate before treating a small decimal difference as meaningful."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一次可核对的日常情境",
+            "en": "An everyday example you can check"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，同伴说活动地点可能换了，你准备把消息发给其他参加者。可以在发出前区分：地点已由组织者确认，还是同伴的猜测？哪些细节需要让参加者知道，哪些涉及不必扩散的私人原因？如果已经转发了旧地址，后续核实不只是在心里改正，还可能需要告诉收到旧信息的那一组人。这只是可回看的信息链例子，不要求你披露活动或聊天记录，也不说明一次疏忽就对应某个固定结果。",
+              "en": "Suppose a companion says that an activity may have moved, and you are about to tell other participants. Before sending, separate an organiser’s confirmed change from the companion’s guess. Consider which details participants need and which private reasons need not travel with the message. If an old address has already been forwarded, checking it later changes your understanding but does not automatically update the original recipients. This example provides a chain of actions to review. It asks for no event details or chat records, and one missed correction does not determine a fixed result."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选的一句表达",
+            "en": "An optional phrase to try"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意，可以试一句：“这部分我还没核实，先不当作事实转发；哪些内容可以告诉其他人？”已经出现错误时，也可以明确更正的是哪条消息，而不再补上不必要的私人细节。这个尝试的目标是让信息状态更清楚，不是逼你证明自己从不出错。并非所有情境都能当场核实，保留“不确定”或不继续传播也可以。涉及他人隐私的材料不需要为了完成这个练习而收集或上传。",
+              "en": "If useful, try: “I have not checked this part, so I will not forward it as a fact. Which details may I share?” When correcting an earlier account, identify the message being corrected without adding unnecessary private material. The purpose is to make the information’s status clearer, not to prove that you never make mistakes. Immediate verification will not always be possible; leaving a claim uncertain or choosing not to circulate it can remain an option. You do not need to gather or upload someone else’s private material to complete this reflection."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外四部分有什么区别",
+            "en": "How it differs from the other four parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的核心是转述内容的核对与流向；把话题转向比较，核心是别人分享后话题被如何重新定框；让异议留在暗示里，核心是请求是否说清；先说明立场，核心是被质疑后的回应顺序；旧争议延续，核心是当前讨论有没有被旧问题带走。同一段谈话可能同时出现其中两种做法，但这份问卷没有把它们当成同一机制或可以相加的伤害单位。五部分分别读，不能用其中一项去填补另一项缺失。",
+              "en": "This part centres on checking an account and tracking where it travels. Comparisons concern how someone’s update is reframed; hints concern whether an objection becomes a clear request; explanation-first concerns the order of responding to a challenge; old-dispute carryover concerns the scope of the current discussion. More than one practice can occur in a conversation without becoming the same mechanism. The questionnaire has not established that its parts are interchangeable or additive units of harm. Read each separately, and do not use one part to fill information missing from another."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "哪些情况不能由这项定性",
+            "en": "What this result cannot classify"
+          },
+          "paragraphs": [
+            {
+              "zh": "为寻求帮助而向合适的人描述自己的经历，不等于在散播未经证实的传闻；保护隐私而不公开细节，也不等于故意隐瞒以操控别人。需要求助或维护安全时，信息的用途和接收者与普通闲聊不同，这四句话没有评估那些条件。一个自评分不能裁定谁有资格说话、谁该沉默或谁应承担某件事的责任，也不能要求你联系不愿或不适合联系的人完成“核实”。",
+              "en": "Describing your own experience to an appropriate person when seeking help is not equivalent to circulating an unchecked rumour. Protecting private details is not automatically concealment intended to control someone. The purpose and recipient of information can differ substantially between ordinary conversation and situations involving support or safety, and these four items do not assess those conditions. A self-rating cannot decide who may speak, who should stay silent, or who bears responsibility for an event. It also cannot require contact with someone you do not wish, or are not in a position, to contact."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "怎样做一次有限的回顾",
+            "en": "A small, bounded review"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果想进一步理解，可以只选一件普通、不会暴露他人隐私的小事，区分当时知道、猜测和后来确认的内容，再看消息最终到了哪些人那里。这个回顾不需要记录对方姓名，也不需要用本次均分给自己定性。如果下次选择先标明不确定、缩小分享细节或补一次更正，那是一个具体行动，不是分数已经证明你变好了。时间、机会和记忆变化都会影响后续自评；本版没有提供可靠变化阈值。",
+              "en": "For a closer look, choose one ordinary event that can be reviewed without exposing anyone’s privacy. Separate what you knew at the time, what you guessed, what was confirmed later, and who received the account. No names or personal label are needed. Choosing to mark uncertainty, narrow the shared details or send a correction is a concrete action; it is not improvement established by this mean. Opportunities, recall and the events available for comparison may change between attempts. This edition provides no reliable-change threshold for deciding that a score difference reflects lasting change."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "五部分怎样独立复算",
+            "en": "Recomputing five separate parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+              "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "版本来源、免费全文与隐私",
+            "en": "Edition, full free guides and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版16条新原创题，加自有小程序预览版同组4条中文及本站新英译；是新表单，不是原二十题整体迁移或已验证量表。“有毒特征”是常见检索名，结果只谈具体做法，不判断你或他人的品德、诊断、危险、责任或职业。全篇免费，无需做另一测试解锁。草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。分享只含测试名和公开入口，不带答案、个人均分或缺失条数。请勿输入或上传他人的私密事件；不做匿名人群排名，也没有跨语言等价或本地常模。",
+              "en": "This new form contains sixteen newly authored items plus four Chinese items from one part of an owned mini-program preview with new English translations. It is neither a whole-form migration nor a validated scale. “Toxic trait” is a common search title; results discuss specific practices without judging anyone’s morality, diagnosis, danger, responsibility or career. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing includes only the test name and public entry, without answers, personal means or missing counts. No private event material is requested, and no population rankings, language equivalence or local norms are established."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看未经核实或未确认可分享范围的转述，以及发现错误后有没有更新原听众；分数不能证明动机、真实性或实际伤害。",
+        "en": "Reflect on passing on unverified accounts, checking what may be shared and updating listeners after an error. A score proves neither motive, truth nor actual harm."
+      },
+      "scoreReading": {
+        "zh": "四条全部有效时显示各自符合度均分，无总毒性、等级或个人定性。",
+        "en": "Four valid ratings yield this part’s accuracy mean, without overall toxicity, bands or a personal verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "未核对就转述：有毒特征测试完整说明",
+          "en": "Retelling Before Checking: Full Toxic Trait Guide"
+        },
+        "description": {
+          "zh": "阅读未核对就转述的完整结果：事实与猜测、分享范围、纠错流向、日常例子和反例。不是对动机、品德或实际伤害的判断。",
+          "en": "Read the full guide to unchecked retelling: facts, guesses, shareable details, corrections, examples and limits. No motive or harm verdict."
+        }
+      }
+    },
+    {
+      "id": "comparison-turns",
+      "directionIds": [
+        "comparison-turns"
+      ],
+      "title": {
+        "zh": "把话题转向比较：给别人的近况留一点位置",
+        "en": "Turning Updates into Comparisons: Making Room for an Update"
+      },
+      "summary": {
+        "zh": "回看别人分享进展或困难后，自己是否迅速引入更大、更难或排名输赢；不判断自尊、嫉妒、成就或人格。",
+        "en": "Reflect on introducing bigger, harder or winning-and-losing frames after someone shares progress or difficulty, without judging self-esteem, envy, achievement or personality."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这一部分观察什么",
+            "en": "What this part explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "四句话围绕谈话焦点的变化：别人说一件进展，你是否马上讲自己的更大事件；别人说困难，你是否把话题变成谁更辛苦；小小庆祝是否很快变成表现比较；已经说不想比较后，排名输赢是否仍继续。这里没有要求你永远只听不说，也不把分享类似经历自动叫作竞争。它关心的是对方原本在分享什么，以及比较框架是不是把那个话题挤走，而不是判断你心里是否嫉妒或缺乏自信。",
+              "en": "These four sentences concern shifts in conversational focus: introducing your bigger event after someone shares progress, turning difficulty into a contest of hardship, adding performance comparisons to a small celebration, and continuing a winning-and-losing frame after comparisons have been declined. They do not require you to listen indefinitely without speaking or classify every similar experience as competition. The useful question is what the other person was sharing and whether a comparative frame displaced it. The items cannot establish that you felt envious, lacked confidence, or intended to diminish someone else."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "符合度不是竞争能力",
+            "en": "Accuracy is not competitive ability"
+          },
+          "paragraphs": [
+            {
+              "zh": "本项均分高，只表示这组具体描述在回想时较符合，并不是你竞争心更强、成绩更好或情绪更不健康。均分低也不表示你永远愿意听别人，更不能拿来比较两个人谁更善良。3保留了不确定或视情况的意思：你可能在比赛讨论中愿意比较，在朋友庆祝时不愿意比较。把这个回答当成一般竞争倾向，会丢掉题目中的情境差异。四条都有效才显示均分，是资料完整度约定，不是人格判断门槛。",
+              "en": "A higher mean describes a closer fit to these specific statements in recollection, not stronger competitive ability, better achievement or poorer emotional health. A lower mean does not prove that you always listen well, and it cannot compare two people’s goodness. Three retains its uncertain-or-conditional meaning: you might welcome comparisons in a discussion of a competition while avoiding them during a friend’s celebration. Converting that answer into a general competitive trait would erase the circumstances in the items. Requiring four ratings is a completeness convention, not a personality threshold."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "庆祝与比较可以是两种谈话",
+            "en": "Celebration and comparison can be different conversations"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，朋友告诉你第一次完成了一个小项目，你也刚完成规模更大的工作。两件事都可以分享，但先问对方想讲讲过程，还是希望听一些类似经验，可能会让这次谈话的用途更清楚。如果对方只想庆祝一个自己的进展，立刻比较规模就会改变话题。问卷并不知道对方实际的感受，也没有观察你们这次对话；这个例子只是帮助你找出自己评级时想到的做法，而不是替任何一方证明被轻视。",
+              "en": "A friend tells you about finishing a first small project while you have recently completed a larger one. Both events can be worth sharing. Asking whether the friend wants to describe the process or hear related experiences can clarify the conversation’s purpose. If the immediate aim is simply to celebrate a personal step, an instant comparison of scale changes that purpose. The questionnaire neither observes the conversation nor knows how either person felt. The example helps identify the practice behind a rating; it is not evidence that someone was actually dismissed."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可以先问想要哪种回应",
+            "en": "An optional question about the response wanted"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意尝试时，可以问：“你想先说说这件事，还是想一起比较不同做法？”听到困难，也可以先确认对方想被听见，还是想交换经验，而不急着证明谁过得更辛苦。你仍然可以在合适的时候讲自己的事情；这个练习不要求你隐藏进展，也不要求无限承担别人的倾诉。它只为双方多留一步确认谈话用途的机会。若对方不愿继续或你没有精力，可以保留结束谈话的选择。",
+              "en": "If you want to try something, ask: “Would you like to tell me about this first, or compare different approaches together?” After hearing a difficulty, checking whether someone wants a listening response or an exchange of experiences can come before comparing whose situation was harder. You may still share your own news at an appropriate time. This exercise requires neither hiding your progress nor accepting unlimited responsibility for listening. It simply adds an opportunity to agree on the conversation’s purpose. Either person can also choose to stop or say that they lack the capacity to continue."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与信息、暗示、解释和旧事的区别",
+            "en": "Distinguishing comparisons from the other parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "比较项问的是谁的经历被放进大小、辛苦或输赢的框架；转述项问的是消息有没有被核对；暗示项问的是反对意见有没有说清；解释项问的是受到质疑时先做什么；旧争议项问的是本次话题有没有被过去的其他问题带走。说“我也遇到过”可能是连接经验，也可能开始比谁更难，需要看后续的具体表达和对方的回应。本版没有把一句孤立的话自动分到某个道德类别，也没有用五部分合成一个人的相处价值。",
+              "en": "Comparisons concern framing experiences through size, hardship or winning. Retelling concerns checking an account; hints concern making an objection explicit; explanation-first concerns what follows a challenge; carryover concerns bringing previous disputes into a present issue. “I have experienced that too” can connect experiences or begin a contest over hardship, depending on what follows and how the conversation develops. This edition does not classify an isolated sentence into a moral category. Nor do the five parts combine to determine someone’s value as a companion or whether a relationship should continue."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "合理比较与个人界限",
+            "en": "Useful comparisons and personal limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "双方主动商量方案、在比赛后复盘表现，或一起比较资源是否公平，不等于把别人的近况夺成竞争。你提醒自己的需要也需要被听见，不等于缺乏同理心。反过来，均分低不能证明你的回应一定满足了对方：问卷没有收集对方评价，更没有确定对方的期待是否现实。它不能要求任何人接受无止境的比较、倾诉或指责，也不能把拒绝参与一个比较话题当作失败。",
+              "en": "Jointly comparing options, reviewing performance after a competition, or discussing whether resources are distributed fairly can be useful agreed purposes. Stating that your own needs also deserve attention is not, by itself, a lack of empathy. Conversely, a low mean cannot prove that your responses met someone else’s needs: no observer ratings were collected, and the questionnaire has not established whether their expectations were realistic. It cannot require anyone to accept unlimited comparisons, disclosures or criticism. Declining to participate in a comparative conversation is not failure inferred from a score."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "回顾一次话题转向",
+            "en": "Reviewing one change of focus"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以选一次普通谈话，只记得对方最初在说什么，以及你接下来的回应有没有把话题改成比较。不必记分，也不必追问对方替这份测验验证答案。如果你想试一个变化，可以在下次分享前留一个提问或停顿，再观察谈话是否更符合双方想要的用途。没有改善也不说明你不能改变；一次谈话和本次小数都不足以推断长期效果。这里提供的是可选择的回看入口，不是必须完成的社交训练。",
+              "en": "Choose one ordinary conversation and recall what the other person initially wanted to share and whether your next response changed it into a comparison. You need not keep points or ask the person to validate your test answers. If you want a small experiment, add a question or pause before sharing your related experience, then notice whether the exchange better serves both people’s purposes. A disappointing conversation does not establish an inability to change, and neither one exchange nor this decimal establishes long-term effects. This is an optional reflection, not compulsory social training."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "五部分怎样独立复算",
+            "en": "Recomputing five separate parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+              "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "版本来源、免费全文与隐私",
+            "en": "Edition, full free guides and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版16条新原创题，加自有小程序预览版同组4条中文及本站新英译；是新表单，不是原二十题整体迁移或已验证量表。“有毒特征”是常见检索名，结果只谈具体做法，不判断你或他人的品德、诊断、危险、责任或职业。全篇免费，无需做另一测试解锁。草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。分享只含测试名和公开入口，不带答案、个人均分或缺失条数。请勿输入或上传他人的私密事件；不做匿名人群排名，也没有跨语言等价或本地常模。",
+              "en": "This new form contains sixteen newly authored items plus four Chinese items from one part of an owned mini-program preview with new English translations. It is neither a whole-form migration nor a validated scale. “Toxic trait” is a common search title; results discuss specific practices without judging anyone’s morality, diagnosis, danger, responsibility or career. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing includes only the test name and public entry, without answers, personal means or missing counts. No private event material is requested, and no population rankings, language equivalence or local norms are established."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看别人分享进展或困难后，自己是否迅速引入更大、更难或排名输赢；不判断自尊、嫉妒、成就或人格。",
+        "en": "Reflect on introducing bigger, harder or winning-and-losing frames after someone shares progress or difficulty, without judging self-esteem, envy, achievement or personality."
+      },
+      "scoreReading": {
+        "zh": "四条全部有效时显示各自符合度均分，无总毒性、等级或个人定性。",
+        "en": "Four valid ratings yield this part’s accuracy mean, without overall toxicity, bands or a personal verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "话题转向比较：有毒特征测试完整说明",
+          "en": "Turning Updates into Comparisons: Full Result Guide"
+        },
+        "description": {
+          "zh": "阅读话题转向比较的完整结果：庆祝、困难与排名框架的区别，具体表达、反例及计分。不推断嫉妒、自尊或竞争能力。",
+          "en": "Read the full comparisons guide: celebrations, hardship, rankings, optional wording and counterexamples. No envy, self-esteem or ability labels."
+        }
+      }
+    },
+    {
+      "id": "indirect-objections",
+      "directionIds": [
+        "indirect-objections"
+      ],
+      "title": {
+        "zh": "让异议留在暗示里：把想改的部分说具体",
+        "en": "Leaving Objections in Hints: Naming the Requested Change"
+      },
+      "summary": {
+        "zh": "回看普通安排中的异议是否靠语气、暗示和猜测传达；不把沉默、文化表达或安全边界自动归为有毒。",
+        "en": "Reflect on objections conveyed through tone, hints and expected guesses in ordinary arrangements, without classifying silence, cultural expression or safety boundaries as toxic."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这里的暗示指什么",
+            "en": "What hints mean here"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一部分限定在普通、可以自主选择的安排：有异议却先发出不满信号，说没事后期待对方从语气猜出，想改一部分却让别人猜具体内容，或暗示被误解后继续增加暗示。它没有把间接表达一概当成问题，也没有假定直接说话在任何情境都可行。四句话只提供一组可以回看的表达顺序，不能证明你在惩罚别人、操控别人或隐藏某种人格。没有相关情境时，NA比猜想自己的反应更合适。",
+              "en": "This part is limited to ordinary arrangements where you have room to choose: signalling dissatisfaction before naming an objection, saying things are fine while expecting a tone to reveal the objection, leaving someone to guess the requested change, or adding hints after a misunderstanding. It does not classify all indirect expression as a problem or assume direct speech is workable everywhere. These sentences provide a sequence of actions to reflect on. They cannot establish punishment, manipulation or a hidden personality. When no relevant situation comes to mind, NA is available instead of inventing a likely response."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "读的是自述符合度",
+            "en": "Reading the self-description"
+          },
+          "paragraphs": [
+            {
+              "zh": "更高的均分表示这几种做法在过去三个月的回想中更符合，不表示异议更多、表达更激烈或关系更差。更低也不能证明请求一定清楚：对方可能仍然不理解，或者你很少遇到需要协商的安排。3表示不确定或视情况，而不是“偶尔暗示”这个频率；它与从不、总是并不是同一套标签。四条全部有效后的小数只是本组有序评分的平均显示，没有人群常模，也没有高低两类人的界线。",
+              "en": "A higher mean indicates a closer recalled fit to these practices over the past three months, not more objections, greater intensity or a worse relationship. A lower mean cannot prove that requests were clear: someone might still have misunderstood, or occasions for negotiation might have been rare. Three means uncertain or conditional, not “sometimes hints,” and these are not Never-to-Always frequency labels. The displayed decimal averages ordered ratings after all four are supplied. There are no population norms or boundaries dividing people into high and low personality types."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一次小安排里的信息缺口",
+            "en": "An information gap in a small arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，两人准备确定见面时间，你更希望晚半小时，却只说“你最近应该很忙吧”。对方可能把这句话理解成体谅，也可能不知道你想改时间。如果有空间把请求补成“我想晚半小时，你方便吗”，改变的是信息清晰度，不是证明前一句一定带恶意。问卷并不知道这次见面的背景或双方的权力关系，也没有权利要求你在不合适的情况下说出全部想法。",
+              "en": "Suppose two people are arranging a meeting. You would prefer half an hour later but only say, “You must be busy lately.” The other person may hear consideration rather than a request to change the time. Where it is workable, adding “I would prefer half an hour later; would that work for you?” changes the information available. It does not prove the original sentence was malicious. The questionnaire knows neither the meeting’s circumstances nor the power between the people involved, and it cannot require full disclosure where speaking openly is not appropriate."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选地补上具体请求",
+            "en": "Optionally adding a specific request"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以尝试把观察、偏好和请求拆开：“我看到时间还没定；我更适合晚一点；能不能改到五点半？”这不是一套必须照读的标准句，也不保证别人同意。你可以只说到自己愿意说的范围，或者先暂停，待条件更适合再谈。另一种尝试是确认对方理解了哪个部分，而不是继续叠加暗示。练习只针对双方愿意处理的普通安排，不用来要求你向不合适的人证明自己表达清楚。",
+              "en": "You could separate an observation, a preference and a request: “The time is still open; later works better for me; could we make it five-thirty?” This is not a required script and does not guarantee agreement. You may share only what you choose or pause until the circumstances are more workable. Another option is to check which part the other person understood instead of adding further hints. The exercise concerns ordinary arrangements both people are willing to discuss. It is not a demand to prove your clarity to someone with whom that discussion is inappropriate."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他四种做法的边界",
+            "en": "Boundaries with the other four practices"
+          },
+          "paragraphs": [
+            {
+              "zh": "暗示项关心“想改什么”是否进入了共同信息，而不是消息是否真实、谁更优秀、谁先解释或旧事是否被带入。转述需要核对信息来源；比较关注谈话焦点；先说明立场关注被质疑后的回应；旧争议关注当前问题的范围。你可能同时用了暗示并提起旧事，但五项没有建立共同的毒性单位，也不要求把一次互动拆成累计扣分。分别理解这些主题，是为了找到具体表达的差异，不是收集对自己不利的标签。",
+              "en": "Hints concern whether the requested change becomes shared information. They do not directly assess a claim’s truth, who performed better, who explained first, or whether old issues entered the conversation. Retelling concerns verification; comparisons concern focus; explanation-first concerns responses to challenge; carryover concerns the scope of the current issue. Hints and old disputes might appear together, but the parts have no established common unit of toxicity and do not turn an exchange into cumulative penalties. Distinguishing the themes helps identify a specific practice rather than collect labels against yourself."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "间接表达不等于有害意图",
+            "en": "Indirect expression does not establish harmful intent"
+          },
+          "paragraphs": [
+            {
+              "zh": "含蓄表达可能是文化习惯、礼貌选择，或在权力不平等时保留空间的方式。沉默、拒绝回答、推迟谈话和不透露私人原因，也不能单凭形式被解释成惩罚。这里没有测量那些原因，更没有评估安全条件。你是否需要接受一个安排，不能由这个均分决定；对方不理解也不自动证明责任全在你。相反，直接表达也并非总是体贴或有效，这个结果不授予任何表达风格道德优越。",
+              "en": "Indirect expression can reflect cultural convention, a choice of politeness, or an attempt to retain room under unequal power. Silence, declining a question, postponing a conversation and withholding private reasons cannot be classified as punishment from form alone. These items do not measure those reasons or assess safety. This mean cannot decide whether you should accept an arrangement, and another person’s misunderstanding does not automatically place all responsibility on you. Direct expression is not always considerate or effective either; the result gives no communication style moral superiority."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "只挑一个可自主选择的情境",
+            "en": "Choosing one situation with room to act"
+          },
+          "paragraphs": [
+            {
+              "zh": "若想回顾，可以选一件双方愿意讨论的小安排，区分“我心里希望什么”和“我实际告诉对方什么”。不需要披露私人理由，也不必让对方替你打分。你可以决定下次补一个具体请求、确认理解，或暂不尝试。之后的回应是否合适，还取决于时间、资源、权力和双方的需要；本次均分并不预测结果。重复自评时出现变化，也可能来自想起了不同事件，没有可靠变化阈值可据此宣布进步或退步。",
+              "en": "If you want to review something, choose a small arrangement that both people are willing to discuss. Separate what you privately wanted from what you actually communicated. Private reasons need not be disclosed, and no one needs to rate you. You can decide to add a specific request next time, check understanding, or make no experiment. What happens will also depend on timing, resources, power and both people’s needs; this mean predicts none of those outcomes. Different recalled events can change later ratings, and no reliable-change threshold establishes progress or decline."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "五部分怎样独立复算",
+            "en": "Recomputing five separate parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+              "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "版本来源、免费全文与隐私",
+            "en": "Edition, full free guides and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版16条新原创题，加自有小程序预览版同组4条中文及本站新英译；是新表单，不是原二十题整体迁移或已验证量表。“有毒特征”是常见检索名，结果只谈具体做法，不判断你或他人的品德、诊断、危险、责任或职业。全篇免费，无需做另一测试解锁。草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。分享只含测试名和公开入口，不带答案、个人均分或缺失条数。请勿输入或上传他人的私密事件；不做匿名人群排名，也没有跨语言等价或本地常模。",
+              "en": "This new form contains sixteen newly authored items plus four Chinese items from one part of an owned mini-program preview with new English translations. It is neither a whole-form migration nor a validated scale. “Toxic trait” is a common search title; results discuss specific practices without judging anyone’s morality, diagnosis, danger, responsibility or career. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing includes only the test name and public entry, without answers, personal means or missing counts. No private event material is requested, and no population rankings, language equivalence or local norms are established."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看普通安排中的异议是否靠语气、暗示和猜测传达；不把沉默、文化表达或安全边界自动归为有毒。",
+        "en": "Reflect on objections conveyed through tone, hints and expected guesses in ordinary arrangements, without classifying silence, cultural expression or safety boundaries as toxic."
+      },
+      "scoreReading": {
+        "zh": "四条全部有效时显示各自符合度均分，无总毒性、等级或个人定性。",
+        "en": "Four valid ratings yield this part’s accuracy mean, without overall toxicity, bands or a personal verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "让异议留在暗示：有毒特征测试完整说明",
+          "en": "Leaving Objections in Hints: Full Toxic Trait Guide"
+        },
+        "description": {
+          "zh": "阅读让异议留在暗示里的完整结果：请求、语气、信息缺口及可选表达。区分文化表达、隐私与安全边界，不给人贴标签。",
+          "en": "Explore hints, requests and information gaps with examples and optional wording. Cultural expression, privacy and safety boundaries remain distinct."
+        }
+      }
+    },
+    {
+      "id": "explanation-first",
+      "directionIds": [
+        "explanation-first"
+      ],
+      "title": {
+        "zh": "被质疑时先说明立场：解释与核对",
+        "en": "Explaining Your Position First: Reviewing the Order of Response"
+      },
+      "summary": {
+        "zh": "沿用自有预览版四条中文做法描述，回看批评、质疑、遗漏和误会后的回应顺序；解释本身可以合理，题目不确认你忽略了影响。",
+        "en": "Using four Chinese items from an owned preview, reflect on response order after criticism, questions, omissions and misunderstandings. Explanation may be legitimate; items do not establish ignored impact."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "四条保留了什么",
+            "en": "What the four items retain"
+          },
+          "paragraphs": [
+            {
+              "zh": "这四条中文来自费马自有压力反应观察预览版的同一组，分别问收到批评先解释背景、决定被质疑后连续补理由、被指出遗漏先说已做部分，以及误会后急于证明本意。本站为它们另写英文译文，纳入这份新的二十题问卷；整份结果不等同于原小程序。这里保留的是具体做法和顺序，不是隐藏的防御人格。原来的编辑审查属于题目表达审查，不是心理测量验证，不能因来源自有就跳过这个限制。",
+              "en": "The four Chinese items come from one part of FermatMind’s owned pressure-response preview. They ask about explaining background after criticism, adding reasons after a decision is questioned, emphasising completed work after an omission is identified, and rushing to prove intention after a misunderstanding. New English translations place them within a different twenty-item form; this whole result is not equivalent to the mini-program. What carries over is specific wording about actions and sequence, not a hidden defensive personality. The source’s editorial review examined wording rather than establishing psychometric validity."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分不等于忽略影响",
+            "en": "A mean does not establish ignored impact"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高意味着你较认可这四种顺序，不证明你没有听别人、拒绝承担责任或实际上伤害了谁。解释背景、纠正误解和指出已经做过的工作，都可能有合理用途。题目尤其不能确认“说明立场”之后有没有继续核对影响。四条都有效时以原始和除4显示两位均分；3仍是不确定或视情况，不是稳定的防御强度。较低也不说明你一定更成熟、更有同理心，或能在任何质疑下从容回应。",
+              "en": "A higher mean indicates closer agreement with these four response sequences. It does not prove that you failed to listen, refused responsibility or harmed someone. Explaining context, correcting a misunderstanding and identifying work already completed can serve legitimate purposes. In particular, the items do not establish whether you later checked an impact after explaining your position. All four ratings are required; their raw sum divided by four supplies the two-decimal mean. Three remains uncertain or conditional, not a stable defensive intensity. A lower mean establishes neither greater maturity nor an ability to handle every challenge calmly."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "先核对遗漏，再补背景也是一种顺序",
+            "en": "Checking the omission and adding context"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，同伴说一份共同清单少了一个环节。你知道前一天已经完成不少部分，很想先把这些工作列出来。可以回看的是：你有没有先确认对方所指的具体遗漏，之后再补工作背景？两种信息都可能重要，先后顺序也可能随情境变化。这份题本没有查看清单、工作记录或同伴的说法，因此不能裁定谁说得对，也不能把急于解释直接等同于拒绝合作。",
+              "en": "A companion says a shared checklist is missing one step. You know you completed substantial work the previous day and want to list it immediately. One thing to review is whether you first identified the specific omission and then supplied that background. Both kinds of information may matter, and their useful order can change with circumstances. This questionnaire sees neither the checklist nor work records or the companion’s account. It cannot determine who is correct or equate a wish to explain with refusal to cooperate. The example concerns a sequence worth considering, not a verdict on the event."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选地把两件事分开",
+            "en": "Optionally separating two tasks"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意，可以试：“我想先弄清你指的是哪一步，之后再补充我当时的考虑。”也可以说需要一点时间，再决定是否继续讨论。这样做的目的只是把核对具体信息与解释本意分开，不是要求你承认并不存在的错误，或放弃澄清事实。若质疑本身不合理、带有压力或不适合继续，本项不能要求你接受它；是否回应和回应到什么程度仍由你结合现实条件判断。",
+              "en": "If useful, try: “I want to understand which step you mean first, then add the considerations I had at the time.” You may also ask for time before deciding whether to continue. The purpose is to separate checking specific information from explaining intention, not to require admission of an error that did not occur or surrender clarification of the facts. If a challenge is unreasonable, pressured or unsuitable to continue, this result cannot require you to accept it. Whether and how far to respond remains a decision informed by the actual circumstances, which these items do not assess."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "回应顺序与其他主题不同",
+            "en": "Response order is a separate theme"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里与暗示项都涉及表达，但关注点不同：暗示问异议有没有说具体，本项问被质疑后先解释什么。转述项关心发给其他人的消息，比较项关心别人的近况被如何定框，旧争议项关心谈话是否转到过去的其他问题。五种做法可以在同一事件中交叠，不表示一个分数代表另外四种。原小程序还有退开、控制、安抚和暂时沉默等其他组；它们没有被迁移进本题本，更不会被这个标题叫作有毒。",
+              "en": "Hints and explanation-first both involve expression, but ask different questions: whether an objection becomes specific, and what comes first after a challenge. Retelling concerns information passed to others; comparisons concern the frame placed around an update; carryover concerns moving into other previous issues. Practices can overlap within an event without one score representing the other four. The source mini-program also contains withdrawal, tightening control, appeasement and temporary silence. Those parts are not migrated into this form and are not classified as toxic by its title. This is partial item reuse, not another completed mini-program migration."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "合理解释与安全边界",
+            "en": "Legitimate explanations and boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "遇到事实错误时立即澄清，或在别人误解自己的意思时补充背景，可能是必要而合理的。题目没有确认所有批评都正确，也没有测量对方是否愿意听你说。均分不承担责任裁定功能，不能用来要求你放弃边界、继续一段不愿继续的谈话，或向他人证明自己没有恶意。接纳帮助、暂时沉默和不透露私人原因都不由这四条定性；分数也不能为任何一方的指责提供证据。",
+              "en": "Immediate clarification of a factual error or added background after a misunderstanding can be necessary and reasonable. The items do not establish that every criticism is correct or that another person is willing to listen. A mean cannot assign responsibility, require you to abandon a boundary, prolong an unwanted discussion, or make you prove the absence of bad intention. Accepting support, staying temporarily silent and keeping private reasons undisclosed are not classified by these four items. Nor can the score serve as evidence for either person’s accusations about what occurred."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "从可回看的顺序入手",
+            "en": "Starting with a sequence you can review"
+          },
+          "paragraphs": [
+            {
+              "zh": "想进一步理解时，可以挑一件普通的小分歧，只回看你当时先说了什么、对方具体在问什么，以及后来有没有机会补足两边的信息。无需上传记录，也不用根据本次结果替旧事件重新判责。如果下次想换一个顺序，可以先做一次确认再补背景；不想尝试也可以。它是可选的沟通实验，没有经过本版验证的效果承诺；自评变化不能证明你已改变稳定特质，更不能推断原小程序其他组的分数。",
+              "en": "For a closer look, choose one ordinary small disagreement and review what you said first, what was being asked, and whether there was a later opportunity to supply information from both sides. No records need to be uploaded, and the result should not reopen responsibility judgments about an old event. If you want a different sequence next time, you might confirm one detail before adding background; you can also decline the experiment. This edition has not established its effects. A changed self-rating proves no stable trait change and provides no estimate of the source mini-program’s other parts."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "五部分怎样独立复算",
+            "en": "Recomputing five separate parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+              "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "版本来源、免费全文与隐私",
+            "en": "Edition, full free guides and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版16条新原创题，加自有小程序预览版同组4条中文及本站新英译；是新表单，不是原二十题整体迁移或已验证量表。“有毒特征”是常见检索名，结果只谈具体做法，不判断你或他人的品德、诊断、危险、责任或职业。全篇免费，无需做另一测试解锁。草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。分享只含测试名和公开入口，不带答案、个人均分或缺失条数。请勿输入或上传他人的私密事件；不做匿名人群排名，也没有跨语言等价或本地常模。",
+              "en": "This new form contains sixteen newly authored items plus four Chinese items from one part of an owned mini-program preview with new English translations. It is neither a whole-form migration nor a validated scale. “Toxic trait” is a common search title; results discuss specific practices without judging anyone’s morality, diagnosis, danger, responsibility or career. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing includes only the test name and public entry, without answers, personal means or missing counts. No private event material is requested, and no population rankings, language equivalence or local norms are established."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "沿用自有预览版四条中文做法描述，回看批评、质疑、遗漏和误会后的回应顺序；解释本身可以合理，题目不确认你忽略了影响。",
+        "en": "Using four Chinese items from an owned preview, reflect on response order after criticism, questions, omissions and misunderstandings. Explanation may be legitimate; items do not establish ignored impact."
+      },
+      "scoreReading": {
+        "zh": "四条全部有效时显示各自符合度均分，无总毒性、等级或个人定性。",
+        "en": "Four valid ratings yield this part’s accuracy mean, without overall toxicity, bands or a personal verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "被质疑时先解释：有毒特征测试完整说明",
+          "en": "Explaining Your Position First: Full Result Guide"
+        },
+        "description": {
+          "zh": "阅读被质疑后先解释的完整结果：背景、遗漏、本意与核对顺序。解释本身可以合理，结果不裁定责任或人格。",
+          "en": "Read the full explanation-first guide: context, omissions, intention and response order. Explanation can be legitimate; no blame or personality verdict."
+        }
+      }
+    },
+    {
+      "id": "past-dispute-carryover",
+      "directionIds": [
+        "past-dispute-carryover"
+      ],
+      "title": {
+        "zh": "把旧争议带进新问题：分清当前议题与未解决的事",
+        "en": "Carrying Old Disputes Forward: Separating the Current Issue"
+      },
+      "summary": {
+        "zh": "回看讨论新分歧时怎样带入已谈妥、无关或约定暂不讨论的旧事；不要求遗忘历史，也不裁定某件事已经解决。",
+        "en": "Reflect on bringing settled, unrelated or deferred disputes into a new issue. This does not require forgetting history or decide that an event is resolved."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "当前议题怎样被旧事改变",
+            "en": "How past disputes change the current issue"
+          },
+          "paragraphs": [
+            {
+              "zh": "四句话针对的是几种具体变化：已谈妥的争议重新作为过错列入、新问题掺入不相关旧事、约定只谈一件事却继续列过去的不满，以及被问当前细节时回到旧争议。它不问你记不记得不愉快，也不规定过去的事一律不能重提。真正尚未解决的问题可能需要自己的讨论空间；这组题目没有核实哪个争议已经解决、谁同意过什么或哪些背景相关，不能替一段关系画出唯一正确的议题边界。",
+              "en": "These sentences concern particular shifts: using a previously settled dispute again as fault, adding unrelated old issues to a new problem, listing past complaints after agreeing on one topic, and returning to an old dispute when present details are requested. They do not ask whether you remember unpleasant events or prohibit mentioning the past. A genuinely unresolved issue may need its own discussion. The items do not verify what was settled, who agreed to what, or which background is relevant. They therefore cannot draw the one correct boundary around a conversation or decide that history should be ignored."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "均分不评宽容程度",
+            "en": "The mean does not rate forgiveness"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示这几句较符合你对过去三个月的回想，不表示你更记仇、不肯原谅或造成了更多伤害。较低也不证明所有旧事已经被充分处理；也可能是最近少有新分歧，或没有机会展开讨论。3保留不确定或视情况的含义，并参与数值平均，不是“适度记着旧事”的健康中点。四条全有效只满足本版呈现均分的条件，没有任何分界把你分成圣人、轻度或严重的人，也没有与他人的排名比较。",
+              "en": "A higher mean means that these sentences fit your recollection over the past three months more closely. It does not establish resentment, unwillingness to forgive or greater harm. A lower mean does not prove old issues were adequately addressed: new disagreements or opportunities for discussion may simply have been scarce. Three retains uncertainty or conditionality while entering the arithmetic, rather than representing a healthy midpoint of remembering. Four valid ratings meet this edition’s display rule only. No boundary turns a score into a saintly, mildly toxic or severely toxic person, and no population ranking is supplied."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "先区分两件要谈的事",
+            "en": "Separating two issues that need discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，双方在核对这次物品归还时间时，你想起上次没有按约定分配任务。可以先辨别：上次的事与这次时间安排是否有直接关系，还是另一个仍未解决、需要单独商量的议题？把两件事分别说清，并不意味着否认过去的影响，也不保证双方立刻同意。题目没有记录实际约定，不能据你的自评分决定旧事是否相关，更不能要求任何人用“只谈现在”来掩盖持续存在的问题。",
+              "en": "While checking when an object will be returned, you remember a previous disagreement about dividing tasks. One distinction is whether that disagreement directly affects the current timing or remains a separate unresolved issue needing its own discussion. Naming both issues separately need not deny the past’s impact or guarantee immediate agreement. The questionnaire has no record of the actual arrangements and cannot decide relevance from your ratings. It also cannot require someone to use “only discuss the present” as a reason to conceal an ongoing problem. The example is an invitation to distinguish topics, not a ruling that one must be dropped."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选地为旧问题另留位置",
+            "en": "Optionally reserving space for the earlier issue"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果适合，可以说：“我现在想先核对归还时间；上次分工那件事对我仍未解决，是否另找时间谈？”你也可以说明两件事为何相关，而不必强行拆开。双方是否愿意继续、有没有现实讨论条件，不能靠一句标准话保证。这个尝试不是要求原谅、忘记或撤回自己的需要；若当下不适合处理，暂停也是可保留的选择。无需为了完成问卷而重新联系某个人或提供旧对话。",
+              "en": "If workable, try: “I want to check the return time first. The earlier division of tasks still feels unresolved to me; could we make separate time for it?” You could instead explain why the two issues are connected. A standard phrase cannot guarantee willingness or suitable conditions for a discussion. This option does not demand forgiveness, forgetting or withdrawal of your needs, and pausing remains possible when the circumstances are unsuitable. Completing the questionnaire requires neither renewed contact with someone nor submission of old conversations. Its purpose is to clarify a possible choice, not compel a particular relationship outcome."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "旧事延续与其他四部分",
+            "en": "Carryover and the other four parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "本项关心议题随时间怎样扩展，而不是当下说话音量或情绪强度。先说明立场可以完全围绕当前问题，仍与旧事延续不同；暗示关注有没有明确请求，比较关注大小输赢，转述关注信息核对和分享范围。把过去的事讲给第三个人时，也许同时涉及转述，但不能把两项平均或相加成“关系毒性”。五份说明提供五个具体观察角度，没有声称覆盖所有互动困难，更没有验证一种共同的潜在人格。",
+              "en": "Carryover concerns how the scope of a discussion expands across time, not speaking volume or emotional intensity. Explaining your position can remain entirely about the current issue and therefore differs from carryover. Hints concern explicit requests; comparisons concern bigger-or-better frames; retelling concerns verification and shareable details. Telling a third person about the past may involve retelling too, without making the two means additive or averageable as “relationship toxicity.” The five guides provide specific reflection angles. They neither cover every interaction difficulty nor establish a common latent personality behind them."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "持续问题不应被强制当作旧账",
+            "en": "Ongoing problems are not automatically old scores"
+          },
+          "paragraphs": [
+            {
+              "zh": "反复发生的问题可能需要回看历史模式，不能因为一方想谈当前一件事就被宣布已经结束。记录重要事实、保留边界、寻求适当帮助，也不等于执着翻旧账。本项没有评估责任、风险或权力差异，不能决定你是否应该和解、留下或继续讨论。另一方面，一次重提过去也不证明对方故意转移话题。这些判断需要具体信息，而本问卷没有采集事件记录或他人的视角，不应用均分补造那些缺失事实。",
+              "en": "A repeated problem may require attention to a history of events and cannot be declared finished simply because someone wants to focus on one current issue. Keeping important records, maintaining boundaries and seeking appropriate support are not automatically scorekeeping. These items assess neither responsibility, risk nor unequal power and cannot decide whether you should reconcile, stay or keep discussing. Equally, one reference to the past does not establish deliberate diversion by another person. Such judgments need specific information. The questionnaire collects no event records or observer perspective and should not replace those missing facts with a mean."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "回顾议题，而不是给人定性",
+            "en": "Reviewing topics rather than labelling people"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意回顾时，可以只列出一次普通讨论中实际出现的两个或三个议题，看看哪些彼此相关、哪些需要另留时间。不必记录姓名、敏感经过，也不用要求另一方认同本次测验。如果愿意试一个变化，可以先说清当前要核对的事，再明确有没有另一个未解决的问题。之后是否更容易谈，仍要结合双方需求和现实条件看；本版没有证明这种练习会改善关系。重测差异也不等于已经更宽容或更难相处。",
+              "en": "If you want to review something, name two or three topics that arose in an ordinary discussion and consider which were connected and which might need separate time. No names or sensitive details are required, and the other person need not endorse this test. An optional change is to identify the present detail first, then explicitly name any separate unresolved issue. Whether the conversation becomes easier still depends on both people’s needs and circumstances; this edition has not established that the exercise improves relationships. A different later mean does not prove greater forgiveness or increased difficulty as a person."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "五部分怎样独立复算",
+            "en": "Recomputing five separate parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+              "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "版本来源、免费全文与隐私",
+            "en": "Edition, full free guides and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版16条新原创题，加自有小程序预览版同组4条中文及本站新英译；是新表单，不是原二十题整体迁移或已验证量表。“有毒特征”是常见检索名，结果只谈具体做法，不判断你或他人的品德、诊断、危险、责任或职业。全篇免费，无需做另一测试解锁。草稿需主动开启，仅本设备保存24小时，完成、退出或重测清除；不主动开启也可完成。分享只含测试名和公开入口，不带答案、个人均分或缺失条数。请勿输入或上传他人的私密事件；不做匿名人群排名，也没有跨语言等价或本地常模。",
+              "en": "This new form contains sixteen newly authored items plus four Chinese items from one part of an owned mini-program preview with new English translations. It is neither a whole-form migration nor a validated scale. “Toxic trait” is a common search title; results discuss specific practices without judging anyone’s morality, diagnosis, danger, responsibility or career. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing includes only the test name and public entry, without answers, personal means or missing counts. No private event material is requested, and no population rankings, language equivalence or local norms are established."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看讨论新分歧时怎样带入已谈妥、无关或约定暂不讨论的旧事；不要求遗忘历史，也不裁定某件事已经解决。",
+        "en": "Reflect on bringing settled, unrelated or deferred disputes into a new issue. This does not require forgetting history or decide that an event is resolved."
+      },
+      "scoreReading": {
+        "zh": "四条全部有效时显示各自符合度均分，无总毒性、等级或个人定性。",
+        "en": "Four valid ratings yield this part’s accuracy mean, without overall toxicity, bands or a personal verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "旧争议带入新问题：有毒特征测试完整说明",
+          "en": "Carrying Old Disputes Forward: Full Result Guide"
+        },
+        "description": {
+          "zh": "阅读旧争议带进新问题的完整结果：议题范围、持续问题、具体例子与反例。不要求遗忘、原谅或重新联系任何人。",
+          "en": "Explore current issues, old disputes and unresolved problems with full examples and limits. No requirement to forget, forgive or renew contact."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "五部分怎样独立复算",
+        "en": "Recomputing five separate parts"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部20条各选1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合，或单独的NA。五部分各4条全部直接计分，0条反向。每部分四条全部数值有效才把原始和4—20除4，显示两位描述性均分及有效条数，不从一位小数均分倒推。3数值有效，但不代表稳定的中立、频率或强度。NA不补零、不补3、不由其余题估算；一部分缺失不抹掉其他部分。所有20条选择后呈现本次结果，五份全文无论有无均分都保留。不挑最高，不算总分、总均分、百分比或百分位，不分圣人、轻重等级或人格类型。有序类别的平均是呈现约定，不证明等距精度、伤害大小或显著变化。",
+          "en": "All twenty items offer 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate, or a separate NA. Five parts contain four directly keyed items each, with zero reversals. A part needs all four numeric ratings: its raw sum of 4–20 divided by four gives a two-decimal descriptive mean and a rated count, never reconstructed from a one-decimal mean. Three is numerically valid without becoming stable neutrality, frequency or intensity. NA is not zero, three or an estimate from the remaining items. Missing information in one part does not erase another. All twenty selections finish the attempt, and all five full guides remain readable. There is no highest type, overall sum or mean, percentage, percentile or saintly-to-severe band. Averaging ordered categories is a display convention, not established interval precision, magnitude of harm or significant change."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "符合度、3与NA是不同概念",
+        "en": "Accuracy, three and NA differ"
+      },
+      "paragraphs": [
+        {
+          "zh": "按过去三个月实际做法的符合程度回答，不当频率或强度。3是不确定或视情况，数值有效；NA是没有情境、资料不足或不愿回答，不参与均分，原因不能推断个人状态。",
+          "en": "Rate how accurately the statements describe your practices over three months, not frequency or intensity. Three is numerically valid uncertainty or conditionality. NA is separate missing information and cannot reveal a personal state."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "五份全文，不派最高类型",
+        "en": "Five full guides without a highest type"
+      },
+      "paragraphs": [
+        {
+          "zh": "五份说明分别覆盖具体定义、符合度、例子、可选表达、相邻主题、反例和回顾，并完整说明复算与范围。完成后同时保留，不挑最高，也不相加。",
+          "en": "Each full guide covers its definition, ratings, an example, optional wording, comparisons, counterexamples and a review, with complete scoring and scope. All remain present after completion without a highest type or combined score."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这能判断我或别人有毒吗？",
+        "en": "Can this decide whether someone is toxic?"
+      },
+      "answer": {
+        "zh": "不能。这是五类具体互动做法的原创自评，不裁定品德、动机、实际伤害、风险或诊断，也不能替别人作答。",
+        "en": "No. It reflects five specific practices without judging morality, motives, actual harm, risk or diagnosis. Do not answer on another person’s behalf."
+      }
+    },
+    {
+      "question": {
+        "zh": "有毒性百分比或四个等级吗？",
+        "en": "Is there a toxicity percentage or four bands?"
+      },
+      "answer": {
+        "zh": "没有。五部分各四条全部有效才显示各自均分；不算总分、百分比、排名或类型，五份完整结果免费。",
+        "en": "No. Each four-item part needs all ratings for its own mean. There is no total, percentage, ranking or type; all five full guides are free."
+      }
+    },
+    {
+      "question": {
+        "zh": "3和不适用有什么区别？",
+        "en": "How do three and NA differ?"
+      },
+      "answer": {
+        "zh": "3表示不确定或视情况，是数值有效回答；NA表示没有情境、资料不足或不愿回答，不补零或中立，一部分缺失不影响其他部分。",
+        "en": "Three is a numerically valid uncertain or conditional rating. NA means no relevant situation, insufficient information or preferring not to answer; it is not zero or neutral and affects only that part."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是经过验证的量表或原小程序吗？",
+        "en": "Is this a validated scale or the original mini-program?"
+      },
+      "answer": {
+        "zh": "不是。16条新原创加自有预览版4条中文及新英译，组成新表单；没有本地常模、心理测量验证或跨语言等价证据，不算小程序整体迁移。",
+        "en": "No. Sixteen new items and four Chinese preview items with new English translations form a new questionnaire, without local norms, psychometric validation or language equivalence. It is not a whole mini-program migration."
+      }
+    }
+  ],
+  "references": []
+}

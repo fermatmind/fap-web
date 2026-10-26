@@ -1615,5 +1615,31 @@
       "dialogue-testing",
       "environmental-noticing"
     ]
+  },
+  {
+    "slug": "toxic-trait",
+    "code": "INTERPERSONAL_HABITS_ORIGINAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "relationships",
+    "title": {
+      "zh": "有毒特征测试",
+      "en": "Toxic Trait Test"
+    },
+    "description": {
+      "zh": "免费有毒特征测试原创自我观察版：20道符合度题，分开回看转述、比较、暗示、先解释与旧争议。五份完整说明免费，不生成总毒性百分比或人格标签。",
+      "en": "A free Toxic Trait Test reflection: 20 accuracy items and five full guides to interaction habits. No overall toxicity percentage or personality labels."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_interpersonal_habits_accuracy_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "unchecked-retelling",
+      "comparison-turns",
+      "indirect-objections",
+      "explanation-first",
+      "past-dispute-carryover"
+    ]
   }
 ]
