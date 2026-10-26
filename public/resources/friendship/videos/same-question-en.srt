@@ -1,0 +1,13 @@
+1
+00:00:00,000 --> 00:00:06,000
+Example: I'd think quietly first.
+But I guess the creator thinks aloud.
+
+2
+00:00:06,000 --> 00:00:11,000
+That guess matches: one point.
+The game scores guessing, not similarity.
+
+3
+00:00:11,000 --> 00:00:18,000
+Play the demo, then create your own challenge.

@@ -93,3 +93,10 @@
 .fq-example caption { text-align:left; margin-bottom:12px; font-weight:600; }
 .fq-example th,.fq-example td { border-bottom:1px solid #dfd6ee; padding:10px; }
 @media print { .fq-copy h2,.fq-copy h3 { break-after:avoid; }.fq-copy li,.fq-example { break-inside:avoid; } }
+
+.fq-videos { display:grid; gap:32px; margin:24px 0; }
+.fq-videos figure { margin:0; padding:20px; background:#f2edff; border-radius:16px; }
+.fq-videos figcaption { margin-bottom:16px; }
+.fq-videos video { display:block; width:min(100%,320px); max-height:570px; margin:auto; border-radius:12px; background:#eee8ff; }
+#creators { scroll-margin-top:100px; }
+@media print { .fq-videos video { display:none; } }
