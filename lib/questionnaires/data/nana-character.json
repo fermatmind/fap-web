@@ -1,0 +1,1997 @@
+{
+  "slug": "nana-character",
+  "code": "NANA_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Nana Character Test",
+    "zh": "《NANA》角色测试"
+  },
+  "description": {
+    "en": "Answer 21 original everyday creative questions and compare Nana Osaki, Hachi, Ren, Takumi, Nobu, Shin and Yasu. Every highest tie and all seven complete bilingual guides are free, without signup. Unofficial fan edition.",
+    "zh": "完成21道原创日常创作情境题，比较大崎娜娜、阿八、莲、巧、伸夫、真一与泰士。最高并列全部保留，七份完整双语说明免费，无需注册。非官方同人版，不推断剧情经历或关系命运。"
+  },
+  "seoTitle": {
+    "en": "Nana Character Test: Free Quiz & All 7 Result Guides",
+    "zh": "《NANA》角色测试：免费作答与7种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Nana character readings",
+    "zh": "本次《NANA》角色读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which Nana character do your choices bring to mind? This independent fan edition uses seven limited angles on ordinary creative work and shared time: keeping a voice, everyday connection, refining a detail, matching resources, speaking appreciatively, trying an adjustable role and clarifying responsibility. Twenty-one original situations need no episode trivia or musical ability. All seven public guides are available before you start. A match does not assign anyone’s dramatic relationships, private history or harmful actions to you.",
+    "zh": "你的选择让人想起《NANA》的哪位角色？本独立同人版从七个有限角度看普通创作与共同相处：守住表达、日常联结、细节打磨、资源匹配、真诚表达、灵活试角色和约清责任。21道原创情境不考剧情，也不要求音乐能力。开测前即可阅读七份全文；人物匹配不把戏剧性关系、私人经历或伤害行为赋给你。"
+  },
+  "instructions": {
+    "en": "Think about an ordinary, optional creative or shared activity you would choose now. Pick one of four responses per question, even if none fits perfectly. A character absent from an item is not rejected. There are no correct answers, preferred characters, moral points or reverse-keyed items. Complete all 21 choices before any count or match appears; every highest tie gets its complete guide.",
+    "zh": "想想现在愿意参加的普通创作或共同活动，每题从四种回应选较接近的一项，即使都不完全合适。当题没提供某角色不表示你拒绝他。没有正确答案、推荐角色、道德分或反向题。21题全部完成后才显示计数和匹配，所有最高并列均保留全文。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "VIZ: official Nana introduction",
+        "zh": "VIZ官方《NANA》简介"
+      },
+      "url": "https://www.viz.com/nana"
+    },
+    {
+      "title": {
+        "en": "Shueisha Cookie: Nana and the two leads",
+        "zh": "集英社Cookie：《NANA》及两位主角"
+      },
+      "url": "https://cookie.shueisha.co.jp/story/25.html"
+    },
+    {
+      "title": {
+        "en": "JBC publisher: Nana character backgrounds",
+        "zh": "JBC出版社：《NANA》基本人物背景"
+      },
+      "url": "https://editorajbc.com.br/mangas/colecao/nana/nana-os-personagens/"
+    },
+    {
+      "title": {
+        "en": "Nippon Television: official cast names",
+        "zh": "日本电视台：官方角色名称"
+      },
+      "url": "https://www.ntv.co.jp/nana/"
+    },
+    {
+      "title": {
+        "en": "Nana character reference — basic roles only",
+        "zh": "《NANA》人物参考：仅核基本角色身份"
+      },
+      "url": "https://en.wikipedia.org/wiki/Nana_(manga)"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_nana_original_21_v1",
+    "itemBankVersion": "nana_original_21_v1",
+    "scoringVersion": "nana_all_highest_counts_v1",
+    "resultContentVersion": "nana_full_guides_v1",
+    "itemBankSha256": "e41f47ac288d15912b17d25f4c29bb18e44dc955836765cf3ecc290a7d97ef09",
+    "resultContentSha256": "bed1c8c85261ff9ddd9ea6d242f09fd5ee58bbfe8267c3cb1714475575c43798",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "nana-osaki",
+      "title": {
+        "en": "Nana Osaki",
+        "zh": "大崎娜娜（Nana Osaki）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "nana-komatsu",
+      "title": {
+        "en": "Nana Komatsu (Hachi)",
+        "zh": "小松奈奈／阿八（Hachi）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ren-honjo",
+      "title": {
+        "en": "Ren Honjo",
+        "zh": "本城莲（Ren Honjo）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "takumi-ichinose",
+      "title": {
+        "en": "Takumi Ichinose",
+        "zh": "一之濑巧（Takumi Ichinose）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "nobuo-terashima",
+      "title": {
+        "en": "Nobuo Terashima (Nobu)",
+        "zh": "寺岛伸夫（Nobu）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "shinichi-okazaki",
+      "title": {
+        "en": "Shinichi Okazaki (Shin)",
+        "zh": "冈崎真一（Shin）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "yasushi-takagi",
+      "title": {
+        "en": "Yasushi Takagi (Yasu)",
+        "zh": "高木泰士（Yasu）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "NANA_01",
+      "prompt": {
+        "en": "Friends are making a tiny listening event for music they enjoy. Which part would you most like to shape?",
+        "zh": "朋友想办一场小小的音乐欣赏活动，你最想参与哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep a clear creative idea that makes the event feel like ours.",
+            "zh": "守住一个让这场活动有自己表达的创意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Make the shared evening feel welcoming in small everyday ways.",
+            "zh": "用日常小细节让一起度过的晚上更温暖。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Spend time refining one small piece of the listening experience.",
+            "zh": "花点时间认真打磨聆听体验的一小部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Fit the agreed plan to the time, room and equipment available.",
+            "zh": "把约好的计划和现有时间、房间、设备配好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_02",
+      "prompt": {
+        "en": "Two friends are arranging a shared corner for their hobby materials. What would you prefer to add?",
+        "zh": "两位朋友整理共用的兴趣材料角落，你更愿意加些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small everyday ritual that makes using the corner feel shared.",
+            "zh": "一个让使用这个角落有共同感的小习惯。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Careful work on the detail that matters to the activity itself.",
+            "zh": "把和活动本身有关的一处细节细细做好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A realistic list of the materials and space we can use.",
+            "zh": "列清现有材料与可用空间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "A plain explanation of what I like and hope to contribute.",
+            "zh": "直接说说自己喜欢什么、想贡献什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_03",
+      "prompt": {
+        "en": "You have a short session to prepare an original hobby piece. Which approach appeals most?",
+        "zh": "有一小段时间准备原创兴趣作品，你更喜欢哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Work closely on one passage or detail until it feels more settled.",
+            "zh": "专注于一个段落或细节，慢慢把它做稳。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose a workable scope and allocate the limited session accordingly.",
+            "zh": "先选能完成的范围，再分配有限时间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Tell a partner honestly which part I am excited to share.",
+            "zh": "坦率告诉伙伴，自己最想分享哪一部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a different role or technique while keeping the choice my own.",
+            "zh": "试一个新角色或新方法，同时自己决定怎么试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_04",
+      "prompt": {
+        "en": "A small creative meet-up has more ideas than available time. What would you prefer to do first?",
+        "zh": "一次小型创作聚会的点子比可用时间多，你更想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Agree on a manageable aim and the resources it will need.",
+            "zh": "先约定能做到的目标和所需资源。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say directly which idea matters most to me and why.",
+            "zh": "直接说哪一个点子对自己最有意义，以及原因。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Look for a flexible version that lets people try unfamiliar parts.",
+            "zh": "找一个灵活版本，让大家能试陌生的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Clarify who can decide what and how to handle a disagreement.",
+            "zh": "说清谁可以决定什么，以及分歧怎样协调。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_05",
+      "prompt": {
+        "en": "Someone invites you to join an informal creative group. Which first contribution feels closest?",
+        "zh": "有人邀请你加入非正式创作小组，你更接近哪种初次贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Express genuine appreciation for a specific part of their work.",
+            "zh": "具体而真诚地说出欣赏对方作品哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Explore a small role I can adapt while getting to know the group.",
+            "zh": "先试一个能边熟悉边调整的小角色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Ask what responsibilities and limits everyone has agreed on.",
+            "zh": "问清大家约好了哪些责任和范围。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Bring an idea that I want to express in my own way.",
+            "zh": "带来一个想用自己方式表达的点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_06",
+      "prompt": {
+        "en": "A new member can choose among several roles for a hobby session. What would appeal most to you?",
+        "zh": "新成员可以在兴趣活动里选几种分工，如果是你，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Room to try a role and adjust it after seeing how it fits.",
+            "zh": "可以先试，再看是否适合自己来调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "An explicit agreement about what support the role can rely on.",
+            "zh": "明确约好这个角色可以得到哪些支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "A role that leaves space for a recognisable creative voice.",
+            "zh": "一个能保留鲜明创作表达的位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A way to make ordinary time with the group feel connected.",
+            "zh": "一种让平常相处也有联结感的参与方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_07",
+      "prompt": {
+        "en": "People disagree about the running order of a small sharing session. Which contribution would you choose?",
+        "zh": "小型分享活动的顺序有分歧，你更愿意作哪种贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Make room for each need and agree how the decision will be made.",
+            "zh": "让各方需要被说到，再约好怎样决定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Explain which order best preserves the creative idea I care about.",
+            "zh": "说清哪种顺序能保留自己在意的创意表达。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Find a small shared moment that makes the order less tense.",
+            "zh": "找一点能一起享受的小环节，让顺序不那么紧绷。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Refine the transition between two pieces so either order works better.",
+            "zh": "打磨两段内容之间的衔接，让两种顺序都更顺。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_08",
+      "prompt": {
+        "en": "Your group is making a short self-published zine. What would you most like to protect?",
+        "zh": "小组制作一本短短的自印小刊，你最想保留什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "The distinctive idea that made us want to make it.",
+            "zh": "最初让大家想做它的独特表达。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "The small contributions that make it feel like time spent together.",
+            "zh": "那些让它有共同相处记忆的小贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "The care put into a particular page or sequence.",
+            "zh": "某一页或一组内容经过细细打磨的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A scope we can finish with the paper and time we actually have.",
+            "zh": "用现有纸张和时间可以做完的范围。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_09",
+      "prompt": {
+        "en": "A shared evening at home has no special occasion. Which addition appeals most?",
+        "zh": "共同在家的普通晚上没有特别安排，你更喜欢加点什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small familiar gesture that makes the evening feel shared.",
+            "zh": "一点让普通晚上有共同感的熟悉心意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Unhurried time to work on a personal creative detail.",
+            "zh": "留一段不急的时间打磨自己的创作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A workable arrangement for the room, supplies and available time.",
+            "zh": "把房间、用品和可用时间安排得现实一些。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "An open conversation about something I am genuinely enjoying.",
+            "zh": "坦率聊聊自己最近真正喜欢的一件事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_10",
+      "prompt": {
+        "en": "You return to a hobby piece after receiving several suggestions. What would you prefer?",
+        "zh": "一件兴趣作品收到了几条建议，再打开它时你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Practise the specific detail I most want to improve.",
+            "zh": "练一练自己最想做好的具体细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose which changes fit the time and materials I can invest.",
+            "zh": "选出符合自己可投入时间、材料的改动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Explain honestly which suggestions connect with what I meant.",
+            "zh": "坦率说明哪些建议和自己的原意对得上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Experiment with an unfamiliar version before deciding what to keep.",
+            "zh": "先试一版陌生做法，再决定留什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_11",
+      "prompt": {
+        "en": "A group has one spare room and several possible creative plans. What interests you first?",
+        "zh": "小组有一个空房间和几种创作计划，你首先关心什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Which plan the space and available resources can support.",
+            "zh": "这个空间和现有资源能支持哪种计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Which plan people actually want, expressed in their own words.",
+            "zh": "大家各自真正想做什么，能否亲口说清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Whether we can test different uses without locking everyone into one.",
+            "zh": "能否试几种用法，不急着把大家固定在一种里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "How we will share decisions and responsibility for the space.",
+            "zh": "空间的决定权和责任怎样共同约定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_12",
+      "prompt": {
+        "en": "Someone shares an early recording or sketch with you. Which response feels most natural to offer?",
+        "zh": "有人把早期录音或草图发给你，你更自然地想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say specifically what I appreciate and what I actually heard or saw.",
+            "zh": "具体说欣赏哪里，也说清自己实际听到、看到什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Ask whether they would enjoy testing an alternative version together.",
+            "zh": "问愿不愿一起试一个不同版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Clarify whether they want feedback, practical help or simply an audience.",
+            "zh": "先问想要意见、实际帮忙，还是只想有人看看听听。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Talk about the expressive idea I can recognise in the piece.",
+            "zh": "聊聊自己在作品里看见的表达想法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_13",
+      "prompt": {
+        "en": "A hobby plan changes just as you are learning your part. What would you rather do?",
+        "zh": "刚熟悉自己的兴趣分工，计划就变了，你更愿意怎么应对？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a revised role while keeping the freedom to say what does not fit.",
+            "zh": "试试调整后的角色，也保留说不合适的自由。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Revisit the agreement so responsibilities remain clear and shared.",
+            "zh": "重看约定，让责任仍清楚且由大家分担。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep the central creative intention visible through the change.",
+            "zh": "让变化中仍看得见核心创作意图。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Maintain one small shared habit that makes the group feel connected.",
+            "zh": "留住一个让小组仍有联结感的小习惯。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_14",
+      "prompt": {
+        "en": "Two people expect you to handle the same task in different ways. What appeals most?",
+        "zh": "两个人希望你用不同方式处理同一件事，你更倾向什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Bring the expectations together and agree what I can actually take on.",
+            "zh": "把两边期待放一起，约好自己实际承担什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Explain which approach fits the idea I want the work to express.",
+            "zh": "说明哪种做法符合自己想表达的想法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Start with a small shared exchange so the conversation feels less distant.",
+            "zh": "先有一点共同交流，让讨论不那么生分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Work on one concrete detail that can clarify the difference.",
+            "zh": "先打磨一个能看清两种差别的具体细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_15",
+      "prompt": {
+        "en": "Your small creative project could imitate a popular style or develop its own. What would you prefer?",
+        "zh": "一个小创作可以仿照流行风格，也可以发展自己的做法，你更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep the part of the idea that feels distinctly ours.",
+            "zh": "保留点子中最像自己的那一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Choose the version that gives us an enjoyable shared memory.",
+            "zh": "选能给大家留下共同开心记忆的版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Explore the detail that I would enjoy refining over several attempts.",
+            "zh": "选一个自己愿意反复打磨的细节继续探索。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Match the version to what we can realistically finish together.",
+            "zh": "把版本和实际能共同完成的范围配好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_16",
+      "prompt": {
+        "en": "A friend is helping you settle into a new shared hobby space. What would you value most?",
+        "zh": "朋友帮你适应新的共用兴趣空间，你最珍惜哪种帮助？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small ordinary gesture that makes being there feel less unfamiliar.",
+            "zh": "一点让待在那里不再陌生的日常心意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Time to become familiar with the materials through patient practice.",
+            "zh": "有时间通过耐心练习熟悉材料。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A clear account of the resources and practical arrangements.",
+            "zh": "把资源和实际安排说明白。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "An honest welcome that says what they enjoy about working together.",
+            "zh": "真诚欢迎，也说说喜欢怎样一起做事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_17",
+      "prompt": {
+        "en": "You have one free hour with a creative collaborator. Which use appeals most?",
+        "zh": "和创作伙伴有一个空闲小时，你更想怎么用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Concentrate together on a detail we both want to refine.",
+            "zh": "一起专心打磨一处都想做好的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose a limited goal and organise what we need to reach it.",
+            "zh": "选个有限目标，把所需条件安排好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Speak openly about what each of us is excited to make.",
+            "zh": "坦率聊聊各自真正想做什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Swap roles briefly to see what a different approach feels like.",
+            "zh": "短暂换换角色，体验不同做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_18",
+      "prompt": {
+        "en": "A casual showcase needs a simpler plan. What would you change first?",
+        "zh": "一次轻松的作品展示需要简化，你更想先改哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Bring the aims, schedule and materials into a manageable match.",
+            "zh": "把目标、时间表和材料调整到能承担的范围。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say plainly which part I would like to keep and why it matters.",
+            "zh": "直接说自己想保留哪部分、为什么在意。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a flexible format that gives unfamiliar contributions a chance.",
+            "zh": "试一个灵活形式，让陌生的贡献也有机会。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Agree on fair responsibilities and a clear way to revise the plan.",
+            "zh": "约好公平的责任和清楚的改计划方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_19",
+      "prompt": {
+        "en": "You want to tell a group why you enjoy taking part. Which way feels closest?",
+        "zh": "想告诉小组自己为什么喜欢参加，你更接近哪种说法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Name something specific I appreciate about creating with them.",
+            "zh": "具体说一件自己欣赏的共同创作体验。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Describe the room I have to try things and adjust my part.",
+            "zh": "说说自己有空间尝试，也能调整参与方式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Mention the shared agreements that make joining sustainable for me.",
+            "zh": "提一提哪些共同约定让自己能持续参加。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Talk about the creative idea I can express without losing my own voice.",
+            "zh": "聊聊怎样表达创意而不丢掉自己的声音。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_20",
+      "prompt": {
+        "en": "A project offers a role you have never tried. Which condition matters most to your choice?",
+        "zh": "项目给了你一个没试过的角色，决定时你最在意哪项条件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Being able to explore it and revise my involvement as I learn.",
+            "zh": "可以探索，也可以随着了解调整参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Knowing what responsibilities are shared and what support is agreed.",
+            "zh": "知道哪些责任共同承担、哪些支持已经约好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Having space to contribute an idea that still feels like my own.",
+            "zh": "有空间贡献仍然像自己的想法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Feeling a small everyday connection with the people involved.",
+            "zh": "和参与的人有一点日常联结感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_21",
+      "prompt": {
+        "en": "After a shared creative session, what would you most like to review?",
+        "zh": "共同创作结束后，你最想回看什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Whether our agreements and responsibilities still fit everyone.",
+            "zh": "约定和责任是否仍适合每个人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Whether the original expressive idea is still recognisable in what we made.",
+            "zh": "做出来的东西是否仍看得见最初表达。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "The small moments that made the time feel shared.",
+            "zh": "哪些小瞬间让这段时间有共同感。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "One detail I would enjoy returning to and refining.",
+            "zh": "哪处细节让自己还想回来继续打磨。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "nana-osaki",
+      "directionIds": [
+        "nana-osaki"
+      ],
+      "title": {
+        "en": "Nana Osaki",
+        "zh": "大崎娜娜（Nana Osaki）"
+      },
+      "headline": {
+        "en": "Keep a creative voice people can recognise",
+        "zh": "守住别人能认出的创作声音"
+      },
+      "summary": {
+        "en": "Read Nana Osaki through keep a creative voice people can recognise: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“守住别人能认出的创作声音”阅读大崎娜娜（Nana Osaki）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nana Osaki Test Result: Keep a creative voice people can recognise | Nana",
+          "zh": "大崎娜娜（Nana Osaki）测试结果：守住别人能认出的创作声音｜NANA"
+        },
+        "description": {
+          "en": "Read Nana Osaki through keep a creative voice people can recognise: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“守住别人能认出的创作声音”阅读大崎娜娜（Nana Osaki）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Nana Osaki reading",
+            "zh": "大崎娜娜的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki is a vocalist pursuing music with Black Stones in the story. This edition takes a limited angle from that creative setting: wanting a shared piece to retain a recognisable idea. Your choices do not establish artistic talent, independence, charisma or a life history like hers. A fictional connection is a prompt for comparison, not an assessment of your identity.",
+              "zh": "作品中的大崎娜娜是追求音乐的Black Stones主唱。本版从这个创作背景取一个有限角度：希望共同作品仍保留认得出的想法。本次选择不确立艺术天分、独立、魅力或与她相似的人生经历。人物联想用来比较，不是身份评估。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The small zine that still feels like yours",
+            "zh": "小刊仍然像自己的作品"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine making a short zine with friends. The practical plan needs to shrink, but you want to preserve the central idea that first made everyone interested. You explain that idea and invite suggestions for expressing it with fewer pages. Keeping a voice can coexist with compromise; it does not require controlling everyone’s contribution or refusing every change.",
+              "zh": "比如和朋友做小刊，实际计划需要缩减，但你想留下最初吸引大家的核心想法。可以说清它，再邀请用更少页数表达的办法。守住声音能与妥协共存，不必控制所有人的贡献，也不必拒绝每个改动。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Six other contributions to the same piece",
+            "zh": "同一作品里的另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Hachi gives ordinary shared time warmth; Ren refines a detail. Takumi considers resources, Nobu expresses appreciation plainly, Shin tries an adjustable role and Yasu clarifies shared responsibility. Nana Osaki’s angle keeps the expressive idea visible. These contributions need not compete, and another guide can be useful without becoming a hidden second personality or a claim about your relationships.",
+              "zh": "阿八给普通相处添心意，莲打磨细节；巧考虑资源，伸夫真诚说出欣赏，真一试可调整的角色，泰士说清共同责任。大崎娜娜角度让表达想法保持可见。这些贡献不必竞争，另一说明也能有用，不会变成隐藏第二人格或关系判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "When a clear voice needs a clearer invitation",
+            "zh": "表达鲜明，也要邀请清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "An important idea can be difficult for others to join if its owner never explains what can change. You might separate the part you care about from the parts you are happy to adapt. That gives collaborators real room to contribute. This is a possible project question, not evidence that a high count means stubbornness, possessiveness or fear of being left behind.",
+              "zh": "重要想法如果没说明哪些能改，别人可能难以加入。可以区分自己在意的部分和愿意调整的部分，给伙伴实际贡献空间。这只是项目里可以提的问题，不证明高计数意味着固执、占有欲或害怕被丢下。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one sentence about the idea",
+            "zh": "试着用一句话说想法"
+          },
+          "paragraphs": [
+            {
+              "en": "For one small creative task, write a sentence naming what you hope the piece will express. Ask a collaborator what they hear in that sentence and which form they would enjoy trying. Compare the result with your intention afterwards. The experiment is about communication around a project, not proving that you have a distinctive personality or must pursue a music career.",
+              "zh": "挑一次小创作，用一句话写希望作品表达什么。问伙伴听出了什么、想用哪种形式试，做完再比较成果和初衷。这是在试项目沟通，不是在证明自己人格独特，也不要求走音乐职业。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nana-komatsu",
+      "directionIds": [
+        "nana-komatsu"
+      ],
+      "title": {
+        "en": "Nana Komatsu (Hachi)",
+        "zh": "小松奈奈／阿八（Hachi）"
+      },
+      "headline": {
+        "en": "Let ordinary shared time carry a little care",
+        "zh": "让平常相处装下一点心意"
+      },
+      "summary": {
+        "en": "Read Nana Komatsu (Hachi) through let ordinary shared time carry a little care: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“让平常相处装下一点心意”阅读小松奈奈／阿八（Hachi）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nana Komatsu (Hachi) Test Result: Let ordinary shared time carry a little care | Nana",
+          "zh": "小松奈奈／阿八（Hachi）测试结果：让平常相处装下一点心意｜NANA"
+        },
+        "description": {
+          "en": "Read Nana Komatsu (Hachi) through let ordinary shared time carry a little care: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“让平常相处装下一点心意”阅读小松奈奈／阿八（Hachi）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Hachi reading",
+            "zh": "阿八的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Komatsu, called Hachi, is one of the two leads whose life becomes intertwined with Nana Osaki’s in Tokyo. This edition focuses on small gestures that make shared time feel connected. Your choices do not diagnose attachment, dependency, maturity or romantic needs. They describe which offered everyday contributions appealed now, without reproducing the character’s private or dramatic story.",
+              "zh": "小松奈奈被叫作阿八，是在东京与大崎娜娜人生交织的两位主角之一。本版聚焦让共同时间更有联结感的小心意。本次选择不诊断依恋、依赖、成熟度或恋爱需要，只描述现在较喜欢哪些日常贡献，不复制人物私密或戏剧性的经历。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An evening with no special occasion",
+            "zh": "没有特别理由的一个晚上"
+          },
+          "paragraphs": [
+            {
+              "en": "Two friends share a hobby space and have an ordinary evening free. A small familiar drink, a short conversation or a remembered preference can make being there feel shared rather than merely simultaneous. The gesture need not be elaborate. It matters whether the other person welcomes it, and whether you have enough room for your own way of spending the evening too.",
+              "zh": "两位朋友共用兴趣空间，晚上没有特别安排。一杯熟悉饮品、一段简短交流、一个被记住的偏好，就可能让同处变成相处，不必隆重。也要看对方是否欢迎，以及自己是否仍有空间按想要的方式过这一晚。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Connection beside six other angles",
+            "zh": "联结与另外六个角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki keeps a creative idea visible; Ren refines a detail and Takumi fits the plan to resources. Nobu says what he appreciates, Shin explores a flexible role and Yasu clarifies agreements. Hachi’s angle notices the texture of everyday time together. Practical work and creative ambition can carry that same care, so no result divides people into caring and uncaring camps.",
+              "zh": "大崎娜娜守住创意，莲打磨细节，巧让计划和资源相配；伸夫说出欣赏，真一探索灵活角色，泰士约清责任。阿八角度注意平常相处的质感。实际工作和创作追求同样能带着心意，结果不会把人分成有情与无情阵营。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An invitation is not a hidden obligation",
+            "zh": "邀请不藏一份义务"
+          },
+          "paragraphs": [
+            {
+              "en": "A shared ritual may feel warm on one day and unnecessary on another. Someone can decline without making the relationship less meaningful. If an offer starts to feel compulsory, ask which part is actually welcome and state what you want too. The count cannot tell whether you need reassurance, should change a relationship or resemble Hachi’s romantic decisions.",
+              "zh": "共同小习惯今天温暖，另一天也可能不需要。别人谢绝，不会因此让关系失去意义。邀请变得像必须参加时，可问哪些真正受欢迎，也说自己的想法。计数看不出是否需要安慰、该不该改变关系，或会不会重复阿八的恋爱决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small, answerable invitation",
+            "zh": "试一次容易回答的小邀请"
+          },
+          "paragraphs": [
+            {
+              "en": "Offer one small shared moment with a clear option to join, adapt or skip it. You might ask whether a person wants a short break together rather than preparing a whole evening for them. Afterwards notice what both of you enjoyed. No fictional match requires you to take care of everyone, disclose private experiences or make closeness the goal of every activity.",
+              "zh": "邀请一小段共同时间，让对方容易回答参加、调整或跳过。可以问要不要一起短暂休息，不必替别人准备整晚。之后留意双方喜欢什么。虚构匹配不要求照顾所有人、透露私事，也不把每项活动都变成拉近关系的任务。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ren-honjo",
+      "directionIds": [
+        "ren-honjo"
+      ],
+      "title": {
+        "en": "Ren Honjo",
+        "zh": "本城莲（Ren Honjo）"
+      },
+      "headline": {
+        "en": "Return to a detail for the pleasure of working on it",
+        "zh": "为了打磨本身的乐趣再回到细节"
+      },
+      "summary": {
+        "en": "Read Ren Honjo through return to a detail for the pleasure of working on it: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“为了打磨本身的乐趣再回到细节”阅读本城莲（Ren Honjo）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ren Honjo Test Result: Return to a detail for the pleasure of working on it | Nana",
+          "zh": "本城莲（Ren Honjo）测试结果：为了打磨本身的乐趣再回到细节｜NANA"
+        },
+        "description": {
+          "en": "Read Ren Honjo through return to a detail for the pleasure of working on it: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“为了打磨本身的乐趣再回到细节”阅读本城莲（Ren Honjo）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Ren reading",
+            "zh": "本城莲的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Ren Honjo is a guitarist and composer associated with Trapnest, after earlier playing with Black Stones. This edition uses only a modest creative angle: enjoying sustained attention to a piece of work. Selecting these responses does not measure musical skill, dedication, emotional distance or any clinical condition. It gives no reason to adopt or excuse the character’s harmful experiences or actions.",
+              "zh": "本城莲是与Trapnest相关的吉他手和作曲者，之前也参与Black Stones。本版只借一个朴素创作角度：喜欢持续关注一件作品。选择这些回应不测音乐技能、投入程度、情感疏离或临床状况，也不要求模仿或为人物的伤害性经历、行为免责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One passage rather than the whole project",
+            "zh": "先做一个段落"
+          },
+          "paragraphs": [
+            {
+              "en": "A short hobby session gives you time to work on one passage, transition or visual detail. You stay with that part because the process itself is enjoyable, then decide when to leave it for another day. The meaningful distinction is the chosen focus, rather than whether the finished work is impressive or someone else would call the time productive.",
+              "zh": "短短兴趣时间，可以只打磨一个段落、过渡或视觉细节。因为过程本身有趣而专注，再决定何时放到改天继续。区别在主动选择的关注点，不在成品惊不惊艳，也不在别人会不会把这段时间叫作高效。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Craft beside six other contributions",
+            "zh": "打磨与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki protects an expressive idea; Hachi makes shared time feel connected. Takumi organises resources, Nobu communicates appreciation, Shin adjusts a new role and Yasu clarifies responsibilities. Ren’s angle stays with a concrete creative detail. Careful work can help any of the other contributions, and another person’s broader or more social focus does not make their interest shallower.",
+              "zh": "大崎娜娜守住表达，阿八让相处有联结；巧安排资源，伸夫说出欣赏，真一调整新角色，泰士约清责任。莲的角度持续关注具体创作细节。细细做事可以支持其他贡献，别人看得更广或更重共同交流，也不表示兴趣较浅。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Focus can need a shared boundary",
+            "zh": "专注也需要共同边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A detail can absorb more time than the group expected. If others are waiting for a handover, explain what you are doing and agree when the current version is usable. The question is how your focus fits the shared task. A raw count cannot establish perfectionism, avoidance, superior ability or a need to work alone.",
+              "zh": "细节可能花掉比小组预计更多的时间。别人等交接时，可以说清自己在做什么，约好当前版本何时可以用。问题是这份专注怎样融入共同任务。原始计数不能确立完美主义、逃避、更高能力或必须独自工作的需要。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Choose a detail and a stopping point",
+            "zh": "选一处细节，也选一个收尾点"
+          },
+          "paragraphs": [
+            {
+              "en": "For one optional project, select a detail you genuinely want to explore and a point at which you will share the current version. Afterwards ask what changed and whether the process was enjoyable. You can keep practising, change direction or stop. None of those choices confirms or removes a fixed character identity, and the quiz cannot certify talent.",
+              "zh": "挑一个自愿小项目，选真正想探索的细节，也选一个分享当前版本的收尾点。结束后问发生了什么变化、过程是否有趣。继续练、换方向或停下都可以；这些都不确认或撤销固定角色身份，测试也不能认证天分。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "takumi-ichinose",
+      "directionIds": [
+        "takumi-ichinose"
+      ],
+      "title": {
+        "en": "Takumi Ichinose",
+        "zh": "一之濑巧（Takumi Ichinose）"
+      },
+      "headline": {
+        "en": "Fit an agreed aim to real time and resources",
+        "zh": "让共同同意的目标配上现实资源"
+      },
+      "summary": {
+        "en": "Read Takumi Ichinose through fit an agreed aim to real time and resources: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“让共同同意的目标配上现实资源”阅读一之濑巧（Takumi Ichinose）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Takumi Ichinose Test Result: Fit an agreed aim to real time and resources | Nana",
+          "zh": "一之濑巧（Takumi Ichinose）测试结果：让共同同意的目标配上现实资源｜NANA"
+        },
+        "description": {
+          "en": "Read Takumi Ichinose through fit an agreed aim to real time and resources: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“让共同同意的目标配上现实资源”阅读一之濑巧（Takumi Ichinose）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Takumi reading",
+            "zh": "一之濑巧的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Takumi Ichinose is Trapnest’s leader and bassist in the story. This edition isolates a practical project angle: coordinating an agreed aim with time, space and materials. Selecting these options does not endorse the character’s behaviour or establish that you are controlling, manipulative or suited to leadership. Resources are discussed through consent and shared decisions, without turning a fictional role into a judgement of a real person.",
+              "zh": "一之濑巧在作品中是Trapnest的领队与贝斯手。本版只取实际项目角度：让约好的目标和时间、空间、材料相配。选择这些回应不认可人物行为，也不认定你控制、操控别人或适合领导。资源安排依靠同意与共同决定，不把虚构角色变成真人判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A showcase that can actually happen",
+            "zh": "一场确实办得起来的展示"
+          },
+          "paragraphs": [
+            {
+              "en": "Your hobby group has one room, a short evening and more ideas than it can fit. You propose a manageable aim, list what is available and ask everyone which parts they can support. That makes the arrangement discussable. It does not give one person authority over another’s time or mean that completing the event matters more than the people involved.",
+              "zh": "兴趣小组只有一间房、一个短晚上，点子却很多。可以提出能办到的目标，列清现有条件，再问大家愿意支持哪些部分，让安排有得商量。这不赋予任何人支配别人时间的权力，也不表示办成活动比参与的人更重要。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Resources beside six other angles",
+            "zh": "资源与另外六个角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki keeps the creative idea visible; Hachi attends to shared everyday time and Ren refines a detail. Nobu expresses appreciation plainly, Shin tests an adjustable role and Yasu clarifies responsibilities. Takumi’s limited angle concerns how the plan fits its resources. All seven can cooperate, and a preference for planning cannot be converted into moral character or relationship behaviour.",
+              "zh": "大崎娜娜守住创意，阿八照顾日常相处，莲打磨细节；伸夫真诚表达欣赏，真一试可调整角色，泰士约清责任。巧的有限角度关注计划与资源怎样匹配。七者可以合作，喜欢规划不能换算成道德品格或关系行为。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Leave the agreement revisable",
+            "zh": "让约定可以修改"
+          },
+          "paragraphs": [
+            {
+              "en": "A workable plan can still fail to reflect what people want. If someone’s time or interest changes, revisit the aim rather than treating the first agreement as permanent. Ask which part can shrink or move. The count cannot tell whether you manage resources effectively, can make decisions for others or share the darker aspects of a fictional character.",
+              "zh": "计划可操作，也可能不再符合大家想要的事。有人时间或兴趣变了，就重看目标，不把最初约定当永久承诺；可以问哪部分缩减或挪动。计数看不出资源管理是否有效，更不授权替别人决定，或认定你具有虚构人物的阴暗面。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small plan people can edit",
+            "zh": "试一份大家能改的小计划"
+          },
+          "paragraphs": [
+            {
+              "en": "For one optional shared task, write down the aim, available resources and proposed contribution from each person. Invite edits and a clear option not to participate. Afterward review whether the plan served its agreed purpose. This is a trial of coordination, not proof of professional management ability, permission to control others or justification for harm in the story.",
+              "zh": "挑一项自愿共同任务，写清目标、现有资源、建议各人贡献，邀请修改，也留出不参加的选择。结束后看计划是否服务了共同目的。这是在试协调方式，不证明职业管理能力、不授权控制别人，也不为剧情伤害提供理由。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nobuo-terashima",
+      "directionIds": [
+        "nobuo-terashima"
+      ],
+      "title": {
+        "en": "Nobuo Terashima (Nobu)",
+        "zh": "寺岛伸夫（Nobu）"
+      },
+      "headline": {
+        "en": "Say what you appreciate in words someone can hear",
+        "zh": "把欣赏说成对方听得到的话"
+      },
+      "summary": {
+        "en": "Read Nobuo Terashima (Nobu) through say what you appreciate in words someone can hear: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“把欣赏说成对方听得到的话”阅读寺岛伸夫（Nobu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Nobuo Terashima (Nobu) Test Result: Say what you appreciate in words someone can hear | Nana",
+          "zh": "寺岛伸夫（Nobu）测试结果：把欣赏说成对方听得到的话｜NANA"
+        },
+        "description": {
+          "en": "Read Nobuo Terashima (Nobu) through say what you appreciate in words someone can hear: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“把欣赏说成对方听得到的话”阅读寺岛伸夫（Nobu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Nobu reading",
+            "zh": "寺岛伸夫的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Nobuo Terashima, called Nobu, is a Black Stones guitarist and an old friend of Nana Osaki. This edition uses a narrow interpersonal creative angle: saying what you appreciate and what you mean plainly. Your choices do not measure kindness, honesty, romantic compatibility or moral integrity. They describe one possible contribution to a shared activity, without assigning the character’s personal relationships to you.",
+              "zh": "寺岛伸夫被叫作Nobu，是Black Stones吉他手，也是大崎娜娜的旧友。本版只取共同创作中的一个交往角度：把欣赏和本意真诚说清。本次选择不测善良、诚实、恋爱适配或道德完整性，只描述共同活动里的一种贡献，不把人物关系赋给你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An early sketch with a clear response",
+            "zh": "草图收到一句清楚回应"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend sends a sketch before it is finished. You identify a specific line or idea you enjoyed and explain what you actually understood from it. That can make feedback more usable than a vague compliment. You can also ask whether they want a suggestion; appreciation need not arrive bundled with advice or a promise you cannot keep.",
+              "zh": "朋友把未完成草图发来，可以指出具体喜欢的一笔或一个想法，说清实际读懂了什么，比笼统夸奖更好用。也可以问是否需要建议；欣赏不必捆着意见，更不必附上一份自己做不到的承诺。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Expression beside six other contributions",
+            "zh": "表达与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki names a creative intention; Hachi makes ordinary shared time feel connected and Ren works on a detail. Takumi considers resources, Shin explores an adjustable role and Yasu makes agreements clear. Nobu’s angle puts appreciation and intentions into direct words. Those words can support any other contribution, without making one person more sincere than someone who chooses a different option.",
+              "zh": "大崎娜娜说出创作意图，阿八让日常相处有联结，莲打磨细节；巧考虑资源，真一探索灵活角色，泰士说清约定。伸夫角度把欣赏和本意直接表达出来。这能支持其他贡献，但不表示这样选的人比用其他方式的人更真诚。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Warm words still need a clear purpose",
+            "zh": "温暖话语也要目的清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "A supportive comment can become confusing if the listener hears a commitment you did not intend. If that happens, clarify what you can offer rather than adding more reassurance. This is a possible communication adjustment, not a conclusion that a high Nobu count means indecision, self-doubt or a particular romantic pattern. A quiz cannot resolve another person’s expectations for you.",
+              "zh": "支持的话如果让对方听成自己原本没打算的承诺，也会混乱。这时可说清实际能提供什么，不必继续加安慰。这只是沟通调整，不说明高伸夫计数意味着犹豫、自我怀疑或某种恋爱模式。测试也不能代替双方处理期待。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one specific appreciation",
+            "zh": "试一句具体欣赏"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-stakes piece someone is willing to share. Describe a detail you appreciate, explain what you understood and ask whether that response fits what they wanted. Notice how the conversation develops without trying to make the person agree with you. There is no need to be everyone’s reassuring friend or treat a fictional match as a requirement to remain agreeable.",
+              "zh": "选一件别人愿意分享的小作品，说一处具体欣赏、说明读懂了什么，再问这种回应是否符合对方需要。看看交流怎样发展，不要求对方同意自己。不必成为所有人的安慰者，也不把虚构匹配变成始终随和的义务。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shinichi-okazaki",
+      "directionIds": [
+        "shinichi-okazaki"
+      ],
+      "title": {
+        "en": "Shinichi Okazaki (Shin)",
+        "zh": "冈崎真一（Shin）"
+      },
+      "headline": {
+        "en": "Try a new role while keeping the choice yours",
+        "zh": "试一个新角色，也保留自己的选择"
+      },
+      "summary": {
+        "en": "Read Shinichi Okazaki (Shin) through try a new role while keeping the choice yours: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“试一个新角色，也保留自己的选择”阅读冈崎真一（Shin）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Shinichi Okazaki (Shin) Test Result: Try a new role while keeping the choice yours | Nana",
+          "zh": "冈崎真一（Shin）测试结果：试一个新角色，也保留自己的选择｜NANA"
+        },
+        "description": {
+          "en": "Read Shinichi Okazaki (Shin) through try a new role while keeping the choice yours: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“试一个新角色，也保留自己的选择”阅读冈崎真一（Shin）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Shin reading",
+            "zh": "冈崎真一的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Shinichi Okazaki, called Shin, joins Black Stones as a bassist. This edition uses a limited newcomer angle: trying an unfamiliar role while retaining room to adjust it. Your choices do not imply his age, personal history, maturity or experiences in the story. Adaptability here is an offered response in an ordinary activity, not a validated ability or a requirement to fit into every group.",
+              "zh": "冈崎真一被叫作Shin，作为贝斯手加入Black Stones。本版只取新参与者的有限角度：试陌生角色，同时留出调整空间。本次选择不暗示人物年龄、个人经历、成熟度或剧情遭遇。这里的灵活只是普通活动里的一个回应，不是已验证能力，也不要求适应每个小组。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A first role that can change",
+            "zh": "第一次分工也可以调整"
+          },
+          "paragraphs": [
+            {
+              "en": "A creative group offers you a task you have not done before. You agree to try a small version, ask what support is available and keep the option to revise your involvement after learning more. That lets the role become a genuine choice. It need not mean hiding your uncertainty or accepting whatever the group would prefer you to do.",
+              "zh": "创作小组给了自己没做过的任务，可以先试一个小版本，问清有哪些支持，也保留了解后调整参与的选择。这样分工才真是选择，不必藏起不确定，也不必别人希望做什么就全部接下。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Flexibility beside six other angles",
+            "zh": "灵活与另外六个角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki keeps an expressive idea visible; Hachi adds an everyday connection and Ren refines a detail. Takumi fits the aim to resources, Nobu speaks appreciatively and Yasu clarifies agreements. Shin’s angle experiments with how a person can take part. An adjustable role can support all six contributions, without making someone less committed or more independent than a person who prefers a settled role.",
+              "zh": "大崎娜娜保留表达，阿八加入日常联结，莲打磨细节；巧让目标和资源相配，伸夫表达欣赏，泰士说清约定。真一角度探索怎样参与。可调整角色能支持其余六种贡献，不让人较不投入，也不证明比偏好固定分工的人更独立。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Make a change visible to others",
+            "zh": "调整也要让别人知道"
+          },
+          "paragraphs": [
+            {
+              "en": "Flexibility can become difficult for collaborators if a changed role is never discussed. You might say what you have learned, what now fits and what needs a different agreement. That keeps the choice understandable to others. The count cannot show whether you are rebellious, resilient, insecure or likely to cope with difficult circumstances, and it creates no obligation to disclose private experiences.",
+              "zh": "角色变了却没说，伙伴也可能难以配合。可以说明新了解到什么、什么现在适合、什么需要另约，让别人理解这个选择。计数看不出叛逆、韧性、不安全感或面对困难的能力，也不产生透露个人经历的义务。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a role with a review point",
+            "zh": "给试角色留一个回看点"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one optional unfamiliar task, a small first version and a moment to decide whether you want to continue. Ask what help is available and communicate any change. Afterwards notice what the trial taught you about this task alone. You do not have to prove that you can adapt everywhere or let a character match dictate how much of yourself to reveal.",
+              "zh": "选一项自愿的陌生任务、一个小起步版本，再约个时点决定是否继续。问清支持，调整时说明。结束后只看这次尝试让自己了解了这项任务什么，不必证明到哪里都能适应，也不让人物匹配决定要透露多少自己。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yasushi-takagi",
+      "directionIds": [
+        "yasushi-takagi"
+      ],
+      "title": {
+        "en": "Yasushi Takagi (Yasu)",
+        "zh": "高木泰士（Yasu）"
+      },
+      "headline": {
+        "en": "Make shared responsibility clear enough to use",
+        "zh": "把共同责任说得清楚、用得起来"
+      },
+      "summary": {
+        "en": "Read Yasushi Takagi (Yasu) through make shared responsibility clear enough to use: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+        "zh": "从“把共同责任说得清楚、用得起来”阅读高木泰士（Yasu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+      },
+      "seo": {
+        "title": {
+          "en": "Yasushi Takagi (Yasu) Test Result: Make shared responsibility clear enough to use | Nana",
+          "zh": "高木泰士（Yasu）测试结果：把共同责任说得清楚、用得起来｜NANA"
+        },
+        "description": {
+          "en": "Read Yasushi Takagi (Yasu) through make shared responsibility clear enough to use: a concrete creative scene, comparisons with six other characters, a small experiment and scoring limits. Complete original fan result guide.",
+          "zh": "从“把共同责任说得清楚、用得起来”阅读高木泰士（Yasu）：含具体创作情境、其他六角色比较、小尝试和计数边界。原创同人结果全文免费，不定义真人关系或经历。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+        "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A limited Yasu reading",
+            "zh": "高木泰士的有限读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Yasushi Takagi, called Yasu, is Black Stones’ drummer and is also connected with legal work in the story. Here the limited angle is clarifying responsibility, support and boundaries in a shared activity. Your selections do not measure wisdom, maturity, moral clarity, legal competence or a duty to protect others. The fictional role provides context, without authorising advice about a real dispute.",
+              "zh": "高木泰士被叫作Yasu，是Black Stones鼓手，作品里也与法律工作有关。本版有限角度是在共同活动中说清责任、支持与边界。本次选择不测智慧、成熟、道德清晰、法律能力，也不产生保护他人的义务。虚构角色只提供背景，不授权处理真实纠纷的建议。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two expectations, one manageable agreement",
+            "zh": "两份期待，一份能承担的约定"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people expect you to handle the same creative task in different ways. You bring the expectations into one conversation, state what you can do and invite an agreement everyone understands. That can prevent invisible responsibilities from accumulating. It does not require you to become the permanent mediator or take over decisions that belong to the people involved.",
+              "zh": "两个人希望自己用不同方式处理同一创作任务，可以把期待放进同一次讨论，说清能做什么，邀请大家约出都明白的方案。这能减少看不见的责任堆积，不要求永久当调解者，也不接管本来属于当事人的决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Coordination beside six other contributions",
+            "zh": "协调与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Nana Osaki names the expressive idea; Hachi notices everyday connection and Ren works on a concrete detail. Takumi aligns the aim with resources, Nobu speaks appreciatively and Shin tries an adjustable role. Yasu’s angle makes the responsibility between those contributions explicit. Clear agreements can serve creative freedom and warmth, without making one person the most mature or responsible member.",
+              "zh": "大崎娜娜说出表达想法，阿八注意日常联结，莲打磨具体细节；巧让目标和资源相配，伸夫表达欣赏，真一试可调整角色。泰士角度把贡献之间的责任说清。清楚约定可以服务创作自由和温暖相处，不评谁是最成熟、最有责任心的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Support includes your own boundary",
+            "zh": "支持也包括自己的边界"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful agreement leaves space for your own time and wishes. If everyone relies on you to hold the arrangement together, ask which responsibility can be shared instead of silently accepting more. This is a possible project adjustment, not evidence that your result identifies self-sacrifice, hidden feelings or a role you must play in your friendships. The group remains responsible for its decisions.",
+              "zh": "有用的约定也给自己的时间和意愿留空间。大家都靠自己撑安排时，可以问哪项责任能共担，不默默再接更多。这是项目里可能的调整，不证明结果识别出自我牺牲、隐藏感情，或规定在友谊里必须扮演什么。小组仍对自己的决定负责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Ask for one explicit agreement",
+            "zh": "问清一项具体约定"
+          },
+          "paragraphs": [
+            {
+              "en": "For the next small shared activity, clarify who decides, who carries each practical part and when the arrangement can be reviewed. Include a straightforward way for someone to step back. Afterwards ask whether the agreement made participation easier. This is a trial of everyday coordination, not professional mediation, legal advice or proof that you should guide other people’s lives.",
+              "zh": "下次共同小活动，约清谁决定、谁承担哪部分实际工作、何时可以回看安排，也留一个容易退出的办法。之后问这份约定是否让参与更轻松。这是在试日常协调，不是专业调解、法律建议，也不证明该由自己引导别人的人生。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and all highest ties",
+            "zh": "21次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+              "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版本与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+              "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Seven raw choice counts",
+        "zh": "七项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Answer all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for a total of 21. Every character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. All highest counts receive complete guides; all A gives three each and all seven guides. Counts are not similarity percentages, talents, clinical scales or population ranks. A one-choice gap has no validated psychological significance, and a second count is not a hidden personality.",
+          "zh": "21题全部作答，每项按明确映射给七位角色之一加1次，加总21。每位出现12次，四位置各3次；当题没出现不算被拒绝。最高计数全部呈现全文；全A会各3次，七份完整说明一起显示。计数不是相似度百分比、天分、临床量表或人群排名。相差一次没有经过验证的心理意义，第二高也不是隐藏人格。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest match keeps the full explanation",
+        "zh": "所有最高匹配都保留全文"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without a fixed-order favourite. Other close results can be compared through the seven public guides, without inventing a hidden or supporting character. Ordinary creative contributions can coexist. A raw count describes this bank’s offered choices and does not rank who is more talented, caring, mature or capable of making relationships work.",
+          "zh": "所有最高计数一起显示，不按固定顺序偏爱某位。近分可比较七份公开说明，不补造隐藏或辅助角色。普通创作贡献可以共存；原始计数只描述本题本提供的选择，不评谁更有才、更关心别人、更成熟或更会经营关系。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "A cast comparison with a limited scope",
+        "zh": "有范围的人物比较"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition covers Nana Osaki, Nana Komatsu, Ren Honjo, Takumi Ichinose, Nobuo Terashima, Shinichi Okazaki and Yasushi Takagi. Reira, Junko and other characters are outside this set. The guides use limited editorial angles, not complete biographies or a map of the story’s relationships. Counts cannot predict a partner, repeat a plot or justify harm.",
+          "zh": "本版包含大崎娜娜、小松奈奈、本城莲、一之濑巧、寺岛伸夫、冈崎真一和高木泰士，蕾拉、淳子等不在此集合。说明取有限编辑角度，不是完整传记或剧情关系图；计数不能预测伴侣、重现剧情或为伤害提供理由。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版本"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+          "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers, optional drafts and sharing",
+        "zh": "私密答案、可选草稿与分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are scored in your browser and do not enter uploads, URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character names and a link, without answers or counts. Every complete result is free without email, signup or another test. Further assessments are optional and need their own questions.",
+          "zh": "答案在浏览器计分，不上传、不进入网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。可选分享只含公开角色名称和链接，不含答案或次数。全部完整结果免费，无需邮箱、注册或另一测试。后续测评自选且另行作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Nana characters are included?",
+        "zh": "本版包含哪些《NANA》角色？"
+      },
+      "answer": {
+        "en": "Nana Osaki, Nana Komatsu (Hachi), Ren Honjo, Takumi Ichinose, Nobuo Terashima (Nobu), Shinichi Okazaki (Shin) and Yasushi Takagi (Yasu). All seven have full bilingual guides. The set is limited and does not include every character or every aspect of their stories.",
+        "zh": "大崎娜娜、小松奈奈／阿八、本城莲、一之濑巧、寺岛伸夫、冈崎真一和高木泰士，七位均有双语全文。本集合有限，不含所有人物或人物故事的所有方面。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或经过科学验证的版本吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and result. Nana and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Publisher introductions, the official television cast and basic character references supply limited fictional context, not questionnaire validation or current final-story claims. No dialogue, scanned pages, character art or competitor text is reproduced. The quiz infers no diagnosis, trauma, addiction, age, gender standard, abuse, romantic compatibility, relationship fate, MBTI or career suitability. A match neither assigns fictional harm to you nor excuses harmful actions.",
+        "zh": "费马独立创作这份非官方同人版的全部题目、映射、例子与结果。《NANA》及角色权利归相应权利人，无隶属或认可关系。出版社简介、官方电视角色名单和基本人物参考只提供有限虚构背景，不验证题本，也不代表当前终章结论。不复制台词、扫描页、立绘或竞品正文。本测试不推断诊断、创伤、成瘾、年龄、性别标准、虐待、恋爱适配、关系命运、MBTI或职业适配。匹配既不把虚构伤害赋给你，也不为伤害行为免责。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a match predict my relationships or personal history?",
+        "zh": "人物匹配能预测关系或个人经历吗？"
+      },
+      "answer": {
+        "en": "No. Ordinary creative choices cannot establish trauma, addiction, abuse, maturity, romantic compatibility, gender roles or a shared life story. The results do not assign the character’s harmful behaviour to you or excuse it. Read the limited angle and disagree where it does not fit.",
+        "zh": "不能。普通创作选择无法确立创伤、成瘾、虐待、成熟度、恋爱适配、性别角色或相同人生故事。结果既不把角色伤害行为赋给你，也不为它免责。只读有限角度，不合适的部分可以不同意。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need musical ability or knowledge of the plot?",
+        "zh": "需要音乐能力或记得剧情吗？"
+      },
+      "answer": {
+        "en": "No. All 21 situations concern ordinary optional creative work and shared time. No answer requires playing an instrument or recalling an episode. Counts do not measure actual musical, artistic, leadership or legal competence. Five minutes is an editorial time estimate, not a measured human benchmark.",
+        "zh": "不需要。21题均为普通、自愿的创作与共同相处，不要求演奏乐器或记得哪集。次数不测真实音乐、艺术、领导或法律能力。约5分钟是编辑估计，并非实测人类用时基准。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and full results free in both languages?",
+        "zh": "两语全部题目和完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All questions, options and full guides are available in English and Chinese without an account, email or prior MBTI test. Names and mappings remain stable when the interface changes; psychometric equivalence between languages has not been established. Optional next assessments have separate purposes and questions.",
+        "zh": "是。全部题目、选项和指南均有中英文，无需账号、邮箱或前置MBTI。切换界面保留相同身份与映射，两语尚未建立心理测量等价证据。可选后续测评另有目的和题目。"
+      }
+    }
+  ]
+}

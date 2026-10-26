@@ -1,0 +1,869 @@
+{
+  "id": "T116",
+  "version": "1.0.0",
+  "form": "fermatmind_nana_original_21_v1",
+  "method": "Sevenlimitededitorialangles/12exposureseach/3eachposition. Onerawcountperexplicitchoice,allhighestties;no clinical,trauma,abuse,age,gender,romance,MBTIorcareer inferences.",
+  "questions": [
+    {
+      "id": "NANA_01",
+      "prompt": {
+        "en": "Friends are making a tiny listening event for music they enjoy. Which part would you most like to shape?",
+        "zh": "朋友想办一场小小的音乐欣赏活动，你最想参与哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep a clear creative idea that makes the event feel like ours.",
+            "zh": "守住一个让这场活动有自己表达的创意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Make the shared evening feel welcoming in small everyday ways.",
+            "zh": "用日常小细节让一起度过的晚上更温暖。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Spend time refining one small piece of the listening experience.",
+            "zh": "花点时间认真打磨聆听体验的一小部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Fit the agreed plan to the time, room and equipment available.",
+            "zh": "把约好的计划和现有时间、房间、设备配好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_02",
+      "prompt": {
+        "en": "Two friends are arranging a shared corner for their hobby materials. What would you prefer to add?",
+        "zh": "两位朋友整理共用的兴趣材料角落，你更愿意加些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small everyday ritual that makes using the corner feel shared.",
+            "zh": "一个让使用这个角落有共同感的小习惯。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Careful work on the detail that matters to the activity itself.",
+            "zh": "把和活动本身有关的一处细节细细做好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A realistic list of the materials and space we can use.",
+            "zh": "列清现有材料与可用空间。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "A plain explanation of what I like and hope to contribute.",
+            "zh": "直接说说自己喜欢什么、想贡献什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_03",
+      "prompt": {
+        "en": "You have a short session to prepare an original hobby piece. Which approach appeals most?",
+        "zh": "有一小段时间准备原创兴趣作品，你更喜欢哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Work closely on one passage or detail until it feels more settled.",
+            "zh": "专注于一个段落或细节，慢慢把它做稳。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose a workable scope and allocate the limited session accordingly.",
+            "zh": "先选能完成的范围，再分配有限时间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Tell a partner honestly which part I am excited to share.",
+            "zh": "坦率告诉伙伴，自己最想分享哪一部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a different role or technique while keeping the choice my own.",
+            "zh": "试一个新角色或新方法，同时自己决定怎么试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_04",
+      "prompt": {
+        "en": "A small creative meet-up has more ideas than available time. What would you prefer to do first?",
+        "zh": "一次小型创作聚会的点子比可用时间多，你更想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Agree on a manageable aim and the resources it will need.",
+            "zh": "先约定能做到的目标和所需资源。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say directly which idea matters most to me and why.",
+            "zh": "直接说哪一个点子对自己最有意义，以及原因。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Look for a flexible version that lets people try unfamiliar parts.",
+            "zh": "找一个灵活版本，让大家能试陌生的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Clarify who can decide what and how to handle a disagreement.",
+            "zh": "说清谁可以决定什么，以及分歧怎样协调。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_05",
+      "prompt": {
+        "en": "Someone invites you to join an informal creative group. Which first contribution feels closest?",
+        "zh": "有人邀请你加入非正式创作小组，你更接近哪种初次贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Express genuine appreciation for a specific part of their work.",
+            "zh": "具体而真诚地说出欣赏对方作品哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Explore a small role I can adapt while getting to know the group.",
+            "zh": "先试一个能边熟悉边调整的小角色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Ask what responsibilities and limits everyone has agreed on.",
+            "zh": "问清大家约好了哪些责任和范围。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Bring an idea that I want to express in my own way.",
+            "zh": "带来一个想用自己方式表达的点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_06",
+      "prompt": {
+        "en": "A new member can choose among several roles for a hobby session. What would appeal most to you?",
+        "zh": "新成员可以在兴趣活动里选几种分工，如果是你，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Room to try a role and adjust it after seeing how it fits.",
+            "zh": "可以先试，再看是否适合自己来调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "An explicit agreement about what support the role can rely on.",
+            "zh": "明确约好这个角色可以得到哪些支持。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "A role that leaves space for a recognisable creative voice.",
+            "zh": "一个能保留鲜明创作表达的位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A way to make ordinary time with the group feel connected.",
+            "zh": "一种让平常相处也有联结感的参与方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_07",
+      "prompt": {
+        "en": "People disagree about the running order of a small sharing session. Which contribution would you choose?",
+        "zh": "小型分享活动的顺序有分歧，你更愿意作哪种贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Make room for each need and agree how the decision will be made.",
+            "zh": "让各方需要被说到，再约好怎样决定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Explain which order best preserves the creative idea I care about.",
+            "zh": "说清哪种顺序能保留自己在意的创意表达。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Find a small shared moment that makes the order less tense.",
+            "zh": "找一点能一起享受的小环节，让顺序不那么紧绷。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Refine the transition between two pieces so either order works better.",
+            "zh": "打磨两段内容之间的衔接，让两种顺序都更顺。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_08",
+      "prompt": {
+        "en": "Your group is making a short self-published zine. What would you most like to protect?",
+        "zh": "小组制作一本短短的自印小刊，你最想保留什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "The distinctive idea that made us want to make it.",
+            "zh": "最初让大家想做它的独特表达。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "The small contributions that make it feel like time spent together.",
+            "zh": "那些让它有共同相处记忆的小贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "The care put into a particular page or sequence.",
+            "zh": "某一页或一组内容经过细细打磨的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A scope we can finish with the paper and time we actually have.",
+            "zh": "用现有纸张和时间可以做完的范围。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_09",
+      "prompt": {
+        "en": "A shared evening at home has no special occasion. Which addition appeals most?",
+        "zh": "共同在家的普通晚上没有特别安排，你更喜欢加点什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small familiar gesture that makes the evening feel shared.",
+            "zh": "一点让普通晚上有共同感的熟悉心意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Unhurried time to work on a personal creative detail.",
+            "zh": "留一段不急的时间打磨自己的创作细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A workable arrangement for the room, supplies and available time.",
+            "zh": "把房间、用品和可用时间安排得现实一些。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "An open conversation about something I am genuinely enjoying.",
+            "zh": "坦率聊聊自己最近真正喜欢的一件事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_10",
+      "prompt": {
+        "en": "You return to a hobby piece after receiving several suggestions. What would you prefer?",
+        "zh": "一件兴趣作品收到了几条建议，再打开它时你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Practise the specific detail I most want to improve.",
+            "zh": "练一练自己最想做好的具体细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose which changes fit the time and materials I can invest.",
+            "zh": "选出符合自己可投入时间、材料的改动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Explain honestly which suggestions connect with what I meant.",
+            "zh": "坦率说明哪些建议和自己的原意对得上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Experiment with an unfamiliar version before deciding what to keep.",
+            "zh": "先试一版陌生做法，再决定留什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_11",
+      "prompt": {
+        "en": "A group has one spare room and several possible creative plans. What interests you first?",
+        "zh": "小组有一个空房间和几种创作计划，你首先关心什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Which plan the space and available resources can support.",
+            "zh": "这个空间和现有资源能支持哪种计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Which plan people actually want, expressed in their own words.",
+            "zh": "大家各自真正想做什么，能否亲口说清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Whether we can test different uses without locking everyone into one.",
+            "zh": "能否试几种用法，不急着把大家固定在一种里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "How we will share decisions and responsibility for the space.",
+            "zh": "空间的决定权和责任怎样共同约定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_12",
+      "prompt": {
+        "en": "Someone shares an early recording or sketch with you. Which response feels most natural to offer?",
+        "zh": "有人把早期录音或草图发给你，你更自然地想怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say specifically what I appreciate and what I actually heard or saw.",
+            "zh": "具体说欣赏哪里，也说清自己实际听到、看到什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Ask whether they would enjoy testing an alternative version together.",
+            "zh": "问愿不愿一起试一个不同版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Clarify whether they want feedback, practical help or simply an audience.",
+            "zh": "先问想要意见、实际帮忙，还是只想有人看看听听。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Talk about the expressive idea I can recognise in the piece.",
+            "zh": "聊聊自己在作品里看见的表达想法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_13",
+      "prompt": {
+        "en": "A hobby plan changes just as you are learning your part. What would you rather do?",
+        "zh": "刚熟悉自己的兴趣分工，计划就变了，你更愿意怎么应对？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a revised role while keeping the freedom to say what does not fit.",
+            "zh": "试试调整后的角色，也保留说不合适的自由。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Revisit the agreement so responsibilities remain clear and shared.",
+            "zh": "重看约定，让责任仍清楚且由大家分担。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep the central creative intention visible through the change.",
+            "zh": "让变化中仍看得见核心创作意图。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Maintain one small shared habit that makes the group feel connected.",
+            "zh": "留住一个让小组仍有联结感的小习惯。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_14",
+      "prompt": {
+        "en": "Two people expect you to handle the same task in different ways. What appeals most?",
+        "zh": "两个人希望你用不同方式处理同一件事，你更倾向什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Bring the expectations together and agree what I can actually take on.",
+            "zh": "把两边期待放一起，约好自己实际承担什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Explain which approach fits the idea I want the work to express.",
+            "zh": "说明哪种做法符合自己想表达的想法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Start with a small shared exchange so the conversation feels less distant.",
+            "zh": "先有一点共同交流，让讨论不那么生分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Work on one concrete detail that can clarify the difference.",
+            "zh": "先打磨一个能看清两种差别的具体细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_15",
+      "prompt": {
+        "en": "Your small creative project could imitate a popular style or develop its own. What would you prefer?",
+        "zh": "一个小创作可以仿照流行风格，也可以发展自己的做法，你更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Keep the part of the idea that feels distinctly ours.",
+            "zh": "保留点子中最像自己的那一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Choose the version that gives us an enjoyable shared memory.",
+            "zh": "选能给大家留下共同开心记忆的版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Explore the detail that I would enjoy refining over several attempts.",
+            "zh": "选一个自己愿意反复打磨的细节继续探索。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Match the version to what we can realistically finish together.",
+            "zh": "把版本和实际能共同完成的范围配好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_16",
+      "prompt": {
+        "en": "A friend is helping you settle into a new shared hobby space. What would you value most?",
+        "zh": "朋友帮你适应新的共用兴趣空间，你最珍惜哪种帮助？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "A small ordinary gesture that makes being there feel less unfamiliar.",
+            "zh": "一点让待在那里不再陌生的日常心意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Time to become familiar with the materials through patient practice.",
+            "zh": "有时间通过耐心练习熟悉材料。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "A clear account of the resources and practical arrangements.",
+            "zh": "把资源和实际安排说明白。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "An honest welcome that says what they enjoy about working together.",
+            "zh": "真诚欢迎，也说说喜欢怎样一起做事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_17",
+      "prompt": {
+        "en": "You have one free hour with a creative collaborator. Which use appeals most?",
+        "zh": "和创作伙伴有一个空闲小时，你更想怎么用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "Concentrate together on a detail we both want to refine.",
+            "zh": "一起专心打磨一处都想做好的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Choose a limited goal and organise what we need to reach it.",
+            "zh": "选个有限目标，把所需条件安排好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Speak openly about what each of us is excited to make.",
+            "zh": "坦率聊聊各自真正想做什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Swap roles briefly to see what a different approach feels like.",
+            "zh": "短暂换换角色，体验不同做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_18",
+      "prompt": {
+        "en": "A casual showcase needs a simpler plan. What would you change first?",
+        "zh": "一次轻松的作品展示需要简化，你更想先改哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "takumi-ichinose",
+          "label": {
+            "en": "Bring the aims, schedule and materials into a manageable match.",
+            "zh": "把目标、时间表和材料调整到能承担的范围。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Say plainly which part I would like to keep and why it matters.",
+            "zh": "直接说自己想保留哪部分、为什么在意。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Try a flexible format that gives unfamiliar contributions a chance.",
+            "zh": "试一个灵活形式，让陌生的贡献也有机会。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Agree on fair responsibilities and a clear way to revise the plan.",
+            "zh": "约好公平的责任和清楚的改计划方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_19",
+      "prompt": {
+        "en": "You want to tell a group why you enjoy taking part. Which way feels closest?",
+        "zh": "想告诉小组自己为什么喜欢参加，你更接近哪种说法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nobuo-terashima",
+          "label": {
+            "en": "Name something specific I appreciate about creating with them.",
+            "zh": "具体说一件自己欣赏的共同创作体验。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Describe the room I have to try things and adjust my part.",
+            "zh": "说说自己有空间尝试，也能调整参与方式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Mention the shared agreements that make joining sustainable for me.",
+            "zh": "提一提哪些共同约定让自己能持续参加。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Talk about the creative idea I can express without losing my own voice.",
+            "zh": "聊聊怎样表达创意而不丢掉自己的声音。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_20",
+      "prompt": {
+        "en": "A project offers a role you have never tried. Which condition matters most to your choice?",
+        "zh": "项目给了你一个没试过的角色，决定时你最在意哪项条件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "shinichi-okazaki",
+          "label": {
+            "en": "Being able to explore it and revise my involvement as I learn.",
+            "zh": "可以探索，也可以随着了解调整参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Knowing what responsibilities are shared and what support is agreed.",
+            "zh": "知道哪些责任共同承担、哪些支持已经约好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Having space to contribute an idea that still feels like my own.",
+            "zh": "有空间贡献仍然像自己的想法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "Feeling a small everyday connection with the people involved.",
+            "zh": "和参与的人有一点日常联结感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "NANA_21",
+      "prompt": {
+        "en": "After a shared creative session, what would you most like to review?",
+        "zh": "共同创作结束后，你最想回看什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "yasushi-takagi",
+          "label": {
+            "en": "Whether our agreements and responsibilities still fit everyone.",
+            "zh": "约定和责任是否仍适合每个人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nana-osaki",
+          "label": {
+            "en": "Whether the original expressive idea is still recognisable in what we made.",
+            "zh": "做出来的东西是否仍看得见最初表达。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nana-komatsu",
+          "label": {
+            "en": "The small moments that made the time feel shared.",
+            "zh": "哪些小瞬间让这段时间有共同感。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ren-honjo",
+          "label": {
+            "en": "One detail I would enjoy returning to and refining.",
+            "zh": "哪处细节让自己还想回来继续打磨。"
+          }
+        }
+      ]
+    }
+  ]
+}

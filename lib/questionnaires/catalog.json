@@ -2079,5 +2079,33 @@
       "second-chapter",
       "lucky-detour"
     ]
+  },
+  {
+    "slug": "nana-character",
+    "code": "NANA_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Nana Character Test",
+      "zh": "《NANA》角色测试"
+    },
+    "description": {
+      "en": "Answer 21 original everyday creative questions and compare Nana Osaki, Hachi, Ren, Takumi, Nobu, Shin and Yasu. Every highest tie and all seven complete bilingual guides are free, without signup. Unofficial fan edition.",
+      "zh": "完成21道原创日常创作情境题，比较大崎娜娜、阿八、莲、巧、伸夫、真一与泰士。最高并列全部保留，七份完整双语说明免费，无需注册。非官方同人版，不推断剧情经历或关系命运。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_nana_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "nana-osaki",
+      "nana-komatsu",
+      "ren-honjo",
+      "takumi-ichinose",
+      "nobuo-terashima",
+      "shinichi-okazaki",
+      "yasushi-takagi"
+    ],
+    "collection": "explore"
   }
 ]
