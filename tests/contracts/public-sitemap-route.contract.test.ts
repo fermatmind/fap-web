@@ -127,6 +127,23 @@ describe("public sitemap route", () => {
     expect(xml).toContain(`<loc>${PERSONALITY_COMPARISON_URL}</loc>`);
   });
 
+  it("keeps the eight public friendship identities in both root and tests sitemaps", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify(backendSitemapPayload()), {
+      status: 200, headers: { "Content-Type": "application/json" },
+    })));
+    const root = await (await getRootSitemap()).text();
+    const family = await (await getFamilySitemap(new Request("https://fermatmind.com/sitemaps/tests.xml"), {
+      params: Promise.resolve({ family: "tests.xml" }),
+    })).text();
+    for (const { loc } of appendFriendshipSitemapEntries([])) {
+      const entry = `<loc>${loc}</loc>`;
+      expect(root.split(entry)).toHaveLength(2);
+      expect(family.split(entry)).toHaveLength(2);
+    }
+    expect(root).not.toContain("/share/friendship/");
+    expect(family).not.toContain("/share/friendship/");
+  });
+
   it("partitions the unchanged root URL union into deterministic disjoint families", () => {
     const rootEntries = buildPublicSitemapEntries(backendSitemapPayload());
     const families = buildPublicSitemapFamilyMap(rootEntries);
