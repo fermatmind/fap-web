@@ -11,7 +11,9 @@ async function finish(page: Page, locale: "en" | "zh", mode: "whole-form" | "tie
     const image = page.locator(`[data-inkblot-stimulus="${question.id}"] img`);
     await expect(image).toBeVisible();
     await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
-    const imageUrl = new URL(await image.getAttribute("src")!, page.url());
+    const source = await image.getAttribute("src");
+    if (!source) throw new Error("Visible original image has no source");
+    const imageUrl = new URL(source, page.url());
     expect(imageUrl.origin).toBe(new URL(page.url()).origin);
     expect(imageUrl.pathname).toBe(`/images/questionnaires/inkblot-original/fm-inkblot-${String(index + 1).padStart(2, "0")}.svg`);
     await expect(page.locator(`[data-inkblot-stimulus="${question.id}"] figcaption p`)).not.toBeEmpty();
