@@ -11,6 +11,7 @@ export function QuestionnaireEgogramReport({ quiz, result, locale }: { quiz: Que
     <section className="space-y-4 rounded-lg bg-slate-50 p-4" aria-labelledby="egogram-frequencies-title">
       <h3 id="egogram-frequencies-title" className="text-xl font-semibold">{zh ? "五组自报频率（1—5）" : "Five self-reported frequencies (1–5)"}</h3>
       <p className="leading-8">{zh ? "以下图形分别显示近四周有相应机会时的做法频率，不是心理能量百分比、固定总量或主导人格。每组四条全部有效才有分数，全部直接计分、0反向；其他组不替缺失条目估算。五组可以同时较高或较低，最高、最低或相同均不派型。" : "The chart separately shows how often actions occurred in the past four weeks when relevant occasions arose, not energy percentages, a fixed total or a dominant personality. Each group requires all four ratings, all direct with no reversals; other groups never estimate a missing item. All five can be higher or lower together without highest, lowest or equal patterns assigning a type."}</p>
+      <p data-ego-legend className="text-sm leading-7 text-slate-600">{zh ? "横条对应回答频率：1从不、2很少、3有时、4常常、5几乎总是。资料不足不画柱。" : "Bars use response frequencies: 1 Never, 2 Rarely, 3 Sometimes, 4 Often, 5 Almost always. Insufficient information has no bar."}</p>
       <dl className="space-y-6">{quiz.directions.map(direction => {
         const facet = result.facets[direction.id], total = facet.rated === 4 ? facet.sum : null, mean = total === null ? null : total / 4;
         return <div key={direction.id} data-ego-facet={direction.id} className="space-y-2">

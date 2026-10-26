@@ -13,6 +13,7 @@ async function finish(page: Page, locale: "en" | "zh", mode: "patterns" | "na" |
     await page.getByRole("button", { name: index === 19 ? (locale === "zh" ? "查看完整结果" : "See full result") : (locale === "zh" ? "下一题" : "Next"), exact: true }).click();
   }
   await expect(page.getByRole("heading", { level: 2, name: quiz.resultHeading![locale], exact: true })).toBeFocused();
+  await expect(page.locator("[data-ego-legend]")).toBeVisible(); for (const option of quiz.questions[0].options.slice(0, 5)) await expect(page.locator("[data-ego-legend]")).toContainText(`${option.id}${locale === "zh" ? "" : " "}${option.label[locale]}`);
   await expect(page.locator("[data-ego-facet]")).toHaveCount(5); await expect(page.locator("[data-ego-profile]")).toHaveCount(5); await expect(page.locator("#take-test h4")).toHaveCount(45);
   for (const direction of quiz.directions) {
     const section = page.locator(`[data-ego-facet="${direction.id}"]`), unscored = mode === "na" || (mode === "missing-part" && direction.id === "critical-parent");
