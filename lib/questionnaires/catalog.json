@@ -1325,5 +1325,31 @@
       "gamma",
       "delta"
     ]
+  },
+  {
+    "slug": "optimism-pessimism",
+    "code": "IPIP_OPTIMISM_10",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "乐观与悲观性测试",
+      "en": "Optimism & Pessimism Test"
+    },
+    "description": {
+      "zh": "用IPIP公有领域10条英文与中文试译观察乐观相关自报回答，四正六反、全部有效才计分。五份完整读法免费，边界保留两份；不评健康或职业。",
+      "en": "Explore ten public-domain IPIP Optimism items, transparent scoring and five free full guides. Chinese is a trial translation; no health or career verdict."
+    },
+    "minutes": 3,
+    "collection": "explore",
+    "formCode": "ipip_single_construct_optimism_10_web",
+    "questionCount": 10,
+    "resultSlugs": [
+      "lower",
+      "lower-middle",
+      "middle",
+      "upper-middle",
+      "higher"
+    ]
   }
 ]

@@ -1,0 +1,742 @@
+{
+  "formCode": "ipip_single_construct_optimism_10_web",
+  "origin": "Public-domainIPIPsingle-constructOptimism10exactEnglishkey/4positive6negative/ownZHtrialtranslation/notLOT-R/notTCIoptimism/notVIAHopefacet",
+  "directions": [
+    {
+      "id": "optimism",
+      "title": {
+        "zh": "IPIP乐观量表原始分数",
+        "en": "IPIP Optimism raw score"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPIP_OPT_01",
+      "prompt": {
+        "zh": "我确信自己会取得成功。",
+        "en": "Just know that I will be a success."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_02",
+      "prompt": {
+        "zh": "我对未来的看法很黯淡。",
+        "en": "Have a dark outlook on the future."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_03",
+      "prompt": {
+        "zh": "我对自己感到自在。",
+        "en": "Feel comfortable with myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_04",
+      "prompt": {
+        "zh": "我觉得自己的生活缺少方向。",
+        "en": "Feel that my life lacks direction."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_05",
+      "prompt": {
+        "zh": "我很少感到低落。",
+        "en": "Seldom feel blue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_06",
+      "prompt": {
+        "zh": "我不喜欢自己。",
+        "en": "Dislike myself."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_07",
+      "prompt": {
+        "zh": "我会看生活中光明的一面。",
+        "en": "Look at the bright side of life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_08",
+      "prompt": {
+        "zh": "我经常感到低落。",
+        "en": "Often feel blue."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_09",
+      "prompt": {
+        "zh": "我到处都看到困难。",
+        "en": "See difficulties everywhere."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "IPIP_OPT_10",
+      "prompt": {
+        "zh": "我经常心情不好。",
+        "en": "Am often in a bad mood."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不准确",
+            "en": "Very Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不准确",
+            "en": "Moderately Inaccurate"
+          },
+          "directionId": "optimism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于不准确与准确之间",
+            "en": "Neither Inaccurate nor Accurate"
+          },
+          "directionId": "optimism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较准确",
+            "en": "Moderately Accurate"
+          },
+          "directionId": "optimism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常准确",
+            "en": "Very Accurate"
+          },
+          "directionId": "optimism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "optimism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 10,
+    "minimumRatedItems": 10,
+    "positiveItems": [
+      "IPIP_OPT_01",
+      "IPIP_OPT_03",
+      "IPIP_OPT_05",
+      "IPIP_OPT_07"
+    ],
+    "negativeItems": [
+      "IPIP_OPT_02",
+      "IPIP_OPT_04",
+      "IPIP_OPT_06",
+      "IPIP_OPT_08",
+      "IPIP_OPT_09",
+      "IPIP_OPT_10"
+    ],
+    "response": "1VeryInaccurate..5VeryAccurate/negative6-r/NAexplicitnoimputation",
+    "total": "SUMall10scoredratings10..50/onlyall10rated/meanTotalDivided10;ANYNAinsufficientTOTALNULLnotzero",
+    "readingConvention": {
+      "kind": "fivewebsiteeditorialintervalsNOTIPIPnorms-orvalidatedtypes",
+      "profileIds": [
+        "lower",
+        "lower-middle",
+        "middle",
+        "upper-middle",
+        "higher"
+      ],
+      "boundaries": [
+        18,
+        26,
+        34,
+        42
+      ],
+      "rule": "below18lower;18bothlower/lower-middle;between18and26lower-middle;26bothlower-middle/middle;between26and34middle;34bothmiddle/upper-middle;between34and42upper-middle;42bothupper-middle/higher;above42higher;noforcedsingleatboundary"
+    },
+    "verificationPlan": "planned231reachable(rated,sum)sourceDPstates/41fullyratedrawtotals/9displaysets;NOTexecuted/not6^10individualanswers/normorpsychvalidation",
+    "subscales": "NONE;primarykeyonlyone10itemscale,notinventPositiveOutlook/EmotionalSteadinessorvaliditycheck"
+  },
+  "scope": "IPIP10constructincludesoutlook,mood,self-regardwording;nofivefixedpersonalities,healthscreen,defensivepessimismidentification,traitvalidityfromalpha.86,job-performance-orcareerprediction. Originalfivefullreadingguideswithcounterexamples;displayboundariesareexpliciteditorialnavigationnotempiricalcutoffs/norms/percentiles/confidenceintervals. Chinese/newrenderingnotvalidated/equivalent;exactpublicENwordingandkeypreserved. NoLOT-Ritems,competitorbody/scorerorprotectedbankadopted.",
+  "instructions": {
+    "zh": "按每句话描述你通常情形的准确程度，选择1非常不准确至5非常准确；无法判断或不愿回答可选暂不作答，不补成零或中间值。英文10条来自IPIP公有领域乐观量表，中文为本站试译；4条正向按原回答，6条反向按6减有效回答。10条全部有效才显示原始总分10—50与均分1—5；有任何暂不作答就保留资料不足。题目原本包含对未来、心情与自我感受的不同表述，不将其拆成未经核实的分量表，也不凭答案组合鉴定是否认真。五份完整读法是本站阅读约定，总分18、26、34、42同时呈现相邻两份；不是IPIP官方类型、常模、百分位、健康或职业结论。",
+    "en": "Rate how accurately each statement describes you generally, from 1 Very Inaccurate to 5 Very Accurate. Choose the unscored response when you cannot judge or prefer not to answer, without zero or midpoint substitution. Ten English items come from public-domain IPIP Optimism; Chinese is a website trial translation. Four positive items use the response and six negative items use six minus a valid response. All ten ratings are required for a raw total from 10 to 50 and a mean from 1 to 5; any unscored item retains insufficient information. Source items include outlook, mood and self-regard wording, without invented subscales or an attention verdict from response patterns. Five full guides are website reading conventions, with both adjacent guides at totals 18, 26, 34 and 42. They are no official IPIP types, norms, percentiles, health or career verdicts."
+  },
+  "upstreamItems": [
+    {
+      "english": "Just know that I will be a success.",
+      "reverse": false
+    },
+    {
+      "english": "Feel comfortable with myself.",
+      "reverse": false
+    },
+    {
+      "english": "Seldom feel blue.",
+      "reverse": false
+    },
+    {
+      "english": "Look at the bright side of life.",
+      "reverse": false
+    },
+    {
+      "english": "Have a dark outlook on the future.",
+      "reverse": true
+    },
+    {
+      "english": "Feel that my life lacks direction.",
+      "reverse": true
+    },
+    {
+      "english": "Dislike myself.",
+      "reverse": true
+    },
+    {
+      "english": "Often feel blue.",
+      "reverse": true
+    },
+    {
+      "english": "See difficulties everywhere.",
+      "reverse": true
+    },
+    {
+      "english": "Am often in a bad mood.",
+      "reverse": true
+    }
+  ]
+}

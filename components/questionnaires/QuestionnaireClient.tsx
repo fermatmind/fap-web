@@ -7,6 +7,7 @@ import { QuestionnaireTypeAbReport } from "./QuestionnaireTypeAbReport";
 import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
 import { QuestionnaireArchetypeReport } from "./QuestionnaireArchetypeReport";
 import { QuestionnaireAlignmentReport } from "./QuestionnaireAlignmentReport";
+import { QuestionnaireOptimismReport } from "./QuestionnaireOptimismReport";
 import { QuestionnaireExtraversionReport } from "./QuestionnaireExtraversionReport";
 import { QuestionnaireAffectionReport } from "./QuestionnaireAffectionReport";
 import { QuestionnaireAttachmentReport } from "./QuestionnaireAttachmentReport";
@@ -51,6 +52,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const facets = result.status === "complete" && "facets" in result ? result : undefined;
   const archetypes = result.status === "complete" && "profileIds" in result ? result : undefined;
   const alignment = result.status === "complete" && "alignmentIds" in result ? result : undefined;
+  const optimism = result.status === "complete" && "outlookProfileIds" in result ? result : undefined;
   const extraversion = result.status === "complete" && "scaleProfileIds" in result ? result : undefined;
   const affection = result.status === "complete" && "affectionFacets" in result ? result : undefined;
   const attachment = result.status === "complete" && "attachmentAxes" in result ? result : undefined;
@@ -102,9 +104,9 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   }
   async function copy() {
     if (!hasCompleteResult) return;
-    const matchedIds = alignment?.alignmentIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
+    const matchedIds = alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
     const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
-    const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : extraversion ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
+    const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (extraversion || optimism) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
     try { await navigator.clipboard.writeText(text); setMessage(zh ? "已复制结果名称与公开说明链接。" : "Copied the result name and public explanation link."); }
     catch { setManualCopy(text); setMessage(zh ? "请选中下方文字手动复制。" : "Select the text below to copy it manually."); }
@@ -139,12 +141,13 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {facets && (quiz.slug === "sdt-motivation" ? <QuestionnaireSdtNeedsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "type-ab" ? <QuestionnaireTypeAbReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "character-strengths" ? <QuestionnaireCharacterStrengthsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "learning-style" ? <QuestionnaireLearningPreferenceReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "procrastinator-type-test" ? <QuestionnaireProcrastinationReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "difficult-person-test" ? <QuestionnaireFrictionReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "people-pleaser" ? <QuestionnairePpsReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "music-taste-test" ? <QuestionnaireMusicReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "humor-style-test" ? <QuestionnaireHumorReport quiz={quiz} result={facets} locale={locale} /> : quiz.slug === "communication-style" ? <QuestionnaireCommunicationReport quiz={quiz} result={facets} locale={locale} /> : <QuestionnaireFacetReport quiz={quiz} result={facets} locale={locale} />)}
       {archetypes && <QuestionnaireArchetypeReport quiz={quiz} result={archetypes} locale={locale} />}
       {alignment && <QuestionnaireAlignmentReport quiz={quiz} result={alignment} locale={locale} />}
+      {optimism && <QuestionnaireOptimismReport quiz={quiz} result={optimism} locale={locale} />}
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}
       {affection && <QuestionnaireAffectionReport quiz={quiz} result={affection} locale={locale} />}
       {attachment && <QuestionnaireAttachmentReport quiz={quiz} result={attachment} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
-      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>
+      <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(optimism?.total === null || extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;

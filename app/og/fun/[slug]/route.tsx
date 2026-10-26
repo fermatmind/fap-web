@@ -47,7 +47,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.slug === "leadership-style" ? (zh ? "原创领导情境自评" : "Original leadership reflection")
     : questionnaire?.slug === "socionics" ? (zh ? "原创四组价值观察" : "Original quadra value reflection")
     : questionnaire?.slug === "temperament" ? (zh ? "原创古典气质自评" : "Original classical-style reflection")
-    : questionnaire?.kind === "extraversion" ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
+    : (questionnaire?.kind === "extraversion" || questionnaire?.kind === "optimism") ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
     : questionnaire?.kind === "alignment" ? (zh ? "原创阵营问卷" : "Original alignment reflection")
     : questionnaire?.kind === "archetype" ? (zh ? "原创象征测验" : "Original symbolic quiz")
     : questionnaire?.kind === "likert" ? (zh ? "原创自我观察" : "Original self-reflection")
