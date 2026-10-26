@@ -1974,5 +1974,30 @@
       "fluttershy"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "attention-to-detail",
+    "code": "FM_ATTENTION_DETAIL",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "everyday",
+    "title": {
+      "en": "Attention to Detail Test",
+      "zh": "细节注意力测试"
+    },
+    "description": {
+      "en": "Practise attention to detail with 24 original tasks. See correct counts, every answer and worked explanations for free. No timer or signup.",
+      "zh": "用24道原创客观题核对编号、规则、数量和格式，查看四分项答对题数、每题正确答案与完整解析。全部免费，无需注册；不限时，附逐项复习方法。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_attention_detail_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "records",
+      "rules",
+      "quantities",
+      "formats"
+    ]
   }
 ]

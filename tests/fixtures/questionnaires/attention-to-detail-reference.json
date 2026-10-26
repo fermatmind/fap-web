@@ -1,0 +1,1801 @@
+{
+  "id": "T156",
+  "edition": "fm_attention_detail_24_v1",
+  "authorship": "Original FermatMind closed-information objective practice; independent proofs provided per item.",
+  "questions": [
+    {
+      "id": "DETAIL_01",
+      "prompt": {
+        "en": "The source record is PK-60784-M. Which copy is identical, including letters and digits?",
+        "zh": "原始编号是 PK-60784-M。哪份抄录的字母和数字完全一致？"
+      },
+      "explanation": {
+        "en": "PK-60784-M preserves PK, all five digits in order, and the final M. The other copies transpose digits or change the last letter.",
+        "zh": "PK-60784-M 保留了 PK、顺序一致的五位数字和末尾 M。其余选项调换了数字位置或改变末尾字母。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "PK-60784-M",
+            "zh": "PK-60784-M"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "PK-60748-M",
+            "zh": "PK-60748-M"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "PK-60784-N",
+            "zh": "PK-60784-N"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "PK-67084-M",
+            "zh": "PK-67084-M"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_02",
+      "prompt": {
+        "en": "Reference: room 314, shelf D2. Copy: room 341, shelf D2. Which field changed?",
+        "zh": "原记录：房间314，书架D2。抄录：房间341，书架D2。哪个字段变了？"
+      },
+      "explanation": {
+        "en": "The room changes from 314 to 341; shelf D2 is unchanged. Compare each field separately.",
+        "zh": "房间314变成341，书架D2没有改变。分字段核对后，只有房间一项不同。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Shelf only",
+            "zh": "仅书架"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Room only",
+            "zh": "仅房间"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Both fields",
+            "zh": "两个字段"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Neither field",
+            "zh": "都没变"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_03",
+      "prompt": {
+        "en": "The contact is mira.chen@north.example. Which address matches exactly?",
+        "zh": "联系人地址为 mira.chen@north.example。哪一个完全相同？"
+      },
+      "explanation": {
+        "en": "Only the third address matches every character. A different local name, extra s or swapped letters in the domain changes the address. The .example domain is used only as fictional practice data.",
+        "zh": "只有第三个地址逐字符相同。用户名多字母、域名多 s 或字母顺序改变都会造成不一致；.example 这里只作虚构练习资料。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "mira.chen@norths.example",
+            "zh": "mira.chen@norths.example"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "mira.cheng@north.example",
+            "zh": "mira.cheng@north.example"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "mira.chen@north.example",
+            "zh": "mira.chen@north.example"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "mira.chen@north.exmaple",
+            "zh": "mira.chen@north.exmaple"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_04",
+      "prompt": {
+        "en": "Master list: AX7, AX8, AY8, AZ8. Which copy preserves the entire order?",
+        "zh": "原列表为 AX7、AX8、AY8、AZ8。哪个抄本完整保留了顺序？"
+      },
+      "explanation": {
+        "en": "The fourth copy preserves all four entries and their order. Compare each position rather than checking that the list looks generally familiar.",
+        "zh": "第四份的四个编号和位置都一致。应按位置逐项比对，而不是只看整份列表是否眼熟。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AX7, AY8, AX8, AZ8",
+            "zh": "AX7, AY8, AX8, AZ8"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "AX7, AX8, AY8, AZ9",
+            "zh": "AX7, AX8, AY8, AZ9"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "AX7, AX8, AYB, AZ8",
+            "zh": "AX7, AX8, AYB, AZ8"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "AX7, AX8, AY8, AZ8",
+            "zh": "AX7, AX8, AY8, AZ8"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "id": "DETAIL_05",
+      "prompt": {
+        "en": "A booking says 08:25–09:10. Which copy keeps both times unchanged?",
+        "zh": "预约记录是08:25–09:10。哪个抄本的起止时间都没有改变？"
+      },
+      "explanation": {
+        "en": "The first copy preserves 08:25 and 09:10. The others change the end minutes, start minutes or end hour. This is a literal comparison, not a time-zone conversion.",
+        "zh": "第一份保留08:25和09:10。其余分别改了结束分钟、开始分钟或结束小时；这里只逐字核对，不做时区转换。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "08:25–09:10",
+            "zh": "08:25–09:10"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "08:25–09:01",
+            "zh": "08:25–09:01"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "08:52–09:10",
+            "zh": "08:52–09:10"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "08:25–19:10",
+            "zh": "08:25–19:10"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_06",
+      "prompt": {
+        "en": "Source label: Cobalt / size 12 / batch 430. Which copy has exactly one changed field?",
+        "zh": "原标签：Cobalt / 尺寸12 / 批次430。哪个抄本恰好改了一个字段？"
+      },
+      "explanation": {
+        "en": "The second copy changes only batch 430 to 403. The first changes two fields, the third changes three and the fourth changes none. Count fields rather than changed characters.",
+        "zh": "第二份只把批次430改为403。第一份改两个字段，第三份改三个，第四份没改；这里统计字段，不统计字符。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Cobalt / size 21 / batch 403",
+            "zh": "Cobalt / 尺寸21 / 批次403"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Cobalt / size 12 / batch 403",
+            "zh": "Cobalt / 尺寸12 / 批次403"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Copper / size 21 / batch 403",
+            "zh": "Copper / 尺寸21 / 批次403"
+          },
+          "directionId": "records"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Cobalt / size 12 / batch 430",
+            "zh": "Cobalt / 尺寸12 / 批次430"
+          },
+          "directionId": "records"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_07",
+      "prompt": {
+        "en": "Use this rule: accept a parcel only when its seal is intact AND its code starts with Q. Which parcel qualifies?",
+        "zh": "规则：封条完好，并且编号以Q开头，才接收包裹。哪个符合？"
+      },
+      "explanation": {
+        "en": "Q41 with an intact seal satisfies both conditions. An intact seal alone or a Q prefix alone is insufficient because the rule uses AND.",
+        "zh": "封条完好的Q41同时满足两个条件。只有封条完好或只有Q开头都不够，因为规则要求并且。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Seal broken; Q14",
+            "zh": "封条破损；Q14"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Seal intact; R14",
+            "zh": "封条完好；R14"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Seal intact; Q41",
+            "zh": "封条完好；Q41"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Seal broken; R41",
+            "zh": "封条破损；R41"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_08",
+      "prompt": {
+        "en": "Required sequence: scan → count → record → seal. Which sequence follows the instruction exactly?",
+        "zh": "指定顺序：扫描→清点→记录→封装。哪个完全遵守？"
+      },
+      "explanation": {
+        "en": "The fourth sequence alone keeps every step in the given position. The other three exchange one pair of steps. No outside knowledge about parcel handling is needed.",
+        "zh": "只有第四份保持每一步的位置。其他三份各交换了一对步骤，不需要知道真实包裹处理流程。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Count → scan → record → seal",
+            "zh": "清点→扫描→记录→封装"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Scan → record → count → seal",
+            "zh": "扫描→记录→清点→封装"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Scan → count → seal → record",
+            "zh": "扫描→清点→封装→记录"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Scan → count → record → seal",
+            "zh": "扫描→清点→记录→封装"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "id": "DETAIL_09",
+      "prompt": {
+        "en": "Sort first by number ascending, then by letter A before B when numbers tie. Which order is correct for B2, A1, A2, B1?",
+        "zh": "先按数字升序；数字相同时，A在B前。B2、A1、A2、B1应怎样排列？"
+      },
+      "explanation": {
+        "en": "Group number 1 before number 2. Inside each group place A before B, giving A1, B1, A2, B2. Sorting letters first would apply the priorities in the wrong order.",
+        "zh": "先把数字1排在数字2前，再在同数字组内把A排在B前，所以是A1、B1、A2、B2。先按字母排会颠倒规则优先级。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A1, B1, A2, B2",
+            "zh": "A1, B1, A2, B2"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A1, A2, B1, B2",
+            "zh": "A1, A2, B1, B2"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "B1, A1, B2, A2",
+            "zh": "B1, A1, B2, A2"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A2, B2, A1, B1",
+            "zh": "A2, B2, A1, B1"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_10",
+      "prompt": {
+        "en": "A reminder goes out when a request is open OR overdue. Which request should NOT get a reminder?",
+        "zh": "申请未关闭或已经逾期，就发送提醒。哪个不应收到提醒？"
+      },
+      "explanation": {
+        "en": "A closed request that is not overdue satisfies neither reminder condition. The other requests satisfy at least one; OR does not require both.",
+        "zh": "已关闭且未逾期，两项提醒条件都不满足。其余至少满足一项；或者并不要求两项同时成立。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Open and not overdue",
+            "zh": "未关闭，未逾期"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Closed and not overdue",
+            "zh": "已关闭，未逾期"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Closed and overdue",
+            "zh": "已关闭，已逾期"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Open and overdue",
+            "zh": "未关闭，已逾期"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_11",
+      "prompt": {
+        "en": "File names must end with _final.pdf. Which name meets the stated rule?",
+        "zh": "文件名必须以 _final.pdf 结尾。哪个符合这条规则？"
+      },
+      "explanation": {
+        "en": "summary_final.pdf has the exact ending. The backup adds .bak, the hyphen is not the required underscore, and .pfd is not .pdf.",
+        "zh": "summary_final.pdf 的结尾完全一致。备份文件多了.bak，连字符不是指定下划线，而.pfd也不是.pdf。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "summary_final.pdf.bak",
+            "zh": "summary_final.pdf.bak"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "summary-final.pdf",
+            "zh": "summary-final.pdf"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "summary_final.pdf",
+            "zh": "summary_final.pdf"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "summary_final.pfd",
+            "zh": "summary_final.pfd"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_12",
+      "prompt": {
+        "en": "Put a card in tray X only if it is blue, except cards marked HOLD stay out. Which card goes in X?",
+        "zh": "蓝卡放入X盘，但标有HOLD的一律不放。哪张应放入X盘？"
+      },
+      "explanation": {
+        "en": "The blue card without HOLD meets the main condition and avoids the exception. The exception excludes the other blue card.",
+        "zh": "没有HOLD的蓝卡既满足主条件，也不触发例外；另一张蓝卡被HOLD例外排除。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Red, no HOLD",
+            "zh": "红色，无HOLD"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Blue, HOLD",
+            "zh": "蓝色，有HOLD"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Red, HOLD",
+            "zh": "红色，有HOLD"
+          },
+          "directionId": "rules"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Blue, no HOLD",
+            "zh": "蓝色，无HOLD"
+          },
+          "directionId": "rules"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "id": "DETAIL_13",
+      "prompt": {
+        "en": "A count sheet lists 17 small boxes and 28 large boxes. What total should be recorded?",
+        "zh": "清点表记有17个小箱、28个大箱，总数应填多少？"
+      },
+      "explanation": {
+        "en": "17 + 28 = 45. Add the quantities themselves; no box size conversion is requested.",
+        "zh": "17＋28＝45。这里相加的是箱数，题目没有要求换算箱子容量。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45",
+            "zh": "45"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "35",
+            "zh": "35"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "46",
+            "zh": "46"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "55",
+            "zh": "55"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_14",
+      "prompt": {
+        "en": "Opening stock is 84 units. Receive 19 and issue 27. What is the closing stock?",
+        "zh": "期初84件，入库19件，出库27件，期末多少件？"
+      },
+      "explanation": {
+        "en": "84 + 19 − 27 = 76. Receipts increase stock and issues decrease it.",
+        "zh": "84＋19－27＝76。入库增加数量，出库减少数量。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "74",
+            "zh": "74"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "76",
+            "zh": "76"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "130",
+            "zh": "130"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "92",
+            "zh": "92"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_15",
+      "prompt": {
+        "en": "A form lists 3 packs of 8 cards and 5 loose cards. What total belongs in the card-count field?",
+        "zh": "表上有3包卡片，每包8张，另有5张散卡。卡片总张数应填多少？"
+      },
+      "explanation": {
+        "en": "3 × 8 + 5 = 29 cards. The packs must first be converted into cards; adding 3 + 8 + 5 mixes different units.",
+        "zh": "3×8＋5＝29张。先把包数换成张数；直接把3、8、5相加会混用单位。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "29",
+            "zh": "29"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_16",
+      "prompt": {
+        "en": "Four rows show 12, 15, 9 and 18 items. The displayed total is 55. What is the correct replacement?",
+        "zh": "四行数量为12、15、9、18，表上合计写55。应改成多少？"
+      },
+      "explanation": {
+        "en": "12 + 15 + 9 + 18 = 54. The displayed 55 is one too high.",
+        "zh": "12＋15＋9＋18＝54，原表55多记了1。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "55",
+            "zh": "55"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "53",
+            "zh": "53"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "45",
+            "zh": "45"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "54",
+            "zh": "54"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "id": "DETAIL_17",
+      "prompt": {
+        "en": "One line is 4 items at 6 credits each; another is 3 items at 5 credits each. What total should appear?",
+        "zh": "一行是4件、每件6积分；另一行是3件、每件5积分。应合计多少积分？"
+      },
+      "explanation": {
+        "en": "4 × 6 + 3 × 5 = 24 + 15 = 39 credits. Add line totals rather than quantities or unit values alone.",
+        "zh": "4×6＋3×5＝24＋15＝39积分。应先求每行小计，再相加，不只加件数或单价。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "39",
+            "zh": "39"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "38",
+            "zh": "38"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "54",
+            "zh": "54"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_18",
+      "prompt": {
+        "en": "A log contains 42 submitted forms, including 7 withdrawn forms and 3 duplicate forms. The withdrawn and duplicate sets do not overlap. How many remain after removing both?",
+        "zh": "日志有42份提交，其中7份已撤回、3份重复；撤回与重复不重叠。两类都移除后剩多少份？"
+      },
+      "explanation": {
+        "en": "42 − 7 − 3 = 32 forms. The explicit no-overlap condition means each removed form is counted once.",
+        "zh": "42－7－3＝32份。题目明确两类不重叠，因此每份被移除的记录只扣一次。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "35",
+            "zh": "35"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "39",
+            "zh": "39"
+          },
+          "directionId": "quantities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          },
+          "directionId": "quantities"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_19",
+      "prompt": {
+        "en": "Required format: two uppercase letters, a hyphen, then three digits. Which code complies?",
+        "zh": "格式要求：两个大写字母、一个连字符、再接三个数字。哪个符合？"
+      },
+      "explanation": {
+        "en": "AB-730 has exactly two uppercase letters, one hyphen and three digits. Each other option violates one of those explicit requirements.",
+        "zh": "AB-730恰好有两个大写字母、一个连字符和三个数字；其他选项各违反一项明示要求。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AB-73",
+            "zh": "AB-73"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ab-730",
+            "zh": "Ab-730"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "AB-730",
+            "zh": "AB-730"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ABC-730",
+            "zh": "ABC-730"
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_20",
+      "prompt": {
+        "en": "Read the symbols literally. Which copy matches + / = / + / = / + / = ?",
+        "zh": "按符号原样比对，哪个与 + / = / + / = / + / = 完全相同？"
+      },
+      "explanation": {
+        "en": "The fourth option preserves all six symbol positions. This question gives the full reference; do not invent an alternative pattern rule.",
+        "zh": "第四项保留全部六个符号的位置。题目给出完整原串，应直接比对，不另猜规律。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "+ / = / + / + / + / =",
+            "zh": "+ / = / + / + / + / ="
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "+ / = / = / + / = / +",
+            "zh": "+ / = / = / + / = / +"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "+ / = / + / = / = / +",
+            "zh": "+ / = / + / = / = / +"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "+ / = / + / = / + / =",
+            "zh": "+ / = / + / = / + / ="
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "D"
+    },
+    {
+      "id": "DETAIL_21",
+      "prompt": {
+        "en": "Ignore spaces only. Which pair is identical after spaces are removed?",
+        "zh": "只忽略空格。哪一对在去掉空格后完全相同？"
+      },
+      "explanation": {
+        "en": "AB 47 and A B47 both become AB47. Swapped digits, hyphens and letter case are not spaces and must still be checked.",
+        "zh": "AB 47和A B47去掉空格后都是AB47。数字换序、连字符和字母大小写都不属于空格，仍需核对。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AB 47 / A B47",
+            "zh": "AB 47 / A B47"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "AB 47 / AB74",
+            "zh": "AB 47 / AB74"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "AB-47 / AB47",
+            "zh": "AB-47 / AB47"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "ab47 / AB47",
+            "zh": "ab47 / AB47"
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "A"
+    },
+    {
+      "id": "DETAIL_22",
+      "prompt": {
+        "en": "Use a 24-hour HH:MM format: hours 00–23, minutes 00–59, two digits each. Which entry is valid?",
+        "zh": "采用24小时HH:MM格式：小时00–23，分钟00–59，各两位。哪个有效？"
+      },
+      "explanation": {
+        "en": "07:05 satisfies both two-digit fields and their stated ranges. 24 is outside the hour range, 7 is only one digit, and 65 is outside the minute range.",
+        "zh": "07:05的两个字段都是两位，也在指定范围内。24超出小时范围，7只有一位，65超出分钟范围。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24:10",
+            "zh": "24:10"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "07:05",
+            "zh": "07:05"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "7:05",
+            "zh": "7:05"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "07:65",
+            "zh": "07:65"
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "B"
+    },
+    {
+      "id": "DETAIL_23",
+      "prompt": {
+        "en": "The permitted set is {K2, K4, M2, M4}. Which list contains only permitted codes, with no duplicate?",
+        "zh": "允许集合为{K2、K4、M2、M4}。哪个列表全是允许编号，而且没有重复？"
+      },
+      "explanation": {
+        "en": "K4, M2 and M4 all belong to the set and are distinct. M3 and K3 are not permitted; the other list repeats K2.",
+        "zh": "K4、M2、M4都在集合内，且各不相同。M3和K3不被允许，另一个列表重复了K2。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "K2, K4, M3",
+            "zh": "K2, K4, M3"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "K2, M2, K2",
+            "zh": "K2, M2, K2"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "K4, M2, M4",
+            "zh": "K4, M2, M4"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "K2, K3, M4",
+            "zh": "K2, K3, M4"
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "C"
+    },
+    {
+      "id": "DETAIL_24",
+      "prompt": {
+        "en": "Required label: lowercase word, colon, then one digit, with no spaces. Which label fits?",
+        "zh": "标签要求：小写英文单词、冒号、一个数字，中间不留空格。哪个符合？"
+      },
+      "explanation": {
+        "en": "box:3 is the only label with a lowercase word, colon and exactly one digit without spaces. The other labels break case, spacing or length.",
+        "zh": "只有box:3满足小写单词、冒号、一个数字且无空格。其余分别违反大小写、空格或数字位数要求。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Box:3",
+            "zh": "Box:3"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "box: 3",
+            "zh": "box: 3"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "box:33",
+            "zh": "box:33"
+          },
+          "directionId": "formats"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "box:3",
+            "zh": "box:3"
+          },
+          "directionId": "formats"
+        }
+      ],
+      "correctOptionId": "D"
+    }
+  ],
+  "proofs": [
+    {
+      "id": "DETAIL_01",
+      "proof": {
+        "kind": "exact",
+        "source": "PK-60784-M"
+      }
+    },
+    {
+      "id": "DETAIL_02",
+      "proof": {
+        "kind": "field_change",
+        "source": [
+          "314",
+          "D2"
+        ],
+        "copy": [
+          "341",
+          "D2"
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_03",
+      "proof": {
+        "kind": "exact",
+        "source": "mira.chen@north.example"
+      }
+    },
+    {
+      "id": "DETAIL_04",
+      "proof": {
+        "kind": "exact",
+        "source": "AX7, AX8, AY8, AZ8"
+      }
+    },
+    {
+      "id": "DETAIL_05",
+      "proof": {
+        "kind": "exact",
+        "source": "08:25–09:10"
+      }
+    },
+    {
+      "id": "DETAIL_06",
+      "proof": {
+        "kind": "changed_fields",
+        "source": [
+          "Cobalt",
+          "12",
+          "430"
+        ],
+        "variants": [
+          [
+            "Cobalt",
+            "21",
+            "403"
+          ],
+          [
+            "Cobalt",
+            "12",
+            "403"
+          ],
+          [
+            "Copper",
+            "21",
+            "403"
+          ],
+          [
+            "Cobalt",
+            "12",
+            "430"
+          ]
+        ],
+        "target": 1
+      }
+    },
+    {
+      "id": "DETAIL_07",
+      "proof": {
+        "kind": "and",
+        "conditions": [
+          [
+            false,
+            true
+          ],
+          [
+            true,
+            false
+          ],
+          [
+            true,
+            true
+          ],
+          [
+            false,
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_08",
+      "proof": {
+        "kind": "exact",
+        "source": "Scan → count → record → seal"
+      }
+    },
+    {
+      "id": "DETAIL_09",
+      "proof": {
+        "kind": "sort",
+        "values": [
+          "B2",
+          "A1",
+          "A2",
+          "B1"
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_10",
+      "proof": {
+        "kind": "not_or",
+        "conditions": [
+          [
+            true,
+            false
+          ],
+          [
+            false,
+            false
+          ],
+          [
+            false,
+            true
+          ],
+          [
+            true,
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_11",
+      "proof": {
+        "kind": "suffix",
+        "source": "_final.pdf"
+      }
+    },
+    {
+      "id": "DETAIL_12",
+      "proof": {
+        "kind": "and_not",
+        "conditions": [
+          [
+            false,
+            false
+          ],
+          [
+            true,
+            true
+          ],
+          [
+            false,
+            true
+          ],
+          [
+            true,
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_13",
+      "proof": {
+        "kind": "sum",
+        "values": [
+          17,
+          28
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_14",
+      "proof": {
+        "kind": "net",
+        "values": [
+          84,
+          19,
+          -27
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_15",
+      "proof": {
+        "kind": "packs",
+        "values": [
+          3,
+          8,
+          5
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_16",
+      "proof": {
+        "kind": "sum",
+        "values": [
+          12,
+          15,
+          9,
+          18
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_17",
+      "proof": {
+        "kind": "products",
+        "values": [
+          [
+            4,
+            6
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_18",
+      "proof": {
+        "kind": "net",
+        "values": [
+          42,
+          -7,
+          -3
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_19",
+      "proof": {
+        "kind": "regex",
+        "pattern": "[A-Z]{2}-[0-9]{3}"
+      }
+    },
+    {
+      "id": "DETAIL_20",
+      "proof": {
+        "kind": "exact",
+        "source": "+ / = / + / = / + / ="
+      }
+    },
+    {
+      "id": "DETAIL_21",
+      "proof": {
+        "kind": "remove_spaces_pairs"
+      }
+    },
+    {
+      "id": "DETAIL_22",
+      "proof": {
+        "kind": "time24"
+      }
+    },
+    {
+      "id": "DETAIL_23",
+      "proof": {
+        "kind": "set_unique",
+        "allowed": [
+          "K2",
+          "K4",
+          "M2",
+          "M4"
+        ]
+      }
+    },
+    {
+      "id": "DETAIL_24",
+      "proof": {
+        "kind": "regex",
+        "pattern": "[a-z]+:[0-9]"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "records",
+      "directionIds": [
+        "records"
+      ],
+      "title": {
+        "en": "Record comparison",
+        "zh": "记录比对"
+      },
+      "headline": {
+        "en": "Compare what is written, field by field.",
+        "zh": "按字段比对实际写下的内容。"
+      },
+      "summary": {
+        "en": "Review original code, address, list and time comparisons, with a worked checking example and a way to inspect misses. Six-item accuracy does not establish a general attention trait.",
+        "zh": "复习编号、地址、列表与时间比对，结合算例找到漏看位置。六题正确数不代表整体注意力特质，也不能预测真实工作表现。"
+      },
+      "seo": {
+        "title": {
+          "en": "Record comparison · Attention to Detail Practice",
+          "zh": "记录比对：细节注意力练习完整复习说明"
+        },
+        "description": {
+          "en": "Practise exact record comparisons with original examples, answers and a checking routine. Six-item accuracy is not a general attention or hiring score.",
+          "zh": "复习编号、地址、列表与时间比对，结合算例找到漏看位置。六题正确数不代表整体注意力特质，也不能预测真实工作表现。"
+        }
+      },
+      "scoreReading": {
+        "en": "This section has six tasks. The result is the number answered correctly out of six; all tasks weigh one point. This is an item-set result, not a percentile or a fixed ability band.",
+        "zh": "本分项共6题，每题答对记1分，呈现答对题数/6。只描述这组练习的结果，不是人群百分位或固定能力等级。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "What these six tasks ask",
+            "zh": "这六题具体问什么"
+          },
+          "paragraphs": [
+            {
+              "en": "You compare a supplied reference with copies. The items cover a code, a changed room field, a fictional email address, an ordered list, two times and a label with three fields. Everything needed is visible. No spelling test or outside database decides the answer, and a changed field is different from a count of changed characters.",
+              "zh": "对照题目给出的原件和抄本，分别核对编号、房间字段、虚构地址、有顺序的列表、起止时间和三字段标签。所需资料都在题面，不靠拼写知识或外部数据库；改变了几个字段，也和改变了几个字符不同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A separate example",
+            "zh": "一个另外的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the reference is tray F3 / lot 512 and a copy says tray F3 / lot 521. Check the tray and lot separately: F3 matches, while 512 and 521 differ in the last two digit positions. There is one changed field. Saying that the copy looks almost right would not answer a question asking whether it is identical.",
+              "zh": "例如原件是盘位F3／批次512，抄本是盘位F3／批次521。把盘位和批次拆开看：F3相同，512和521的末两位不同，所以改了一个字段。“看起来差不多”不能回答是否完全一致。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read your count with the answers",
+            "zh": "结合答案读次数"
+          },
+          "paragraphs": [
+            {
+              "en": "A result of 6/6 means all six comparisons in this edition were answered correctly, not that you never miss a detail. At 0/6, revisit each exact mismatch before deciding what happened. Any intermediate count needs the same item-by-item review: a transposition, a wrong field and misunderstanding the instruction are different reasons for a miss.",
+              "zh": "6/6表示本版这六次比对全部答对，不表示从不漏细节。0/6时，先逐项查看具体不一致，再判断发生了什么。中间任何正确数也要逐题回看：数字换序、找错字段和误读要求，是不同的出错原因。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "A practical comparison pass",
+            "zh": "一次可执行的比对"
+          },
+          "paragraphs": [
+            {
+              "en": "With non-sensitive practice records, underline the fields that must match. Compare one short field at a time and then make a separate pass for order. If a display is difficult to read, zoom it before continuing. Keep a note of the exact mismatch you missed rather than writing only “be more careful.”",
+              "zh": "拿不含敏感信息的练习记录，先标出需要相同的字段。一次比一小段，再单独核对顺序。如果看不清，先放大页面。复习时记下具体漏看的变化，不只写“以后细心一点”。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What remains untested",
+            "zh": "还有哪些事没有测"
+          },
+          "paragraphs": [
+            {
+              "en": "This short set has no population norms, hiring pass mark or diagnostic interpretation. Font size, language comfort, interruptions and familiarity can affect a practice attempt. After reading the explanations, another run can reflect remembering the answers. It is useful revision, but it is not an independent demonstration that your general ability improved.",
+              "zh": "这组短练习没有常模、招聘通过线或诊断解释。字号、语言熟悉程度、干扰和做过同题都可能影响结果。看完题解再做，可能记住答案；这是复习价值，不是整体能力提高的独立证明。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "directionIds": [
+        "rules"
+      ],
+      "title": {
+        "en": "Rules and instructions",
+        "zh": "规则与步骤"
+      },
+      "headline": {
+        "en": "Keep the exact condition and its priority.",
+        "zh": "保留条件原意和执行优先级。"
+      },
+      "summary": {
+        "en": "Review AND, OR, exceptions, ordering and exact file endings. Worked examples help separate a missed condition from a wrong sequence, without assigning a procedure-following personality.",
+        "zh": "复习并且、或者、例外、步骤和文件名结尾。算例帮助区分漏看条件与弄错顺序，不据此派发“遵守流程”人格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rules and instructions · Attention to Detail Practice",
+          "zh": "规则与步骤：细节注意力练习完整复习说明"
+        },
+        "description": {
+          "en": "Review AND, OR, exceptions, order and exact file endings. See examples and a checking routine, without a personality type or compliance certificate.",
+          "zh": "复习并且、或者、例外、步骤和文件名结尾。算例帮助区分漏看条件与弄错顺序，不据此派发“遵守流程”人格。"
+        }
+      },
+      "scoreReading": {
+        "en": "This section has six tasks. The result is the number answered correctly out of six; all tasks weigh one point. This is an item-set result, not a percentile or a fixed ability band.",
+        "zh": "本分项共6题，每题答对记1分，呈现答对题数/6。只描述这组练习的结果，不是人群百分位或固定能力等级。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "Literal rules in a closed task",
+            "zh": "封闭题面里的明示规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Each task states its own rule. You apply a two-condition acceptance rule, an exact sequence, a two-level sort, an OR reminder condition, a required filename ending and an exception. A real organisation might use different rules; the answer here follows only the rule actually supplied.",
+              "zh": "每题自己给出规则：双条件接收、固定顺序、两级排序、或者条件提醒、文件名结尾，以及例外排除。真实单位可能有别的流程，这里的答案只依题面所给规则，不考工作经验。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check an exception explicitly",
+            "zh": "把例外单独核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a rule: include green tickets, except tickets marked VOID. A green unmarked ticket qualifies. A green VOID ticket does not. A red unmarked ticket also does not. Treat the colour requirement and the exception as two separate checks instead of treating any familiar-looking ticket as acceptable.",
+              "zh": "例如规则是“纳入绿票，但标VOID的除外”。没有标记的绿票符合；标VOID的绿票不符合；没有标记的红票也不符合。把颜色条件和例外分开核对，不凭票看着是否熟悉作决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "What the six-item result tells you",
+            "zh": "六题结果能告诉你什么"
+          },
+          "paragraphs": [
+            {
+              "en": "At 6/6, you applied all six written rules correctly in this attempt. At 0/6 or any mixed score, inspect whether you reversed the question, dropped a condition or applied a secondary sort first. The total alone cannot identify that reason. The answer review supplies the exact rule behind each correct option.",
+              "zh": "6/6表示本次把六条书面规则都应用正确。0/6或部分答对时，要具体看：是否把问题问正反看反、漏了条件，或先用了次要排序规则？总分不能单独识别原因，逐题解析才会指出正确选项依据哪条规则。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Make conditions visible",
+            "zh": "让条件变得看得见"
+          },
+          "paragraphs": [
+            {
+              "en": "Rewrite an unfamiliar rule as a tiny checklist before applying it. Mark AND as requiring both conditions, OR as allowing either, and an exception as a separate exclusion. For ordering, write the first key above the second. Use this with harmless practice data rather than experimenting with a live refund, safety procedure or private record.",
+              "zh": "遇到陌生规则，先改写成很短的检查表：并且要同时满足，或者至少满足一项，例外另列排除。排序时把第一关键字写在第二关键字上面。用无害练习资料试，不拿真实退款、安全流程或私人记录做实验。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Rules here are not a work certificate",
+            "zh": "题面规则不是工作认证"
+          },
+          "paragraphs": [
+            {
+              "en": "Untimed written choices do not test executing a real procedure, communicating with a team or responding safely under pressure. No band certifies compliance skill. A repeat after seeing the answers measures familiarity with this set as well as checking. For a real task, follow the current authorised procedure and obtain suitable supervision.",
+              "zh": "不限时的书面选择不测试真实执行、团队沟通或压力下的安全反应，也没有等级能认证合规技能。看过题解重做，会同时受到熟悉程度影响。真正工作仍以当前授权流程和必要指导为准。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quantities",
+      "directionIds": [
+        "quantities"
+      ],
+      "title": {
+        "en": "Quantity reconciliation",
+        "zh": "数量核对"
+      },
+      "headline": {
+        "en": "Keep units and operations attached to the numbers.",
+        "zh": "让数字始终带着单位和运算关系。"
+      },
+      "summary": {
+        "en": "Review totals, incoming and outgoing stock, packs and line values. Worked arithmetic exposes the exact discrepancy; the score is not accounting certification or mathematical aptitude.",
+        "zh": "复习合计、出入库、整包与散件、每行小计。逐步运算呈现差异所在；正确数不等于会计认证或数学能力结论。"
+      },
+      "seo": {
+        "title": {
+          "en": "Quantity reconciliation · Attention to Detail Practice",
+          "zh": "数量核对：细节注意力练习完整复习说明"
+        },
+        "description": {
+          "en": "Review totals, stock movements, packs and line values with worked arithmetic. Six-item accuracy is not accounting certification or mathematical aptitude.",
+          "zh": "复习合计、出入库、整包与散件、每行小计。逐步运算呈现差异所在；正确数不等于会计认证或数学能力结论。"
+        }
+      },
+      "scoreReading": {
+        "en": "This section has six tasks. The result is the number answered correctly out of six; all tasks weigh one point. This is an item-set result, not a percentile or a fixed ability band.",
+        "zh": "本分项共6题，每题答对记1分，呈现答对题数/6。只描述这组练习的结果，不是人群百分位或固定能力等级。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "Six short reconciliations",
+            "zh": "六次简短核算"
+          },
+          "paragraphs": [
+            {
+              "en": "This section uses addition, increases and decreases, pack-to-item conversion, an incorrect displayed total, two line values and removing two non-overlapping groups. All quantities and unit relationships are supplied. The task is to check the stated record, not to remember tax rules, accounting standards or a currency conversion.",
+              "zh": "本分项包含加总、增加减少、包与张的换算、纠正合计、两行单价小计，以及移除不重叠的两组记录。数量和单位关系都已给出，不需要记税务、会计准则或汇率。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Calculate before trusting the printed total",
+            "zh": "先算，再对照印出的合计"
+          },
+          "paragraphs": [
+            {
+              "en": "If a sheet lists two bundles of seven labels and four loose labels, the count is 2 × 7 + 4 = 18 labels. The number 2 describes bundles, while 7 and 4 describe labels in different roles. Simply adding every visible number gives 13, which mixes units. Write the unit beside each intermediate result.",
+              "zh": "例如两捆标签，每捆7张，另有4张散张，总数是2×7＋4＝18张。2表示捆数，7和4分别表示每捆张数与散张；把所有数字直接相加得13，会混用单位。每一步写上单位，比较容易发现问题。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Inspect operations as well as answers",
+            "zh": "不只看最后数字"
+          },
+          "paragraphs": [
+            {
+              "en": "Six correct answers confirm the six calculations in this set, without establishing how you handle a longer ledger. If some or all were missed, compare your operation with the worked solution. A lost minus sign, forgotten loose item and double removal of an overlapping group would require different corrections; this edition explicitly states non-overlap where it matters.",
+              "zh": "六题都对，只确认本组六次计算，不确认能处理更长账表。部分或全部错时，把自己的运算和题解逐步比较。漏负号、漏散件、重复扣除重叠记录，分别需要不同修正；本版在相关题目中明确说明了不重叠。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "An independent check pass",
+            "zh": "做一遍相对独立的复核"
+          },
+          "paragraphs": [
+            {
+              "en": "On invented numbers, write a short expression before calculating. Recheck it from the description rather than only redoing the same addition. For stock, confirm opening + received − issued = closing and ask whether the size is plausible. A calculator may help with arithmetic, but it cannot decide whether you chose the correct quantities and units.",
+              "zh": "用虚构数字，先从描述写出简式，再计算。复核时重新读描述，不只重复同一次加法。库存可核“期初＋入库－出库＝期末”，再看数量是否合理。计算器能帮运算，却不能替你决定取数和单位是否正确。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A practice total has a narrow meaning",
+            "zh": "练习正确数的范围很窄"
+          },
+          "paragraphs": [
+            {
+              "en": "There is no speed measure, population reference or financial competence label. You may use paper or a calculator; keep the conditions similar if comparing your own practice runs. Once you know the answers, improvement on these same items may reflect memory. This is revision material, not a financial decision tool.",
+              "zh": "这里不计速度，没有人群参照，也不贴财务能力标签。可以用纸笔或计算器；若比较自己的练习，尽量保持条件相近。知道答案后同题提高，可能是记忆效果。这是复习材料，不是财务决策工具。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formats",
+      "directionIds": [
+        "formats"
+      ],
+      "title": {
+        "en": "Formats and permitted sets",
+        "zh": "格式与允许集合"
+      },
+      "headline": {
+        "en": "Check only what the written specification actually permits.",
+        "zh": "只按写明的规格判断允许什么。"
+      },
+      "summary": {
+        "en": "Review character formats, symbol positions, space removal, 24-hour times and allowed sets. The guide distinguishes literal matching from guessing a pattern and offers a repeatable checklist.",
+        "zh": "复习字符格式、符号位置、忽略空格、24小时制和允许集合，区分按原件比对与猜规律，并提供可复用的检查顺序。"
+      },
+      "seo": {
+        "title": {
+          "en": "Formats and permitted sets · Attention to Detail Practice",
+          "zh": "格式与允许集合：细节注意力练习完整复习说明"
+        },
+        "description": {
+          "en": "Review character formats, symbol positions, space removal, time formats and allowed sets. Literal checks and full answers, without visual or clinical labels.",
+          "zh": "复习字符格式、符号位置、忽略空格、24小时制和允许集合，区分按原件比对与猜规律，并提供可复用的检查顺序。"
+        }
+      },
+      "scoreReading": {
+        "en": "This section has six tasks. The result is the number answered correctly out of six; all tasks weigh one point. This is an item-set result, not a percentile or a fixed ability band.",
+        "zh": "本分项共6题，每题答对记1分，呈现答对题数/6。只描述这组练习的结果，不是人群百分位或固定能力等级。"
+      },
+      "sections": [
+        {
+          "id": "task",
+          "title": {
+            "en": "Six explicit specifications",
+            "zh": "六条明确规格"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks specify uppercase letters and digit counts, a complete symbol reference, ignoring spaces only, an exact 24-hour time format, membership without duplication and a lowercase label. You are never asked to discover a hidden universal pattern. Characters, order and exceptions must be interpreted as the individual task defines them.",
+              "zh": "题面分别规定大写字母和数字位数、完整符号原串、只忽略空格、24小时制格式、集合成员且不重复，以及小写标签。不要求发现某种隐藏的普遍规律；字符、顺序和例外都以各题说明为准。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Normalisation must be authorised",
+            "zh": "先确认允许忽略什么"
+          },
+          "paragraphs": [
+            {
+              "en": "If a task says to ignore spaces, XY 62 and X Y62 match after removing spaces. XY-62 does not become the same string unless hyphens may also be ignored. Nor should xy62 automatically match XY62 when case remains significant. A convenient change to the text can silently change the task you are answering.",
+              "zh": "如果题目只说忽略空格，XY 62和X Y62去空格后相同。但XY-62不能自动视为同一串，除非也允许忽略连字符；大小写仍有意义时，xy62也不能直接等同XY62。为了方便而改写规则，会悄悄改变所回答的问题。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Review which requirement was missed",
+            "zh": "看漏了哪一条要求"
+          },
+          "paragraphs": [
+            {
+              "en": "At 6/6, all six supplied specifications were followed in this attempt. A lower count does not prove poor visual attention. Review whether the mismatch involved position, case, length, a range or a repeated member. Those are different checks. Even an exact pattern can be invalid if another condition, such as a numeric range, is violated.",
+              "zh": "6/6表示本次遵守了六条给定规格。正确数较少不证明视觉注意力差；先看遗漏的是位置、大小写、长度、取值范围还是重复成员。这些是不同的检查，字符样式正确，也可能因数字超出范围而无效。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Use a short format checklist",
+            "zh": "列一个短格式清单"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh practice label, check length, permitted characters, their order and any value limits separately. For a list, check every member and then check duplication as its own step. Zoom symbols if needed. Compare against the displayed reference; do not infer a rule from how most answer options happen to look.",
+              "zh": "拿新的练习标签，把长度、允许字符、顺序和数值范围分别检查。面对列表，先核每个成员，再单独查重复。符号看不清时放大；以题面原件为依据，不从大多数选项长什么样反猜规则。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Format success is not a visual diagnosis",
+            "zh": "格式做对与视觉诊断无关"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks are not an eyesight, dyslexia, ADHD or employment screen. Display conditions and familiarity with Latin characters can influence this short set. The result includes the correct answers so you can learn from each comparison. That transparency also means a repeated score cannot be treated as an independent assessment.",
+              "zh": "这不是视力、阅读障碍、ADHD或招聘筛查。显示条件、拉丁字符熟悉程度都可能影响短练习。结果公开正确答案，是为了逐项学习；这种透明也意味着重测分数不能当作独立评估。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -37,6 +37,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
   const questionnaireLabel = result ? (zh ? "公开结果说明" : "Public result guide")
+    : questionnaire?.kind === "practice" ? (zh ? "原创练习题" : "Original practice bank")
     : questionnaire?.slug === "dark-triad" ? (zh ? "原创三组主题观察" : "Original three-theme reflection")
     : questionnaire?.slug === "moral-dilemma-test" ? (zh ? "原创五组伦理提问" : "Original reflection on five ethical questions")
     : questionnaire?.slug === "egogram" ? (zh ? "原创五组互动观察" : "Original reflection on five interaction stances")
@@ -75,6 +76,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
       <div style={{ display: "flex", fontSize: title.length > 65 ? 48 : 60, lineHeight: 1.25 }}>{title}</div>
       <div style={{ display: "flex", gap: 12 }}><div style={{ width: 110, height: 8, background: color, borderRadius: 4 }} /><div style={{ width: 36, height: 8, background: "#cbd5e1", borderRadius: 4 }} /><div style={{ width: 16, height: 8, background: "#cbd5e1", borderRadius: 4 }} /></div>
     </div>
-    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 25, color: "#475569" }}><span>fermatmind.com</span><span>{questionnaire ? (zh ? "完整报告免费 · 自我探索" : "Full report free · Self-exploration") : (zh ? "完整内容免费 · 仅供娱乐" : "Full content free · Just for fun")}</span></div>
+    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 25, color: "#475569" }}><span>fermatmind.com</span><span>{questionnaire?.kind === "practice" ? (zh ? "逐题解析与复习免费" : "Answer explanations and revision free") : questionnaire ? (zh ? "完整报告免费 · 自我探索" : "Full report free · Self-exploration") : (zh ? "完整内容免费 · 仅供娱乐" : "Full content free · Just for fun")}</span></div>
   </div>, { width: 1200, height: 630, fonts: [{ name: "FunNoto", data: await quizFont(quiz?.slug ?? questionnaire!.slug), weight: 700, style: "normal" }], headers: { "Cache-Control": "public, max-age=3600, s-maxage=86400" } });
 }

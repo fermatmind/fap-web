@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "attention-to-detail": async () => (await import("./data/attention-to-detail.json")).default as Questionnaire,
   "my-little-pony-character-quiz": async () => (await import("./data/my-little-pony-character-quiz.json")).default as Questionnaire,
   "my-hero-academia-character-quiz": async () => (await import("./data/my-hero-academia-character-quiz.json")).default as Questionnaire,
   "chakra": async () => (await import("./data/chakra.json")).default as Questionnaire,
