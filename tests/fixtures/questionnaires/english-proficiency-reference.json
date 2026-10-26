@@ -1,0 +1,1780 @@
+{
+  "id": "T161",
+  "edition": "fm_written_english_practice_24_v1",
+  "authorship": "FermatMind original written-English tasks and full revision guides. Selected grammar and word facts plus supplied passages checked; no CEFR calibration or independent language-test validation.",
+  "questions": [
+    {
+      "id": "ENGLISH_01",
+      "prompt": {
+        "en": "Complete the present-simple statement in standard written English.\n\nEvery Tuesday, the museum guide ___ visitors at the gate.",
+        "zh": "用标准书面英语完成一般现在时陈述句。\n\nEvery Tuesday, the museum guide ___ visitors at the gate."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "greets",
+            "zh": "greets"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "greet",
+            "zh": "greet"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "greeting",
+            "zh": "greeting"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "to greet",
+            "zh": "to greet"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The singular subject the museum guide takes greets in this requested present-simple statement. Every Tuesday supplies the routine context. Greet lacks the third-person ending; greeting and to greet do not supply the finite verb needed here.",
+        "zh": "在题目指定的一般现在时陈述句中，单数主语the museum guide对应greets。Every Tuesday提供日常反复的语境；greet少了第三人称词尾，greeting和to greet不能在此单独作所需的限定动词。"
+      }
+    },
+    {
+      "id": "ENGLISH_02",
+      "prompt": {
+        "en": "Complete this past-simple question.\n\n___ the new printer work during yesterday's trial?",
+        "zh": "完成这个一般过去时疑问句。\n\n___ the new printer work during yesterday's trial?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Does",
+            "zh": "Does"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Did",
+            "zh": "Did"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Doing",
+            "zh": "Doing"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Has",
+            "zh": "Has"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Did forms this requested past-simple question and is followed by the base form work. Yesterday locates the trial in the past. Has would need a different verb construction; doing supplies no question auxiliary. This rule is for the displayed question, not every English question.",
+        "zh": "本题要求一般过去时疑问句，用Did，后面的work保留原形。Yesterday把试用放在过去；Has需要不同动词结构，Doing不能作这里的疑问助动词。这条说明针对本题，不概括所有英语疑问句。"
+      }
+    },
+    {
+      "id": "ENGLISH_03",
+      "prompt": {
+        "en": "Choose the present-tense form for this plural subject.\n\nThe two sealed boxes ___ on the top shelf now.",
+        "zh": "为这个复数主语选择现在时形式。\n\nThe two sealed boxes ___ on the top shelf now."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "is",
+            "zh": "is"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "am",
+            "zh": "am"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "are",
+            "zh": "are"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "be",
+            "zh": "be"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Two sealed boxes is plural, so the present-tense form of be here is are. Is goes with a singular third-person subject, and am goes with I. The base form be does not complete this ordinary present-tense statement on its own.",
+        "zh": "two sealed boxes是复数，所以这里be的现在时形式为are。Is对应第三人称单数，am对应I；原形be不能单独完成这里普通的现在时陈述句。"
+      }
+    },
+    {
+      "id": "ENGLISH_04",
+      "prompt": {
+        "en": "Complete the extra-information relative clause in standard written English.\n\nThe scanner, ___ arrived in June, is beside the window.",
+        "zh": "用标准书面英语完成补充信息的非限定性关系从句。\n\nThe scanner, ___ arrived in June, is beside the window."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "that",
+            "zh": "that"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "whose",
+            "zh": "whose"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "where",
+            "zh": "where"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "which",
+            "zh": "which"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The clause adds information about a thing, the scanner, and is separated by commas. Which fits this non-defining relative clause. That is not used for this comma-separated type; whose needs a following noun, and where does not serve as the subject of arrived.",
+        "zh": "从句补充说明scanner这个物体，前后用逗号隔开，which适合这里的非限定性关系从句。此类从句不用that；whose后需接名词，where不能作arrived的主语。"
+      }
+    },
+    {
+      "id": "ENGLISH_05",
+      "prompt": {
+        "en": "Choose the form that follows wants in this sentence.\n\nShe wants ___ the booking by email.",
+        "zh": "选择本句wants后所需的动词形式。\n\nShe wants ___ the booking by email."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "to confirm",
+            "zh": "to confirm"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "confirming",
+            "zh": "confirming"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "confirmed",
+            "zh": "confirmed"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "confirms",
+            "zh": "confirms"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "For this meaning, want is followed directly by a to-infinitive: wants to confirm. The other displayed forms do not fit the sentence as written. Verb patterns are word-specific; this does not mean every first verb takes to before a second verb.",
+        "zh": "这里want后直接接to不定式，构成wants to confirm。其余所给形式不适合原句。动词搭配要逐词核对，并不是所有前一个动词后都在第二个动词前加to。"
+      }
+    },
+    {
+      "id": "ENGLISH_06",
+      "prompt": {
+        "en": "Choose the form that follows enjoy in this sentence.\n\nWe enjoy ___ the old footbridge on our walks.",
+        "zh": "选择本句enjoy后所需的动词形式。\n\nWe enjoy ___ the old footbridge on our walks."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "to cross",
+            "zh": "to cross"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "crossing",
+            "zh": "crossing"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "cross",
+            "zh": "cross"
+          },
+          "directionId": "grammar"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "crossed",
+            "zh": "crossed"
+          },
+          "directionId": "grammar"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Enjoy is followed by the -ing form in this construction, giving enjoy crossing. Compare it with wants to confirm in the previous task: changing the first verb can change the required pattern. A rule learned for one verb should not be applied to all verbs.",
+        "zh": "本结构中enjoy后接-ing形式，构成enjoy crossing。可与上一题wants to confirm比较：前一个动词改变，所需搭配也可能改变，不能把某一动词的规则推广给所有动词。"
+      }
+    },
+    {
+      "id": "ENGLISH_07",
+      "prompt": {
+        "en": "Choose the verb that means moving the event to a later date.\n\nThe team will ___ the workshop, moving it from Tuesday to Friday.",
+        "zh": "选择表示把活动移到更晚日期的动词。\n\nThe team will ___ the workshop, moving it from Tuesday to Friday."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "cancel",
+            "zh": "cancel"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "shorten",
+            "zh": "shorten"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "postpone",
+            "zh": "postpone"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "repeat",
+            "zh": "repeat"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Postpone matches the stated move to a later date. Cancel removes the event, shorten changes its duration, and repeat means doing it again. The sentence describes rescheduling one workshop, without saying it is abandoned, shorter or an additional session.",
+        "zh": "Postpone对应移到更晚日期。Cancel表示取消，shorten改的是时长，repeat表示再做一次。原句只描述一场工作坊改期，没有说放弃、缩短或额外再办。"
+      }
+    },
+    {
+      "id": "ENGLISH_08",
+      "prompt": {
+        "en": "Choose the word that describes agreement with the checked measurement.\n\nThe label shows exactly the length confirmed by the measurement, so its information is ___.",
+        "zh": "选择描述与已核对测量结果一致的词。\n\nThe label shows exactly the length confirmed by the measurement, so its information is ___."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "approximate",
+            "zh": "approximate"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "contradictory",
+            "zh": "contradictory"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "unrelated",
+            "zh": "unrelated"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "accurate",
+            "zh": "accurate"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Accurate fits information that matches the checked measurement. Approximate would signal an estimate rather than the exact stated match. Contradictory would conflict with the measurement, and unrelated would not describe that measured length. The key concerns meaning in this supplied context.",
+        "zh": "Accurate适合与已核对测量相符的信息。Approximate表示近似估计，不是题面明确的完全匹配；contradictory表示冲突，unrelated表示无关。答案核对的是给定语境中的词义。"
+      }
+    },
+    {
+      "id": "ENGLISH_09",
+      "prompt": {
+        "en": "What does tentative mean in this sentence?\n\nThe team circulated a tentative schedule and said that the dates might change after review.",
+        "zh": "本句tentative表示什么意思？\n\nThe team circulated a tentative schedule and said that the dates might change after review."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Not yet final and open to changes",
+            "zh": "Not yet final and open to changes"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Already final and impossible to revise",
+            "zh": "Already final and impossible to revise"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Identical to every earlier schedule",
+            "zh": "Identical to every earlier schedule"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Past its required completion date",
+            "zh": "Past its required completion date"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Tentative means the schedule is not settled yet, consistent with dates that may change after review. The sentence does not say that it is identical to an older version or overdue. Do not turn a possible date into a final commitment.",
+        "zh": "Tentative在这里表示尚未定案，与复核后日期可能改变一致。原句没有说它与旧版完全相同或已经逾期，不能把可能日期当成最终承诺。"
+      }
+    },
+    {
+      "id": "ENGLISH_10",
+      "prompt": {
+        "en": "Choose the word meaning brief while keeping the essential information.\n\nThe revised note keeps every required detail but removes repeated phrases. It is more ___.",
+        "zh": "选择表示保留必要信息、表达简洁的词。\n\nThe revised note keeps every required detail but removes repeated phrases. It is more ___."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "repetitive",
+            "zh": "repetitive"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "concise",
+            "zh": "concise"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "incomplete",
+            "zh": "incomplete"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "irrelevant",
+            "zh": "irrelevant"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Concise describes the shorter expression without unnecessary repetition. Repetitive points in the opposite direction, incomplete would suggest required information is missing, and irrelevant would mean it does not address the topic. Shortening a text is not automatically the same as removing essential content.",
+        "zh": "Concise描述去掉不必要重复后的简洁表达。Repetitive方向相反，incomplete暗示缺少必要信息，irrelevant表示偏离主题。缩短文字不等于删掉必要内容。"
+      }
+    },
+    {
+      "id": "ENGLISH_11",
+      "prompt": {
+        "en": "Choose the word that means initially unwilling in this context.\n\nNoah did not want to lead the tour, though he eventually agreed. He was initially ___.",
+        "zh": "选择在本语境中表示起初不情愿的词。\n\nNoah did not want to lead the tour, though he eventually agreed. He was initially ___."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "eager",
+            "zh": "eager"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "unaware",
+            "zh": "unaware"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "reluctant",
+            "zh": "reluctant"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "delighted",
+            "zh": "delighted"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reluctant expresses the initial unwillingness. Eventually agreeing does not erase that earlier hesitation. Eager and delighted would describe positive willingness, while unaware would describe missing knowledge rather than the stated lack of desire. This is word meaning, not a judgement of Noah’s personality.",
+        "zh": "Reluctant表达起初的不情愿，后来答应并不会抹掉先前的犹豫。Eager和delighted偏向积极愿意，unaware说的是不知道，而不是题面明确的不想做。本题核词义，不评价Noah的人格。"
+      }
+    },
+    {
+      "id": "ENGLISH_12",
+      "prompt": {
+        "en": "Choose the word that matches possible to carry out under these conditions.\n\nThe plan can be carried out using the time and tools available. It is ___.",
+        "zh": "选择对应在所给条件下可以实施的词。\n\nThe plan can be carried out using the time and tools available. It is ___."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "impossible",
+            "zh": "impossible"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "unrelated",
+            "zh": "unrelated"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "historical",
+            "zh": "historical"
+          },
+          "directionId": "vocabulary"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "feasible",
+            "zh": "feasible"
+          },
+          "directionId": "vocabulary"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Feasible matches a plan that can be carried out under the stated conditions. Impossible contradicts that premise; unrelated and historical describe different features. The task supplies the feasibility premise rather than asking you to assess a real project or predict its success.",
+        "zh": "Feasible对应在题定条件下可实施的计划。Impossible与此前提冲突，unrelated和historical说的是其他特征。题面已经给出可实施前提，不要求评估真实项目或预测成功。"
+      }
+    },
+    {
+      "id": "ENGLISH_13",
+      "prompt": {
+        "en": "Read the notice. At what time does the studio open on Sundays?\n\nThe studio opens at 09:30 on weekdays and at 11:00 on Sundays. It is closed on Saturdays.",
+        "zh": "阅读通知，选择周日的开放时间。\n\nThe studio opens at 09:30 on weekdays and at 11:00 on Sundays. It is closed on Saturdays."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "11:00",
+            "zh": "11:00"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "09:30",
+            "zh": "09:30"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10:00",
+            "zh": "10:00"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It is closed",
+            "zh": "It is closed"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The Sunday clause gives 11:00. The weekday time and Saturday closure apply to different days. The notice does not supply 10:00. Match the requested day to its own condition instead of selecting the first number you see.",
+        "zh": "周日对应的从句给出11:00。工作日时间与周六关闭分别适用于其他日期，通知没有10:00。要把所问日期与它自己的条件配对，不只挑第一个数字。"
+      }
+    },
+    {
+      "id": "ENGLISH_14",
+      "prompt": {
+        "en": "What does they refer to in the final clause?\n\nThe archive received two glass slides in a wooden case. The slides were photographed before they were placed in cold storage.",
+        "zh": "末尾从句中的they指代什么？\n\nThe archive received two glass slides in a wooden case. The slides were photographed before they were placed in cold storage."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The wooden case",
+            "zh": "The wooden case"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The two glass slides",
+            "zh": "The two glass slides"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The archive building",
+            "zh": "The archive building"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Two photographers",
+            "zh": "Two photographers"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "They refers to the plural subject the slides in the same sentence. The case and building are singular, and two photographers are not mentioned. Follow the grammatical reference rather than inventing extra participants in the passage.",
+        "zh": "They指同句的复数主语the slides。木盒和建筑是单数，原文也没有两位摄影者。应沿语法指代寻找，而不是增添文中没有的人物。"
+      }
+    },
+    {
+      "id": "ENGLISH_15",
+      "prompt": {
+        "en": "Which statement best expresses the repair café's purpose as described?\n\nAt the repair café, volunteers show visitors how to identify simple faults in small household objects and choose a next step. The café does not promise to repair every item.",
+        "zh": "哪项最符合文中描述的维修咖啡馆目的？\n\nAt the repair café, volunteers show visitors how to identify simple faults in small household objects and choose a next step. The café does not promise to repair every item."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Promise a completed repair for every object",
+            "zh": "Promise a completed repair for every object"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Sell replacement parts at a stated fixed price",
+            "zh": "Sell replacement parts at a stated fixed price"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Help visitors understand faults and possible next steps",
+            "zh": "Help visitors understand faults and possible next steps"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Train everyone to become a certified inspector",
+            "zh": "Train everyone to become a certified inspector"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The stated purpose is helping visitors understand faults and next steps. A guaranteed repair contradicts the second sentence; prices and certification are not supplied. A main-purpose answer should preserve the central activity and its limit.",
+        "zh": "明确活动是帮助访客理解故障和下一步。保证全部修好与第二句冲突，价格和认证没有资料。概括目的时应保留中心活动及其边界。"
+      }
+    },
+    {
+      "id": "ENGLISH_16",
+      "prompt": {
+        "en": "Which order follows both instructions?\n\nAttach the label after the photograph has been saved. Move the box to the shelf only after attaching the label.",
+        "zh": "哪一顺序同时符合两条说明？\n\nAttach the label after the photograph has been saved. Move the box to the shelf only after attaching the label."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Attach label → save photograph → move box",
+            "zh": "Attach label → save photograph → move box"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Move box → attach label → save photograph",
+            "zh": "Move box → attach label → save photograph"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Save photograph → move box → attach label",
+            "zh": "Save photograph → move box → attach label"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Save photograph → attach label → move box",
+            "zh": "Save photograph → attach label → move box"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Saving the photograph must come before attaching the label, and attaching the label must come before moving the box. Only the selected order preserves both dependencies. Moving the box early violates the second instruction even if the photograph has already been saved.",
+        "zh": "先保存照片，再贴标签，最后移箱，才同时保留两个依赖。即使已保存照片，提前移箱仍违反第二条。不要只满足第一条就停止核对。"
+      }
+    },
+    {
+      "id": "ENGLISH_17",
+      "prompt": {
+        "en": "Which conclusion is supported without adding a causal claim?\n\nRoom A received new lamps in April; Room B did not. Both rooms recorded more visitors in May. A nearby festival also opened in May. The note reports no controlled comparison of the possible causes.",
+        "zh": "哪项结论有原文支持，且没有额外加入因果主张？\n\nRoom A received new lamps in April; Room B did not. Both rooms recorded more visitors in May. A nearby festival also opened in May. The note reports no controlled comparison of the possible causes."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Visitor numbers rose in both rooms; the cause is not established here",
+            "zh": "Visitor numbers rose in both rooms; the cause is not established here"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The lamps alone caused every additional visit",
+            "zh": "The lamps alone caused every additional visit"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The festival definitely had no effect on visits",
+            "zh": "The festival definitely had no effect on visits"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every visitor went to both rooms in the same order",
+            "zh": "Every visitor went to both rooms in the same order"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The note explicitly reports increases in both rooms and does not establish a cause. That limit does not prove that the lamps or festival had no effect. The other options add exclusive causation, a definite absence of effect or an individual visitor pattern not given in the text.",
+        "zh": "原文明示两房间人数都上升，却没有建立原因。这不等于证明灯或节庆没有作用。其余选项分别增加唯一因果、明确无影响或未给出的个人参观顺序。"
+      }
+    },
+    {
+      "id": "ENGLISH_18",
+      "prompt": {
+        "en": "Which question cannot be answered from this notice?\n\nThe riverside walk starts at 10:15 outside the north gate. Reserve a place by emailing the organiser before 18:00 on Thursday. The notice gives no price information.",
+        "zh": "哪一问题无法由这则通知回答？\n\nThe riverside walk starts at 10:15 outside the north gate. Reserve a place by emailing the organiser before 18:00 on Thursday. The notice gives no price information."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Where does the walk start?",
+            "zh": "Where does the walk start?"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "How much does the walk cost?",
+            "zh": "How much does the walk cost?"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "What time does the walk start?",
+            "zh": "What time does the walk start?"
+          },
+          "directionId": "reading"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "By what time on Thursday must a place be reserved?",
+            "zh": "By what time on Thursday must a place be reserved?"
+          },
+          "directionId": "reading"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The price is not supplied, so the cost cannot be answered. The notice gives the north gate, 10:15 and the Thursday 18:00 reservation deadline. A missing price is unknown information; it is not a statement that attendance is free.",
+        "zh": "价格没有提供，因此无法回答费用。原文给了北门、10:15及周四18:00预约截止。没写价格是资料未知，不代表免费。"
+      }
+    },
+    {
+      "id": "ENGLISH_19",
+      "prompt": {
+        "en": "Choose the request that asks for the revised Room B floor plan by noon on Wednesday.\n\nYou have the old floor plan and need the revised Room B file before printing the signs.",
+        "zh": "选择同时要求新版B室平面图、且在周三中午前收到的请求。\n\nYou have the old floor plan and need the revised Room B file before printing the signs."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Could you send the revised Room A floor plan by noon on Wednesday?",
+            "zh": "Could you send the revised Room A floor plan by noon on Wednesday?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Could you send the revised Room B floor plan by Friday evening?",
+            "zh": "Could you send the revised Room B floor plan by Friday evening?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Could you send the revised Room B floor plan by noon on Wednesday?",
+            "zh": "Could you send the revised Room B floor plan by noon on Wednesday?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Could you send the old Room B floor plan by noon on Wednesday?",
+            "zh": "Could you send the old Room B floor plan by noon on Wednesday?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The selected request keeps all three required details: revised file, Room B and Wednesday noon. Each alternative changes one of those details. All options use a polite question form, so the task concerns carrying the specified meaning rather than ranking someone’s manners.",
+        "zh": "答案保留新版、B室和周三中午三个要求；每个干扰项都改了其中一个。四项都用礼貌疑问句，本题比较的是是否准确传达指定意思，不给礼貌或人格打分。"
+      }
+    },
+    {
+      "id": "ENGLISH_20",
+      "prompt": {
+        "en": "Which reply asks for the specific date without assuming what next Friday means?\n\nA message says, 'Bring the form next Friday.' The sender's intended calendar date is not clear.",
+        "zh": "哪一回复会询问具体日期，同时不擅自认定next Friday的含义？\n\nA message says, 'Bring the form next Friday.' The sender's intended calendar date is not clear."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I will bring it on the fourteenth; that must be your date.",
+            "zh": "I will bring it on the fourteenth; that must be your date."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Could you change the font on the form instead?",
+            "zh": "Could you change the font on the form instead?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I assume the earlier Friday works, so there is no need to confirm.",
+            "zh": "I assume the earlier Friday works, so there is no need to confirm."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Which calendar date do you mean by 'next Friday'?",
+            "zh": "Which calendar date do you mean by 'next Friday'?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected reply asks for the calendar date and makes no guess about it. The first and last alternatives assume an answer, while the font question asks about a different issue. A clarification question is useful here because the intended date has not been supplied.",
+        "zh": "答案询问日历日期，没有猜答案。第一和最后的干扰项自行认定日期，字体问题则换了话题。题面未提供发信人所指日期，所以本题需要澄清，而不是推算当前日历。"
+      }
+    },
+    {
+      "id": "ENGLISH_21",
+      "prompt": {
+        "en": "Choose the handover note that preserves every supplied fact and the publishing condition.\n\nDraft 4 is ready. Lina's photo is missing. The next person should request it from Lina and must wait for image approval before publishing.",
+        "zh": "选择保留全部题定事实及发布条件的交接说明。\n\nDraft 4 is ready. Lina's photo is missing. The next person should request it from Lina and must wait for image approval before publishing."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Draft 4 is ready. Lina's photo is still missing; please request it and wait for image approval before publishing.",
+            "zh": "Draft 4 is ready. Lina's photo is still missing; please request it and wait for image approval before publishing."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Draft 3 is ready. Lina's photo is still missing; please request it and wait for image approval before publishing.",
+            "zh": "Draft 3 is ready. Lina's photo is still missing; please request it and wait for image approval before publishing."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Draft 4 is ready. Lina's photo is approved, so please publish immediately.",
+            "zh": "Draft 4 is ready. Lina's photo is approved, so please publish immediately."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Draft 4 is ready. Lina's photo is missing; publish first and request the photo later.",
+            "zh": "Draft 4 is ready. Lina's photo is missing; publish first and request the photo later."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The selected note retains draft 4, the missing photo, the request to Lina and the need for image approval before publication. The alternatives change the version, invent approval or reverse the required order. The condition is fictional and supplied in the question, not a claim about a real publisher’s policy.",
+        "zh": "答案保留第4稿、照片缺失、向Lina索取及批准图片后再发布。干扰项分别改版本、虚构已批准或颠倒先后。这里是题定的虚构条件，不宣称任何真实出版方的政策。"
+      }
+    },
+    {
+      "id": "ENGLISH_22",
+      "prompt": {
+        "en": "Choose the reply that states the checked number and asks the author to review the draft number.\n\nThe checked register lists 18 seats. The newsletter draft says 28 seats. You want the author to review this difference.",
+        "zh": "选择同时给出已核数字、并请作者复核草稿数字的回复。\n\nThe checked register lists 18 seats. The newsletter draft says 28 seats. You want the author to review this difference."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The checked register lists 28 seats; could you review the 18 in the draft?",
+            "zh": "The checked register lists 28 seats; could you review the 18 in the draft?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The checked register lists 18 seats; could you review the 28 in the draft?",
+            "zh": "The checked register lists 18 seats; could you review the 28 in the draft?"
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The draft says 28 seats, so I will change the register to match it.",
+            "zh": "The draft says 28 seats, so I will change the register to match it."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Could you review the colour of the newsletter heading instead?",
+            "zh": "Could you review the colour of the newsletter heading instead?"
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The selected reply preserves the checked figure of 18 and asks for review of the draft’s 28. The other replies swap the figures, alter the checked source to follow the draft, or change the topic. No assumption about the author’s intention is needed.",
+        "zh": "答案保留已核18个座位，并请复核草稿里的28。其他回复调换数字、反过来改核定来源以迎合草稿，或换话题。无需猜测作者为何写错或有何意图。"
+      }
+    },
+    {
+      "id": "ENGLISH_23",
+      "prompt": {
+        "en": "Which reply states the known status without promising an unconfirmed date?\n\nThe supplier has not confirmed an arrival date. A colleague asks for a status update.",
+        "zh": "哪一回复陈述已知状态，而没有承诺未确认日期？\n\nThe supplier has not confirmed an arrival date. A colleague asks for a status update."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It will definitely arrive tomorrow, even though no date is confirmed.",
+            "zh": "It will definitely arrive tomorrow, even though no date is confirmed."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The delivery has been cancelled permanently.",
+            "zh": "The delivery has been cancelled permanently."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The supplier has not confirmed the arrival date yet; I will update you when it does.",
+            "zh": "The supplier has not confirmed the arrival date yet; I will update you when it does."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "There is no need to give any further updates.",
+            "zh": "There is no need to give any further updates."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The selected reply reports the missing confirmation and offers an update after confirmation. It does not turn uncertainty into a promise or a cancellation. The passage provides neither a guaranteed arrival date nor a permanent cancellation. A careful status message can state what remains unknown.",
+        "zh": "答案说明尚未确认，并承诺确认后更新，没有把未知变成到货承诺或取消结论。原文既无保证日期，也无永久取消。准确的状态说明可以明确保留未知。"
+      }
+    },
+    {
+      "id": "ENGLISH_24",
+      "prompt": {
+        "en": "Which summary preserves the approval condition and the alternative action?\n\nIf the copy editor approves the text by 15:00, send the file to the printer. Otherwise, hold the file and ask for a new slot.",
+        "zh": "哪一概括同时保留批准条件和不满足时的做法？\n\nIf the copy editor approves the text by 15:00, send the file to the printer. Otherwise, hold the file and ask for a new slot."
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Send the file at 15:00 whether or not the text has been approved.",
+            "zh": "Send the file at 15:00 whether or not the text has been approved."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send the file even if approval arrives after 15:00, without requesting another slot.",
+            "zh": "Send the file even if approval arrives after 15:00, without requesting another slot."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Hold the file in every case, even after approval arrives before 15:00.",
+            "zh": "Hold the file in every case, even after approval arrives before 15:00."
+          },
+          "directionId": "functional"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Send the file only if approval arrives by 15:00; otherwise hold it and ask for a new slot.",
+            "zh": "Send the file only if approval arrives by 15:00; otherwise hold it and ask for a new slot."
+          },
+          "directionId": "functional"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected summary keeps both branches: send after approval by the deadline; otherwise hold and request a new slot. The alternatives remove the condition, ignore its deadline or ignore the approved case. This is a supplied fictional instruction, not a real printing-service rule.",
+        "zh": "答案保留两个分支：截止前批准才发送，否则暂缓并申请新时段。干扰项分别去条件、忽略截止或忽略按时批准的情况。这里是虚构题定说明，不是实际印刷服务规则。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "ENGLISH_01",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "present_third_singular",
+        "lemma": "greet",
+        "source": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-simple"
+      }
+    },
+    {
+      "id": "ENGLISH_02",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "past_question_did",
+        "source": "https://learnenglishkids.britishcouncil.org/grammar-vocabulary/grammar-practice/past-simple-questions"
+      }
+    },
+    {
+      "id": "ENGLISH_03",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "present_be_plural",
+        "source": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/present-simple-be",
+        "sourceReadScope": "OfficialsearchresulttableYou/we/theyare;directpageopenfailed,notfullpageread"
+      }
+    },
+    {
+      "id": "ENGLISH_04",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "nondefining_thing_relative_subject",
+        "source": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/relative-pronouns-relative-clauses"
+      }
+    },
+    {
+      "id": "ENGLISH_05",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "want_to_infinitive",
+        "lemma": "confirm",
+        "source": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/verbs-followed-ing-or-infinitive"
+      }
+    },
+    {
+      "id": "ENGLISH_06",
+      "proof": {
+        "kind": "grammar_form",
+        "rule": "enjoy_ing",
+        "lemma": "cross",
+        "source": "https://learnenglish.britishcouncil.org/free-resources/grammar/a1-a2/verbs-followed-ing-or-infinitive"
+      }
+    },
+    {
+      "id": "ENGLISH_07",
+      "proof": {
+        "kind": "word_sense",
+        "word": "postpone",
+        "sense": "reschedule_later",
+        "correctLabel": "postpone",
+        "source": "https://www.merriam-webster.com/dictionary/postpone"
+      }
+    },
+    {
+      "id": "ENGLISH_08",
+      "proof": {
+        "kind": "word_sense",
+        "word": "accurate",
+        "sense": "matches_checked_fact",
+        "correctLabel": "accurate",
+        "source": "https://www.merriam-webster.com/dictionary/accurate"
+      }
+    },
+    {
+      "id": "ENGLISH_09",
+      "proof": {
+        "kind": "word_sense",
+        "word": "tentative",
+        "sense": "provisional",
+        "correctLabel": "Not yet final and open to changes",
+        "source": "https://www.merriam-webster.com/dictionary/tentative"
+      }
+    },
+    {
+      "id": "ENGLISH_10",
+      "proof": {
+        "kind": "word_sense",
+        "word": "concise",
+        "sense": "brief_without_unnecessary_detail",
+        "correctLabel": "concise",
+        "source": "https://www.merriam-webster.com/dictionary/concise"
+      }
+    },
+    {
+      "id": "ENGLISH_11",
+      "proof": {
+        "kind": "word_sense",
+        "word": "reluctant",
+        "sense": "initially_unwilling",
+        "correctLabel": "reluctant",
+        "source": "https://www.merriam-webster.com/dictionary/reluctant"
+      }
+    },
+    {
+      "id": "ENGLISH_12",
+      "proof": {
+        "kind": "word_sense",
+        "word": "feasible",
+        "sense": "possible_under_conditions",
+        "correctLabel": "feasible",
+        "source": "https://www.merriam-webster.com/dictionary/feasible"
+      }
+    },
+    {
+      "id": "ENGLISH_13",
+      "proof": {
+        "kind": "facts",
+        "facts": {
+          "sunday_open": "11:00"
+        },
+        "claims": [
+          {
+            "sunday_open": "11:00"
+          },
+          {
+            "sunday_open": "09:30"
+          },
+          {
+            "sunday_open": "10:00"
+          },
+          {
+            "sunday_open": "closed"
+          }
+        ],
+        "correctSemantic": "11:00"
+      }
+    },
+    {
+      "id": "ENGLISH_14",
+      "proof": {
+        "kind": "reference",
+        "referent": "The two glass slides",
+        "correctSemantic": "The two glass slides"
+      }
+    },
+    {
+      "id": "ENGLISH_15",
+      "proof": {
+        "kind": "purpose",
+        "requiredMeaning": "Help visitors understand faults and possible next steps",
+        "correctSemantic": "Help visitors understand faults and possible next steps"
+      }
+    },
+    {
+      "id": "ENGLISH_16",
+      "proof": {
+        "kind": "sequence",
+        "source": [
+          "save",
+          "label",
+          "move"
+        ],
+        "correctSemantic": "Save photograph → attach label → move box",
+        "alternatives": [
+          [
+            "label",
+            "save",
+            "move"
+          ],
+          [
+            "move",
+            "label",
+            "save"
+          ],
+          [
+            "save",
+            "move",
+            "label"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ENGLISH_17",
+      "proof": {
+        "kind": "supported_meaning",
+        "supported": "Visitor numbers rose in both rooms; the cause is not established here",
+        "correctSemantic": "Visitor numbers rose in both rooms; the cause is not established here"
+      }
+    },
+    {
+      "id": "ENGLISH_18",
+      "proof": {
+        "kind": "missing_field",
+        "facts": {
+          "place": "north gate",
+          "time": "10:15",
+          "deadline": "Thursday18:00"
+        },
+        "query": "price",
+        "correctSemantic": "How much does the walk cost?"
+      }
+    },
+    {
+      "id": "ENGLISH_19",
+      "proof": {
+        "kind": "required_meaning",
+        "expected": "revisedRoomBWednesdayNoon",
+        "correctSemantic": "Could you send the revised Room B floor plan by noon on Wednesday?",
+        "requirements": {
+          "file": "revised",
+          "room": "B",
+          "deadline": "Wednesdaynoon"
+        }
+      }
+    },
+    {
+      "id": "ENGLISH_20",
+      "proof": {
+        "kind": "required_meaning",
+        "expected": "askDateWithoutAssumption",
+        "correctSemantic": "Which calendar date do you mean by 'next Friday'?"
+      }
+    },
+    {
+      "id": "ENGLISH_21",
+      "proof": {
+        "kind": "required_meaning",
+        "expected": "draft4MissingLinaPhotoWaitApproval",
+        "correctSemantic": "Draft 4 is ready. Lina's photo is still missing; please request it and wait for image approval before publishing.",
+        "requirements": {
+          "draft": 4,
+          "photo": "missing",
+          "contact": "Lina",
+          "publish": "afterApproval"
+        }
+      }
+    },
+    {
+      "id": "ENGLISH_22",
+      "proof": {
+        "kind": "required_meaning",
+        "expected": "register18Draft28AskReview",
+        "correctSemantic": "The checked register lists 18 seats; could you review the 28 in the draft?",
+        "requirements": {
+          "register": 18,
+          "draft": 28,
+          "action": "askReview"
+        }
+      }
+    },
+    {
+      "id": "ENGLISH_23",
+      "proof": {
+        "kind": "required_meaning",
+        "expected": "unconfirmedDateUpdateAfterConfirmation",
+        "correctSemantic": "The supplier has not confirmed the arrival date yet; I will update you when it does."
+      }
+    },
+    {
+      "id": "ENGLISH_24",
+      "proof": {
+        "kind": "conditional_meaning",
+        "required": {
+          "approvedBy1500": "send",
+          "notApprovedBy1500": "holdAndAskNewSlot"
+        },
+        "correctSemantic": "Send the file only if approval arrives by 15:00; otherwise hold it and ask for a new slot."
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "grammar",
+      "directionIds": [
+        "grammar"
+      ],
+      "title": {
+        "en": "Grammar and structure",
+        "zh": "语法与句式"
+      },
+      "headline": {
+        "en": "Read the requested construction before choosing a form.",
+        "zh": "先看所要求的结构，再选词形。"
+      },
+      "summary": {
+        "en": "Review six selected checks: present-simple agreement, a past question, plural be, a non-defining relative clause, want with an infinitive and enjoy with an -ing form.",
+        "zh": "复习六项指定结构：一般现在时一致、过去时疑问句、复数be、非限定性关系从句、want接不定式与enjoy接-ing。"
+      },
+      "seo": {
+        "title": {
+          "en": "Grammar and structure: English practice guide",
+          "zh": "语法与句式：英语练习复习指南"
+        },
+        "description": {
+          "en": "Review six English grammar constructions with explanations and a sentence-changing routine. Correct counts are not a CEFR or writing grade.",
+          "zh": "通过解析和改写步骤复习六个英语语法结构，正确题数不换算CEFR或写作等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each of six items counts one matching answer. Your count describes these tasks under your practice conditions, not a CEFR level, percentile, school grade or job-readiness judgement. Every worked answer and this complete guide remain available at every count.",
+        "zh": "六题各按答对记1题。正确数只描述这些题在本次练习条件下的结果，不是CEFR等级、百分位、学段或岗位准备判断；任何正确数都能看全部题解和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six specified constructions",
+            "zh": "六个指定结构"
+          },
+          "paragraphs": [
+            {
+              "en": "The items ask for standard written forms in explicitly stated contexts. A singular routine subject takes a present-simple ending; a requested past-simple question uses did with the base verb. Other items check plural are, which in a comma-separated extra-information clause about a thing, wants to confirm and enjoy crossing. This is a selected review set, not coverage of all English grammar.",
+              "zh": "题目在明确语境中要求标准书面形式：单数日常行为用一般现在时词尾，指定过去时疑问句用did配动词原形。其他题核对复数are、补充物体信息的逗号从句which、wants to confirm及enjoy crossing。这是选定结构复习，不覆盖全部英语语法。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Change one subject and keep the time",
+            "zh": "只换主语，保留时间语境"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare two invented statements: Every morning, Rupa checks the noticeboard; Every morning, the volunteers check the noticeboard. The routine context stays the same, while the subject changes the verb form. Now turn the second statement into a question: Do the volunteers check the noticeboard every morning? The main verb remains check after do. These are practice examples, not scored items.",
+              "zh": "比较两句自拟例子：Every morning, Rupa checks the noticeboard；Every morning, the volunteers check the noticeboard。日常时间语境相同，主语改变带来词形变化。第二句可改为Do the volunteers check the noticeboard every morning?，do后主动作仍为check。这些是练习例子，不计入题分。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Locate the part that governs the choice",
+            "zh": "定位决定选择的部分"
+          },
+          "paragraphs": [
+            {
+              "en": "For an agreement item, identify the subject before inspecting the verb ending. For a question, separate the auxiliary from the main verb. For verb patterns, inspect the first verb: enjoy and want need different following forms. Do not generalise this into a rule that every verb takes only one pattern; like and love can allow both an infinitive and an -ing form.",
+              "zh": "一致题先找主语，再看词尾；疑问句分清助动词和主动作；动词搭配题先看前一个动词，enjoy与want所需形式不同。不要推广成每个动词只允许一种搭配，like和love可允许不定式及-ing两种形式。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Rewrite before checking the answer",
+            "zh": "先改写，再核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one missed construction and write two new short sentences. Change only the subject, time context or first verb, then explain what must change and why. Compare with the relevant grammar reference after writing. If another form could also fit a different meaning, state the intended meaning explicitly. This routine is suggested practice, without a measured improvement rate or guaranteed learning time.",
+              "zh": "选一个错结构，自写两个短句，只改变主语、时间语境或前一个动词，再说明哪里必须变化及原因。写完再查语法参考；若另一个形式适合不同意思，就先把意图说清。这只是练习建议，没有已测得的提高幅度或保证学习时间。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recognition does not demonstrate free writing",
+            "zh": "识别不等于自由写作"
+          },
+          "paragraphs": [
+            {
+              "en": "Six visible-option decisions cannot establish overall grammar proficiency, spoken fluency or the ability to produce a complete work email. The examples use selected standard written constructions rather than ranking dialects or speakers. Repeating the same questions after seeing the keys may show recall. Use the exact explanation to choose a new exercise, not to assign yourself a fixed language level.",
+              "zh": "六次可见选项选择不能确定总体语法、口语流利度或完整工作邮件产出能力。例题练选定的标准书面结构，不给方言或使用者排名。看过答案后重做可能是记忆，应按具体解析选新练习，而不是给自己派固定语言等级。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vocabulary",
+      "directionIds": [
+        "vocabulary"
+      ],
+      "title": {
+        "en": "Vocabulary in context",
+        "zh": "语境中的词义"
+      },
+      "headline": {
+        "en": "Match the meaning required by this particular sentence.",
+        "zh": "把词义与这句所需意思配对。"
+      },
+      "summary": {
+        "en": "Review postpone, accurate, tentative, concise, reluctant and feasible in original contexts, using checked dictionary senses rather than a vocabulary-size estimate.",
+        "zh": "结合原创语境复习postpone、accurate、tentative、concise、reluctant和feasible，用核对过的词义定位差别，不估计词汇量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Vocabulary in context: English practice guide",
+          "zh": "语境中的词义：英语练习复习指南"
+        },
+        "description": {
+          "en": "Review six English meanings in context with complete explanations and practice suggestions. Six-item correctness does not measure vocabulary size.",
+          "zh": "在语境中复习六个英语词义，查看完整解析和练习建议；六题正确数不估计词汇量。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each of six items counts one matching answer. Your count describes these tasks under your practice conditions, not a CEFR level, percentile, school grade or job-readiness judgement. Every worked answer and this complete guide remain available at every count.",
+        "zh": "六题各按答对记1题。正确数只描述这些题在本次练习条件下的结果，不是CEFR等级、百分位、学段或岗位准备判断；任何正确数都能看全部题解和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six chosen meanings",
+            "zh": "六个选定词义"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks concern moving an event later, matching checked information, leaving a plan unsettled, expressing essentials without repetition, feeling unwilling and being possible under stated conditions. These correspond to six selected senses of the target words. A dictionary can list additional senses; the sentence determines which one matters here. Recognising these words does not demonstrate complete knowledge of their uses.",
+              "zh": "题目分别涉及活动延后、与核定信息一致、计划尚未确定、去重复而留要点、不情愿，以及在题定条件下可实施，对应目标词的六个选定义项。词典还可能有其他义项，这里由句子决定相关含义。认出六词不等于掌握全部用法。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Keep a tentative time provisional",
+            "zh": "保留暂定时间的不确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a volunteer briefing described as having a tentative time of 13:00 while the room booking awaits confirmation. You can record 13:00 as proposed, but should not restate it as an unchangeable commitment. The example gives the word a practical consequence without predicting whether the booking will succeed. It uses a new fictional situation rather than another scored item.",
+              "zh": "例如志愿者说明会暂定13:00，房间预约仍待确认。可以把13:00记为提议时间，却不能改写成不会变的承诺。这个新虚构情境展示词义的实际差别，不预测预约是否成功，也不是新增计分题。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Explain why the nearby alternative differs",
+            "zh": "说清相近选项差在哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "Postponing is not cancelling: one changes the planned time while the other removes the event. Concise is not merely the shortest possible text; essential information still matters. Reluctant can describe an initial attitude even when someone later agrees. For each missed choice, name the specific meaning difference. Avoid treating one word as a judgement of someone’s general competence or personality.",
+              "zh": "Postpone与cancel不同，前者改变计划时间，后者取消活动。Concise也不是不顾内容地越短越好，必要信息仍要保留。Reluctant可描述起初态度，即使当事人后来答应。复习时指出具体词义差别，不把一个词当成对总体能力或人格的判断。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Write a meaning contrast",
+            "zh": "写出一组词义对照"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one target word and make two brief original sentences: one using its checked sense, another using a contrasting meaning. Explain the difference in your own words, then compare with a dictionary. Check the sentence as well as the isolated word, including what remains unknown. This is a suggested learning activity; no amount of improvement from it has been measured in this product.",
+              "zh": "选一个目标词，自写两个短句：一个用已核义项，一个表达对照意思。先用自己的话说明差别，再查词典，同时核对整句及仍然未知的信息。这是学习建议，产品没有测量它能带来多少提高。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Counts describe these six choices",
+            "zh": "正确数描述这六次选择"
+          },
+          "paragraphs": [
+            {
+              "en": "The set has no vocabulary-frequency sampling model, population norms or productive-vocabulary mark. It cannot estimate how many English words you know or assign a CEFR band. Definitions, example sentences and audio from the dictionary are not reproduced as the bank. Repeating familiar alternatives can raise a count through memory; try new contexts when practising beyond this edition.",
+              "zh": "本组没有词频抽样模型、人群常模或产出词汇评分，不能估计认识多少英语词或派CEFR档位。题库不搬词典释义、例句和音频。熟悉选项后的提高可能来自记忆，继续练习时宜换新语境。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "directionIds": [
+        "reading"
+      ],
+      "title": {
+        "en": "Reading and evidence",
+        "zh": "阅读与证据"
+      },
+      "headline": {
+        "en": "Separate what the text says from what you added.",
+        "zh": "分开原文陈述与自己补入的信息。"
+      },
+      "summary": {
+        "en": "Review time conditions, pronoun reference, main purpose, instruction order, causal limits and missing information through six original English passages.",
+        "zh": "通过六段原创英文，复习时间条件、代词指代、主旨、说明顺序、因果边界与缺失信息。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading and evidence: English practice guide",
+          "zh": "阅读与证据：英语练习复习指南"
+        },
+        "description": {
+          "en": "Practise reading six short English passages with complete answer explanations. Keep conditions and unknowns visible without a language-level estimate.",
+          "zh": "结合完整解析练习六段英语短文，保留条件与未知，不估计语言等级。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each of six items counts one matching answer. Your count describes these tasks under your practice conditions, not a CEFR level, percentile, school grade or job-readiness judgement. Every worked answer and this complete guide remain available at every count.",
+        "zh": "六题各按答对记1题。正确数只描述这些题在本次练习条件下的结果，不是CEFR等级、百分位、学段或岗位准备判断；任何正确数都能看全部题解和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six reading decisions",
+            "zh": "六种阅读决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The passages ask you to match a day with its opening time, identify a repeated plural referent, state an activity’s purpose, preserve two ordered steps, distinguish an observed increase from a proven cause and notice an absent price. All needed information is supplied in the invented texts. No knowledge of a real venue, archive, publisher or local policy is assumed.",
+              "zh": "六题要求把日期与开放时间配对、找重复的复数指代、概括活动目的、保留两步顺序、区分观察到的增长与已证因果，以及留意缺失价格。信息都来自虚构短文，不假定读者知道真实场馆、档案馆、出版方或地方政策。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An information gap is still a result",
+            "zh": "资料缺口也是阅读结果"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional class notice gives the room, start time and booking deadline, but says nothing about materials being provided. You can record the stated logistics. You cannot turn the missing materials detail into a promise that everything is included or a rule that nothing will be supplied. A useful answer can be that the notice does not resolve the question.",
+              "zh": "例如虚构课程通知写了教室、开始时间和预约截止，却没说是否提供材料。可以记录明确安排，不能据空白承诺全包，也不能反过来认定一律不提供。指出通知尚未回答问题，也是一种准确阅读结果。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Keep the wording of the task visible",
+            "zh": "始终保留题目要求"
+          },
+          "paragraphs": [
+            {
+              "en": "A request for information that cannot be answered differs from a request for a supported fact. A main-purpose summary should preserve the stated limit, not add a guarantee. For a sequence, check every dependency rather than only the first instruction. For causal language, lack of proof does not establish no effect. These distinctions concern the passage, not the reader’s intelligence.",
+              "zh": "找“不能回答的信息”不同于找“有支持的事实”。主旨概括要保留明确边界，不添保证；顺序题逐条查依赖，不只看第一条；因果题中缺少证明不等于没有作用。这些区分针对文本，不评价读者智力。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Make a small evidence table",
+            "zh": "列一张简短依据表"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a new short notice or a passage you wrote yourself. Put each claim beside the words that support it, and mark contradicted or unanswered claims separately. Then check whether each question asks for a fact, a reference, an order or a gap. Try a fresh text after reviewing an answer so that recall of one passage does not stand in for reading practice.",
+              "zh": "换一则新通知或自写短文，把每项主张旁边对应的原文依据列出来，分别标出冲突和未回答。再看题目在问事实、指代、顺序还是缺口。看过答案后宜换新文本，避免用对某篇的记忆替代阅读练习。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Short passages cover selected reading tasks",
+            "zh": "短文只覆盖选定阅读任务"
+          },
+          "paragraphs": [
+            {
+              "en": "This section does not measure reading speed, sustained academic reading, listening or the ability to produce a written response. Chinese instructions and explanations leave the English passages and alternatives unchanged. That design choice does not establish cross-language measurement equivalence or a CEFR mapping. A count out of six is a record of these choices, with every explanation available for review.",
+              "zh": "本组不测阅读速度、长篇学术阅读、听力或书面回答产出。中文说明与解析保留英文短文和选项，但这项设计不建立跨语言测量等价或CEFR映射。正确数/6只记录六次选择，全部解析都可用于复习。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "functional",
+      "directionIds": [
+        "functional"
+      ],
+      "title": {
+        "en": "Functional written English",
+        "zh": "任务中的书面英语"
+      },
+      "headline": {
+        "en": "Preserve the request, facts, condition and next action.",
+        "zh": "保留请求、事实、条件与下一步。"
+      },
+      "summary": {
+        "en": "Review six workplace-message tasks involving file versions, dates, handovers, checked figures, uncertain status and conditional instructions.",
+        "zh": "复习六个工作消息任务，涉及文件版本、日期、交接、核定数字、未定状态与条件说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Functional written English: English practice guide",
+          "zh": "任务中的书面英语：英语练习复习指南"
+        },
+        "description": {
+          "en": "Practise six English message decisions with full explanations. Match the stated purpose and facts without a workplace-competence or CEFR label.",
+          "zh": "通过完整解析练习六个英语消息选择，匹配指定目的和事实，不派岗位能力或CEFR标签。"
+        }
+      },
+      "scoreReading": {
+        "en": "Each of six items counts one matching answer. Your count describes these tasks under your practice conditions, not a CEFR level, percentile, school grade or job-readiness judgement. Every worked answer and this complete guide remain available at every count.",
+        "zh": "六题各按答对记1题。正确数只描述这些题在本次练习条件下的结果，不是CEFR等级、百分位、学段或岗位准备判断；任何正确数都能看全部题解和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Meaning carried into a practical message",
+            "zh": "把所需意思带入实际消息"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks ask which English reply preserves specified information: a revised file and deadline, an unresolved date, a draft version and missing image, two checked numbers, an unconfirmed delivery and an approval condition. The options can be grammatically plausible while carrying different facts. The aim is matching the declared task, not assessing personality, obedience or a universal standard of politeness.",
+              "zh": "题目要求找出准确保留指定信息的英语回复，包括新版文件与截止、未明确日期、稿件版本及缺图、两个待核数字、未确认到货，以及批准条件。选项可能都语法通顺，却传达不同事实。本组匹配题定任务，不测人格、服从或通用礼貌标准。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A courteous message can still change a fact",
+            "zh": "客气的消息仍可能改错事实"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a request for the revised map of Hall C by Monday noon. A reply beginning Could you may sound courteous, yet asking for Hall D or for Wednesday changes the request. Compare the location, version and deadline separately before judging whether the message does the required job. The example concerns fictional supplied details, without prescribing a real organisation’s workflow.",
+              "zh": "例如要求周一中午前拿到新版C厅地图，回复即使用Could you开头很客气，若写D厅或周三，也改了要求。应分别核位置、版本和截止，再看是否完成任务。这里是虚构题定细节，不规定真实组织流程。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Keep unknowns and alternatives explicit",
+            "zh": "把未知与备选分支写清"
+          },
+          "paragraphs": [
+            {
+              "en": "An unconfirmed arrival date should not become a guaranteed date. A request to clarify next Friday should ask for the calendar date instead of guessing. A handover must preserve what is ready and what is still missing. In a conditional instruction, check what happens both when approval arrives in time and when it does not; a summary that drops either branch changes the task.",
+              "zh": "未确认的到货日期不能改成保证日期；澄清next Friday应询问日历日期，不猜答案；交接要保留哪些就绪、哪些缺失；条件说明则同时核对按时批准和未按时批准两种情况，丢掉任一分支都会改任务。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Use a compact message checklist",
+            "zh": "用简短消息核对表"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a new fictional brief with a recipient, exact file or object, deadline, known status and next action. Draft a short English response, then compare each field with the brief. Ask whether you added a promise, removed a condition or changed a number. Only after the meaning matches, consider whether the wording suits the audience. No real message needs to be sent for this practice.",
+              "zh": "自写一个虚构任务，列收件对象、具体文件或物件、截止、已知状态和下一步。用英语简短回复，再逐项对照，检查有无多承诺、少条件或改数字。意思匹配后，再看措辞是否适合受众；这项练习不需要发送真实消息。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Selection is narrower than communication at work",
+            "zh": "选项选择小于真实工作沟通"
+          },
+          "paragraphs": [
+            {
+              "en": "Choosing a reply does not demonstrate spontaneous email writing, live negotiation, listening, speaking or success in a particular workplace. The scenarios state their own fictional conditions and cannot establish a hiring cutoff. Both interfaces preserve the English messages. Correct counts help select a review topic; they do not measure all communicative ability or justify a CEFR or job-readiness judgement.",
+              "zh": "选回复不能证明即时邮件写作、现场协商、听说或特定工作环境中的成功。场景自带虚构条件，不能建立招聘线，两种界面都保留英文消息。正确数帮助选复习主题，不测完整交际能力，也不支持CEFR或岗位准备结论。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
