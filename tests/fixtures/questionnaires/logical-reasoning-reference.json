@@ -1,0 +1,2612 @@
+{
+  "id": "T168",
+  "edition": "fm_logical_reasoning_practice_24_v1",
+  "authorship": "Original fictional bilingual practice. Primary concepts background only, no published bank adapted. Explicit model checks plus author semantic review, not independent peer review, norms or test equivalence.",
+  "questions": [
+    {
+      "id": "LOGIC_01",
+      "prompt": {
+        "en": "In a fictional archive, every blue folder is archived, every archived folder is dated, and at least one blue folder exists. Which conclusion must follow?",
+        "zh": "在虚构档案室，所有蓝色文件夹都已归档，所有已归档文件夹都标了日期，且至少存在一个蓝色文件夹。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Some blue folder is dated",
+            "zh": "有蓝色文件夹标了日期"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every dated folder is blue",
+            "zh": "所有标了日期的文件夹都是蓝色的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every archived folder is blue",
+            "zh": "所有已归档文件夹都是蓝色的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No blue folder is dated",
+            "zh": "没有蓝色文件夹标了日期"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Take the blue folder whose existence is given. It is archived by the first rule and dated by the second. This establishes at least one blue-and-dated folder. Neither inclusion can be reversed: dated or archived folders may also have other colours. The existence premise matters; a universal rule alone would not establish that any blue folder exists.",
+        "zh": "取题中保证存在的蓝色文件夹：第一条使它已归档，第二条使它有日期，所以至少有一个既蓝又有日期的文件夹。不能把包含关系倒转，已归档或有日期的文件夹还可有其他颜色。存在前提很关键，仅有“所有”并不保证对象存在。"
+      }
+    },
+    {
+      "id": "LOGIC_02",
+      "prompt": {
+        "en": "In this fictional depot, no fragile parcel is stackable, and some courier parcel is fragile. Which conclusion must follow?",
+        "zh": "在这个虚构货站，没有易碎包裹可以堆叠，且有快递包裹是易碎的。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "No courier parcel is stackable",
+            "zh": "所有快递包裹都不可堆叠"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Some courier parcel is not stackable",
+            "zh": "有快递包裹不可堆叠"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every courier parcel is fragile",
+            "zh": "所有快递包裹都是易碎的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Some stackable parcel is fragile",
+            "zh": "有可堆叠包裹是易碎的"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The stated courier-and-fragile parcel cannot be stackable, because the two categories are disjoint. That gives one courier parcel that is not stackable. The premises do not cover every courier parcel: a different courier parcel could be non-fragile and stackable. Extending a conclusion about some parcels to all parcels adds information not supplied.",
+        "zh": "题中那个既是快递又易碎的包裹不能堆叠，因为易碎与可堆叠两类不相交。这证明有快递包裹不可堆叠，却没有覆盖所有快递包裹。另一个快递包裹仍可不易碎且能堆叠，不能把“有些”扩成“所有”。"
+      }
+    },
+    {
+      "id": "LOGIC_03",
+      "prompt": {
+        "en": "Every silver token in a fictional collection is marked. Some round token is not marked. Which conclusion must follow?",
+        "zh": "虚构收藏中的所有银色筹码都有标记。有圆形筹码没有标记。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "No round token is silver",
+            "zh": "没有圆形筹码是银色的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "No round token is marked",
+            "zh": "没有圆形筹码有标记"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Some round token is not silver",
+            "zh": "有圆形筹码不是银色的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every marked token is silver",
+            "zh": "所有有标记筹码都是银色的"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The unmarked round token cannot be silver: if it were silver, the universal rule would require it to be marked. This proves a particular round token is not silver. Other round tokens may be silver and marked. The rule also leaves open marked tokens of other colours, so its converse is unsupported.",
+        "zh": "那个没有标记的圆形筹码不可能是银色，否则会按第一条必须有标记。因此有圆形筹码不是银色的。其他圆形筹码仍可为银色且有标记，规则也没排除其他颜色的有标记筹码，不能反推。"
+      }
+    },
+    {
+      "id": "LOGIC_04",
+      "prompt": {
+        "en": "No waiting ticket is closed. Every priority ticket is waiting, and at least one priority ticket exists. Which conclusion must follow?",
+        "zh": "没有待处理工单已关闭。所有优先工单都在待处理，且至少存在一张优先工单。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every waiting ticket is a priority ticket",
+            "zh": "所有待处理工单都是优先工单"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Some priority ticket is closed",
+            "zh": "有优先工单已关闭"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every closed ticket is a priority ticket",
+            "zh": "所有已关闭工单都是优先工单"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Some priority ticket is not closed",
+            "zh": "有优先工单未关闭"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The existing priority ticket must be waiting and hence not closed. This supports an existential conclusion, with no claim about how many tickets there are. Waiting tickets need not all have priority, and closed tickets need not have priority either. Treat the stated categories as the complete rules for this fictional exercise, without importing a real ticket system.",
+        "zh": "已知存在的优先工单必须待处理，因此未关闭。这给出存在性结论，不确定工单数量。待处理工单不必全是优先工单，已关闭工单也不必优先。只使用这个虚构题目的分类规则，不导入现实系统状态规则。"
+      }
+    },
+    {
+      "id": "LOGIC_05",
+      "prompt": {
+        "en": "Some quiet room is booked, and every booked room is heated. Which conclusion must follow from these facts alone?",
+        "zh": "有安静房间已预订，所有已预订房间都有供暖。仅凭这些事实，哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Some quiet room is heated",
+            "zh": "有安静房间有供暖"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every quiet room is booked",
+            "zh": "所有安静房间都已预订"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every heated room is booked",
+            "zh": "所有有供暖房间都已预订"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No quiet room is heated",
+            "zh": "没有安静房间有供暖"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "At least one quiet room is among the booked rooms. The heating rule applies to that room, so it is both quiet and heated. Nothing makes all quiet rooms booked or all heated rooms booked. A statement about an overlap establishes only that overlap; it does not turn either category into the whole other category.",
+        "zh": "至少一个安静房间属于已预订房间，供暖规则适用于它，所以它既安静又有供暖。题目没有让所有安静房间都已预订，也没有让所有供暖房间都已预订。证明两类有交集，不等于两类互相包含。"
+      }
+    },
+    {
+      "id": "LOGIC_06",
+      "prompt": {
+        "en": "In a fictional parts system, every copper part is conductive, no conductive part is opaque, and at least one copper part exists. Which conclusion must follow?",
+        "zh": "在虚构零件系统中，所有铜色零件都导电，没有导电零件不透明，且至少存在一个铜色零件。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Some copper part is opaque",
+            "zh": "有铜色零件不透明"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Some copper part is not opaque",
+            "zh": "有铜色零件并非不透明"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every non-opaque part is copper",
+            "zh": "所有并非不透明的零件都是铜色的"
+          },
+          "directionId": "quantifiers"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No copper part is conductive",
+            "zh": "没有铜色零件导电"
+          },
+          "directionId": "quantifiers"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The given copper part is conductive and therefore outside the opaque category. It is consequently a copper part that is not opaque. This is a deduction inside the fictional system, not a claim about the physical properties of real copper. The rules do not say that all non-opaque parts are copper.",
+        "zh": "已知存在的铜色零件导电，所以不属于不透明类，因此有铜色零件并非不透明。这只是在虚构系统内推理，不宣称现实铜的物理性质。规则也没有说所有非不透明零件都是铜色的。"
+      }
+    },
+    {
+      "id": "LOGIC_07",
+      "prompt": {
+        "en": "If the amber light is on, the relay opens. If the relay opens, the chime sounds. The amber light is on. Which conclusion must follow?",
+        "zh": "若琥珀灯亮，继电器打开；若继电器打开，提示音响。已知琥珀灯亮。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The relay stays closed",
+            "zh": "继电器保持关闭"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The amber light is off",
+            "zh": "琥珀灯不亮"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The chime sounds",
+            "zh": "提示音响"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The chime does not sound",
+            "zh": "提示音不响"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Apply each stated implication in its forward direction: light on gives relay open, which gives chime sounding. There is no need to infer a cause or add knowledge of actual electronics. The premises are treated as reliable rules for this fictional case; the conclusion follows from chaining them, not from how plausible the machine sounds.",
+        "zh": "顺着规则逐步走：灯亮推出继电器打开，再推出提示音响。无需推测因果，也不用现实电子知识。这些前提是虚构题目中给定的可靠规则，结论来自规则连接，而非机器是否看起来合理。"
+      }
+    },
+    {
+      "id": "LOGIC_08",
+      "prompt": {
+        "en": "If a voucher has been checked, entry is permitted. Entry is not permitted. Which conclusion must follow?",
+        "zh": "若凭证已核验，则允许进入。现在不允许进入。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The voucher has been checked",
+            "zh": "凭证已核验"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Entry is permitted",
+            "zh": "允许进入"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The voucher is forged",
+            "zh": "凭证是伪造的"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The voucher has not been checked",
+            "zh": "凭证未核验"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A checked voucher would require permission under the given rule. Since permission is absent, the voucher cannot have been checked. This is the contrapositive of the rule. Nothing identifies forgery or any other reason for the situation; a necessary deduction about checking is narrower than an explanation of why entry is refused.",
+        "zh": "若已核验，按规则就必须允许进入；既然不允许，便不可能已经核验。这是逆否推理。题目没有说明伪造或其他原因，关于核验状态的必然结论不等于解释为何拒绝进入。"
+      }
+    },
+    {
+      "id": "LOGIC_09",
+      "prompt": {
+        "en": "If a label is valid, the scanner accepts it. This label was accepted. What can be concluded about the statement “This label is valid”, using only those two premises?",
+        "zh": "若标签有效，扫描器会接受它。这个标签已被接受。只凭这两个前提，对“这个标签有效”能作何判断？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Its truth is not determined by the premises",
+            "zh": "前提无法确定其真假"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It must be true",
+            "zh": "它必然为真"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It must be false",
+            "zh": "它必然为假"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The two premises contradict each other",
+            "zh": "两个前提互相矛盾"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The rule guarantees acceptance for valid labels but does not exclude acceptance of invalid ones. A valid-and-accepted label and an invalid-and-accepted label both fit the stated facts. Thus validity remains undetermined. The premises are consistent. An observed consequence does not, on its own, establish the antecedent of a one-way rule.",
+        "zh": "规则保证有效标签会被接受，却未排除无效标签也被接受。标签有效且被接受、标签无效但被接受，都符合给定前提，所以有效性无法确定。两个前提相容，不能仅凭单向规则的后件成立就认定前件成立。"
+      }
+    },
+    {
+      "id": "LOGIC_10",
+      "prompt": {
+        "en": "A packet may be dispatched only if it is sealed. This packet is dispatched. Which conclusion must follow from the stated rule?",
+        "zh": "包件只有在封口后才可发出。这个包件已发出。按给定规则，哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The packet is not sealed",
+            "zh": "包件未封口"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The packet is sealed",
+            "zh": "包件已封口"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "This packet has not been dispatched",
+            "zh": "这个包件未发出"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The packet was dispatched yesterday",
+            "zh": "包件昨天发出"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "“Dispatched only if sealed” makes sealing necessary for dispatch: dispatched implies sealed. With dispatch given, sealing follows. The converse, that every sealed packet is dispatched, is not supplied. No date is mentioned. This exercise treats the rule as holding without exceptions; it does not inspect any real shipment.",
+        "zh": "“只有封口才可发出”把封口设为发出的必要条件，即发出推出已封口。已知发出，便推出封口，但未给出“封口就一定发出”的反向规则。题中也无日期。这里只把规则视为无例外成立，不核查现实货运。"
+      }
+    },
+    {
+      "id": "LOGIC_11",
+      "prompt": {
+        "en": "At least one of the east and west indicators is on; both being on is allowed. The east indicator is off. Which conclusion must follow?",
+        "zh": "东、西两个指示灯至少一个亮，也允许两个都亮。东灯不亮。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The west indicator is off",
+            "zh": "西灯不亮"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Both indicators are on",
+            "zh": "两个灯都亮"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The west indicator is on",
+            "zh": "西灯亮"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Neither indicator is on",
+            "zh": "两个灯都不亮"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The inclusive “at least one” rule rules out both lights being off. With east off, west must supply the required on-state. Allowing both to be on does not require both to be on. The explicit wording removes any need to guess whether ordinary “or” is inclusive or exclusive in a different context.",
+        "zh": "“至少一个亮”排除了两个都不亮。东灯不亮时，西灯必须亮，才能满足要求。允许两个都亮不等于要求两个都亮。题目已明确“至少一个”，无需猜测其他语境中的“或”是否排他。"
+      }
+    },
+    {
+      "id": "LOGIC_12",
+      "prompt": {
+        "en": "The north and south backup units are not allowed to run together. The north unit is running. Which conclusion must follow, assuming the rule is obeyed?",
+        "zh": "北、南两个备用单元不得同时运行。北单元正在运行。假设规则得到遵守，哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The south unit is running",
+            "zh": "南单元正在运行"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Neither unit is running",
+            "zh": "两个单元都未运行"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The north unit is not running",
+            "zh": "北单元未运行"
+          },
+          "directionId": "conditions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The south unit is not running",
+            "zh": "南单元未运行"
+          },
+          "directionId": "conditions"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The prohibition is “not both”, so north running excludes south running. It does not mean “neither”: that would contradict the stated north state. Nor does the prohibition by itself require exactly one unit to run; the present conclusion also uses the separate fact that north is running.",
+        "zh": "规则禁止的是“同时运行”，北已运行便排除南运行。它不等于“两个都不运行”，那会与已知北运行冲突。规则本身也不要求恰好一个运行，本题还用到了北正在运行这一独立事实。"
+      }
+    },
+    {
+      "id": "LOGIC_13",
+      "prompt": {
+        "en": "Exactly two of gates North, South and West are open. North is closed. Which conclusion must follow?",
+        "zh": "北、南、西三个门恰好两个开启。北门关闭。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "South and West are both open",
+            "zh": "南门和西门都开启"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "South is closed",
+            "zh": "南门关闭"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "West is closed",
+            "zh": "西门关闭"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Only West is open",
+            "zh": "只有西门开启"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Exactly two open gates are required. Once North is removed, South and West are the only two remaining gates, so both must be open. “Only West” would leave just one open gate and violate the count. Make the exact-count constraint explicit rather than replacing it with the weaker “at least one”.",
+        "zh": "规则要求恰好两个门开启。去掉关闭的北门后，只剩南、西两个门，所以它们都必须开启。“只有西门”只给出一个开启的门，会违反数量限制。不能把“恰好两个”偷换为更弱的“至少一个”。"
+      }
+    },
+    {
+      "id": "LOGIC_14",
+      "prompt": {
+        "en": "Indicator A is on if and only if both B and C are on. A is off and B is on. Which conclusion must follow?",
+        "zh": "当且仅当B、C都亮时，指示灯A亮。A不亮，B亮。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "C is on",
+            "zh": "C亮"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "C is off",
+            "zh": "C不亮"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "B is off",
+            "zh": "B不亮"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A is on",
+            "zh": "A亮"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The biconditional includes the rule that B and C together would make A on. Since A is off, B and C cannot both be on. B is known to be on, leaving C off. Keeping both directions of “if and only if” prevents it from being confused with the weaker rule that A on merely requires B and C.",
+        "zh": "当且仅当包含“B和C都亮就使A亮”。A不亮，因此B、C不能都亮；B已亮，只能C不亮。要保留充要条件的两个方向，不能把它弱化成仅“A亮要求B、C亮”。"
+      }
+    },
+    {
+      "id": "LOGIC_15",
+      "prompt": {
+        "en": "If a device is calibrated, its display is green. If its display is green and it is not locked, access is ready. The device is calibrated and is not locked. Which conclusion must follow?",
+        "zh": "设备若已校准，显示灯就为绿色；若显示灯绿色且未锁定，则访问已就绪。设备已校准且未锁定。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The display is not green",
+            "zh": "显示灯不是绿色"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The device is locked",
+            "zh": "设备已锁定"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Access is ready",
+            "zh": "访问已就绪"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Access is not ready",
+            "zh": "访问未就绪"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Calibration supplies the green display. Combine that conclusion with the separately supplied not-locked fact to meet both conditions of the access rule. Access is therefore ready. Green alone would not have been enough for this second step. A conjunction in a rule requires every listed condition, not whichever one was noticed first.",
+        "zh": "已校准推出显示灯绿色，再与独立给出的未锁定结合，满足第二条的全部条件，所以访问就绪。仅绿色本不足以完成第二步。规则里的“且”需要列出的每项条件，而不是只满足最先看到的一项。"
+      }
+    },
+    {
+      "id": "LOGIC_16",
+      "prompt": {
+        "en": "Exactly one of flags R, S and T is true. R is false, and S is false. Which conclusion must follow?",
+        "zh": "R、S、T三个标志恰好一个为真。R为假，S为假。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "T is false",
+            "zh": "T为假"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "R and T are both true",
+            "zh": "R、T都为真"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "S is true",
+            "zh": "S为真"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "T is true",
+            "zh": "T为真"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The one required true flag cannot be R or S, because both are false. T must therefore be true. This uses the “at least one” part of exactly one; the “at most one” part prevents adding another true flag. If the rule had said merely “at most one”, all three false would remain possible.",
+        "zh": "恰好一个为真的要求不能由R、S满足，因为两者均假，所以T必须真。这使用了“恰好一个”中的至少一个要求，其至多一个要求又排除了额外真标志。若规则只说“至多一个”，三个都假仍可能。"
+      }
+    },
+    {
+      "id": "LOGIC_17",
+      "prompt": {
+        "en": "For this exercise, “unless the guard is enabled, the bell is silent” means: if the guard is not enabled, the bell is silent. The bell is not silent. Which conclusion must follow?",
+        "zh": "本题规定“除非防护已启用，否则铃静音”的意思是：若防护未启用，铃就静音。已知铃未静音。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The guard is enabled",
+            "zh": "防护已启用"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The guard is not enabled",
+            "zh": "防护未启用"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The bell is silent",
+            "zh": "铃已静音"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The guard was enabled yesterday",
+            "zh": "防护昨天启用"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "If the guard were not enabled, the stated implication would require silence. The observed not-silent state rules that out, so the guard is enabled. The wording explicitly defines “unless” to avoid relying on a conversational interpretation. No enabling date or causal account is supplied by these two premises.",
+        "zh": "若防护未启用，规则会要求铃静音；已知未静音，排除了防护未启用，所以防护已启用。题目明确约定“除非”的含义，避免依赖日常对话中的不同读法。两个前提没有提供启用日期或因果解释。"
+      }
+    },
+    {
+      "id": "LOGIC_18",
+      "prompt": {
+        "en": "Every morning session is remote, and every remote session is recorded. This session is not recorded. Which conclusion must follow?",
+        "zh": "所有上午场次都远程进行，所有远程场次都有录制。这个场次没有录制。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It is a morning session",
+            "zh": "它是上午场次"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "It is neither remote nor a morning session",
+            "zh": "它既非远程，也非上午场次"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "It is remote",
+            "zh": "它是远程场次"
+          },
+          "directionId": "deduction"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It is an evening session",
+            "zh": "它是晚间场次"
+          },
+          "directionId": "deduction"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Not recorded rules out remote, because remote would require recorded. Not remote in turn rules out morning, because morning would require remote. This does not identify a specific alternative time: afternoon or another time may fit. A negative conclusion can exclude categories without uniquely choosing a replacement category.",
+        "zh": "未录制排除了远程，因为远程会要求录制；非远程又排除了上午，因为上午会要求远程。但这不能确定其他具体时间，下午或别的时间仍可能。排除某类别，不等于唯一选出替代类别。"
+      }
+    },
+    {
+      "id": "LOGIC_19",
+      "prompt": {
+        "en": "Five cards D, F, G, H and J occupy positions 1–5 from left to right, one each. J is first and H is last. D is immediately before F. G is after F and before H. Where is G?",
+        "zh": "卡片D、F、G、H、J各占从左至右1至5号位，每位一张。J第一，H最后；D紧挨F之前，G在F之后且在H之前。G在哪一位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Position 2",
+            "zh": "第2位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Position 3",
+            "zh": "第3位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Position 4",
+            "zh": "第4位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Position 5",
+            "zh": "第5位"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "J and H fix the two ends. The remaining D, F and G fill positions 2–4. D must be immediately followed by F, and G must come after F, so the only order is J–D–F–G–H. G is fourth. “Immediately before” means adjacent; the separate after/before clues do not by themselves mean adjacent.",
+        "zh": "J、H固定两端，D、F、G填2至4位。D必须紧挨F之前，G又在F之后，因此唯一顺序为J–D–F–G–H，G第四。“紧挨之前”表示相邻，其他“之前、之后”本身不表示相邻。"
+      }
+    },
+    {
+      "id": "LOGIC_20",
+      "prompt": {
+        "en": "Four deliveries K, L, M and N finish with no ties. N finishes before K, L after K, and M after L. In what position does N finish?",
+        "zh": "K、L、M、N四次配送无并列完成。N在K之前，L在K之后，M在L之后。N第几个完成？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Second",
+            "zh": "第二"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Third",
+            "zh": "第三"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Fourth",
+            "zh": "第四"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "First",
+            "zh": "第一"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Combine the strict comparisons into N before K before L before M. Every delivery appears once, so N is first. No distances or elapsed times are supplied; ordering four events does not establish how long any delivery took. The conclusion is about position only.",
+        "zh": "合并严格比较得到N在K前、K在L前、L在M前，每个配送只出现一次，所以N第一。题目没有距离或耗时，四件事的先后不等于任何一次配送花了多长时间。结论只涉及名次。"
+      }
+    },
+    {
+      "id": "LOGIC_21",
+      "prompt": {
+        "en": "Amber, Cyan, Lime and Rose devices occupy slots 1–4, one each. Amber is in slot 1, Rose is in slot 4, and Lime is before Cyan. Where is Cyan?",
+        "zh": "Amber、Cyan、Lime、Rose四台设备各占1至4号位，每位一台。Amber在1号，Rose在4号，Lime在Cyan之前。Cyan在哪？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Slot 3",
+            "zh": "3号位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Slot 1",
+            "zh": "1号位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Slot 2",
+            "zh": "2号位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Slot 4",
+            "zh": "4号位"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Slots 2 and 3 remain for Lime and Cyan. Lime must have the earlier slot, so Lime is second and Cyan third. This uses the fact that all four slots are occupied once. If empty slots or extra devices had been allowed, the same short list of clues would not be sufficient for this exact assignment.",
+        "zh": "2、3号位留给Lime与Cyan，Lime必须更早，因此Lime第二、Cyan第三。这里用到了四个位各占一次。若允许空位或额外设备，仅凭这组简短线索就不足以确定相同位置。"
+      }
+    },
+    {
+      "id": "LOGIC_22",
+      "prompt": {
+        "en": "Tasks A, B, C, D and E occupy five successive slots, one task per slot. A is before B; E is after B but before D; C is after D. Which slot contains E?",
+        "zh": "A、B、C、D、E五项任务各占五个连续位置，每位一项。A在B前，E在B后且在D前，C在D后。E在哪一位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Slot 1",
+            "zh": "第1位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Slot 3",
+            "zh": "第3位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Slot 2",
+            "zh": "第2位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Slot 4",
+            "zh": "第4位"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The clues combine into the complete chain A–B–E–D–C. With five tasks in five slots, E is third. “After B but before D” is a strict between condition, not a statement that E is numerically halfway between arbitrary times. The positions are fixed here because the chain includes every task.",
+        "zh": "线索合成完整链A–B–E–D–C。五项任务占五位，E第三。“在B后、D前”只是严格介于两者之间，不表示任意时间数值上的中点。本题能定位置，是因为链包含全部任务。"
+      }
+    },
+    {
+      "id": "LOGIC_23",
+      "prompt": {
+        "en": "Mint, Ruby and Topaz messages use the 09:00, 10:00 and 11:00 slots once each. Mint is not at 09:00, Ruby is not at 11:00, and Topaz is at 09:00. Which slot contains Mint?",
+        "zh": "Mint、Ruby、Topaz三条消息各占09:00、10:00、11:00之一，每时段一条。Mint不在09:00，Ruby不在11:00，Topaz在09:00。Mint在哪一时段？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "09:00",
+            "zh": "09:00"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10:00",
+            "zh": "10:00"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "11:00",
+            "zh": "11:00"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No slot can be determined",
+            "zh": "无法确定时段"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Topaz occupies 09:00, leaving 10:00 and 11:00. Ruby cannot use 11:00 and therefore takes 10:00. Mint takes 11:00. The one-message-per-slot restriction is essential: without it, placing Topaz would not eliminate that slot for the others. Nothing here specifies the duration or content of a message.",
+        "zh": "Topaz占09:00，剩10:00、11:00。Ruby不能11:00，因此在10:00，Mint在11:00。每时段一条是必要限制，否则放入Topaz并不能排除别人占同一时段。题目没有消息时长或内容。"
+      }
+    },
+    {
+      "id": "LOGIC_24",
+      "prompt": {
+        "en": "Teams Pine, Reed, Sage and Tern occupy four successive presentation slots, one each. Pine is before Sage, Reed is after Sage, and Tern is immediately before Pine. Which slot contains Reed?",
+        "zh": "Pine、Reed、Sage、Tern四队各占一个连续展示位置。Pine在Sage前，Reed在Sage后，Tern紧挨Pine之前。Reed在哪一位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Slot 1",
+            "zh": "第1位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Slot 2",
+            "zh": "第2位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Slot 3",
+            "zh": "第3位"
+          },
+          "directionId": "constraints"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Slot 4",
+            "zh": "第4位"
+          },
+          "directionId": "constraints"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Tern immediately precedes Pine, which precedes Sage, which precedes Reed. All four teams are accounted for, giving Tern–Pine–Sage–Reed. Reed is fourth. A diagram should retain both the adjacency clue and the strict comparisons; dropping either kind of clue can change the possible arrangements in other puzzles.",
+        "zh": "Tern紧挨Pine之前，Pine在Sage前，Sage在Reed前。四队全被包含，顺序为Tern–Pine–Sage–Reed，Reed第四。画图要同时保留相邻与严格先后线索；在其他题中遗漏任一种都会改变可能排列。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "LOGIC_01",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "all",
+            0,
+            1
+          ],
+          [
+            "all",
+            1,
+            2
+          ],
+          [
+            "some",
+            0,
+            0
+          ]
+        ],
+        "claims": [
+          [
+            "some",
+            0,
+            2
+          ],
+          [
+            "all",
+            2,
+            0
+          ],
+          [
+            "all",
+            1,
+            0
+          ],
+          [
+            "none",
+            0,
+            2
+          ]
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_02",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "none",
+            0,
+            1
+          ],
+          [
+            "some",
+            2,
+            0
+          ]
+        ],
+        "claims": [
+          [
+            "some_not",
+            2,
+            1
+          ],
+          [
+            "none",
+            2,
+            1
+          ],
+          [
+            "all",
+            2,
+            0
+          ],
+          [
+            "some",
+            1,
+            0
+          ]
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_03",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "all",
+            0,
+            1
+          ],
+          [
+            "some_not",
+            2,
+            1
+          ]
+        ],
+        "claims": [
+          [
+            "some_not",
+            2,
+            0
+          ],
+          [
+            "none",
+            2,
+            0
+          ],
+          [
+            "none",
+            2,
+            1
+          ],
+          [
+            "all",
+            1,
+            0
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_04",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "none",
+            0,
+            1
+          ],
+          [
+            "all",
+            2,
+            0
+          ],
+          [
+            "some",
+            2,
+            2
+          ]
+        ],
+        "claims": [
+          [
+            "some_not",
+            2,
+            1
+          ],
+          [
+            "all",
+            0,
+            2
+          ],
+          [
+            "some",
+            2,
+            1
+          ],
+          [
+            "all",
+            1,
+            2
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_05",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "some",
+            0,
+            1
+          ],
+          [
+            "all",
+            1,
+            2
+          ]
+        ],
+        "claims": [
+          [
+            "some",
+            0,
+            2
+          ],
+          [
+            "all",
+            0,
+            1
+          ],
+          [
+            "all",
+            2,
+            1
+          ],
+          [
+            "none",
+            0,
+            2
+          ]
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_06",
+      "proof": {
+        "kind": "sets",
+        "premises": [
+          [
+            "all",
+            0,
+            1
+          ],
+          [
+            "none",
+            1,
+            2
+          ],
+          [
+            "some",
+            0,
+            0
+          ]
+        ],
+        "claims": [
+          [
+            "some_not",
+            0,
+            2
+          ],
+          [
+            "some",
+            0,
+            2
+          ],
+          [
+            "all_not_subject",
+            2,
+            0
+          ],
+          [
+            "none",
+            0,
+            1
+          ]
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_07",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "L",
+          "R",
+          "C"
+        ],
+        "premises": [
+          [
+            "implies",
+            "L",
+            "R"
+          ],
+          [
+            "implies",
+            "R",
+            "C"
+          ],
+          "L"
+        ],
+        "claims": [
+          "C",
+          [
+            "not",
+            "R"
+          ],
+          [
+            "not",
+            "L"
+          ],
+          [
+            "not",
+            "C"
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_08",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "V",
+          "E",
+          "F"
+        ],
+        "premises": [
+          [
+            "implies",
+            "V",
+            "E"
+          ],
+          [
+            "not",
+            "E"
+          ]
+        ],
+        "claims": [
+          [
+            "not",
+            "V"
+          ],
+          "V",
+          "E",
+          "F"
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_09",
+      "proof": {
+        "kind": "status",
+        "atoms": [
+          "V",
+          "A"
+        ],
+        "premises": [
+          [
+            "implies",
+            "V",
+            "A"
+          ],
+          "A"
+        ],
+        "query": "V",
+        "claimStatuses": [
+          "undetermined",
+          "true",
+          "false",
+          "inconsistent"
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_10",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "D",
+          "S",
+          "Y"
+        ],
+        "premises": [
+          [
+            "implies",
+            "D",
+            "S"
+          ],
+          "D"
+        ],
+        "claims": [
+          "S",
+          [
+            "not",
+            "S"
+          ],
+          [
+            "not",
+            "D"
+          ],
+          "Y"
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_11",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "E",
+          "W"
+        ],
+        "premises": [
+          [
+            "or",
+            "E",
+            "W"
+          ],
+          [
+            "not",
+            "E"
+          ]
+        ],
+        "claims": [
+          "W",
+          [
+            "not",
+            "W"
+          ],
+          [
+            "and",
+            "E",
+            "W"
+          ],
+          [
+            "and",
+            [
+              "not",
+              "E"
+            ],
+            [
+              "not",
+              "W"
+            ]
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_12",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "N",
+          "S"
+        ],
+        "premises": [
+          [
+            "not",
+            [
+              "and",
+              "N",
+              "S"
+            ]
+          ],
+          "N"
+        ],
+        "claims": [
+          [
+            "not",
+            "S"
+          ],
+          "S",
+          [
+            "and",
+            [
+              "not",
+              "N"
+            ],
+            [
+              "not",
+              "S"
+            ]
+          ],
+          [
+            "not",
+            "N"
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_13",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "N",
+          "S",
+          "W"
+        ],
+        "premises": [
+          [
+            "count",
+            2,
+            "N",
+            "S",
+            "W"
+          ],
+          [
+            "not",
+            "N"
+          ]
+        ],
+        "claims": [
+          [
+            "and",
+            "S",
+            "W"
+          ],
+          [
+            "not",
+            "S"
+          ],
+          [
+            "not",
+            "W"
+          ],
+          [
+            "and",
+            "W",
+            [
+              "not",
+              "S"
+            ],
+            [
+              "not",
+              "N"
+            ]
+          ]
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_14",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "A",
+          "B",
+          "C"
+        ],
+        "premises": [
+          [
+            "iff",
+            "A",
+            [
+              "and",
+              "B",
+              "C"
+            ]
+          ],
+          [
+            "not",
+            "A"
+          ],
+          "B"
+        ],
+        "claims": [
+          [
+            "not",
+            "C"
+          ],
+          "C",
+          [
+            "not",
+            "B"
+          ],
+          "A"
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_15",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "C",
+          "G",
+          "L",
+          "R"
+        ],
+        "premises": [
+          [
+            "implies",
+            "C",
+            "G"
+          ],
+          [
+            "implies",
+            [
+              "and",
+              "G",
+              [
+                "not",
+                "L"
+              ]
+            ],
+            "R"
+          ],
+          "C",
+          [
+            "not",
+            "L"
+          ]
+        ],
+        "claims": [
+          "R",
+          [
+            "not",
+            "G"
+          ],
+          "L",
+          [
+            "not",
+            "R"
+          ]
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_16",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "R",
+          "S",
+          "T"
+        ],
+        "premises": [
+          [
+            "count",
+            1,
+            "R",
+            "S",
+            "T"
+          ],
+          [
+            "not",
+            "R"
+          ],
+          [
+            "not",
+            "S"
+          ]
+        ],
+        "claims": [
+          "T",
+          [
+            "not",
+            "T"
+          ],
+          [
+            "and",
+            "R",
+            "T"
+          ],
+          "S"
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_17",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "G",
+          "S",
+          "Y"
+        ],
+        "premises": [
+          [
+            "implies",
+            [
+              "not",
+              "G"
+            ],
+            "S"
+          ],
+          [
+            "not",
+            "S"
+          ]
+        ],
+        "claims": [
+          "G",
+          [
+            "not",
+            "G"
+          ],
+          "S",
+          "Y"
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_18",
+      "proof": {
+        "kind": "bool",
+        "atoms": [
+          "M",
+          "R",
+          "D",
+          "E"
+        ],
+        "premises": [
+          [
+            "implies",
+            "M",
+            "R"
+          ],
+          [
+            "implies",
+            "R",
+            "D"
+          ],
+          [
+            "not",
+            "D"
+          ]
+        ],
+        "claims": [
+          [
+            "and",
+            [
+              "not",
+              "M"
+            ],
+            [
+              "not",
+              "R"
+            ]
+          ],
+          "M",
+          "R",
+          "E"
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_19",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "D",
+          "F",
+          "G",
+          "H",
+          "J"
+        ],
+        "rules": [
+          [
+            "at",
+            "J",
+            1
+          ],
+          [
+            "at",
+            "H",
+            5
+          ],
+          [
+            "adjacent_before",
+            "D",
+            "F"
+          ],
+          [
+            "before",
+            "F",
+            "G"
+          ],
+          [
+            "before",
+            "G",
+            "H"
+          ]
+        ],
+        "queryEntity": "G",
+        "claimPositions": [
+          4,
+          2,
+          3,
+          5
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_20",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "K",
+          "L",
+          "M",
+          "N"
+        ],
+        "rules": [
+          [
+            "before",
+            "N",
+            "K"
+          ],
+          [
+            "before",
+            "K",
+            "L"
+          ],
+          [
+            "before",
+            "L",
+            "M"
+          ]
+        ],
+        "queryEntity": "N",
+        "claimPositions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_21",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "Amber",
+          "Cyan",
+          "Lime",
+          "Rose"
+        ],
+        "rules": [
+          [
+            "at",
+            "Amber",
+            1
+          ],
+          [
+            "at",
+            "Rose",
+            4
+          ],
+          [
+            "before",
+            "Lime",
+            "Cyan"
+          ]
+        ],
+        "queryEntity": "Cyan",
+        "claimPositions": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_22",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "rules": [
+          [
+            "before",
+            "A",
+            "B"
+          ],
+          [
+            "before",
+            "B",
+            "E"
+          ],
+          [
+            "before",
+            "E",
+            "D"
+          ],
+          [
+            "before",
+            "D",
+            "C"
+          ]
+        ],
+        "queryEntity": "E",
+        "claimPositions": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_23",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "Mint",
+          "Ruby",
+          "Topaz"
+        ],
+        "rules": [
+          [
+            "not_at",
+            "Mint",
+            1
+          ],
+          [
+            "not_at",
+            "Ruby",
+            3
+          ],
+          [
+            "at",
+            "Topaz",
+            1
+          ]
+        ],
+        "queryEntity": "Mint",
+        "claimPositions": [
+          3,
+          1,
+          2,
+          null
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "LOGIC_24",
+      "proof": {
+        "kind": "order",
+        "entities": [
+          "Pine",
+          "Reed",
+          "Sage",
+          "Tern"
+        ],
+        "rules": [
+          [
+            "before",
+            "Pine",
+            "Sage"
+          ],
+          [
+            "before",
+            "Sage",
+            "Reed"
+          ],
+          [
+            "adjacent_before",
+            "Tern",
+            "Pine"
+          ]
+        ],
+        "queryEntity": "Reed",
+        "claimPositions": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "quantifiers",
+      "directionIds": [
+        "quantifiers"
+      ],
+      "title": {
+        "en": "Quantifiers: keep the size of the claim",
+        "zh": "量词复习：别把有些变成所有"
+      },
+      "headline": {
+        "en": "Show an inclusion, then locate the witness.",
+        "zh": "先画包含，再找存在对象。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes six selected tasks in this section. It is not a reasoning rank or professional qualification. Every count opens all explanations and this complete guide.",
+        "zh": "正确数只描述本组六道选定题，不是推理排名或专业资格。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "summary": {
+        "en": "Review inclusion, disjoint categories and explicit existence. Your count records six answers in this set, with no population comparison.",
+        "zh": "复习包含、互不相交与明确的存在前提。六题正确数只记录本题组作答，不比较人群水平。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read the count as a review list",
+            "zh": "把正确数当复习清单"
+          },
+          "paragraphs": [
+            {
+              "en": "The six questions in this section ask what follows about categories. A correct answer means that your selected option agrees with the stated premises and this edition’s answer key. It does not measure every kind of reasoning, establish an IQ, or describe your personality. Read the individual explanations even after a perfect attempt: recognizing a familiar sentence is different from being able to justify the same relationship in an unfamiliar setting.",
+              "zh": "这六题问的是类别之间能推出什么。答对表示所选项符合给定前提与本版本答案，不表示测全了推理能力，也不形成智商或人格判断。满分后仍值得读逐题解析：认得熟悉句子，与能在新情境里解释同一关系是两回事。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Track inclusion and existence separately",
+            "zh": "分开记录包含与存在"
+          },
+          "paragraphs": [
+            {
+              "en": "Write each universal rule as an inclusion: every A is B puts the A group inside the B group. A “no A is B” rule keeps their overlap empty. Mark a separate witness for “some”; do not create a witness just because a universal sentence mentions a group. Follow a witness through an inclusion one step at a time, while keeping the original group labels attached to it throughout the reasoning.",
+              "zh": "把“所有A是B”画成A包含在B内，“没有A是B”则把交集留空。“有些”要另标一个存在对象，不能只因全称句提到了某类就凭空造出对象。让已知存在的对象沿包含关系逐步走，并始终保留它原来属于哪一类。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Try a fresh overlap example",
+            "zh": "换一组交集例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose every embossed envelope in a fictional tray is stamped, and some violet envelope is embossed. That violet, embossed envelope must also be stamped, so some violet envelope is stamped. A different violet envelope may be plain and unstamped; another stamped envelope may be orange. Both possibilities fit the rules. This example shows exactly why an existential conclusion is justified while either universal converse would be an extra assumption.",
+              "zh": "设虚构托盘里所有压纹信封都贴了邮票，且有紫色信封有压纹。这个紫色压纹信封也必须贴有邮票，因此有紫色信封贴了邮票。另一个紫色信封仍可平整且没邮票，另一封有邮票的也可橙色；都不违反前提。这解释了为何只可推出存在，而不能倒转成全称。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Search for an allowed counterexample",
+            "zh": "寻找仍被允许的反例"
+          },
+          "paragraphs": [
+            {
+              "en": "When an option says “all”, try adding one object outside the proposed overlap without breaking a premise. If such an object is allowed, that option is not forced. When an option says “none”, check whether the premises actually prohibit the overlap or merely fail to mention it. Failure to establish that something exists is not proof that it cannot exist. “Some” also means at least one here, rather than some but not all.",
+              "zh": "选项说“所有”时，尝试加入一个不在所提交集内的对象，看能否不破坏前提；若可以，该选项就非必然。选项说“没有”时，要分清前提禁止了交集，还是根本没提。没有证明某物存在，不等于证明它不可能存在。本题“有些”指至少一个，不暗含“但不是全部”。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Explain one deduction before another attempt",
+            "zh": "先解释，再决定是否重做"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one missed item and explain where its witness came from, which inclusion was used, and what the tempting wrong answer adds. Then change the category names and check whether your explanation still works. Keep any notes locally if you want them; the public guide link contains no personal answers. Repeating these same six items is practice with known material, so a later higher count is not evidence of a measured gain in general intelligence.",
+              "zh": "挑一题错题，说清存在对象来自哪里、用了哪条包含规则，以及诱人错项多加了什么。再换掉类别名称，检查解释是否仍成立。需要笔记可自己本地保存，公开指南链接不含个人答案。重复同六题是在熟悉材料，后来正确数增加不能证明一般智力出现了可测量提升。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Quantifiers: keep the size of the claim | Logic Guide",
+          "zh": "量词复习：别把有些变成所有｜逻辑练习指南"
+        },
+        "description": {
+          "en": "Review inclusion, disjoint categories and explicit existence. Your count records six answers in this set, with no population comparison.",
+          "zh": "复习包含、互不相交与明确的存在前提。六题正确数只记录本题组作答，不比较人群水平。"
+        }
+      }
+    },
+    {
+      "id": "conditions",
+      "directionIds": [
+        "conditions"
+      ],
+      "title": {
+        "en": "Conditional rules: preserve the arrow",
+        "zh": "条件规则复习：别把箭头倒过来"
+      },
+      "headline": {
+        "en": "Follow a one-way rule without inventing its converse.",
+        "zh": "沿单向规则走，不补反向规则。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes six selected tasks in this section. It is not a reasoning rank or professional qualification. Every count opens all explanations and this complete guide.",
+        "zh": "正确数只描述本组六道选定题，不是推理排名或专业资格。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "summary": {
+        "en": "Practise if, only if, not both and an explicitly inclusive or. The section reports answers, not a timed reasoning level.",
+        "zh": "练习若则、只有才、不能同时和明确的相容或。分项只报告答题正确数，不给计时推理等级。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Separate a rule from a prediction",
+            "zh": "区分规则与预测"
+          },
+          "paragraphs": [
+            {
+              "en": "These six questions supply rules that are assumed to hold in a fictional case. The task is to use those rules, not to judge whether a real machine or organization would behave reliably. Your count shows how many selected answers matched this edition. No speed test, supervised assessment or professional standard is part of the result. A low or high count therefore gives a place to review this particular notation and wording.",
+              "zh": "这六题把虚构情境中的规则设为成立，任务是使用它们，不是判断现实机器或组织是否可靠。正确数只说明本版本选项匹配情况，没有速度测试、监考或职业标准。无论数目高低，它都只是复习这些具体表达与规则的入口。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Translate before following the rule",
+            "zh": "先翻译方向，再沿规则走"
+          },
+          "paragraphs": [
+            {
+              "en": "For “if P, then Q”, write P to Q. P being true requires Q; Q being false rules out P. Q being true does not alone establish P, and P being false does not alone rule out Q. For “P only if Q”, Q remains necessary for P, so keep the same P-to-Q arrow. Write out the complete sentence again whenever the placement of “only” feels uncertain to you.",
+              "zh": "“若P则Q”记成P到Q：P真要求Q真，Q假排除P；Q真本身不能确定P，P假也不能确定Q。“只有Q才P”仍是Q为P的必要条件，方向还是P到Q。遇到only或“只有”位置拿不准，先重新写成完整若则句。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Acceptance need not identify its route",
+            "zh": "结果未必暴露唯一途径"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a rule saying that a checked sample receives a triangle sticker. You see a triangle sticker on a sample. The sample could have been checked, but the rule does not say that checking is the only route to the sticker. A second, unchecked sample could receive one through another permitted route. Both cases satisfy the one-way rule. If the problem instead stated “if and only if”, that extra reverse rule would change what follows.",
+              "zh": "设规则为“核验过的样本会贴三角贴纸”。现在看到一份样本有三角贴纸，它可能核验过，但规则没说核验是贴纸的唯一来源。另一份未核验样本也可能通过其他允许途径有贴纸，两种情形都符合单向规则。若题目补充“当且仅当”，额外的反向规则才会改变结论。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Keep not both separate from neither",
+            "zh": "不能同时不等于全都不能"
+          },
+          "paragraphs": [
+            {
+              "en": "“Not both P and Q” allows P alone, Q alone, or neither; it excludes only the joint true case. “At least one” excludes neither but allows both, unless the question expressly says otherwise. When the wording combines these constraints, retain both parts instead of remembering only one. Do not replace “not open” with a richer description such as “broken”: a negation usually removes a state without supplying an explanation for it.",
+              "zh": "“P、Q不能同时成立”允许只P、只Q或都不成立，只排除同时真。“至少一个”排除都假，却允许都真，除非题目另有限制。两种限制合用时要保留两部分。也别把“未开启”换成“坏了”：否定一个状态，通常没有同时解释原因。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Use two possible cases to test uncertainty",
+            "zh": "用两个相容情形检查不确定"
+          },
+          "paragraphs": [
+            {
+              "en": "For an undetermined claim, try describing one case where it is true and another where it is false, while preserving every premise. This is more useful than guessing from how probable the claim sounds. Compare your cases with the free item explanation, then try a new context. Public sharing links to a general guide and excludes your responses and correctness count. Memorizing this answer sequence cannot certify reasoning ability or predict an admissions or employer score.",
+              "zh": "判断无法确定时，尝试写出它为真、为假各一个情形，并让每个前提始终成立。这比凭听起来多大概率去猜更有用。与免费逐题解析对照，再换新情境。公开分享只链接通用指南，不含你的选择和正确数。背熟答案顺序不能认证推理能力，也不能预测升学或雇主测评分数。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Conditional rules: preserve the arrow | Logic Guide",
+          "zh": "条件规则复习：别把箭头倒过来｜逻辑练习指南"
+        },
+        "description": {
+          "en": "Practise if, only if, not both and an explicitly inclusive or. The section reports answers, not a timed reasoning level.",
+          "zh": "练习若则、只有才、不能同时和明确的相容或。分项只报告答题正确数，不给计时推理等级。"
+        }
+      }
+    },
+    {
+      "id": "deduction",
+      "directionIds": [
+        "deduction"
+      ],
+      "title": {
+        "en": "Multi-step deduction: carry every condition",
+        "zh": "多步演绎复习：每个条件都带上"
+      },
+      "headline": {
+        "en": "Keep the conditions attached to each step.",
+        "zh": "每一步都带齐它需要的条件。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes six selected tasks in this section. It is not a reasoning rank or professional qualification. Every count opens all explanations and this complete guide.",
+        "zh": "正确数只描述本组六道选定题，不是推理排名或专业资格。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "summary": {
+        "en": "Review exact counts, combined conditions and negative conclusions. Six answers form a small practice record rather than a profile of a person.",
+        "zh": "复习精确数量、组合条件与否定结论。六次作答构成一份小练习记录，不给人贴推理类型标签。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A chain has several checkable steps",
+            "zh": "把推理链拆成可核对的步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "This section combines more than one rule or fact. Its count cannot tell you whether a mistake came from reading, attention, an unfamiliar phrase or an incorrect inference. Use the full item explanation to locate the step instead. All six answers and explanations remain visible at every score. There is no gate that makes a low attempt buy access to review, and no high-score label that establishes suitability for a particular profession.",
+              "zh": "本组把多条规则或事实组合起来。正确数无法判定错误来自阅读、注意、陌生措辞还是推断步骤，应借完整解析定位。任何正确数下都能看六题全部答案与解释，不以低分购买复习，也不把高分转换为某职业适合度。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Maintain a small fact list",
+            "zh": "保留一个小事实清单"
+          },
+          "paragraphs": [
+            {
+              "en": "Start with facts explicitly given, then add each derived fact beside the rule that supports it. A rule requiring P and Q needs both facts before it can fire. An exact-count condition needs its positive and negative restrictions kept together. If a chain derives not remote, keep that precise conclusion rather than silently replacing it with an assumed alternative such as in-person. The stated universe may contain other possibilities that have not yet been excluded.",
+              "zh": "先列明给定事实，再把每个推出的新事实写在支持它的规则旁。需要P且Q的规则要两者齐全才能使用，精确数量限制要同时保留正负两面。推出“非远程”时，就保留这个精确否定，别悄悄换成“线下”；题目范围可能还容许别的未被排除情形。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Combine a state with an exact count",
+            "zh": "将已知状态与恰好数量结合"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose exactly two of sensors Copper, Indigo and Pearl are active, and Pearl is inactive. Copper and Indigo must both be active because only those two can satisfy the required count. If the rule had said “at most two”, neither conclusion would be forced; all three inactive would fit. If it had said “at least two”, the present inactive fact would still force the two remaining sensors, but the unrestricted rule would also allow three active.",
+              "zh": "设Copper、Indigo、Pearl三个传感器恰好两个启用，Pearl未启用。只能由Copper与Indigo满足数量，两者必启用。若改“至多两个”，全不启用也符合，便不能推出。若改“至少两个”，结合Pearl未启用仍会迫使另两个启用，但单独这条新规则本可容许三个都启用。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Do not confuse exclusion with identification",
+            "zh": "排除不等于确定替代项"
+          },
+          "paragraphs": [
+            {
+              "en": "Learning that an event was not in the morning does not place it in the evening unless all alternatives are explicitly limited to those two choices. Similarly, a conclusion required by the premises need not explain why the fictional event happened. Keep causation, likelihood and logical necessity separate. When a statement contains “unless” or “if and only if”, use the meaning explicitly given in the question instead of importing an everyday conversational reading.",
+              "zh": "知道事件不在上午，并不能把它定在晚间，除非题目明确只有这两个选择。前提必然推出的结论，也不一定解释虚构事件为什么发生。要分开因果、概率与逻辑必然。遇到“除非”或“当且仅当”，按题中约定的含义，不凭日常对话习惯补读法。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Review the first unsupported step",
+            "zh": "找出第一步越界处"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a tempting wrong answer and identify the first extra assumption it needs. You may discover that an otherwise sensible chain used only one half of a conjunction, dropped a count restriction or chose an unnamed alternative. Write a corrected chain in ordinary language and test it on a fresh example. Repeating the original set can help recall its method, but the result has no norms, reliability study or admissions conversion; changes between attempts remain changes on familiar practice items.",
+              "zh": "挑一个诱人的错项，找它首先需要加哪条额外假设。常见情况是只用合取的一半、丢掉数量限制、或选了未被点名的替代项。用日常语言重写正确链，再拿新例子检验。重做可帮助记住方法，但本结果无常模、信度研究或升学换算；前后变化只是熟悉练习题上的变化。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Multi-step deduction: carry every condition | Logic Guide",
+          "zh": "多步演绎复习：每个条件都带上｜逻辑练习指南"
+        },
+        "description": {
+          "en": "Review exact counts, combined conditions and negative conclusions. Six answers form a small practice record rather than a profile of a person.",
+          "zh": "复习精确数量、组合条件与否定结论。六次作答构成一份小练习记录，不给人贴推理类型标签。"
+        }
+      }
+    },
+    {
+      "id": "constraints",
+      "directionIds": [
+        "constraints"
+      ],
+      "title": {
+        "en": "Ordering puzzles: preserve every restriction",
+        "zh": "排序约束复习：别漏掉一条线索"
+      },
+      "headline": {
+        "en": "One object per slot, every clue preserved.",
+        "zh": "每位一个对象，每条线索都保留。"
+      },
+      "scoreReading": {
+        "en": "A correct count describes six selected tasks in this section. It is not a reasoning rank or professional qualification. Every count opens all explanations and this complete guide.",
+        "zh": "正确数只描述本组六道选定题，不是推理排名或专业资格。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "summary": {
+        "en": "Use small diagrams for positions, adjacency and exclusion. The six tasks supply all required facts and do not measure planning speed.",
+        "zh": "用小图记录位置、相邻和排除。这六题给齐所需事实，不测计划速度。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A position result is not a planning trait",
+            "zh": "位置答案不等于规划特质"
+          },
+          "paragraphs": [
+            {
+              "en": "These six tasks ask about a small, completely stated arrangement. Choosing the keyed answer means that your position agrees with all the supplied restrictions. It does not establish strategic foresight, workplace planning skill or performance under pressure. There is no countdown in this practice. Take enough time to read the list of objects and slots carefully, because a missing one-per-slot condition can change the entire problem even when the other clues look familiar.",
+              "zh": "这六题只问完全给定的小排列。选中答案表示位置满足全部限制，不证明战略远见、职场规划或压力表现。本练习没有倒计时，可花足够时间读对象和位置清单：漏掉每位一个的限制，其他线索再熟悉也可能变成另一道题。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Use a slot diagram before guessing",
+            "zh": "先画位置，再检查选项"
+          },
+          "paragraphs": [
+            {
+              "en": "Draw one box for each allowed slot and put fixed objects in first. Mark ordinary before relations with arrows and immediate-before relations with joined boxes; they impose different restrictions. Cross out prohibited positions as exclusions become available. Keep an explicit inventory so that every listed object appears exactly once. After forming a possible arrangement, check every original clue against it, not just the clue that helped you place the last object.",
+              "zh": "每个允许位置画一个格，先填固定对象。普通先后画箭头，紧挨之前画相连格，两者限制不同。新信息出现就排除禁止位置，并保留清单让每个对象恰好出现一次。得到一个可能排列后，要逐条核对原线索，不能只核对帮助放下最后一个对象的那条。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Eliminate slots using the whole inventory",
+            "zh": "用完整清单排除位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine three demonstrations named Cedar, Flint and Opal assigned once each to slots 1, 2 and 3. Opal is fixed in slot 2, and Cedar must be before Flint. Only slots 1 and 3 remain, so Cedar takes 1 and Flint takes 3. The conclusion uses both the fixed position and the one-object-per-slot rule. Without the latter, assigning Opal would not stop a second object from sharing its slot.",
+              "zh": "设Cedar、Flint、Opal三场演示各占1、2、3位之一。Opal固定第2，Cedar在Flint前。只剩1、3两位，因此Cedar第1、Flint第3。这里同时用了固定位置与每位一个规则；若允许共用位置，放入Opal本不会阻止别人占第2。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "One working arrangement may not be enough",
+            "zh": "一个可行排列还不一定够"
+          },
+          "paragraphs": [
+            {
+              "en": "If a question asks what must hold, finding one arrangement that supports an option shows only that the option can hold. Look for another permitted arrangement that breaks it. Some tasks here determine a unique order, but that is a consequence of their particular clues, not a rule for all puzzles. Also keep order distinct from distance or duration: a first event need not be brief, and a between position need not be a numerical midpoint in time.",
+              "zh": "问题问必然时，只找到一个支持选项的排列，仅说明它可能。还要找是否有其他合法排列能推翻它。本组部分题唯一排序，是具体线索共同造成，不是所有排序题默认唯一。先后也不等于距离或耗时：第一件事不必很短，“介于之间”也不等于时间数值中点。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Change one clue and recheck",
+            "zh": "改一条线索，重新核对"
+          },
+          "paragraphs": [
+            {
+              "en": "After reading the free explanation, replace an immediate-before clue with an ordinary-before clue and see whether more arrangements become possible. This makes the role of adjacency visible without memorizing the original answer. Compare your new arrangements with every remaining clue. Public guide pages contain examples and methods rather than a private result. These fictional tasks are original practice material; they are not a licensed hiring bank, a current LSAT section or evidence of a general reasoning percentile.",
+              "zh": "读完免费解析后，把“紧挨之前”改成普通“之前”，看是否多出合法排列。这能看清相邻的作用，而非只记原答案。每个新排列仍要核对其他全部线索。公开指南含例子与方法，不含个人结果。这些虚构题是原创练习，不是授权招聘题库、现行LSAT试卷或一般推理百分位证据。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Ordering puzzles: preserve every restriction | Logic Guide",
+          "zh": "排序约束复习：别漏掉一条线索｜逻辑练习指南"
+        },
+        "description": {
+          "en": "Use small diagrams for positions, adjacency and exclusion. The six tasks supply all required facts and do not measure planning speed.",
+          "zh": "用小图记录位置、相邻和排除。这六题给齐所需事实，不测计划速度。"
+        }
+      }
+    }
+  ]
+}
