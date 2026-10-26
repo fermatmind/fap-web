@@ -1,0 +1,377 @@
+[
+  {
+    "id": "budget-and-spending",
+    "directionIds": [
+      "budget-and-spending"
+    ],
+    "title": {
+      "en": "Budget & Spending Practice Guide",
+      "zh": "预算与支出练习指南"
+    },
+    "headline": {
+      "en": "Match the amount, period and question before calculating",
+      "zh": "先对齐金额、期间及问题，再计算"
+    },
+    "summary": {
+      "en": "Review seven fictional budget tasks: balances, shortfalls, saving periods, infrequent costs, discounts and spending records.",
+      "zh": "复习七道虚构预算题中的结余、缺口、储蓄期、低频费用、折扣及支出记录。"
+    },
+    "seo": {
+      "title": {
+        "en": "Budget & Spending: Financial Literacy Practice Guide",
+        "zh": "预算与支出：理财素养练习指南"
+      },
+      "description": {
+        "en": "Work through budget balances, goal timing, discounts and fixed costs with fresh arithmetic examples and explicit assumptions.",
+        "zh": "用新的算例复习预算结余、目标时间、折扣及固定费用，明确计算条件。"
+      }
+    },
+    "scoreReading": {
+      "en": "This section counts matching answers out of seven. It does not describe your income, habits or financial wellbeing.",
+      "zh": "此分项统计七题匹配答案，不描述你的收入、习惯或财务福祉。"
+    },
+    "sections": [
+      {
+        "id": "balance",
+        "title": {
+          "en": "Preserve the sign of the balance",
+          "zh": "保留结余的正负号"
+        },
+        "paragraphs": [
+          {
+            "en": "Income minus expenses gives a balance only for the flows and period actually included. In a fresh unscored example, take-home income of 310 units and expenses of 120, 75 and 60 leave 55 units: 310−255=55. If expenses rise to 335 while income stays at 310, the result is −25, a shortfall. Naming both the amount and its sign prevents a positive-looking number from hiding that the spending exceeds the supplied income.",
+            "zh": "收入减支出只对已纳入的资金流、期间成立。不计分新例子中，到手310单位、支出120、75、60，结余310−255=55；若支出变335，余额则为−25，表示缺口。应同时保留数额及符号，不让看似正面的数字掩盖支出超过收入。"
+          }
+        ]
+      },
+      {
+        "id": "coverage",
+        "title": {
+          "en": "Check what the record includes",
+          "zh": "核对记录包括哪些项目"
+        },
+        "paragraphs": [
+          {
+            "en": "Before interpreting a balance, identify whether income is gross or take-home and whether all relevant outflows are included. The online tasks deliberately supply complete fictional figures. Actual records can omit small repeated purchases, irregular bills or transfers, and a remembered total may not reconcile with recorded flows. This guide asks you to examine completeness as a bookkeeping distinction. It does not require a private bank statement or establish that an omitted category must be unnecessary spending.",
+            "zh": "解释余额前，先明确收入为应发还是到手，相关流出是否完整。在线题故意给完整虚构数字；真实记录可能漏小额重复消费、非定期账单或转账，记忆总额也未必与明细相符。这里核的是记录完整性，不要求提供私密流水，也不认定漏记类别就属不必要消费。"
+          }
+        ]
+      },
+      {
+        "id": "goal",
+        "title": {
+          "en": "Subtract existing savings before counting periods",
+          "zh": "计算期数前扣除已有储蓄"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new example, a 150-unit goal already has 30 saved and receives 20 at each month end, with no interest or withdrawals. The remaining 120 takes six monthly additions. State when additions occur: money added at the end of a period is not available before that addition. If a division gives a fraction but only whole additions are allowed, the needed count rounds up. These conditions make a practice schedule explicit rather than predicting anyone’s real income stability.",
+            "zh": "新例子：目标150，已有30，每月末加20，无息无取出，余120需六次月度增加。应说明加入时间，月末增加的钱不能在增加前使用；若除出小数而只许整次增加，需要向上取整。这些条件用于明确练习时间表，不预测任何人的真实收入稳定性。"
+          }
+        ]
+      },
+      {
+        "id": "period",
+        "title": {
+          "en": "Translate an infrequent bill into the same period",
+          "zh": "把低频费用换成相同期间"
+        },
+        "paragraphs": [
+          {
+            "en": "A known 180-unit cost due after twelve equal monthly saving periods needs 15 units per period when starting from zero without interest. That is a planning calculation, not a claim that the cost is paid monthly. Distinguish the due date, the amount set aside and the eventual payment so you do not count one movement twice. A changed price or an earlier due date changes the calculation; use a fresh invented schedule to practise that dependency.",
+            "zh": "已知180单位费用在十二个相等月度储蓄期后到期，零起点无息时每期预留15。这是预留计算，不表示费用按月支付。分清到期日、预留与实际付款，避免重复计数。价格变化或提早到期都会改计算，可换新虚构时间表练这种关系。"
+          }
+        ]
+      },
+      {
+        "id": "discount",
+        "title": {
+          "en": "Separate a discount from the final price",
+          "zh": "区分优惠额与最终价格"
+        },
+        "paragraphs": [
+          {
+            "en": "With an invented price of 40 units and a 15% discount, the reduction is 6 and the price after that reduction is 34, before any other explicitly stated charges. Asked for the discount, answer 6; asked for the amount paid under a no-other-charges condition, answer 34. A correct percentage calculation does not establish that an item fits a real budget. Keep the arithmetic task separate from a decision about whether to buy it.",
+            "zh": "虚构原价40、折扣15%，减免6，折后34，尚未加入其他明确费用。问优惠额答6；无其他费用且问支付价答34。百分比算对，不代表商品适合真实预算。应将算术与是否购买的决定分开。"
+          }
+        ]
+      },
+      {
+        "id": "classification",
+        "title": {
+          "en": "Fixed describes behaviour, not importance",
+          "zh": "固定描述变化方式，不评价重要性"
+        },
+        "paragraphs": [
+          {
+            "en": "A charge stated to remain the same each month is fixed over that period, while a usage-dependent charge varies. Neither label tells you whether the expense is essential, enjoyable, cancelable or affordable. In an invented record, label a constant 9-unit membership and a materials bill that varies with usage, then explain the basis for each label. Include both in the record before interpreting totals. Classification supports a clearer account of the example; it is not a moral judgement about spending.",
+            "zh": "题设每月金额相同的费用在此期间为固定，随用量变化的则为变动。标签不说明费用是否必需、喜欢、可取消或负担得起。可在虚构记录中标固定9单位会员费和随用量变的材料费，并说明依据；解释合计前都应纳入。分类帮助描述例子，不道德评判支出。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Use the seven-item count to choose a fresh exercise",
+          "zh": "用七题正确数定位新练习"
+        },
+        "paragraphs": [
+          {
+            "en": "Your count reflects seven keyed choices under supplied conditions, without norms, a pass mark or a financial ability tier. Every count receives the same complete explanations and all three guides. If you missed a timing or percentage distinction, change the numbers and explain your new calculation before checking it. No personal income or account information is needed. A higher count after memorising this fixed bank may indicate recall rather than a change in real financial circumstances or behaviour.",
+            "zh": "正确数反映七个给定条件下的选择，没有常模、通过线或理财能力等级。任何正确数均可看完整解析及三份指南。若漏时间或百分比区别，可换数字、先解释新计算再核。不需个人收入、账户资料；记住固定题本后提高，可能是记忆，不代表真实处境或行为改变。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "saving-and-risk",
+    "directionIds": [
+      "saving-and-risk"
+    ],
+    "title": {
+      "en": "Saving, Interest & Risk Practice Guide",
+      "zh": "储蓄、利息与风险练习指南"
+    },
+    "headline": {
+      "en": "Follow the assumptions and keep uncertainty visible",
+      "zh": "按条件计算，保留不确定性"
+    },
+    "summary": {
+      "en": "Review eight choices about interest, purchasing power, fees, emergency reserves, diversification, red flags and liquidity.",
+      "zh": "复习八题中的利息、购买力、费用、应急储备、分散风险、警示信号及流动性。"
+    },
+    "seo": {
+      "title": {
+        "en": "Saving, Interest & Risk: Financial Literacy Guide",
+        "zh": "储蓄、利息与风险：理财素养练习指南"
+      },
+      "description": {
+        "en": "Trace simple and compound interest, fees and purchasing power. Review liquidity and diversification without promised returns or product recommendations.",
+        "zh": "追踪单复利、费用、购买力，理解流动性与分散风险，不承诺回报或推荐产品。"
+      }
+    },
+    "scoreReading": {
+      "en": "Read eight matching choices as a bounded knowledge sample, not a risk-tolerance profile or an investment plan.",
+      "zh": "八题匹配数只是有限知识样本，不是风险承受力画像或投资方案。"
+    },
+    "sections": [
+      {
+        "id": "interest",
+        "title": {
+          "en": "Name the base on which interest is calculated",
+          "zh": "明确利息按哪个基数计算"
+        },
+        "paragraphs": [
+          {
+            "en": "Simple interest uses the specified principal and time. With a fictional 300 units at exactly 2% for one year, the interest is 6. If the balance instead compounds annually at that same fixed rate for two years without other flows, it becomes 300×1.02×1.02=312.12. The second year earns interest on the earlier interest as well as the original principal. These are stipulated arithmetic rates, not current deposit offers, expected securities returns or a promise of future growth.",
+            "zh": "单利按给定本金、时间计。虚构300单位以2%计满一年，利息6；若同一固定利率按年复利两年、无其他流动，则300×1.02×1.02=312.12，次年连前期利息也计息。这些是题设算术利率，不是当前存款报价、证券预期回报或未来增长承诺。"
+          }
+        ]
+      },
+      {
+        "id": "power",
+        "title": {
+          "en": "Compare what an unchanged amount can buy",
+          "zh": "比较同样资金能买到什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose an identical basket rises from 15 to 18 units while the available amount remains 90. It buys six baskets before the price change and five afterward. The money amount is unchanged, but purchasing power for that basket falls. A single invented basket is not a country’s inflation measure. When practising, keep the basket and available amount fixed, then vary only the price so you can explain which part of the comparison caused the change.",
+            "zh": "同一商品篮从15涨至18，可用90不变，购买量从六篮变五篮。资金数未变，但对该篮购买力下降。一个虚构篮不代表国家通胀指标。练习时固定商品与资金，只变价格，说明变化来自哪部分。"
+          }
+        ]
+      },
+      {
+        "id": "fees",
+        "title": {
+          "en": "Calculate the net change after the stated cost",
+          "zh": "扣除给定费用再看净变化"
+        },
+        "paragraphs": [
+          {
+            "en": "A fictional period with 11 units of credited interest and a 4-unit fee has a 7-unit net increase if there are no other flows. Interest alone is not the same as the change in the balance. Distinguish an amount from a rate and keep the period consistent. Real products can have multiple fees, withdrawal conditions and tax consequences that this small example does not specify; the practice question does not rank accounts or tell you where to put money.",
+            "zh": "虚构期间收到11利息、收4费用，无其他流动时净增7。利息不等于余额变化，应区分金额、比率并统一期间。真实产品可能有多种费用、取用条件及税务后果，这个小算例没有给出，因此不据此排列账户或指定资金去向。"
+          }
+        ]
+      },
+      {
+        "id": "reserve",
+        "title": {
+          "en": "Distinguish an emergency category from a universal target",
+          "zh": "区分应急类别与通用目标额"
+        },
+        "paragraphs": [
+          {
+            "en": "An emergency reserve addresses unplanned expenses or disruptions, whereas a known recurring bill can be planned for separately. Its suitable amount and arrangement depend on circumstances. Liquidity concerns how readily money can be accessed and used; it is not a synonym for the highest return. The online items ask about these definitions using fictional situations. They do not know your obligations, resources or local account terms and cannot prescribe a universal reserve size or sequence for your financial decisions.",
+            "zh": "应急储备应对未计划费用或中断，已知周期账单则可另作计划。适当金额与安排依处境而定。流动性关注资金取得、使用是否方便，不等于最高收益。在线题以虚构情境问概念，不了解你的义务、资源或本地账户条件，不能规定通用备用金额或个人决策顺序。"
+          }
+        ]
+      },
+      {
+        "id": "diversify",
+        "title": {
+          "en": "Reduce concentration without promising an outcome",
+          "zh": "降低集中程度，不保证结果"
+        },
+        "paragraphs": [
+          {
+            "en": "Diversification spreads exposure across different investments, but losses can still occur together during a market decline. No answer here promises that an investment recovers by a particular date or that waiting always repairs a loss. Two products with similar underlying exposures may not diversify each other meaningfully. Use the concept to explain a stated risk distinction in an invented example; this guide does not choose an asset allocation, security, fund or personal investment strategy.",
+            "zh": "分散配置把风险暴露分开，但市场下跌时仍可能共同亏损。这里不保证某项投资到期恢复，也不说等待总能弥补损失。底层暴露相似的两个产品，也未必有效分散。可用虚构例子解释这一风险区别；指南不选择资产比例、证券、基金或个人投资策略。"
+          }
+        ]
+      },
+      {
+        "id": "signals",
+        "title": {
+          "en": "Recognise the claim before responding to pressure",
+          "zh": "先辨主张，再回应催促"
+        },
+        "paragraphs": [
+          {
+            "en": "A promise of high guaranteed returns with no risk is a red flag, especially when paired with pressure to pay immediately. Popularity, testimonials or a polished page do not independently verify that claim. In a fictional message exercise, underline the promised return, the risk claim and the deadline, then explain which sources would need independent verification. The online test requires no transfer, account information, password or contact with a sender. Recognising a warning signal is different from proving the identity or intent of a real person.",
+            "zh": "高额保证收益、零风险并催促立即付款是警示信号，热度、证言或精美网页不能独立证实主张。可在虚构消息中标出收益承诺、风险说法及期限，说明哪些资料需独立核验。在线测试不要求转账、账户、密码或联系发件人。识别信号不同于证明真实个人身份、意图。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Review uncertainty as carefully as arithmetic",
+          "zh": "像核算术一样核对不确定性"
+        },
+        "paragraphs": [
+          {
+            "en": "A count out of eight records matching answers on this finite bank. It does not measure wealth, investing competence or financial behaviour. All keys and complete guides are free at every count. After a missed calculation, alter the principal, rate or period and recompute; after a missed concept, explain what remains unknown. Repeating a fixed quiz after reading its keys may raise the count through memory, while genuine application still requires conditions and information beyond these questions.",
+            "zh": "分项/8只记录有限题本的匹配答案，不测财富、投资能力或财务行为。任何正确数均免费提供全部答案、全文。计算错后可改本金、利率、期间再算；概念错后说明还未知什么。看答案重做固定题本可能靠记忆提高，真实应用仍需题目之外的条件与信息。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pay-and-benefits",
+    "directionIds": [
+      "pay-and-benefits"
+    ],
+    "title": {
+      "en": "Pay & Job Benefits Practice Guide",
+      "zh": "工资与工作福利练习指南"
+    },
+    "headline": {
+      "en": "Read cash, deductions and conditional benefits separately",
+      "zh": "分别读取现金、扣款与附条件福利"
+    },
+    "summary": {
+      "en": "Review eight fictional payroll and benefit choices, including net pay, matching, premiums, reimbursements and a visible mismatch.",
+      "zh": "复习八个虚构工资福利选择，包括实发、配比、保费、报销及可见计算差异。"
+    },
+    "seo": {
+      "title": {
+        "en": "Pay & Benefits: Financial Literacy Practice Guide",
+        "zh": "工资与福利：理财素养练习指南"
+      },
+      "description": {
+        "en": "Practise gross-to-net arithmetic, stated employer matches, capped reimbursements and comparable cash totals without real payroll or tax assumptions.",
+        "zh": "按给定条件练应发到实发、雇主配比、限额报销及可比现金合计，不假定真实工资税率。"
+      }
+    },
+    "scoreReading": {
+      "en": "Eight choices describe the supplied figures and terms. They do not decide which real job is best or validate an employer’s payroll.",
+      "zh": "八题只解释所给数字、条件，不决定真实工作优劣，也不验证真实雇主工资。"
+    },
+    "sections": [
+      {
+        "id": "pay",
+        "title": {
+          "en": "Distinguish gross pay from the amount received",
+          "zh": "区分应发与实际收到的金额"
+        },
+        "paragraphs": [
+          {
+            "en": "Gross pay precedes deductions; net pay follows the deductions included in the calculation. In a fresh fictional example, gross pay of 720 and complete deductions of 72 and 36 imply net pay of 612 units. A rate of 18 per ordinary hour for exactly ten hours instead gives 180 units of gross base pay, before deductions. The examples stipulate all figures and exclude unstated premiums; they do not supply real tax rates, overtime rules or minimum-wage advice.",
+            "zh": "应发在扣款前，实发在扣除已纳入项目后。新虚构例子应发720、全部扣款72及36，实发612；普通小时费率18、恰好十小时，则应发基本工资180，尚未扣款。例子给足数字并排除未述倍率，不提供真实税率、加班规则或最低工资意见。"
+          }
+        ]
+      },
+      {
+        "id": "match",
+        "title": {
+          "en": "Apply both the matching formula and its cap",
+          "zh": "同时应用配比公式与上限"
+        },
+        "paragraphs": [
+          {
+            "en": "A hypothetical plan might add 25% of an eligible employee’s 80-unit contribution, capped at a 15-unit employer addition for the period. The uncapped match is 20, so the stated cap limits the employer addition to 15. Keep the employee contribution separate from the employer’s amount. Real matching arrangements have plan-specific eligibility, limits and other conditions; a numerical example neither establishes your entitlement nor describes every jurisdiction’s retirement rules or tax treatment.",
+            "zh": "假设计划对符合资格员工的80单位缴款配比25%，但本期雇主最多加15。未限额配比为20，因此雇主增加15。员工缴款与雇主金额要分开。真实计划有资格、上限等具体条件，数值例子不确立个人权利，也不描述各地退休规则或税务处理。"
+          }
+        ]
+      },
+      {
+        "id": "insurance",
+        "title": {
+          "en": "A premium names a charge, not every possible payment",
+          "zh": "保费是费用名，不代表一切赔付"
+        },
+        "paragraphs": [
+          {
+            "en": "An insurance premium is the payment for a policy. It is distinct from a guarantee that every possible bill will be reimbursed. Coverage, exclusions, deductibles, other cost sharing and eligibility can affect what a policy actually provides. The practice item identifies a recurring charge in a fictional policy rather than estimating the value of real cover. Before assigning a cash value to a benefit in an actual comparison, the relevant terms and circumstances would need to be known.",
+            "zh": "保费是保单费用，不代表所有账单都会报销。保障、除外、免赔、其他费用分担及资格影响实际提供内容。本题只辨虚构保单定期费用，不估真实保险价值。真实比较要给福利算现金价值前，必须了解相关条件及处境。"
+          }
+        ]
+      },
+      {
+        "id": "training",
+        "title": {
+          "en": "Respect the condition and reimbursement ceiling",
+          "zh": "尊重资格条件与报销上限"
+        },
+        "paragraphs": [
+          {
+            "en": "Employer-funded training is distinct from base wages and does not promise promotion or free education without limits. For a fictional approved course costing 260 units with reimbursement capped at 180, the remainder is 80. Calculate the reimbursable amount first, then subtract it from cost. Approval and a cap are separate conditions; an approved course can still leave an amount unpaid. The website performs no claim submission and does not establish whether a real course qualifies under an employer’s policy.",
+            "zh": "雇主出资培训与基本工资不同，不保证晋升或无限免费教育。虚构获批课程260、报销上限180，余80。先算可报销额，再从费用扣除；批准与上限是不同条件，获批仍可留自付。网站不提交报销申请，也不确立真实课程是否符合雇主政策。"
+          }
+        ]
+      },
+      {
+        "id": "compare",
+        "title": {
+          "en": "Compare amounts on the same cash basis",
+          "zh": "在相同现金口径上比较"
+        },
+        "paragraphs": [
+          {
+            "en": "A practice offer with 900 units of monthly base pay and a guaranteed 90-unit cash allowance totals 990. Another with 950 and a 25-unit cash allowance totals 975. The first is 15 higher on those stated monthly cash items only. This is not a ranking of the jobs. Hours, noncash benefits, eligibility, taxes, location and personal circumstances remain outside that calculation. Do not silently equate an unpriced insurance policy or conditional future benefit with immediately available cash.",
+            "zh": "练习录用条件甲月薪900、保证现金津贴90，合990；乙950及25，合975，甲仅在这组月度现金上高15。这不排列工作优劣。工时、非现金福利、资格、税、地点及个人情况均不在计算内，不把未定价保险或附条件未来福利默当立即可用现金。"
+          }
+        ]
+      },
+      {
+        "id": "check",
+        "title": {
+          "en": "Reconcile a mismatch before explaining it away",
+          "zh": "解释差异前先核对数字"
+        },
+        "paragraphs": [
+          {
+            "en": "If complete fictional figures show gross pay of 500 and deductions of 30 and 25, the implied net is 445. A printed net of 435 leaves a 10-unit mismatch. Check the listed inputs and source detail instead of assuming that every smaller net figure is normal. The arithmetic alone cannot establish intent, identify a culprit or determine a legal entitlement. A useful practice habit is to state the expected total and discrepancy separately so the next check has a clear target.",
+            "zh": "若完整虚构数字为应发500、扣款30及25，实发应445；印435则差10。应核输入、源明细，不默认较低实发全正常。算术本身不能证明意图、认定责任人或确立法律权利。练习时将预期合计与差额分开写，让下一步核查有明确目标。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Keep the result within eight supplied decisions",
+          "zh": "将结果限定于八个给定选择"
+        },
+        "paragraphs": [
+          {
+            "en": "This count reflects eight matched choices and is not a professional payroll qualification, legal assessment or rating of your actual financial circumstances. Every attempt with valid complete answers receives the full explanations and all three guides. No salary, payslip, employer identity or account document needs to be uploaded. For further practice, create a new fictional set of rates and capped benefits, check every calculation, and explain what additional terms would be required before applying it to a real decision.",
+            "zh": "正确数反映八个匹配选择，不是工资专业资格、法律评估或真实财务处境评级。完整有效作答均有全部解析及三份指南，无须上传薪资、工资单、雇主身份或账户材料。后续可自建虚构费率、限额福利，逐项核算，并说明用于真实决定前还需哪些条件。"
+          }
+        ]
+      }
+    ]
+  }
+]

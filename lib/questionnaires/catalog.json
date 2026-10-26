@@ -3333,5 +3333,54 @@
       "checking-the-invitation"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "personal-finance-literacy",
+    "code": "FM_PERSONAL_FINANCE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Personal Finance Literacy Test",
+      "zh": "个人理财素养测试"
+    },
+    "description": {
+      "en": "Try 23 original questions on budgets, interest, risk, pay and benefits. Free worked answers and three full guides. Fictional figures; untimed practice.",
+      "zh": "用23道原创知识情境题练预算、利息、风险、工资及福利。免费查看逐题解析、三项正确数和三份完整指南。数字均为虚构条件，不计时。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_personal_finance_original_23_v1",
+    "questionCount": 23,
+    "resultSlugs": [
+      "budget-and-spending",
+      "saving-and-risk",
+      "pay-and-benefits"
+    ],
+    "collection": "explore"
+  },
+  {
+    "slug": "ai-literacy",
+    "code": "FM_AI_LITERACY_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "AI Literacy Test",
+      "zh": "人工智能素养测试"
+    },
+    "description": {
+      "en": "Try 20 original AI literacy scenarios on models, tools, verification, privacy and judgement. Free worked answers and four full guides. Untimed; no signup.",
+      "zh": "用20道原创情境题练模型、提示工具、输出核查、隐私与判断。免费给逐题答案、四项正确数及四份完整指南。不计时，不需注册或AI账户。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_ai_literacy_original_20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "models-and-data",
+      "prompts-and-tools",
+      "checking-outputs",
+      "privacy-and-judgement"
+    ],
+    "collection": "explore"
   }
 ]

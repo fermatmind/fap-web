@@ -1,0 +1,1207 @@
+{
+  "id": "T141",
+  "form": "fermatmind_personal_finance_original_23_v1",
+  "version": "1.0.0",
+  "environment": "All amounts are fictional generic currency units; rates, fees, schedules, benefit caps and deductions are stipulated, not current market offers, law or tax rates. No personal financial input.",
+  "method": "23originalbilingualknowledge/scenariotasks,groups7/8/8;onecorrectof4;equalcorrectcounts,nospeedweight/norms/qualification/hiringtier. General selected primary education rules plus exact stated arithmetic; no real investment/account/job recommendation. Not competitor24bank or Arizona-standards-alignment claim.",
+  "questions": [
+    {
+      "id": "FINANCE_01",
+      "prompt": {
+        "en": "In a fictional month, take-home income is 240 units and all expenses are 70, 55 and 50 units. No other money moves. What remains?",
+        "zh": "虚构月份的到手收入为240单位，全部支出分别为70、55、50单位，没有其他收支。剩余多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "65 units.",
+            "zh": "65单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "175 units.",
+            "zh": "175单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "15 units.",
+            "zh": "15单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "415 units.",
+            "zh": "415单位。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Total expenses are 70+55+50=175. Subtract them once from take-home income: 240−175=65 units remain. This is a closed fictional budget, not a statement about your actual spending or a recommendation for how much anyone should save.",
+        "zh": "支出合计70+55+50=175，从到手收入扣除一次，240−175=65单位。这是封闭的虚构预算，不描述你的实际支出，也不规定任何人应储蓄多少。"
+      }
+    },
+    {
+      "id": "FINANCE_02",
+      "prompt": {
+        "en": "A fictional week has 160 units of income and 185 units of expenses, with no other flows. What is income minus expenses?",
+        "zh": "虚构一周收入160单位、支出185单位，无其他资金流。收入减支出等于多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "+25 units, a surplus.",
+            "zh": "+25单位，存在结余。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "−25 units, a shortfall.",
+            "zh": "−25单位，存在缺口。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "0 units.",
+            "zh": "0单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "345 units.",
+            "zh": "345单位。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "160−185=−25, so the stated expenses exceed income by 25 units. Keeping the sign distinguishes a shortfall from a surplus. The calculation identifies a gap in the supplied example; it does not identify why it happened or decide which real expense should be changed.",
+        "zh": "160−185=−25，给定支出比收入多25单位。保留负号才能区分缺口与结余。计算只识别例子中的差额，不能据此判断成因或决定真实生活该改哪项支出。"
+      }
+    },
+    {
+      "id": "FINANCE_03",
+      "prompt": {
+        "en": "A practice goal costs 90 units. You already have 18 and add 12 at the end of each week, with no interest or withdrawals. How many whole weeks are needed?",
+        "zh": "练习目标需90单位，已有18，每周末存12，无利息或取出。需要几个整周？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "5 weeks.",
+            "zh": "5周。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "7 weeks.",
+            "zh": "7周。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "6 weeks.",
+            "zh": "6周。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "9 weeks.",
+            "zh": "9周。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The remaining amount is 90−18=72 units. At 12 per week, 72÷12=6 weeks. Count the amount already saved rather than dividing the full goal by the weekly addition. The fixed contribution and no-interest conditions make this a finite arithmetic exercise.",
+        "zh": "还差90−18=72单位，72÷12=6周。需要扣除已有储蓄，不能直接把目标总额除以周储蓄。固定增加额和无息条件使本题成为明确的有限算例。"
+      }
+    },
+    {
+      "id": "FINANCE_04",
+      "prompt": {
+        "en": "A fictional yearly fee of 144 units is due after 12 equal monthly saving periods. Starting from zero, with no interest, how much must be set aside per month?",
+        "zh": "虚构年费144单位，在12个相等月度储蓄期后到期。起点为零且无息，每月需预留多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "24 units.",
+            "zh": "24单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "144 units.",
+            "zh": "144单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "1,728 units.",
+            "zh": "1728单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "12 units.",
+            "zh": "12单位。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Divide the full 144-unit fee by the 12 saving periods: 144÷12=12. The exercise spreads a less frequent cost into monthly planning. A real fee may have a different due date, price or payment schedule; none of those unstated changes is assumed here.",
+        "zh": "144÷12=12单位，将低频费用分摊到月度计划。真实费用可能有不同到期日、价格或付款安排，本题不默加这些未给定变化。"
+      }
+    },
+    {
+      "id": "FINANCE_05",
+      "prompt": {
+        "en": "An item costs 24 units before a 25% discount. There are no taxes, fees or delivery charges in this example. What is the final price?",
+        "zh": "某物原价24单位，打25%折扣；此例无税、费用或运费。最终价格是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "18 units.",
+            "zh": "18单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "6 units.",
+            "zh": "6单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "25 units.",
+            "zh": "25单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "30 units.",
+            "zh": "30单位。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The discount is 24×0.25=6 units, so the final price is 24−6=18. The discount amount is not the amount paid. This is a stated-price calculation rather than a claim that buying a discounted item is necessary or affordable.",
+        "zh": "优惠额24×0.25=6，最终24−6=18。优惠金额不是支付金额。本题只核给定价格，不代表打折商品就必需或负担得起。"
+      }
+    },
+    {
+      "id": "FINANCE_06",
+      "prompt": {
+        "en": "A fictional membership fee is exactly 8 units every month. A materials cost changes with usage. Which is the fixed monthly cost in this example?",
+        "zh": "虚构会员费每月固定8单位，材料费随使用量变化。此例哪个是固定月度费用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "The varying materials cost.",
+            "zh": "随用量变化的材料费。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "The 8-unit membership fee.",
+            "zh": "8单位的会员费。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Both must vary each month.",
+            "zh": "两项每月都必然变化。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Neither can be recorded in a budget.",
+            "zh": "两项都不能记入预算。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The membership fee is fixed under the scenario because its monthly amount stays at 8. Materials vary with usage. Fixed does not mean essential, permanent or impossible to cancel; it describes the stated amount’s behaviour over this period.",
+        "zh": "按题目条件，会员费每月保持8，属于固定费用；材料费随用量变。固定不等于必需、永不变化或不能取消，只描述此期间金额的变化方式。"
+      }
+    },
+    {
+      "id": "FINANCE_07",
+      "prompt": {
+        "en": "You want an as-is record of a fictional month’s spending before evaluating changes. Which approach produces the more complete record?",
+        "zh": "在评估调整前，要整理虚构月份的实际支出记录。哪种做法能得到较完整的记录？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Record only the largest purchase.",
+            "zh": "只记最大的一笔。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Replace actual expenses with what you wish they had been.",
+            "zh": "用希望花到的数额代替实际支出。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Record small repeated purchases and less frequent bills as well as large purchases.",
+            "zh": "同时记录小额重复消费、低频账单和大额购买。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "budget-and-spending",
+          "label": {
+            "en": "Treat every unremembered expense as zero.",
+            "zh": "把记不起来的支出都当零。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An as-is record includes actual outflows across sizes and frequencies. Omitting small repeated purchases or irregular bills can make the total incomplete. Keep description separate from later decisions: recording an expense does not by itself judge it or prescribe a cut.",
+        "zh": "实际记录应包括不同金额、频率的真实流出。遗漏小额重复消费或不定期账单，合计就可能不完整。先描述事实，再作决定；记下一笔并不意味着评价它或要求削减。"
+      }
+    },
+    {
+      "id": "FINANCE_08",
+      "prompt": {
+        "en": "In a hypothetical account, 200 units earn exactly 5% simple interest for one year, with no fees or other flows. How much interest is earned?",
+        "zh": "假设账户200单位，以5%单利计满一年，无费用或其他收支。利息为多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "5 units.",
+            "zh": "5单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "200 units.",
+            "zh": "200单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "210 units.",
+            "zh": "210单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "10 units.",
+            "zh": "10单位。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "One-year simple interest is principal×rate×time: 200×0.05×1=10 units. The ending balance would be 210, but the question asks only for interest. This invented fixed rate is not a current account offer or an investment-return forecast.",
+        "zh": "一年单利为本金×利率×时间，200×0.05×1=10。期末余额为210，但题目只问利息。这个虚构固定利率不是当前账户报价，也不是投资收益预测。"
+      }
+    },
+    {
+      "id": "FINANCE_09",
+      "prompt": {
+        "en": "A fictional 200-unit balance earns exactly 4% interest, compounded once at each year end. There are no deposits, withdrawals or fees. What is the balance after two years?",
+        "zh": "虚构本金200单位，每年末按4%复利一次，无存取或费用。两年后余额是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "216.32 units.",
+            "zh": "216.32单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "216.00 units.",
+            "zh": "216.00单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "208.00 units.",
+            "zh": "208.00单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "232.00 units.",
+            "zh": "232.00单位。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Year one ends at 200×1.04=208. Year two uses that entire balance: 208×1.04=216.32. The extra 0.32 beyond a two-year simple-interest balance comes from interest on prior interest. The rate and compounding schedule are assumptions, not promised market returns.",
+        "zh": "首年200×1.04=208，第二年以全部208计息，208×1.04=216.32。比两年单利多出的0.32来自前期利息继续计息。利率与复利频率均为题设，不是承诺市场回报。"
+      }
+    },
+    {
+      "id": "FINANCE_10",
+      "prompt": {
+        "en": "The same fictional basket rises from 20 to 25 units while your available 100 units stay unchanged. What happens to how many such baskets the money can buy?",
+        "zh": "同一虚构商品篮价格从20涨到25单位，可用资金仍为100单位。能购买的篮数如何变化？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It rises from 4 baskets to 5.",
+            "zh": "从4篮升至5篮。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It falls from 5 baskets to 4.",
+            "zh": "从5篮降至4篮。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It stays at 5 baskets.",
+            "zh": "仍为5篮。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It doubles.",
+            "zh": "翻倍。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "At the old price, 100÷20=5 baskets; at the new price, 100÷25=4. The fixed amount buys fewer identical baskets. This illustrates purchasing power under stated prices, not a measured inflation rate for a country or a prediction of next year’s costs.",
+        "zh": "原价100÷20=5篮，新价100÷25=4篮，同样资金买到更少同样商品。这解释给定价格下的购买力，不是某国实际通胀率或来年价格预测。"
+      }
+    },
+    {
+      "id": "FINANCE_11",
+      "prompt": {
+        "en": "A fictional balance receives 8 units of interest and is charged a 3-unit fee over the same period. No other flows occur. What is the net balance increase?",
+        "zh": "虚构余额在同一期间收到8单位利息，并被收取3单位费用，没有其他收支。净增加额是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "11 units.",
+            "zh": "11单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "8 units.",
+            "zh": "8单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "5 units.",
+            "zh": "5单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "−3 units.",
+            "zh": "−3单位。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Net change is interest received minus the stated fee: 8−3=5 units. Looking only at the interest ignores a cost that reduces the balance. The exercise supplies one fee and no other flows; real products can have additional conditions that must be read separately.",
+        "zh": "净变化为8−3=5。只看收到的利息，会漏掉降低余额的费用。本题只给一项费用且无其他流动；真实产品可能有其他条件，需要另读。"
+      }
+    },
+    {
+      "id": "FINANCE_12",
+      "prompt": {
+        "en": "Which fictional cost best matches an emergency fund’s purpose of covering an unplanned necessary expense?",
+        "zh": "应急储备金用于应对未计划的必要支出。以下哪个虚构费用最符合这个用途？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A holiday gift already scheduled and budgeted months ago.",
+            "zh": "数月前已计划并列入预算的节日礼物。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A planned annual subscription renewal.",
+            "zh": "已计划的年度订阅续费。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A planned optional party decoration purchase.",
+            "zh": "已计划的可选派对装饰。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "An unexpected repair to restore the only working home refrigerator.",
+            "zh": "为恢复家中唯一冰箱运作而发生的突发维修。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "An unexpected repair is an unplanned expense, unlike the scheduled examples. This identifies a general category, not the right reserve amount or account for you. The size and handling of a real emergency fund depend on circumstances and available resources.",
+        "zh": "突发维修属于未计划支出，区别于其他已安排事项。本题只辨一般类别，不为你指定备用金金额或账户。真实应急储备的规模与安排取决于处境、资源。"
+      }
+    },
+    {
+      "id": "FINANCE_13",
+      "prompt": {
+        "en": "Which statement correctly describes diversification across different investments?",
+        "zh": "关于在不同投资之间分散配置，哪项说法正确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It can reduce concentration risk but does not guarantee no losses.",
+            "zh": "可降低集中风险，但不保证不会亏损。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It guarantees every investment rises.",
+            "zh": "保证每项投资上涨。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It removes all market risk.",
+            "zh": "消除全部市场风险。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "It guarantees recovery by a fixed date.",
+            "zh": "保证在固定日期前收复亏损。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Diversification spreads exposure rather than guaranteeing an outcome. Several investments can still lose value when markets fall, and there is no guaranteed recovery date. This knowledge item names a risk distinction; it does not select products, allocations or a personal portfolio.",
+        "zh": "分散配置分开风险暴露，并不保证结果。市场下跌时，多项投资仍可同时损失，也没有保证恢复日期。本题辨风险概念，不选择产品、比例或个人组合。"
+      }
+    },
+    {
+      "id": "FINANCE_14",
+      "prompt": {
+        "en": "A message promises a guaranteed 20% return every month with no risk and demands immediate payment. What does that combination indicate?",
+        "zh": "一条消息承诺每月保证20%收益、零风险，并要求立即付款。这组特征说明什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "Proof of a safe, officially endorsed investment.",
+            "zh": "证明是安全且获官方背书的投资。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "Red flags that warrant stopping and independently verifying the claim.",
+            "zh": "出现警示信号，应停下并独立核查主张。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A guarantee that verification is unnecessary.",
+            "zh": "保证无须核查。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A reason to share account passwords.",
+            "zh": "应分享账户密码的理由。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Promises of high guaranteed returns without risk, paired with urgency, are investment-fraud red flags. They are not proof of regulatory approval. This hypothetical question asks you to recognise the signals; no payment, account details or contact with the sender is required.",
+        "zh": "高额保证收益、零风险与催促行动并存，属于投资诈骗警示信号，不证明监管批准。本题仅要求识别虚构信号，不需要付款、账户资料或联系发件人。"
+      }
+    },
+    {
+      "id": "FINANCE_15",
+      "prompt": {
+        "en": "In personal-finance vocabulary, liquidity describes which feature?",
+        "zh": "个人理财词汇中的流动性主要描述哪项特征？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A guarantee of the highest return.",
+            "zh": "保证最高回报。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "The number of advertisements a product has.",
+            "zh": "产品广告数量。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "How readily money can be accessed and used.",
+            "zh": "资金能多方便地取得并使用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "saving-and-risk",
+          "label": {
+            "en": "A promise that prices never change.",
+            "zh": "承诺价格不变。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Liquidity concerns access to and use of money. It is different from return, advertising popularity or a guarantee against price changes. Availability, withdrawal restrictions and other terms matter when applying the idea to a real product; this item only checks the meaning of the term.",
+        "zh": "流动性关注取得、使用资金的便利程度，不等于收益、广告热度或价格不变保证。用于真实产品时，还要看可用性、取用限制等条件；本题只核概念。"
+      }
+    },
+    {
+      "id": "FINANCE_16",
+      "prompt": {
+        "en": "A fictional pay stub lists gross pay of 600 units, a 60-unit tax deduction and a 30-unit retirement deduction. Those are ALL deductions. What is net pay?",
+        "zh": "虚构工资单应发600单位，税款扣除60、退休缴款扣除30，已列出全部扣款。实发多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "600 units.",
+            "zh": "600单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "570 units.",
+            "zh": "570单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "690 units.",
+            "zh": "690单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "510 units.",
+            "zh": "510单位。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Net pay is gross pay less the stated deductions: 600−60−30=510. The amounts are invented, not actual tax rates or a claim about any country’s payroll system. Distinguish money withheld from the amount actually received, and inspect the listed deductions rather than assuming every pay difference is correct.",
+        "zh": "实发为600−60−30=510。金额均虚构，不是实际税率，也不描述任何国家工资制度。要区分扣款与实际收到的金额，并检查明细，不假定所有工资差额都正确。"
+      }
+    },
+    {
+      "id": "FINANCE_17",
+      "prompt": {
+        "en": "For exactly 8 ordinary paid hours, a fictional contract specifies 15 units per hour, with no premiums or bonuses. What is gross base pay?",
+        "zh": "虚构合同对恰好8个普通计薪小时规定每小时15单位，无额外倍率或奖金。应发基本工资是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "120 units.",
+            "zh": "120单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "23 units.",
+            "zh": "23单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "105 units.",
+            "zh": "105单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "15 units.",
+            "zh": "15单位。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Multiply the agreed rate by the stated hours: 15×8=120 units before deductions. This exercise explicitly excludes premiums and bonuses and makes no claim about actual overtime rules, minimum wages or the legality of a real contract.",
+        "zh": "按题设时薪乘小时，15×8=120，为扣款前金额。题目明确不含额外倍率、奖金，也不评价真实加班规则、最低工资或合同是否合法。"
+      }
+    },
+    {
+      "id": "FINANCE_18",
+      "prompt": {
+        "en": "A hypothetical retirement plan matches 50% of an eligible employee’s 40-unit contribution, up to a 20-unit employer match for this period. What does the employer add?",
+        "zh": "假设退休计划对符合条件员工本期40单位缴款配比50%，雇主配比本期上限为20单位。雇主增加多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "40 units.",
+            "zh": "40单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "20 units.",
+            "zh": "20单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "60 units.",
+            "zh": "60单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "0 units.",
+            "zh": "0单位。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "50% of 40 is 20, equal to the stated employer cap. The employer adds 20; the employee’s separate 40 is not itself the employer match. Eligibility and limits are supplied for this fictional plan, rather than assumed to apply to every employer or jurisdiction.",
+        "zh": "40×50%=20，恰好达到给定雇主上限。雇主增加20，员工自己的40不是雇主配比。资格、上限均为虚构计划条件，不假定所有雇主、地区相同。"
+      }
+    },
+    {
+      "id": "FINANCE_19",
+      "prompt": {
+        "en": "A fictional employer pays the provider directly for an approved training course. Which description fits that arrangement?",
+        "zh": "虚构雇主直接向课程提供方支付已批准培训费用。哪项描述符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "The employee’s base wage automatically doubles.",
+            "zh": "员工基本工资自动翻倍。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "All future education becomes free without conditions.",
+            "zh": "今后全部教育无条件免费。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "An employer-funded training benefit, separate from the employee’s base wage.",
+            "zh": "雇主出资培训福利，与员工基本工资分开。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "The course payment guarantees promotion.",
+            "zh": "课程付款保证晋升。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Employer-funded training is a benefit distinct from the base wage amount. Paying for this approved course does not automatically change wages, remove all future eligibility rules or guarantee promotion. Read the particular benefit terms before attributing a value or entitlement to a real offer.",
+        "zh": "雇主出资培训属于与基本工资不同的福利。支付本次获批课程，不自动改变工资、取消未来资格条件或保证晋升。理解真实录用条件时，应先读该福利条款，再谈价值、资格。"
+      }
+    },
+    {
+      "id": "FINANCE_20",
+      "prompt": {
+        "en": "A fictional insurance policy charges 12 units each month to maintain the policy. What is that recurring policy charge called?",
+        "zh": "虚构保险为维持保单每月收取12单位。这项定期保单费用叫什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A guaranteed investment profit.",
+            "zh": "保证投资利润。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "Gross wages.",
+            "zh": "应发工资。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A universal refund of every medical bill.",
+            "zh": "所有医疗账单的通用全额退款。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A premium.",
+            "zh": "保费（premium）。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A premium is the payment for an insurance policy. Paying it does not establish that every possible loss or bill is covered. Coverage, exclusions, cost sharing and eligibility depend on the policy; the item only names the stated recurring charge.",
+        "zh": "保费是为保险保单支付的费用，缴费不意味着所有损失或账单都获赔。保障、除外、分担及资格由保单决定，本题只辨所给定期费用的名称。"
+      }
+    },
+    {
+      "id": "FINANCE_21",
+      "prompt": {
+        "en": "A hypothetical training benefit reimburses an approved course’s actual cost up to 200 units. Your approved course costs 300, with no other reimbursement. How much of its cost remains yours?",
+        "zh": "假设培训福利按获批课程实际费用报销，最高200单位。你的获批课程费300，无其他报销。剩余自付多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "100 units.",
+            "zh": "100单位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "0 units.",
+            "zh": "0单位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "200 units.",
+            "zh": "200单位。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "300 units.",
+            "zh": "300单位。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The reimbursement is min(300,200)=200. The remaining cost is 300−200=100 units. Approval is explicitly given, but the cap still applies. This is a fictional benefit formula, not a promise about a real employer’s reimbursement or tax treatment.",
+        "zh": "报销min(300,200)=200，剩余300−200=100。题目已给批准条件，但上限仍生效。这是虚构福利公式，不承诺真实雇主报销或税务处理。"
+      }
+    },
+    {
+      "id": "FINANCE_22",
+      "prompt": {
+        "en": "Compare ONLY these fictional monthly cash amounts: Offer A pays 1,000 units plus a guaranteed 100-unit cash allowance; Offer B pays 1,050 plus a guaranteed 20-unit cash allowance. No other items are included. How do these totals compare?",
+        "zh": "只比较以下虚构月度现金：A支付1000单位及保证现金津贴100；B支付1050及保证现金津贴20。不含其他项目。两项合计如何比较？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "B is 50 higher after allowances.",
+            "zh": "加津贴后B高50。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A totals 1,100; B totals 1,070; A is 30 higher.",
+            "zh": "A合计1100，B合计1070，A高30。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "Both total 1,100.",
+            "zh": "两项均为1100。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A totals 1,000; B totals 1,050.",
+            "zh": "A合计1000，B合计1050。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Add only the explicitly comparable monthly cash items: A=1,000+100=1,100; B=1,050+20=1,070; difference=30. This does not decide which real job is better. Noncash coverage, eligibility, hours, taxes and personal circumstances would require their own information.",
+        "zh": "只加给定且可比较的月度现金，A=1000+100=1100，B=1050+20=1070，相差30。这不决定真实工作谁更好；非现金保障、资格、工时、税务及个人处境需要其他信息。"
+      }
+    },
+    {
+      "id": "FINANCE_23",
+      "prompt": {
+        "en": "A fictional pay stub says gross pay is 450 units, lists ALL deductions as 25 and 20, but prints net pay as 395. Which arithmetic discrepancy should be checked?",
+        "zh": "虚构工资单应发450单位，全部扣款为25、20，却印实发395。应核查哪项算术差异？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "The listed figures correctly total 395.",
+            "zh": "所列数字正确得到395。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "A lower net pay proves every deduction is correct.",
+            "zh": "实发较低证明扣款全正确。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "The listed figures imply 405, which is 10 above the printed net pay.",
+            "zh": "列出数字应得405，比所印实发高10。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pay-and-benefits",
+          "label": {
+            "en": "The figures prove a particular person committed fraud.",
+            "zh": "这些数字证明某个人实施欺诈。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "450−25−20=405, not 395, giving a 10-unit mismatch under the supplied complete figures. Check the source and payroll detail rather than assuming the gap is normal or concluding who caused it. The arithmetic alone cannot establish intent, fraud or a real legal entitlement.",
+        "zh": "450−25−20=405，不是395，按给定完整数字差10。应核源记录及工资明细，不默认差额正常，也不据此认定谁造成。单纯算术不能证明意图、欺诈或真实法律权利。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "FINANCE_01",
+      "expected_label_en": "65 units.",
+      "primary_url": "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_02",
+      "expected_label_en": "−25 units, a shortfall.",
+      "primary_url": "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_03",
+      "expected_label_en": "6 weeks.",
+      "primary_url": "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_04",
+      "expected_label_en": "12 units.",
+      "primary_url": "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_05",
+      "expected_label_en": "18 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_06",
+      "expected_label_en": "The 8-unit membership fee.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_07",
+      "expected_label_en": "Record small repeated purchases and less frequent bills as well as large purchases.",
+      "primary_url": "https://www.consumerfinance.gov/owning-a-home/prepare/assess-your-spending/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_08",
+      "expected_label_en": "10 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_09",
+      "expected_label_en": "216.32 units.",
+      "primary_url": "https://www.investor.gov/additional-resources/information/youth/teachers-classroom-resources/what-compound-interest",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_10",
+      "expected_label_en": "It falls from 5 baskets to 4.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_11",
+      "expected_label_en": "5 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_12",
+      "expected_label_en": "An unexpected repair to restore the only working home refrigerator.",
+      "primary_url": "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_13",
+      "expected_label_en": "It can reduce concentration risk but does not guarantee no losses.",
+      "primary_url": "https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/diversify-your-investments",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_14",
+      "expected_label_en": "Red flags that warrant stopping and independently verifying the claim.",
+      "primary_url": "https://www.investor.gov/protect-your-investments/fraud/protect-your-money",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_15",
+      "expected_label_en": "How readily money can be accessed and used.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_16",
+      "expected_label_en": "510 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_17",
+      "expected_label_en": "120 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_18",
+      "expected_label_en": "20 units.",
+      "primary_url": "https://www.irs.gov/retirement-plans/matching-contributions-help-you-save-more-for-retirement",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_19",
+      "expected_label_en": "An employer-funded training benefit, separate from the employee’s base wage.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_20",
+      "expected_label_en": "A premium.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_21",
+      "expected_label_en": "100 units.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_22",
+      "expected_label_en": "A totals 1,100; B totals 1,070; A is 30 higher.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "FINANCE_23",
+      "expected_label_en": "The listed figures imply 405, which is 10 above the printed net pay.",
+      "primary_url": "https://www.consumerfinance.gov/consumer-tools/educator-tool/youth-financial-education/glossary/",
+      "reviewed_rule_and_explicit_conditions": true
+    }
+  ]
+}

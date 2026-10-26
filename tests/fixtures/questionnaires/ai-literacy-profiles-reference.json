@@ -1,0 +1,502 @@
+[
+  {
+    "id": "models-and-data",
+    "directionIds": [
+      "models-and-data"
+    ],
+    "title": {
+      "en": "AI Models & Data: Practice Guide",
+      "zh": "AI模型与数据练习指南"
+    },
+    "headline": {
+      "en": "Ask what the system has actually received and demonstrated",
+      "zh": "核对系统实际取得什么、证明了什么"
+    },
+    "summary": {
+      "en": "Review training and inference, generated content, narrow evaluation, confabulation and evidence for current facts.",
+      "zh": "复习训练与推理、内容生成、有限评估、编造及当前事实证据。"
+    },
+    "seo": {
+      "title": {
+        "en": "AI Models & Data: Literacy Practice Guide",
+        "zh": "AI模型与数据：素养练习指南"
+      },
+      "description": {
+        "en": "Understand training versus use, generative outputs, evaluation scope and current evidence through original, bounded scenarios.",
+        "zh": "通过原创明确情境理解训练与使用、生成输出、评估范围及当前证据。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five matching choices describe this section’s finite scenarios. They do not establish expertise with every model or dataset.",
+      "zh": "五题匹配数描述此分项有限情境，不证明精通所有模型或数据集。"
+    },
+    "sections": [
+      {
+        "id": "training",
+        "title": {
+          "en": "Separate using context from changing parameters",
+          "zh": "区分使用上下文与改变参数"
+        },
+        "paragraphs": [
+          {
+            "en": "A model can use a paragraph supplied during a task without that paragraph necessarily retraining its parameters. The practice item fixes the parameters for the session, making that distinction explicit. Storage, retention, later training and adaptation depend on the system and its settings; none should be assumed from the response alone. In a fictional exercise, describe which text was supplied now and which model properties were stated to remain fixed before explaining what the response can establish.",
+            "zh": "模型可使用任务中提供的段落，但这不必然重训参数。本题明确会话参数固定，突出这一区别。储存、保留、后续训练及适应取决于系统和设置，不能仅凭回复推定。可用虚构练习说明本次提供了什么、哪些模型属性固定，再解释回答能证明什么。"
+          }
+        ]
+      },
+      {
+        "id": "outputs",
+        "title": {
+          "en": "Identify the described output rather than a tool label",
+          "zh": "辨所述输出，不只看工具名称"
+        },
+        "paragraphs": [
+          {
+            "en": "Drafting a new invitation produces content, while assigning an image to a predefined category describes classification. A system can support several kinds of task, so these descriptions do not divide all products into mutually exclusive boxes. Begin with the requested output: new text, a label, a number or an action record. Then identify which evidence would show that output meets its purpose. A familiar product name does not determine whether every task performed through it is generation, retrieval, calculation or classification.",
+            "zh": "起草新邀请产生内容，把图片分到预定类别属于分类。系统可支持多种任务，不能据此把全部产品分成互斥格子。先明确要新文字、标签、数字还是动作记录，再确定何种证据能说明符合用途。熟悉产品名，不等于知道其每项任务是在生成、检索、计算或分类。"
+          }
+        ]
+      },
+      {
+        "id": "scope",
+        "title": {
+          "en": "Keep evaluation conditions attached to the claim",
+          "zh": "让评估条件跟着主张"
+        },
+        "paragraphs": [
+          {
+            "en": "An evaluation on bright photographs does not establish performance on dark photographs merely because the same model is involved. Relevant input differences can change the task. A new invented exercise might compare clean scans with blurred scans: list the conditions evaluated and those still untested. This identifies a gap rather than declaring success or failure in the missing condition. Broad claims need suitable evidence for the intended setting, and a large count of examples from one narrow condition does not automatically cover every other condition.",
+            "zh": "同一模型在明亮照片上评估，不直接证明暗光表现，相关输入差异可能改变任务。可用清晰扫描与模糊扫描的新例子列已测、未测条件。识别缺口不等于宣布未测处成功或失败。广泛主张需要适合用途的证据，单一条件里样本再多，也不自动覆盖其他条件。"
+          }
+        ]
+      },
+      {
+        "id": "confabulation",
+        "title": {
+          "en": "Treat confidence as presentation rather than proof",
+          "zh": "把自信当表达形式，不当证明"
+        },
+        "paragraphs": [
+          {
+            "en": "A generated explanation can contain false facts, invented references or reasoning that does not support its conclusion. The website’s examples are invented to illustrate that possibility; they are not recordings from a named model. Check the actual claim against evidence rather than judging by tone, length or polish. Finding one error does not establish that every output is wrong, while finding one correct paragraph does not establish universal reliability. Keep the claim and the scope of the check separate.",
+            "zh": "生成解释可含错误事实、编造引用或无法支持结论的推理。网站例子为说明可能性而虚构，不是命名模型记录。应按证据核具体主张，不靠语气、篇幅、润色判断。一错不证明全错，一段正确也不证明普遍可靠，要分开主张与核查范围。"
+          }
+        ]
+      },
+      {
+        "id": "freshness",
+        "title": {
+          "en": "Check where a current fact could have come from",
+          "zh": "核对当前事实可能来自哪里"
+        },
+        "paragraphs": [
+          {
+            "en": "If a tool is described as having no live search or newly supplied source, a confident answer about today’s changed schedule does not prove access to that change. Ask which current authoritative evidence is available and whether it supports the specific time or rule. Different systems update, retrieve and adapt in different ways. This guide does not assume that every tool is offline or that every tool browses automatically; the scenario’s declared capabilities matter to the conclusion.",
+            "zh": "若题设无实时搜索或新来源，自信回答今天变动的安排，不证明取得了变动。应看有何当前权威证据，是否支持特定时间或规则。不同系统更新、检索、适应方式可不同；这里不假定所有工具离线，也不假定都会自动浏览，结论依赖明确能力。"
+          }
+        ]
+      },
+      {
+        "id": "exercise",
+        "title": {
+          "en": "Make the evidence boundary visible in a new scenario",
+          "zh": "在新情境中标清证据边界"
+        },
+        "paragraphs": [
+          {
+            "en": "Write a fictional task with a short source paragraph, a stated tool capability and a proposed claim. Mark what is directly provided, what is inferred and what remains unknown. You can do this on paper without running an AI model. The aim is to explain the boundary rather than invent a hidden training history or a performance percentage. This exercise asks for no private document, model account or paid tool, and the online quiz does not execute a model on your behalf.",
+            "zh": "可自写短来源、工具能力及拟议主张，标明哪些直接提供、哪些推断、哪些未知。纸上也可完成，无须运行模型。目标是解释边界，不编隐藏训练史或表现百分比。练习不需私密文件、模型账户或付费工具，在线测验也不代你运行模型。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Use the count as a pointer to a specific distinction",
+          "zh": "用正确数定位具体区别"
+        },
+        "paragraphs": [
+          {
+            "en": "A count out of five reflects matching answers on these supplied scenarios, not a professional level or a population ranking. Every count receives the complete explanations and all four guides. For a useful retake, change the source or the declared capability and explain how that changes the supported conclusion. Repeating the same fixed bank after reading its keys can improve recall without demonstrating skill across unfamiliar systems. This independent practice does not award a UNESCO, OECD or NIST credential.",
+            "zh": "分项/5只反映给定情境的答案匹配，不是专业等级或人群排名。任何正确数均有全部解析、四份全文。重测前可更换来源或能力条件，解释结论如何变化。看答案后重复固定题本可能提高记忆，不证明跨陌生系统技能；本独立练习不授UNESCO、OECD或NIST资格。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "prompts-and-tools",
+    "directionIds": [
+      "prompts-and-tools"
+    ],
+    "title": {
+      "en": "AI Prompts & Tools: Practice Guide",
+      "zh": "AI提示与工具练习指南"
+    },
+    "headline": {
+      "en": "Turn a request into conditions you can check",
+      "zh": "把请求变成可检查的条件"
+    },
+    "summary": {
+      "en": "Review specific prompts, targeted revision, deterministic calculations, external instructions and evidence of tool actions.",
+      "zh": "复习明确提示、针对修改、确定性计算、外部指令及工具动作证据。"
+    },
+    "seo": {
+      "title": {
+        "en": "AI Prompts & Tools: Literacy Practice Guide",
+        "zh": "AI提示与工具：素养练习指南"
+      },
+      "description": {
+        "en": "Practise clear task constraints, source-based revision, calculation checks and tool evidence without assuming that a prompt guarantees success.",
+        "zh": "练习任务约束、按来源修改、计算核查及工具证据，不把提示当作成功保证。"
+      }
+    },
+    "scoreReading": {
+      "en": "The five-item count checks stated choices. It is not a live measurement of your prompting speed or workflow productivity.",
+      "zh": "五题正确数核给定选择，不实测提示速度或工作流生产力。"
+    },
+    "sections": [
+      {
+        "id": "constraints",
+        "title": {
+          "en": "Name the task, audience, source and format",
+          "zh": "说明任务、读者、来源及形式"
+        },
+        "paragraphs": [
+          {
+            "en": "A request becomes easier to inspect when it specifies the intended output, reader, allowed source and a measurable constraint. For a new fictional exercise, ask for a short welcome note based only on three supplied facts, with missing details flagged. A precise request can guide generation but cannot guarantee compliance. Check the resulting text against each stated condition. Do not convert a request to use only a source into a claim that the tool must therefore have ignored all other influences.",
+            "zh": "请求说明输出、读者、允许资料及可测约束后，更便于检查。新练习可给三条虚构事实，要求只据此写短欢迎语，缺信息标出。明确请求可引导生成，不保证遵守，仍需逐条件核文字；不能因要求仅用资料，就声称工具必然排除了所有其他影响。"
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": {
+          "en": "Revise the observed gap rather than the tone alone",
+          "zh": "针对可见缺口修改，不只改语气"
+        },
+        "paragraphs": [
+          {
+            "en": "If a summary misses an exception that is present in the supplied source, point to that passage and request accurate inclusion. Then inspect the revised version. Asking for a more confident voice does not address the missing condition. In a fresh exercise, mark one omitted date restriction and one omitted eligibility exception, then compare the revision against both. The task remains source-based; inventing a replacement exception from memory would change the evidence rather than repair the summary.",
+            "zh": "摘要漏了源中例外时，可指出段落并要求准确纳入，再检查改稿。只改得更自信不解决遗漏。新例子可标一项日期限制、一项资格例外，再核修改是否覆盖。任务仍以源为据，凭记忆编替代例外是在改变证据，不是修摘要。"
+          }
+        ]
+      },
+      {
+        "id": "calculation",
+        "title": {
+          "en": "Use a calculation when the result must be exact",
+          "zh": "要求精确时落实计算核查"
+        },
+        "paragraphs": [
+          {
+            "en": "For a table containing 56 and 44 only, the exact total is 100. A trusted calculation directly tied to those inputs provides a check of a generated total. A language model can participate in a workflow with calculation tools, but a prose explanation does not prove that a calculation ran. Identify the supplied values, operation and result before checking the claim. This guide illustrates a small invented example and does not claim that language models are incapable of arithmetic.",
+            "zh": "表中仅56、44时，精确合计100。按这两个输入做可信运算，可以核生成合计。语言模型可参与含计算工具的流程，但文字解释不证明计算已经运行。先明确值、运算、结果再核。本指南只给虚构小例，不宣称语言模型不能算术。"
+          }
+        ]
+      },
+      {
+        "id": "external",
+        "title": {
+          "en": "Keep external content separate from task authority",
+          "zh": "分开外部资料与任务授权"
+        },
+        "paragraphs": [
+          {
+            "en": "A page or file can include text that tries to redirect an assistant away from the user’s task. For a benign exercise, place an unrelated slogan instruction inside a fictional document to be summarised. Explain why it is source content rather than permission to change the task. Clear boundaries and technical controls can reduce risk, but a sentence telling a model to ignore attacks is not proof that all prompt injection is prevented. No external instruction is executed by this quiz.",
+            "zh": "网页、文件可含试图让助手偏离任务的文字。无害练习可把无关口号指令放进待总结虚构文档，说明它为何只是资料内容，而非改任务许可。明确边界、技术控制可降风险，但要求模型忽略攻击的一句话，不证明已防所有提示注入；本测验不执行外部指令。"
+          }
+        ]
+      },
+      {
+        "id": "actions",
+        "title": {
+          "en": "Ask for evidence of an action, not just its narration",
+          "zh": "核动作证据，不只看动作叙述"
+        },
+        "paragraphs": [
+          {
+            "en": "An assistant saying it sent a notice does not establish a send operation. The declared capabilities, granted permission and actual record of execution are separate pieces of evidence. If the scenario gives no sending tool, do not invent one to make the statement true. A fresh exercise can compare a draft message, an attempted send and a confirmed delivery record without sending anything. State precisely which stage the supplied evidence supports, including any uncertainty about receipt.",
+            "zh": "助手说已发通知，不证明存在发送操作。能力、权限、执行记录是不同证据；题设无发送工具时，不应为迁就说法编出工具。可不发消息，直接在纸上比较草稿、尝试发送及确认回执，准确说明证据支持哪个阶段，包括收件不确定性。"
+          }
+        ]
+      },
+      {
+        "id": "workflow",
+        "title": {
+          "en": "Build a small checkable rehearsal",
+          "zh": "建立小型可核对练习"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose an invented task with three source facts, one formatting requirement and an explicitly limited tool set. Write the requested output yourself, add one deliberate mistake and make a checklist that would detect it. This rehearses verification without requiring a model, account or private input. If you later try an authorised tool, compare its actual output and execution evidence against the same checklist. Time spent verifying is part of the workflow rather than something a confident answer makes disappear.",
+            "zh": "可自定三条来源事实、一项形式要求及有限工具集，自己写输出、故意加一错，再做能发现它的清单。不需模型、账户或私密输入，也能练验证。之后若用获授权工具，可按同一清单比实际输出与执行证据。验证所花时间属于工作流，不因回答自信而消失。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Interpret five choices within this practice bank",
+          "zh": "按本题本理解五个选择"
+        },
+        "paragraphs": [
+          {
+            "en": "The section gives a correct count out of five with no productivity multiplier, tool ranking or hiring threshold. Every count includes all worked answers and the other complete guides. A useful next exercise changes the source facts or the tool permission, then asks you to explain what new check is needed. Memorising option positions in this fixed bank is different from demonstrating a new workflow. The website performs no email, publishing or model action as part of the questions.",
+            "zh": "分项/5没有生产力倍数、工具排名或招聘线。任何正确数均有全部解析及其他完整指南。下一步可改来源事实、工具权限，再说明新增核查。记住固定题本选项位置，不同于证明新工作流；网站答题不执行邮件、发布或模型动作。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "checking-outputs",
+    "directionIds": [
+      "checking-outputs"
+    ],
+    "title": {
+      "en": "AI Output Checking: Practice Guide",
+      "zh": "AI输出核查练习指南"
+    },
+    "headline": {
+      "en": "Choose evidence that tests the actual claim",
+      "zh": "选择能核对具体主张的证据"
+    },
+    "summary": {
+      "en": "Work through arithmetic, citations, JSON types, held-out evaluation and sample percentages using fresh invented examples.",
+      "zh": "用新虚构例子复习算术、引用、JSON类型、留出评估及样本百分比。"
+    },
+    "seo": {
+      "title": {
+        "en": "Checking AI Outputs: Literacy Practice Guide",
+        "zh": "核查AI输出：素养练习指南"
+      },
+      "description": {
+        "en": "Check numbers, source support, JSON types and evaluation scope. Separate a narrow sample result from a universal capability claim.",
+        "zh": "核数字、来源支持、JSON类型及评估范围，区分小样本结果与普遍能力主张。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five matched answers sample checking decisions; they do not certify that every future AI output will be assessed correctly.",
+      "zh": "五题匹配数抽查核验决定，不认证未来所有AI输出都能正确评估。"
+    },
+    "sections": [
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Recompute from the supplied inputs",
+          "zh": "按给定输入重算"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose a fictional table contains only 18 and 24, while a draft reports 45. The supported sum is 42, because 18+24=42. The source values and operation are enough to check that narrow statement. Keep the source intact and correct the draft rather than changing the evidence to fit the answer. This example does not establish anything about a named model’s average error rate; it demonstrates how a deterministic witness can resolve one specific mismatch.",
+            "zh": "假设虚构表里仅18、24，草稿报告45，支持的合计应为42。源值及运算足够核这个狭窄陈述，应保持源不变、更正草稿，不为迁就答案改证据。这个例子不说明某模型平均错误率，只演示确定性算例如何解决一个差异。"
+          }
+        ]
+      },
+      {
+        "id": "citations",
+        "title": {
+          "en": "Check existence and support separately",
+          "zh": "分别核引用存在性及支持程度"
+        },
+        "paragraphs": [
+          {
+            "en": "A reference can exist without supporting the claim attached to it. Read the actual source and identify the relevant passage, population, conditions and outcome. If a fictional draft claims a study proves a universal benefit but the source describes a small, specific task, the mismatch is in the strength and scope of the claim. A long bibliography or plausible title is not a substitute for this comparison. Record what the source supports and what remains unverified.",
+            "zh": "参考真实存在，也未必支持所附主张。应读实际来源，找相关段落、人群、条件、结果。若虚构草稿说研究证明普遍收益，而源只讨论小型特定任务，差异就在主张强度、范围。长参考表或像真的标题不能替代比较，要记录支持什么、什么仍未核。"
+          }
+        ]
+      },
+      {
+        "id": "types",
+        "title": {
+          "en": "Distinguish parseable JSON from a matching contract",
+          "zh": "区分能解析JSON与符合要求"
+        },
+        "paragraphs": [
+          {
+            "en": "For an invented requirement that count must be an integer, {\"count\":\"6\"} contains a string and does not meet that type requirement. {\"count\":6} supplies an integer value. Both texts can be valid JSON, so parsing alone cannot establish compliance with the stated structure. Check expected fields, types and ranges separately from syntax. This is a small data-validation example rather than an instruction to trust any generated object automatically or a claim about a particular vendor’s structured-output feature.",
+            "zh": "虚构要求count必须是整数时，{\"count\":\"6\"}给字符串，不符合；{\"count\":6}则给整数。两段都能是合法JSON，因此能解析不等于满足结构要求。字段、类型、范围应与语法分别核；这只是小型数据验证例子，不自动信任生成对象，也不陈述厂商特定结构化输出功能。"
+          }
+        ]
+      },
+      {
+        "id": "heldout",
+        "title": {
+          "en": "Keep evaluation data from becoming the answer key",
+          "zh": "避免评估数据变成可反复迎合的答案"
+        },
+        "paragraphs": [
+          {
+            "en": "Testing a classifier on its training examples can conceal poor performance on new inputs. Separate relevant held-out examples provide a stronger check of generalisation, but repeatedly tuning to the same final test results can undermine that separation. Distinguish training, validation and final evaluation roles. A fresh invented exercise can label which examples were used for each purpose without training a real model. Relevance to the intended setting still matters; a technically separate but unrepresentative test can leave important conditions unexamined.",
+            "zh": "用训练样本测试分类器，可能掩盖对新输入表现不佳；独立相关留出样本可加强核查，但反复按最终测试结果调参也会破坏分离。应区分训练、验证、最终评估角色。可在新虚构练习标各样本用途，不必训练真实模型。即使技术上分开，若不代表目标情境，仍有重要条件未测。"
+          }
+        ]
+      },
+      {
+        "id": "rates",
+        "title": {
+          "en": "Attach the denominator and setting to a percentage",
+          "zh": "把分母和场景附在百分比旁"
+        },
+        "paragraphs": [
+          {
+            "en": "A fictional evaluation with 21 correct cases out of 24 gives 87.5% on those cases. It does not establish that every future task has that success rate. Report the denominator, task selection, conditions and misses alongside the number. A result on a small handpicked set can be useful for finding errors while being insufficient for a broad performance claim. The online item checks this evidence boundary rather than assigning you a percentile or measuring a real model in operation.",
+            "zh": "虚构评估24例答对21例，为这批样本87.5%，不证明所有未来任务都如此。报告时保留分母、选题、条件及错误。小型人工挑选集可帮助发现问题，却不足以广泛宣称表现。本题核的是证据边界，不给你百分位，也不实测运行中的模型。"
+          }
+        ]
+      },
+      {
+        "id": "record",
+        "title": {
+          "en": "Describe the failure precisely enough to reproduce the check",
+          "zh": "把错误描述到足以重做核查"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new exercise, save the fictional input, generated claim, expected result and the method used to check it. Distinguish arithmetic disagreement, unsupported citation, type mismatch and evaluation-scope overreach. Each needs different evidence. This record can be short and local; it does not require publishing an answer sheet or uploading private material. The useful question is whether another reader could follow the same supplied facts to understand why the correction is supported.",
+            "zh": "新练习可保留虚构输入、生成主张、预期结果及核法，区分算术差异、引用不支持、类型不匹配、评估外推。它们需要不同证据。记录可简短留本地，不要求发布答卷或上传私密材料。重点是另一读者能否据同样事实理解更正依据。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Use five choices as revision targets",
+          "zh": "把五个选择作为复习目标"
+        },
+        "paragraphs": [
+          {
+            "en": "The section’s correct count describes matching responses to five stated checks. It does not establish domain expertise, universal factual accuracy or a professional credential. All counts receive every explanation and all four full guides. Change the inputs and explain a fresh correction before retaking if you want a more informative exercise. Remembering these exact keys can improve a repeated count without showing how you would evaluate an unfamiliar claim. The website executes no AI evaluation service or private document analysis.",
+            "zh": "分项正确数只描述五次给定核验选择，不证明领域专长、普遍事实准确率或专业资格。任何正确数都有全部解析、四份全文。重测前可改输入，先解释新更正；记住原答案会提高重复分数，却不说明如何评陌生主张。网站不执行AI评估服务或私密文档分析。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "privacy-and-judgement",
+    "directionIds": [
+      "privacy-and-judgement"
+    ],
+    "title": {
+      "en": "AI Privacy & Judgement: Practice Guide",
+      "zh": "AI隐私与判断练习指南"
+    },
+    "headline": {
+      "en": "Keep data, evidence and permission tied to the task",
+      "zh": "让数据、证据及权限始终对应任务"
+    },
+    "summary": {
+      "en": "Review confidential input, responsible decisions, group-level evidence, disclosure rules and authorised tool use.",
+      "zh": "复习机密输入、负责决策、分组证据、披露规则及获授权工具使用。"
+    },
+    "seo": {
+      "title": {
+        "en": "AI Privacy & Judgement: Literacy Practice Guide",
+        "zh": "AI隐私与判断：素养练习指南"
+      },
+      "description": {
+        "en": "Practise input boundaries, responsible review, group-level errors and explicit permissions using fictional situations with no private upload.",
+        "zh": "通过虚构情境练输入边界、负责审查、分组错误及明确权限，无需上传私密资料。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five matching choices describe the supplied scenarios, not your ethics, identity or authority over another person.",
+      "zh": "五题匹配数描述给定情境，不评价道德、身份或赋予处理他人的权限。"
+    },
+    "sections": [
+      {
+        "id": "input",
+        "title": {
+          "en": "Use an input you are entitled to provide",
+          "zh": "使用有权提供的输入"
+        },
+        "paragraphs": [
+          {
+            "en": "If a scenario says an internal document cannot be uploaded to a public tool, free access does not remove that restriction. A separately written fictional document can support practice without exposing the original. Removing only a title does not establish that all identifying or confidential details have disappeared. Actual retention, access and training behaviour depend on the service and settings, so avoid universal claims about every tool. The online questions ask for choices and require no internal plan, contact list or account credential.",
+            "zh": "情境规定内部文档不得上传公共工具时，免费使用不取消限制。独立编写的虚构文档可供练习，不暴露原件。只删标题，不证明所有识别、机密细节已去掉。真实保留、访问、训练行为随服务设置而异，不应概括所有工具。在线题只需选择，不要内部计划、联系人或凭据。"
+          }
+        ]
+      },
+      {
+        "id": "decisions",
+        "title": {
+          "en": "Keep consequential proposals subject to suitable evidence",
+          "zh": "重大提议需要相应证据"
+        },
+        "paragraphs": [
+          {
+            "en": "A fluent suggestion is not a substitute for evidence and responsible judgement when an action affects someone materially. In a fictional exercise, identify who is authorised to decide, what evidence is missing and what review the stated context requires. The exercise itself makes no decision about a real person. Human accountability is not transferred merely because a generated text sounds confident or recommends a particular action. The relevant checks depend on the setting rather than a universal label applied to every use of AI.",
+            "zh": "动作会实质影响某人时，流畅建议不能代替证据与负责判断。虚构练习可明确谁有权决定、缺什么证据、该情境要求何种审查，练习本身不决定真人结果。生成文字自信或建议某动作，不会转移人类责任。核查依据具体场景，不给所有AI使用套同一标签。"
+          }
+        ]
+      },
+      {
+        "id": "groups",
+        "title": {
+          "en": "Look beyond an aggregate when conditions differ",
+          "zh": "条件不同，应看总体值之外的差异"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose invented groups A and B have two errors out of twenty and two out of five respectively. Their error rates are 10% and 40%, while the combined four errors out of twenty-five give 16%. The same aggregate can hide materially different patterns. This arithmetic does not name a demographic group or prescribe a universal fairness metric. Relevant evaluation requires context, suitable data and privacy care, with attention to what the errors mean for the people or tasks affected.",
+            "zh": "假设虚构A组20例错2、B组5例错2，错误率分别10%、40%，合计25例错4为16%，总体可遮住不同模式。这个算例不指某人口群体，也不规定通用公平指标。相关评估需要语境、合适数据及隐私考虑，还要理解错误对受影响人或任务意味着什么。"
+          }
+        ]
+      },
+      {
+        "id": "policy",
+        "title": {
+          "en": "Follow the rule actually supplied by the setting",
+          "zh": "按情境实际给出的规则处理"
+        },
+        "paragraphs": [
+          {
+            "en": "A course may permit AI-assisted outlining while requiring disclosure. If that is the stated rule, acknowledge the assistance accurately and check the submitted work. Another institution may have a different policy, so do not infer a universal disclosure format or legal conclusion. Acknowledgement also does not turn unsupported facts into verified evidence. In a new fictional exercise, state which part was assisted, what you checked yourself and which policy condition governs the submission.",
+            "zh": "若课程允许AI辅助提纲但要求披露，就按给定规则准确说明辅助，并核提交作品。其他机构可能政策不同，不能推成通用披露格式或法律结论。承认辅助也不会让缺依据事实变真。新虚构练习可写清辅助哪部分、自己核了什么、哪条政策约束提交。"
+          }
+        ]
+      },
+      {
+        "id": "permission",
+        "title": {
+          "en": "Distinguish tool capability from the authorised action",
+          "zh": "区分工具能力与获授权动作"
+        },
+        "paragraphs": [
+          {
+            "en": "In a draft-only scenario, the existence of a publishing tool does not expand the user’s permission into publication. External source text cannot silently supply that missing authority either. Describe the task’s actual boundary before acting. This example does not add a requirement to reconfirm work that was already authorised; it focuses on the explicit limitation in the supplied scenario. The quiz performs no publication, email or account action and does not alter a real system’s permissions.",
+            "zh": "仅起草情境中，有发布工具不扩大用户授权，外部资料也不能默默补出授权。行动前应描述真实边界。这个例子不增加对已授权工作重复确认的要求，针对的是题设明确限制。测验不发布、不发邮件、不操作账户，也不改真实系统权限。"
+          }
+        ]
+      },
+      {
+        "id": "rehearsal",
+        "title": {
+          "en": "Rehearse with a harmless invented task",
+          "zh": "用无害虚构任务演练"
+        },
+        "paragraphs": [
+          {
+            "en": "Write a short imaginary club notice, a source paragraph containing an unrelated instruction and a tool list limited to drafting. Decide which text is data, which instruction came from the user and which action is permitted. Then alter one condition, such as an explicit publication authorisation, and explain how the boundary changes. You can complete the exercise without connecting tools or sharing real information. The aim is accurate scope reasoning rather than assuming all automation is appropriate or all automation needs the same controls.",
+            "zh": "可写虚构社团通知、含无关指令的来源段落，以及仅能起草的工具清单，区分资料、用户指令和获准动作。再改变一个条件，例如明确授权发布，说明边界如何变化。无须连工具或分享真实信息也能完成；目标是准确推理范围，不假定所有自动化都适当或都需同样控制。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Keep the result as a finite knowledge count",
+          "zh": "让结果保持为有限知识计数"
+        },
+        "paragraphs": [
+          {
+            "en": "The count out of five is based on keyed choices under explicit conditions. It does not measure moral character, professional responsibility or a person’s actual treatment of others. Every count receives all answers and the complete guides. A useful revision changes the permission or evidence in an invented scenario and explains the consequence. There is no personal-data upload or official AI qualification. Retaking the fixed bank after reading explanations can improve memory without demonstrating judgement in every real setting.",
+            "zh": "分项/5依据明确条件中的答案选择，不测道德品质、专业责任或实际待人方式。任何正确数均有全部答案及完整指南。复习可改虚构情境的权限、证据，再解释后果。无需上传个人数据，也无官方AI资格。看解析重测固定题本可改善记忆，不证明所有真实场景判断。"
+          }
+        ]
+      }
+    ]
+  }
+]
