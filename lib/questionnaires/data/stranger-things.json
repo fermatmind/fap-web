@@ -1,0 +1,1713 @@
+{
+  "slug": "stranger-things",
+  "code": "STRANGER_THINGS_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Stranger Things Test",
+    "zh": "《怪奇物语》角色测试"
+  },
+  "description": {
+    "en": "Try 18 original, harmless tabletop-story situations. Compare Eleven, Mike, Dustin, Lucas, Will and Max with all highest ties and six complete bilingual guides free. An unofficial friend-group fan edition without plot trivia.",
+    "zh": "完成18道原创无害桌面故事情境，比较小十一、迈克、达斯汀、卢卡斯、威尔与麦克斯。所有最高并列和六份双语全文免费。非官方朋友群像同人版，不考剧情。"
+  },
+  "seoTitle": {
+    "en": "Stranger Things Test: Free Character Quiz & All 6 Friend-Group Results",
+    "zh": "《怪奇物语》角色测试：免费测六位朋友与完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Stranger Things friend-group readings",
+    "zh": "本次《怪奇物语》朋友人物读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which Stranger Things friend does your way of joining a creative activity bring to mind? Imagine a completely original, harmless tabletop adventure: voicing a preference, keeping friends connected, inventing a surprising link, checking a rule, drawing a mood or choosing your own route. This independent fan edition selects Eleven, Mike, Dustin, Lucas, Will and Max. All 18 situations and six complete public guides are original. No plot knowledge, danger, trauma or supernatural experience is needed, and the set does not cover the whole cast.",
+    "zh": "参与创作的方式会让你想到《怪奇物语》的哪位朋友？想象完全原创无害桌面冒险：说偏好、连朋友、想意外连接、核规则、画气氛或自主选路。本独立同人版取小十一、迈克、达斯汀、卢卡斯、威尔、麦克斯。18情境与六份公开全文原创，不需剧情、危险、创伤或超自然体验，也不覆盖全部人物。"
+  },
+  "instructions": {
+    "en": "Think about an optional invented story or small creative activity you would enjoy now. Choose one of four responses in each situation, even if none fits perfectly. No choice is correct or a better kind of person. Characters absent from an item are not rejected. Finish all 18 choices before counts appear; every highest tie receives a complete guide.",
+    "zh": "想象现在愿参与的可选自编故事、小创作，每情境四选一，即使都不完美。无正确答案，也不据此评人的优劣。当题没出现人物不算被拒绝。18题选完才出计数，每个最高并列都有全文。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Netflix Media Center: Stranger Things public cast identities",
+        "zh": "Netflix媒体中心：《怪奇物语》公开人物名单"
+      },
+      "url": "https://media.netflix.com/en/only-on-netflix/80057281"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_stranger_things_original_18_v1",
+    "itemBankVersion": "stranger_things_original_18_v1",
+    "scoringVersion": "stranger_things_all_highest_counts_v1",
+    "resultContentVersion": "stranger_things_full_guides_v1",
+    "itemBankSha256": "fb5b333dcc5e3aa9e401279acae64db05a745259100b71a6fb2c8f34c62fdf8c",
+    "resultContentSha256": "91184f30ec7cc316bba2090ee01758b32cda5e0a9cf11868c4704c976391bd8e",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "eleven",
+      "title": {
+        "en": "Eleven",
+        "zh": "小十一（Eleven）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "mike-wheeler",
+      "title": {
+        "en": "Mike Wheeler",
+        "zh": "迈克·惠勒"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dustin-henderson",
+      "title": {
+        "en": "Dustin Henderson",
+        "zh": "达斯汀·亨德森"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lucas-sinclair",
+      "title": {
+        "en": "Lucas Sinclair",
+        "zh": "卢卡斯·辛克莱"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "will-byers",
+      "title": {
+        "en": "Will Byers",
+        "zh": "威尔·拜尔斯"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "max-mayfield",
+      "title": {
+        "en": "Max Mayfield",
+        "zh": "麦克斯·梅菲尔德"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "STG_01",
+      "prompt": {
+        "en": "Friends invite you to a harmless, invented tabletop story. What would you most like to establish first?",
+        "zh": "朋友邀你参加无害的自编桌面故事，你最想先确定什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say which kind of story I actually want to take part in.",
+            "zh": "说出自己真正想参与哪种故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Help the group find an opening that everyone can enter together.",
+            "zh": "帮小组找一个大家能一起进入的开场。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest an odd, playful connection that could start an interesting mystery.",
+            "zh": "提一个古怪有趣的连接，开出有意思的谜题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Ask how the first proposed rule would work on the table.",
+            "zh": "问第一条提议规则在桌上怎样实际运作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_02",
+      "prompt": {
+        "en": "One friend has missed the beginning of a make-believe adventure. What would you enjoy doing?",
+        "zh": "一位朋友错过虚构冒险开头，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Bring them back into the shared plan without treating them as an interruption.",
+            "zh": "把对方接回共同计划，不当成打断。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Offer an amusing possible explanation for their character’s late arrival.",
+            "zh": "给角色迟到想个有趣的可能解释。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check what information they need to make their next game choice.",
+            "zh": "核对方还需什么信息才能作下一项游戏选择。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw a quick scene that shows where the story is now.",
+            "zh": "快画一个场景，展示故事现在到哪里。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_03",
+      "prompt": {
+        "en": "Your imaginary story contains an unexplained, completely harmless glowing sign. What appeals most?",
+        "zh": "虚构故事出现一块没解释、完全无害的发光招牌，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent a surprising connection between the sign and an earlier comic detail.",
+            "zh": "给招牌与早先喜剧细节想一个意外连接。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Try the proposed explanation against the story rules already agreed.",
+            "zh": "把提议解释与已约故事规则对照试一试。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Picture the colours and surroundings before deciding what the sign means.",
+            "zh": "先想颜色、周围样子，再决定招牌意义。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose whether my part of the story follows this clue or takes another route.",
+            "zh": "选择自己的故事部分跟线索，还是走另一条路。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_04",
+      "prompt": {
+        "en": "A new rule sounds exciting but nobody has tried it. What would you prefer?",
+        "zh": "新规则听起来精彩，却还没人试，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Run one ordinary example to see whether the rule works as described.",
+            "zh": "用一个普通例子，试规则是否按说明运作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Sketch what a turn using the new rule would look like.",
+            "zh": "画一下采用新规则的一回合会是什么样。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Decide whether I want that rule in the part of the game I join.",
+            "zh": "决定自己参加的部分是否想用这条规则。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "State plainly what I would need changed before trying it.",
+            "zh": "平实说试之前自己需要改什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_05",
+      "prompt": {
+        "en": "The group is inventing a peaceful place for its story to begin. What would you most enjoy?",
+        "zh": "小组为故事编一个平静起始地点，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw the place’s mood through a few shapes, colours and ordinary details.",
+            "zh": "用一些形状、颜色与日常细节画出地点气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Give my character a distinct route through the place rather than the default entrance.",
+            "zh": "给角色选一条不同路线，不一定走默认入口。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say what would make the setting comfortable and interesting for me.",
+            "zh": "说怎样设定会让自己舒服、有兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Make sure each friend has a way to contribute to the opening scene.",
+            "zh": "让每位朋友都有贡献开场的办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_06",
+      "prompt": {
+        "en": "Everyone suggests the same character role for you in the invented story. What would you prefer?",
+        "zh": "大家都建议你在自编故事中担同一个角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose the role I want, even if it takes a different route from their suggestion.",
+            "zh": "选自己想要的角色，即使不同于大家建议。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Explain my own preference in a simple sentence.",
+            "zh": "用简单一句话解释自己偏好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Find a way for my choice to stay connected with the friends’ shared story.",
+            "zh": "让自己选择仍能与朋友共同故事接上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent a playful reason why an unexpected role could fit the world.",
+            "zh": "想个有趣理由，让意外角色也合世界。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_07",
+      "prompt": {
+        "en": "The next story scene is becoming a type of activity you do not enjoy. What contribution appeals most?",
+        "zh": "下一场故事逐渐变成自己不喜欢的活动，哪种贡献最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "Name what I would rather do and offer a possible alternative.",
+            "zh": "说自己更想做什么，并给一个可选替代。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Ask how the scene can keep the group together without forcing the same preference.",
+            "zh": "问怎样不强迫偏好相同，仍让小组连在一起。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Propose an unexpected comic turn that changes the scene’s direction.",
+            "zh": "提一个意外喜剧转折，换场景方向。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Test whether a small rule change would solve the practical problem.",
+            "zh": "试一个小规则改变，看看能否解实际问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_08",
+      "prompt": {
+        "en": "Two friends want to follow different paths in the imaginary town. What would you enjoy?",
+        "zh": "两位朋友想在虚构小镇走不同道路，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Agree how both paths can return to a shared meeting point.",
+            "zh": "约好两路怎样回到共同会合点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest a funny connection that makes both routes part of one little mystery.",
+            "zh": "想个有趣连接，让两路都是同一小谜题的一部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check how turns and information will work if the group splits the scene.",
+            "zh": "核分场景后，回合与信息怎样运作。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw the two paths so the group can picture their different atmospheres.",
+            "zh": "画两条路，让大家想象不同气氛。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_09",
+      "prompt": {
+        "en": "A friend combines two unrelated props in the original story. What would you most like to add?",
+        "zh": "朋友把自编故事两个不相干道具放一起，你最想加什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "A playful hypothesis about how the objects could belong to one surprising idea.",
+            "zh": "一个趣味假设，让物件同属一个意外点子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "A simple test of whether the proposed link fits what the group has established.",
+            "zh": "简单检验连接是否符合已建立设定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "A small illustration that makes the unusual combination feel vivid.",
+            "zh": "一幅小画，让奇特组合有鲜活感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "My own choice about whether that combination belongs in my character’s path.",
+            "zh": "自主选择这个组合是否进入角色路线。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_10",
+      "prompt": {
+        "en": "The group cannot tell whether an invented clue follows its own rules. What would you prefer?",
+        "zh": "小组不确定自编线索是否遵守自己规则，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Compare one concrete example with the agreed rule before adding more explanation.",
+            "zh": "再加解释前，先用一个具体例子对照约定规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Lay out the scene visually so the relevant details are easier to see.",
+            "zh": "把场景画出来，让相关细节容易看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Decide how much of this puzzle I want my part of the story to involve.",
+            "zh": "决定自己的故事部分想涉及多少这个谜题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say clearly which part I do not understand yet.",
+            "zh": "清楚说自己哪部分还没理解。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_11",
+      "prompt": {
+        "en": "Your friends are making a small illustrated booklet of their own adventure. Which contribution attracts you?",
+        "zh": "朋友为自编冒险做一本小绘本，哪种贡献吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Create a picture that gives an ordinary story moment its particular mood.",
+            "zh": "画一张图，让普通故事时刻有独特气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose a personal page style rather than copying the group’s first example.",
+            "zh": "选自己页风格，不照小组第一个样例。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "Explain what I want my page to say in my own words.",
+            "zh": "用自己的话说这一页想表达什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Keep the pages connected so each friend’s contribution has a place.",
+            "zh": "接好各页，让每位朋友贡献都有位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_12",
+      "prompt": {
+        "en": "There is a popular suggested ending, but another ending interests you more. What would you prefer?",
+        "zh": "大家喜欢一种结尾，自己却更喜欢另一种，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Explore my preferred ending as an optional branch.",
+            "zh": "把自己喜欢结尾当可选分支探索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say openly which ending I would choose and why.",
+            "zh": "公开说自己选哪种结尾、为什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Help the group discuss an ending that leaves everyone connected to the activity.",
+            "zh": "帮小组讨论让大家仍与活动连着的结尾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent an amusing third possibility nobody has considered yet.",
+            "zh": "编一个没人想到的有趣第三可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_13",
+      "prompt": {
+        "en": "A story partner asks what would make the next session better for you. What would you most enjoy offering?",
+        "zh": "故事伙伴问下次怎样会更适合自己，你最喜欢提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "A direct statement of one thing I would like to change or include.",
+            "zh": "直接说一件自己想改或想加的事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "A suggestion for keeping invitations open to all our friends.",
+            "zh": "一个让邀请仍向各位朋友开放的建议。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "A curious what-if question that could spark a new adventure idea.",
+            "zh": "一个好奇的“如果”，开出新冒险点子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "A practical example showing how a rule could be easier to use.",
+            "zh": "一个实际例子，让规则更好用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_14",
+      "prompt": {
+        "en": "Your tabletop group is restarting after a long gap. What would you prefer?",
+        "zh": "桌面故事小组隔了很久重新开始，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Reconnect the friends and agree how to enter the shared story again.",
+            "zh": "重新连上朋友，约好怎样再进入共同故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Find an entertaining new connection to an old, harmless story detail.",
+            "zh": "给过去无害细节找到有趣新连接。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check which rules everyone still wants to use before the first turn.",
+            "zh": "第一回合前，核哪些规则大家仍想用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Make a brief scene drawing that brings back the world’s atmosphere.",
+            "zh": "画个短场景，让世界气氛回来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_15",
+      "prompt": {
+        "en": "A surprising idea might change the fictional world’s everyday routine. What appeals most?",
+        "zh": "意外点子可能改变虚构世界日常，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Explore a playful explanation that makes the strange idea fun to discuss.",
+            "zh": "探索一个趣味解释，让奇怪点子好讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Try one everyday consequence to see whether the explanation holds up.",
+            "zh": "试一个日常后果，核解释能否成立。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Imagine what the changed place would look and feel like.",
+            "zh": "想象改变后的地方看起来、感觉怎样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose a distinct way for my character to respond rather than following the default.",
+            "zh": "给角色选独特回应，不一定走默认做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_16",
+      "prompt": {
+        "en": "Before sharing a wholly original story booklet with friends, what would you most like to check?",
+        "zh": "把完全原创故事绘本给朋友看前，你最想核什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Whether one example actually follows the rules the booklet explains.",
+            "zh": "一个例子是否真遵守绘本解释的规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Whether a drawing carries the mood we wanted for its scene.",
+            "zh": "一张图是否带出想要的场景气氛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Whether my part still feels like a choice I am happy to stand by.",
+            "zh": "自己部分是否仍是愿意认可的选择。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "Whether I have said clearly what I want readers to understand from my part.",
+            "zh": "是否说清自己希望读者理解什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_17",
+      "prompt": {
+        "en": "A friend describes an ordinary room in your invented town. What would you enjoy adding?",
+        "zh": "朋友描述虚构小镇一间普通屋子，你喜欢加什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Visual details that make this particular room feel lived in and distinctive.",
+            "zh": "视觉细节，让这间屋子有生活感、独特感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "A different route or use for the room that suits my character’s preference.",
+            "zh": "一个适合角色偏好的不同路线或用法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "A clear statement about the part of the scene I want to play.",
+            "zh": "清楚说想参与场景哪部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "An opening that lets another friend join the room’s scene too.",
+            "zh": "一个让另一朋友也能加入屋内场景的入口。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_18",
+      "prompt": {
+        "en": "The adventure is ending and the group offers you a familiar role next time. What would you prefer?",
+        "zh": "冒险将结束，小组建议下次继续熟悉角色，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose again based on what I want next time, rather than treating the role as fixed.",
+            "zh": "按下次想要的重新选择，不把角色固定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Tell the group plainly what I would enjoy trying instead.",
+            "zh": "平实告诉小组自己更想试什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Keep a place in the shared activity while the details of my role change.",
+            "zh": "角色细节变时，仍在共同活动留位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest a surprising new story possibility that makes a change enjoyable.",
+            "zh": "提一个意外新故事可能，让变化有趣。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "eleven",
+      "directionIds": [
+        "eleven"
+      ],
+      "title": {
+        "en": "Eleven",
+        "zh": "小十一（Eleven）"
+      },
+      "headline": {
+        "en": "Say what you want to choose",
+        "zh": "说出自己想怎样选择"
+      },
+      "summary": {
+        "en": "Read Eleven through say what you want to choose: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“说出自己想怎样选择”阅读小十一（Eleven）：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Eleven Test Result: Say what you want to choose | Stranger Things",
+          "zh": "小十一（Eleven）测试结果：说出自己想怎样选择｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Eleven through say what you want to choose: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“说出自己想怎样选择”阅读小十一（Eleven）：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Eleven’s selected angle",
+            "zh": "小十一的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven appears in Netflix’s public Stranger Things cast list. This edition selects saying what you want in a voluntary creative activity. The fictional comparison does not use experiments, trauma, vocabulary, physical appearance or supernatural abilities as a model of a real person. A plain preference can be tentative, change over time or coexist with listening to friends; it is not a diagnosis or a claim about how much independence you possess.",
+              "zh": "Netflix的公开《怪奇物语》名单列有小十一。本版选自愿创作里说出自己想要什么，不拿实验、创伤、词汇、外貌或超能力作真人模型。偏好可暂定、可变，也可与听朋友共存；不是诊断，不衡量有多少独立性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A story you actually want to join",
+            "zh": "一个自己真想加入的故事"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends are planning an entirely invented tabletop adventure, and the proposed next scene does not interest you. You say what you would enjoy instead and offer a possible change. This can be a modest request rather than a dramatic stand. The group may need to discuss how several preferences fit together, and you can decide whether the resulting activity is still something you want to join.",
+              "zh": "朋友计划完全自编桌面冒险，下一场自己没兴趣。你说更喜欢什么，给一个可能改法。可以只是小请求，不必戏剧化表态。小组也需讨论多种偏好怎样合，自己再决定改后是否仍想加入。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A clear preference beside five other contributions",
+            "zh": "清楚偏好与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Mike keeps a shared invitation open, Dustin offers an unusual story connection and Lucas checks a practical example. Will imagines the scene visually while Max explores a route of her own. Eleven’s selected angle gives your preference an audible place. These contributions can coexist without ranking confidence, courage or authenticity, and tied readings do not reveal several hidden selves.",
+              "zh": "迈克保留共同邀请，达斯汀提意外连接，卢卡斯核实际例子；威尔想视觉场景，麦克斯试自己的路。小十一角度让偏好能被听到。可共存，不评自信、勇气或真实程度，并列也不揭示多个隐藏自我。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Clarity does not require certainty",
+            "zh": "清楚不要求完全确定"
+          },
+          "paragraphs": [
+            {
+              "en": "You can say that you are unsure, ask to try a smaller part or revise an earlier answer. A preference is information for a voluntary agreement, not an instruction everyone must obey. Leave room for others to choose too. A high count cannot establish assertiveness, a history of mistreatment or a special inner strength; a lower count does not mean that you lack a voice or cannot set limits.",
+              "zh": "可以说不确定、只想试小部分，也可改早先答案。偏好是自愿约定的信息，不是人人须遵命；别人也能选。高计数不确立坚定、受伤经历或特殊内力，低计数不表示没声音、不会设限。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one preference with a real alternative",
+            "zh": "试一个带真实替代的偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "In a small optional activity, name one thing you would like and one alternative you would also enjoy. Ask what the other participants want, then decide whether the available plan suits you. Notice whether saying the preference made the discussion clearer. This is feedback on one conversation, not an assessment of self-worth, psychological recovery or whether you are sufficiently strong.",
+              "zh": "小型可选活动里说一件想要的事，再给一个同样喜欢的替代。问别人想要什么，再判断现有计划是否适合。留意说偏好是否让讨论更清楚；这反馈一次对话，不评自我价值、心理恢复或够不够强。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mike-wheeler",
+      "directionIds": [
+        "mike-wheeler"
+      ],
+      "title": {
+        "en": "Mike Wheeler",
+        "zh": "迈克·惠勒"
+      },
+      "headline": {
+        "en": "Keep a place in the shared story",
+        "zh": "在共同故事里保留位置"
+      },
+      "summary": {
+        "en": "Read Mike Wheeler through keep a place in the shared story: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“在共同故事里保留位置”阅读迈克·惠勒：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Mike Wheeler Test Result: Keep a place in the shared story | Stranger Things",
+          "zh": "迈克·惠勒测试结果：在共同故事里保留位置｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Mike Wheeler through keep a place in the shared story: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“在共同故事里保留位置”阅读迈克·惠勒：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Mike’s selected angle",
+            "zh": "迈克的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Mike Wheeler is named in the official Netflix ensemble. This edition selects reconnecting friends around a voluntary shared activity. It does not measure loyalty, leadership, romantic devotion or whether you would protect someone under danger. Keeping an invitation open can include accepting a no, allowing different roles and letting the plan change rather than insisting that friendship requires everyone to enjoy exactly the same thing.",
+              "zh": "Netflix官方群像名单有迈克·惠勒。本版选围绕自愿活动重新连上朋友，不测忠诚、领导、浪漫投入或危险保护。保留邀请可包括接受拒绝、不同角色、计划变化，不要求友情必须人人喜欢同一件事。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A late arrival is still part of the table",
+            "zh": "晚到的人仍能加入桌边"
+          },
+          "paragraphs": [
+            {
+              "en": "One friend misses the opening of a completely invented adventure. Instead of treating their arrival as a disruption, you help find an ordinary point at which their contribution can enter. A short recap or a shared meeting scene may be enough. You do not need to manage their character or erase the choices people have already made to give them a genuine place in the activity.",
+              "zh": "朋友错过完全自编冒险开场。你不把到来当打断，而是找普通入口让贡献进入；短回顾、共同会合场景也许够。不用管理其角色，也不用抹掉已作选择，仍可给真实位置。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Connection beside five other contributions",
+            "zh": "连接与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven states a preference, Dustin invents an unexpected link and Lucas tests how a rule works. Will gives the scene a visual atmosphere while Max takes a distinct route. Mike’s selected angle keeps these different contributions connected to the shared table. A close or tied count does not establish who is the better friend, who belongs most or who must become the permanent organiser.",
+              "zh": "小十一说偏好，达斯汀编意外连接，卢卡斯试规则；威尔画气氛，麦克斯走不同路。迈克角度让不同贡献连在共同桌边。近分并列不决定谁更好朋友、谁更属于这里，也不永久分派组织者。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An open invitation is not an obligation",
+            "zh": "开放邀请不等于义务"
+          },
+          "paragraphs": [
+            {
+              "en": "Check whether the person wants to return before making space for them in a way they did not request. A shared activity can tolerate a break, a different role or someone choosing another interest. You cannot guarantee that no friend ever feels left out. A high count does not establish dependency or superior care; a lower count does not mean disloyalty, indifference or a lack of friendship skills.",
+              "zh": "留位置前先问对方想不想回来。共同活动容得下休息、不同角色、另选兴趣；无法保证朋友永不觉得落单。高计数不确立依赖或照顾更优，低计数不表示不忠、冷漠或不会交友。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a return point people can decline",
+            "zh": "试一个可以拒绝的回归点"
+          },
+          "paragraphs": [
+            {
+              "en": "For an optional group story, agree on one easy place where someone who missed a session could rejoin. Offer a short recap and ask what role they would enjoy now. Let the answer change the arrangement. You are checking whether an invitation is usable in this setting, not testing commitment, predicting a friendship’s future or deciding who should hold a group together.",
+              "zh": "可选小组故事约一个漏活动者容易回来的点，给短回顾，问现在想玩什么角色，再按回答调整。检验邀请在此场景是否好用，不测投入，不预测友谊未来，也不决定谁必须维系群体。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dustin-henderson",
+      "directionIds": [
+        "dustin-henderson"
+      ],
+      "title": {
+        "en": "Dustin Henderson",
+        "zh": "达斯汀·亨德森"
+      },
+      "headline": {
+        "en": "Explore a surprising connection",
+        "zh": "探索一个意外连接"
+      },
+      "summary": {
+        "en": "Read Dustin Henderson through explore a surprising connection: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“探索一个意外连接”阅读达斯汀·亨德森：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Dustin Henderson Test Result: Explore a surprising connection | Stranger Things",
+          "zh": "达斯汀·亨德森测试结果：探索一个意外连接｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Dustin Henderson through explore a surprising connection: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“探索一个意外连接”阅读达斯汀·亨德森：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Dustin’s selected angle",
+            "zh": "达斯汀的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Dustin Henderson appears in the official Stranger Things cast list. The angle chosen here is a playful hypothesis about an invented story, not a measure of intelligence, scientific talent, humour, confidence or a medical condition. You may enjoy an unlikely connection while remaining happy to discard it. The quiz cannot tell whether you would solve a real problem better than someone with another reading.",
+              "zh": "官方《怪奇物语》名单有达斯汀·亨德森。本版选自编故事里的趣味假设，不测智力、科学天分、幽默、自信或疾病。喜欢意外连接，也可乐意弃用。本测验不能比较谁更会解现实问题。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two props that were never meant to connect",
+            "zh": "原本没打算相连的两个道具"
+          },
+          "paragraphs": [
+            {
+              "en": "In a wholly original story, a painted sign and a comic object appear in separate scenes. You imagine an amusing explanation that links them and offer it as a possibility. The pleasure is in opening a new route for the group to explore. It need not become the official answer, and another person can enjoy the idea without accepting it as part of the fictional world.",
+              "zh": "完全原创故事中，一块彩绘招牌与一个喜剧物件在不同场景出现。你想个有趣解释连上，当可能提出来。乐趣在开一条可探索路，不一定变官方答案；别人可喜欢点子，却不采用为世界设定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A hypothesis beside five other contributions",
+            "zh": "假设与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven says what she wants and Mike keeps the shared invitation workable. Lucas checks a concrete consequence, Will draws the world’s atmosphere and Max chooses her own route. Dustin’s selected angle supplies a surprising what-if. These can work together without ranking ingenuity, curiosity or how entertaining a person is. Several high readings are simply different contributions available within one activity.",
+              "zh": "小十一说想要，迈克让共同邀请可行；卢卡斯核具体后果，威尔画世界气氛，麦克斯自主选路。达斯汀角度提供意外的“如果”。可合作，不排名机智、好奇或人的有趣程度；多项高只是活动内不同贡献。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An entertaining link can remain unconfirmed",
+            "zh": "有趣连接可以暂不确认"
+          },
+          "paragraphs": [
+            {
+              "en": "Make clear whether you are proposing a playful possibility or describing something the group already established. Ask whether others want to explore it, and allow a simpler explanation to replace it. Not every detail needs a clever hidden connection. A high count cannot establish exceptional reasoning or constant optimism; a lower count does not imply dullness, low intelligence or a lack of imagination.",
+              "zh": "分清在提趣味可能，还是说已定设定。问别人想不想探，也容许更简单解释代替；并非每细节都要聪明暗线。高计数不确立非凡推理、总是乐观，低计数不表示无趣、智力低或没想象。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a what-if with a way to drop it",
+            "zh": "试一个可以放下的“如果”"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose two ordinary details in a fictional creative project and propose one unexpected connection. Label it as an optional idea, then ask a partner what would make it interesting or unnecessary. Keep the parts the group enjoys and drop the rest. This is feedback on a story proposal, not an intelligence test, a creativity score or evidence about a person’s ability to solve real mysteries.",
+              "zh": "虚构创作选两个普通细节，提一个意外连接，标为可选，再问伙伴哪里有趣、哪里多余。留喜欢部分，放下其他。这反馈故事提议，不是智测、创造力分数或解真实谜案能力的证据。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lucas-sinclair",
+      "directionIds": [
+        "lucas-sinclair"
+      ],
+      "title": {
+        "en": "Lucas Sinclair",
+        "zh": "卢卡斯·辛克莱"
+      },
+      "headline": {
+        "en": "Check the idea against one example",
+        "zh": "用一个例子核想法"
+      },
+      "summary": {
+        "en": "Read Lucas Sinclair through check the idea against one example: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“用一个例子核想法”阅读卢卡斯·辛克莱：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Lucas Sinclair Test Result: Check the idea against one example | Stranger Things",
+          "zh": "卢卡斯·辛克莱测试结果：用一个例子核想法｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Lucas Sinclair through check the idea against one example: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“用一个例子核想法”阅读卢卡斯·辛克莱：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Lucas’s selected angle",
+            "zh": "卢卡斯的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Lucas Sinclair is part of Netflix’s public cast listing. This edition selects checking an invented rule through a concrete example. It does not measure scepticism, intelligence, courage, athletic ability or whether you are more realistic than your friends. You can enjoy imaginative stories and still ask how a proposed rule behaves on the table; the two preferences are compatible rather than competing levels of maturity.",
+              "zh": "Netflix公开名单包括卢卡斯·辛克莱。本版选用具体例子核自编规则，不测怀疑、智力、勇气、运动或是否比朋友现实。享受想象故事，也能问提议规则在桌上怎样运作，两种偏好兼容，不竞争成熟高低。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One ordinary turn before a bigger explanation",
+            "zh": "更大解释前的一次普通回合"
+          },
+          "paragraphs": [
+            {
+              "en": "A new tabletop rule sounds exciting, but different people imagine different outcomes. You try one ordinary turn using only the agreed wording. The example may show that the rule is clear, that it needs a small revision or that the group wants a looser style of play. The point is to make a choice discussable, not to win an argument against an imaginative person.",
+              "zh": "新桌面规则精彩，各人想象结果却不同。你只按约定措辞试普通一回合。例子可能表明规则清楚、需小改，或大家想松些玩法。目的让选择可讨论，不是辩赢有想象的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A practical check beside five other contributions",
+            "zh": "实际核对与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven names a preference, Mike reconnects the table and Dustin invents a surprising possibility. Will imagines how the scene looks while Max explores her chosen route. Lucas’s selected angle checks one practical consequence. It can help the other contributions become playable without ranking rationality, competence or whose ideas deserve to be heard. A tied reading does not settle a contest between logic and imagination.",
+              "zh": "小十一说偏好，迈克接回桌边，达斯汀提意外可能；威尔想画面，麦克斯选路线。卢卡斯角度核一个实际后果，让贡献能玩，不评理性、能力或谁的点子才值得听。并列不裁决逻辑与想象谁赢。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A test should have a useful stopping point",
+            "zh": "检验应有好用的停止点"
+          },
+          "paragraphs": [
+            {
+              "en": "Agree what one example can answer and accept the result when it does. The group may choose a flexible rule even after noticing an inconsistency. You need not prove every story detail before enjoying the activity. A high count does not establish distrust, rigidity or superior judgement; a lower count does not mean that you are gullible, careless or unable to think through consequences.",
+              "zh": "约一个例子能答什么，答了就接结果。发现不一致后，小组仍可选弹性规则；不必证明每故事细节才享受活动。高计数不确立不信任、僵化或判断更高，低计数不表示易骗、粗心或不会想后果。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small rule check together",
+            "zh": "一起试一个小规则核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For a voluntary game, choose one unclear rule and write a single ordinary example. Ask the group to predict the outcome, try it and compare what happened with the wording. Decide together whether a revision is worth making. This gives feedback on one rule, not a reasoning score, an aptitude judgement or a reason to distrust someone whose preferred story style differs from yours.",
+              "zh": "自愿游戏选一条不清规则，写一个普通例子，问小组预期，试后比措辞，再共同决定值不值得改。反馈的是规则，不是推理分数、潜能判断，也不因故事风格不同就不信别人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "will-byers",
+      "directionIds": [
+        "will-byers"
+      ],
+      "title": {
+        "en": "Will Byers",
+        "zh": "威尔·拜尔斯"
+      },
+      "headline": {
+        "en": "Give the imagined world a visible mood",
+        "zh": "让想象世界的气氛可见"
+      },
+      "summary": {
+        "en": "Read Will Byers through give the imagined world a visible mood: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“让想象世界的气氛可见”阅读威尔·拜尔斯：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Will Byers Test Result: Give the imagined world a visible mood | Stranger Things",
+          "zh": "威尔·拜尔斯测试结果：让想象世界的气氛可见｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Will Byers through give the imagined world a visible mood: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“让想象世界的气氛可见”阅读威尔·拜尔斯：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Will’s selected angle",
+            "zh": "威尔的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Will Byers is named in the official Stranger Things ensemble. This edition selects visual atmosphere in a wholly original, harmless story. It does not use a character’s suffering, private identity, supernatural experiences or relationships to interpret you. Enjoying a scene’s colours and ordinary details cannot establish artistic talent, sensitivity, mental health or how much a real person understands an imagined world.",
+              "zh": "官方《怪奇物语》群像有威尔·拜尔斯。本版选完全原创无害故事的视觉气氛，不用人物痛苦、私密身份、超自然经历或关系解释你。喜欢颜色与普通细节，不能确立美术天分、敏感、心理健康或理解想象世界的程度。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary room with its own atmosphere",
+            "zh": "一间有自己气氛的普通屋子"
+          },
+          "paragraphs": [
+            {
+              "en": "The group has invented a peaceful room but only described its function. You add a quick picture of its light, shapes and a few everyday objects. That picture gives friends another way to enter the scene. It need not be technically accomplished or copied by everyone. A partner’s different image can coexist with yours without deciding whose interpretation is the true one.",
+              "zh": "小组编了一间平静屋子，只说用途。你快画光线、形状与日常物件，给朋友另一种进入场景的办法。不必技术高，也不必人人照画；伙伴不同画面可共存，不用决定哪个解读才真。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Atmosphere beside five other contributions",
+            "zh": "气氛与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven states her preference and Mike keeps the table connected. Dustin proposes an unexpected link, Lucas checks a rule and Max chooses a distinct route. Will’s selected angle helps the group picture what the invented place feels like. These contributions can appear together without ranking depth, emotional insight or artistic ability, and a lower visual count does not make another person’s story experience less meaningful.",
+              "zh": "小十一说偏好，迈克连桌边；达斯汀提意外连接，卢卡斯核规则，麦克斯另选路。威尔角度让虚构地方感觉可想象。可共存，不评深度、情绪洞察或美术；视觉次数低也不让别人的故事体验较少意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An image can invite rather than define",
+            "zh": "画面可以邀请，不必定义"
+          },
+          "paragraphs": [
+            {
+              "en": "Offer the drawing as one possibility and ask what details other people would add or change. A vivid scene can support play without freezing the world into a single author’s version. Keep the effort enjoyable and optional. A high count cannot establish introversion, exceptional empathy or a troubled history; a lower count does not mean that you lack depth, creativity or an inner life.",
+              "zh": "把图当一种可能，问别人想加改什么。鲜活场景能支持玩，不把世界冻成一人版本；投入仍应好玩、可选。高计数不确立内向、超强共情或困扰经历，低计数不表示浅、没创造或没有内在生活。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try three visual details, without an art score",
+            "zh": "试三个视觉细节，不评分美术"
+          },
+          "paragraphs": [
+            {
+              "en": "For one invented peaceful scene, choose three ordinary visual details and make a quick sketch or a short written description. Invite a friend to add one detail of their own. Notice whether the scene becomes easier to imagine together. You are testing a way of sharing atmosphere, not measuring drawing skill, diagnosing emotion or proving that one person is the group’s creative soul.",
+              "zh": "自编平静场景选三个普通视觉细节，快画或短写，请朋友加一个自己的细节；留意是否更容易共同想象。检验分享气氛的方法，不测画技、不诊断情绪，也不证明谁是小组创意灵魂。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "max-mayfield",
+      "directionIds": [
+        "max-mayfield"
+      ],
+      "title": {
+        "en": "Max Mayfield",
+        "zh": "麦克斯·梅菲尔德"
+      },
+      "headline": {
+        "en": "Choose a route that still feels yours",
+        "zh": "选一条仍属于自己的路"
+      },
+      "summary": {
+        "en": "Read Max Mayfield through choose a route that still feels yours: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“选一条仍属于自己的路”阅读麦克斯·梅菲尔德：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Max Mayfield Test Result: Choose a route that still feels yours | Stranger Things",
+          "zh": "麦克斯·梅菲尔德测试结果：选一条仍属于自己的路｜怪奇物语"
+        },
+        "description": {
+          "en": "Read Max Mayfield through choose a route that still feels yours: an original tabletop-story scene, five friend-group comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+          "zh": "从“选一条仍属于自己的路”阅读麦克斯·梅菲尔德：含原创桌面故事场景、五朋友比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Max’s selected angle",
+            "zh": "麦克斯的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Max Mayfield appears in Netflix’s official cast listing. This edition selects choosing a distinct route or role within a voluntary activity. It does not assess defiance, trauma, independence as a fixed trait, physical skill or a need to keep people at a distance. Your preferred route can remain connected to friends, and accepting a familiar role can be just as freely chosen as trying a different one.",
+              "zh": "Netflix官方名单有麦克斯·梅菲尔德。本版选自愿活动里不同路线、角色，不评反抗、创伤、固定独立特质、身体技能或与人隔开的需要。自己的路线仍可连朋友；接受熟悉角色也能与换新一样自愿。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A suggested role is still a suggestion",
+            "zh": "建议角色仍只是建议"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends assume you will play the role you had last time in their original story. You consider whether you actually want it again and offer an optional branch if another role interests you. Choosing differently need not reject the friends or make the shared activity fall apart. You can discuss how the new route meets the group again while keeping the choice genuinely yours.",
+              "zh": "朋友默认自编故事继续上次角色。你想是否真要再玩；若更喜欢别的，提可选分支。不同选择不用拒绝朋友或拆活动；可以讨论新路线怎样再会合，同时让选择真属于自己。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A distinct route beside five other contributions",
+            "zh": "自己的路与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Eleven voices a preference, Mike keeps a shared meeting point and Dustin invents an unusual connection. Lucas checks the rule while Will gives the scene a visual mood. Max’s selected angle explores a route that is not simply the first suggestion. These can coexist without ranking autonomy, toughness or authenticity, and a close count does not tell you to separate from people who enjoy a different path.",
+              "zh": "小十一说偏好，迈克留会合点，达斯汀编意外连接；卢卡斯核规则，威尔画气氛。麦克斯角度探索不只是首个建议的路。可共存，不评自主、坚硬或真实；近分也不要求与不同路的人分开。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Different is optional too",
+            "zh": "不同也应可选"
+          },
+          "paragraphs": [
+            {
+              "en": "Do not turn being different into another role you must keep performing. You can enjoy the group’s default choice, change your mind or ask for a smaller variation. A route is useful because it suits this activity now. A high count cannot establish rebelliousness, guardedness or superior independence; a lower count does not mean conformity, weakness or an inability to make your own decisions.",
+              "zh": "别把不同变成又一个必须演的角色。可以喜欢默认选择、改主意、只作小变；路线有用在现在适合。高计数不确立叛逆、防备或更独立，低计数不表示从众、软弱或不能决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an optional branch and a return point",
+            "zh": "试一个可选分支与返回点"
+          },
+          "paragraphs": [
+            {
+              "en": "In a small creative activity, choose one familiar role or route you might vary. Describe the alternative and a simple way to reconnect with the group, then ask whether you still want to try it. Afterwards, compare the experience with what you hoped for. This is feedback on a chosen variation, not a test of independence, a recommendation to withdraw or a rule that you must resist other people’s suggestions.",
+              "zh": "小创作活动选一个想变化的熟悉角色、路线，说替代与容易回小组的方法，再问是否仍想试。之后比体验与希望。这是变化反馈，不考独立，不建议退出，也不规定必须抵抗别人建议。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+              "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Finish all 18 situations. Every explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character appears 12 times, three times in each option position; an absent character is not rejected. All highest counts receive complete guides. All A gives three counts for every character and a six-way tie. These are choice counts within this bank, not match percentages, norms, intelligence, health, bravery or validated personality differences.",
+          "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次、每位置3次；没出现的人物不算被拒绝。所有最高都有全文；全选A每人3次，六方并列。次数只描述本题本，不是匹配百分比、常模、智力、健康、勇气或经验证人格差异。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Complete readings for every highest tie",
+        "zh": "每个最高并列都有全文"
+      },
+      "paragraphs": [
+        {
+          "en": "Every highest count appears together without fixed ordering selecting a favourite. A small gap is not a validated personality difference. Public guides let you compare close readings too. You may use several contributions in the same activity or disagree with any editorial comparison; none assigns a permanent role among friends.",
+          "zh": "所有最高一起显示，不按固定顺序选偏爱。小差距不是经验证人格差异；公开全文也可比较近分。一次活动可用多种贡献，也可不同意编辑比较；都不永久分派朋友角色。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "One selected friend group",
+        "zh": "一个选定朋友群像"
+      },
+      "paragraphs": [
+        {
+          "en": "The six readings are Eleven, Mike Wheeler, Dustin Henderson, Lucas Sinclair, Will Byers and Max Mayfield. Hopper, Joyce, Steve, Robin, Eddie and other characters are outside this selection. The bank contains no episode reconstruction, finale claims or cast-completeness claim. These original mappings do not reproduce another website’s result set or scoring.",
+          "zh": "六读法为小十一、迈克、达斯汀、卢卡斯、威尔与麦克斯；霍珀、乔伊斯、史蒂夫、罗宾、埃迪等不在集合。不重建剧集、不声称结局或覆盖全员；原创映射不复制别站结果集合、计分。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original fan edition",
+        "zh": "非官方原创同人版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+          "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices and optional sharing",
+        "zh": "私密选择与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without answer uploads or answers in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Sharing includes public character names and a link, never answers or counts. All complete guides are free without signup, email or an MBTI result. Optional next assessments serve separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不将答案放进网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。分享只有公开名称、链接，不含答案、次数。全文免费，无需注册、邮箱或MBTI结果；可选后续测评目的独立，须另答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Stranger Things characters are included?",
+        "zh": "包含哪些《怪奇物语》人物？"
+      },
+      "answer": {
+        "en": "Eleven, Mike Wheeler, Dustin Henderson, Lucas Sinclair, Will Byers and Max Mayfield, each with a complete bilingual guide. This is a selected friend-group edition, not the full ensemble or another site’s seven-character set.",
+        "zh": "小十一、迈克·惠勒、达斯汀·亨德森、卢卡斯·辛克莱、威尔·拜尔斯和麦克斯·梅菲尔德，各有完整双语说明。本版选朋友群像，不是全员或别站七人物集合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. Netflix’s public cast listing supports only the characters’ basic names and their connection to Stranger Things; it does not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, plot scenes or competitor questions and reports are reproduced. This entertainment comparison makes no clinical, health, identity, intelligence or supernatural claim and has no official affiliation.",
+        "zh": "费马独立创作本非官方同人版的情境、映射、例子和全文。Netflix公开演员名单只支持人物基本名称及与《怪奇物语》的关系，不验证本版角度或题本。名称属于各权利方，不复用剧照、台词、剧情场景或竞品题目报告。本娱乐比较不推断临床、健康、身份、智力或超自然，也无官方合作。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a character result reveal trauma, identity or supernatural ability?",
+        "zh": "人物结果揭示创伤、身份或超能力吗？"
+      },
+      "answer": {
+        "en": "No. Harmless story choices cannot establish trauma, diagnosis, health, sexuality, private identity, IQ, courage or powers. These are limited editorial comparisons, not clinical interpretations or predictions. No character’s suffering or dangerous actions are assigned to you, excused or recommended.",
+        "zh": "不能。无害故事选择无法确立创伤、诊断、健康、性取向、私密身份、IQ、勇气或超能力。结果是有限编辑比较，不是临床解释、预测；不把人物痛苦、危险行动赋给你，也不免责、推荐。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to know the plot or complete this quickly?",
+        "zh": "需要知道剧情或快速完成吗？"
+      },
+      "answer": {
+        "en": "No. The 18 original situations use a harmless, invented tabletop story and optional creative activity without episode trivia. Around five minutes is an editorial estimate, not a measured human benchmark or a speed requirement.",
+        "zh": "不需要。18原创情境都是无害自编桌面故事、可选创作，不考剧情。约5分钟是编辑估计，不是实测人类基准，也无速度要求。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are every question and full result free in both languages?",
+        "zh": "两语每题和全部全文免费吗？"
+      },
+      "answer": {
+        "en": "Yes, without signup, email or a previous MBTI assessment. Character identities and mappings stay stable across English and Chinese, though psychometric equivalence is not established. Optional next assessments require their own questions and never inherit a type from this quiz.",
+        "zh": "是，无需注册、邮箱或先测MBTI。两语人物身份、映射稳定，尚无心理测量等价证据。可选后续测评须独立答题，不继承本次类型。"
+      }
+    }
+  ]
+}

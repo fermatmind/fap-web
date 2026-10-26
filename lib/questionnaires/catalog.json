@@ -2370,5 +2370,32 @@
       "hawkeye"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "stranger-things",
+    "code": "STRANGER_THINGS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Stranger Things Test",
+      "zh": "《怪奇物语》角色测试"
+    },
+    "description": {
+      "en": "Try 18 original, harmless tabletop-story situations. Compare Eleven, Mike, Dustin, Lucas, Will and Max with all highest ties and six complete bilingual guides free. An unofficial friend-group fan edition without plot trivia.",
+      "zh": "完成18道原创无害桌面故事情境，比较小十一、迈克、达斯汀、卢卡斯、威尔与麦克斯。所有最高并列和六份双语全文免费。非官方朋友群像同人版，不考剧情。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_stranger_things_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "eleven",
+      "mike-wheeler",
+      "dustin-henderson",
+      "lucas-sinclair",
+      "will-byers",
+      "max-mayfield"
+    ],
+    "collection": "explore"
   }
 ]

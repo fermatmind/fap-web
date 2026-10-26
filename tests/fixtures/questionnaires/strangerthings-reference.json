@@ -1,0 +1,746 @@
+{
+  "id": "T123",
+  "version": "1.0.0",
+  "form": "fermatmind_stranger_things_original_18_v1",
+  "method": "Ownselectedsixfriendgroup;18originalharmlessinventedtabletopstory/bookletquestions72options;12exposures3perpositioneach. Explicitrawcounts/allhighestties. No copiedshowplot/IDRbank;no clinical/health/trauma/IQ/identity/magicassessment.",
+  "questions": [
+    {
+      "id": "STG_01",
+      "prompt": {
+        "en": "Friends invite you to a harmless, invented tabletop story. What would you most like to establish first?",
+        "zh": "朋友邀你参加无害的自编桌面故事，你最想先确定什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say which kind of story I actually want to take part in.",
+            "zh": "说出自己真正想参与哪种故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Help the group find an opening that everyone can enter together.",
+            "zh": "帮小组找一个大家能一起进入的开场。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest an odd, playful connection that could start an interesting mystery.",
+            "zh": "提一个古怪有趣的连接，开出有意思的谜题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Ask how the first proposed rule would work on the table.",
+            "zh": "问第一条提议规则在桌上怎样实际运作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_02",
+      "prompt": {
+        "en": "One friend has missed the beginning of a make-believe adventure. What would you enjoy doing?",
+        "zh": "一位朋友错过虚构冒险开头，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Bring them back into the shared plan without treating them as an interruption.",
+            "zh": "把对方接回共同计划，不当成打断。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Offer an amusing possible explanation for their character’s late arrival.",
+            "zh": "给角色迟到想个有趣的可能解释。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check what information they need to make their next game choice.",
+            "zh": "核对方还需什么信息才能作下一项游戏选择。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw a quick scene that shows where the story is now.",
+            "zh": "快画一个场景，展示故事现在到哪里。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_03",
+      "prompt": {
+        "en": "Your imaginary story contains an unexplained, completely harmless glowing sign. What appeals most?",
+        "zh": "虚构故事出现一块没解释、完全无害的发光招牌，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent a surprising connection between the sign and an earlier comic detail.",
+            "zh": "给招牌与早先喜剧细节想一个意外连接。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Try the proposed explanation against the story rules already agreed.",
+            "zh": "把提议解释与已约故事规则对照试一试。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Picture the colours and surroundings before deciding what the sign means.",
+            "zh": "先想颜色、周围样子，再决定招牌意义。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose whether my part of the story follows this clue or takes another route.",
+            "zh": "选择自己的故事部分跟线索，还是走另一条路。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_04",
+      "prompt": {
+        "en": "A new rule sounds exciting but nobody has tried it. What would you prefer?",
+        "zh": "新规则听起来精彩，却还没人试，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Run one ordinary example to see whether the rule works as described.",
+            "zh": "用一个普通例子，试规则是否按说明运作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Sketch what a turn using the new rule would look like.",
+            "zh": "画一下采用新规则的一回合会是什么样。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Decide whether I want that rule in the part of the game I join.",
+            "zh": "决定自己参加的部分是否想用这条规则。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "State plainly what I would need changed before trying it.",
+            "zh": "平实说试之前自己需要改什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_05",
+      "prompt": {
+        "en": "The group is inventing a peaceful place for its story to begin. What would you most enjoy?",
+        "zh": "小组为故事编一个平静起始地点，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw the place’s mood through a few shapes, colours and ordinary details.",
+            "zh": "用一些形状、颜色与日常细节画出地点气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Give my character a distinct route through the place rather than the default entrance.",
+            "zh": "给角色选一条不同路线，不一定走默认入口。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say what would make the setting comfortable and interesting for me.",
+            "zh": "说怎样设定会让自己舒服、有兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Make sure each friend has a way to contribute to the opening scene.",
+            "zh": "让每位朋友都有贡献开场的办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_06",
+      "prompt": {
+        "en": "Everyone suggests the same character role for you in the invented story. What would you prefer?",
+        "zh": "大家都建议你在自编故事中担同一个角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose the role I want, even if it takes a different route from their suggestion.",
+            "zh": "选自己想要的角色，即使不同于大家建议。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Explain my own preference in a simple sentence.",
+            "zh": "用简单一句话解释自己偏好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Find a way for my choice to stay connected with the friends’ shared story.",
+            "zh": "让自己选择仍能与朋友共同故事接上。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent a playful reason why an unexpected role could fit the world.",
+            "zh": "想个有趣理由，让意外角色也合世界。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_07",
+      "prompt": {
+        "en": "The next story scene is becoming a type of activity you do not enjoy. What contribution appeals most?",
+        "zh": "下一场故事逐渐变成自己不喜欢的活动，哪种贡献最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "Name what I would rather do and offer a possible alternative.",
+            "zh": "说自己更想做什么，并给一个可选替代。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Ask how the scene can keep the group together without forcing the same preference.",
+            "zh": "问怎样不强迫偏好相同，仍让小组连在一起。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Propose an unexpected comic turn that changes the scene’s direction.",
+            "zh": "提一个意外喜剧转折，换场景方向。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Test whether a small rule change would solve the practical problem.",
+            "zh": "试一个小规则改变，看看能否解实际问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_08",
+      "prompt": {
+        "en": "Two friends want to follow different paths in the imaginary town. What would you enjoy?",
+        "zh": "两位朋友想在虚构小镇走不同道路，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Agree how both paths can return to a shared meeting point.",
+            "zh": "约好两路怎样回到共同会合点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest a funny connection that makes both routes part of one little mystery.",
+            "zh": "想个有趣连接，让两路都是同一小谜题的一部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check how turns and information will work if the group splits the scene.",
+            "zh": "核分场景后，回合与信息怎样运作。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Draw the two paths so the group can picture their different atmospheres.",
+            "zh": "画两条路，让大家想象不同气氛。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_09",
+      "prompt": {
+        "en": "A friend combines two unrelated props in the original story. What would you most like to add?",
+        "zh": "朋友把自编故事两个不相干道具放一起，你最想加什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "A playful hypothesis about how the objects could belong to one surprising idea.",
+            "zh": "一个趣味假设，让物件同属一个意外点子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "A simple test of whether the proposed link fits what the group has established.",
+            "zh": "简单检验连接是否符合已建立设定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "A small illustration that makes the unusual combination feel vivid.",
+            "zh": "一幅小画，让奇特组合有鲜活感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "My own choice about whether that combination belongs in my character’s path.",
+            "zh": "自主选择这个组合是否进入角色路线。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_10",
+      "prompt": {
+        "en": "The group cannot tell whether an invented clue follows its own rules. What would you prefer?",
+        "zh": "小组不确定自编线索是否遵守自己规则，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Compare one concrete example with the agreed rule before adding more explanation.",
+            "zh": "再加解释前，先用一个具体例子对照约定规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Lay out the scene visually so the relevant details are easier to see.",
+            "zh": "把场景画出来，让相关细节容易看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Decide how much of this puzzle I want my part of the story to involve.",
+            "zh": "决定自己的故事部分想涉及多少这个谜题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say clearly which part I do not understand yet.",
+            "zh": "清楚说自己哪部分还没理解。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_11",
+      "prompt": {
+        "en": "Your friends are making a small illustrated booklet of their own adventure. Which contribution attracts you?",
+        "zh": "朋友为自编冒险做一本小绘本，哪种贡献吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Create a picture that gives an ordinary story moment its particular mood.",
+            "zh": "画一张图，让普通故事时刻有独特气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose a personal page style rather than copying the group’s first example.",
+            "zh": "选自己页风格，不照小组第一个样例。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "Explain what I want my page to say in my own words.",
+            "zh": "用自己的话说这一页想表达什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Keep the pages connected so each friend’s contribution has a place.",
+            "zh": "接好各页，让每位朋友贡献都有位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_12",
+      "prompt": {
+        "en": "There is a popular suggested ending, but another ending interests you more. What would you prefer?",
+        "zh": "大家喜欢一种结尾，自己却更喜欢另一种，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Explore my preferred ending as an optional branch.",
+            "zh": "把自己喜欢结尾当可选分支探索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Say openly which ending I would choose and why.",
+            "zh": "公开说自己选哪种结尾、为什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Help the group discuss an ending that leaves everyone connected to the activity.",
+            "zh": "帮小组讨论让大家仍与活动连着的结尾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Invent an amusing third possibility nobody has considered yet.",
+            "zh": "编一个没人想到的有趣第三可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_13",
+      "prompt": {
+        "en": "A story partner asks what would make the next session better for you. What would you most enjoy offering?",
+        "zh": "故事伙伴问下次怎样会更适合自己，你最喜欢提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eleven",
+          "label": {
+            "en": "A direct statement of one thing I would like to change or include.",
+            "zh": "直接说一件自己想改或想加的事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "A suggestion for keeping invitations open to all our friends.",
+            "zh": "一个让邀请仍向各位朋友开放的建议。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "A curious what-if question that could spark a new adventure idea.",
+            "zh": "一个好奇的“如果”，开出新冒险点子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "A practical example showing how a rule could be easier to use.",
+            "zh": "一个实际例子，让规则更好用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_14",
+      "prompt": {
+        "en": "Your tabletop group is restarting after a long gap. What would you prefer?",
+        "zh": "桌面故事小组隔了很久重新开始，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Reconnect the friends and agree how to enter the shared story again.",
+            "zh": "重新连上朋友，约好怎样再进入共同故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Find an entertaining new connection to an old, harmless story detail.",
+            "zh": "给过去无害细节找到有趣新连接。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Check which rules everyone still wants to use before the first turn.",
+            "zh": "第一回合前，核哪些规则大家仍想用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Make a brief scene drawing that brings back the world’s atmosphere.",
+            "zh": "画个短场景，让世界气氛回来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_15",
+      "prompt": {
+        "en": "A surprising idea might change the fictional world’s everyday routine. What appeals most?",
+        "zh": "意外点子可能改变虚构世界日常，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Explore a playful explanation that makes the strange idea fun to discuss.",
+            "zh": "探索一个趣味解释，让奇怪点子好讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Try one everyday consequence to see whether the explanation holds up.",
+            "zh": "试一个日常后果，核解释能否成立。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Imagine what the changed place would look and feel like.",
+            "zh": "想象改变后的地方看起来、感觉怎样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose a distinct way for my character to respond rather than following the default.",
+            "zh": "给角色选独特回应，不一定走默认做法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_16",
+      "prompt": {
+        "en": "Before sharing a wholly original story booklet with friends, what would you most like to check?",
+        "zh": "把完全原创故事绘本给朋友看前，你最想核什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lucas-sinclair",
+          "label": {
+            "en": "Whether one example actually follows the rules the booklet explains.",
+            "zh": "一个例子是否真遵守绘本解释的规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Whether a drawing carries the mood we wanted for its scene.",
+            "zh": "一张图是否带出想要的场景气氛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Whether my part still feels like a choice I am happy to stand by.",
+            "zh": "自己部分是否仍是愿意认可的选择。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eleven",
+          "label": {
+            "en": "Whether I have said clearly what I want readers to understand from my part.",
+            "zh": "是否说清自己希望读者理解什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_17",
+      "prompt": {
+        "en": "A friend describes an ordinary room in your invented town. What would you enjoy adding?",
+        "zh": "朋友描述虚构小镇一间普通屋子，你喜欢加什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "will-byers",
+          "label": {
+            "en": "Visual details that make this particular room feel lived in and distinctive.",
+            "zh": "视觉细节，让这间屋子有生活感、独特感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "A different route or use for the room that suits my character’s preference.",
+            "zh": "一个适合角色偏好的不同路线或用法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eleven",
+          "label": {
+            "en": "A clear statement about the part of the scene I want to play.",
+            "zh": "清楚说想参与场景哪部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "An opening that lets another friend join the room’s scene too.",
+            "zh": "一个让另一朋友也能加入屋内场景的入口。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "STG_18",
+      "prompt": {
+        "en": "The adventure is ending and the group offers you a familiar role next time. What would you prefer?",
+        "zh": "冒险将结束，小组建议下次继续熟悉角色，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "max-mayfield",
+          "label": {
+            "en": "Choose again based on what I want next time, rather than treating the role as fixed.",
+            "zh": "按下次想要的重新选择，不把角色固定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eleven",
+          "label": {
+            "en": "Tell the group plainly what I would enjoy trying instead.",
+            "zh": "平实告诉小组自己更想试什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mike-wheeler",
+          "label": {
+            "en": "Keep a place in the shared activity while the details of my role change.",
+            "zh": "角色细节变时，仍在共同活动留位置。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dustin-henderson",
+          "label": {
+            "en": "Suggest a surprising new story possibility that makes a change enjoyable.",
+            "zh": "提一个意外新故事可能，让变化有趣。"
+          }
+        }
+      ]
+    }
+  ]
+}
