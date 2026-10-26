@@ -1,0 +1,807 @@
+{
+  "formCode": "fm_philosopher_reading_choices_18",
+  "origin": "FermatMindoriginal18philosophical-inquirychoices/6independentclassicalreadingassociations/notJobSixThinkersorIDR7/personalitysimulation-orcomprehensivephilosophyexam",
+  "directions": [
+    {
+      "id": "socrates",
+      "title": {
+        "zh": "苏格拉底：检视所声称知道的事",
+        "en": "Socrates: Examining Claims to Knowledge"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "aristotle",
+      "title": {
+        "zh": "亚里士多德：在具体处境中练习判断",
+        "en": "Aristotle: Practising Judgment in Particulars"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "confucius",
+      "title": {
+        "zh": "孔子：在学习与相处中反省实践",
+        "en": "Confucius: Reflective Learning in Relationships"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "laozi",
+      "title": {
+        "zh": "老子：审视多余的强行安排",
+        "en": "Laozi: Questioning Unnecessary Forcing"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "epicurus",
+      "title": {
+        "zh": "伊壁鸠鲁：辨别欲望与可持续的满足",
+        "en": "Epicurus: Considering Desires and Their Costs"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "epictetus",
+      "title": {
+        "zh": "爱比克泰德：分开自身判断与外在结果",
+        "en": "Epictetus: Separating Judgment from Outcomes"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "PHIL_01",
+      "prompt": {
+        "zh": "朋友说某个活动安排“很公平”，你更想先沿哪条思路讨论？",
+        "en": "A friend calls an activity arrangement fair. Which line of inquiry would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问公平具体指什么，哪些例子会推翻这个说法",
+            "en": "Ask what fair means and which examples would challenge the claim"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看反复照这样行动会养成什么做法，是否适合具体处境",
+            "en": "Consider the practice repeated actions build and whether it fits the circumstances"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想想参与者之间有哪些相互尊重与守信的要求",
+            "en": "Consider mutual respect and trustworthiness among the participants"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看所求的好处是否值得随之增加的麻烦与欲望",
+            "en": "Consider whether the desired benefit is worth its added trouble and wants"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_02",
+      "prompt": {
+        "zh": "一个读书小组想把讨论变得更好，你更愿意提出什么理由？",
+        "en": "A reading group wants better discussions. Which reason would you offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "好的讨论需要在每次交谈里练习合宜的判断",
+            "en": "Good discussion calls for practising appropriate judgment in each conversation"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "学习不只收集观点，也要反省自己怎样回应同伴",
+            "en": "Learning includes examining how we respond to companions rather than collecting views"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "也许先少加几条控制发言的规则，看看会怎样",
+            "en": "Perhaps remove some attempts to control contributions and observe what happens"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先分开我能认真表达的部分与别人是否同意的结果",
+            "en": "Separate expressing my view carefully from whether others agree"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_03",
+      "prompt": {
+        "zh": "有人把礼貌理解成永远附和，你更想怎样回应？",
+        "en": "Someone equates courtesy with always agreeing. How would you approach that?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "礼与相处需要真诚和反省，不能只剩表面附和",
+            "en": "Courtesy in relationships needs sincerity and reflection rather than surface agreement"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看是否为了维持一种样子而过度安排彼此",
+            "en": "Ask whether maintaining appearances leads to excessive interference"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想想追求赞许会带来哪些不断追加的需要",
+            "en": "Consider what further wants follow from pursuing approval"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先检验永远附和是否真的等于礼貌，以及反例是什么",
+            "en": "Examine whether agreement always equals courtesy and look for counterexamples"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_04",
+      "prompt": {
+        "zh": "为一个轻松周末定下许多目标后，你更想考虑哪种问题？",
+        "en": "After setting many goals for a relaxed weekend, which question interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些刻意添加的安排反而妨碍了活动自然展开",
+            "en": "Which contrived arrangements get in the way of the activity unfolding"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些愿望是需要，哪些只会继续抬高满足的门槛",
+            "en": "Which desires meet needs and which keep raising the threshold of satisfaction"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些选择与努力属于自己，哪些结果不能保证",
+            "en": "Which choices and efforts are mine and which outcomes cannot be guaranteed"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样的安排在这个具体周末既不过度也不不足",
+            "en": "Which arrangement fits this particular weekend without excess or deficiency"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_05",
+      "prompt": {
+        "zh": "看到一件有趣但并不需要的小物，你更想先思考？",
+        "en": "You notice an appealing object you do not need. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拥有它的乐趣与之后的维护、惦记是否相称",
+            "en": "Whether its enjoyment is worth the upkeep and further wanting"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想要与决定如何行动属于我，但别人怎样评价不由我决定",
+            "en": "My desire and chosen action are mine, while others’ evaluations are not"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我说自己需要它时，需要这个词到底指什么",
+            "en": "What I mean when I claim to need it"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这个选择会怎样影响与共同使用空间的人守约相处",
+            "en": "How the choice affects keeping agreements with people sharing the space"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_06",
+      "prompt": {
+        "zh": "一份认真准备的小展示没有得到预期回应，你更想讨论？",
+        "en": "A carefully prepared small display gets an unexpected response. What would you examine?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的判断和行动与无法保证的回应之间的区别",
+            "en": "The difference between my judgment and actions and a response I cannot guarantee"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "什么依据让我们认定这次一定不成功",
+            "en": "The grounds for calling it an unsuccessful attempt"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些具体做法值得继续练习，而非只盯一次结果",
+            "en": "Which particular practices deserve repetition rather than judging only one outcome"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "是不是增加更多控制反应的安排反而使事情更僵",
+            "en": "Whether adding attempts to control reactions would make the situation more rigid"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_07",
+      "prompt": {
+        "zh": "有人说“只要知识够多，人就会做得好”，你更想问？",
+        "en": "Someone says enough knowledge ensures good action. Which response would you explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这个说法中的知识与做得好各指什么，反例在哪",
+            "en": "What knowledge and good action mean here and where counterexamples lie"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "知道说法与在具体行动中反复养成合宜做法是否相同",
+            "en": "Whether knowing an account equals developing appropriate practice through repeated action"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "学与思是否都参与其中，日常相处是否体现所学",
+            "en": "Whether learning and reflection both matter and appear in everyday relationships"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "更多知识带来的追求是否真让生活更易满足",
+            "en": "Whether the pursuits added by more knowledge make life easier to satisfy"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_08",
+      "prompt": {
+        "zh": "社区讨论一个大家遵循已久的小习惯，你更想从哪里看？",
+        "en": "A community discusses a long-standing small custom. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在今天的具体情形里，这个做法是否仍然合宜",
+            "en": "Whether the practice remains appropriate to today’s particulars"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它是否在实际相处中保留真诚、尊重和反省",
+            "en": "Whether it supports sincerity, respect and reflection in actual relationships"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是否把可自然调整的事情用过多干预固定下来",
+            "en": "Whether too much intervention fixes what could adjust without forcing"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我如何判断和选择是一回事，别人是否改变是另一回事",
+            "en": "My judgment and choice are one matter; whether others change is another"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_09",
+      "prompt": {
+        "zh": "和朋友约定共同学习，你更重视讨论哪一点？",
+        "en": "When agreeing to learn with a friend, which point would you examine?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "学习也要落实为彼此守信与愿意反省的相处",
+            "en": "Learning should appear in trustworthy, reflective dealings with one another"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "少一些强行统一进度，是否反而容得下各自学习",
+            "en": "Whether less forced uniformity in pace leaves more room for learning"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "计划满足了实际需要，还是不断制造更多要完成的事",
+            "en": "Whether the plan meets needs or keeps creating more things to want completed"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我们为何认为相同进度就等于学得好",
+            "en": "Why we assume identical progress means learning well"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_10",
+      "prompt": {
+        "zh": "整理一个本来已经能用的空间时，你更想思考？",
+        "en": "While rearranging a space that already works, what would you consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些改动是在强求理想样子，是否可以少做一点",
+            "en": "Which changes force an ideal appearance and whether less intervention would suffice"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新增物品带来的乐趣与额外负担是否值得",
+            "en": "Whether the enjoyment of added objects is worth their further burden"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我能选择怎样整理，但无法决定所有人的观感",
+            "en": "I can choose my arrangement without determining everyone’s impressions"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "针对这里的人与用途，怎样才是合宜而非机械折中",
+            "en": "What fits these people and uses rather than a mechanical compromise"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_11",
+      "prompt": {
+        "zh": "有人把享受生活理解成不断增加刺激，你更愿意讨论？",
+        "en": "Someone equates enjoying life with continually adding stimulation. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每一种快乐是否都值得选择，要看随后带来的影响",
+            "en": "Whether every pleasure is worth choosing given what follows"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我们如何面对自己的欲望，与能否得到每个结果并非一回事",
+            "en": "How we approach desires differs from obtaining every outcome"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "享受这个词是否只有增加刺激这一种解释",
+            "en": "Whether enjoyment has only this interpretation of increasing stimulation"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我们怎样相待与履行约定，也属于生活中需要反省的部分",
+            "en": "How we treat one another and keep agreements also calls for reflection"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_12",
+      "prompt": {
+        "zh": "轻松活动因天气改变计划，你更想沿哪条思路回应？",
+        "en": "Weather changes plans for a relaxed activity. Which reasoning appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把可以重新选择的行动与无法决定的天气分开",
+            "en": "Separate actions available for renewed choice from weather I cannot determine"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问原本最重要的目的是什么，是否只有一个实现方式",
+            "en": "Ask what purpose mattered and whether it has only one possible form"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "根据实际条件调整合宜做法，不套用同一固定答案",
+            "en": "Adjust appropriate practice to particulars rather than apply one fixed answer"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "少强求原安排，看看现有条件允许什么展开",
+            "en": "Reduce the forcing of the original arrangement and see what conditions allow"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_13",
+      "prompt": {
+        "zh": "一个讨论里大家都说“这很显然”，你最想先做？",
+        "en": "Everyone in a discussion calls something obvious. What would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家说清依据，承认哪些部分其实还不知道",
+            "en": "Ask for grounds and acknowledge what remains unknown"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看这种判断落实为行动时，在具体情境里是否合宜",
+            "en": "Examine whether this judgment leads to appropriate action in the particular case"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "反省自己是否认真听和学，而不只是跟着附和",
+            "en": "Reflect on whether I listened and learned rather than merely agreed"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看追求立即确定的满足是否引出更多不必要的困扰",
+            "en": "Consider whether wanting immediate certainty adds unnecessary trouble"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_14",
+      "prompt": {
+        "zh": "朋友想用一条规则处理所有小分歧，你更想提醒？",
+        "en": "A friend wants one rule for every minor disagreement. What would you raise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "具体人、时间和目的不同，合宜做法不能只是同一个中点",
+            "en": "Different people, times and purposes call for more than an identical midpoint"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "相处中的真诚和尊重需要反省，不能只靠形式",
+            "en": "Sincerity and respect in relationships require reflection rather than form alone"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "过多规定是否正让本可缓和的事情更难展开",
+            "en": "Whether excessive prescription hinders a situation that could ease without forcing"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己的判断可以检视，但他人怎样回应不能完全支配",
+            "en": "I can examine my judgment without fully commanding others’ responses"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_15",
+      "prompt": {
+        "zh": "你想理解一项承诺的意义，更愿意从哪一点开始？",
+        "en": "To understand a commitment, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看守信怎样落实在具体相处中，而不止说得好听",
+            "en": "Examine how trustworthiness appears in relationships rather than appealing words"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看是否加了过多控制别人行为的条件",
+            "en": "Consider whether too many conditions attempt to control others"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想清追求这项承诺的回报会不会带来更多难满足的欲望",
+            "en": "Consider whether seeking its rewards creates further difficult-to-satisfy desires"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先澄清我们承诺的到底是什么，以及不知道哪些后果",
+            "en": "Clarify what was promised and which consequences remain unknown"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_16",
+      "prompt": {
+        "zh": "面对一个可以简化的小仪式，你更想问？",
+        "en": "A small ritual could be simplified. Which question appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些繁复安排只是刻意维持表象，可以少强求",
+            "en": "Which elaborate arrangements force an appearance and could be reduced"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "简化后是否仍满足真实需要，同时减少持续追逐的负担",
+            "en": "Whether simplicity meets needs while reducing the burden of continued pursuit"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我能怎样作判断和参与，与他人如何评价是不同部分",
+            "en": "How I judge and participate differs from others’ evaluations"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对于这些参与者，怎样保留合宜意义而不过与不及",
+            "en": "What preserves appropriate meaning for these participants without excess or deficiency"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_17",
+      "prompt": {
+        "zh": "别人邀请你追求一个看起来很精彩的额外目标，你先想？",
+        "en": "Someone invites you to pursue an impressive extra goal. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得追求的不只看眼前乐趣，还要衡量伴随的负担",
+            "en": "Worthwhile pursuit includes considering accompanying burdens rather than immediate enjoyment alone"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己可以选择投入什么，却不能保证赞许和成功",
+            "en": "I can choose my contribution without guaranteeing praise or success"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "精彩的标准是什么，有什么理由把它当成自己的目标",
+            "en": "What makes it impressive and why it should become my aim"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现有的承诺与相处需要怎样被诚实对待",
+            "en": "How existing commitments and relationships can be treated sincerely"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_18",
+      "prompt": {
+        "zh": "一次日常选择需要收尾，你更愿意用哪种问题回顾？",
+        "en": "To review an ordinary choice, which question would you use?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我是否认真处理了自己的判断与行动，而未假定能支配所有结果",
+            "en": "Whether I considered my judgment and actions without assuming command of every outcome"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我原先声称知道什么，哪些说法经不起追问",
+            "en": "What I claimed to know and which claims did not withstand inquiry"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在这件具体事上，我反复练习的做法是否合宜",
+            "en": "Whether the practice I repeated was appropriate in this particular situation"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些强行推动其实可以放下，让事情少受干预",
+            "en": "Which attempts at forcing could be reduced to leave the situation less constrained"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "rule": "full18/onechoiceonecount/6readingassociations12exposure3eachposition/allhighestties/nosecondarypercentile-realpersonality-similarity-career-health-belief-nationality-orabilityverdict",
+    "verificationPlan": "exactreachable6countsourceDPandhighestsetsnotyetexecuted/runtimecomparisonpending/not4^18individualanswersorpsychvalidation"
+  },
+  "scope": {
+    "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+    "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+  },
+  "instructions": {
+    "zh": "按你目前更想优先考虑的思路完成18道原创四选一，不选哪个哲学家更有名或哪句更高尚。六个阅读联想各出现12次，每个位置3次；每次选择加1，0反向。全部完成才看相对次数与全部最高并列，不硬派主副型或相似度百分比。选项是当代阅读提示，不声称原哲学家会这样答题，也不等于赞同他们的完整思想。可以直接先读六份全文或退出。",
+    "en": "Complete eighteen original choices using the line of inquiry you currently want to consider first rather than the most famous name or noblest-sounding sentence. Six reading associations each appear twelve times and three times in each position. Each choice adds one count with no reverse keys. Complete the set for relative counts and every highest tie without a forced secondary type or similarity percentage. Options are contemporary reading prompts, not answers attributed to the historical philosophers or endorsements of their whole systems. You may read all six full guides first or leave."
+  }
+}

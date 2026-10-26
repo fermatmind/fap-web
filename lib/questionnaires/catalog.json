@@ -1433,5 +1433,32 @@
       "quiet-imaginer",
       "welcoming-companion"
     ]
+  },
+  {
+    "slug": "philosopher-personality-test",
+    "code": "PHILOSOPHER_READING_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "哲学家性格测试",
+      "en": "Which Philosopher Are You?"
+    },
+    "description": {
+      "zh": "免费哲学家性格测试：18道原创思路选择，比较六个原典阅读入口。完整结果、计分和全部最高并列直接读，不模拟历史人物性格或判断智力、道德和职业。",
+      "en": "Which philosopher are you? Explore six classical reading associations through 18 original choices. Full results and highest ties free, without personality claims."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_philosopher_reading_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "socrates",
+      "aristotle",
+      "confucius",
+      "laozi",
+      "epicurus",
+      "epictetus"
+    ]
   }
 ]

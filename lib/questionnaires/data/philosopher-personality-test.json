@@ -1,0 +1,1911 @@
+{
+  "slug": "philosopher-personality-test",
+  "code": "PHILOSOPHER_READING_REFLECTION",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "哲学家性格测试",
+    "en": "Which Philosopher Are You?"
+  },
+  "resultHeading": {
+    "zh": "六个哲学阅读入口与全部最高并列",
+    "en": "Six philosophical reading entrances and every highest tie"
+  },
+  "description": {
+    "zh": "免费哲学家性格测试：18道原创思路选择，比较六个原典阅读入口。完整结果、计分和全部最高并列直接读，不模拟历史人物性格或判断智力、道德和职业。",
+    "en": "Which philosopher are you? Explore six classical reading associations through 18 original choices. Full results and highest ties free, without personality claims."
+  },
+  "seoTitle": {
+    "zh": "哲学家性格测试：18题与六份完整结果",
+    "en": "Which Philosopher Are You? Free Quiz & Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "面对一个普通问题，你更想先检视定义、考虑具体合宜、反省学习与相处、减少多余强求、辨别追求及代价，还是分开自身判断与外在结果？本版以18道原创四选一提供六个哲学阅读入口：苏格拉底、亚里士多德、孔子、老子、伊壁鸠鲁和爱比克泰德。名称只关联所选原典中的一个问题，不替古人答题，不测试你像不像真实人物，也不代表赞同完整学说。全部作答后看相对次数和所有最高并列，六份完整说明也可先读。",
+    "en": "When considering an ordinary question, would you first examine meanings, consider appropriate practice, reflect on learning and relationships, reduce forcing, weigh desires and consequences, or distinguish judgment from outcomes? Eighteen original choices offer six reading entrances: Socrates, Aristotle, Confucius, Laozi, Epicurus and Epictetus. Each name associates with a selected question in primary texts rather than supplying historical answers, testing personal resemblance or endorsing an entire doctrine. Complete the set for relative counts and every highest tie, or read all six full guides first."
+  },
+  "instructions": {
+    "zh": "按你目前更想优先考虑的思路完成18道原创四选一，不选哪个哲学家更有名或哪句更高尚。六个阅读联想各出现12次，每个位置3次；每次选择加1，0反向。全部完成才看相对次数与全部最高并列，不硬派主副型或相似度百分比。选项是当代阅读提示，不声称原哲学家会这样答题，也不等于赞同他们的完整思想。可以直接先读六份全文或退出。",
+    "en": "Complete eighteen original choices using the line of inquiry you currently want to consider first rather than the most famous name or noblest-sounding sentence. Six reading associations each appear twelve times and three times in each position. Each choice adds one count with no reverse keys. Complete the set for relative counts and every highest tie without a forced secondary type or similarity percentage. Options are contemporary reading prompts, not answers attributed to the historical philosophers or endorsements of their whole systems. You may read all six full guides first or leave."
+  },
+  "source": {
+    "kind": "FermatMindoriginal18philosophical-inquirychoices/6independentclassicalreadingassociations/notJobSixThinkersorIDR7/personalitysimulation-orcomprehensivephilosophyexam",
+    "formCode": "fm_philosopher_reading_choices_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f8e2066366f95d52ca7760a41d225dac8f39dc0baca972717161008cdae84059",
+    "resultContentSha256": "5aee693508f48b5fb4e33d2d3c04b8ad4f6b895560fca665e922b7074322b073",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "socrates",
+      "title": {
+        "zh": "苏格拉底：检视所声称知道的事",
+        "en": "Socrates: Examining Claims to Knowledge"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "aristotle",
+      "title": {
+        "zh": "亚里士多德：在具体处境中练习判断",
+        "en": "Aristotle: Practising Judgment in Particulars"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "confucius",
+      "title": {
+        "zh": "孔子：在学习与相处中反省实践",
+        "en": "Confucius: Reflective Learning in Relationships"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "laozi",
+      "title": {
+        "zh": "老子：审视多余的强行安排",
+        "en": "Laozi: Questioning Unnecessary Forcing"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "epicurus",
+      "title": {
+        "zh": "伊壁鸠鲁：辨别欲望与可持续的满足",
+        "en": "Epicurus: Considering Desires and Their Costs"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "epictetus",
+      "title": {
+        "zh": "爱比克泰德：分开自身判断与外在结果",
+        "en": "Epictetus: Separating Judgment from Outcomes"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "PHIL_01",
+      "prompt": {
+        "zh": "朋友说某个活动安排“很公平”，你更想先沿哪条思路讨论？",
+        "en": "A friend calls an activity arrangement fair. Which line of inquiry would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先问公平具体指什么，哪些例子会推翻这个说法",
+            "en": "Ask what fair means and which examples would challenge the claim"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看反复照这样行动会养成什么做法，是否适合具体处境",
+            "en": "Consider the practice repeated actions build and whether it fits the circumstances"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想想参与者之间有哪些相互尊重与守信的要求",
+            "en": "Consider mutual respect and trustworthiness among the participants"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看所求的好处是否值得随之增加的麻烦与欲望",
+            "en": "Consider whether the desired benefit is worth its added trouble and wants"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_02",
+      "prompt": {
+        "zh": "一个读书小组想把讨论变得更好，你更愿意提出什么理由？",
+        "en": "A reading group wants better discussions. Which reason would you offer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "好的讨论需要在每次交谈里练习合宜的判断",
+            "en": "Good discussion calls for practising appropriate judgment in each conversation"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "学习不只收集观点，也要反省自己怎样回应同伴",
+            "en": "Learning includes examining how we respond to companions rather than collecting views"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "也许先少加几条控制发言的规则，看看会怎样",
+            "en": "Perhaps remove some attempts to control contributions and observe what happens"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先分开我能认真表达的部分与别人是否同意的结果",
+            "en": "Separate expressing my view carefully from whether others agree"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_03",
+      "prompt": {
+        "zh": "有人把礼貌理解成永远附和，你更想怎样回应？",
+        "en": "Someone equates courtesy with always agreeing. How would you approach that?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "礼与相处需要真诚和反省，不能只剩表面附和",
+            "en": "Courtesy in relationships needs sincerity and reflection rather than surface agreement"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看是否为了维持一种样子而过度安排彼此",
+            "en": "Ask whether maintaining appearances leads to excessive interference"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想想追求赞许会带来哪些不断追加的需要",
+            "en": "Consider what further wants follow from pursuing approval"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先检验永远附和是否真的等于礼貌，以及反例是什么",
+            "en": "Examine whether agreement always equals courtesy and look for counterexamples"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_04",
+      "prompt": {
+        "zh": "为一个轻松周末定下许多目标后，你更想考虑哪种问题？",
+        "en": "After setting many goals for a relaxed weekend, which question interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些刻意添加的安排反而妨碍了活动自然展开",
+            "en": "Which contrived arrangements get in the way of the activity unfolding"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些愿望是需要，哪些只会继续抬高满足的门槛",
+            "en": "Which desires meet needs and which keep raising the threshold of satisfaction"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些选择与努力属于自己，哪些结果不能保证",
+            "en": "Which choices and efforts are mine and which outcomes cannot be guaranteed"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样的安排在这个具体周末既不过度也不不足",
+            "en": "Which arrangement fits this particular weekend without excess or deficiency"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_05",
+      "prompt": {
+        "zh": "看到一件有趣但并不需要的小物，你更想先思考？",
+        "en": "You notice an appealing object you do not need. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拥有它的乐趣与之后的维护、惦记是否相称",
+            "en": "Whether its enjoyment is worth the upkeep and further wanting"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "想要与决定如何行动属于我，但别人怎样评价不由我决定",
+            "en": "My desire and chosen action are mine, while others’ evaluations are not"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我说自己需要它时，需要这个词到底指什么",
+            "en": "What I mean when I claim to need it"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这个选择会怎样影响与共同使用空间的人守约相处",
+            "en": "How the choice affects keeping agreements with people sharing the space"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_06",
+      "prompt": {
+        "zh": "一份认真准备的小展示没有得到预期回应，你更想讨论？",
+        "en": "A carefully prepared small display gets an unexpected response. What would you examine?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己的判断和行动与无法保证的回应之间的区别",
+            "en": "The difference between my judgment and actions and a response I cannot guarantee"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "什么依据让我们认定这次一定不成功",
+            "en": "The grounds for calling it an unsuccessful attempt"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "哪些具体做法值得继续练习，而非只盯一次结果",
+            "en": "Which particular practices deserve repetition rather than judging only one outcome"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "是不是增加更多控制反应的安排反而使事情更僵",
+            "en": "Whether adding attempts to control reactions would make the situation more rigid"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_07",
+      "prompt": {
+        "zh": "有人说“只要知识够多，人就会做得好”，你更想问？",
+        "en": "Someone says enough knowledge ensures good action. Which response would you explore?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "这个说法中的知识与做得好各指什么，反例在哪",
+            "en": "What knowledge and good action mean here and where counterexamples lie"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "知道说法与在具体行动中反复养成合宜做法是否相同",
+            "en": "Whether knowing an account equals developing appropriate practice through repeated action"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "学与思是否都参与其中，日常相处是否体现所学",
+            "en": "Whether learning and reflection both matter and appear in everyday relationships"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "更多知识带来的追求是否真让生活更易满足",
+            "en": "Whether the pursuits added by more knowledge make life easier to satisfy"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_08",
+      "prompt": {
+        "zh": "社区讨论一个大家遵循已久的小习惯，你更想从哪里看？",
+        "en": "A community discusses a long-standing small custom. Where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "在今天的具体情形里，这个做法是否仍然合宜",
+            "en": "Whether the practice remains appropriate to today’s particulars"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "它是否在实际相处中保留真诚、尊重和反省",
+            "en": "Whether it supports sincerity, respect and reflection in actual relationships"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "是否把可自然调整的事情用过多干预固定下来",
+            "en": "Whether too much intervention fixes what could adjust without forcing"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我如何判断和选择是一回事，别人是否改变是另一回事",
+            "en": "My judgment and choice are one matter; whether others change is another"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_09",
+      "prompt": {
+        "zh": "和朋友约定共同学习，你更重视讨论哪一点？",
+        "en": "When agreeing to learn with a friend, which point would you examine?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "学习也要落实为彼此守信与愿意反省的相处",
+            "en": "Learning should appear in trustworthy, reflective dealings with one another"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "少一些强行统一进度，是否反而容得下各自学习",
+            "en": "Whether less forced uniformity in pace leaves more room for learning"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "计划满足了实际需要，还是不断制造更多要完成的事",
+            "en": "Whether the plan meets needs or keeps creating more things to want completed"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我们为何认为相同进度就等于学得好",
+            "en": "Why we assume identical progress means learning well"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_10",
+      "prompt": {
+        "zh": "整理一个本来已经能用的空间时，你更想思考？",
+        "en": "While rearranging a space that already works, what would you consider?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些改动是在强求理想样子，是否可以少做一点",
+            "en": "Which changes force an ideal appearance and whether less intervention would suffice"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "新增物品带来的乐趣与额外负担是否值得",
+            "en": "Whether the enjoyment of added objects is worth their further burden"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我能选择怎样整理，但无法决定所有人的观感",
+            "en": "I can choose my arrangement without determining everyone’s impressions"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "针对这里的人与用途，怎样才是合宜而非机械折中",
+            "en": "What fits these people and uses rather than a mechanical compromise"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_11",
+      "prompt": {
+        "zh": "有人把享受生活理解成不断增加刺激，你更愿意讨论？",
+        "en": "Someone equates enjoying life with continually adding stimulation. What interests you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "每一种快乐是否都值得选择，要看随后带来的影响",
+            "en": "Whether every pleasure is worth choosing given what follows"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我们如何面对自己的欲望，与能否得到每个结果并非一回事",
+            "en": "How we approach desires differs from obtaining every outcome"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "享受这个词是否只有增加刺激这一种解释",
+            "en": "Whether enjoyment has only this interpretation of increasing stimulation"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "我们怎样相待与履行约定，也属于生活中需要反省的部分",
+            "en": "How we treat one another and keep agreements also calls for reflection"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_12",
+      "prompt": {
+        "zh": "轻松活动因天气改变计划，你更想沿哪条思路回应？",
+        "en": "Weather changes plans for a relaxed activity. Which reasoning appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把可以重新选择的行动与无法决定的天气分开",
+            "en": "Separate actions available for renewed choice from weather I cannot determine"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先问原本最重要的目的是什么，是否只有一个实现方式",
+            "en": "Ask what purpose mattered and whether it has only one possible form"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "根据实际条件调整合宜做法，不套用同一固定答案",
+            "en": "Adjust appropriate practice to particulars rather than apply one fixed answer"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "少强求原安排，看看现有条件允许什么展开",
+            "en": "Reduce the forcing of the original arrangement and see what conditions allow"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_13",
+      "prompt": {
+        "zh": "一个讨论里大家都说“这很显然”，你最想先做？",
+        "en": "Everyone in a discussion calls something obvious. What would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "请大家说清依据，承认哪些部分其实还不知道",
+            "en": "Ask for grounds and acknowledge what remains unknown"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看这种判断落实为行动时，在具体情境里是否合宜",
+            "en": "Examine whether this judgment leads to appropriate action in the particular case"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "反省自己是否认真听和学，而不只是跟着附和",
+            "en": "Reflect on whether I listened and learned rather than merely agreed"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "看看追求立即确定的满足是否引出更多不必要的困扰",
+            "en": "Consider whether wanting immediate certainty adds unnecessary trouble"
+          },
+          "directionId": "epicurus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_14",
+      "prompt": {
+        "zh": "朋友想用一条规则处理所有小分歧，你更想提醒？",
+        "en": "A friend wants one rule for every minor disagreement. What would you raise?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "具体人、时间和目的不同，合宜做法不能只是同一个中点",
+            "en": "Different people, times and purposes call for more than an identical midpoint"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "相处中的真诚和尊重需要反省，不能只靠形式",
+            "en": "Sincerity and respect in relationships require reflection rather than form alone"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "过多规定是否正让本可缓和的事情更难展开",
+            "en": "Whether excessive prescription hinders a situation that could ease without forcing"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "自己的判断可以检视，但他人怎样回应不能完全支配",
+            "en": "I can examine my judgment without fully commanding others’ responses"
+          },
+          "directionId": "epictetus"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_15",
+      "prompt": {
+        "zh": "你想理解一项承诺的意义，更愿意从哪一点开始？",
+        "en": "To understand a commitment, where would you begin?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "看守信怎样落实在具体相处中，而不止说得好听",
+            "en": "Examine how trustworthiness appears in relationships rather than appealing words"
+          },
+          "directionId": "confucius"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看看是否加了过多控制别人行为的条件",
+            "en": "Consider whether too many conditions attempt to control others"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "想清追求这项承诺的回报会不会带来更多难满足的欲望",
+            "en": "Consider whether seeking its rewards creates further difficult-to-satisfy desires"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先澄清我们承诺的到底是什么，以及不知道哪些后果",
+            "en": "Clarify what was promised and which consequences remain unknown"
+          },
+          "directionId": "socrates"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_16",
+      "prompt": {
+        "zh": "面对一个可以简化的小仪式，你更想问？",
+        "en": "A small ritual could be simplified. Which question appeals first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "哪些繁复安排只是刻意维持表象，可以少强求",
+            "en": "Which elaborate arrangements force an appearance and could be reduced"
+          },
+          "directionId": "laozi"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "简化后是否仍满足真实需要，同时减少持续追逐的负担",
+            "en": "Whether simplicity meets needs while reducing the burden of continued pursuit"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "我能怎样作判断和参与，与他人如何评价是不同部分",
+            "en": "How I judge and participate differs from others’ evaluations"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对于这些参与者，怎样保留合宜意义而不过与不及",
+            "en": "What preserves appropriate meaning for these participants without excess or deficiency"
+          },
+          "directionId": "aristotle"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_17",
+      "prompt": {
+        "zh": "别人邀请你追求一个看起来很精彩的额外目标，你先想？",
+        "en": "Someone invites you to pursue an impressive extra goal. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "值得追求的不只看眼前乐趣，还要衡量伴随的负担",
+            "en": "Worthwhile pursuit includes considering accompanying burdens rather than immediate enjoyment alone"
+          },
+          "directionId": "epicurus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "自己可以选择投入什么，却不能保证赞许和成功",
+            "en": "I can choose my contribution without guaranteeing praise or success"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "精彩的标准是什么，有什么理由把它当成自己的目标",
+            "en": "What makes it impressive and why it should become my aim"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现有的承诺与相处需要怎样被诚实对待",
+            "en": "How existing commitments and relationships can be treated sincerely"
+          },
+          "directionId": "confucius"
+        }
+      ]
+    },
+    {
+      "id": "PHIL_18",
+      "prompt": {
+        "zh": "一次日常选择需要收尾，你更愿意用哪种问题回顾？",
+        "en": "To review an ordinary choice, which question would you use?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "我是否认真处理了自己的判断与行动，而未假定能支配所有结果",
+            "en": "Whether I considered my judgment and actions without assuming command of every outcome"
+          },
+          "directionId": "epictetus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "我原先声称知道什么，哪些说法经不起追问",
+            "en": "What I claimed to know and which claims did not withstand inquiry"
+          },
+          "directionId": "socrates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "在这件具体事上，我反复练习的做法是否合宜",
+            "en": "Whether the practice I repeated was appropriate in this particular situation"
+          },
+          "directionId": "aristotle"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "哪些强行推动其实可以放下，让事情少受干预",
+            "en": "Which attempts at forcing could be reduced to leave the situation less constrained"
+          },
+          "directionId": "laozi"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "socrates",
+      "directionIds": [
+        "socrates"
+      ],
+      "title": {
+        "zh": "苏格拉底联想：检视我们所说的知道",
+        "en": "Socrates Association: Examining What We Claim to Know"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常先澄清概念、追问理由与承认未知。这里联想柏拉图笔下的苏格拉底式检视，不判你像历史人物或更聪明。",
+        "en": "Your choices more often began with meanings, grounds and acknowledged uncertainty. This associates with inquiry in Plato’s portrayal of Socrates rather than historical personality or intelligence."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：苏格拉底结果与完整说明",
+          "en": "Socrates Result: Questions, Reasons & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常先澄清概念、追问理由与承认未知。这里联想柏拉图笔下的苏格拉底式检视，不判你像历史人物或更聪明。",
+          "en": "Read the Socrates association through knowledge claims, examples and five comparisons. A full guide without historical personality or intelligence verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "从柏拉图的记述出发",
+            "en": "Beginning with Plato’s portrayal"
+          },
+          "paragraphs": [
+            {
+              "zh": "《申辩篇》中，苏格拉底在听到神谕后检视那些被认为有知识的人，并区分知道某些技艺与自以为懂得所有重要问题。这段记述为本版“检视知识声称”的阅读联想提供背景；它不是给历史人物做过的人格测量，也不把对话主人公的每句话当作无争议传记。本站只选择这个问题意识，后面的日常例子与题目均为原创，不声称复现整套苏格拉底哲学。",
+              "en": "In Plato’s Apology, Socrates examines people reputed to possess knowledge and distinguishes expertise in a craft from assuming expertise in every important matter. This portrayal contextualises an association with examining knowledge claims. It supplies neither personality measurements nor an uncontested biography. This edition selects a concern about inquiry rather than reproducing a complete Socratic philosophy. Its contemporary examples and choices are independently written, and no answer is attributed to the historical person."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "计数指向一种起手问题",
+            "en": "Counts point to an opening question"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果这一项最高，比较合适的读法是：在本题提供的选项中，你较常想先问“我们说的到底是什么，有什么依据”。这不表示你永远怀疑、辩论能力强，或比别人更接近真理。原始次数也没有区分认真检视与为了拖延而发问；需要回到具体情境才能讨论。最高并列保留其他起手点，不把它们解释成你内部不同人格之间的争执。",
+              "en": "A highest count means you more often wanted to begin by clarifying a claim and its grounds among these options. It establishes no permanent scepticism, debating skill or greater access to truth. Counts cannot distinguish careful inquiry from questions used to delay; that requires examining a real situation. Highest ties retain other starting points without interpreting them as competing personalities inside you. A lower count likewise does not establish that you accept claims uncritically."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一次关于公平的讨论",
+            "en": "A discussion about fairness"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想朋友安排桌游座位，说“按先到顺序就很公平”。你先问，这里的公平是机会一样、等待时间一样，还是让第一次参加的人也能看清规则？当这些意思分开，大家也许发现自己并非对同一个问题争论。你的提问没有自动选出正确方案；有人仍须根据目的与约定作决定。例子的价值在把理由说清，而非把发问次数多当作更好的行为。",
+              "en": "Suppose a friend assigns seats for a game by arrival time and calls it fair. You might ask whether fairness here means equal chances, equal waiting or ensuring newcomers can see the rules. Distinguishing meanings may reveal that people are discussing different problems. Asking does not automatically identify the right arrangement; a decision still needs purposes and agreements. The example makes reasons clearer rather than treating a larger number of questions as better conduct."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "把自己的判断也放进讨论",
+            "en": "Putting your own judgment into the discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我把公平理解成让新人也有同样机会，所以想先确认座位会不会影响看规则；这是我的理解，你们怎么看”。你既提出问题，也说明自己的理由，让别人能够检视你，而不只是由你检视他们。讨论时间有限时，可以把尚未解决的问题明确留下，再共同决定本次怎么办。结果没有要求你盘问每个人，也没有把停止追问视作放弃思考。",
+              "en": "You could explain that you understand fairness as giving newcomers an equal chance, then ask whether seating affects access to the rules. Stating your own grounds lets others examine your view instead of making them the only subjects of inquiry. When time is limited, name the unresolved issue and agree what to do now. This reading requires neither interrogating everyone nor treating an end to questioning as abandoning thought. The concrete issue matters more than maintaining a questioning identity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其余五个阅读入口比较",
+            "en": "Comparing the other five reading entrances"
+          },
+          "paragraphs": [
+            {
+              "zh": "亚里士多德联想更关心在具体处境中形成怎样的合宜做法；孔子联想把学习、反省与相处联系起来。老子联想会检视是否增加了多余强求，伊壁鸠鲁联想会问追求什么及其代价，爱比克泰德联想区分自身判断与外在结果。苏格拉底入口先检视知识和定义，但这些问题可以先后接续，而不是六位哲学家的完整思想彼此互斥。相近计数不能推出哲学流派归属。",
+              "en": "Aristotle’s entrance concerns appropriate practice in particulars; the Confucius association links learning, reflection and relationships. Laozi prompts examination of unnecessary forcing, Epicurus asks which desires merit pursuit and their costs, and Epictetus distinguishes judgment from external outcomes. This Socrates entrance begins with knowledge and meanings. These questions can follow one another rather than making six complete philosophical systems mutually exclusive. Close counts cannot assign a philosophical school, and agreeing with one prompt need not endorse an entire thinker."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "熟悉时不追问也合理",
+            "en": "Not questioning every familiar matter"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可能对某些概念认真追问，却愿意直接按已了解的约定行动；也可能不喜欢本题选项的表达，但在真实讨论中很重视理由。这些都是范围信息，而非需要消除的矛盾。熟悉程度、时间与他人是否愿意讨论，都影响哪种起手点合适。题目没有测哲学知识、记忆、逻辑能力或诚实，也不能从结果判断别人没有反省精神。对标签不认同时，保留具体答案即可。",
+              "en": "You may examine some concepts carefully while acting directly on an understood agreement, or dislike the wording here while valuing reasons in actual conversations. Such differences define scope rather than contradictions needing resolution. Familiarity, time and others’ willingness to discuss influence which opening fits. These choices assess no philosophical knowledge, memory, logic or honesty, and cannot establish that someone else lacks reflection. If the association feels unhelpful, keep the particular answers without adopting the name."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "为一个词写下可检视的意思",
+            "en": "Making one meaning available for examination"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，选一个你在轻松讨论中用过的词，例如公平或成功，写下这次具体指什么，以及什么例子会让你修改理解。然后留一行给尚不知道的部分。无需向别人展示，也不必延伸成每天的训练。这是阅读与对话的可选提示，不承诺提高智力、决策能力或人格。若想继续，阅读《申辩篇》相关段落，注意文本的论证语境，而不是只寻找一句适合贴在结果上的名言。",
+              "en": "If you wish, choose a word used in a relaxed discussion, such as fair or successful, and note its meaning in that instance and an example that might change your account. Leave room for what remains unknown. No sharing or daily training is required. This is an optional reading and conversation prompt without promises about intelligence, decision skill or personality. For further reading, consider the relevant Apology passage in its argumentative context rather than searching only for a quotation to attach to a result."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aristotle",
+      "directionIds": [
+        "aristotle"
+      ],
+      "title": {
+        "zh": "亚里士多德联想：在具体处境中练习判断",
+        "en": "Aristotle Association: Practising Judgment in Particulars"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常关注反复行动形成的做法，以及具体情形下何为合宜。它联想《尼各马可伦理学》的问题，不测德性或实际判断能力。",
+        "en": "Your choices more often concerned practices formed through repeated action and what fits particular circumstances. This associates with questions in the Nicomachean Ethics without measuring virtue or judgment ability."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：亚里士多德结果与完整说明",
+          "en": "Aristotle Result: Practice, Judgment & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常关注反复行动形成的做法，以及具体情形下何为合宜。它联想《尼各马可伦理学》的问题，不测德性或实际判断能力。",
+          "en": "Explore Aristotle through practice, particular circumstances and five comparisons. Full examples without virtue scores or a rule of automatic compromise."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "习惯与中道的语境",
+            "en": "The context of habituation and the mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "《尼各马可伦理学》第二卷把品格与反复行动联系起来，并讨论合宜如何依具体人和处境而定。这里的中道不是把两个数字取平均，也不是所有争议都各退一步；原文同样说明不是一切行动都有可以取的中间。本站由此选择“在具体处境中练习判断”的阅读入口，不把本题计数当德性测量，更不声称拥有亚里士多德完整伦理学的答案。",
+              "en": "Book II of the Nicomachean Ethics links character with repeated action and discusses appropriateness in relation to particular people and circumstances. The mean is not an arithmetic average or a rule that every disagreement requires halfway compromise; the text also denies a mean for every kind of action. This edition selects a reading entrance about practising judgment in particulars. Counts measure no virtue and supply no complete answer from Aristotle’s ethics."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "重视做法不等于已经做得好",
+            "en": "Valuing practice is not demonstrated excellence"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次最高计数只表示你较常先考虑某种做法反复实行会形成什么，以及今天的条件是否适合它。它不能证明已经养成习惯、判断准确或道德较高。选择题记录的是你愿意优先想的理由，而不是观察过的行动。一个人可以赞同练习的重要性，却在某个具体任务上需要时间、指导或资源；这些信息不该由一个哲学家名称补出来。",
+              "en": "A highest count means you more often considered what repeated practices form and whether a practice fits today’s conditions. It does not prove an established habit, accurate judgment or greater morality. Choices record reasons you want to consider rather than observed conduct. Someone may value practice yet need time, guidance or resources in a particular task. A philosopher’s name cannot fill in those missing facts. Lower counts likewise establish no failure to act or develop skills."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "合宜不是机械取中间",
+            "en": "Appropriateness is not mechanically splitting the difference"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次自愿读书活动，有人想讨论十分钟，有人想谈一小时。你可能先问这次材料长度、参与者时间和目标是什么，再决定二十分钟或另开一场，而不是认定三十五分钟必然最合宜。选择有具体理由，之后也能根据实际体验修改。这个例子不保证某个时长最好，只说明不把“折中”当通用答案，也不从一次安排推断一个人的成熟程度。",
+              "en": "At an optional reading gathering, one person suggests ten minutes and another an hour. You might examine the text, participants’ time and purpose before choosing twenty minutes or another meeting, rather than assuming thirty-five minutes must be appropriate. Reasons concern the case and can change with experience. This example guarantees no ideal duration. It illustrates why compromise is not a universal answer and why one arrangement cannot establish a person’s maturity."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "说清行动与理由的关系",
+            "en": "Explaining the relation between practice and reasons"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“这次先谈一个段落，看看大家是否能说明理由，再决定下次的长度”，而不是“亚里士多德型总能找到平衡”。前一句让具体做法可以被观察和修订，后一句却用名称代替证据。你也可以承认目前不知道怎样最合宜，向有经验的人询问。愿意反复尝试不要求忍受不适合的安排，更不意味着对任何问题都无限坚持。",
+              "en": "You could propose discussing one passage first, seeing whether participants can explain their reasons and then deciding the next meeting’s length. That makes a practice open to observation and revision instead of using an Aristotle label to claim an ability to find balance. You can acknowledge uncertainty and seek relevant experience. Valuing repetition requires neither accepting an unsuitable arrangement nor persisting indefinitely with every problem. A practical proposal should remain tied to the purpose and conditions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与学习、提问和简化分别看",
+            "en": "Distinguishing learning, inquiry and simplification"
+          },
+          "paragraphs": [
+            {
+              "zh": "孔子入口同样关注实践，但本站选取的重点是学习反省与相处；亚里士多德入口重点在具体条件下的合宜与反复行动。苏格拉底入口先检视定义和知识，老子入口检视多余强求，伊壁鸠鲁入口辨别欲望及随后的代价，爱比克泰德入口区分自身选择与外在结果。这是六个有限的阅读切面，不是对完整哲学体系排队或给你的思想作唯一归类。",
+              "en": "The Confucius entrance also involves practice but emphasises learning, reflection and relationships in this edition. Aristotle’s entrance focuses on appropriateness in particulars and repeated action. Socrates examines definitions and knowledge, Laozi unnecessary forcing, Epicurus desires and their consequences, and Epictetus personal choice versus external outcomes. These are limited reading angles rather than rankings of complete philosophical systems or a sole classification of your thought. A tie can preserve multiple opening questions without proving that whole doctrines agree."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "直接应用一条规则的情形",
+            "en": "Cases where a clear rule is appropriate"
+          },
+          "paragraphs": [
+            {
+              "zh": "有些活动已经有清楚的安全要求或约定，按要求行动并不与关注具体处境矛盾；本版也没有建议把明确禁止的事拿来寻找中间。你可能只在熟悉领域愿意调整做法，在其他地方先学习。这不是判断力退步，而是知识和条件不同。题目不能评价专业能力、工作表现或道德品质，也不支持由较低计数断言某人只空谈、不实践。",
+              "en": "An activity may already have clear safety requirements or agreements. Following them need not conflict with attending to particulars, and this edition suggests no search for a middle position on an explicitly prohibited act. You might adapt practice only in familiar areas and seek instruction elsewhere. That reflects differences in knowledge and conditions rather than declining judgment. These choices assess no professional skill, work performance or morality and cannot establish that someone with lower counts talks without acting."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "记录一次具体的适合与不适合",
+            "en": "Observing fit in one particular case"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回顾一件普通、可修改的小安排：当时目的是什么，哪些条件重要，哪一种做法实际适合？可以记下一个反例，说明换条件后为何要改。无需给自己打德性分或每天坚持记录；这只是阅读后的可选观察。继续读第二卷时，可以注意习惯、选择与相对中道之间的论证关系，不把它简化成“凡事适量”或一张万能生活处方。",
+              "en": "If you wish, review one ordinary arrangement that can be changed: its purpose, relevant conditions and which practice fitted. Add a counterexample explaining why different conditions would call for revision. No virtue rating or daily record is needed; this is an optional observation following a reading association. In Book II, consider the argument linking habituation, choice and the relative mean rather than reducing it to moderation in everything or a universal prescription for living."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "confucius",
+      "directionIds": [
+        "confucius"
+      ],
+      "title": {
+        "zh": "孔子联想：在学习与相处中反省实践",
+        "en": "Confucius Association: Reflective Learning in Relationships"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常先考虑学习、反省、守信与具体相处。它联想《论语》的部分问题，不判断国籍、孝顺、品德或真实人物相似。",
+        "en": "Your choices more often considered learning, reflection, trustworthiness and particular relationships. This associates with selected Analects questions rather than nationality, filial conduct, morality or personal resemblance."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：孔子结果与完整说明",
+          "en": "Confucius Result: Learning, Relations & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常先考虑学习、反省、守信与具体相处。它联想《论语》的部分问题，不判断国籍、孝顺、品德或真实人物相似。",
+          "en": "Read Confucius through learning, reflection and relationships. Full examples and five comparisons without judging culture, filial conduct or morality."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "把言论放回《论语》",
+            "en": "Returning the sayings to the Analects"
+          },
+          "paragraphs": [
+            {
+              "zh": "《论语》开篇把学与实践联系起来，书中也讨论学习与思考的关系，以及怎样在相处中落实所学。它并非只有孔子一人的话：例如每日反省的表述归于曾子，礼与和的那一段归于有子。本站据这些文本选取学习、反省与相处的阅读切面，不把所有句子都署为孔子，也不把古代社会关系直接当成今日生活的指令。",
+              "en": "The Analects connects learning with practice and examines reflection and conduct in relationships. It includes voices beyond Confucius: the passage about daily self-examination is attributed to Zengzi, while the discussion of ritual and harmony comes from Youzi. This edition selects an angle involving learning, reflection and dealings with others. It neither attributes every saying to Confucius nor turns ancient social arrangements directly into instructions for contemporary life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "选择一种理由，不是取得道德资格",
+            "en": "Choosing a reason rather than earning moral standing"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果这一项最高，你在本题里较常把“我怎样学习、守约和回应他人”放在前面。它不认证你有礼、可靠或值得信任，更不判断是否孝顺、是否符合某种文化身份。表面礼貌与真诚相处可能不同，原始次数无法替你区分实际行为。对这些问题感兴趣也不等于赞同传统的一切安排；你可以一边重视反省，一边对具体习俗提出不同意见。",
+              "en": "A highest count means questions about learning, agreements and responses to others more often came first in this set. It certifies no courtesy, reliability or trustworthiness and establishes no filial conduct or cultural identity. Counts cannot distinguish surface politeness from sincere conduct. Interest in these questions also does not endorse every traditional arrangement. You may value reflection while disagreeing with particular customs. Lower counts establish no disrespect or failure to care about relationships."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "共同学习的一次小约定",
+            "en": "A small agreement about learning together"
+          },
+          "paragraphs": [
+            {
+              "zh": "你与朋友约好各读一小段再讨论。到了时间，你发现自己没有认真看，便说明情况，问是否改成一起读，而不是用漂亮的评论遮过去。这里的阅读联想关注把学习与守信落实在相处中；它不是判断你是否好人，也没有说一次迟误就破坏品格。朋友可能希望改日再谈，双方仍可根据实际时间商量。古典观念给出提问方向，具体约定由当事人决定。",
+              "en": "You agree to read a passage before meeting a friend but realise you have not attended to it. You explain that and ask about reading together instead of disguising it with polished commentary. This association concerns linking learning and trustworthiness in a relationship. It neither judges goodness nor treats one delay as damaged character. Your friend may prefer another day, and the arrangement remains open to discussion. A classical idea supplies a question while participants decide the actual agreement."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "礼貌里可以有真实分歧",
+            "en": "Courtesy can include actual disagreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我知道这个安排用了很久，但这次我有一个不同理由，想先说明”，而不是为了符合标签始终附和。你也可以问对方怎样理解这项约定，哪些部分能调整。表达分歧时不需要通过本测试证明自己有礼，也不必把不同意见解释成背离关系。对他人的时间、回应与拒绝保持具体商量，比把任何一方定为传统型或不尊重的人更有帮助。",
+              "en": "You can acknowledge that an arrangement is long-standing and then explain a different reason instead of agreeing to fit a label. Ask how the other person understands the agreement and which parts can change. No test result is needed to certify courtesy before disagreeing, and disagreement need not signify abandoning a relationship. Discuss time, responses and refusal concretely rather than naming one party traditional and the other disrespectful. The reading association grants neither person authority over the other."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外五种起手点比较",
+            "en": "Comparing the other five openings"
+          },
+          "paragraphs": [
+            {
+              "zh": "亚里士多德入口也关注反复实践，本站重点却放在具体处境的合宜判断；孔子入口把学习反省与相处联系起来。苏格拉底先检视定义和声称知道的事，老子检视多余强求，伊壁鸠鲁关注欲望与追求的代价，爱比克泰德分开自身判断和结果。六个切面可以共同出现，不能据此认定中西文化谁更重关系或理性，更不能把一个国家的人全部归入某项。",
+              "en": "Aristotle also concerns repeated practice, with this edition emphasising appropriate judgment in particulars. The Confucius entrance connects learning and reflection with relationships. Socrates examines meanings and knowledge claims, Laozi unnecessary forcing, Epicurus desires and pursuit costs, and Epictetus judgment versus outcomes. These angles can coexist. They establish no ranking of cultures by relational concern or rationality and cannot place people from a country into a single result. A count compares selected options rather than whole traditions."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "拒绝某个习俗不是反证",
+            "en": "Declining a custom need not contradict the reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "某个习俗与当下实际情况不合，你可以不继续它；重视相处也不要求承担所有期待。你可能对朋友守约很认真，却不喜欢正式仪式，或者愿意学习却暂时没有精力参与小组。这些具体差别值得保留。题目没有测道德、家庭关系、文化归属或履行责任的能力，更不能用计数评判他人。对标签不喜欢时，可以不用它，留下自己重视的那一项理由。",
+              "en": "You may stop a custom that does not fit current circumstances, and attending to relationships does not require carrying every expectation. You might take agreements with friends seriously while disliking formal ceremonies, or value learning while lacking energy for a group. Keep those distinctions. These choices assess no morality, family relationships, cultural belonging or ability to fulfil responsibilities and cannot judge others. If the label is unhelpful, set it aside and retain the particular reason that mattered."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "回看一次具体相处",
+            "en": "Reviewing one particular interaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一件普通小约定，问自己是否理解了对方的意思、表达了真实情况，以及之后是否需要调整。不必打忠诚、孝顺或品德分，也无需向别人交代这个回顾。它没有改善关系的保证。继续阅读《论语》时，可以留意说话者、对话背景和学与思之间的关系，不把一句话抽出来就当成所有场合都适用的要求。",
+              "en": "If you wish, review a small agreement: whether you understood the other person, stated the actual situation and need to adjust anything. No loyalty, filial or morality score is called for, and the review can remain private. It guarantees no relationship improvement. When reading the Analects further, attend to speakers, conversational contexts and the relation between learning and reflection rather than making an isolated saying a requirement for every situation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laozi",
+      "directionIds": [
+        "laozi"
+      ],
+      "title": {
+        "zh": "老子联想：审视多余的强行安排",
+        "en": "Laozi Association: Questioning Unnecessary Forcing"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常先问哪些控制、繁复与强求可以减少。它以《道德经》为阅读背景，不判你懒惰、随和、信仰或人生境界。",
+        "en": "Your choices more often began by questioning control, elaboration and unnecessary forcing. The Daodejing provides reading context without judging laziness, agreeableness, belief or spiritual attainment."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：老子结果与完整说明",
+          "en": "Laozi Result: Non-Forcing & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常先问哪些控制、繁复与强求可以减少。它以《道德经》为阅读背景，不判你懒惰、随和、信仰或人生境界。",
+          "en": "Explore Laozi through unnecessary forcing, textual context and five comparisons. Full examples without equating non-action with passivity or spiritual rank."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "无为放在文本语境中读",
+            "en": "Reading non-action in its textual setting"
+          },
+          "paragraphs": [
+            {
+              "zh": "《道德经》第三十七章以道、侯王与自化为语境讨论无为，第四十八章又把不断增加与不断减少并置。本站由此选取“多余强求是否妨碍事情展开”的当代阅读问题，而非把无为简化成什么都不做。老子在这里是传统文本名称关联，不由趣味测验裁定单一作者生平；一个计数也不能证明你领会了道、属于道教或达到了某种境界。",
+              "en": "Chapter 37 of the Daodejing discusses non-action in a setting involving the Dao, rulers and transformation; chapter 48 contrasts increasing with diminishing. This edition uses that context for a contemporary question about whether unnecessary forcing hinders a situation. It does not reduce non-action to doing nothing. Laozi is associated with a textual tradition here, without the quiz settling a single author’s biography. Counts establish no understanding of the Dao, religious belonging or spiritual attainment."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "减少干预是一条可检视的思路",
+            "en": "Reduced intervention as an examinable approach"
+          },
+          "paragraphs": [
+            {
+              "zh": "本次较高计数表示你较常先考虑是否加了不必要的规定、物品或控制，并不证明更轻松、适应力强或比别人有智慧。少干预可能合适，也可能遗漏实际需要；题目没有观察后果。它更不授权别人要求你安静接受不合适的安排。把这一项当成提问方向，再依据当次条件作决定，比把“顺其自然”变成任何情况下都不用处理的口号更准确。",
+              "en": "Higher counts mean you more often first questioned added prescriptions, objects or control. They establish no greater ease, adaptability or wisdom. Less intervention may fit or may leave a real need unmet; consequences were not observed. This result also gives nobody authority to demand quiet acceptance of an unsuitable arrangement. Use the association to raise a question and decide from actual conditions rather than making a slogan of leaving everything alone in every situation."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让一次交流少一点规定",
+            "en": "Giving a conversation fewer prescriptions"
+          },
+          "paragraphs": [
+            {
+              "zh": "读书活动原本只约定一个时段，后来又加了必须发言的次数、固定句式和连续签到。你想先问，这些安排是不是正在遮住大家想讨论什么；也许保留时长与基本相处约定，去掉几条展示参与的要求就够了。这个例子不证明所有规则有害，更不主张取消安全和必要边界。它只是检视某些为理想样子而增加的控制，是否服务了当初的目的。",
+              "en": "A reading gathering begins with an agreed time, then adds speaking quotas, prescribed phrases and attendance streaks. You might ask whether these additions obscure what people want to discuss. Keeping a duration and basic agreements while removing some displays of participation may suffice. This establishes no harm from every rule and calls for no removal of safety requirements or necessary boundaries. It examines whether control added to achieve an ideal appearance serves the original purpose."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "提出少做什么的理由",
+            "en": "Giving reasons for doing less"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我们先保留结束时间，把必须轮流说三句的要求取消一次，看看是否还需要”，而不是“我就是老子型，任何规定都不接受”。前一句指出具体干预、保留必要安排，并允许根据实际情况修订。你也可以发现某项说明确实有帮助，选择留下。这个阅读标签不要求拒绝努力、规划或别人合理提出的需要；少做与做什么都应能说明理由。",
+              "en": "You could propose keeping an ending time while trying one meeting without a three-sentence quota, then reviewing whether the quota was needed. That identifies a particular intervention, retains relevant arrangements and permits revision rather than rejecting all rules under a Laozi label. You may discover that an explanation helps and keep it. This association requires no rejection of effort, planning or another person’s reasonable needs. Reasons should remain available for both reducing and retaining an action."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与节制欲望和区分结果不同",
+            "en": "Distinguishing desires, intervention and outcomes"
+          },
+          "paragraphs": [
+            {
+              "zh": "伊壁鸠鲁入口问追求何种满足及其代价，老子入口重点在是否以多余强求干预事情；两者都可能选择简单，但理由并不相同。爱比克泰德入口区分自身判断与外在结果，不等于一概减少行动。苏格拉底检视定义，亚里士多德关注具体合宜与实践，孔子关注学习反省与相处。不要把六种思路排成努力对懒惰或西方对东方的两队，也不由并列推断整套学说相同。",
+              "en": "Epicurus asks which satisfactions merit pursuit and their costs; this Laozi entrance examines intervention through unnecessary forcing. Both may favour simplicity for different reasons. Epictetus distinguishes judgment from external outcomes rather than generally reducing action. Socrates examines meanings, Aristotle appropriate practice in particulars, and Confucius learning, reflection and relationships. These approaches form neither effort-versus-laziness nor Western-versus-Eastern teams. A tie cannot establish equivalence between entire doctrines."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "需要明确行动的时候",
+            "en": "When a clear action is needed"
+          },
+          "paragraphs": [
+            {
+              "zh": "遇到该处理的具体问题，你可以提出清楚步骤、寻求帮助或遵守必要要求；这不需要与本次结果冲突。活动条件不同，少干预也有不同含义。题目没有测拖延、主动性、压力、健康或宗教实践，不能把没有采取某个行动当作领悟无为，更不能把较低计数解释为好强或不懂生活。反例让阅读联想保持有限，而非逼你为一个名称改变实际需要。",
+              "en": "A concrete problem may call for clear steps, help or necessary requirements without conflicting with this result. What reduced intervention means changes with conditions. These choices assess no procrastination, initiative, stress, health or religious practice. Inaction cannot establish understanding of non-action, and lower counts cannot establish excessive ambition or ignorance about living. Counterexamples keep the association limited instead of requiring practical needs to change for a name. A philosophical prompt is not a verdict on what you must do."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "辨认一项可以商量的干预",
+            "en": "Identifying one negotiable intervention"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，回顾一件低风险、自愿的小安排：其中有没有一条要求只为了维持理想样子？它可否在相关人同意下暂时减少，哪些必要部分仍要保留？也可以得出不宜减少的结论。无需真的改动或向别人证明自己轻松。继续读第三十七、四十八章时，注意其道与治理语境、增加和减少之间的张力，不把古典文本缩成一条通用效率技巧或健康建议。",
+              "en": "If you wish, examine a low-stakes voluntary arrangement for a requirement serving mainly an ideal appearance. Ask whether participants could agree to reduce it and what necessary parts remain. Concluding that reduction is inappropriate is equally possible. No actual change or proof of ease is required. In chapters 37 and 48, consider the Dao and governance context and the tension between increasing and diminishing rather than reducing the text to a general productivity trick or health recommendation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epicurus",
+      "directionIds": [
+        "epicurus"
+      ],
+      "title": {
+        "zh": "伊壁鸠鲁联想：辨别欲望与追求的代价",
+        "en": "Epicurus Association: Considering Desires and Their Costs"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常先考虑一种满足是否值得追求，以及它会增加哪些需要与负担。它是哲学阅读联想，不判断快乐能力、生活水平或健康。",
+        "en": "Your choices more often considered whether a satisfaction merits pursuit and what further wants or burdens follow. This is a reading association, not enjoyment ability, living standards or health."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：伊壁鸠鲁结果与完整说明",
+          "en": "Epicurus Result: Desires, Choices & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常先考虑一种满足是否值得追求，以及它会增加哪些需要与负担。它是哲学阅读联想，不判断快乐能力、生活水平或健康。",
+          "en": "Read Epicurus through desires, pursuit costs and five comparisons. Full examples without judging happiness, living standards or prescribing a lifestyle."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "快乐并不等于不断加码",
+            "en": "Pleasure is not continual escalation"
+          },
+          "paragraphs": [
+            {
+              "zh": "《致美诺伊克斯书》区分欲望，并讨论为什么不是每一种快乐都应选择，也不是每一种不适都应立即回避。本站借此提供“追求什么、随后付出什么”的阅读入口，不把伊壁鸠鲁简化成奢侈享乐或禁欲。原文讨论有其古代伦理语境；本题既不提供饮食、医疗或心理建议，也不把所选观念当成现实生活必须照做的配方。",
+              "en": "The Letter to Menoeceus distinguishes desires and considers why not every pleasure should be chosen or every discomfort immediately avoided. This edition uses that as a reading entrance about what to pursue and what follows, without reducing Epicurus to luxury or asceticism. The ancient ethical context supplies neither dietary, medical nor psychological advice here. These choices do not make a selected philosophical idea a required formula for contemporary life."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "看的是起手考虑的理由",
+            "en": "Reading the reason considered first"
+          },
+          "paragraphs": [
+            {
+              "zh": "最高计数表示，在本题选项里，你较常先看所求满足与伴随的需要、惦记和负担。它不证明你更知足、幸福、节俭或会享受生活。选择简单也可能因为时间或材料有限，不一定来自哲学立场；选择复杂也不必然是不懂满足。原始次数无法评估生活质量或对欲望的控制，更不能用来比较谁的人生更值得过。",
+              "en": "A highest count means you more often first considered satisfaction alongside further wants, attention or burdens among these options. It proves no greater contentment, happiness, frugality or capacity to enjoy life. Simplicity may reflect limited time or materials rather than a philosophical position, while complexity need not imply discontent. Raw counts assess neither quality of life nor control of desires and offer no comparison of whose life is more worthwhile. They retain a starting reason rather than an achievement."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一个额外活动是否值得",
+            "en": "Whether an extra activity is worth choosing"
+          },
+          "paragraphs": [
+            {
+              "zh": "周末已经约好一段轻松散步，又出现一个很有吸引力的小活动。你可能先问，加入后的乐趣是否值得赶路、反复查看通知和压缩原有休息；也可能发现自己确实愿意加入。重点不是答案必须少做，而是把追求与后续影响一起考虑。朋友选择不同也不表示谁更有智慧；各自时间、兴趣与安排不同，足以使同一活动有不同意义。",
+              "en": "A relaxed walk is already planned when another appealing small activity appears. You might consider whether its enjoyment is worth travel, repeated notifications and reduced open time, and may still decide to join. The point is not that less is always correct, but that pursuit and consequences enter the same consideration. A friend choosing differently demonstrates no difference in wisdom. Available time, interests and arrangements can make the same activity mean different things."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "说清想要与不想增加的部分",
+            "en": "Naming the enjoyment and the added burden"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我喜欢这个活动，但今天不想再安排赶路，所以保留原来的散步”，也可以说“我愿意多花一点时间，想试一次”。两句话都比“我是伊壁鸠鲁型，所以只过简单生活”更能说明具体选择。你不必贬低别人的乐趣，也不需要为自己的需要寻找哲学家背书。对后果尚不清楚时，可以承认未知，而不是保证某一种选择必然令人满足。",
+              "en": "You can explain enjoying an activity while declining extra travel today, or choose to spend more time and try it. Either states a practical choice more clearly than a type-based rule about living simply. There is no need to belittle another person’s enjoyment or recruit a philosopher to legitimise your needs. When consequences are unclear, acknowledge that uncertainty rather than guaranteeing satisfaction from a particular choice. This association assigns no preferred lifestyle to everyone."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与减少干预、检视知识区分",
+            "en": "Distinguishing pursuit, intervention and knowledge"
+          },
+          "paragraphs": [
+            {
+              "zh": "老子入口同样可能导向简单安排，但本站重点是检视多余强求；伊壁鸠鲁入口重点在欲望、满足与后续代价。苏格拉底入口先问理由与概念，亚里士多德关心具体合宜与反复实践，孔子关心学习反省与相处，爱比克泰德区分自身判断和外在结果。这些起手点可能在同一件事里接续，计数没有比较完整学说的优劣，也不表示某两种思想必定兼容。",
+              "en": "Laozi’s entrance may also lead to simpler arrangements, but here it examines unnecessary forcing. The Epicurus entrance concerns desires, satisfaction and what follows. Socrates examines reasons and meanings, Aristotle appropriate practice in particulars, Confucius reflective learning in relationships, and Epictetus judgment versus outcomes. These starting questions may follow one another in a single matter. Counts neither rank whole doctrines nor prove compatibility between any two systems. A tie preserves selected reasons without resolving philosophical disagreements."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "愿意投入不等于背离满足",
+            "en": "Willing effort need not conflict with satisfaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以为了很喜欢的活动接受一些麻烦，也可以对看似简单的安排完全没有兴趣。这样的选择不会因为名称而失效。题目没有收集收入、生活条件或健康资料，不能从计数判断你有什么资源、是否快乐或应该减少哪种需要。尤其不能把无法满足的现实需要解释成想得太多。若标签不贴切，可以只留下这次你考虑过的一种代价，不把它升级成生活哲学身份。",
+              "en": "You may accept inconvenience for an activity you love or feel no interest in something apparently simple. A label invalidates neither choice. These items collect no income, living-condition or health information and cannot infer resources, happiness or which needs should be reduced. Unmet practical needs must not be explained away as excessive wanting. If the association does not fit, retain one consequence you considered without turning it into an identity as a follower of a life philosophy."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "把一次追求写成两个问题",
+            "en": "Two questions about one pursuit"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一个普通、可选择的小活动，只问“我想从中获得什么”和“它还会要求什么”。答案可以是值得，也可以是不确定；无需计算幸福分或改变生活方式。这个观察没有改善健康或情绪的承诺。继续读原书时，可以看欲望分类、快乐与不适的取舍以及论证如何相连，不只寻找一句“简单就好”，更不把古代食物例子直接当成当代身体建议。",
+              "en": "If you wish, take an ordinary optional activity and ask what you want from it and what else it asks of you. Worthwhile and uncertain are both possible answers, without a happiness score or lifestyle change. This observation promises no health or mood improvement. In further reading, follow how distinctions among desires and choices about pleasure and discomfort fit the argument rather than seeking only a slogan that simplicity is best. Ancient food examples supply no contemporary bodily advice."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epictetus",
+      "directionIds": [
+        "epictetus"
+      ],
+      "title": {
+        "zh": "爱比克泰德：自身判断与外在结果",
+        "en": "Epictetus Association: Separating Judgment from Outcomes"
+      },
+      "headline": {
+        "zh": "原典中的一个阅读入口，不是历史人物性格模拟。",
+        "en": "One reading entrance into a primary text, not a simulation of historical personality."
+      },
+      "summary": {
+        "zh": "本次较常先区分自己怎样判断和行动，与无法保证的外在回应。它联想《手册》的问题，不测冷静、韧性或情绪控制。",
+        "en": "Your choices more often distinguished your judgment and action from external responses you cannot guarantee. This associates with the Enchiridion without measuring calm, resilience or emotional control."
+      },
+      "scoreReading": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      },
+      "seo": {
+        "title": {
+          "zh": "哲学家测试：爱比克泰德结果与完整说明",
+          "en": "Epictetus Result: Judgment, Outcomes & Full Guide"
+        },
+        "description": {
+          "zh": "本次较常先区分自己怎样判断和行动，与无法保证的外在回应。它联想《手册》的问题，不测冷静、韧性或情绪控制。",
+          "en": "Explore Epictetus through judgment, action and outcomes. Full examples and five comparisons without testing calm, resilience or requiring suppressed feelings."
+        }
+      },
+      "sections": [
+        {
+          "id": "source-context",
+          "title": {
+            "zh": "从《手册》的区分出发",
+            "en": "Beginning with the Enchiridion’s distinction"
+          },
+          "paragraphs": [
+            {
+              "zh": "《手册》开篇区分自身的判断、欲求和行动，与财产、名声等外在事项，并要求检视面对表象时如何作判断。本站用它作“自己的选择与外在结果有何不同”的阅读背景，不声称所有当代情绪与行为都能随意控制。原文是一种古代哲学立场，不是本站验证过的心理机制；它也不为他人造成的现实伤害开脱，或要求读者放弃帮助和必要行动。",
+              "en": "The Enchiridion opens by distinguishing judgment, desire and action from external matters such as property and reputation, and examines responses to appearances. This contextualises a question about personal choice versus external outcomes. It does not claim that contemporary emotions or behaviour can all be controlled at will. An ancient philosophical position is not a psychological mechanism validated by this website, and the association excuses no actual harm or requirement to abandon help and necessary action."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "区分不等于保证控制",
+            "en": "Distinguishing is not guaranteeing control"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高计数只表示你在这些情境中较常想先分开能重新选择的判断和行动，与无法保证的回应和结果。它不认证冷静、坚强、自律或抗压能力，也不判断你有没有正确管理情绪。现实的能力、资源、压力和限制没有在这十八题里被评估。即使赞同这种区分，你也可以感到失望、要求支持或改变外部安排，不用为了符合名称而表现得毫无波动。",
+              "en": "Higher counts mean you more often wanted to distinguish judgments and actions open to renewed choice from responses and results you cannot guarantee. They certify no calm, strength, discipline or stress tolerance and assess no correct emotional management. Actual capacity, resources, pressure and constraints were not evaluated by these eighteen choices. You may find the distinction useful while feeling disappointed, requesting support or changing external arrangements. The name requires no appearance of being unaffected."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "展示之后别人是否喜欢",
+            "en": "Whether others like a display"
+          },
+          "paragraphs": [
+            {
+              "zh": "你认真做了一个小展示，却没有得到预想的回应。你可以回看自己的说明是否清楚、材料是否准备好，同时承认不能保证每个人喜欢；需要反馈时，仍然可以问。这个区分不是让你认定外部结果不重要，也不是说失望是判断错误。它帮助把可继续考虑的部分分开讨论，最后是否调整展示、邀请谁回应，仍由具体目的与条件决定。",
+              "en": "You prepare a small display and receive an unexpected response. You can review the clarity of your explanation and preparation while acknowledging that not everyone’s approval is guaranteed, and still request feedback. This distinction does not make outcomes unimportant or disappointment a mistaken judgment. It separates matters for consideration. Whether to revise the display and whose feedback to request remains a practical choice informed by purposes and circumstances rather than a command attached to this result."
+            }
+          ]
+        },
+        {
+          "id": "voice",
+          "title": {
+            "zh": "表达努力，也承认结果的不确定",
+            "en": "Stating effort and uncertainty together"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以说“我会把说明补清楚，也想听你的建议，但不能要求你一定喜欢”，而不是“别人的反应不归我管，所以我不听”。前一句区分了行动、邀请与对方的决定，仍给讨论留下空间。你也可以直接说自己失望并请求陪伴，结果不要求压下感受。边界、必要帮助和现实责任应单独讨论，不由一个哲学阅读标签替你或别人取消。",
+              "en": "You might explain that you will clarify your account and welcome suggestions without requiring approval. That differs from using lack of control as a reason to ignore feedback. It distinguishes an action, an invitation and another person’s decision while leaving discussion possible. You can also express disappointment and ask for company; suppressing feelings is not required. Boundaries, necessary help and actual responsibilities need separate consideration rather than cancellation by a philosophical reading label."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与顺势、欲望和实践分别比较",
+            "en": "Comparing intervention, desire and practice"
+          },
+          "paragraphs": [
+            {
+              "zh": "老子入口检视是否过度强求事情，爱比克泰德入口区分自己的判断与外在结果；少做不等于更符合后者。伊壁鸠鲁入口衡量追求与代价，苏格拉底入口检视知识与定义，亚里士多德入口关注具体合宜与反复实践，孔子入口关注学习反省与相处。它们是本版选取的提问角度，不是每位哲学家的全部思想，也不把某一项定义为更理性、更健康或更成熟。",
+              "en": "Laozi’s entrance examines excessive forcing; Epictetus distinguishes judgment and external outcomes, so doing less is not automatically a closer fit. Epicurus weighs pursuits and consequences, Socrates knowledge and meanings, Aristotle appropriate repeated practice, and Confucius learning, reflection and relationships. These are selected questions rather than the entirety of each thinker’s work. No entrance is defined as more rational, healthy or mature, and tied counts retain different questions without proving that all their underlying doctrines coincide."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "关心结果与这一区分相容",
+            "en": "Caring about outcomes can coexist with the distinction"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以认真关心朋友的回应、考试结果或共同活动是否顺利，同时承认无法保证一切。某个外部条件可以通过协作改变，也不因为“不完全由我决定”就该放弃。题目没有评估焦虑、抑郁、创伤、心理韧性或控制能力；不能从较低计数断言情绪化，也不能用较高计数证明不需要支持。若标签使你感到必须责备自己，可以不用名称，只保留实际有用的那个问题。",
+              "en": "You can care about a friend’s response or a shared activity while acknowledging that not everything is guaranteed. Collaboration may change an external condition; lacking complete control is no reason to abandon it. These choices assess no anxiety, depression, trauma, resilience or control capacity. Lower counts establish no emotionality, and higher counts establish no lack of need for support. If the label encourages self-blame, set it aside and retain only a question that helps in the actual situation."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "把一个问题分开写",
+            "en": "Separating one question into parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，回顾一件普通小事，把自己接下来愿意做的选择写在一边，把不能保证的回应写在另一边，再留一行给需要他人帮助的部分。也可以不写，或发现两个部分并不容易分清。没有必须做到冷静的考核，也没有心理改善承诺。继续读《手册》开篇时，留意它如何论证这一区分，与自己今天可使用的有限提问之间保持距离，不把古代断言直接当心理事实。",
+              "en": "If you wish, review an ordinary matter by separating a next choice you want to make from a response you cannot guarantee, leaving room for needed help. You may skip writing or find the boundary unclear. There is no requirement to achieve calm and no psychological improvement promise. In further reading, examine how the opening Enchiridion argues for its distinction while keeping it separate from the limited question you find useful today. An ancient assertion does not automatically become a psychological fact."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "18题计数、并列与近分",
+            "en": "18-item counts, ties and close results"
+          },
+          "paragraphs": [
+            {
+              "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+              "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创题本与原典的不同职责",
+            "en": "Original choices and the role of primary texts"
+          },
+          "paragraphs": [
+            {
+              "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+              "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "六个阅读联想怎样计数",
+        "en": "How six reading associations are counted"
+      },
+      "paragraphs": [
+        {
+          "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+          "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "完整结果与原典语境",
+        "en": "Full guides and primary-text context"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份说明各含原典语境、计数读法、当代具体例子、可用表达、其余五入口比较、反例、可选回顾、计分和范围。所有最高并列都完整呈现，其他正文始终公开可读。原典只支持所选思想背景，不验证题目映射、计数或个体解释；日常例子是本站原创，不冒充古代真实情境或哲学家原话。",
+          "en": "Each guide includes textual context, count interpretation, a contemporary example, possible wording, five comparisons, counterexamples, optional observation, scoring and scope. Every highest tie appears in full, with other guides remaining public. Texts support selected intellectual context rather than validating item mappings, counts or personal interpretation. Contemporary examples are independently authored rather than historical scenes or quotations attributed to philosophers."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "不是人物性格或思想史考试",
+        "en": "Not a historical personality or philosophy examination"
+      },
+      "paragraphs": [
+        {
+          "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+          "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title": {
+        "zh": "怎样使用原典链接",
+        "en": "Using the primary-text links"
+      },
+      "paragraphs": [
+        {
+          "zh": "苏格拉底入口用柏拉图《申辩篇》的记述；亚里士多德用《尼各马可伦理学》第二卷；孔子入口注意《论语》中不同说话者；老子入口读《道德经》第三十七、四十八章；伊壁鸠鲁用《致美诺伊克斯书》，爱比克泰德用《手册》开篇。链接是继续阅读的路径，不证明古人拥有本站六种人格。本站只原创转述所选观念及日常例子，不复制现代译文或竞品题本、模型标签、正文、代码和图片。",
+          "en": "The Socrates entrance uses Plato’s Apology; Aristotle uses Nicomachean Ethics Book II. The Confucius entrance attends to different speakers in the Analects, while Laozi uses Daodejing chapters 37 and 48. Epicurus uses the Letter to Menoeceus and Epictetus the opening Enchiridion. Links provide further reading rather than evidence that historical people possessed six website personalities. Selected ideas and examples are independently paraphrased without reproducing modern translations or competitor banks, labels, prose, code or art."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "完整免费、草稿与分享",
+        "en": "Full free access, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "全部18题和六份九模块全文免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
+          "en": "All eighteen questions and six full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "哲学家性格测试包括哪六位？",
+        "en": "Which six philosophers are included?"
+      },
+      "answer": {
+        "zh": "本版自选苏格拉底、亚里士多德、孔子、老子、伊壁鸠鲁和爱比克泰德作有限原典阅读联想，不是全体哲学家或思想史排名。其他同名网站可能用不同人物、题目和方法，计数不能直接互认。",
+        "en": "This edition selects Socrates, Aristotle, Confucius, Laozi, Epicurus and Epictetus for limited reading associations, not all philosophers or a ranking of intellectual history. Websites sharing the name may use different figures, items and methods; their counts are not interchangeable."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果表示我像真实人物吗？",
+        "en": "Does a result mean I resemble the real philosopher?"
+      },
+      "answer": {
+        "zh": "六位是本版选取的哲学阅读入口，不是全体哲学家、完整思想史或心理学六型。苏格拉底依据柏拉图的记述；论语包括孔子及弟子言论；老子是文本传统名，不在本题裁定单一作者生平。原典仅为所选观念提供语境，不验证原创题目、映射、计数或个体解释。所有题目、选项、例子和报告为本站原创，不采用竞品题本标签正文或复制现代译文。计数不鉴定历史人物性格、智力、品德、宗教政治立场、文化身份、健康、关系或职业，不把某一种观念当现实行动命令。",
+        "en": "These six are selected reading entrances, not all philosophers, complete intellectual history or a psychological six-type system. Socrates is approached through Plato; the Analects includes Confucius and disciples; Laozi names a textual tradition without this quiz deciding a single author’s biography. Primary texts contextualise selected ideas without validating original items, mappings, counts or personal interpretations. Questions, options, examples and reports are independently authored without competitor banks, labels or prose or reproduction of modern translations. Counts establish no historical personality, intelligence, morality, religion, politics, cultural identity, health, relationship or career, and no idea becomes a command for real-world action."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分和处理并列？",
+        "en": "How are counts and ties handled?"
+      },
+      "answer": {
+        "zh": "18题各选一项，对应阅读联想加1，次数合计18。每题提供六种思路中的四种；六类各出现12次，每个位置3次。未出现的两项不记为拒绝，分母12是曝光次数，不是相似度百分比、人群排名、人格强度或学说赞同率。所有最高计数保留全文，不用名单顺序硬派主副型；全选同一位置会六类各3，六份全部显示。相差一次只是一道选择，不证明显著差异或固定身份。近分可一起读，但不补造混合哲学家。计数是本题组选项的相对分布，一项被选时其他项没有被选，不是六项独立特质测量；时间、情境、熟悉程度与措辞都可能影响回答。",
+        "en": "Choose one option for all eighteen questions; each adds one count and the total is eighteen. Each question offers four of six approaches. Every approach appears twelve times and three times in each position. Absent options are not counted as rejected. Twelve is an exposure denominator rather than a similarity percentage, population rank, personality intensity or proportion of doctrine endorsed. Every highest count retains its full guide without list-order primary or secondary types. Choosing the same position throughout gives three each and displays all six. A one-choice gap establishes no significant difference or fixed identity. Read close guides without inventing hybrid philosophers. Counts describe relative choices within this set rather than six independent traits. Time, context, familiarity and wording can affect responses."
+      }
+    },
+    {
+      "question": {
+        "zh": "需要懂哲学或赞同全部学说吗？",
+        "en": "Must I know philosophy or endorse a whole doctrine?"
+      },
+      "answer": {
+        "zh": "不需要。题目没有哲学知识的正确答案，按目前更想先考虑的思路选择。一项选择不等于赞同某位的完整伦理、政治、宗教或人生观；也不测智力、道德、文化身份或专业能力。可以直接先读全部原典背景和全文。",
+        "en": "No. These choices have no correct philosophy-knowledge answers; choose the inquiry you currently prefer to consider first. One choice endorses no entire ethics, politics, religion or worldview and measures no intelligence, morality, cultural identity or professional skill. You can read every guide and its textual context first."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测和分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "全部18题和六份九模块全文免费，无需注册、邮箱或其他测试解锁。答案在浏览器内计数，不上传、不进入网址或分析，不询问政治宗教身份与私人经历。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出清除即删。可选分享只含公开阅读联想和链接，不含答案或次数。其他测评需要另行完整作答，不由哲学家名称换算MBTI、大五、健康、道德或职业。你可以直接先读正文，也可以在此结束。",
+        "en": "All eighteen questions and six full nine-section guides are free without signup, email or another test. Answers are counted in the browser without uploading or entering URLs or analytics; no political, religious identity or private history is requested. Opted-in drafts remain in this tab for 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public reading associations and links without answers or counts. Other assessments require separate full answers rather than conversion from philosopher names into MBTI, Big Five, health, morality or career. You can read the guides first or stop here."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "柏拉图《申辩篇》：知识声称的检视",
+        "en": "Plato, Apology: examining knowledge claims"
+      },
+      "url": "https://classics.mit.edu/Plato/apology.html"
+    },
+    {
+      "title": {
+        "zh": "亚里士多德《尼各马可伦理学》第二卷：习惯与相对中道",
+        "en": "Aristotle, Nicomachean Ethics II: habituation and the relative mean"
+      },
+      "url": "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+    },
+    {
+      "title": {
+        "zh": "《论语》前部：学习、反省与不同说话者",
+        "en": "Analects, opening books: learning, reflection and different speakers"
+      },
+      "url": "https://classics.mit.edu/Confucius/analects.1.1.html"
+    },
+    {
+      "title": {
+        "zh": "《道德经》前部：第三十七章语境",
+        "en": "Daodejing, Part I: chapter 37 context"
+      },
+      "url": "https://classics.mit.edu/Lao/taote.1.1.html"
+    },
+    {
+      "title": {
+        "zh": "《道德经》后部：第四十八章语境",
+        "en": "Daodejing, Part II: chapter 48 context"
+      },
+      "url": "https://classics.mit.edu/Lao/taote.2.ii.html"
+    },
+    {
+      "title": {
+        "zh": "伊壁鸠鲁《致美诺伊克斯书》：欲望与取舍",
+        "en": "Epicurus, Letter to Menoeceus: desires and choices"
+      },
+      "url": "https://classics.mit.edu/Epicurus/menoec.html"
+    },
+    {
+      "title": {
+        "zh": "爱比克泰德《手册》开篇：自身判断与外在事项",
+        "en": "Epictetus, Enchiridion opening: judgment and external matters"
+      },
+      "url": "https://classics.mit.edu/Epictetus/epicench.html"
+    }
+  ]
+}
