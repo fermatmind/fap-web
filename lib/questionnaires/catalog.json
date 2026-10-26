@@ -2479,5 +2479,32 @@
       "digital-2000s"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "game-of-thrones",
+    "code": "GAME_OF_THRONES_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Game of Thrones Character Test",
+      "zh": "《权力的游戏》角色测试"
+    },
+    "description": {
+      "en": "Try 18 original, peaceful model-village hobby situations. Compare Jon, Tyrion, Arya, Sansa, Daenerys and Jaime with all highest ties and six complete bilingual guides free. Unofficial TV fan edition, without plot trivia.",
+      "zh": "完成18道原创和平模型村落爱好情境，比较琼恩、提利昂、艾莉亚、珊莎、丹妮莉丝和詹姆。所有最高并列与六份双语全文免费。非官方电视剧同人版，不考剧情。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_game_of_thrones_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "jon-snow",
+      "tyrion-lannister",
+      "arya-stark",
+      "sansa-stark",
+      "daenerys-targaryen",
+      "jaime-lannister"
+    ],
+    "collection": "explore"
   }
 ]

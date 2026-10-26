@@ -1,0 +1,746 @@
+{
+  "id": "T126",
+  "version": "1.0.0",
+  "form": "fermatmind_game_of_thrones_original_18_v1",
+  "method": "Ownselected6TVcharactersJon/Tyrion/Arya/Sansa/Daenerys/Jaime;18originalpeacefulmodel-villagehobbyquestions72options;12exposures3perpositioneach. Allhighestrawcountties;notIDRbank/set/scoring;no politics/war/morality/clinical/trauma/gender/physicalabilityinference.",
+  "questions": [
+    {
+      "id": "GOT_01",
+      "prompt": {
+        "en": "Friends are making an entirely original, peaceful model village. What would you most enjoy contributing first?",
+        "zh": "朋友做一个完全原创、和平的模型村落，你最喜欢先贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Choose a modest agreed task and make sure the group knows I will handle it.",
+            "zh": "选一项约好的小任务，让小组知道自己会做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Offer an amusing rephrasing that helps everyone see the village idea differently.",
+            "zh": "用有趣新说法，让大家换个角度看村落点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Practise one small model-making technique in my own way before adding a piece.",
+            "zh": "先按自己方式练一项模型小手法，再添作品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Notice how the different makers want their pieces introduced to visitors.",
+            "zh": "注意不同制作者想怎样向访客介绍作品。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_02",
+      "prompt": {
+        "en": "The village project has become stuck on the way an idea is being described. What appeals most?",
+        "zh": "村落项目卡在一个点子怎样描述上，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Try a witty but kind comparison that makes the idea easier to discuss.",
+            "zh": "试一个机智友好比喻，让点子好讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Make a small practice piece so I can explore the idea directly.",
+            "zh": "做小练习件，直接探索点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Ask what presentation format would help each person feel understood.",
+            "zh": "问怎样呈现，让各人感觉被理解。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Imagine a wider version of the village that opens another creative possibility.",
+            "zh": "想村落更大一个版本，打开另一创作可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_03",
+      "prompt": {
+        "en": "You can learn one harmless paper technique for your own village piece. What would you prefer?",
+        "zh": "可以为自己的村落作品学一种无害纸手法，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Try it repeatedly in a small self-chosen exercise.",
+            "zh": "在自选小练习里反复试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Watch how different people explain it and choose a format that suits the exchange.",
+            "zh": "看不同人怎样解释，选适合交流的形式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Picture what a much more imaginative structure could look like using it.",
+            "zh": "想用它能做什么更有想象的建筑。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Revisit my earlier plan if this technique suggests a better small choice.",
+            "zh": "若手法带来更好小选择，重看早先计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_04",
+      "prompt": {
+        "en": "The model village will be shown to friends with different interests. What would you enjoy?",
+        "zh": "模型村落要给不同兴趣朋友看，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Adapt the introduction so different visitors can find an approachable starting point.",
+            "zh": "调整介绍，让不同访客找到好进入的起点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Describe an inviting larger vision of what the village could become.",
+            "zh": "描述村落可能长成怎样的、有吸引力的大画面。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Change an earlier display decision if the new audience makes it less useful.",
+            "zh": "若新访客让早先陈列决定不好用，就改。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Complete the particular preparation task I agreed to do.",
+            "zh": "完成自己约好做的那项准备。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_05",
+      "prompt": {
+        "en": "A blank corner of the model could become almost anything. What would you most enjoy?",
+        "zh": "模型一个空角几乎能做成任何东西，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Imagine a generous new possibility that changes how the whole village feels.",
+            "zh": "想一个宽广新可能，改变整个村落感觉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Consider whether an earlier choice should change to make room for the new idea.",
+            "zh": "考虑早先选择是否应改，给新点子位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Keep the existing agreed tasks clear while the group explores the extra.",
+            "zh": "小组探额外部分时，仍说清已有约定任务。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Find a playful name or comparison that makes the strange idea understandable.",
+            "zh": "找趣味名字、比喻，让奇特点子好懂。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_06",
+      "prompt": {
+        "en": "A first attempt at your village piece does not fit the shared model. What would you prefer?",
+        "zh": "自己的村落作品首稿不合共同模型，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Revise the earlier choice openly rather than defend it just because it was mine.",
+            "zh": "公开修早先选择，不因是自己的就守着。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Check which agreed responsibility still needs to be completed.",
+            "zh": "核还有哪项约定责任要完成。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Use a lighthearted reframing to make discussing the mismatch less awkward.",
+            "zh": "轻松换个说法，让讨论不合处少尴尬。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Practise the specific technique again on a smaller piece.",
+            "zh": "用更小物件再练具体手法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_07",
+      "prompt": {
+        "en": "Several optional village details are waiting to be made. What would you prefer?",
+        "zh": "几项可选村落细节等着做，你更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Take one task I genuinely agree to finish and leave the rest for discussion.",
+            "zh": "接一项真同意做完的，其他再讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Suggest a humorous organising idea that makes the details easier to talk about.",
+            "zh": "提一个幽默组织点子，让细节好聊。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Choose a detail that gives me a useful small technique to practise.",
+            "zh": "选一个能练有用小手法的细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Ask how the details will be presented so different contributions are visible.",
+            "zh": "问细节怎样展示，让不同贡献看得见。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_08",
+      "prompt": {
+        "en": "Two makers describe the same peaceful model scene in very different terms. What would you enjoy?",
+        "zh": "两制作者用很不同说法描述同一个和平模型场景，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Find a kind, playful phrase that helps them notice the common idea.",
+            "zh": "找友好趣味说法，让双方看见共同点子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Build a tiny sample in my own practice space to see what each version involves.",
+            "zh": "在自己练习空间做微小样例，看看两版涉及什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Give each person a suitable way to explain their version before comparing.",
+            "zh": "给各人合适解释方式，再比较。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Imagine a broader layout where both ideas might create something new.",
+            "zh": "想更广布局，让两点子合出新东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_09",
+      "prompt": {
+        "en": "Your paper-building technique is improving, but the next step is uncertain. What appeals most?",
+        "zh": "纸建筑手法在进步，下一步却不确定，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Choose a manageable practice variation and learn from the attempt.",
+            "zh": "选可做的练习变式，从尝试学。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Ask which explanation or feedback format would be easiest to use.",
+            "zh": "问哪种解释、反馈形式最容易用。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Picture an ambitious but optional design the technique might eventually support.",
+            "zh": "想一个手法以后可能支持的、有想象但可选的设计。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Update the first plan if the practice has shown a better direction.",
+            "zh": "若练习显出更好方向，就更新首计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_10",
+      "prompt": {
+        "en": "Friends are choosing how to walk visitors through their handmade village. What would you prefer?",
+        "zh": "朋友选怎样带访客看手工村落，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Notice who wants a short overview and who would enjoy a detailed explanation.",
+            "zh": "留意谁想短总览、谁喜欢细解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Offer an inspiring picture of the whole imaginary village before the details.",
+            "zh": "细节前给整个想象村落的、启发人的画面。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Change the planned route if visitors’ actual interests suggest another order.",
+            "zh": "若访客实际兴趣不同，就改预定路线。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Make sure the agreed setup task is ready before the visit.",
+            "zh": "访客来前备好约定布置任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_11",
+      "prompt": {
+        "en": "The group can imagine a bigger village but has not decided whether to build it. What would you enjoy?",
+        "zh": "小组想出更大村落，还没决定是否制作，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Explore the larger possibility as an invitation, without treating it as a promise.",
+            "zh": "把大可能当邀请探索，不当承诺。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Review what would need to change in the current plan before choosing.",
+            "zh": "选择前重看现计划要改什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Keep the existing commitments separate from the optional expansion.",
+            "zh": "分清已有承诺与可选扩展。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Use a playful comparison that makes the ambitious idea easier to picture.",
+            "zh": "用趣味比喻，让大点子好想象。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_12",
+      "prompt": {
+        "en": "Someone offers a useful correction to a choice you made early in the project. What would you prefer?",
+        "zh": "有人对项目早先自己选择提有用修正，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Acknowledge the correction and choose what to change now.",
+            "zh": "认可修正，选现在改什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Check how the change affects the task I already agreed to finish.",
+            "zh": "核改变怎样影响已约做完的任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Reframe the mistake lightly without making anyone the target of a joke.",
+            "zh": "轻松重述失误，不把人当笑话目标。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Practise the corrected small step before returning to the shared model.",
+            "zh": "回共同模型前，先练修正后小步骤。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_13",
+      "prompt": {
+        "en": "The village session is shorter than expected. What would you most like to preserve?",
+        "zh": "村落活动比预期短，你最想保留什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "The clear, bounded task I genuinely promised to complete.",
+            "zh": "自己真承诺完成的清楚、有范围任务。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "A light and useful way for the group to discuss the changed plan.",
+            "zh": "一个轻松有用的说法，让小组讨论变后计划。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "A little self-chosen practice that still feels worth trying.",
+            "zh": "仍值得试的一点自选练习。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "A way to present the contributions people have already made.",
+            "zh": "一个展示大家已做贡献的办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_14",
+      "prompt": {
+        "en": "The model’s invented village name sounds grander than the makers intended. What appeals most?",
+        "zh": "模型虚构村名听起来比制作者原意宏大，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Find a witty alternative that keeps the charm while making the scale clear.",
+            "zh": "找机智替代，留趣味，也说清规模。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Try lettering the name in a small practice piece before deciding.",
+            "zh": "决定前，用小练习件试村名字样。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Ask which name fits how the group wants to introduce its work.",
+            "zh": "问哪名字合小组想怎样介绍作品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Imagine whether the grand name could inspire an optional future design.",
+            "zh": "想大名字是否启发一个可选未来设计。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_15",
+      "prompt": {
+        "en": "You can improve one small part of your own handmade building. What would you enjoy?",
+        "zh": "能改进自己手工建筑一个小部分，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Practise a chosen detail until I understand what changes its appearance.",
+            "zh": "练选定细节，弄懂什么改变外观。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Choose a feedback format that makes another person’s observation easy to use.",
+            "zh": "选反馈形式，让别人观察好用。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Use the detail as a starting point for a much more imaginative building.",
+            "zh": "把细节当更有想象建筑的起点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Let a better new option replace the design I first preferred.",
+            "zh": "让更好新选项替代最初偏爱设计。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_16",
+      "prompt": {
+        "en": "Visitors misunderstand why two very different pieces sit together. What would you prefer?",
+        "zh": "访客误解两个很不同作品为何放一起，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sansa-stark",
+          "label": {
+            "en": "Change the explanation to suit the question they are actually asking.",
+            "zh": "按实际在问的问题，改解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Describe the wider imagined world that gives the two pieces a connection.",
+            "zh": "描述让两件相连的、更大想象世界。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Revise the arrangement if the first layout is no longer serving the work.",
+            "zh": "若首布局不再服务作品，就改。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Finish the agreed label or setup change that the group chooses.",
+            "zh": "完成小组选择的、已约标签或布置改变。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_17",
+      "prompt": {
+        "en": "A friend suggests a whole new peaceful district for the paper village. What would you enjoy?",
+        "zh": "朋友建议给纸村落加一个全新和平街区，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "daenerys-targaryen",
+          "label": {
+            "en": "Explore the generous creative possibility before reducing it to a task list.",
+            "zh": "变任务清单前，先探索宽广创意可能。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Ask which earlier decisions would need revisiting if the group chose it.",
+            "zh": "问若采用，要重看哪些早先决定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Keep clear what is optional and what people have actually agreed to make.",
+            "zh": "分清可选与实际同意制作的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Offer a playful description that helps everyone picture the new district.",
+            "zh": "给趣味描述，让人人能想象新街区。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GOT_18",
+      "prompt": {
+        "en": "At the end, the group notices that an early model choice should change next time. What would you prefer?",
+        "zh": "收尾时小组发现早先模型选择下次该改，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jaime-lannister",
+          "label": {
+            "en": "Record the revised choice without treating the first attempt as something to hide.",
+            "zh": "记修后选择，不把首试当需隐藏的事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jon-snow",
+          "label": {
+            "en": "Clarify the one follow-up task I am genuinely willing to take.",
+            "zh": "说清真愿意接的一项后续任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "tyrion-lannister",
+          "label": {
+            "en": "Use a kind humorous recap that makes learning from the change easier.",
+            "zh": "用友好幽默回顾，让从变化学习更容易。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arya-stark",
+          "label": {
+            "en": "Choose a small practice exercise that could prepare the next version.",
+            "zh": "选一个为下版准备的小练习。"
+          }
+        }
+      ]
+    }
+  ]
+}
