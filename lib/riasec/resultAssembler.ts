@@ -1,5 +1,14 @@
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import {
+  legacyProjectionAuthorityFallback,
+  parseRiasecReportContentEvidence,
+  resolveRiasecPrivateResultAuthority,
+  type RiasecPrivateResultAuthorityView,
+  type RiasecReportContentEvidenceView,
+} from "./reportSourceAuthority";
+export { parseRiasecPrivateResultAuthority, resolveRiasecPrivateResultAuthority } from "./reportSourceAuthority";
+export type { RiasecPrivateResultAuthorityView, RiasecReportContentEvidenceView } from "./reportSourceAuthority";
 
 export type RiasecDimension = {
   code: string;
@@ -333,6 +342,7 @@ export type RiasecLifecycleCopy = {
 
 export type RiasecResultViewModel = {
   authority: RiasecPrivateResultAuthorityView | null;
+  reportContent?: RiasecReportContentEvidenceView | null;
   topCode: string;
   formCode: string | null;
   formKind: string | null;
@@ -365,11 +375,6 @@ export type RiasecResultViewModel = {
   };
 };
 
-export type RiasecPrivateResultAuthorityView = {
-  mode: "canonical" | "immutable_legacy_snapshot";
-  sourceHash: string;
-  compiledHash: string;
-};
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
@@ -703,73 +708,6 @@ export function hasRiasecProjection(reportData: RiasecProjectionContainer | null
     && normalizeText(activityExplorer?.schema_version) === "riasec.activity_explorer.v0.1";
 }
 
-export function parseRiasecPrivateResultAuthority(value: unknown): RiasecPrivateResultAuthorityView | null {
-  const raw = asRecord(value);
-  if (!raw || normalizeText(raw.schema_version) !== "fap.riasec.private_result_authority.v1") {
-    return null;
-  }
-
-  const mode = normalizeText(raw.mode);
-  if (mode === "immutable_legacy_snapshot") {
-    return normalizeText(raw.authority_id) === ""
-      && normalizeText(raw.source_hash) === ""
-      && normalizeText(raw.compiled_hash) === ""
-      ? { mode, sourceHash: "", compiledHash: "" }
-      : null;
-  }
-  if (
-    mode !== "canonical" ||
-    normalizeText(raw.authority_id) !== "FERMATMIND_RIASEC_PRIVATE_RESULT_ZH_CN_CANONICAL" ||
-    normalizeText(raw.locale) !== "zh-CN" ||
-    normalizeText(raw.compiled_schema) !== "fap.riasec.private_result.compiled.v1" ||
-    normalizeText(raw.compiler_schema) !== "fap.riasec.private_result.compiler.v1" ||
-    normalizeText(raw.compiler_version) !== "1.0.0" ||
-    normalizeText(raw.runtime_contract) !== "riasec.report.v1"
-  ) {
-    return null;
-  }
-
-  const sourceHash = normalizeText(raw.source_hash).toLowerCase();
-  const compiledHash = normalizeText(raw.compiled_hash).toLowerCase();
-  if (!/^[0-9a-f]{64}$/.test(sourceHash) || !/^[0-9a-f]{64}$/.test(compiledHash)) {
-    return null;
-  }
-
-  return { mode, sourceHash, compiledHash };
-}
-
-export function resolveRiasecPrivateResultAuthority(
-  reportData: RiasecProjectionContainer | null | undefined
-): RiasecPrivateResultAuthorityView | null {
-  if (!reportData) return null;
-
-  const projectionV2 = asRecord(reportData.riasec_public_projection_v2);
-  const projectionAuthority = parseRiasecPrivateResultAuthority(projectionV2?.private_result_authority);
-  const reportMeta = asRecord(asRecord((reportData as { report?: unknown }).report)?._meta);
-  const externalAuthority = parseRiasecPrivateResultAuthority(
-    (reportData as { riasec_private_result_authority?: unknown }).riasec_private_result_authority
-      ?? reportMeta?.riasec_private_result_authority
-  );
-
-  if (
-    externalAuthority?.mode === "immutable_legacy_snapshot" &&
-    !asRecord(projectionV2?.private_result_authority)
-  ) {
-    return externalAuthority;
-  }
-  if (projectionAuthority?.mode !== "canonical" || externalAuthority?.mode !== "canonical") {
-    return null;
-  }
-  if (
-    projectionAuthority.sourceHash !== externalAuthority.sourceHash ||
-    projectionAuthority.compiledHash !== externalAuthority.compiledHash
-  ) {
-    return null;
-  }
-
-  return projectionAuthority;
-}
-
 export function assembleRiasecResultViewModel(
   reportData: RiasecProjectionContainer,
   requestedPageLocale: Locale
@@ -823,11 +761,15 @@ export function assembleRiasecResultViewModel(
       : [];
   const qualityGrade = normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A";
   const qualityState = normalizeText(v2Quality?.quality_state);
-  const authority = resolveRiasecPrivateResultAuthority(reportData)
-    ?? parseRiasecPrivateResultAuthority(projectionV2?.private_result_authority);
+  const resolvedAuthority = resolveRiasecPrivateResultAuthority(reportData)
+    ?? legacyProjectionAuthorityFallback(reportData);
+  const pageLocale = requestedPageLocale === "en" ? "en" : "zh-CN";
+  const authority = resolvedAuthority?.mode === "canonical" && normalizeText(projectionV2?.locale) !== pageLocale
+    ? null : resolvedAuthority;
 
   return {
     authority,
+    reportContent: parseRiasecReportContentEvidence(projectionV2?.report_content_v1),
     topCode,
     formCode,
     formKind: normalizeText(v2Form?.form_kind) || null,

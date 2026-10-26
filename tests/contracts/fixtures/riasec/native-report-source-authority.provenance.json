@@ -1,0 +1,63 @@
+{
+  "producer_repository": "fermatmind/fap-api",
+  "producer_commit": "33d5125e57c156266a337235955b7e07d47c1804",
+  "producer_classes": [
+    "app/Services/Report/RiasecReportComposer.php",
+    "app/Services/Riasec/RiasecPublicProjectionService.php",
+    "app/Services/Riasec/RiasecEnglishReportSourceContract.php"
+  ],
+  "fixture_sha256": "97ccf324fe0bd0da0b3d4693774c320b6be27d42e063f6df7db98c38bddac2d2",
+  "source_packages": {
+    "1.9": {
+      "compiled_hash": "b66309240729d785a43aac1e5a2770281520716b93ac330eb47becb830cf7c3d",
+      "source_hash": "c7ab76c33fb28b70623b0edb5e263ea657581f2aa41338808ee4231737206854"
+    },
+    "1.8": {
+      "compiled_hash": "3769d13a7939fa7341a0acef06bae7139e56a6e09a5fc82040f67c26113dc551",
+      "source_hash": "5fad2d6cbaa2fc0109a41161f2bfa40af3c1225115c6bb916f2f09d82d3e8b52"
+    }
+  },
+  "input_kind": "fixed local synthetic display result, unsaved Result/Attempt; no kernel, database, scorer or question/answer input",
+  "input": {
+    "top_code": "IAR",
+    "scores_0_100": {
+      "R": 75,
+      "I": 90,
+      "A": 87.5,
+      "S": 55,
+      "E": 40,
+      "C": 30
+    },
+    "quality_grade": "A",
+    "forms": [
+      "riasec_60",
+      "riasec_140"
+    ],
+    "locales": [
+      "en",
+      "zh-CN"
+    ],
+    "form_version_60": "synthetic-display-60",
+    "form_version_140": "v1-enhanced-140",
+    "scoring_spec_version": "riasec_scoring_v1"
+  },
+  "authority_and_instance_fields": "native producer output only; not hand-authored or rehashed by JavaScript",
+  "numeric_hash_boundary": "Browser JSON parsing does not retain PHP zero fractions; preserve native digests and validate replica/context consistency, without claiming to recompute the backend hash",
+  "production_private_report_or_permission_proof": false,
+  "native_cases": [
+    "1.9/en/riasec_60",
+    "1.9/en/riasec_140",
+    "1.9/en/riasec_140-caution",
+    "1.9/en/riasec_140-missing-content-version",
+    "1.9/zh-CN/riasec_60",
+    "1.9/zh-CN/riasec_140",
+    "1.8/en/riasec_60",
+    "1.8/en/riasec_140",
+    "1.8/zh-CN/riasec_60",
+    "1.8/zh-CN/riasec_140"
+  ],
+  "native_failure_variants": [
+    "caution -> restricted",
+    "missing content_package_version -> incomplete"
+  ]
+}

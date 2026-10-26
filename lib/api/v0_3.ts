@@ -287,6 +287,12 @@ export type RiasecPrivateResultAuthority = {
   compiler_schema?: string;
   compiler_version?: string;
   runtime_contract?: string;
+  coverage_scope?: "selected_modules" | "report_sources" | string;
+  modules?: string[];
+  report_contract_id?: string;
+  source_coverage_hash?: string;
+  instance_contract_id?: string;
+  instance_hash?: string;
   [key: string]: unknown;
 };
 
