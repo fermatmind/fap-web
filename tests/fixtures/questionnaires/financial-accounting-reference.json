@@ -1,0 +1,2652 @@
+{
+  "id": "T167",
+  "edition": "fm_financial_accounting_practice_24_v1",
+  "authorship": "FermatMind original bilingual fictional accounting tasks and full guides; selected primary facts/formulae background only. No textbook exercise/figure/prose/answer-bank adaptation. Exact arithmetic and declared encodings do not independently validate language/accounting interpretation, audit records or certify standards, tax or hiring competence.",
+  "questions": [
+    {
+      "id": "ACCOUNTING_01",
+      "prompt": {
+        "en": "A fictional owner contributes CU3,600 cash to a new studio as capital, not payment for a service. Which entry records this contribution? Ignore taxes, fees and all other transactions.",
+        "zh": "虚构业主向新工作室投入现金3,600单位作为资本，不是购买服务。忽略税费及其他交易，哪项记录这次投入？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Debit Cash CU3,600; credit Owner capital CU3,600",
+            "zh": "借：现金3,600单位；贷：业主资本3,600单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Debit Owner capital CU3,600; credit Cash CU3,600",
+            "zh": "借：业主资本3,600单位；贷：现金3,600单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Debit Cash CU3,600; credit Service revenue CU3,600",
+            "zh": "借：现金3,600单位；贷：服务收入3,600单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Debit Expense CU3,600; credit Cash CU3,600",
+            "zh": "借：费用3,600单位；贷：现金3,600单位"
+          },
+          "directionId": "entries"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Cash is an asset and increases with the debit; the owner’s contributed capital increases with the credit. The contribution is not earned service revenue, and the scenario supplies no expense. Both sides record CU3,600. These are simplified stated facts for practice, not a conclusion about the legal form or tax treatment of a real contribution.",
+        "zh": "现金是资产，增加记借；投入资本增加记贷，两边均3,600单位。业主投入不是服务收入，题中也无费用。这是简化练习事实，不判断现实投入的法律形式或税务处理。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_02",
+      "prompt": {
+        "en": "The studio receives a CU2,400 cash loan that it must repay. There is no interest or fee at receipt. Which entry records only the borrowing?",
+        "zh": "工作室收到须偿还的借款现金2,400单位，收款时无利息或手续费。仅记录借入本身，哪项正确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Debit Loan payable CU2,400; credit Cash CU2,400",
+            "zh": "借：借款负债2,400单位；贷：现金2,400单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Debit Cash CU2,400; credit Loan payable CU2,400",
+            "zh": "借：现金2,400单位；贷：借款负债2,400单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Debit Cash CU2,400; credit Service revenue CU2,400",
+            "zh": "借：现金2,400单位；贷：服务收入2,400单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Debit Expense CU2,400; credit Cash CU2,400",
+            "zh": "借：费用2,400单位；贷：现金2,400单位"
+          },
+          "directionId": "entries"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Borrowing increases cash and a repayment obligation by the same amount. It does not create service revenue merely because money entered the bank. The model records a cash debit and a loan-payable credit of CU2,400. Interest recognition, financing costs and later repayment are separate events that this question explicitly excludes.",
+        "zh": "借款令现金与偿还义务同增，不因进账就成为服务收入。模型借现金、贷借款负债各2,400单位；利息、融资费用及之后还款是本题排除的其他事件。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_03",
+      "prompt": {
+        "en": "The studio pays CU1,150 cash to settle an existing recorded supplier payable. The purchase was recorded earlier and this payment has no discount, interest or fee. Which entry records settlement?",
+        "zh": "工作室支付现金1,150单位，清偿之前已入账的供应商应付款。原采购已记录，本次无折扣、利息或手续费。结清分录是哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Debit Cash CU1,150; credit Accounts payable CU1,150",
+            "zh": "借：现金1,150单位；贷：应付账款1,150单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Debit Expense CU1,150; credit Cash CU1,150",
+            "zh": "借：费用1,150单位；贷：现金1,150单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Debit Accounts payable CU1,150; credit Cash CU1,150",
+            "zh": "借：应付账款1,150单位；贷：现金1,150单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Debit Inventory CU1,150; credit Accounts payable CU1,150",
+            "zh": "借：存货1,150单位；贷：应付账款1,150单位"
+          },
+          "directionId": "entries"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Settlement reduces the already recorded payable with a debit and reduces cash with a credit. Recording the original purchase again would duplicate it. A new expense cannot be inferred from this cash payment alone because the earlier purchase is already recorded. The simplified entry concerns only settling the specified balance.",
+        "zh": "结清时借应付账款以减少负债，贷现金以减少资产。再次记录原采购会重复；原采购已入账，不能仅因付现金就再推一笔新费用。本题只处理指定余额结清。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_04",
+      "prompt": {
+        "en": "The studio receives CU860 of inventory on supplier credit. It has not paid and none of these goods has been used or sold. Ignore tax and delivery charges. Which entry records receipt?",
+        "zh": "工作室赊购并收到存货860单位，尚未付款，也未使用或销售这些货物。忽略税及运费，收货分录是哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Debit Accounts payable CU860; credit Inventory CU860",
+            "zh": "借：应付账款860单位；贷：存货860单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Debit Expense CU860; credit Cash CU860",
+            "zh": "借：费用860单位；贷：现金860单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Debit Cash CU860; credit Service revenue CU860",
+            "zh": "借：现金860单位；贷：服务收入860单位"
+          },
+          "directionId": "entries"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Debit Inventory CU860; credit Accounts payable CU860",
+            "zh": "借：存货860单位；贷：应付账款860单位"
+          },
+          "directionId": "entries"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Receiving unsold inventory on credit increases the inventory asset and the supplier payable. The model therefore debits Inventory and credits Accounts payable, each CU860. Cash does not move in this transaction. The facts do not supply a sale or consumption event, so a cash payment or current cost-of-goods-sold entry is unsupported.",
+        "zh": "赊收未售存货使存货资产和应付供应商负债同增，借存货、贷应付账款各860单位；本次无现金变动，也没有销售或耗用事件，不支持现金付款或当期销货成本分录。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_05",
+      "prompt": {
+        "en": "In this simplified income statement, net sales are CU14,800 and cost of goods sold is CU8,900. Gross profit means net sales less that cost. What is gross profit?",
+        "zh": "简化利润表中，净销售收入14,800单位、销货成本8,900单位。本题毛利为净销售收入减该成本，毛利多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU5,900",
+            "zh": "5,900单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU23,700",
+            "zh": "23,700单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU8,900",
+            "zh": "8,900单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU14,800",
+            "zh": "14,800单位"
+          },
+          "directionId": "income"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract the stated cost of goods sold from net sales: CU14,800 − CU8,900 = CU5,900. This is gross profit under the supplied format. It is not net income after other expenses or cash collected. The exercise gives the relevant net figures rather than asking you to infer returns, discounts or tax adjustments.",
+        "zh": "按题定格式14,800−8,900＝5,900单位。毛利不同于扣其他费用后的净利润，也不是实收现金。题目已给净额，不需猜退货、折扣或税调整。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_06",
+      "prompt": {
+        "en": "The practice statement lists revenue CU11,000, cost of goods sold CU4,000, rent CU1,500, wages CU2,200 and depreciation CU300. There are no other revenues, expenses, interest or taxes. What is net income?",
+        "zh": "练习利润表列收入11,000、销货成本4,000、租金1,500、工资2,200、折旧300单位，无其他收入、费用、利息或税。净利润多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU7,000",
+            "zh": "7,000单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU3,000",
+            "zh": "3,000单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU3,300",
+            "zh": "3,300单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU11,000",
+            "zh": "11,000单位"
+          },
+          "directionId": "income"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Deduct every listed expense once: CU11,000 − CU4,000 − CU1,500 − CU2,200 − CU300 = CU3,000. CU7,000 is only the amount after cost of goods sold, while CU3,300 omits depreciation. The question explicitly excludes other items; a real statement would require checking its complete applicable accounts and period.",
+        "zh": "逐项扣一次：11,000−4,000−1,500−2,200−300＝3,000单位。7,000只扣了销货成本，3,300漏折旧。本题明示无其他项目，现实报表仍需核完整科目及期间。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_07",
+      "prompt": {
+        "en": "During this practice period the owner contributes CU2,500 capital. Separately, the studio earns CU1,200 service revenue and incurs CU700 expenses. The contribution is not revenue and there are no other income items. What is net income?",
+        "zh": "本期业主投入资本2,500单位；另有已赚取服务收入1,200和已发生费用700单位。投入不算收入，且无其他损益项目。净利润多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU3,000",
+            "zh": "3,000单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU1,200",
+            "zh": "1,200单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU500",
+            "zh": "500单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU2,500",
+            "zh": "2,500单位"
+          },
+          "directionId": "income"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Only the stated revenue and expense enter this simplified income calculation: CU1,200 − CU700 = CU500. The CU2,500 contribution changes contributed capital rather than earned profit. Cash inflows can therefore include amounts that are not revenue. The result follows the supplied accounting model and does not evaluate the business’s performance beyond these fictional facts.",
+        "zh": "简化损益只算1,200−700＝500单位，投入2,500增加投入资本而非赚得利润。现金流入可能含非收入项目；结果只依据本题模型，不评价这些虚构事实之外的经营表现。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_08",
+      "prompt": {
+        "en": "A draft practice statement shows CU4,500 profit before recording one omitted CU700 expense. Assume this is the only correction and the expense belongs in this period. What is corrected profit?",
+        "zh": "练习草稿利润4,500单位，尚漏记一笔属于本期的费用700单位。假定这是唯一调整，改正后利润多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU5,200",
+            "zh": "5,200单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU4,500",
+            "zh": "4,500单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU700",
+            "zh": "700单位"
+          },
+          "directionId": "income"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU3,800",
+            "zh": "3,800单位"
+          },
+          "directionId": "income"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The omitted expense lowers the stated profit by CU700, giving CU4,500 − CU700 = CU3,800. Adding it would move profit in the wrong direction; leaving profit unchanged would ignore the correction. The premise fixes both the period and completeness of other entries, so the exercise does not require a wider audit or an inference about why the omission happened.",
+        "zh": "漏记本期费用令题定利润应减700，得3,800单位。加回方向错误，不变则漏调整。题目固定期间并明确其他记录无需改，不要求扩展审计或推断漏记原因。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_09",
+      "prompt": {
+        "en": "At one date the practice balance sheet has assets CU24,500 and liabilities CU9,400. Using Assets = Liabilities + Equity, what is total equity?",
+        "zh": "同一日练习资产负债表有资产24,500单位、负债9,400单位。按资产＝负债＋权益，权益多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU15,100",
+            "zh": "15,100单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU33,900",
+            "zh": "33,900单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU9,400",
+            "zh": "9,400单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU24,500",
+            "zh": "24,500单位"
+          },
+          "directionId": "balance"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Rearrange the stated equation: Equity = Assets − Liabilities = CU24,500 − CU9,400 = CU15,100. Adding assets and liabilities answers a different calculation. This residual is based on the supplied balances; it does not establish the market value of a company, the value of a person’s investment or the accuracy of the underlying records.",
+        "zh": "把题定等式改为权益＝资产−负债，24,500−9,400＝15,100单位。此余额不建立公司市值、个人投资价值或底层记录准确性。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_10",
+      "prompt": {
+        "en": "The practice model defines total assets here as cash CU3,200 + receivables CU4,800 + equipment cost CU16,000 − accumulated depreciation CU4,000. No other assets or valuation adjustments exist. What is the total asset amount?",
+        "zh": "本题资产总额按现金3,200＋应收款4,800＋设备成本16,000−累计折旧4,000单位计算，无其他资产或估值调整。资产总额多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU24,000",
+            "zh": "24,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU20,000",
+            "zh": "20,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU28,000",
+            "zh": "28,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU16,000",
+            "zh": "16,000单位"
+          },
+          "directionId": "balance"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Add the three stated positive balances and deduct accumulated depreciation once: CU3,200 + CU4,800 + CU16,000 − CU4,000 = CU20,000. The exercise explicitly defines the asset total and excludes other adjustments. Accumulated depreciation reduces the equipment’s carrying amount in this model; treating it as another positive asset would overstate the total.",
+        "zh": "三项正余额相加后扣一次累计折旧：3,200＋4,800＋16,000−4,000＝20,000单位。本题明确定义计算及排除其他调整；累计折旧减少设备账面额，不能再加成正资产。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_11",
+      "prompt": {
+        "en": "The studio has total assets CU32,000. It exchanges CU5,000 cash for equipment that is recorded as an asset at that same cost. No fee, depreciation, gain or loss occurs at this moment. What are total assets immediately afterwards?",
+        "zh": "工作室资产总额32,000单位，用现金5,000换取按相同成本入账的设备。此刻无手续费、折旧、损益。交换后即刻资产总额多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU27,000",
+            "zh": "27,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU37,000",
+            "zh": "37,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU32,000",
+            "zh": "32,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU5,000",
+            "zh": "5,000单位"
+          },
+          "directionId": "balance"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "One asset, cash, decreases by CU5,000 while another asset, equipment, increases by CU5,000. The total change is zero, leaving CU32,000. The question concerns the immediate exchange under its stated model. Later depreciation, repairs, disposal or impairment would require separate information and should not be silently added to this event.",
+        "zh": "现金资产减5,000，设备资产增5,000，合计变动为0，仍为32,000单位。题目只问明示模型下即时交换，不应偷加后续折旧、维修、处置或减值。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_12",
+      "prompt": {
+        "en": "A draft lists assets CU18,000, liabilities CU7,000 and equity CU10,000. No source records are supplied. Which statement is justified by these figures alone?",
+        "zh": "草稿列资产18,000、负债7,000、权益10,000单位，未给原始记录。仅凭数字可确定哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The figures balance exactly",
+            "zh": "数字完全平衡"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A particular employee necessarily stole CU1,000",
+            "zh": "必定是某员工盗取1,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Liabilities necessarily exceed assets by CU1,000",
+            "zh": "负债必定比资产多1,000单位"
+          },
+          "directionId": "balance"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Assets exceed liabilities plus equity by CU1,000; the cause is not identified",
+            "zh": "资产比负债加权益多1,000单位；原因尚未确定"
+          },
+          "directionId": "balance"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The right side is CU7,000 + CU10,000 = CU17,000, leaving a CU1,000 difference from assets. This identifies an imbalance, not its source. An omitted account, a transcription error or another mistake would need supporting records to distinguish. The difference alone cannot establish misconduct or which specific balance needs correction.",
+        "zh": "右边7,000＋10,000＝17,000，与资产差1,000单位。差额只确定不平衡，不确定来源；漏科目、抄写或其他错误须凭记录区分，不能据此指控不当行为或指定改哪个余额。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_13",
+      "prompt": {
+        "en": "For this exercise, a CU2,400 advance covers four equal workshops. The model recognises one quarter of the fee when each workshop is completed, with no other conditions. One workshop is completed this period. How much revenue is recognised this period?",
+        "zh": "本练习预收2,400单位覆盖四场等价工作坊。模型规定每完成一场确认四分之一费用，无其他条件。本期完成一场，本期确认收入多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU600",
+            "zh": "600单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU2,400",
+            "zh": "2,400单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU1,800",
+            "zh": "1,800单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "accrual"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The stated rule assigns CU2,400 ÷ 4 = CU600 to the completed workshop. The remaining CU1,800 relates to the three undelivered workshops under this simplified model. Receiving the advance does not make the entire fee current-period revenue here. The explicit recognition rule is for practice and does not determine treatment of every real contract.",
+        "zh": "按题定规则2,400÷4＝600单位，余1,800对应未交付三场。收预付款不让本题全部费用都成为本期收入。此明示模型只用于练习，不决定所有真实合同处理。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_14",
+      "prompt": {
+        "en": "The studio prepays CU1,200 for insurance covering 12 equal full months from 1 October. By 31 December exactly three full months have been used. Under the exercise’s equal-month accrual rule, how much insurance expense belongs to those three months?",
+        "zh": "工作室预付保险1,200单位，自10月1日起覆盖12个等价整月。到12月31日恰好用三整月。按本题等月权责规则，这三个月保险费用多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU900",
+            "zh": "900单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU300",
+            "zh": "300单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU1,200",
+            "zh": "1,200单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU100",
+            "zh": "100单位"
+          },
+          "directionId": "accrual"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The monthly allocation is CU1,200 ÷ 12 = CU100. Three completed months use CU300, leaving CU900 prepaid under the exercise rule. Cash payment occurred earlier, but that does not allocate all CU1,200 to these three months. The stated equal-month convention avoids assuming a day-count method or a real insurer’s contract conditions.",
+        "zh": "每月1,200÷12＝100，三个月费用300，题定规则下余预付900单位。先付现金不把全年数都分给这三个月。本题明确等月，不猜日计法或真实保险条款。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_15",
+      "prompt": {
+        "en": "The studio uses CU900 of electricity in December, owes the full amount at 31 December and pays it in January. The exercise uses accrual accounting with no other adjustments. How much of this electricity cost is December expense?",
+        "zh": "工作室12月使用电力900单位，12月31日仍欠全款，1月才支付。本题用权责发生制，无其他调整。该笔电力多少属于12月费用？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU450",
+            "zh": "450单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU900",
+            "zh": "900单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU1,800",
+            "zh": "1,800单位"
+          },
+          "directionId": "accrual"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The service was used in December, so the exercise recognises CU900 expense and an unpaid obligation in December. Paying in January settles that obligation rather than moving this stated December cost into January. Do not confuse the cash movement with the period of service. The amount and service period are supplied, not estimated from an actual utility account.",
+        "zh": "服务在12月耗用，故本题12月确认900单位费用及未付义务；1月付款结清义务，不把题定12月费用移去1月。应分现金时间与服务期间，数额期间均题定，不估真实电费账户。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_16",
+      "prompt": {
+        "en": "A CU800 receivable came from service revenue correctly recorded in a previous period. The customer now pays exactly CU800. No new service, interest, fee or adjustment occurs. Under accrual accounting, how much new revenue arises from collecting this receivable?",
+        "zh": "应收款800单位来自以前期间已正确记录的服务收入，本期客户恰好支付800，无新服务、利息、手续费或调整。权责发生制下，本次收款产生多少新收入？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU800",
+            "zh": "800单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU1,600",
+            "zh": "1,600单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU-800",
+            "zh": "-800单位"
+          },
+          "directionId": "accrual"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "accrual"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Collection exchanges one asset for another: cash increases CU800 and the recorded receivable decreases CU800. The earlier revenue is not recognised a second time, so new revenue from this collection is zero. That conclusion depends on the premise that the earlier recording was correct and excludes the separate events named in the question.",
+        "zh": "收回应收是资产间转换：现金增800，应收减800。以前已正确确认的收入不再记第二次，新收入为0；结论依赖先前记录正确及题目排除的其他事件。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_17",
+      "prompt": {
+        "en": "Equipment costs CU15,400, has residual value CU1,400 and a seven-year useful life. Use straight-line depreciation for one full year with unchanged estimates and no impairment. What is annual depreciation?",
+        "zh": "设备成本15,400单位，残值1,400，寿命七年。按直线法完整计一年，估计不变且无减值，年折旧多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU2,000",
+            "zh": "2,000单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU2,200",
+            "zh": "2,200单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU15,400",
+            "zh": "15,400单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU1,400",
+            "zh": "1,400单位"
+          },
+          "directionId": "depreciation"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The depreciable amount is CU15,400 − CU1,400 = CU14,000. Dividing by seven years gives CU2,000 per full year. Using the full cost without deducting residual value would give CU2,200 instead. This is the specified simplified straight-line model, without tax allowances, partial-year conventions or revised estimates.",
+        "zh": "应折旧额15,400−1,400＝14,000，除七年得每整年2,000单位。不扣残值会算成2,200。本题用简化直线模型，不含税法扣除、非整年规则或估计更新。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_18",
+      "prompt": {
+        "en": "Equipment cost CU18,000 and residual value is CU3,000 over five years. Two full years of unchanged straight-line depreciation are recorded. In this cost model, carrying amount is cost less accumulated depreciation, with no impairment or other adjustment. What is carrying amount now?",
+        "zh": "设备成本18,000、残值3,000单位，寿命五年，已按估计不变的直线法计两整年。题定成本模型账面额＝成本−累计折旧，无减值及其他调整。现在账面额多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU6,000",
+            "zh": "6,000单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU12,000",
+            "zh": "12,000单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU3,000",
+            "zh": "3,000单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU18,000",
+            "zh": "18,000单位"
+          },
+          "directionId": "depreciation"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Annual depreciation is (CU18,000 − CU3,000) ÷ 5 = CU3,000. Two years accumulate CU6,000, so the stated carrying amount is CU18,000 − CU6,000 = CU12,000. This is not a resale-price estimate or a cash balance. The question explicitly excludes other valuation adjustments and assumes two complete years.",
+        "zh": "年折旧(18,000−3,000)÷5＝3,000，两年累计6,000，账面18,000−6,000＝12,000单位。不是转售价估计或现金余额，且题目排除其他估值调整，明示两整年。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_19",
+      "prompt": {
+        "en": "The only event in this question is recording CU250 depreciation expense on existing equipment. There is no asset purchase, sale or cash payment in this event. What is the immediate change in cash from this entry?",
+        "zh": "本题唯一事件是在既有设备上记录折旧费用250单位，本次无资产购买、出售或现金支付。该分录即刻导致现金变动多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU250",
+            "zh": "250单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU-250",
+            "zh": "-250单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU500",
+            "zh": "500单位"
+          },
+          "directionId": "depreciation"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Recording this depreciation allocates part of an existing asset’s cost as expense; the entry itself does not move cash. The question excludes any purchase, disposal or payment, so its immediate cash change is zero. This does not mean the equipment was originally free or that future maintenance will cost nothing. Those would be separate events.",
+        "zh": "本次折旧把既有资产部分成本分配为费用，分录本身不动现金；题目排除购置、处置或支付，现金即刻变动为0。不说明原设备免费，也不说明未来维修无成本，那是别的事件。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_20",
+      "prompt": {
+        "en": "An asset costs CU6,000, residual value is CU600 and useful life is three years. After all three full years of unchanged straight-line depreciation, assume no disposal, impairment or other adjustment. What carrying amount remains under cost less accumulated depreciation?",
+        "zh": "资产成本6,000、残值600单位、寿命三年。按估计不变直线法计满三整年，无处置、减值或其他调整。按成本减累计折旧，还余账面额多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU1,800",
+            "zh": "1,800单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU6,000",
+            "zh": "6,000单位"
+          },
+          "directionId": "depreciation"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU600",
+            "zh": "600单位"
+          },
+          "directionId": "depreciation"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The depreciable amount is CU5,400, allocated as CU1,800 per year. Three full years accumulate CU5,400, leaving CU600 under the stated model. Depreciating the entire cost to zero would ignore the residual value. The remaining carrying amount is an accounting result in this exercise, not a guarantee that a buyer will pay that amount.",
+        "zh": "应折旧额5,400，每年1,800，三年累计5,400，题定模型余600单位。折到0会忽略残值；剩余账面额只是本题会计结果，不保证买家愿付该金额。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_21",
+      "prompt": {
+        "en": "The exercise already classifies current assets as CU42,000 and current liabilities as CU27,000. Working capital is their difference. What is working capital?",
+        "zh": "本题已把流动资产定为42,000、流动负债定为27,000单位，营运资本定义为二者之差。营运资本多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU15,000",
+            "zh": "15,000单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU69,000",
+            "zh": "69,000单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU42,000",
+            "zh": "42,000单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU27,000",
+            "zh": "27,000单位"
+          },
+          "directionId": "working-capital"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract current liabilities from current assets: CU42,000 − CU27,000 = CU15,000. The task supplies the classifications, so no judgement about a borderline account is required. The difference does not by itself establish when receivables will be collected, whether inventory is saleable or whether the business can pay every obligation when due.",
+        "zh": "流动资产减流动负债：42,000−27,000＝15,000单位。分类已题定，不需判断边界科目。差额本身不证明应收何时到账、存货能否售出或企业能否按时付所有义务。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_22",
+      "prompt": {
+        "en": "Current assets are CU36,000 and current liabilities CU24,000 in this exercise. Current ratio means current assets divided by current liabilities. What is the ratio, expressed as a multiple?",
+        "zh": "本题流动资产36,000、流动负债24,000单位。流动比率定义为流动资产除流动负债，以倍数表示是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.67 times",
+            "zh": "0.67倍"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1.5 times",
+            "zh": "1.5倍"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "12,000 times",
+            "zh": "12,000倍"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "150 times",
+            "zh": "150倍"
+          },
+          "directionId": "working-capital"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "CU36,000 ÷ CU24,000 = 1.5. The currency units cancel, so this is a ratio rather than CU12,000 of working capital. Reporting 150 as a multiple confuses the percentage representation with the ratio. A ratio of 1.5 is not proof of timely payment or a hiring benchmark; the exercise asks only for this supplied calculation.",
+        "zh": "36,000÷24,000＝1.5，金额单位约去，是比率而非营运资本12,000单位。把百分比150当倍数会混淆表示。1.5不证明及时偿付，也非招聘基准，本题只核所给计算。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_23",
+      "prompt": {
+        "en": "A receivable of CU1,600 is explicitly a current asset. The customer pays it in full, increasing current cash CU1,600 and reducing that receivable CU1,600. Current liabilities do not change. What is the change in working capital from this event?",
+        "zh": "应收1,600单位明定为流动资产，客户付清，流动现金增1,600、该应收减1,600，流动负债不变。本次营运资本变动多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU1,600",
+            "zh": "1,600单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU-1,600",
+            "zh": "-1,600单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU3,200",
+            "zh": "3,200单位"
+          },
+          "directionId": "working-capital"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Total current assets change by CU1,600 − CU1,600 = zero. With current liabilities unchanged, working capital also changes by zero. The asset mix changes from a receivable to cash, but the working-capital arithmetic is unchanged. The question explicitly fixes the receivable as current and excludes fees, interest or other events.",
+        "zh": "流动资产合计变动1,600−1,600＝0，流动负债不动，故营运资本变动0。资产构成从应收变为现金，但该算术不变。应收分类已明定，且无其他事件。"
+      }
+    },
+    {
+      "id": "ACCOUNTING_24",
+      "prompt": {
+        "en": "The studio settles CU1,200 of an explicitly current payable using CU1,200 of current cash. There is no interest, fee or other transaction. What is the change in working capital, defined as current assets minus current liabilities?",
+        "zh": "工作室用流动现金1,200单位结清明定流动应付款1,200，无利息、手续费或其他交易。按流动资产减流动负债，营运资本变动多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU-1,200",
+            "zh": "-1,200单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU1,200",
+            "zh": "1,200单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU2,400",
+            "zh": "2,400单位"
+          },
+          "directionId": "working-capital"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU0",
+            "zh": "0单位"
+          },
+          "directionId": "working-capital"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Current assets decrease CU1,200 and current liabilities decrease CU1,200. The change in their difference is −CU1,200 − (−CU1,200) = zero. This does not mean the cash balance or current ratio must remain unchanged. The task asks about working capital, a difference, rather than every indicator affected by the payment.",
+        "zh": "流动资产减1,200、流动负债也减1,200，二者差额变动−1,200−(−1,200)＝0。不说明现金余额或流动比率都不变；本题问差额型营运资本，而非支付影响的所有指标。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "ACCOUNTING_01",
+      "proof": {
+        "kind": "journal",
+        "transaction": "owner_contribution",
+        "amount": 3600,
+        "claims": [
+          {
+            "label": {
+              "en": "Debit Cash CU3,600; credit Owner capital CU3,600",
+              "zh": "借：现金3,600单位；贷：业主资本3,600单位"
+            },
+            "debit": "cash",
+            "credit": "capital",
+            "amount": 3600
+          },
+          {
+            "label": {
+              "en": "Debit Owner capital CU3,600; credit Cash CU3,600",
+              "zh": "借：业主资本3,600单位；贷：现金3,600单位"
+            },
+            "debit": "capital",
+            "credit": "cash",
+            "amount": 3600
+          },
+          {
+            "label": {
+              "en": "Debit Cash CU3,600; credit Service revenue CU3,600",
+              "zh": "借：现金3,600单位；贷：服务收入3,600单位"
+            },
+            "debit": "cash",
+            "credit": "revenue",
+            "amount": 3600
+          },
+          {
+            "label": {
+              "en": "Debit Expense CU3,600; credit Cash CU3,600",
+              "zh": "借：费用3,600单位；贷：现金3,600单位"
+            },
+            "debit": "expense",
+            "credit": "cash",
+            "amount": 3600
+          }
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/3-3-define-and-describe-the-initial-steps-in-the-accounting-cycle"
+      }
+    },
+    {
+      "id": "ACCOUNTING_02",
+      "proof": {
+        "kind": "journal",
+        "transaction": "cash_borrowing",
+        "amount": 2400,
+        "claims": [
+          {
+            "label": {
+              "en": "Debit Cash CU2,400; credit Loan payable CU2,400",
+              "zh": "借：现金2,400单位；贷：借款负债2,400单位"
+            },
+            "debit": "cash",
+            "credit": "loan",
+            "amount": 2400
+          },
+          {
+            "label": {
+              "en": "Debit Loan payable CU2,400; credit Cash CU2,400",
+              "zh": "借：借款负债2,400单位；贷：现金2,400单位"
+            },
+            "debit": "loan",
+            "credit": "cash",
+            "amount": 2400
+          },
+          {
+            "label": {
+              "en": "Debit Cash CU2,400; credit Service revenue CU2,400",
+              "zh": "借：现金2,400单位；贷：服务收入2,400单位"
+            },
+            "debit": "cash",
+            "credit": "revenue",
+            "amount": 2400
+          },
+          {
+            "label": {
+              "en": "Debit Expense CU2,400; credit Cash CU2,400",
+              "zh": "借：费用2,400单位；贷：现金2,400单位"
+            },
+            "debit": "expense",
+            "credit": "cash",
+            "amount": 2400
+          }
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/3-3-define-and-describe-the-initial-steps-in-the-accounting-cycle"
+      }
+    },
+    {
+      "id": "ACCOUNTING_03",
+      "proof": {
+        "kind": "journal",
+        "transaction": "settle_payable",
+        "amount": 1150,
+        "claims": [
+          {
+            "label": {
+              "en": "Debit Accounts payable CU1,150; credit Cash CU1,150",
+              "zh": "借：应付账款1,150单位；贷：现金1,150单位"
+            },
+            "debit": "payable",
+            "credit": "cash",
+            "amount": 1150
+          },
+          {
+            "label": {
+              "en": "Debit Cash CU1,150; credit Accounts payable CU1,150",
+              "zh": "借：现金1,150单位；贷：应付账款1,150单位"
+            },
+            "debit": "cash",
+            "credit": "payable",
+            "amount": 1150
+          },
+          {
+            "label": {
+              "en": "Debit Expense CU1,150; credit Cash CU1,150",
+              "zh": "借：费用1,150单位；贷：现金1,150单位"
+            },
+            "debit": "expense",
+            "credit": "cash",
+            "amount": 1150
+          },
+          {
+            "label": {
+              "en": "Debit Inventory CU1,150; credit Accounts payable CU1,150",
+              "zh": "借：存货1,150单位；贷：应付账款1,150单位"
+            },
+            "debit": "inventory",
+            "credit": "payable",
+            "amount": 1150
+          }
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/3-3-define-and-describe-the-initial-steps-in-the-accounting-cycle"
+      }
+    },
+    {
+      "id": "ACCOUNTING_04",
+      "proof": {
+        "kind": "journal",
+        "transaction": "inventory_on_credit",
+        "amount": 860,
+        "claims": [
+          {
+            "label": {
+              "en": "Debit Inventory CU860; credit Accounts payable CU860",
+              "zh": "借：存货860单位；贷：应付账款860单位"
+            },
+            "debit": "inventory",
+            "credit": "payable",
+            "amount": 860
+          },
+          {
+            "label": {
+              "en": "Debit Accounts payable CU860; credit Inventory CU860",
+              "zh": "借：应付账款860单位；贷：存货860单位"
+            },
+            "debit": "payable",
+            "credit": "inventory",
+            "amount": 860
+          },
+          {
+            "label": {
+              "en": "Debit Expense CU860; credit Cash CU860",
+              "zh": "借：费用860单位；贷：现金860单位"
+            },
+            "debit": "expense",
+            "credit": "cash",
+            "amount": 860
+          },
+          {
+            "label": {
+              "en": "Debit Cash CU860; credit Service revenue CU860",
+              "zh": "借：现金860单位；贷：服务收入860单位"
+            },
+            "debit": "cash",
+            "credit": "revenue",
+            "amount": 860
+          }
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/3-3-define-and-describe-the-initial-steps-in-the-accounting-cycle"
+      }
+    },
+    {
+      "id": "ACCOUNTING_05",
+      "proof": {
+        "kind": "subtract",
+        "left": 14800,
+        "right": 8900,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-3-prepare-an-income-statement-statement-of-owners-equity-and-balance-sheet",
+        "claims": [
+          {
+            "label": {
+              "en": "CU5,900",
+              "zh": "5,900单位"
+            },
+            "value": 5900
+          },
+          {
+            "label": {
+              "en": "CU23,700",
+              "zh": "23,700单位"
+            },
+            "value": 23700
+          },
+          {
+            "label": {
+              "en": "CU8,900",
+              "zh": "8,900单位"
+            },
+            "value": 8900
+          },
+          {
+            "label": {
+              "en": "CU14,800",
+              "zh": "14,800单位"
+            },
+            "value": 14800
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_06",
+      "proof": {
+        "kind": "net_income",
+        "revenues": [
+          11000
+        ],
+        "expenses": [
+          4000,
+          1500,
+          2200,
+          300
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-3-prepare-an-income-statement-statement-of-owners-equity-and-balance-sheet",
+        "claims": [
+          {
+            "label": {
+              "en": "CU3,000",
+              "zh": "3,000单位"
+            },
+            "value": 3000
+          },
+          {
+            "label": {
+              "en": "CU7,000",
+              "zh": "7,000单位"
+            },
+            "value": 7000
+          },
+          {
+            "label": {
+              "en": "CU3,300",
+              "zh": "3,300单位"
+            },
+            "value": 3300
+          },
+          {
+            "label": {
+              "en": "CU11,000",
+              "zh": "11,000单位"
+            },
+            "value": 11000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_07",
+      "proof": {
+        "kind": "net_income",
+        "revenues": [
+          1200
+        ],
+        "expenses": [
+          700
+        ],
+        "excludedCapital": 2500,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-3-prepare-an-income-statement-statement-of-owners-equity-and-balance-sheet",
+        "claims": [
+          {
+            "label": {
+              "en": "CU500",
+              "zh": "500单位"
+            },
+            "value": 500
+          },
+          {
+            "label": {
+              "en": "CU3,000",
+              "zh": "3,000单位"
+            },
+            "value": 3000
+          },
+          {
+            "label": {
+              "en": "CU1,200",
+              "zh": "1,200单位"
+            },
+            "value": 1200
+          },
+          {
+            "label": {
+              "en": "CU2,500",
+              "zh": "2,500单位"
+            },
+            "value": 2500
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_08",
+      "proof": {
+        "kind": "subtract",
+        "left": 4500,
+        "right": 700,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-3-prepare-an-income-statement-statement-of-owners-equity-and-balance-sheet",
+        "claims": [
+          {
+            "label": {
+              "en": "CU3,800",
+              "zh": "3,800单位"
+            },
+            "value": 3800
+          },
+          {
+            "label": {
+              "en": "CU5,200",
+              "zh": "5,200单位"
+            },
+            "value": 5200
+          },
+          {
+            "label": {
+              "en": "CU4,500",
+              "zh": "4,500单位"
+            },
+            "value": 4500
+          },
+          {
+            "label": {
+              "en": "CU700",
+              "zh": "700单位"
+            },
+            "value": 700
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_09",
+      "proof": {
+        "kind": "subtract",
+        "left": 24500,
+        "right": 9400,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-key-terms",
+        "claims": [
+          {
+            "label": {
+              "en": "CU15,100",
+              "zh": "15,100单位"
+            },
+            "value": 15100
+          },
+          {
+            "label": {
+              "en": "CU33,900",
+              "zh": "33,900单位"
+            },
+            "value": 33900
+          },
+          {
+            "label": {
+              "en": "CU9,400",
+              "zh": "9,400单位"
+            },
+            "value": 9400
+          },
+          {
+            "label": {
+              "en": "CU24,500",
+              "zh": "24,500单位"
+            },
+            "value": 24500
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_10",
+      "proof": {
+        "kind": "sum_less",
+        "positive": [
+          3200,
+          4800,
+          16000
+        ],
+        "negative": [
+          4000
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-key-terms",
+        "claims": [
+          {
+            "label": {
+              "en": "CU20,000",
+              "zh": "20,000单位"
+            },
+            "value": 20000
+          },
+          {
+            "label": {
+              "en": "CU24,000",
+              "zh": "24,000单位"
+            },
+            "value": 24000
+          },
+          {
+            "label": {
+              "en": "CU28,000",
+              "zh": "28,000单位"
+            },
+            "value": 28000
+          },
+          {
+            "label": {
+              "en": "CU16,000",
+              "zh": "16,000单位"
+            },
+            "value": 16000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_11",
+      "proof": {
+        "kind": "asset_exchange",
+        "initialAssets": 32000,
+        "cashOut": 5000,
+        "equipmentIn": 5000,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-key-terms",
+        "claims": [
+          {
+            "label": {
+              "en": "CU32,000",
+              "zh": "32,000单位"
+            },
+            "value": 32000
+          },
+          {
+            "label": {
+              "en": "CU27,000",
+              "zh": "27,000单位"
+            },
+            "value": 27000
+          },
+          {
+            "label": {
+              "en": "CU37,000",
+              "zh": "37,000单位"
+            },
+            "value": 37000
+          },
+          {
+            "label": {
+              "en": "CU5,000",
+              "zh": "5,000单位"
+            },
+            "value": 5000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_12",
+      "proof": {
+        "kind": "balance_difference",
+        "assets": 18000,
+        "liabilities": 7000,
+        "equity": 10000,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-key-terms"
+      }
+    },
+    {
+      "id": "ACCOUNTING_13",
+      "proof": {
+        "kind": "earned_portion",
+        "advance": 2400,
+        "totalUnits": 4,
+        "completedUnits": 1,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+        "claims": [
+          {
+            "label": {
+              "en": "CU600",
+              "zh": "600单位"
+            },
+            "value": 600
+          },
+          {
+            "label": {
+              "en": "CU2,400",
+              "zh": "2,400单位"
+            },
+            "value": 2400
+          },
+          {
+            "label": {
+              "en": "CU1,800",
+              "zh": "1,800单位"
+            },
+            "value": 1800
+          },
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_14",
+      "proof": {
+        "kind": "used_prepaid",
+        "payment": 1200,
+        "totalMonths": 12,
+        "usedMonths": 3,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+        "claims": [
+          {
+            "label": {
+              "en": "CU300",
+              "zh": "300单位"
+            },
+            "value": 300
+          },
+          {
+            "label": {
+              "en": "CU900",
+              "zh": "900单位"
+            },
+            "value": 900
+          },
+          {
+            "label": {
+              "en": "CU1,200",
+              "zh": "1,200单位"
+            },
+            "value": 1200
+          },
+          {
+            "label": {
+              "en": "CU100",
+              "zh": "100单位"
+            },
+            "value": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_15",
+      "proof": {
+        "kind": "accrued_expense",
+        "incurred": 900,
+        "paidThisPeriod": 0,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+        "claims": [
+          {
+            "label": {
+              "en": "CU900",
+              "zh": "900单位"
+            },
+            "value": 900
+          },
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU450",
+              "zh": "450单位"
+            },
+            "value": 450
+          },
+          {
+            "label": {
+              "en": "CU1,800",
+              "zh": "1,800单位"
+            },
+            "value": 1800
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_16",
+      "proof": {
+        "kind": "collect_recorded_receivable",
+        "collection": 800,
+        "previouslyRecorded": true,
+        "newService": false,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/4-2-discuss-the-adjustment-process-and-illustrate-common-types-of-adjusting-entries",
+        "claims": [
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU800",
+              "zh": "800单位"
+            },
+            "value": 800
+          },
+          {
+            "label": {
+              "en": "CU1,600",
+              "zh": "1,600单位"
+            },
+            "value": 1600
+          },
+          {
+            "label": {
+              "en": "CU-800",
+              "zh": "-800单位"
+            },
+            "value": -800
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_17",
+      "proof": {
+        "kind": "straight_line",
+        "cost": 15400,
+        "residual": 1400,
+        "years": 7,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/11-3-explain-and-apply-depreciation-methods-to-allocate-capitalized-costs",
+        "claims": [
+          {
+            "label": {
+              "en": "CU2,000",
+              "zh": "2,000单位"
+            },
+            "value": 2000
+          },
+          {
+            "label": {
+              "en": "CU2,200",
+              "zh": "2,200单位"
+            },
+            "value": 2200
+          },
+          {
+            "label": {
+              "en": "CU15,400",
+              "zh": "15,400单位"
+            },
+            "value": 15400
+          },
+          {
+            "label": {
+              "en": "CU1,400",
+              "zh": "1,400单位"
+            },
+            "value": 1400
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_18",
+      "proof": {
+        "kind": "carrying_amount",
+        "cost": 18000,
+        "residual": 3000,
+        "years": 5,
+        "elapsedYears": 2,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/11-3-explain-and-apply-depreciation-methods-to-allocate-capitalized-costs",
+        "claims": [
+          {
+            "label": {
+              "en": "CU12,000",
+              "zh": "12,000单位"
+            },
+            "value": 12000
+          },
+          {
+            "label": {
+              "en": "CU6,000",
+              "zh": "6,000单位"
+            },
+            "value": 6000
+          },
+          {
+            "label": {
+              "en": "CU3,000",
+              "zh": "3,000单位"
+            },
+            "value": 3000
+          },
+          {
+            "label": {
+              "en": "CU18,000",
+              "zh": "18,000单位"
+            },
+            "value": 18000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_19",
+      "proof": {
+        "kind": "depreciation_cash_effect",
+        "depreciation": 250,
+        "cashEvents": [],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/11-3-explain-and-apply-depreciation-methods-to-allocate-capitalized-costs",
+        "claims": [
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU250",
+              "zh": "250单位"
+            },
+            "value": 250
+          },
+          {
+            "label": {
+              "en": "CU-250",
+              "zh": "-250单位"
+            },
+            "value": -250
+          },
+          {
+            "label": {
+              "en": "CU500",
+              "zh": "500单位"
+            },
+            "value": 500
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_20",
+      "proof": {
+        "kind": "carrying_amount",
+        "cost": 6000,
+        "residual": 600,
+        "years": 3,
+        "elapsedYears": 3,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/11-3-explain-and-apply-depreciation-methods-to-allocate-capitalized-costs",
+        "claims": [
+          {
+            "label": {
+              "en": "CU600",
+              "zh": "600单位"
+            },
+            "value": 600
+          },
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU1,800",
+              "zh": "1,800单位"
+            },
+            "value": 1800
+          },
+          {
+            "label": {
+              "en": "CU6,000",
+              "zh": "6,000单位"
+            },
+            "value": 6000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_21",
+      "proof": {
+        "kind": "subtract",
+        "left": 42000,
+        "right": 27000,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-summary",
+        "claims": [
+          {
+            "label": {
+              "en": "CU15,000",
+              "zh": "15,000单位"
+            },
+            "value": 15000
+          },
+          {
+            "label": {
+              "en": "CU69,000",
+              "zh": "69,000单位"
+            },
+            "value": 69000
+          },
+          {
+            "label": {
+              "en": "CU42,000",
+              "zh": "42,000单位"
+            },
+            "value": 42000
+          },
+          {
+            "label": {
+              "en": "CU27,000",
+              "zh": "27,000单位"
+            },
+            "value": 27000
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_22",
+      "proof": {
+        "kind": "current_ratio",
+        "currentAssets": 36000,
+        "currentLiabilities": 24000,
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-summary"
+      }
+    },
+    {
+      "id": "ACCOUNTING_23",
+      "proof": {
+        "kind": "working_capital_delta",
+        "currentAssetChanges": [
+          1600,
+          -1600
+        ],
+        "currentLiabilityChanges": [],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-summary",
+        "claims": [
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU1,600",
+              "zh": "1,600单位"
+            },
+            "value": 1600
+          },
+          {
+            "label": {
+              "en": "CU-1,600",
+              "zh": "-1,600单位"
+            },
+            "value": -1600
+          },
+          {
+            "label": {
+              "en": "CU3,200",
+              "zh": "3,200单位"
+            },
+            "value": 3200
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCOUNTING_24",
+      "proof": {
+        "kind": "working_capital_delta",
+        "currentAssetChanges": [
+          -1200
+        ],
+        "currentLiabilityChanges": [
+          -1200
+        ],
+        "source": "https://openstax.org/books/principles-financial-accounting/pages/2-summary",
+        "claims": [
+          {
+            "label": {
+              "en": "CU0",
+              "zh": "0单位"
+            },
+            "value": 0
+          },
+          {
+            "label": {
+              "en": "CU-1,200",
+              "zh": "-1,200单位"
+            },
+            "value": -1200
+          },
+          {
+            "label": {
+              "en": "CU1,200",
+              "zh": "1,200单位"
+            },
+            "value": 1200
+          },
+          {
+            "label": {
+              "en": "CU2,400",
+              "zh": "2,400单位"
+            },
+            "value": 2400
+          }
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "entries",
+      "directionIds": [
+        "entries"
+      ],
+      "title": {
+        "en": "Debits and credits",
+        "zh": "借贷分录"
+      },
+      "headline": {
+        "en": "Identify what changes before choosing each side.",
+        "zh": "先看变化，再选借贷方向。"
+      },
+      "summary": {
+        "en": "Practise original capital, loan, payable-settlement and inventory entries while keeping the accounting equation in view.",
+        "zh": "用原创资本、借款、应付结清与赊收存货情景练分录，同时检查会计等式。"
+      },
+      "seo": {
+        "title": {
+          "en": "Debits and credits: Financial accounting guide",
+          "zh": "借贷分录：财务会计练习指南"
+        },
+        "description": {
+          "en": "Practise original capital, loan, payable-settlement and inventory entries while keeping the accounting equation in view.",
+          "zh": "用原创资本、借款、应付结清与赊收存货情景练分录，同时检查会计等式。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Four explicitly bounded transactions",
+            "zh": "四种边界明确的交易"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks concern four original fictional transactions, with the relevant amount and exclusions supplied. They distinguish an owner contribution from earned revenue, a borrowing from income, settlement of a recorded payable from recording a purchase again, and inventory received on credit from an immediate cash payment. The exercise tests selecting the entry for those facts rather than every account type or every event encountered in a live ledger.",
+              "zh": "四道原创虚构交易明确数额和排除项，区别业主投入与赚得收入、借款与收入、结清既有应付与重复记采购、赊收存货与即刻付现。练的是题定事实下选分录，不覆盖全部科目或真实账簿全部事件。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Separate borrowing from earned revenue",
+            "zh": "分清借入与赚得收入"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a small fictional workshop receives CU1,700 cash that it must repay, with no fee or interest at receipt. Cash rises, and the repayment obligation rises by the same amount. Calling the receipt sales would replace a liability with revenue and misdescribe the event. Now change the facts to an owner capital contribution: the cash still rises, but the corresponding increase belongs to contributed capital under this simplified model.",
+              "zh": "假设虚构小工坊收到须偿还现金1,700单位，收款时无利息费用。现金与偿还义务同增，把收款写销售会把负债错写收入。若改为业主投入，现金仍增加，但本简化模型另一侧是投入资本。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Balance is necessary, without proving the whole entry",
+            "zh": "借贷相等，还不能证明分录全对"
+          },
+          "paragraphs": [
+            {
+              "en": "Check the account names, direction and amount as separate decisions. A balanced entry can still use the wrong accounts or belong to the wrong period. When settling a previously recorded payable, trace that earlier balance so the purchase is not duplicated. The task exclusions matter: adding an imagined tax, discount or fee creates a different scenario. A debit and credit describe sides of an entry, not good and bad outcomes.",
+              "zh": "分开核科目、方向、金额。借贷相等仍可能错科目或期间。结清已记应付，要追溯原余额，避免采购重复。税、折扣、手续费若题目排除，就别自行添加。借贷是记录方向，不代表好坏结果。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Write the effect before writing the entry",
+            "zh": "先写影响，再写分录"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a private paper ledger with invented amounts. For each event, name what increases and decreases, then assign the accounts and their debit or credit sides. Check that the total debits equal total credits and that the resulting equation remains balanced. Change only one condition in a new example, such as cash payment becoming supplier credit, and explain which part of the entry must change. Do not practise by altering an actual business ledger.",
+              "zh": "用自造金额的私人纸面账，每笔先写增减，再选科目借贷。核借贷总额相等及等式仍平衡。另例只改一个条件，如现金支付改赊购，说明哪边应改。不要直接改真实业务账来练。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A few entries do not establish ledger readiness",
+            "zh": "几笔分录不建立做账资格"
+          },
+          "paragraphs": [
+            {
+              "en": "Four choices cannot certify bookkeeping accuracy, audit judgement or job readiness. The references supply background facts rather than a licensed exam bank or endorsement. The question-to-entry interpretation and bilingual wording were reviewed by the author; the encoded check is not an independent accountant’s review. Real contracts, chart-of-account rules and reporting requirements can add relevant conditions. Use a missed choice to select a fresh simplified exercise, without treating the count as a professional licence.",
+              "zh": "四次选择不认证记账准确性、审计判断或岗位准备。来源只作事实背景，不是授权考题或背书。题意到分录及双语表达由作者复核，编码核查不是独立会计师审阅。真实合同、科目表与报告要求可能增加条件；宜据错题选新简化练习，不把正确数当执照。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "income",
+      "directionIds": [
+        "income"
+      ],
+      "title": {
+        "en": "Income statement",
+        "zh": "利润表"
+      },
+      "headline": {
+        "en": "Separate earned results from cash and capital movements.",
+        "zh": "分开赚得的损益、现金与资本变动。"
+      },
+      "summary": {
+        "en": "Review gross profit, net income, owner contributions and one omitted expense using small complete fictional statements.",
+        "zh": "用完整小型虚构报表复习毛利、净利润、业主投入及漏记费用。"
+      },
+      "seo": {
+        "title": {
+          "en": "Income statement: Financial accounting guide",
+          "zh": "利润表：财务会计练习指南"
+        },
+        "description": {
+          "en": "Review gross profit, net income, owner contributions and one omitted expense using small complete fictional statements.",
+          "zh": "用完整小型虚构报表复习毛利、净利润、业主投入及漏记费用。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read the supplied statement format",
+            "zh": "先读题定报表格式"
+          },
+          "paragraphs": [
+            {
+              "en": "The four income tasks give net figures, a complete expense list or an explicit correction rule. Gross profit uses the supplied sales-minus-cost-of-goods-sold definition. Net income deducts every expense listed for the exercise, including depreciation when stated. An owner contribution is excluded from revenue under the model. These assumptions make the arithmetic inspectable without requiring you to infer unmentioned taxes, other income or a specific jurisdiction’s presentation rules.",
+              "zh": "四道损益题给净额、完整费用列表或明确调整规则。毛利按题定收入减销货成本，净利润扣所有所列费用，列折旧就需扣；本模型业主投入不算收入。这样可核算，不必猜未给税、其他损益或特定地区列报规则。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Gross profit is a subtotal",
+            "zh": "毛利是中间合计"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a new fictional period with CU9,600 sales, CU5,200 cost of goods sold and CU1,300 of other expenses, with nothing else included. Gross profit is CU4,400; net income under that simple list is CU3,100. A cash receipt from a loan would not be another sale. State which subtotal the question asks for before choosing the arithmetic, rather than selecting the largest positive number on the page.",
+              "zh": "另设某期收入9,600、销货成本5,200、其他费用1,300单位，无其他项目。毛利4,400，此简表净利润3,100。借款现金不是另一笔销售。先看所问合计，再算，别只选页面最大正数。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "A correction needs the specified period and direction",
+            "zh": "调整要核期间和方向"
+          },
+          "paragraphs": [
+            {
+              "en": "An omitted expense belonging to the current period lowers the stated profit when it is the only correction. A different period or a previously recorded expense would change the task. Keep owner investments and distributions separate from the supplied revenue-and-expense calculation. Do not infer cash collected from recognised revenue, or cash paid from every expense. A depreciation expense can affect profit without a new cash payment at the time of the entry.",
+              "zh": "唯一调整若是漏记本期费用，就降低题定利润；别的期间或已记费用会改变问题。业主投入、分配与所给收入费用计算分开；不由确认收入直接推实收现金，也不由每笔费用推已付现。折旧可影响利润而当时无新现金支付。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Reconcile a small original calculation",
+            "zh": "核对一份原创小计算"
+          },
+          "paragraphs": [
+            {
+              "en": "Write three invented revenue and expense lines with clear labels. Compute gross profit and net income independently, then explain why they differ. Add a capital contribution as a separate event and confirm that it does not become revenue under the exercise rule. Finally, omit one small expense deliberately and calculate the correction. Keep the original and corrected figures side by side so you can explain the direction as well as the number.",
+              "zh": "自写三条带标签的虚构收入费用，独算毛利和净利润并说区别。另加一笔投入，核本模型下它不成为收入。再故意漏小费用，算调整，把前后数并列，既解释数也解释方向。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A simple income calculation is a narrow task",
+            "zh": "简化损益计算是局部任务"
+          },
+          "paragraphs": [
+            {
+              "en": "These four choices do not establish ability to prepare a complete statutory financial statement, recognise revenue for a complex contract or determine tax. The original amounts are fictional units, not advice about an actual company. Source facts support the exercise background without importing textbook examples or a certification bank. Repeating a known fixed item can reward memory; fresh labelled examples are more useful for practising the distinction than claiming a validated accounting tier.",
+              "zh": "四次选择不建立编完整法定报表、处理复杂合同收入或计算税务的能力。金额是虚构单位，不建议真实公司处理。来源支持背景，不搬教材例题或认证题库。固定题看过后可因记忆提高，宜换带标签新例练区别，而非宣称经验证会计等级。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balance",
+      "directionIds": [
+        "balance"
+      ],
+      "title": {
+        "en": "Balance sheet",
+        "zh": "资产负债表"
+      },
+      "headline": {
+        "en": "Check the equation without inventing the cause of a difference.",
+        "zh": "核等式，不编差额原因。"
+      },
+      "summary": {
+        "en": "Practise equity, asset totals, cash-for-equipment exchanges and the evidence limit of an unbalanced draft.",
+        "zh": "练权益、资产合计、现金换设备及报表差额的证据边界。"
+      },
+      "seo": {
+        "title": {
+          "en": "Balance sheet: Financial accounting guide",
+          "zh": "资产负债表：财务会计练习指南"
+        },
+        "description": {
+          "en": "Practise equity, asset totals, cash-for-equipment exchanges and the evidence limit of an unbalanced draft.",
+          "zh": "练权益、资产合计、现金换设备及报表差额的证据边界。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A position at a specified date",
+            "zh": "某个时点的财务状况"
+          },
+          "paragraphs": [
+            {
+              "en": "The four tasks use a specified balance sheet equation, a defined asset-total calculation, an immediate asset exchange and a draft that does not balance. They provide the relevant balances and exclusions. The task is to reason from those figures, rather than estimate a company’s market value or reconstruct missing records. A balance sheet describes a position at a date; the supplied period’s revenue-and-expense calculation answers a different question.",
+              "zh": "四题分别给会计等式、资产合计口径、即时资产交换及不平草稿，明示余额与排除项。应按数字推理，不估公司市值或重建缺记录。资产负债表描述某日状况，与某期收入费用回答的问题不同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An asset exchange can leave the total unchanged",
+            "zh": "资产间交换可让总额不变"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional studio has CU21,000 total assets and exchanges CU2,800 cash for equipment recorded at exactly CU2,800. With no fee, depreciation or other adjustment at that moment, the asset total remains CU21,000. Cash has fallen, so the composition changed even though the total did not. Saying nothing changed would therefore be too broad; saying the total assets fell would overlook the equipment received.",
+              "zh": "另设工作室资产21,000单位，现金2,800换取同额入账设备，此刻无费用、折旧或其他调整，总额仍21,000。但现金减少，资产构成改变；说什么都没变过宽，说资产总额减少又漏设备。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Use the stated total and its deductions",
+            "zh": "按题定总额与扣项计算"
+          },
+          "paragraphs": [
+            {
+              "en": "When an exercise lists equipment cost and accumulated depreciation, follow its stated cost-less-depreciation calculation and deduct the accumulated amount once. Do not add the same contra-asset amount as another positive asset. When finding equity, subtract liabilities from assets under the supplied equation. Keep that residual distinct from cash, a sale price or a guarantee about what an owner could withdraw. Definitions and labels matter as much as arithmetic.",
+              "zh": "题目列设备成本、累计折旧时，按成本减累计折旧，扣一次，不把抵减额再加成正资产。按等式求权益，用资产减负债；该余额不同于现金、售价或业主可提取额保证。定义标签与算术同样重要。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Trace a difference before proposing a correction",
+            "zh": "提出改正前先追差额"
+          },
+          "paragraphs": [
+            {
+              "en": "Create an invented three-line balance sheet that balances. Deliberately change one figure and calculate the difference. Then cover which figure you changed: the remaining numbers can show an imbalance without identifying its cause. List the records you would need to distinguish a missing account from a copying error. Repeat an asset exchange in a separate example and show both the total and the changed components. Keep this exercise on private sample data.",
+              "zh": "自造平衡三行表，故意改一个数并算差额，再盖住改了哪项：其余数字只显示不平，不指出原因。列区分漏科目与抄错所需记录；另例写资产交换总额及构成。全程用私人样本。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "An imbalance is not proof of misconduct",
+            "zh": "不平衡不证明不当行为"
+          },
+          "paragraphs": [
+            {
+              "en": "Four selected choices cannot establish that books are accurate, a company is solvent or a person committed fraud. A balanced equation can still contain errors, and an unbalanced draft needs investigation rather than a guessed accusation. The values and classifications are explicit fictional premises. No GAAP, IFRS, tax, audit or hiring certification follows from the count. The author reviewed the wording and encodings; numeric checks do not independently audit the underlying natural-language interpretation.",
+              "zh": "四次选择不建立账目准确、公司偿付能力或有人舞弊。平衡也可能有错，不平需调查而非猜指控。数值分类均为虚构明示前提，正确数不认证准则、税务、审计或招聘；作者复核语义编码，数字核查不独立审计自然语言解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "accrual",
+      "directionIds": [
+        "accrual"
+      ],
+      "title": {
+        "en": "Accrual timing",
+        "zh": "权责与现金时间"
+      },
+      "headline": {
+        "en": "Track service, recognition and payment as separate events.",
+        "zh": "分开跟踪服务、确认与支付。"
+      },
+      "summary": {
+        "en": "Review an earned advance, used prepaid cover, an unpaid current expense and collection of an earlier receivable.",
+        "zh": "复习预收中已赚部分、预付中已耗部分、当期未付费用及以前应收的收回。"
+      },
+      "seo": {
+        "title": {
+          "en": "Accrual timing: Financial accounting guide",
+          "zh": "权责与现金时间：财务会计练习指南"
+        },
+        "description": {
+          "en": "Review an earned advance, used prepaid cover, an unpaid current expense and collection of an earlier receivable.",
+          "zh": "复习预收中已赚部分、预付中已耗部分、当期未付费用及以前应收的收回。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read the recognition assumptions first",
+            "zh": "先读确认假设"
+          },
+          "paragraphs": [
+            {
+              "en": "These four original scenarios explicitly state their simplified accrual model, completed service portion, coverage period or earlier correct revenue recording. That matters because the date cash moves is not always the date the exercise recognises income or expense. The tasks do not ask you to interpret a complex real contract or apply every jurisdiction’s standards. Use the supplied conditions before importing a remembered rule from a different accounting problem.",
+              "zh": "四道原创情景明示简化权责模型、已完成服务比例、覆盖期间或以前收入已正确记录。现金动日不总等于本题确认损益日。题目不要求解释复杂真实合同或适用各地区全部准则，先用条件，再考虑别题记过的规则。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An advance can cover unfinished work",
+            "zh": "预收可含未完成工作"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional CU1,800 advance for three equal sessions. The exercise rule recognises CU600 when each session is completed, with no additional conditions. After one completed session, CU600 is earned in that period and CU1,200 remains for undelivered sessions under the model. Cash was received at the start, but that fact alone does not make every session completed. This is a deliberately stated model, not a universal conclusion about all service contracts.",
+              "zh": "另例预收1,800单位，三次等价课程，本题每完成一次确认600且无其他条件。完成一次后，本期已赚600、未交付部分1,200。先收现金不让三次课都已完成。此为明示模型，不是所有服务合同通用结论。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Do not record old revenue again on collection",
+            "zh": "收旧应收，不再记一次收入"
+          },
+          "paragraphs": [
+            {
+              "en": "If an earlier receivable arose from correctly recorded revenue, its later collection swaps the receivable for cash when the question excludes new service, fees and interest. Conversely, a current-period service cost can create an expense before its cash payment. A prepaid cost needs the specified allocation of used coverage. Check the period, amount and exclusions in each case; neither cash-first intuition nor an automatic payment-date rule fits all four tasks.",
+              "zh": "若应收来自以前已正确记录的收入，且无新服务、费用或利息，后来收款是应收换现金。当期服务成本也可先成费用、后付款；预付应按已用覆盖期分配。每题核期间、金额、排除项，不用现金优先直觉一概处理。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Draw a short timeline with invented facts",
+            "zh": "画一条虚构事实时间线"
+          },
+          "paragraphs": [
+            {
+              "en": "Write service completion, cash receipt and reporting date on separate lines. Give each a fictional date and amount. State the recognition rule before calculating the period’s revenue or expense, then mark the remaining receivable, payable or prepaid amount. Move only the cash date in a second version and explain which result does and does not change under that same rule. Use paper or a disposable private sheet rather than editing actual closing records.",
+              "zh": "分列服务完成、收付款和报告日，用虚构日期金额，先写确认规则再算本期损益，标余应收、应付或预付。第二版只移动现金日，解释同规则下哪些变、哪些不变。用纸或可丢弃私有表，不改真实关账记录。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Simplified timing is not compliance advice",
+            "zh": "简化时间判断不是合规建议"
+          },
+          "paragraphs": [
+            {
+              "en": "Four answers cannot certify revenue recognition, contract analysis or financial reporting for a real entity. Tax accounting, multiple performance conditions, estimates and other adjustments sit outside the explicit scenarios. The original contexts and amounts are not adapted textbook exercises or a professional examination bank. Exact arithmetic checks the stated portions; the accounting interpretation and bilingual wording remain author-reviewed rather than independently reviewed by an accountant. Repeated exposure can change the count through memory.",
+              "zh": "四次作答不认证真实主体的收入确认、合同分析或报告。税务、多重履约条件、估计和其他调整超出题定情景。原创语境金额不改编教材例题或职业考试库。精确算术核比例，解释与双语仍由作者核对，并非独立会计师审阅；反复接触可因记忆改变正确数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "depreciation",
+      "directionIds": [
+        "depreciation"
+      ],
+      "title": {
+        "en": "Depreciation",
+        "zh": "折旧"
+      },
+      "headline": {
+        "en": "Allocate the stated cost without treating it as a market price.",
+        "zh": "按题定成本分配，不把它当市价。"
+      },
+      "summary": {
+        "en": "Practise straight-line expense, accumulated depreciation, carrying amount and the cash effect of a depreciation entry.",
+        "zh": "练直线折旧费用、累计折旧、账面额及折旧分录的现金影响。"
+      },
+      "seo": {
+        "title": {
+          "en": "Depreciation: Financial accounting guide",
+          "zh": "折旧：财务会计练习指南"
+        },
+        "description": {
+          "en": "Practise straight-line expense, accumulated depreciation, carrying amount and the cash effect of a depreciation entry.",
+          "zh": "练直线折旧费用、累计折旧、账面额及折旧分录的现金影响。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A stated straight-line cost model",
+            "zh": "明示的直线成本模型"
+          },
+          "paragraphs": [
+            {
+              "en": "The four depreciation tasks supply acquisition cost, residual value, useful life, completed full years or an explicitly non-cash entry. They hold estimates unchanged and exclude impairment, disposal and other adjustments. Those boundaries matter: the exercise is about calculating consequences under one simplified model, rather than selecting a useful life for a real asset or applying tax depreciation. Read whether the question asks for one year’s expense, an accumulated amount or the carrying amount left.",
+              "zh": "四道折旧题给成本、残值、寿命、完整年数或明确非现金分录，固定估计并排除减值、处置等调整。它们只算简化模型结果，不替真实资产定寿命或用税法折旧。先看问年费用、累计数还是余账面额。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Deduct residual value before allocating",
+            "zh": "先扣残值，再分配"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional machine costs CU8,800, has CU800 residual value and an unchanged four-year life. The depreciable amount is CU8,000, giving CU2,000 expense for each full year under straight-line allocation. After two full years, accumulated depreciation is CU4,000 and cost less that amount is CU4,800. Those three amounts answer different questions. None is automatically the cash payment this year or the machine’s current resale value.",
+              "zh": "另设机器成本8,800、残值800单位、寿命固定四年，应折旧8,000，直线法每整年2,000。两年累计4,000，成本减累计后4,800。三个数回答不同问题，都不自动等于今年付现或现转售价。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Do not turn the entry into a second purchase",
+            "zh": "别把折旧分录当第二次购买"
+          },
+          "paragraphs": [
+            {
+              "en": "Recording depreciation on an existing asset does not itself pay for that asset again. A separate acquisition, repair or disposal would need separate facts. Also keep residual value in the calculation: allocating only the depreciable amount can leave a nonzero carrying amount after the stated full useful life. The questions explicitly exclude valuation changes, so do not insert an assumed market decline or a guessed impairment into the arithmetic.",
+              "zh": "既有资产计折旧，不代表又付一次购置款；购置、维修、处置另需事实。计算别漏残值，只分配应折旧额，计满题定寿命仍可余非零账面数。题目排除估值变化，就别加猜测市价下跌或减值。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Keep three columns for three measures",
+            "zh": "分三列记录三种金额"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a disposable schedule with annual depreciation, accumulated depreciation and remaining carrying amount in separate columns. Use invented whole-unit amounts that divide evenly at first. Check that cost equals accumulated depreciation plus carrying amount under the supplied model. Then change the residual value in a fresh example and recalculate from the beginning. Keep cash events on another line so you can explain why the allocation and the payment history need not match period by period.",
+              "zh": "自做可丢弃表，分年折旧、累计折旧、余账面额三列，先用能整除的虚构数。核本模型下成本＝累计折旧＋账面额。新例改残值从头算，现金事件另列，解释分配与付款历史为什么不必每期相同。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A schedule is not a valuation or tax judgement",
+            "zh": "折旧表不是估值或税务判断"
+          },
+          "paragraphs": [
+            {
+              "en": "Four choices cannot certify fixed-asset accounting, tax compliance or valuation work. Actual estimates, reporting requirements and events can change the appropriate treatment. The numbers and assumptions here are fictional, and no purchase, investment or tax recommendation follows. Exact rational calculations check the stated formula; the wording and mapping to that formula remain author-reviewed. A repeated correct answer after reading the key can reflect recall, so use a fresh private schedule for further practice.",
+              "zh": "四次选择不认证固定资产核算、税务合规或估值。实际估计、报告要求与事件可改变处理。此处数和假设虚构，不导出购买、投资或税务建议。精确分数运算核公式，题意与公式对应仍由作者复核；看键后全对可能是记忆，应换新私有表练。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "working-capital",
+      "directionIds": [
+        "working-capital"
+      ],
+      "title": {
+        "en": "Working capital",
+        "zh": "营运资本"
+      },
+      "headline": {
+        "en": "Keep the difference separate from the ratio and cash composition.",
+        "zh": "分清差额、比率与现金构成。"
+      },
+      "summary": {
+        "en": "Review working capital, current ratio and two current-asset/current-liability changes without making a solvency claim.",
+        "zh": "复习营运资本、流动比率及两类流动项目变化，不据此宣称偿付能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Working capital: Financial accounting guide",
+          "zh": "营运资本：财务会计练习指南"
+        },
+        "description": {
+          "en": "Review working capital, current ratio and two current-asset/current-liability changes without making a solvency claim.",
+          "zh": "复习营运资本、流动比率及两类流动项目变化，不据此宣称偿付能力。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count describes four selected tasks under their stated simplified assumptions. It is not a professional qualification, hiring threshold or estimate of overall accounting competence. Every count opens all explanations and this complete guide.",
+        "zh": "正确数描述明示简化假设下四道选定任务，不是专业资格、招聘线或总体会计能力估计。任何正确数都可看全部解析和本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Classifications are supplied, not guessed",
+            "zh": "分类已给定，不靠猜测"
+          },
+          "paragraphs": [
+            {
+              "en": "These four tasks explicitly classify the relevant assets and liabilities as current. They ask for working capital, a current ratio or the change in working capital after a specified event. This avoids requiring judgement about a real borderline account or operating cycle. Use current assets minus current liabilities for the difference, and divide current assets by current liabilities for the ratio when the denominator is positive. The two measures have different units and meanings.",
+              "zh": "四题明示相关资产负债属于流动，求营运资本、流动比率或指定事件后的营运资本变动。不要求判断真实边界科目或营业周期。差额用流动资产减流动负债，比率在分母为正时用相除；二者单位和含义不同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Collecting a current receivable changes the mix",
+            "zh": "收流动应收会改构成"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional current receivable of CU900 is collected in full without a fee. Current cash rises CU900 while that receivable falls CU900. Total current assets therefore do not change, and neither does working capital if current liabilities stay fixed. The mix has changed from a receivable to cash. This explains why an event can matter to a business while leaving one particular calculated difference unchanged.",
+              "zh": "假设流动应收900单位无费用付清，流动现金增900，应收减900，流动资产总额不变；流动负债不动则营运资本也不变。构成从应收转为现金，说明事件可有意义而某个差额指标不变。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Equal reductions leave the difference unchanged",
+            "zh": "两侧同减，差额不变"
+          },
+          "paragraphs": [
+            {
+              "en": "Paying a current payable with current cash reduces both sides of the working-capital calculation by the same amount under the exercise assumptions. Their difference stays unchanged, but cash itself falls. The current ratio need not remain unchanged because a ratio reacts differently from a difference. A positive working-capital amount or a high ratio still does not establish when receivables will be collected or whether every current asset is readily usable.",
+              "zh": "按本题假设用流动现金付流动应付，两侧同额减少，差额不动但现金减少。比率反应不同，流动比率不必不变。营运资本为正或比率高，仍不确定应收何时收回或每项流动资产是否易用。"
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Recompute both before and after",
+            "zh": "把前后两套数都重算"
+          },
+          "paragraphs": [
+            {
+              "en": "Make a private fictional table with cash, receivables and a current payable. Compute current assets, working capital and current ratio before a transaction. Apply one explicitly described change, preserve its two sides, then recompute every measure independently. Label currency amounts and ratios differently. Explain the result in words before considering a second event; combining several changes too early can hide which transaction caused a difference. Use invented data rather than disclosing a business’s private balances.",
+              "zh": "自设现金、应收、流动应付表，先算流动资产、营运资本、比率。应用一个明示变动，保两侧，再独算所有指标；金额与比率分标签。先解释结果再添第二事件，避免混在一起看不清原因；用虚构数，不披露企业私有余额。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A ratio does not certify liquidity or a role",
+            "zh": "比率不认证流动性或岗位能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Four recognition choices cannot establish financial health, creditworthiness, investment quality or readiness for an accounting job. Real payment timing, asset quality, obligations and reporting rules need more information. The exercise supplies simplified classifications and excludes other transactions so the arithmetic is checkable. Its original cases and full explanations do not constitute a professional qualification, a population benchmark or financial advice. Use a count to choose a fresh practice topic, without turning it into a conclusion about a real company.",
+              "zh": "四次识别不建立财务健康、信用、投资质量或会计岗位准备。真实付款时间、资产质量、义务和规则需更多信息。本题明示简化分类并排其他交易，使算术可核。原创情景与完整解析不是资格、常模或财务建议；用正确数选新练习，不推真实公司结论。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

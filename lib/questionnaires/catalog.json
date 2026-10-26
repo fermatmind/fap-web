@@ -3028,5 +3028,32 @@
       "collections-and-failures"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "financial-accounting",
+    "code": "FM_FINANCIAL_ACCOUNTING_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Financial Accounting Test",
+      "zh": "财务会计测试"
+    },
+    "description": {
+      "en": "Practise entries, statements, accruals, depreciation and working capital with 24 original tasks. Free answers and six full guides. No certification.",
+      "zh": "24道原创题练借贷分录、利润表、资产负债表、权责时间、折旧和营运资本，六组各四题。免费查看全部答案、逐题解析、分项正确数与六份完整指南，不作财务建议、准则合规或招聘认证。"
+    },
+    "minutes": 12,
+    "formCode": "fm_financial_accounting_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "entries",
+      "income",
+      "balance",
+      "accrual",
+      "depreciation",
+      "working-capital"
+    ],
+    "collection": "explore"
   }
 ]
