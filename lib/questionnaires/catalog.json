@@ -2640,5 +2640,32 @@
       "chigiri"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "anime-character-archetype-test",
+    "code": "ANIME_STORY_ROLES",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Which Anime Character Are You?",
+      "zh": "你是哪个动漫角色测试"
+    },
+    "description": {
+      "en": "Choose your part in 18 original anime-style story situations. Explore the Lead, Challenger, Pathfinder, Guide, Improviser and Keeper, with all highest ties and six complete bilingual guides free. Original story roles, without licensed characters.",
+      "zh": "在18道原创动漫风故事情境中选自己的部分，探索启程主角、友好挑战者、绘路者、引路导师、即兴巧匠、约定守护者。所有最高并列与六份双语全文免费。原创故事角色，不匹配授权人物。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_anime_story_roles_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "lead",
+      "challenger",
+      "pathfinder",
+      "guide",
+      "improviser",
+      "keeper"
+    ],
+    "collection": "explore"
   }
 ]

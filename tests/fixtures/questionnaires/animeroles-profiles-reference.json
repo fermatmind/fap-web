@@ -1,0 +1,752 @@
+[
+  {
+    "id": "lead",
+    "directionIds": [
+      "lead"
+    ],
+    "title": {
+      "en": "The Lead",
+      "zh": "启程主角"
+    },
+    "headline": {
+      "en": "Begin one agreed small step",
+      "zh": "开始一个约好的小步"
+    },
+    "summary": {
+      "en": "Explore The Lead through begin one agreed small step: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“开始一个约好的小步”探索启程主角：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Lead Test Result: Begin one agreed small step | Anime Story Roles",
+        "zh": "启程主角测试结果：开始一个约好的小步｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Lead through begin one agreed small step: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“开始一个约好的小步”探索启程主角：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Lead in this story",
+          "zh": "本故事的启程主角"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead is an original role in this edition, defined by volunteering for one agreed first step. It is a way to enter the invented seed-lantern story, not a claim that you deserve the spotlight in real life. A useful opening gives other characters something to respond to while leaving them free to choose their parts. The role can move between characters as a scene develops.",
+            "zh": "启程主角是本版原创角色，定义为自愿接约好的首个小步。这是进入虚构种灯故事的方式，不声称现实应获聚光灯。有用开场给别人可回应之处，也让人自由选部分；角色可随场景在人之间流动。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The festival starts with a small task",
+          "zh": "节日从小任务开始"
+        },
+        "paragraphs": [
+          {
+            "en": "The floating garden’s friends have agreed to prepare a first paper seed. Instead of announcing a grand destiny, your character offers to fold the first sample and asks whether that is the start they want. Another character may suggest a different opening. The scene moves because a modest action becomes available, not because one person has to carry the plot or make every later decision.",
+            "zh": "浮空花园伙伴约好备首颗纸种。角色不宣布宏大命运，而提折首个纸样、问是否想这样开场。另一人物可建议别的。场景推进因有适中可做动作，不因一人必须扛剧情、作以后所有决定。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "An opening beside five other contributions",
+          "zh": "开场与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Challenger compares alternatives, the Pathfinder connects places and the Guide offers a requested example. The Improviser finds a fresh use for a prop while the Keeper keeps a shared promise clear. The Lead contributes a beginning they can build on. No role is the best character or a rank in courage. A tied guide can offer several possible parts for your next scene without fixing your identity.",
+            "zh": "挑战者比替代，绘路者连地点，导师应请求示例；巧匠给道具新用途，守护者使共同约定清楚。主角给可接续的开头。无最佳角色、不排勇气；并列可给下场多种部分，不固定身份。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Starting does not mean owning the whole story",
+          "zh": "开始不等于拥有整部故事"
+        },
+        "paragraphs": [
+          {
+            "en": "An opening can crowd out other characters if the same person decides every next step. After the first action, leave a space where someone else can respond, change the direction or stop the optional scene. You can also prefer a quieter part next time. The count does not measure leadership, persistence or a duty to inspire others, and another role is not a lesser supporting life.",
+            "zh": "同一人决定每步会挤走他人。首动作后留空间，容别人回应、改方向或停可选场景，下次你也可选安静部分。次数不测领导、毅力、不派鼓舞别人义务；别的角色也不是低等配角人生。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try an opening with room for a reply",
+          "zh": "试一个留回应空间的开场"
+        },
+        "paragraphs": [
+          {
+            "en": "In an original short storyboard, give your character one small action that has been agreed with the other creators. End the panel with room for another character’s choice instead of resolving the whole scene. Read both panels together and ask whether the opening made collaboration easier. This explores a story-making preference; it does not predict your success as a leader or assign you a permanent role among friends.",
+            "zh": "原创短分镜中，给角色一个与创作者约好的小动作，画格结束留另一人物选择空间，不一次解决整场。连读两格，问开头是否让合作容易。这探索共作故事偏好，不预测领导成功、不派朋友圈永久角色。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "challenger",
+    "directionIds": [
+      "challenger"
+    ],
+    "title": {
+      "en": "The Challenger",
+      "zh": "友好挑战者"
+    },
+    "headline": {
+      "en": "Make an alternative worth comparing",
+      "zh": "让替代值得比较"
+    },
+    "summary": {
+      "en": "Explore The Challenger through make an alternative worth comparing: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“让替代值得比较”探索友好挑战者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Challenger Test Result: Make an alternative worth comparing | Anime Story Roles",
+        "zh": "友好挑战者测试结果：让替代值得比较｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Challenger through make an alternative worth comparing: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“让替代值得比较”探索友好挑战者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Challenger in this story",
+          "zh": "本故事的友好挑战者"
+        },
+        "paragraphs": [
+          {
+            "en": "The Challenger is this edition’s original role for offering a fair alternative within a friendly scene. The role does not require an enemy, a winner or a person who must be defeated. Its contribution is a useful contrast: the cast can see what changes when another idea is tried. Comparing two seed-lantern designs can enrich the fictional festival without turning their makers into a hierarchy.",
+            "zh": "友好挑战者是本版原创角色，在友好场景给公平替代。不需敌人、赢家或必须击败的人。贡献是有用对照：人物可见另一点子试后改变什么。比两种种灯能丰富虚构节日，不把作者排等级。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "Two lanterns and a shared comparison",
+          "zh": "两盏种灯与共同比较"
+        },
+        "paragraphs": [
+          {
+            "en": "Two fictional teams prefer different paper shapes. Your character suggests that each team show one version, then agrees a simple comparison both want to make. They might choose either design or keep both for different scenes. The point is making a second possibility visible, not proving that rivalry is friendship, hiding affection behind competition or refusing to lose when people wanted a cooperative hobby.",
+            "zh": "两虚构队偏好不同纸形。角色提各展示一版，约双方想作的简单比较。可选任一，也可分场保留两者。重点是让第二可能可见，不证明竞争即友谊、不把情感藏竞争后、不在合作爱好硬要不输。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Contrast beside five other contributions",
+          "zh": "对照与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead starts a small agreed action, the Pathfinder connects places and the Guide shows a requested method. The Improviser changes a prop’s use while the Keeper preserves a clear shared promise. The Challenger supplies a different idea to compare. These functions can coexist in one scene without ranking ambition or worth. A tie does not reveal a competitive personality or decide which character should have more attention.",
+            "zh": "主角开始约好小动作，绘路者连地点，导师应请求示方法；巧匠改道具用途，守护者留清楚共同约定。挑战者供不同点子。可共存，不排野心、价值；并列不揭竞争型人格、不决定谁该多获关注。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A comparison can stop being useful",
+          "zh": "比较也会失去用处"
+        },
+        "paragraphs": [
+          {
+            "en": "A friendly contrast becomes a burden if the cast has to keep proving which idea is better. Agree a stopping point and allow a participant to prefer no comparison at all. A different design need not become a test of loyalty or personal value. Your count cannot establish aggression, ambition or relationship compatibility, and choosing another role does not make you passive or afraid of disagreement.",
+            "zh": "若人物需不停证明哪好，友好对照会成负担。约终点，容人完全不想比。不同设计不必变忠诚、价值测试。次数不确立攻击性、野心、关系兼容；另选角色不表示被动、怕分歧。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one comparison with no personal loser",
+          "zh": "试一次没有个人输家的比较"
+        },
+        "paragraphs": [
+          {
+            "en": "For a small invented scene, draw two versions of the same harmless festival object. Ask willing co-creators what each version adds to the story, then choose whether to keep one, both or neither. Avoid turning the preference into a verdict about the maker. You are exploring a narrative contrast, not measuring drive, deciding who is superior or prescribing how real relationships should handle serious conflict.",
+            "zh": "小虚构场景中，画同一无害节日物两版，问自愿共作者各添什么，再选留一、都留或不留。不把偏好变对作者裁决。这探索叙事对照，不测驱动力、不判优越、不规定现实关系怎样处理严重冲突。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pathfinder",
+    "directionIds": [
+      "pathfinder"
+    ],
+    "title": {
+      "en": "The Pathfinder",
+      "zh": "绘路者"
+    },
+    "headline": {
+      "en": "Make the story’s connections readable",
+      "zh": "让故事连接好读"
+    },
+    "summary": {
+      "en": "Explore The Pathfinder through make the story’s connections readable: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“让故事连接好读”探索绘路者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Pathfinder Test Result: Make the story’s connections readable | Anime Story Roles",
+        "zh": "绘路者测试结果：让故事连接好读｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Pathfinder through make the story’s connections readable: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“让故事连接好读”探索绘路者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Pathfinder in this story",
+          "zh": "本故事的绘路者"
+        },
+        "paragraphs": [
+          {
+            "en": "The Pathfinder is an original role for connecting the invented garden’s places and routes. The emphasis is on a readable story, not predicting every outcome or being several steps ahead of real people. A simple map gives the cast choices they can understand and change. It does not need to be complete before the first scene, and it does not make its creator the owner of everybody’s journey.",
+            "zh": "绘路者原创角色连接虚构花园地点、路线，重点是故事好读，不预测所有结果、不领先真人几步。简单图给人物可懂、可改选择，不需开场前完备，也不使作者拥有所有旅程。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A new terrace joins the map",
+          "zh": "新台地加入地图"
+        },
+        "paragraphs": [
+          {
+            "en": "Your fictional garden gains another terrace between two meeting places. Your character sketches where it connects and marks a possible return route. A co-creator may move the terrace, and the map can change with that suggestion. The scene’s benefit is that readers can follow where characters are, not that the Pathfinder has calculated the best future or knows what another person is secretly thinking.",
+            "zh": "虚构花园两会合点间添台地，角色画连接、标可能返回路。共作者可挪台地，地图也能跟着改。益处是读者跟得上人物在哪，不是绘路者算出最佳未来、知道别人藏什么思想。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A map beside five other contributions",
+          "zh": "地图与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead begins, the Challenger offers contrast and the Guide explains a requested step. The Improviser creates a fresh prop use while the Keeper keeps an agreement clear. The Pathfinder links the places those contributions need. These are selected story functions, not ranks in intelligence or foresight. A tied reading can offer different ways to shape a scene without proving that you should organise every real-life situation.",
+            "zh": "主角开始，挑战者给对照，导师应请求解释步骤；巧匠添道具用途，守护者使约定清楚。绘路者连接这些贡献所需地点。这是选定故事功能，不排智力、远见；并列给塑场景多方法，不证明应组织所有现实。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A useful map leaves room to wander",
+          "zh": "有用地图容许漫游"
+        },
+        "paragraphs": [
+          {
+            "en": "Too many connections can make a small scene harder to follow. Keep the few routes the cast currently needs, and let an unexplained corner remain open for a later chapter. You can revise the plan instead of defending every line. Your count does not measure planning ability, emotional coolness or control, and a lower count cannot establish carelessness or an inability to understand complicated stories.",
+            "zh": "连接太多可使小场景难跟。留当下所需几路，让未解释角落待后章；可改计划、不替每线辩护。次数不测规划能力、情绪冷静、控制，低计数不确立粗心、不懂复杂故事。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a map for just the next scene",
+          "zh": "只给下场试一张地图"
+        },
+        "paragraphs": [
+          {
+            "en": "Draw three invented places and two possible connections for an original short storyboard. Ask a willing reader where the character starts and how they might return. If the answer is unclear, change one line or label rather than add a whole system. This is feedback on narrative readability, not an intelligence exercise, a strategic aptitude score or advice about organising other people’s lives.",
+            "zh": "原创短分镜画三虚构地点、两可能连接，问自愿读者人物起点、怎样能返回。回答不清就改一线或标签，不另加整套系统。这反馈叙事易读，不练智力、不评战略天赋、不建议组织他人生活。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "guide",
+    "directionIds": [
+      "guide"
+    ],
+    "title": {
+      "en": "The Guide",
+      "zh": "引路导师"
+    },
+    "headline": {
+      "en": "Offer an example when it is wanted",
+      "zh": "需要时提供一个示例"
+    },
+    "summary": {
+      "en": "Explore The Guide through offer an example when it is wanted: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“需要时提供一个示例”探索引路导师：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Guide Test Result: Offer an example when it is wanted | Anime Story Roles",
+        "zh": "引路导师测试结果：需要时提供一个示例｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Guide through offer an example when it is wanted: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“需要时提供一个示例”探索引路导师：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Guide in this story",
+          "zh": "本故事的引路导师"
+        },
+        "paragraphs": [
+          {
+            "en": "The Guide is an original role for offering a requested example, then leaving room for someone else’s attempt. It does not depend on age, hardship or a claim to know what everybody needs. A useful explanation can be small and temporary: one way to fold a fictional paper seed, followed by permission to question it. The learner can become the next guide without passing a personality test.",
+            "zh": "导师是本版原创角色，应请求给示例，再留别人尝试空间。不靠年龄、苦难、不说懂人人所需。有用解释可小而暂时：一种折虚构纸种的方法，再容提问。学习者可成下位导师，无需过人格测试。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "One paper fold and another person’s choice",
+          "zh": "一个纸折与别人的选择"
+        },
+        "paragraphs": [
+          {
+            "en": "A fictional newcomer asks how the seed-lantern craft works. Your character shows one fold, asks whether the example is clear and lets the newcomer try their own shape. The scene remains a conversation rather than a lesson that must be obeyed. The Guide’s contribution is an available example, not a right to correct every attempt or make other characters dependent on continued instruction.",
+            "zh": "虚构新人问种灯手作，角色示一折、问清楚否，让新人试自己形状。场景保持对话，不成必须服从的课。导师贡献是可用示例，不是纠正每次尝试、使人依赖不断指导的权利。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "An example beside five other contributions",
+          "zh": "示例与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead offers a beginning, the Challenger offers contrast and the Pathfinder links places. The Improviser changes a prop’s use while the Keeper keeps a shared promise clear. The Guide makes one requested step easier to understand. These functions can be shared without ranking wisdom, age or experience. A tie offers several storytelling possibilities, not proof that people should trust you with every difficult problem.",
+            "zh": "主角给开头，挑战者给对照，绘路者连地点；巧匠改道具用途，守护者使约定清楚。导师让应请求的一步好懂。功能可共享，不排智慧、年龄、经历；并列不证明大家应把所有难题交给你。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Help can finish after one example",
+          "zh": "帮助可在一例后结束"
+        },
+        "paragraphs": [
+          {
+            "en": "An explanation can take over a scene if the Guide keeps teaching after the other character wants to explore. Ask whether more help is wanted and allow your own contribution to end. The count does not establish wisdom, a caregiving duty or a history of having survived worse. A lower count does not mean selfishness, and a fictional guide need not become the group’s permanent source of answers.",
+            "zh": "对方想探索后仍教会接管场景。可问是否还需帮助，也容自己贡献结束。次数不确立智慧、照顾义务、不推断曾经历更苦。低计数不表示自私，虚构导师无需成永久答案来源。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try an example that can be changed",
+          "zh": "试一个可被修改的示例"
+        },
+        "paragraphs": [
+          {
+            "en": "In an original creative session, ask a willing collaborator whether they want a small demonstration. Show one method, then invite them to alter it or use another. Afterwards, ask whether the example gave them more choices. This checks how an explanation worked in one activity; it does not assess teaching competence, relationship responsibility or an obligation to absorb other people’s emotional or practical burdens.",
+            "zh": "原创共作中，问自愿伙伴要否小示范，示一方法，再邀改或另用。之后问示例是否增加选择。这核一次解释，不评教学能力、关系责任、不派吸收他人情绪或实际负担义务。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "improviser",
+    "directionIds": [
+      "improviser"
+    ],
+    "title": {
+      "en": "The Improviser",
+      "zh": "即兴巧匠"
+    },
+    "headline": {
+      "en": "Give a prop an unexpected use",
+      "zh": "给道具意外用途"
+    },
+    "summary": {
+      "en": "Explore The Improviser through give a prop an unexpected use: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“给道具意外用途”探索即兴巧匠：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Improviser Test Result: Give a prop an unexpected use | Anime Story Roles",
+        "zh": "即兴巧匠测试结果：给道具意外用途｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Improviser through give a prop an unexpected use: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“给道具意外用途”探索即兴巧匠：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Improviser in this story",
+          "zh": "本故事的即兴巧匠"
+        },
+        "paragraphs": [
+          {
+            "en": "The Improviser is this edition’s original role for finding a playful new use for an invented prop. It does not mean deceiving friends, creating chaos or hiding a supposedly sharper mind behind jokes. An odd paper object can add another possibility to a scene when the other creators want it. The point is a fresh material idea, not a claim about your intelligence, wit or ability to read people.",
+            "zh": "巧匠是本版原创角色，给虚构道具趣味新用途。不指欺骗朋友、制造混乱、以笑话藏所谓更聪明头脑。奇特纸物可在共作者愿意时添场景可能。重点是材料新点子，不评智力、机智、识人能力。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A leftover shape becomes a story marker",
+          "zh": "剩余形状成为故事标记"
+        },
+        "paragraphs": [
+          {
+            "en": "A spare folded shape no longer fits the festival’s first design. Your character imagines it as a marker beside a fictional garden path and asks whether the cast wants to try that use. They may prefer to leave it out. The useful surprise concerns an object in a shared story, not a prank on a person, a concealed message or permission to ignore somebody’s stated preference.",
+            "zh": "备用折形不合节日首设计。角色想象它为虚构花园路标，问人物是否想试，也可不用。有用惊喜关共同故事物件，不是对人恶作剧、隐藏信息或忽视他人意愿许可。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Improvisation beside five other contributions",
+          "zh": "即兴与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead begins an agreed action, the Challenger compares alternatives and the Pathfinder connects places. The Guide offers a requested example while the Keeper keeps a promise clear. The Improviser gives a familiar object another use. These roles can coexist without ranking creativity or sincerity. A tied guide does not show that you are unreadable, secretly brilliant or avoiding feelings, and a playful scene need not reveal a hidden self.",
+            "zh": "主角开始约好动作，挑战者比替代，绘路者连地点；导师应请求示例，守护者使约定清楚。巧匠给熟物另一用途。可共存，不排创意、真诚；并列不说难懂、暗藏天才、避情感，玩趣场景无需揭隐藏自我。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A clever variation can wait",
+          "zh": "巧变化可以等待"
+        },
+        "paragraphs": [
+          {
+            "en": "A prop idea can distract from the scene the group wanted to finish. Keep it for another chapter if it does not help now, or let others choose the earlier version without making that choice a verdict on your imagination. A count cannot establish originality or a pattern of emotional avoidance. A lower count does not mean dullness, and ordinary materials can still support an enjoyable story.",
+            "zh": "道具点子可能分散原想完的场景，不适合可留后章，容别人选旧版、不把它当对想象力裁决。次数不确立原创力、情绪回避模式；低计数不表示无趣，普通材料也可支持好玩故事。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one reversible prop change",
+          "zh": "试一次可改回道具变化"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose a harmless object in an original storyboard and invent two possible uses for it. Ask willing co-creators which use adds something to the scene, then try a small version that can be undone. Keep, revise or drop it after reading the sequence together. You are exploring a story-making option, not testing genius, social perception or whether you can get away with disrupting a real group.",
+            "zh": "给原创分镜无害物编两用途，问自愿共作者哪为场景添什么，再试可撤回小版。连读后留、改或删。这探索共作选择，不测天才、社交觉察、不评能否在真人小组捣乱而脱身。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "keeper",
+    "directionIds": [
+      "keeper"
+    ],
+    "title": {
+      "en": "The Keeper",
+      "zh": "约定守护者"
+    },
+    "headline": {
+      "en": "Keep a promise people can renew",
+      "zh": "守住人人可再选择的约定"
+    },
+    "summary": {
+      "en": "Explore The Keeper through keep a promise people can renew: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+      "zh": "从“守住人人可再选择的约定”探索约定守护者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "The Keeper Test Result: Keep a promise people can renew | Anime Story Roles",
+        "zh": "约定守护者测试结果：守住人人可再选择的约定｜动漫故事角色"
+      },
+      "description": {
+        "en": "Explore The Keeper through keep a promise people can renew: an original anime-style festival scene, five role comparisons, a tradeoff, a small creative experiment and transparent counts. Complete free story-role guide.",
+        "zh": "从“守住人人可再选择的约定”探索约定守护者：原创动漫风节日场景、五角色比较、取舍、小共作尝试与透明计数。免费完整故事角色说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+      "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "The Keeper in this story",
+          "zh": "本故事的约定守护者"
+        },
+        "paragraphs": [
+          {
+            "en": "The Keeper is an original role for keeping a small shared promise clear and voluntary. It does not require absorbing danger, carrying everyone or proving that you never need help. In the seed-lantern story, a promise might concern a meeting place or shared paper. The role asks what people actually agreed and how they can update it, rather than treating loyalty as an unlimited claim on a person.",
+            "zh": "守护者是本版原创角色，让小共同约定清楚、自愿。不需吸危险、扛所有人、证明永不需帮。种灯故事的约定可关会合点、共用纸。角色问实际约什么、怎样更新，不把忠诚作对人无限索取。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A meeting point with room to change",
+          "zh": "可以改变的会合点"
+        },
+        "paragraphs": [
+          {
+            "en": "The fictional cast plans to explore different terraces and meet later. Your character makes the meeting place clear and asks how someone can change their plan or sit a scene out. A promise becomes easier to use because its limits are stated. Nobody needs to become a wall for everyone else, and a character who rests or chooses another route has not failed the story.",
+            "zh": "虚构人物要分探台地、之后会合。角色说清地点，问谁怎样可改计划、略过场景。说明边界使约定好用，无人需为所有人作墙；休息、另选路线不算辜负故事。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "A promise beside five other contributions",
+          "zh": "约定与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "The Lead begins a small action, the Challenger offers comparison and the Pathfinder maps connections. The Guide gives a requested example while the Improviser finds a fresh prop use. The Keeper keeps an agreement understandable as those choices unfold. No role ranks reliability, endurance or moral worth. A tied guide can show several story preferences without assigning you the duty to protect, advise or organise real people.",
+            "zh": "主角开始小动作，挑战者给比较，绘路者画连接；导师应请求示例，巧匠找道具新用途。守护者让约定在选择展开时好懂。不排可靠、耐力、道德；并列可呈多故事偏好，不派保护、指导、组织真人义务。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A promise can be revised or declined",
+          "zh": "约定可以修改或拒绝"
+        },
+        "paragraphs": [
+          {
+            "en": "An old agreement may stop fitting when the cast’s wishes change. Let them discuss a smaller commitment, another meeting point or no new promise at all. Keeping the relationship visible does not mean keeping every earlier arrangement. Your count does not assess resilience, trustworthiness or relationship health. A lower count does not imply disloyalty, and a story role cannot tell anybody how much support you owe them.",
+            "zh": "人物意愿变，旧约可能不再合。可谈小承诺、另会合点、或不作新约；看见关系不等于留每项旧安排。次数不评韧性、可信、关系健康；低计数不表示不忠，故事角色不说你欠多少支持。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a small agreement with an exit",
+          "zh": "试一项有退出方式的小约定"
+        },
+        "paragraphs": [
+          {
+            "en": "For a voluntary original story session, make one concrete agreement about a shared material or meeting point. Say how any participant can revise or decline it, then check after the activity whether it remained useful. Keep the conversation specific to that small project. This explores a storytelling preference, not a loyalty test, a caregiving prescription or advice about managing serious relationship, safety or health decisions.",
+            "zh": "自愿原创故事活动中，为共有材料或会合点作一具体约定，说谁怎样可改、拒绝，活动后核仍有用否。交流只关此小项目。这探索叙事偏好，不测忠诚、不开照顾处方、不指导严重关系、安全、健康决定。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Complete all 18 situations. Each explicitly mapped choice adds one raw count to one of six original story roles, giving 18 counts in total. Every role appears 12 times, three times in each answer position; absence from an item is not rejection. Every highest count receives a complete guide, including all six when all A choices give three counts each. Counts describe choices in this bank, not match percentages, population norms, hidden personality types or validated differences between people.",
+            "zh": "完成18情境，每项明确映射选择给六原创故事角色中一位加一次原始次数，总计18次。每角色出现12次、每答位3次；当题未出现不算被拒绝。每个最高获全文；全A各3次，六方并列。次数描述本题本选择，不是匹配百分比、人群常模、隐藏人格类型或经验证人群差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original story and source limits",
+          "zh": "原创故事与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this original anime-story quiz: the fictional seed-lantern festival, six roles, situations, mappings and complete readings. The literary background reference discusses character roles within stories; it does not establish our six labels, scoring or psychological validity. These are selected storytelling possibilities, not a universal anime taxonomy or licensed characters from a show. No competitor questions, reports, franchise images or dialogue are reproduced. This entertainment edition is separate from Jungian motivation models, moral alignment, character-strength scales and clinical assessment.",
+            "zh": "费马独立创作本原创动漫故事测验的虚构种灯节、六角色、情境、映射与全文。文学背景资料讨论故事内人物角色，不确立本版六标签、计分或心理效度。这是选定叙事可能，不是通用动漫分类、作品授权人物。不复用竞品题目、报告、IP图或台词。本娱乐版独立于荣格动机模型、道德阵营、性格优势量表、临床评估。"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,746 @@
+{
+  "id": "T130",
+  "version": "1.0.0",
+  "form": "fermatmind_anime_story_roles_original_18_v1",
+  "method": "Ownsixoriginalanime-stylestoryrolesLead/Challenger/Pathfinder/Guide/Improviser/Keeper;18originalfictionalseed-lanternfestivalchoices72options;12exposures3perpositioneach;allhighestrawcountties. Storychoiceentertainment,notlicensedanimecharactermatching/universaltaxonomy/realpersonality/clinical/ability/Jungian/ethicalaxes/strength/boundaryscale. Notcompetitorbank/scoring.",
+  "questions": [
+    {
+      "id": "ANI_01",
+      "prompt": {
+        "en": "In an entirely original anime-style story, friends prepare a seed-lantern festival on a floating garden. Which part would you most enjoy?",
+        "zh": "在完全原创动漫风故事里，伙伴准备浮空花园种灯节，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lead",
+          "label": {
+            "en": "Volunteer for a small first step that the group has agreed to try.",
+            "zh": "自愿接一个伙伴约好尝试的小首步。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "challenger",
+          "label": {
+            "en": "Offer a friendly alternative that gives the idea a fair comparison.",
+            "zh": "提友好替代，让点子有公平比较。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Draw a simple route between the garden’s invented gathering places.",
+            "zh": "画连接花园虚构聚会点的简单路线。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "guide",
+          "label": {
+            "en": "Show a willing newcomer how one little festival task works.",
+            "zh": "给愿意的新人示范一项节日小任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_02",
+      "prompt": {
+        "en": "The fictional garden group has settled on its first lantern design. What would you like your character to do?",
+        "zh": "虚构花园伙伴定下首个种灯设计，你想让角色做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "challenger",
+          "label": {
+            "en": "Suggest a second version to compare playfully, with everyone’s agreement.",
+            "zh": "经同意提第二版，趣味比较。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Map how the selected design will move between the story’s places.",
+            "zh": "画选定设计在故事地点间怎样移动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "guide",
+          "label": {
+            "en": "Offer a short demonstration to somebody who has asked to learn.",
+            "zh": "给已开口想学的人短示范。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "improviser",
+          "label": {
+            "en": "Try an unexpected use for a harmless leftover story prop.",
+            "zh": "试给无害剩余故事道具意外用途。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_03",
+      "prompt": {
+        "en": "Your original story needs a way through several floating garden terraces. What appeals most?",
+        "zh": "原创故事需穿过几层浮空花园的方法，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Sketch the connections so the cast can choose which fictional route to take.",
+            "zh": "画连接，让人物选走哪条虚构路。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "guide",
+          "label": {
+            "en": "Explain one simple route-finding step to a character who wants help.",
+            "zh": "给想获帮助的人物解释一个寻路小步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "improviser",
+          "label": {
+            "en": "Turn an odd spare prop into a playful marker for the scene.",
+            "zh": "把古怪备用道具变场景趣味标记。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "keeper",
+          "label": {
+            "en": "Keep the group’s agreed meeting point clear, including how to return.",
+            "zh": "让约好会合点清楚，也含怎样返回。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_04",
+      "prompt": {
+        "en": "A new fictional friend wants to learn the festival’s paper-light craft. Which scene would you enjoy?",
+        "zh": "新虚构朋友想学节日纸光手作，你喜欢哪场景？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "guide",
+          "label": {
+            "en": "Offer one example, then let the learner decide what to try themselves.",
+            "zh": "给一例，再让学习者选自己试什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "improviser",
+          "label": {
+            "en": "Invent a surprising but harmless use for a spare shape.",
+            "zh": "给备用形状编惊喜无害用途。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "keeper",
+          "label": {
+            "en": "Remember the promised shared materials and check that people can take a break.",
+            "zh": "记约好的共有材料，也核人人能休息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lead",
+          "label": {
+            "en": "Take the first agreed small crafting task and get the scene moving.",
+            "zh": "接首个约好小手作任务，让场景开始。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_05",
+      "prompt": {
+        "en": "An unusual paper object appears in your invented anime-style scene. What would you most enjoy?",
+        "zh": "原创动漫风场景出现奇特纸物，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "improviser",
+          "label": {
+            "en": "Give it a playful new purpose within the story’s agreed rules.",
+            "zh": "在约好故事规则内，给趣味新用途。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "keeper",
+          "label": {
+            "en": "Check how using it fits a promise the characters already made.",
+            "zh": "核使用它怎样合人物已有约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lead",
+          "label": {
+            "en": "Volunteer to try one small, reversible action with the prop.",
+            "zh": "自愿用道具试一个可改回小动作。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "challenger",
+          "label": {
+            "en": "Offer a second idea so the cast can compare without hostility.",
+            "zh": "提第二点子，让人物无敌意比较。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_06",
+      "prompt": {
+        "en": "Your story’s friends agree to meet after exploring the floating garden. What appeals most?",
+        "zh": "故事伙伴约好探索花园后会合，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "keeper",
+          "label": {
+            "en": "Keep the meeting promise clear while allowing each character to change their plans openly.",
+            "zh": "让会合约定清楚，也容许公开改计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lead",
+          "label": {
+            "en": "Take an agreed first step so the optional exploration can begin.",
+            "zh": "接一个约好首步，让自愿探索开始。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "challenger",
+          "label": {
+            "en": "Suggest a friendly route challenge that everyone can decline.",
+            "zh": "提人人可拒绝的友好路线挑战。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Draw a readable route showing the meeting place and return options.",
+            "zh": "画好读路线，示会合点、返回选项。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_07",
+      "prompt": {
+        "en": "The imaginary festival’s opening scene has not started yet. Which role would you enjoy?",
+        "zh": "想象节日开场尚未开始，你喜欢哪角色贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lead",
+          "label": {
+            "en": "Offer to begin one small action after checking that the cast agrees.",
+            "zh": "核伙伴同意后，提先做一个小动作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "challenger",
+          "label": {
+            "en": "Bring a different opening for a friendly comparison.",
+            "zh": "带不同开场，供友好比较。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Map the opening scene’s sequence so its locations make sense.",
+            "zh": "画开场顺序，让地点连贯。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "guide",
+          "label": {
+            "en": "Give a requested example that helps a new participant find their part.",
+            "zh": "给应请求的示例，帮新参与者找部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_08",
+      "prompt": {
+        "en": "Two friendly teams in the original story want different seed-lantern shapes. What appeals most?",
+        "zh": "原创故事两友好小队想不同种灯形状，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "challenger",
+          "label": {
+            "en": "Compare both designs by a rule the teams choose together.",
+            "zh": "按两队共选规则，比两设计。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Show how either design could travel through the garden’s fictional spaces.",
+            "zh": "展示任一设计怎样穿过花园虚构空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "guide",
+          "label": {
+            "en": "Explain a small design method to somebody who asks for it.",
+            "zh": "给来问的人解释一个小设计方法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "improviser",
+          "label": {
+            "en": "Make an amusing hybrid from spare paper if both teams want to try.",
+            "zh": "两队愿意才用备用纸做趣味混合。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_09",
+      "prompt": {
+        "en": "A new terrace is added to your wholly invented garden setting. What would you enjoy contributing?",
+        "zh": "完全虚构花园添新台地，你喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "A clear map showing where the new place connects to the old ones.",
+            "zh": "清楚地图，示新地点怎样连原有处。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "guide",
+          "label": {
+            "en": "A short explanation that a willing new character can use and question.",
+            "zh": "供自愿新人物使用、提问的短解释。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "improviser",
+          "label": {
+            "en": "A playful use for an otherwise ordinary prop on that terrace.",
+            "zh": "给该台地普通道具一个趣味用途。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "keeper",
+          "label": {
+            "en": "A clear update to the cast’s agreed meeting and rest arrangements.",
+            "zh": "清楚更新人物约好的会合、休息安排。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_10",
+      "prompt": {
+        "en": "One character asks how to make a little paper seed in the story. Which scene would you prefer?",
+        "zh": "一人物问故事里怎样做小纸种，你更喜欢哪场景？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "guide",
+          "label": {
+            "en": "Show one step, then give them room to try a different version.",
+            "zh": "示一步，再留空间让对方试不同版。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "improviser",
+          "label": {
+            "en": "Use an unexpected harmless prop to make the demonstration playful.",
+            "zh": "用意外无害道具，让示范有玩趣。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "keeper",
+          "label": {
+            "en": "Check that sharing the material still fits what everyone agreed.",
+            "zh": "核分享材料仍合大家约定。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lead",
+          "label": {
+            "en": "Volunteer to prepare the first small example the group has requested.",
+            "zh": "自愿备小组请求的首个小示例。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_11",
+      "prompt": {
+        "en": "The anime-style storyboard needs a light surprise without embarrassing anyone. What appeals most?",
+        "zh": "动漫风分镜需不使谁难堪的轻惊喜，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "improviser",
+          "label": {
+            "en": "Find a new comic use for a familiar invented object.",
+            "zh": "给熟悉虚构物找新喜剧用途。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "keeper",
+          "label": {
+            "en": "Keep the surprise compatible with the cast’s stated wishes and promises.",
+            "zh": "让惊喜合人物说过的意愿、约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lead",
+          "label": {
+            "en": "Offer to try the first modest action that makes the scene possible.",
+            "zh": "提先试使场景可行的适中小动作。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "challenger",
+          "label": {
+            "en": "Compare two optional surprises in a friendly way.",
+            "zh": "友好比较两项可选惊喜。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_12",
+      "prompt": {
+        "en": "Your invented cast is ready to close the festival for the evening. What would you enjoy?",
+        "zh": "虚构人物准备收今晚种灯节，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "keeper",
+          "label": {
+            "en": "Honour the small closing agreement without asking one character to carry everyone.",
+            "zh": "守小收尾约定，不让一人物扛所有人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lead",
+          "label": {
+            "en": "Volunteer for the first agreed closing step.",
+            "zh": "自愿接首个约好收尾步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "challenger",
+          "label": {
+            "en": "Offer a friendly alternative ending for the cast to consider.",
+            "zh": "提友好替代结尾，供人物考虑。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Draw the final route back to the story’s meeting point.",
+            "zh": "画返回故事会合点的最后路线。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_13",
+      "prompt": {
+        "en": "A modest new festival idea is ready for a first attempt in your original story. What appeals most?",
+        "zh": "原创故事一适中新节日点子可首试，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lead",
+          "label": {
+            "en": "Take the first agreed task without assuming I must lead every later one.",
+            "zh": "接首个约好任务，不默认以后全由自己带。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "challenger",
+          "label": {
+            "en": "Propose a fair optional comparison with a different idea.",
+            "zh": "提和另一点子公平、可选的比较。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Map the few connections that would let the idea fit the garden.",
+            "zh": "画几处连接，让点子合花园。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "guide",
+          "label": {
+            "en": "Explain one starting step to a fictional friend who requests it.",
+            "zh": "给主动请求的虚构朋友解释一个开头步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_14",
+      "prompt": {
+        "en": "A friendly story challenge could help the cast explore two festival designs. What would you prefer?",
+        "zh": "友好故事挑战可帮人物探索两种节日设计，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "challenger",
+          "label": {
+            "en": "Agree a playful comparison where either design can be chosen afterwards.",
+            "zh": "约趣味比较，之后任一设计都可选。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Show where both designs would fit on the garden map.",
+            "zh": "在花园图示两设计合何处。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "guide",
+          "label": {
+            "en": "Give a requested explanation of the comparison’s simple method.",
+            "zh": "应请求解释比较的简单方法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "improviser",
+          "label": {
+            "en": "Invent a harmless prop variation that gives the scene another possibility.",
+            "zh": "编无害道具变化，给场景另一可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_15",
+      "prompt": {
+        "en": "The fictional garden’s places have changed since the opening chapter. What would you enjoy?",
+        "zh": "虚构花园地点自开篇已变，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Update the story map so the cast’s next route is easy to understand.",
+            "zh": "更新故事图，让人物下条路线易懂。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "guide",
+          "label": {
+            "en": "Show a willing character how to read the changed map.",
+            "zh": "给愿意人物示怎样读改后地图。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "improviser",
+          "label": {
+            "en": "Use an odd paper marker to make the new place memorable.",
+            "zh": "用古怪纸标记，让新处好记。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "keeper",
+          "label": {
+            "en": "Update the shared meeting promise so nobody has to guess where to return.",
+            "zh": "更新共同会合约定，没人需猜返回哪。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_16",
+      "prompt": {
+        "en": "A fictional newcomer has learned the example and wants to try their own method. Which scene appeals most?",
+        "zh": "虚构新人学会示例，想试自己的方法，你喜欢哪场景？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "guide",
+          "label": {
+            "en": "Let them explore while staying available for a question they choose to ask.",
+            "zh": "让对方探索，仍可应其选择提出的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "improviser",
+          "label": {
+            "en": "Offer an unusual harmless material if they want a playful experiment.",
+            "zh": "若想趣味实验，给不常见无害材料。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "keeper",
+          "label": {
+            "en": "Keep the agreed shared resources clear while different methods coexist.",
+            "zh": "容许不同方法共存，也让约好共有资源清楚。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lead",
+          "label": {
+            "en": "Begin my own agreed small part so the scene can continue alongside theirs.",
+            "zh": "开始自己约好的小部分，与对方场景并行。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_17",
+      "prompt": {
+        "en": "A familiar invented prop no longer fits the storyboard’s new scene. What would you enjoy?",
+        "zh": "熟悉虚构道具不再合新分镜场景，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "improviser",
+          "label": {
+            "en": "Reimagine its purpose in a playful way the cast can accept or reject.",
+            "zh": "趣味重想用途，人物可接受、拒绝。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "keeper",
+          "label": {
+            "en": "Check whether changing it affects an earlier promise in the story.",
+            "zh": "核改变是否影响故事早先约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lead",
+          "label": {
+            "en": "Try a small agreed replacement instead of waiting for a grand solution.",
+            "zh": "试约好小替代，不等宏大解法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "challenger",
+          "label": {
+            "en": "Compare two possible replacements without making either maker the loser.",
+            "zh": "比两种替代，不把任一作者当输家。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANI_18",
+      "prompt": {
+        "en": "At the story’s end, friends decide which small promise to keep for a future festival. What appeals most?",
+        "zh": "故事结尾，伙伴决定给以后种灯节留哪小约定，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "keeper",
+          "label": {
+            "en": "Keep a promise people can freely renew, revise or decline.",
+            "zh": "留人人可自由续、改、拒绝的约定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lead",
+          "label": {
+            "en": "Offer the first little task if the cast chooses to begin again.",
+            "zh": "若人物选再开始，提接首个小任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "challenger",
+          "label": {
+            "en": "Suggest a friendly new comparison for the next shared story.",
+            "zh": "给下个共作故事提友好新比较。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pathfinder",
+          "label": {
+            "en": "Sketch a possible return route while leaving the next chapter open.",
+            "zh": "画可能返回路线，也让下章开放。"
+          }
+        }
+      ]
+    }
+  ]
+}
