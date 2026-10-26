@@ -1714,5 +1714,27 @@
       "magician",
       "lover"
     ]
+  },
+  {
+    "slug": "social-intelligence-test",
+    "code": "IPIP_VIAR_SOC_FOCUS_4",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "社交智能测试",
+      "en": "Social Intelligence Test"
+    },
+    "description": {
+      "zh": "免费社交智能测试：IPIP-VIA-R四条自述，查看原始总分、两条反向计分、混合与资料不足及完整沟通例子，不以自述断言真实能力。",
+      "en": "Take the free social intelligence test: four IPIP-VIA-R self-reports, raw totals, reverse scoring, missing information and a full guide with examples."
+    },
+    "minutes": 2,
+    "collection": "explore",
+    "formCode": "fm_ipip_viar_social_accuracy_4",
+    "questionCount": 4,
+    "resultSlugs": [
+      "social-understanding-guide"
+    ]
   }
 ]

@@ -1,0 +1,624 @@
+{
+  "slug": "social-intelligence-test",
+  "code": "IPIP_VIAR_SOC_FOCUS_4",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "社交智能测试",
+    "en": "Social Intelligence Test"
+  },
+  "resultHeading": {
+    "zh": "社交理解：原始总分与完整读法",
+    "en": "Social understanding: raw total and full guide"
+  },
+  "description": {
+    "zh": "免费社交智能测试：IPIP-VIA-R四条自述，查看原始总分、两条反向计分、混合与资料不足及完整沟通例子，不以自述断言真实能力。",
+    "en": "Take the free social intelligence test: four IPIP-VIA-R self-reports, raw totals, reverse scoring, missing information and a full guide with examples."
+  },
+  "seoTitle": {
+    "zh": "社交智能测试：IPIP四条自述与完整免费结果",
+    "en": "Social Intelligence Test: Four IPIP Items, Full Free Guide"
+  },
+  "minutes": 2,
+  "introduction": {
+    "zh": "你怎样描述感知他人、在新场合回应和猜测反应的把握？这里采用IPIP-VIA-R社交／个人／情绪智能四条公有领域英文及本站中文试译，保留两正两反键。四条全部有效后显示4—20原始总分和描述性均分；任何一条资料不足都保留未评分，完整九节仍能阅读。全文包括较高、较低、中间混合、例子反例、可选核对、来源及隐私，不派五种社交角色，也不是能力、IQ或EQ测试。这四条与本站品格优势96条中的同一侧面相同，本版便于单独使用，不能把独立施测或数字小数当作新增构念或验证。可先读全文，无需注册或另一测评解锁。",
+    "en": "How do you describe your confidence in sensing others, responding in a new social setting and guessing reactions? This entry uses four public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence items, our Chinese trial translation and the original two positive and two negative keys. Four valid ratings produce a raw total of 4–20 and a descriptive mean; any unscored answer keeps the personal score unavailable while all nine sections remain readable. The guide covers higher, lower, middle or mixed answers, examples and counterexamples, optional checks, sources and privacy. It assigns no five social roles and is no ability, IQ or EQ test. These are the same four items as the facet in our 96-item character-strengths form, offered separately for access without claiming a new construct or validated equivalence. Read everything without signup or another assessment."
+  },
+  "instructions": {
+    "zh": "按句子与你现在通常的自我描述是否符合，选择1很不符合至5非常符合，不按理想形象作答。中文是本站试译，英文是IPIP公有领域原句；感知、知道或猜测是你的自述，不证明判断正确。五档中间项为介于符合与不符合之间，不是资料不足。无法判断或不愿回答可选独立项，不补零或中立。四项全部选择后可读完整结果，全部为有效评分才显示4—20原始总分。不输入对话内容、他人情绪或私人经历。",
+    "en": "Rate how accurately each sentence describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your ideal image. English retains public-domain IPIP wording; Chinese is our trial translation. Sensing, knowing and guessing are self-reports, not proof that a judgment is correct. The middle response is neither inaccurate nor accurate, not missing information. Use the separate option if unable to judge or preferring not to answer; it is never zero or neutral. Make four selections for the full result; all four must be scored to display a raw total of 4–20. No conversation, other person’s emotions or private story is entered."
+  },
+  "source": {
+    "kind": "Public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence (SOC/SIQ) four-item focused administration. Exact official English keys and existing FermatMind Chinese trial translations, identifiers, order and response labels are retained from the social-intelligence facet of the 96-item character-strengths questionnaire. A focused entry, not a different construct or a validated equivalence of separate administrations.",
+    "formCode": "fm_ipip_viar_social_accuracy_4",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "ba285aefe1d6946db53b38e06e983ee66357b0421e6de091cb888ec785bd079a",
+    "resultContentSha256": "79b0f09d6c49d199faf731bf57cb401faf9825e343270eba06a3eabd82c08e74",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "social-intelligence",
+      "title": {
+        "zh": "社交理解自述",
+        "en": "Social-understanding self-report"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPIPVIA_SOC_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长感知别人的感受。",
+        "en": "Am good at sensing what others are feeling."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "在新的社交场合，我不知道该如何表现。",
+        "en": "Don't know how to handle myself in a new social situation."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道说什么能让别人感觉良好。",
+        "en": "Know what to say to make people feel good."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以猜到别人会怎样反应。",
+        "en": "Have trouble guessing how others will react."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "social-understanding-guide",
+      "directionIds": [
+        "social-intelligence"
+      ],
+      "title": {
+        "zh": "社交理解自述：四条结果怎样读",
+        "en": "Social Understanding: Reading Four Self-Reports"
+      },
+      "summary": {
+        "zh": "阅读IPIP-VIA-R四条自述的原始总分、正反计分、较高较低与资料不足，并区分感到知道和实际核对。",
+        "en": "Read four IPIP-VIA-R self-reports through raw sums, reverse keys, higher or lower readings, missing information and checking an inference."
+      },
+      "seo": {
+        "title": {
+          "zh": "社交智能测试结果：四条自述的完整读法",
+          "en": "Social Intelligence Results: A Four-Item IPIP Guide"
+        },
+        "description": {
+          "zh": "社交智能测试完整结果：原始总分4—20、两条反向计分、不同回答组合、资料不足和具体沟通例子，不以自述断言真实能力。",
+          "en": "Read social intelligence test results: four IPIP items, raw totals, reverse scoring, mixed answers, missing information and concrete examples."
+        }
+      },
+      "sections": [
+        {
+          "id": "edition",
+          "title": {
+            "zh": "四条自述，回答了什么",
+            "en": "What four self-descriptions can tell you"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份结果读的是你对四句话的符合度自述：感知别人感受、在新场合知道怎样表现、知道说什么让人感觉良好，以及猜测他人反应。英文保留IPIP-VIA-R的SOC／SIQ四条，中文沿用本站试译，不把原句中的“擅长”“知道”变成网站对你能力的判定。四句共同组成一个连续分数，不各自派成四种人；本版也没有JobCannon的五种社交角色。你可以先读完整解释再作答，或读到这里结束，无需提交一段真实对话来换取结论。",
+              "en": "This guide reads how accurately you describe yourself in four statements: sensing others’ feelings, handling yourself in a new social setting, knowing what to say to make people feel good, and guessing their reactions. English retains the four SOC/SIQ items in IPIP-VIA-R; Chinese uses our existing trial translation. Words such as good and know remain your self-description, not our verdict on ability. The four statements contribute to one continuous score rather than four kinds of person, and this edition has no five social roles. You may read everything before answering or finish here without supplying a real conversation."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "原始总分怎样复算",
+            "en": "How to reproduce the raw total"
+          },
+          "paragraphs": [
+            {
+              "zh": "每题1—5按符合度选择。正向两条直接用原数，反向两条——新场合不知道如何表现、难以猜到他人反应——用6减回答。四条全部有效才相加，原始总分为4—20；描述性均分用未舍入总和除4，保留两位小数，不能从引擎一位小数均分倒推总分。例如按呈现顺序回答4、2、3、1，键后4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一条NA都不显示个人总分。类别求和是计分约定，小数不表示心理测量精度。",
+              "en": "Choose accuracy from 1 to 5. The two positive items keep their rating; the two negative items about a new social situation and guessing reactions use six minus the response. Only four valid ratings produce a raw total, ranging from 4 to 20. A descriptive mean divides the unrounded sum by four and shows two decimals; it never reconstructs the total from the engine’s one-decimal mean. For example, responses 4, 2, 3, 1 in presentation order become 4 + 4 + 3 + 5 = 16, with a mean of 4.00. Any NA prevents a personal total. Category sums are a scoring convention, not measurement precision."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "总分较高：核对自信的依据",
+            "en": "Higher totals: checking the basis of confidence"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高只表示你在本键方向上更认可这组社交理解自述，可能在熟悉场合感到知道如何回应，也可能较有把握解释别人的反应。它不证明猜测正确、别人喜欢你、你真的让人好受或具备高情商。一次自信的推断仍可能错过语言习惯、个人表达或当时安排。可以想起一件不敏感的小事，在心里区分“我看到的”“我以为的”和“对方明确说过的”。若没有后面的明确反馈，就把推断留作可能性，而不是用分数补上证据；不需要向对方索要私人解释。",
+              "en": "A higher total means greater endorsement in this key direction. You may feel that you know how to respond in familiar settings or feel confident interpreting reactions. It does not establish that a guess was correct, that people like you, that you actually made someone feel good or that you have high EQ. A confident inference can still miss language habits, personal expression or practical circumstances. For an ordinary, non-sensitive event, privately distinguish what you observed, what you inferred and what the person explicitly said. Without that last information, leave an inference possible rather than using this score to supply the missing evidence. No private explanation is owed."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "总分较低：把不确定留在情境里",
+            "en": "Lower totals: keeping uncertainty in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低意味着你较少认可这四条，或更认可两条反向自述。可能是不熟悉新群体、跨语言表达费力、缺少反馈，也可能是你不愿声称自己知道别人在想什么；仅靠这四条不能区分原因。明确询问、偏好文字沟通或先观察，并不自动比即兴回应差。不要据此给自己贴不聪明、不会共情、社交失败或某种健康标签。可选择一个实际需要沟通的具体问题，问清时间、任务或偏好，收到清楚答复就按答复处理；不必先把自评分提高才允许自己参与，也不必强迫多交朋友。",
+              "en": "A lower total means less endorsement of the positive descriptions or more endorsement of the negative ones. An unfamiliar group, effortful communication across languages, limited feedback or reluctance to claim knowledge of other minds may all matter; four answers cannot distinguish those explanations. Asking directly, preferring written communication or observing first is not automatically worse than responding spontaneously. This total warrants no label of low intelligence, failed empathy, social failure or a health condition. If useful, choose a concrete matter that actually needs coordination and clarify timing, a task or a preference. Act on the answer without first requiring a higher self-rating or more friends."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "中间、混合与资料不足",
+            "en": "Middle, mixed and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "12分既可能来自四条都选3，也可能来自四条都选1或都选5，因为两条要反向。这些组合含义不同，12不是人口平均、最佳平衡或“普通社交智能”。同一总分还能由不同条目组合产生，不能从总分推断你在哪一个场景遇到困难。若有一条不愿回答、无法判断或资料不足，本次作答仍可结束并阅读全文，个人总分和均分保留不足，不按另外三条补算。若未选择选项则尚未答完。你可以保持未评分、清除本次进度或重测，没有为获得结果而披露隐私的义务。",
+              "en": "Twelve can result from choosing three for every item, or one or five for every item, because two items reverse. Those patterns differ; twelve is no population average, optimal balance or ordinary social intelligence. Different item patterns can also share another total, so a total cannot identify a specific difficult situation. If one answer is unscored because you cannot judge, lack information or prefer not to answer, the attempt can still finish with the whole guide available. Its personal total and mean remain unavailable without estimating from three ratings. An unselected response is unfinished. You may remain unscored, clear progress or retake without disclosing anything private."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "把猜测变成可核对的小问题",
+            "en": "Turning an inference into a checkable question"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如你发出一项共同任务的说明，对方只回“收到”。能观察到的是简短回复，不是冷淡、赞同或已经理解全部细节。若任务确实需要确认，可以问“截止时间这样安排可以吗？要不要我改成文字清单？”允许对方回答不方便或另提方案，不追问“你到底是不是对我有意见”。一个反例是：你用相同句式得到较长回复，仍不能证明社交能力提高，可能只是这次对方有空。可选的小练习是下次把一个需要协作的问题问具体；不为练习制造对话，不记录第三人的私人消息，也不保证关系或表现会改善。",
+              "en": "Suppose you send instructions for a shared task and receive only “Received.” The observable fact is a short reply, not coldness, agreement or complete understanding. If coordination genuinely needs confirmation, you could ask whether the deadline works or whether a written checklist would help. Allow an inconvenient answer or another proposal without asking whether the person secretly dislikes you. A counterexample matters: a longer reply to the same wording proves no improvement in social ability; the person may simply have more time. An optional experiment is to make one necessary coordination question concrete. Do not manufacture conversations, record private messages or expect guaranteed improvement in relationships or performance."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与品格优势、EQ及其他版本怎样比较",
+            "en": "Comparing character strengths, EQ and other editions"
+          },
+          "paragraphs": [
+            {
+              "zh": "本站品格优势96条中的社交理解侧面就是这四条，沿用相同中英题目、正反键和原始求和；本入口方便单独阅读，并没有增加一个不同心理构念。长卷中的作答语境、前后题目与独立作答可能影响回答，因此相同算式不代表两次施测等值；长卷显示的一位小数也不能直接当本版原始分数。社交理解自述不等于外向、善良、亲密关怀或情绪能力，不换算IQ／EQ。TSIS21条、VIA Institute正式问卷与JobCannon五型各有自己的内容和方法，本版不是这些版本。不能把不同量尺的数字放在一起排名或当招聘依据。",
+              "en": "The social-intelligence facet in our 96-item character-strengths form contains these same four items, bilingual wording, keys and raw arithmetic. This focused entry makes them easier to access; it introduces no different psychological construct. Surrounding questions and the context of separate administration may affect responses, so matching arithmetic does not establish equivalence between administrations. Nor can the longer form’s one-decimal display substitute for this raw total. These self-descriptions are not extraversion, kindness, intimate care or emotional ability and cannot convert into IQ or EQ. The 21-item TSIS, VIA Institute survey and JobCannon’s five profiles use other material and methods. Numbers from those editions are not interchangeable or a hiring ranking."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "题本证据与解释边界",
+            "en": "Item evidence and interpretation limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "英文与正反方向来自IPIP官方IPIP-VIA-R键表SOC（新称SIQ）四条，官方许可将IPIP条目、量表和题库置于公有领域，可商业或非商业使用，无需联系作者。这里采用的是IPIP材料，不因此获得其他社交智能问卷、品牌或竞品内容的许可。该表的德国与英国样本统计属于原研究条件，不是本站中文试译、独立四条呈现、NA规则或你本人的验证。本站没有这份版本的代表性常模、个人准确性、最优区间或变化阈值。题文中的广泛说法不解决社交智能的定义争议，也不能据此推断健康、神经差异或实际能力。",
+              "en": "English wording and positive or negative keys come from the four SOC, now SIQ, items in the official IPIP-VIA-R table. IPIP places its items, scales and inventories in the public domain for commercial and non-commercial use without contacting the author. That applies to IPIP material, not other social-intelligence instruments, brands or competitor content. German and UK statistics in the key table concern the original research conditions, not this Chinese trial translation, separate four-item presentation, NA rule or you individually. We have no representative local norms, individual accuracy estimate, optimal interval or meaningful-change threshold for this edition. Broad item wording resolves neither the construct debate nor questions about health, neurodivergence or observed ability."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "重看结果与分享边界",
+            "en": "Reviewing and sharing this result"
+          },
+          "paragraphs": [
+            {
+              "zh": "完整九节、公开说明、重测和分享免费，不需要另一测评解锁。复看时可以留意当时想到的是熟悉同伴、新群体还是跨语言场景；情境变化可能改变回答，单次变化不能说明能力进步或退步。网页不收集对话内容或第三人资料，作答在本设备处理。主动开启的本标签页草稿限24小时，完成、退出清除或重测会清除；不愿保存可直接作答。分享只包含测试名称、公开读法名称和链接，不带四个回答、总分、均分或有效条数。后续测评推荐只是另一个可选框架，不验证或补齐本次分数。",
+              "en": "All nine sections, the public guide, retakes and sharing are free without another assessment. On review, consider whether you pictured familiar companions, a new group or cross-language settings. Changing context can change answers; a single difference demonstrates neither improvement nor decline in ability. The page collects no conversation or third-party details and processes answers on this device. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, exit-and-clear or retake; answering requires no saved draft. Sharing contains only the test name, public guide name and link, without answers, totals, means or rating counts. A later assessment is an optional different framework, not validation or completion of this score."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把社交理解自述与能够核对的事分开。",
+        "en": "Separate social-understanding self-descriptions from what can be checked."
+      },
+      "scoreReading": {
+        "zh": "每题1—5按符合度选择。正向两条直接用原数，反向两条——新场合不知道如何表现、难以猜到他人反应——用6减回答。四条全部有效才相加，原始总分为4—20；描述性均分用未舍入总和除4，保留两位小数，不能从引擎一位小数均分倒推总分。例如按呈现顺序回答4、2、3、1，键后4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一条NA都不显示个人总分。类别求和是计分约定，小数不表示心理测量精度。",
+        "en": "Choose accuracy from 1 to 5. The two positive items keep their rating; the two negative items about a new social situation and guessing reactions use six minus the response. Only four valid ratings produce a raw total, ranging from 4 to 20. A descriptive mean divides the unrounded sum by four and shows two decimals; it never reconstructs the total from the engine’s one-decimal mean. For example, responses 4, 2, 3, 1 in presentation order become 4 + 4 + 3 + 5 = 16, with a mean of 4.00. Any NA prevents a personal total. Category sums are a scoring convention, not measurement precision."
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "scoring",
+      "title": {
+        "zh": "原始总分怎样复算",
+        "en": "How to reproduce the raw total"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题1—5按符合度选择。正向两条直接用原数，反向两条——新场合不知道如何表现、难以猜到他人反应——用6减回答。四条全部有效才相加，原始总分为4—20；描述性均分用未舍入总和除4，保留两位小数，不能从引擎一位小数均分倒推总分。例如按呈现顺序回答4、2、3、1，键后4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一条NA都不显示个人总分。类别求和是计分约定，小数不表示心理测量精度。",
+          "en": "Choose accuracy from 1 to 5. The two positive items keep their rating; the two negative items about a new social situation and guessing reactions use six minus the response. Only four valid ratings produce a raw total, ranging from 4 to 20. A descriptive mean divides the unrounded sum by four and shows two decimals; it never reconstructs the total from the engine’s one-decimal mean. For example, responses 4, 2, 3, 1 in presentation order become 4 + 4 + 3 + 5 = 16, with a mean of 4.00. Any NA prevents a personal total. Category sums are a scoring convention, not measurement precision."
+        }
+      ]
+    },
+    {
+      "id": "mixed-missing",
+      "title": {
+        "zh": "中间、混合与资料不足",
+        "en": "Middle, mixed and insufficient information"
+      },
+      "paragraphs": [
+        {
+          "zh": "12分既可能来自四条都选3，也可能来自四条都选1或都选5，因为两条要反向。这些组合含义不同，12不是人口平均、最佳平衡或“普通社交智能”。同一总分还能由不同条目组合产生，不能从总分推断你在哪一个场景遇到困难。若有一条不愿回答、无法判断或资料不足，本次作答仍可结束并阅读全文，个人总分和均分保留不足，不按另外三条补算。若未选择选项则尚未答完。你可以保持未评分、清除本次进度或重测，没有为获得结果而披露隐私的义务。",
+          "en": "Twelve can result from choosing three for every item, or one or five for every item, because two items reverse. Those patterns differ; twelve is no population average, optimal balance or ordinary social intelligence. Different item patterns can also share another total, so a total cannot identify a specific difficult situation. If one answer is unscored because you cannot judge, lack information or prefer not to answer, the attempt can still finish with the whole guide available. Its personal total and mean remain unavailable without estimating from three ratings. An unselected response is unfinished. You may remain unscored, clear progress or retake without disclosing anything private."
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "title": {
+        "zh": "与品格优势、EQ及其他版本怎样比较",
+        "en": "Comparing character strengths, EQ and other editions"
+      },
+      "paragraphs": [
+        {
+          "zh": "本站品格优势96条中的社交理解侧面就是这四条，沿用相同中英题目、正反键和原始求和；本入口方便单独阅读，并没有增加一个不同心理构念。长卷中的作答语境、前后题目与独立作答可能影响回答，因此相同算式不代表两次施测等值；长卷显示的一位小数也不能直接当本版原始分数。社交理解自述不等于外向、善良、亲密关怀或情绪能力，不换算IQ／EQ。TSIS21条、VIA Institute正式问卷与JobCannon五型各有自己的内容和方法，本版不是这些版本。不能把不同量尺的数字放在一起排名或当招聘依据。",
+          "en": "The social-intelligence facet in our 96-item character-strengths form contains these same four items, bilingual wording, keys and raw arithmetic. This focused entry makes them easier to access; it introduces no different psychological construct. Surrounding questions and the context of separate administration may affect responses, so matching arithmetic does not establish equivalence between administrations. Nor can the longer form’s one-decimal display substitute for this raw total. These self-descriptions are not extraversion, kindness, intimate care or emotional ability and cannot convert into IQ or EQ. The 21-item TSIS, VIA Institute survey and JobCannon’s five profiles use other material and methods. Numbers from those editions are not interchangeable or a hiring ranking."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "zh": "题本证据与解释边界",
+        "en": "Item evidence and interpretation limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "英文与正反方向来自IPIP官方IPIP-VIA-R键表SOC（新称SIQ）四条，官方许可将IPIP条目、量表和题库置于公有领域，可商业或非商业使用，无需联系作者。这里采用的是IPIP材料，不因此获得其他社交智能问卷、品牌或竞品内容的许可。该表的德国与英国样本统计属于原研究条件，不是本站中文试译、独立四条呈现、NA规则或你本人的验证。本站没有这份版本的代表性常模、个人准确性、最优区间或变化阈值。题文中的广泛说法不解决社交智能的定义争议，也不能据此推断健康、神经差异或实际能力。",
+          "en": "English wording and positive or negative keys come from the four SOC, now SIQ, items in the official IPIP-VIA-R table. IPIP places its items, scales and inventories in the public domain for commercial and non-commercial use without contacting the author. That applies to IPIP material, not other social-intelligence instruments, brands or competitor content. German and UK statistics in the key table concern the original research conditions, not this Chinese trial translation, separate four-item presentation, NA rule or you individually. We have no representative local norms, individual accuracy estimate, optimal interval or meaningful-change threshold for this edition. Broad item wording resolves neither the construct debate nor questions about health, neurodivergence or observed ability."
+        }
+      ]
+    },
+    {
+      "id": "review-privacy",
+      "title": {
+        "zh": "重看结果与分享边界",
+        "en": "Reviewing and sharing this result"
+      },
+      "paragraphs": [
+        {
+          "zh": "完整九节、公开说明、重测和分享免费，不需要另一测评解锁。复看时可以留意当时想到的是熟悉同伴、新群体还是跨语言场景；情境变化可能改变回答，单次变化不能说明能力进步或退步。网页不收集对话内容或第三人资料，作答在本设备处理。主动开启的本标签页草稿限24小时，完成、退出清除或重测会清除；不愿保存可直接作答。分享只包含测试名称、公开读法名称和链接，不带四个回答、总分、均分或有效条数。后续测评推荐只是另一个可选框架，不验证或补齐本次分数。",
+          "en": "All nine sections, the public guide, retakes and sharing are free without another assessment. On review, consider whether you pictured familiar companions, a new group or cross-language settings. Changing context can change answers; a single difference demonstrates neither improvement nor decline in ability. The page collects no conversation or third-party details and processes answers on this device. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, exit-and-clear or retake; answering requires no saved draft. Sharing contains only the test name, public guide name and link, without answers, totals, means or rating counts. A later assessment is an optional different framework, not validation or completion of this score."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是测读心、能力或社交IQ吗？",
+        "en": "Does this measure mind-reading, ability or social IQ?"
+      },
+      "answer": {
+        "zh": "这份结果读的是你对四句话的符合度自述：感知别人感受、在新场合知道怎样表现、知道说什么让人感觉良好，以及猜测他人反应。英文保留IPIP-VIA-R的SOC／SIQ四条，中文沿用本站试译，不把原句中的“擅长”“知道”变成网站对你能力的判定。四句共同组成一个连续分数，不各自派成四种人；本版也没有JobCannon的五种社交角色。你可以先读完整解释再作答，或读到这里结束，无需提交一段真实对话来换取结论。",
+        "en": "This guide reads how accurately you describe yourself in four statements: sensing others’ feelings, handling yourself in a new social setting, knowing what to say to make people feel good, and guessing their reactions. English retains the four SOC/SIQ items in IPIP-VIA-R; Chinese uses our existing trial translation. Words such as good and know remain your self-description, not our verdict on ability. The four statements contribute to one continuous score rather than four kinds of person, and this edition has no five social roles. You may read everything before answering or finish here without supplying a real conversation."
+      }
+    },
+    {
+      "question": {
+        "zh": "原始总分怎样算，缺一条可以估算吗？",
+        "en": "How is the raw total calculated, and can one missing rating be estimated?"
+      },
+      "answer": {
+        "zh": "每题1—5按符合度选择。正向两条直接用原数，反向两条——新场合不知道如何表现、难以猜到他人反应——用6减回答。四条全部有效才相加，原始总分为4—20；描述性均分用未舍入总和除4，保留两位小数，不能从引擎一位小数均分倒推总分。例如按呈现顺序回答4、2、3、1，键后4＋4＋3＋5＝16，均分4.00。NA不算零或中立，任何一条NA都不显示个人总分。类别求和是计分约定，小数不表示心理测量精度。",
+        "en": "Choose accuracy from 1 to 5. The two positive items keep their rating; the two negative items about a new social situation and guessing reactions use six minus the response. Only four valid ratings produce a raw total, ranging from 4 to 20. A descriptive mean divides the unrounded sum by four and shows two decimals; it never reconstructs the total from the engine’s one-decimal mean. For example, responses 4, 2, 3, 1 in presentation order become 4 + 4 + 3 + 5 = 16, with a mean of 4.00. Any NA prevents a personal total. Category sums are a scoring convention, not measurement precision."
+      }
+    },
+    {
+      "question": {
+        "zh": "中间分是人群平均或理想平衡吗？",
+        "en": "Is a midpoint the population average or an ideal balance?"
+      },
+      "answer": {
+        "zh": "12分既可能来自四条都选3，也可能来自四条都选1或都选5，因为两条要反向。这些组合含义不同，12不是人口平均、最佳平衡或“普通社交智能”。同一总分还能由不同条目组合产生，不能从总分推断你在哪一个场景遇到困难。若有一条不愿回答、无法判断或资料不足，本次作答仍可结束并阅读全文，个人总分和均分保留不足，不按另外三条补算。若未选择选项则尚未答完。你可以保持未评分、清除本次进度或重测，没有为获得结果而披露隐私的义务。",
+        "en": "Twelve can result from choosing three for every item, or one or five for every item, because two items reverse. Those patterns differ; twelve is no population average, optimal balance or ordinary social intelligence. Different item patterns can also share another total, so a total cannot identify a specific difficult situation. If one answer is unscored because you cannot judge, lack information or prefer not to answer, the attempt can still finish with the whole guide available. Its personal total and mean remain unavailable without estimating from three ratings. An unselected response is unfinished. You may remain unscored, clear progress or retake without disclosing anything private."
+      }
+    },
+    {
+      "question": {
+        "zh": "与品格优势96条、TSIS或五型有什么关系？",
+        "en": "How does this relate to the 96-item form, TSIS or five profiles?"
+      },
+      "answer": {
+        "zh": "本站品格优势96条中的社交理解侧面就是这四条，沿用相同中英题目、正反键和原始求和；本入口方便单独阅读，并没有增加一个不同心理构念。长卷中的作答语境、前后题目与独立作答可能影响回答，因此相同算式不代表两次施测等值；长卷显示的一位小数也不能直接当本版原始分数。社交理解自述不等于外向、善良、亲密关怀或情绪能力，不换算IQ／EQ。TSIS21条、VIA Institute正式问卷与JobCannon五型各有自己的内容和方法，本版不是这些版本。不能把不同量尺的数字放在一起排名或当招聘依据。",
+        "en": "The social-intelligence facet in our 96-item character-strengths form contains these same four items, bilingual wording, keys and raw arithmetic. This focused entry makes them easier to access; it introduces no different psychological construct. Surrounding questions and the context of separate administration may affect responses, so matching arithmetic does not establish equivalence between administrations. Nor can the longer form’s one-decimal display substitute for this raw total. These self-descriptions are not extraversion, kindness, intimate care or emotional ability and cannot convert into IQ or EQ. The 21-item TSIS, VIA Institute survey and JobCannon’s five profiles use other material and methods. Numbers from those editions are not interchangeable or a hiring ranking."
+      }
+    },
+    {
+      "question": {
+        "zh": "条目许可及中文验证情况是什么？",
+        "en": "What are the item permissions and Chinese validation status?"
+      },
+      "answer": {
+        "zh": "英文与正反方向来自IPIP官方IPIP-VIA-R键表SOC（新称SIQ）四条，官方许可将IPIP条目、量表和题库置于公有领域，可商业或非商业使用，无需联系作者。这里采用的是IPIP材料，不因此获得其他社交智能问卷、品牌或竞品内容的许可。该表的德国与英国样本统计属于原研究条件，不是本站中文试译、独立四条呈现、NA规则或你本人的验证。本站没有这份版本的代表性常模、个人准确性、最优区间或变化阈值。题文中的广泛说法不解决社交智能的定义争议，也不能据此推断健康、神经差异或实际能力。",
+        "en": "English wording and positive or negative keys come from the four SOC, now SIQ, items in the official IPIP-VIA-R table. IPIP places its items, scales and inventories in the public domain for commercial and non-commercial use without contacting the author. That applies to IPIP material, not other social-intelligence instruments, brands or competitor content. German and UK statistics in the key table concern the original research conditions, not this Chinese trial translation, separate four-item presentation, NA rule or you individually. We have no representative local norms, individual accuracy estimate, optimal interval or meaningful-change threshold for this edition. Broad item wording resolves neither the construct debate nor questions about health, neurodivergence or observed ability."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果、重测和分享都免费吗？",
+        "en": "Are the full result, retakes and sharing free?"
+      },
+      "answer": {
+        "zh": "完整九节、公开说明、重测和分享免费，不需要另一测评解锁。复看时可以留意当时想到的是熟悉同伴、新群体还是跨语言场景；情境变化可能改变回答，单次变化不能说明能力进步或退步。网页不收集对话内容或第三人资料，作答在本设备处理。主动开启的本标签页草稿限24小时，完成、退出清除或重测会清除；不愿保存可直接作答。分享只包含测试名称、公开读法名称和链接，不带四个回答、总分、均分或有效条数。后续测评推荐只是另一个可选框架，不验证或补齐本次分数。",
+        "en": "All nine sections, the public guide, retakes and sharing are free without another assessment. On review, consider whether you pictured familiar companions, a new group or cross-language settings. Changing context can change answers; a single difference demonstrates neither improvement nor decline in ability. The page collects no conversation or third-party details and processes answers on this device. An explicitly enabled tab draft lasts at most twenty-four hours and clears on completion, exit-and-clear or retake; answering requires no saved draft. Sharing contains only the test name, public guide name and link, without answers, totals, means or rating counts. A later assessment is an optional different framework, not validation or completion of this score."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "IPIP-VIA-R官方SOC／SIQ四条与正反键",
+        "en": "Official IPIP-VIA-R SOC/SIQ four-item key"
+      },
+      "url": "https://ipip.ori.org/IPIP-VIA-R_Key.html"
+    },
+    {
+      "title": {
+        "zh": "IPIP官方公有领域许可：商业与非商业",
+        "en": "Official IPIP public-domain permission: commercial and non-commercial"
+      },
+      "url": "https://ipip.ori.org/newPermission.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP官方符合度、反向计分与求和",
+        "en": "Official IPIP accuracy ratings, reverse keys and sums"
+      },
+      "url": "https://ipip.ori.org/newScoringInstructions.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP个人分数解释：常模和连续读法",
+        "en": "IPIP individual score interpretation: norms and continuous readings"
+      },
+      "url": "https://ipip.ori.org/InterpretingIndividualIPIPScaleScores.htm"
+    }
+  ]
+}

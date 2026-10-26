@@ -1,0 +1,298 @@
+{
+  "formCode": "fm_ipip_viar_social_accuracy_4",
+  "origin": "Public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence (SOC/SIQ) four-item focused administration. Exact official English keys and existing FermatMind Chinese trial translations, identifiers, order and response labels are retained from the social-intelligence facet of the 96-item character-strengths questionnaire. A focused entry, not a different construct or a validated equivalence of separate administrations.",
+  "sourceUrl": "https://ipip.ori.org/IPIP-VIA-R_Key.html",
+  "sourceRead": "Fresh official key150-156/table0-3/sample178-179, permission entire0-3 and scoring0-7 actually read; exact4English and reversekeys compared. TSIS search abstract only, not its bank or licence.",
+  "directions": [
+    {
+      "id": "social-intelligence",
+      "title": {
+        "zh": "社交理解自述",
+        "en": "Social-understanding self-report"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "IPIPVIA_SOC_1",
+      "reverse": false,
+      "prompt": {
+        "zh": "我擅长感知别人的感受。",
+        "en": "Am good at sensing what others are feeling."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_3",
+      "reverse": true,
+      "prompt": {
+        "zh": "在新的社交场合，我不知道该如何表现。",
+        "en": "Don't know how to handle myself in a new social situation."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_2",
+      "reverse": false,
+      "prompt": {
+        "zh": "我知道说什么能让别人感觉良好。",
+        "en": "Know what to say to make people feel good."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "IPIPVIA_SOC_4",
+      "reverse": true,
+      "prompt": {
+        "zh": "我难以猜到别人会怎样反应。",
+        "en": "Have trouble guessing how others will react."
+      },
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "很不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "比较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "比较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "social-intelligence"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "不愿回答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "social-intelligence"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 4,
+    "facets": 1,
+    "itemsEach": 4,
+    "minimumRatedEach": 4,
+    "reverseItems": [
+      "IPIPVIA_SOC_3",
+      "IPIPVIA_SOC_4"
+    ],
+    "reverseRule": "negativeitems6-rating/NAexcludednotzero",
+    "rawTotal": "all4valid only sum4..20, higher keyedtotal means greater endorsement of these social-understanding self-descriptions, not greater observed skill",
+    "mean": "optional exactkeyedsum/4 rounded2decimal; rawtotal must never be recovered from rounded genericmean",
+    "parentComparison": "same4item IDs/prompts/options/keys/arithmetic as parent social-intelligence facet; separate presentation/context may change responses, no whole96score or psychometric equivalence",
+    "independentCountIncrement": 0,
+    "verificationPlan": "exhaust all6^4=1296 admissible answer selections inclNA against runtime and parent facet arithmetic; no psychometric/local Chinese validation"
+  },
+  "scope": {
+    "zh": "本版是IPIP-VIA-R公有领域社交／个人／情绪智能四条的专门入口，与本站品格优势96条中的同一侧面复用相同条目和正反键，不是新增构念。不是TSIS21题、VIA Institute正式问卷、JobCannon社交五型、能力或IQ／EQ测验。不验证读心、真实共情、社交效果、工作表现、健康或神经差异。原德国和英国样本的指标不构成本站中文、独立呈现或个人结果验证。没有常模百分位、类型门槛或好坏结论。",
+    "en": "This is a focused entry for the four public-domain IPIP-VIA-R Social/Personal/Emotional Intelligence items, reusing the same items and keys as the facet in our 96-item character-strengths form, not a new construct. It is not the 21-item TSIS, the VIA Institute’s survey, JobCannon’s Social Five or an ability, IQ or EQ test. It validates neither mind-reading, actual empathy, social outcomes, work performance, health nor neurodivergence. German and UK sample statistics establish no validation of our Chinese trial, separate administration or an individual result. No norm percentiles, type thresholds or good/bad verdicts are provided."
+  },
+  "instructions": {
+    "zh": "按句子与你现在通常的自我描述是否符合，选择1很不符合至5非常符合，不按理想形象作答。中文是本站试译，英文是IPIP公有领域原句；感知、知道或猜测是你的自述，不证明判断正确。五档中间项为介于符合与不符合之间，不是资料不足。无法判断或不愿回答可选独立项，不补零或中立。四项全部选择后可读完整结果，全部为有效评分才显示4—20原始总分。不输入对话内容、他人情绪或私人经历。",
+    "en": "Rate how accurately each sentence describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your ideal image. English retains public-domain IPIP wording; Chinese is our trial translation. Sensing, knowing and guessing are self-reports, not proof that a judgment is correct. The middle response is neither inaccurate nor accurate, not missing information. Use the separate option if unable to judge or preferring not to answer; it is never zero or neutral. Make four selections for the full result; all four must be scored to display a raw total of 4–20. No conversation, other person’s emotions or private story is entered."
+  }
+}
