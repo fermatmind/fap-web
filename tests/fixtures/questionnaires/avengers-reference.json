@@ -1,0 +1,746 @@
+{
+  "id": "T122",
+  "version": "1.0.0",
+  "form": "fermatmind_avengers_original_18_v1",
+  "method": "Own2012filmoriginalsixselection;18originalcardboarddisplay/hobbycontributionquestions;12exposures/3perpositioneach. Explicitrawcounts/allhighestties;notIDRbank/set/scoring;noIQ/clinical/political/skillormagicassessment.",
+  "questions": [
+    {
+      "id": "AVG_01",
+      "prompt": {
+        "en": "Friends are making a tiny, original team display from cardboard. What would you most like to contribute?",
+        "zh": "朋友用纸板做一个原创团队小展台，你最想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Build a rough moving part so we can discover what the model could do.",
+            "zh": "做一个粗糙可动部件，看看模型能怎样运作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree what everyone wants the shared display to communicate.",
+            "zh": "约好大家希望共同展台传达什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "Bring an enthusiastic welcome that makes the display feel like an occasion.",
+            "zh": "热情欢迎，让小展台也有活动的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "Leave room to pause, check the materials and adjust the pace.",
+            "zh": "留出暂停核材料、调整节奏的余地。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_02",
+      "prompt": {
+        "en": "The display group has several good ideas but no shared starting point. What appeals most?",
+        "zh": "展台小组有几个好点子，却没有共同起点，什么更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Find a simple agreement that gives each person a clear place in the plan.",
+            "zh": "找一个简单约定，让每人在计划里有清楚位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "Offer a spirited opening moment that helps everyone begin together.",
+            "zh": "提一个有精神的开场，让大家一起开始。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Check whether the first step leaves enough room to stop and reconsider.",
+            "zh": "核第一步是否留了停下再想的余地。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Listen across the separate conversations and quietly connect useful details.",
+            "zh": "听不同交谈，安静接上有用细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_03",
+      "prompt": {
+        "en": "A handmade exhibit needs a little energy on a quiet afternoon. What would you enjoy?",
+        "zh": "安静的下午，手工展台需要一点活力，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "Give the introduction a warm, wholehearted sense of celebration.",
+            "zh": "让介绍有温暖、投入的庆祝感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "Suggest a short reset so the group can return comfortably.",
+            "zh": "建议短暂重整，让大家舒服回来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Find out what different people need before changing the mood.",
+            "zh": "改变气氛前，先弄清不同的人需要什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Complete the one small job that is holding up the next visitor activity.",
+            "zh": "做完卡住下个访客活动的那件小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_04",
+      "prompt": {
+        "en": "The group has been trying the same paper mechanism for a long time. What would you prefer?",
+        "zh": "小组试同一个纸机关试了很久，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Pause the attempts and choose a comfortable point from which to restart.",
+            "zh": "暂停试验，选一个舒服的重新起点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Ask quietly which piece of information each person is missing.",
+            "zh": "安静问各人缺的是哪块信息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Fix one specific loose tab so the next attempt is easier to observe.",
+            "zh": "修好一处松纸扣，让下次试验更好观察。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Make a different rough version to see whether another mechanism helps.",
+            "zh": "做个不同粗样，看看另一种机关是否好用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_05",
+      "prompt": {
+        "en": "Two friends have useful display ideas but have not heard each other yet. What would you enjoy doing?",
+        "zh": "两个朋友的展台点子都有用，却还没听到对方，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Connect the relevant details with their permission and invite a direct exchange.",
+            "zh": "征得同意后接上相关细节，邀请双方直接聊。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Prepare a small side-by-side sample that makes their difference easy to see.",
+            "zh": "做个小型并排样例，让差别容易看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Combine the ideas in a quick experimental model they can both try.",
+            "zh": "把点子合成一个双方都能试的快模型。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree how the group will choose between the options fairly.",
+            "zh": "约好小组怎样公平选择两个方案。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_06",
+      "prompt": {
+        "en": "Visitors are about to arrive and one small display task remains. What attracts you most?",
+        "zh": "访客快来了，展台还差一件小事，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Finish the particular label or fastening that will make the display usable.",
+            "zh": "补好那张标签或固定扣，让展台能用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try a quick practical redesign if the unfinished part can work more simply.",
+            "zh": "若能更简单，迅速试一个实际改法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Check the task against the outcome everyone agreed to deliver.",
+            "zh": "把任务与大家约好的成果核一下。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Help the first visitors feel that they are arriving at something special.",
+            "zh": "让第一批访客觉得来到一场特别活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_07",
+      "prompt": {
+        "en": "You can add one playful feature to an ordinary cardboard model. What would you most enjoy?",
+        "zh": "普通纸板模型能加一个趣味功能，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "A working prototype that people can alter and test themselves.",
+            "zh": "一个别人也能改、能试的工作粗样。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "A shared rule that lets different visitors take turns contributing.",
+            "zh": "一个让不同访客轮流贡献的共同规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "A big-hearted reveal that makes the little feature feel worth celebrating.",
+            "zh": "一个真诚投入的揭幕，让小功能也值得庆祝。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "An easy reset that allows people to explore without being rushed.",
+            "zh": "一个容易复位的办法，让人不必赶着探索。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_08",
+      "prompt": {
+        "en": "One person wants a new exhibit feature and another worries about the group’s promise. What would you prefer?",
+        "zh": "一人想加展台新功能，另一人担心共同承诺，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Return to the shared purpose and agree what a fair change would involve.",
+            "zh": "回到共同目的，约好怎样改才公平。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "Help both people feel that their contributions matter to the occasion.",
+            "zh": "让双方都觉得自己的贡献对活动有意义。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Make space to slow the decision before anyone becomes overloaded.",
+            "zh": "给决定减速，免得有人负担过多。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Clarify what each person actually knows before passing messages between them.",
+            "zh": "替双方传话前，先说清各人实际知道什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_09",
+      "prompt": {
+        "en": "Your friends want to introduce their modest creation to another club. What would you enjoy?",
+        "zh": "朋友想向另一个社团介绍这个不大的作品，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "A lively, sincere presentation that shares our enjoyment without pretending it is grander.",
+            "zh": "活泼真诚地介绍快乐，不把作品说得更宏大。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "A comfortable demonstration pace with a clear chance to pause.",
+            "zh": "舒服的演示节奏，也有清楚的暂停机会。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "A thoughtful exchange that connects the other club’s interests with our own.",
+            "zh": "细心交流，接上对方社团与我们的兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "A well-prepared tiny example that shows exactly one useful feature.",
+            "zh": "准备好一个小例子，准确展示一项功能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_10",
+      "prompt": {
+        "en": "The materials are not behaving as the model makers expected. Which contribution appeals most?",
+        "zh": "材料不像模型制作者预期那样运作，哪种贡献更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Stop briefly and separate what we know from what we need to try again.",
+            "zh": "短暂停下，分清已知与还需重试的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Gather the different observations without making anyone defend an early guess.",
+            "zh": "汇集不同观察，不让人必须守住早先猜想。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Adjust one small joint and check only that change.",
+            "zh": "调一个小接点，只核这项改动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Build an alternative piece so the group can compare how it behaves.",
+            "zh": "另做一个部件，让小组比较运作差别。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_11",
+      "prompt": {
+        "en": "A friend mentions an important display detail in a side conversation. What would you prefer?",
+        "zh": "朋友在旁聊里提到一个重要展台细节，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Ask whether and how they want it brought into the group discussion.",
+            "zh": "问对方是否、怎样想把它带进小组讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Turn the agreed detail into a small clear cue people can use.",
+            "zh": "把已同意的细节变成大家能用的小提示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try a quick version that shows how the detail could change the design.",
+            "zh": "试个快版本，展示细节可能怎样改变设计。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Check how the detail relates to the group’s existing agreement.",
+            "zh": "核这个细节与小组现有约定的关系。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_12",
+      "prompt": {
+        "en": "The exhibit’s larger plan is settled. Which finishing contribution sounds most satisfying?",
+        "zh": "展台大计划已定，哪种收尾贡献最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Make one exact little adjustment that visitors will actually need.",
+            "zh": "做好访客实际需要的那项精确小调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Improve a mechanism by trying a simple new arrangement.",
+            "zh": "试一个简单新摆法，改善机关。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Make sure the agreed parts fit together as a shared whole.",
+            "zh": "让约好的各部分合成共同整体。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Bring a cheerful closing touch that recognises everyone’s work.",
+            "zh": "加一个愉快收尾，看见大家的投入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_13",
+      "prompt": {
+        "en": "A visitor suggests a surprising use for your handmade model. What would you most like to do?",
+        "zh": "访客提议手工模型一个意外用法，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Test the idea with a rough extra piece and see what it teaches us.",
+            "zh": "用一个粗糙附加件试想法，看看能学到什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Ask how trying it could fit the activity’s shared purpose and turn-taking.",
+            "zh": "问试它怎样符合活动共同目的与轮流约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "Welcome the suggestion with enough enthusiasm to make participation enjoyable.",
+            "zh": "热情欢迎建议，让参与有乐趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "Check that there is a simple way to reset before beginning the new attempt.",
+            "zh": "开始新试验前，核有没有简单复位办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_14",
+      "prompt": {
+        "en": "The club is deciding how to share its limited display time. What would you enjoy contributing?",
+        "zh": "社团在决定怎样分配有限展台时间，你喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "A clear agreement about whose contributions need a turn and why.",
+            "zh": "清楚约好哪些贡献需要轮到、为什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "A sense of occasion that helps a short slot still feel meaningful.",
+            "zh": "让短时段也有意义的活动感。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Room for breaks and a pace the participants can comfortably sustain.",
+            "zh": "留休息余地，选参与者舒服维持的节奏。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "A quiet check that the people with less visible roles have been heard.",
+            "zh": "安静核一核，不显眼角色的意见是否被听到。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_15",
+      "prompt": {
+        "en": "The display works, but the group sounds apologetic about its small scale. What would you prefer?",
+        "zh": "展台能用了，小组却一直为规模小而不好意思，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "Enjoy presenting what we made with warmth and wholehearted appreciation.",
+            "zh": "温暖、投入地欣赏并介绍已做出的作品。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "Let the group take a breath and choose how much presenting feels comfortable.",
+            "zh": "让小组缓口气，选择舒服的介绍程度。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Listen for what each person wants visitors to notice about the work.",
+            "zh": "听各人希望访客注意作品哪一点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Prepare one clear demonstration that lets the work speak for itself.",
+            "zh": "准备一个清楚演示，让作品自己说话。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_16",
+      "prompt": {
+        "en": "A busy display session needs to change its plan halfway through. What attracts you most?",
+        "zh": "忙碌展台活动进行到一半需改计划，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Find a calm stopping point and restart with a manageable next step.",
+            "zh": "找平稳停止点，用可做的下一步重启。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Check what has changed for each person before linking the new information.",
+            "zh": "接上新信息前，核各人情况变了什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Handle the small practical adjustment that makes the change possible.",
+            "zh": "处理让变化能落实的那项小实际调整。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Invent a quick replacement component the group can test immediately.",
+            "zh": "想个能立即试的替代快部件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_17",
+      "prompt": {
+        "en": "Two visitors offer different kinds of feedback on the same model. What would you prefer?",
+        "zh": "两位访客给同一模型不同反馈，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Clarify what each means and connect only the points they want shared.",
+            "zh": "说清各自意思，只接上愿意分享的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Use one small demonstration to locate the exact difference in their experience.",
+            "zh": "用一个小演示，找体验不同的确切位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try an adjustable version so both suggestions can be explored.",
+            "zh": "试个可调版本，让两种建议都能探索。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Ask which change serves the group’s agreed purpose without excluding a voice.",
+            "zh": "问怎样改服务共同目的，又不排掉一方意见。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_18",
+      "prompt": {
+        "en": "After the exhibit, your group chooses one thing to improve next time. What would you enjoy?",
+        "zh": "展台结束后，小组选一件下次改善的事，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Pick a concrete little fix and make its next test easy to observe.",
+            "zh": "选一件具体小修，让下次检验容易观察。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Sketch a new working idea that could simplify the handmade model.",
+            "zh": "画一个能简化手工模型的新工作点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree on one improvement that still belongs to the shared purpose.",
+            "zh": "约好一项仍属于共同目的的改进。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Recognise the group’s effort with a spirited moment before planning more.",
+            "zh": "继续计划前，热情留一刻看见共同投入。"
+          }
+        }
+      ]
+    }
+  ]
+}

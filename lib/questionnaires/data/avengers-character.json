@@ -1,0 +1,1713 @@
+{
+  "slug": "avengers-character",
+  "code": "AVENGERS_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Avengers Character Test",
+    "zh": "《复仇者联盟》角色测试"
+  },
+  "description": {
+    "en": "Explore the original 2012 team through 18 original hobby situations. Compare Iron Man, Captain America, Thor, Hulk, Black Widow and Hawkeye with all highest ties and six complete bilingual guides free. Unofficial fan edition.",
+    "zh": "用18道原创爱好情境探索2012电影初代团队，比较钢铁侠、美国队长、索尔、浩克、黑寡妇与鹰眼。所有最高并列与六份双语全文免费。非官方原创同人版。"
+  },
+  "seoTitle": {
+    "en": "Avengers Character Test: Free Quiz & All 6 Original-Team Results",
+    "zh": "《复仇者联盟》角色测试：免费测初代六人与完整结果"
+  },
+  "resultHeading": {
+    "en": "Your original-team Avengers readings",
+    "zh": "本次复仇者联盟初代人物读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which of the original six Avengers do your voluntary creative choices bring to mind? Imagine friends making a modest cardboard display: testing a prototype, agreeing a purpose, enjoying the occasion, pausing to reset, connecting information or completing a precise detail. This independent fan edition contains 18 original situations and six complete public guides available before you start. It selects the 2012 film team, without episode trivia, fighting, supernatural claims or a claim to cover every Marvel character.",
+    "zh": "自愿创作选择会让你想到初代六位复仇者里的谁？想象朋友做一个小纸板展台：试粗样、约目的、享受活动、暂停重整、接信息或做具体细节。本独立同人版有18道原创情境，开测前可看六份全文。范围是2012电影团队，不考剧情，不设战斗或超自然推断，也不覆盖全部漫威人物。"
+  },
+  "instructions": {
+    "en": "Think about an optional, low-stakes hobby activity you would enjoy now. Choose one of four responses for every situation; no answer is correct or a better kind of person. A character absent from an item is not rejected. Counts appear only after all 18 choices, and every highest tie receives a complete guide.",
+    "zh": "想象现在愿参加的可选、低风险爱好活动，每情境四选一；无标准答案，也不据此评定人的优劣。当题没有的人物不算被拒绝。18题选完才显示计数，每个最高并列都有完整说明。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Disney D23: The Avengers (2012), original team and cast identities",
+        "zh": "Disney D23：《复仇者联盟》（2012）初代团队与人物身份"
+      },
+      "url": "https://d23.com/a-to-z/avengers-marvels-the-film/"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_avengers_original_18_v1",
+    "itemBankVersion": "avengers_original_18_v1",
+    "scoringVersion": "avengers_all_highest_counts_v1",
+    "resultContentVersion": "avengers_full_guides_v1",
+    "itemBankSha256": "3e08ac23bfb9ddb0afba30d08a96e06e2cdb41ad160fdaa568a6f9724488084d",
+    "resultContentSha256": "18f4970907517e3e8345a51d591274003ecb1106cddc4ee534f953f7461639db",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "iron-man",
+      "title": {
+        "en": "Iron Man — Tony Stark",
+        "zh": "钢铁侠·托尼·斯塔克"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "captain-america",
+      "title": {
+        "en": "Captain America — Steve Rogers",
+        "zh": "美国队长·史蒂夫·罗杰斯"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "thor",
+      "title": {
+        "en": "Thor",
+        "zh": "雷神·索尔"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hulk",
+      "title": {
+        "en": "Hulk — Bruce Banner",
+        "zh": "浩克·布鲁斯·班纳"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "black-widow",
+      "title": {
+        "en": "Black Widow — Natasha Romanoff",
+        "zh": "黑寡妇·娜塔莎·罗曼诺夫"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hawkeye",
+      "title": {
+        "en": "Hawkeye — Clint Barton",
+        "zh": "鹰眼·克林特·巴顿"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AVG_01",
+      "prompt": {
+        "en": "Friends are making a tiny, original team display from cardboard. What would you most like to contribute?",
+        "zh": "朋友用纸板做一个原创团队小展台，你最想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Build a rough moving part so we can discover what the model could do.",
+            "zh": "做一个粗糙可动部件，看看模型能怎样运作。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree what everyone wants the shared display to communicate.",
+            "zh": "约好大家希望共同展台传达什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "Bring an enthusiastic welcome that makes the display feel like an occasion.",
+            "zh": "热情欢迎，让小展台也有活动的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "Leave room to pause, check the materials and adjust the pace.",
+            "zh": "留出暂停核材料、调整节奏的余地。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_02",
+      "prompt": {
+        "en": "The display group has several good ideas but no shared starting point. What appeals most?",
+        "zh": "展台小组有几个好点子，却没有共同起点，什么更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Find a simple agreement that gives each person a clear place in the plan.",
+            "zh": "找一个简单约定，让每人在计划里有清楚位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "Offer a spirited opening moment that helps everyone begin together.",
+            "zh": "提一个有精神的开场，让大家一起开始。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Check whether the first step leaves enough room to stop and reconsider.",
+            "zh": "核第一步是否留了停下再想的余地。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Listen across the separate conversations and quietly connect useful details.",
+            "zh": "听不同交谈，安静接上有用细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_03",
+      "prompt": {
+        "en": "A handmade exhibit needs a little energy on a quiet afternoon. What would you enjoy?",
+        "zh": "安静的下午，手工展台需要一点活力，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "Give the introduction a warm, wholehearted sense of celebration.",
+            "zh": "让介绍有温暖、投入的庆祝感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "Suggest a short reset so the group can return comfortably.",
+            "zh": "建议短暂重整，让大家舒服回来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Find out what different people need before changing the mood.",
+            "zh": "改变气氛前，先弄清不同的人需要什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Complete the one small job that is holding up the next visitor activity.",
+            "zh": "做完卡住下个访客活动的那件小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_04",
+      "prompt": {
+        "en": "The group has been trying the same paper mechanism for a long time. What would you prefer?",
+        "zh": "小组试同一个纸机关试了很久，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Pause the attempts and choose a comfortable point from which to restart.",
+            "zh": "暂停试验，选一个舒服的重新起点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Ask quietly which piece of information each person is missing.",
+            "zh": "安静问各人缺的是哪块信息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Fix one specific loose tab so the next attempt is easier to observe.",
+            "zh": "修好一处松纸扣，让下次试验更好观察。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Make a different rough version to see whether another mechanism helps.",
+            "zh": "做个不同粗样，看看另一种机关是否好用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_05",
+      "prompt": {
+        "en": "Two friends have useful display ideas but have not heard each other yet. What would you enjoy doing?",
+        "zh": "两个朋友的展台点子都有用，却还没听到对方，你喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Connect the relevant details with their permission and invite a direct exchange.",
+            "zh": "征得同意后接上相关细节，邀请双方直接聊。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Prepare a small side-by-side sample that makes their difference easy to see.",
+            "zh": "做个小型并排样例，让差别容易看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Combine the ideas in a quick experimental model they can both try.",
+            "zh": "把点子合成一个双方都能试的快模型。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree how the group will choose between the options fairly.",
+            "zh": "约好小组怎样公平选择两个方案。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_06",
+      "prompt": {
+        "en": "Visitors are about to arrive and one small display task remains. What attracts you most?",
+        "zh": "访客快来了，展台还差一件小事，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Finish the particular label or fastening that will make the display usable.",
+            "zh": "补好那张标签或固定扣，让展台能用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try a quick practical redesign if the unfinished part can work more simply.",
+            "zh": "若能更简单，迅速试一个实际改法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Check the task against the outcome everyone agreed to deliver.",
+            "zh": "把任务与大家约好的成果核一下。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Help the first visitors feel that they are arriving at something special.",
+            "zh": "让第一批访客觉得来到一场特别活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_07",
+      "prompt": {
+        "en": "You can add one playful feature to an ordinary cardboard model. What would you most enjoy?",
+        "zh": "普通纸板模型能加一个趣味功能，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "A working prototype that people can alter and test themselves.",
+            "zh": "一个别人也能改、能试的工作粗样。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "A shared rule that lets different visitors take turns contributing.",
+            "zh": "一个让不同访客轮流贡献的共同规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "A big-hearted reveal that makes the little feature feel worth celebrating.",
+            "zh": "一个真诚投入的揭幕，让小功能也值得庆祝。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "An easy reset that allows people to explore without being rushed.",
+            "zh": "一个容易复位的办法，让人不必赶着探索。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_08",
+      "prompt": {
+        "en": "One person wants a new exhibit feature and another worries about the group’s promise. What would you prefer?",
+        "zh": "一人想加展台新功能，另一人担心共同承诺，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Return to the shared purpose and agree what a fair change would involve.",
+            "zh": "回到共同目的，约好怎样改才公平。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "Help both people feel that their contributions matter to the occasion.",
+            "zh": "让双方都觉得自己的贡献对活动有意义。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Make space to slow the decision before anyone becomes overloaded.",
+            "zh": "给决定减速，免得有人负担过多。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Clarify what each person actually knows before passing messages between them.",
+            "zh": "替双方传话前，先说清各人实际知道什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_09",
+      "prompt": {
+        "en": "Your friends want to introduce their modest creation to another club. What would you enjoy?",
+        "zh": "朋友想向另一个社团介绍这个不大的作品，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "A lively, sincere presentation that shares our enjoyment without pretending it is grander.",
+            "zh": "活泼真诚地介绍快乐，不把作品说得更宏大。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "A comfortable demonstration pace with a clear chance to pause.",
+            "zh": "舒服的演示节奏，也有清楚的暂停机会。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "A thoughtful exchange that connects the other club’s interests with our own.",
+            "zh": "细心交流，接上对方社团与我们的兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "A well-prepared tiny example that shows exactly one useful feature.",
+            "zh": "准备好一个小例子，准确展示一项功能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_10",
+      "prompt": {
+        "en": "The materials are not behaving as the model makers expected. Which contribution appeals most?",
+        "zh": "材料不像模型制作者预期那样运作，哪种贡献更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Stop briefly and separate what we know from what we need to try again.",
+            "zh": "短暂停下，分清已知与还需重试的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Gather the different observations without making anyone defend an early guess.",
+            "zh": "汇集不同观察，不让人必须守住早先猜想。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Adjust one small joint and check only that change.",
+            "zh": "调一个小接点，只核这项改动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Build an alternative piece so the group can compare how it behaves.",
+            "zh": "另做一个部件，让小组比较运作差别。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_11",
+      "prompt": {
+        "en": "A friend mentions an important display detail in a side conversation. What would you prefer?",
+        "zh": "朋友在旁聊里提到一个重要展台细节，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Ask whether and how they want it brought into the group discussion.",
+            "zh": "问对方是否、怎样想把它带进小组讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Turn the agreed detail into a small clear cue people can use.",
+            "zh": "把已同意的细节变成大家能用的小提示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try a quick version that shows how the detail could change the design.",
+            "zh": "试个快版本，展示细节可能怎样改变设计。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Check how the detail relates to the group’s existing agreement.",
+            "zh": "核这个细节与小组现有约定的关系。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_12",
+      "prompt": {
+        "en": "The exhibit’s larger plan is settled. Which finishing contribution sounds most satisfying?",
+        "zh": "展台大计划已定，哪种收尾贡献最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Make one exact little adjustment that visitors will actually need.",
+            "zh": "做好访客实际需要的那项精确小调整。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Improve a mechanism by trying a simple new arrangement.",
+            "zh": "试一个简单新摆法，改善机关。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Make sure the agreed parts fit together as a shared whole.",
+            "zh": "让约好的各部分合成共同整体。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Bring a cheerful closing touch that recognises everyone’s work.",
+            "zh": "加一个愉快收尾，看见大家的投入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_13",
+      "prompt": {
+        "en": "A visitor suggests a surprising use for your handmade model. What would you most like to do?",
+        "zh": "访客提议手工模型一个意外用法，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Test the idea with a rough extra piece and see what it teaches us.",
+            "zh": "用一个粗糙附加件试想法，看看能学到什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Ask how trying it could fit the activity’s shared purpose and turn-taking.",
+            "zh": "问试它怎样符合活动共同目的与轮流约定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thor",
+          "label": {
+            "en": "Welcome the suggestion with enough enthusiasm to make participation enjoyable.",
+            "zh": "热情欢迎建议，让参与有乐趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hulk",
+          "label": {
+            "en": "Check that there is a simple way to reset before beginning the new attempt.",
+            "zh": "开始新试验前，核有没有简单复位办法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_14",
+      "prompt": {
+        "en": "The club is deciding how to share its limited display time. What would you enjoy contributing?",
+        "zh": "社团在决定怎样分配有限展台时间，你喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "captain-america",
+          "label": {
+            "en": "A clear agreement about whose contributions need a turn and why.",
+            "zh": "清楚约好哪些贡献需要轮到、为什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thor",
+          "label": {
+            "en": "A sense of occasion that helps a short slot still feel meaningful.",
+            "zh": "让短时段也有意义的活动感。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hulk",
+          "label": {
+            "en": "Room for breaks and a pace the participants can comfortably sustain.",
+            "zh": "留休息余地，选参与者舒服维持的节奏。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "black-widow",
+          "label": {
+            "en": "A quiet check that the people with less visible roles have been heard.",
+            "zh": "安静核一核，不显眼角色的意见是否被听到。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_15",
+      "prompt": {
+        "en": "The display works, but the group sounds apologetic about its small scale. What would you prefer?",
+        "zh": "展台能用了，小组却一直为规模小而不好意思，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thor",
+          "label": {
+            "en": "Enjoy presenting what we made with warmth and wholehearted appreciation.",
+            "zh": "温暖、投入地欣赏并介绍已做出的作品。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hulk",
+          "label": {
+            "en": "Let the group take a breath and choose how much presenting feels comfortable.",
+            "zh": "让小组缓口气，选择舒服的介绍程度。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Listen for what each person wants visitors to notice about the work.",
+            "zh": "听各人希望访客注意作品哪一点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Prepare one clear demonstration that lets the work speak for itself.",
+            "zh": "准备一个清楚演示，让作品自己说话。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_16",
+      "prompt": {
+        "en": "A busy display session needs to change its plan halfway through. What attracts you most?",
+        "zh": "忙碌展台活动进行到一半需改计划，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hulk",
+          "label": {
+            "en": "Find a calm stopping point and restart with a manageable next step.",
+            "zh": "找平稳停止点，用可做的下一步重启。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Check what has changed for each person before linking the new information.",
+            "zh": "接上新信息前，核各人情况变了什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Handle the small practical adjustment that makes the change possible.",
+            "zh": "处理让变化能落实的那项小实际调整。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Invent a quick replacement component the group can test immediately.",
+            "zh": "想个能立即试的替代快部件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_17",
+      "prompt": {
+        "en": "Two visitors offer different kinds of feedback on the same model. What would you prefer?",
+        "zh": "两位访客给同一模型不同反馈，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "black-widow",
+          "label": {
+            "en": "Clarify what each means and connect only the points they want shared.",
+            "zh": "说清各自意思，只接上愿意分享的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Use one small demonstration to locate the exact difference in their experience.",
+            "zh": "用一个小演示，找体验不同的确切位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Try an adjustable version so both suggestions can be explored.",
+            "zh": "试个可调版本，让两种建议都能探索。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Ask which change serves the group’s agreed purpose without excluding a voice.",
+            "zh": "问怎样改服务共同目的，又不排掉一方意见。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AVG_18",
+      "prompt": {
+        "en": "After the exhibit, your group chooses one thing to improve next time. What would you enjoy?",
+        "zh": "展台结束后，小组选一件下次改善的事，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hawkeye",
+          "label": {
+            "en": "Pick a concrete little fix and make its next test easy to observe.",
+            "zh": "选一件具体小修，让下次检验容易观察。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "iron-man",
+          "label": {
+            "en": "Sketch a new working idea that could simplify the handmade model.",
+            "zh": "画一个能简化手工模型的新工作点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "captain-america",
+          "label": {
+            "en": "Agree on one improvement that still belongs to the shared purpose.",
+            "zh": "约好一项仍属于共同目的的改进。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thor",
+          "label": {
+            "en": "Recognise the group’s effort with a spirited moment before planning more.",
+            "zh": "继续计划前，热情留一刻看见共同投入。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "iron-man",
+      "directionIds": [
+        "iron-man"
+      ],
+      "title": {
+        "en": "Iron Man — Tony Stark",
+        "zh": "钢铁侠·托尼·斯塔克"
+      },
+      "headline": {
+        "en": "Make an idea tangible",
+        "zh": "让想法有个能试的样子"
+      },
+      "summary": {
+        "en": "Read Iron Man — Tony Stark through make an idea tangible: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“让想法有个能试的样子”阅读钢铁侠·托尼·斯塔克：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Iron Man — Tony Stark Test Result: Make an idea tangible | Avengers",
+          "zh": "钢铁侠·托尼·斯塔克测试结果：让想法有个能试的样子｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Iron Man — Tony Stark through make an idea tangible: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“让想法有个能试的样子”阅读钢铁侠·托尼·斯塔克：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Iron Man’s selected angle",
+            "zh": "钢铁侠的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Tony Stark is Iron Man in the 2012 film’s original six-person team. This edition selects making a rough idea tangible through a small prototype. The cardboard-display setting lets you explore that contribution without measuring engineering, intelligence, wealth or the confidence associated with a fictional inventor. Choosing a model-making response does not prove that you resemble Stark in every scene or that another person should follow your design.",
+              "zh": "2012电影初代六人里，托尼·斯塔克是钢铁侠。本版选用小粗样把想法变得可试的角度。纸板展台让你探索这种贡献，不测工程、智力、财富或虚构发明者的自信。选模型回应不证明每场戏都像斯塔克，也不要求别人采用你的设计。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A moving piece before a grand plan",
+            "zh": "宏大计划前的可动小部件"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends want a cardboard exhibit to do something interesting, but a long explanation leaves everyone imagining a different mechanism. You fold a rough hinge and invite them to try it. The sample is useful because it makes the question visible, not because an impressive first version settles the design. It can be discarded after teaching the group what does and does not work.",
+              "zh": "朋友想纸板展台有趣，长解释却让大家想出不同机关。你折个粗铰链，邀请试。样例有用在把问题摆出来，不在第一版厉害就决定设计。让小组知道什么可行后，它也可以弃用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A prototype beside five other contributions",
+            "zh": "粗样与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Captain America’s angle asks what the group has agreed to make; Thor brings wholehearted enjoyment to the occasion. Hulk leaves room to reset, Black Widow connects relevant information and Hawkeye handles a precise practical detail. Iron Man’s selected contribution supplies something to test. These roles can overlap, and a tied reading does not rank creativity, technical ability or usefulness within a real team.",
+              "zh": "美国队长角度问共同约做什么，索尔让活动有投入的乐趣；浩克留复位空间，黑寡妇接相关信息，鹰眼做具体小细节。钢铁侠角度提供能试的东西。角色可重叠，并列不排名创造力、技术或真人团队价值。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A model needs permission to change",
+            "zh": "模型要容许被改变"
+          },
+          "paragraphs": [
+            {
+              "en": "An early model should invite revision rather than make the maker its permanent defender. Ask what the others want to test and whether a simpler version would serve them better. Keep costs and effort appropriate to a voluntary hobby. A high count cannot establish impulsivity, arrogance or exceptional intelligence, while a lower count does not mean that you lack imagination or practical ideas.",
+              "zh": "早期模型应邀请修改，不让制作者永远守着它。问别人想试什么、简版是否更好，成本投入适合自愿爱好。高计数不确立冲动、傲慢或超常智力，低计数也不表示没想象力或实际点子。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one deliberately unfinished prototype",
+            "zh": "试一个刻意未完成的粗样"
+          },
+          "paragraphs": [
+            {
+              "en": "For a small optional project, choose one question a paper model could answer. Build only enough to make that question observable, then invite a partner to change one part. Record what the attempt revealed rather than whether the first idea won. This is feedback on a prototype in one setting, not a test of engineering talent or a requirement to build things for other people.",
+              "zh": "可选小项目里选一个纸模型能回答的问题，只做到能观察，再邀伙伴改一处。记试验发现什么，不记初稿赢没赢。这是一次模型反馈，不考工程天分，也不要求替别人制作。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "captain-america",
+      "directionIds": [
+        "captain-america"
+      ],
+      "title": {
+        "en": "Captain America — Steve Rogers",
+        "zh": "美国队长·史蒂夫·罗杰斯"
+      },
+      "headline": {
+        "en": "Keep the shared purpose visible",
+        "zh": "让共同目的看得见"
+      },
+      "summary": {
+        "en": "Read Captain America — Steve Rogers through keep the shared purpose visible: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“让共同目的看得见”阅读美国队长·史蒂夫·罗杰斯：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Captain America — Steve Rogers Test Result: Keep the shared purpose visible | Avengers",
+          "zh": "美国队长·史蒂夫·罗杰斯测试结果：让共同目的看得见｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Captain America — Steve Rogers through keep the shared purpose visible: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“让共同目的看得见”阅读美国队长·史蒂夫·罗杰斯：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Captain America’s selected angle",
+            "zh": "美国队长的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Steve Rogers is Captain America in Disney’s account of the 2012 team. The angle here is a clear shared agreement in a voluntary creative activity. It does not measure patriotism, national identity, obedience, military aptitude or moral superiority. A preference for discussing a group’s purpose can coexist with questioning a plan, declining a role or changing an earlier agreement when people’s needs change.",
+              "zh": "Disney的2012团队介绍里，史蒂夫·罗杰斯是美国队长。本版角度是自愿创作活动中的清楚共同约定，不测爱国、国籍认同、服从、军事潜能或道德高下。喜欢讨论共同目的，也可同时质疑计划、拒绝角色，或在需要变化时改约。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One exhibit, several reasons to participate",
+            "zh": "一个展台，不同参与理由"
+          },
+          "paragraphs": [
+            {
+              "en": "A group agrees to make a small display, but one friend wants playful experiments while another wants every participant’s piece represented. You help name the shared outcome before choosing features. The agreement does not require identical motives. It gives the group a fair way to discuss tradeoffs, including a way to say that the project is growing beyond what someone can comfortably offer.",
+              "zh": "小组约做展台，一人想趣味试验，一人想每人作品都出现。你帮先说共同成果，再选功能。约定不用动机相同，而是给取舍公平讨论方式，也让人能说项目已超过舒服投入的范围。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "An agreement beside five other contributions",
+            "zh": "约定与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Iron Man makes a trial piece and Thor gives the activity a sense of occasion. Hulk protects room to pause, Black Widow connects the information people choose to share and Hawkeye completes a specific practical job. Captain America’s selected angle keeps these contributions connected to a purpose people have actually agreed on. It does not grant authority over others or establish a permanent leader.",
+              "zh": "钢铁侠做试件，索尔带来活动感；浩克留暂停余地，黑寡妇接上愿分享的信息，鹰眼做具体小事。美国队长角度让贡献连到人们实际同意的目的，不因此获得管理别人的权威，也不永久分派领导。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A shared promise can be renegotiated",
+            "zh": "共同承诺可以重新商量"
+          },
+          "paragraphs": [
+            {
+              "en": "Consistency helps only while the agreement remains workable and voluntary. Ask whether people still want the original outcome before treating a change as a failure of commitment. A clear purpose can guide a smaller project as well as a larger one. A high count cannot establish rigidity, virtue or leadership competence; a lower count does not show selfishness or an inability to cooperate.",
+              "zh": "一致有用，前提是约定仍可做、自愿。别先把变化当不守承诺，先问还想要原成果吗。清楚目的可指引更小项目。高计数不确立僵化、美德或领导能力，低计数不表示自私、不能合作。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an agreement that allows a no",
+            "zh": "试一个容许拒绝的约定"
+          },
+          "paragraphs": [
+            {
+              "en": "Before one small group activity, write a sentence about the intended outcome and ask each participant what they can genuinely contribute. Include a clear way to decline or simplify a role. Revisit the agreement after trying it. You are testing whether a shared arrangement helps this activity, not measuring loyalty, civic character or whether you should direct a team in other settings.",
+              "zh": "一次小组活动前，用一句话写预期成果，问每人真能贡献什么，写清拒绝或简化角色的办法，试后再看约定。检验的是共同安排是否好用，不测忠诚、公民品格，也不决定其他场合该不该领导。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thor",
+      "directionIds": [
+        "thor"
+      ],
+      "title": {
+        "en": "Thor",
+        "zh": "雷神·索尔"
+      },
+      "headline": {
+        "en": "Give the occasion wholehearted energy",
+        "zh": "把投入的活力带到活动里"
+      },
+      "summary": {
+        "en": "Read Thor through give the occasion wholehearted energy: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“把投入的活力带到活动里”阅读雷神·索尔：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Thor Test Result: Give the occasion wholehearted energy | Avengers",
+          "zh": "雷神·索尔测试结果：把投入的活力带到活动里｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Thor through give the occasion wholehearted energy: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“把投入的活力带到活动里”阅读雷神·索尔：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Thor’s selected angle",
+            "zh": "索尔的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Thor is one of the six heroes named in the official 2012 film entry. This edition chooses wholehearted participation and a warm sense of occasion, rather than combat, royalty or supernatural power. You can enjoy celebrating a modest handmade display without being loud, fearless or constantly sociable. The result is an editorial comparison of optional responses, not a claim that you possess a god’s nature or abilities.",
+              "zh": "索尔是官方2012电影条目列出的六位之一。本版选投入参与、温暖活动感，不取战斗、王位或超自然力量。欣赏小手工展台不必大声、无惧或总爱社交；结果是可选回应的编辑比较，不称有神的本性或能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A small display deserves a sincere introduction",
+            "zh": "小展台也值得真诚介绍"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends have made something modest and begin apologising for its size before visitors can try it. You introduce it with warmth and enjoyment, acknowledging the work that actually exists. Celebration need not exaggerate the result or demand that everyone perform excitement. A short, sincere welcome can make participation feel worthwhile while allowing quieter people to engage in their own way.",
+              "zh": "朋友做了不大的作品，访客还没试就开始为规模道歉。你温暖愉快地介绍实际作品，看见投入。庆祝不用夸成果，也不要求人人表演兴奋。短而真诚的欢迎能让参与值得，也让安静的人按自己方式加入。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Enthusiasm beside five other contributions",
+            "zh": "热情与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Iron Man offers a prototype and Captain America clarifies the group’s purpose. Hulk makes room for a reset, Black Widow connects relevant perspectives and Hawkeye prepares the precise little demonstration. Thor’s selected angle brings wholehearted appreciation to what the group has made. These can support one occasion together without ranking confidence, popularity, courage or how much excitement someone ought to display.",
+              "zh": "钢铁侠给粗样，美国队长说共同目的；浩克留重整空间，黑寡妇接相关视角，鹰眼备精确小演示。索尔角度真心欣赏共同作品。可支持同一活动，不评自信、受欢迎、勇气，也不规定该表露多少兴奋。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Energy should leave room for different tempos",
+            "zh": "活力要给不同节奏留余地"
+          },
+          "paragraphs": [
+            {
+              "en": "Notice whether your enthusiastic invitation is welcome. Offer a quieter way to participate and let someone watch before joining. The occasion belongs to the group, not to the person presenting it most visibly. A high count does not establish extraversion, recklessness or a need for attention, and a lower count does not mean that you are cold, ungrateful or unable to enjoy shared work.",
+              "zh": "留意热情邀请是否受欢迎，给安静参与方式，也容许先看再加入。活动属于小组，不属于最显眼介绍者。高计数不确立外向、冒失或求关注，低计数不表示冷漠、不感激或不享受共同作品。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a welcome with two ways to join",
+            "zh": "试一个有两种加入方式的欢迎"
+          },
+          "paragraphs": [
+            {
+              "en": "At an optional hobby gathering, introduce one contribution you sincerely appreciate. Offer a hands-on invitation and an equally acceptable chance to watch or talk quietly. Afterwards, ask whether the welcome made participation easier. This gives feedback on one hosting choice; it does not measure charisma, emotional health or your suitability for a public-facing role.",
+              "zh": "可选爱好聚会里，介绍一项真心欣赏的贡献；给动手邀请，也给同样可行的旁观、安静交谈机会。之后问欢迎是否让加入更容易。这反馈一次招待选择，不测魅力、情绪健康或公开职位适配。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hulk",
+      "directionIds": [
+        "hulk"
+      ],
+      "title": {
+        "en": "Hulk — Bruce Banner",
+        "zh": "浩克·布鲁斯·班纳"
+      },
+      "headline": {
+        "en": "Leave room to pause and reset",
+        "zh": "给暂停与重整留空间"
+      },
+      "summary": {
+        "en": "Read Hulk — Bruce Banner through leave room to pause and reset: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“给暂停与重整留空间”阅读浩克·布鲁斯·班纳：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Hulk — Bruce Banner Test Result: Leave room to pause and reset | Avengers",
+          "zh": "浩克·布鲁斯·班纳测试结果：给暂停与重整留空间｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Hulk — Bruce Banner through leave room to pause and reset: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“给暂停与重整留空间”阅读浩克·布鲁斯·班纳：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Hulk’s selected angle",
+            "zh": "浩克的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Bruce Banner and Hulk are named together in the official 2012 cast listing. This edition selects a pause-and-reset angle in an ordinary hobby task. It does not reproduce a clinical explanation of the fictional transformation or treat it as a model of real people. The result cannot identify anger problems, dissociation, trauma, physical strength or hidden personalities from a choice about cardboard materials and activity pace.",
+              "zh": "官方2012演员名单把布鲁斯·班纳与浩克对应。本版选普通爱好任务中的暂停、重整，不用临床解释虚构变身，也不把它当真人模型。纸板材料、活动节奏的选择不能识别愤怒问题、解离、创伤、体力或隐藏人格。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A reset before another identical attempt",
+            "zh": "再作相同尝试前先重整"
+          },
+          "paragraphs": [
+            {
+              "en": "A paper mechanism keeps failing in the same way, and the group starts making faster attempts without learning more. You suggest a stopping point, check what has actually been observed and choose a manageable restart. The pause is part of the activity, not proof that anyone has lost control. People can also decide to leave the model unfinished and enjoy another part of the afternoon.",
+              "zh": "纸机关一直同样失灵，小组越试越快，却没新发现。你建议停点，核实际观察，再选可做的重启。暂停是活动一部分，不证明谁失控；也可决定模型暂不完成，享受下午其他部分。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A reset beside five other contributions",
+            "zh": "重整与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Iron Man tries another prototype while Captain America revisits the shared purpose. Thor brings sincere enjoyment, Black Widow connects the observations and Hawkeye makes one specific adjustment. Hulk’s selected angle leaves enough space to use those contributions comfortably. It can appear beside any of the other readings without creating a diagnosis or a claim that one person is the group’s emotional problem.",
+              "zh": "钢铁侠试另一粗样，美国队长回看目的；索尔带真诚乐趣，黑寡妇接观察，鹰眼作具体调整。浩克角度留舒服使用这些贡献的空间。可与其他读法并存，不成诊断，也不把谁认作小组情绪问题。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A pause is a choice, not a prescription",
+            "zh": "暂停是选择，不是处方"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask what a useful reset would look like instead of telling others how they must feel. A short break, a smaller step or a change of activity may suit different people. The quiz cannot prescribe emotional regulation or explain distress. A high count does not establish instability or exceptional calm, and a lower count does not prove that you ignore limits or cannot take care of yourself.",
+              "zh": "问怎样重整有用，不指挥别人该有何感受。短休息、小步骤、换活动可能适合不同人。本测验不开情绪调节处方，也不解释痛苦。高计数不确立不稳或格外镇静，低计数不证明忽视界限或不会照顾自己。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one easy stopping point",
+            "zh": "试一个容易停下的点"
+          },
+          "paragraphs": [
+            {
+              "en": "For a voluntary craft activity, choose a natural point at which to stop, check the materials and ask whether to continue. Make resuming optional and keep the next step small. Notice whether this arrangement helps the task feel manageable. That is feedback on a hobby routine, not evidence about mental health, self-control, resilience or how someone will behave under real danger.",
+              "zh": "自愿手作活动里，选自然停点，核材料，问要不要继续；恢复可选，下一步保持小。留意安排是否让任务可做。这是爱好流程反馈，不是心理健康、自控、韧性或真实危险行为的证据。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "black-widow",
+      "directionIds": [
+        "black-widow"
+      ],
+      "title": {
+        "en": "Black Widow — Natasha Romanoff",
+        "zh": "黑寡妇·娜塔莎·罗曼诺夫"
+      },
+      "headline": {
+        "en": "Connect what people choose to share",
+        "zh": "接上人们愿意分享的内容"
+      },
+      "summary": {
+        "en": "Read Black Widow — Natasha Romanoff through connect what people choose to share: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“接上人们愿意分享的内容”阅读黑寡妇·娜塔莎·罗曼诺夫：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Black Widow — Natasha Romanoff Test Result: Connect what people choose to share | Avengers",
+          "zh": "黑寡妇·娜塔莎·罗曼诺夫测试结果：接上人们愿意分享的内容｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Black Widow — Natasha Romanoff through connect what people choose to share: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“接上人们愿意分享的内容”阅读黑寡妇·娜塔莎·罗曼诺夫：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Black Widow’s selected angle",
+            "zh": "黑寡妇的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Natasha Romanoff is Black Widow in the official original-team cast listing. This edition takes a narrow angle on listening across a voluntary group and connecting relevant information with permission. It does not assess deception, attractiveness, gender, espionage, trustworthiness or trauma. A quiet contribution is not a secret identity, and a result does not authorise monitoring, persuading or investigating other people.",
+              "zh": "官方初代名单里，娜塔莎·罗曼诺夫是黑寡妇。本版窄取自愿小组中跨人倾听、征同意后接相关信息，不测欺骗、外貌、性别、间谍、可信度或创伤。安静贡献不是秘密身份，结果不授权监看、说服或调查别人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A useful detail belongs to its speaker",
+            "zh": "有用细节仍属于说话者"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend tells you in a side conversation that their display piece needs a different fitting. Before repeating it to everyone, you ask what they want shared and whether they would prefer to explain it directly. Connecting information can help the model work, but usefulness does not erase privacy or ownership. Sometimes the right connection is simply making room for the two people to talk themselves.",
+              "zh": "朋友旁聊说展件需要不同配件。你先问愿分享什么、是否想自己解释，再考虑告诉小组。接信息能帮模型运作，但有用不抹掉私密与归属。有时合适连接只是给两人直接聊的空间。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Connection beside five other contributions",
+            "zh": "连接与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Iron Man makes an idea testable and Captain America asks how it fits the agreement. Thor welcomes participation, Hulk protects a comfortable reset and Hawkeye handles one exact practical detail. Black Widow’s selected angle helps relevant observations meet without speaking for everyone. These can coexist without ranking empathy, social intelligence or who understands people best. A tied result remains a set of optional readings.",
+              "zh": "钢铁侠让点子可试，美国队长问是否合约；索尔欢迎参与，浩克留舒服重整，鹰眼处理精确细节。黑寡妇角度让相关观察相遇，不替人人发言。可共存，不评共情、社交智力或谁最懂人；并列仍为可选读法。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Do not turn a connection into an assumption",
+            "zh": "别把连接变成臆断"
+          },
+          "paragraphs": [
+            {
+              "en": "Check whether two remarks really concern the same issue, and let the speakers correct your interpretation. You do not need to infer private motives or smooth over every disagreement. Direct conversation may be clearer than acting as an intermediary. A high count cannot establish manipulativeness or exceptional insight, while a lower count does not mean that you are insensitive or unable to listen.",
+              "zh": "核两句话真在谈同一问题吗，让原说者修正理解；不必推私下动机，也不必抹平每个分歧。直接交谈可能比中间传话清楚。高计数不确立操纵或洞察超强，低计数不表示迟钝、不会听。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a permission-based introduction",
+            "zh": "试一次先问同意的引介"
+          },
+          "paragraphs": [
+            {
+              "en": "In a small optional project, notice one public, task-relevant connection between two contributions. Ask both people whether an introduction would help, then give them room to discuss it directly. Keep private side remarks private unless their speaker chooses otherwise. You are checking one coordination choice, not testing interpersonal perception, persuasion skills or whether you can predict another person’s intentions.",
+              "zh": "可选小项目里注意两项贡献间一个公开、与任务有关的连接，问双方引介是否有用，再让直接聊。旁聊私密保留，除非原说者另选。这检验一次协调选择，不考人际感知、说服技能或预测他人意图。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hawkeye",
+      "directionIds": [
+        "hawkeye"
+      ],
+      "title": {
+        "en": "Hawkeye — Clint Barton",
+        "zh": "鹰眼·克林特·巴顿"
+      },
+      "headline": {
+        "en": "Make one small contribution precise",
+        "zh": "把一项小贡献做准确"
+      },
+      "summary": {
+        "en": "Read Hawkeye — Clint Barton through make one small contribution precise: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+        "zh": "从“把一项小贡献做准确”阅读鹰眼·克林特·巴顿：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+      },
+      "seo": {
+        "title": {
+          "en": "Hawkeye — Clint Barton Test Result: Make one small contribution precise | Avengers",
+          "zh": "鹰眼·克林特·巴顿测试结果：把一项小贡献做准确｜复仇者联盟"
+        },
+        "description": {
+          "en": "Read Hawkeye — Clint Barton through make one small contribution precise: an original hobby scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial 2012-team fan guide.",
+          "zh": "从“把一项小贡献做准确”阅读鹰眼·克林特·巴顿：含原创爱好场景、五人物比较、取舍、小尝试与透明计数。2012初代团队的非官方同人完整说明。"
+        }
+      },
+      "scoreReading": {
+        "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+        "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Hawkeye’s selected angle",
+            "zh": "鹰眼的选定角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Clint Barton is Hawkeye in Disney’s listing of the 2012 team. This edition selects a specific, useful contribution to a modest handmade project. It does not measure marksmanship, vision, physical coordination, professional skill or whether you are more dependable than others. A small contribution can be freely chosen and visible; it need not make you the permanent helper or the person responsible for everyone’s unfinished work.",
+              "zh": "Disney的2012团队名单里，克林特·巴顿是鹰眼。本版选小手工作品中具体有用的贡献，不测射术、视力、身体协调、职业技能或比人可靠。小贡献可以自选、可见，不把你永久变帮手，也不让你负责所有人未完工作。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The label that makes a display usable",
+            "zh": "让展台能用的那张标签"
+          },
+          "paragraphs": [
+            {
+              "en": "The larger exhibit is ready, but visitors cannot tell which little tab they may touch. You prepare one clear label and test it with a willing participant. The job is modest but observable: can the visitor use the display as intended? You can stop after this task rather than accepting every remaining detail simply because you noticed what was missing.",
+              "zh": "大展台备好，访客却不知道哪个纸扣能摸。你备一张清楚标签，邀愿意者试。工作小但可观察：能按预期用吗？做完可停，不必因发现遗漏就接所有剩余细节。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Precision beside five other contributions",
+            "zh": "具体贡献与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Iron Man changes the mechanism, Captain America clarifies the shared outcome and Thor appreciates the occasion. Hulk offers a comfortable reset while Black Widow connects information people want shared. Hawkeye’s selected angle completes an exact practical part. None of these readings establishes who matters most, and a close or tied count cannot measure accuracy, competence or the value of quiet work.",
+              "zh": "钢铁侠改机关，美国队长说共同成果，索尔欣赏活动；浩克给舒服重整，黑寡妇接愿分享信息。鹰眼角度完成确切实际部分。都不决定谁最重要，近分并列也不测准确、能力或安静工作价值。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Specific should also mean bounded",
+            "zh": "具体也应有范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask whether the little fix is needed and whether you want to do it before taking it on. A useful detail can be finished without silently expanding into an entire role. Let others choose their own contributions and accept a workable result rather than endlessly refining it. A high count does not establish perfectionism or selflessness, and a lower count does not show carelessness or a lack of practical ability.",
+              "zh": "接小修前问是否需要、自己是否愿意。有用细节做完，不悄悄扩成整个职位；让别人选贡献，也容许可用成果而非无限细化。高计数不确立完美主义、无私，低计数不表示粗心或缺实际能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one fix with a clear finish",
+            "zh": "试一件有明确终点的小修"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one optional detail that would make a hobby project easier to use. Agree what finished means, make the change and ask a willing person to try it. Stop when the agreed check is complete, even if other improvements remain possible. This gives feedback on one practical contribution, not a ranking of precision, a professional aptitude result or an obligation to become everyone’s reliable finisher.",
+              "zh": "选一项让爱好作品更好用的可选细节，约完成条件，改好请愿意者试；约定核完就停，即使仍可改其他。这反馈一次实际贡献，不排名精细程度，不测职业潜能，也不要求成为所有人的可靠收尾者。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and every highest tie",
+            "zh": "18次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+              "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and film scope",
+            "zh": "原创同人版与电影范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+              "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Each character is offered 12 times, three times in each answer position. A character absent from an item is not rejected. Every highest count receives its complete guide; all A produces a six-way tie of three counts each. Gaps are descriptive choices within this bank, not percentages, norms, intelligence, professional skills or validated personality differences.",
+          "zh": "完成18个情境，每项明确映射的选择给六人物中的一位加一次原始计数，总计18次。每人物出现12次，在四个位置各3次；当题没出现的人物不算被拒绝。所有最高计数都获全文；全选A得到每位3次的六方并列。差距仅描述本题本选择，不是百分比、常模、智力、职业技能或经验证的人格差异。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Read every highest tie in full",
+        "zh": "每个最高并列都读全文"
+      },
+      "paragraphs": [
+        {
+          "en": "Every character with the highest count appears together; fixed ordering does not choose a favourite. A small gap is not a validated personality difference. You can compare close readings through the public guides and disagree with any editorial association. The six contributions can coexist in one activity without assigning permanent team roles.",
+          "zh": "所有最高计数人物一起显示，不按固定顺序挑偏爱。小差距不是经验证的人格差异，可经公开全文比较近分，也可不同意编辑联想。六种贡献可共存于一次活动，不永久分派团队角色。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "The 2012 six-person team",
+        "zh": "2012电影六人团队"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition includes Tony Stark/Iron Man, Steve Rogers/Captain America, Thor, Bruce Banner/Hulk, Natasha Romanoff/Black Widow and Clint Barton/Hawkeye. Loki, Nick Fury, later Avengers and other Marvel characters are outside this selection. The original bank and mappings are not interchangeable with another website’s quiz or a general superpower result.",
+          "zh": "本版包括托尼/钢铁侠、史蒂夫/美国队长、索尔、布鲁斯/浩克、娜塔莎/黑寡妇及克林特/鹰眼。洛基、尼克·弗瑞、后来成员与其他漫威人物不在集合。原创题本与映射不能与别站测验或一般超能力结果互换。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original fan edition",
+        "zh": "非官方原创同人版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+          "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices, optional sharing",
+        "zh": "私密选择，可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Your choices are scored in this browser without answer uploads or answers in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Sharing contains only public names and a link, never answers or counts. All full guides are free without signup, email or an MBTI result. Optional next assessments have separate purposes and require their own answers.",
+          "zh": "选择在本浏览器计分，不上传，不把答案放进网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。分享只有公开名称与链接，不含答案、次数。全文免费，无需注册、邮箱或MBTI结果。后续测评可选，目的独立，须另作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Avengers are included?",
+        "zh": "包含哪些复仇者？"
+      },
+      "answer": {
+        "en": "The six-person team from the 2012 film: Iron Man, Captain America, Thor, Hulk, Black Widow and Hawkeye. Each has a complete bilingual public guide. This is not the complete Marvel universe or another site’s seven-character set.",
+        "zh": "2012电影六人：钢铁侠、美国队长、索尔、浩克、黑寡妇、鹰眼，各有完整双语公开说明。本版不是整个漫威宇宙，也不等同别站七人集合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: the questions, mappings, examples and full readings are original editorial work. Disney’s D23 film entry supplies only the 2012 film scope and the six characters’ basic identities; it does not validate these angles or this bank. Character names belong to their respective rights holders. No film images, dialogue, competitor items or reports are reproduced. This is entertainment without affiliation, scientific validation or claims about a person’s powers, diagnosis, politics, competence or worth.",
+        "zh": "费马独立创作本非官方同人版，题目、映射、例子与全文均为原创编辑内容。Disney的D23电影条目只支持2012电影范围及六位基本身份，不验证本版角度或题本。人物名称属于各权利方，不复用电影图像、台词、竞品题目或报告。本版用于娱乐，未经关联授权或科学验证，不推断超能力、诊断、政治、能力或人的价值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a character result measure intelligence, anger or political values?",
+        "zh": "人物结果测智力、愤怒或政治价值吗？"
+      },
+      "answer": {
+        "en": "No. Hobby choices cannot establish IQ, diagnosis, dissociation, trauma, anger problems, patriotism, gender traits, competence or supernatural powers. These are limited editorial comparisons. No character’s harmful actions or authority are assigned to you, excused or recommended.",
+        "zh": "不测。爱好选择无法确立IQ、诊断、解离、创伤、愤怒问题、爱国、性别特质、能力或超能力。这是有限编辑比较，不把人物伤害或权威赋给你，也不为它免责、推荐。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need film knowledge or a fast completion time?",
+        "zh": "需要电影知识或快速完成吗？"
+      },
+      "answer": {
+        "en": "No. All 18 original situations concern a modest optional hobby display, without plot trivia or combat. Around five minutes is an editorial estimate, not a measured human benchmark or speed requirement.",
+        "zh": "不需要。18个原创情境都围绕小型可选爱好展台，不考剧情或战斗。约5分钟是编辑估计，不是实测人类基准，也无速度要求。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are every question and complete result free in both languages?",
+        "zh": "两语每题和全部完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes, with no signup, email or prior MBTI assessment. Character identities and mappings stay the same across English and Chinese, though psychometric equivalence has not been established. Optional next assessments require their own questions and never inherit a type from this quiz.",
+        "zh": "是，无需注册、邮箱或先测MBTI。两语人物身份与映射相同，尚未建立心理测量等价证据。可选后续测评须独立答题，不从本次继承类型。"
+      }
+    }
+  ]
+}

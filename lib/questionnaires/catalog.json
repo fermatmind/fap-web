@@ -2343,5 +2343,32 @@
       "maria-laguerta"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "avengers-character",
+    "code": "AVENGERS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Avengers Character Test",
+      "zh": "《复仇者联盟》角色测试"
+    },
+    "description": {
+      "en": "Explore the original 2012 team through 18 original hobby situations. Compare Iron Man, Captain America, Thor, Hulk, Black Widow and Hawkeye with all highest ties and six complete bilingual guides free. Unofficial fan edition.",
+      "zh": "用18道原创爱好情境探索2012电影初代团队，比较钢铁侠、美国队长、索尔、浩克、黑寡妇与鹰眼。所有最高并列与六份双语全文免费。非官方原创同人版。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_avengers_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "iron-man",
+      "captain-america",
+      "thor",
+      "hulk",
+      "black-widow",
+      "hawkeye"
+    ],
+    "collection": "explore"
   }
 ]
