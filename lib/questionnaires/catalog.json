@@ -1351,5 +1351,36 @@
       "upper-middle",
       "higher"
     ]
+  },
+  {
+    "slug": "values",
+    "code": "SCHWARTZ_ORIGINAL_VALUE_IMPORTANCE",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "价值观测试（Schwartz 十类）",
+      "en": "Schwartz Values Test"
+    },
+    "description": {
+      "zh": "用30条原创重要程度题探索Schwartz经典十类价值，分开原始均分与本次相对优先级，十份完整解释免费。非PVQ或SVS标准题本，不评道德、能力或职业。",
+      "en": "Explore ten Schwartz values with 30 original importance items, raw and relative scores and ten full free guides. Not a standard PVQ or SVS instrument."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_schwartz_value_importance_30",
+    "questionCount": 30,
+    "resultSlugs": [
+      "self-direction",
+      "stimulation",
+      "hedonism",
+      "achievement",
+      "power",
+      "security",
+      "conformity",
+      "tradition",
+      "benevolence",
+      "universalism"
+    ]
   }
 ]

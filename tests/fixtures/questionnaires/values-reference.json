@@ -1,0 +1,2023 @@
+{
+  "formCode": "fm_schwartz_value_importance_30",
+  "origin": "FermatMind original directimportance reflection/classicSchwartz10conceptualbackground/notPVQ21-PVQ40-PVQRR-SVS-bank-key-ortranslation",
+  "directions": [
+    {
+      "id": "self-direction",
+      "title": {
+        "zh": "自我导向",
+        "en": "Self-Direction"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "stimulation",
+      "title": {
+        "zh": "刺激与新奇",
+        "en": "Stimulation"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "hedonism",
+      "title": {
+        "zh": "享乐",
+        "en": "Hedonism"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "achievement",
+      "title": {
+        "zh": "成就",
+        "en": "Achievement"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "power",
+      "title": {
+        "zh": "权力",
+        "en": "Power"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "security",
+      "title": {
+        "zh": "安全",
+        "en": "Security"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "conformity",
+      "title": {
+        "zh": "遵从",
+        "en": "Conformity"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "tradition",
+      "title": {
+        "zh": "传统",
+        "en": "Tradition"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "benevolence",
+      "title": {
+        "zh": "仁爱",
+        "en": "Benevolence"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "universalism",
+      "title": {
+        "zh": "普世关怀",
+        "en": "Universalism"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "FM_VALUES_01",
+      "prompt": {
+        "zh": "在自己的生活安排中，能够自己决定采用哪一种做法，对你有多重要？",
+        "en": "How important is being able to decide your own approach to arrangements in your life?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_02",
+      "prompt": {
+        "zh": "让生活包含一些不同于熟悉日常的新体验，对你有多重要？",
+        "en": "How important is including experiences in your life that differ from familiar routines?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_03",
+      "prompt": {
+        "zh": "在日常选择里为自己喜欢的愉悦体验留出位置，对你有多重要？",
+        "en": "How important is making room in everyday choices for pleasurable experiences you enjoy?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_04",
+      "prompt": {
+        "zh": "在有明确评价标准的事情上展示自己做得出色，对你有多重要？",
+        "en": "How important is demonstrating that you perform well where there are recognised standards of success?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_05",
+      "prompt": {
+        "zh": "在共同事务中拥有能够影响最终决定的位置，对你有多重要？",
+        "en": "How important is holding a position that can influence final decisions in shared affairs?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_06",
+      "prompt": {
+        "zh": "让自己的日常生活具备可以依靠的稳定条件，对你有多重要？",
+        "en": "How important is having dependable, stable conditions in your everyday life?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_07",
+      "prompt": {
+        "zh": "与熟悉的人相处时，约束可能给对方造成困扰的冲动，对你有多重要？",
+        "en": "How important is restraining impulses that could upset people you regularly interact with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_08",
+      "prompt": {
+        "zh": "保留自己认同的文化习俗，让它不因日常忙碌而消失，对你有多重要？",
+        "en": "How important is preserving a cultural custom you identify with rather than letting daily busyness displace it?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_09",
+      "prompt": {
+        "zh": "把经常与你相处的人的实际福祉纳入自己的考虑，对你有多重要？",
+        "en": "How important is considering the practical welfare of people you regularly spend time with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_10",
+      "prompt": {
+        "zh": "即使不认识当事人，也把他们受到公平对待看作重要目标，对你有多重要？",
+        "en": "How important is fair treatment for people even when you do not know them personally?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_11",
+      "prompt": {
+        "zh": "形成看法时，有空间依自己的思考得出判断，对你有多重要？",
+        "en": "How important is having room to reach a judgment through your own thinking?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_12",
+      "prompt": {
+        "zh": "在自愿选择的事情上感受到挑战，而不总是重复轻易完成的内容，对你有多重要？",
+        "en": "How important is experiencing challenge in chosen activities instead of always repeating easily completed ones?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_13",
+      "prompt": {
+        "zh": "享受自己喜欢的味道、声音或其他感官体验，对你有多重要？",
+        "en": "How important is enjoying tastes, sounds or other sensory experiences you like?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_14",
+      "prompt": {
+        "zh": "达到会被所在群体视为成功的目标，对你有多重要？",
+        "en": "How important is reaching goals that the group around you would regard as successful?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_15",
+      "prompt": {
+        "zh": "能够掌握和调配重要资源，而不只是使用别人分配的部分，对你有多重要？",
+        "en": "How important is having control over important resources rather than only using an allocated share?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_16",
+      "prompt": {
+        "zh": "让自己关心的人拥有持续的安全保障，对你有多重要？",
+        "en": "How important is continued safety and protection for people you care about?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_17",
+      "prompt": {
+        "zh": "共同活动中避免自己的行为打乱大家已同意的安排，对你有多重要？",
+        "en": "How important is avoiding behaviour that disrupts an arrangement others have agreed to share?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_18",
+      "prompt": {
+        "zh": "在个人选择中给代际传下的观念留有位置，对你有多重要？",
+        "en": "How important is giving inherited ideas a place in your personal choices?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_19",
+      "prompt": {
+        "zh": "在亲近的人需要支持时，把照顾他们的需要当作值得追求的事，对你有多重要？",
+        "en": "How important is treating support for close others’ needs as a worthwhile goal?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_20",
+      "prompt": {
+        "zh": "为生活方式或观点不同的人保留被理解和尊重的空间，对你有多重要？",
+        "en": "How important is making room for understanding and respect for people with different ways of life or views?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_21",
+      "prompt": {
+        "zh": "选择要投入的个人目标，而不只是接受别人替你选好的目标，对你有多重要？",
+        "en": "How important is choosing the personal goals you pursue rather than only accepting goals selected for you?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_22",
+      "prompt": {
+        "zh": "有机会接触尚不熟悉、能带来新鲜感的活动，对你有多重要？",
+        "en": "How important is having opportunities for unfamiliar activities that bring a sense of novelty?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_23",
+      "prompt": {
+        "zh": "安排事情时，把自己能否从中获得乐趣也作为考虑，对你有多重要？",
+        "en": "How important is considering your own enjoyment when arranging activities?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_24",
+      "prompt": {
+        "zh": "让自己的优秀表现获得相应认可，对你有多重要？",
+        "en": "How important is receiving recognition corresponding to an excellent performance?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_25",
+      "prompt": {
+        "zh": "在社会交往中拥有受到重视的地位，对你有多重要？",
+        "en": "How important is having a social position that others regard as significant?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_26",
+      "prompt": {
+        "zh": "生活所处的社区或社会能够维持基本安定，对你有多重要？",
+        "en": "How important is maintaining basic stability in the community or society where you live?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_27",
+      "prompt": {
+        "zh": "在日常交往中顾及对方对恰当举止的期待，对你有多重要？",
+        "en": "How important is considering others’ expectations about appropriate conduct in everyday interactions?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_28",
+      "prompt": {
+        "zh": "对自己认同的文化或宗教传承持续表达尊重，对你有多重要？",
+        "en": "How important is maintaining respect for a cultural or religious heritage you identify with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_29",
+      "prompt": {
+        "zh": "维护日常熟人圈中彼此可以依靠的关系，对你有多重要？",
+        "en": "How important is sustaining dependable relationships within your everyday circle?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_30",
+      "prompt": {
+        "zh": "考虑个人选择对自然环境及更广泛人群的影响，对你有多重要？",
+        "en": "How important is considering the effects of personal choices on nature and on people beyond your own circle?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "likert",
+    "response": "1..5importance/naexcluded/noimputation",
+    "minimumRatedItems": 3,
+    "reverseItems": [],
+    "raw": "10independent3itemparts;3ratedneededpermean/otherwiseexplicitnull",
+    "relative": "ONLYall30rated;baselineexactsumAll/30;eachrelativeexactfacetSum/3-baseline;display2decimalsbutcalculateunrounded;notpercentile/norm/health/ability/behaviour",
+    "ties": "Alwaysall10FULLguides/fixedframeworkordernotranking/noexclusivehighesttype;allsamevalidratingsrelativeallzero/notnovalues",
+    "verificationPlan": "280individualfacet(rated,sum)states=28x10 plannedNOTexecuted;relativejointwitnessesneeded;not6^30exhaustive/psychvalidation"
+  },
+  "scope": "OriginalEnglishChinesequestions,mappings,examples/reportsexplore10classicmotivationalgoals. Primarytheoryconcepts/relativeprioritiesbackgroundnotvalidationofthe30items/10factors/circle/languageequivalence. No protectedPVQ/SVSwordingorlicensedbankadoption;authorrepositoryNCNDarticletermsnotclaimedcommercialinstrumentpermission. Notworkvaluesassessment10orrelationshipvalues;notrefined19/PVQRR. No actualability-morality-mentalhealth-politicalideology-jobfit prediction or prescribedchoice. Do notderiveage/culture/sexpatternsfromthisattempt.",
+  "instructions": {
+    "zh": "请评估每句话中的目标作为自己生活选择原则的重要程度，1不重要至5极其重要；不是评估你做得多好、做过多少次，或与一个人物有多相似。可选暂不作答，不补零或中点。30条由费马原创，围绕经典Schwartz十类价值各3条，不是PVQ-21、PVQ40、PVQ-RR、SVS或它们的翻译。每类3条全部有效才显示该类均分；全部30条有效才显示个人整体均分及每类相对值（该类未舍入均分减30条整体均分）。相对值只在本次自己内部比较，零不等于不重视，负数不等于反对；任何一条暂不作答即不估计整体基线或相对值。全部十份完整说明一起呈现，不派唯一顶部、主副型、职业或道德结论。",
+    "en": "Rate how important each stated goal is as a principle for your life choices, from 1 Not important to 5 Extremely important. Do not rate skill, behavioural frequency or similarity to a portrait. Choose the unscored option when needed, without zero or midpoint substitution. FermatMind authored 30 items, three for each of the ten classical Schwartz values; this is no PVQ-21, PVQ40, PVQ-RR, SVS or translation of those banks. A value needs all three ratings for a mean. All 30 ratings are required for your overall mean and each relative value: its unrounded mean minus the overall mean across 30 items. Compare relative values within this attempt only. Zero does not mean unimportant and a negative value does not mean opposition. Any unscored item prevents the overall baseline and relative values. All ten full guides appear together without a sole top identity, primary/secondary type, career or moral verdict."
+  }
+}

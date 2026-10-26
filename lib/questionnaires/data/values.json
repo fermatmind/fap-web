@@ -1,0 +1,3702 @@
+{
+  "slug": "values",
+  "code": "SCHWARTZ_ORIGINAL_VALUE_IMPORTANCE",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "价值观测试（Schwartz 十类）",
+    "en": "Schwartz Values Test"
+  },
+  "resultHeading": {
+    "zh": "本次十类价值回答与完整解释",
+    "en": "Your ten value readings and full guides"
+  },
+  "description": {
+    "zh": "用30条原创重要程度题探索Schwartz经典十类价值，分开原始均分与本次相对优先级，十份完整解释免费。非PVQ或SVS标准题本，不评道德、能力或职业。",
+    "en": "Explore ten Schwartz values with 30 original importance items, raw and relative scores and ten full free guides. Not a standard PVQ or SVS instrument."
+  },
+  "seoTitle": {
+    "zh": "价值观测试：Schwartz十类与完整结果解释",
+    "en": "Schwartz Values Test: Ten Values and Full Free Guides"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "同样说某个目标“很重要”，它在你这次其他回答里的位置仍可能不同。本版30条原创题围绕Schwartz经典十类目标，询问对生活选择的重要程度，不问行为频率、能力或与人物的相似度。每类三条全部有效才显示原始均分，全部30条有效才显示整体均分与十项相对值；暂不作答明确保留不足。十份完整说明同时呈现，含九类对照、计分例子、普通情境和反例，不排唯一人格、职业或道德等级。",
+    "en": "Two people can rate a goal very important while placing it differently among their other responses. Thirty original items explore the importance of the ten classical Schwartz goals for life choices, rather than behaviour frequency, skill or portrait similarity. Each value needs all three ratings for a raw mean, and all 30 ratings are required for an overall mean and ten relative values. Unscored items retain explicit insufficient information. All ten full guides appear together with nine comparisons, worked examples, ordinary situations and counterexamples rather than a sole personality, career or moral ranking."
+  },
+  "instructions": {
+    "zh": "请评估每句话中的目标作为自己生活选择原则的重要程度，1不重要至5极其重要；不是评估你做得多好、做过多少次，或与一个人物有多相似。可选暂不作答，不补零或中点。30条由费马原创，围绕经典Schwartz十类价值各3条，不是PVQ-21、PVQ40、PVQ-RR、SVS或它们的翻译。每类3条全部有效才显示该类均分；全部30条有效才显示个人整体均分及每类相对值（该类未舍入均分减30条整体均分）。相对值只在本次自己内部比较，零不等于不重视，负数不等于反对；任何一条暂不作答即不估计整体基线或相对值。全部十份完整说明一起呈现，不派唯一顶部、主副型、职业或道德结论。",
+    "en": "Rate how important each stated goal is as a principle for your life choices, from 1 Not important to 5 Extremely important. Do not rate skill, behavioural frequency or similarity to a portrait. Choose the unscored option when needed, without zero or midpoint substitution. FermatMind authored 30 items, three for each of the ten classical Schwartz values; this is no PVQ-21, PVQ40, PVQ-RR, SVS or translation of those banks. A value needs all three ratings for a mean. All 30 ratings are required for your overall mean and each relative value: its unrounded mean minus the overall mean across 30 items. Compare relative values within this attempt only. Zero does not mean unimportant and a negative value does not mean opposition. Any unscored item prevents the overall baseline and relative values. All ten full guides appear together without a sole top identity, primary/secondary type, career or moral verdict."
+  },
+  "source": {
+    "kind": "FermatMind original directimportance reflection/classicSchwartz10conceptualbackground/notPVQ21-PVQ40-PVQRR-SVS-bank-key-ortranslation",
+    "formCode": "fm_schwartz_value_importance_30",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "62ff72777e7b68f7cb7913ec86201ea4096931dd15480a72157de103da2f4c57",
+    "resultContentSha256": "7d08880a95b6c7277cbb94ac7fe4f79606c9861ed12e6ec43e3a230dfa081f6a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "self-direction",
+      "title": {
+        "zh": "自我导向",
+        "en": "Self-Direction"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "stimulation",
+      "title": {
+        "zh": "刺激与新奇",
+        "en": "Stimulation"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "hedonism",
+      "title": {
+        "zh": "享乐",
+        "en": "Hedonism"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "achievement",
+      "title": {
+        "zh": "成就",
+        "en": "Achievement"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "power",
+      "title": {
+        "zh": "权力",
+        "en": "Power"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "security",
+      "title": {
+        "zh": "安全",
+        "en": "Security"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "conformity",
+      "title": {
+        "zh": "遵从",
+        "en": "Conformity"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "tradition",
+      "title": {
+        "zh": "传统",
+        "en": "Tradition"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "benevolence",
+      "title": {
+        "zh": "仁爱",
+        "en": "Benevolence"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "universalism",
+      "title": {
+        "zh": "普世关怀",
+        "en": "Universalism"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "FM_VALUES_01",
+      "prompt": {
+        "zh": "在自己的生活安排中，能够自己决定采用哪一种做法，对你有多重要？",
+        "en": "How important is being able to decide your own approach to arrangements in your life?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_02",
+      "prompt": {
+        "zh": "让生活包含一些不同于熟悉日常的新体验，对你有多重要？",
+        "en": "How important is including experiences in your life that differ from familiar routines?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_03",
+      "prompt": {
+        "zh": "在日常选择里为自己喜欢的愉悦体验留出位置，对你有多重要？",
+        "en": "How important is making room in everyday choices for pleasurable experiences you enjoy?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_04",
+      "prompt": {
+        "zh": "在有明确评价标准的事情上展示自己做得出色，对你有多重要？",
+        "en": "How important is demonstrating that you perform well where there are recognised standards of success?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_05",
+      "prompt": {
+        "zh": "在共同事务中拥有能够影响最终决定的位置，对你有多重要？",
+        "en": "How important is holding a position that can influence final decisions in shared affairs?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_06",
+      "prompt": {
+        "zh": "让自己的日常生活具备可以依靠的稳定条件，对你有多重要？",
+        "en": "How important is having dependable, stable conditions in your everyday life?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_07",
+      "prompt": {
+        "zh": "与熟悉的人相处时，约束可能给对方造成困扰的冲动，对你有多重要？",
+        "en": "How important is restraining impulses that could upset people you regularly interact with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_08",
+      "prompt": {
+        "zh": "保留自己认同的文化习俗，让它不因日常忙碌而消失，对你有多重要？",
+        "en": "How important is preserving a cultural custom you identify with rather than letting daily busyness displace it?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_09",
+      "prompt": {
+        "zh": "把经常与你相处的人的实际福祉纳入自己的考虑，对你有多重要？",
+        "en": "How important is considering the practical welfare of people you regularly spend time with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_10",
+      "prompt": {
+        "zh": "即使不认识当事人，也把他们受到公平对待看作重要目标，对你有多重要？",
+        "en": "How important is fair treatment for people even when you do not know them personally?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_11",
+      "prompt": {
+        "zh": "形成看法时，有空间依自己的思考得出判断，对你有多重要？",
+        "en": "How important is having room to reach a judgment through your own thinking?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_12",
+      "prompt": {
+        "zh": "在自愿选择的事情上感受到挑战，而不总是重复轻易完成的内容，对你有多重要？",
+        "en": "How important is experiencing challenge in chosen activities instead of always repeating easily completed ones?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_13",
+      "prompt": {
+        "zh": "享受自己喜欢的味道、声音或其他感官体验，对你有多重要？",
+        "en": "How important is enjoying tastes, sounds or other sensory experiences you like?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_14",
+      "prompt": {
+        "zh": "达到会被所在群体视为成功的目标，对你有多重要？",
+        "en": "How important is reaching goals that the group around you would regard as successful?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_15",
+      "prompt": {
+        "zh": "能够掌握和调配重要资源，而不只是使用别人分配的部分，对你有多重要？",
+        "en": "How important is having control over important resources rather than only using an allocated share?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_16",
+      "prompt": {
+        "zh": "让自己关心的人拥有持续的安全保障，对你有多重要？",
+        "en": "How important is continued safety and protection for people you care about?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_17",
+      "prompt": {
+        "zh": "共同活动中避免自己的行为打乱大家已同意的安排，对你有多重要？",
+        "en": "How important is avoiding behaviour that disrupts an arrangement others have agreed to share?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_18",
+      "prompt": {
+        "zh": "在个人选择中给代际传下的观念留有位置，对你有多重要？",
+        "en": "How important is giving inherited ideas a place in your personal choices?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_19",
+      "prompt": {
+        "zh": "在亲近的人需要支持时，把照顾他们的需要当作值得追求的事，对你有多重要？",
+        "en": "How important is treating support for close others’ needs as a worthwhile goal?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_20",
+      "prompt": {
+        "zh": "为生活方式或观点不同的人保留被理解和尊重的空间，对你有多重要？",
+        "en": "How important is making room for understanding and respect for people with different ways of life or views?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_21",
+      "prompt": {
+        "zh": "选择要投入的个人目标，而不只是接受别人替你选好的目标，对你有多重要？",
+        "en": "How important is choosing the personal goals you pursue rather than only accepting goals selected for you?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "self-direction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "self-direction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "self-direction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "self-direction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "self-direction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "self-direction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_22",
+      "prompt": {
+        "zh": "有机会接触尚不熟悉、能带来新鲜感的活动，对你有多重要？",
+        "en": "How important is having opportunities for unfamiliar activities that bring a sense of novelty?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "stimulation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "stimulation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "stimulation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "stimulation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "stimulation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "stimulation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_23",
+      "prompt": {
+        "zh": "安排事情时，把自己能否从中获得乐趣也作为考虑，对你有多重要？",
+        "en": "How important is considering your own enjoyment when arranging activities?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "hedonism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "hedonism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "hedonism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "hedonism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "hedonism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "hedonism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_24",
+      "prompt": {
+        "zh": "让自己的优秀表现获得相应认可，对你有多重要？",
+        "en": "How important is receiving recognition corresponding to an excellent performance?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "achievement",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "achievement",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "achievement",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "achievement",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "achievement",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "achievement",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_25",
+      "prompt": {
+        "zh": "在社会交往中拥有受到重视的地位，对你有多重要？",
+        "en": "How important is having a social position that others regard as significant?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "power",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "power",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "power",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "power",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "power",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "power",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_26",
+      "prompt": {
+        "zh": "生活所处的社区或社会能够维持基本安定，对你有多重要？",
+        "en": "How important is maintaining basic stability in the community or society where you live?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "security",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "security",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "security",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "security",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "security",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "security",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_27",
+      "prompt": {
+        "zh": "在日常交往中顾及对方对恰当举止的期待，对你有多重要？",
+        "en": "How important is considering others’ expectations about appropriate conduct in everyday interactions?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "conformity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "conformity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "conformity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "conformity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "conformity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "conformity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_28",
+      "prompt": {
+        "zh": "对自己认同的文化或宗教传承持续表达尊重，对你有多重要？",
+        "en": "How important is maintaining respect for a cultural or religious heritage you identify with?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "tradition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "tradition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "tradition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "tradition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "tradition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "tradition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_29",
+      "prompt": {
+        "zh": "维护日常熟人圈中彼此可以依靠的关系，对你有多重要？",
+        "en": "How important is sustaining dependable relationships within your everyday circle?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "benevolence",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "benevolence",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "benevolence",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "benevolence",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "benevolence",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "benevolence",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FM_VALUES_30",
+      "prompt": {
+        "zh": "考虑个人选择对自然环境及更广泛人群的影响，对你有多重要？",
+        "en": "How important is considering the effects of personal choices on nature and on people beyond your own circle?"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "不重要",
+            "en": "Not important"
+          },
+          "directionId": "universalism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "稍有重要",
+            "en": "Slightly important"
+          },
+          "directionId": "universalism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "中等重要",
+            "en": "Moderately important"
+          },
+          "directionId": "universalism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "很重要",
+            "en": "Very important"
+          },
+          "directionId": "universalism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "极其重要",
+            "en": "Extremely important"
+          },
+          "directionId": "universalism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "universalism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "self-direction",
+      "directionIds": [
+        "self-direction"
+      ],
+      "title": {
+        "zh": "自我导向价值：选择、思考与自主",
+        "en": "Self-Direction Values: Choice, Thought and Autonomy"
+      },
+      "headline": {
+        "zh": "自我导向价值：选择、思考与自主",
+        "en": "Self-Direction Values: Choice, Thought and Autonomy"
+      },
+      "summary": {
+        "zh": "理解自我导向的三条重要程度回答与相对优先级，比较其他九类，含计分例子、普通选择和边界；不以重视自主认定创造力、独立能力或职业。",
+        "en": "Explore self-direction, relative priorities, nine comparisons and an ordinary choice. Valuing autonomy establishes no creativity, ability or career fit."
+      },
+      "seo": {
+        "title": {
+          "zh": "自我导向价值观结果：Schwartz十类完整解释",
+          "en": "Self-Direction Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解自我导向的三条重要程度回答与相对优先级，比较其他九类，含计分例子、普通选择和边界；不以重视自主认定创造力、独立能力或职业。",
+          "en": "Explore self-direction in the Schwartz framework: choice, thought, raw and relative scores, nine comparisons and full examples. Original reflection, not PVQ."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份说明关注你多重视自己选择做法、形成判断和确定个人目标，而不是你是否已经有自由或表现得独立。经典Schwartz框架把自我导向放在独立思考与行动的目标上；本版三条是围绕这一概念写的原创重要程度题。得分可以帮助回看这次回答，但不证明你具有创造力、敢于反对他人、善于独立解决问题，或总能实现自主。现实中是否有选择空间也需要另看条件。",
+              "en": "This guide concerns the importance you place on choosing an approach, reaching a judgment and selecting personal goals, rather than how much freedom you currently have or how independently you behave. Classical Schwartz theory locates self-direction in goals of independent thought and action. Three original importance items explore that concept here. Their score helps review these responses without proving creativity, willingness to disagree, independent problem-solving or consistent autonomy. Actual room for choice still depends on circumstances."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条有效回答为5、4、3，该类和为12、原始均分4.0；若全部30条有效且总和90，个人整体均分为3.0，相对值就是+1.00。若其余回答使总和120，则同一个4.0对应0.00。这不是能力忽高忽低，而是同一重要程度放进不同的本次整体回答。零不等于不重视，正数不是人群高分；任何一条暂不作答，都不估计这个整体比较。",
+              "en": "For example, valid ratings of five, four and three sum to 12 and give a raw mean of 4.0. If all 30 ratings sum to 90, your overall mean is 3.0 and the relative value is +1.00. With a total of 120, the same 4.0 becomes 0.00. Ability has not changed: the same importance rating sits within a different overall response pattern. Zero does not mean unimportant, and a positive value is no population rank. Any unscored item prevents an estimated overall comparison."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是你和朋友准备一次兴趣交流，希望自己决定展示什么、怎样介绍。先分开“能自己决定对我重要”和“这一次实际能决定哪些部分”。对场地、时间或共同规则作出协商，并不会自动否定自我导向；接受一个合适的建议，也可以是自己的选择。你不需要为了符合这份说明而单独完成活动、故意采用新方法或放弃现成帮助。",
+              "en": "Imagine preparing an interest-sharing session with friends and wanting to choose what to present and how. Separate the importance of deciding for yourself from which parts are actually open to choice. Negotiating timing, space or shared rules does not automatically negate self-direction; accepting a suitable suggestion can itself be your choice. This guide requires neither working alone, deliberately inventing a method nor declining available help to demonstrate independence."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想自己选展示内容，时间和大家共同使用的部分一起商量。”它把自主请求落在具体范围，而不是要求所有决定都由你作出。也可以说明哪一部分愿意听建议、哪一部分暂不想被代选。别人同样有选择权，分数不给你越过对方意愿或共同约定的理由；若条件不允许，也不必把一次妥协解释成失去自己的价值观。",
+              "en": "You might say, “I would like to choose my presentation content, while we agree the timing and shared arrangements together.” This makes a specific request rather than a demand to control every decision. Identify where advice is welcome and where you prefer not to have a choice made for you. Others retain their own choices. A score overrides neither their wishes nor shared agreements, and a practical compromise establishes no loss of your values."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "与刺激价值相比，自我导向可以采用熟悉办法，不一定追求新鲜；享乐关注愉悦；成就关注依社会标准展示成功；权力关注地位和资源控制。安全可以和自己选择稳定安排同时重要；遵从是日常交往中的约束；传统是文化或宗教传承。仁爱关注熟悉者福祉，普世关怀扩及更广泛人群与自然。九类不是自我导向的缺陷清单；一次行动可以照顾多个目标，圆环也不判定某两个人必然冲突。",
+              "en": "Unlike stimulation, self-direction can favour a familiar approach without novelty. Hedonism concerns pleasure, achievement socially recognised success, and power status and resource control. Security can accompany a freely chosen stable arrangement. Conformity concerns interpersonal restraint and tradition cultural or religious heritage. Benevolence concerns close others, while universalism extends to wider humanity and nature. These nine values are no list of deficits in self-direction. One action can serve several goals, and the theoretical circle establishes no inevitable conflict between two people."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，重视自主的人可能因资源、责任或共同生活而暂时接受别人安排；擅长独立工作的人也未必把自主排在首位。本版不测实际权限、知识技能、创业适配、领导、道德或健康。相对值较低只是在本次其他回答背景下较低，不等于依赖、被动或没有主见。十份说明都完整保留，不用一个较高均分派给你“自主型”，也不由一分差断言个人价值真的改变。",
+              "en": "Someone valuing autonomy can temporarily accept another arrangement because of resources, responsibilities or shared living. Someone skilled at independent work may not prioritise autonomy. This edition measures no actual authority, expertise, entrepreneurial fit, leadership, morality or health. A lower relative value is lower within these responses, without establishing dependence, passivity or an absence of opinions. All ten guides remain available rather than assigning an autonomous type from a higher mean or declaring a genuine change from one point."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次已经结束的普通选择，分别记下你想自己决定的部分、实际可决定的部分，以及最后接受的安排。可以只在脑中区分，不要求修改过去或新增一个独立任务。若愿意，下次仅把一个具体选择范围说清楚，并允许对方提出自己的条件。这个观察帮助理解目标与条件的关系，不训练独立能力、不保证效果，也不以提高自我导向分数为目标。",
+              "en": "For an optional observation, recall an ordinary completed choice. Separate what you wanted to decide, what was actually open to decision and what you accepted. Mental distinction is enough; no revision of the past or new independent task is required. If useful, clarify one particular choice boundary next time and allow others to state conditions. This explores goals and circumstances without training independence, guaranteeing an outcome or pursuing a higher self-direction score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stimulation",
+      "directionIds": [
+        "stimulation"
+      ],
+      "title": {
+        "zh": "刺激价值：新奇、变化与挑战",
+        "en": "Stimulation Values: Novelty, Variety and Challenge"
+      },
+      "headline": {
+        "zh": "刺激价值：新奇、变化与挑战",
+        "en": "Stimulation Values: Novelty, Variety and Challenge"
+      },
+      "summary": {
+        "zh": "理解刺激与新奇三条重要程度回答、原始均分及相对优先级，比较其他九类与普通情境；不把新鲜偏好当冒险能力、外向性或职业结论。",
+        "en": "Explore stimulation, raw and relative readings, nine comparisons and ordinary novelty. No risk-taking ability, extraversion, health or career verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "刺激与新奇价值观结果：Schwartz十类完整解释",
+          "en": "Stimulation Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解刺激与新奇三条重要程度回答、原始均分及相对优先级，比较其他九类与普通情境；不把新鲜偏好当冒险能力、外向性或职业结论。",
+          "en": "Explore stimulation values: novelty, variety, raw and relative scores, nine comparisons and ordinary examples. Original Schwartz reflection, not PVQ."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "刺激价值在这里指多重视生活中的变化、新鲜体验和自选挑战，不是要求追求危险、强烈感官或不断忙碌。经典框架描述的是目标的重要程度，本版三条围绕这个概念原创。较高回答不证明你实际参加更多活动、耐受不确定性更好，或总能从变化获益；较低回答也不等于缺乏好奇、生活无聊。你可以重视新鲜感，同时对某个具体活动没有兴趣。",
+              "en": "Stimulation here concerns the importance of variety, fresh experience and chosen challenge, without a demand for danger, intense sensation or constant activity. The classical framework concerns valued goals; three original items explore that concept. Higher responses prove neither more participation, greater tolerance of uncertainty nor benefit from every change. Lower responses establish no lack of curiosity or an uninteresting life. Novelty can matter while a particular new activity holds no appeal."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条为4、4、4，该类原始均分4.0。全部30条有效且整体均分3.5时，相对值为+0.50；若整体均分4.5，同一4.0对应−0.50。负值仍可以来自“很重要”的回答，只是低于本次自己的整体水平，不等于讨厌变化。显示保留两位小数方便复算，计算用未舍入值；它不是精度保证或显著差异。任何一条暂不作答，都保留整体基线和相对值不足。",
+              "en": "For example, three ratings of four give a raw mean of 4.0. With all 30 items rated and an overall mean of 3.5, the relative value is +0.50. At an overall mean of 4.5, the same 4.0 gives −0.50. A negative value can therefore come from very-important responses: it is lower than your own overall level, not dislike of change. Two displayed decimals support checking unrounded arithmetic without guaranteeing measurement precision or significance. Any unscored item prevents the baseline and relative values."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是你在两次空闲安排之间，想让其中一次包含不太熟悉的内容，例如换一种兴趣活动方式。先看自己想保留的新鲜部分，也了解时间、材料、参与者意愿与实际限制。新的安排不一定比熟悉安排更值得选，重复喜欢的活动也不否定刺激价值。你可以把新体验放在自己愿意且可承担的范围，不因为看到较高读法而额外冒险或花钱。",
+              "en": "Imagine wanting one of two leisure arrangements to contain something unfamiliar, such as a different format for an interest activity. Identify the fresh element you value and check timing, materials, willingness and actual constraints. A new arrangement is not automatically preferable, and repeating a favourite activity does not negate stimulation. Keep any experiment within what you willingly choose and can accommodate, without taking extra risks or spending because a higher reading appeared."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这次我想试一点不同的内容，可以只换这一小部分吗？”它允许新鲜与熟悉并存，也让其他人有权拒绝参与。若最后沿用原安排，可以保留想尝试的愿望，不必认定这次没有表达真实自己。说明具体想改变什么，比要求大家变得更大胆更清楚；问卷没有替任何人判断风险、同意、成本或合适程度。",
+              "en": "You might say, “I would like to try something a little different this time; could we change just this part?” Familiar and fresh elements can coexist, and others can decline participation. If the original arrangement remains, the wish for novelty need not disappear or become evidence of an inauthentic choice. Specify a desired change rather than asking everyone to become bolder. This questionnaire judges nobody’s risk, consent, costs or suitability."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "自我导向是自主选择，不一定要新；享乐是愉悦，新鲜体验不一定愉快；成就涉及社会认可的成功，权力涉及地位与控制。安全可以限制一次新安排的方式，而不抹去想尝试的目标。遵从是对日常他人期待的约束，传统关心传承；仁爱关心熟悉者，普世关怀扩及所有人及自然。不同目标可能同时重要，不用“变化对稳定”的一句口号替代具体条件，也不由圆环给你或他人定冲突类型。",
+              "en": "Self-direction concerns choice without requiring novelty; hedonism pleasure, which a new experience need not provide. Achievement concerns recognised success and power status and control. Security can shape how a new arrangement occurs without erasing interest in trying it. Conformity concerns interpersonal expectations, tradition heritage, benevolence close others, and universalism wider humanity and nature. Several goals can matter together. A slogan opposing change to stability replaces no practical conditions, and the circle assigns no conflict type to you or someone else."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人可能因环境变化太多而珍惜熟悉日常，仍把自选新体验看得重要；另一个人频繁换活动，也可能是被迫而非重视新奇。该均分不测外向性、冲动、勇气、适应力、创新能力或健康，也不判断适合何种工作。三条回答不能证明某个人的价值结构符合理论圆环，整体分数也不是对照人群的标准。全部说明一起读，不把刺激命名为唯一身份。",
+              "en": "Someone exposed to frequent unwanted changes may appreciate familiar routines while valuing chosen novelty. Someone frequently changing activities may be responding to necessity rather than prioritising stimulation. The mean measures no extraversion, impulsivity, courage, adaptability, innovation skill, health or work fit. Three responses cannot demonstrate that an individual value structure follows the theoretical circle, and the baseline is no population standard. Read all the guides together without turning stimulation into an exclusive identity."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一件普通活动，区分当时想获得的是新鲜、自己选择、愉悦，还是其他目标；它们可以重叠。不用为了查清而报名新活动，也不必改掉已有习惯。若愿意在下一次小安排里尝试变化，先确认参与者意愿与实际条件，只改变原本就想改变的一点；只回顾也完全可以。观察不保证增加幸福、能力或机会，不以更高刺激分数为成功。",
+              "en": "For an optional observation, revisit an ordinary activity and distinguish novelty, personal choice, pleasure and any other goals you hoped for. They may overlap. No new registration or changed habit is needed to investigate. If you already want a small change next time, confirm willingness and practical conditions and alter only that chosen part. Recollection alone is enough. This promises no happiness, ability or opportunity and defines no success through a higher stimulation score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hedonism",
+      "directionIds": [
+        "hedonism"
+      ],
+      "title": {
+        "zh": "享乐价值：愉悦、体验与自己的乐趣",
+        "en": "Hedonism Values: Pleasure, Experience and Enjoyment"
+      },
+      "headline": {
+        "zh": "享乐价值：愉悦、体验与自己的乐趣",
+        "en": "Hedonism Values: Pleasure, Experience and Enjoyment"
+      },
+      "summary": {
+        "zh": "解释享乐价值的重要程度与相对值，含具体计分、普通情境和其他九类对照；享乐不是自私、失控、幸福程度或健康结论。",
+        "en": "Read hedonism through importance, a worked relative score, ordinary enjoyment and nine comparisons. No selfishness, self-control, happiness or health verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "享乐价值观结果：Schwartz十类完整解释",
+          "en": "Hedonism Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "解释享乐价值的重要程度与相对值，含具体计分、普通情境和其他九类对照；享乐不是自私、失控、幸福程度或健康结论。",
+          "en": "Explore hedonism values: pleasure, raw and relative scores, nine comparisons and full examples. Original Schwartz reflection without a health verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "享乐价值在这里指重视自己的愉悦、喜欢的感官体验及活动带来的乐趣，不是评价生活是否放纵或一个人是否自私。经典框架把享乐作为一种目标；本版三条是围绕它写的重要程度问题。回答较高，不代表已经拥有更多闲暇、金钱或愉快体验，也不保证你现在心情好。你可以把愉悦看得重要，同时因条件限制而暂时没有安排；这两个层面需要分别理解。",
+              "en": "Hedonism here concerns the importance of personal pleasure, preferred sensory experiences and enjoyment in activities, rather than a judgment of indulgence or selfishness. The classical framework treats pleasure as a valued goal; three original importance items explore it here. Higher ratings establish neither more leisure, money or enjoyable experiences nor a currently good mood. Pleasure can matter while circumstances leave little room for it, so keep a valued goal separate from its present availability."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个完整可复算例子是：这三条都选5，其他27条都选4，总和123、整体均分4.1，享乐均分5.0，相对值+0.90。其他每类均分4.0、相对值−0.10，仍然对应“很重要”，不是不在乎。若30条都选5，则十类相对值全部0.00；那是没有相对差异，不是没有价值观。显示的小数位不提供测量精度、显著性或人群排名。",
+              "en": "For a complete worked example, rate these three items five and every other item four. The sum is 123, the overall mean 4.1, the hedonism mean 5.0 and its relative value +0.90. Every other value has mean 4.0 and relative value −0.10, still very important rather than uncared for. If all 30 ratings are five, every relative value is 0.00: no relative differentiation, not no values. Displayed decimals supply no precision, significance or population rank."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是在一段可以自己安排的空闲时间里，你希望保留听喜欢的音乐、品尝喜欢的食物或做一件有乐趣的小事。先确认自己真正喜欢什么，以及时间、成本和共同空间是否合适，不必按别人的“享受清单”行动。一次选择休息、节省或照顾他人，也不等于否定愉悦。问卷没有要求你增加消费、持续开心，或把所有不愉快都立即消除。",
+              "en": "Imagine having some freely available time and wanting to keep space for music, food or a small activity you enjoy. Identify what you actually like and check time, cost and shared-space conditions instead of following someone else’s enjoyment list. Choosing rest, saving money or caring for another person on one occasion does not negate pleasure. This questionnaire requires no additional consumption, constant happiness or immediate removal of every unpleasant experience."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想给自己留一会儿做这件喜欢的事，先确认不会占用我们约好的部分。”它把乐趣与共同约定一起说清，也允许别人有不同的喜好。你不需要说服对方这件事同样愉快，更不由一个分数替大家决定活动。若现在条件不合适，可以延后或放弃这一次；重视某个目标不等于必须在每个时刻实现它。",
+              "en": "You might say, “I would like a little time for this activity I enjoy, after checking it does not take over what we agreed to share.” State enjoyment alongside shared arrangements and allow different preferences. Nobody needs persuasion that the activity is equally pleasurable for them, and a score decides no group plan. Deferring or declining this occasion remains possible: valuing a goal does not require pursuing it at every moment."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "刺激关注新奇，熟悉的愉悦也可以体现享乐；自我导向关注能自己选择，选择的事不一定快乐。成就是社会标准下的成功，权力是地位与控制；安全关注稳定，遵从关注交往约束，传统关注传承。仁爱照顾熟悉者福祉，普世关怀扩及所有人和自然。愉悦可以与其中多个目标同时出现，不能用享乐与克制的道德二选一概括十类；理论圆环也不是这次行为或关系相容性的检测。",
+              "en": "Stimulation concerns novelty, while familiar pleasure can express hedonism. Self-direction concerns choice even when the chosen activity is not pleasant. Achievement concerns recognised success, power status and control, security stability, conformity interpersonal restraint and tradition heritage. Benevolence concerns close others and universalism wider humanity and nature. Enjoyment can accompany several goals. A moral choice between pleasure and restraint cannot summarise all ten, and the theoretical circle tests neither this behaviour nor relationship compatibility."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人可能非常重视愉悦，却因为资源或责任而表现得节制；另一个人参加很多娱乐，也可能只是顺应安排。回答不能判断自控、成瘾、动机是否高尚、幸福程度、健康或工作表现。较低相对值也不表示你压抑感受，较高值不意味着应当放弃其他目标。全部十份说明一起保留，不给一个享乐型标签，更不把复测高低当成生活改善或恶化。",
+              "en": "Someone can place high importance on pleasure while acting frugally because of resources or responsibilities. Someone frequently attending entertainment may simply be following arrangements. Responses judge no self-control, addiction, moral worth, happiness, health or work performance. A lower relative value establishes no suppressed feelings and a higher value prescribes no abandonment of other goals. Keep all ten guides rather than an exclusive hedonist label, and treat no changed retest score as proof that life improved or worsened."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一件普通的小事，分别记下想从中获得的乐趣、实际可用的条件，以及有没有其他同时重要的目标。只回顾即可，不需要追加一次消费或活动。若愿意继续，可以在原本就想安排的事情里明确一点自己喜欢的部分，同时尊重时间、费用和他人意愿。这个观察不训练快乐、不提供疗效，也不要求把享乐排得更高或更低。",
+              "en": "For an optional observation, recall an ordinary small activity and separate the pleasure you hoped for, available conditions and any other goals that also mattered. Recollection is enough without extra spending or activity. If you continue, clarify one enjoyable element in something you already want to arrange while respecting time, cost and others’ wishes. This trains no happiness, offers no therapeutic effect and requires no higher or lower priority for hedonism."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "achievement",
+      "directionIds": [
+        "achievement"
+      ],
+      "title": {
+        "zh": "成就价值：表现、标准与成功认可",
+        "en": "Achievement Values: Performance, Standards and Recognition"
+      },
+      "headline": {
+        "zh": "成就价值：表现、标准与成功认可",
+        "en": "Achievement Values: Performance, Standards and Recognition"
+      },
+      "summary": {
+        "zh": "理解成就价值与社会认可标准，分开重视成功和实际能力，含均分例子、其他九类对照、具体表达与边界；不预测绩效或职业。",
+        "en": "Explore achievement, recognised standards, a scoring example and nine comparisons. Valuing success establishes no ability, performance or career fit."
+      },
+      "seo": {
+        "title": {
+          "zh": "成就价值观结果：Schwartz十类完整解释",
+          "en": "Achievement Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解成就价值与社会认可标准，分开重视成功和实际能力，含均分例子、其他九类对照、具体表达与边界；不预测绩效或职业。",
+          "en": "Explore achievement values: recognised success, raw and relative scores, nine comparisons and full examples. No ability, performance or career verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "成就价值在经典框架里关注通过符合社会标准的表现获得成功认可，不只是私下把事情做好，也不是现有能力水平。本版三条询问你有多重视展示优秀、达到群体认可的成功，以及相应认可。重要程度较高，不证明你更聪明、努力、竞争或已经成功；较低也不说明没有追求。一个人可以珍惜内部探索的进步，却不特别追求外部成功标准，二者需要区别。",
+              "en": "Achievement in the classical framework concerns recognised success through performance meeting social standards, rather than simply doing something well privately or possessing current ability. Three original items ask about demonstrating excellence, reaching socially recognised success and corresponding recognition. Higher importance establishes no intelligence, effort, competitiveness or attained success; lower importance establishes no absence of goals. Valuing progress in private exploration can differ from prioritising external standards of success, and those meanings should remain distinct."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条分别为5、2、2，原始和9、均分3.0；三条都为3也有相同均分。前者的具体回答更有差异，但本版不据此判断矛盾或不认真。全部30条有效、总和105时，整体均分3.5，该类相对值为−0.50；它只低于本次自己的整体评分。若有任何一条暂不作答，相对比较保留不足；成就三条全有效时，仍可看这部分原始均分和完整说明。",
+              "en": "For example, ratings of five, two and two sum to nine with mean 3.0; three ratings of three produce the same mean. The first pattern differs across items without establishing contradiction or inattention. If all 30 ratings sum to 105, the overall mean is 3.5 and this relative value −0.50, lower than your own overall ratings only. Any unscored item prevents the relative comparison, while three valid achievement ratings can still support its raw mean and full guide."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是你准备一份兴趣作品，希望它能达到某次展示约定的标准，并得到相应认可。先核清标准是谁提出的、自己是否认同，以及这一次想投入多少。达到标准与是否喜欢过程、是否能自己选方法，可以分别重要；结果也受时间、资源和机会影响。一次没有获得认可，并不能证明你不重视成就，更不说明测试已经评出你的能力或潜力。",
+              "en": "Imagine preparing an interest project and wanting it to meet the agreed criteria for a display and receive corresponding recognition. Clarify who set the criteria, whether you endorse them and how much you want to invest. Meeting a standard, enjoying the process and choosing a method can each matter separately. Outcomes also depend on time, resources and opportunity. Receiving no recognition on one occasion establishes neither low achievement values nor a measured verdict about ability or potential."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这次我希望按这些已经说清的标准完成；评价会看哪些具体部分？”它让期待和标准可以被讨论，不要求对方保证成功或赞赏。你也可以决定某个评价标准并非自己想追求的目标。分数不要求你参加竞争、接更多任务或证明实力；若标准不透明，保留不确定，比用“我是成就型”替代具体沟通更有信息。",
+              "en": "You might say, “I would like to complete this against the stated criteria; which specific parts will be evaluated?” This makes expectations discussable without requiring guaranteed success or praise. You can decide that a particular criterion is not a goal you want to pursue. A score requires no competition, added commitments or demonstration of worth. Where criteria remain unclear, preserve uncertainty rather than replacing a specific conversation with an achievement-type identity."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "权力关注地位与资源控制，不等于按标准表现成功；自我导向可重视内部探索而不求社会认可。刺激关注新奇，享乐关注愉悦；安全、遵从、传统分别涉及稳定、日常约束与传承。仁爱关心熟悉者福祉，普世关怀扩及更广泛人群和自然。一次成果也可能帮助他人或维持稳定，不按圆环就认定成就一定损害关怀。九类一起看，比较的是不同目标，不是能力、道德或社会价值等级。",
+              "en": "Power concerns status and resource control rather than meeting recognised performance standards. Self-direction can favour internally chosen exploration without social recognition. Stimulation concerns novelty, hedonism pleasure, security stability, conformity interpersonal restraint and tradition heritage. Benevolence concerns close others; universalism wider humanity and nature. An accomplishment may also help others or support stability, so the circle establishes no inevitable harm to care. Compare nine different goals without ranking ability, morality or social worth."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，能力优秀的人未必重视公开成功，重视成就的人也可能暂时缺少展示机会。较高相对值不能预测工作绩效、领导、薪酬、竞争结果或适合的职业；较低不等于懒惰、低能力或不可靠。不同评价环境里的“成功”含义可能不同，这三条也没有验证个体或文化之间的等价。全部说明都完整呈现，不用某一分数要求你优化自己或改变人生方向。",
+              "en": "An accomplished person need not prioritise publicly recognised success, and someone valuing achievement may lack an opportunity to demonstrate it. A higher relative value predicts no work performance, leadership, earnings, competitive outcome or suitable career. Lower values establish no laziness, low ability or unreliability. Success can mean different things in different settings, and these three items establish no individual or cultural measurement equivalence. All guides remain complete without a score requiring self-optimisation or a changed life direction."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一件已完成的小作品，分开记录当时想达到的标准、自己真正认同的标准，以及实际收到的评价。没有记录的部分留空，不补成成功或失败故事。你可以只回顾，也可以在下一次原本就要做的事情中先确认一个评价条件，不增加任务量。这个观察帮助区分目标、条件和结果，不承诺提高能力、获得认可或把成就分数变高。",
+              "en": "For an optional observation, recall a completed small project and separate the standard you sought, the standard you personally endorsed and the evaluation actually received. Leave undocumented parts unknown rather than filling them into a success or failure story. Review alone is enough, or clarify one criterion in something already planned without adding work. This distinguishes goals, conditions and outcomes without promising ability, recognition or a higher achievement score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "directionIds": [
+        "power"
+      ],
+      "title": {
+        "zh": "权力价值：地位、影响与资源控制",
+        "en": "Power Values: Status, Influence and Resource Control"
+      },
+      "headline": {
+        "zh": "权力价值：地位、影响与资源控制",
+        "en": "Power Values: Status, Influence and Resource Control"
+      },
+      "summary": {
+        "zh": "理解权力价值的重要程度、地位与资源控制，含相对计分例子、其他九类对照及普通沟通；不认定实际权力、领导、道德或职业。",
+        "en": "Explore power values, status, resource control, relative scoring and nine comparisons. No actual authority, leadership, morality or career verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "权力价值观结果：Schwartz十类完整解释",
+          "en": "Power Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解权力价值的重要程度、地位与资源控制，含相对计分例子、其他九类对照及普通沟通；不认定实际权力、领导、道德或职业。",
+          "en": "Explore power values: status, influence, resource control, raw and relative scores and nine comparisons. Original reflection, not a leadership verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "权力价值在经典框架中涉及社会地位、影响共同决定的位置及对重要资源的控制；本版三条问的是这些目标对你多重要。它不是你实际有多少权力，也不是支配、欺负或利用他人的行为记录。一个人可以重视拥有决定权，却暂时没有相应职位或资源；另一个人拥有正式权限，也可能并不把地位看得重要。价值目标、实际条件和行使方式需要分别说明。",
+              "en": "Power in the classical framework concerns social standing, a position influencing shared decisions and control over important resources. Three original items ask how important those goals are. This is neither a measure of actual authority nor a record of dominating, bullying or exploiting others. Someone can value decision authority without a corresponding position or resources; someone with formal authority may place little importance on status. Distinguish a valued goal, available conditions and the way authority is exercised."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条为2、3、4，和9、原始均分3.0；全部30条有效且总和75，整体均分2.5，相对值+0.50。若总和105，整体均分3.5，同一3.0的相对值为−0.50。两次比较没有改变你拥有的权力，也不判断控制欲。相对值只是当前回答的内部位置，不能与另一个人的+0.50当作同等实际地位；均分相同也可能包含不同逐题回答。",
+              "en": "For example, ratings of two, three and four sum to nine with raw mean 3.0. If all 30 ratings sum to 75, the overall mean is 2.5 and the relative value +0.50. At total 105, the same 3.0 gives −0.50. Neither comparison changes actual authority or diagnoses a desire to control. A relative value locates these responses within this attempt; another person’s +0.50 establishes no equivalent social position. Equal means can also contain different item responses."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是几个人共同管理一套兴趣活动材料，你希望对怎样分配、何时使用有明确发言权。先核清大家同意的权限、材料归属和可用条件，而不是从问卷推出“应由我决定”。愿意承担管理也不必然因为重视权力，可能是方便、责任或其他目标；反过来，重视影响力的人也可以自愿接受轮流负责。实际安排仍需要所有相关者的意愿。",
+              "en": "Imagine sharing responsibility for materials used in an interest activity and wanting a clear say in allocation and timing. Establish agreed authority, ownership and practical conditions rather than concluding from a questionnaire that you should decide. Managing resources can reflect convenience, responsibility or another goal instead of valuing power. Someone valuing influence can also willingly accept rotating responsibility. Actual arrangements still require the wishes of everyone involved."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我希望在材料分配上有明确的决定范围，我们先把各自负责的部分说清。”它提出可以协商的权限，而不是把影响力当作理所当然。也要听清别人不愿交出的决定及共同规则。分数不给任何人越权、索取资源或要求服从的依据；若你只是想被听见，可以直接说明意见内容，不必先认定自己属于某个权力类型。",
+              "en": "You might say, “I would like a clearly agreed decision scope for allocating materials; can we define what each person is responsible for?” This requests negotiable authority rather than assuming entitlement to influence. Hear the decisions others do not want to delegate and the shared rules. A score authorises neither overstepping, taking resources nor demanding compliance. If the actual wish is simply to be heard, explain the contribution without first assigning yourself a power type."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "成就强调符合社会标准的成功表现，权力更关注地位及控制资源；自我导向是决定自己的做法，不等于决定别人。刺激、享乐分别关注新鲜和愉悦。安全可能与资源可控同时重要；遵从是日常交往约束，传统是传承。仁爱关心熟悉者，普世关怀扩及所有人及自然。一个分配决定可能同时照顾多项目标，不用圆环把权力与关怀判成某个人不可兼有的道德两端。",
+              "en": "Achievement concerns successful performance against social standards, while power concerns standing and resource control. Self-direction involves choosing your own approach rather than deciding for others. Stimulation and hedonism concern novelty and pleasure. Security can accompany resource control; conformity concerns interpersonal restraint and tradition heritage. Benevolence concerns close others and universalism wider humanity and nature. One allocation decision can serve several goals, so the theoretical circle does not turn power and care into morally exclusive kinds of person."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人因照顾共同需要而暂时掌握资源，却不看重地位；另一个人重视影响力，仍然可以遵守边界、尊重别人。高分不证明领导力、野心、收入、剥削、可靠性或政治倾向，低分不说明没有影响或不适合负责。三条未测这些结果，理论研究也不验证本版评分。全部十份正文一起呈现，不推荐据此安排职位、挑选伙伴或决定谁该掌控资源。",
+              "en": "Someone can temporarily control resources to meet shared needs without valuing status. Someone valuing influence can respect boundaries and other people. Higher ratings establish no leadership skill, ambition, earnings, exploitation, reliability or political orientation; lower ratings establish neither an absence of influence nor unsuitability for responsibility. These outcomes are unmeasured and theory research does not validate this edition’s scores. All ten guides appear together without recommending positions, partners or who should control resources."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次普通共同安排，分开记录自己希望影响什么、实际获得哪些权限，以及最后怎样与别人协商。不需要争取更多控制，也不必为降低分数而退出责任。若愿意继续，只把一个原本不清楚的权限边界问清楚，并允许别人提出不同方案。这个回顾不训练领导或降低某种欲望，不承诺改善关系，更不把较高或较低权力值当作优劣。",
+              "en": "For an optional observation, recall an ordinary shared arrangement and separate what you wanted to influence, what authority you actually had and how negotiation proceeded. No additional control or withdrawal from responsibility is required. If helpful, clarify one already unclear authority boundary and allow a different proposal. This review trains no leadership, reduces no diagnosed desire, promises no relationship improvement and treats neither higher nor lower power readings as superior."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "directionIds": [
+        "security"
+      ],
+      "title": {
+        "zh": "安全价值：安定、保障与可靠条件",
+        "en": "Security Values: Stability, Protection and Dependability"
+      },
+      "headline": {
+        "zh": "安全价值：安定、保障与可靠条件",
+        "en": "Security Values: Stability, Protection and Dependability"
+      },
+      "summary": {
+        "zh": "理解安全价值的重要程度与相对优先级，区分安定目标、实际条件与焦虑，含计分例子和其他九类对照；不评健康、勇气、政治或职业。",
+        "en": "Explore security values, relative scoring, ordinary stability and nine comparisons. Separate valued safety from conditions without health or career verdicts."
+      },
+      "seo": {
+        "title": {
+          "zh": "安全价值观结果：Schwartz十类完整解释",
+          "en": "Security Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解安全价值的重要程度与相对优先级，区分安定目标、实际条件与焦虑，含计分例子和其他九类对照；不评健康、勇气、政治或职业。",
+          "en": "Explore security values: stability, raw and relative scores, nine comparisons and ordinary examples. No anxiety, political or career verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "安全价值关注自己、关系、社区或社会的安定与保障。这里问的是你多重视这些目标，不是目前环境是否安全，也不是你有多焦虑。本版三条分别涉及日常稳定、关心者保障及社会基本安定，是原创概念反思，不覆盖安全的所有可能含义。一个人可以身处稳定条件仍十分重视它，也可以面对不稳定而在这次回答里更强调其他目标；分数不能替代现实风险信息。",
+              "en": "Security concerns stability and protection for oneself, relationships, communities or society. These items ask how much those goals matter, rather than how safe your environment is or how anxious you feel. Three original prompts address everyday dependability, protection for people you care about and basic social stability without covering every possible meaning of safety. Someone in stable conditions can value security strongly; someone facing instability can emphasise other goals. A score replaces no actual risk information."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，这三条都选4，原始均分4.0；其他27条都选3时，总和93、整体均分3.1，相对值+0.90。若30条都选4，整体均分4.0，十类相对值均为0.00，仍然每条都回答“很重要”。两种情况都不说明环境安全到什么程度。任何一条暂不作答时不估计整体基线；安全三条中少一条有效，连该类原始均分也保留不足，而不把遗漏当作不重视。",
+              "en": "For example, three ratings of four give a raw mean of 4.0. With every other rating three, the total is 93, overall mean 3.1 and relative value +0.90. If all 30 ratings are four, every relative value is 0.00 even though every answer is very important. Neither pattern describes actual environmental safety. Any unscored item prevents the baseline; if one security rating is missing, its own raw mean remains insufficient rather than treating the omission as low importance."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是在几种日常安排中，你希望先确认时间、材料和已有承诺能否稳定落实。先区分“可靠条件对我重要”和“这次已经知道哪些事实”。确认后仍可以选择新的活动，也可以维持熟悉安排；两种选择都不由分数决定。涉及真实安全问题，应依据具体信息与适用规则处理，不能把一个较低读法当作忽略风险的理由，也不凭较高读法认定事情危险。",
+              "en": "Imagine wanting dependable timing, materials and existing commitments before choosing an everyday arrangement. Separate the importance of reliable conditions from the facts already known. You can still choose something new or keep a familiar arrangement; a score decides neither. Actual safety questions require concrete information and applicable rules. A lower reading supplies no reason to ignore risk and a higher reading establishes no danger in a particular situation."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想先确认这些已经约好的条件，再决定这次怎么安排。”把需要确认的事实说清楚，比要求别人证明绝对不会出问题更具体。也可以承认仍有不知道的部分，协商自己愿意承担的范围。这个请求不把稳定看作别人必须替你满足的任务；对方也有自己的限制、意愿和目标。分数没有测试谁更胆小、谁更理性或谁更值得信任。",
+              "en": "You might say, “I want to confirm these agreed conditions before deciding how to arrange this occasion.” Name facts needing confirmation rather than demanding proof that nothing could go wrong. Acknowledge what remains unknown and discuss what you willingly accept. This request does not make another person solely responsible for stability; they have their own constraints, wishes and goals. The questionnaire tests neither timidity, rationality nor trustworthiness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "自我导向可以自主选择稳定，刺激可以在有保障条件下追求新鲜，享乐关注愉悦；它们不必被本次回答硬分两派。成就关注被认可的成功，权力关注地位和资源控制；资源控制可能帮助稳定，但不是同一目标。遵从涉及交往约束，传统涉及传承；仁爱关心熟悉者福祉，普世关怀关心所有人和自然。十类比较不构成现实风险清单或政治立场，也不判断你与另一人是否相容。",
+              "en": "Self-direction can freely choose stability, stimulation can seek novelty with dependable conditions, and hedonism concerns pleasure; this attempt need not divide them into opposing camps. Achievement concerns recognised success and power status and resource control, which can support stability without becoming the same goal. Conformity concerns interpersonal restraint, tradition heritage, benevolence close others and universalism wider humanity and nature. These comparisons provide neither an actual risk checklist nor a political position or compatibility judgment."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，安排很多预案可能来自任务要求，而非个人格外重视安全；重视安全的人也可能因现实所迫接受不稳定。较高相对值不测焦虑、健康、保守政治观、责任感、财务能力或职业适配，较低也不证明冒险能力或勇敢。分数变化可能反映这次回答背景，不能直接当作环境变安全或心理改变。保留十份完整解释，不根据一类分数替你作重大决定。",
+              "en": "Contingency planning can follow task requirements rather than unusually high security values. Someone valuing security may accept instability out of necessity. A higher relative value measures no anxiety, health, political conservatism, responsibility, financial skill or career fit; a lower value proves no risk-taking ability or courage. Changed responses do not directly establish a safer environment or psychological change. Keep all ten full explanations without making consequential decisions from one value score."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次普通小安排，分开列出重视的稳定条件、当时掌握的事实和实际发生的事。缺少记录就保留未知，不补写一个“早知道”的故事。若愿意继续，只核对原本需要确认的一项条件，不额外制造检查任务，也不追求绝对确定。这个回顾帮助区别目标与信息，不提供风险保证、缓解效果或更高分目标；只阅读和回想也可以。",
+              "en": "For an optional observation, recall an ordinary small arrangement and separate the stable conditions you valued, facts known at the time and what happened. Preserve missing records as unknown instead of reconstructing hindsight. If useful, confirm one condition already needing clarification without inventing additional checking tasks or pursuing absolute certainty. This distinguishes goals from information without a safety guarantee, promised relief or higher-score target. Reading and recollection alone are enough."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conformity",
+      "directionIds": [
+        "conformity"
+      ],
+      "title": {
+        "zh": "遵从价值：交往约束与他人期待",
+        "en": "Conformity Values: Restraint and Interpersonal Expectations"
+      },
+      "headline": {
+        "zh": "遵从价值：交往约束与他人期待",
+        "en": "Conformity Values: Restraint and Interpersonal Expectations"
+      },
+      "summary": {
+        "zh": "理解遵从价值与日常交往中的约束，区分传统、关怀和自主，含计分例子及其他九类对照；不评盲从、胆量、道德或服从能力。",
+        "en": "Explore conformity values, interpersonal restraint, relative scoring and nine comparisons. No obedience skill, courage, morality or political verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "遵从价值观结果：Schwartz十类完整解释",
+          "en": "Conformity Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解遵从价值与日常交往中的约束，区分传统、关怀和自主，含计分例子及其他九类对照；不评盲从、胆量、道德或服从能力。",
+          "en": "Explore conformity values: interpersonal restraint, raw and relative scores, nine comparisons and full examples. No obedience or morality verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "遵从在这里指多重视约束可能打扰、伤害他人或违背交往期待的行为，不是回答彼此一致，也不是要求无条件服从。经典框架强调熟悉关系中的日常约束；本版三条围绕冲动、共同安排和举止期待写成原创重要程度题。它们不记录你实际上多守规则，也不评规则是否合理。重视交往约束的人仍可提出异议，较少重视这一目标的人也可能出于其他原因遵守约定。",
+              "en": "Conformity here concerns valuing restraint of conduct that could upset others or violate interpersonal expectations, rather than consistency between answers or unconditional obedience. The classical account emphasises restraint in everyday relationships. Three original importance items address impulses, shared arrangements and expectations about conduct. They record neither actual rule-following nor whether a rule is justified. Someone valuing restraint can disagree, while someone placing less importance on it can honour an agreement for other reasons."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条分别选2、4、3，原始和9、均分3.0；若全部30条总和84，整体均分2.8，相对值+0.20。这个小正值只高于本次整体评分，不表示高于他人或达到某个遵从标准。若其中一条暂不作答，该类均分和全部相对值都保留不足；其他三条全有效的部分仍可读原始均分。缺答不是反抗、低合作或不认真，分区也不靠目录顺序决定。",
+              "en": "For example, ratings of two, four and three sum to nine with raw mean 3.0. If all 30 ratings sum to 84, the overall mean is 2.8 and this relative value +0.20. The small positive value exceeds your own overall ratings only, without a population comparison or conformity threshold. One unscored item here prevents this raw mean and all relative values, while fully rated parts retain their raw means. Missing information establishes neither defiance, low cooperation nor inattention, and list order assigns no type."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是几个人已经约好共同使用一个空间，你希望自己的举止不打断别人，例如按约定结束或先问能否改变安排。先看实际约定、相关者意愿与是否需要重新协商，而不是把“不打扰”扩展成不能表达不同需要。守住自己的边界与顾及别人可以同时进行；如果某项期待不合理，可以具体讨论，问卷没有替它背书，也不要求把自己的所有感受压下去。",
+              "en": "Imagine sharing a space under an agreed arrangement and wanting not to interrupt others, perhaps by ending on time or asking before changing plans. Check the actual agreement, wishes and need for renegotiation instead of extending non-disruption into an inability to express different needs. Personal boundaries and consideration can coexist. Discuss an unreasonable expectation specifically; this questionnaire endorses no expectation and requires no suppression of every feeling."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想顾及我们已经约好的部分，同时这一个需要能不能再商量？”它明确保留共同约定，也把不同需要说出来。对方可以接受、拒绝或提出其他方案，不由分数判谁更合群。若希望遵守的只是某一次约定，可以直接说明，不必把它解释成一个固定顺从人格。实际有害、强迫或越界的要求，需要按具体事实和边界处理，不能靠价值分数决定是否接受。",
+              "en": "You might say, “I want to respect what we agreed, and I would also like to discuss this particular need.” Keep the agreement visible while stating a difference. Others can accept, decline or propose another arrangement without a score judging who fits in better. Honour one agreement without turning it into a permanently submissive identity. Harmful, coercive or boundary-crossing demands require facts and actual boundaries, rather than a value score deciding whether to accept them."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "传统指文化或宗教传承，遵从更面向当前交往者的期待；仁爱出于关心熟悉者福祉，也可促成同一体贴行为。普世关怀扩及所有人及自然，自我导向关注自己选择。安全看重稳定，成就看重社会认可的表现，权力看重地位与控制；刺激是新鲜，享乐是愉悦。它们不是合作与自我的两派，人可以同时重视多个目标。理论圆环描述动机关系，不评本次个人是否矛盾，也不预测两人会不会冲突。",
+              "en": "Tradition concerns cultural or religious heritage, while conformity addresses current interpersonal expectations. Benevolence can motivate the same considerate act through care for close others. Universalism extends concern to humanity and nature; self-direction concerns personal choice. Security values stability, achievement recognised performance, power status and control, stimulation novelty and hedonism pleasure. These are no opposing teams of cooperation and selfhood. Multiple goals can matter together, and a theoretical motivational circle diagnoses neither personal contradiction nor conflict between people."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，遵守约定可能因为珍惜关系、支持共同目标或避免实际干扰，并不只来自遵从；重视遵从的人也未必有条件满足所有期待。均分不测诚实、合作技能、被控制、勇气、政治立场、道德或工作适配。较低相对值不是不讲规则，较高也不是他人可以要求你服从的理由。本版三条未验证十因子或跨语言等价，不将一次小差异解释成人格变化。",
+              "en": "Honouring an agreement can reflect a relationship, a shared goal or practical non-disruption rather than conformity alone. Someone valuing conformity may be unable to meet every expectation. The mean measures no honesty, cooperation skill, vulnerability to control, courage, politics, morality or work fit. Lower relative values establish no disregard for rules, and higher ones give others no entitlement to compliance. Three items validate neither a ten-factor structure nor language equivalence, and small differences establish no personality change."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次日常共同安排，区分实际约定、你在意的交往目标和自己表达过的需要。没有表达也只记事实，不评自己应该更顺从或更反抗。若愿意，下次只把一条不清楚的期待问具体，或说明一个已经存在的不同需要；不必制造冲突来测试价值观。回顾帮助理解一次选择，不承诺关系改善，也不以提高或降低遵从分数为任务。",
+              "en": "For an optional observation, recall an everyday shared arrangement and separate the agreement, interpersonal goals you valued and needs you expressed. Record an unexpressed need without prescribing more compliance or defiance. If useful, clarify one unclear expectation or state an existing different need next time, without creating a conflict to test your values. This review clarifies one choice, promises no relationship improvement and requires no higher or lower conformity score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tradition",
+      "directionIds": [
+        "tradition"
+      ],
+      "title": {
+        "zh": "传统价值：文化、传承与认同",
+        "en": "Tradition Values: Culture, Heritage and Identification"
+      },
+      "headline": {
+        "zh": "传统价值：文化、传承与认同",
+        "en": "Tradition Values: Culture, Heritage and Identification"
+      },
+      "summary": {
+        "zh": "理解传统价值与认同的文化或宗教传承，含相对计分、日常情境和其他九类对照；不判宗教、政治、年龄、道德或拒绝变化。",
+        "en": "Explore tradition, cultural or religious heritage, relative scoring and nine comparisons. No faith, politics, age, morality or resistance-to-change verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "传统价值观结果：Schwartz十类完整解释",
+          "en": "Tradition Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解传统价值与认同的文化或宗教传承，含相对计分、日常情境和其他九类对照；不判宗教、政治、年龄、道德或拒绝变化。",
+          "en": "Explore tradition values: heritage, raw and relative scores, nine comparisons and full examples. No faith, politics or cultural-loyalty verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "传统价值关注你多重视自己认同的文化习俗、代际观念及文化或宗教传承，不等于仅因熟悉就重复某件事。本版三条是原创重要程度题，不询问你属于哪个宗教或文化，也不收集信仰资料。可以只把自己认同且愿意考虑的传承放进回答；没有对应经验时可选无法判断。较高评分不证明你古板、虔诚或从不改变，较低也不表示不尊重家人或文化。",
+              "en": "Tradition concerns the importance of cultural customs, inherited ideas and cultural or religious heritage you identify with, rather than repetition merely because something is familiar. Three original importance items ask for no religious or cultural membership and collect no faith details. Consider heritage you actually identify with and want to consider; use the unscored option when you cannot judge. Higher ratings establish neither rigidity, devotion nor an absence of change. Lower ratings establish no disrespect for family or culture."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条为3、3、3，原始均分3.0；全部30条总和60时，整体均分2.0，相对值+1.00。若全部总和120，整体均分4.0，同一3.0对应−1.00。因此相对正负不能单独判断传统重要不重要，更不是一个人比另一个人传统多少。三条内任何暂不作答都让该类均分保留不足；全卷任一暂不作答都不估计个人整体基线，不拿其他回答补出宗教或文化态度。",
+              "en": "For example, three ratings of three give a raw mean of 3.0. With all 30 ratings totalling 60, the overall mean is 2.0 and this relative value +1.00. At total 120, the same 3.0 gives −1.00. Relative signs alone therefore determine no absolute importance and no comparison of how traditional two people are. An unscored item here prevents this raw mean; any unscored item prevents the overall baseline rather than filling in a cultural or religious attitude."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是一次你认同的节日或家庭习惯，你希望保留其中一个有意义的部分，同时现实时间、地点和参与者想法可能不同。先说明想保留什么及它对你的意义，再看这次实际愿意怎样安排。保留一个部分、改变做法或决定这次不参加，都不能仅由分数解释。其他人也可能以不同方式理解同一习俗，问卷不替任何一方认定谁更忠于文化。",
+              "en": "Imagine a celebration or family custom you identify with and wanting to preserve one meaningful element while time, location and others’ wishes differ. Explain what you hope to keep and its meaning, then consider an arrangement people actually want. Keeping one part, adapting its form or declining this occasion cannot be explained by a score alone. Others may understand the same custom differently, and this questionnaire decides nobody’s cultural loyalty."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想保留这一个对我有意义的部分，其他安排可以一起商量。”它让传承与具体选择分开，也允许别人说明不愿参与的范围。无需要求对方证明认同，更不以“传统如此”代替意愿和边界。若某种要求造成真实伤害或越界，要根据事实处理；分数不给它正当性，也不要求你为了获得较低读法而否定全部传承。",
+              "en": "You might say, “I would like to preserve this part because it matters to me; we can discuss the other arrangements.” Distinguish heritage from a particular format and let others state where they do not want to participate. Nobody needs to prove identification, and tradition replaces neither wishes nor boundaries. Harmful or boundary-crossing demands require facts; a score legitimises none and requires no rejection of every heritage to obtain a lower reading."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "遵从更面向当前交往者的期待，传统面向文化或宗教传承；安全可关注稳定而不涉及习俗。仁爱关心熟悉者，普世关怀扩及所有人和自然；自我导向可以自愿选择保留传统。刺激关注新鲜、享乐关注愉悦，成就关注认可的成功，权力关注地位与控制。一次传承活动可能容纳多项目标，不用“旧对新”替代十类区别，也不凭圆环判定某个人或文化必然冲突。",
+              "en": "Conformity addresses current interpersonal expectations, tradition cultural or religious heritage, and security stability without necessarily involving custom. Benevolence concerns close others and universalism humanity and nature. Self-direction can freely choose to preserve a tradition. Stimulation concerns novelty, hedonism pleasure, achievement recognised success and power status and control. A heritage activity can serve multiple goals. Old-versus-new slogans replace none of these distinctions, and the circle establishes no inevitable conflict in a person or culture."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，维持习惯可能只因方便，而非重视传承；重视传统的人也可以主动改变不合适的形式。较高相对值不测宗教身份、政治倾向、年龄、道德、教育或适合的工作；较低值不说明没有认同或根。源理论研究的跨文化资料不验证本版中文与英文等价，也不让一次答卷代表某个群体。全部十份说明一起读，不以该分数决定家庭关系或对别人贴标签。",
+              "en": "Keeping a habit can reflect convenience instead of valuing heritage, and someone valuing tradition can actively change an unsuitable format. A higher relative value measures no religion, politics, age, morality, education or suitable work. Lower values establish neither absent identification nor rootlessness. Cross-cultural theory research validates no equivalence between this edition’s languages and lets no individual attempt represent a group. Read all ten guides without using the score to decide family relationships or label others."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回想一次普通传承活动，区分自己认同的意义、这次采用的形式和相关者实际愿意做的部分。可以只回顾，不要求重新参与、退出或说服任何人。若想继续，只讨论一个原本需要协商的小安排，并接受别人有不同理解。这个观察帮助看清目标与形式，不衡量文化忠诚、不承诺消除分歧，也不以让传统得分更高或更低为目标。",
+              "en": "For an optional observation, recall an ordinary heritage activity and distinguish its personal meaning, the format used and what those involved actually wanted. Recollection requires neither renewed participation, withdrawal nor persuasion. If helpful, discuss one arrangement already needing agreement and allow different interpretations. This clarifies goals and forms without measuring cultural loyalty, promising an end to disagreement or targeting a higher or lower tradition score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "benevolence",
+      "directionIds": [
+        "benevolence"
+      ],
+      "title": {
+        "zh": "仁爱价值：熟悉者的福祉与相互依靠",
+        "en": "Benevolence Values: Close Others and Dependable Care"
+      },
+      "headline": {
+        "zh": "仁爱价值：熟悉者的福祉与相互依靠",
+        "en": "Benevolence Values: Close Others and Dependable Care"
+      },
+      "summary": {
+        "zh": "理解仁爱对熟悉者福祉的关注，区分重视关怀、实际行动与可用条件，含相对计分及其他九类对照；不评善良、共情能力或关系质量。",
+        "en": "Explore benevolence, close others, relative scoring and nine comparisons. Separate valued care from action without goodness, empathy or relationship verdicts."
+      },
+      "seo": {
+        "title": {
+          "zh": "仁爱价值观结果：Schwartz十类完整解释",
+          "en": "Benevolence Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解仁爱对熟悉者福祉的关注，区分重视关怀、实际行动与可用条件，含相对计分及其他九类对照；不评善良、共情能力或关系质量。",
+          "en": "Explore benevolence values: close others, raw and relative scores, nine comparisons and full examples. No goodness, empathy or relationship verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "仁爱价值在经典框架中主要关注经常与你相处的人的福祉，以及日常圈子里相互可以依靠的关系。本版三条问你多重视这些目标，不是让别人评价你有多善良，也不统计帮助行为。重要程度可以较高，但时间、资源、责任和对方意愿仍限制这一次能做什么；较低回答也不说明缺乏情感。它与关心所有人和自然的普世关怀有关，但关注范围不同，不能混成一个道德总分。",
+              "en": "Benevolence in the classical framework primarily concerns the welfare of people you regularly interact with and dependable relationships within your everyday circle. Three original items ask how much these goals matter, rather than collecting observer judgments of goodness or counting help. Importance can be high while time, resources, responsibilities and the other person’s wishes limit action. Lower responses establish no absence of feeling. Benevolence relates to universalism but has a different scope, without combining into a moral total."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条为4、5、3，和12、原始均分4.0；全30条有效且总和114，整体均分3.8，相对值+0.20。小正值并不表示比别人更有爱心，均分4也不证明实际照顾得好。若其他回答使总和126，整体均分4.2，同一4.0会成为−0.20，仍可重视关怀。比较使用未舍入的和与题数，显示小数不是效度或精度证明；没有资料时明确保留不足。",
+              "en": "For example, ratings of four, five and three sum to 12 with raw mean 4.0. With all 30 ratings totalling 114, the overall mean is 3.8 and the relative value +0.20. This small positive value establishes no greater compassion than someone else, and mean four proves no effective care. At total 126, the same 4.0 gives −0.20 while care can remain important. Calculations use unrounded sums and counts; displayed decimals prove no validity or precision, and missing information remains explicit."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是一个熟悉的人询问你能否在日常小安排中帮一点忙。先听对方真正需要什么，再看自己愿意且有条件提供什么；关心不等于代替对方决定，也不要求无限承担。你可以提供一个具体部分、另约时间或直接说明无法帮忙。一次拒绝不证明不重视仁爱，一次帮助也不只可能由仁爱推动，还可能涉及共同约定、习惯或其他目标。",
+              "en": "Imagine someone familiar asking for a little help with an ordinary arrangement. Hear what they actually need and consider what you willingly can offer. Care requires neither deciding for them nor unlimited responsibility. Offer one part, suggest another time or state that you cannot help. Declining once establishes no absence of benevolence, and helping can also reflect an agreement, a habit or another goal rather than benevolence alone."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我在意这件事对你的影响，现在能提供这一部分；这样是你需要的吗？”它同时保留关心、能力范围和对方意愿。也可以说暂时做不到，而不是用分数要求自己证明善良。若对方不需要这类帮助，接受这一信息，再决定是否还有双方愿意的方式；问卷不给你要求感谢、亲近、信任或回报的理由，也不判断这段关系好不好。",
+              "en": "You might say, “I care about how this affects you. I can offer this particular part; would that be useful?” Keep concern, capacity and their wishes visible together. You can also say you cannot help without using a score to prove goodness. If the help is unwanted, accept that information before considering another mutually wanted option. This questionnaire entitles nobody to gratitude, closeness, trust or repayment and judges no relationship’s quality."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "普世关怀把关注扩及陌生人、广泛人群与自然；遵从可能通过顾及交往期待带来相同行为，但与主动关心福祉不是同一个目标。传统看重传承，安全看重稳定；自我导向关注选择，刺激关注新鲜，享乐关注愉悦。成就涉及认可的表现，权力涉及地位与资源控制。它们都可能与具体照顾同时出现，不把仁爱判成唯一善良类别，也不由较高成就或权力认定一个人缺少关心。",
+              "en": "Universalism extends concern to strangers, wider humanity and nature. Conformity can produce the same considerate action through interpersonal expectations rather than the same goal of care. Tradition concerns heritage, security stability, self-direction choice, stimulation novelty and hedonism pleasure. Achievement concerns recognised performance and power status and resource control. Several can accompany practical care. Benevolence is no sole category of goodness, and higher achievement or power ratings establish no lack of concern."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，关心别人却没有足够时间的人可能做得很少；承担很多照顾的人也可能是现实责任所迫。这个均分不测共情技能、助人效果、依恋、情商、道德、心理健康或适合的职业，较低相对值也不表示冷漠或不值得交往。三条不同关注可能同分相抵，不能凭总均分替每条写同一种解释。本版未经测量验证，不让一次答卷代表某个群体或决定应承担多少责任。",
+              "en": "Someone caring deeply can do little because of limited time, while someone providing extensive care may be responding to unavoidable responsibilities. This mean measures no empathy skill, effectiveness, attachment, emotional intelligence, morality, mental health or suitable career. Lower relative values establish no coldness or undesirability as a companion. Different responses can produce equal means without one identical interpretation for every item. This unvalidated edition lets no attempt represent a group or determine how much responsibility someone should carry."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次普通支持，分开记下自己关心的目标、对方提出的需要，以及双方实际同意的部分。没有问清的需要保留未知，不以好意补写。只回顾也可以，不要求额外帮忙、索取反馈或提高仁爱分数。若愿意继续，只在原本就涉及的一次小安排中确认对方是否需要这一具体帮助；这个观察不承诺关系改善、共情提升或得到回报。",
+              "en": "For an optional observation, recall ordinary support and distinguish your valued goal, the need actually expressed and what both parties agreed. Preserve an unconfirmed need as unknown instead of filling it from good intentions. Recollection requires no extra help, requested feedback or higher benevolence score. If useful, confirm whether one particular form of help is wanted in an arrangement already involving you. This promises no improved relationship, empathy or return."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "universalism",
+      "directionIds": [
+        "universalism"
+      ],
+      "title": {
+        "zh": "普世关怀价值：广泛人群、差异与自然",
+        "en": "Universalism Values: People, Difference and Nature"
+      },
+      "headline": {
+        "zh": "普世关怀价值：广泛人群、差异与自然",
+        "en": "Universalism Values: People, Difference and Nature"
+      },
+      "summary": {
+        "zh": "理解普世关怀的公平、差异与自然三类关注，含相对计分例子、其他九类对照及普通选择；不评道德、政治立场、实际贡献或职业。",
+        "en": "Explore universalism, fairness, difference, nature, relative scoring and nine comparisons. No morality, politics, actual contribution or career verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "普世关怀价值观结果：Schwartz十类完整解释",
+          "en": "Universalism Values: Full Schwartz Framework Guide"
+        },
+        "description": {
+          "zh": "理解普世关怀的公平、差异与自然三类关注，含相对计分例子、其他九类对照及普通选择；不评道德、政治立场、实际贡献或职业。",
+          "en": "Explore universalism values: wider humanity, nature, raw and relative scores, nine comparisons and full examples. No moral or political verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这类价值目标在描述什么",
+            "en": "What this value goal describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "普世关怀在经典十类框架中把关注扩及广泛人群、人与人之间的差异和自然环境，而不只限于自己的熟人圈。本版三条分别围绕公平对待、理解差异及考虑对自然和更广人群的影响原创。它们组成一个宽泛概念反思，不拆成经验证的三个子量表，也不代表精细十九类版本。你可以在这三种目标上有不同看法；总均分不能替每项回答作同一种解释。",
+              "en": "Universalism in the classical ten-value framework extends concern to wider humanity, human differences and nature rather than only a familiar circle. Three original items address fair treatment, understanding differences and considering effects on nature and wider groups. They form a broad conceptual reflection without three validated subscales or the refined nineteen-value edition. These goals can receive different responses; one mean cannot assign the same interpretation to each item."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始均分与相对值的例子",
+            "en": "A raw and relative scoring example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，三条为5、5、2，原始和12、均分4.0；三条为4、4、4也有相同均分，但对自然、差异或公平的具体回答可能不同。全部30条总和108时，整体均分3.6，两组同为相对+0.40。这个相等不证明态度内容相同，也不判断谁更道德。全卷有任何暂不作答则不估计相对值；本类有缺答时连原始均分也保留不足，三份关注不会被补成人群标签。",
+              "en": "For example, ratings of five, five and two sum to 12 with mean 4.0, as do three ratings of four, while the particular responses about fairness, differences or nature vary. With all 30 ratings totalling 108, both patterns have overall mean 3.6 and relative value +0.40. Equality establishes neither identical views nor greater morality. Any unscored item prevents relative values; a missing rating here also prevents this raw mean rather than filling in an attitude toward a group."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通生活情境",
+            "en": "An ordinary life situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是你参与一次小型共同活动，希望考虑不认识的参与者是否能被公平对待、不同需要是否有表达空间，以及材料如何使用。先了解具体条件和真正受影响的人，而不是从一个价值名称推出所有人都想要什么。你可以提出一个可协商的小问题，同时承认信息有限。重视广泛影响不要求你独自解决所有问题，更不意味着可以替别人决定他们的需要或越过同意。",
+              "en": "Imagine a small shared activity where you want to consider fair treatment for unfamiliar participants, room for different needs and how materials are used. Learn the conditions and who is actually affected instead of inferring everyone’s wishes from a value name. Raise one negotiable question while acknowledging limited information. Valuing wider effects requires neither solving every problem alone nor deciding others’ needs or overriding consent on their behalf."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "一句可协商的表达",
+            "en": "Possible wording for discussion"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“这次安排有没有我们还没听到的需要，材料的使用也能一起确认吗？”它提出具体了解，而不是要求别人认同一套完整立场。若掌握的信息不足，可以先保留未知；有不同意见时，问清事实与需要，比用“谁更有普世关怀”比较人更具体。分数不授权你代表陌生人，也不要求他人提供私人背景来证明自己受到影响。",
+              "en": "You might say, “Are there needs we have not yet heard about in this arrangement, and can we also clarify the use of materials?” This requests specific information rather than agreement with an entire position. Keep uncertainty where facts are absent. With disagreement, ask about facts and needs rather than comparing who has more universal concern. A score authorises no representation of strangers and requires nobody to disclose a private background to prove they are affected."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他九类价值比较",
+            "en": "Comparing the nine other values"
+          },
+          "paragraphs": [
+            {
+              "zh": "仁爱主要关心熟悉者福祉，普世关怀延伸到更广范围；两者可以同样重要，不把照顾亲近者判得较低。自我导向涉及选择，刺激涉及新鲜，享乐涉及愉悦；成就关注社会认可的表现，权力关注地位与控制。安全、遵从、传统分别涉及稳定、日常交往约束和传承。一次公平安排也可能照顾稳定与共同约定，不能从理论圆环推断这些目标在某个人身上必然冲突或预测关系相容性。",
+              "en": "Benevolence primarily concerns close others and universalism a wider scope; both can matter without ranking care for close people as lesser. Self-direction concerns choice, stimulation novelty, hedonism pleasure, achievement recognised performance and power status and control. Security concerns stability, conformity interpersonal restraint and tradition heritage. A fair arrangement can also support stability and agreements, so the theoretical circle establishes no inevitable conflict within a person or prediction of compatibility."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，重视广泛福祉的人可能没有资源参与更多活动；参与公开活动的人也未必出于这一价值。均分不测实际贡献、公平判断准确、宽容行为、政治或宗教立场、健康、道德和职业适配。较低相对值不证明歧视、不关心自然或不值得信任，较高也不认证行为无害。源研究不验证这三条原创题或本版十部分，不能把一次答卷当成群体描述、聘用或关系决定。",
+              "en": "Someone valuing wider welfare may lack resources for more participation, while public participation can reflect other motives. The mean measures no actual contribution, fairness of judgment, tolerant behaviour, politics, religion, health, morality or career fit. Lower relative values establish no discrimination, indifference to nature or untrustworthiness; higher ones certify no harmless conduct. Source research validates neither these original items nor this ten-part edition, and an attempt supplies no group description, hiring or relationship decision."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional observation"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选观察：回看一次普通材料或活动安排，分开列出自己在意的广泛影响、真正了解的事实和仍不知道的部分。无需额外参加、捐赠或证明立场；只回顾也足够。若本来就需要继续协商，可以先确认一个事实或听一个相关者自愿表达的需要，不代替对方发言。这个观察帮助区别价值目标与实际信息，不保证社会或环境效果，也不以提高分数作目标。",
+              "en": "For an optional observation, revisit an ordinary activity or materials arrangement and separate wider effects you valued, facts actually known and what remained unknown. No added participation, donation or proof of a position is required; recollection is enough. If further discussion is already needed, confirm one fact or hear a relevant person’s voluntarily expressed need without speaking for them. This distinguishes goals from information without guaranteeing social or environmental outcomes or targeting a higher score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "本版原始与相对计分",
+            "en": "Raw and relative scoring in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+              "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "原创方法、理论来源与使用范围",
+            "en": "Original method, theory sources and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+              "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "怎样读原始均分与相对值",
+        "en": "Reading raw means and relative values"
+      },
+      "paragraphs": [
+        {
+          "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+          "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "十类、人格与行为分别理解",
+        "en": "Ten goals, personalities and behaviour"
+      },
+      "paragraphs": [
+        {
+          "zh": "经典十类是自我导向、刺激、享乐、成就、权力、安全、遵从、传统、仁爱与普世关怀，关心的是不同目标的重要程度，不是互斥人格。自我导向不等于创造能力，成就不等于表现水平；遵从面向交往者期待，传统面向文化或宗教传承；仁爱侧重熟悉者，普世关怀扩及所有人及自然。理论圆环描述目标之间的动机关系，不是本次测得的个人冲突、关系匹配或强制成长路线；经典十类也不等于精细十九类。",
+          "en": "The ten classical values are self-direction, stimulation, hedonism, achievement, power, security, conformity, tradition, benevolence and universalism. They concern importance of goals rather than exclusive personalities. Self-direction is no creativity score and achievement no performance score. Conformity concerns interpersonal expectations, tradition cultural or religious heritage, benevolence close others and universalism wider humanity and nature. The theoretical circle describes motivational relations rather than measured personal conflict, compatibility or a required growth path. The classical ten are distinct from the refined nineteen."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "原创反思与标准工具的区别",
+        "en": "Original reflection and standard instruments"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+          "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费、草稿与分享",
+        "en": "Full free access, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "30条题目、十项说明与所有完整正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不要求填写文化、宗教或私人经历。草稿须主动保存，仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、均分、相对值或内部ID。公开正文不关联私人答卷；其他测评须独立完整作答，不从价值分数补出人格或职业结果。",
+          "en": "All 30 items and ten full guides are free without email, signup or another assessment to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics; no cultural or religious membership or personal story is requested. Drafts require opt-in, persist only in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, means, relative values or internal IDs. Public guides contain no private attempts. Other assessments require independent full answers rather than personality or career results inferred from these values."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是PVQ-21、PVQ-RR或SVS标准问卷吗？",
+        "en": "Is this a standard PVQ-21, PVQ-RR or SVS questionnaire?"
+      },
+      "answer": {
+        "zh": "本版30条中英文直接重要程度题、映射、解释、例子与呈现由费马原创，围绕Schwartz经典十类价值目标进行反思。不是PVQ-21／PVQ40的他人画像相似度题、PVQ-RR十九类、SVS标准问卷、这些题本的翻译或官方计分工具；未采用竞品题库、正文或算法。作者理论资料提供概念、目标间关系与个人相对优先级的背景，不验证本题、十因子、个体圆环、中文与英文等价或任何个人解释。标准题本商业使用条件未在本任务确认，未由文章许可推定其商业授权。结果不判断实际行为、能力、健康、道德、政治宗教身份、聘用、职业适配或关系相容性，不将年龄、文化或性别模式套给个人，也不把某个价值指定为应当提高或压低的目标。",
+        "en": "FermatMind authored these 30 bilingual direct-importance items, mappings, explanations, examples and presentation for reflection on the ten classical Schwartz value goals. This is no PVQ-21 or PVQ40 portrait-similarity form, nineteen-value PVQ-RR, standard SVS, translation of those banks or official scoring instrument. No competitor bank, report body or algorithm is adopted. Author materials supply conceptual background, motivational relations and within-person priorities, not validation of these items, ten factors, an individual circle, language equivalence or any personal interpretation. Standard-instrument commercial terms were not established in this task and are not inferred from an article licence. Results judge no actual behaviour, ability, health, morality, political or religious membership, hiring, career fit or compatibility and apply no age, cultural or gender pattern to an individual. No value is prescribed as a target to raise or suppress."
+      }
+    },
+    {
+      "question": {
+        "zh": "Schwartz经典十类价值分别是什么？",
+        "en": "What are the ten classical Schwartz values?"
+      },
+      "answer": {
+        "zh": "经典十类是自我导向、刺激、享乐、成就、权力、安全、遵从、传统、仁爱与普世关怀，关心的是不同目标的重要程度，不是互斥人格。自我导向不等于创造能力，成就不等于表现水平；遵从面向交往者期待，传统面向文化或宗教传承；仁爱侧重熟悉者，普世关怀扩及所有人及自然。理论圆环描述目标之间的动机关系，不是本次测得的个人冲突、关系匹配或强制成长路线；经典十类也不等于精细十九类。",
+        "en": "The ten classical values are self-direction, stimulation, hedonism, achievement, power, security, conformity, tradition, benevolence and universalism. They concern importance of goals rather than exclusive personalities. Self-direction is no creativity score and achievement no performance score. Conformity concerns interpersonal expectations, tradition cultural or religious heritage, benevolence close others and universalism wider humanity and nature. The theoretical circle describes motivational relations rather than measured personal conflict, compatibility or a required growth path. The classical ten are distinct from the refined nineteen."
+      }
+    },
+    {
+      "question": {
+        "zh": "原始均分和相对值有什么区别？",
+        "en": "How do raw means and relative values differ?"
+      },
+      "answer": {
+        "zh": "30条原创题按重要程度1—5评分，经典十类各3条，0条反向；暂不作答不进入分子或分母，不补成零或中点。每类3条全部有效才有原始均分；全部30条有效才有个人整体均分及十项相对值：该类未舍入的和除3，再减全部和除30。显示相对值两位小数，计算不先舍入；正值高于本次自己整体，负值低于自己整体，零不是不重视。所有回答相同时十项相对值全零，仍然是有效回答而不是没有价值观。保留全部十份全文，不排名、硬派唯一顶部或主副型。没有人群常模、百分位、显著差异、准确度或心理测量验证。",
+        "en": "Thirty original items use importance ratings from one to five, three for each classical value, with no reverse keys. Unscored responses enter neither numerator nor denominator and are never filled with zero or a midpoint. Each value needs all three ratings for a raw mean. All 30 ratings are required for your overall mean and ten relative values: the unrounded value sum divided by three minus the overall sum divided by 30. Display two decimals for relative values without rounding first. Positive, negative and zero compare with your own overall responses only; zero does not mean unimportant. Identical ratings give ten valid zero relative values rather than no values. Keep all ten full guides without ranking, a sole top identity or primary/secondary types. There are no population norms, percentiles, significant differences, accuracy claims or psychometric validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么相对值为负，仍可能很重视？",
+        "en": "Why can a negative relative value still describe an important goal?"
+      },
+      "answer": {
+        "zh": "例如本类三条都4、其余27条都5，本类均分4.0、整体均分4.9，相对值−0.90；“很重要”只低于你本次其他回答。30条全4时全部相对值0.00，也不是没有价值观。正负和零都不代表人群位置、正确与否或必须改的目标，不能直接比较两个人的能力或道德。",
+        "en": "If these three ratings are four and every other rating five, this mean is 4.0, the overall mean 4.9 and the relative value −0.90. Very important is simply below your other responses. Thirty ratings of four give ten zero relative values rather than no values. Signs establish no population rank, correctness or target to change and compare no ability or morality between people."
+      }
+    },
+    {
+      "question": {
+        "zh": "暂不作答或多项相同时会怎样？",
+        "en": "What happens with unscored items or equal ratings?"
+      },
+      "answer": {
+        "zh": "每类三条全有效才有该类均分；全卷任一暂不作答就不估计整体基线或相对值，其他完整部分的原始均分仍保留。相同回答是有效选择，不当认真检测；同分不靠顺序硬派主副型。无论个人资料是否足够，十份完整公开说明都可读，完成后也一起呈现。",
+        "en": "Each value needs three valid ratings for its own mean. Any unscored item prevents the overall baseline and relative values, while fully rated parts keep raw means. Identical ratings remain valid without an attention verdict or list-order primary/secondary type. All ten public guides remain available and appear together after completion, regardless of sufficient personal data."
+      }
+    },
+    {
+      "question": {
+        "zh": "能从这份结果决定工作、关系或政治宗教身份吗？",
+        "en": "Can these results decide work, relationships, politics or religion?"
+      },
+      "answer": {
+        "zh": "不能。重要程度不是实际能力、行为、道德、环境或身份；本版也没有职业适配、相容性、健康或群体常模验证。圆环仅提供理论背景，不把某两个价值定成个人冲突或成长处方。真实决定需看事实、意愿与实际条件，其他测评须另行完整作答，不互相换算。",
+        "en": "No. Importance is no measure of actual ability, behaviour, morality, environment or membership. This edition has no validation for career fit, compatibility, health or group norms. The circle provides conceptual background rather than a personal conflict or growth prescription. Decisions need facts, wishes and practical conditions; other assessments require separate full answers without conversion."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整报告、重测和分享免费吗？",
+        "en": "Are full reports, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "30条题目、十项说明与所有完整正文免费，无需邮箱、注册或其他测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不要求填写文化、宗教或私人经历。草稿须主动保存，仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、均分、相对值或内部ID。公开正文不关联私人答卷；其他测评须独立完整作答，不从价值分数补出人格或职业结果。",
+        "en": "All 30 items and ten full guides are free without email, signup or another assessment to unlock them. Answers are scored in the browser without uploading or entering URLs or analytics; no cultural or religious membership or personal story is requested. Drafts require opt-in, persist only in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, means, relative values or internal IDs. Public guides contain no private attempts. Other assessments require independent full answers rather than personality or career results inferred from these values."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Schwartz（2012）：基本价值理论概述（理论背景）",
+        "en": "Schwartz (2012): Overview of basic values theory, conceptual background"
+      },
+      "url": "https://scholarworks.gvsu.edu/orpc/vol2/iss1/11/"
+    },
+    {
+      "title": {
+        "zh": "Schwartz（2021）：标准工具版本与分析资源目录（未采用题本）",
+        "en": "Schwartz (2021): standard-instrument versions and analysis repository, banks not adopted"
+      },
+      "url": "https://scholarworks.gvsu.edu/orpc/vol2/iss2/9/"
+    }
+  ]
+}
