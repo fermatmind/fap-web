@@ -1,0 +1,2391 @@
+{
+  "id": "T169",
+  "edition": "fm_sales_decision_practice_24_v1",
+  "authorship": "Original fictional bilingual sales case/checklist/arithmetic practice. Source concepts background only, no published questionnaire/course/exercise/figure/bank adaptation. Declared encodings+author semantic review,not independent sales-expert review,universal sales standards,norms or hiring certification.",
+  "questions": [
+    {
+      "id": "SALES_01",
+      "prompt": {
+        "en": "A fictional buyer says: “Our volunteers need to check people in while the venue has no internet.” Your task is to clarify the offline workflow before recommending anything. Which question meets that task without assuming the solution?",
+        "zh": "虚构买家说：“场地没网时，志愿者也要能给来宾签到。”本题要求先澄清离线流程，再作推荐。哪个问题既满足任务，又不预设解决方案？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Which check-in steps must work without a connection?",
+            "zh": "哪些签到步骤必须在无网络时完成？"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "How many analytics dashboards would you like to buy?",
+            "zh": "想买多少个分析看板？"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Shall I book installation of the online-only package?",
+            "zh": "我直接安排只能联网的套餐安装吗？"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Can I assume every volunteer brings a mobile hotspot?",
+            "zh": "我能假定每位志愿者都自带热点吗？"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The chosen question asks what must happen offline and leaves the buyer able to specify the workflow. Dashboards do not clarify this requirement. Booking an online-only package recommends a solution before discovery, while assuming hotspots replaces the stated no-internet constraint with an unsupported workaround. This key follows this task’s explicit goal, not a claim that one question is best for every sales conversation.",
+        "zh": "所选问题澄清离线时必须完成什么，让买家说明流程。看板没有澄清这项需求；直接安装联网套餐是在了解前先推荐；假定自带热点则用未给出的变通办法替换无网限制。答案依据本题明确目标，不声称某句话适合所有销售对话。"
+      }
+    },
+    {
+      "id": "SALES_02",
+      "prompt": {
+        "en": "A buyer needs an export every Friday for an existing spreadsheet. You know neither its accepted format nor which fields it needs. The case rule is to ask about both unknowns before promising compatibility. Which response follows that rule?",
+        "zh": "买家每周五要导出数据给现有表格，但你不知道它接收什么格式、需要哪些字段。题定规则是在承诺兼容前问清这两个未知项。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Any export will definitely work with your sheet.",
+            "zh": "任意导出肯定都兼容你的表格。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Which file formats does that sheet accept, and which fields must the export contain?",
+            "zh": "表格接受哪些文件格式，导出必须包含哪些字段？"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Which fields do you need? I will assume the file format.",
+            "zh": "需要哪些字段？格式我就自行假定。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Which format do you need? I will assume the fields.",
+            "zh": "需要什么格式？字段我就自行假定。"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The rule requires two pieces of information, so asking only about format or only about fields is incomplete. The selected response asks for both and makes no promise. The word “export” alone establishes neither compatible structure nor required content. In a real implementation, documented capabilities and the customer’s actual file specification would still need to be checked after discovery.",
+        "zh": "规则要求两项信息，只问格式或只问字段都不完整。所选项两者都问，且未作承诺。“能导出”本身不能证明结构兼容或内容齐全。真实实施还需在了解需求后核对产品文档与客户文件规范。"
+      }
+    },
+    {
+      "id": "SALES_03",
+      "prompt": {
+        "en": "The buyer’s note says: “Launch is planned for 18 August; the board must approve the purchase; budget is still undecided.” Which summary preserves all three facts without inventing an approval or budget?",
+        "zh": "买家笔记写：“计划8月18日上线，购买须经董事会批准，预算尚未确定。”哪个摘要保留三项事实，又不编造审批或预算？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Approved launch: 18 August; board has approved; budget confirmed.",
+            "zh": "已批准8月18日上线，董事会已同意，预算已定。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Planned launch: 18 August; no purchase approval is needed.",
+            "zh": "计划8月18日上线，购买无需审批。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Planned launch: 18 August; approval needed: board; budget: undecided.",
+            "zh": "计划上线：8月18日；需审批：董事会；预算：未定。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Board approval needed; launch date and budget are both confirmed.",
+            "zh": "须董事会审批，上线日期和预算都已最终确认。"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The note states a plan, a required decision-maker and an unknown budget. The selected summary keeps each status intact. A planned date is not a final approval, and the existence of an approval requirement does not mean approval has occurred. Preserving uncertainty in notes is useful practice; this item does not determine the buyer’s probability of purchasing.",
+        "zh": "原笔记分别给出计划、所需决策方和未知预算，所选项保留各自状态。计划日期不是最终审批，存在审批要求也不等于已经通过。练习保留笔记中的不确定性，不等于判断买家购买概率。"
+      }
+    },
+    {
+      "id": "SALES_04",
+      "prompt": {
+        "en": "A buyer says “too expensive”, without naming a comparison. The stated goal is to learn the comparison before discussing a discount. Which response meets that goal?",
+        "zh": "买家说“太贵”，但未说明比较对象。题定目标是在谈折扣前了解比较口径。哪个回应满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I will cut the price immediately without asking anything.",
+            "zh": "我什么也不问，马上降价。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Your comparison must be wrong.",
+            "zh": "你的比较肯定不对。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Our company has a long history.",
+            "zh": "我们公司历史很长。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "What are you comparing the price with, and what costs are included in that comparison?",
+            "zh": "你是与什么价格相比，比较中包括了哪些费用？"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected question seeks the reference and what it includes. An immediate discount does not gather that information, an accusation assumes the comparison is wrong, and company history does not answer the question. The case asks for clarification rather than proving that a higher price is justified. Different products, terms or included services can make apparently similar numbers incomparable.",
+        "zh": "所选问题同时了解参照对象和所含费用。立刻降价没有收集信息，指责则预设对方比较错误，公司历史也没有回答比较口径。本题要澄清，不是证明较高价格合理；产品、条款或所含服务不同，表面相似数字仍可能不可比。"
+      }
+    },
+    {
+      "id": "SALES_05",
+      "prompt": {
+        "en": "A customer must reduce duplicate entry, keep an approval record and stay within its existing process. Which confirmation repeats those requirements without adding a promised saving?",
+        "zh": "客户要求减少重复录入、保留审批记录，并沿用现有流程。哪个确认复述了这些需求，且未添加已保证的节省额？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "You need less duplicate entry and an approval record within your current process. Have I understood correctly?",
+            "zh": "你需要在现有流程内减少重复录入并保留审批记录，我理解对吗？"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "You need a full process replacement with no approval record.",
+            "zh": "你需要彻底换流程，也不用审批记录。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You are guaranteed to save 80% of staff time.",
+            "zh": "你一定能节省80%人工时间。"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Your only requirement is the lowest possible price.",
+            "zh": "你唯一需求是最低价。"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The confirmation retains all three stated requirements and invites correction. It does not turn them into an implemented solution or a quantified outcome. No time-saving percentage or price-only priority was supplied. A confirmation question checks understanding; it should not quietly introduce a benefit claim that the customer never stated and the product has not demonstrated.",
+        "zh": "确认句保留三项给定需求，并允许对方纠正，未把需求说成已实施方案或量化结果。题中没有省时比例，也没有只看最低价的优先级。确认理解时，不应悄悄加入客户没说、产品也未证明的收益主张。"
+      }
+    },
+    {
+      "id": "SALES_06",
+      "prompt": {
+        "en": "A training worksheet requires need, budget, decision authority and target date before marking discovery complete. Notes contain need, budget and date only. Which field is still missing?",
+        "zh": "虚构培训表规定：需求、预算、决策权限和目标日期齐全，才标为了解完成。笔记只有需求、预算、日期。还缺什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The stated need",
+            "zh": "已记录的需求"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Who has decision authority",
+            "zh": "谁有决策权限"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The stated budget",
+            "zh": "已记录的预算"
+          },
+          "directionId": "discovery"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The stated target date",
+            "zh": "已记录的目标日期"
+          },
+          "directionId": "discovery"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Compare the required four-field checklist with the three recorded fields: authority is absent. Do not fill that gap by assuming the person in the conversation can approve the purchase. This is a fictional worksheet rule rather than a universal qualification framework, and checking a box does not by itself make an opportunity likely to close.",
+        "zh": "用四项必填清单对照已记三项，缺的是权限。不能假定当前交谈者能批准购买来补缺口。这只是虚构培训表的规则，不是通用资格框架，勾齐字段也不代表机会很可能成交。"
+      }
+    },
+    {
+      "id": "SALES_07",
+      "prompt": {
+        "en": "A buyer requires both offline check-in and CSV export. In the supplied feature sheet, Cedar has both; Flint has offline check-in only; Opal has CSV export only; Reed has neither. Which product meets both listed requirements?",
+        "zh": "买家必须同时要离线签到和CSV导出。题给功能表中Cedar两者都有，Flint只有离线签到，Opal只有CSV导出，Reed两者都无。哪个同时满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Flint",
+            "zh": "Flint"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Opal",
+            "zh": "Opal"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Cedar",
+            "zh": "Cedar"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Reed",
+            "zh": "Reed"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Cedar is the intersection of the two required capabilities in this feature sheet. A product meeting only one requirement is not a match for the stated “both” condition. This does not establish Cedar as a universal recommendation: price, implementation, accessibility, security and other real requirements are outside the supplied comparison and would need their own evidence.",
+        "zh": "在这份功能表中，Cedar同时落在两项必需能力的交集中。只满足一项不能满足“同时”条件。这并不形成通用推荐；价格、实施、无障碍、安全和其他真实需求都在本题比较之外，需各自证据。"
+      }
+    },
+    {
+      "id": "SALES_08",
+      "prompt": {
+        "en": "The customer must launch by 1 September. The earliest documented implementation slot is 12 September. The case policy requires disclosing a missed deadline before requesting a decision. Which response follows that policy?",
+        "zh": "客户须9月1日前上线，文档所示最早实施档期为9月12日。题定规则是在请求决策前披露错过期限。哪个回应符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "We guarantee completion by 1 September.",
+            "zh": "我们保证9月1日前完成。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Please approve now; I will mention the 12 September date later.",
+            "zh": "请先批准，我之后再说9月12日。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I will remove the date from the notes.",
+            "zh": "我把日期从笔记里删掉。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Our earliest documented slot is 12 September, which misses your deadline; can the date or scope change?",
+            "zh": "文档最早档期为9月12日，赶不上你的期限；日期或范围能否调整？"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The selected response states the actual slot and the conflict before asking about a possible change. It does not assume the customer can move the deadline. A guarantee for 1 September contradicts the documented availability, and delaying or erasing the constraint violates the stated disclosure policy. A mismatch can remain a mismatch even when a seller wants a next step.",
+        "zh": "所选回应先说明真实档期与冲突，再询问是否能调整，而非假定客户能改期限。保证9月1日前完成与文档不符；延后披露或删除限制违反题定规则。即使想推进下一步，不匹配也可能仍是不匹配。"
+      }
+    },
+    {
+      "id": "SALES_09",
+      "prompt": {
+        "en": "A prospect asks whether the tool integrates with system Q. The current documentation does not answer it. Your fictional policy forbids unverified capability promises and requires checking with the product specialist. Which response complies?",
+        "zh": "潜在客户问工具是否集成Q系统，现有文档没有答案。虚构政策禁止承诺未核实功能，并要求向产品专家核对。哪个回应符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I cannot confirm Q integration yet; I will check with the product specialist and report what is verified.",
+            "zh": "目前不能确认Q集成，我会向产品专家核对后回复已验证信息。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every integration definitely works.",
+            "zh": "所有集成都一定能用。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I will say yes because the product name sounds compatible.",
+            "zh": "名称听着兼容，我就说可以。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "No need to check; I will leave the question unanswered and promise Q support.",
+            "zh": "不用核对，我不回答这个问题，但承诺支持Q。"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The key preserves the unknown state and names the required verification step. A missing entry in the documentation is not proof of compatibility or incompatibility. The promised follow-up is to report verified information, not to guarantee that the specialist will give a desired answer. The case does not require access to an actual customer system or any real integration.",
+        "zh": "答案保留未知状态，并说明要求的核对步骤。文档未写，不证明兼容，也不证明不兼容。后续承诺是回复已验证信息，不是保证专家会给出期待的答案；本题无需访问真实客户系统或集成。"
+      }
+    },
+    {
+      "id": "SALES_10",
+      "prompt": {
+        "en": "A written offer includes six users, standard support and CSV export. The customer asks whether premium telephone support is included. The case rule is to distinguish listed inclusions from unlisted features. Which claim is supported?",
+        "zh": "书面报价包含6名用户、标准支持和CSV导出。客户问是否含高级电话支持。题定规则要求区分列明包含项与未列功能。哪项有依据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Premium telephone support is definitely included.",
+            "zh": "高级电话支持肯定包含。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Standard support is listed; premium telephone support is not established by this offer.",
+            "zh": "报价列了标准支持，不能据此确认高级电话支持也包含。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "No support of any kind is included.",
+            "zh": "任何支持都不包含。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CSV export is not included.",
+            "zh": "不包含CSV导出。"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The offer explicitly establishes standard support and CSV export. It does not establish the separate premium telephone service. Keeping an unlisted feature unknown is different from saying it is definitely excluded; further terms may resolve it. The other options either invent an inclusion or contradict a stated one. The item checks reading this offer, not knowledge of a real vendor’s packages.",
+        "zh": "报价明确了标准支持与CSV导出，却没有确认另一项高级电话服务。保留未知与断言一定排除不同，进一步条款可能解决。其余选项不是编造包含项，就是否认明示项。本题检查这份报价的阅读，不考现实供应商套餐。"
+      }
+    },
+    {
+      "id": "SALES_11",
+      "prompt": {
+        "en": "A fictional demonstration may claim only capabilities shown in its supplied evidence. The evidence shows CSV export on desktop; mobile export and offline export have not been tested. Which statement stays within that boundary?",
+        "zh": "虚构演示只可宣称题给证据已经展示的能力。证据显示桌面端CSV导出，手机端导出与离线导出尚未测试。哪个说法守住边界？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "All devices export offline flawlessly.",
+            "zh": "所有设备都能完美离线导出。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Mobile export is impossible.",
+            "zh": "手机导出不可能。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The supplied demonstration shows desktop CSV export; mobile and offline export are unverified.",
+            "zh": "题给演示证明了桌面CSV导出，手机与离线导出未核实。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The demonstration proves every feature works.",
+            "zh": "演示证明所有功能都能用。"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The supported statement names the tested surface and preserves the two untested states. Untested is neither a promise of success nor a proof of impossibility. Generalizing a desktop demonstration to every device or every feature exceeds the supplied evidence. A real product claim would require the relevant current evidence; this fictional item supplies only the stated test scope.",
+        "zh": "有依据的说法点明已测试表面，保留两个未测试状态。未测试既不保证成功，也不证明不可能。把桌面演示推广到所有设备或所有功能，都超过证据。本题只给定所述范围，真实产品主张需相关当前证据。"
+      }
+    },
+    {
+      "id": "SALES_12",
+      "prompt": {
+        "en": "The customer says a proposed package lacks a mandatory approval log. The case policy says not to label a package “meets all mandatory needs” while a mandatory gap remains. Which conclusion follows?",
+        "zh": "客户指出候选套餐缺少必需的审批日志。题定政策说，只要必需项仍有缺口，就不能标为“满足全部必需需求”。哪项结论符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Mark it as fully meeting needs because the demo looked attractive.",
+            "zh": "演示好看，所以标为完全满足。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Treat the missing log as present without new evidence.",
+            "zh": "没有新证据也把日志当作已有。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Remove the mandatory requirement without the customer’s agreement.",
+            "zh": "未经客户同意删掉必需要求。"
+          },
+          "directionId": "fit"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Do not mark it as meeting all mandatory needs while that gap remains.",
+            "zh": "缺口仍在时，不标为满足全部必需需求。"
+          },
+          "directionId": "fit"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The mandatory-log gap directly triggers the case rule. A visually attractive demo does not supply the missing capability, and a seller cannot silently redefine the customer’s requirement to make a match appear. The conclusion leaves room to investigate alternatives or discuss an agreed scope change later, but it does not assume either will be acceptable.",
+        "zh": "必需日志缺失直接触发题定规则。演示吸引人不会补出缺失能力，销售也不能悄悄改客户要求以制造匹配。后续可调查替代方案或讨论经同意的范围调整，但答案不假定它们会被接受。"
+      }
+    },
+    {
+      "id": "SALES_13",
+      "prompt": {
+        "en": "A fictional contact permits one email on Tuesday and says not to call. Your case rule is to follow both the agreed channel and day. Which plan meets both?",
+        "zh": "虚构联系人只同意周二收一封邮件，并说不要打电话。题定规则要求同时遵守约定渠道与日期。哪个计划满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "One email on Tuesday, with no call.",
+            "zh": "周二一封邮件，不打电话。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A call on Tuesday.",
+            "zh": "周二打电话。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "One email on Monday.",
+            "zh": "周一一封邮件。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "An email and a call every day.",
+            "zh": "每天都发邮件并打电话。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The permitted plan uses the specified channel on the specified day and adds no call. Matching only the day or only the channel is insufficient. This is a stated fictional contact arrangement, not a universal outreach cadence or legal advice. The exercise does not send a message, place a call or require any real contact details.",
+        "zh": "允许的计划在指定日期使用指定渠道，且不增加电话。只匹配日期或只匹配渠道都不够。这是虚构联系约定，不是通用跟进频率或法律建议。本练习不发送消息、不打电话，也不需要真实联系方式。"
+      }
+    },
+    {
+      "id": "SALES_14",
+      "prompt": {
+        "en": "The case policy says to stop promotional follow-ups when a contact asks to stop. The fictional contact has made that request. Which next action follows the policy?",
+        "zh": "题定政策要求：联系人明确要求停止后，停止推广性跟进。虚构联系人已提出该要求。哪个后续动作符合政策？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keep the same promotion but switch to phone calls.",
+            "zh": "保留同一推广，只换成电话继续。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Record the stop request and stop promotional follow-ups.",
+            "zh": "记录停止要求，并停止推广性跟进。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Send more promotions to test whether the request was serious.",
+            "zh": "多发几次推广，试试对方是否认真。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Erase the request and leave the follow-up campaign active.",
+            "zh": "删掉要求，继续保留跟进活动。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The explicit stop condition has been met, so the stated policy requires stopping the promotional sequence. Changing the channel does not make the same promotion comply, and erasing the request does not undo it. This item scores compliance with the supplied rule only. Other real service communications or legal obligations are not specified or decided by this fictional exercise.",
+        "zh": "明确停止条件已满足，因此按题定政策应停止推广序列。换渠道不能让同一推广变合规，删掉记录也不会撤销要求。本题只核是否遵守所给规则，不决定其他真实服务消息或法律义务。"
+      }
+    },
+    {
+      "id": "SALES_15",
+      "prompt": {
+        "en": "You proposed Thursday at 14:00, but the fictional buyer has not replied. The worksheet permits the status “confirmed meeting” only after agreement. Which note is accurate now?",
+        "zh": "你提议周四14:00见面，但虚构买家尚未回复。表格规定只有双方同意后才可标“会议已确认”。现在哪条笔记准确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Thursday 14:00 confirmed by both parties.",
+            "zh": "双方已确认周四14:00。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The buyer has purchased because a meeting was proposed.",
+            "zh": "提出见面就代表买家已购买。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Thursday 14:00 proposed; agreement not yet received.",
+            "zh": "已提议周四14:00，尚未收到同意。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The buyer definitely rejected the product.",
+            "zh": "买家肯定拒绝了产品。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Only the proposal is established. No reply is neither agreement nor proof of rejection, and a proposed meeting is not a purchase. The selected note records the unknown state rather than upgrading an intention into a commitment. This simple distinction makes the worksheet reproducible without estimating the buyer’s private intentions or chance of closing.",
+        "zh": "目前只确认提出过建议。未回复既不等于同意，也不证明拒绝，提议会议更不等于购买。所选笔记保留未知状态，不把意向升级为承诺，从而无需揣测买家内心或成交概率也能复算。"
+      }
+    },
+    {
+      "id": "SALES_16",
+      "prompt": {
+        "en": "A fictional handoff must contain the buyer’s stated need, the unresolved product question and the next agreed action. Which note includes all three without inventing a resolution?",
+        "zh": "虚构交接必须包含买家明示需求、未解决产品问题和已约定下一步。哪条笔记三项齐全，且未编造问题已解决？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Need: offline check-in. Everything else is solved.",
+            "zh": "需求是离线签到，其余全部解决。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The prospect seemed enthusiastic.",
+            "zh": "潜在客户看起来很热情。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Agreed action: Friday reply. No need or open question recorded.",
+            "zh": "约定周五回复，未记需求或待解问题。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Need: offline check-in. Open question: Q integration unverified. Agreed action: specialist checks Q and replies Friday.",
+            "zh": "需求：离线签到；待解：Q集成未核实；约定动作：专家核对Q，周五回复。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The complete note contains the need, preserves the unresolved integration status and states the agreed follow-up. Enthusiasm is not a substitute for any required field. Saying everything is solved invents evidence, and recording only an action leaves the handoff incomplete. The names and details are fictional; do not copy real customer information into this test to answer it.",
+        "zh": "完整笔记记录需求，保留集成未核状态，并说明约定动作。热情不能代替必填项，说全部解决是在编证据，只记动作也不完整。姓名与细节均为虚构，作答不应把真实客户资料复制进本测试。"
+      }
+    },
+    {
+      "id": "SALES_17",
+      "prompt": {
+        "en": "The fictional buyer says they need time and may decline. The stated goal is to offer one optional next step without implying agreement. Which sentence fits?",
+        "zh": "虚构买家表示需要时间，也可能拒绝。题定目标是在不暗示已同意的前提下，提供一个可选下一步。哪句话符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Would a brief review next week help, or would you prefer to leave it here?",
+            "zh": "下周简短复盘是否有帮助，还是你希望就到这里？"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "You have already agreed, so I will send a contract as accepted.",
+            "zh": "你已经同意，我会把合同当已接受发送。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "You must decide now even though no deadline was given.",
+            "zh": "虽然没有期限，你也必须现在决定。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I will tell your team you bought it.",
+            "zh": "我会告诉你们团队你已经买了。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The selected sentence offers a review and leaves stopping available. It asks rather than records agreement. The other sentences invent acceptance, create an unsupported deadline or misstate a purchase. The key follows the optional-step goal explicitly written in this case. It does not claim that one phrase reliably persuades buyers or guarantees a sale.",
+        "zh": "所选句提供复盘，也保留停止的选择，是询问而非记录同意。其他句子编造接受、添加无依据期限或虚报购买。答案服从题内明示的可选下一步目标，不宣称一句话能稳定说服买家或保证成交。"
+      }
+    },
+    {
+      "id": "SALES_18",
+      "prompt": {
+        "en": "A fictional follow-up email must identify the agreed question and owner, and must not claim a deadline is met before checking. Which draft meets that checklist?",
+        "zh": "虚构跟进邮件必须写明已约定的问题与负责人，且核查前不能声称期限已满足。哪个草稿符合清单？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Everything is guaranteed on time; no one needs to check.",
+            "zh": "所有事项保证按时，无需任何人检查。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Question: can Q integrate? Owner: Mira, product specialist. Timing remains unconfirmed until Mira checks.",
+            "zh": "问题：能否集成Q；负责人：产品专家Mira；Mira核查前，时间仍未确认。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Someone will look into something.",
+            "zh": "有人会处理某件事。"
+          },
+          "directionId": "follow-up"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Q integration is confirmed because I want it to be.",
+            "zh": "因为我希望它能用，所以Q集成已确认。"
+          },
+          "directionId": "follow-up"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The selected draft states both required fields and retains the unconfirmed timing. “Someone” and “something” do not identify an owner or question, and a desired answer is not verification. This is an exercise in clear, bounded documentation, not actual email delivery. No statement here grants permission to share a real customer’s confidential information with another person.",
+        "zh": "所选草稿明确两个必填项，并保留时间未确认状态。“有人、某事”没有说清负责人和问题，希望的答案也不是核实。这是清晰、有边界的记录练习，不实际发邮件，也不授予向别人分享真实客户机密的权限。"
+      }
+    },
+    {
+      "id": "SALES_19",
+      "prompt": {
+        "en": "A fictional quote has six seats at CU35 each plus one CU40 setup fee. There is no discount, tax or other charge. What is the total?",
+        "zh": "虚构报价为6个席位，每个35货币单位，另有一次性设置费40，无折扣、税或其他收费。合计多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU210",
+            "zh": "210货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU280",
+            "zh": "280货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU250",
+            "zh": "250货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU450",
+            "zh": "450货币单位"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The seat subtotal is 6 × 35 = 210. Add the one setup fee of 40 to obtain CU250. The fee is not charged once per seat. CU210 omits it, while adding it to every seat changes the quoted rule. These are invented amounts with all exclusions stated; the calculation does not establish the full cost of any real product.",
+        "zh": "席位小计6×35＝210，加一次性设置费40得250。设置费不是每席收一次；210漏掉该费，每席都加费则改了规则。金额虚构且已明示排除项，不代表任何真实产品全部成本。"
+      }
+    },
+    {
+      "id": "SALES_20",
+      "prompt": {
+        "en": "For one fictional completed cohort, 45 leads produced nine paid purchases. The worksheet defines conversion as paid purchases divided by all 45 leads, times 100. What conversion rate does it record?",
+        "zh": "一组已完成观察的虚构45条线索产生9次付费购买。表格规定转化率为付费购买数除以全部45条线索再乘100，记录多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "9%",
+            "zh": "9%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "45%",
+            "zh": "45%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "80%",
+            "zh": "80%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The specified numerator is nine and denominator 45: 9 ÷ 45 × 100 = 20%. Use the same completed cohort and the definition supplied, rather than switching to meetings or pipeline value. The percentage is a description of the fictional record. It is not a benchmark for a good seller and does not predict conversion in a different cohort.",
+        "zh": "按指定分子9、分母45计算，9÷45×100＝20%。使用同一已完成观察组及所给定义，不偷换成会议数或机会金额。它只描述虚构记录，不是好销售基准，也不预测另一组线索。"
+      }
+    },
+    {
+      "id": "SALES_21",
+      "prompt": {
+        "en": "A fictional item costs CU2,400 before a 15% discount on that price. There are no other charges. What price remains after that single discount?",
+        "zh": "虚构商品原价2,400货币单位，按该原价打掉15%，无其他收费。只应用这一次折扣后价格多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU2,040",
+            "zh": "2,040货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU360",
+            "zh": "360货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU2,385",
+            "zh": "2,385货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU2,760",
+            "zh": "2,760货币单位"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The discount amount is 2,400 × 15/100 = 360. Subtract it from 2,400, leaving CU2,040. CU360 is the reduction rather than the remaining price; subtracting 15 units confuses a percentage with an amount, and adding the reduction reverses the discount. Nothing in this invented quote implies a later discount, tax or binding real offer.",
+        "zh": "折扣额2,400×15/100＝360，原价减360，剩2,040。360是减价额而非剩余价格，减15单位混淆百分比与金额，加回减价额则倒转折扣。本虚构报价不暗示后续折扣、税或真实有效要约。"
+      }
+    },
+    {
+      "id": "SALES_22",
+      "prompt": {
+        "en": "A fictional planning sheet mechanically calculates demo count as target purchases divided by an assumed 0.30 purchases per demo. For a target of 18 purchases, what number does that formula return? This is planning arithmetic, not a promise of outcomes.",
+        "zh": "虚构计划表机械按“目标购买数÷假定每次演示0.30次购买”计算演示数。目标18次购买，公式返回多少？这只是计划算术，不保证结果。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6 demos",
+            "zh": "6次演示"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60 demos",
+            "zh": "60次演示"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "18 demos",
+            "zh": "18次演示"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "54 demos",
+            "zh": "54次演示"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Using the sheet’s stated assumption gives 18 ÷ 0.30 = 60. This number is the output of a hypothetical planning formula, not the guaranteed number of real demonstrations needed. Actual conversion varies and may use different units or cohorts. A historical or assumed ratio cannot ensure that a particular next group of buyers will behave identically.",
+        "zh": "按表内假设18÷0.30＝60。这只是一个假设计划公式的输出，不保证现实做60次演示就够。真实转化有变动，也可能使用不同单位或观察组，历史或假定比例不能确保下一组买家行为相同。"
+      }
+    },
+    {
+      "id": "SALES_23",
+      "prompt": {
+        "en": "The fictional exercise awards a flat 3% commission on CU12,000 of eligible sales, with no tiers, deductions or other rules. What commission follows from that stated formula?",
+        "zh": "虚构练习规定，对符合条件的12,000货币单位销售额按固定3%计佣，无阶梯、扣款或其他规则。按此公式佣金多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CU36",
+            "zh": "36货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CU3,600",
+            "zh": "3,600货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "CU360",
+            "zh": "360货币单位"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CU12,360",
+            "zh": "12,360货币单位"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Apply the given flat rate once: 12,000 × 3/100 = CU360. The task explicitly excludes tiers and deductions, so do not import a different commission scheme. This is not an interpretation of a real employment agreement, tax rule or wage entitlement. Such a calculation would need the actual contract, eligibility definitions and applicable terms.",
+        "zh": "只应用一次所给固定比例：12,000×3/100＝360。题目明确排除阶梯与扣款，不另加佣金方案。它不解释真实雇佣合同、税务规则或工资权利；那些计算需要实际合同、资格定义和相关条款。"
+      }
+    },
+    {
+      "id": "SALES_24",
+      "prompt": {
+        "en": "A fictional table has eight won, 12 lost and ten still-open opportunities. Its rule defines win rate as won divided by won plus lost, excluding open opportunities. What win rate does it record?",
+        "zh": "虚构表中有8个已赢、12个已输、10个仍开放机会。题定赢单率为已赢÷（已赢＋已输），排除开放机会。记录多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "80%",
+            "zh": "80%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "30%",
+            "zh": "30%"
+          },
+          "directionId": "sales-maths"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40%",
+            "zh": "40%"
+          },
+          "directionId": "sales-maths"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The eligible closed denominator is 8 + 12 = 20, giving 8 ÷ 20 × 100 = 40%. The ten open opportunities are excluded by this worksheet’s definition; adding them would answer a different question. There is no universal denominator supplied for every business metric. The result describes this fictional table and is not evidence of seller quality or future revenue.",
+        "zh": "符合本表定义的已结束分母是8＋12＝20，8÷20×100＝40%。规则排除10个开放机会，加上它们会回答另一个问题。不能把本题分母当所有企业指标的统一口径，结果也不证明销售质量或未来收入。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "SALES_01",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "asks_offline_steps",
+          "no_solution_assumption"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "asks_offline_steps",
+              "no_solution_assumption"
+            ]
+          },
+          {
+            "attributes": [
+              "asks_dashboards"
+            ]
+          },
+          {
+            "attributes": [
+              "recommends_online"
+            ]
+          },
+          {
+            "attributes": [
+              "assumes_hotspots"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_02",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "asks_format",
+          "asks_fields",
+          "no_promise"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "asks_format",
+              "asks_fields",
+              "no_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "promises_compatibility"
+            ]
+          },
+          {
+            "attributes": [
+              "asks_fields",
+              "no_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "asks_format",
+              "no_promise"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_03",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "planned_date",
+          "board_required",
+          "budget_unknown"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "planned_date",
+              "board_required",
+              "budget_unknown"
+            ]
+          },
+          {
+            "attributes": [
+              "approved_date",
+              "approved_board",
+              "budget_confirmed"
+            ]
+          },
+          {
+            "attributes": [
+              "planned_date",
+              "no_approval"
+            ]
+          },
+          {
+            "attributes": [
+              "board_required",
+              "date_confirmed",
+              "budget_confirmed"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_04",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "asks_comparison",
+          "asks_included_costs"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "asks_comparison",
+              "asks_included_costs"
+            ]
+          },
+          {
+            "attributes": [
+              "discounts_without_questions"
+            ]
+          },
+          {
+            "attributes": [
+              "assumes_comparison_wrong"
+            ]
+          },
+          {
+            "attributes": [
+              "company_history"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "SALES_05",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "less_duplicate_entry",
+          "approval_record",
+          "existing_process",
+          "no_saving_promise"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "less_duplicate_entry",
+              "approval_record",
+              "existing_process",
+              "no_saving_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "replace_process",
+              "no_record"
+            ]
+          },
+          {
+            "attributes": [
+              "saving_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "price_only"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_06",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "missing_authority"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "missing_authority"
+            ]
+          },
+          {
+            "attributes": [
+              "missing_need"
+            ]
+          },
+          {
+            "attributes": [
+              "missing_budget"
+            ]
+          },
+          {
+            "attributes": [
+              "missing_date"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_07",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "offline",
+          "csv"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "offline",
+              "csv"
+            ]
+          },
+          {
+            "attributes": [
+              "offline"
+            ]
+          },
+          {
+            "attributes": [
+              "csv"
+            ]
+          },
+          {
+            "attributes": []
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_08",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "discloses_actual_slot",
+          "discloses_deadline_miss",
+          "before_decision"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "discloses_actual_slot",
+              "discloses_deadline_miss",
+              "before_decision"
+            ]
+          },
+          {
+            "attributes": [
+              "false_early_guarantee"
+            ]
+          },
+          {
+            "attributes": [
+              "delays_disclosure"
+            ]
+          },
+          {
+            "attributes": [
+              "erases_date"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "SALES_09",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "states_unknown",
+          "checks_specialist",
+          "no_capability_promise"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "states_unknown",
+              "checks_specialist",
+              "no_capability_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "universal_promise"
+            ]
+          },
+          {
+            "attributes": [
+              "assumes_from_name"
+            ]
+          },
+          {
+            "attributes": [
+              "unverified_promise"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_10",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "standard_listed",
+          "premium_not_established"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "standard_listed",
+              "premium_not_established"
+            ]
+          },
+          {
+            "attributes": [
+              "premium_promised"
+            ]
+          },
+          {
+            "attributes": [
+              "no_support"
+            ]
+          },
+          {
+            "attributes": [
+              "no_csv"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_11",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "desktop_evidenced",
+          "mobile_unknown",
+          "offline_unknown"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "desktop_evidenced",
+              "mobile_unknown",
+              "offline_unknown"
+            ]
+          },
+          {
+            "attributes": [
+              "all_success"
+            ]
+          },
+          {
+            "attributes": [
+              "mobile_impossible"
+            ]
+          },
+          {
+            "attributes": [
+              "all_features_proved"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_12",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "retains_mandatory_gap",
+          "no_full_match_label"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "retains_mandatory_gap",
+              "no_full_match_label"
+            ]
+          },
+          {
+            "attributes": [
+              "appearance_overrides_gap"
+            ]
+          },
+          {
+            "attributes": [
+              "invents_capability"
+            ]
+          },
+          {
+            "attributes": [
+              "deletes_requirement_without_agreement"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "SALES_13",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "email",
+          "Tuesday",
+          "no_call",
+          "one_message"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "email",
+              "Tuesday",
+              "no_call",
+              "one_message"
+            ]
+          },
+          {
+            "attributes": [
+              "call",
+              "Tuesday"
+            ]
+          },
+          {
+            "attributes": [
+              "email",
+              "Monday",
+              "no_call",
+              "one_message"
+            ]
+          },
+          {
+            "attributes": [
+              "email",
+              "call",
+              "daily"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_14",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "records_stop",
+          "stops_promotion"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "records_stop",
+              "stops_promotion"
+            ]
+          },
+          {
+            "attributes": [
+              "switches_channel_continues"
+            ]
+          },
+          {
+            "attributes": [
+              "tests_more_promotion"
+            ]
+          },
+          {
+            "attributes": [
+              "erases_stop_continues"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_15",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "proposed_time",
+          "agreement_unknown"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "proposed_time",
+              "agreement_unknown"
+            ]
+          },
+          {
+            "attributes": [
+              "agreement_confirmed"
+            ]
+          },
+          {
+            "attributes": [
+              "purchase_inferred"
+            ]
+          },
+          {
+            "attributes": [
+              "rejection_inferred"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_16",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "need",
+          "open_question",
+          "agreed_action",
+          "no_invented_resolution"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "need",
+              "open_question",
+              "agreed_action",
+              "no_invented_resolution"
+            ]
+          },
+          {
+            "attributes": [
+              "need",
+              "invented_resolution"
+            ]
+          },
+          {
+            "attributes": [
+              "enthusiasm"
+            ]
+          },
+          {
+            "attributes": [
+              "agreed_action"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "SALES_17",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "offers_step",
+          "allows_decline",
+          "no_assumed_agreement"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "offers_step",
+              "allows_decline",
+              "no_assumed_agreement"
+            ]
+          },
+          {
+            "attributes": [
+              "assumes_acceptance"
+            ]
+          },
+          {
+            "attributes": [
+              "unsupported_urgency"
+            ]
+          },
+          {
+            "attributes": [
+              "false_purchase"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_18",
+      "proof": {
+        "kind": "criteria",
+        "required": [
+          "question_identified",
+          "owner_identified",
+          "timing_unconfirmed"
+        ],
+        "claims": [
+          {
+            "attributes": [
+              "question_identified",
+              "owner_identified",
+              "timing_unconfirmed"
+            ]
+          },
+          {
+            "attributes": [
+              "unverified_timing_guarantee"
+            ]
+          },
+          {
+            "attributes": [
+              "vague_question",
+              "vague_owner"
+            ]
+          },
+          {
+            "attributes": [
+              "desired_not_verified"
+            ]
+          }
+        ],
+        "boundary": "Declared fictional case criteria; natural-language-to-attribute encoding author-reviewed, not independently validated or a universal sales standard.",
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_19",
+      "proof": {
+        "kind": "subtotal_fee",
+        "seats": 6,
+        "unit": 35,
+        "fee": 40,
+        "claimValues": [
+          250,
+          210,
+          280,
+          450
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_20",
+      "proof": {
+        "kind": "rate",
+        "numerator": 9,
+        "denominator": 45,
+        "claimValues": [
+          20,
+          9,
+          45,
+          80
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "SALES_21",
+      "proof": {
+        "kind": "discount",
+        "price": 2400,
+        "percent": 15,
+        "claimValues": [
+          2040,
+          360,
+          2385,
+          2760
+        ],
+        "optionOrder": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_22",
+      "proof": {
+        "kind": "divide",
+        "numerator": 18,
+        "denominatorDecimal": "0.30",
+        "claimValues": [
+          60,
+          6,
+          18,
+          54
+        ],
+        "optionOrder": [
+          1,
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_23",
+      "proof": {
+        "kind": "percent_of",
+        "amount": 12000,
+        "percent": 3,
+        "claimValues": [
+          360,
+          36,
+          3600,
+          12360
+        ],
+        "optionOrder": [
+          1,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "SALES_24",
+      "proof": {
+        "kind": "closed_win_rate",
+        "won": 8,
+        "lost": 12,
+        "open": 10,
+        "claimValues": [
+          40,
+          80,
+          20,
+          30
+        ],
+        "optionOrder": [
+          1,
+          2,
+          3,
+          0
+        ]
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "discovery",
+      "directionIds": [
+        "discovery"
+      ],
+      "title": {
+        "en": "Discovery: clarify the unknown",
+        "zh": "需求澄清：未知就先问清"
+      },
+      "headline": {
+        "en": "Ask for the missing fact before selecting a solution.",
+        "zh": "先问缺少的事实，再选择方案。"
+      },
+      "summary": {
+        "en": "Review six fictional discovery tasks: requirements, questions and notes. Correct counts reflect this practice bank, not selling talent.",
+        "zh": "复习六道虚构需求澄清任务：需求、提问和笔记。正确数只反映本题组，不评定销售天赋。"
+      },
+      "scoreReading": {
+        "en": "Your correct count describes six fictional tasks with stated criteria. It is not a sales trait, hiring cutoff or forecast. Every count opens every explanation and this complete guide.",
+        "zh": "正确数只描述六道有明示规则的虚构任务，不代表销售特质、招聘线或预测。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Use the stated task, not an imagined buyer",
+            "zh": "依据题定任务，不想象买家内心"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items ask you to read a buyer’s stated needs or apply a fictional discovery checklist. They do not ask you to report how persuasive, ambitious or sociable you are. A matching answer means that it meets the criteria written in that item. A missed answer cannot identify a personality weakness or explain real sales performance. Read the specific explanation to see whether the gap was a missing requirement, an unsupported assumption or an inaccurate summary.",
+              "zh": "六题要求阅读明示需求或应用虚构了解清单，不自评说服力、野心或社交能力。答案匹配表示满足本题写明标准；答错不能定位人格弱点或解释真实业绩。应读具体解析，分清漏掉需求、添加假设还是摘要失真。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Keep facts, unknowns and plans separate",
+            "zh": "分开事实、未知和计划"
+          },
+          "paragraphs": [
+            {
+              "en": "Create three columns in your practice notes: what the fictional buyer said, what remains unknown, and what you are proposing to find out. A proposed date stays a proposal until agreement is supplied. An unknown budget stays unknown rather than becoming zero or unlimited. Questions can clarify missing information; a confirmation can check whether you heard an existing statement correctly. Neither action supplies product evidence or permission to promise an outcome on its own.",
+              "zh": "练习笔记可分三栏：虚构买家说了什么、什么仍未知、拟怎样了解。提议日期在给出同意前仍只是提议；预算未知不等于零，也不等于无限。问题用来澄清缺口，确认用来核对已听到的内容，两者本身都不提供产品证据或承诺结果的权限。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Try a new requirement summary",
+            "zh": "换一组需求练摘要"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a club wants a printable attendance list each month and names displayed in two languages. A useful summary keeps both requirements and asks whether you understood them. It does not announce that the club needs a new payment system or will save half its staffing cost. Before recommending an export, you could clarify the required columns and printing format. This example uses invented details to show the difference between discovering a requirement and presenting a solution.",
+              "zh": "设一个社团要求每月打印出勤表，姓名需双语显示。摘要应保留两项并询问理解是否准确，不宣称它要新支付系统或能省一半人工。推荐导出前，可以问清必需列与打印格式。这个虚构例子区分了解需求与呈现方案。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Do not turn interest into authority",
+            "zh": "兴趣不等于决策权限"
+          },
+          "paragraphs": [
+            {
+              "en": "A friendly or enthusiastic conversation does not establish budget, decision authority, technical compatibility or a purchase. Likewise, mentioning one pain point does not make every feature relevant. In this bank, the question supplies the checklist or goal that determines the answer; preserve each part rather than substituting a generic sales slogan. Avoid trying to read what a customer is secretly thinking. Unstated information is a reason to ask or record uncertainty, not to invent certainty.",
+              "zh": "友好、热情的对话不证明预算、权限、技术兼容或购买；提到一个痛点也不表示每个功能都相关。本题组由每题清单或目标决定答案，应保留每一部分，不用通用销售口号替换。不要猜客户秘密想什么，未说明的信息应提问或记未知，不应编成确定。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Practise with invented notes",
+            "zh": "用虚构笔记练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a fresh three-sentence buyer note and mark every fact you can actually quote from it. Then draft one clarification and one confirmation, explaining what each adds. Compare them with the item methods, not with a claim about your talent. Keep the exercise fictional and do not paste confidential customer records here. All keys and guides remain free at every count, and a repeat on the same bank may reflect memory rather than a measured improvement in professional ability.",
+              "zh": "新写三句虚构买家笔记，圈出确有依据的事实，再各写一句澄清与确认，说明各自增加什么。与题解方法比较，不与天赋标签比较。只用虚构资料，不粘贴客户机密。任何正确数均免费开放全部答案指南，同题重做的变化可能是记忆，不是已测得的职业能力提升。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Discovery: clarify the unknown | Sales Practice",
+          "zh": "需求澄清：未知就先问清｜销售练习指南"
+        },
+        "description": {
+          "en": "Review six fictional discovery tasks: requirements, questions and notes. Correct counts reflect this practice bank, not selling talent.",
+          "zh": "复习六道虚构需求澄清任务：需求、提问和笔记。正确数只反映本题组，不评定销售天赋。"
+        }
+      }
+    },
+    {
+      "id": "fit",
+      "directionIds": [
+        "fit"
+      ],
+      "title": {
+        "en": "Fit: match the documented facts",
+        "zh": "方案匹配：只用已核实的事实"
+      },
+      "headline": {
+        "en": "A mandatory gap remains a gap until evidence or agreement changes it.",
+        "zh": "必需项的缺口，要靠证据或同意解决。"
+      },
+      "summary": {
+        "en": "Compare requirements with the supplied evidence. Six cases practise bounded claims and honest unknowns, without certifying a sales qualification.",
+        "zh": "将需求与题给证据逐项比较。六题练习有限主张与如实保留未知，不认证销售资格。"
+      },
+      "scoreReading": {
+        "en": "Your correct count describes six fictional tasks with stated criteria. It is not a sales trait, hiring cutoff or forecast. Every count opens every explanation and this complete guide.",
+        "zh": "正确数只描述六道有明示规则的虚构任务，不代表销售特质、招聘线或预测。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A match in a worksheet is a narrow conclusion",
+            "zh": "表内匹配是有限结论"
+          },
+          "paragraphs": [
+            {
+              "en": "The six fit tasks supply a small feature sheet, an offer or a documentation rule. A correct choice follows from that supplied material, not from knowledge of a real vendor. It does not prove that you can run a discovery call, implement software or choose a product for an actual business. Several real requirements may be outside the fictional comparison. Use the result to review the exact claim that was supported and the assumptions the wrong options added.",
+              "zh": "六题提供小功能表、报价或文档规则。正确选项来自题给材料，不来自某现实供应商知识，也不证明能开展访谈、实施软件或给企业选产品。真实需求可能有很多在比较之外，应借结果复习有依据的具体主张与错项所加假设。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Make a requirement-by-evidence table",
+            "zh": "逐项对照需求与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "List mandatory requirements first, then mark each candidate as supported, contradicted or unknown for each one. A candidate needs every mandatory requirement to meet an explicit all-requirements rule. Unknown is not the same as absent, and neither is the same as confirmed. If a question names a verification policy, follow that policy before making a promise. Do not erase a requirement simply because a product is attractive or because a desired deadline is difficult.",
+              "zh": "先列必需项，再把每个候选逐项标为已支持、相矛盾或未知。“满足全部”规则需要每项必需条件齐全。未知不等于不存在，两者也都不等于已确认。题中有核验政策时，承诺前按政策核验，不能因产品吸引人或期限难赶就删要求。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check two capabilities together",
+            "zh": "两个能力要一起核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional buyer requires a printable PDF and a portable case. In the supplied table, Birch supports both, Moss supplies a PDF only and Slate supplies a case only. Birch meets those two criteria in the table. This leaves its price, delivery, accessibility and other needs unresolved. Adding a new mandatory requirement can change the answer. A narrow match is useful information, but it is not a blanket recommendation or evidence that every implementation will succeed.",
+              "zh": "设买家必须要可打印PDF和便携箱，题表中Birch两者都有，Moss只有PDF，Slate只有箱。Birch仅在这两项上匹配，价格、交付、无障碍及其他需求仍未定。加入新必需条件可能改变答案，有限匹配不是全面推荐，也不保证每次实施成功。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Separate missing evidence from a negative finding",
+            "zh": "缺证据不同于证实不行"
+          },
+          "paragraphs": [
+            {
+              "en": "When a document does not answer an integration question, do not jump to either “definitely works” or “impossible”. Preserve the unknown and identify the check required by the case. Similarly, a successful desktop demonstration does not establish every mobile or offline behavior. Read inclusions carefully: standard support does not silently become every premium service. These distinctions keep the claim tied to evidence without requiring you to guess how an undocumented real product behaves.",
+              "zh": "文档没回答集成问题时，不跳到“肯定能用”或“不可能”。保留未知，说明题目要求怎样核验。桌面演示成功也不证明所有手机或离线行为。包含项也要仔细读，标准支持不会自动变成全部高级服务，这能把主张绑在证据上，而非猜未记录产品行为。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Change a requirement and compare again",
+            "zh": "改一个需求，再比较一次"
+          },
+          "paragraphs": [
+            {
+              "en": "After reviewing a missed item, change one fictional requirement or one row of evidence and recompute the match. Explain why the previous answer survives or fails. This is practice in transparent reasoning, not proof of a transferable selling advantage. Do not use the test as approval for a real quote or customer commitment. Its complete explanations and public guides remain available without payment, and English and Chinese counts have no established measurement equivalence.",
+              "zh": "复习错题后，改一条虚构要求或一行证据，重新比较并解释原答案为何仍成立或失效。这是在练透明推理，不证明可迁移销售优势；也不能把测试当真实报价或客户承诺的审批。完整解析和公开指南无需付费，英中正确数未建立测量等价。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Fit: match the documented facts | Sales Practice",
+          "zh": "方案匹配：只用已核实的事实｜销售练习指南"
+        },
+        "description": {
+          "en": "Compare requirements with the supplied evidence. Six cases practise bounded claims and honest unknowns, without certifying a sales qualification.",
+          "zh": "将需求与题给证据逐项比较。六题练习有限主张与如实保留未知，不认证销售资格。"
+        }
+      }
+    },
+    {
+      "id": "follow-up",
+      "directionIds": [
+        "follow-up"
+      ],
+      "title": {
+        "en": "Follow-up: keep the agreed next step",
+        "zh": "跟进记录：按约定走下一步"
+      },
+      "headline": {
+        "en": "A proposal becomes agreement only when agreement is supplied.",
+        "zh": "只有收到同意，提议才变成约定。"
+      },
+      "summary": {
+        "en": "Review six fictional follow-up cases on channels, status and clear handoffs. Counts do not measure persistence or real customer outcomes.",
+        "zh": "复习六个虚构跟进情境的渠道、状态与清晰交接。正确数不测坚持程度或真实客户结果。"
+      },
+      "scoreReading": {
+        "en": "Your correct count describes six fictional tasks with stated criteria. It is not a sales trait, hiring cutoff or forecast. Every count opens every explanation and this complete guide.",
+        "zh": "正确数只描述六道有明示规则的虚构任务，不代表销售特质、招聘线或预测。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Score the written rule, not persistence",
+            "zh": "核对书面规则，不评定能否坚持"
+          },
+          "paragraphs": [
+            {
+              "en": "Follow-up in this section means applying the agreement or policy written in a fictional task. It does not reward contacting someone more often or continuing after a clear stop request. A correct answer respects the named conditions and preserves what is still unknown. Your six-item count cannot measure resilience, rapport, influence or a real account outcome. All answers and full explanations are available even when the count is zero, so use the specific error to choose what to review.",
+              "zh": "本组跟进指应用虚构任务里的约定或政策，不奖励更频繁联系或明确要求停止后继续。正确答案需尊重给定条件，保留未知。六题正确数不能测韧性、亲和力、影响力或真实账户结果。零分也能看全部题解，应按具体错处选复习内容。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Write action, owner and status clearly",
+            "zh": "写清动作、负责人和状态"
+          },
+          "paragraphs": [
+            {
+              "en": "For a practice handoff, identify what question remains, who owns the next check and what action has actually been agreed. Keep proposed, confirmed and completed distinct. A message you intend to send is not already sent, and a time you proposed is not a confirmed meeting. When the task states a permitted channel, day or stop condition, retain each restriction. A vague promise that someone will handle something cannot replace required fields in a checklist.",
+              "zh": "练交接时，标清待解问题、下一步核对负责人和真正已同意的动作。分开拟议、确认与完成：打算发不等于已发，提议时间不等于会议已确认。题中允许渠道、日期或停止条件要逐项保留，“有人会处理某事”不能替代清单必填项。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Keep an invitation from becoming a commitment",
+            "zh": "不把邀请写成承诺"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine you offer a fictional buyer a review on Monday morning and receive no reply. An accurate note says that the review was proposed and is awaiting agreement. It cannot say that the buyer will attend or has purchased. If the buyer later agrees to a Wednesday email instead, update the action to that agreement rather than leaving the old meeting marked confirmed. This simple exercise uses status changes that can be checked without interpreting someone’s private motives.",
+              "zh": "设你提议虚构买家周一上午复盘，未收回复。准确笔记应写已提议、待同意，不能写对方会来或已买。若后来只同意周三邮件，就按新约定更新动作，别把旧会议留为已确认。这类状态变化能直接核对，不需解释私人动机。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Do not manufacture urgency or consent",
+            "zh": "不制造期限，也不假定同意"
+          },
+          "paragraphs": [
+            {
+              "en": "A desire to move a conversation forward does not create a deadline, acceptance or permission to use a different contact channel. In these tasks, stop requests and optional decisions are explicit constraints, not objections to be defeated. Nor does an internal handoff grant permission to distribute confidential information. Real policies and legal duties can be more detailed than a fictional checklist; the test does not interpret them or authorize a real communication on your behalf.",
+              "zh": "想推进对话不会凭空产生期限、接受或改换渠道的许可。本题里的停止要求、可选决定是明确限制，不是要打败的异议。内部交接也不自动授权传播机密。真实政策与法律义务可能更复杂，本测试不解释它们，也不替你授权真实通信。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Rehearse the record with fictional details",
+            "zh": "用虚构资料练记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Draft a tiny handoff using invented names, a clearly unresolved question and one agreed action. Ask whether another reader could identify the owner and whether any sentence claims more progress than the facts support. You can revise the wording without sending anything. Keep real customer information out of the exercise. Repeating the bank can strengthen familiarity with its checklist, but a higher count is not a validated change in selling performance or permission to make commitments.",
+              "zh": "用虚构姓名、一个明确未解决问题和一个约定动作写小交接，检查读者能否找到负责人、有无句子虚报进展。可直接改措辞而不发送任何内容，不放真实客户资料。重做可熟悉清单，但正确数提高不代表经验证业绩变化，也不授权作承诺。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Follow-up: keep the agreed next step | Sales Practice",
+          "zh": "跟进记录：按约定走下一步｜销售练习指南"
+        },
+        "description": {
+          "en": "Review six fictional follow-up cases on channels, status and clear handoffs. Counts do not measure persistence or real customer outcomes.",
+          "zh": "复习六个虚构跟进情境的渠道、状态与清晰交接。正确数不测坚持程度或真实客户结果。"
+        }
+      }
+    },
+    {
+      "id": "sales-maths",
+      "directionIds": [
+        "sales-maths"
+      ],
+      "title": {
+        "en": "Sales maths: name the denominator",
+        "zh": "销售算术：先说明分母是什么"
+      },
+      "headline": {
+        "en": "Compute the stated quantities before interpreting a percentage.",
+        "zh": "先算题定数量，再解释百分比。"
+      },
+      "summary": {
+        "en": "Practise six fictional quotes and ratios with exact units and exclusions. The result is not a commission entitlement, benchmark or revenue forecast.",
+        "zh": "练六道虚构报价与比率，写清单位和排除项。结果不决定真实佣金权利、行业基准或收入预测。"
+      },
+      "scoreReading": {
+        "en": "Your correct count describes six fictional tasks with stated criteria. It is not a sales trait, hiring cutoff or forecast. Every count opens every explanation and this complete guide.",
+        "zh": "正确数只描述六道有明示规则的虚构任务，不代表销售特质、招聘线或预测。任何正确数都开放全部解析与本篇完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "A numerical key needs a defined question",
+            "zh": "数字答案要有明确问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The six maths items provide invented amounts, definitions and exclusions. A correct choice reproduces the stated calculation. It does not show that a quote is suitable for a customer, interpret an employment contract or forecast revenue. Real businesses can use different definitions for leads, opportunities, conversion and eligible sales. The practice score is therefore a count of answers in this bank, not a sales productivity rating or a comparison with other professionals.",
+              "zh": "六题给定虚构金额、定义和排除项，答对只表示复算所给公式，不说明报价适合客户、不解释雇佣合同，也不预测收入。真实企业对线索、机会、转化及合资格销售额可能定义不同，因此分数只是本题正确数，不是效率评级或同行比较。"
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "en": "Keep amounts, rates and units apart",
+            "zh": "分开金额、比率与单位"
+          },
+          "paragraphs": [
+            {
+              "en": "Write the numerator and denominator before dividing. Check that both describe the same cohort, period and unit required by the task. A percentage discount is a fraction of the specified base price, not a fixed number of currency units. Add a once-only fee once, after computing the relevant subtotal. When a commission rule is explicitly flat, use the supplied eligible base rather than adding a tier, deduction or tax that the exercise excluded.",
+              "zh": "除之前先写分子分母，核对是否属于题定同一观察组、期间与单位。百分比折扣是指定基价的一部分，不是固定货币数量。一次性费用只加一次。佣金若明确固定比例，就用给定合资格基数，不补题目已排除的阶梯、扣款或税。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Use a fresh cohort and quote",
+            "zh": "换一组数据算"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a completed fictional set contains 24 conversations and six purchases, and its conversion definition is purchases per conversation. The rate is 6 divided by 24, multiplied by 100, or 25%. Separately, nine fictional passes at CU20 each with a single CU30 service fee total CU210. One answer is a percentage and the other an amount. Neither calculation establishes a desirable target, an actual price or an expected result for a different set of customers.",
+              "zh": "设一个已完成的虚构组有24次对话、6次购买，定义是购买除以对话，转化率6÷24×100＝25%。另一个报价9张通行证，每张20单位，加一次服务费30，总额210。一个是百分比，一个是金额，都不建立理想目标、真实价格或另一组客户的预期结果。"
+            }
+          ]
+        },
+        {
+          "id": "traps",
+          "title": {
+            "en": "Do not make the ratio promise an outcome",
+            "zh": "别让比例变成结果保证"
+          },
+          "paragraphs": [
+            {
+              "en": "A worksheet may divide a target by an assumed conversion ratio to produce a planning number. That number remains conditional on the assumption; it does not ensure that the next prospects will behave the same way. Also distinguish a discount amount from the price after discount, and a count of closed opportunities from all opportunities including open ones. Switching a denominator mid-calculation can produce a precise-looking answer to a different question.",
+              "zh": "表格可用目标除以假定转化比例得到计划数，但结果以假设为条件，不保证下一组潜客照样行动。还要区分折扣额与折后价、已结束机会与含开放项的全部机会。中途换分母，可能精确地算出了另一个问题。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Explain the denominator out loud",
+            "zh": "把分母口径说出来"
+          },
+          "paragraphs": [
+            {
+              "en": "After each missed item, state what every number counts and why excluded rows or charges remain excluded. Recalculate once with a changed fictional denominator and explain how the meaning changes. Use a calculator afterwards if checking arithmetic is helpful; this edition is untimed and gives no speed bonus. Viewing answers before a retake changes what the next attempt can show. The complete guide remains public, while sharing never needs a real quote, private customer data or your individual responses.",
+              "zh": "每道错题后，说明每个数数的是什么、被排除的行或费用为何不算，再换一个虚构分母重算并解释含义变化。可完成后用计算器核算，本版不计时、不奖励速度。重测前看答案会改变后一次作答能说明什么。指南公开，分享无需真实报价、客户私有资料或个人答卷。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Sales maths: name the denominator | Sales Practice",
+          "zh": "销售算术：先说明分母是什么｜销售练习指南"
+        },
+        "description": {
+          "en": "Practise six fictional quotes and ratios with exact units and exclusions. The result is not a commission entitlement, benchmark or revenue forecast.",
+          "zh": "练六道虚构报价与比率，写清单位和排除项。结果不决定真实佣金权利、行业基准或收入预测。"
+        }
+      }
+    }
+  ]
+}

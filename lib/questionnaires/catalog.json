@@ -3157,5 +3157,30 @@
       "errors-and-objects"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sales-aptitude",
+    "code": "FM_SALES_DECISION_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Sales Aptitude Test",
+      "zh": "销售能力测试"
+    },
+    "description": {
+      "en": "Try 24 original cases on needs, documented fit, follow-up and sales maths. Every answer and four full guides are free. Not hiring certification.",
+      "zh": "24道原创情境与算术题，需求澄清、方案匹配、跟进记录、销售算术各六题。免费查看全部答案、逐题解析和四篇完整指南，按题内规则记正确数，不作销售天赋、业绩预测或招聘认证。"
+    },
+    "minutes": 12,
+    "formCode": "fm_sales_decision_practice_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "discovery",
+      "fit",
+      "follow-up",
+      "sales-maths"
+    ],
+    "collection": "explore"
   }
 ]
