@@ -1,3 +1,4 @@
+import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -62,10 +63,16 @@ describe("T171 original bilingual bounded project practice", () => {
     for(let a=0;a<=6;a++)for(let b=0;b<=6;b++)for(let c=0;c<=6;c++)for(let d=0;d<=6;d++)for(let e=0;e<=6;e++){
       const values=[a,b,c,d,e],answers=answer(values),result=scoreQuestionnaire(quiz,answers);
       if(result.status!=="complete"||!("practice"in result))throw new Error("Practice witness rejected");
-      expect(result.practice.correct).toBe(a+b+c+d+e);expect(result.practice.total).toBe(30);
-      for(const [i,part]of quiz.directions.entries())expect(result.practice.sections[part.id]).toEqual({correct:values[i],total:6});
-      for(const item of result.practice.items)expect(item).toEqual({questionId:item.questionId,selectedOptionId:answers[item.questionId],correctOptionId:truth.get(item.questionId),correct:answers[item.questionId]===truth.get(item.questionId)});
-      for(const field of ["rank","percentile","profileId","ability","type"])expect(result).not.toHaveProperty(field);checked++;
+      // Keep every vector and the complete result shape without constructing per-item matchers.
+      assert.deepStrictEqual(result, {
+        status: "complete", answered: 30,
+        practice: {
+          correct: a+b+c+d+e, total: 30,
+          sections: Object.fromEntries(quiz.directions.map((part,i)=>[part.id,{correct:values[i],total:6}])),
+          items: source.questions.map(item=>({questionId:item.id,selectedOptionId:answers[item.id],correctOptionId:truth.get(item.id),correct:answers[item.id]===truth.get(item.id)})),
+        },
+      }, `Incorrect project-practice result for vector ${values.join(",")}`);
+      checked++;
     }
     expect(checked).toBe(16807);let probes=0;
     for(const q of quiz.questions)for(const option of q.options){const answers=answer();answers[q.id]=option.id;const result=scoreQuestionnaire(quiz,answers);if(result.status!=="complete"||!("practice"in result))throw new Error("Option witness rejected");expect(result.practice.correct).toBe(option.id===truth.get(q.id)?30:29);expect(result.practice.items.find(v=>v.questionId===q.id)?.correct).toBe(option.id===truth.get(q.id));probes++;}
