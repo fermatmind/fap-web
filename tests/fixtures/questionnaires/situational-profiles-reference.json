@@ -1,0 +1,627 @@
+[
+  {
+    "id": "priorities",
+    "directionIds": [
+      "priorities"
+    ],
+    "title": {
+      "en": "Priorities and realistic commitments",
+      "zh": "优先顺序与可行承诺"
+    },
+    "headline": {
+      "en": "Choose a sequence that fits the stated constraints.",
+      "zh": "按明示约束排顺序，再核承诺能否兑现。"
+    },
+    "summary": {
+      "en": "Review priorities, capacity, dependencies and revised commitments through explicit fictional plans. Counts are practice, not a workplace-judgement rating.",
+      "zh": "按虚构计划练习优先级、容量、依赖与承诺调整。正确数是练习记录，不评职场判断力。"
+    },
+    "scoreReading": {
+      "en": "Five original scenarios each contribute one matched answer. Your count out of five describes these explicit fictional conditions, not a measured competency, personality trait, percentile or hiring decision. Every rationale and this guide is free at every count.",
+      "zh": "五个原创情境各计一个匹配答案。答对数/5只描述这些明示的虚构条件，不代表测得的胜任力、人格特质、百分位或招聘决定。任何正确数都能免费查看全部理由及本指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Priorities and realistic commitments | Situational Practice",
+        "zh": "优先顺序与可行承诺｜情境判断练习"
+      },
+      "description": {
+        "en": "Review priorities, capacity, dependencies and revised commitments through explicit fictional plans. Counts are practice, not a workplace-judgement rating.",
+        "zh": "按虚构计划练习优先级、容量、依赖与承诺调整。正确数是练习记录，不评职场判断力。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Which constraint takes precedence?",
+          "zh": "先找哪条约束优先"
+        },
+        "paragraphs": [
+          {
+            "en": "A priority decision needs more than the task that feels loudest or easiest. These five scenarios supply an ordering rule, deadline, capacity, dependency or agreed delivery change. The key follows those particular facts. An earlier arrival, a familiar requester or a quick cosmetic improvement is not automatically more important than a blocking task when the prompt gives the blocker precedence. First identify the rule that decides the order, then apply any tie-break only where it belongs.",
+            "zh": "排序不能只看哪件事最吵或最容易。五个情境分别给出排序规则、期限、容量、依赖或已约定的交付调整，答案按这些具体事实判断。题目明确阻塞项优先时，早到、熟悉的请求方或容易完成的外观优化都不能自动排前。先找决定顺序的规则，再在适用范围使用次级规则。"
+          }
+        ]
+      },
+      {
+        "id": "2-capacity",
+        "title": {
+          "en": "A fresh capacity example",
+          "zh": "另算一次容量"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose you have 55 minutes. A required review takes 35 minutes and a second task takes 30. Their total is 65, leaving a ten-minute shortfall. If the agreed plan says to protect the review and ask the coordinator to move the second task, that is the supported response. Promising both within 55 minutes does not create the missing capacity. Nor does working 27 minutes on each establish completion of either estimated task.",
+            "zh": "另设可用55分钟，必须做的评审需35分钟，另一任务需30分钟，共65分钟，缺10分钟。若约定是保住评审并请协调人调整第二项，就按此处理。承诺55分钟全做完不会凭空增加容量，各做27分钟也不能证明两项都达到原估计所需工作。"
+          }
+        ]
+      },
+      {
+        "id": "3-dependencies",
+        "title": {
+          "en": "Read readiness as a prerequisite",
+          "zh": "把就绪确认当作前置条件"
+        },
+        "paragraphs": [
+          {
+            "en": "A near deadline can make a missing confirmation uncomfortable, but it does not satisfy a rule requiring explicit readiness. Name the dependency owner, ask for the required fact and tell the scheduling owner what remains uncertain. This preserves a route to a new slot. Do not silently convert absence of an objection into positive approval. The exercise does not say every real workflow needs that confirmation; the prerequisite exists because the scenario states it.",
+            "zh": "临近截止会让未确认状态令人不安，但不能满足“必须明确就绪”的规则。找依赖负责人核事实，再把未确认事项告知排期负责人，才能保留改时段的途径。不要把没人反对改写为已经批准。练习并未规定所有真实流程都要如此确认，前置条件来自本题明示。"
+          }
+        ]
+      },
+      {
+        "id": "4-tie",
+        "title": {
+          "en": "Keep the tie-break inside its group",
+          "zh": "次级排序只在同组内使用"
+        },
+        "paragraphs": [
+          {
+            "en": "In a separate fictional queue, M is priority 3 due at 09:00, N is priority 1 due at 12:00 and P is priority 1 due at 11:00. With priority first and earlier deadline second, P comes before N and M. Looking only at clock time would incorrectly choose M. Write a two-column comparison if needed: first priority, then deadline among matching priorities. This is a deterministic queue rule rather than a universal method for all urgent decisions.",
+            "zh": "另一队列中，M为3级09:00到期，N为1级12:00到期，P为1级11:00到期。若规则先看优先级、同级再比时间，则P先于N和M；只看钟点会误选M。必要时写两栏，先比级别，再在同级内比期限。这是确定的队列规则，不是所有紧急决定的通用方法。"
+          }
+        ]
+      },
+      {
+        "id": "5-communicate",
+        "title": {
+          "en": "A valid plan includes the affected update",
+          "zh": "可行计划还要通知受影响的人"
+        },
+        "paragraphs": [
+          {
+            "en": "When a prompt explicitly requires telling a requester when their work will start, doing the higher-priority item is only part of the answer. Compare options for both execution and communication. A truthful later start can be acceptable when the scenario allows it; claiming that work is already complete is different. Preserve a previously authorized later delivery instead of inventing a new deadline conflict. An accurate short update often satisfies more of the supplied brief than an unrealistic promise.",
+            "zh": "题面若要求告知请求方何时开工，做高优先级任务只完成了一部分。要同时比较执行与沟通要求。情境允许时，如实给较晚开始时间可以满足条件，谎称已经完成则不同。已有获准延后交付时应保留，不必人为制造新的期限冲突。准确的短更新往往比不切实际的保证更符合给定需求。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Rehearse with one changed constraint",
+          "zh": "一次只改一个约束练习"
+        },
+        "paragraphs": [
+          {
+            "en": "After reviewing an explanation, change one quantity or rule in a new fictional plan. Increase available time, reverse the priority order or provide the missing confirmation, then check whether the recommended action changes. State why. If your answer stays fixed regardless of the new facts, you may be repeating a slogan rather than applying the scenario. Keep the example on paper; this tool does not schedule work, message colleagues or assess how you act under real pressure.",
+            "zh": "读完解析后，在自拟计划中只改一个数量或规则：增加可用时间、反转优先顺序，或补上就绪确认，再看推荐动作是否改变，并说明原因。若事实变了答案仍永远不变，可能只是在重复口号。可在纸上练习；本站不排实际工作、不发同事消息，也不评估你在真实压力下的行动。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Interpret five matched answers",
+          "zh": "怎样看五题匹配数"
+        },
+        "paragraphs": [
+          {
+            "en": "A count such as 3/5 indicates three choices matching this edition’s explicit conditions. It is not a speed score, management qualification or evidence that you always prioritize well. There is no timer, normative sample or validated competency scale. Repeating the same five items after reading their keys can reward memory. Use the examples to explain a decision and its assumptions; use the actual rules, authority and support available in a real workplace for real decisions.",
+            "zh": "3/5表示本版五题中有三项选择符合明示条件，不是速度分、管理资格，也不证明你总能合理排序。本版没有计时、常模样本或经验证的胜任力量表。看完答案后重做可能只反映记忆。用例子练习解释决定及假设；真实决定应依据所在职场的真实规则、权限和支持。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ownership",
+    "directionIds": [
+      "ownership"
+    ],
+    "title": {
+      "en": "Ownership, handovers and closure",
+      "zh": "责任交接与结项记录"
+    },
+    "headline": {
+      "en": "Distinguish sending work from an accepted transfer.",
+      "zh": "区分发出交接与对方明确接收。"
+    },
+    "summary": {
+      "en": "Practise named ownership, complete handovers, version history and acceptance-based closure. Five fictional scenarios, with every rationale free.",
+      "zh": "练习具名责任、完整交接、版本历史及按验收结项。五个虚构情境的全部理由免费阅读。"
+    },
+    "scoreReading": {
+      "en": "Five original scenarios each contribute one matched answer. Your count out of five describes these explicit fictional conditions, not a measured competency, personality trait, percentile or hiring decision. Every rationale and this guide is free at every count.",
+      "zh": "五个原创情境各计一个匹配答案。答对数/5只描述这些明示的虚构条件，不代表测得的胜任力、人格特质、百分位或招聘决定。任何正确数都能免费查看全部理由及本指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Ownership, handovers and closure | Situational Practice",
+        "zh": "责任交接与结项记录｜情境判断练习"
+      },
+      "description": {
+        "en": "Practise named ownership, complete handovers, version history and acceptance-based closure. Five fictional scenarios, with every rationale free.",
+        "zh": "练习具名责任、完整交接、版本历史及按验收结项。五个虚构情境的全部理由免费阅读。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Separate the states of a task",
+          "zh": "把任务状态分开"
+        },
+        "paragraphs": [
+          {
+            "en": "A handover message can be sent while responsibility still belongs to its sender. A revision can be delivered while acceptance is pending. These are useful distinctions in this bank because the prompts make them explicit. The five scenarios ask you to preserve a named owner, include the next action, correct a draft without losing history and record only an acknowledgment that actually happened. They do not ask whether you are a responsible person or whether a colleague is trustworthy.",
+            "zh": "交接说明发出后，责任可能仍在发件人；修改稿已交后，验收也可能还待确认。本题库把这些状态明示分开，因而要区别记录。五题要求保留具名负责人、写下一步、修订时不丢历史，以及只记录实际发生的接收，不询问你是否有责任心，也不评同事是否可靠。"
+          }
+        ]
+      },
+      {
+        "id": "2-example",
+        "title": {
+          "en": "A fresh handover example",
+          "zh": "一个新的交接例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine that Noor owns an action until Eli accepts it. Noor sends a note on Monday; Eli replies on Tuesday agreeing to take it by Thursday. Before Tuesday’s reply, the action still belongs to Noor under this rule. After the reply, the tracker can name Eli and the Thursday commitment while leaving the action open. Neither the original note nor the acceptance proves that the requested work has already been completed.",
+            "zh": "另设规则：Eli接收前，动作归Noor负责。Noor周一发说明，Eli周二回复，答应周四前处理。在周二回复前，按规则仍由Noor负责；回复后可记录Eli和周四期限，同时保持未完状态。原说明和明确接收，都不能证明实际工作已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "3-fields",
+        "title": {
+          "en": "Check the handover fields",
+          "zh": "逐项核交接字段"
+        },
+        "paragraphs": [
+          {
+            "en": "If the required note contains status, next action and action owner, check for each separately. “Waiting; ask the reviewer” includes a state and an activity but can still omit who will contact the reviewer. A longer history does not fill that missing field. An invented completion date is also no substitute. Name the person who has agreed to perform the next action, using the acknowledgment process specified in the scenario rather than assigning a random name.",
+            "zh": "若说明必须有状态、下一步和执行负责人，就分别检查。“等待中；找评审人”已有状态和活动，却可能没写谁联系。再长的历史也补不齐这个字段，编一个完成日期同样不能替代。按情境规定的确认过程，写实际同意执行下一步的人，不能随便填一个名字。"
+          }
+        ]
+      },
+      {
+        "id": "4-revision",
+        "title": {
+          "en": "Correct without rewriting the history",
+          "zh": "修正内容而不改写历史"
+        },
+        "paragraphs": [
+          {
+            "en": "The draft-error item supplies a three-part rule: fix the draft, describe the change to its reviewer and retain version history. Correcting text is necessary but insufficient if history is then removed. Informing the reviewer is also insufficient if the known error remains. Check the whole conjunction. This rule supports the answer to that exercise; it does not authorize changing a real repository, deleting a coworker’s file or disclosing an internal error outside its proper audience.",
+            "zh": "草稿错漏题给出三项规则：修稿、向评审人说明改动、保留版本历史。改文本必要，但随后删历史仍不符合；告知评审人后继续留错，也不满足。要核完整的“同时满足”条件。该规则只支持练习答案，不授权修改真实仓库、删除同事文件或向不适当受众公开内部错误。"
+          }
+        ]
+      },
+      {
+        "id": "5-closure",
+        "title": {
+          "en": "Delivery is an observation; approval needs evidence",
+          "zh": "交付可观察，批准需有依据"
+        },
+        "paragraphs": [
+          {
+            "en": "When the requester must confirm that a revision meets the brief, “delivered, awaiting confirmation” accurately records the intermediate state. “Closed” would omit the remaining prerequisite. A quiet requester has not necessarily rejected, approved or canceled the work. The same care applies to dates and names in a tracker: record the actual agreement, distinguish a proposed date from an accepted one, and avoid promoting a plan into an outcome simply because that would make the board look tidy.",
+            "zh": "若规则要求请求方确认修改符合需求，“已交、待确认”就准确记录中间状态，直接写结项则漏了前置步骤。对方沉默不必然代表拒绝、批准或取消。跟踪表中的日期和姓名也应如此：写实际约定，区分提议日期与已接收日期，不能为看板整齐就把计划升级为结果。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Write a three-line handover",
+          "zh": "写一份三行交接"
+        },
+        "paragraphs": [
+          {
+            "en": "Create a fictional handover in three lines: what is true now, what must happen next and who has accepted that action. Add a fourth line only if the example needs a date or acceptance condition. Then ask what evidence would justify moving it from open to transferred or closed. This practice reveals gaps in the note itself. It does not require sending a real message, using names from your workplace or supplying private project details to the test.",
+            "zh": "用虚构材料写三行：现在是什么状态、下一步做什么、谁已接收该动作。例子确需日期或验收条件时再补一行。接着问，需要何种证据才能把状态从未完改为已转交或结项。练习检查的是说明本身的缺口，不需发真实消息，不需用真实同事姓名，也不需向测试提供私有项目细节。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Keep the result tied to these cases",
+          "zh": "结果只解释这些案例"
+        },
+        "paragraphs": [
+          {
+            "en": "The five-item count is based on choices matching the supplied workflow rules. It is not a measure of conscientiousness, reliability or leadership. Real teams may use different definitions of acceptance, and a real urgent issue may have a separate route. No employer’s handover procedure is reproduced or certified here. Read the full rationales at any count and use a fresh example to check whether you understand the difference between a proposed transfer, accepted ownership and completed work.",
+            "zh": "五题正确数来自选择是否匹配给定流程，不测尽责、可靠性或领导力。真实团队可能采用不同接收定义，真实紧急问题也可能另有处理途径。这里不复刻或认证任何雇主交接程序。任何正确数都可看完整理由，再用新例子检查是否分清拟交接、已接收责任和工作已完成。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "updates",
+    "directionIds": [
+      "updates"
+    ],
+    "title": {
+      "en": "Evidence and useful status updates",
+      "zh": "事实依据与状态沟通"
+    },
+    "headline": {
+      "en": "Keep observation, uncertainty and promises separate.",
+      "zh": "把已知、未知和承诺分开说清。"
+    },
+    "summary": {
+      "en": "Review conflicting records, unavailable sources, draft labels and honest next updates. Five original scenarios, without a measured communication rating.",
+      "zh": "练习冲突记录、来源不可用、草稿标记及如实更新。五个原创情境，不给沟通能力评级。"
+    },
+    "scoreReading": {
+      "en": "Five original scenarios each contribute one matched answer. Your count out of five describes these explicit fictional conditions, not a measured competency, personality trait, percentile or hiring decision. Every rationale and this guide is free at every count.",
+      "zh": "五个原创情境各计一个匹配答案。答对数/5只描述这些明示的虚构条件，不代表测得的胜任力、人格特质、百分位或招聘决定。任何正确数都能免费查看全部理由及本指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Evidence and useful status updates | Situational Practice",
+        "zh": "事实依据与状态沟通｜情境判断练习"
+      },
+      "description": {
+        "en": "Review conflicting records, unavailable sources, draft labels and honest next updates. Five original scenarios, without a measured communication rating.",
+        "zh": "练习冲突记录、来源不可用、草稿标记及如实更新。五个原创情境，不给沟通能力评级。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "What can the available evidence support?",
+          "zh": "现有依据能支持什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The five situations distinguish unavailable data from a measured zero, a scheduled update from a guaranteed repair, conflicting records from verified capacity, a draft from a checked document and a risk from an already completed outcome. Each asks for a message or next step supported by the stated information. You do not need to infer a colleague’s hidden motives. Look for the exact fact that is known, then identify what still needs checking before a stronger statement would be justified.",
+            "zh": "五个情境分别区分数据不可用与测得零、定时更新与保证修复、冲突记录与已核容量、草稿与已核文档，以及风险与已经完成的结果。题目要求给出受已知信息支持的消息或下一步，不需揣测同事隐藏动机。先找确知事实，再指出若要作更强断言还缺哪项核查。"
+          }
+        ]
+      },
+      {
+        "id": "2-example",
+        "title": {
+          "en": "A fresh conflicting-record example",
+          "zh": "另看一组冲突记录"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a room is listed as holding 16 people in one note and 28 in another. A new meeting requires 23 seats. The two notes alone do not prove that the room is suitable. Their average, 22, is merely arithmetic on conflicting records, not a verified capacity. If the facilities owner is the stated current authority, ask that owner to confirm before making the booking commitment. A number can be calculated correctly and still answer the wrong evidential question.",
+            "zh": "另设两份记录把同一房间分别写成16人和28人，新会议需23个座位。仅凭两份记录不能证明房间合适；平均数22只是对冲突数字做算术，不是已核容量。若题定设施负责人掌握当前权威信息，应先向其确认，再承诺预订。算式正确，也可能没有回答所需的事实依据问题。"
+          }
+        ]
+      },
+      {
+        "id": "3-dated",
+        "title": {
+          "en": "Date the observation you actually have",
+          "zh": "给实际掌握的观察标日期"
+        },
+        "paragraphs": [
+          {
+            "en": "When today’s source cannot be read but yesterday’s figure is known, preserve the date and the unavailability. Do not quietly carry yesterday’s figure forward as a fresh measurement. Zero would also be an unsupported claim unless the source actually reports zero. A useful update can still contain the dated figure if its limits are clear. This exercise uses invented records; it does not ask you to paste a production payload, private analytics or a real customer’s data.",
+            "zh": "今天来源无法读取、但知道昨天数值时，要保留日期及当前不可用状态。不要悄悄把旧数延续成新测量，除非来源确实报零，否则零也没依据。说明边界后仍可提供旧数，形成有用更新。练习只用虚构记录，不需粘贴生产数据、私有分析或真实客户信息。"
+          }
+        ]
+      },
+      {
+        "id": "4-promise",
+        "title": {
+          "en": "Do not turn an update time into a repair time",
+          "zh": "更新时间不等于修复时间"
+        },
+        "paragraphs": [
+          {
+            "en": "An agreement to report again at 09:45 commits you to a status update at that time. It does not establish that a failed transfer will be repaired by then. State the observed failure, the unresolved cause and the next check or update that is actually agreed. Naming a supplier as the cause before a diagnosis creates unsupported certainty. Likewise, an unknown cause does not erase an observed failure. Compare each part of the proposed message with the evidence in the prompt.",
+            "zh": "约定09:45再报告，只承诺该时刻给状态，不证明失败的传输09:45前一定修好。应说已观察失败、原因待查，以及实际约定的检查或更新时间。诊断前就归因供应商，会制造无依据的确定性；原因未知也不能抹去已观察失败。把候选消息的每一部分与题面依据对应核对。"
+          }
+        ]
+      },
+      {
+        "id": "5-draft",
+        "title": {
+          "en": "Keep the document’s review state visible",
+          "zh": "文档审阅状态应可见"
+        },
+        "paragraphs": [
+          {
+            "en": "A draft label and an outstanding check change how a recipient should use a table. If the exercise permits sharing only with both qualifications, removing them breaks the sharing condition even when the numbers look plausible. A familiar author is not evidence of the missing review. State the status in the message and preserve the label. In real work, use the actual classification and sharing rules; this practice does not create permission to distribute a private document.",
+            "zh": "草稿标签和待检事项影响接收者如何使用表格。若练习只允许附两项说明分享，数字再合理，删说明也违反条件；熟悉作者不能证明未做的评审。消息里说明状态，也保留标签。真实工作应依据实际分类和分享规则，这份练习不会授予传播私有文档的权限。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Write an update in three factual parts",
+          "zh": "用三个事实部分写更新"
+        },
+        "paragraphs": [
+          {
+            "en": "Use a fictional case to write: completed work; current uncertainty or risk; next action with its owner or update time. Check every verb. “Will check” is not “confirmed,” and “delivered” is not necessarily “accepted.” Ask what additional observation would support changing a label. This is a rehearsal of accurate wording under supplied conditions. It does not test eloquence, assess empathy or measure whether an audience would respond positively to your real message.",
+            "zh": "用虚构案例写三部分：完成了什么、当前未知或风险、下一步由谁或何时更新。逐个检查动词，“将核查”不是“已确认”，“已交”也未必是“已接收”。再问，多哪项观察才足以改标签。这是按明示条件练习准确措辞，不测口才或共情，也不测真实受众会否积极回应。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "A practice count, not an honesty scale",
+          "zh": "是练习正确数，不是诚实量表"
+        },
+        "paragraphs": [
+          {
+            "en": "Your five-item count reports agreement with these explicit information rules. A missed item is not evidence that you are dishonest, careless or unsuitable for a job. There is no behavioural observation, population norm or standardized communication scale. All explanations remain visible at zero or full marks. Review the missing distinction and try a new example; repeating the exact bank after seeing the answers can reflect memory rather than a wider change in workplace behaviour.",
+            "zh": "五题正确数记录选择是否符合这些信息规则，做错不等于不诚实、粗心或不适任。没有行为观察、人群常模或标准化沟通量表。零分或全对都能看完整解析。先复习漏掉的区分，再做新例子；看答案后重做同一题本，可能反映记忆，而不是更广泛的职场行为改变。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "permissions",
+    "directionIds": [
+      "permissions"
+    ],
+    "title": {
+      "en": "Scope, approval and role boundaries",
+      "zh": "范围、批准与职责边界"
+    },
+    "headline": {
+      "en": "Use the authority actually supplied in the scenario.",
+      "zh": "按情境明确授予的职责行事。"
+    },
+    "summary": {
+      "en": "Practise editing versus approval, named access, change agreements and delegated limits in five fictional situations. No employer certification or legal advice.",
+      "zh": "五个虚构情境区分编辑与批准、具名访问、变更约定及授权上限。不提供雇主认证或法律建议。"
+    },
+    "scoreReading": {
+      "en": "Five original scenarios each contribute one matched answer. Your count out of five describes these explicit fictional conditions, not a measured competency, personality trait, percentile or hiring decision. Every rationale and this guide is free at every count.",
+      "zh": "五个原创情境各计一个匹配答案。答对数/5只描述这些明示的虚构条件，不代表测得的胜任力、人格特质、百分位或招聘决定。任何正确数都能免费查看全部理由及本指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Scope, approval and role boundaries | Situational Practice",
+        "zh": "范围、批准与职责边界｜情境判断练习"
+      },
+      "description": {
+        "en": "Practise editing versus approval, named access, change agreements and delegated limits in five fictional situations. No employer certification or legal advice.",
+        "zh": "五个虚构情境区分编辑与批准、具名访问、变更约定及授权上限。不提供雇主认证或法律建议。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Read the role before judging an action",
+          "zh": "评价动作前先读职责"
+        },
+        "paragraphs": [
+          {
+            "en": "These scenarios specify who may edit, approve, grant access, agree a scope change, handle an exception or move a meeting. The matching response respects the role and any prerequisite written into that scenario. Someone’s seniority, a deadline or an attractive result does not automatically enlarge the role. These are invented exercise rules, not a statement of employment law. A real organization can assign roles differently, and a real emergency can have an explicitly different authorized route.",
+            "zh": "情境明示谁能编辑、批准、授访问、同意范围变更、处理例外或改会议。匹配答案要保留该职责及题定前置条件。资历、截止时间或诱人的结果不会自动扩大职责。这些是虚构练习规则，不是劳动法；真实组织可以另作分工，真实紧急情况也可能有明确的另一授权途径。"
+          }
+        ]
+      },
+      {
+        "id": "2-approval",
+        "title": {
+          "en": "Finishing a draft does not approve it",
+          "zh": "写完不等于批准"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose Ren can edit a release note while Asha must approve publication. Ren finishes the text and receives a request to publish at once. Under that example, the next step is to send it for Asha’s approval. The fact that writing is done does not satisfy approval. Neither borrowing an account nor adding an “approved” label supplies the missing decision. This is about interpreting a given workflow, not about adding a new approval layer to every real task.",
+            "zh": "另设Ren能编辑发布说明，Asha负责批准发布。Ren写完后收到立即发布的请求，按例子应先交Asha批准。写完不满足批准条件，借账号或添“已批准”字样也不能代替缺失决定。这里练习理解给定流程，并非要求在所有真实任务上新加审批层。"
+          }
+        ]
+      },
+      {
+        "id": "3-access",
+        "title": {
+          "en": "Keep a named recipient and a bounded request",
+          "zh": "明确接收人和所需访问"
+        },
+        "paragraphs": [
+          {
+            "en": "If a folder permits only named reviewers approved by its owner, a new teammate’s need should be routed as a request for that named person’s required access. Making the entire folder public would change the audience far beyond the supplied need. Shared credentials also bypass the stated process. The answer follows the scenario’s access rule. The test itself performs no account creation, credential sharing or permission change, and you should not supply a real colleague’s identity to answer it.",
+            "zh": "若文件夹只允许负责人批准的具名评审人，就应为这位新同事申请所需访问。把整夹公开会把受众扩大到远超需求，共享凭据也绕过规定流程。答案依据题定访问规则。测试不建账户、不共享凭据、不改权限，作答也不需提供真实同事身份。"
+          }
+        ]
+      },
+      {
+        "id": "4-change",
+        "title": {
+          "en": "A new promise can change the plan",
+          "zh": "新增承诺会改变计划"
+        },
+        "paragraphs": [
+          {
+            "en": "An added deliverable can affect both scope and date. Where the prompt requires agreement on both, obtain that agreement before promising the added item. Hiding the work or silently removing a previously agreed deliverable does not satisfy the change rule. State the requested addition and its scheduling consequence to the named coordinator. This is a fictional plan exercise; it does not establish how any real signed contract should be interpreted or altered.",
+            "zh": "新增交付可能同时影响范围和日期。题面若要求两者都获同意，就应先取得同意，再承诺新增项。隐瞒工作、悄悄删掉原已约定交付，都不满足变更规则。把新增需求及其排期影响交具名协调人判断。这是虚构计划练习，不解释或修改任何真实已签合同。"
+          }
+        ]
+      },
+      {
+        "id": "5-exceptions",
+        "title": {
+          "en": "Keep an exception pending until its owner decides",
+          "zh": "例外要等负责人作决定"
+        },
+        "paragraphs": [
+          {
+            "en": "A delegated limit defines the decision you can make in that scenario. A request beyond it can still move forward through the named exception owner. Sending accurate facts while keeping the status pending is useful work, not the same as doing nothing. Changing a number to fit the limit or claiming an approval that was never given would misstate the case. Find the smallest next action that advances the request while preserving the decision boundary supplied by the prompt.",
+            "zh": "本题授权上限界定你能作的决定，超限请求仍可交指定例外负责人处理。如实提供事实并保持待批，也是在推进，不等于不作为。为凑上限改数字，或声称获得未发生批准，都会歪曲请求。找出既推进事项、又保留题定决定边界的最小下一步。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Change the delegated role in a fresh example",
+          "zh": "换一个授权角色再练"
+        },
+        "paragraphs": [
+          {
+            "en": "Write a new fictional request and name its editor, approver and affected person. Ask who may take the next step and what evidence is still required. Then deliberately change the delegation and reconsider the answer. A response that was outside the first role may be allowed under the new one. The aim is to read the supplied authority accurately, rather than memorize “always escalate” or “always act alone.” Keep examples invented and do not test changes on real accounts.",
+            "zh": "另编请求，写出编辑人、批准人和受影响人，问谁能做下一步、还缺什么依据。再刻意改变授权，重新判断答案；原先越权的动作，在新职责下可能允许。目的在于准确读题定权限，不是背“永远上报”或“永远独自做”。例子应虚构，不能拿真实账户试改权限。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "No compliance or leadership credential follows",
+          "zh": "不据此颁合规或领导资格"
+        },
+        "paragraphs": [
+          {
+            "en": "The five-item count checks responses to locally stated rules. It does not certify compliance with a law, test organizational policy knowledge or establish leadership ability. No proprietary employer scoring or validated judgement scale is administered. The actual rules governing real data, contracts and decisions take precedence in real situations. All answer explanations and this guide remain free; reviewing a missed prerequisite is the intended outcome, not assigning a fixed label to yourself or another person.",
+            "zh": "五题正确数只核对局部明示规则，不认证守法、不测试某组织政策知识，也不建立领导能力。本站不实施专有雇主评分或经验证的判断力量表。真实数据、合同和决定应遵守真实规则。所有解析及指南免费；预期产出是复习遗漏的前置条件，而不是给自己或他人贴固定标签。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teamwork",
+    "directionIds": [
+      "teamwork"
+    ],
+    "title": {
+      "en": "Clear collaboration and useful feedback",
+      "zh": "清晰协作与具体反馈"
+    },
+    "headline": {
+      "en": "Meet the brief without inventing agreement or capacity.",
+      "zh": "遵守具体需求，不捏造共识或时间容量。"
+    },
+    "summary": {
+      "en": "Review accessible explanations, specific feedback, limited capacity, objections and paired checks with five original fictional scenarios.",
+      "zh": "用五个原创虚构情境练习可读说明、具体反馈、有限协助、保留异议与双人复核。"
+    },
+    "scoreReading": {
+      "en": "Five original scenarios each contribute one matched answer. Your count out of five describes these explicit fictional conditions, not a measured competency, personality trait, percentile or hiring decision. Every rationale and this guide is free at every count.",
+      "zh": "五个原创情境各计一个匹配答案。答对数/5只描述这些明示的虚构条件，不代表测得的胜任力、人格特质、百分位或招聘决定。任何正确数都能免费查看全部理由及本指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Collaboration & Feedback | Situational Practice",
+        "zh": "清晰协作与具体反馈｜情境判断练习"
+      },
+      "description": {
+        "en": "Review accessible explanations, specific feedback, limited capacity, objections and paired checks with five original fictional scenarios.",
+        "zh": "用五个原创虚构情境练习可读说明、具体反馈、有限协助、保留异议与双人复核。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Match the communication to the supplied need",
+          "zh": "让沟通满足题定需要"
+        },
+        "paragraphs": [
+          {
+            "en": "The five scenarios concern a requested text explanation, an agreed feedback sequence, a limited amount of help, a decision record with an unresolved objection and a paired drafting/checking task. Their keys follow those explicit requirements. They do not infer warmth, generosity or team fit from a preferred response. First state what the receiver or workflow actually needs. Then compare the proposed action with that need, including any necessary clarification, remaining work or acknowledgment.",
+            "zh": "五个情境涉及所需文字说明、约定反馈顺序、有限协助时间、带未解异议的决定记录，以及起草与复核分工。答案按明示要求判断，不从偏好选项推断温暖、慷慨或团队适合度。先写接收者或流程确实需要什么，再把动作与需求比较，检查必要澄清、剩余工作和确认是否齐全。"
+          }
+        ]
+      },
+      {
+        "id": "2-example",
+        "title": {
+          "en": "A fresh limited-help example",
+          "zh": "另看有限协助例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a request needs 70 minutes and you can offer 25 today. Forty-five minutes remain. If the supplied agreement requires honest capacity and another plan for the remainder, offer the 25 minutes and discuss rescheduling or another helper. A promise of 70 minutes would contradict the available time. Saying that the remaining work is done would invent an outcome. A clear limit and a useful next step can satisfy the fictional brief together.",
+            "zh": "另设请求需70分钟，今天你只能帮25分钟，还差45分钟。若约定要求如实说容量，并为余下部分另作安排，就说明25分钟，商量改期或其他协助。承诺70分钟与可用时间冲突，说剩余已完成则捏造结果。明确限制和提供有用下一步，可以同时满足虚构需求。"
+          }
+        ]
+      },
+      {
+        "id": "3-format",
+        "title": {
+          "en": "Provide the requested representation",
+          "zh": "提供所需的表达格式"
+        },
+        "paragraphs": [
+          {
+            "en": "When a reviewer needs a text explanation of a diagram, sending the same diagram again may not address the obstacle. The scenario permits asking which step is unclear and requires the text version. Do both. Referring to everyone else’s understanding does not create the requested explanation, and removing the reviewer avoids rather than meets the requirement. This exercise does not diagnose an accessibility need or prove that one format works for everyone; it follows the receiver’s stated request.",
+            "zh": "评审人需要图的文字说明时，再发同一张图可能没解决障碍。题面允许问哪步不清，也要求文字版，就把两项做好。“别人都懂”不能产生所需说明，移除评审人也没有满足需求。练习不诊断无障碍需要，不证明某格式适合所有人，只按接收方明确请求处理。"
+          }
+        ]
+      },
+      {
+        "id": "4-feedback",
+        "title": {
+          "en": "Discuss an observation, not a character label",
+          "zh": "讨论观察，不评价人格"
+        },
+        "paragraphs": [
+          {
+            "en": "The wording-concern scenario supplies a private-first sequence for a non-urgent issue. Pointing to a concrete passage and explaining the concern follows that agreement. A public claim about the author’s character adds an unsupported interpretation and omits the passage. The prompt excludes urgency so that the stated sequence can be used without inventing an emergency. In a different real situation involving immediate danger, use the actual authorized safety route rather than copying this fictional sequence blindly.",
+            "zh": "措辞疑问题给出非紧急问题先私下讨论的顺序。指出具体段落、说明疑问，就符合约定；公开评价作者人格既多了无依据解释，也没指出段落。题面排除紧急情况，才可按既定顺序处理，不需捏造紧急事件。真实即时危险则应走实际获授权的安全途径，不能机械照搬虚构顺序。"
+          }
+        ]
+      },
+      {
+        "id": "5-record",
+        "title": {
+          "en": "A decision can coexist with an objection",
+          "zh": "决定和异议可以并存"
+        },
+        "paragraphs": [
+          {
+            "en": "A group may choose an option while one person’s concern remains open. If the requested record includes both, preserve both. Agreement to proceed is not automatically unanimous approval, and an unresolved concern is not automatically a veto. Avoid replacing the supplied state with an easier story. Similarly, in paired work, receiving a colleague’s draft does not complete the separate number check assigned to you. Record and perform the part of the collaboration that is actually yours.",
+            "zh": "团队可选择一个方案，同时保留某人的未解疑问。记录要求包含两者时就都保留；同意推进不自动代表一致批准，未解疑问也不自动等于否决。不要为故事简单而替换真实状态。同样，在双人工作中收到同事草稿，也不能算自己负责的数字复核已完成。应记录并完成真正分配给自己的部分。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Explain why the near-miss option fails",
+          "zh": "说明接近答案的选项差在哪里"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one explanation and describe the strongest-looking alternative without caricaturing it. Perhaps it offers help but hides the time limit, records the decision but erases the objection, or acknowledges confusion without supplying the requested text. Name the missing condition. Create a fresh example where that condition is supplied and see whether the action would then be appropriate. This gives a more specific rehearsal than memorizing that a response sounds professional or friendly.",
+            "zh": "选一份解析，认真说明最像正确答案的替代项为什么仍不满足：可能愿意帮忙却隐瞒时间限制，记了决定却删异议，或承认对方困惑但没给文字。指出缺失条件，再自拟补齐条件的新例子，看看动作是否转为合适。这比记住哪项听起来专业或友好，更具体可复查。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Practice collaboration reasoning without rating a person",
+          "zh": "练习协作推理，不给人评级"
+        },
+        "paragraphs": [
+          {
+            "en": "Five matched answers cannot establish empathy, assertiveness, reliability or actual behaviour in a difficult team. This bank observes screen choices only and has no normative sample or validated collaboration scale. Its policies and constraints are invented and fully stated. All guides appear regardless of your count. Review the reason, keep alternative real contexts in mind and stop when the practice has answered your question; no further personality test, purchase or disclosure of workplace details is required.",
+            "zh": "五题匹配不能建立共情、自信、可靠性，或困难团队中的实际行为。本题库只观察屏幕选择，没有常模样本或经验证协作量表。政策及约束均属虚构，已全部明示。无论正确数多少都给全部指南。复习理由，记住真实情境可能不同；练习解决你的问题后即可结束，无需另做人格测试、购买或披露职场细节。"
+          }
+        ]
+      }
+    ]
+  }
+]

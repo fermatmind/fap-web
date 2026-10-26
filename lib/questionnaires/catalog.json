@@ -3535,5 +3535,31 @@
       "four-directions-tied"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "situational-judgement",
+    "code": "FM_SITUATIONAL_RULE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Situational Judgement Test",
+      "zh": "情境判断测试"
+    },
+    "description": {
+      "en": "Practise 25 original workplace scenarios with stated rules, every rationale and five full guides. Free, untimed, no signup. No competency band or hiring score.",
+      "zh": "用25个原创职场情境练习按明示条件选择行动，免费查看全部理由和五份完整指南。不计时、无需注册，不分胜任力等级或招聘分数。"
+    },
+    "minutes": 15,
+    "formCode": "fermatmind_situational_rules_original_25_v1",
+    "questionCount": 25,
+    "resultSlugs": [
+      "priorities",
+      "ownership",
+      "updates",
+      "permissions",
+      "teamwork"
+    ],
+    "collection": "explore"
   }
 ]

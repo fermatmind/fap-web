@@ -1,0 +1,1284 @@
+{
+  "id": "T146",
+  "form": "fermatmind_situational_rules_original_25_v1",
+  "authorship": "Original fictional workplace decision exercises and explanatory answer keys; all local policies are supplied in the scenario. No proprietary SJT items or employer scoring reproduced.",
+  "questions": [
+    {
+      "id": "SJT_01",
+      "prompt": {
+        "en": "Two internal requests arrive at 10:00. Your team rule is: finish a release-blocking check due at 10:20 before a cosmetic change due tomorrow; tell the cosmetic requester when it can start. You can complete the check in ten minutes. Which response meets both requirements?",
+        "zh": "10:00收到两项内部请求。团队本题规则是：先做10:20前必须完成、会阻塞发布的检查，再做明天到期的外观修改，并告诉外观请求方何时开始。检查需十分钟。哪项满足两项要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Start the cosmetic change because it arrived a minute earlier.",
+            "zh": "先做早到一分钟的外观修改。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Do the check now and give the cosmetic requester a later start time.",
+            "zh": "现在做检查，并告知外观修改稍后开始。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Do the check now and leave the other request unanswered.",
+            "zh": "现在做检查，但不回复另一请求。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Promise both will be finished at 10:05.",
+            "zh": "承诺两项都在10:05完成。"
+          },
+          "directionId": "priorities"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The check fits before 10:20 and has the stated priority; the other requester still needs a start-time update. Earlier arrival does not override this rule, silence omits the update, and a five-minute promise contradicts the ten-minute estimate.",
+        "zh": "检查能在10:20前完成，且题定优先级更高；另一方仍需收到开始时间。早到不能推翻规则，不回复漏了通知，五分钟承诺与十分钟估计冲突。"
+      }
+    },
+    {
+      "id": "SJT_02",
+      "prompt": {
+        "en": "You have 40 minutes left. Task X needs 30 minutes and is due today; Y needs 20 minutes and is due tomorrow. The agreed rule is to finish X and ask the coordinator to move Y if both do not fit. Which plan follows it?",
+        "zh": "剩余40分钟，X需30分钟今天到期，Y需20分钟明天到期。已约定：先完成X，两项做不完时请协调人调整Y。哪项按约定做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Spend 20 minutes on each and mark both complete.",
+            "zh": "各做20分钟，并标记两项完成。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Finish Y and leave X without an update.",
+            "zh": "完成Y，不更新X状态。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Promise both in 40 minutes without changing the estimates.",
+            "zh": "估计不变，仍承诺40分钟完成两项。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Finish X and ask the coordinator to reschedule Y.",
+            "zh": "完成X，请协调人调整Y。"
+          },
+          "directionId": "priorities"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The tasks total 50 minutes, exceeding the available 40. Only the final plan preserves X and uses the specified route for Y. Splitting time does not complete a 30-minute task, while an unchanged promise hides the capacity conflict.",
+        "zh": "两项共需50分钟，超过可用40分钟。末项同时保住X并按指定途径处理Y。均分时间不能完成需30分钟的X，估计不变的承诺掩盖了容量冲突。"
+      }
+    },
+    {
+      "id": "SJT_03",
+      "prompt": {
+        "en": "A maintenance rehearsal may start only after the dependency owner confirms readiness. The start is near, but no confirmation has arrived. The rehearsal coordinator can revise the slot. What meets these conditions?",
+        "zh": "维护演练必须等依赖负责人确认就绪后才能开始。临近开始仍无确认，演练协调人可以改时段。怎样满足这些条件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Ask the owner for readiness and notify the coordinator that the slot may need moving.",
+            "zh": "向负责人确认就绪状态，并告知协调人可能需要改时段。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Start because no one has explicitly objected.",
+            "zh": "没人明确反对，直接开始。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Write that readiness was confirmed to protect the schedule.",
+            "zh": "为保计划，写成已经确认就绪。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Cancel every later rehearsal without contacting the coordinator.",
+            "zh": "不联系协调人，取消所有后续演练。"
+          },
+          "directionId": "priorities"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Silence is not the required positive confirmation. Checking with the owner and flagging the schedule risk preserves the prerequisite and the coordinator’s decision. Starting or inventing confirmation breaks it; permanent cancellation goes beyond the available scheduling role.",
+        "zh": "没有回复不等于所需的明确确认。向负责人核实、提示排期风险，既保留前置条件，也让协调人决定。直接开始或捏造确认违反条件，永久取消则超出了可用的排期职责。"
+      }
+    },
+    {
+      "id": "SJT_04",
+      "prompt": {
+        "en": "For this fictional queue, handle priority 1 before priority 2, and within a priority handle the earlier deadline first. A is priority 2 due at 11:00; B is priority 1 due at 13:00; C is priority 1 due at 12:00. Which is first?",
+        "zh": "本题虚构队列规定先处理优先级1，再处理2；同级按较早截止时间。A为2级11:00到期，B为1级13:00到期，C为1级12:00到期。先处理哪项？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A, because its clock deadline is earliest overall.",
+            "zh": "A，因为它在所有任务中最早到期。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B, because its label is alphabetically earlier than C.",
+            "zh": "B，因为字母排在C前面。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "C, because it has priority 1 and the earlier deadline within that priority.",
+            "zh": "C，因为它为1级且在1级中较早到期。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Any task, because the rules conflict.",
+            "zh": "任意一项，因为规则冲突。"
+          },
+          "directionId": "priorities"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Apply the priority comparison first. B and C outrank A; C then has the earlier deadline. There is no contradiction because the tie-break operates only within one priority, not across the whole queue.",
+        "zh": "先比优先级，B和C都先于A；再在1级中选较早到期的C。规则不冲突，时间排序只在同级内使用，不对全队列优先。"
+      }
+    },
+    {
+      "id": "SJT_05",
+      "prompt": {
+        "en": "You can either prepare a meeting summary now or resolve a blocker another team needs before noon. The agreed plan puts the blocker first; the summary owner has authorized delivery by 16:00. Which update respects that agreement?",
+        "zh": "现在可整理会议纪要，或处理另一团队中午前需要的阻塞项。已约定先解阻塞，纪要负责人也同意16:00前交付。哪项更新符合约定？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Say the summary is complete so you can work on the blocker quietly.",
+            "zh": "把纪要说成已完成，再安静处理阻塞。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ignore the blocker because summaries are easier to finish.",
+            "zh": "纪要容易做，忽略阻塞。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ask the other team to change its deadline without mentioning the existing plan.",
+            "zh": "不提既定计划，要求另一团队改截止时间。"
+          },
+          "directionId": "priorities"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Confirm the blocker is next and restate the agreed 16:00 summary delivery.",
+            "zh": "确认接下来先解阻塞，并重申纪要按约定16:00前交。"
+          },
+          "directionId": "priorities"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The plan already permits the later summary. A factual update preserves both commitments without falsely claiming completion or renegotiating a deadline that does not currently need to change. Ease of work is not the stated priority.",
+        "zh": "已有计划允许稍晚交纪要。如实更新便能同时保留两项承诺，无需谎称完成或改动当前不需调整的期限。容易做不是题定优先标准。"
+      }
+    },
+    {
+      "id": "SJT_06",
+      "prompt": {
+        "en": "A task is assigned to you until another named colleague explicitly accepts it. You send a handover note but receive no reply. Which action follows the ownership rule?",
+        "zh": "任务由你负责，直到另一位具名同事明确接收。你发了交接说明，但没收到回复。哪项符合责任规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keep ownership and seek explicit acceptance before recording a transfer.",
+            "zh": "继续负责，取得明确接收后再记录责任转移。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Mark it transferred because the message was delivered.",
+            "zh": "消息送达就标记交接完成。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Remove your name so no one can misread the status.",
+            "zh": "删掉自己的名字，避免别人误读状态。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Assign it to the whole team without a named receiver.",
+            "zh": "不指定接收人，直接派给全组。"
+          },
+          "directionId": "ownership"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Delivery of a note is not acceptance. Keeping the current owner while obtaining a named acknowledgment avoids an unowned gap. The other responses each remove or diffuse ownership without meeting the explicit transfer condition.",
+        "zh": "说明送达不是明确接收。保留现负责人、再取得具名确认，能避免无人负责的空档。其余做法都在未满足交接条件时移除或分散了责任。"
+      }
+    },
+    {
+      "id": "SJT_07",
+      "prompt": {
+        "en": "Your draft handover checklist requires current status, next action and a named owner. A note says “blocked; ask the reviewer” but names no owner for that next action. What should be added?",
+        "zh": "交接清单要求当前状态、下一步和具名负责人。说明写了“受阻；找评审人”，但没写谁负责联系。应补什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A more optimistic status label.",
+            "zh": "更乐观的状态标签。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A longer history of unrelated completed tasks.",
+            "zh": "更多无关已完成任务的历史。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The name of the person responsible for contacting the reviewer.",
+            "zh": "负责联系评审人的具体姓名。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A completion date invented without the reviewer.",
+            "zh": "不问评审人，编一个完成日期。"
+          },
+          "directionId": "ownership"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The note already provides a status and an action. Its missing required field is the action owner. Extra history or optimism does not supply that field, and an invented completion date adds unsupported information.",
+        "zh": "说明已有状态与动作，缺的是执行动作的负责人。更多历史或更乐观的表达不能补齐该字段，编造日期还会增加无依据内容。"
+      }
+    },
+    {
+      "id": "SJT_08",
+      "prompt": {
+        "en": "You find an error in a draft you wrote. This exercise’s review rule says to correct the draft, describe the change to the reviewer and keep the version history. Which response complies?",
+        "zh": "你发现自己草稿中有错。本题评审规则要求修正草稿、向评审人说明改动，并保留版本历史。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Correct it and delete the old history so the file looks clean.",
+            "zh": "修正后删除旧历史，让文件看起来干净。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Correct it, retain the history and tell the reviewer what changed.",
+            "zh": "修正、保留历史，并向评审人说明改了什么。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Tell the reviewer but leave the known error in the draft.",
+            "zh": "告诉评审人，却保留已知错误。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Wait for somebody else to discover it before doing anything.",
+            "zh": "等别人发现再行动。"
+          },
+          "directionId": "ownership"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "All three stated actions are required. The second response does them together. Deleting history, leaving the error or waiting silently each omits a requirement; the exercise does not require a public confession or a judgment about character.",
+        "zh": "三项要求必须同时满足，第二项做到了。删历史、留错误或沉默等待都漏了要求；题目没有要求公开检讨，也不据此判断品格。"
+      }
+    },
+    {
+      "id": "SJT_09",
+      "prompt": {
+        "en": "A teammate accepts responsibility for a follow-up by Friday. Your tracker rule requires recording the accepting person and agreed date, without marking an unfinished action complete. Which entry is accurate?",
+        "zh": "同事已明确接收一项周五前完成的后续工作。跟踪表要求记录接收人和约定日期，不能把未完成动作写成完成。哪项准确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Complete — no further action.",
+            "zh": "已完成——无需后续动作。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Someone will handle it eventually.",
+            "zh": "以后有人处理。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Assigned to the requester, without asking them.",
+            "zh": "未经确认，派给请求方。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Follow-up open; named teammate accepted it; due Friday.",
+            "zh": "后续处理中；具名同事已接收；周五到期。"
+          },
+          "directionId": "ownership"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Acceptance establishes ownership, not completion. The last entry records the actual acceptance and date while leaving the action open. A vague owner or an unaccepted reassignment loses information that the tracker requires.",
+        "zh": "接收确立负责人，不代表工作完成。末项记录实际接收和日期，同时保留未完状态。模糊负责人或未经接收就转派，都会丢掉跟踪表所需信息。"
+      }
+    },
+    {
+      "id": "SJT_10",
+      "prompt": {
+        "en": "Your team’s closure rule requires the requester to confirm that the requested revision meets the brief. You have uploaded the revision but have no confirmation. Which status fits?",
+        "zh": "团队结项规则要求请求方确认修改符合需求。你已上传修改稿，但尚无确认。哪种状态符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Revision delivered; awaiting requester confirmation.",
+            "zh": "修改稿已交；等待请求方确认。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Closed because uploading always proves acceptance.",
+            "zh": "已结项，因为上传必然代表验收。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Canceled because the requester has not replied yet.",
+            "zh": "已取消，因为请求方尚未回复。"
+          },
+          "directionId": "ownership"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Approved by the requester, with a guessed timestamp.",
+            "zh": "请求方已批准，附上估计的时间。"
+          },
+          "directionId": "ownership"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Delivery and acceptance are different states in this scenario. The first entry preserves both the completed upload and the outstanding confirmation. The other labels invent a closure, cancellation or approval that has not occurred.",
+        "zh": "本情境把交付与验收分开。首项同时保留已经上传和仍待确认两项事实。其余标签捏造了尚未发生的结项、取消或批准。"
+      }
+    },
+    {
+      "id": "SJT_11",
+      "prompt": {
+        "en": "A dashboard source is currently unavailable. You can confirm only yesterday’s count. The update rule requires a source date and forbids presenting old data as live. Which message follows it?",
+        "zh": "看板数据源暂不可用，你只能确认昨天的数量。更新规则要求标明来源日期，禁止把旧数当实时值。哪条符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The live count is unchanged, although it was not checked.",
+            "zh": "实时数量没变，尽管没有核查。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use a plausible number and remove the source date.",
+            "zh": "填一个合理数字，并删来源日期。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Yesterday’s confirmed count is available; today’s live source is unavailable.",
+            "zh": "可提供昨天已确认数量；今天实时来源暂不可用。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Treat unavailable data as a confirmed zero.",
+            "zh": "把数据不可用当成已确认的零。"
+          },
+          "directionId": "updates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The third message distinguishes a dated observation from unavailable current data. Neither an unchanged value nor zero has been verified. A plausible estimate without its status would violate the explicit reporting rule.",
+        "zh": "第三项区分带日期的观察与当前不可用数据。数值没变和当前为零都未核实；不说明状态的估计也违反了题定报告规则。"
+      }
+    },
+    {
+      "id": "SJT_12",
+      "prompt": {
+        "en": "At 14:00 you know a file transfer failed, but not why. You have agreed to provide another status update at 14:30. Which message states what is known without making a new guarantee?",
+        "zh": "14:00已确认文件传输失败，但原因未知。已约定14:30再更新状态。哪项如实表达，且不新增保证？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "It will definitely be fixed by 14:30.",
+            "zh": "14:30一定修好。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The transfer failed; the cause is under investigation; I will update you at 14:30.",
+            "zh": "传输失败，原因在查；14:30再更新状态。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A network supplier caused it, though no diagnosis exists.",
+            "zh": "虽然还没诊断，但肯定是网络供应商造成。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "There is no issue because the cause is unknown.",
+            "zh": "原因不知道，因此没有问题。"
+          },
+          "directionId": "updates"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The agreed 14:30 time is for an update, not a repair guarantee. The second message states the known failure and uncertainty. Assigning a cause without evidence or denying the observed failure adds claims not supported by the scenario.",
+        "zh": "14:30约定的是更新，不是修复保证。第二项说清已知失败和未知原因。无依据归因或否认已观察到的失败，都增加了情境不支持的主张。"
+      }
+    },
+    {
+      "id": "SJT_13",
+      "prompt": {
+        "en": "Two notes disagree about whether a room holds 18 or 24 people. The booking brief requires capacity for 22, and the facilities owner can verify the current capacity. What is the supported next step?",
+        "zh": "两份记录分别说会议室容纳18人和24人，预订需求为22人；设施负责人能核实当前容量。下一步哪项有依据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Book it immediately using the larger figure.",
+            "zh": "直接按较大数字预订。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Average the notes and call that verified capacity.",
+            "zh": "取平均数，并称为已核实容量。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Delete the smaller figure without asking anyone.",
+            "zh": "不询问，删掉较小数字。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask the facilities owner to confirm capacity before committing to the room.",
+            "zh": "先请设施负责人确认容量，再承诺使用该房间。"
+          },
+          "directionId": "updates"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The conflicting records do not establish whether the 22-person requirement can be met. Verification from the stated owner addresses the missing fact. Selecting, averaging or deleting a figure does not turn the remaining number into a verified capacity.",
+        "zh": "冲突记录无法确认能否满足22人需求。向题定负责人核查，才能补齐缺失事实。任选、平均或删掉一个数字，都不能使留下的数成为已核实容量。"
+      }
+    },
+    {
+      "id": "SJT_14",
+      "prompt": {
+        "en": "A colleague asks for a decision based on a table marked “draft, not checked.” Your rule allows sharing it only if its draft status and unresolved check are included. Which action meets that rule?",
+        "zh": "同事想用一张标着“草稿，未核对”的表作决定。规则允许分享，但必须同时说明草稿状态与待核对事项。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Share the table with its draft label and explain that the check is outstanding.",
+            "zh": "保留草稿标签分享，并说明尚待核对。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Remove the label because it might make the colleague worry.",
+            "zh": "删掉标签，免得同事担心。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Describe it as checked because you recognize the author.",
+            "zh": "认识作者，就说已经核对过。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Share only a screenshot that hides every status note.",
+            "zh": "只发遮住所有状态说明的截图。"
+          },
+          "directionId": "updates"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first action supplies both required qualifications. Familiarity with an author is not the missing check. Hiding or removing the status would change how the recipient is invited to interpret the table.",
+        "zh": "首项保留两项必要说明。认识作者不能代替核查；隐去或删除状态，会改变接收者理解表格的依据。"
+      }
+    },
+    {
+      "id": "SJT_15",
+      "prompt": {
+        "en": "A project update must separate completed work, current risk and next action. Work A is done; a dependency for B is not confirmed; Lee will check with its owner tomorrow. Which update includes all three accurately?",
+        "zh": "项目更新须分别写已完成工作、当前风险和下一步。A已完成，B的依赖未确认，Lee明天会向负责人核实。哪项准确覆盖三者？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Everything is complete and risk-free.",
+            "zh": "全部完成，无风险。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B will definitely finish tomorrow.",
+            "zh": "B明天肯定完成。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A is complete; B depends on an unconfirmed item; Lee will check tomorrow.",
+            "zh": "A完成；B依赖项未确认；Lee明天核查。"
+          },
+          "directionId": "updates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "There is a risk, but omit the next action and the completed work.",
+            "zh": "有风险，但不写下一步及已完成工作。"
+          },
+          "directionId": "updates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The third update maps each supplied fact to its required category. Tomorrow’s check is not a completion promise for B. Declaring everything complete or omitting required categories obscures the state that the brief asks you to communicate.",
+        "zh": "第三项把给定事实分别放进所需类别。明天核查不等于承诺明天完成B；宣称全部完成或漏掉类别，都会掩盖需求要求说明的状态。"
+      }
+    },
+    {
+      "id": "SJT_16",
+      "prompt": {
+        "en": "You may edit an internal announcement, but only its named owner may approve publication. A colleague asks you to publish your finished draft immediately. Which response follows these stated roles?",
+        "zh": "你可编辑内部公告，但只有具名负责人能批准发布。同事让你立即发布已写完的草稿。哪项遵守题定职责？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Publish it because finishing the draft grants approval.",
+            "zh": "写完就有批准权，直接发布。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send the finished draft to the owner for approval before publication.",
+            "zh": "先把完成稿交负责人批准，再发布。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Use the owner’s account without asking.",
+            "zh": "不询问，使用负责人的账号。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Write “approved” yourself to save time.",
+            "zh": "为省时间，自己写上“已批准”。"
+          },
+          "directionId": "permissions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Editing authority does not include approval under this scenario. Routing the draft to the named owner respects the separate role. Publishing, using another account or inventing approval each bypasses the stated prerequisite.",
+        "zh": "本情境的编辑权不含批准权。把稿件交具名负责人，保留了职责分工。直接发布、借账号或自行写批准，都绕过了明示前置条件。"
+      }
+    },
+    {
+      "id": "SJT_17",
+      "prompt": {
+        "en": "A shared-folder rule allows access only to named reviewers, approved by the folder owner. A new teammate needs one document but has not been approved. Which option meets the rule?",
+        "zh": "共享文件夹仅允许经文件夹负责人批准的具名评审人访问。新同事需要其中一份文档，但尚未获批。哪项符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Turn on public-link access for the whole folder.",
+            "zh": "给整个文件夹打开公开链接。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send a colleague’s sign-in details.",
+            "zh": "发送另一同事的登录信息。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Assume joining the team automatically counts as approval.",
+            "zh": "默认入组自动等于获批。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask the folder owner to approve the named teammate’s required access.",
+            "zh": "请文件夹负责人批准这位具名同事所需的访问。"
+          },
+          "directionId": "permissions"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The last action uses the specified approver and names the recipient. A public link or shared credentials would bypass the bounded-access condition. Team membership alone does not meet the approval condition described in the prompt.",
+        "zh": "末项使用指定批准人，并明确接收人。公开链接或共享凭据绕过了有限访问条件；题面也没把入组视为已批准。"
+      }
+    },
+    {
+      "id": "SJT_18",
+      "prompt": {
+        "en": "A teammate asks you to add a new deliverable to a signed-off internal plan. In this exercise, changes require the coordinator’s agreement on scope and date. What should you do before promising delivery?",
+        "zh": "同事要求在已确认的内部计划中增加一项交付。本题规定变更必须由协调人同意范围和日期。承诺交付前应做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Obtain the coordinator’s agreement on the added scope and date.",
+            "zh": "先取得协调人对新增范围和日期的同意。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Promise it now and hope the existing deadline still works.",
+            "zh": "先承诺，盼原期限仍能满足。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Hide the extra work from the coordinator.",
+            "zh": "向协调人隐瞒新增工作。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Remove another agreed item without telling its owner.",
+            "zh": "不告知负责人，删掉另一项已约定工作。"
+          },
+          "directionId": "permissions"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first response satisfies both parts of the explicit change rule. A promise without the agreement creates an unconfirmed commitment; hidden work or an unannounced deletion does not provide approval for the revised plan.",
+        "zh": "首项同时满足变更规则的两个部分。未获同意的承诺会形成未确认承诺；隐藏工作或未经告知删除旧项，都不等于修订计划得到批准。"
+      }
+    },
+    {
+      "id": "SJT_19",
+      "prompt": {
+        "en": "You are asked to approve an exception outside your delegated limit. The exercise names Pat as the exception owner and allows you to send a factual request. Which action is within your role?",
+        "zh": "有人请你批准超出授权上限的例外。本题指定Pat负责例外，你可发送事实完整的请求。哪项在职责内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Approve it because the requester is senior.",
+            "zh": "请求方资历高，直接批准。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Record it as within the limit by changing the amount.",
+            "zh": "改动金额，记成未超上限。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Send Pat the request and relevant facts, keeping approval pending.",
+            "zh": "把请求和相关事实交Pat，保持待批状态。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Tell the requester Pat approved without contacting Pat.",
+            "zh": "没联系Pat就告诉请求方已获批准。"
+          },
+          "directionId": "permissions"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The third action transfers the approval decision to the stated owner while preserving accurate pending status. Seniority, a changed number or a claimed approval cannot expand the delegation given in the scenario.",
+        "zh": "第三项把批准决定交给题定负责人，并保留真实待批状态。资历、改数字或口头声称批准，都不能扩大情境给定授权。"
+      }
+    },
+    {
+      "id": "SJT_20",
+      "prompt": {
+        "en": "Your group agrees that one named facilitator may move a review meeting after consulting affected reviewers. You notice a clash but are not that facilitator. Which response fits?",
+        "zh": "团队约定只有一位具名主持人可在征询受影响评审人后改会议时间。你发现冲突，但并非主持人。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Move it in everyone’s calendar without asking.",
+            "zh": "不询问，直接改所有人的日历。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Tell the facilitator about the clash and ask them to coordinate a change.",
+            "zh": "把冲突告知主持人，请其协调改期。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Announce that all reviewers agreed, although none were contacted.",
+            "zh": "未联系评审人，就宣布全部同意。"
+          },
+          "directionId": "permissions"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Delete the meeting because the clash is inconvenient.",
+            "zh": "冲突麻烦，删掉会议。"
+          },
+          "directionId": "permissions"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Raising the clash with the facilitator preserves both the named role and the consultation requirement. The other responses perform or claim an unauthorized change. This is an exercise rule, not a claim that every real workplace assigns scheduling in the same way.",
+        "zh": "向主持人提出冲突，同时保留具名职责和征询要求。其余行为实际执行或声称执行了未获授权的变更；这只是本题规则，不代表所有职场均如此排期。"
+      }
+    },
+    {
+      "id": "SJT_21",
+      "prompt": {
+        "en": "A colleague cannot follow your diagram. The brief asks for an accessible text explanation and allows a short clarification question. Which response serves that brief?",
+        "zh": "同事看不懂你的图示。需求要求提供可读的文字说明，并允许先问一个简短澄清问题。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Send the same diagram at a smaller size.",
+            "zh": "把同一张图缩小再发。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Say everyone else understood it.",
+            "zh": "说其他人都看懂了。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Remove the colleague from the review.",
+            "zh": "把同事移出评审。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask which step is unclear and provide the requested text explanation.",
+            "zh": "问清哪步不明白，再提供所需文字说明。"
+          },
+          "directionId": "teamwork"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The final response identifies the sticking point and supplies the requested format. Resending the same inaccessible representation, invoking other people or excluding the reviewer does not satisfy the text-explanation requirement.",
+        "zh": "末项既定位卡点，也提供所需格式。重发同样不便理解的表示、拿别人作比较或排除评审人，都未满足文字说明要求。"
+      }
+    },
+    {
+      "id": "SJT_22",
+      "prompt": {
+        "en": "Your review agreement says to discuss a specific draft passage privately with its author before raising a non-urgent wording concern in the group. No safety or urgent issue is involved. What follows that agreement?",
+        "zh": "评审约定：非紧急措辞问题先私下与作者讨论具体段落，再向组内提出；本情境无安全或紧急事项。哪项符合约定？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Point the author to the passage privately and explain the concern.",
+            "zh": "私下指出具体段落，并向作者说明疑问。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Publicly label the author careless without identifying the passage.",
+            "zh": "不指出段落，公开说作者粗心。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Delete the whole draft without consulting the author.",
+            "zh": "不商量，删掉整稿。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Describe the concern as an urgent safety event even though it is not.",
+            "zh": "明知不是，却称为紧急安全事件。"
+          },
+          "directionId": "teamwork"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The first response uses the agreed sequence and a concrete observation. Public character judgments, deletion or a fabricated urgency do not follow it. A different real emergency could require a different route, which is why the prompt states that none exists here.",
+        "zh": "首项使用约定顺序和具体观察。公开评人格、删稿或捏造紧急性均不符合。真实紧急事件可能需要另一途径，所以题面明确排除了该情况。"
+      }
+    },
+    {
+      "id": "SJT_23",
+      "prompt": {
+        "en": "You can help a teammate for 15 minutes today; their request needs about an hour. Your agreement is to state available capacity and seek another plan for the remainder. Which reply meets both parts?",
+        "zh": "今天你能帮同事15分钟，对方请求约需一小时。约定要求说清可用时间，并为剩余部分另找安排。哪条同时做到？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Promise the full hour and do not mention your limit.",
+            "zh": "承诺一小时，不提时间限制。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Offer 15 minutes and say the rest is already completed.",
+            "zh": "提供15分钟，却说剩余已完成。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Offer 15 minutes and discuss rescheduling or another helper for the rest.",
+            "zh": "说明可帮15分钟，并商量剩余部分改期或另找协助。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ignore the request indefinitely.",
+            "zh": "一直不回复。"
+          },
+          "directionId": "teamwork"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The third reply makes capacity explicit and opens a plan for the remaining 45 minutes. A false full-hour promise, an invented completion or silence each misses at least one condition. The count reflects this scenario, not a personality label about generosity.",
+        "zh": "第三项说清容量，也为剩余45分钟安排下一步。虚假的一小时承诺、捏造完成或沉默，都至少漏一个条件。本题正确数不用于给慷慨程度贴人格标签。"
+      }
+    },
+    {
+      "id": "SJT_24",
+      "prompt": {
+        "en": "A meeting asks for an agreed decision record, including one unresolved objection. The group has chosen option A; Jo’s objection is still open. Which note matches the requested record?",
+        "zh": "会议要求记录已达成决定，同时保留一个未解决异议。团队选了方案A，Jo的异议尚未解决。哪条符合记录要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Everyone fully agrees; no concerns remain.",
+            "zh": "全体完全同意，没有疑虑。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Decision: A; Jo’s stated objection remains open for follow-up.",
+            "zh": "决定：A；Jo提出的异议仍待后续处理。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Jo vetoed A, although no veto was given.",
+            "zh": "Jo否决了A，尽管并未发生否决。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Do not record the decision or the objection.",
+            "zh": "决定和异议都不记录。"
+          },
+          "directionId": "teamwork"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The second note preserves both the decision and the unresolved objection. A decision does not automatically establish unanimity. Inventing a veto or omitting both facts also misstates the situation specified in the brief.",
+        "zh": "第二项同时保留决定和未解异议。达成决定不自动等于一致同意；捏造否决或全不记录，也歪曲了需求给定情况。"
+      }
+    },
+    {
+      "id": "SJT_25",
+      "prompt": {
+        "en": "In a paired task, you and Sam agreed that Sam drafts and you check the final numbers before sending. Sam’s draft arrives unchecked. Which response follows the agreed collaboration?",
+        "zh": "双人任务约定由Sam起草，你核最终数字后再发送。Sam交来的稿件尚未核数字。哪项遵守协作约定？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Send immediately because receiving a draft means all checks are done.",
+            "zh": "收到草稿就代表已全检，立即发送。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Change Sam’s name to yours and send without checking.",
+            "zh": "把Sam名字换成自己，未核就发送。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Tell the recipient the numbers were checked when they were not.",
+            "zh": "没核，却告诉接收方数字已核。"
+          },
+          "directionId": "teamwork"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Perform the agreed number check and resolve any issue before sending.",
+            "zh": "按约定核数字，解决发现的问题后再发送。"
+          },
+          "directionId": "teamwork"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The remaining prerequisite is your number check. The final response completes it before sending. Receiving a draft does not satisfy the checker’s role, and changing attribution or claiming an unperformed check does not replace the work.",
+        "zh": "剩余前置步骤是你核数字，末项在发送前完成该步骤。收到草稿不能代替复核职责，改署名或声称做过未做的检查也不能代替实际核查。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "SJT_01",
+      "expected_label_en": "Do the check now and give the cosmetic requester a later start time.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_02",
+      "expected_label_en": "Finish X and ask the coordinator to reschedule Y.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_03",
+      "expected_label_en": "Ask the owner for readiness and notify the coordinator that the slot may need moving.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_04",
+      "expected_label_en": "C, because it has priority 1 and the earlier deadline within that priority.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_05",
+      "expected_label_en": "Confirm the blocker is next and restate the agreed 16:00 summary delivery.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_06",
+      "expected_label_en": "Keep ownership and seek explicit acceptance before recording a transfer.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_07",
+      "expected_label_en": "The name of the person responsible for contacting the reviewer.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_08",
+      "expected_label_en": "Correct it, retain the history and tell the reviewer what changed.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_09",
+      "expected_label_en": "Follow-up open; named teammate accepted it; due Friday.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_10",
+      "expected_label_en": "Revision delivered; awaiting requester confirmation.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_11",
+      "expected_label_en": "Yesterday’s confirmed count is available; today’s live source is unavailable.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_12",
+      "expected_label_en": "The transfer failed; the cause is under investigation; I will update you at 14:30.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_13",
+      "expected_label_en": "Ask the facilities owner to confirm capacity before committing to the room.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_14",
+      "expected_label_en": "Share the table with its draft label and explain that the check is outstanding.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_15",
+      "expected_label_en": "A is complete; B depends on an unconfirmed item; Lee will check tomorrow.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_16",
+      "expected_label_en": "Send the finished draft to the owner for approval before publication.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_17",
+      "expected_label_en": "Ask the folder owner to approve the named teammate’s required access.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_18",
+      "expected_label_en": "Obtain the coordinator’s agreement on the added scope and date.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_19",
+      "expected_label_en": "Send Pat the request and relevant facts, keeping approval pending.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_20",
+      "expected_label_en": "Tell the facilitator about the clash and ask them to coordinate a change.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_21",
+      "expected_label_en": "Ask which step is unclear and provide the requested text explanation.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_22",
+      "expected_label_en": "Point the author to the passage privately and explain the concern.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_23",
+      "expected_label_en": "Offer 15 minutes and discuss rescheduling or another helper for the rest.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_24",
+      "expected_label_en": "Decision: A; Jo’s stated objection remains open for follow-up.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    },
+    {
+      "id": "SJT_25",
+      "expected_label_en": "Perform the agreed number check and resolve any issue before sending.",
+      "authority": "supplied fictional scenario conditions; author review, not independent professional consensus"
+    }
+  ]
+}
