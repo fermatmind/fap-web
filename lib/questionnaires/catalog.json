@@ -2160,5 +2160,32 @@
       "randy-marsh"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "gilmore-girls",
+    "code": "GILMORE_GIRLS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Gilmore Girls Test",
+      "zh": "《吉尔莫女孩》角色测试"
+    },
+    "description": {
+      "en": "Answer 18 original café, book-club and gathering situations to compare Lorelai, Rory, Emily, Lane, Paris and Sookie. Every highest tie and all six full bilingual guides are free without signup. Unofficial fan edition.",
+      "zh": "完成18道原创咖啡角、读书小组与相聚情境题，比较洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪。最高并列全部保留，六份完整双语说明免费，无需注册。非官方同人版。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_gilmoregirls_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "lorelai-gilmore",
+      "rory-gilmore",
+      "emily-gilmore",
+      "lane-kim",
+      "paris-geller",
+      "sookie-st-james"
+    ],
+    "collection": "explore"
   }
 ]

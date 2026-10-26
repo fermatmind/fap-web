@@ -1,0 +1,1734 @@
+{
+  "slug": "gilmore-girls",
+  "code": "GILMORE_GIRLS_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Gilmore Girls Test",
+    "zh": "《吉尔莫女孩》角色测试"
+  },
+  "description": {
+    "en": "Answer 18 original café, book-club and gathering situations to compare Lorelai, Rory, Emily, Lane, Paris and Sookie. Every highest tie and all six full bilingual guides are free without signup. Unofficial fan edition.",
+    "zh": "完成18道原创咖啡角、读书小组与相聚情境题，比较洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪。最高并列全部保留，六份完整双语说明免费，无需注册。非官方同人版。"
+  },
+  "seoTitle": {
+    "en": "Gilmore Girls Test: Free Quiz & All 6 Character Results",
+    "zh": "《吉尔莫女孩》角色测试：免费作答与6种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Gilmore Girls character readings",
+    "zh": "本次《吉尔莫女孩》角色读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which Gilmore Girls character do your small everyday choices bring to mind? This independent fan edition uses six limited angles on a café afternoon, a reading group or a shared occasion: lively conversation, curious preparation, considered hosting, personal taste, clear commitments and hands-on care. Eighteen original situations require no episode trivia. Read every complete guide before you start, and keep every highest tie afterwards. The comparison does not predict school success, parenting or romantic outcomes.",
+    "zh": "普通小选择让你想到《吉尔莫女孩》的哪位人物？本独立同人版从咖啡角、读书小组与共同场合取六个有限角度：活泼交谈、好奇准备、用心接待、个人口味、清楚承诺和亲手心意。18道原创情境不考剧情，开测前可读全部全文，完成后保留所有最高并列。比较不预测学业成功、养育或恋爱结局。"
+  },
+  "instructions": {
+    "en": "Think about an optional everyday gathering you would enjoy now. Choose one of four responses for every situation, even if none is a perfect fit. No answer is correct, more cultured or morally better. A missing character option is not a rejection. Complete all 18 choices before counts appear; every highest tie keeps the full explanation.",
+    "zh": "想象一次现在愿意参加的可选日常相聚，每题从四种回应选较接近的一项，即使都不完全合适。没有正确、更有文化或道德更好的答案。没出现的人物不算被拒绝。18题全部选择后才显示次数，每个最高并列均保留完整说明。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Hulu: Gilmore Girls character introductions",
+        "zh": "Hulu：《吉尔莫女孩》基本人物介绍"
+      },
+      "url": "https://www.hulu.com/guides/gilmore-girls"
+    },
+    {
+      "title": {
+        "en": "Hallmark: about Gilmore Girls",
+        "zh": "Hallmark：《吉尔莫女孩》节目简介"
+      },
+      "url": "https://www.hallmarkchannel.com/gilmore-girls/about-gilmore-girls"
+    },
+    {
+      "title": {
+        "en": "Hallmark: Gilmore Girls cast names",
+        "zh": "Hallmark：《吉尔莫女孩》人物名称"
+      },
+      "url": "https://www.hallmarkchannel.com/gilmore-girls/cast"
+    },
+    {
+      "title": {
+        "en": "Hallmark: episode guide — Paris and Rory at school and university",
+        "zh": "Hallmark分集简介：帕里斯与罗里的学校和大学背景"
+      },
+      "url": "https://www.hallmarkchannel.com/gilmore-girls/gilmore-girls-episodes"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_gilmoregirls_original_18_v1",
+    "itemBankVersion": "gilmoregirls_original_18_v1",
+    "scoringVersion": "gilmoregirls_all_highest_counts_v1",
+    "resultContentVersion": "gilmoregirls_full_guides_v1",
+    "itemBankSha256": "2a854e68b5d1129d15db3fd7bd78383f5f16e1acc2793a87426e4acd8dfce0e1",
+    "resultContentSha256": "a6b52cf844fc48ae906c4c8d71486e19b89beba8ec3a8ceb18e8e87729901a13",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "lorelai-gilmore",
+      "title": {
+        "en": "Lorelai Gilmore",
+        "zh": "洛蕾莱·吉尔莫（Lorelai）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rory-gilmore",
+      "title": {
+        "en": "Rory Gilmore",
+        "zh": "罗里·吉尔莫（Rory）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "emily-gilmore",
+      "title": {
+        "en": "Emily Gilmore",
+        "zh": "艾米莉·吉尔莫（Emily）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "lane-kim",
+      "title": {
+        "en": "Lane Kim",
+        "zh": "莱恩·金（Lane）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "paris-geller",
+      "title": {
+        "en": "Paris Geller",
+        "zh": "帕里斯·盖勒（Paris）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "sookie-st-james",
+      "title": {
+        "en": "Sookie St. James",
+        "zh": "苏琪·圣詹姆斯（Sookie）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "GG_01",
+      "prompt": {
+        "en": "A local reading café invites you to help with a relaxed afternoon. What would you most enjoy adding?",
+        "zh": "社区阅读咖啡角请你帮忙办轻松的下午活动，你最喜欢添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A lively welcome that turns the slightly awkward start into a shared joke.",
+            "zh": "一个活泼开场，把刚见面的微妙尴尬变成共同玩笑。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A little background about the books so people have something to explore.",
+            "zh": "一点书籍背景，让大家有内容可以探索。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A thoughtful arrangement that makes the afternoon feel like an occasion.",
+            "zh": "一套用心安排，让下午有被郑重对待的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A small selection of music that shares something I genuinely like.",
+            "zh": "一小组能分享自己真正喜好的音乐。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_02",
+      "prompt": {
+        "en": "You are choosing a book for an informal discussion. Which next step appeals most?",
+        "zh": "为非正式讨论选书，你更喜欢先做哪一步？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Read a short introduction and gather a few questions worth following.",
+            "zh": "读一点介绍，收集几个值得继续问的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Think about the setting and small details that would make hosting pleasant.",
+            "zh": "想想场地与细节，怎样接待更舒服。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Offer a less familiar favourite that reveals a different personal interest.",
+            "zh": "提一本较陌生的私藏，让人看见另一种兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Agree what the discussion should cover and how much time each part gets.",
+            "zh": "约好讨论要涉及什么、各留多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_03",
+      "prompt": {
+        "en": "Friends are turning a simple table into a welcoming corner for a fair. What would you choose to shape?",
+        "zh": "朋友要把普通桌子变成市集里的欢迎角，你最想布置什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "The arrangement of the table so arriving feels considered and special.",
+            "zh": "桌面整体安排，让人到来时觉得受了用心招待。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal little display of music or interests people might not expect.",
+            "zh": "一处展示私人音乐或意想不到兴趣的小角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "A clear list of what must be ready before visitors arrive.",
+            "zh": "一张访客来之前必须准备好的明确清单。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Something handmade and comforting for people to enjoy together.",
+            "zh": "一点亲手做、能一起享用的暖心东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_04",
+      "prompt": {
+        "en": "A friend asks for one recommendation outside your usual shared routine. What attracts you most?",
+        "zh": "朋友想听一个平常共同习惯之外的推荐，你最喜欢怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Share an interest I have been enjoying in my own small corner.",
+            "zh": "分享自己在私人小角落里一直喜欢的兴趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Choose a recommendation with a clear reason and an easy way to try it.",
+            "zh": "选一个理由明确、容易开始试的推荐。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Make or bring a small sample instead of only describing it.",
+            "zh": "做一点或带一点样品，不只口头介绍。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Turn the recommendation into an amusing conversation we can build on.",
+            "zh": "把推荐变成能接着聊的有趣话题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_05",
+      "prompt": {
+        "en": "A neighbourhood event has a short setup window. Which contribution would you prefer?",
+        "zh": "邻里活动布置时间很短，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Set clear priorities and say when each necessary part needs to be ready.",
+            "zh": "排清优先顺序，说好必需部分何时准备到位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Take care with one welcoming thing people will actually use or taste.",
+            "zh": "用心做好一件人们真会用到或尝到的欢迎小物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Keep the last-minute conversation lively while we find a workable version.",
+            "zh": "一边找能做的版本，一边让临时讨论有些轻快。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Check the information we need before committing to the next step.",
+            "zh": "定下一步前，把所需信息先查清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_06",
+      "prompt": {
+        "en": "You can bring one small contribution to a casual kitchen-table gathering. What appeals most?",
+        "zh": "一次围桌闲聚可以带一项小贡献，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Something I have made with care for people to enjoy there.",
+            "zh": "一件自己用心做、大家现场可享用的东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "An entertaining observation that starts an easy shared conversation.",
+            "zh": "一个能打开轻松共同话题的有趣观察。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A short piece to read or discuss that invites a little more curiosity.",
+            "zh": "一小段可读可聊、能勾起更多好奇的材料。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A small finishing detail that makes the table feel deliberately hosted.",
+            "zh": "一个收尾细节，让桌子有认真招待的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_07",
+      "prompt": {
+        "en": "A familiar weekend plan suddenly has to change. What would you most like to offer?",
+        "zh": "熟悉的周末计划突然要改，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A quick, playful alternative that gives us something to laugh about together.",
+            "zh": "一个迅速而有趣的替代，让大家有共同笑点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A little research so we can compare what the new options actually involve.",
+            "zh": "查一点资料，比较新选项实际包含什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A revised arrangement that still makes people feel properly welcomed.",
+            "zh": "一套改过但仍让人觉得被好好招待的安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal favourite we have never made room for in this routine.",
+            "zh": "一个这套习惯里还没留出位置的私人爱好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_08",
+      "prompt": {
+        "en": "You have a quiet hour before a town-club discussion. What would feel most satisfying?",
+        "zh": "社区小组讨论前有一小时安静时间，做什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Follow a question in the reading a little further and note what I learn.",
+            "zh": "沿阅读里的一个问题多查一点，记下新发现。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Prepare the room so the discussion has a considered beginning and ending.",
+            "zh": "准备好房间，让讨论有用心的开始与结束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Explore a music selection or interest that feels distinctly mine.",
+            "zh": "探索一组音乐或一项很属于自己的兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Turn the remaining preparation into a specific, manageable checklist.",
+            "zh": "把剩余准备变成具体、可完成的清单。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_09",
+      "prompt": {
+        "en": "A small celebration will use ordinary materials and a modest budget. Which part would you enjoy most?",
+        "zh": "小庆祝只用普通材料、预算不多，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Give the arrangement a sense of occasion through a few chosen details.",
+            "zh": "用几处选过的细节，让布置有场合感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Add a personal cultural or musical favourite as an optional discovery.",
+            "zh": "添一个自选文化或音乐私藏，供人自由发现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Make sure the agreed essentials are finished to a clear standard.",
+            "zh": "确保约定的必需部分按明确标准完成。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Make a simple treat or useful handmade touch with particular care.",
+            "zh": "认真做一点简单点心或实用手作心意。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_10",
+      "prompt": {
+        "en": "An acquaintance is surprised by a hobby you rarely mention. How would you prefer to continue?",
+        "zh": "不太熟的人对你少提的一项爱好感到意外，你更想怎样接着聊？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Show one small example and explain what I enjoy about it.",
+            "zh": "展示一个小例子，说说自己喜欢哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Explain clearly what I am working on and what counts as progress for me.",
+            "zh": "说清自己在做什么，怎样算有进展。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Offer a hands-on sample we can enjoy or try in the moment.",
+            "zh": "提供一点现场可享用或可试的亲手样品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Make room for a quick joke and a more spontaneous exchange.",
+            "zh": "给小玩笑和更即兴的交流留位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_11",
+      "prompt": {
+        "en": "Several people are helping with the same community notice. What would you prefer to clarify?",
+        "zh": "几个人共同做一张社区通知，你更想先说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "What the notice must communicate and when it needs to be finished.",
+            "zh": "通知必须传达什么、何时必须完成。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Which little practical touch will make receiving it pleasant.",
+            "zh": "收到它时，哪个小小实际细节会让人舒服。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "How to give the wording a lively human voice.",
+            "zh": "文字怎样有活泼的人味。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Which details need checking so we do not pass on a mistaken assumption.",
+            "zh": "哪些细节需核对，免得把假设传出去。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_12",
+      "prompt": {
+        "en": "A friend has invited people over but wants help with one finishing touch. What would you most enjoy?",
+        "zh": "朋友请人来家里，想请你帮一个收尾细节，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Put care into one small thing guests can actually enjoy at the table.",
+            "zh": "用心做好桌上一个客人真能享用的小东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Bring a lively line of conversation that makes arrival less stiff.",
+            "zh": "带一个活泼话题，让刚到时没那么拘束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Find an interesting bit of background for something people want to discuss.",
+            "zh": "为大家想聊的东西找一点有趣背景。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Arrange the final details so the visit feels intentionally welcomed.",
+            "zh": "摆好最后细节，让来访有被认真迎接的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_13",
+      "prompt": {
+        "en": "The book group’s conversation has become a little too formal for the evening. What would you choose to add?",
+        "zh": "读书小组当晚聊得有点太正式，你更愿意添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A light observation that opens room for a more spontaneous exchange.",
+            "zh": "一个轻松观察，打开较即兴的交流空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A genuinely interesting question that moves beyond repeating prepared points.",
+            "zh": "一个真有兴趣的问题，不只重复准备过的观点。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A different hosting rhythm that gives the evening a comfortable shape.",
+            "zh": "换一种接待节奏，让晚上有舒服的结构。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal recommendation that shows another side of what I enjoy.",
+            "zh": "一个私人推荐，让人看到自己兴趣的另一面。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_14",
+      "prompt": {
+        "en": "You are planning your own contribution to a small local newsletter. What appeals first?",
+        "zh": "打算给社区小刊投一点自己的内容，什么最先吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Explore the topic carefully enough to ask a better question.",
+            "zh": "把主题再了解一点，以便问出更好的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Shape a polished presentation that suits the occasion and reader.",
+            "zh": "整理成适合场合与读者的用心呈现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Share a favourite interest that does not often get space in the usual conversation.",
+            "zh": "分享一项平常话题里较少有位置的喜好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Set a clear scope and deadline for the piece I intend to finish.",
+            "zh": "为打算完成的内容定清范围和截止时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_15",
+      "prompt": {
+        "en": "Friends are deciding what kind of recurring gathering they want. Which contribution would you prefer?",
+        "zh": "朋友在决定定期相聚要是什么样子，你更想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A few rituals that make each visit feel deliberately hosted.",
+            "zh": "几个让每次到来都有认真接待感的小仪式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Room for everyone to bring a personal favourite beyond the group’s usual taste.",
+            "zh": "给每人带来共同口味之外的私人喜好留空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "A clear agreement about the frequency, preparation and commitments.",
+            "zh": "约清频率、准备与承诺。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "A small shared food or making tradition people can enjoy doing together.",
+            "zh": "一个大家可以一起享受的食物或手作小传统。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_16",
+      "prompt": {
+        "en": "You would like to share a favourite song at an optional listening evening. What feels closest?",
+        "zh": "想在可选聆听之夜分享喜欢的歌，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Choose something that expresses a private corner of my taste.",
+            "zh": "选一首能表达自己私人口味小角落的歌。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Say what listeners can focus on and keep within the agreed time.",
+            "zh": "说清可以留意什么，也遵守约好的时间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Pair the listening with a small, thoughtfully made shared comfort.",
+            "zh": "给聆听配一点用心做的共同小享受。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Use the introduction to create an amusing, easy conversation.",
+            "zh": "用介绍打开有趣、轻松的话题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_17",
+      "prompt": {
+        "en": "A community project is nearly ready, with several tempting extras still suggested. What would you prefer?",
+        "zh": "社区小项目快准备好了，仍不断有人提诱人的额外点子，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Finish the agreed core first, with a clear point for stopping.",
+            "zh": "先完成约好的核心，并明确什么时候收住。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Give one small usable or enjoyable detail careful attention.",
+            "zh": "认真照顾一个真能用到或享受到的细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Find a playful way to keep the group’s energy while simplifying the plan.",
+            "zh": "找个趣味办法，简化计划时仍让小组有活力。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Check which extra would actually add something worth exploring.",
+            "zh": "核对哪个额外部分真增加了值得探索的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_18",
+      "prompt": {
+        "en": "After a pleasant gathering, what would you most like to carry into the next one?",
+        "zh": "一次愉快相聚后，你最想给下一次留下什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "A small thing I would enjoy making even more carefully next time.",
+            "zh": "一个下回想做得更用心的小东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A funny shared moment we can turn into a new conversational starting point.",
+            "zh": "一个可变成下次话题起点的共同有趣瞬间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A question from the evening that I want to read more about.",
+            "zh": "一个当晚聊到、想继续读点资料的问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A hosting detail that helped the occasion feel complete.",
+            "zh": "一个让场合有完整感的接待细节。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "lorelai-gilmore",
+      "directionIds": [
+        "lorelai-gilmore"
+      ],
+      "title": {
+        "en": "Lorelai Gilmore",
+        "zh": "洛蕾莱·吉尔莫（Lorelai）"
+      },
+      "headline": {
+        "en": "Make conversation feel alive",
+        "zh": "让交谈活起来"
+      },
+      "summary": {
+        "en": "Read Lorelai Gilmore through make conversation feel alive: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“让交谈活起来”阅读洛蕾莱·吉尔莫（Lorelai）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Lorelai Gilmore Test Result: Make conversation feel alive | Gilmore Girls",
+          "zh": "洛蕾莱·吉尔莫（Lorelai）测试结果：让交谈活起来｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Lorelai Gilmore through make conversation feel alive: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“让交谈活起来”阅读洛蕾莱·吉尔莫（Lorelai）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Lorelai’s limited angle",
+            "zh": "洛蕾莱的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai is Rory’s mother and runs an inn in Stars Hollow. The show’s lively conversational setting inspires one narrow angle here: bringing a spontaneous human voice to an ordinary gathering. This does not measure wit, independence, sociability or the quality of a parent-child relationship. You do not need her biography, life decisions or taste in coffee to recognise a moment when playful conversation appeals.",
+              "zh": "洛蕾莱是罗里的母亲，在星谷镇经营旅店。作品活泼的交谈背景只启发本版一个窄角度：给普通相聚带来即兴的人味。不测机智、独立、社交程度或亲子关系质量；不需有她的生平、人生决定或咖啡口味，也可认出喜欢轻快交流的时刻。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The café afternoon starts awkwardly",
+            "zh": "咖啡角刚开始有点尴尬"
+          },
+          "paragraphs": [
+            {
+              "en": "At a reading café, people arrive before anyone knows how formal the afternoon will be. You offer a light observation about the unusual table decoration, then ask what people brought to read. A small joke can open the conversation without becoming a performance. The aim is shared ease, not proving you are the funniest person or making another guest the subject of an unwanted joke.",
+              "zh": "阅读咖啡角里，大家到了却不知当天下午有多正式。你轻松说说特别的桌面装饰，再问大家带了什么读物。小玩笑可开话题，不必成为表演；目的是共同轻松，不证明自己最有趣，也不让另一位客人成为不想要的笑料。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Conversation beside five other contributions",
+            "zh": "交谈与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Rory follows a question into further reading, while Emily gives the occasion a deliberate shape. Lane shares a personal corner of her taste, Paris clarifies the scope and Sookie makes a small comfort with care. Lorelai’s angle keeps conversation responsive and alive. These contributions can coexist at one table, and a close or tied reading does not establish a hidden second personality or a social ranking.",
+              "zh": "罗里沿问题继续读，艾米莉给场合用心形状；莱恩分享私人口味，帕里斯说清范围，苏琪用心做暖心小物。洛蕾莱角度让交谈能回应现场、保持活力。贡献可在同一桌共存；近分、并列不确立隐藏第二人格，也不给社交排名。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Leave room for a quieter voice",
+            "zh": "也给安静声音留位置"
+          },
+          "paragraphs": [
+            {
+              "en": "An easy conversation still needs pauses. Someone may prefer to listen, think before speaking or move on from a joke. Ask a plain question and let the response set the pace. If you want a quieter evening yourself, that is compatible with enjoying this angle. A high count does not prove extroversion, impulsivity, charm or an obligation to entertain everyone.",
+              "zh": "轻松交谈也需要停顿。有人想听、想过再说，或想让玩笑过去。问一个平实问题，让回应决定节奏；你自己想安静过晚上，也能同时喜欢这个角度。高计数不证明外向、冲动、魅力，也不要求娱乐每个人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one opening and then listen",
+            "zh": "试一个开场，再听一听"
+          },
+          "paragraphs": [
+            {
+              "en": "At an optional gathering, offer one brief, friendly opening about the shared setting. Follow it with a question that another person can answer in their own way. Afterwards, notice whether the exchange became easier and whether you made room for the answer. This is an experiment with one conversational moment, not a benchmark for humour, popularity or relational success.",
+              "zh": "一次可选相聚，针对共同场景给一个简短友好开场，再问一个对方可用自己方式回答的问题。之后看看交流是否容易了、是否真留了回答空间。这只在试一个交谈时刻，不给幽默、人气或关系成功设基准。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rory-gilmore",
+      "directionIds": [
+        "rory-gilmore"
+      ],
+      "title": {
+        "en": "Rory Gilmore",
+        "zh": "罗里·吉尔莫（Rory）"
+      },
+      "headline": {
+        "en": "Follow the question a little further",
+        "zh": "把问题再读深一点"
+      },
+      "summary": {
+        "en": "Read Rory Gilmore through follow the question a little further: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“把问题再读深一点”阅读罗里·吉尔莫（Rory）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rory Gilmore Test Result: Follow the question a little further | Gilmore Girls",
+          "zh": "罗里·吉尔莫（Rory）测试结果：把问题再读深一点｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Rory Gilmore through follow the question a little further: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“把问题再读深一点”阅读罗里·吉尔莫（Rory）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Rory’s limited angle",
+            "zh": "罗里的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Rory is Lorelai’s daughter, with reading, study and journalism important in her story. This edition selects only the appeal of preparing context and following a question. It does not infer intelligence, grades, academic potential or a journalism career. A fictional reading interest can offer a familiar comparison without turning a hobby choice into a judgement about your education or future.",
+              "zh": "罗里是洛蕾莱的女儿，阅读、学习和新闻写作在故事中有位置。本版只选准备背景、沿问题探索的兴趣，不推断智力、成绩、学业潜力或新闻职业。虚构阅读兴趣可提供熟悉联想，不把爱好选择变成教育或前途判断。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Before the informal book discussion",
+            "zh": "非正式读书讨论之前"
+          },
+          "paragraphs": [
+            {
+              "en": "You have a quiet hour before meeting friends about a book. Rather than preparing a polished speech, you follow one question that genuinely caught your attention. A short introduction or a note about the setting gives you something to ask. Preparation serves the conversation; it does not require reading every source, finding the correct interpretation or demonstrating that you worked hardest.",
+              "zh": "读书聚会前有一小时，你不急着准备漂亮发言，先沿真正吸引自己的一个问题看下去。短介绍或背景笔记让你有东西可问。准备服务交谈，不要求读完所有资料、找唯一正确解释，或证明自己最努力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Curiosity beside five other approaches",
+            "zh": "好奇与另外五种做法"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai opens a lively exchange, Emily arranges the occasion and Lane introduces a personal favourite. Paris defines what needs finishing and Sookie offers something carefully made. Rory’s selected angle brings context and a question worth pursuing. These are different ways to join the same afternoon, not a ladder from less to more intelligent. You can appreciate another contribution without changing an identity.",
+              "zh": "洛蕾莱打开活泼交流，艾米莉安排场合，莱恩带私藏；帕里斯说清要完成什么，苏琪带亲手用心做的东西。罗里角度提供背景和值得继续的问题。这是加入同一下午的不同办法，不是智力阶梯，也可欣赏其他贡献而无需改变身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Preparation needs a useful stopping point",
+            "zh": "准备也要有好用的停止点"
+          },
+          "paragraphs": [
+            {
+              "en": "An interesting question can lead to far more material than a casual discussion needs. Decide what is enough for this occasion and leave some discoveries for later. It is also fine to attend with a question rather than an answer. A high count cannot establish perfectionism, anxiety, introversion or academic achievement, and a lower count says nothing about how much you know.",
+              "zh": "有趣问题可能带出远超闲聊所需的材料。决定这次够用到哪里，其他发现留待下次；带问题而不带答案参加也可以。高计数不能确立完美主义、焦虑、内向或学术成就，低计数也不说明知道得少。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a note with one open question",
+            "zh": "试一张留问题的笔记"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one topic for an optional conversation. Read a small relevant source, note one useful detail and leave one question open for others. After the discussion, ask whether the preparation helped you listen and explore. This is feedback on a small reading choice, not a test of learning ability or evidence that a particular study method is best for you.",
+              "zh": "挑一次可选交谈主题，读一小份相关资料，记一个有用细节，再留一个问题给别人。讨论后看看准备是否帮助了倾听与探索。这是对阅读选择的反馈，不测学习能力，也不证明某学习法最适合你。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emily-gilmore",
+      "directionIds": [
+        "emily-gilmore"
+      ],
+      "title": {
+        "en": "Emily Gilmore",
+        "zh": "艾米莉·吉尔莫（Emily）"
+      },
+      "headline": {
+        "en": "Give the occasion a considered shape",
+        "zh": "给场合用心的形状"
+      },
+      "summary": {
+        "en": "Read Emily Gilmore through give the occasion a considered shape: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“给场合用心的形状”阅读艾米莉·吉尔莫（Emily）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Emily Gilmore Test Result: Give the occasion a considered shape | Gilmore Girls",
+          "zh": "艾米莉·吉尔莫（Emily）测试结果：给场合用心的形状｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Emily Gilmore through give the occasion a considered shape: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“给场合用心的形状”阅读艾米莉·吉尔莫（Emily）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Emily’s limited angle",
+            "zh": "艾米莉的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Emily is Lorelai’s mother and Rory’s grandmother. The story’s formal hosting contexts offer a limited starting point for considering how an occasion is arranged. This edition selects thoughtful presentation, not social status, wealth or control. Matching this angle does not assess your family, manners, age or parenting, and it does not endorse pressure placed on other people in the story.",
+              "zh": "艾米莉是洛蕾莱的母亲、罗里的外祖母。故事里的正式接待背景为思考场合安排提供有限起点。本版选用心呈现，不选身份、财富或控制。匹配不评家庭、礼仪、年龄或养育，也不认可剧情中对他人的压力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An ordinary table becomes an occasion",
+            "zh": "普通桌子成为一次场合"
+          },
+          "paragraphs": [
+            {
+              "en": "A neighbourhood fair gives your group a plain table and a modest budget. You choose a clear arrangement, a welcoming sign and a place where visitors can pause. The details help people understand they were expected. Nothing has to be expensive or formal: a considered occasion can use borrowed cups and paper labels when those fit the people coming.",
+              "zh": "邻里市集给小组一张普通桌子和有限预算。你选清楚布置、欢迎标牌和可停留的位置，让人感觉自己的到来被期待。不必昂贵或正式；适合来客时，借来的杯子、纸标签同样能构成用心场合。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Hosting beside five other contributions",
+            "zh": "接待与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai brings an easy conversational opening, Rory supplies a question and Lane shares an unexpected favourite. Paris keeps the essentials clear, while Sookie attends to something people can enjoy at the table. Emily’s selected angle gives these parts a deliberate setting. You can combine them without declaring one person’s taste more refined, mature or socially valuable than another’s.",
+              "zh": "洛蕾莱轻松开场，罗里带问题，莱恩分享意外私藏；帕里斯讲清必需部分，苏琪照顾桌上真能享用的东西。艾米莉角度给这些部分一个用心环境。可组合，不必宣称谁的口味更精致、成熟或更有社会价值。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Let guests help define the welcome",
+            "zh": "让来客参与定义欢迎"
+          },
+          "paragraphs": [
+            {
+              "en": "An arrangement can be polished yet uncomfortable if it assumes everyone enjoys the same level of formality. Ask what visitors need and make the optional parts easy to decline. You may enjoy designing the setting without directing how everybody behaves. A high count is not evidence of elitism, rigidity or superior taste, and a lower count does not mean poor manners.",
+              "zh": "布置可以漂亮却不舒服，如果预设大家喜欢相同正式度。问来客需要什么，让可选部分容易拒绝。喜欢设计环境，不等于要指导所有人怎样表现。高计数不证明精英主义、僵化或高级品位，低计数也不表示没礼貌。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one detail that serves the visitor",
+            "zh": "试一个服务来客的细节"
+          },
+          "paragraphs": [
+            {
+              "en": "For one small gathering, choose a detail with a clear purpose: a readable sign, a place for belongings or a simple way to know what happens next. Ask someone whether it helped. Notice function and comfort alongside appearance. This is an observation about hosting, not a test of class, sophistication or your ability to run a household.",
+              "zh": "一次小相聚，选一个目的明确的细节：易读标牌、放随身物的位置，或知道下一步的简单办法。问一个人是否有用，同时看功能、舒适与外观。这是在观察接待，不测阶层、精致或经营家庭能力。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lane-kim",
+      "directionIds": [
+        "lane-kim"
+      ],
+      "title": {
+        "en": "Lane Kim",
+        "zh": "莱恩·金（Lane）"
+      },
+      "headline": {
+        "en": "Share a corner of your own taste",
+        "zh": "分享自己口味的一角"
+      },
+      "summary": {
+        "en": "Read Lane Kim through share a corner of your own taste: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“分享自己口味的一角”阅读莱恩·金（Lane）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Lane Kim Test Result: Share a corner of your own taste | Gilmore Girls",
+          "zh": "莱恩·金（Lane）测试结果：分享自己口味的一角｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Lane Kim through share a corner of your own taste: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“分享自己口味的一角”阅读莱恩·金（Lane）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Lane’s limited angle",
+            "zh": "莱恩的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Lane is Rory’s friend, with music a notable part of her story. This edition selects only the pleasure of sharing a personally meaningful interest outside the group’s usual routine. It does not infer musical talent, cultural identity, rebellion or a particular family experience. Your favourite song can matter to you without becoming evidence of a hidden life or a duty to oppose someone.",
+              "zh": "莱恩是罗里的朋友，音乐是故事的重要一部分。本版只选“在小组惯常安排之外分享有私人意义的兴趣”的乐趣，不推断音乐天分、文化身份、叛逆或家庭经历。喜欢的歌可对自己有意义，不变成隐藏人生或必须反抗谁的证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One song at the listening evening",
+            "zh": "聆听之夜的一首歌"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends invite optional recommendations after a book discussion. You choose a song from a corner of your taste they may not know, and say briefly what you enjoy about it. Others can listen, ask a question or pass. The contribution is making room for an interest that is yours, not persuading everyone to agree that it is unusual, authentic or better.",
+              "zh": "读书讨论后朋友自由推荐，你选一首大家也许不知道的私藏，简短说喜欢哪里。别人可听、可问、可跳过。贡献是给属于自己的兴趣留位置，不是说服所有人同意它特别、真实或更好。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Personal taste beside five other roles",
+            "zh": "私人口味与另外五种分工"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai helps the exchange feel alive, Rory adds context and Emily shapes the occasion. Paris makes the commitment clear, while Sookie puts care into a shared comfort. Lane’s angle introduces a personal favourite the routine might miss. Different tastes can coexist, and several close results need not imply a hidden character, a creative rank or a judgement about fitting in.",
+              "zh": "洛蕾莱让交流活起来，罗里加背景，艾米莉塑造场合；帕里斯约清投入，苏琪用心做共同小享受。莱恩角度带来习惯可能漏掉的私藏。口味可共存，近分不表示隐藏人物、创作等级，也不评合不合群。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "You can keep some interests private",
+            "zh": "一些兴趣也可自己留着"
+          },
+          "paragraphs": [
+            {
+              "en": "Sharing a favourite is optional. You can choose what to reveal, offer only a small example or keep the interest for yourself. Another person’s unfamiliarity does not invalidate your enjoyment, and their disagreement need not become a conflict. A high count cannot establish originality, secrecy, independence or musical knowledge; a lower count does not mean you lack personal taste.",
+              "zh": "分享私藏是可选的。可以决定透露多少、只给小例子，或自己留着。别人不熟悉不取消你的喜欢，不同意也不必成为冲突。高计数不确立原创、秘密、独立或音乐知识，低计数不表示没有自己的口味。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small, voluntary recommendation",
+            "zh": "试一个小而自愿的推荐"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one recommendation you would enjoy offering to a willing friend. Give a short reason and an easy way to try it, without asking for approval of your taste. Afterwards, notice whether sharing added something to the conversation. The experiment concerns one exchange, not proof of cultural expertise, artistic ability or belonging to a particular kind of person.",
+              "zh": "挑一个愿分享给有兴趣朋友的推荐，说个短理由和易试办法，不要求批准你的口味。之后看看分享是否给交谈添了点什么。这只关乎一次交流，不证明文化专长、艺术能力或属于哪类人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paris-geller",
+      "directionIds": [
+        "paris-geller"
+      ],
+      "title": {
+        "en": "Paris Geller",
+        "zh": "帕里斯·盖勒（Paris）"
+      },
+      "headline": {
+        "en": "Make the commitment clear enough to finish",
+        "zh": "把承诺说清，好好完成"
+      },
+      "summary": {
+        "en": "Read Paris Geller through make the commitment clear enough to finish: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“把承诺说清，好好完成”阅读帕里斯·盖勒（Paris）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Paris Geller Test Result: Make the commitment clear enough to finish | Gilmore Girls",
+          "zh": "帕里斯·盖勒（Paris）测试结果：把承诺说清，好好完成｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Paris Geller through make the commitment clear enough to finish: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“把承诺说清，好好完成”阅读帕里斯·盖勒（Paris）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Paris’s limited angle",
+            "zh": "帕里斯的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Paris is a recurring character in Rory’s school and university world. This edition independently selects a narrow angle of clear scope, standards and preparation. It is not a measure of academic achievement, intelligence, ambition or professional ability. A preference for explicit commitments does not assign the character’s intense reactions or personal relationships to you.",
+              "zh": "帕里斯是罗里学校与大学生活里反复出现的人物。本版独立选“范围、标准和准备清楚”的窄角度，不测学业、智力、抱负或职业能力。偏好明确承诺，不会把人物强烈反应或私人关系赋给你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The notice that actually needs finishing",
+            "zh": "真要做完的社区通知"
+          },
+          "paragraphs": [
+            {
+              "en": "Several people are helping with a community notice and keep suggesting extra features. You ask what it must communicate, who checks the details and when it is needed. That creates a manageable stopping point. A clear standard can protect people’s time and leave room for enjoyment; it does not need to become a demand for a flawless, endlessly revised announcement.",
+              "zh": "几个人做社区通知，一直增加新功能。你问必须传达什么、谁核细节、何时要用，以此给可完成的停止点。明确标准可保护时间、给乐趣留空间，不必变成对完美且无尽修改的通知的要求。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A clear finish beside five other angles",
+            "zh": "清楚收尾与另外五种角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai contributes a lively voice, Rory checks an interesting question and Emily considers the presentation. Lane adds a personal favourite and Sookie attends to a carefully made comfort. Paris’s selected angle clarifies what the group is agreeing to finish. All can improve the same event without ranking diligence, competence or intelligence. A tie keeps the full comparisons available.",
+              "zh": "洛蕾莱带活泼声音，罗里核有趣问题，艾米莉考虑呈现；莱恩添私藏，苏琪用心做小享受。帕里斯角度约清小组要完成什么。都能改善同一活动，不给勤奋、能力或智力排级；并列保留完整比较。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Standards need to be shared, not imposed",
+            "zh": "标准要共同约，不单方面压"
+          },
+          "paragraphs": [
+            {
+              "en": "A deadline only helps when people understand what they have agreed to and can say what is realistic. Ask for a workable commitment rather than treating your preferred pace as universal. You can revise the scope when circumstances change. A high count does not prove perfectionism, harshness or leadership skill, and a lower count does not establish laziness or unreliability.",
+              "zh": "截止时间只有在大家明白约了什么、能说出实际情况时才有帮助。约可做到的投入，不把自己节奏当通用标准；情况变了可改范围。高计数不证明完美主义、严厉或领导技能，低计数不确立懒惰或不可靠。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small definition of done",
+            "zh": "试着说清这次怎样算做完"
+          },
+          "paragraphs": [
+            {
+              "en": "For one shared task, write a sentence describing what is needed, by when and what can be left out. Ask the other person to adjust it before you start. Afterwards, compare the agreement with what was useful in practice. This is a test of the arrangement, not of anyone’s worth, employability or ability to meet demanding expectations.",
+              "zh": "一次共同任务，用一句话写需要什么、何时完成、可以不做什么。开始前请对方调整，之后比较约定与实际有用之处。这是在检验安排，不评人的价值、就业适配或满足高要求的能力。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sookie-st-james",
+      "directionIds": [
+        "sookie-st-james"
+      ],
+      "title": {
+        "en": "Sookie St. James",
+        "zh": "苏琪·圣詹姆斯（Sookie）"
+      },
+      "headline": {
+        "en": "Put care into something people can enjoy",
+        "zh": "用心做一件真能享用的东西"
+      },
+      "summary": {
+        "en": "Read Sookie St. James through put care into something people can enjoy: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+        "zh": "从“用心做一件真能享用的东西”阅读苏琪·圣詹姆斯（Sookie）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sookie St. James Test Result: Put care into something people can enjoy | Gilmore Girls",
+          "zh": "苏琪·圣詹姆斯（Sookie）测试结果：用心做一件真能享用的东西｜吉尔莫女孩"
+        },
+        "description": {
+          "en": "Read Sookie St. James through put care into something people can enjoy: a specific everyday scene, comparisons with five other characters, a small experiment and transparent scoring. Full original fan guide.",
+          "zh": "从“用心做一件真能享用的东西”阅读苏琪·圣詹姆斯（Sookie）：含具体日常场景、其他五角色比较、小尝试和透明计数。原创同人结果全文免费，不定义学业、家庭或关系。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+        "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Sookie’s limited angle",
+            "zh": "苏琪的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Sookie is Lorelai’s friend and a chef in the story. This edition borrows only a limited angle of hands-on care in a shared comfort. It does not assess culinary skill, generosity, emotional temperament or career potential. You can recognise the appeal of making one pleasant thing without sharing her biography, kitchen incidents or personal relationships.",
+              "zh": "苏琪是洛蕾莱的朋友，也是作品里的厨师。本版只借“亲手用心做共同小享受”的有限角度，不评厨艺、慷慨、情绪气质或职业潜力。可喜欢做一件愉快东西，不需有相同生平、厨房事件或私人关系。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "One thoughtful contribution to the table",
+            "zh": "给桌面一项用心贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend asks for a finishing touch before guests arrive. You offer a simple snack, a handmade place card or another small thing people can actually use. You check what is welcome and keep the task manageable. The point is care in this contribution, not abundance, expensive ingredients or proving that affection must always take the form of making something.",
+              "zh": "朋友迎客前要一个收尾细节，你提供简单点心、手作桌签或另一件真能使用的小东西。先问是否欢迎，也控制工作量。重点是这项贡献里的用心，不是丰盛、昂贵材料，或证明关心总该表现为亲手制作。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Hands-on care beside five other roles",
+            "zh": "亲手用心与另外五种分工"
+          },
+          "paragraphs": [
+            {
+              "en": "Lorelai opens a conversation, Rory prepares context and Emily arranges the occasion. Lane shares a personal interest while Paris clarifies the commitment. Sookie’s selected angle puts care into a tangible comfort. These contributions can support each other. A high count does not make you the group’s permanent host, and a close result is not evidence of a secret second character.",
+              "zh": "洛蕾莱打开交谈，罗里备背景，艾米莉安排场合；莱恩分享个人兴趣，帕里斯约清投入。苏琪角度把用心放进具体享受里。贡献可相互支持；高计数不使你成为永久东道主，近分也不证明秘密第二人物。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Care includes asking what is wanted",
+            "zh": "用心也包含先问需要"
+          },
+          "paragraphs": [
+            {
+              "en": "A lovingly made extra can still be unwanted or too much work. Ask what people can use, check relevant preferences and say what you can realistically offer. It is fine to bring nothing and enjoy the gathering. A high count cannot establish selflessness, nurturing ability or emotional warmth, and a lower count does not mean that you care less.",
+              "zh": "用心做的额外东西仍可能不需要，或工作太多。问大家用得上什么、确认相关偏好，再说现实能提供什么。什么也不带、只享受聚会也可以。高计数不确立无私、照顾能力或温暖，低计数不表示关心少。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one useful, bounded finishing touch",
+            "zh": "试一个有用且有范围的收尾"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one small contribution for a willing group and agree what it includes before starting. Keep a clear limit on time and materials. Afterwards, ask whether it was useful or enjoyable, and notice whether making it was pleasant for you too. This is feedback on a shared activity, not an assessment of domestic skill, affection or suitability for a caring profession.",
+              "zh": "为愿意的小组选一项小贡献，开始前约好包含什么，时间材料有清楚上限。之后问是否有用、愉快，也留意自己制作时是否开心。这是共同活动反馈，不评家务、感情或照顾类职业适配。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Eighteen choices and all highest ties",
+            "zh": "18次选择与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+              "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+              "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete all 18 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 18 counts altogether. Each character is offered 12 times, three times in each of four positions. A character absent from an item is not rejected. Every highest count receives its complete guide; all A gives three each and all six guides. Counts are not similarity percentages, intelligence, talents, diagnoses or population ranks. A one-choice gap has no validated psychological significance.",
+          "zh": "18题全部完成，每项按明确映射给六位角色之一加1次，共18次。每位出现12次，四个位置各3次；当题没提供不算被拒绝。最高计数全部得到完整说明；全A会各3次，六份全文一起显示。次数不是相似百分比、智力、天分、诊断或人群排名，相差一次没有经过验证的心理意义。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest tie gets the full story",
+        "zh": "每个最高并列都有全文"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without a fixed-order favourite. Compare each complete guide and explore other close readings through the public pages. A one-choice difference is not an established psychological distinction. The six contributions can coexist in one gathering, without ranking intelligence, culture, care or relationship ability.",
+          "zh": "最高计数一起显示，不按固定顺序偏爱某位。可比较各份全文，也可通过公开页读近分。相差一次不是已确立的心理差异。六种贡献可共存于一次相聚，不评智力、文化、关心或关系能力。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Six selected characters, limited everyday angles",
+        "zh": "六位选定人物与有限日常角度"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition includes Lorelai, Rory, Emily, Lane, Paris and Sookie. Luke, Richard, Jess and other characters are outside this set. The mappings are independently authored editorial choices, not a complete account of the series or an interchangeable version of another site’s test. You can reject any part of the comparison.",
+          "zh": "本版包含洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪；卢克、理查德、杰斯等不在集合。映射是独立创作的编辑选择，不是完整剧集解释，也不能与别站题本互换。比较中任何不合适的部分都可不同意。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+          "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private answers and optional sharing",
+        "zh": "私密答案与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are scored in your browser without uploads or answer data in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes only public character names and a link, never choices or counts. Every complete guide is free without an account, email or a previous test. Further assessments are optional and require separate questions.",
+          "zh": "答案在浏览器计分，不上传，不进入网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。可选分享只有公开人物名称与链接，不带选择或次数。每份全文免费，无需账号、邮箱或前置测试。后续测评可选，须另行作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Gilmore Girls characters are included?",
+        "zh": "包含哪些《吉尔莫女孩》人物？"
+      },
+      "answer": {
+        "en": "Lorelai Gilmore, Rory Gilmore, Emily Gilmore, Lane Kim, Paris Geller and Sookie St. James, each with a full bilingual public guide. The set is limited; Luke, Richard, Jess and other characters are not scored in this edition.",
+        "zh": "洛蕾莱、罗里、艾米莉、莱恩、帕里斯和苏琪，各有完整双语公开说明。集合有限，本版不为卢克、理查德、杰斯等计数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, example and complete result. Gilmore Girls and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. Broadcaster and streaming-service introductions provide basic fictional context, not validation of this questionnaire. No dialogue, screenshots, character art or competitor text is reproduced. The six angles are selective editorial comparisons, not complete biographies. Choices cannot establish intelligence, class, parenting quality, a diagnosis, romantic compatibility, MBTI or career suitability. Characters’ dramatic decisions are not assigned to you, and disagreement with a guide is welcome.",
+        "zh": "费马独立创作本非官方同人版的全部题目、映射、例子和完整结果。《吉尔莫女孩》及角色权利归相应权利人，无隶属或认可关系。电视台及流媒体简介只提供基本虚构背景，不验证问卷。不复制台词、截图、人物图像或竞品正文。六个角度是选择性的编辑比较，不是完整传记。选择不能确立智力、阶层、养育质量、诊断、恋爱适配、MBTI或职业适配，也不把角色戏剧性决定赋给你；不合适的说明可以不同意。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does Rory or Paris measure academic ability, or Emily measure class?",
+        "zh": "罗里、帕里斯结果测学业，艾米莉结果测阶层吗？"
+      },
+      "answer": {
+        "en": "No. Reading-group and gathering choices cannot establish intelligence, grades, ambition, wealth, social standing, parenting or a diagnosis. Every guide uses a limited editorial angle, and a match does not predict your relationships, education or career.",
+        "zh": "不测。读书小组与相聚的选择无法确立智力、成绩、抱负、财富、社会地位、养育或诊断。每份说明只有有限编辑角度，匹配不预测关系、教育或职业。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to remember episodes, and is there a time limit?",
+        "zh": "需要记得剧情吗，有时间限制吗？"
+      },
+      "answer": {
+        "en": "No. All 18 original questions concern ordinary optional activities, not trivia. Around five minutes is an editorial estimate, not a measured benchmark or speed requirement. You can take your time, and every highest tie receives all seven sections of its guide.",
+        "zh": "不需要。18道原创题均为普通可选活动，不考剧情。约5分钟是编辑估计，不是实测基准，也无速度要求。可以慢慢选，每个最高并列都有七节全文。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and complete results free in both languages?",
+        "zh": "两语全部题目与完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. English and Chinese include every question, option and full guide without signup, email or an MBTI result. Identities and mappings remain stable across the languages; psychometric equivalence has not been established. Optional next assessments have their own purpose and questions.",
+        "zh": "是。中英文都有每题、每项和全部全文，无需注册、邮箱或MBTI结果。两语身份与映射一致，尚未建立心理测量等价证据。可选后续测评另有目的与题目。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,746 @@
+{
+  "id": "T118",
+  "version": "1.0.0",
+  "form": "fermatmind_gilmoregirls_original_18_v1",
+  "method": "Sixlimitededitorialangles,12exp3eachposition,oneexplicitrawcount/allhighestties.Nohumanpsychometrics/actualintelligence/relationshipfate/classorparentingjudgements.",
+  "questions": [
+    {
+      "id": "GG_01",
+      "prompt": {
+        "en": "A local reading café invites you to help with a relaxed afternoon. What would you most enjoy adding?",
+        "zh": "社区阅读咖啡角请你帮忙办轻松的下午活动，你最喜欢添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A lively welcome that turns the slightly awkward start into a shared joke.",
+            "zh": "一个活泼开场，把刚见面的微妙尴尬变成共同玩笑。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A little background about the books so people have something to explore.",
+            "zh": "一点书籍背景，让大家有内容可以探索。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A thoughtful arrangement that makes the afternoon feel like an occasion.",
+            "zh": "一套用心安排，让下午有被郑重对待的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A small selection of music that shares something I genuinely like.",
+            "zh": "一小组能分享自己真正喜好的音乐。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_02",
+      "prompt": {
+        "en": "You are choosing a book for an informal discussion. Which next step appeals most?",
+        "zh": "为非正式讨论选书，你更喜欢先做哪一步？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Read a short introduction and gather a few questions worth following.",
+            "zh": "读一点介绍，收集几个值得继续问的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Think about the setting and small details that would make hosting pleasant.",
+            "zh": "想想场地与细节，怎样接待更舒服。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Offer a less familiar favourite that reveals a different personal interest.",
+            "zh": "提一本较陌生的私藏，让人看见另一种兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Agree what the discussion should cover and how much time each part gets.",
+            "zh": "约好讨论要涉及什么、各留多少时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_03",
+      "prompt": {
+        "en": "Friends are turning a simple table into a welcoming corner for a fair. What would you choose to shape?",
+        "zh": "朋友要把普通桌子变成市集里的欢迎角，你最想布置什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "The arrangement of the table so arriving feels considered and special.",
+            "zh": "桌面整体安排，让人到来时觉得受了用心招待。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal little display of music or interests people might not expect.",
+            "zh": "一处展示私人音乐或意想不到兴趣的小角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "A clear list of what must be ready before visitors arrive.",
+            "zh": "一张访客来之前必须准备好的明确清单。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Something handmade and comforting for people to enjoy together.",
+            "zh": "一点亲手做、能一起享用的暖心东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_04",
+      "prompt": {
+        "en": "A friend asks for one recommendation outside your usual shared routine. What attracts you most?",
+        "zh": "朋友想听一个平常共同习惯之外的推荐，你最喜欢怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Share an interest I have been enjoying in my own small corner.",
+            "zh": "分享自己在私人小角落里一直喜欢的兴趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Choose a recommendation with a clear reason and an easy way to try it.",
+            "zh": "选一个理由明确、容易开始试的推荐。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Make or bring a small sample instead of only describing it.",
+            "zh": "做一点或带一点样品，不只口头介绍。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Turn the recommendation into an amusing conversation we can build on.",
+            "zh": "把推荐变成能接着聊的有趣话题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_05",
+      "prompt": {
+        "en": "A neighbourhood event has a short setup window. Which contribution would you prefer?",
+        "zh": "邻里活动布置时间很短，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Set clear priorities and say when each necessary part needs to be ready.",
+            "zh": "排清优先顺序，说好必需部分何时准备到位。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Take care with one welcoming thing people will actually use or taste.",
+            "zh": "用心做好一件人们真会用到或尝到的欢迎小物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Keep the last-minute conversation lively while we find a workable version.",
+            "zh": "一边找能做的版本，一边让临时讨论有些轻快。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Check the information we need before committing to the next step.",
+            "zh": "定下一步前，把所需信息先查清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_06",
+      "prompt": {
+        "en": "You can bring one small contribution to a casual kitchen-table gathering. What appeals most?",
+        "zh": "一次围桌闲聚可以带一项小贡献，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Something I have made with care for people to enjoy there.",
+            "zh": "一件自己用心做、大家现场可享用的东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "An entertaining observation that starts an easy shared conversation.",
+            "zh": "一个能打开轻松共同话题的有趣观察。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A short piece to read or discuss that invites a little more curiosity.",
+            "zh": "一小段可读可聊、能勾起更多好奇的材料。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A small finishing detail that makes the table feel deliberately hosted.",
+            "zh": "一个收尾细节，让桌子有认真招待的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_07",
+      "prompt": {
+        "en": "A familiar weekend plan suddenly has to change. What would you most like to offer?",
+        "zh": "熟悉的周末计划突然要改，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A quick, playful alternative that gives us something to laugh about together.",
+            "zh": "一个迅速而有趣的替代，让大家有共同笑点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A little research so we can compare what the new options actually involve.",
+            "zh": "查一点资料，比较新选项实际包含什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A revised arrangement that still makes people feel properly welcomed.",
+            "zh": "一套改过但仍让人觉得被好好招待的安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal favourite we have never made room for in this routine.",
+            "zh": "一个这套习惯里还没留出位置的私人爱好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_08",
+      "prompt": {
+        "en": "You have a quiet hour before a town-club discussion. What would feel most satisfying?",
+        "zh": "社区小组讨论前有一小时安静时间，做什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Follow a question in the reading a little further and note what I learn.",
+            "zh": "沿阅读里的一个问题多查一点，记下新发现。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Prepare the room so the discussion has a considered beginning and ending.",
+            "zh": "准备好房间，让讨论有用心的开始与结束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Explore a music selection or interest that feels distinctly mine.",
+            "zh": "探索一组音乐或一项很属于自己的兴趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Turn the remaining preparation into a specific, manageable checklist.",
+            "zh": "把剩余准备变成具体、可完成的清单。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_09",
+      "prompt": {
+        "en": "A small celebration will use ordinary materials and a modest budget. Which part would you enjoy most?",
+        "zh": "小庆祝只用普通材料、预算不多，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Give the arrangement a sense of occasion through a few chosen details.",
+            "zh": "用几处选过的细节，让布置有场合感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Add a personal cultural or musical favourite as an optional discovery.",
+            "zh": "添一个自选文化或音乐私藏，供人自由发现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Make sure the agreed essentials are finished to a clear standard.",
+            "zh": "确保约定的必需部分按明确标准完成。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Make a simple treat or useful handmade touch with particular care.",
+            "zh": "认真做一点简单点心或实用手作心意。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_10",
+      "prompt": {
+        "en": "An acquaintance is surprised by a hobby you rarely mention. How would you prefer to continue?",
+        "zh": "不太熟的人对你少提的一项爱好感到意外，你更想怎样接着聊？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Show one small example and explain what I enjoy about it.",
+            "zh": "展示一个小例子，说说自己喜欢哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Explain clearly what I am working on and what counts as progress for me.",
+            "zh": "说清自己在做什么，怎样算有进展。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Offer a hands-on sample we can enjoy or try in the moment.",
+            "zh": "提供一点现场可享用或可试的亲手样品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Make room for a quick joke and a more spontaneous exchange.",
+            "zh": "给小玩笑和更即兴的交流留位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_11",
+      "prompt": {
+        "en": "Several people are helping with the same community notice. What would you prefer to clarify?",
+        "zh": "几个人共同做一张社区通知，你更想先说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "What the notice must communicate and when it needs to be finished.",
+            "zh": "通知必须传达什么、何时必须完成。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Which little practical touch will make receiving it pleasant.",
+            "zh": "收到它时，哪个小小实际细节会让人舒服。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "How to give the wording a lively human voice.",
+            "zh": "文字怎样有活泼的人味。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Which details need checking so we do not pass on a mistaken assumption.",
+            "zh": "哪些细节需核对，免得把假设传出去。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_12",
+      "prompt": {
+        "en": "A friend has invited people over but wants help with one finishing touch. What would you most enjoy?",
+        "zh": "朋友请人来家里，想请你帮一个收尾细节，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Put care into one small thing guests can actually enjoy at the table.",
+            "zh": "用心做好桌上一个客人真能享用的小东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Bring a lively line of conversation that makes arrival less stiff.",
+            "zh": "带一个活泼话题，让刚到时没那么拘束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Find an interesting bit of background for something people want to discuss.",
+            "zh": "为大家想聊的东西找一点有趣背景。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Arrange the final details so the visit feels intentionally welcomed.",
+            "zh": "摆好最后细节，让来访有被认真迎接的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_13",
+      "prompt": {
+        "en": "The book group’s conversation has become a little too formal for the evening. What would you choose to add?",
+        "zh": "读书小组当晚聊得有点太正式，你更愿意添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A light observation that opens room for a more spontaneous exchange.",
+            "zh": "一个轻松观察，打开较即兴的交流空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A genuinely interesting question that moves beyond repeating prepared points.",
+            "zh": "一个真有兴趣的问题，不只重复准备过的观点。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A different hosting rhythm that gives the evening a comfortable shape.",
+            "zh": "换一种接待节奏，让晚上有舒服的结构。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "A personal recommendation that shows another side of what I enjoy.",
+            "zh": "一个私人推荐，让人看到自己兴趣的另一面。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_14",
+      "prompt": {
+        "en": "You are planning your own contribution to a small local newsletter. What appeals first?",
+        "zh": "打算给社区小刊投一点自己的内容，什么最先吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Explore the topic carefully enough to ask a better question.",
+            "zh": "把主题再了解一点，以便问出更好的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "Shape a polished presentation that suits the occasion and reader.",
+            "zh": "整理成适合场合与读者的用心呈现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Share a favourite interest that does not often get space in the usual conversation.",
+            "zh": "分享一项平常话题里较少有位置的喜好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Set a clear scope and deadline for the piece I intend to finish.",
+            "zh": "为打算完成的内容定清范围和截止时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_15",
+      "prompt": {
+        "en": "Friends are deciding what kind of recurring gathering they want. Which contribution would you prefer?",
+        "zh": "朋友在决定定期相聚要是什么样子，你更想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A few rituals that make each visit feel deliberately hosted.",
+            "zh": "几个让每次到来都有认真接待感的小仪式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Room for everyone to bring a personal favourite beyond the group’s usual taste.",
+            "zh": "给每人带来共同口味之外的私人喜好留空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "A clear agreement about the frequency, preparation and commitments.",
+            "zh": "约清频率、准备与承诺。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "A small shared food or making tradition people can enjoy doing together.",
+            "zh": "一个大家可以一起享受的食物或手作小传统。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_16",
+      "prompt": {
+        "en": "You would like to share a favourite song at an optional listening evening. What feels closest?",
+        "zh": "想在可选聆听之夜分享喜欢的歌，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "lane-kim",
+          "label": {
+            "en": "Choose something that expresses a private corner of my taste.",
+            "zh": "选一首能表达自己私人口味小角落的歌。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Say what listeners can focus on and keep within the agreed time.",
+            "zh": "说清可以留意什么，也遵守约好的时间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Pair the listening with a small, thoughtfully made shared comfort.",
+            "zh": "给聆听配一点用心做的共同小享受。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Use the introduction to create an amusing, easy conversation.",
+            "zh": "用介绍打开有趣、轻松的话题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_17",
+      "prompt": {
+        "en": "A community project is nearly ready, with several tempting extras still suggested. What would you prefer?",
+        "zh": "社区小项目快准备好了，仍不断有人提诱人的额外点子，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "paris-geller",
+          "label": {
+            "en": "Finish the agreed core first, with a clear point for stopping.",
+            "zh": "先完成约好的核心，并明确什么时候收住。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "Give one small usable or enjoyable detail careful attention.",
+            "zh": "认真照顾一个真能用到或享受到的细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "Find a playful way to keep the group’s energy while simplifying the plan.",
+            "zh": "找个趣味办法，简化计划时仍让小组有活力。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "Check which extra would actually add something worth exploring.",
+            "zh": "核对哪个额外部分真增加了值得探索的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GG_18",
+      "prompt": {
+        "en": "After a pleasant gathering, what would you most like to carry into the next one?",
+        "zh": "一次愉快相聚后，你最想给下一次留下什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sookie-st-james",
+          "label": {
+            "en": "A small thing I would enjoy making even more carefully next time.",
+            "zh": "一个下回想做得更用心的小东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "lorelai-gilmore",
+          "label": {
+            "en": "A funny shared moment we can turn into a new conversational starting point.",
+            "zh": "一个可变成下次话题起点的共同有趣瞬间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rory-gilmore",
+          "label": {
+            "en": "A question from the evening that I want to read more about.",
+            "zh": "一个当晚聊到、想继续读点资料的问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emily-gilmore",
+          "label": {
+            "en": "A hosting detail that helped the occasion feel complete.",
+            "zh": "一个让场合有完整感的接待细节。"
+          }
+        }
+      ]
+    }
+  ]
+}
