@@ -1664,5 +1664,30 @@
       "goal-continuity",
       "effort-return"
     ]
+  },
+  {
+    "slug": "ikigai",
+    "code": "IKIGAI_OVERLAP_ORIGINAL_CHOICES_16",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "生之目的测试",
+      "en": "Ikigai Test"
+    },
+    "description": {
+      "zh": "免费生之目的测试原创四组交叠探索版：16道情境题，读喜欢、练习、需要与报酬的四份完整说明。所有最高并列都保留，不把计数当作能力、收入或人生使命。",
+      "en": "A free Ikigai Test: 16 original scenarios, four full overlap guides and every highest tie. Explore questions without ability, income or purpose verdicts."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_ikigai_overlap_choices_16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "passion",
+      "mission",
+      "profession",
+      "vocation"
+    ]
   }
 ]

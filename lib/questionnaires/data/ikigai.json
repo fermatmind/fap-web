@@ -1,0 +1,1453 @@
+{
+  "slug": "ikigai",
+  "code": "IKIGAI_OVERLAP_ORIGINAL_CHOICES_16",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "生之目的测试",
+    "en": "Ikigai Test"
+  },
+  "resultHeading": {
+    "zh": "四组交叠视角：完整探索结果",
+    "en": "Four overlap lenses: your complete exploration"
+  },
+  "description": {
+    "zh": "免费生之目的测试原创四组交叠探索版：16道情境题，读喜欢、练习、需要与报酬的四份完整说明。所有最高并列都保留，不把计数当作能力、收入或人生使命。",
+    "en": "A free Ikigai Test: 16 original scenarios, four full overlap guides and every highest tie. Explore questions without ability, income or purpose verdicts."
+  },
+  "seoTitle": {
+    "zh": "生之目的测试（Ikigai）：四组交叠免费完整结果",
+    "en": "Ikigai Test: Four Overlap Lenses & Free Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "一件小活动可能让你想练一点东西，也可能让你先关心别人需要什么、怎样安排支持。本版借现代四圆图里热情、使命、职业、天职四组常见交叠，写了16道假想情境，只问你更想先探索哪一组问题。喜欢与擅长不是同一件事，支付条件也不代表已经有收入或市场；选择不把这些未知变成事实。四圆图与日本ikigai更广泛的日常含义并不等同，关系、爱好和小事也可以有意义，不必合成一份有薪工作。本版不是传统公式、标准Ikigai9或职业能力测量。所有最高并列都逐份呈现全文，不从全四项并列推理想中心，也不叫你补齐所谓被忽略的两圈。四份完整说明免费，也可以先读再决定是否作答。",
+    "en": "A small activity may make you want to practise something, understand a person’s need or explore support arrangements. This edition uses Passion, Mission, Profession and Vocation, four familiar overlaps from a modern map, for sixteen original hypothetical situations asking which questions you would explore first. Enjoyment is not proficiency, and payment conditions establish neither income nor a market; choosing a question cannot turn those unknowns into facts. The map is not equivalent to the broader everyday Japanese concept: relationships, hobbies and small activities can matter without becoming one paid role. This is neither a traditional formula, standard Ikigai9 nor career-capability measurement. Every highest tie receives its full guide, without an ideal centre inferred from four equal counts or prescribed neglected circles. All four guides are free to read before deciding to answer."
+  },
+  "instructions": {
+    "zh": "把每题看作一个可想象的小情境，比较四个问题，选择你此刻更想先了解的一组，不是证明你已经会做或能收到报酬。每题只选一项，16题全部选择后显示计数及每一份最高并列全文；四项都同为4次不代表完美中心。没有合适选项时可以退出，本版不解释未完成答卷。无需输入活动名称、收入、他人需要或私人经历。",
+    "en": "Treat each item as a small hypothetical situation. Choose the pair of questions you would most like to explore first now, without claiming an existing skill or payment. Select one option per item. All sixteen selections produce counts and the full guide for every highest-count tie; four equal counts of four do not establish an ideal centre. You can exit if no option fits; incomplete attempts are not interpreted. No activity name, income, others’ needs or private experience is entered."
+  },
+  "source": {
+    "kind": "FermatMind original hypothetical exploration choices using four familiar overlaps in the modern purpose diagram; not a Japanese traditional formula, Ikigai9 scale, psychological measurement or JobCannon bank. Common good-at/skill wording is treated here only as practice questions, not a measured capability.",
+    "formCode": "fm_ikigai_overlap_choices_16",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "1decc6b1b41fb0bed0cec8de023b6c8b46ed72040ce23189d0dd8264823a64f6",
+    "resultContentSha256": "36b79e8655ed99373c607926b87766631d702cbbb29bd179299f91133c7d8d69",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "passion",
+      "title": {
+        "zh": "热情视角：喜欢与练习",
+        "en": "Passion: Enjoyment and Practice"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "mission",
+      "title": {
+        "zh": "使命视角：喜欢与需要",
+        "en": "Mission: Enjoyment and Needs"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "profession",
+      "title": {
+        "zh": "职业视角：练习与报酬",
+        "en": "Profession: Practice and Payment"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "vocation",
+      "title": {
+        "zh": "天职视角：需要与报酬",
+        "en": "Vocation: Needs and Payment"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "IKIGAI_01",
+      "prompt": {
+        "zh": "你有一个空闲下午，想试着做点有意思的小事。比较这些问题，你更想先想哪一个？",
+        "en": "You have a free afternoon to try a small meaningful activity. Which question would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种手作让我感兴趣，也能挑一个小技巧练一练？",
+            "en": "Which craft interests me and offers one small technique to practise?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢的活动里，有哪一种也回应了身边人的小需要？",
+            "en": "Which activity I enjoy also addresses a small need someone nearby has expressed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "我想练习的一种小技能，若要收费提供，需要先了解哪些条件？",
+            "en": "If I offered a small skill I want to practise for payment, what conditions would I need to understand?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "身边哪项明确需要，适合先了解服务范围与支付安排？",
+            "en": "Which expressed nearby need would be worth exploring through service scope and payment arrangements?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_02",
+      "prompt": {
+        "zh": "你在考虑做一份简短的社区小刊物，更想先研究？",
+        "en": "You are considering a short community booklet. What would you look into first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "什么内容是我愿意做、也有人明确想读的？",
+            "en": "What would I enjoy making that someone has explicitly said they would like to read?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "排版或编辑若作为一项付费工作，需要怎样的练习样例与交付范围？",
+            "en": "If layout or editing became paid work, what practice sample and delivery scope would need to be discussed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "读者需要怎样的刊物，又有哪些可了解的付费或支持方式？",
+            "en": "What booklet do readers need, and which payment or support arrangements could be explored?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢写或画什么，能用哪一页练习表达？",
+            "en": "What do I enjoy writing or drawing, and which page could help me practise?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_03",
+      "prompt": {
+        "zh": "朋友提起一个小型分享活动，哪一组问题更吸引你先想？",
+        "en": "A friend mentions a small sharing event. Which pair of questions would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "若把讲解作为付费服务，需要试讲什么并说明哪些交付条件？",
+            "en": "For a paid explanation service, what would I need to rehearse and specify as deliverables?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的需要是什么，组织者怎样安排费用和参与条件？",
+            "en": "What do participants need, and how would organisers arrange fees and participation conditions?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "什么主题让我有兴趣，讲解时又能练习一个具体环节？",
+            "en": "Which topic interests me and lets me practise one part of explaining it?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意分享什么，而参加者自己想了解什么？",
+            "en": "What would I enjoy sharing, and what have participants said they want to learn about?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_04",
+      "prompt": {
+        "zh": "你想做一点与植物有关的日常活动，更想先了解？",
+        "en": "You are considering an everyday activity involving plants. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要怎样的植物相关记录，支持或支付如何安排？",
+            "en": "What plant-related records do people need, and how might support or payment be arranged?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢观察哪种变化，又想练习哪一种记录方法？",
+            "en": "Which changes do I enjoy noticing, and which recording method would I like to practise?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢的植物活动，是否也回应朋友明确提出的需要？",
+            "en": "Could a plant activity I enjoy address a need a friend has actually expressed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若有人付费请我制作记录样例，需要怎样的练习和范围确认？",
+            "en": "If someone paid for a sample record, what practice and scope agreement would be needed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_05",
+      "prompt": {
+        "zh": "一段空闲时间可以用来接触声音制作，你更想先问？",
+        "en": "You could use some spare time to explore making sounds. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪种声音，能怎样练习一个短小片段？",
+            "en": "Which sounds interest me, and how could I practise a short passage?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的声音小作品，有没有人明确想听或使用？",
+            "en": "Is there a small sound piece I would enjoy making that someone has asked to hear or use?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若尝试有报酬的声音制作，需要先练哪一步、约定哪些交付？",
+            "en": "For a paid sound-making attempt, what step would need practice and what delivery would need agreement?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要什么声音材料，费用和使用条件可以怎样核对？",
+            "en": "What sound material does a user need, and how could fees and use conditions be checked?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_06",
+      "prompt": {
+        "zh": "你想到做一个简单的收纳示范，更想先研究？",
+        "en": "You are considering a simple storage demonstration. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢做的示范，是否对应使用者自己说出的困扰？",
+            "en": "Would a demonstration I enjoy making address a difficulty its user has described?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "示范若作为付费内容，练习样例、服务边界应怎样说明？",
+            "en": "If the demonstration were paid content, how should a practice sample and service limits be described?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要怎样的示范，是否愿意讨论报酬与范围？",
+            "en": "What demonstration does someone need, and would they want to discuss payment and scope?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种整理方式让我有兴趣，能拿少量物品练习？",
+            "en": "Which way of organising interests me and could be practised with a few objects?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_07",
+      "prompt": {
+        "zh": "你愿意花一点时间接触摄影，但还没决定做什么，更想先问？",
+        "en": "You have some time to explore photography without a specific plan. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设提供一小段付费拍摄，样例练习和交付约定是什么？",
+            "en": "For a small hypothetical paid session, what sample practice and delivery agreement would be needed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "拍摄需求具体是什么，费用、时间与使用范围能怎样确认？",
+            "en": "What is the actual photography request, and how could fees, timing and use be clarified?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "什么场景让我想拍，哪个拍摄环节值得练习？",
+            "en": "Which scene makes me want to take pictures, and which part of photographing it would I practise?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意拍的内容，是否与某个人明确提出的需要相遇？",
+            "en": "Could something I would enjoy photographing meet a need someone has expressed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_08",
+      "prompt": {
+        "zh": "朋友说想一起整理旧故事，你更想从哪组问题开始？",
+        "en": "A friend suggests organising old stories together. Which questions would you begin with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "对方需要怎样的整理帮助，支付和隐私范围能怎样商量？",
+            "en": "What organising help does the person need, and how could payment and privacy limits be agreed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪种讲述方式，能练习怎样把一段话讲清？",
+            "en": "Which storytelling form interests me, and how could I practise making one passage clear?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意整理哪部分，而故事提供者希望保留什么？",
+            "en": "Which part would I enjoy organising, and what does the person sharing the story want retained?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若做成付费整理服务，需要练习什么并明确哪些边界？",
+            "en": "For a paid organising service, what would I practise and which limits would need stating?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_09",
+      "prompt": {
+        "zh": "一个小小的烹饪活动让你有点兴趣，你更想先考虑？",
+        "en": "A small cooking activity interests you. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢尝试哪道简单食物，又想练习哪一步？",
+            "en": "Which simple food would I enjoy trying, and which step would I like to practise?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的东西，是否也是参加者自己想体验的？",
+            "en": "Is something I would enjoy making also something participants want to experience?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若探索付费示范，练习样例、可提供内容与条件需要先核对什么？",
+            "en": "For a hypothetical paid demonstration, what would need checking about a practice sample, scope and conditions?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的具体需要是什么，组织活动的费用与范围怎样安排？",
+            "en": "What do participants specifically need, and how would the event’s costs and scope be arranged?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_10",
+      "prompt": {
+        "zh": "你在想做一份日常步行的路线记录，更想先想？",
+        "en": "You are considering a record of an everyday walking route. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意记录什么，也有哪些是同行者明确想了解的？",
+            "en": "What would I enjoy recording, and what have companions specifically asked to understand?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设有人付费需要路线样例，需要怎样的练习与交付约定？",
+            "en": "For a hypothetical paid route example, what practice and delivery agreement would be needed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要哪种路线信息，时间、费用与使用条件怎样核对？",
+            "en": "What route information does a user need, and how would time, payment and use conditions be checked?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢看哪些细节，怎样练习把它们记录清楚？",
+            "en": "Which details do I enjoy noticing, and how could I practise recording them clearly?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_11",
+      "prompt": {
+        "zh": "你想尝试帮助别人把一个小流程写清楚，更想先问？",
+        "en": "You might help someone document a small process. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "说明文若作为付费交付，练习样例、核对与范围如何约定？",
+            "en": "For a paid written explanation, how would a practice sample, checking and scope be agreed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "对方需要怎样的说明，愿意提供什么费用或实际支持？",
+            "en": "What explanation does the person need, and what payment or practical support would they consider?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "我对哪段流程感兴趣，能练习哪一种说明方式？",
+            "en": "Which part of the process interests me, and what explanatory form could I practise?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意解释的部分，与对方真正想弄清楚的是什么关系？",
+            "en": "How does the part I would enjoy explaining relate to what the person wants clarified?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_12",
+      "prompt": {
+        "zh": "有机会试做一件可重复使用的小物，你更想先研究？",
+        "en": "You have an opportunity to try making a small reusable object. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "实际使用需要是什么，支付、数量与使用安排能怎样讨论？",
+            "en": "What is the actual use need, and how could payment, quantity and use be discussed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种形状让我想做，哪一种制作环节值得练习？",
+            "en": "Which form interests me, and which making step would I like to practise?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的小物，有没有人明确说过想用在什么情境？",
+            "en": "Has someone described a use for the object I would enjoy making?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若了解有报酬的制作，样例练习、材料与交付范围怎样核对？",
+            "en": "For a hypothetical paid version, how would sample practice, materials and delivery scope be checked?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_13",
+      "prompt": {
+        "zh": "你考虑在周末做一个小型阅读交流，更想先考虑？",
+        "en": "You are considering a small weekend reading exchange. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪个主题，能练习怎样把一段内容讲明白？",
+            "en": "Which topic interests me, and how could I practise explaining one passage?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意聊什么，而参加者自己想讨论什么？",
+            "en": "What would I enjoy discussing, and what do participants want to discuss?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若探索有报酬的带读，试讲、准备与内容边界如何约定？",
+            "en": "For a hypothetical paid reading session, how would rehearsal, preparation and content limits be agreed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的需要是什么，场地、费用和参与范围如何安排？",
+            "en": "What do participants need, and how would space, fees and participation scope be arranged?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_14",
+      "prompt": {
+        "zh": "有人邀请你一起整理一组公开资料，你更想先问？",
+        "en": "Someone invites you to organise a set of public materials. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意整理的部分，是否也是使用者明确需要找的？",
+            "en": "Is the part I would enjoy organising also what users have said they need to find?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "若整理工作有报酬，需要怎样的练习样例与交付核对？",
+            "en": "For a paid organising task, what practice sample and delivery checks would be needed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要哪种资料入口，费用、更新与使用范围怎样约定？",
+            "en": "What access to the materials do users need, and how would payment, updates and use be agreed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪部分资料让我感兴趣，能练习哪一种归类方式？",
+            "en": "Which materials interest me, and which grouping method could I practise?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_15",
+      "prompt": {
+        "zh": "你想到把一个日常小技巧做成演示，更想先研究？",
+        "en": "You are considering demonstrating a small everyday technique. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设示范有报酬，练习程度、可交付内容和条件怎样核对？",
+            "en": "For a hypothetical paid demonstration, how would practice, deliverables and conditions be checked?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要什么样的演示，费用和支持能怎样商量？",
+            "en": "What demonstration does someone need, and how could payment and support be discussed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "这个技巧哪部分让我喜欢，怎样练习一个清楚的小示范？",
+            "en": "Which part of the technique interests me, and how could I practise a clear short example?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意示范的内容，是否对应有人实际提出的小需要？",
+            "en": "Would the demonstration I enjoy making address a small need someone has expressed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_16",
+      "prompt": {
+        "zh": "你想给一项小活动留一点固定时间，更想先想清哪组问题？",
+        "en": "You want to make a little regular time for a small activity. Which questions would you clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "哪项明确需要值得回应，又有哪些支付与支持条件需要核对？",
+            "en": "Which expressed need is worth exploring, and what payment and support conditions need checking?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "做什么让我有兴趣，也能保留一个逐步练习的空间？",
+            "en": "What would interest me while leaving room to practise gradually?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢做的事，与身边人表达的需要在哪里相遇？",
+            "en": "Where might an activity I enjoy meet needs people around me have expressed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若这项活动有报酬，练习、时间和交付应满足什么条件？",
+            "en": "If this activity involved payment, what conditions would practice, time and delivery need to meet?"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "passion",
+      "directionIds": [
+        "passion"
+      ],
+      "title": {
+        "zh": "热情视角：喜欢与练习",
+        "en": "Passion: Enjoyment and Practice"
+      },
+      "summary": {
+        "zh": "把喜欢的活动与愿意练习的具体环节一起看；这是探索问题的视角，不认证你已经擅长、会进入心流或应该把爱好变现。",
+        "en": "Explore enjoyment alongside something you would like to practise. This lens certifies neither existing skill, flow nor a need to monetise a hobby."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个交叠视角怎样用",
+            "en": "Using this overlap lens"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代四圆图常把Passion放在喜欢与擅长的交叠。本题借用这个常见名称，但题目只问你更想先探索哪组问题，没有测试你是否真的擅长。选择喜欢与练习，意味着这些情境中你愿意把活动本身的吸引力与一个可练的小环节放在一起考虑，而不是已经拥有某种天赋。它可以从很小的爱好开始，也不需要有观众、收入或一份终身工作才值得被认真对待。",
+              "en": "In the modern four-circle map, Passion commonly names the overlap of enjoyment and skill. This edition uses that familiar name while asking only which questions you would explore first; it does not test whether you are actually skilled. Choosing enjoyment and practice means considering an activity’s appeal together with a small part you might practise in the imagined situations. It establishes no talent. The lens can begin with a modest hobby and needs neither an audience, income nor a lifelong occupation to become a useful subject for reflection."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "计数选中了什么，没有选中什么",
+            "en": "What the count selects and leaves unknown"
+          },
+          "paragraphs": [
+            {
+              "zh": "本视角计数越多，只表示在这16个情境中，喜欢加练习这一组问题被选择得更多。你没有提交作品、接受技能检验或描述真实日常，因此不能推出你心流更强、学得更快、能力更好或轻视报酬。某次没有选择与需要、报酬相关的问题，也不说明现实中忽略了它们。选择是一种阅读入口，不能把同一组问题在测验里出现的次数变成人生里四个方面的比例。",
+              "en": "More selections indicate only that enjoyment-and-practice questions were chosen more often among these sixteen situations. No work sample, skill assessment or actual daily record was supplied, so stronger flow, faster learning, greater ability or disregard for payment cannot be inferred. Passing over a needs-or-payment option does not establish neglect of either in real life. A choice supplies an entry into a guide, not a proportion of your life occupied by four circles. Even a sole highest count leaves the other topics available and says nothing about how much weight they deserve outside this quiz."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "从一小段活动开始理解",
+            "en": "Understanding it through a small activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你对把生活中的声音拼成一个短片段感兴趣，也想练习怎样安排停顿。可以把这两个问题并排放着：这段活动哪里让你愿意接近，哪一个环节可以小范围尝试？不需要先证明能赚钱，也不必承诺一直喜欢它。如果实际尝试后发现不是自己想要的，那是新信息，而不是结果失效或你不够投入。本问卷的选择并没有预先知道你会做得怎样。",
+              "en": "Suppose you are interested in arranging everyday sounds into a short passage and would like to practise placing pauses. Put two questions alongside each other: what attracts you to the activity, and which small element could you try? You need not first prove that it can earn money or promise permanent interest. Finding after an attempt that it is not what you wanted provides new information rather than invalidating the result or proving insufficient commitment. The questionnaire’s selections did not establish how well you would do or whether an actual attempt would be enjoyable."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地试一个不必展示的片段",
+            "en": "An optional attempt without an audience"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以选一个很小、可撤回的片段，只观察活动本身的体验与练习时遇到的问题。例如只试几种停顿，或只画一个角落，不要求做出可发布作品。你可以不保存、不分享，也可以在尝试后结束。这个建议不是训练方案，不保证提高能力或带来更强意义感；它只是让“我喜欢什么”和“我愿意练什么”从抽象词变成更具体的问题。",
+              "en": "If useful, choose a small reversible fragment and notice the experience of doing it alongside the questions that arise in practice. Try a few pauses or sketch one corner, without requiring a publishable product. You can decline to keep or share it and stop after the attempt. This is not a training programme and promises neither improved ability nor increased meaning. It simply makes “what interests me” and “what would I practise” more concrete. Time, materials and your willingness still matter, and declining an experiment does not contradict the lens."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外三种交叠的比较",
+            "en": "Comparing the other three overlaps"
+          },
+          "paragraphs": [
+            {
+              "zh": "热情视角把喜欢与练习放在一起；使命视角把喜欢与别人表达的需要放在一起；职业视角关注练习与报酬条件；天职视角关注需要与报酬条件。这是对现代图的四组常见交叠做有限阅读，不是说生活只有这四种组合，也不说明某一组缺少另一组就必然危险。你可以同时对几组有兴趣，最高并列时每份全文都会保留。四项计数相同也不是所有现实条件都已齐备的中心认证。",
+              "en": "Passion joins enjoyment with practice questions; Mission joins enjoyment with expressed needs; Profession concerns practice and payment conditions; Vocation concerns needs and payment conditions. These are limited readings of four familiar overlaps in a modern map, not a claim that life contains only four combinations or that one pair is inherently precarious without another. Several lenses may interest you, and every highest tie keeps its full guide. Equal counts across all four do not certify an ideal centre where actual conditions are satisfied. The counts do not independently measure the four underlying circles or establish missing ingredients."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "喜欢与擅长可以不同时出现",
+            "en": "Enjoyment and skill need not arrive together"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以喜欢刚开始接触的事情而尚不熟练，也可以在熟练的工作里暂时没有很大热情。两者都不由这次计数判好坏。爱好是否要面对市场，是否值得继续，取决于你自己的目标与现实条件；选择本视角不能要求你辞职、创业或把兴趣变现。它也不能推断别人的天赋，或把没有选择热情视角的人说成缺少快乐。这里只是在比较问题，不是在检验一个人是否活得完整。",
+              "en": "You may enjoy something new without being proficient, or be proficient at work that currently generates little enthusiasm. Neither is a good-or-bad verdict from these counts. Whether a hobby should face a market or continue depends on your aims and circumstances; this lens cannot require quitting work, starting a business or monetising interest. It also cannot infer another person’s talent or describe someone who selected other questions as lacking joy. The exercise compares questions rather than testing whether a person has a complete life, a worthwhile activity or permission to change direction."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "来源与一个有限的回顾",
+            "en": "Sources and a bounded review"
+          },
+          "paragraphs": [
+            {
+              "zh": "关于现代图的来源与日本概念的区别，可读页面所列的作者说明与日本政府文化特写；它们不验证这16题或你的结果。本版所有题目和解释另写，没有复制竞品题库、人物设定、职业匹配或图像。想回顾时，可以问自己：最吸引我的到底是活动体验，还是某个想练的小环节？答案可以变化，也不需要给网站额外信息。一个小计数不认证稳定兴趣、长期进步或人生方向。",
+              "en": "The linked creator’s account and Japanese cultural feature explain the modern diagram and the broader concept; they validate neither these sixteen items nor your result. This edition’s questions and guides are separately authored without competitor banks, personas, career matches or images. For a small review, ask whether the attraction lay in the experience of the activity, a part you wanted to practise, or both. The answer can change without supplying this site with additional information. A count certifies neither stable interest, lasting progress nor a direction for your life; it is enough to leave with a clearer question."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "十六次选择与所有最高并列",
+            "en": "Sixteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16题每题四个探索问题各对应一种现代交叠视角，只选一项，向该视角加1次。四视角各在16题中出现，每个选项位置各4次，0条反向；计数范围0—16，不是喜欢、能力、需要或报酬的量表分数，也不是百分比。全部16题选择后才比较最高计数，所有最高并列都保留完整报告，不按顺序选唯一赢家、不派次高。全选A时四项各4次，四份全文全部呈现，但不认证理想中心、四圈齐备或人生目的。未选的视角不说明相关条件被低估，也没有验证1次差异有心理意义。不能由重测差异推稳定改变；未完成或无效输入不解释。",
+              "en": "Each of sixteen items offers four exploration questions assigned to four modern overlap lenses. One choice adds one count to its lens. Every lens appears in all sixteen items, four times in each option position, with zero reversals. Counts range from 0–16 and are neither love, ability, need or payment scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout produces four counts of four and four full guides, not an ideal centre, satisfied circles or established life purpose. Unselected lenses do not establish neglected conditions, and a one-count gap has no validated psychological meaning. Retake differences prove no stable change. Incomplete or invalid input is not interpreted."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "现代图、原创范围与隐私",
+            "en": "Modern map, original scope and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16道本站原创假想情境，借现代四圆图的四组常见交叠组织探索问题，不是日本传统公式、Ikigai9标准量表、能力测试或职业匹配。作者说明与文化特写只提供背景，不验证题目或个人结果；不复制图像、竞品题库正文或职业强匹配。日常关系、爱好和小事也可以有意义，不需要成为有薪工作。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也可完成。分享仅测试名、匹配说明名称和公开链接，不带答案或计数；不收活动名、收入、他人需要或私人经历。",
+              "en": "These sixteen original hypothetical situations use four familiar overlaps from a modern map to organise questions, not a Japanese traditional formula, Ikigai9 instrument, ability test or career match. The creator’s account and cultural feature supply background without validating items or individual results. No diagram, competitor bank, guide text or strong job matches are copied. Relationships, hobbies and small activities can matter without paid work. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing contains the test name, matched guide names and public links, never answers or counts. No activity name, income, others’ needs or private experience is collected."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把喜欢的活动与愿意练习的具体环节一起看；这是探索问题的视角，不认证你已经擅长、会进入心流或应该把爱好变现。",
+        "en": "Explore enjoyment alongside something you would like to practise. This lens certifies neither existing skill, flow nor a need to monetise a hobby."
+      },
+      "scoreReading": {
+        "zh": "本视角被选择的次数，不是四圈能力、人生比例或适配分数；所有最高并列保留全文。",
+        "en": "Selections of this lens, not circle capacities, life proportions or fit scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "热情视角：生之目的测试的喜欢与练习完整说明",
+          "en": "Passion Ikigai Lens: Enjoyment and Practice Guide"
+        },
+        "description": {
+          "zh": "阅读热情视角完整结果：喜欢与练习的区别、具体小情境、反例、可选尝试和计分。计数不认证技能、心流或爱好变现。",
+          "en": "Read the full Passion lens: enjoyment, practice, examples, limits and scoring. Counts certify neither skill, flow nor a need to monetise a hobby."
+        }
+      }
+    },
+    {
+      "id": "mission",
+      "directionIds": [
+        "mission"
+      ],
+      "title": {
+        "zh": "使命视角：喜欢与需要",
+        "en": "Mission: Enjoyment and Needs"
+      },
+      "summary": {
+        "zh": "把愿意做的活动与别人明确表达的需要一起看；不推断你更高尚、有同理心、已经产生影响或应该无限投入。",
+        "en": "Consider an activity you enjoy alongside needs people have expressed, without inferring virtue, empathy, proven impact or an obligation to give without limits."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "使命视角不是给你指定任务",
+            "en": "Mission is not an assigned obligation"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代图里的Mission常把喜欢与世界需要并列。本版把“世界”收窄为可以具体核对的需要：谁自己说需要什么，与你愿意做的活动在哪里相遇。它不是在发现你命中注定的使命，也不要求把所有人的需要放在自己之前。选择这一组问题，仅说明在给定情境中你想先弄清活动吸引力和需要之间的联系；它不证明已经有受益者，更不确认你的活动一定能提供帮助。",
+              "en": "Mission in the modern map commonly joins enjoyment and what the world needs. This edition brings “the world” down to needs that could be checked concretely: who has said they need what, and how that relates to an activity you would enjoy. It does not discover a destined mission or require everyone else’s needs to come first. Selecting these questions means wanting to examine that connection in the situation. It proves neither the existence of beneficiaries nor that the imagined activity would help them. No one’s actual needs or experiences are entered into the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "选择需要问题，不等于已经了解需要",
+            "en": "Choosing needs questions is not knowing the need"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多使命计数表示这组探索问题出现更多，不等于你能准确读懂别人、更加无私或会自然激励团队。需要是否真实、做法是否合适、结果有没有帮助，都要靠情境中的信息另核，问卷没有采集。也不能从另三项计数较少，推出你忽略练习或没有考虑支持条件。四组问题被迫各选其一，未选中的事项仍可能在现实里非常重要；数量只是本版阅读安排，不能变成道德排名。",
+              "en": "More Mission selections mean these exploration questions appeared more often, not that you read people accurately, are more selfless or naturally inspire teams. Whether a need is real, an approach appropriate or an outcome helpful requires information the questionnaire does not collect. Fewer selections elsewhere cannot establish ignored practice or support conditions. Choosing one of four questions leaves other matters that may be important in real life unselected. The number organises this edition’s reading and supplies no moral ranking, measure of generosity or evidence about a group’s needs. A tie adds full guides rather than resolving those unknowns."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "从对方说出的一个小需要开始",
+            "en": "Beginning with one expressed need"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你喜欢写清楚一件事，朋友又明确说希望活动说明更容易找到。可以先问喜欢做哪部分，以及朋友具体想找哪些信息，而不是替他想象需要一份很大的宣传计划。如果对方不想要帮助，或希望采用别的方式，选择使命视角也不能否定那个意愿。问卷只给出一个可以比较的问题组合，没有测量实际沟通、服务效果或你是否适合从事某个助人职业。",
+              "en": "Suppose you enjoy making information clear, and a friend explicitly says that an activity’s instructions are hard to find. Ask which part you would enjoy doing and which information the friend actually wants located, rather than imagining a need for a large publicity plan. If the person declines help or prefers another approach, this lens cannot override that choice. The questionnaire offers a pair of questions to compare, without measuring actual communication, service effectiveness or suitability for a helping profession. A small clarified request is enough for the example; no one needs to disclose private difficulties."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地确认范围与意愿",
+            "en": "Optionally checking scope and willingness"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以问：“我乐意整理这几条公开信息，你需要的是这一部分吗？”把愿意做什么、对方需要什么和可以做到哪里分别说清。对方可以拒绝，你也可以收回或缩小提议；不需要把自我价值与是否帮上忙绑在一起。这个小尝试不保证增加影响、意义感或关系质量，也不是要求你承担照护、健康或专业服务。无法核对需要时，先保留未知，比让结果替别人回答更合适。",
+              "en": "If useful, ask: “I would enjoy organising these few public details; is that the part you need?” Separate what you want to offer, what is requested and the limits of the offer. The person may decline, and you may withdraw or narrow it; your worth need not depend on being helpful. This small attempt promises no increased impact, meaning or relationship quality and requires no care, health or professional service. When a need cannot be checked, leaving it unknown is more appropriate than letting a result answer for someone else or create an obligation neither person chose."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他交叠一起读",
+            "en": "Reading alongside other overlaps"
+          },
+          "paragraphs": [
+            {
+              "zh": "使命把喜欢与需要并列，热情把喜欢与练习并列，天职把需要与报酬条件并列，职业把练习与报酬条件并列。同一活动可能涉及全部这些问题，也可能只在日常关系或爱好中有意义。没有收入不使一件小事失去价值，有报酬也不证明它缺少关怀。比较时可以看你想先了解什么，而不是找哪一组最有意义、最有钱或最值得尊敬。所有最高并列都完整保留，计数相同不认证理想中心。",
+              "en": "Mission joins enjoyment and needs; Passion joins enjoyment and practice; Vocation joins needs and payment conditions; Profession joins practice and payment conditions. An activity may involve all these questions or matter mainly within a relationship or hobby. Lack of income does not remove its value, and payment does not establish a lack of care. Compare what you wanted to explore first rather than choosing the most meaningful, profitable or respectable lens. Every highest tie retains its full guide. Equal counts certify no ideal centre, actual capability or readiness to provide a service, and one lens cannot supply evidence missing from another."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "关心别人可以保留自己的边界",
+            "en": "Care can include your own limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以关心别人而没有时间参与，也可以愿意参与却需要报酬、协助或明确范围。拒绝一项提议、接受支持、休息或不回应某个需要，不能被本结果解释成没有使命感。反过来，愿意做也不等于足够胜任，尤其涉及需要专门资格的活动时，本测验没有授予资格。它不根据情境选项推荐社工、教师、咨询或医疗岗位，也不把你未选择的另外两圈叫作固有缺陷。",
+              "en": "You can care without having time to participate, or want to participate while needing payment, assistance or a clear scope. Declining an offer, accepting support, resting or leaving a need unanswered is not a lack of mission inferred from this result. Willingness also establishes no competence, particularly for activities requiring qualifications, which the quiz does not provide. These selections recommend no social-work, teaching, counselling or healthcare role. Nor do unselected circles become built-in deficits. Decisions about participation and boundaries still depend on actual conditions, abilities, consent and resources rather than the name attached to a guide."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "把阅读带回一个具体问题",
+            "en": "Returning the guide to a concrete question"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版借现代图组织问题，与日本ikigai概念的广泛日常含义并不等同。作者的来源说明和文化特写不验证本站题本，原竞品的同理心、影响、财务稳定或职业断言也没有被移植。可以只带走一个小问题：对方实际说了什么，我愿意提供的又是什么？不需要记录私人经历或给自己定性。下次选择改变，可能是情境或关注点不同，不是稳定使命增强、减弱或某种改变效果的证明。",
+              "en": "This edition uses a modern map to organise questions and is not equivalent to the broader everyday Japanese concept. The creator’s account and cultural feature do not validate the bank, and competitor claims about empathy, impact, financial stability or careers are not transferred. You can leave with one small question: what was actually requested, and what would I enjoy offering? No private account or personal label is needed. A later different choice can reflect the situation or focus rather than a stronger or weaker stable mission, improved empathy or an effect of an intervention."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "十六次选择与所有最高并列",
+            "en": "Sixteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16题每题四个探索问题各对应一种现代交叠视角，只选一项，向该视角加1次。四视角各在16题中出现，每个选项位置各4次，0条反向；计数范围0—16，不是喜欢、能力、需要或报酬的量表分数，也不是百分比。全部16题选择后才比较最高计数，所有最高并列都保留完整报告，不按顺序选唯一赢家、不派次高。全选A时四项各4次，四份全文全部呈现，但不认证理想中心、四圈齐备或人生目的。未选的视角不说明相关条件被低估，也没有验证1次差异有心理意义。不能由重测差异推稳定改变；未完成或无效输入不解释。",
+              "en": "Each of sixteen items offers four exploration questions assigned to four modern overlap lenses. One choice adds one count to its lens. Every lens appears in all sixteen items, four times in each option position, with zero reversals. Counts range from 0–16 and are neither love, ability, need or payment scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout produces four counts of four and four full guides, not an ideal centre, satisfied circles or established life purpose. Unselected lenses do not establish neglected conditions, and a one-count gap has no validated psychological meaning. Retake differences prove no stable change. Incomplete or invalid input is not interpreted."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "现代图、原创范围与隐私",
+            "en": "Modern map, original scope and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16道本站原创假想情境，借现代四圆图的四组常见交叠组织探索问题，不是日本传统公式、Ikigai9标准量表、能力测试或职业匹配。作者说明与文化特写只提供背景，不验证题目或个人结果；不复制图像、竞品题库正文或职业强匹配。日常关系、爱好和小事也可以有意义，不需要成为有薪工作。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也可完成。分享仅测试名、匹配说明名称和公开链接，不带答案或计数；不收活动名、收入、他人需要或私人经历。",
+              "en": "These sixteen original hypothetical situations use four familiar overlaps from a modern map to organise questions, not a Japanese traditional formula, Ikigai9 instrument, ability test or career match. The creator’s account and cultural feature supply background without validating items or individual results. No diagram, competitor bank, guide text or strong job matches are copied. Relationships, hobbies and small activities can matter without paid work. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing contains the test name, matched guide names and public links, never answers or counts. No activity name, income, others’ needs or private experience is collected."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把愿意做的活动与别人明确表达的需要一起看；不推断你更高尚、有同理心、已经产生影响或应该无限投入。",
+        "en": "Consider an activity you enjoy alongside needs people have expressed, without inferring virtue, empathy, proven impact or an obligation to give without limits."
+      },
+      "scoreReading": {
+        "zh": "本视角被选择的次数，不是四圈能力、人生比例或适配分数；所有最高并列保留全文。",
+        "en": "Selections of this lens, not circle capacities, life proportions or fit scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "使命视角：生之目的测试的喜欢与需要完整说明",
+          "en": "Mission Ikigai Lens: Enjoyment and Needs Guide"
+        },
+        "description": {
+          "zh": "阅读使命视角完整结果：喜欢的活动与明确需要、意愿边界、具体例子及反例。不推断高尚、同理心、真实影响或助人职业适配。",
+          "en": "Read the full Mission lens: enjoyment, expressed needs, consent, examples and boundaries. No virtue, empathy, impact or helping-career verdict."
+        }
+      }
+    },
+    {
+      "id": "profession",
+      "directionIds": [
+        "profession"
+      ],
+      "title": {
+        "zh": "职业视角：练习与报酬",
+        "en": "Profession: Practice and Payment"
+      },
+      "summary": {
+        "zh": "并排探索练习、样例、交付与报酬条件；不认证真实技能、市场认可、财务稳定或适合任何职位。",
+        "en": "Explore practice, samples, delivery and payment conditions together, without certifying skill, market recognition, financial stability or suitability for a role."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "职业视角在这里不是职业推荐",
+            "en": "Profession is not a job recommendation here"
+          },
+          "paragraphs": [
+            {
+              "zh": "现代图把Profession放在擅长与报酬的交叠。本题采用这个常见名称，但选项问的是若探索某种有报酬的活动，想先核对哪些练习与交付条件。选择它不表示你已经擅长、已有客户，或市场愿意付费。它也不局限于正式职业，可以只是思考一项很小的活动在什么范围内有条件被提供。没有实际技能资料、需求或支付信息时，这些仍然是问题，不是结果替你补出的事实。",
+              "en": "Profession in the modern map commonly joins skill and payment. This edition uses that name for questions about the practice and delivery conditions you would explore if an activity involved payment. Selecting it does not establish proficiency, clients or a willing market. It need not concern a formal occupation; it can involve considering the conditions for providing one small activity within a limited scope. Without actual skill evidence, demand or payment information, these remain questions rather than facts supplied by a result. The quiz evaluates no work and makes no offer on your behalf."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "先问条件，不等于已有条件",
+            "en": "Asking about conditions does not establish them"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多职业视角计数，只说明练习加报酬条件这组问题在16个情境中被选得更多，不代表能力强、收入高、交付可靠或经济安全。你可能正因为条件不清楚，才更想先核对；题本没有问为什么。没有选择喜欢或需要相关选项，也不能推出你工作空虚、缺少热情或不关心别人。每次只能先选一组，现实里其他问题仍可能重要。这个数量不应变成专业水平、赚钱能力或职业成功的百分比。",
+              "en": "More Profession selections mean only that practice-and-payment questions were chosen more often among sixteen situations. They establish no competence, income, reliable delivery or financial security. Unclear conditions might be exactly why you want to examine them first, but the items do not ask why. Passing over enjoyment or needs questions cannot establish empty work, absent enthusiasm or a lack of concern for others. Only one pair can be chosen at a time, while other questions may remain important in reality. The count is no percentage of professional proficiency, earning ability or likely career success."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "用一个小样例理解练习与交付",
+            "en": "Exploring practice and delivery through a small sample"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想了解把几页公开资料整理成一份清楚的小目录，若作为有报酬的任务，需要什么。可以先区分练习样例能说明什么、对方希望收到什么、哪些内容尚不能承诺，以及报酬条件是否真实存在。这个例子没有判断你能否承接，也不提供定价或业务保证。问卷只是让你注意到可能需要核对的几类问题，不能从选择过它们推断已经完成了技能评估或市场验证。",
+              "en": "Suppose you want to understand what would be involved in organising several pages of public material into a clear index for payment. Distinguish what a practice sample could show, what a recipient would expect, what cannot yet be promised and whether any payment arrangement actually exists. This example does not establish readiness to accept a task or provide pricing or business guarantees. It highlights questions that might require checking. Selecting those questions has completed neither a skill assessment nor market validation, and the quiz requests no sample, recipient details or financial information."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地分开样例、范围与未知",
+            "en": "Optionally separating a sample, scope and unknowns"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以只在心里把三栏分开：可以拿来练习的小范围、仍需了解的交付条件，以及目前不知道的部分。不必马上收费、接单或公开展示。也可以先判断自己是否愿意让爱好进入这样的安排，保留不做有报酬活动的选择。这个回顾不是创业或职业方案，不保证你找到收入；它只让练习与交付之间的差别更清楚，不用想象中的报酬替代实际信息。",
+              "en": "If useful, distinguish three columns privately: a small scope for practice, delivery conditions that remain to be understood, and what is currently unknown. There is no need to charge, accept work or display anything. You may first decide whether you even want a hobby to enter such an arrangement, retaining the choice not to offer a paid activity. This reflection is no business or career plan and guarantees no income. It clarifies the difference between practising and delivering without replacing actual information with an imagined payment or requiring action to make the result look correct."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "报酬不是价值的唯一证明",
+            "en": "Payment is not the only evidence of value"
+          },
+          "paragraphs": [
+            {
+              "zh": "职业视角关心练习与报酬，热情视角关心喜欢与练习，天职视角关心需要与报酬，使命视角关心喜欢与需要。报酬条件并不自动包含喜欢、意义或别人想要的内容，但也不与它们冲突。不能因为这项计数较高，就宣布另外两圈被你忽略；本测验根本没有独立测四圈。若你也选择了其他最高视角，每份说明都完整保留，不用强行决定唯一职业人格；四项并列不意味着四个现实条件已经全部满足。",
+              "en": "Profession concerns practice and payment, Passion enjoyment and practice, Vocation needs and payment, and Mission enjoyment and needs. Payment conditions neither automatically contain enjoyment, meaning or expressed demand nor conflict with them. A higher count cannot establish neglected circles, because the quiz did not independently measure the four circles. Other highest lenses retain their full guides rather than forcing one professional personality. Four equal counts do not mean that actual conditions have all been met. Nor does this modern map decide which activities deserve payment or which unpaid parts of life matter."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "熟练、报酬与满足感都需要另看",
+            "en": "Skill, payment and satisfaction remain separate questions"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人可能擅长一件事却不想把它当工作，也可能有报酬却仍在学习；都不能据本结果判断矛盾或失败。收入还涉及机会、资源和具体安排，这些没有被问卷核实。选择职业视角不说明你陷在所谓金手铐，也不证明可靠、纪律性强或已经获得市场尊重。涉及需要专门资质的活动，本结果不提供任何资格。它不给岗位列表或适配强弱，更不建议根据一个小计数改变工作或财务安排。",
+              "en": "Someone may be skilled without wanting an activity to become work, or receive payment while continuing to learn. Neither is contradiction or failure established by this result. Income also involves opportunities, resources and specific arrangements not checked here. Selecting Profession does not imply golden handcuffs, reliability, discipline or market respect. For activities requiring qualifications, the result provides none. It supplies no job list or fit rating and does not recommend changing work or financial arrangements based on a count. Real choices need information about the activity and circumstances that these imagined selections do not contain."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "把未核实的部分留作问题",
+            "en": "Leaving unchecked conditions as questions"
+          },
+          "paragraphs": [
+            {
+              "zh": "图的作者说明和日本政府文化特写提供背景，不验证本题本，也不把四圆图变成职业能力模型。本版没有移植竞品关于精通、收入、稳定与岗位强匹配的结论。可以只带走一个问题：我现在想练习的部分，与任何可能交付的内容之间，还有什么未知？不必填报收入、职业或私人经历。下次更关注喜欢或需要，也不意味着专业性下降；变化可能只是问题顺序不同，不认证能力或收入发生改变。",
+              "en": "The diagram creator’s account and Japanese cultural feature supply background, not validation of this bank or a career-capability model. Competitor conclusions about mastery, income, security and strong job matches are not transferred. One question is enough to retain: what remains unknown between the part I would practise and anything that might eventually be delivered? No income, occupation or private experience needs reporting. Choosing enjoyment or needs first next time does not establish declining professionalism. The order of questions may simply differ, without certifying a change in competence, income or a stable career identity."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "十六次选择与所有最高并列",
+            "en": "Sixteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16题每题四个探索问题各对应一种现代交叠视角，只选一项，向该视角加1次。四视角各在16题中出现，每个选项位置各4次，0条反向；计数范围0—16，不是喜欢、能力、需要或报酬的量表分数，也不是百分比。全部16题选择后才比较最高计数，所有最高并列都保留完整报告，不按顺序选唯一赢家、不派次高。全选A时四项各4次，四份全文全部呈现，但不认证理想中心、四圈齐备或人生目的。未选的视角不说明相关条件被低估，也没有验证1次差异有心理意义。不能由重测差异推稳定改变；未完成或无效输入不解释。",
+              "en": "Each of sixteen items offers four exploration questions assigned to four modern overlap lenses. One choice adds one count to its lens. Every lens appears in all sixteen items, four times in each option position, with zero reversals. Counts range from 0–16 and are neither love, ability, need or payment scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout produces four counts of four and four full guides, not an ideal centre, satisfied circles or established life purpose. Unselected lenses do not establish neglected conditions, and a one-count gap has no validated psychological meaning. Retake differences prove no stable change. Incomplete or invalid input is not interpreted."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "现代图、原创范围与隐私",
+            "en": "Modern map, original scope and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16道本站原创假想情境，借现代四圆图的四组常见交叠组织探索问题，不是日本传统公式、Ikigai9标准量表、能力测试或职业匹配。作者说明与文化特写只提供背景，不验证题目或个人结果；不复制图像、竞品题库正文或职业强匹配。日常关系、爱好和小事也可以有意义，不需要成为有薪工作。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也可完成。分享仅测试名、匹配说明名称和公开链接，不带答案或计数；不收活动名、收入、他人需要或私人经历。",
+              "en": "These sixteen original hypothetical situations use four familiar overlaps from a modern map to organise questions, not a Japanese traditional formula, Ikigai9 instrument, ability test or career match. The creator’s account and cultural feature supply background without validating items or individual results. No diagram, competitor bank, guide text or strong job matches are copied. Relationships, hobbies and small activities can matter without paid work. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing contains the test name, matched guide names and public links, never answers or counts. No activity name, income, others’ needs or private experience is collected."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "并排探索练习、样例、交付与报酬条件；不认证真实技能、市场认可、财务稳定或适合任何职位。",
+        "en": "Explore practice, samples, delivery and payment conditions together, without certifying skill, market recognition, financial stability or suitability for a role."
+      },
+      "scoreReading": {
+        "zh": "本视角被选择的次数，不是四圈能力、人生比例或适配分数；所有最高并列保留全文。",
+        "en": "Selections of this lens, not circle capacities, life proportions or fit scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "职业视角：生之目的测试的练习与报酬完整说明",
+          "en": "Profession Ikigai Lens: Practice and Payment Guide"
+        },
+        "description": {
+          "zh": "阅读职业视角完整结果：练习样例、交付范围、报酬条件和未知。不是专业技能、市场认可、经济稳定或岗位匹配的认证。",
+          "en": "Read the full Profession lens: practice, delivery, payment conditions and unknowns. No certification of skill, market value, security or job fit."
+        }
+      }
+    },
+    {
+      "id": "vocation",
+      "directionIds": [
+        "vocation"
+      ],
+      "title": {
+        "zh": "天职视角：需要与报酬",
+        "en": "Vocation: Needs and Payment"
+      },
+      "summary": {
+        "zh": "探索明确需要与支付、支持和服务范围怎样相连；“天职”只是现代图的常见名称，不是命定岗位、可靠人格或已经创造的贡献。",
+        "en": "Explore expressed needs alongside payment, support and scope. Vocation is a familiar map label, not a destined role, reliable personality or proven contribution."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "“天职”是名称，不是命定结论",
+            "en": "Vocation is a label, not a destiny"
+          },
+          "paragraphs": [
+            {
+              "zh": "这里的Vocation来自现代图中需要与报酬的交叠，中文沿用常见名称“天职视角”，并不发现你注定做什么。题目只让你选择是否先了解一项需要，以及与支付、支持和范围有关的条件。它不证明需要真实存在、工作对社会有多重要或你已经为此获得报酬。两类问题放在一起，可以帮助区分“有人需要”和“怎样可持续提供”仍各有未知，不能靠一个结果把未知省略。",
+              "en": "Vocation here names the modern map’s overlap of needs and payment. The familiar label does not discover what you are destined to do. Items ask only whether you would first explore a request together with conditions around payment, support and scope. They establish neither an actual need, social importance nor existing compensation. Putting the questions together highlights that “someone needs this” and “how could it be provided sustainably” still contain separate unknowns. A result cannot erase those unknowns or decide that responding to a request should become your role."
+            }
+          ]
+        },
+        {
+          "id": "what-it-selects",
+          "title": {
+            "zh": "计数不证明实际贡献或稳定",
+            "en": "Counts establish neither contribution nor stability"
+          },
+          "paragraphs": [
+            {
+              "zh": "本项计数较多，仅表示需要与报酬条件这一组问题在这些假想情境中更常被你先选，不是可靠性、贡献程度或收入稳定性的量表。你也可能因不确定资源从哪里来而想先了解，问卷没有询问原因。其他选项较少不等于缺乏喜欢或练习，更不能说明你在自动驾驶地工作。每题四选一的安排只比较探索顺序，不能用来算你的人生里有多少需要、报酬、爱好或能力，也不确认你已经找到可持续活动。",
+              "en": "More selections indicate only that needs-and-payment questions were chosen first more often in these imagined situations. They form no measure of reliability, contribution or income stability. Uncertainty about resources might itself prompt the choice, but the reason was not asked. Fewer other selections establish neither absent enjoyment or practice nor work on autopilot. Four alternatives compare an order of exploration, not proportions of needs, payment, interests or ability in your life. The count also cannot confirm that a sustainable activity has been found or that another person will welcome an offer."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "需要与安排可以分别核对",
+            "en": "Checking a request and its arrangements separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，有人说需要把活动路线写得更容易理解。你想先弄清使用者具体要什么，以及是否有时间、场地、费用或其他支持安排。明确需要不等于你必须接受，存在费用也不代表活动已经合适或值得长期继续。还需要知道自己能提供什么、是否愿意提供，以及使用者是否接受这个范围。本问卷没有核实其中任何条件；例子只说明这组问题能怎样展开，不预测你会成为可靠服务者。",
+              "en": "Suppose someone asks for clearer directions to an activity. You want first to understand what users need and whether time, space, payment or other support could be arranged. An expressed need does not require you to accept, and available money does not establish suitability or a reason for long-term continuation. What you can offer, whether you want to offer it and whether the scope is accepted remain separate matters. None has been verified by the questionnaire. The example shows how the questions might unfold, not that you will become a reliable provider or that a real service should begin."
+            }
+          ]
+        },
+        {
+          "id": "optional-try",
+          "title": {
+            "zh": "可选地把支持条件说具体",
+            "en": "Optionally making support conditions concrete"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意尝试时，可以问：“需要的是哪一部分？有哪些时间、资源或支付安排需要先说清？”也可以先把自己的范围和暂时不能提供的部分留下。这个练习不要求接单、收费、无偿付出或承担超出能力的活动；你可以不参与。支持条件不是只有金钱，日常爱好和关系也不需要经过市场才能有意义。它只是把两个尚需核实的问题并列，不承诺得到收入、影响或职业满足感。",
+              "en": "If useful, ask: “Which part is needed, and which time, resource or payment arrangements would need clarifying first?” Retain your own scope and anything you cannot currently provide. The exercise requires neither accepting work, charging, unpaid giving nor undertaking an activity beyond your capability; participation may be declined. Support is not limited to money, and hobbies or relationships need no market approval to matter. This simply places two questions requiring verification alongside each other. It promises no income, impact or professional fulfilment and does not replace the specific information needed for a real arrangement."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与另外三份读法一起保留未知",
+            "en": "Keeping unknowns when comparing the other guides"
+          },
+          "paragraphs": [
+            {
+              "zh": "天职视角连接需要与报酬，使命连接喜欢与需要，职业连接练习与报酬，热情连接喜欢与练习。它们不是“高尚”“务实”“有趣”等四种人格，任何一组都不证明另一组缺失。最高并列时可以比较多份全文，想法并存不需要被压成唯一称号。四组都同为4次，只反映本题选项计数相同，不说明你已到达四圆中心，也不测人生是否完整。现实中各问题的重要性，还需要你自己结合活动和条件判断。",
+              "en": "Vocation connects needs and payment, Mission enjoyment and needs, Profession practice and payment, and Passion enjoyment and practice. They are not noble, practical or entertaining personalities, and one pair establishes no missing alternative. Highest ties allow comparison of several full guides rather than compressing coexisting questions into one identity. Four equal counts of four reflect only this questionnaire’s selections, not arrival at the diagram’s centre or a complete life. How important each question is in an actual activity remains for you to consider with the circumstances. No unchosen circle becomes a prescribed growth direction from these counts."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "有需要不等于有义务",
+            "en": "A need does not create an obligation"
+          },
+          "paragraphs": [
+            {
+              "zh": "别人需要一件事，不代表你必须提供；你需要报酬或休息，也不意味着缺乏关怀。某种有报酬的活动可以很有意义，也可以只是阶段安排，结果不判断它是否配得上“天职”这个词。它不能确认能力、资格、支付稳定性或实际效果，尤其不能把本视角直接匹配到医疗、应急或其他需要专门条件的岗位。你是否参与、继续或退出，仍需要真实的信息和自己的选择，不能由测验名称替你承担。",
+              "en": "Another person’s need creates no obligation for you to provide, and needing payment or rest establishes no lack of care. A paid activity may be meaningful or simply a temporary arrangement; the result does not judge whether it deserves the word vocation. It confirms neither capability, qualifications, stable payment nor actual outcomes, and it cannot match this lens directly to healthcare, emergency response or other roles requiring specific conditions. Participation, continuation and withdrawal still require real information and your choice. The name of a quiz cannot make those decisions or absorb their consequences on your behalf."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "一个视角可以只留下一个问题",
+            "en": "A lens can leave just one question"
+          },
+          "paragraphs": [
+            {
+              "zh": "来源说明指出现代四圆图与更广泛的日本ikigai概念之间的区别；本版不复制图像、标准量表、竞品题库和职业强匹配。关于天职、生活意义和贡献的判断也没有被这16题验证。读完后可以只保留一句：我想了解的需要，与可接受的支持和范围之间，还有哪些条件没有弄清？不用向网站补充私人资料，也不必把答案变成终身计划。下次关注点改变，是可以保留的新问题，而非人格或人生价值改变的证据。",
+              "en": "The linked background distinguishes the modern map from the broader Japanese concept. This edition copies no diagram, standard scale, competitor bank or strong job matches. Judgments about a calling, meaning or contribution have not been validated by these sixteen items. You may leave with one question: what remains unclear between a need I want to understand and acceptable support and scope? No private information needs to be supplied and no lifelong plan is required. A later change of focus can remain a new question rather than evidence that personality, life value or a stable vocation has changed."
+            }
+          ]
+        },
+        {
+          "id": "archetype-counts",
+          "title": {
+            "zh": "十六次选择与所有最高并列",
+            "en": "Sixteen choices and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "16题每题四个探索问题各对应一种现代交叠视角，只选一项，向该视角加1次。四视角各在16题中出现，每个选项位置各4次，0条反向；计数范围0—16，不是喜欢、能力、需要或报酬的量表分数，也不是百分比。全部16题选择后才比较最高计数，所有最高并列都保留完整报告，不按顺序选唯一赢家、不派次高。全选A时四项各4次，四份全文全部呈现，但不认证理想中心、四圈齐备或人生目的。未选的视角不说明相关条件被低估，也没有验证1次差异有心理意义。不能由重测差异推稳定改变；未完成或无效输入不解释。",
+              "en": "Each of sixteen items offers four exploration questions assigned to four modern overlap lenses. One choice adds one count to its lens. Every lens appears in all sixteen items, four times in each option position, with zero reversals. Counts range from 0–16 and are neither love, ability, need or payment scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout produces four counts of four and four full guides, not an ideal centre, satisfied circles or established life purpose. Unselected lenses do not establish neglected conditions, and a one-count gap has no validated psychological meaning. Retake differences prove no stable change. Incomplete or invalid input is not interpreted."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "现代图、原创范围与隐私",
+            "en": "Modern map, original scope and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16道本站原创假想情境，借现代四圆图的四组常见交叠组织探索问题，不是日本传统公式、Ikigai9标准量表、能力测试或职业匹配。作者说明与文化特写只提供背景，不验证题目或个人结果；不复制图像、竞品题库正文或职业强匹配。日常关系、爱好和小事也可以有意义，不需要成为有薪工作。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也可完成。分享仅测试名、匹配说明名称和公开链接，不带答案或计数；不收活动名、收入、他人需要或私人经历。",
+              "en": "These sixteen original hypothetical situations use four familiar overlaps from a modern map to organise questions, not a Japanese traditional formula, Ikigai9 instrument, ability test or career match. The creator’s account and cultural feature supply background without validating items or individual results. No diagram, competitor bank, guide text or strong job matches are copied. Relationships, hobbies and small activities can matter without paid work. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing contains the test name, matched guide names and public links, never answers or counts. No activity name, income, others’ needs or private experience is collected."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "探索明确需要与支付、支持和服务范围怎样相连；“天职”只是现代图的常见名称，不是命定岗位、可靠人格或已经创造的贡献。",
+        "en": "Explore expressed needs alongside payment, support and scope. Vocation is a familiar map label, not a destined role, reliable personality or proven contribution."
+      },
+      "scoreReading": {
+        "zh": "本视角被选择的次数，不是四圈能力、人生比例或适配分数；所有最高并列保留全文。",
+        "en": "Selections of this lens, not circle capacities, life proportions or fit scores; every highest tie keeps its full guide."
+      },
+      "seo": {
+        "title": {
+          "zh": "天职视角：生之目的测试的需要与报酬完整说明",
+          "en": "Vocation Ikigai Lens: Needs and Payment Guide"
+        },
+        "description": {
+          "zh": "阅读天职视角完整结果：明确需要、支付支持、范围与边界。“天职”是现代图的常见名称，不是命定岗位或个人义务。",
+          "en": "Read the full Vocation lens: expressed needs, payment, support, scope and boundaries. The map label establishes neither a destined role nor an obligation."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "十六次选择与所有最高并列",
+        "en": "Sixteen choices and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "16题每题四个探索问题各对应一种现代交叠视角，只选一项，向该视角加1次。四视角各在16题中出现，每个选项位置各4次，0条反向；计数范围0—16，不是喜欢、能力、需要或报酬的量表分数，也不是百分比。全部16题选择后才比较最高计数，所有最高并列都保留完整报告，不按顺序选唯一赢家、不派次高。全选A时四项各4次，四份全文全部呈现，但不认证理想中心、四圈齐备或人生目的。未选的视角不说明相关条件被低估，也没有验证1次差异有心理意义。不能由重测差异推稳定改变；未完成或无效输入不解释。",
+          "en": "Each of sixteen items offers four exploration questions assigned to four modern overlap lenses. One choice adds one count to its lens. Every lens appears in all sixteen items, four times in each option position, with zero reversals. Counts range from 0–16 and are neither love, ability, need or payment scales nor percentages. Only a complete attempt compares counts, retaining the full guide for every highest tie without a fixed-order winner or secondary type. Choosing A throughout produces four counts of four and four full guides, not an ideal centre, satisfied circles or established life purpose. Unselected lenses do not establish neglected conditions, and a one-count gap has no validated psychological meaning. Retake differences prove no stable change. Incomplete or invalid input is not interpreted."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "并列逐份呈现，不造唯一人设",
+        "en": "Every tie gets its full guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "四份各九模块说明覆盖交叠含义、实际选中什么、原创例子、可选尝试、其他视角比较、反例、来源回顾、完整计分与隐私。最高并列全部保留，不补测、猜动机或按顺序抹掉并列。",
+          "en": "Each nine-section guide covers meaning, what was selected, examples, optional exploration, comparisons, counterexamples, source scope, full scoring and privacy. Every highest tie remains without extra items, guessed motives or fixed-order elimination."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "现代探索图与日常意义分开",
+        "en": "Separating a modern map and everyday meaning"
+      },
+      "paragraphs": [
+        {
+          "zh": "四组常见交叠是现代图的有限读法，不是四种日本人格或生存价值等级。本题未独立测四圈，不能由一组较少的选择推出相应能力、收入或需要缺失。",
+          "en": "Four familiar overlaps are limited lenses from a modern map, not Japanese personalities or levels of life value. The circles are not independently measured, so fewer selections establish no missing ability, income or need."
+        }
+      ]
+    },
+    {
+      "id": "scope-privacy",
+      "title": {
+        "zh": "现代图、原创范围与隐私",
+        "en": "Modern map, original scope and privacy"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是16道本站原创假想情境，借现代四圆图的四组常见交叠组织探索问题，不是日本传统公式、Ikigai9标准量表、能力测试或职业匹配。作者说明与文化特写只提供背景，不验证题目或个人结果；不复制图像、竞品题库正文或职业强匹配。日常关系、爱好和小事也可以有意义，不需要成为有薪工作。全文免费，无另一测评解锁。草稿主动开启，仅本设备24小时，完成、退出或重测清除；不保存也可完成。分享仅测试名、匹配说明名称和公开链接，不带答案或计数；不收活动名、收入、他人需要或私人经历。",
+          "en": "These sixteen original hypothetical situations use four familiar overlaps from a modern map to organise questions, not a Japanese traditional formula, Ikigai9 instrument, ability test or career match. The creator’s account and cultural feature supply background without validating items or individual results. No diagram, competitor bank, guide text or strong job matches are copied. Relationships, hobbies and small activities can matter without paid work. Full text is free without another assessment. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake; declining storage does not prevent completion. Sharing contains the test name, matched guide names and public links, never answers or counts. No activity name, income, others’ needs or private experience is collected."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这能测出我的人生使命或适合职业吗？",
+        "en": "Can this measure my life purpose or a suitable career?"
+      },
+      "answer": {
+        "zh": "不能。它只比较在假想情境里先探索哪组问题，不测能力、收入、市场需要、实际贡献或职业适配，也不解释健康或寿命。",
+        "en": "No. It compares which questions you would explore first in hypothetical situations, without measuring ability, income, demand, contribution, career fit, health or lifespan."
+      }
+    },
+    {
+      "question": {
+        "zh": "四圆图是日本传统公式吗？",
+        "en": "Is the four-circle map a Japanese traditional formula?"
+      },
+      "answer": {
+        "zh": "不是。作者说明它是把现代目的图与ikigai一词结合的延展；日本概念也可以涉及小事、爱好和关系，不要求四圈合成有薪工作。",
+        "en": "No. The creator describes combining a modern purpose map with the word ikigai. The broader concept can include small activities, hobbies and relationships without a paid role combining four circles."
+      }
+    },
+    {
+      "question": {
+        "zh": "并列或全选同一选项会怎样？",
+        "en": "What happens with ties or choosing the same position?"
+      },
+      "answer": {
+        "zh": "所有最高并列逐份呈现完整说明。全选A时四项各4次，显示四份全文，不认证完美中心或已经找到目的。",
+        "en": "Every highest tie gets its full guide. Choosing A throughout gives four counts of four and four full guides, without certifying an ideal centre or a found purpose."
+      }
+    },
+    {
+      "question": {
+        "zh": "这些全文免费吗，是否要填写收入？",
+        "en": "Are full guides free, and must I provide income?"
+      },
+      "answer": {
+        "zh": "四份全文全部免费，无另一测试解锁。不填写收入、活动名、他人需要或私人经历；分享也不带个人答案或计数。",
+        "en": "All four full guides are free without another assessment. No income, activity names, others’ needs or private accounts are entered; sharing carries no answers or counts."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://theviewinside.me/ikigai",
+      "title": {
+        "zh": "Marc Winn：现代四圆图的来源与概念边界（未复制图像）",
+        "en": "Marc Winn: the modern diagram’s origin and limits; image not copied"
+      }
+    },
+    {
+      "url": "https://www.japan.go.jp/kizuna/2022/03/ikigai_japanese_secret_to_a_joyful_life.html",
+      "title": {
+        "zh": "JapanGov文化特写：ikigai的日常含义与现代图讨论",
+        "en": "JapanGov cultural feature: everyday ikigai and the modern map"
+      }
+    }
+  ]
+}

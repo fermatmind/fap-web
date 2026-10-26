@@ -1,0 +1,711 @@
+{
+  "formCode": "fm_ikigai_overlap_choices_16",
+  "origin": "FermatMind original hypothetical exploration choices using four familiar overlaps in the modern purpose diagram; not a Japanese traditional formula, Ikigai9 scale, psychological measurement or JobCannon bank. Common good-at/skill wording is treated here only as practice questions, not a measured capability.",
+  "directions": [
+    {
+      "id": "passion",
+      "title": {
+        "zh": "热情视角：喜欢与练习",
+        "en": "Passion: Enjoyment and Practice"
+      }
+    },
+    {
+      "id": "mission",
+      "title": {
+        "zh": "使命视角：喜欢与需要",
+        "en": "Mission: Enjoyment and Needs"
+      }
+    },
+    {
+      "id": "profession",
+      "title": {
+        "zh": "职业视角：练习与报酬",
+        "en": "Profession: Practice and Payment"
+      }
+    },
+    {
+      "id": "vocation",
+      "title": {
+        "zh": "天职视角：需要与报酬",
+        "en": "Vocation: Needs and Payment"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "IKIGAI_01",
+      "prompt": {
+        "zh": "你有一个空闲下午，想试着做点有意思的小事。比较这些问题，你更想先想哪一个？",
+        "en": "You have a free afternoon to try a small meaningful activity. Which question would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种手作让我感兴趣，也能挑一个小技巧练一练？",
+            "en": "Which craft interests me and offers one small technique to practise?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢的活动里，有哪一种也回应了身边人的小需要？",
+            "en": "Which activity I enjoy also addresses a small need someone nearby has expressed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "我想练习的一种小技能，若要收费提供，需要先了解哪些条件？",
+            "en": "If I offered a small skill I want to practise for payment, what conditions would I need to understand?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "身边哪项明确需要，适合先了解服务范围与支付安排？",
+            "en": "Which expressed nearby need would be worth exploring through service scope and payment arrangements?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_02",
+      "prompt": {
+        "zh": "你在考虑做一份简短的社区小刊物，更想先研究？",
+        "en": "You are considering a short community booklet. What would you look into first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "什么内容是我愿意做、也有人明确想读的？",
+            "en": "What would I enjoy making that someone has explicitly said they would like to read?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "排版或编辑若作为一项付费工作，需要怎样的练习样例与交付范围？",
+            "en": "If layout or editing became paid work, what practice sample and delivery scope would need to be discussed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "读者需要怎样的刊物，又有哪些可了解的付费或支持方式？",
+            "en": "What booklet do readers need, and which payment or support arrangements could be explored?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢写或画什么，能用哪一页练习表达？",
+            "en": "What do I enjoy writing or drawing, and which page could help me practise?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_03",
+      "prompt": {
+        "zh": "朋友提起一个小型分享活动，哪一组问题更吸引你先想？",
+        "en": "A friend mentions a small sharing event. Which pair of questions would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "若把讲解作为付费服务，需要试讲什么并说明哪些交付条件？",
+            "en": "For a paid explanation service, what would I need to rehearse and specify as deliverables?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的需要是什么，组织者怎样安排费用和参与条件？",
+            "en": "What do participants need, and how would organisers arrange fees and participation conditions?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "什么主题让我有兴趣，讲解时又能练习一个具体环节？",
+            "en": "Which topic interests me and lets me practise one part of explaining it?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意分享什么，而参加者自己想了解什么？",
+            "en": "What would I enjoy sharing, and what have participants said they want to learn about?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_04",
+      "prompt": {
+        "zh": "你想做一点与植物有关的日常活动，更想先了解？",
+        "en": "You are considering an everyday activity involving plants. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要怎样的植物相关记录，支持或支付如何安排？",
+            "en": "What plant-related records do people need, and how might support or payment be arranged?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢观察哪种变化，又想练习哪一种记录方法？",
+            "en": "Which changes do I enjoy noticing, and which recording method would I like to practise?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢的植物活动，是否也回应朋友明确提出的需要？",
+            "en": "Could a plant activity I enjoy address a need a friend has actually expressed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若有人付费请我制作记录样例，需要怎样的练习和范围确认？",
+            "en": "If someone paid for a sample record, what practice and scope agreement would be needed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_05",
+      "prompt": {
+        "zh": "一段空闲时间可以用来接触声音制作，你更想先问？",
+        "en": "You could use some spare time to explore making sounds. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪种声音，能怎样练习一个短小片段？",
+            "en": "Which sounds interest me, and how could I practise a short passage?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的声音小作品，有没有人明确想听或使用？",
+            "en": "Is there a small sound piece I would enjoy making that someone has asked to hear or use?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若尝试有报酬的声音制作，需要先练哪一步、约定哪些交付？",
+            "en": "For a paid sound-making attempt, what step would need practice and what delivery would need agreement?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要什么声音材料，费用和使用条件可以怎样核对？",
+            "en": "What sound material does a user need, and how could fees and use conditions be checked?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_06",
+      "prompt": {
+        "zh": "你想到做一个简单的收纳示范，更想先研究？",
+        "en": "You are considering a simple storage demonstration. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢做的示范，是否对应使用者自己说出的困扰？",
+            "en": "Would a demonstration I enjoy making address a difficulty its user has described?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "示范若作为付费内容，练习样例、服务边界应怎样说明？",
+            "en": "If the demonstration were paid content, how should a practice sample and service limits be described?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要怎样的示范，是否愿意讨论报酬与范围？",
+            "en": "What demonstration does someone need, and would they want to discuss payment and scope?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种整理方式让我有兴趣，能拿少量物品练习？",
+            "en": "Which way of organising interests me and could be practised with a few objects?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_07",
+      "prompt": {
+        "zh": "你愿意花一点时间接触摄影，但还没决定做什么，更想先问？",
+        "en": "You have some time to explore photography without a specific plan. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设提供一小段付费拍摄，样例练习和交付约定是什么？",
+            "en": "For a small hypothetical paid session, what sample practice and delivery agreement would be needed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "拍摄需求具体是什么，费用、时间与使用范围能怎样确认？",
+            "en": "What is the actual photography request, and how could fees, timing and use be clarified?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "什么场景让我想拍，哪个拍摄环节值得练习？",
+            "en": "Which scene makes me want to take pictures, and which part of photographing it would I practise?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意拍的内容，是否与某个人明确提出的需要相遇？",
+            "en": "Could something I would enjoy photographing meet a need someone has expressed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_08",
+      "prompt": {
+        "zh": "朋友说想一起整理旧故事，你更想从哪组问题开始？",
+        "en": "A friend suggests organising old stories together. Which questions would you begin with?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "对方需要怎样的整理帮助，支付和隐私范围能怎样商量？",
+            "en": "What organising help does the person need, and how could payment and privacy limits be agreed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪种讲述方式，能练习怎样把一段话讲清？",
+            "en": "Which storytelling form interests me, and how could I practise making one passage clear?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意整理哪部分，而故事提供者希望保留什么？",
+            "en": "Which part would I enjoy organising, and what does the person sharing the story want retained?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若做成付费整理服务，需要练习什么并明确哪些边界？",
+            "en": "For a paid organising service, what would I practise and which limits would need stating?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_09",
+      "prompt": {
+        "zh": "一个小小的烹饪活动让你有点兴趣，你更想先考虑？",
+        "en": "A small cooking activity interests you. What would you consider first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢尝试哪道简单食物，又想练习哪一步？",
+            "en": "Which simple food would I enjoy trying, and which step would I like to practise?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的东西，是否也是参加者自己想体验的？",
+            "en": "Is something I would enjoy making also something participants want to experience?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若探索付费示范，练习样例、可提供内容与条件需要先核对什么？",
+            "en": "For a hypothetical paid demonstration, what would need checking about a practice sample, scope and conditions?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的具体需要是什么，组织活动的费用与范围怎样安排？",
+            "en": "What do participants specifically need, and how would the event’s costs and scope be arranged?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_10",
+      "prompt": {
+        "zh": "你在想做一份日常步行的路线记录，更想先想？",
+        "en": "You are considering a record of an everyday walking route. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意记录什么，也有哪些是同行者明确想了解的？",
+            "en": "What would I enjoy recording, and what have companions specifically asked to understand?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设有人付费需要路线样例，需要怎样的练习与交付约定？",
+            "en": "For a hypothetical paid route example, what practice and delivery agreement would be needed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要哪种路线信息，时间、费用与使用条件怎样核对？",
+            "en": "What route information does a user need, and how would time, payment and use conditions be checked?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢看哪些细节，怎样练习把它们记录清楚？",
+            "en": "Which details do I enjoy noticing, and how could I practise recording them clearly?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_11",
+      "prompt": {
+        "zh": "你想尝试帮助别人把一个小流程写清楚，更想先问？",
+        "en": "You might help someone document a small process. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "说明文若作为付费交付，练习样例、核对与范围如何约定？",
+            "en": "For a paid written explanation, how would a practice sample, checking and scope be agreed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "对方需要怎样的说明，愿意提供什么费用或实际支持？",
+            "en": "What explanation does the person need, and what payment or practical support would they consider?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "我对哪段流程感兴趣，能练习哪一种说明方式？",
+            "en": "Which part of the process interests me, and what explanatory form could I practise?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意解释的部分，与对方真正想弄清楚的是什么关系？",
+            "en": "How does the part I would enjoy explaining relate to what the person wants clarified?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_12",
+      "prompt": {
+        "zh": "有机会试做一件可重复使用的小物，你更想先研究？",
+        "en": "You have an opportunity to try making a small reusable object. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "实际使用需要是什么，支付、数量与使用安排能怎样讨论？",
+            "en": "What is the actual use need, and how could payment, quantity and use be discussed?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪种形状让我想做，哪一种制作环节值得练习？",
+            "en": "Which form interests me, and which making step would I like to practise?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意做的小物，有没有人明确说过想用在什么情境？",
+            "en": "Has someone described a use for the object I would enjoy making?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若了解有报酬的制作，样例练习、材料与交付范围怎样核对？",
+            "en": "For a hypothetical paid version, how would sample practice, materials and delivery scope be checked?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_13",
+      "prompt": {
+        "zh": "你考虑在周末做一个小型阅读交流，更想先考虑？",
+        "en": "You are considering a small weekend reading exchange. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "passion",
+          "label": {
+            "zh": "我喜欢哪个主题，能练习怎样把一段内容讲明白？",
+            "en": "Which topic interests me, and how could I practise explaining one passage?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意聊什么，而参加者自己想讨论什么？",
+            "en": "What would I enjoy discussing, and what do participants want to discuss?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "profession",
+          "label": {
+            "zh": "若探索有报酬的带读，试讲、准备与内容边界如何约定？",
+            "en": "For a hypothetical paid reading session, how would rehearsal, preparation and content limits be agreed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vocation",
+          "label": {
+            "zh": "参加者的需要是什么，场地、费用和参与范围如何安排？",
+            "en": "What do participants need, and how would space, fees and participation scope be arranged?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_14",
+      "prompt": {
+        "zh": "有人邀请你一起整理一组公开资料，你更想先问？",
+        "en": "Someone invites you to organise a set of public materials. What would you ask first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意整理的部分，是否也是使用者明确需要找的？",
+            "en": "Is the part I would enjoy organising also what users have said they need to find?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "profession",
+          "label": {
+            "zh": "若整理工作有报酬，需要怎样的练习样例与交付核对？",
+            "en": "For a paid organising task, what practice sample and delivery checks would be needed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vocation",
+          "label": {
+            "zh": "使用者需要哪种资料入口，费用、更新与使用范围怎样约定？",
+            "en": "What access to the materials do users need, and how would payment, updates and use be agreed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "passion",
+          "label": {
+            "zh": "哪部分资料让我感兴趣，能练习哪一种归类方式？",
+            "en": "Which materials interest me, and which grouping method could I practise?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_15",
+      "prompt": {
+        "zh": "你想到把一个日常小技巧做成演示，更想先研究？",
+        "en": "You are considering demonstrating a small everyday technique. What would you explore first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "profession",
+          "label": {
+            "zh": "假设示范有报酬，练习程度、可交付内容和条件怎样核对？",
+            "en": "For a hypothetical paid demonstration, how would practice, deliverables and conditions be checked?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vocation",
+          "label": {
+            "zh": "有人需要什么样的演示，费用和支持能怎样商量？",
+            "en": "What demonstration does someone need, and how could payment and support be discussed?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "passion",
+          "label": {
+            "zh": "这个技巧哪部分让我喜欢，怎样练习一个清楚的小示范？",
+            "en": "Which part of the technique interests me, and how could I practise a clear short example?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "mission",
+          "label": {
+            "zh": "我愿意示范的内容，是否对应有人实际提出的小需要？",
+            "en": "Would the demonstration I enjoy making address a small need someone has expressed?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "IKIGAI_16",
+      "prompt": {
+        "zh": "你想给一项小活动留一点固定时间，更想先想清哪组问题？",
+        "en": "You want to make a little regular time for a small activity. Which questions would you clarify first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vocation",
+          "label": {
+            "zh": "哪项明确需要值得回应，又有哪些支付与支持条件需要核对？",
+            "en": "Which expressed need is worth exploring, and what payment and support conditions need checking?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "passion",
+          "label": {
+            "zh": "做什么让我有兴趣，也能保留一个逐步练习的空间？",
+            "en": "What would interest me while leaving room to practise gradually?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "mission",
+          "label": {
+            "zh": "我喜欢做的事，与身边人表达的需要在哪里相遇？",
+            "en": "Where might an activity I enjoy meet needs people around me have expressed?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "profession",
+          "label": {
+            "zh": "若这项活动有报酬，练习、时间和交付应满足什么条件？",
+            "en": "If this activity involved payment, what conditions would practice, time and delivery need to meet?"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 16,
+    "directions": 4,
+    "optionsEach": 4,
+    "exposureEach": 16,
+    "positionEach": 4,
+    "reverseItems": [],
+    "rule": "Onechoiceaddsonecounttoitsassignedexplorationlens;allglobalhighesttiesreceiveallfullguides;no fixed-orderwinner,secondary-orpercentage. Counts0..16notcirclecapacitiesorimportancepercentages.",
+    "allA": "fourlenses4each/all4FULL/notidealcenterorcompletedlife-purpose",
+    "not_measured": "Noindependentlove-skill-need-paycapacities,nounderweightedothercirclesinference,ability,actualincome-demand-morality-health-longevity-careermatchorlife-purposeverdict."
+  },
+  "scope": {
+    "zh": "四组常见交叠是现代图的阅读工具，不等于日本概念全貌。本题只组织你想先探索的问题，不测人生目的、擅长程度、需求、报酬、真实条件或未来结果；未选某一组也不能说明那两圈被忽略。日常关系、爱好和小事也可以有意义，不需要把四件事合成一份有薪工作。",
+    "en": "These four familiar overlaps are reading lenses from a modern diagram rather than the whole Japanese concept. The choices organise questions you want to explore first, without measuring life purpose, capability, demand, payment, actual conditions or future outcomes. Not choosing a lens does not establish neglected circles. Relationships, hobbies and small daily activities can matter without combining four conditions in a paid role."
+  },
+  "instructions": {
+    "zh": "把每题看作一个可想象的小情境，比较四个问题，选择你此刻更想先了解的一组，不是证明你已经会做或能收到报酬。每题只选一项，16题全部选择后显示计数及每一份最高并列全文；四项都同为4次不代表完美中心。没有合适选项时可以退出，本版不解释未完成答卷。无需输入活动名称、收入、他人需要或私人经历。",
+    "en": "Treat each item as a small hypothetical situation. Choose the pair of questions you would most like to explore first now, without claiming an existing skill or payment. Select one option per item. All sixteen selections produce counts and the full guide for every highest-count tie; four equal counts of four do not establish an ideal centre. You can exit if no option fits; incomplete attempts are not interpreted. No activity name, income, others’ needs or private experience is entered."
+  }
+}
