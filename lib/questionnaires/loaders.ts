@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "excel-skills": async () => (await import("./data/excel-skills.json")).default as Questionnaire,
   "feminine-energy": async () => (await import("./data/feminine-energy.json")).default as Questionnaire,
   "computer-literacy": async () => (await import("./data/computer-literacy.json")).default as Questionnaire,
   "ten-key-test": async () => (await import("./data/ten-key-test.json")).default as Questionnaire,

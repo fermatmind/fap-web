@@ -2951,5 +2951,30 @@
       "composed-clarity"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "excel-skills",
+    "code": "FM_EXCEL_KNOWLEDGE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Excel Skills Test",
+      "zh": "Excel技能测试"
+    },
+    "description": {
+      "en": "Practise 24 original Excel formula, lookup, data and presentation questions. Get every worked answer and four full guides. No level or certificate.",
+      "zh": "用24道原创题练习Excel公式引用、条件查找、数据处理与呈现汇总。免费查看每题答案、完整解析和四份复习指南，不评操作等级或颁证。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_excel_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "formulas-and-references",
+      "conditions-and-lookup",
+      "data-handling",
+      "presentation-and-summaries"
+    ],
+    "collection": "explore"
   }
 ]

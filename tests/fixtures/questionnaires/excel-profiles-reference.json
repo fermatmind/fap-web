@@ -1,0 +1,502 @@
+[
+  {
+    "id": "formulas-and-references",
+    "directionIds": [
+      "formulas-and-references"
+    ],
+    "title": {
+      "en": "Formulas and references",
+      "zh": "公式与引用"
+    },
+    "headline": {
+      "en": "Trace the formula, then check what copying changes.",
+      "zh": "先追踪公式，再核复制会改哪里。"
+    },
+    "summary": {
+      "en": "Review range sums, arithmetic order, relative and mixed references, sheet names and explicit error handling.",
+      "zh": "复习区域求和、运算顺序、相对与混合引用、工作表名及明确的错误处理。"
+    },
+    "seo": {
+      "title": {
+        "en": "Formulas and references: Excel practice guide",
+        "zh": "公式与引用：Excel练习复习指南"
+      },
+      "description": {
+        "en": "Review range sums, arithmetic order, relative and mixed references, sheet names and explicit error handling.",
+        "zh": "复习区域求和、运算顺序、相对与混合引用、工作表名及明确的错误处理。"
+      }
+    },
+    "scoreReading": {
+      "en": "Your count is the number of matching keys among six selected questions in this edition. It is not an Excel level, job threshold, certificate or percentile. Every answer, explanation and complete guide is available at every count.",
+      "zh": "正确数是本版六道选定题里与答案一致的次数，不是Excel等级、岗位门槛、证书或百分位。任何正确数都能看每题答案、解析及全部完整指南。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Six deliberately small checks",
+          "zh": "六个刻意缩小的核对任务"
+        },
+        "paragraphs": [
+          {
+            "en": "These six tasks separate formula evaluation from reference movement. They cover a range SUM containing text, multiplication before addition, a relative reference beside an absolute factor, a mixed reference copied diagonally, a quoted sheet name and IFERROR. The formulas use English function names, comma argument separators and A1 notation in both interfaces. A local Excel installation may display translated function names or use another list separator; that changes how you enter a formula, not the stated task.",
+            "zh": "六题把公式计算与引用移动分开，覆盖含文本区域SUM、先乘后加、相对引用旁的绝对因子、斜向复制混合引用、带引号的工作表名和IFERROR。两语均用英文函数、逗号参数分隔及A1记法。本地Excel可能使用译名或其他分隔符，这影响输入方式，不改变题定条件。"
+          }
+        ]
+      },
+      {
+        "id": "worked",
+        "title": {
+          "en": "Copy a new example one coordinate at a time",
+          "zh": "用新例子逐个坐标推复制"
+        },
+        "paragraphs": [
+          {
+            "en": "In an unscored example, C4 contains =B4*$G$2. Copy it two rows down to C6: the relative B4 becomes B6, while $G$2 stays fixed. For =$B4+C$2 copied from C4 to D5, the answer is =$B5+D$2. The dollar before a column locks that column; the dollar before a row locks that row. Work out the row and column displacement before combining the pieces, rather than treating every dollar as locking an entire expression.",
+            "zh": "一个不计分例子中，C4为=B4*$G$2，向下复制两行到C6，相对B4变B6，$G$2不动。若将C4中的=$B4+C$2复制到D5，则为=$B5+D$2。列前美元符号锁列，行前美元符号锁行。先分别算行列位移，再组合，不把每个美元符号误当锁整个表达式。"
+          }
+        ]
+      },
+      {
+        "id": "calculation",
+        "title": {
+          "en": "Separate displayed text from numeric inputs",
+          "zh": "区分显示文本与数值输入"
+        },
+        "paragraphs": [
+          {
+            "en": "Write down each cell’s stored type before evaluating a range. SUM over a referenced range ignores text, including a number stored as text; ordinary addition with + is a different operation and can produce an error. For arithmetic, mark parentheses first and then apply operator precedence. In =6+4*3, the product is 12 and the result is 18; =(6+4)*3 instead gives 30. Do not infer the operation from an answer that merely looks familiar.",
+            "zh": "计算区域前先写明各格储存类型。区域SUM忽略文本，包括以文本储存的数字；加号直接相加是不同操作，可能报错。运算时先看括号，再按优先级。=6+4*3先得乘积12，总数18；=(6+4)*3则为30。不要因为某个答案眼熟而反推操作。"
+          }
+        ]
+      },
+      {
+        "id": "errors",
+        "title": {
+          "en": "An error replacement does not repair its cause",
+          "zh": "替换错误返回值不修复原因"
+        },
+        "paragraphs": [
+          {
+            "en": "IFERROR supplies a chosen result when its first expression produces an error. That can make a report readable, but it can also hide a missing lookup or invalid divisor if the replacement is an unexplained zero. Practise returning a clear message on a disposable worksheet, then inspect the original expression separately. A message saying Check input should lead you to the input; it does not establish that the remaining workbook is correct or that an error was harmless.",
+            "zh": "IFERROR在第一个表达式出错时返回指定值，可让报告易读，也可能用无解释的零掩盖缺失查找或无效除数。在可丢弃表上练清晰提示，再单独检查原表达式。“核对输入”应带你回到输入，不证明工作簿其他地方正确，也不证明错误无害。"
+          }
+        ]
+      },
+      {
+        "id": "routine",
+        "title": {
+          "en": "Predict, copy and compare on a disposable file",
+          "zh": "在可丢弃文件上预测、复制、比较"
+        },
+        "paragraphs": [
+          {
+            "en": "Create a new workbook with invented quantities and one fixed rate. Predict three copied formulas on paper before using Excel’s fill or copy command. Compare the formula bar, not only the resulting numbers: two different formulas can coincide on one set of inputs. Change the rate and one quantity, then check whether each output follows the intended reference. Keep this exercise separate from live operational sheets so that experimenting does not change someone else’s figures.",
+            "zh": "新建工作簿，写虚构数量和一个固定比率。先在纸上预测三个复制后的公式，再用填充或复制。比较公式栏，不只看结果数字，因为不同公式在一组输入上可能巧合相同。改变比率和一个数量，核输出是否跟随预期引用。练习与真实运营表分开，避免试验改掉别人的数。"
+          }
+        ]
+      },
+      {
+        "id": "interpretation",
+        "title": {
+          "en": "Read a missed item as a specific review cue",
+          "zh": "把错题读成具体复习提示"
+        },
+        "paragraphs": [
+          {
+            "en": "A missed mixed-reference question suggests reviewing which coordinate was fixed in that question. It does not demonstrate a general inability to use spreadsheets. A correct choice also does not prove that you could build, audit and maintain a workbook without visible alternatives. Compare your selected option with the complete explanation, name the precise step that differed, and make a new example with different cells. Repeating the identical bank after reading its keys can measure memory as well as understanding.",
+            "zh": "混合引用错题提示复习该题锁定了哪一坐标，不证明普遍不会用表格。选对也不证明能脱离选项搭建、审查和维护工作簿。对照所选与完整解析，说清具体哪一步不同，再换单元格自建例子。看过答案重做同题，可能同时反映记忆和理解。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "A formula recognition guide has a narrow remit",
+          "zh": "公式识别指南的范围有限"
+        },
+        "paragraphs": [
+          {
+            "en": "This original guide supports six knowledge decisions. It does not inspect an uploaded workbook, execute your formulas, assess macros, cover every function or issue a Microsoft qualification. The examples are independently written; Microsoft documentation supports selected behavioural rules rather than endorsing this product. Use the current documentation for your installed version when doing real work. No time bonus, recruitment tier, population norm or guaranteed learning gain is attached to your count.",
+            "zh": "本原创指南支持六项知识选择，不读取上传文件、不执行你的公式、不测宏、不覆盖全部函数，也不颁微软资格。例子独立编写，微软文档仅支持选定规则，不是为本产品背书。真实工作应核已安装版本的当前文档。正确数不附速度奖励、招聘档位、人群常模或保证提高幅度。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conditions-and-lookup",
+    "directionIds": [
+      "conditions-and-lookup"
+    ],
+    "title": {
+      "en": "Conditions and lookup",
+      "zh": "条件与查找"
+    },
+    "headline": {
+      "en": "State the match rule before interpreting the returned value.",
+      "zh": "先写匹配规则，再解释返回值。"
+    },
+    "summary": {
+      "en": "Practise IF boundaries, COUNTIF, SUMIF, exact VLOOKUP, INDEX with MATCH and a genuinely missing key.",
+      "zh": "练习IF边界、COUNTIF、SUMIF、精确VLOOKUP、INDEX配MATCH及真正缺失的键。"
+    },
+    "seo": {
+      "title": {
+        "en": "Conditions and lookup: Excel practice guide",
+        "zh": "条件与查找：Excel练习复习指南"
+      },
+      "description": {
+        "en": "Practise IF boundaries, COUNTIF, SUMIF, exact VLOOKUP, INDEX with MATCH and a genuinely missing key.",
+        "zh": "练习IF边界、COUNTIF、SUMIF、精确VLOOKUP、INDEX配MATCH及真正缺失的键。"
+      }
+    },
+    "scoreReading": {
+      "en": "Your count is the number of matching keys among six selected questions in this edition. It is not an Excel level, job threshold, certificate or percentile. Every answer, explanation and complete guide is available at every count.",
+      "zh": "正确数是本版六道选定题里与答案一致的次数，不是Excel等级、岗位门槛、证书或百分位。任何正确数都能看每题答案、解析及全部完整指南。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Six questions about decisions and retrieval",
+          "zh": "六个关于条件与取值的问题"
+        },
+        "paragraphs": [
+          {
+            "en": "This section distinguishes testing a condition, counting records, adding quantities and retrieving a matching value. Its examples use explicit small ranges and English function names. Exact-match lookups are stated with FALSE or MATCH’s zero argument; no approximate-match rule is assumed. Each question has one answer under its supplied facts. The six-item count covers these selected operations, without establishing database competence, advanced Excel status or whether you could safely automate a real business process.",
+            "zh": "本节区分判断条件、计数记录、累加数量与按键取值，例子用明确小区域及英文函数。精确查找明写FALSE或MATCH的0，不默认为近似匹配。每题在给定事实下只有一个答案。六题正确数仅覆盖这些操作，不确定数据库能力、高级Excel地位或安全自动化真实业务的能力。"
+          }
+        ]
+      },
+      {
+        "id": "boundary",
+        "title": {
+          "en": "Evaluate the equality boundary explicitly",
+          "zh": "明确核对等号边界"
+        },
+        "paragraphs": [
+          {
+            "en": "For an unscored example, a cell contains 9 and the condition is >=9. The condition is true because the equality is included; changing it to >9 makes it false for that same input. Write a tiny three-row check with 8, 9 and 10 before building an IF expression. This makes the boundary visible. The labels you return are your chosen text, not Excel’s judgement that a person, order or application deserves one outcome.",
+            "zh": "不计分例子：单元格为9，条件>=9为真，因为包含相等；改成>9，同一输入为假。写8、9、10三行小核对，再搭IF，边界就清楚。返回标签是你指定的文本，不是Excel判断某人、订单或申请应该得到什么结果。"
+          }
+        ]
+      },
+      {
+        "id": "counts",
+        "title": {
+          "en": "Count records or sum their quantities",
+          "zh": "数记录，还是加数量"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose fictional rows are Copper/2, Silver/6 and Copper/5. COUNTIF on the label column for Copper gives two matching cells. SUMIF using that label range and the numeric quantity range gives seven. The range tested and the range added serve different roles even when their row alignment is the same. Before selecting a formula, write the requested unit: records or units of quantity. A plausible number is insufficient if it answers a different question.",
+            "zh": "假设虚构行是Copper/2、Silver/6、Copper/5。标签列COUNTIF查Copper得两个符合格；用该标签区域和数值数量区域作SUMIF则得7。被判断与被累加区域角色不同，即使行对齐。选公式前写清所求单位：记录条数还是数量单位。数字看似合理，不代表回答了同一问题。"
+          }
+        ]
+      },
+      {
+        "id": "lookup",
+        "title": {
+          "en": "Trace an exact lookup through the supplied range",
+          "zh": "沿给定区域追踪精确查找"
+        },
+        "paragraphs": [
+          {
+            "en": "With VLOOKUP, identify the first column of the supplied table, find the exact key there and then count the requested return column within that table. With INDEX and MATCH, work out MATCH’s relative position and use that position in INDEX’s supplied range. Do not replace a relative position with an absolute worksheet row number. Unique keys simplify these practice tasks; duplicate identifiers in a real table require a defined policy rather than guessing which record a formula should represent.",
+            "zh": "VLOOKUP先找给定表格第一列，在其中找精确键，再在表内部数返回列。INDEX配MATCH先算MATCH相对位置，再在INDEX给定区域取该位置，不把相对位置换成整张表的绝对行号。唯一键简化本练习；真实表若有重复标识，须先明确规则，不能猜公式应代表哪条记录。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "Treat a missing result as something to investigate",
+          "zh": "把缺失结果当作需要核查的线索"
+        },
+        "paragraphs": [
+          {
+            "en": "An exact lookup for an absent key returns #N/A under these tasks. That is different from a valid stored zero or an intentionally blank text value. On a small invented table, compare a genuinely absent key with a present key containing an ordinary space difference. Inspect types and characters before wrapping the lookup in IFERROR. Replacing every error with zero can erase a distinction your downstream calculation needs, so decide how missing data should be represented explicitly.",
+            "zh": "本题条件下，精确查找缺失键返回#N/A，与有效零或故意空文本不同。在虚构小表比较真正不存在的键与只差普通空格的现存键。套IFERROR前先核类型和字符。把所有错误替成零，可能抹掉后续计算需要的区分，因此须明确缺失数据如何表示。"
+          }
+        ]
+      },
+      {
+        "id": "routine",
+        "title": {
+          "en": "Build a new miniature lookup and explain it",
+          "zh": "另建一张微型查找表并解释"
+        },
+        "paragraphs": [
+          {
+            "en": "Make a disposable four-record table with unique invented codes and numeric quantities. Predict one present-key result, one missing-key result and one condition exactly on a threshold. Then change a single key or quantity and predict again before checking in your installed Excel. Describe which range was searched and which value was returned. This is a suggested revision exercise, without a measured learning rate; use no private customer records, account identifiers or production prices.",
+            "zh": "在可丢弃表建四条唯一虚构编号与数值数量。预测一个现存键、一个缺失键、一个正好在阈值上的条件结果。再改一个键或数量，先预测再用本机Excel核。说明搜索哪片区域、返回哪个值。这只是复习建议，没有实测学习速率；不用真实客户、账户或生产价格。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Keep the count separate from a hiring verdict",
+          "zh": "正确数与招聘判断分开"
+        },
+        "paragraphs": [
+          {
+            "en": "All six explanations and this complete guide remain available at zero, partial and perfect counts. The bank does not supply beginner-to-expert cutoffs, a percentile, a hiring recommendation or a certificate. Recognition among four options differs from constructing a robust workbook with messy data. Repeated exposure and checking aids can affect the result. Microsoft references document selected functions; the questions, invented records, distractors and revision text are FermatMind’s original material.",
+            "zh": "零分、部分答对、全对都可读六题解析及本指南全文。题组不派初级到专家分档、百分位、招聘建议或证书。四选一识别不同于面对杂乱数据搭稳健工作簿；重读与辅助查阅会影响结果。微软资料说明选定函数，题目、虚构记录、干扰项和复习正文由费马原创。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-handling",
+    "directionIds": [
+      "data-handling"
+    ],
+    "title": {
+      "en": "Data handling and checks",
+      "zh": "数据处理与核对"
+    },
+    "headline": {
+      "en": "Protect record meaning before changing the table.",
+      "zh": "改表前先保留记录含义。"
+    },
+    "summary": {
+      "en": "Review whole-record sorting, combined filtering, text identifiers, numeric types, ASCII trimming and duplicate comparison columns.",
+      "zh": "复习整行排序、组合筛选、文本编号、数值类型、ASCII空格清理及重复项比较列。"
+    },
+    "seo": {
+      "title": {
+        "en": "Data handling and checks: Excel practice guide",
+        "zh": "数据处理与核对：Excel练习复习指南"
+      },
+      "description": {
+        "en": "Review whole-record sorting, combined filtering, text identifiers, numeric types, ASCII trimming and duplicate comparison columns.",
+        "zh": "复习整行排序、组合筛选、文本编号、数值类型、ASCII空格清理及重复项比较列。"
+      }
+    },
+    "scoreReading": {
+      "en": "Your count is the number of matching keys among six selected questions in this edition. It is not an Excel level, job threshold, certificate or percentile. Every answer, explanation and complete guide is available at every count.",
+      "zh": "正确数是本版六道选定题里与答案一致的次数，不是Excel等级、岗位门槛、证书或百分位。任何正确数都能看每题答案、解析及全部完整指南。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Six checks on data representation and rows",
+          "zh": "六项数据表示与记录核对"
+        },
+        "paragraphs": [
+          {
+            "en": "These tasks ask what happens to a small stated table, rather than asking you to upload or modify a real file. They cover keeping names paired with quantities during a sort, requiring two filter conditions together, preserving leading zeros in a text identifier, distinguishing numeric text from a number, trimming ordinary ASCII spaces and removing exact duplicate row pairs. Each answer depends on the operation and comparison columns stated in the question.",
+            "zh": "这些任务核对明确小表会发生什么，不要求上传或修改真实文件。内容包括排序保留姓名数量配对、同时满足两筛选条件、文本编号保留前导零、区分数字文本与数值、清理普通ASCII空格、删除完全相同的成对记录。每个答案都依赖题定操作与比较列。"
+          }
+        ]
+      },
+      {
+        "id": "rows",
+        "title": {
+          "en": "Move complete records when sorting",
+          "zh": "排序时移动完整记录"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine an unscored list with Vale/7, Sora/2 and Neri/5. Sorting the complete two-column table by quantity ascending should produce Sora/2, Neri/5, Vale/7. Sorting only the quantity cells while leaving names in place destroys those associations. On a disposable example, mark a temporary invented record ID and verify every pairing after sorting. A neat ascending numeric column is not enough evidence that the table’s meaning has survived.",
+            "zh": "一个不计分表为Vale/7、Sora/2、Neri/5。完整两列表按数量升序应是Sora/2、Neri/5、Vale/7。只排数量不动姓名会破坏关联。在可丢弃例子加临时虚构记录号，排序后逐对核查。数值列整齐升序，不足以证明表的含义还在。"
+          }
+        ]
+      },
+      {
+        "id": "filter",
+        "title": {
+          "en": "Check every condition on the same record",
+          "zh": "在同一条记录上核所有条件"
+        },
+        "paragraphs": [
+          {
+            "en": "For a requirement such as Colour=Gold AND Qty>=6, a record must satisfy both tests. A Gold row with quantity four fails the numeric condition, and a Blue row with quantity eight fails the colour condition. Filtering changes which rows are visible under the criterion; it does not make excluded records cease to exist. State whether your operation filters, sorts or deletes before interpreting the result, since those operations preserve different aspects of the source.",
+            "zh": "若要求Colour=Gold且Qty>=6，同一记录必须同时满足两项。Gold数量4不满足数量，Blue数量8不满足颜色。筛选改变符合条件时可见哪些行，不使排除记录不存在。解释结果前先说明是在筛选、排序还是删除，这些操作对源数据的保留方式不同。"
+          }
+        ]
+      },
+      {
+        "id": "types",
+        "title": {
+          "en": "Store identifiers as text when the zeros matter",
+          "zh": "零有意义时把编号存为文本"
+        },
+        "paragraphs": [
+          {
+            "en": "An identifier such as 0073 is a sequence of characters, not necessarily a quantity for arithmetic. For the stated task, format the destination as Text before entering the identifier so its leading zeros are retained as text. A numeric display mask can show zeros without turning the stored value into that text identifier. Similarly, a cell that looks like 12 may still hold text; SUM on a referenced range does not treat every number-looking display as numeric data.",
+            "zh": "0073这样的编号是字符序列，不一定是用来运算的数量。题定任务应在输入前把目标设为文本，保留前导零的文本身份。数值显示掩码能显示零，却不把储存数值变成该文本编号。同理，看似12的格可能存文本，区域SUM不会把所有数字外观都当数值。"
+          }
+        ]
+      },
+      {
+        "id": "cleanup",
+        "title": {
+          "en": "Name the characters and duplicate keys precisely",
+          "zh": "精确说清字符和去重键"
+        },
+        "paragraphs": [
+          {
+            "en": "TRIM handles ordinary ASCII spaces, removing outer spaces and reducing repeated inner ones. It does not remove every Unicode whitespace character, so first identify what is present. For duplicate removal, the selected comparison columns define a duplicate: an identical code with a different quantity remains distinct when both columns are compared. Removal changes the data. Practise on a disposable copy, keep a row count and inspect the comparison columns before applying it to any useful table.",
+            "zh": "TRIM处理普通ASCII空格，去首尾并缩重复词间空格，不删除所有Unicode空白，因此先辨实际字符。去重时，所选比较列定义重复：同时比编号与数量时，同编号不同数量仍不同。删除会改变数据，应在可丢弃副本练，记录行数，处理有用表前先核比较列。"
+          }
+        ]
+      },
+      {
+        "id": "routine",
+        "title": {
+          "en": "Change one assumption and predict again",
+          "zh": "只改一项假设，再预测"
+        },
+        "paragraphs": [
+          {
+            "en": "Build five invented rows containing one exact duplicate, one repeated code with a different quantity and one identifier with leading zeros. Write down what should remain when comparing both columns, then what would remain when comparing the code alone. Do not perform the second deletion on your only copy of the first result. Use a fresh disposable copy for each experiment. This exposes why an operation can be technically successful while answering the wrong data-cleaning question.",
+            "zh": "写五条虚构记录，含一条完全重复、一条同编号不同数量、一个前导零编号。分别预测两列比较与只比编号会保留什么，不在第一结果的唯一副本上做第二次删除。每次用新可丢弃副本，能看出操作技术上成功，却仍可能回答错清理问题。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "A tidy table is not proof of correctness",
+          "zh": "表整齐不等于数据正确"
+        },
+        "paragraphs": [
+          {
+            "en": "The six-item count does not audit provenance, verify a dataset, assess privacy compliance or certify job readiness. A perfect selection set cannot show whether you would notice an unstated problem in a large workbook. Use each complete explanation to identify an assumption worth checking in a new exercise. No private file is needed here, no data is uploaded for this practice, and no population norm or professional designation is derived from your answers.",
+            "zh": "六题正确数不审数据来历、不验证数据集、不评隐私合规或认证岗位准备。全对不证明能在大型表发现未明示的问题。用每条完整解析选一个值得核的假设，换例子练。本练习不需私密文件、不为练习上传数据，也不从答案推人群常模或职业称号。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "presentation-and-summaries",
+    "directionIds": [
+      "presentation-and-summaries"
+    ],
+    "title": {
+      "en": "Presentation and summaries",
+      "zh": "呈现与汇总"
+    },
+    "headline": {
+      "en": "Keep the stored value, summary rule and view distinct.",
+      "zh": "区分储存值、汇总规则与视图。"
+    },
+    "summary": {
+      "en": "Review numeric display, percentages, PivotTable sums, freezing panes, specified chart geometry and worksheet protection.",
+      "zh": "复习数值显示、百分比、数据透视求和、冻结窗格、指定图表形式及工作表保护。"
+    },
+    "seo": {
+      "title": {
+        "en": "Presentation and summaries: Excel practice guide",
+        "zh": "呈现与汇总：Excel练习复习指南"
+      },
+      "description": {
+        "en": "Review numeric display, percentages, PivotTable sums, freezing panes, specified chart geometry and worksheet protection.",
+        "zh": "复习数值显示、百分比、数据透视求和、冻结窗格、指定图表形式及工作表保护。"
+      }
+    },
+    "scoreReading": {
+      "en": "Your count is the number of matching keys among six selected questions in this edition. It is not an Excel level, job threshold, certificate or percentile. Every answer, explanation and complete guide is available at every count.",
+      "zh": "正确数是本版六道选定题里与答案一致的次数，不是Excel等级、岗位门槛、证书或百分位。任何正确数都能看每题答案、解析及全部完整指南。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Six different controls with different effects",
+          "zh": "六种作用不同的控制"
+        },
+        "paragraphs": [
+          {
+            "en": "This section deliberately mixes display and summary questions so that you must name what each command changes. Number formatting changes the view of a stored number under the stated precision setting; a PivotTable applies a chosen summary calculation; freezing panes changes the scrolling view. The chart task specifies vertical bars rather than asking for an objectively best chart. Worksheet protection concerns editing restrictions and must not be mistaken for encryption or permission to open a file.",
+            "zh": "本节有意混合显示与汇总题，要求指出每个命令改什么。题定精度设置下，数值格式改储存数值的视图；数据透视用所选汇总计算；冻结窗格改滚动视图。图表题规定竖柱，不问客观最佳图。工作表保护限制编辑，不能误作加密或打开文件的权限控制。"
+          }
+        ]
+      },
+      {
+        "id": "precision",
+        "title": {
+          "en": "Compare the displayed number with the stored value",
+          "zh": "比较显示数与储存值"
+        },
+        "paragraphs": [
+          {
+            "en": "In an unscored example, a cell stores 8.764 and Set precision as displayed is off. Formatting it to two decimal places shows 8.76, while a calculation still uses 8.764. That differs from changing the value with a rounding formula. State whether you need a rounded output, a display convention or a changed source value. Never enable a workbook-wide precision option casually to make a display match; practise these distinctions in a disposable file.",
+            "zh": "不计分例子：格内储存8.764，关闭“以显示精度为准”，格式两位小数显示8.76，但计算仍用8.764。这不同于用舍入公式改值。先明确需要舍入输出、显示约定还是改源值，不为让显示对齐而随意启用整本精度选项；在可丢弃文件练这些区别。"
+          }
+        ]
+      },
+      {
+        "id": "percent",
+        "title": {
+          "en": "Read percentages from an existing numeric value",
+          "zh": "从已储存数值读取百分比"
+        },
+        "paragraphs": [
+          {
+            "en": "For an already stored number 0.046, percentage formatting with one decimal place displays 4.6%. The stored fraction and the displayed percentage represent the same quantity. The condition already stored matters: typing a new number into a cell preformatted as Percentage can follow different input behaviour. In a fresh sheet, enter a fraction first, note the formula bar and then change only the format. Explain the relationship before choosing a decimal place for presentation.",
+            "zh": "已经储存的0.046设一位百分比显示4.6%，储存分数与百分比显示代表同一数量。“已经储存”很重要：往预设百分比空格输入新数可能有不同输入行为。在新表先录分数、看公式栏，再只改格式，先解释关系，再选显示小数位。"
+          }
+        ]
+      },
+      {
+        "id": "summary",
+        "title": {
+          "en": "Inspect both the field and aggregation",
+          "zh": "同时核字段与汇总方式"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose fictional rows are Pine/3, Pine/8 and Oak/6. A PivotTable with the category in Rows and Sum of the numeric quantity in Values returns Pine=11 and Oak=6. Count returns the number of records instead, Pine=2 and Oak=1. Both are coherent summaries, but only one answers a request for total quantity. Confirm the selected aggregation, source types and refresh state when using a real PivotTable; a familiar layout alone does not establish a correct total.",
+            "zh": "虚构行Pine/3、Pine/8、Oak/6，类别放行、数值数量放值并求和，得Pine=11、Oak=6。计数得到记录数Pine=2、Oak=1。二者都可成合理汇总，但只有一种回答数量总和。真实透视表须核汇总选择、源类型及刷新状态，外观熟悉不证明总数正确。"
+          }
+        ]
+      },
+      {
+        "id": "view",
+        "title": {
+          "en": "Use the requested view and geometry",
+          "zh": "按要求选择视图和几何形式"
+        },
+        "paragraphs": [
+          {
+            "en": "In the Windows general Freeze Panes command, selecting C3 freezes the rows above and columns to its left: rows one and two, columns A and B. This is distinct from the separate top-row command. For chart vocabulary, a column chart has vertical bars and a bar chart has horizontal bars. Geometry identifies the requested type here; actual communication also depends on clear category labels, units, scale and context, none of which a four-option question can fully evaluate.",
+            "zh": "Windows一般冻结窗格命令选C3，固定上方第1、2行和左侧A、B列，与单独冻结首行不同。图表词汇里column用竖柱、bar用横条，本题按几何辨类型。真实表达还依赖清楚类别、单位、刻度、语境，这些不能由四选一全面评估。"
+          }
+        ]
+      },
+      {
+        "id": "protection",
+        "title": {
+          "en": "Treat worksheet protection as an editing control",
+          "zh": "把工作表保护当作编辑控制"
+        },
+        "paragraphs": [
+          {
+            "en": "Unlock intended input cells before protecting a sheet whose formulas should resist casual editing. Then verify on a disposable example that the intended input remains editable and locked formula cells are restricted under the chosen settings. Microsoft explicitly distinguishes worksheet protection from a security feature. It does not automatically encrypt the file, control every reader’s access or prove the correctness of inputs. Keep confidentiality and file access decisions in their appropriate security mechanisms rather than relying on a protected sheet.",
+            "zh": "保护含公式工作表前，先解锁预定输入格，再在可丢弃例子验证所需输入可改、锁定公式按设置受限。微软明确区分工作表保护与安全防护，它不自动加密、不控制每个读者访问，也不证明输入正确。保密和文件访问应由相应安全机制处理，不依赖受保护表。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Use the guide without adopting an ability label",
+          "zh": "使用指南，不附能力标签"
+        },
+        "paragraphs": [
+          {
+            "en": "Every count unlocks the same complete explanations and all four revision guides. These six knowledge selections do not demonstrate that you can design a dashboard, audit a report or protect an organisation’s data. There is no beginner, advanced or expert assignment and no Microsoft certification. After reviewing a missed distinction, make a fresh invented example and describe what changed and what stayed stored. Improved performance on the identical bank may reflect recall rather than transferable workbook skill.",
+            "zh": "任何正确数都能看相同完整解析及四份复习指南。六道知识选择不证明能设计看板、审查报告或保护组织数据，不派初级、高级、专家标签，也无微软认证。复习漏掉的区别后，用新虚构例子说明什么改变、什么仍储存。重做原题提高可能是记忆，并非可迁移操作技巧。"
+          }
+        ]
+      }
+    ]
+  }
+]
