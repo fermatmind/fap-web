@@ -1,0 +1,1662 @@
+{
+  "slug": "locus-of-control",
+  "code": "IPIP_LOC_TOTAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 20,
+  "title": {
+    "zh": "控制点测试",
+    "en": "Locus of Control Test"
+  },
+  "resultHeading": {
+    "zh": "控制点：本次原始总分与完整读法",
+    "en": "Locus of control: raw total and full reading"
+  },
+  "description": {
+    "zh": "免费控制点测试：回答IPIP整体20条，查看原始总分、反向计分与完整连续解释，含内外控看法、例子反例和资料不足。不派固定类型，不判断现实责任。",
+    "en": "Take the free 20-item IPIP locus of control test. Read raw scores, ten reversals, missing information and a full guide to control beliefs and limits."
+  },
+  "seoTitle": {
+    "zh": "控制点测试：IPIP整体20题与免费完整结果",
+    "en": "Locus of Control Test: 20 IPIP Items and Free Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "你怎样描述主动、做决定、运气与应付困难的看法？本版采用IPIP公有领域控制点整体二十条英文、十正十反键向及本站中文试译，按现在通常的自我描述是否符合来回答。二十条全部有效才显示20—100原始总分及描述性均分；任一资料不足保留未评分，完整九节读法仍可阅读。结果覆盖较高、较低、中间和混合回答、具体例子、反例、证据与隐私，不按阈值派四种类型。这里没有实际掌控、责任或能力判断，也没有单独测三个IPC子量表；英文条目虽然与其他IPIP量表有交叠，不能换算乐观或成长信念。本卷与全文免费，不需另一测评解锁。",
+    "en": "How do you describe initiative, decisions, luck and handling difficulties? This edition uses the public-domain IPIP Locus of Control: Total twenty-item English bank, its ten positive and ten negative keys, and our Chinese trial translation. Rate accuracy as a description of how you generally are now. All twenty ratings are needed for a raw total from 20–100 and a descriptive mean; any unscored response leaves the personal result unavailable while the full nine-section guide remains readable. It covers higher, lower, middle and mixed responses, examples, counterexamples, evidence and privacy without four cutoff-based types. It judges neither actual control, responsibility nor ability and does not separately measure the three IPC subscales. Item overlap with other IPIP scales does not convert totals into optimism or growth beliefs. Everything is free without another assessment."
+  },
+  "instructions": {
+    "zh": "按这些句子与你现在通常的自我描述是否符合，选择1非常不符合至5非常符合，不按希望成为的样子作答。英文为IPIP公开条目，中文为本站试译；句子中提到成功、能力或自在，是对看法的自报，不是网站断言你确实如此。不适用、资料不足或不愿回答可选独立项，不当中立或零分。20题都选择后呈现完整读法；只有20条全部有效才显示原始总分，不填写真实经历。",
+    "en": "Rate how accurately each statement describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your preferred image. English items come from public-domain IPIP; Chinese is our trial translation. Success, ability and comfort statements ask for self-description, not a website assertion that these are objectively true. Use the separate option when inapplicable, insufficiently informed or preferring not to answer; it is neither neutral nor zero. Complete twenty selections for the full reading; a raw total requires all twenty ratings. No personal story is entered."
+  },
+  "source": {
+    "kind": "Official public-domain IPIP Locus of Control: Total 20-item key (10 positive, 10 negative), not Rotter I-E or original Levenson IPC items. English wording retained; own Chinese trial translation and interleaved presentation.",
+    "formCode": "fm_ipip_loc_total_accuracy_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "f46d38b680050625f970fe8db21068c79913bcf7380ad8f5ddbabb7e81b1e66c",
+    "resultContentSha256": "90bed25044a4ead4eff2126661f4dd5e7d019689dadab7771255c5ed4d8272d0",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "total-control-beliefs",
+      "title": {
+        "zh": "IPIP整体控制信念",
+        "en": "Overall IPIP control beliefs"
+      },
+      "itemCount": 20
+    }
+  ],
+  "questions": [
+    {
+      "id": "LOC_01",
+      "prompt": {
+        "zh": "对自己感到自在。",
+        "en": "Feel comfortable with myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_02",
+      "prompt": {
+        "zh": "相信不幸的事情发生是因为运气不好。",
+        "en": "Believe that unfortunate events occur because of bad luck."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_03",
+      "prompt": {
+        "zh": "相信我的成功取决于能力，而不是运气。",
+        "en": "Believe that my success depends on ability rather than luck."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_04",
+      "prompt": {
+        "zh": "相信世界由少数有权势的人控制。",
+        "en": "Believe that the world is controlled by a few powerful people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_05",
+      "prompt": {
+        "zh": "就是知道自己会成功。",
+        "en": "Just know that I will be a success."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_06",
+      "prompt": {
+        "zh": "觉得自己的生活缺乏方向。",
+        "en": "Feel that my life lacks direction."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_07",
+      "prompt": {
+        "zh": "能想出好的解决办法。",
+        "en": "Come up with good solutions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_08",
+      "prompt": {
+        "zh": "觉得处处都有困难。",
+        "en": "See difficulties everywhere."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_09",
+      "prompt": {
+        "zh": "热爱生活。",
+        "en": "Love life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_10",
+      "prompt": {
+        "zh": "习惯性地错失自己的机会。",
+        "en": "Habitually blow my chances."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_11",
+      "prompt": {
+        "zh": "与别人相处时表现自在。",
+        "en": "Act comfortably with others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_12",
+      "prompt": {
+        "zh": "相信有些人生来就幸运。",
+        "en": "Believe some people are born lucky."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_13",
+      "prompt": {
+        "zh": "觉得自己能胜任任何任务。",
+        "en": "Feel up to any task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_14",
+      "prompt": {
+        "zh": "不喜欢为做决定承担责任。",
+        "en": "Dislike taking responsibility for making decisions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_15",
+      "prompt": {
+        "zh": "喜欢为做决定承担责任。",
+        "en": "Like to take responsibility for making decisions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_16",
+      "prompt": {
+        "zh": "觉得自己的能力不如大多数人。",
+        "en": "Am less capable than most people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_17",
+      "prompt": {
+        "zh": "会主动采取行动。",
+        "en": "Take the initiative."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_18",
+      "prompt": {
+        "zh": "不喜欢自己。",
+        "en": "Dislike myself."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_19",
+      "prompt": {
+        "zh": "作出决定后便继续向前。",
+        "en": "Make a decision and move on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_20",
+      "prompt": {
+        "zh": "觉得自己无法应付各种事情。",
+        "en": "Feel that I'm unable to deal with things."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "control-continuum",
+      "directionIds": [
+        "total-control-beliefs"
+      ],
+      "title": {
+        "zh": "控制点结果：完整的连续读法",
+        "en": "Locus of Control: Reading the Full Continuum"
+      },
+      "headline": {
+        "zh": "读二十条自报总分，也核对现实中的行动与限制。",
+        "en": "Read the twenty-item self-report total alongside real actions and constraints."
+      },
+      "summary": {
+        "zh": "完整说明IPIP二十条整体键、原始总分、较高较低与混合缺失、情境例子和反例；不派四种类型，不把信念当现实掌控或责任。",
+        "en": "A full guide to the twenty-item IPIP total key, higher and lower totals, mixed or missing responses, examples and counterexamples, without four types or assigning real control or blame."
+      },
+      "scoreReading": {
+        "zh": "按1非常不符合至5非常符合评分，奇数十条直接，偶数LOC_02、04、06、08、10、12、14、16、18、20按6减有效回答反向。二十条全部有效时，直接把二十个计分值相加，原始总分20—100；可选的两位小数均分是这个未舍入总和除20，不从已舍入的一位小数反推。分数较高表示本键方向较偏内部控制相关自述，较低偏外部控制相关自述。没有百分位、通过线或四档派型；一分差异不证明真实改变。",
+        "en": "Use 1 Very inaccurate through 5 Very accurate. The ten odd-numbered items are direct; even items LOC_02, 04, 06, 08, 10, 12, 14, 16, 18 and 20 use six minus the rating. With all twenty ratings, add the keyed values for a raw total from 20 to 100. An optional two-decimal mean divides that unrounded total by twenty; it is never reconstructed from a rounded one-decimal value. Higher totals lean toward internal-control-related self-description in this key, lower toward external-control-related description. There is no percentile, pass mark or four-band assignment, and one point establishes no meaningful change."
+      },
+      "seo": {
+        "title": {
+          "zh": "控制点测试结果：原始总分、内外控与完整解释",
+          "en": "Locus of Control Result: Raw Scores and Full Guide"
+        },
+        "description": {
+          "zh": "读懂IPIP控制点二十条整体结果：十条反向、20—100原始总分、中间混合与资料不足，含例子反例。不作常模分档或现实责任判断。",
+          "en": "Read your IPIP locus of control total: 20 items, ten reversals, raw scores, missing information, examples and limits. No norm bands or blame assignment."
+        }
+      },
+      "sections": [
+        {
+          "id": "edition",
+          "title": {
+            "zh": "先认清本次采用的二十条版本",
+            "en": "Identify the twenty-item edition first"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份结果来自IPIP公开的控制点整体二十条键，不是Rotter二十九题强迫选择I-E、Levenson原IPC二十四题，也不是本站乐观测试的另一名字。英文保留公开条目，中文是本站试译，正反条目交错呈现。原键包括成功信念、做决定、自在和困难等自我描述，不能把每一句都当纯粹的原因归属问题。这里读的是这一组选项形成的自报总分，不是你在现实中究竟掌握了多少权力、资源或选择。",
+              "en": "This reading comes from the twenty-item Locus of Control: Total key published by IPIP, not Rotter’s twenty-nine-item forced-choice I-E, the original twenty-four-item Levenson IPC, or another name for our optimism test. English wording is retained, Chinese is our trial translation, and positive and negative items alternate. The key includes self-descriptions about success, decisions, comfort and difficulty, so not every sentence is a narrow causal-attribution question. Read a self-reported total for this particular bank rather than an audit of power, resources or choices available in your circumstances. The edition matters when comparing results."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十条正向、十条反向怎样求和",
+            "en": "How ten positive and ten negative keys are summed"
+          },
+          "paragraphs": [
+            {
+              "zh": "按1非常不符合至5非常符合评分，奇数十条直接，偶数LOC_02、04、06、08、10、12、14、16、18、20按6减有效回答反向。二十条全部有效时，直接把二十个计分值相加，原始总分20—100；可选的两位小数均分是这个未舍入总和除20，不从已舍入的一位小数反推。分数较高表示本键方向较偏内部控制相关自述，较低偏外部控制相关自述。没有百分位、通过线或四档派型；一分差异不证明真实改变。",
+              "en": "Use 1 Very inaccurate through 5 Very accurate. The ten odd-numbered items are direct; even items LOC_02, 04, 06, 08, 10, 12, 14, 16, 18 and 20 use six minus the rating. With all twenty ratings, add the keyed values for a raw total from 20 to 100. An optional two-decimal mean divides that unrounded total by twenty; it is never reconstructed from a rounded one-decimal value. Higher totals lean toward internal-control-related self-description in this key, lower toward external-control-related description. There is no percentile, pass mark or four-band assignment, and one point establishes no meaningful change."
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "zh": "较高总分可以问什么",
+            "en": "Questions prompted by a higher keyed total"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高总分可能对应你更认可主动、承担决定和能找到办法等表述，较少认可机会被运气或无力感决定的句子。可以具体看看哪条与你现在的自述贴近，而不是把数字当作处处能掌控的证书。高分不证明你有较强技能、较高自尊、较好情绪或更可靠的人格；这些词虽然与若干条目内容相邻，也没有在本卷被独立验证。若遇到规则变动、他人拒绝或资源限制，仍要按实际证据确认可做什么，不用高分要求自己承担全部结果。",
+              "en": "A higher total may accompany greater endorsement of initiative, taking decisions and finding solutions, alongside less endorsement of luck or inability statements. Inspect which descriptions fit rather than treating the number as a certificate of control everywhere. It proves neither stronger skills, greater self-esteem, better mood nor a more dependable personality. Those ideas occur near some item content but have not been independently established by this bank. When rules change, someone declines or resources run short, check the available actions using real evidence. A higher result supplies no obligation to accept responsibility for every outcome or continue an unsuitable plan."
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "zh": "较低总分不能替你定责",
+            "en": "A lower total does not assign responsibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "较低总分可能来自对运气、困难、方向或应付感受的不同回答。它不说明你懒惰、没有动力、注定失败或不值得信任，更不能说明不利经历由你造成。有些条目含绝对语气，例如任何任务或知道会成功；不认同这些句子，也可能只是避免过度肯定。题目没有追问原因、处境或各条的重要性，所以不要用同一个总分替不同的人讲同一个故事。你可以保留对现实限制的判断，选择不继续作答，或只阅读公开说明。",
+              "en": "A lower total can reflect different answers about luck, difficulties, direction or coping. It establishes no laziness, missing motivation, inevitable failure or untrustworthiness, and it does not make someone responsible for adverse experiences. Some items use absolute language, such as any task or knowing success will happen; disagreement can also reflect reluctance to make an absolute claim. The bank asks no follow-up about reasons, circumstances or the importance of each item. The same total therefore cannot tell the same story about different people. You may retain your assessment of genuine constraints, stop here or simply read the public guide."
+            }
+          ]
+        },
+        {
+          "id": "mixed-missing",
+          "title": {
+            "zh": "中间值、相同总分与未评分",
+            "en": "Midpoints, equal totals and unscored responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "全部中立得到60分，全选非常符合或全选非常不符合，也因十正十反得到60分；这不表示三种回答的观点相同，更不认证理想平衡、半内半外或回答矛盾。二十条中只要一条NA，就不显示个人总分与均分，不补零、中立或按其余十九条估算，全文仍可读。评分是有序符合类别的求和约定，不证明类别间隔相等；两位小数也不提供额外精度。没拿到本站常模，就不能把60叫作人群平均。",
+              "en": "All neutral responses total 60. Rating every statement very accurate, or every statement very inaccurate, also totals 60 because ten keys reverse. These accounts are not the same belief pattern, an ideal balance, half internal and half external, or diagnosed inconsistency. One NA among twenty prevents a personal total and mean; nothing is filled with zero, neutral or an estimate from nineteen ratings. The full text remains readable. Summing ordered accuracy categories is a scoring convention, not proof of equal intervals, and two decimals add no precision. Without local norms, 60 cannot be called the population average."
+            }
+          ]
+        },
+        {
+          "id": "examples",
+          "title": {
+            "zh": "用具体情境检查，保留反例",
+            "en": "Check a concrete situation and keep counterexamples"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想你报名一个人数有限的活动：你能决定核对材料、是否提交、是否询问规则，但名额、抽签或组织方决定需要另看。这只是辨认行动与条件的练习，不是把报名成功归给某个分数。反例是，一个人在自我描述上较主动，却暂时没有可用名额；另一个人不认同任何任务都能胜任，却可能把这次材料准备得很充分。分数无法排出谁更该被录取，也不能判断失败究竟来自准备、规则还是偶然，更不应被用来给他人定责。",
+              "en": "Imagine applying for a place in a limited-capacity activity. Checking documents, deciding whether to apply and asking about rules are possible actions; capacity, a lottery or the organiser’s decision require other evidence. This is a way to examine actions and conditions, not attribute admission to a score. A counterexample is someone who describes themselves as proactive but encounters no available places. Someone rejecting the claim of being ready for any task may nevertheless prepare this application carefully. The total cannot rank who deserves admission, identify whether a setback arose from preparation, rules or chance, or assign another person blame."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与乐观、成长信念和三个子量表分开",
+            "en": "Separate optimism, growth beliefs and the three subscales"
+          },
+          "paragraphs": [
+            {
+              "zh": "乐观关注对未来结果的期待，成长信念关注技能可否改变，控制信念则关心与个人行动及外部因素相关的看法；条目有交叠，也不等于同一产品或分数能互换。本版与本站乐观题本共有五条公开IPIP英文，已保留其在各自键中的方向，不据此换算乐观分。官网还另列内部、有权势他人、机遇三个十条键，以及五条理性控制点键，本卷没有独立测这几份，也不能从二十条总分推它们的侧面或所谓胜出类型。",
+              "en": "Optimism concerns expected outcomes, growth beliefs concern whether skills can change, and control beliefs concern agency-related and external-factor descriptions. Overlapping items do not make the products interchangeable. Five public-domain English items also appear in our optimism bank; each retains its own published key direction, without converting one score into the other. IPIP separately lists ten-item Internality, Powerful Others and Chance keys, plus a five-item Rational Scale. This attempt does not independently administer those banks. Do not infer their facet scores or a winning type from this total, or subtract imagined subscales to reconstruct the published twenty-item key."
+            }
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": {
+            "zh": "公有领域许可不等于本站验证",
+            "en": "Public-domain permission is not local validation"
+          },
+          "paragraphs": [
+            {
+              "zh": "IPIP官方许可明确允许商业与非商业使用、翻译及编辑，英文二十条及正反键可公开核对。官网表中的信度与相关基于Eugene-Springfield Community Sample的原研究，不是本站中文译文、网页形式、NA选项或个人结果的保证。中文尚无本站跨语言等价验证，也没有本地常模。公开键里的能力、自在和自我评价用语不应被删改后仍冒称相同研究版本，但阅读时也不能把这些自述当客观能力或临床状态。此处只有计分可复算，不提供诊断、招聘或健康判断。",
+              "en": "IPIP explicitly permits commercial and non-commercial use, translation and editing; the twenty English items and key directions can be checked publicly. Reliability and correlations in its table concern the original Eugene-Springfield Community Sample work, not a guarantee about this Chinese trial, web format, NA option or individual result. Local norms and established language equivalence are absent. Ability, comfort and self-evaluation language should not be silently rewritten while claiming the same research bank, but those self-descriptions are not objective ability or clinical status. Reproducible arithmetic supplies neither a diagnosis, a hiring decision nor a health assessment."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "可选回顾与分享范围",
+            "en": "Optional review and what sharing contains"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
+              "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. Opted-in drafts last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "完整二十条与原始总分",
+        "en": "All twenty ratings and the raw total"
+      },
+      "paragraphs": [
+        {
+          "zh": "按1非常不符合至5非常符合评分，奇数十条直接，偶数LOC_02、04、06、08、10、12、14、16、18、20按6减有效回答反向。二十条全部有效时，直接把二十个计分值相加，原始总分20—100；可选的两位小数均分是这个未舍入总和除20，不从已舍入的一位小数反推。分数较高表示本键方向较偏内部控制相关自述，较低偏外部控制相关自述。没有百分位、通过线或四档派型；一分差异不证明真实改变。",
+          "en": "Use 1 Very inaccurate through 5 Very accurate. The ten odd-numbered items are direct; even items LOC_02, 04, 06, 08, 10, 12, 14, 16, 18 and 20 use six minus the rating. With all twenty ratings, add the keyed values for a raw total from 20 to 100. An optional two-decimal mean divides that unrounded total by twenty; it is never reconstructed from a rounded one-decimal value. Higher totals lean toward internal-control-related self-description in this key, lower toward external-control-related description. There is no percentile, pass mark or four-band assignment, and one point establishes no meaningful change."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "同一份全文覆盖连续读法",
+        "en": "One full text covers the continuum"
+      },
+      "paragraphs": [
+        {
+          "zh": "不设最高派型、四档切分、通过线或常模百分位。较高较低只描述本键方向，60可能来自中立、全同意或全不同意等不同组合，不代表最平衡或人口平均。任一NA不生成个人总分，完整说明与例子照常保留。",
+          "en": "There is no highest-score type, four-band split, pass mark or norm percentile. Higher and lower describe this key direction only. Sixty can arise from neutral or uniformly accurate or inaccurate responses, without an ideal balance or population average. Any NA prevents a personal total, while the full guide and examples remain."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "版本、其他框架与交叠条目",
+        "en": "Editions, other frameworks and overlapping items"
+      },
+      "paragraphs": [
+        {
+          "zh": "乐观关注对未来结果的期待，成长信念关注技能可否改变，控制信念则关心与个人行动及外部因素相关的看法；条目有交叠，也不等于同一产品或分数能互换。本版与本站乐观题本共有五条公开IPIP英文，已保留其在各自键中的方向，不据此换算乐观分。官网还另列内部、有权势他人、机遇三个十条键，以及五条理性控制点键，本卷没有独立测这几份，也不能从二十条总分推它们的侧面或所谓胜出类型。",
+          "en": "Optimism concerns expected outcomes, growth beliefs concern whether skills can change, and control beliefs concern agency-related and external-factor descriptions. Overlapping items do not make the products interchangeable. Five public-domain English items also appear in our optimism bank; each retains its own published key direction, without converting one score into the other. IPIP separately lists ten-item Internality, Powerful Others and Chance keys, plus a five-item Rational Scale. This attempt does not independently administer those banks. Do not infer their facet scores or a winning type from this total, or subtract imagined subscales to reconstruct the published twenty-item key."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "IPIP题本与个人推断边界",
+        "en": "IPIP items and individual inference limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版采用IPIP控制点整体20条英文及正反键，是该公有领域表示版本，不是Rotter 29题强迫选择I-E、原Levenson IPC 24题或JobCannon 12原创题。没有另测内部、有权势他人、机遇三个子量表，也不从其名称推算本总分。计分不能证明实际掌控、责任归属、能力高低、自尊、乐观、健康、动机或工作表现。官网ESCS信度与相关属于原样本和呈现，不是本站中文、NA规则或个人结果验证；无本站常模、百分位、优劣及类型阈值。",
+          "en": "This edition uses the twenty English items and key directions in the public-domain IPIP Locus of Control: Total representation, not Rotter’s 29-item forced-choice I-E, the original 24-item Levenson IPC or JobCannon’s twelve original items. It does not administer the separate Internality, Powerful Others and Chance subscales or infer this total from their names. Scores establish neither actual control, responsibility, ability, self-esteem, optimism, health, motivation nor job performance. ESCS reliability and correlations concern the original sample and administration, not validation of this Chinese trial, NA convention or an individual result. There are no local norms, percentiles, good/bad ratings or type cutoffs."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "免费全文、草稿和分享",
+        "en": "Full free text, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
+          "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. Opted-in drafts last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是Rotter的正式I-E量表吗？",
+        "en": "Is this Rotter’s original I-E scale?"
+      },
+      "answer": {
+        "zh": "这份结果来自IPIP公开的控制点整体二十条键，不是Rotter二十九题强迫选择I-E、Levenson原IPC二十四题，也不是本站乐观测试的另一名字。英文保留公开条目，中文是本站试译，正反条目交错呈现。原键包括成功信念、做决定、自在和困难等自我描述，不能把每一句都当纯粹的原因归属问题。这里读的是这一组选项形成的自报总分，不是你在现实中究竟掌握了多少权力、资源或选择。",
+        "en": "This reading comes from the twenty-item Locus of Control: Total key published by IPIP, not Rotter’s twenty-nine-item forced-choice I-E, the original twenty-four-item Levenson IPC, or another name for our optimism test. English wording is retained, Chinese is our trial translation, and positive and negative items alternate. The key includes self-descriptions about success, decisions, comfort and difficulty, so not every sentence is a narrow causal-attribution question. Read a self-reported total for this particular bank rather than an audit of power, resources or choices available in your circumstances. The edition matters when comparing results."
+      }
+    },
+    {
+      "question": {
+        "zh": "如何反向计分，缺一条可以估算吗？",
+        "en": "How do reversals work, and can a missing rating be estimated?"
+      },
+      "answer": {
+        "zh": "十条偶数键按6减有效回答，十条奇数直接，二十条全部有效才相加为20—100原始总分。任一NA不补零或中立、不按十九条估算。均分只用未舍入总和除20；有序类别加总是约定，小数不提供精度。",
+        "en": "The ten even-numbered keys use six minus a valid rating and odd keys are direct. All twenty ratings are needed for a raw total of 20–100. Any NA is never replaced with zero, neutral or an estimate from nineteen items. A mean uses the unrounded sum divided by twenty. Adding ordered categories is a convention, and decimals imply no precision."
+      }
+    },
+    {
+      "question": {
+        "zh": "内部控制越高越好吗？",
+        "en": "Is more internal control always better?"
+      },
+      "answer": {
+        "zh": "本版不评优劣，也没验证最健康或最理想区间。原始总分描述这组条目的自报，不能证明实际掌控、能力或责任归属；中间分也不认证平衡。可以按具体情况核对行动与限制，不以分数要求自己多承担。",
+        "en": "This edition assigns no good/bad verdict or validated ideal or healthy interval. Its raw total describes answers to this bank, establishing neither actual control, ability nor responsibility. A midpoint certifies no balance. Examine possible actions and constraints in the actual situation without using a score to demand more responsibility from yourself."
+      }
+    },
+    {
+      "question": {
+        "zh": "和乐观、成长信念及三个IPC侧面有什么区别？",
+        "en": "How does this differ from optimism, growth beliefs and IPC facets?"
+      },
+      "answer": {
+        "zh": "乐观关注对未来结果的期待，成长信念关注技能可否改变，控制信念则关心与个人行动及外部因素相关的看法；条目有交叠，也不等于同一产品或分数能互换。本版与本站乐观题本共有五条公开IPIP英文，已保留其在各自键中的方向，不据此换算乐观分。官网还另列内部、有权势他人、机遇三个十条键，以及五条理性控制点键，本卷没有独立测这几份，也不能从二十条总分推它们的侧面或所谓胜出类型。",
+        "en": "Optimism concerns expected outcomes, growth beliefs concern whether skills can change, and control beliefs concern agency-related and external-factor descriptions. Overlapping items do not make the products interchangeable. Five public-domain English items also appear in our optimism bank; each retains its own published key direction, without converting one score into the other. IPIP separately lists ten-item Internality, Powerful Others and Chance keys, plus a five-item Rational Scale. This attempt does not independently administer those banks. Do not infer their facet scores or a winning type from this total, or subtract imagined subscales to reconstruct the published twenty-item key."
+      }
+    },
+    {
+      "question": {
+        "zh": "英文条目、中文翻译和使用许可是什么？",
+        "en": "What are the English source, Chinese translation and permissions?"
+      },
+      "answer": {
+        "zh": "IPIP官方许可明确允许商业与非商业使用、翻译及编辑，英文二十条及正反键可公开核对。官网表中的信度与相关基于Eugene-Springfield Community Sample的原研究，不是本站中文译文、网页形式、NA选项或个人结果的保证。中文尚无本站跨语言等价验证，也没有本地常模。公开键里的能力、自在和自我评价用语不应被删改后仍冒称相同研究版本，但阅读时也不能把这些自述当客观能力或临床状态。此处只有计分可复算，不提供诊断、招聘或健康判断。",
+        "en": "IPIP explicitly permits commercial and non-commercial use, translation and editing; the twenty English items and key directions can be checked publicly. Reliability and correlations in its table concern the original Eugene-Springfield Community Sample work, not a guarantee about this Chinese trial, web format, NA option or individual result. Local norms and established language equivalence are absent. Ability, comfort and self-evaluation language should not be silently rewritten while claiming the same research bank, but those self-descriptions are not objective ability or clinical status. Reproducible arithmetic supplies neither a diagnosis, a hiring decision nor a health assessment."
+      }
+    },
+    {
+      "question": {
+        "zh": "全文、重测和分享免费吗？",
+        "en": "Are the full guide, retakes and sharing free?"
+      },
+      "answer": {
+        "zh": "若愿意，选择一个普通情境，分别记下自己能尝试的动作、需要询问的信息和暂时不能决定的条件；不必记录私密经历，也不保证做完会提高分数或改变生活。二十题和全文免费，无需注册、邮箱或另一测评解锁。答案在浏览器计分，不上传或进入链接与分析。草稿需主动开启，仅本标签页24小时有效，完成、重测、退出清除即删。分享只测试名与公开入口，不带答案、总分或内部外部标签；你可以到此结束。",
+        "en": "If useful, choose an ordinary situation and separately note an action you could try, information you might ask for and conditions you cannot presently decide. No private story is needed, and the exercise promises neither a higher score nor a changed life. All twenty items and this full text are free without registration, email or another assessment. Answers are scored in the browser without uploading or entering links or analytics. Opted-in drafts last twenty-four hours in this tab and clear on completion, retake or exit-and-clear. Sharing contains only the test name and public entry, without answers, totals or internal/external labels. You can finish here."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "IPIP控制点计分键：整体二十条（不是三个子量表）",
+        "en": "IPIP locus of control keys: the twenty-item Total key"
+      },
+      "url": "https://www.ipip.ori.org/newSingleConstructsKey.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP单构念表：题数、原ESCS样本及文献",
+        "en": "IPIP single-construct table: item counts, ESCS context and references"
+      },
+      "url": "https://www.ipip.ori.org/newSingleConstructs.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP官方公有领域许可：商业与非商业",
+        "en": "IPIP official public-domain permission: commercial and non-commercial"
+      },
+      "url": "https://ipip.ori.org/newPermission.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP官方1—5符合度与正反键求和",
+        "en": "IPIP official accuracy ratings, reverse keys and sums"
+      },
+      "url": "https://ipip.ori.org/newScoringInstructions.htm"
+    },
+    {
+      "title": {
+        "zh": "IPIP个人分数解释：常模与连续读法",
+        "en": "IPIP individual score interpretation: norms and continuous readings"
+      },
+      "url": "https://ipip.ori.org/InterpretingIndividualIPIPScaleScores.htm"
+    },
+    {
+      "title": {
+        "zh": "APA控制点定义：概念背景",
+        "en": "APA locus of control definition: conceptual background"
+      },
+      "url": "https://dictionary.apa.org/locus-of-control"
+    }
+  ]
+}

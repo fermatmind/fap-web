@@ -1566,5 +1566,27 @@
     "resultSlugs": [
       "belief-continuum"
     ]
+  },
+  {
+    "slug": "locus-of-control",
+    "code": "IPIP_LOC_TOTAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "控制点测试",
+      "en": "Locus of Control Test"
+    },
+    "description": {
+      "zh": "免费控制点测试：回答IPIP整体20条，查看原始总分、反向计分与完整连续解释，含内外控看法、例子反例和资料不足。不派固定类型，不判断现实责任。",
+      "en": "Take the free 20-item IPIP locus of control test. Read raw scores, ten reversals, missing information and a full guide to control beliefs and limits."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_ipip_loc_total_accuracy_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "control-continuum"
+    ]
   }
 ]

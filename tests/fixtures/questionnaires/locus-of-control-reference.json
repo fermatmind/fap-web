@@ -1,0 +1,1328 @@
+{
+  "formCode": "fm_ipip_loc_total_accuracy_20",
+  "origin": "Official public-domain IPIP Locus of Control: Total 20-item key (10 positive, 10 negative), not Rotter I-E or original Levenson IPC items. English wording retained; own Chinese trial translation and interleaved presentation.",
+  "sourceUrl": "https://www.ipip.ori.org/newSingleConstructsKey.htm",
+  "sourceRead": "web actual rows80–100/official table17–22; all20 total-item strings and directions explicitly checked. DirecturllibTLS EOF prevented raw HTMLcapture; noTLSbypass.",
+  "directions": [
+    {
+      "id": "total-control-beliefs",
+      "title": {
+        "zh": "IPIP整体控制信念",
+        "en": "Overall IPIP control beliefs"
+      },
+      "itemCount": 20
+    }
+  ],
+  "questions": [
+    {
+      "id": "LOC_01",
+      "prompt": {
+        "zh": "对自己感到自在。",
+        "en": "Feel comfortable with myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_02",
+      "prompt": {
+        "zh": "相信不幸的事情发生是因为运气不好。",
+        "en": "Believe that unfortunate events occur because of bad luck."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_03",
+      "prompt": {
+        "zh": "相信我的成功取决于能力，而不是运气。",
+        "en": "Believe that my success depends on ability rather than luck."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_04",
+      "prompt": {
+        "zh": "相信世界由少数有权势的人控制。",
+        "en": "Believe that the world is controlled by a few powerful people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_05",
+      "prompt": {
+        "zh": "就是知道自己会成功。",
+        "en": "Just know that I will be a success."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_06",
+      "prompt": {
+        "zh": "觉得自己的生活缺乏方向。",
+        "en": "Feel that my life lacks direction."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_07",
+      "prompt": {
+        "zh": "能想出好的解决办法。",
+        "en": "Come up with good solutions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_08",
+      "prompt": {
+        "zh": "觉得处处都有困难。",
+        "en": "See difficulties everywhere."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_09",
+      "prompt": {
+        "zh": "热爱生活。",
+        "en": "Love life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_10",
+      "prompt": {
+        "zh": "习惯性地错失自己的机会。",
+        "en": "Habitually blow my chances."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_11",
+      "prompt": {
+        "zh": "与别人相处时表现自在。",
+        "en": "Act comfortably with others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_12",
+      "prompt": {
+        "zh": "相信有些人生来就幸运。",
+        "en": "Believe some people are born lucky."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_13",
+      "prompt": {
+        "zh": "觉得自己能胜任任何任务。",
+        "en": "Feel up to any task."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_14",
+      "prompt": {
+        "zh": "不喜欢为做决定承担责任。",
+        "en": "Dislike taking responsibility for making decisions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_15",
+      "prompt": {
+        "zh": "喜欢为做决定承担责任。",
+        "en": "Like to take responsibility for making decisions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_16",
+      "prompt": {
+        "zh": "觉得自己的能力不如大多数人。",
+        "en": "Am less capable than most people."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_17",
+      "prompt": {
+        "zh": "会主动采取行动。",
+        "en": "Take the initiative."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_18",
+      "prompt": {
+        "zh": "不喜欢自己。",
+        "en": "Dislike myself."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_19",
+      "prompt": {
+        "zh": "作出决定后便继续向前。",
+        "en": "Make a decision and move on."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LOC_20",
+      "prompt": {
+        "zh": "觉得自己无法应付各种事情。",
+        "en": "Feel that I'm unable to deal with things."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不符合",
+            "en": "Very inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Moderately inaccurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "介于符合与不符合之间",
+            "en": "Neither inaccurate nor accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Moderately accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          },
+          "directionId": "total-control-beliefs",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "资料不足／不适用／不愿回答",
+            "en": "Insufficient information / not applicable / prefer not to answer"
+          },
+          "directionId": "total-control-beliefs",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 20,
+    "facets": 1,
+    "itemsEach": 20,
+    "minimumRatedEach": 20,
+    "reverseItems": [
+      "LOC_02",
+      "LOC_04",
+      "LOC_06",
+      "LOC_08",
+      "LOC_10",
+      "LOC_12",
+      "LOC_14",
+      "LOC_16",
+      "LOC_18",
+      "LOC_20"
+    ],
+    "reverseRule": "even10items6-rating/NAexcludednotzero",
+    "rawTotal": "all20valid ONLYsum20..100, higher keyedtotaltowardinternalcontrol-relatedselfdescription;notIminus(PplusC)ofseparatelymeasuredsubscales",
+    "mean": "optionaldescriptivemeanexactsum20 rounded2decimal;runtimegenericmean1decimalNOTthe displayedsourceofrawtotal",
+    "verificationPlan": "DPof(rated,keyedsum)861states/81all20validsums,not6^20allresponses/NOTyetcomparedruntimeorpsychvalidation"
+  },
+  "scope": {
+    "zh": "本版采用IPIP控制点整体20条英文及正反键，是该公有领域表示版本，不是Rotter 29题强迫选择I-E、原Levenson IPC 24题或JobCannon 12原创题。没有另测内部、有权势他人、机遇三个子量表，也不从其名称推算本总分。计分不能证明实际掌控、责任归属、能力高低、自尊、乐观、健康、动机或工作表现。官网ESCS信度与相关属于原样本和呈现，不是本站中文、NA规则或个人结果验证；无本站常模、百分位、优劣及类型阈值。",
+    "en": "This edition uses the twenty English items and key directions in the public-domain IPIP Locus of Control: Total representation, not Rotter’s 29-item forced-choice I-E, the original 24-item Levenson IPC or JobCannon’s twelve original items. It does not administer the separate Internality, Powerful Others and Chance subscales or infer this total from their names. Scores establish neither actual control, responsibility, ability, self-esteem, optimism, health, motivation nor job performance. ESCS reliability and correlations concern the original sample and administration, not validation of this Chinese trial, NA convention or an individual result. There are no local norms, percentiles, good/bad ratings or type cutoffs."
+  },
+  "instructions": {
+    "zh": "按这些句子与你现在通常的自我描述是否符合，选择1非常不符合至5非常符合，不按希望成为的样子作答。英文为IPIP公开条目，中文为本站试译；句子中提到成功、能力或自在，是对看法的自报，不是网站断言你确实如此。不适用、资料不足或不愿回答可选独立项，不当中立或零分。20题都选择后呈现完整读法；只有20条全部有效才显示原始总分，不填写真实经历。",
+    "en": "Rate how accurately each statement describes you as you generally are now, from 1 Very inaccurate to 5 Very accurate, rather than your preferred image. English items come from public-domain IPIP; Chinese is our trial translation. Success, ability and comfort statements ask for self-description, not a website assertion that these are objectively true. Use the separate option when inapplicable, insufficiently informed or preferring not to answer; it is neither neutral nor zero. Complete twenty selections for the full reading; a raw total requires all twenty ratings. No personal story is entered."
+  }
+}
