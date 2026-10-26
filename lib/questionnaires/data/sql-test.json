@@ -1,0 +1,1838 @@
+{
+  "slug": "sql-test",
+  "code": "FM_SQLITE353_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "SQL Test",
+    "zh": "SQL测试"
+  },
+  "seoTitle": {
+    "en": "SQL Test: 24 Free Query Questions & Worked Answers",
+    "zh": "SQL测试：24道免费查询题、答案与逐题解析"
+  },
+  "description": {
+    "en": "Read 24 original SQL tasks with complete input tables, checked on SQLite 3.53.4. Free worked answers and four full guides. Untimed practice.",
+    "zh": "用24道原创SQL题练习读查询，完整列出输入表，并按SQLite 3.53.4核过结果。免费查看全部所选、答案、逐题解析及四份完整指南。不计时，不派招聘等级或认证。"
+  },
+  "minutes": 12,
+  "introduction": {
+    "en": "What rows does the final query return, or does the shown INSERT fail? Each of these 24 original SQL tasks supplies its own table definitions and input rows. A fresh SQLite 3.53.4 in-memory database was used for each check: 22 SELECT statements produced the keyed rows and two INSERT statements failed the stated constraints. Four groups cover filters and NULLs, joins and matches, groups and aggregates, and windows and constraints. Every explanation and all four full guides are free. You choose outcomes here; the site runs no visitor SQL and needs no account, upload or database credentials.",
+    "zh": "最后查询返回哪些行，或给定INSERT会失败吗？24道原创SQL题各自列明表结构及输入行，每题用独立SQLite 3.53.4内存库核过：22条SELECT返回答案行，2条INSERT按所述约束失败。四组覆盖筛选NULL、联接匹配、分组聚合、窗口约束。逐题解析与四份完整指南均免费。这里选择结果，网站不运行访问者SQL，不需账户、上传或数据库凭据。"
+  },
+  "instructions": {
+    "en": "Treat each task as a fresh SQLite 3.53.4 database. Run the displayed CREATE/INSERT setup in order, then evaluate only the statement after the comment. For SELECT answers, | separates columns and ; separates rows; no header is included, and NULL denotes a database NULL. Multirow queries specify their output order. For the two rejected INSERTs, select the constraint outcome rather than a row set. English identifiers and values stay identical across interfaces. There is no timer or speed bonus. All 24 valid choices are needed before personal counts appear. If you consult references, interpret the count under those conditions.",
+    "zh": "每题视为全新SQLite 3.53.4数据库，先依次执行所示CREATE/INSERT设置，再核注释后的最后语句。SELECT答案以|分列、;分行，不含表头，NULL表示数据库NULL，多行查询明确输出顺序。两道被拒INSERT选择约束结果，不当作行集。两语英文标识及值相同，说明解析双语。无计时或速度奖励，24题有效选择后才给个人正确数。若查资料，按该条件理解。"
+  },
+  "resultHeading": {
+    "en": "Your SQL practice counts, rows and explanations",
+    "zh": "本次SQL练习正确数、返回行与全部解析"
+  },
+  "directions": [
+    {
+      "id": "filters-and-nulls",
+      "title": {
+        "en": "Filters and NULLs",
+        "zh": "筛选与NULL"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "joins-and-matches",
+      "title": {
+        "en": "Joins and matches",
+        "zh": "联接与匹配"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "groups-and-aggregates",
+      "title": {
+        "en": "Groups and aggregates",
+        "zh": "分组与聚合"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "windows-and-constraints",
+      "title": {
+        "en": "Windows and constraints",
+        "zh": "窗口与约束"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "SQL_01",
+      "prompt": {
+        "en": "Which id rows survive qty > 1, in the requested order?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT id FROM parcels WHERE qty > 1 ORDER BY id;",
+        "zh": "qty > 1后留下哪些id行，按查询顺序表示？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT id FROM parcels WHERE qty > 1 ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 3",
+            "zh": "1; 3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 2; 3",
+            "zh": "1; 2; 3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3; 1",
+            "zh": "3; 1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 3; 4",
+            "zh": "1; 3; 4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Quantities two and five satisfy the predicate, giving ids one and three. The NULL quantity does not make the comparison true, and zero fails it. ORDER BY id fixes the returned order; the semicolon separates two result rows.",
+        "zh": "数量2和5满足条件，得id 1和3。NULL数量不使比较为真，零也不满足；ORDER BY id固定返回顺序，分号分开两行结果。"
+      }
+    },
+    {
+      "id": "SQL_02",
+      "prompt": {
+        "en": "How many parcels have a NULL quantity?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty IS NULL;",
+        "zh": "数量为NULL的包裹有几行？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty IS NULL;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "IS NULL identifies the one row whose quantity is missing, id two. COUNT(*) counts that retained row even though its quantity is NULL. This query does not use COUNT(qty), which would count non-NULL quantity values instead.",
+        "zh": "IS NULL找到唯一数量缺失的id 2行。COUNT(*)数这条保留行，即使它的数量为NULL。本题不是COUNT(qty)，后者数非NULL数量值。"
+      }
+    },
+    {
+      "id": "SQL_03",
+      "prompt": {
+        "en": "How many rows pass an equality comparison with NULL?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty = NULL;",
+        "zh": "与NULL用等号比较后通过几行？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty = NULL;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The equality comparison with NULL does not evaluate to true for any supplied quantity, including the NULL one. WHERE therefore retains no rows. COUNT(*) over that empty input still returns one aggregate row containing zero, not an empty result set.",
+        "zh": "给定数量与NULL用等号比较都不为真，包括NULL那一行，因此WHERE不保留行。COUNT(*)对空输入仍返回包含零的一行聚合结果，不是没有结果行。"
+      }
+    },
+    {
+      "id": "SQL_04",
+      "prompt": {
+        "en": "BETWEEN includes its numeric boundaries: what count is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;",
+        "zh": "BETWEEN包含数值两端：返回多少？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "BETWEEN zero and two includes both endpoints. The quantities two and zero qualify, while five does not and NULL does not make the predicate true. The query counts two rows; it does not ask for values strictly inside the interval.",
+        "zh": "0至2的BETWEEN包含两端，数量2和0满足，5不满足，NULL不使条件为真，因此数两行，不是只要区间内部值。"
+      }
+    },
+    {
+      "id": "SQL_05",
+      "prompt": {
+        "en": "A zone test is combined with a zero-quantity alternative: what count is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;",
+        "zh": "区域条件或零数量条件：返回多少？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Ids one and three satisfy zone N, and id four satisfies quantity zero. Each retained row is counted once, giving three. Id two has zone S and a NULL quantity, so the OR expression is not true for that row.",
+        "zh": "id 1、3满足N区，id 4满足数量零，每行只数一次，合计3。id 2为S区且数量NULL，其OR表达式不为真。"
+      }
+    },
+    {
+      "id": "SQL_06",
+      "prompt": {
+        "en": "A default replaces one NULL quantity: which value is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;",
+        "zh": "默认值替换一个NULL数量：返回什么？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "NULL",
+            "zh": "NULL"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The id filter selects the row with NULL quantity. COALESCE returns the first non-NULL argument, the literal nine. It does not change the stored table or treat every zero as missing; the chosen row actually contains NULL.",
+        "zh": "id筛选取数量NULL的那行，COALESCE返回首个非NULL参数，即字面值9。它不修改表，也不把所有零当缺失；本题所选行确实为NULL。"
+      }
+    },
+    {
+      "id": "SQL_07",
+      "prompt": {
+        "en": "Count rows produced by this inner join.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;",
+        "zh": "数这个内联接生成的行。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Team one matches two cards and team two matches one, making three joined rows. Team three has no match, and the card with NULL tid matches none of the team ids through equality. Counting matching teams instead would answer a different question.",
+        "zh": "队1匹配两张卡，队2一张，共三条联接行。队3无匹配，tid为NULL的卡不能经等号匹配队id。若数匹配队伍个数，就是另一问题。"
+      }
+    },
+    {
+      "id": "SQL_08",
+      "prompt": {
+        "en": "Count rows from the left join before any WHERE filter.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;",
+        "zh": "没有WHERE筛选时，数左联接结果行。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The matches contribute two rows for team one and one for team two. LEFT JOIN also contributes one NULL-padded row for unmatched team three, giving four. The unmatched card is on the right and is not added by this left join.",
+        "zh": "匹配贡献队1两行、队2一行；LEFT JOIN还为未匹配队3补一条右侧NULL行，共4。未匹配卡在右表，不由这个左联接额外加入。"
+      }
+    },
+    {
+      "id": "SQL_09",
+      "prompt": {
+        "en": "A right-side comparison is applied in WHERE: what count remains?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;",
+        "zh": "WHERE中应用右侧比较：剩多少行？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Only the matched card with seven points survives. Four and five fail the comparison, and the NULL-padded row does not make it true. This particular WHERE predicate rejects unmatched rows; not every conceivable right-side predicate has that effect.",
+        "zh": "只有7分匹配卡保留，4和5不满足，补NULL行也不使比较为真。是这条具体WHERE条件排除未匹配行，不能说任何右侧条件都如此。"
+      }
+    },
+    {
+      "id": "SQL_10",
+      "prompt": {
+        "en": "The same comparison is moved into ON: how many rows result?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;",
+        "zh": "同一比较移入ON：结果几行？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The ON condition matches only team one’s seven-point card. Team two and team three then each receive one unmatched NULL-padded row, so the count is three. Moving the condition changes the requested result; it is not a universal repair independent of the intended question.",
+        "zh": "ON只匹配队1的7分卡，再为队2和队3各补一条NULL行，合计3。移动条件改变所求结果，不脱离实际问题就一律认作修复。"
+      }
+    },
+    {
+      "id": "SQL_11",
+      "prompt": {
+        "en": "Count non-NULL card ids for each team.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;",
+        "zh": "分别数各队的非NULL卡id。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1; 3|1",
+            "zh": "1|2; 2|1; 3|1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|1; 2|1; 3|0",
+            "zh": "1|1; 2|1; 3|0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1; 3|0",
+            "zh": "1|2; 2|1; 3|0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1",
+            "zh": "1|2; 2|1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The counts are two, one and zero. COUNT(c.cid) ignores the NULL card id on team three’s padded row; COUNT(*) there would count one row instead. GROUP BY and final ORDER BY make one ordered output row per team.",
+        "zh": "各队依次2、1、0。COUNT(c.cid)忽略队3补行中的NULL卡id，若COUNT(*)则会数那条补行。分组及最终排序使每队输出一条有序行。"
+      }
+    },
+    {
+      "id": "SQL_12",
+      "prompt": {
+        "en": "Which count comes from teams with no matching card?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);",
+        "zh": "没有匹配卡的队伍有几个？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The correlated subquery finds cards for teams one and two, but none for team three. NOT EXISTS therefore retains only team three. The card whose tid is NULL does not satisfy the equality for any supplied team and does not count as a match.",
+        "zh": "相关子查询为队1、2找到卡，队3没有，因此NOT EXISTS只留队3。tid为NULL的卡不能对给定队id满足等号，不算匹配。"
+      }
+    },
+    {
+      "id": "SQL_13",
+      "prompt": {
+        "en": "Compare counting rows with counting non-NULL values.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(*), COUNT(value) FROM tickets;",
+        "zh": "比较数行与数非NULL值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(*), COUNT(value) FROM tickets;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5|4",
+            "zh": "5|4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5|5",
+            "zh": "5|5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4|4",
+            "zh": "4|4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4|5",
+            "zh": "4|5"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "There are five ticket rows but only four non-NULL value entries. COUNT(*) gives five and COUNT(value) gives four. The NULL row still exists and contributes to row count; it is not silently removed from the table.",
+        "zh": "有5条票据行，但value只有4个非NULL值，因此COUNT(*)=5、COUNT(value)=4。NULL行仍存在并参与数行，没有从表中消失。"
+      }
+    },
+    {
+      "id": "SQL_14",
+      "prompt": {
+        "en": "Sum values separately for each department.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;",
+        "zh": "按部门分别求value之和。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|NULL",
+            "zh": "A|10; B|NULL"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|11",
+            "zh": "A|10; B|11"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|21",
+            "zh": "A|10; B|21"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|4; B|3",
+            "zh": "A|4; B|3"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Department A contributes four plus six, giving ten. Department B contributes three plus eight, giving eleven; SUM ignores its NULL input. The final ordering returns A before B. There is no join or duplicate-row expansion in this query.",
+        "zh": "A部4+6=10；B部3+8=11，SUM忽略其NULL输入。最终排序使A先B后，查询没有联接或重复行扩展。"
+      }
+    },
+    {
+      "id": "SQL_15",
+      "prompt": {
+        "en": "HAVING keeps only groups above the total threshold: which dept row remains?\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;",
+        "zh": "HAVING只留总额超过阈值的组：留下哪个dept行？\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A; B",
+            "zh": "A; B"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The group totals are ten for A and eleven for B. The strict greater-than comparison keeps only B. HAVING evaluates the aggregate group condition here; filtering individual input values with WHERE would not be the same operation.",
+        "zh": "A组总额10、B组11，严格大于10只留B。这里HAVING核聚合后的组条件，不等于WHERE先筛每个输入值。"
+      }
+    },
+    {
+      "id": "SQL_16",
+      "prompt": {
+        "en": "Rows are filtered before summing: what total is returned?\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT SUM(value) FROM tickets WHERE value >= 6;",
+        "zh": "先筛行再求和：返回多少？\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT SUM(value) FROM tickets WHERE value >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "21",
+            "zh": "21"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "17",
+            "zh": "17"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The retained numeric values are six and eight, which sum to fourteen. Values four and three fail the filter and NULL does not make it true. The full-table sum would be twenty-one, but that is not the query shown.",
+        "zh": "保留数值6和8，相加14；4和3不满足，NULL不使条件为真。全表和21不是本题所示查询结果。"
+      }
+    },
+    {
+      "id": "SQL_17",
+      "prompt": {
+        "en": "Count distinct department values.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(DISTINCT dept) FROM tickets;",
+        "zh": "数不同的部门值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(DISTINCT dept) FROM tickets;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The five rows contain only two distinct department strings, A and B. COUNT(DISTINCT dept) removes repeated equal non-NULL department values before counting. It does not count how many ticket ids or non-NULL numeric values there are.",
+        "zh": "五行只有A和B两个不同部门字符串。COUNT(DISTINCT dept)先去掉重复相等的非NULL部门值再数，不数票据id或非NULL数值个数。"
+      }
+    },
+    {
+      "id": "SQL_18",
+      "prompt": {
+        "en": "Take the maximum after producing department totals.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);",
+        "zh": "生成部门总额后再取最大值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "21",
+            "zh": "21"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The inner grouped query produces totals ten and eleven. The outer MAX selects eleven from those two totals. This is different from taking the largest individual ticket value, eight, or summing every ticket value into twenty-one.",
+        "zh": "内部按组得到10和11，外部MAX从两个总额取11。它不同于取单条value最大值8，也不同于把全表相加21。"
+      }
+    },
+    {
+      "id": "SQL_19",
+      "prompt": {
+        "en": "ROW_NUMBER has a complete ordering: what id and number rows result?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;",
+        "zh": "ROW_NUMBER给出完整排序：id及序号各行是什么？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|1; 3|3",
+            "zh": "1|1; 2|1; 3|3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|1; 3|2",
+            "zh": "1|1; 2|1; 3|2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|2; 3|3",
+            "zh": "1|1; 2|2; 3|3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|3; 2|2; 3|1",
+            "zh": "1|3; 2|2; 3|1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "ROW_NUMBER assigns a separate consecutive number to every row. Descending score puts both twelves first, and id breaks their tie deterministically. The final ORDER BY id controls display order, giving ids one, two and three with numbers one, two and three.",
+        "zh": "ROW_NUMBER给每行独立连续序号。分数降序先放两个12，再由id确定并列先后；最终ORDER BY id控制显示，依次为id 1、2、3及序号1、2、3。"
+      }
+    },
+    {
+      "id": "SQL_20",
+      "prompt": {
+        "en": "Rank all rows first, then inspect the lower score: what rank pair is returned?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;",
+        "zh": "先为全体排名，再看低分行：返回哪对名次？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "2|2",
+            "zh": "2|2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3|3",
+            "zh": "3|3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1",
+            "zh": "1|1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3|2",
+            "zh": "3|2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The two twelve-point rows are peers at rank one. RANK leaves a gap and gives the eight-point row rank three, while DENSE_RANK gives it rank two. The id filter is outside the ranked CTE, so ranking happens before selecting that row.",
+        "zh": "两条12分并列第1；RANK留间隔使8分排3，DENSE_RANK不留间隔排2。id筛选在排名CTE外，先排名再取该行。"
+      }
+    },
+    {
+      "id": "SQL_21",
+      "prompt": {
+        "en": "An explicit ROWS frame builds a running total: which id and total rows result?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;",
+        "zh": "显式ROWS框架累计求和：各id及累计值是什么？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|12; 2|24; 3|32",
+            "zh": "1|12; 2|24; 3|32"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|32; 2|32; 3|32",
+            "zh": "1|32; 2|32; 3|32"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|12; 2|12; 3|8",
+            "zh": "1|12; 2|12; 3|8"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|24; 2|24; 3|32",
+            "zh": "1|24; 2|24; 3|32"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The frame starts at the first id and ends at the current row. The totals are twelve, twelve plus twelve, then plus eight: twelve, twenty-four and thirty-two. The explicit ROWS frame and unique id order avoid relying on an unstated peer-group default.",
+        "zh": "框架从首个id到当前行，累计依次12、12+12、再加8，即12、24、32。显式ROWS与唯一id排序避免依赖未说清的并列组默认框架。"
+      }
+    },
+    {
+      "id": "SQL_22",
+      "prompt": {
+        "en": "A CTE names a filtered input: what count is returned?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;",
+        "zh": "CTE为筛选输入命名：返回多少？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The CTE retains ids one and two because both have score twelve. The outer COUNT(*) counts those two rows. Naming an intermediate SELECT with WITH does not itself add rows, change scores or sum the numeric values.",
+        "zh": "CTE保留得分12的id 1、2，外部COUNT(*)数两行。WITH给中间SELECT命名，本身不添行、不改分、不把数值相加。"
+      }
+    },
+    {
+      "id": "SQL_23",
+      "prompt": {
+        "en": "The final INSERT repeats an existing non-NULL unique value: choose the outcome.\n\nCREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES ('amber');",
+        "zh": "最后INSERT重复已有非NULL唯一值：选择结果。\n\nCREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES ('amber');"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds and stores two amber rows.",
+            "zh": "插入成功，存两条amber。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT replaces the existing row automatically.",
+            "zh": "插入自动替换已有行。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The final INSERT fails its UNIQUE constraint.",
+            "zh": "最后的INSERT违反UNIQUE约束而失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT changes the value to NULL.",
+            "zh": "插入把值改成NULL。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An ordinary INSERT of the same non-NULL code violates the declared UNIQUE constraint. The statement fails under its default conflict handling; the code does not request OR REPLACE or OR IGNORE. This outcome does not imply that every SQL engine treats NULLs or conflict clauses identically.",
+        "zh": "普通INSERT写相同非NULL code违反所声明UNIQUE，按默认冲突处理使语句失败。代码未要求OR REPLACE或OR IGNORE；这不表示所有SQL引擎对NULL和冲突子句规则相同。"
+      }
+    },
+    {
+      "id": "SQL_24",
+      "prompt": {
+        "en": "The final INSERT supplies NULL to a NOT NULL column: choose the outcome.\n\nCREATE TABLE slots(code TEXT NOT NULL);\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES (NULL);",
+        "zh": "最后INSERT向NOT NULL列提供NULL：选择结果。\n\nCREATE TABLE slots(code TEXT NOT NULL);\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES (NULL);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with an empty string.",
+            "zh": "插入成功并存空字符串。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with the text NULL.",
+            "zh": "插入成功并存文本NULL。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with a database NULL.",
+            "zh": "插入成功并存数据库NULL。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The final INSERT fails its NOT NULL constraint.",
+            "zh": "最后的INSERT违反NOT NULL约束而失败。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The code column explicitly disallows NULL. Inserting a database NULL violates that constraint and the statement fails. NULL is not silently converted to an empty string or the four-character text NULL in this supplied SQLite statement.",
+        "zh": "code列明确不许NULL，插入数据库NULL违反约束，语句失败。在给定SQLite语句中，NULL不会默转空字符串或四字符文本NULL。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "filters-and-nulls",
+      "directionIds": [
+        "filters-and-nulls"
+      ],
+      "title": {
+        "en": "Filters and NULLs",
+        "zh": "筛选与NULL"
+      },
+      "headline": {
+        "en": "Ask which rows make the actual predicate true.",
+        "zh": "核哪些行使实际条件为真。"
+      },
+      "summary": {
+        "en": "Review numeric and zone filters, IS NULL, equality with NULL, inclusive BETWEEN and a COALESCE fallback.",
+        "zh": "复习数值和区域筛选、IS NULL、NULL等号比较、包含两端的BETWEEN及COALESCE后备值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Filters and NULLs: SQL practice guide",
+          "zh": "筛选与NULL：SQL练习指南"
+        },
+        "description": {
+          "en": "Review numeric and zone filters, IS NULL, equality with NULL, inclusive BETWEEN and a COALESCE fallback.",
+          "zh": "复习数值和区域筛选、IS NULL、NULL等号比较、包含两端的BETWEEN及COALESCE后备值。"
+        }
+      },
+      "scoreReading": {
+        "en": "The section counts matching outcomes on six supplied SQLite 3.53.4 tasks. It is not a professional level, percentile, employer cutoff or qualification. Every explanation and all four full guides remain available regardless of count.",
+        "zh": "本节数六道给定SQLite 3.53.4任务的匹配结果，不是专业等级、百分位、雇主门槛或资格。任何正确数都能读全部解析与四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "six-checks",
+          "title": {
+            "en": "Start from the supplied four rows",
+            "zh": "从给定四行开始"
+          },
+          "paragraphs": [
+            {
+              "en": "The six filtering tasks repeat an explicit tiny table so that no row needs to be inferred. Each independent setup includes an integer quantity, a NULL quantity, a larger quantity and zero. The final statement asks for either ordered ids, a count or one replacement value. Evaluate that statement against those rows, keeping database NULL separate from the number zero and from the literal text used to display a missing result cell.",
+              "zh": "六道筛选题各自重列小表，不需猜隐藏行。独立设置包含整数数量、NULL、较大数量和零，最后语句问有序id、数量或一个替代值。按给定行核语句，区分数据库NULL、数值零与显示缺失单元格的文字。"
+            }
+          ]
+        },
+        {
+          "id": "fresh-example",
+          "title": {
+            "en": "An OR can intentionally retain a NULL row",
+            "zh": "OR可以有意保留NULL行"
+          },
+          "paragraphs": [
+            {
+              "en": "For a new unscored example, use a one-column sample containing zero, NULL and four. Count rows satisfying v=0 OR v IS NULL. The zero row satisfies the first part and the NULL row satisfies the second, so the count is two. The four row satisfies neither. This is a different predicate from v=NULL: explicitly testing for NULL can produce true and should not be replaced by ordinary equality.",
+              "zh": "新不计分例用单列零、NULL、4，数v=0 OR v IS NULL：零满足前半，NULL满足后半，共2，4两者皆不满足。它不同于v=NULL，明确测NULL可为真，不能换成普通等号。"
+            }
+          ]
+        },
+        {
+          "id": "true-only",
+          "title": {
+            "en": "Keep true distinct from false or NULL",
+            "zh": "把真与假、NULL分开"
+          },
+          "paragraphs": [
+            {
+              "en": "WHERE retains a supplied row only when its predicate is true. A comparison involving a missing quantity does not become a match merely because another missing value appears on the other side of an equality sign. For each row, write the numeric or zone condition and its result before counting. In the bank’s OR item, a qualifying row is still counted once, even if more than one alternative could be true.",
+              "zh": "WHERE只保留条件为真的行。缺失数量不会因等号另一边也写缺失值就自动匹配。逐行写数值或区域条件结果再计数；OR题中即使多个分支可能为真，合格行仍只数一次。"
+            }
+          ]
+        },
+        {
+          "id": "bounds-and-fallback",
+          "title": {
+            "en": "Use the stated boundaries and fallback argument",
+            "zh": "采用所写边界及后备参数"
+          },
+          "paragraphs": [
+            {
+              "en": "BETWEEN uses the included lower and upper bounds in this numeric task. COALESCE instead chooses the first non-NULL argument for the one row selected by id. It does not update the stored quantity, and the presence of zero elsewhere does not cause zero to be replaced. These are separate operations. Do not turn an inclusive interval into a strict interval or treat all falsy-looking numbers as SQL NULL.",
+              "zh": "本数值题BETWEEN包含上下界；COALESCE则对id选中那行取首个非NULL参数，不更新存值，也不会因别处有零而替换零。这是不同操作，不能把包含边界改成严格区间，也不把看起来像假值的数统统当SQL NULL。"
+            }
+          ]
+        },
+        {
+          "id": "result-shape",
+          "title": {
+            "en": "An aggregate row can describe an empty input",
+            "zh": "聚合行可以描述空输入"
+          },
+          "paragraphs": [
+            {
+              "en": "The equality-with-NULL item retains no input rows, but COUNT(*) still returns one row containing zero. That differs from a nonaggregate SELECT returning no rows at all. Read what the final statement selects before choosing a representation. In this product, a vertical bar separates columns and a semicolon separates returned rows, with no heading row included; those display separators are not extra SQL values or additional data records.",
+              "zh": "等号NULL题不留输入行，但COUNT(*)仍返含零的一行，不同于普通SELECT没有结果行。选表示前先看最后语句选什么。本产品竖线分列、分号分返回行，不含表头；分隔符不是额外SQL值或数据记录。"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "title": {
+            "en": "Change one row and predict the retained ids",
+            "zh": "只改一行并预测保留id"
+          },
+          "paragraphs": [
+            {
+              "en": "In a disposable in-memory database, invent a tiny input with one zero and one missing value. Write down which rows each predicate should retain, then execute the query after predicting. Change just one value or one comparison boundary and repeat. Keep the original and changed query conditions explicit. The website itself does not run visitor SQL or connect to a private database; these are optional revision steps in your own isolated example.",
+              "zh": "可在可丢弃内存库用含零与缺失值的小输入，先写各条件应留哪行，再执行。每次只改一个值或比较边界，保留原新条件。网站不执行访问者SQL或连私有数据库，这只是自选的独立例子复习。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Use the explanation to locate a particular mistake",
+            "zh": "用解析定位具体错误"
+          },
+          "paragraphs": [
+            {
+              "en": "A six-item count cannot tell whether a mistake came from NULL handling, interval boundaries or the shape of an aggregate result. Read each full explanation before trying fresh data. These original outcomes were verified with SQLite 3.53.4, without claiming every SQL dialect or setting is identical. No professional band, employer threshold or certificate is assigned. Repeating the fixed bank after studying its keys can reflect remembered answers rather than unfamiliar-query reasoning.",
+              "zh": "六题总数不能区分错在NULL、区间还是聚合结果形状，宜读解析后换新数据。本原创结果按SQLite 3.53.4核验，不声称所有SQL方言设置相同，无专业档位、雇主门槛或证书。看答案重测可能是记忆，不等于陌生查询推理。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joins-and-matches",
+      "directionIds": [
+        "joins-and-matches"
+      ],
+      "title": {
+        "en": "Joins and matches",
+        "zh": "联接与匹配"
+      },
+      "headline": {
+        "en": "Count matching row pairs before interpreting the report.",
+        "zh": "先数匹配行对，再读报表。"
+      },
+      "summary": {
+        "en": "Review inner and left joins, ON versus WHERE, NULL-padded rows, card counts and correlated NOT EXISTS.",
+        "zh": "复习内外联接、ON与WHERE、补NULL行、卡id计数及相关NOT EXISTS。"
+      },
+      "seo": {
+        "title": {
+          "en": "Joins and matches: SQL practice guide",
+          "zh": "联接与匹配：SQL练习指南"
+        },
+        "description": {
+          "en": "Review inner and left joins, ON versus WHERE, NULL-padded rows, card counts and correlated NOT EXISTS.",
+          "zh": "复习内外联接、ON与WHERE、补NULL行、卡id计数及相关NOT EXISTS。"
+        }
+      },
+      "scoreReading": {
+        "en": "The section counts matching outcomes on six supplied SQLite 3.53.4 tasks. It is not a professional level, percentile, employer cutoff or qualification. Every explanation and all four full guides remain available regardless of count.",
+        "zh": "本节数六道给定SQLite 3.53.4任务的匹配结果，不是专业等级、百分位、雇主门槛或资格。任何正确数都能读全部解析与四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "six-checks",
+          "title": {
+            "en": "One team can match more than one card",
+            "zh": "一个队伍可以匹配多张卡"
+          },
+          "paragraphs": [
+            {
+              "en": "The supplied setup names three teams and four cards. One team has two matching cards, another has one and the last has none. A separate card has a NULL team id. These explicit multiplicities drive every answer. An inner join counts matching pairs, while a left join can add a NULL-padded row for an unmatched team. Start by drawing the actual pairs before applying a filter or group calculation.",
+              "zh": "输入有三队四卡：一队匹配两张、一队一张、最后无卡，另有队id为NULL的卡。这些明确倍数决定答案。内联接数匹配行对，左联接可为无匹配队补NULL行；先画实际行对，再加筛选或分组。"
+            }
+          ]
+        },
+        {
+          "id": "fresh-example",
+          "title": {
+            "en": "A right-side IS NULL test can keep the unmatched row",
+            "zh": "右侧IS NULL条件可以保留未匹配行"
+          },
+          "paragraphs": [
+            {
+              "en": "In a new unscored example, left ids are one and two. The right table has a primary-key row ninety-one that matches left id one. Left join them, then filter WHERE r.rid IS NULL. Only left id two remains. This is a right-side WHERE condition that deliberately keeps the unmatched row. It shows why a rule that every such condition makes a left join behave like an inner join is too broad.",
+              "zh": "新不计分例左id为1、2，右表主键91行匹配左1；左联接后WHERE r.rid IS NULL，只留左2。它就是有意保留未匹配行的右侧WHERE条件，因此“任何此类条件都使左联接像内联接”的规则过宽。"
+            }
+          ]
+        },
+        {
+          "id": "join-grain",
+          "title": {
+            "en": "Distinguish a team from a joined pair",
+            "zh": "区分队伍与联接行对"
+          },
+          "paragraphs": [
+            {
+              "en": "A team with two cards legitimately produces two joined rows. That is not automatically an error to repair with DISTINCT, because the correct grain depends on the question. The bank asks explicitly for joined row counts in some items and one grouped count per team in another. A left join preserves unmatched left rows, not every unmatched right row. Keep the card with a NULL team id out of the matching pairs for the equality shown.",
+              "zh": "一队两卡合理地产生两条联接行，并不自动是该用DISTINCT修的错，正确粒度由问题决定。本题有的问联接行数，有的问每队一条分组数。左联接保留未匹配左行，不保留所有未匹配右行；给定等号下NULL队id卡不参与匹配。"
+            }
+          ]
+        },
+        {
+          "id": "filter-placement",
+          "title": {
+            "en": "Compare the two complete predicates",
+            "zh": "比较两条完整条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The points comparison in WHERE excludes the NULL-padded row because that comparison is not true there. Putting the same comparison into ON changes which card pairs match before unmatched teams are added. The resulting count changes. Neither placement is always the right answer for an unspecified report; each represents a different request. Explain which teams should survive and which cards should qualify before deciding where a condition belongs.",
+              "zh": "WHERE中的分数比较在补NULL行上不为真，因此排它；同一比较放ON则先改变卡匹配，再补无匹配队，数量随之不同。脱离报表需求，两位置谁都非永远正确；先说应保留哪些队、哪些卡合格，再决定位置。"
+            }
+          ]
+        },
+        {
+          "id": "count-and-exists",
+          "title": {
+            "en": "Count a real card id or test for a matching row",
+            "zh": "数真实卡id或测试是否有匹配行"
+          },
+          "paragraphs": [
+            {
+              "en": "COUNT(c.cid) ignores the NULL card id on a padded row, so an unmatched team can have a grouped card count of zero even though one joined row exists. NOT EXISTS instead asks whether the correlated matching query returns any row. It does not count how many cards a matching team has. Keep those two questions separate, and do not replace a non-NULL card identifier with an unrelated nullable field when checking the grouped count.",
+              "zh": "COUNT(c.cid)忽略补行NULL卡id，所以无卡队虽有一条联接行，分组卡数仍为零。NOT EXISTS问相关匹配查询是否有行，不数有卡队共有几卡。二者分开，核分组数时别把非NULL卡id换成无关可空列。"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "title": {
+            "en": "Add one match before changing the query",
+            "zh": "先添一个匹配，再改查询"
+          },
+          "paragraphs": [
+            {
+              "en": "Use invented ids in a disposable in-memory example. Predict an inner join and a left join, then add one extra right-side match for a single left id. Count the new pairs before aggregating them. Next compare a null-rejecting WHERE predicate with an ON condition and with IS NULL. Write the intended grain beside each result. The website displays the provided SQL as text; it needs no access to production tables or customer records.",
+              "zh": "在可丢弃内存例用虚构id，预测内、左联接后，只为一个左id添一条右匹配，先数新行对再聚合。然后比较排NULL的WHERE、ON与IS NULL，并在结果旁写目标粒度。网站只显示所给SQL文本，不需生产表或客户记录。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A count does not establish reporting competence",
+            "zh": "正确数不建立报表工作能力"
+          },
+          "paragraphs": [
+            {
+              "en": "Six matching outcomes can point to a useful review topic, but they do not establish that a large join is correct, that a report reconciles or that a production query is efficient. Read the complete explanations and use fresh data after learning these keys. The bank is fixed and verified in the stated SQLite environment. There are no calibrated developer tiers, hiring pass marks or qualifications, and every full guide remains readable at any count.",
+              "zh": "六个匹配结果可提示复习主题，但不建立大型联接正确、报表对账或生产查询高效的结论。读解析后换新数据；题组固定，按声明SQLite环境核验，无校准开发者档、招聘线或资格，任何正确数都可看全文。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "groups-and-aggregates",
+      "directionIds": [
+        "groups-and-aggregates"
+      ],
+      "title": {
+        "en": "Groups and aggregates",
+        "zh": "分组与聚合"
+      },
+      "headline": {
+        "en": "Name the input rows and the output grain of each aggregate.",
+        "zh": "说清每次聚合的输入行与输出粒度。"
+      },
+      "summary": {
+        "en": "Review row and value counts, grouped sums, HAVING, filtered totals, distinct counts and an outer maximum.",
+        "zh": "复习行数与值计数、分组求和、HAVING、筛选后总额、去重计数及外层最大值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Groups and aggregates: SQL practice guide",
+          "zh": "分组与聚合：SQL练习指南"
+        },
+        "description": {
+          "en": "Review row and value counts, grouped sums, HAVING, filtered totals, distinct counts and an outer maximum.",
+          "zh": "复习行数与值计数、分组求和、HAVING、筛选后总额、去重计数及外层最大值。"
+        }
+      },
+      "scoreReading": {
+        "en": "The section counts matching outcomes on six supplied SQLite 3.53.4 tasks. It is not a professional level, percentile, employer cutoff or qualification. Every explanation and all four full guides remain available regardless of count.",
+        "zh": "本节数六道给定SQLite 3.53.4任务的匹配结果，不是专业等级、百分位、雇主门槛或资格。任何正确数都能读全部解析与四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "six-checks",
+          "title": {
+            "en": "Five ticket rows support six different questions",
+            "zh": "五条票据行支持六个不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "The setup contains two departments, five ticket rows and one missing numeric value. The same data can answer several different aggregate questions: how many rows exist, how many values are non-NULL, each department’s sum, which grouped total passes a threshold and the largest of those totals. Do not replace one question with another merely because both return a small number. Read the selected expression and the input filtering before calculating it.",
+              "zh": "设置含两部门、五行票据和一个缺失数值，可分别问行数、非NULL值数、各部之和、哪个总额超过阈值及总额中的最大值。不能因都返回小数字就互换问题，先读选择表达式和输入筛选再算。"
+            }
+          ]
+        },
+        {
+          "id": "fresh-example",
+          "title": {
+            "en": "An empty sum is not the number zero",
+            "zh": "空输入求和不是数值零"
+          },
+          "paragraphs": [
+            {
+              "en": "In a new unscored example, a payments table contains the value four. Filter it with WHERE v>9 and select COUNT(*), SUM(v). The result is one row displayed as 0|NULL. The count reports zero retained rows, while SUM has no non-NULL value to add and returns NULL. This does not remove the aggregate result row. Supplying COALESCE would be a separate decision that the shown statement has not made.",
+              "zh": "新不计分例payments只有数值4，用WHERE v>9筛后选COUNT(*)、SUM(v)，返回一行0|NULL：数到零条保留行，SUM无非NULL值可加，返NULL，并非取消聚合结果行。另加COALESCE是题中未做的不同选择。"
+            }
+          ]
+        },
+        {
+          "id": "counting",
+          "title": {
+            "en": "Count rows, values or distinct departments deliberately",
+            "zh": "有意区分行、值与去重部门计数"
+          },
+          "paragraphs": [
+            {
+              "en": "COUNT(*) counts input rows, including a row whose numeric value is NULL. COUNT(value) ignores that missing value. COUNT(DISTINCT dept) instead counts the two distinct supplied department strings. These counts have different units even when they happen to match on other inputs. State the unit beside the result rather than treating every COUNT call as interchangeable. The bank’s explicit data contains no missing department string to introduce a further case.",
+              "zh": "COUNT(*)数输入行，含数值NULL行；COUNT(value)忽略该缺失值；COUNT(DISTINCT dept)数两个不同部门字符串。它们单位不同，即使换数据偶然相同也不能互换。结果旁写单位；本表部门无NULL，不引入额外情形。"
+            }
+          ]
+        },
+        {
+          "id": "filtering",
+          "title": {
+            "en": "Apply WHERE before grouping and HAVING to groups",
+            "zh": "WHERE先筛行，HAVING再核组"
+          },
+          "paragraphs": [
+            {
+              "en": "The filtered-sum task retains only qualifying numeric rows before SUM evaluates them. The separate HAVING task groups the supplied rows and tests each group’s sum against a strict threshold. Moving the same-looking numeric condition between these positions can change the request. Work through the retained rows, then the groups and their totals in order. Keep an exact boundary such as greater than ten distinct from greater than or equal to ten.",
+              "zh": "筛选求和题先只留合格数值行再SUM；HAVING题则先分给定行，再核组总额是否严格过线。相似数字条件换位置会改变问题。依次核保留行、组与总额，区分大于10和大于等于10。"
+            }
+          ]
+        },
+        {
+          "id": "nested-aggregate",
+          "title": {
+            "en": "Keep the inner total separate from the outer maximum",
+            "zh": "分清内部总额与外部最大值"
+          },
+          "paragraphs": [
+            {
+              "en": "The nested query first creates one total per department and names that result column total. The outer MAX then compares those totals, not individual ticket values. For the supplied rows, the largest ticket and the largest department total differ. Draw the intermediate two-row result before reading the outer SELECT. The small integer inputs avoid overflow and floating-point questions; this exercise does not establish the precision of arbitrary production financial calculations.",
+              "zh": "嵌套查询先每部门生成一个总额并命名total，外部MAX比这些总额，不比单票值。给定数据最大单票与最大部门总额不同，宜先画中间两行再读外部SELECT。小整数避开溢出及浮点问题，不建立任意生产财务计算的精度结论。"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "title": {
+            "en": "Change a group’s membership before changing its formula",
+            "zh": "先改组成员，再改公式"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a disposable in-memory table with invented labels and a few integer values. Predict COUNT(*) and COUNT(value), then add one NULL value and predict again. Next change one group member and compare its sum with the maximum of all group sums. Write each intermediate result before executing. The website needs no uploaded spreadsheet or private database connection; the suggested exercise uses synthetic input that you can discard after reviewing the output.",
+              "zh": "在可丢弃内存表用虚构标签和少量整数，预测COUNT(*)与COUNT(value)后添一条NULL再预测；接着只改一个组成员，比较其和与全部组和的最大值。执行前写中间结果。网站不需表格上传或私库连接，建议练习用可随时丢弃的合成输入。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Interpret the count as a review pointer",
+            "zh": "把正确数作为复习线索"
+          },
+          "paragraphs": [
+            {
+              "en": "Six matching keys can guide revision, but the count alone cannot show whether you chose the right grain for an unfamiliar report, reconciled its totals or designed an efficient query. All worked explanations and all four complete guides remain available regardless of count. Outcomes were checked in the stated SQLite 3.53.4 environment. No percentile, professional band, employer threshold or certificate is assigned, and retaking this fixed bank after reading the keys can reward memory.",
+              "zh": "六个匹配答案可引导复习，但总数不能说明是否给陌生报表选对粒度、完成对账或设计高效查询。任何正确数均给全部题解与四份全文；结果按SQLite 3.53.4核过，无百分位、专业档、雇主门槛或证书，读答案重测固定题组可奖励记忆。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "windows-and-constraints",
+      "directionIds": [
+        "windows-and-constraints"
+      ],
+      "title": {
+        "en": "Windows and constraints",
+        "zh": "窗口与约束"
+      },
+      "headline": {
+        "en": "Specify ordering, frame and the actual constraint before predicting.",
+        "zh": "预测前明确排序、框架与实际约束。"
+      },
+      "summary": {
+        "en": "Review ROW_NUMBER, ranking ties, running totals, a filtered CTE and two explicit INSERT constraint failures.",
+        "zh": "复习ROW_NUMBER、排名并列、累计总额、筛选CTE及两种明确的INSERT约束失败。"
+      },
+      "seo": {
+        "title": {
+          "en": "Windows and constraints: SQL practice guide",
+          "zh": "窗口与约束：SQL练习指南"
+        },
+        "description": {
+          "en": "Review ROW_NUMBER, ranking ties, running totals, a filtered CTE and two explicit INSERT constraint failures.",
+          "zh": "复习ROW_NUMBER、排名并列、累计总额、筛选CTE及两种明确的INSERT约束失败。"
+        }
+      },
+      "scoreReading": {
+        "en": "The section counts matching outcomes on six supplied SQLite 3.53.4 tasks. It is not a professional level, percentile, employer cutoff or qualification. Every explanation and all four full guides remain available regardless of count.",
+        "zh": "本节数六道给定SQLite 3.53.4任务的匹配结果，不是专业等级、百分位、雇主门槛或资格。任何正确数都能读全部解析与四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "six-checks",
+          "title": {
+            "en": "Four result sets and two rejected statements",
+            "zh": "四组结果集与两条被拒语句"
+          },
+          "paragraphs": [
+            {
+              "en": "The first four tasks calculate window numbers, a rank pair, a running sum or a count from a named filtered input. Their data and orderings are fully supplied. The final two tasks ask about an INSERT against a UNIQUE or NOT NULL declaration. Those are statement outcomes, not extra SELECT rows. Identify which kind of question you are answering before reading a numeric option or assuming that a rejected write produces a normal result set.",
+              "zh": "前四题算窗口序号、一对名次、累计和或命名筛选输入的数量，数据排序均完整给出。末两题问INSERT对UNIQUE或NOT NULL声明的结果，是语句结果，不是多出的SELECT行。先辨问题种类，再读数字选项，不把拒写当正常结果集。"
+            }
+          ]
+        },
+        {
+          "id": "fresh-example",
+          "title": {
+            "en": "UNIQUE does not imply NOT NULL in this SQLite example",
+            "zh": "本SQLite例中UNIQUE不等于NOT NULL"
+          },
+          "paragraphs": [
+            {
+              "en": "In a new unscored SQLite example, create codes(code TEXT UNIQUE), insert NULL twice and select COUNT(*). Both inserts succeed and the count is two: SQLite treats the two NULLs as distinct for this UNIQUE constraint. Adding NOT NULL would change the declaration and outcome. This deliberately contrasts a repeated non-NULL unique value with missing values, rather than claiming that every database engine or every constraint form treats NULL identically.",
+              "zh": "新不计分SQLite例建codes(code TEXT UNIQUE)，两次插NULL再COUNT(*)。均成功，数2；SQLite对该UNIQUE把两个NULL视为不同。加NOT NULL会改声明与结果。它有意对比重复非NULL唯一值与缺失值，不声称所有引擎或约束形式一致。"
+            }
+          ]
+        },
+        {
+          "id": "window-order",
+          "title": {
+            "en": "Separate a window’s order from final row order",
+            "zh": "分开窗口排序与最终行序"
+          },
+          "paragraphs": [
+            {
+              "en": "ROW_NUMBER assigns consecutive positions using its window ORDER BY. The bank includes id as a deterministic tie-breaker for that task. A final ORDER BY controls how the result rows are returned and is a separate clause. RANK and DENSE_RANK use score alone in the other task, intentionally retaining peers; one leaves gaps after tied rows and the other does not. Do not add a tie-breaker to that window, because it would change the peer groups.",
+              "zh": "ROW_NUMBER按窗口ORDER BY分连续位置，本题用id明确打破并列；最终ORDER BY另控返回行序。另一题RANK与DENSE_RANK只按分数，有意保留同组，前者并列后留间隔，后者不留。不能暗给该窗口加破并列项，否则同组改变。"
+            }
+          ]
+        },
+        {
+          "id": "frame-and-cte",
+          "title": {
+            "en": "Read the frame and the stage of filtering",
+            "zh": "读清框架与筛选阶段"
+          },
+          "paragraphs": [
+            {
+              "en": "The running total explicitly uses ROWS from the beginning through the current row, ordered by a unique id. That supplies its accumulation rule rather than relying on an unstated default. In the ranking CTE, all rows are ranked before the outer id filter selects one. In the separate filtered CTE, qualifying rows are selected before the outer count. Follow the actual clauses instead of assuming that every WHERE appears at the same logical stage.",
+              "zh": "累计题明确按唯一id使用从开头到当前行的ROWS框架，不依赖未说的默认值。排名CTE先给全体排名，再由外部id筛一行；另一个筛选CTE则先选合格行再外数。跟随实际子句，不认为所有WHERE都处于同一阶段。"
+            }
+          ]
+        },
+        {
+          "id": "constraints",
+          "title": {
+            "en": "Use the exact declared column restriction",
+            "zh": "采用列上准确声明的限制"
+          },
+          "paragraphs": [
+            {
+              "en": "The repeated ordinary string violates the bank’s UNIQUE declaration. The database NULL violates the separate NOT NULL declaration. Neither final INSERT asks for OR REPLACE, OR IGNORE or an alternative conflict policy, so those behaviours must not be silently substituted. A failed statement is not a certificate that an application manages transactions correctly. The provided questions do not ask you to infer every earlier statement’s rollback state or concurrent-session visibility.",
+              "zh": "重复普通字符串违反题给UNIQUE，数据库NULL违反另一NOT NULL。两条最后INSERT都未要求OR REPLACE、OR IGNORE或其他冲突策略，不可暗换。语句失败不证明应用事务正确，题目也不要求推断所有前序语句回滚状态或并发会话可见性。"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "title": {
+            "en": "Predict a tie or one changed declaration",
+            "zh": "预测一次并列或一项声明变化"
+          },
+          "paragraphs": [
+            {
+              "en": "In a disposable in-memory database, invent three ranked values with a tie. Write the expected window positions and the final display order separately before running. Then use a separate tiny table to compare one UNIQUE declaration with one that also disallows NULL. Change just the declared condition or one value at a time. No production data or credentials are needed, and the website does not execute SQL submitted by visitors or modify a connected database.",
+              "zh": "在可丢弃内存库自拟三个含并列值，先分别写窗口位置与最终显示顺序再运行；另用小表比较UNIQUE与额外不许NULL的声明。每次只改声明条件或一个值，不需生产数据或凭据；网站不执行访问者SQL或修改所连数据库。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep practice separate from a database qualification",
+            "zh": "练习不附数据库资格"
+          },
+          "paragraphs": [
+            {
+              "en": "The section counts six matching outcomes on a fixed original bank verified with SQLite 3.53.4. It does not establish expertise in concurrency, schema design, query tuning or production incident response. Every answer explanation and full guide remains free at zero, partial and perfect counts. There are no professional bands, hiring cutoffs or vendor qualifications. After reading the worked keys, use new inputs rather than treating an improved repeat count as proof of transfer.",
+              "zh": "本节统计按SQLite 3.53.4核过的固定原创题组六个匹配结果，不建立并发、模式设计、查询调优或生产事故专业能力。零分、部分答对、全对都免费给题解全文，无专业档、招聘线或厂商资格；读答案后宜换输入，不把重测提高当迁移证明。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_sqlite353_practice",
+    "formCode": "fermatmind_sqlite353_original_24_v1",
+    "itemBankVersion": "fermatmind_sqlite353_original_24_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_sql_four_full_revision_guides_v1",
+    "itemBankSha256": "d12fe7411bff49a8cbac043f3ffe86c0a971f0d858e966398bfea5c91b800b48",
+    "resultContentSha256": "458d7faa2be1e7152aad25eaae4b42bc3da9a1e9ec12c800e4bd7e36080a94b4",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "SQLite SELECT: selected join, filter and ordering rules",
+        "zh": "SQLite SELECT：选定联接、筛选及排序规则"
+      },
+      "url": "https://sqlite.org/lang_select.html"
+    },
+    {
+      "title": {
+        "en": "SQLite expressions: NULL, BETWEEN and EXISTS",
+        "zh": "SQLite表达式：NULL、BETWEEN及EXISTS"
+      },
+      "url": "https://sqlite.org/lang_expr.html"
+    },
+    {
+      "title": {
+        "en": "SQLite aggregate functions",
+        "zh": "SQLite聚合函数"
+      },
+      "url": "https://sqlite.org/lang_aggfunc.html"
+    },
+    {
+      "title": {
+        "en": "SQLite window functions",
+        "zh": "SQLite窗口函数"
+      },
+      "url": "https://sqlite.org/windowfunctions.html"
+    },
+    {
+      "title": {
+        "en": "SQLite CREATE TABLE: selected constraints",
+        "zh": "SQLite CREATE TABLE：选定约束"
+      },
+      "url": "https://www.sqlite.org/lang_createtable.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "Count a matching outcome, not a developer level",
+        "zh": "统计匹配结果，不派开发者档位"
+      },
+      "paragraphs": [
+        {
+          "en": "One matching key contributes one correct item; another valid choice contributes zero. Each group has six items, making a total out of 24. All choices must be valid before personal counts appear. There is no time weighting, partial credit or silent completion of missing answers. A 4/6 section count means four matching outcomes on those supplied tasks, without a percentile, hiring pass mark or qualification.",
+          "zh": "匹配答案计一道正确，其他有效选择计零；每组六题，合计/24。全部有效选择前不显示个人正确数，无时间权重、部分分或默补缺答。4/6只是所给任务四个匹配结果，无百分位、招聘通过分或资格。"
+        }
+      ]
+    },
+    {
+      "id": "practice-review",
+      "title": {
+        "en": "Keep the complete setup and worked answer visible",
+        "zh": "保留完整设置与逐题解释"
+      },
+      "paragraphs": [
+        {
+          "en": "The result includes every original setup, final statement, selected option, key and explanation. All four full guides are available at zero, partial and perfect counts. Column and row separators are a display convention, not extra returned values. Review the actual input rows and query clauses when tracing a mismatch. Public guides contain complete revision content rather than a personal score.",
+          "zh": "结果保留每段原创设置、最后语句、所选、答案及解析，零分、部分答对、全对均给四份全文。行列分隔只是显示约定，不是额外返回值。核错题要追踪实际输入及子句；公开指南给完整复习内容，不给个人成绩。"
+        }
+      ]
+    },
+    {
+      "id": "practice-dialect",
+      "title": {
+        "en": "A declared SQLite environment and finite input",
+        "zh": "声明SQLite环境与有限输入"
+      },
+      "paragraphs": [
+        {
+          "en": "Every task was checked in its own fresh in-memory SQLite 3.53.4 database with invented input, not a production database. SQL dialects, settings, constraints and concurrency behaviour can differ; this bank does not establish identical behaviour across engines or assess query tuning, administration or live reporting. It has no timer. Around twelve minutes is an editorial estimate, and retake repeats the same fixed bank.",
+          "zh": "每题用独立全新SQLite 3.53.4内存库和虚构输入核验，不是生产数据库。方言、设置、约束、并发行为可不同，题组不建立跨引擎相同行为，也不评查询调优、管理或真实报表。无计时，约十二分钟是编辑估计，重测重复固定题组。"
+        }
+      ]
+    },
+    {
+      "id": "practice-original",
+      "title": {
+        "en": "Original data, queries and explanations",
+        "zh": "原创数据、查询与解析"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the table data, questions, distractors, worked explanations and guides. The linked documentation supports selected SQL rules; its examples and proprietary recruitment banks are not reproduced. This independent practice has no vendor endorsement or certification. Code is displayed as escaped text, and choices are checked locally. No visitor query is executed or sent to a connected database.",
+          "zh": "费马编写表数据、问题、干扰项、解析及指南，链接文档支持选定规则，不搬其例子或专有招聘题。本独立练习无厂商背书或认证。代码按转义文本显示，选择在本地核对，不执行访问者查询或发给所连数据库。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which SQL dialect and input does the test use?",
+        "zh": "采用哪个SQL方言与输入？"
+      },
+      "answer": {
+        "en": "Each task was checked with SQLite 3.53.4 in a fresh in-memory database, using only its displayed schema and invented rows. The final statement follows the setup. This is a declared environment, not a claim that all SQL engines and settings behave identically.",
+        "zh": "每题按SQLite 3.53.4全新内存库核过，只用所示结构及虚构行，设置后核最后语句。这是明确环境，不声称所有SQL引擎设置相同。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are query rows displayed in the choices?",
+        "zh": "选项怎样显示查询返回行？"
+      },
+      "answer": {
+        "en": "A vertical bar separates columns and a semicolon separates rows. No heading row is counted. NULL denotes a database NULL. Each multirow query states its order. The two constraint questions ask whether the final INSERT is rejected rather than showing SELECT rows.",
+        "zh": "竖线分列、分号分行，不数表头，NULL表示数据库NULL，多行查询声明顺序。两道约束题问最后INSERT是否被拒，不把它当SELECT行。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a database account or to execute SQL here?",
+        "zh": "需要数据库账户或在此执行SQL吗？"
+      },
+      "answer": {
+        "en": "No. Read the supplied tables and statements, then select an outcome. There is no visitor SQL execution, private database connection or file upload. English code and values remain the same across interfaces, with bilingual instructions and explanations.",
+        "zh": "不用。读所给表和语句再选结果，无访问者SQL执行、私库连接或文件上传。两语代码与值相同，说明解析双语。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all answers and four complete guides free?",
+        "zh": "全部答案及四份完整指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. A complete valid attempt shows every selected option, key and worked explanation at any count. All four public guides are also readable before starting. No email, signup, payment or certificate purchase is required.",
+        "zh": "是。完整有效作答后，不论正确数都给每个所选、答案及解析，开测前也可读四份公开全文，不要求邮箱、注册、付款或购买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the count indicate professional level, and is it timed?",
+        "zh": "正确数表示专业水平吗，有计时吗？"
+      },
+      "answer": {
+        "en": "It counts matching outcomes in this fixed original bank, without professional bands, norms, employer cutoffs or qualifications. There is no timer or speed bonus. Around twelve minutes is an editorial estimate. Reading keys before retaking can improve memory without demonstrating transfer.",
+        "zh": "只统计固定原创题组匹配结果，无专业档位、常模、雇主门槛或资格。无计时及速度奖励，约十二分钟是编辑估计。看答案重测可提高记忆，不证明迁移。"
+      }
+    },
+    {
+      "question": {
+        "en": "What can be saved or shared?",
+        "zh": "可以保存或分享什么？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake; refresh loses progress without one. Sharing copies only a public practice link, without answers, counts, query submissions or private identifiers.",
+        "zh": "答案留在浏览器，可选标签页草稿24小时失效，完成、退出清除或重测时删，未存则刷新丢进度。分享只有公开练习链接，不含答案、正确数、查询提交或私有标识。"
+      }
+    }
+  ]
+}

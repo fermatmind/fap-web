@@ -3207,5 +3207,30 @@
       "winter"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "sql-test",
+    "code": "FM_SQLITE353_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "SQL Test",
+      "zh": "SQL测试"
+    },
+    "description": {
+      "en": "Read 24 original SQL tasks with complete input tables, checked on SQLite 3.53.4. Free worked answers and four full guides. Untimed practice.",
+      "zh": "用24道原创SQL题练习读查询，完整列出输入表，并按SQLite 3.53.4核过结果。免费查看全部所选、答案、逐题解析及四份完整指南。不计时，不派招聘等级或认证。"
+    },
+    "minutes": 12,
+    "formCode": "fermatmind_sqlite353_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "filters-and-nulls",
+      "joins-and-matches",
+      "groups-and-aggregates",
+      "windows-and-constraints"
+    ],
+    "collection": "explore"
   }
 ]

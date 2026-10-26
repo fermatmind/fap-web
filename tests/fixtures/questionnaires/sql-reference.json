@@ -1,0 +1,1599 @@
+{
+  "id": "T139",
+  "version": "1.0.0",
+  "form": "fermatmind_sqlite353_original_24_v1",
+  "method": "24independentlyauthoredSQLsetup/finalstatementtasks4x6;explicitSQLite3.53.4/freshinmemorydatabaseeachitem.OnlysuppliedASCII/integer/NULLvalues;orderedmultirowSELECTs with fulltie-breakers;rowsdisplaycolumns separated by | and rows by ;.22actualSELECTrowsets+2expectedconstraintfailures verifiedSQLite3.53.4;rawSQL/setup/statement/rows/errorfiles+codehashes bound toT139-sqlite-verification.json.No visitorSQLexecution,productionDB/privateinput,norms/hiringtiers/certificate.",
+  "questions": [
+    {
+      "id": "SQL_01",
+      "prompt": {
+        "en": "Which id rows survive qty > 1, in the requested order?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT id FROM parcels WHERE qty > 1 ORDER BY id;",
+        "zh": "qty > 1后留下哪些id行，按查询顺序表示？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT id FROM parcels WHERE qty > 1 ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 3",
+            "zh": "1; 3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 2; 3",
+            "zh": "1; 2; 3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3; 1",
+            "zh": "3; 1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1; 3; 4",
+            "zh": "1; 3; 4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Quantities two and five satisfy the predicate, giving ids one and three. The NULL quantity does not make the comparison true, and zero fails it. ORDER BY id fixes the returned order; the semicolon separates two result rows.",
+        "zh": "数量2和5满足条件，得id 1和3。NULL数量不使比较为真，零也不满足；ORDER BY id固定返回顺序，分号分开两行结果。"
+      }
+    },
+    {
+      "id": "SQL_02",
+      "prompt": {
+        "en": "How many parcels have a NULL quantity?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty IS NULL;",
+        "zh": "数量为NULL的包裹有几行？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty IS NULL;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "IS NULL identifies the one row whose quantity is missing, id two. COUNT(*) counts that retained row even though its quantity is NULL. This query does not use COUNT(qty), which would count non-NULL quantity values instead.",
+        "zh": "IS NULL找到唯一数量缺失的id 2行。COUNT(*)数这条保留行，即使它的数量为NULL。本题不是COUNT(qty)，后者数非NULL数量值。"
+      }
+    },
+    {
+      "id": "SQL_03",
+      "prompt": {
+        "en": "How many rows pass an equality comparison with NULL?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty = NULL;",
+        "zh": "与NULL用等号比较后通过几行？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty = NULL;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The equality comparison with NULL does not evaluate to true for any supplied quantity, including the NULL one. WHERE therefore retains no rows. COUNT(*) over that empty input still returns one aggregate row containing zero, not an empty result set.",
+        "zh": "给定数量与NULL用等号比较都不为真，包括NULL那一行，因此WHERE不保留行。COUNT(*)对空输入仍返回包含零的一行聚合结果，不是没有结果行。"
+      }
+    },
+    {
+      "id": "SQL_04",
+      "prompt": {
+        "en": "BETWEEN includes its numeric boundaries: what count is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;",
+        "zh": "BETWEEN包含数值两端：返回多少？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "BETWEEN zero and two includes both endpoints. The quantities two and zero qualify, while five does not and NULL does not make the predicate true. The query counts two rows; it does not ask for values strictly inside the interval.",
+        "zh": "0至2的BETWEEN包含两端，数量2和0满足，5不满足，NULL不使条件为真，因此数两行，不是只要区间内部值。"
+      }
+    },
+    {
+      "id": "SQL_05",
+      "prompt": {
+        "en": "A zone test is combined with a zero-quantity alternative: what count is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;",
+        "zh": "区域条件或零数量条件：返回多少？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Ids one and three satisfy zone N, and id four satisfies quantity zero. Each retained row is counted once, giving three. Id two has zone S and a NULL quantity, so the OR expression is not true for that row.",
+        "zh": "id 1、3满足N区，id 4满足数量零，每行只数一次，合计3。id 2为S区且数量NULL，其OR表达式不为真。"
+      }
+    },
+    {
+      "id": "SQL_06",
+      "prompt": {
+        "en": "A default replaces one NULL quantity: which value is returned?\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;",
+        "zh": "默认值替换一个NULL数量：返回什么？\n\nCREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "NULL",
+            "zh": "NULL"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "filters-and-nulls",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The id filter selects the row with NULL quantity. COALESCE returns the first non-NULL argument, the literal nine. It does not change the stored table or treat every zero as missing; the chosen row actually contains NULL.",
+        "zh": "id筛选取数量NULL的那行，COALESCE返回首个非NULL参数，即字面值9。它不修改表，也不把所有零当缺失；本题所选行确实为NULL。"
+      }
+    },
+    {
+      "id": "SQL_07",
+      "prompt": {
+        "en": "Count rows produced by this inner join.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;",
+        "zh": "数这个内联接生成的行。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Team one matches two cards and team two matches one, making three joined rows. Team three has no match, and the card with NULL tid matches none of the team ids through equality. Counting matching teams instead would answer a different question.",
+        "zh": "队1匹配两张卡，队2一张，共三条联接行。队3无匹配，tid为NULL的卡不能经等号匹配队id。若数匹配队伍个数，就是另一问题。"
+      }
+    },
+    {
+      "id": "SQL_08",
+      "prompt": {
+        "en": "Count rows from the left join before any WHERE filter.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;",
+        "zh": "没有WHERE筛选时，数左联接结果行。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The matches contribute two rows for team one and one for team two. LEFT JOIN also contributes one NULL-padded row for unmatched team three, giving four. The unmatched card is on the right and is not added by this left join.",
+        "zh": "匹配贡献队1两行、队2一行；LEFT JOIN还为未匹配队3补一条右侧NULL行，共4。未匹配卡在右表，不由这个左联接额外加入。"
+      }
+    },
+    {
+      "id": "SQL_09",
+      "prompt": {
+        "en": "A right-side comparison is applied in WHERE: what count remains?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;",
+        "zh": "WHERE中应用右侧比较：剩多少行？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Only the matched card with seven points survives. Four and five fail the comparison, and the NULL-padded row does not make it true. This particular WHERE predicate rejects unmatched rows; not every conceivable right-side predicate has that effect.",
+        "zh": "只有7分匹配卡保留，4和5不满足，补NULL行也不使比较为真。是这条具体WHERE条件排除未匹配行，不能说任何右侧条件都如此。"
+      }
+    },
+    {
+      "id": "SQL_10",
+      "prompt": {
+        "en": "The same comparison is moved into ON: how many rows result?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;",
+        "zh": "同一比较移入ON：结果几行？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The ON condition matches only team one’s seven-point card. Team two and team three then each receive one unmatched NULL-padded row, so the count is three. Moving the condition changes the requested result; it is not a universal repair independent of the intended question.",
+        "zh": "ON只匹配队1的7分卡，再为队2和队3各补一条NULL行，合计3。移动条件改变所求结果，不脱离实际问题就一律认作修复。"
+      }
+    },
+    {
+      "id": "SQL_11",
+      "prompt": {
+        "en": "Count non-NULL card ids for each team.\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;",
+        "zh": "分别数各队的非NULL卡id。\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1; 3|1",
+            "zh": "1|2; 2|1; 3|1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|1; 2|1; 3|0",
+            "zh": "1|1; 2|1; 3|0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1; 3|0",
+            "zh": "1|2; 2|1; 3|0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1|2; 2|1",
+            "zh": "1|2; 2|1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The counts are two, one and zero. COUNT(c.cid) ignores the NULL card id on team three’s padded row; COUNT(*) there would count one row instead. GROUP BY and final ORDER BY make one ordered output row per team.",
+        "zh": "各队依次2、1、0。COUNT(c.cid)忽略队3补行中的NULL卡id，若COUNT(*)则会数那条补行。分组及最终排序使每队输出一条有序行。"
+      }
+    },
+    {
+      "id": "SQL_12",
+      "prompt": {
+        "en": "Which count comes from teams with no matching card?\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);",
+        "zh": "没有匹配卡的队伍有几个？\n\nCREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "joins-and-matches",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The correlated subquery finds cards for teams one and two, but none for team three. NOT EXISTS therefore retains only team three. The card whose tid is NULL does not satisfy the equality for any supplied team and does not count as a match.",
+        "zh": "相关子查询为队1、2找到卡，队3没有，因此NOT EXISTS只留队3。tid为NULL的卡不能对给定队id满足等号，不算匹配。"
+      }
+    },
+    {
+      "id": "SQL_13",
+      "prompt": {
+        "en": "Compare counting rows with counting non-NULL values.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(*), COUNT(value) FROM tickets;",
+        "zh": "比较数行与数非NULL值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(*), COUNT(value) FROM tickets;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5|4",
+            "zh": "5|4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5|5",
+            "zh": "5|5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4|4",
+            "zh": "4|4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4|5",
+            "zh": "4|5"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "There are five ticket rows but only four non-NULL value entries. COUNT(*) gives five and COUNT(value) gives four. The NULL row still exists and contributes to row count; it is not silently removed from the table.",
+        "zh": "有5条票据行，但value只有4个非NULL值，因此COUNT(*)=5、COUNT(value)=4。NULL行仍存在并参与数行，没有从表中消失。"
+      }
+    },
+    {
+      "id": "SQL_14",
+      "prompt": {
+        "en": "Sum values separately for each department.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;",
+        "zh": "按部门分别求value之和。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|NULL",
+            "zh": "A|10; B|NULL"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|11",
+            "zh": "A|10; B|11"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|10; B|21",
+            "zh": "A|10; B|21"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A|4; B|3",
+            "zh": "A|4; B|3"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Department A contributes four plus six, giving ten. Department B contributes three plus eight, giving eleven; SUM ignores its NULL input. The final ordering returns A before B. There is no join or duplicate-row expansion in this query.",
+        "zh": "A部4+6=10；B部3+8=11，SUM忽略其NULL输入。最终排序使A先B后，查询没有联接或重复行扩展。"
+      }
+    },
+    {
+      "id": "SQL_15",
+      "prompt": {
+        "en": "HAVING keeps only groups above the total threshold: which dept row remains?\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;",
+        "zh": "HAVING只留总额超过阈值的组：留下哪个dept行？\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "A; B",
+            "zh": "A; B"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "No rows.",
+            "zh": "没有结果行。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The group totals are ten for A and eleven for B. The strict greater-than comparison keeps only B. HAVING evaluates the aggregate group condition here; filtering individual input values with WHERE would not be the same operation.",
+        "zh": "A组总额10、B组11，严格大于10只留B。这里HAVING核聚合后的组条件，不等于WHERE先筛每个输入值。"
+      }
+    },
+    {
+      "id": "SQL_16",
+      "prompt": {
+        "en": "Rows are filtered before summing: what total is returned?\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT SUM(value) FROM tickets WHERE value >= 6;",
+        "zh": "先筛行再求和：返回多少？\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT SUM(value) FROM tickets WHERE value >= 6;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "21",
+            "zh": "21"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "17",
+            "zh": "17"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The retained numeric values are six and eight, which sum to fourteen. Values four and three fail the filter and NULL does not make it true. The full-table sum would be twenty-one, but that is not the query shown.",
+        "zh": "保留数值6和8，相加14；4和3不满足，NULL不使条件为真。全表和21不是本题所示查询结果。"
+      }
+    },
+    {
+      "id": "SQL_17",
+      "prompt": {
+        "en": "Count distinct department values.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(DISTINCT dept) FROM tickets;",
+        "zh": "数不同的部门值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(DISTINCT dept) FROM tickets;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The five rows contain only two distinct department strings, A and B. COUNT(DISTINCT dept) removes repeated equal non-NULL department values before counting. It does not count how many ticket ids or non-NULL numeric values there are.",
+        "zh": "五行只有A和B两个不同部门字符串。COUNT(DISTINCT dept)先去掉重复相等的非NULL部门值再数，不数票据id或非NULL数值个数。"
+      }
+    },
+    {
+      "id": "SQL_18",
+      "prompt": {
+        "en": "Take the maximum after producing department totals.\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);",
+        "zh": "生成部门总额后再取最大值。\n\nCREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "11",
+            "zh": "11"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "21",
+            "zh": "21"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "groups-and-aggregates",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The inner grouped query produces totals ten and eleven. The outer MAX selects eleven from those two totals. This is different from taking the largest individual ticket value, eight, or summing every ticket value into twenty-one.",
+        "zh": "内部按组得到10和11，外部MAX从两个总额取11。它不同于取单条value最大值8，也不同于把全表相加21。"
+      }
+    },
+    {
+      "id": "SQL_19",
+      "prompt": {
+        "en": "ROW_NUMBER has a complete ordering: what id and number rows result?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;",
+        "zh": "ROW_NUMBER给出完整排序：id及序号各行是什么？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|1; 3|3",
+            "zh": "1|1; 2|1; 3|3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|1; 3|2",
+            "zh": "1|1; 2|1; 3|2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1; 2|2; 3|3",
+            "zh": "1|1; 2|2; 3|3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|3; 2|2; 3|1",
+            "zh": "1|3; 2|2; 3|1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "ROW_NUMBER assigns a separate consecutive number to every row. Descending score puts both twelves first, and id breaks their tie deterministically. The final ORDER BY id controls display order, giving ids one, two and three with numbers one, two and three.",
+        "zh": "ROW_NUMBER给每行独立连续序号。分数降序先放两个12，再由id确定并列先后；最终ORDER BY id控制显示，依次为id 1、2、3及序号1、2、3。"
+      }
+    },
+    {
+      "id": "SQL_20",
+      "prompt": {
+        "en": "Rank all rows first, then inspect the lower score: what rank pair is returned?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;",
+        "zh": "先为全体排名，再看低分行：返回哪对名次？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "2|2",
+            "zh": "2|2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3|3",
+            "zh": "3|3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|1",
+            "zh": "1|1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3|2",
+            "zh": "3|2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The two twelve-point rows are peers at rank one. RANK leaves a gap and gives the eight-point row rank three, while DENSE_RANK gives it rank two. The id filter is outside the ranked CTE, so ranking happens before selecting that row.",
+        "zh": "两条12分并列第1；RANK留间隔使8分排3，DENSE_RANK不留间隔排2。id筛选在排名CTE外，先排名再取该行。"
+      }
+    },
+    {
+      "id": "SQL_21",
+      "prompt": {
+        "en": "An explicit ROWS frame builds a running total: which id and total rows result?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;",
+        "zh": "显式ROWS框架累计求和：各id及累计值是什么？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|12; 2|24; 3|32",
+            "zh": "1|12; 2|24; 3|32"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|32; 2|32; 3|32",
+            "zh": "1|32; 2|32; 3|32"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|12; 2|12; 3|8",
+            "zh": "1|12; 2|12; 3|8"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1|24; 2|24; 3|32",
+            "zh": "1|24; 2|24; 3|32"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The frame starts at the first id and ends at the current row. The totals are twelve, twelve plus twelve, then plus eight: twelve, twenty-four and thirty-two. The explicit ROWS frame and unique id order avoid relying on an unstated peer-group default.",
+        "zh": "框架从首个id到当前行，累计依次12、12+12、再加8，即12、24、32。显式ROWS与唯一id排序避免依赖未说清的并列组默认框架。"
+      }
+    },
+    {
+      "id": "SQL_22",
+      "prompt": {
+        "en": "A CTE names a filtered input: what count is returned?\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;",
+        "zh": "CTE为筛选输入命名：返回多少？\n\nCREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The CTE retains ids one and two because both have score twelve. The outer COUNT(*) counts those two rows. Naming an intermediate SELECT with WITH does not itself add rows, change scores or sum the numeric values.",
+        "zh": "CTE保留得分12的id 1、2，外部COUNT(*)数两行。WITH给中间SELECT命名，本身不添行、不改分、不把数值相加。"
+      }
+    },
+    {
+      "id": "SQL_23",
+      "prompt": {
+        "en": "The final INSERT repeats an existing non-NULL unique value: choose the outcome.\n\nCREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES ('amber');",
+        "zh": "最后INSERT重复已有非NULL唯一值：选择结果。\n\nCREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES ('amber');"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds and stores two amber rows.",
+            "zh": "插入成功，存两条amber。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT replaces the existing row automatically.",
+            "zh": "插入自动替换已有行。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The final INSERT fails its UNIQUE constraint.",
+            "zh": "最后的INSERT违反UNIQUE约束而失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT changes the value to NULL.",
+            "zh": "插入把值改成NULL。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "An ordinary INSERT of the same non-NULL code violates the declared UNIQUE constraint. The statement fails under its default conflict handling; the code does not request OR REPLACE or OR IGNORE. This outcome does not imply that every SQL engine treats NULLs or conflict clauses identically.",
+        "zh": "普通INSERT写相同非NULL code违反所声明UNIQUE，按默认冲突处理使语句失败。代码未要求OR REPLACE或OR IGNORE；这不表示所有SQL引擎对NULL和冲突子句规则相同。"
+      }
+    },
+    {
+      "id": "SQL_24",
+      "prompt": {
+        "en": "The final INSERT supplies NULL to a NOT NULL column: choose the outcome.\n\nCREATE TABLE slots(code TEXT NOT NULL);\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES (NULL);",
+        "zh": "最后INSERT向NOT NULL列提供NULL：选择结果。\n\nCREATE TABLE slots(code TEXT NOT NULL);\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES (NULL);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with an empty string.",
+            "zh": "插入成功并存空字符串。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with the text NULL.",
+            "zh": "插入成功并存文本NULL。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The INSERT succeeds with a database NULL.",
+            "zh": "插入成功并存数据库NULL。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "windows-and-constraints",
+          "label": {
+            "en": "The final INSERT fails its NOT NULL constraint.",
+            "zh": "最后的INSERT违反NOT NULL约束而失败。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The code column explicitly disallows NULL. Inserting a database NULL violates that constraint and the statement fails. NULL is not silently converted to an empty string or the four-character text NULL in this supplied SQLite statement.",
+        "zh": "code列明确不许NULL，插入数据库NULL违反约束，语句失败。在给定SQLite语句中，NULL不会默转空字符串或四字符文本NULL。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "SQL_01",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT id FROM parcels WHERE qty > 1 ORDER BY id;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT id FROM parcels WHERE qty > 1 ORDER BY id;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1; 3",
+        "zh": "1; 3"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_01",
+      "verified": true
+    },
+    {
+      "id": "SQL_02",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT COUNT(*) FROM parcels WHERE qty IS NULL;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty IS NULL;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1",
+        "zh": "1"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_02",
+      "verified": true
+    },
+    {
+      "id": "SQL_03",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT COUNT(*) FROM parcels WHERE qty = NULL;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty = NULL;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          0
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "0",
+        "zh": "0"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_03",
+      "verified": true
+    },
+    {
+      "id": "SQL_04",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE qty BETWEEN 0 AND 2;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          2
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_04",
+      "verified": true
+    },
+    {
+      "id": "SQL_05",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM parcels WHERE zone = 'N' OR qty = 0;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          3
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "3",
+        "zh": "3"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_05",
+      "verified": true
+    },
+    {
+      "id": "SQL_06",
+      "setup": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');",
+      "statement": "SELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;",
+      "code": "CREATE TABLE parcels(id INTEGER PRIMARY KEY, qty INTEGER, zone TEXT);\nINSERT INTO parcels VALUES\n  (1, 2, 'N'), (2, NULL, 'S'), (3, 5, 'N'), (4, 0, 'S');\n\n-- Evaluate this final statement:\nSELECT COALESCE(qty, 9) FROM parcels WHERE id = 2;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          9
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "9",
+        "zh": "9"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_06",
+      "verified": true
+    },
+    {
+      "id": "SQL_07",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nJOIN cards AS c ON c.tid = t.tid;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          3
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "3",
+        "zh": "3"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_07",
+      "verified": true
+    },
+    {
+      "id": "SQL_08",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          4
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "4",
+        "zh": "4"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_08",
+      "verified": true
+    },
+    {
+      "id": "SQL_09",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c ON c.tid = t.tid\nWHERE c.points >= 6;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1",
+        "zh": "1"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_09",
+      "verified": true
+    },
+    {
+      "id": "SQL_10",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nLEFT JOIN cards AS c\n  ON c.tid = t.tid AND c.points >= 6;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          3
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "3",
+        "zh": "3"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_10",
+      "verified": true
+    },
+    {
+      "id": "SQL_11",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT t.tid, COUNT(c.cid)\nFROM teams AS t LEFT JOIN cards AS c ON c.tid = t.tid\nGROUP BY t.tid ORDER BY t.tid;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1|2; 2|1; 3|0",
+        "zh": "1|2; 2|1; 3|0"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_11",
+      "verified": true
+    },
+    {
+      "id": "SQL_12",
+      "setup": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);",
+      "statement": "SELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);",
+      "code": "CREATE TABLE teams(tid INTEGER PRIMARY KEY, label TEXT);\nCREATE TABLE cards(cid INTEGER PRIMARY KEY, tid INTEGER, points INTEGER);\nINSERT INTO teams VALUES (1, 'oak'), (2, 'pine'), (3, 'reed');\nINSERT INTO cards VALUES\n  (101, 1, 4), (102, 1, 7), (103, 2, 5), (104, NULL, 9);\n\n-- Evaluate this final statement:\nSELECT COUNT(*) FROM teams AS t\nWHERE NOT EXISTS (\n  SELECT 1 FROM cards AS c WHERE c.tid = t.tid\n);",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1",
+        "zh": "1"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_12",
+      "verified": true
+    },
+    {
+      "id": "SQL_13",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT COUNT(*), COUNT(value) FROM tickets;",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(*), COUNT(value) FROM tickets;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          5,
+          4
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "5|4",
+        "zh": "5|4"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_13",
+      "verified": true
+    },
+    {
+      "id": "SQL_14",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept, SUM(value) FROM tickets\nGROUP BY dept ORDER BY dept;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          "A",
+          10
+        ],
+        [
+          "B",
+          11
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "A|10; B|11",
+        "zh": "A|10; B|11"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_14",
+      "verified": true
+    },
+    {
+      "id": "SQL_15",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT dept FROM tickets\nGROUP BY dept HAVING SUM(value) > 10 ORDER BY dept;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          "B"
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "B",
+        "zh": "B"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_15",
+      "verified": true
+    },
+    {
+      "id": "SQL_16",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT SUM(value) FROM tickets WHERE value >= 6;",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT SUM(value) FROM tickets WHERE value >= 6;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          14
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "14",
+        "zh": "14"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_16",
+      "verified": true
+    },
+    {
+      "id": "SQL_17",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT COUNT(DISTINCT dept) FROM tickets;",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT COUNT(DISTINCT dept) FROM tickets;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          2
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_17",
+      "verified": true
+    },
+    {
+      "id": "SQL_18",
+      "setup": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);",
+      "statement": "SELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);",
+      "code": "CREATE TABLE tickets(id INTEGER PRIMARY KEY, dept TEXT, value INTEGER);\nINSERT INTO tickets VALUES\n  (1, 'A', 4), (2, 'A', 6), (3, 'B', 3),\n  (4, 'B', NULL), (5, 'B', 8);\n\n-- Evaluate this final statement:\nSELECT MAX(total) FROM (\n  SELECT SUM(value) AS total FROM tickets GROUP BY dept\n);",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          11
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "11",
+        "zh": "11"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_18",
+      "verified": true
+    },
+    {
+      "id": "SQL_19",
+      "setup": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);",
+      "statement": "SELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;",
+      "code": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, ROW_NUMBER() OVER (ORDER BY score DESC, id) AS n\nFROM marks ORDER BY id;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1|1; 2|2; 3|3",
+        "zh": "1|1; 2|2; 3|3"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_19",
+      "verified": true
+    },
+    {
+      "id": "SQL_20",
+      "setup": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);",
+      "statement": "WITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;",
+      "code": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH ranked AS (\n  SELECT id, RANK() OVER (ORDER BY score DESC) AS r,\n    DENSE_RANK() OVER (ORDER BY score DESC) AS d\n  FROM marks\n)\nSELECT r, d FROM ranked WHERE id = 3;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          3,
+          2
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "3|2",
+        "zh": "3|2"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_20",
+      "verified": true
+    },
+    {
+      "id": "SQL_21",
+      "setup": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);",
+      "statement": "SELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;",
+      "code": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nSELECT id, SUM(score) OVER (\n  ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW\n) AS running FROM marks ORDER BY id;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          3,
+          32
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "1|12; 2|24; 3|32",
+        "zh": "1|12; 2|24; 3|32"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_21",
+      "verified": true
+    },
+    {
+      "id": "SQL_22",
+      "setup": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);",
+      "statement": "WITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;",
+      "code": "CREATE TABLE marks(id INTEGER PRIMARY KEY, score INTEGER);\nINSERT INTO marks VALUES (1, 12), (2, 12), (3, 8);\n\n-- Evaluate this final statement:\nWITH selected AS (\n  SELECT id FROM marks WHERE score >= 12\n)\nSELECT COUNT(*) FROM selected;",
+      "outcome": "rows",
+      "expected_rows": [
+        [
+          2
+        ]
+      ],
+      "expected_error_name": null,
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_22",
+      "verified": true
+    },
+    {
+      "id": "SQL_23",
+      "setup": "CREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');",
+      "statement": "INSERT INTO slots VALUES ('amber');",
+      "code": "CREATE TABLE slots(code TEXT UNIQUE);\nINSERT INTO slots VALUES ('amber');\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES ('amber');",
+      "outcome": "constraint-error",
+      "expected_rows": null,
+      "expected_error_name": "SQLITE_CONSTRAINT_UNIQUE",
+      "expected_label": {
+        "en": "The final INSERT fails its UNIQUE constraint.",
+        "zh": "最后的INSERT违反UNIQUE约束而失败。"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_23",
+      "verified": true
+    },
+    {
+      "id": "SQL_24",
+      "setup": "CREATE TABLE slots(code TEXT NOT NULL);",
+      "statement": "INSERT INTO slots VALUES (NULL);",
+      "code": "CREATE TABLE slots(code TEXT NOT NULL);\n\n-- Evaluate this final statement:\nINSERT INTO slots VALUES (NULL);",
+      "outcome": "constraint-error",
+      "expected_rows": null,
+      "expected_error_name": "SQLITE_CONSTRAINT_NOTNULL",
+      "expected_label": {
+        "en": "The final INSERT fails its NOT NULL constraint.",
+        "zh": "最后的INSERT违反NOT NULL约束而失败。"
+      },
+      "sqlite_verification": "T139-sqlite-verification.json#SQL_24",
+      "verified": true
+    }
+  ]
+}
