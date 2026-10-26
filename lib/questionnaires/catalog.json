@@ -3415,5 +3415,55 @@
       "pig"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "customer-service-aptitude",
+    "code": "FM_CUSTOMER_SERVICE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Customer Service Aptitude Test",
+      "zh": "客户服务情景测试"
+    },
+    "description": {
+      "en": "Try 24 original service scenarios with stated policies, worked answers and four full guides. Free, untimed practice; no hiring score or personal customer data.",
+      "zh": "用24道原创客服情境题练澄清、政策阅读、清楚表达和记录跟进。免费查看标准答案、逐题解析及四份完整指南；不计时，不收真实客户资料，不给招聘分数。"
+    },
+    "minutes": 12,
+    "formCode": "fermatmind_customer_service_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "listening-and-clarifying",
+      "rules-and-resolution",
+      "clear-service-messages",
+      "records-and-follow-through"
+    ],
+    "collection": "explore"
+  },
+  {
+    "slug": "german-proficiency",
+    "code": "FM_GERMAN_WRITTEN_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "German Proficiency Test",
+      "zh": "德语水平测试"
+    },
+    "description": {
+      "en": "Try 28 original German grammar and reading tasks. Free worked answers, section counts and four full guides. Written practice, without CEFR bands or a certificate.",
+      "zh": "做28道原创德语冠词、动词、句式及短文题，免费查看分项正确数、全部解析与四份完整指南。仅书面练习，不换算CEFR等级或颁证。"
+    },
+    "minutes": 14,
+    "formCode": "fermatmind_german_written_original_28_v1",
+    "questionCount": 28,
+    "resultSlugs": [
+      "articles-and-cases",
+      "german-verb-forms",
+      "sentence-structure",
+      "short-german-texts"
+    ],
+    "collection": "explore"
   }
 ]

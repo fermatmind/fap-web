@@ -1,0 +1,502 @@
+[
+  {
+    "id": "listening-and-clarifying",
+    "directionIds": [
+      "listening-and-clarifying"
+    ],
+    "title": {
+      "en": "Listening & Clarifying Service Guide",
+      "zh": "倾听与澄清客服练习指南"
+    },
+    "headline": {
+      "en": "Check the issue and the requested outcome",
+      "zh": "核对问题，也核对期望结果"
+    },
+    "summary": {
+      "en": "Review six decisions about relevant questions, accurate summaries and the difference between acknowledgment and proof.",
+      "zh": "复习六项判断：相关提问、准确复述，以及确认收悉和证明事实的区别。"
+    },
+    "seo": {
+      "title": {
+        "en": "Listening & Clarifying: Customer Service Practice",
+        "zh": "倾听与澄清：客服情景练习"
+      },
+      "description": {
+        "en": "Practise checking a customer’s issue, asking for missing facts and separating what is reported from what is verified.",
+        "zh": "练习核对客户问题、询问缺失事实，区分陈述与已经核实的信息。"
+      }
+    },
+    "scoreReading": {
+      "en": "This is a count out of six matched choices, not an empathy score or a prediction of live service performance.",
+      "zh": "这里统计六题匹配答案，不是共情力分数，也不预测现场客服表现。"
+    },
+    "sections": [
+      {
+        "id": "two-parts",
+        "title": {
+          "en": "Separate what happened from what is wanted",
+          "zh": "区分发生了什么与希望怎样处理"
+        },
+        "paragraphs": [
+          {
+            "en": "A service request often contains both an event and a desired outcome. In a fresh example, someone says a booking confirmation lists Tuesday but they asked for Thursday, and they want the date corrected. A useful summary checks the date mismatch and the correction request separately. It does not assume that the person wants to cancel, receive money or stop using the service. After checking the request, you still need the applicable policy and authority before promising a particular action.",
+            "zh": "服务诉求常同时包含事件和期望结果。新例子中，确认函写周二、客户申请周四，希望更正日期；复述应分别核对日期差异及更正要求，不自行加取消、赔偿或停用服务。核对诉求后，承诺动作前仍须看适用政策及权限。"
+          }
+        ]
+      },
+      {
+        "id": "relevant-gap",
+        "title": {
+          "en": "Ask about the information that is missing",
+          "zh": "询问真正缺少的信息"
+        },
+        "paragraphs": [
+          {
+            "en": "A focused question should reduce a relevant uncertainty. If a download failed and the error message is unknown, ask what appeared on screen rather than diagnosing a cause in advance. If an identifier is already visible and no repeat verification requirement is stated, use it instead of making the person start again. Additional verification can be legitimate when a real process requires it, but the reason must come from that process rather than a habit of repeating every question.",
+            "zh": "聚焦问题应减少相关不确定性。下载失败而报错未知时，先问屏幕显示什么，而非预先诊断。编号已可见且无重复验证要求时，应使用它，避免让客户重来。实际流程若要求再次验证可以进行，但理由应来自流程，不能只是习惯重复所有问题。"
+          }
+        ]
+      },
+      {
+        "id": "neutral-language",
+        "title": {
+          "en": "Keep clarification free of unsupported blame",
+          "zh": "澄清时不加入无证责备"
+        },
+        "paragraphs": [
+          {
+            "en": "“Which step were you on when the screen stopped?” asks for an observation. “Why did you break it?” assumes both a cause and responsibility. Those are different evidential moves even when the technical issue is the same. A neutral question leaves room for an answer that changes your understanding. It need not be vague or excessively formal: name the event you are checking and ask for the detail that would help distinguish the plausible explanations still open.",
+            "zh": "“屏幕停住时进行到哪一步？”是在询问观察；“您为什么把它弄坏？”已假定原因与责任。即使技术问题相同，两者取证方式也不同。中性提问保留修正理解的空间，无需含糊或过度正式，只需点明所查事件和有助于区分可能解释的细节。"
+          }
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": {
+          "en": "Acknowledge receipt without claiming a verdict",
+          "zh": "确认收悉时不预作结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Receiving a report establishes that it has reached you. It does not establish that every allegation is true, that nothing went wrong, or that the issue is solved. A brief acknowledgment can say what has arrived and what relevant record will be checked next. If a response time is known under the stated process, include it accurately. Do not attach an invented deadline merely to make the acknowledgment sound reassuring, and do not describe an intended check as one already completed.",
+            "zh": "收到反映只证明信息已到达，不证明每项指控成立、服务完全没错或问题已经解决。简短确认可说明收到什么、接下来核什么。若流程给定回应时间，可准确写入；不要为安慰而编截止点，也不要把准备核查写成已经完成。"
+          }
+        ]
+      },
+      {
+        "id": "text-limits",
+        "title": {
+          "en": "Treat tone interpretations as uncertain",
+          "zh": "把语气解释保留为不确定判断"
+        },
+        "paragraphs": [
+          {
+            "en": "A short message may reflect limited time, language preference, an accessibility need or many other circumstances. The message length alone cannot tell you which explanation applies. Work with the stated problem and ask respectfully when further context is needed. This guide is about selecting a communication action under supplied conditions, not identifying a customer’s personality or diagnosing emotion from text. It also does not imply that a genuinely stated threat or immediate risk should be ignored; those require the relevant actual procedure.",
+            "zh": "短消息可能与时间、语言、沟通需求等多种情况有关，长度本身无法判断原因。应按已陈述问题处理，缺背景时礼貌询问。本指南练按条件选沟通动作，不从文字识别人格或诊断情绪；这也不表示应忽视明确威胁或即时风险，实际情况须依相关流程处理。"
+          }
+        ]
+      },
+      {
+        "id": "new-practice",
+        "title": {
+          "en": "Build a new clarification before seeing a key",
+          "zh": "先自行设计澄清问题，再看答案"
+        },
+        "paragraphs": [
+          {
+            "en": "For unscored practice, write a fictional message about a missing appointment confirmation. List the facts the sender supplies, the outcome they ask for, and one piece of information you still need. Then write one short checking summary and one relevant question. Compare whether each sentence adds evidence or silently invents something. Changing the case details helps you practise the distinction rather than memorise the fixed quiz wording. No real customer message, ticket identifier or private account detail needs to be uploaded here.",
+            "zh": "不计分练习可自写一段缺预约确认的虚构消息，列已给事实、期望结果和一个缺失信息，再写一句复述与一个相关问题，核对每句是在补证据还是暗加假设。变更细节可练区分，而非记固定题面，无需上传真实客户消息、工单或账户资料。"
+          }
+        ]
+      },
+      {
+        "id": "count",
+        "title": {
+          "en": "Read the six-item count within its scope",
+          "zh": "按六题范围理解正确数"
+        },
+        "paragraphs": [
+          {
+            "en": "A matching choice earns one correct item; another valid choice earns zero. The denominator is six for this section, and all valid answers are needed before a personal count appears. The count is not a percentile, an empathy rating, a coaching diagnosis or a hiring recommendation. Zero and perfect counts both receive every explanation and the same full guides. After reviewing them, a better retake can reflect recognition of the answers; it does not by itself establish a change in live customer interactions.",
+            "zh": "匹配选择计一道，其他有效选择计零，分母为六，完整有效作答后才显示个人正确数。它不是百分位、共情评级、教练诊断或录用建议。零分和全对都有全部解析与相同完整指南。看后重测提高可能来自记忆，不能据此证明现场互动已改变。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rules-and-resolution",
+    "directionIds": [
+      "rules-and-resolution"
+    ],
+    "title": {
+      "en": "Rules & Resolution Service Guide",
+      "zh": "规则与处理客服练习指南"
+    },
+    "headline": {
+      "en": "Use the given policy before promising a remedy",
+      "zh": "先读给定政策，再承诺处理"
+    },
+    "summary": {
+      "en": "Review six decisions involving eligibility, customer choice, authority limits, verification and evidence before a resolution.",
+      "zh": "复习六项判断：资格条件、客户选择、权限上限、验证及处理前取证。"
+    },
+    "seo": {
+      "title": {
+        "en": "Rules & Resolution: Customer Service Practice Guide",
+        "zh": "规则与处理：客服情景练习指南"
+      },
+      "description": {
+        "en": "Read fictional service conditions, check eligibility and distinguish an authorized remedy from a promise without evidence.",
+        "zh": "阅读虚构服务条件，核对资格，区分有权处理与无依据承诺。"
+      }
+    },
+    "scoreReading": {
+      "en": "Six keyed decisions test reading the stated conditions. They do not decide a real refund entitlement or legal obligation.",
+      "zh": "六题核对给定条件的阅读判断，不裁定真实退款权利或法律义务。"
+    },
+    "sections": [
+      {
+        "id": "all-conditions",
+        "title": {
+          "en": "Check every required condition",
+          "zh": "逐个核对必要条件"
+        },
+        "paragraphs": [
+          {
+            "en": "Eligibility depends on the whole supplied rule. In a new fictional example, an unused accessory returned within ten days with a verified receipt is eligible. An unused item on day seven with that receipt satisfies those stated conditions; a used item does not become eligible merely because seven is less than ten. Say which conditions are met and which remain unknown. The numbers and rule in this example are invented, so they cannot establish the return rights that apply to a real purchase or jurisdiction.",
+            "zh": "资格取决于完整题设。新虚构规则要求未使用、十天内、凭证已核；第七天的未用配件且凭证齐全，满足所列条件，但已用商品不会因为七小于十就自动符合。应说明哪些满足、哪些未知，不能把虚构期限推成真实消费或地区权利。"
+          }
+        ]
+      },
+      {
+        "id": "customer-choice",
+        "title": {
+          "en": "Preserve a choice that the policy grants",
+          "zh": "保留政策明确交给客户的选择"
+        },
+        "paragraphs": [
+          {
+            "en": "When the supplied policy offers two available remedies and gives the choice to the customer, your personal preference is not another eligibility requirement. Check what they request and act within the stated process. This does not mean every business must offer the same options, or that an unavailable remedy can be promised. The practice distinction is narrower: do not remove a choice explicitly granted in the scenario simply because another option would be more convenient for the handler.",
+            "zh": "若题设允许两项可用处理并让客户选，员工偏好不是新增资格条件。应核诉求并按流程处理。这不表示商家都须给相同选项，也不表示可承诺无法提供的方式。练习只区分：不能因处理者方便，就取消情境已明确给出的客户选择。"
+          }
+        ]
+      },
+      {
+        "id": "authority",
+        "title": {
+          "en": "Escalate when an explicit limit requires it",
+          "zh": "达到明确权限边界时再升级"
+        },
+        "paragraphs": [
+          {
+            "en": "Authority is a separate check from whether a case appears reasonable. Suppose a fresh fictional rule allows you to approve twenty units, while an eligible remedy is twenty-eight and a named supervisor can approve it. The eight-unit difference does not authorize splitting the record or claiming an approval you lack. Pass the relevant facts to the authorized role and explain the next step. Conversely, this example does not instruct you to escalate routine actions that are already within your valid authorization.",
+            "zh": "合理性与权限要分别核。新虚构规则允许本人批二十单位，符合条件的处理需二十八，指定主管有权批；差八不能成为拆单或虚报批准的理由。应把相关事实交有权人并说明下一步。本例也不要求把已有有效授权的日常动作再升级。"
+          }
+        ]
+      },
+      {
+        "id": "verification",
+        "title": {
+          "en": "Respect the prerequisite actually stated",
+          "zh": "遵守题目实际规定的前提"
+        },
+        "paragraphs": [
+          {
+            "en": "A scenario may require identity verification through an approved private channel before changing account details. If it says verification has not happened, a confident tone or a claim of urgency does not satisfy that prerequisite. Explain the appropriate channel without asking for public passwords. This is an example of following a supplied rule, not a new universal authentication design. The website does not connect to a customer account, collect a verification secret or perform the fictional account change.",
+            "zh": "若情境规定改账户资料前通过指定私密渠道验证，而验证尚未发生，自信语气或急迫主张不能满足前提。应说明合适渠道，不要求公开密码。这是遵守给定规则的例子，不新增通用认证设计；网站不连接客户账户、收验证秘密或执行虚构修改。"
+          }
+        ]
+      },
+      {
+        "id": "evidence-first",
+        "title": {
+          "en": "Verify the event before naming the remedy",
+          "zh": "确定处理方式前先核事件"
+        },
+        "paragraphs": [
+          {
+            "en": "Two similar entries on a statement may be duplicate charges, separate purchases or a pending entry and a completed one. Without the relevant record, the scenario may not establish which explanation applies. If the process says to check transactions first, follow that step and keep the conclusion open. Do not accuse the customer, dismiss the discrepancy or say a refund has already happened. Evidence gathering and payment execution are different actions, and this quiz performs neither on an actual account.",
+            "zh": "账单相似条目可能是重复扣款、两次购买，或待处理与已完成记录；缺相关记录时未必能判断。若流程要求先核交易，就完成该步并保留结论。不要指责客户、抹去差异或声称已退款。取证与执行支付是两种动作，本测不在真实账户上执行任何一种。"
+          }
+        ]
+      },
+      {
+        "id": "new-case",
+        "title": {
+          "en": "Rewrite a condition and test the consequence",
+          "zh": "改变一项条件，核对结论怎样变化"
+        },
+        "paragraphs": [
+          {
+            "en": "Create an unscored fictional policy with a clear eligibility window, item condition and authorized role. Work through one case satisfying every condition and another with one fact missing. In the second case, identify the missing fact instead of automatically approving or refusing the request. Then change the approval limit and ask whether the correct next role changes. This exercises conditional reasoning. It does not require inventing a universal company policy, using a real disputed purchase or sending customer details to another organisation.",
+            "zh": "不计分时自写资格期限、商品条件、有权角色清楚的虚构政策，比较全部满足及缺一个事实的两例。后者应指出缺什么，而非自动批准或拒绝。再改权限上限，核后续角色是否变化。这练条件推理，无需编通用公司政策、使用真实争议订单或向外发送客户资料。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Keep practice eligibility distinct from real rights",
+          "zh": "区分练习资格与现实权利"
+        },
+        "paragraphs": [
+          {
+            "en": "This section records six matching choices under explicit fictional conditions, with no speed bonus or professional certification. It cannot tell you whether a real policy is lawful, whether a payment was made, or whether someone is ready to handle a service role. The selected complaint-handling sources support general communication and evidence principles in their own contexts. They are not a substitute for an organisation’s actual terms or applicable law, and this practice is not endorsed by those sources.",
+            "zh": "此项统计六个虚构条件下的匹配选择，无速度奖励或专业认证。它不能判断真实政策是否合法、支付是否发生、某人是否胜任客服。选定投诉处理来源只在各自语境支持一般沟通及取证原则，不替代实际条款、适用法律，也不代表来源认可本练习。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clear-service-messages",
+    "directionIds": [
+      "clear-service-messages"
+    ],
+    "title": {
+      "en": "Clear Service Messages Practice Guide",
+      "zh": "清楚表达客服练习指南"
+    },
+    "headline": {
+      "en": "State a supported next step in usable language",
+      "zh": "用可执行语言说清有依据的下一步"
+    },
+    "summary": {
+      "en": "Review six decisions about updates, ordered instructions, checking understanding, service limits, accessible channels and handover.",
+      "zh": "复习六项判断：进度更新、顺序说明、核对理解、服务边界、适合渠道及交接。"
+    },
+    "seo": {
+      "title": {
+        "en": "Clear Messages: Customer Service Practice Guide",
+        "zh": "清楚表达：客服情景练习指南"
+      },
+      "description": {
+        "en": "Practise realistic progress updates, usable instructions, respectful understanding checks and clear service handovers.",
+        "zh": "练习有依据的进度更新、可操作说明、尊重的理解核对和清楚交接。"
+      }
+    },
+    "scoreReading": {
+      "en": "The six-item count reflects choices in the given situations. It is not a language proficiency or personality score.",
+      "zh": "六题正确数反映给定情境的选择，不是语言水平或人格分数。"
+    },
+    "sections": [
+      {
+        "id": "time",
+        "title": {
+          "en": "Promise the action you can support",
+          "zh": "承诺有依据的动作"
+        },
+        "paragraphs": [
+          {
+            "en": "A next update and a final fix are different commitments. In a fresh fictional case, a supplier has not confirmed a replacement date, but the handler can check and report again by 15:00 on Wednesday. Say both parts clearly: the replacement date remains unknown, and the next update is due at the stated time. Do not convert the update deadline into a delivery guarantee. If the situation changes, communicate that change instead of letting a previously supported statement become misleading through silence.",
+            "zh": "下次更新和最终修好是不同承诺。新虚构例子中，供应方未确认补发日期，但处理者能在周三15:00前核查并更新；应同时说明日期未知和下次更新时间，不把更新截止点变成送达保证。情况变化时也应告知，避免原本有依据的话因沉默而误导。"
+          }
+        ]
+      },
+      {
+        "id": "sequence",
+        "title": {
+          "en": "Use the control names and the correct order",
+          "zh": "用控件名称按正确顺序说明"
+        },
+        "paragraphs": [
+          {
+            "en": "Instructions are useful when a person can connect each action to the interface they actually see. If a fictional service says Settings, then Notifications, then Email alerts, preserve that sequence instead of replacing it with an abstract phrase such as “configure your communication preferences.” Name the relevant control and give the next action. The goal is not to make every message equally short; it is to include the detail needed for this task without hiding it behind jargon or skipping a required step.",
+            "zh": "可用说明应让人能把动作和实际界面对上。虚构服务若规定“设置→通知→邮件提醒”，就保留顺序，不用“配置通信偏好”这种抽象词替换。点明相关控件及下一动作。目标并非句句一样短，而是保留完成任务所需细节，不用术语遮蔽或跳过必要步骤。"
+          }
+        ]
+      },
+      {
+        "id": "understanding",
+        "title": {
+          "en": "Check your explanation rather than demand agreement",
+          "zh": "核对说明，而非要求认同"
+        },
+        "paragraphs": [
+          {
+            "en": "After a multi-step explanation, a respectful check can ask the customer what they will try first, framed as a way to see whether you explained it clearly. The response gives more information than a pressured yes. If it reveals a misunderstanding, adjust the explanation and check the specific gap. This is not a test of the customer’s intelligence or compliance. A handler can be precise without sounding accusatory, and a person can need a different explanation without having done anything wrong.",
+            "zh": "多步说明后，可把问题表述为核对自己是否讲清，请客户说准备先做什么，比强求一句“懂了”更能获得信息。若暴露误解，就调整并核该缺口。这不是检验客户智力或服从。处理者可以准确而不指责；需要换种解释也不代表客户做错。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Combine a real limit with a relevant path",
+          "zh": "说明真实边界，也给相关路径"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful boundary statement distinguishes what you can do from what belongs to another role. For example, a fictional help desk can resend a download link, while licence extensions belong to a licensing team. Say what is available now and where the extension request can go. Do not claim that an extension is approved, or that nobody can help, when neither conclusion follows. Giving a route is useful only when it matches the request and does not hide an unresolved responsibility behind a vague referral.",
+            "zh": "有用边界应区分本人能做和其他角色负责的事。虚构帮助台能重发下载链接，许可延期归许可团队；可以说现在可做什么、延期去哪处理，不谎称获批，也不无证断言无人能帮。路径须与诉求匹配，不能用含糊转介掩盖尚未明确的责任。"
+          }
+        ]
+      },
+      {
+        "id": "channel",
+        "title": {
+          "en": "Use an available channel that fits the stated need",
+          "zh": "采用可用且适合已表达需求的渠道"
+        },
+        "paragraphs": [
+          {
+            "en": "Communication preferences and access needs should be checked from what the person says. If written support is available and the customer cannot use a call, insistence on a call can add an unnecessary barrier. Ask whether an adjustment would help rather than inferring a diagnosis or publishing the need. This example follows the stated fictional service conditions. It is not a legal determination, and it does not promise that every channel exists for every real service or that all requests can be solved in one message.",
+            "zh": "沟通偏好及使用需求应依客户所说核对。文字支持可用而客户无法语音时，坚持电话会增加障碍。可问怎样调整有帮助，不猜诊断、不公开需求。例子遵循虚构服务条件，不裁定法律，也不承诺所有服务都有所有渠道或所有问题一条消息能解决。"
+          }
+        ]
+      },
+      {
+        "id": "handover",
+        "title": {
+          "en": "Keep a promise attached to a responsible next step",
+          "zh": "让承诺对应明确后续责任"
+        },
+        "paragraphs": [
+          {
+            "en": "A shift change should not make the customer’s case disappear. A handover should include the verified issue, work already attempted, what remains open, who owns the next action and any supported update commitment. In a new practice case, a colleague taking over a delayed access-link issue needs to know whether the link was merely drafted or actually sent. Those states require different next actions. Accurate status saves rework and prevents a pleasant-sounding message from replacing a task that has not happened.",
+            "zh": "换班不应让案件消失。交接应含已核问题、已试动作、未决事项、后续负责人及有依据的更新承诺。新练习中，同事接手迟迟未到的链接，需要知道它只是起草还是已经发出，两种状态对应不同动作。准确状态能减少返工，避免用好听话替代未做工作。"
+          }
+        ]
+      },
+      {
+        "id": "practice",
+        "title": {
+          "en": "Try the message on a fresh fictional task",
+          "zh": "在新的虚构任务上练表达"
+        },
+        "paragraphs": [
+          {
+            "en": "Write one unscored update for a fictional unresolved request, including the known status, an honest limit and a specific next contact. Then rewrite a three-step instruction using the exact supplied control names. Ask whether a reader could tell what happens next and what remains uncertain. The six quiz items provide a small set of keyed decisions, not a certificate of communication skill. Every complete attempt receives all explanations and guides; a retake can reflect familiarity, so use a different fictional case for further practice.",
+            "zh": "不计分时，为一个虚构未决请求写更新，包含已知状态、诚实边界和具体下次联系；再用给定控件名称重写三步说明，核读者能否分清下一动作和未知事项。六题只是有限标准选择，不是沟通证书。完整作答均给全部解析和指南；重测可能受熟悉影响，后续用新情境练。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "records-and-follow-through",
+    "directionIds": [
+      "records-and-follow-through"
+    ],
+    "title": {
+      "en": "Records & Follow-through Service Guide",
+      "zh": "记录与跟进客服练习指南"
+    },
+    "headline": {
+      "en": "Leave an accurate case that another handler can continue",
+      "zh": "留下他人能接续的准确案件记录"
+    },
+    "summary": {
+      "en": "Review six decisions about evidence, priority rules, confirmation, traceable correction, shared issues and relevant information.",
+      "zh": "复习六项判断：证据、优先级、确认、可追溯纠正、共性问题及相关信息。"
+    },
+    "seo": {
+      "title": {
+        "en": "Records & Follow-through: Customer Service Practice",
+        "zh": "记录与跟进：客服情景练习"
+      },
+      "description": {
+        "en": "Practise factual case notes, supported closure status, auditable corrections and useful follow-through on repeated issues.",
+        "zh": "练习事实记录、有依据的关单状态、可追溯纠正及重复问题的有效跟进。"
+      }
+    },
+    "scoreReading": {
+      "en": "This is a count out of six scenario choices. It does not assess your actual employer, ticket quality or reliability as a person.",
+      "zh": "此项分母为六，不评估真实雇主、工单质量或个人可靠性。"
+    },
+    "sections": [
+      {
+        "id": "provenance",
+        "title": {
+          "en": "Identify who reported a fact and what was checked",
+          "zh": "写明谁陈述、核查过什么"
+        },
+        "paragraphs": [
+          {
+            "en": "A case note should distinguish a reported event from a verified record. In a fresh example, the customer reports waiting twenty-five minutes while the checked queue log shows twenty-one. Record both sources and leave the four-minute discrepancy open for clarification. Do not silently choose one figure, label the person dishonest or pretend the numbers agree. Attribution preserves the question that remains, while the log reference makes it possible for the next handler to check the same evidence rather than rely on an unexplained conclusion.",
+            "zh": "新例子中，客户称等候二十五分钟，已核队列日志写二十一；应记两个来源，保留四分钟差异待核。不要暗选一数、给人贴不诚实标签或假装相同。注明来源可保留未决问题，也让接手人能复查同一证据，而非只面对无解释结论。"
+          }
+        ]
+      },
+      {
+        "id": "priority",
+        "title": {
+          "en": "Use the supplied impact rule consistently",
+          "zh": "一致使用给定影响规则"
+        },
+        "paragraphs": [
+          {
+            "en": "Priority is not determined by which customer flatters the handler or which ticket is easiest. The quiz supplies a fictional impact rule so that the correct classification is explicit. Read the stated scope, active effect and any additional risk before applying that rule. A real organisation may use different categories and escalation procedures, and a genuinely urgent incident may require its specific response. The practice does not create a universal severity model or authorize anyone to ignore a risk omitted from a simplified example.",
+            "zh": "优先级不取决于谁夸处理者或哪单容易。题目给出虚构影响规则，使正确分类明确；使用前应读范围、当前影响及其他风险。真实机构可能有不同分级与升级，紧急事件应走专门响应。本练习不建立通用严重度模型，也不授权忽略简化例子未列风险。"
+          }
+        ]
+      },
+      {
+        "id": "status",
+        "title": {
+          "en": "Keep proposed, completed and confirmed apart",
+          "zh": "分清已建议、已执行和已确认"
+        },
+        "paragraphs": [
+          {
+            "en": "Sending a possible fix is a completed communication, but it may not establish that the service recovered. If the stated closure rule requires confirmation and neither the customer nor a system check provides it, record that confirmation is pending. Silence alone does not turn a proposal into success. Keep the next follow-up visible with a responsible owner. A different real closure policy must be interpreted on its own terms; this example does not say that every ticket must remain open forever without a response.",
+            "zh": "发出可能修复方案，说明沟通动作已做，未必说明服务恢复。若关单规则要求确认，而客户和系统均未提供，应记待确认。沉默不会把建议变成功，应明确后续跟进及负责人。其他真实关单政策须按自身条款解释，本例不表示无回应工单都必须永远不关。"
+          }
+        ]
+      },
+      {
+        "id": "correction",
+        "title": {
+          "en": "Correct a record without concealing the change",
+          "zh": "纠正记录，同时保留变更痕迹"
+        },
+        "paragraphs": [
+          {
+            "en": "When the fictional policy requires an auditable correction, add the verified fact, correction time and explanation while preserving the earlier entry. The next reader should be able to tell which value is current and why it differs. Quietly overwriting a wrong date can make the record look simpler while removing useful history. Leaving a known mistake is also unhelpful. This guide supports a transparent correction under the supplied process; it does not prescribe a universal retention period or a particular production database design.",
+            "zh": "若虚构政策要求可追溯纠正，应加核实事实、纠正时间及说明，同时留原条目，让下位读者分清当前值和差异原因。悄悄覆盖错误日期虽显简单，却抹去历史；放任已知错误也无益。本指南只支持给定流程的透明纠错，不规定通用保管期限或数据库设计。"
+          }
+        ]
+      },
+      {
+        "id": "patterns",
+        "title": {
+          "en": "Link recurring reports without assuming their cause",
+          "zh": "关联重复报告，不预断原因"
+        },
+        "paragraphs": [
+          {
+            "en": "Several independent customers reporting the same failure can justify a documented shared investigation. Link the relevant pattern to the responsible team while continuing the individual cases and their outstanding commitments. The repetition does not by itself prove a specific technical cause, staff error or resolution. Hiding reports may improve a visible ticket count while making the underlying service problem harder to understand. A useful record helps distinguish a shared issue from unrelated cases, and it preserves what evidence would be needed to tell those possibilities apart.",
+            "zh": "多人独立报告相同失败，可能值得记录并共同调查。应将相关模式交负责团队，同时继续个案和待履承诺。重复本身不证明具体技术原因、员工错误或已解决。藏报告或许让表面工单数好看，却使服务问题更难理解。记录应帮助区分共性与无关个案，并保留所需证据。"
+          }
+        ]
+      },
+      {
+        "id": "relevance",
+        "title": {
+          "en": "Share necessary case information with the right handler",
+          "zh": "向合适接手人传递必要案件信息"
+        },
+        "paragraphs": [
+          {
+            "en": "A handover needs enough relevant context to continue the work. That does not mean adding unrelated family stories or sending the whole case to everyone. In the quiz’s fictional privacy rule, the assigned team receives necessary issue details and next actions, while an unrelated private story is left out. The distinction is relevance and authorized purpose, not a blanket ban on useful records. No real customer message, personal identifier or support-system export needs to be supplied to take this practice.",
+            "zh": "交接需有足够相关背景，但不等于加入无关家庭私事或向所有人发送整单。题设隐私规则让指定团队获得必要问题及动作，省去无关私事。区分点是相关性及授权用途，不是一律禁止有用记录。参加练习无需提供真实消息、身份标识或客服系统导出。"
+          }
+        ]
+      },
+      {
+        "id": "next-case",
+        "title": {
+          "en": "Practise an evidence trail on a different case",
+          "zh": "换个案件练证据链"
+        },
+        "paragraphs": [
+          {
+            "en": "For unscored revision, create a fictional note with a customer report, one checked source, a remaining uncertainty and a next owner. Add a later correction without deleting the earlier note, then explain what evidence would support marking the case resolved under a supplied closure rule. This exercises a process rather than a personality label. Six matched choices cannot establish professional reliability or predict job performance. All complete results include the same full explanations and guides, with no hiring pass line, percentile or certification.",
+            "zh": "不计分复习可自写客户陈述、一个核过来源、未决问题及后续负责人的虚构记录，再保留原文添加纠正，并解释给定关单规则下何种证据支持已解决。这练流程而非人格标签。六个匹配选择不能证明职业可靠性或预测绩效。完整结果均有相同全文，无录用线、百分位或认证。"
+          }
+        ]
+      }
+    ]
+  }
+]

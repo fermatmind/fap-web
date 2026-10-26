@@ -1,0 +1,1608 @@
+{
+  "id": "T144",
+  "form": "fermatmind_german_written_original_28_v1",
+  "version": "1.0.0",
+  "method": "28originalwrittenGermanrightansweritems4x7/112options;originalfictionalGermanstimuliandGermanoptionsbyteidenticalENZHinterfaces;equalcorrectcounts/nospeed/norms/CEFRassignment/certificate/hiringclaim;no listening,speakingorfreewritingproduction. Selectedprimarygrammarrulesandactualoriginaltextentailmentreview,notcopiedlicensedexambank.",
+  "questions": [
+    {
+      "id": "GERMAN_01",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\n___ Hund schläft unter dem Tisch. (Hund: maskulin, Singular)",
+        "zh": "按标准书面德语补全空格。\n___ Hund schläft unter dem Tisch. (Hund: maskulin, Singular)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "Der",
+            "zh": "Der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "Die",
+            "zh": "Die"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "Das",
+            "zh": "Das"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "Den",
+            "zh": "Den"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The dog is the subject of schläft, so the singular masculine definite article is nominative der. Den would mark an accusative masculine noun phrase instead. The item supplies gender and number; it tests the case in this sentence rather than asking you to guess a noun’s gender.",
+        "zh": "Hund是schläft的主语，阳性单数定冠词用第一格Der，Den则是阳性第四格。题目已给词性性别与数，考的是此句格位，不要求猜名词性别。"
+      }
+    },
+    {
+      "id": "GERMAN_02",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nIch sehe ___ Hund am Fenster. (Hund: maskulin, Singular)",
+        "zh": "按标准书面德语补全空格。\nIch sehe ___ Hund am Fenster. (Hund: maskulin, Singular)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "dem",
+            "zh": "dem"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "des",
+            "zh": "des"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "In this sentence the dog is the direct object of sehe, so the masculine singular article is accusative den: Ich sehe den Hund am Fenster. Dem and des mark different cases. Choose the form from the noun’s function in the supplied sentence, not from the article used when naming the noun by itself.",
+        "zh": "此句Hund是sehe的直接宾语，阳性单数第四格为den，完整句为Ich sehe den Hund am Fenster。dem、des表示其他格，不能只按单独记名词时的冠词选择，应看句中功能。"
+      }
+    },
+    {
+      "id": "GERMAN_03",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nWir fahren mit ___ Bus zum Museum. (Bus: maskulin, Singular)",
+        "zh": "按标准书面德语补全空格。\nWir fahren mit ___ Bus zum Museum. (Bus: maskulin, Singular)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "dem",
+            "zh": "dem"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "des",
+            "zh": "des"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The preposition mit governs dative in this noun phrase. Masculine singular dative uses dem, giving mit dem Bus. The vehicle is not a direct object just because a journey is involved. The relevant trigger here is the stated preposition, together with the supplied gender and number.",
+        "zh": "此名词短语中mit支配第三格，阳性单数为dem，组成mit dem Bus。不能因为有出行，就把交通工具当直接宾语；这里需依据介词及已给性、数。"
+      }
+    },
+    {
+      "id": "GERMAN_04",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nDas Paket ist für ___ Schwester. (Schwester: feminin, Singular; definiter Artikel)",
+        "zh": "按标准书面德语补全空格。\nDas Paket ist für ___ Schwester. (Schwester: feminin, Singular; definiter Artikel)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "dem",
+            "zh": "dem"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "die",
+            "zh": "die"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Für governs accusative. For a feminine singular noun the definite article is die in accusative, so für die Schwester is the matching phrase. The fact that the recipient is a person does not automatically make the phrase dative; the preposition determines the required case here.",
+        "zh": "für支配第四格，阴性单数定冠词第四格为die，因此是für die Schwester。对象是人并不自动用第三格，此处由介词规定格位。"
+      }
+    },
+    {
+      "id": "GERMAN_05",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nDas Kind spielt in ___ Küche. (Küche: feminin, Singular; Ort: Wo?)",
+        "zh": "按标准书面德语补全空格。\nDas Kind spielt in ___ Küche. (Küche: feminin, Singular; Ort: Wo?)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "die",
+            "zh": "die"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "das",
+            "zh": "das"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The prompt explicitly asks for a location, Wo?, rather than a destination. In this spatial use, in takes dative; feminine singular dative is der: in der Küche. The child may be moving while playing, but movement inside a place is not the same as a change of location into that place.",
+        "zh": "题目明确为地点Wo?，不是目标方向。此空间用法中in用第三格，阴性单数为der，即in der Küche。孩子玩时可以有动作，但在某处活动不等于进入该处。"
+      }
+    },
+    {
+      "id": "GERMAN_06",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nDas Kind geht in ___ Küche. (Küche: feminin, Singular; Ziel: Wohin?)",
+        "zh": "按标准书面德语补全空格。\nDas Kind geht in ___ Küche. (Küche: feminin, Singular; Ziel: Wohin?)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "die",
+            "zh": "die"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "dem",
+            "zh": "dem"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The destination cue Wohin? makes this a directional phrase: the child goes into the kitchen. In takes accusative in this spatial construction, and feminine singular accusative is die. This does not mean every occurrence of in with any verb follows a simple movement rule; the question specifies the directional use.",
+        "zh": "Wohin?明确目标，孩子走进厨房。此方向结构中in用第四格，阴性单数为die。这不表示任何动词后的in都能套“有动作”口诀；题目已明确方向用法。"
+      }
+    },
+    {
+      "id": "GERMAN_07",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nDie Tür ___ Hauses ist blau. (Haus: Neutrum, Singular; Genitiv)",
+        "zh": "按标准书面德语补全空格。\nDie Tür ___ Hauses ist blau. (Haus: Neutrum, Singular; Genitiv)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "der",
+            "zh": "der"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "den",
+            "zh": "den"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "des",
+            "zh": "des"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "articles-and-cases",
+          "label": {
+            "en": "dem",
+            "zh": "dem"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The prompt explicitly requires genitive for the house connected to the door. Neuter singular genitive uses des, and the supplied noun form Hauses already carries its ending. The complete phrase is die Tür des Hauses. The item isolates article case, not a claim that every relation in German must use a genitive phrase.",
+        "zh": "题目明确要求与门相连的房屋用第二格，中性单数为des，已给Hauses带相应词尾，完整短语为die Tür des Hauses。本题只练冠词格位，不表示德语所有关系都必须用第二格。"
+      }
+    },
+    {
+      "id": "GERMAN_08",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nIch ___ heute neue Wörter. (lernen, Präsens)",
+        "zh": "按标准书面德语补全空格。\nIch ___ heute neue Wörter. (lernen, Präsens)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lernst",
+            "zh": "lernst"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lernt",
+            "zh": "lernt"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lernen",
+            "zh": "lernen"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lerne",
+            "zh": "lerne"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "With ich, the present indicative of this regular verb takes the first-person singular ending -e: ich lerne. Lernst fits du, lernt fits a different person or number, and lernen is not the matching finite form for ich here. The time word heute does not remove the need for subject–verb agreement.",
+        "zh": "规则动词lernen在ich之后用现在时第一人称单数词尾-e，即ich lerne。lernst配du，lernt对应其他人称数，lernen不是此处ich的限定形式。heute不会取消主谓一致要求。"
+      }
+    },
+    {
+      "id": "GERMAN_09",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nDu ___ in einer kleinen Stadt. (wohnen, Präsens)",
+        "zh": "按标准书面德语补全空格。\nDu ___ in einer kleinen Stadt. (wohnen, Präsens)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnst",
+            "zh": "wohnst"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohne",
+            "zh": "wohne"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnt",
+            "zh": "wohnt"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnen",
+            "zh": "wohnen"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The subject du calls for second-person singular present indicative, wohnst. Start with the stem wohn- and add -st in this regular form. The other options belong to different persons or numbers. This example concerns the specific verb wohnen, not a promise that every German verb has an unchanged stem in the same person.",
+        "zh": "du要求现在时第二人称单数wohnst，规则形式为词干wohn-加-st。其他选项属于其他人称或数。本例针对wohnen，不表示所有德语动词在该人称都保持词干不变。"
+      }
+    },
+    {
+      "id": "GERMAN_10",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nEr ___ jeden Abend einen kurzen Text. (lesen, Präsens)",
+        "zh": "按标准书面德语补全空格。\nEr ___ jeden Abend einen kurzen Text. (lesen, Präsens)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lese",
+            "zh": "lese"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "liest",
+            "zh": "liest"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lest",
+            "zh": "lest"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lesen",
+            "zh": "lesen"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The third-person singular present of lesen is liest. This strong verb changes the stem vowel in du and er/sie/es forms, so a regular-looking alternative cannot simply be substituted. The sentence says he reads a short text each evening; it requires a finite present form, not an infinitive or a form agreeing with ich.",
+        "zh": "lesen第三人称单数现在时为liest，该强变化动词在du及er/sie/es中改变词干元音，不能用看似规则的形式代替。句意为他每晚读短文，需相应现在时限定形式，而非不定式或ich形式。"
+      }
+    },
+    {
+      "id": "GERMAN_11",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nWir ___ am Samstag nach Leipzig. (fahren, Präsens)",
+        "zh": "按标准书面德语补全空格。\nWir ___ am Samstag nach Leipzig. (fahren, Präsens)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "fahre",
+            "zh": "fahre"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "fährt",
+            "zh": "fährt"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "fahren",
+            "zh": "fahren"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "fahrt",
+            "zh": "fahrt"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Wir is first-person plural and takes fahren here. Fährt is a singular form with a vowel change, while fahrt goes with ihr. The day phrase supplies when the journey happens, but the subject determines the person and number of the finite verb. The full sentence is Wir fahren am Samstag nach Leipzig.",
+        "zh": "wir是第一人称复数，此处用fahren。fährt为带元音变化的单数，fahrt配ihr。日期说明何时出行，主语则决定限定动词的人称和数，完整句为Wir fahren am Samstag nach Leipzig。"
+      }
+    },
+    {
+      "id": "GERMAN_12",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nFrau Weber, ___ Sie in Dresden? (wohnen, Präsens; höfliche Anrede)",
+        "zh": "按标准书面德语补全空格。\nFrau Weber, ___ Sie in Dresden? (wohnen, Präsens; höfliche Anrede)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnst",
+            "zh": "wohnst"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohne",
+            "zh": "wohne"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnt",
+            "zh": "wohnt"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wohnen",
+            "zh": "wohnen"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The question explicitly uses formal address Sie to Frau Weber. That address takes the plural verb form wohnen even though one person is being addressed. Capitalization distinguishes the formal pronoun in writing. Do not select wohnst merely because there is one addressee: that form agrees with informal du.",
+        "zh": "题目明确以Sie尊称Weber女士，即使只称呼一人，动词仍用复数形式wohnen。书面大写区分尊称。不能因对象一人就选配非正式du的wohnst。"
+      }
+    },
+    {
+      "id": "GERMAN_13",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nSie hat den Brief schon ___. (lesen, Perfekt)",
+        "zh": "按标准书面德语补全空格。\nSie hat den Brief schon ___. (lesen, Perfekt)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "gelesen",
+            "zh": "gelesen"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lesen",
+            "zh": "lesen"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "liest",
+            "zh": "liest"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "lese",
+            "zh": "lese"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The auxiliary hat is already present, so this perfect construction needs the past participle gelesen. Lesen, liest and lese do not complete this supplied auxiliary-plus-participle structure. The example tests a fixed written form and does not assess whether you could produce an original letter or understand spoken German.",
+        "zh": "助动词hat已给，完成时结构需第二分词gelesen。lesen、liest、lese不能补全这里的助动词加分词结构。本题只核给定书面形式，不测独立写信或听懂德语。"
+      }
+    },
+    {
+      "id": "GERMAN_14",
+      "prompt": {
+        "en": "Complete the blank in standard written German.\nEr ___ gestern mit dem Zug nach Bremen gefahren. (Perfekt; Reise)",
+        "zh": "按标准书面德语补全空格。\nEr ___ gestern mit dem Zug nach Bremen gefahren. (Perfekt; Reise)"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "hat",
+            "zh": "hat"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "ist",
+            "zh": "ist"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "wird",
+            "zh": "wird"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "german-verb-forms",
+          "label": {
+            "en": "kann",
+            "zh": "kann"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "For fahren used here to describe travelling by train to a destination, the perfect is formed with sein: er ist ... gefahren. This is not a rule that all meanings of fahren use sein; transitive uses such as driving a particular vehicle can use haben. The stated travel context determines the relevant construction.",
+        "zh": "此处fahren表示乘火车到目标地旅行，完成时用sein，构成er ist ... gefahren。不能推成fahren所有义项都用sein；如及物地驾驶某车辆可用haben，应依本题旅行语境判断。"
+      }
+    },
+    {
+      "id": "GERMAN_15",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nBegründung mit „weil“ in einem formellen geschriebenen Text.",
+        "zh": "按给定结构选择标准书面句子。\nBegründung mit „weil“ in einem formellen geschriebenen Text."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich bleibe zu Hause, weil ich bin krank.",
+            "zh": "Ich bleibe zu Hause, weil ich bin krank."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich bleibe zu Hause, weil bin ich krank.",
+            "zh": "Ich bleibe zu Hause, weil bin ich krank."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich bleibe zu Hause, weil ich krank bin.",
+            "zh": "Ich bleibe zu Hause, weil ich krank bin."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich bleibe zu Hause, weil ich krank sein.",
+            "zh": "Ich bleibe zu Hause, weil ich krank sein."
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "In this formal written subordinate clause, the finite verb bin is at the end: weil ich krank bin. Spoken German can use weil with verb-second order in some contexts, so the question deliberately specifies formal writing. It is not treating every spoken variant as if it were the same register or structure.",
+        "zh": "正式书面从句中限定动词bin位于句末，即weil ich krank bin。口语某些语境存在weil加动词第二位，因此本题特定为正式写作，不把所有口语变体都视为同一语域结构。"
+      }
+    },
+    {
+      "id": "GERMAN_16",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nAussagesatz mit „Heute“ im Vorfeld.",
+        "zh": "按给定结构选择标准书面句子。\nAussagesatz mit „Heute“ im Vorfeld."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Heute ich komme später.",
+            "zh": "Heute ich komme später."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Heute ich später komme.",
+            "zh": "Heute ich später komme."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Heute kommen ich später.",
+            "zh": "Heute kommen ich später."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Heute komme ich später.",
+            "zh": "Heute komme ich später."
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Heute occupies the first constituent position, so the finite verb komme follows in the second position and ich comes after it. Verb-second means the second constituent position, not necessarily the second written word in every possible sentence. This item uses a short unambiguous declarative example.",
+        "zh": "Heute占前场第一成分位置，限定动词komme随后在第二位，ich在其后。动词第二位指第二成分位置，不保证所有句子都恰为第二个书写单词；本题采用简短明确的陈述句。"
+      }
+    },
+    {
+      "id": "GERMAN_17",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nEntscheidungsfrage mit „können“; angesprochen wird „du“.",
+        "zh": "按给定结构选择标准书面句子。\nEntscheidungsfrage mit „können“; angesprochen wird „du“."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Kannst du morgen kommen?",
+            "zh": "Kannst du morgen kommen?"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Du morgen kannst kommen?",
+            "zh": "Du morgen kannst kommen?"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Können du morgen kommt?",
+            "zh": "Können du morgen kommt?"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Kannst kommen morgen du?",
+            "zh": "Kannst kommen morgen du?"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A standard yes/no question places the finite modal Kannst first, followed by du, with the infinitive kommen later in the clause. This is the specified question form, rather than a declarative sentence given questioning intonation. The item checks written order and agreement, not pronunciation or listening.",
+        "zh": "标准一般疑问句将限定情态动词Kannst置首，后接du，不定式kommen在后。这是给定疑问形式，而非仅靠语调变问句的陈述句；本题核书面语序及一致，不测发音或听力。"
+      }
+    },
+    {
+      "id": "GERMAN_18",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nAussagesatz im Präsens mit „aufstehen“ und „ich“.",
+        "zh": "按给定结构选择标准书面句子。\nAussagesatz im Präsens mit „aufstehen“ und „ich“."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich aufstehe jeden Morgen um sieben Uhr.",
+            "zh": "Ich aufstehe jeden Morgen um sieben Uhr."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich stehe jeden Morgen um sieben Uhr auf.",
+            "zh": "Ich stehe jeden Morgen um sieben Uhr auf."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich steht jeden Morgen um sieben Uhr auf.",
+            "zh": "Ich steht jeden Morgen um sieben Uhr auf."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich jeden Morgen stehe auf um sieben Uhr.",
+            "zh": "Ich jeden Morgen stehe auf um sieben Uhr."
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "In this simple main clause, aufstehen separates into the finite form stehe and the particle auf at the end of the verbal frame. The supplied subject ich requires stehe, not steht. The whole sentence keeps the stated morning time while using the required present main-clause structure.",
+        "zh": "此简单主句中aufstehen分为限定形式stehe和框架末尾的小品词auf。主语ich要求stehe而非steht。完整句既保留早晨时间，也符合所给现在时主句结构。"
+      }
+    },
+    {
+      "id": "GERMAN_19",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nAussagesatz mit „wir“, „können“ und dem Infinitiv „helfen“.",
+        "zh": "按给定结构选择标准书面句子。\nAussagesatz mit „wir“, „können“ und dem Infinitiv „helfen“."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Wir können morgen hilft.",
+            "zh": "Wir können morgen hilft."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Wir hilft können morgen.",
+            "zh": "Wir hilft können morgen."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Wir können morgen helfen.",
+            "zh": "Wir können morgen helfen."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Wir können helfen morgen wir.",
+            "zh": "Wir können helfen morgen wir."
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Können is the finite modal agreeing with wir; helfen remains infinitive in the later verbal position. The incorrect finite form hilft cannot replace that infinitive here. This is a focused modal construction, not evidence that the test measures spontaneous conversation or every possible German verb cluster.",
+        "zh": "können是与wir一致的限定情态动词，helfen在后部保持不定式，此处不能用限定形式hilft替换。题目聚焦情态结构，不证明测到即兴对话或所有德语动词组合。"
+      }
+    },
+    {
+      "id": "GERMAN_20",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nNebensatz mit „dass“ in einem formellen geschriebenen Text.",
+        "zh": "按给定结构选择标准书面句子。\nNebensatz mit „dass“ in einem formellen geschriebenen Text."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich weiß, dass beginnt der Kurs morgen.",
+            "zh": "Ich weiß, dass beginnt der Kurs morgen."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich weiß, dass der Kurs beginnt morgen.",
+            "zh": "Ich weiß, dass der Kurs beginnt morgen."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich weiß, dass der Kurs morgen beginnen.",
+            "zh": "Ich weiß, dass der Kurs morgen beginnen."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Ich weiß, dass der Kurs morgen beginnt.",
+            "zh": "Ich weiß, dass der Kurs morgen beginnt."
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The finite verb beginnt closes this standard written dass-clause, and singular der Kurs agrees with beginnt. A main clause can place the finite verb differently, but that is not the introduced subordinate structure requested here. Read both the connector and the subject before choosing the verb position and form.",
+        "zh": "标准书面dass从句以限定动词beginnt收尾，单数der Kurs与beginnt一致。主句可以采用不同动词位置，但并非这里所要求的引导从句。应同时看连接词和主语，再判位置及形式。"
+      }
+    },
+    {
+      "id": "GERMAN_21",
+      "prompt": {
+        "en": "Choose the standard written sentence that fits the stated structure.\nHöfliche Aufforderung mit „Sie“; das Fenster soll geöffnet werden.",
+        "zh": "按给定结构选择标准书面句子。\nHöfliche Aufforderung mit „Sie“; das Fenster soll geöffnet werden."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Bitte öffnen Sie das Fenster.",
+            "zh": "Bitte öffnen Sie das Fenster."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Bitte öffnest Sie das Fenster.",
+            "zh": "Bitte öffnest Sie das Fenster."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Bitte öffnen du das Fenster.",
+            "zh": "Bitte öffnen du das Fenster."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "sentence-structure",
+          "label": {
+            "en": "Bitte Sie das Fenster öffnen Sie.",
+            "zh": "Bitte Sie das Fenster öffnen Sie."
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The formal imperative uses the verb form öffnen followed by the address pronoun Sie: Bitte öffnen Sie das Fenster. Öffnest agrees with informal du and does not fit the stated address. This item gives the intended request, so no assumption about whether a real workplace uses du or Sie is needed.",
+        "zh": "尊称命令式用öffnen后接Sie，构成Bitte öffnen Sie das Fenster。öffnest配非正式du，不符合给定称呼。题目已说明请求形式，无须假设现实职场一律用du或Sie。"
+      }
+    },
+    {
+      "id": "GERMAN_22",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nDie Bibliothek ist am Mittwoch von 10 bis 16 Uhr geöffnet. Am Donnerstag bleibt sie geschlossen.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nDie Bibliothek ist am Mittwoch von 10 bis 16 Uhr geöffnet. Am Donnerstag bleibt sie geschlossen."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Am Mittwoch bleibt die Bibliothek den ganzen Tag geschlossen.",
+            "zh": "Am Mittwoch bleibt die Bibliothek den ganzen Tag geschlossen."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Am Donnerstag ist die Bibliothek geschlossen.",
+            "zh": "Am Donnerstag ist die Bibliothek geschlossen."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Am Donnerstag ist die Bibliothek von 10 bis 16 Uhr geöffnet.",
+            "zh": "Am Donnerstag ist die Bibliothek von 10 bis 16 Uhr geöffnet."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Die Bibliothek öffnet am Mittwoch erst um 18 Uhr.",
+            "zh": "Die Bibliothek öffnet am Mittwoch erst um 18 Uhr."
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The second sentence explicitly says the library remains closed on Thursday. Wednesday has the stated opening period from 10 to 16. Keep the weekday attached to its own information rather than carrying Wednesday’s hours into Thursday. The text is invented and says nothing about an actual library schedule.",
+        "zh": "第二句明确周四闭馆，周三开放时段为10至16点。应将日期与各自信息对应，不把周三时间移到周四。文字为虚构，不陈述真实图书馆开放安排。"
+      }
+    },
+    {
+      "id": "GERMAN_23",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nBitte schicken Sie das ausgefüllte Formular bis Freitag an unser Büro. Eine Abgabe am Montag ist für diesen Termin zu spät.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nBitte schicken Sie das ausgefüllte Formular bis Freitag an unser Büro. Eine Abgabe am Montag ist für diesen Termin zu spät."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Formular muss erst am Montag geschickt werden.",
+            "zh": "Das Formular muss erst am Montag geschickt werden."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Formular soll leer bleiben.",
+            "zh": "Das Formular soll leer bleiben."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Formular soll spätestens am Freitag geschickt werden.",
+            "zh": "Das Formular soll spätestens am Freitag geschickt werden."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Büro möchte das Formular nicht erhalten.",
+            "zh": "Das Büro möchte das Formular nicht erhalten."
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Bis Freitag supplies the submission boundary in this fictional notice, and the next sentence says Monday is too late for this appointment. Ausgefüllt also rules out sending an empty form. The correct option preserves the requested action and deadline without inventing a real legal filing requirement.",
+        "zh": "bis Freitag给出本虚构通知的提交边界，下一句明确周一对该安排太迟，ausgefüllt也排除空表。正确项保留动作及时间，不编真实法定申报要求。"
+      }
+    },
+    {
+      "id": "GERMAN_24",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nDie Wohnung liegt im zweiten Stock. Im Haus gibt es keinen Aufzug. Besucher benutzen die Treppe.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nDie Wohnung liegt im zweiten Stock. Im Haus gibt es keinen Aufzug. Besucher benutzen die Treppe."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Die Wohnung liegt im Erdgeschoss.",
+            "zh": "Die Wohnung liegt im Erdgeschoss."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Im Haus gibt es einen Aufzug.",
+            "zh": "Im Haus gibt es einen Aufzug."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Besucher sollen den Aufzug benutzen.",
+            "zh": "Besucher sollen den Aufzug benutzen."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Besucher benutzen die Treppe.",
+            "zh": "Besucher benutzen die Treppe."
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The final sentence states that visitors use the stairs. The second says there is no lift, while zweiten Stock does not mean ground floor. This is retrieval of an explicit detail from the text; it does not establish whether the fictional building meets any accessibility or housing requirement.",
+        "zh": "末句明确访客走楼梯，第二句说没有电梯，zweiten Stock也不是底层。题目只是提取明确细节，不判断虚构建筑是否符合任何无障碍或住房要求。"
+      }
+    },
+    {
+      "id": "GERMAN_25",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nDer Zeichenworkshop beginnt um 18 Uhr. Einlass ist ab 17:30 Uhr. Bitte bringen Sie einen Bleistift mit.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nDer Zeichenworkshop beginnt um 18 Uhr. Einlass ist ab 17:30 Uhr. Bitte bringen Sie einen Bleistift mit."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Der Workshop beginnt um 18 Uhr.",
+            "zh": "Der Workshop beginnt um 18 Uhr."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Der Workshop beginnt um 17:30 Uhr.",
+            "zh": "Der Workshop beginnt um 17:30 Uhr."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Einlass ist erst ab 19 Uhr.",
+            "zh": "Einlass ist erst ab 19 Uhr."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Bleistifte dürfen nicht mitgebracht werden.",
+            "zh": "Bleistifte dürfen nicht mitgebracht werden."
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Beginn and Einlass refer to different events: the workshop starts at 18, while entry starts at 17:30. The last sentence asks participants to bring a pencil rather than prohibiting one. Track the event named by each time instead of treating all times in a notice as interchangeable.",
+        "zh": "开始与入场是不同事件，课程18点开始、17:30起入场。末句要求带铅笔，而非禁止。应核每个时间对应的事件，不把通知中所有时刻视为可互换。"
+      }
+    },
+    {
+      "id": "GERMAN_26",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nUnser Treffen bleibt am Dienstag um 14 Uhr, findet aber jetzt in Raum 4 statt. Raum 9 ist an diesem Tag nicht verfügbar.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nUnser Treffen bleibt am Dienstag um 14 Uhr, findet aber jetzt in Raum 4 statt. Raum 9 ist an diesem Tag nicht verfügbar."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Treffen wird auf Mittwoch um 14 Uhr verschoben.",
+            "zh": "Das Treffen wird auf Mittwoch um 14 Uhr verschoben."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Treffen findet am Dienstag um 14 Uhr in Raum 4 statt.",
+            "zh": "Das Treffen findet am Dienstag um 14 Uhr in Raum 4 statt."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Treffen findet weiterhin in Raum 9 statt.",
+            "zh": "Das Treffen findet weiterhin in Raum 9 statt."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Das Treffen beginnt am Dienstag um 9 Uhr.",
+            "zh": "Das Treffen beginnt am Dienstag um 9 Uhr."
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Bleibt preserves Tuesday at 14, while jetzt in Raum 4 changes the room. Raum 9 is unavailable and is not the new location. The correct option combines the unchanged time with the changed place; a reader who sees only one number may accidentally confuse a room number with an hour.",
+        "zh": "bleibt保留周二14点，jetzt in Raum 4改变地点；9号室不可用，不是新地点。正确项结合未变时间和已变房间，不能只抓一个数字，将房号当时刻。"
+      }
+    },
+    {
+      "id": "GERMAN_27",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nDieser Eingang ist nur für Mitarbeitende. Besucher melden sich bitte am Empfang im Hauptgebäude.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nDieser Eingang ist nur für Mitarbeitende. Besucher melden sich bitte am Empfang im Hauptgebäude."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Alle Besucher müssen diesen Mitarbeitereingang benutzen.",
+            "zh": "Alle Besucher müssen diesen Mitarbeitereingang benutzen."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Besucher dürfen sich nirgendwo melden.",
+            "zh": "Besucher dürfen sich nirgendwo melden."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Besucher sollen sich am Empfang im Hauptgebäude melden.",
+            "zh": "Besucher sollen sich am Empfang im Hauptgebäude melden."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Der Empfang befindet sich laut Text in diesem Eingang.",
+            "zh": "Der Empfang befindet sich laut Text in diesem Eingang."
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Nur für Mitarbeitende restricts the entrance to staff, and the next sentence directs visitors to reception in the main building. The answer follows the stated route without adding a prohibition on visiting altogether. The sign is fictional; it is not a security instruction for a real location.",
+        "zh": "nur für Mitarbeitende限定员工入口，下一句引导访客到主楼前台。答案按所给路径，不额外推成一律禁止访客。告示为虚构，不是现实地点的安保指令。"
+      }
+    },
+    {
+      "id": "GERMAN_28",
+      "prompt": {
+        "en": "Read the original fictional German text and choose the statement supported by it.\nWenn es regnet, treffen wir uns im Café. Sonst warten wir im Park am großen Tor. Für heute ist Regen angekündigt.",
+        "zh": "阅读原创虚构德文，选择有原文支持的一项。\nWenn es regnet, treffen wir uns im Café. Sonst warten wir im Park am großen Tor. Für heute ist Regen angekündigt."
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Bei Regen soll die Gruppe im Park warten.",
+            "zh": "Bei Regen soll die Gruppe im Park warten."
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Die Gruppe trifft sich in jedem Fall am großen Tor.",
+            "zh": "Die Gruppe trifft sich in jedem Fall am großen Tor."
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Im Text wird kein Treffpunkt genannt.",
+            "zh": "Im Text wird kein Treffpunkt genannt."
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "short-german-texts",
+          "label": {
+            "en": "Für den angekündigten Regen ist das Café der Treffpunkt.",
+            "zh": "Für den angekündigten Regen ist das Café der Treffpunkt."
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The rain condition selects the café, while sonst gives the alternative for the other situation. The forecast sentence explicitly supplies rain for this fictional plan. The item checks a condition and its stated consequence; it is not a live weather forecast or a claim about whether actual rain is certain.",
+        "zh": "下雨条件对应咖啡馆，sonst给出其他情况下的公园方案。末句明确本虚构计划预报有雨，因此选相应方案。本题核条件及后果，不是实时天气预报，也不保证现实降雨。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "GERMAN_01",
+      "expected_label_en": "Der",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/371",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_02",
+      "expected_label_en": "den",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/371",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_03",
+      "expected_label_en": "dem",
+      "primary_url": "https://grammis.ids-mannheim.de/praepositionen/299660",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_04",
+      "expected_label_en": "die",
+      "primary_url": "https://grammis.ids-mannheim.de/praepositionen/299321",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_05",
+      "expected_label_en": "der",
+      "primary_url": "https://grammis.ids-mannheim.de/fragen/3140",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_06",
+      "expected_label_en": "die",
+      "primary_url": "https://grammis.ids-mannheim.de/fragen/3140",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_07",
+      "expected_label_en": "des",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/371",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_08",
+      "expected_label_en": "lerne",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/378",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_09",
+      "expected_label_en": "wohnst",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/378",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_10",
+      "expected_label_en": "liest",
+      "primary_url": "https://www.duden.de/rechtschreibung/lesen_dozieren",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_11",
+      "expected_label_en": "fahren",
+      "primary_url": "https://grammis.ids-mannheim.de/systematische-grammatik/378",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_12",
+      "expected_label_en": "wohnen",
+      "primary_url": "https://www.duden.de/sprachwissen/fuer-lernende/wortarten-verben",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_13",
+      "expected_label_en": "gelesen",
+      "primary_url": "https://www.duden.de/rechtschreibung/lesen_dozieren",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_14",
+      "expected_label_en": "ist",
+      "primary_url": "https://www.duden.de/rechtschreibung/fahren",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_15",
+      "expected_label_en": "Ich bleibe zu Hause, weil ich krank bin.",
+      "primary_url": "https://grammis.ids-mannheim.de/progr@mm/6851",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_16",
+      "expected_label_en": "Heute komme ich später.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_17",
+      "expected_label_en": "Kannst du morgen kommen?",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_18",
+      "expected_label_en": "Ich stehe jeden Morgen um sieben Uhr auf.",
+      "primary_url": "https://www.duden.de/rechtschreibung/aufstehen",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_19",
+      "expected_label_en": "Wir können morgen helfen.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_20",
+      "expected_label_en": "Ich weiß, dass der Kurs morgen beginnt.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_21",
+      "expected_label_en": "Bitte öffnen Sie das Fenster.",
+      "primary_url": "https://www.duden.de/sprachwissen/fuer-lernende/wortarten-verben",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_22",
+      "expected_label_en": "Am Donnerstag ist die Bibliothek geschlossen.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_23",
+      "expected_label_en": "Das Formular soll spätestens am Freitag geschickt werden.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_24",
+      "expected_label_en": "Besucher benutzen die Treppe.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_25",
+      "expected_label_en": "Der Workshop beginnt um 18 Uhr.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_26",
+      "expected_label_en": "Das Treffen findet am Dienstag um 14 Uhr in Raum 4 statt.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_27",
+      "expected_label_en": "Besucher sollen sich am Empfang im Hauptgebäude melden.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    },
+    {
+      "id": "GERMAN_28",
+      "expected_label_en": "Für den angekündigten Regen ist das Café der Treffpunkt.",
+      "primary_url": "https://grammis.ids-mannheim.de/vggf/2289?termini=term",
+      "basis": "Authorselectedprimarygrammar-ruleandoriginalstatedtextreview;readingkeysfollowownpassagenotvendorbank",
+      "reviewed_rule_and_explicit_conditions": true
+    }
+  ],
+  "stimuli": [
+    {
+      "id": "GERMAN_01",
+      "text": "___ Hund schläft unter dem Tisch. (Hund: maskulin, Singular)"
+    },
+    {
+      "id": "GERMAN_02",
+      "text": "Ich sehe ___ Hund am Fenster. (Hund: maskulin, Singular)"
+    },
+    {
+      "id": "GERMAN_03",
+      "text": "Wir fahren mit ___ Bus zum Museum. (Bus: maskulin, Singular)"
+    },
+    {
+      "id": "GERMAN_04",
+      "text": "Das Paket ist für ___ Schwester. (Schwester: feminin, Singular; definiter Artikel)"
+    },
+    {
+      "id": "GERMAN_05",
+      "text": "Das Kind spielt in ___ Küche. (Küche: feminin, Singular; Ort: Wo?)"
+    },
+    {
+      "id": "GERMAN_06",
+      "text": "Das Kind geht in ___ Küche. (Küche: feminin, Singular; Ziel: Wohin?)"
+    },
+    {
+      "id": "GERMAN_07",
+      "text": "Die Tür ___ Hauses ist blau. (Haus: Neutrum, Singular; Genitiv)"
+    },
+    {
+      "id": "GERMAN_08",
+      "text": "Ich ___ heute neue Wörter. (lernen, Präsens)"
+    },
+    {
+      "id": "GERMAN_09",
+      "text": "Du ___ in einer kleinen Stadt. (wohnen, Präsens)"
+    },
+    {
+      "id": "GERMAN_10",
+      "text": "Er ___ jeden Abend einen kurzen Text. (lesen, Präsens)"
+    },
+    {
+      "id": "GERMAN_11",
+      "text": "Wir ___ am Samstag nach Leipzig. (fahren, Präsens)"
+    },
+    {
+      "id": "GERMAN_12",
+      "text": "Frau Weber, ___ Sie in Dresden? (wohnen, Präsens; höfliche Anrede)"
+    },
+    {
+      "id": "GERMAN_13",
+      "text": "Sie hat den Brief schon ___. (lesen, Perfekt)"
+    },
+    {
+      "id": "GERMAN_14",
+      "text": "Er ___ gestern mit dem Zug nach Bremen gefahren. (Perfekt; Reise)"
+    },
+    {
+      "id": "GERMAN_15",
+      "text": "Begründung mit „weil“ in einem formellen geschriebenen Text."
+    },
+    {
+      "id": "GERMAN_16",
+      "text": "Aussagesatz mit „Heute“ im Vorfeld."
+    },
+    {
+      "id": "GERMAN_17",
+      "text": "Entscheidungsfrage mit „können“; angesprochen wird „du“."
+    },
+    {
+      "id": "GERMAN_18",
+      "text": "Aussagesatz im Präsens mit „aufstehen“ und „ich“."
+    },
+    {
+      "id": "GERMAN_19",
+      "text": "Aussagesatz mit „wir“, „können“ und dem Infinitiv „helfen“."
+    },
+    {
+      "id": "GERMAN_20",
+      "text": "Nebensatz mit „dass“ in einem formellen geschriebenen Text."
+    },
+    {
+      "id": "GERMAN_21",
+      "text": "Höfliche Aufforderung mit „Sie“; das Fenster soll geöffnet werden."
+    },
+    {
+      "id": "GERMAN_22",
+      "text": "Die Bibliothek ist am Mittwoch von 10 bis 16 Uhr geöffnet. Am Donnerstag bleibt sie geschlossen."
+    },
+    {
+      "id": "GERMAN_23",
+      "text": "Bitte schicken Sie das ausgefüllte Formular bis Freitag an unser Büro. Eine Abgabe am Montag ist für diesen Termin zu spät."
+    },
+    {
+      "id": "GERMAN_24",
+      "text": "Die Wohnung liegt im zweiten Stock. Im Haus gibt es keinen Aufzug. Besucher benutzen die Treppe."
+    },
+    {
+      "id": "GERMAN_25",
+      "text": "Der Zeichenworkshop beginnt um 18 Uhr. Einlass ist ab 17:30 Uhr. Bitte bringen Sie einen Bleistift mit."
+    },
+    {
+      "id": "GERMAN_26",
+      "text": "Unser Treffen bleibt am Dienstag um 14 Uhr, findet aber jetzt in Raum 4 statt. Raum 9 ist an diesem Tag nicht verfügbar."
+    },
+    {
+      "id": "GERMAN_27",
+      "text": "Dieser Eingang ist nur für Mitarbeitende. Besucher melden sich bitte am Empfang im Hauptgebäude."
+    },
+    {
+      "id": "GERMAN_28",
+      "text": "Wenn es regnet, treffen wir uns im Café. Sonst warten wir im Park am großen Tor. Für heute ist Regen angekündigt."
+    }
+  ]
+}

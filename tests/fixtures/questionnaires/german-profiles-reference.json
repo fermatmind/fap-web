@@ -1,0 +1,502 @@
+[
+  {
+    "id": "articles-and-cases",
+    "directionIds": [
+      "articles-and-cases"
+    ],
+    "title": {
+      "en": "German Articles & Cases Practice Guide",
+      "zh": "德语冠词与格练习指南"
+    },
+    "headline": {
+      "en": "Find the function before choosing the article",
+      "zh": "先找句中功能，再选冠词"
+    },
+    "summary": {
+      "en": "Review seven written tasks on subject and object case, fixed prepositions, spatial direction and genitive forms.",
+      "zh": "复习七道书面题的主宾语格、固定介词、空间方向及第二格形式。"
+    },
+    "seo": {
+      "title": {
+        "en": "German Articles & Cases: Written Practice Guide",
+        "zh": "德语冠词与格：书面练习指南"
+      },
+      "description": {
+        "en": "Work through case triggers and article forms with new German examples and explicit limits on what the count means.",
+        "zh": "用新的德文例子复习格位触发条件及冠词形式，明确正确数的解释范围。"
+      }
+    },
+    "scoreReading": {
+      "en": "The count is out of seven supplied choices. It is not a CEFR level, vocabulary-size estimate or certificate.",
+      "zh": "正确数分母为七，不是CEFR等级、词汇量估计或证书。"
+    },
+    "sections": [
+      {
+        "id": "function",
+        "title": {
+          "en": "Start with the noun phrase’s job",
+          "zh": "从名词短语的功能开始"
+        },
+        "paragraphs": [
+          {
+            "en": "A dictionary article records grammatical gender, but a sentence can require a different case form. In a fresh pair, Der Hund wartet and Ich sehe den Hund refer to the same masculine noun while giving it different grammatical functions. Identify the subject or the object before choosing an ending. The quiz supplies gender where it is needed, so this section separates using that information from recalling a noun’s gender. Getting these particular choices right does not demonstrate that every unfamiliar German noun is already known.",
+            "zh": "词典冠词记录语法性别，句中却可能需要其他格。新例Der Hund wartet与Ich sehe den Hund使用同一阳性名词，但功能不同，应先判主语或宾语再选形式。本题在需要时给性别信息，将运用与背名词性别分开；答对这些选择不代表已知所有陌生名词。"
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "title": {
+          "en": "Read gender, number and case together",
+          "zh": "把性、数、格放在一起读"
+        },
+        "paragraphs": [
+          {
+            "en": "The definite article varies with gender, number and case, and some written forms occur in more than one cell of its paradigm. Der can name masculine nominative or feminine dative, for example. Do not assign one permanent meaning to that string without its noun phrase. A useful unscored exercise is to label the supplied gender and number, state the required case, and then choose the corresponding article. This gives a reason for a form rather than a guess based on how familiar the sentence sounds.",
+            "zh": "定冠词随性数格变化，同一形式可能占多个格位，如der可为阳性第一格或阴性第三格。不要脱离名词短语给一个字串固定含义。不计分时可先标已给性、数，再说所需格，最后选对应冠词，让形式有理由，而非只凭听起来熟悉。"
+          }
+        ]
+      },
+      {
+        "id": "fixed-prepositions",
+        "title": {
+          "en": "Let the relevant preposition govern its phrase",
+          "zh": "让相关介词决定短语格位"
+        },
+        "paragraphs": [
+          {
+            "en": "In the uses practised here, mit governs dative and für governs accusative. A fresh pair such as mit dem Lehrer and für den Lehrer changes the article because the preposition changes the required case. Both phrases can concern a person; that fact alone does not make both dative. Learn the construction with its trigger rather than an English or Chinese translation that hides the case. The guide discusses these specified patterns, not every idiomatic combination or every historical variant of a preposition.",
+            "zh": "本练习用法中mit支配第三格，für支配第四格。新例mit dem Lehrer与für den Lehrer因介词要求不同而换冠词，两者都可指人，但这不让两者自动都是第三格。应把结构和触发词一起学，而非只背隐去格位的英中文译法；此处不覆盖所有习语或历史变体。"
+          }
+        ]
+      },
+      {
+        "id": "space",
+        "title": {
+          "en": "Distinguish location from destination",
+          "zh": "区分所在地点与目标方向"
+        },
+        "paragraphs": [
+          {
+            "en": "With the specified spatial use of in, a location and a destination take different cases. Die Tasche liegt in der Küche locates the bag, while Ich lege die Tasche in die Küche gives the destination of placing it. “Something is moving” is not a sufficient rule: walking around inside a room can still be located in that room. Ask what the phrase expresses and read the verb construction. Verb-selected prepositional complements can need their own lexical information rather than a universal motion shortcut.",
+            "zh": "in在给定空间用法中，地点和目标用不同格。Die Tasche liegt in der Küche说明包所在位置，Ich lege die Tasche in die Küche说明放入目标。“有东西在动”不是充分口诀，在房间内走动仍可表示位于房间。应核短语表达什么及动词结构，动词支配的介词补足语可能需要专门词汇信息。"
+          }
+        ]
+      },
+      {
+        "id": "genitive",
+        "title": {
+          "en": "Notice an explicitly requested genitive",
+          "zh": "注意明确要求的第二格"
+        },
+        "paragraphs": [
+          {
+            "en": "When an exercise gives genitive and a neuter singular noun phrase, des is the relevant definite article. In the new phrase die Farbe des Autos, the article and the supplied noun ending work together. Do not swap the article for dem simply because both words can be related in meaning. At the same time, this pattern does not mean every ownership or association in every register must be expressed in exactly one way. The quiz asks for the stated standard written construction, not a ranking of all regional alternatives.",
+            "zh": "若练习明确第二格、中性单数，定冠词应为des。新短语die Farbe des Autos中冠词及所给名词词尾共同起作用，不因语义有关联就换成dem。但这也不表示各种语域中的归属关联都只能一种表达；题目问给定标准书面结构，不给地区变体排序。"
+          }
+        ]
+      },
+      {
+        "id": "new-example",
+        "title": {
+          "en": "Change one trigger and explain the new form",
+          "zh": "改变一个触发条件，并说明新形式"
+        },
+        "paragraphs": [
+          {
+            "en": "For further unscored practice, start with a noun whose gender is supplied in a trusted vocabulary note. Build a simple subject sentence, then a direct-object sentence, then one phrase with mit and another with für. Explain which property changed at each step and which stayed the same. If you do not know the noun’s own ending, check it separately rather than hiding that uncertainty. New examples test whether you can apply the distinction after reading the keys instead of only recognising a sentence from this fixed bank.",
+            "zh": "后续不计分时，从可靠词汇记录已给性别的名词出发，造主语句、直接宾语句，再造mit和für短语，逐步说哪些变化、哪些不变。若不知名词自身词尾，应另查而非掩盖。换例子可核是否能看答案后迁移运用，而非只认出固定题面。"
+          }
+        ]
+      },
+      {
+        "id": "reading-count",
+        "title": {
+          "en": "Keep seven article decisions in perspective",
+          "zh": "按七项冠词判断的范围读结果"
+        },
+        "paragraphs": [
+          {
+            "en": "Each matching answer contributes one correct item, with no speed weighting or partial credit. This seven-item section does not estimate a CEFR level, measure listening, or assess spontaneous speaking and writing. Every valid complete attempt receives all explanations and all four full guides, even at zero correct. German stimuli and answer options stay German in both interfaces; the explanatory language changes. After seeing the key, a stronger retake may reflect recall, so use a fresh example before treating it as evidence of transferable understanding.",
+            "zh": "每个匹配答案计一道，无速度权重或部分分。七题不估CEFR等级、不测听力或即兴说写。完整有效作答即使零分也给全部解析和四份全文。两种界面的原题选项都保留德文，只切换说明语言。看答案后重测更好可能来自记忆，判断能否迁移前应换新例子。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "german-verb-forms",
+    "directionIds": [
+      "german-verb-forms"
+    ],
+    "title": {
+      "en": "German Verb Forms Practice Guide",
+      "zh": "德语动词形式练习指南"
+    },
+    "headline": {
+      "en": "Match the subject, tense and construction",
+      "zh": "对齐主语、时态及结构"
+    },
+    "summary": {
+      "en": "Review seven decisions on present-tense agreement, strong-verb forms, formal Sie and perfect constructions with lesen and fahren.",
+      "zh": "复习七项判断：现在时一致、强变化形式、尊称Sie及lesen、fahren完成时结构。"
+    },
+    "seo": {
+      "title": {
+        "en": "German Verb Forms: Written Practice Guide",
+        "zh": "德语动词形式：书面练习指南"
+      },
+      "description": {
+        "en": "Practise present agreement, liest, formal Sie and the specific perfect constructions used in the original written tasks.",
+        "zh": "练现在时一致、liest、尊称Sie及原创书面题中指定的完成时结构。"
+      }
+    },
+    "scoreReading": {
+      "en": "Seven matching choices do not establish a CEFR level, speaking fluency or mastery of every German tense.",
+      "zh": "七个匹配选择不能确立CEFR等级、口语流利度或全部德语时态掌握程度。"
+    },
+    "sections": [
+      {
+        "id": "subject",
+        "title": {
+          "en": "Find person and number before the ending",
+          "zh": "选词尾前先找人称及数"
+        },
+        "paragraphs": [
+          {
+            "en": "The finite verb agrees with the subject in person and number. In fresh examples, ich suche, du suchst and wir suchen use the same regular stem with different endings. A time phrase such as heute or am Freitag does not replace the subject as the agreement trigger. First identify who the sentence is about, then choose the relevant form. This method is a way to reason about the supplied written task; it does not imply that every German verb is regular or that an infinitive can stand in for any finite form.",
+            "zh": "新例ich suche、du suchst、wir suchen以同一规则词干配不同词尾。heute或am Freitag等时间短语不会替代主语的人称数作用。应先判句子说谁，再选形式。这是分析给定书面题的方法，不表示德语动词全部规则，也不表示不定式可随意替限定形式。"
+          }
+        ]
+      },
+      {
+        "id": "regular-pattern",
+        "title": {
+          "en": "Use a regular pattern where it applies",
+          "zh": "在适用动词上使用规则模式"
+        },
+        "paragraphs": [
+          {
+            "en": "A regular present form can often be built from the stem and the appropriate ending, but the exact stem and spelling still matter. Do not transfer one displayed form unchanged to every subject. In a short practice table for suchen, compare ich suche with er sucht and ihr sucht, noticing that the same written form may agree with different subjects. A matching ending is part of a construction, not a complete meaning by itself. Check an unfamiliar verb rather than declaring it regular because its infinitive looks familiar.",
+            "zh": "规则现在时常可由词干加相应词尾组成，但具体词干及拼写仍重要，不能把一个形式搬给所有主语。以suchen短表比较ich suche、er sucht、ihr sucht，可见同形也能对应不同主语。词尾属于结构，不独立承担完整含义；陌生动词应查证，不能因不定式眼熟就认定规则。"
+          }
+        ]
+      },
+      {
+        "id": "strong-forms",
+        "title": {
+          "en": "Treat liest as a form to learn, not an ending guess",
+          "zh": "把liest当需学习的形式，而非猜词尾"
+        },
+        "paragraphs": [
+          {
+            "en": "Lesen has the present forms du liest and er liest, rather than a wholly unchanged stem in those cells. In a new sentence, Du liest den Plan, the subject and the particular verb both matter. A general regular pattern helps you know what to check, but it cannot supply every strong-verb stem change. Record the relevant forms with a short original sentence and contrast the persons that differ. The goal here is accurate recognition and explanation of a written form, not a claim that recognition alone produces spontaneous speech.",
+            "zh": "lesen在du、er处为liest，不能假定这些格位词干不变。新句Du liest den Plan需同时看主语和具体动词。规则模式能提示核查什么，却不能提供所有强变化。可用短原创句记录相关形式，比较哪些人称不同；准确识别书面形式不等于自动具备即兴口语。"
+          }
+        ]
+      },
+      {
+        "id": "address",
+        "title": {
+          "en": "Keep formal Sie separate from informal du",
+          "zh": "区分尊称Sie与非正式du"
+        },
+        "paragraphs": [
+          {
+            "en": "Formal address Sie uses plural verb agreement even when addressing one person. A fresh question such as Frau Koch, suchen Sie den Raum? therefore differs from the informal Suchst du den Raum? The quiz states the address where it matters, so you do not need to assume that all work settings use one pronoun. A real relationship or organisation may have its own convention. Reading the stated pronoun and matching the verb is a grammatical task; deciding which form a real person prefers is a contextual communication task.",
+            "zh": "新问句Frau Koch, suchen Sie den Raum?即使称一人，也用复数一致，不同于非正式Suchst du den Raum? 题目在需要时明确称呼，不要求假设职场一律用某代词。真实关系、机构可有各自惯例；读代词配动词是语法任务，判断真人偏好则是语境沟通任务。"
+          }
+        ]
+      },
+      {
+        "id": "perfect",
+        "title": {
+          "en": "Identify the auxiliary-plus-participle frame",
+          "zh": "识别助动词加分词框架"
+        },
+        "paragraphs": [
+          {
+            "en": "A supplied auxiliary tells you what kind of form is still missing. In the new example Wir haben den Hinweis gelesen, haben is finite and gelesen is the past participle. Replacing the participle with liest would not complete the same perfect construction. Read the whole frame rather than choosing whichever form of lesen you recognise first. The fixed choice task does not test every way German expresses past time, and it does not determine whether you could independently write a full message about a past event.",
+            "zh": "新例Wir haben den Hinweis gelesen中，haben为限定助动词，gelesen为第二分词，换成liest不能组成相同完成时。应读完整框架，不只选首先认出的lesen形式。固定选择题不覆盖所有德语过去表达，也不判断是否能独立写出完整过去事件消息。"
+          }
+        ]
+      },
+      {
+        "id": "auxiliary-meaning",
+        "title": {
+          "en": "Choose the auxiliary for the specified meaning",
+          "zh": "根据明确义项选择助动词"
+        },
+        "paragraphs": [
+          {
+            "en": "Fahren can appear with different auxiliaries in different constructions. A fictional journey example, Wir sind mit dem Bus nach Bonn gefahren, uses sein for travelling to a destination. This should not become the rule “fahren always takes sein”: a transitive use referring to driving a vehicle can take haben. The quiz deliberately states a journey context. For a new use, check the verb meaning and construction in a reliable reference instead of replacing the specific example with an overbroad memory shortcut.",
+            "zh": "虚构旅行例Wir sind mit dem Bus nach Bonn gefahren以sein表达向目标地出行，但不能背成fahren永远用sein，及物驾驶某车辆可用haben。题目特定旅行语境；遇新用法应核可靠参考中的义项、结构，而非以过宽口诀替代具体例子。"
+          }
+        ]
+      },
+      {
+        "id": "further-practice",
+        "title": {
+          "en": "Explain a fresh form before counting a retake",
+          "zh": "重测计数之外，再解释一个新形式"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose an unscored original sentence with a known verb and change only the subject. Then make a separate perfect example, naming the auxiliary and participle. Check whether the change preserved the intended meaning and whether the source supports the exact form. The seven quiz items count matching choices without speed points, CEFR bands or certification. All completed attempts receive the full explanations and all guides. Because the bank is fixed, a higher retake after reading them may reflect recall; a new sentence gives a different opportunity to apply the rule.",
+            "zh": "不计分时选已知动词自造句，只换主语；再另造完成时例，指出助动词与分词，核是否保留意图且来源支持该形式。七题只计匹配，无速度分、CEFR等级或认证，完整作答均得全部解析及指南。固定题本看后提高可能来自记忆，换新句能另练规则运用。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sentence-structure",
+    "directionIds": [
+      "sentence-structure"
+    ],
+    "title": {
+      "en": "German Sentence Structure Practice Guide",
+      "zh": "德语句子结构练习指南"
+    },
+    "headline": {
+      "en": "Find the finite verb and the frame around it",
+      "zh": "找到限定动词及其句框"
+    },
+    "summary": {
+      "en": "Review seven written choices involving statements, questions, formal subordinate clauses, separable verbs and requests with Sie.",
+      "zh": "复习七项书面选择：陈述、疑问、正式从句、可分动词及Sie请求。"
+    },
+    "seo": {
+      "title": {
+        "en": "German Sentence Structure: Written Practice Guide",
+        "zh": "德语句子结构：书面练习指南"
+      },
+      "description": {
+        "en": "Practise finite-verb positions, modal and separable-verb frames, and the written register stated in each original task.",
+        "zh": "练限定动词位置、情态及可分动词框架，按原创题目明确的书面语域判断。"
+      }
+    },
+    "scoreReading": {
+      "en": "The count concerns seven constrained written decisions. It does not measure spontaneous sentence production or a CEFR band.",
+      "zh": "此数值只反映七项受限书面判断，不测即兴造句或CEFR等级。"
+    },
+    "sections": [
+      {
+        "id": "finite",
+        "title": {
+          "en": "Separate the finite form from other verb parts",
+          "zh": "区分限定形式与其他动词成分"
+        },
+        "paragraphs": [
+          {
+            "en": "In a German verbal frame, not every verb-shaped word has the same job. In the fresh sentence Wir wollen morgen zeichnen, wollen is finite and agrees with wir, while zeichnen is infinitive. Identify the finite element before asking whether it should be first, second or later in the clause. If you choose only by spotting a familiar verb, you can miss the structure connecting the words. This guide explains the limited constructions used in the quiz, rather than claiming to cover every possible German verb cluster.",
+            "zh": "新句Wir wollen morgen zeichnen中wollen是与wir一致的限定形式，zeichnen是不定式。先识别限定成分，再判它应在首、第二位或从句后部。若只找熟悉动词，可能漏掉词间结构。本指南解释测验涉及的有限结构，不覆盖所有德语动词组合。"
+          }
+        ]
+      },
+      {
+        "id": "v2",
+        "title": {
+          "en": "Count a fronted constituent, not merely a word",
+          "zh": "按前置成分理解位置，不只数单词"
+        },
+        "paragraphs": [
+          {
+            "en": "A standard declarative can begin with a subject or another constituent. In the new pair Ich lerne heute and Heute lerne ich, the finite verb stays in the second constituent position. A longer phrase such as Am frühen Abend can occupy the first position as one unit, even though it contains several written words. This is why “always the second word” is an unreliable shortcut. Read the fronted phrase as a constituent and check the finite verb that follows it in the specified declarative pattern.",
+            "zh": "新例Ich lerne heute与Heute lerne ich中限定动词都在第二成分位置。Am frühen Abend等较长短语虽有几个书写单词，也可作为一个前场单位，因此“永远第二个词”并非可靠口诀。应把前置短语作为成分，再核给定陈述句型中的限定动词。"
+          }
+        ]
+      },
+      {
+        "id": "question",
+        "title": {
+          "en": "Distinguish the question structure being requested",
+          "zh": "区分题目要求的疑问结构"
+        },
+        "paragraphs": [
+          {
+            "en": "A standard yes/no question can place the finite verb first, as in Wollen wir morgen zeichnen? A question introduced by a question word has a different opening: Wann wollen wir zeichnen? The relevant contrast is the specified structure, not whether an English or Chinese translation sounds like a question. Spoken German can also use other forms and intonation. Since this is a written choice task, the item names the kind of question instead of pretending to assess the spoken cues it does not present.",
+            "zh": "一般疑问可将限定动词置首，如Wollen wir morgen zeichnen? 问词引导则为Wann wollen wir zeichnen? 应比较指定结构，而非看英中文译文像不像问句。口语还可有其他形式及语调；本题是书面选择，因此明确问句类型，不假装评估未呈现的语音线索。"
+          }
+        ]
+      },
+      {
+        "id": "subordinate",
+        "title": {
+          "en": "Read a formal introduced clause as its own frame",
+          "zh": "把正式引导从句作为独立句框来读"
+        },
+        "paragraphs": [
+          {
+            "en": "In a simple formal written dass- or weil-clause, the finite verb typically closes the clause: dass sie heute lernt, weil sie Zeit hat. These new examples keep the subject and finite form together while changing the frame from a main clause. Do not import the main clause’s ordinary verb-second pattern into the requested written subordinate structure. At the same time, do not generalise this small pattern into a claim that all German clauses have one identical final position under every possible verb construction.",
+            "zh": "简单正式书面dass、weil从句通常以限定动词收尾，如dass sie heute lernt、weil sie Zeit hat。新例保持主语一致，同时换成从句句框，不把常规主句第二位搬进所要求从句。但也不能把有限模式推广成任何德语动词结构都只有相同句末位置。"
+          }
+        ]
+      },
+      {
+        "id": "register",
+        "title": {
+          "en": "Keep the written-register qualification",
+          "zh": "保留书面语域这一条件"
+        },
+        "paragraphs": [
+          {
+            "en": "The quiz specifies formal writing for the weil choice because everyday speech can use weil followed by verb-second order in some contexts. Recognising that variation prevents an overbroad explanation such as “nobody ever says it this way.” A practice key can select a form for a named register without denying other observed usage. When revising a new sentence, state the register and intended structure first. The exercise does not rank dialect speakers or claim that a multiple-choice count captures how naturally someone manages a live conversation.",
+            "zh": "weil题指定正式写作，是因为日常口语某些语境确实可接动词第二位。知道变体能避免“没人这样说”这种过宽解释。标准答案可以针对指定语域选择，而不否认可观察用法。改新句时先说语域及结构，练习不评方言使用者，也不以选择数概括现场会话自然程度。"
+          }
+        ]
+      },
+      {
+        "id": "particle-and-address",
+        "title": {
+          "en": "Track the particle and the addressee",
+          "zh": "留意小品词与称呼对象"
+        },
+        "paragraphs": [
+          {
+            "en": "A separable main-clause verb has parts that belong together even when other words occur between them: Ich stehe früh auf. Losing auf changes what the sentence says. A formal imperative has its own address pattern, such as Bitte kommen Sie herein; it cannot be built by combining a du ending with Sie. In each case, check the whole supplied construction rather than one isolated word. These brief original examples illustrate the distinctions and do not prescribe how every real workplace must address its colleagues.",
+            "zh": "可分主句动词的部分虽被其他词隔开，仍属一体，如Ich stehe früh auf，丢auf会改变意思。尊称命令如Bitte kommen Sie herein也有称呼结构，不能把du词尾与Sie拼接。应核完整构式而非孤立词；简短原创例子只说明区别，不规定所有职场如何称呼同事。"
+          }
+        ]
+      },
+      {
+        "id": "new-sentence",
+        "title": {
+          "en": "Apply the frame to an unscored new sentence",
+          "zh": "把句框用于新的不计分句子"
+        },
+        "paragraphs": [
+          {
+            "en": "Start with a fictional declarative using a verb you know. Move a time phrase to the front, then make a yes/no question, and finally write a simple formal weil-clause with an explicit reason. Check each finite form and frame separately with an appropriate source. This gives you a new application after reading the keys. Seven matching quiz choices are not a CEFR classification, spoken-fluency assessment or writing certificate, and an improved retake may reflect memorisation of this fixed bank rather than independent production.",
+            "zh": "用熟悉动词自写虚构陈述，先将时间短语前置，再改一般疑问，最后写有明确理由的正式weil从句。分别按合适来源核限定形式及框架，这是读答案后的一次新运用。七个匹配选择不是CEFR分类、口语测评或写作证书，重测提高也可能只是记住固定题本。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "short-german-texts",
+    "directionIds": [
+      "short-german-texts"
+    ],
+    "title": {
+      "en": "Short German Texts Practice Guide",
+      "zh": "德语短文阅读练习指南"
+    },
+    "headline": {
+      "en": "Keep each detail attached to its condition",
+      "zh": "把细节和各自条件对应起来"
+    },
+    "summary": {
+      "en": "Review seven original notices and messages by tracking dates, opening times, changes, requests, restrictions and conditional plans.",
+      "zh": "通过七段原创通知消息，复习日期、时间、变更、请求、限制及条件计划。"
+    },
+    "seo": {
+      "title": {
+        "en": "Short German Texts: Reading Practice Guide",
+        "zh": "德语短文：阅读练习指南"
+      },
+      "description": {
+        "en": "Practise extracting explicit details and conditions from fictional German notices, without turning a small count into a proficiency level.",
+        "zh": "练提取虚构德文通知的明确细节及条件，不把有限正确数换算成语言等级。"
+      }
+    },
+    "scoreReading": {
+      "en": "Seven reading choices concern the supplied texts only. They do not assess listening, speaking or independent German writing.",
+      "zh": "七项阅读选择只涉及给定文字，不评听力、口语或独立德语写作。"
+    },
+    "sections": [
+      {
+        "id": "anchor",
+        "title": {
+          "en": "Locate the sentence that supports the answer",
+          "zh": "找出支持答案的句子"
+        },
+        "paragraphs": [
+          {
+            "en": "Before choosing a statement, find its support in the passage. A fresh fictional notice says Die Werkstatt ist am Montag geschlossen. Am Dienstag öffnen wir um neun Uhr. Monday is the closure day, while Tuesday has an opening time. Recognising the word öffnen is not enough if you attach it to the wrong day. Keep each detail with the sentence and event it belongs to. This task checks reading the supplied text, not knowing a real workshop’s hours or guessing what most businesses usually do.",
+            "zh": "新虚构通知Die Werkstatt ist am Montag geschlossen. Am Dienstag öffnen wir um neun Uhr.中，周一关闭、周二九点开门。只认识öffnen却配错日期仍不对。应把细节与所属句子事件对应。本题核阅读给定文字，不考真实维修店营业安排，也不猜多数商店惯例。"
+          }
+        ]
+      },
+      {
+        "id": "events-and-times",
+        "title": {
+          "en": "Distinguish access time from start time",
+          "zh": "区分入场时间与活动开始"
+        },
+        "paragraphs": [
+          {
+            "en": "Two times can be correct while describing different events. In a new example, Einlass ab 18 Uhr and Beginn um 18:45 Uhr give entry and the event start separately. A question about the start cannot be answered merely by selecting the first number you see. Name the event before retrieving its time. The examples are fictional and do not require a live calendar or clock; they ask whether you can preserve the relation written in the notice without substituting a familiar schedule.",
+            "zh": "新例Einlass ab 18 Uhr与Beginn um 18:45 Uhr分别是入场及开始，问开始时间不能只取首先看到的数字。应先找事件再找时间。例子虚构，无需实时日历时钟，只需保留通知写明的对应，不以熟悉安排代替。"
+          }
+        ]
+      },
+      {
+        "id": "change",
+        "title": {
+          "en": "Separate what changes from what remains",
+          "zh": "分清变了什么及保留什么"
+        },
+        "paragraphs": [
+          {
+            "en": "An update may change a room without changing the day or hour. A fresh fictional message says Der Termin bleibt am Freitag um elf Uhr, aber wir treffen uns jetzt in Raum 6. The words bleibt and jetzt organise the information: the appointment stays at its time while the place changes. A supported summary must combine those parts correctly. Do not move the appointment to another day because you recognise a change marker, or mistake a room number for a starting hour.",
+            "zh": "新消息Der Termin bleibt am Freitag um elf Uhr, aber wir treffen uns jetzt in Raum 6.中，bleibt保留周五十一点，jetzt改变房间。准确总结须合并两部分，不能因看见变更词就换日期，也不能把房号当开始时间。"
+          }
+        ]
+      },
+      {
+        "id": "request",
+        "title": {
+          "en": "Track the requested action and its boundary",
+          "zh": "同时看所要求动作和边界"
+        },
+        "paragraphs": [
+          {
+            "en": "A notice may ask for a completed form by a named day. Read the action, the object and the deadline together rather than recognising only one familiar noun. If a later sentence explicitly says another day is too late, use that constraint instead of inventing an extension. This is a reading exercise under fictional terms, not a statement about a legal deadline or a real organisation’s acceptance policy. If the original text leaves a detail unknown, a supported answer should not pretend that the missing detail was supplied.",
+            "zh": "通知可能要求某日前交填完的表，应把动作、对象、期限一起读，不能只认一个熟悉名词。若后句明确另一日太迟，就保留该限制，不编延期。这是虚构条款阅读，不陈述法定期限或真实机构收件政策；原文缺信息时，也不应假装已有。"
+          }
+        ]
+      },
+      {
+        "id": "restriction",
+        "title": {
+          "en": "Read negative and limiting words carefully",
+          "zh": "留意否定及限定词"
+        },
+        "paragraphs": [
+          {
+            "en": "Words such as kein and nur can change the available interpretation of a familiar sentence. In a fresh invented sign, Dieser Raum ist nur für Mitarbeitende. Gäste warten bitte im Foyer, the restriction concerns this room and the next sentence gives guests another place. It does not say that guests may never enter the building. Look for the exact scope of the restriction and the alternative actually offered. This avoids turning a narrow written condition into a much broader prohibition unsupported by the text.",
+            "zh": "新告示Dieser Raum ist nur für Mitarbeitende. Gäste warten bitte im Foyer.中，限制针对该房间，后句给访客其他等待处，并非禁止访客进整栋楼。应核限制具体范围及实际替代方案，避免把窄条件扩大成无原文支持的禁令。"
+          }
+        ]
+      },
+      {
+        "id": "condition",
+        "title": {
+          "en": "Carry the condition through to the conclusion",
+          "zh": "让结论保留原有条件"
+        },
+        "paragraphs": [
+          {
+            "en": "Wenn and sonst can connect alternative plans. A new fictional note says Wenn der Bus ausfällt, nehmen wir den Zug. Sonst fahren wir mit dem Bus. The train belongs to the cancellation branch, not to every possible day. Ask which condition the passage supplies and which consequence follows from it. If the text provides a forecast or an expectation, keep that qualification rather than claiming a guaranteed real-world event. The quiz supplies invented plans; it does not fetch transport status, weather or other live facts.",
+            "zh": "新便条Wenn der Bus ausfällt, nehmen wir den Zug. Sonst fahren wir mit dem Bus.中，火车对应公交取消分支，不适用于所有日子。应找已给条件及其后果。若文字只给预报或预期，也应保留限定，不宣称现实必然发生。测验使用虚构计划，不查实时交通或天气。"
+          }
+        ]
+      },
+      {
+        "id": "fresh-reading",
+        "title": {
+          "en": "Use a new passage after reviewing the keys",
+          "zh": "看过答案后，换段新文字再练"
+        },
+        "paragraphs": [
+          {
+            "en": "For unscored revision, write a short fictional notice with one unchanged time, one changed location and one explicit condition. Then identify which sentences support each detail without translating the passage word for word first. The seven-item count reflects matching choices on these supplied texts, not a CEFR classification or a measure of every written skill. German stimuli and options remain unchanged across the English and Chinese interfaces; explanatory text is bilingual. Retaking the same bank can reward recall, so a fresh passage offers a separate opportunity to practise reading.",
+            "zh": "不计分时自写短虚构通知，含一个未变时间、一个新地点和一个明确条件，再直接找各细节的支持句，不先逐字全译。七题正确数不是CEFR分类，也不评全部书面技能。英中文界面的德文原题及选项一致，解析双语。重复固定题本可能靠记忆，换短文可另练阅读。"
+          }
+        ]
+      }
+    ]
+  }
+]
