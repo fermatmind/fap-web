@@ -1,0 +1,1830 @@
+{
+  "slug": "moral-dilemma-test",
+  "code": "FIVE_ETHICAL_QUESTIONS_ORIGINAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "道德困境测试",
+    "en": "Moral Dilemma Test"
+  },
+  "resultHeading": {
+    "zh": "五组伦理提问：次数与完整读法",
+    "en": "Five ethical questions: counts and full readings"
+  },
+  "description": {
+    "zh": "免费道德困境测试：20道原创日常价值张力情境，探索后果、原则、品格、关怀与公允五组提问。所有最高并列和五份完整说明免费，不判善恶、能力或人格。",
+    "en": "A free moral dilemma test: 20 original situations, five ethical questions and full guides for every highest tie, without moral grades or personality verdicts."
+  },
+  "seoTitle": {
+    "zh": "道德困境测试：五种伦理提问与免费完整结果",
+    "en": "Moral Dilemma Test: Five Lenses & Free Full Results"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "共享材料怎样分、承诺遇到新需要怎样说明、短剧角色怎样安排？这些日常价值张力没有由本网页预设的唯一正确行动。本版写了20道原创假想情境，每题问你此刻更想先核对哪一个问题，围绕后果、原则、品格、关怀和公允五个编辑入口。菜单每次呈现四组，轮流省略第五组；各组总共出现16次、在四个位置各4次。完成后显示选择次数和所有最高并列的九节全文，五份公开说明也可先读。次数不是道德、能力或信念份额，入口不是互斥人格，也不认证完整哲学学派归属。全选同一个位置会五组各4，不表示理想平衡。我们没有采用DIT-2、MJT、MFT或竞品题库，不收集你真实遇到的困境；全部题目、完整结果、重测和分享免费。",
+    "en": "How should shared materials be allocated, commitments discussed when new needs arise, or roles in a short play arranged? This webpage prescribes no single correct action for these everyday value tensions. Twenty original hypothetical situations ask which question you want to examine first now, using five editorial entry points: consequences, principles, character, care and fairness. Each menu presents four groups with a rotating omission; every group appears sixteen times, four in each position. A complete attempt shows selection counts and the nine-section guide for every highest tie. All five public guides can also be read first. Counts are not shares of morality, ability or belief, and the entry points are neither mutually exclusive personalities nor complete philosophical affiliations. Choosing the same position throughout gives four counts per group without an ideal balance. No DIT-2, MJT, MFT or competitor bank is adopted, and no actual dilemma is collected. All questions, full results, retakes and sharing are free."
+  },
+  "instructions": {
+    "zh": "每个假想日常情境都有几种值得讨论的考虑。请选择自己此刻想先核对的一个问题，不是挑最高尚的话，也不要求承诺真实会怎样做。每题只呈现五组提问中的四组，轮流省略；每组全卷出现16次、在四个位置各4次，省略4次。每选一项该组加1，无反向或对错分；20题完成才显示次数和全部最高并列全文，不硬派主副型。其他问题可能同样重要，菜单不穷尽现实做法。若没有合适选项，可退出，公开全文仍免费，不输入私人经历。",
+    "en": "Each ordinary hypothetical tension has several considerations worth discussing. Choose one question you want to examine first now, rather than the noblest sentence or a promise of actual behaviour. A menu presents four of five lines of inquiry with a rotating omission. Each group appears sixteen times, four in each position, and is absent four times. A choice adds one count with no reversals or correctness points. All twenty selections are needed for counts and every highest tie’s full guide, without a forced primary or secondary type. Other questions may matter equally, and menus do not exhaust real actions. Leave if none fits; public guides remain free without personal stories."
+  },
+  "source": {
+    "kind": "Twenty original bilingual ordinary hypothetical value tensions with original questions for reflection, informed by broad philosophical traditions. Each menu offers four of five editorial lines of inquiry, not a psychological instrument, a correct-action key or a reproduction of any competitor bank.",
+    "formCode": "fm_ethical_questions_choices_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "24eb0d24a5f803be94b18b769b356c2d4e3d5591f71d1f91bac6aa4b1e2c85c0",
+    "resultContentSha256": "f74bbe9a8c41ee10ab2bde48dfca74ea92bd274e1f29fc7226539481e799c364",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "consequences",
+      "title": {
+        "zh": "后果与影响",
+        "en": "Consequences and effects"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "principles",
+      "title": {
+        "zh": "原则与承诺",
+        "en": "Principles and commitments"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "character",
+      "title": {
+        "zh": "品格与实践",
+        "en": "Character and practice"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "care",
+      "title": {
+        "zh": "关怀与关系",
+        "en": "Care and relationships"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "fairness",
+      "title": {
+        "zh": "公允与分配",
+        "en": "Fairness and allocation"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "ETHICS_01",
+      "prompt": {
+        "zh": "读书活动的展示桌只剩几个位置。你先前答应给一位准备很久的成员留位，但新收到的其他作品能让更多主题被看见。你想先核对哪个问题？",
+        "en": "A reading event has only a few display spaces left. You promised a place to someone who prepared for weeks, but newer submissions would represent more topics. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先前承诺形成了什么应当认真对待的义务，怎样交代才站得住？",
+            "en": "What obligation did the earlier promise create, and how could a response be justified?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样处理才能在这个具体取舍里践行诚实、审慎和负责？",
+            "en": "How could this particular choice practise honesty, sound judgment and responsibility?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "那位依靠留位作准备的成员，现在具体需要怎样的回应？",
+            "en": "What response is now needed by the member who relied on the reserved place?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果事先不知道自己是哪位投稿者，会接受什么公开选位办法？",
+            "en": "What transparent allocation would be acceptable without knowing which contributor you would be?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_02",
+      "prompt": {
+        "zh": "共同手作箱已被小组预约做周末活动。一位新成员临时想借其中一件工具，按原计划借出会让预约小组等待。你想先核对哪个问题？",
+        "en": "A shared craft kit is reserved for a weekend group activity. A new member wants one tool, but lending it would make the reserving group wait. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样的处理能在资源紧张时仍体现可靠与审慎，而不只是方便自己？",
+            "en": "What response would practise reliability and judgment under scarcity rather than convenience alone?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "双方各自依赖这件工具的具体处境是什么，有什么可以回应的需要？",
+            "en": "What particular circumstances and needs explain each side’s reliance on this tool?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样的借用和例外标准对新旧成员都能公开说明？",
+            "en": "What borrowing and exception criteria could be explained openly to both new and established members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "借出与保留工具，各会带来多少等待、完成机会和额外麻烦？",
+            "en": "How would lending or retaining the tool affect waiting, completion and inconvenience?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_03",
+      "prompt": {
+        "zh": "社区花园想把一片空地做成醒目的花景，部分邻居则希望保留现在安静的小角落。两种安排都有人认真维护。你想先核对哪个问题？",
+        "en": "A community garden could turn an empty patch into a striking display, while some neighbours want to keep its quiet corner. Both arrangements have committed volunteers. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "依赖这个安静角落的人，其具体需要有没有机会被听见？",
+            "en": "Have the particular needs of people relying on the quiet corner had a hearing?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "受影响但不常参加会议的人，怎样获得同等提出理由的机会？",
+            "en": "How could affected people who rarely attend meetings have an equal chance to offer reasons?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各方案对使用体验、维护工作和受影响人数会产生什么后果？",
+            "en": "What would each plan do to use, maintenance work and the people affected?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家原先接受了哪些使用边界，新的安排能以什么原则获得辩护？",
+            "en": "What use boundaries were accepted, and on what principle could a new arrangement be defended?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_04",
+      "prompt": {
+        "zh": "志愿通讯的感谢页空间有限。把所有幕后工作逐一列出会挤掉读者需要的活动说明，只列负责人又可能漏掉别人的付出。你想先核对哪个问题？",
+        "en": "A volunteer newsletter has limited space for acknowledgments. Listing every behind-the-scenes contribution would displace useful event details, but naming only coordinators may overlook others. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "列名的依据能否一致公开，而不是取决于谁认识负责人？",
+            "en": "Could the credit criteria be consistent and public rather than depend on personal connections?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同写法会怎样影响读者获得信息以及贡献者的实际处境？",
+            "en": "How would different versions affect readers’ information and contributors’ circumstances?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对署名或感谢已作过什么承诺，应怎样履行并说明限制？",
+            "en": "What commitments about credit or thanks were made, and how could limits be explained?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "什么写法能在有限篇幅里仍践行诚实、谦逊和承认他人付出？",
+            "en": "What wording would practise honesty, humility and acknowledgment within limited space?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_05",
+      "prompt": {
+        "zh": "小组已有一份多数人喜欢的活动音乐单，一位参与者说自己更希望留一段安静时间。调整会减少大家期待的音乐时段。你想先核对哪个问题？",
+        "en": "A group has a popular activity playlist, but one participant asks for a quiet interval. Changing it would reduce music time others anticipated. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "音乐与安静的不同安排，会怎样影响每个人的参与体验？",
+            "en": "How would different music and quiet arrangements affect each person’s participation?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "共同活动已承诺怎样照顾参与边界，哪些原则不能只按人数决定？",
+            "en": "What participation boundaries were promised, and which principles are not settled by headcount?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "什么回应能在兴趣不同的时候体现体谅、节制和实际判断？",
+            "en": "What response would practise consideration, moderation and judgment amid differing interests?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出安静时间的人，具体在请求什么，怎样听取而不替其猜原因？",
+            "en": "What exactly is the person asking for, without guessing their reason on their behalf?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_06",
+      "prompt": {
+        "zh": "野餐的备用场地比原计划小。有些人已经按旧安排约好同伴，缩减人数能让剩下的人更方便，却会让部分准备落空。你想先核对哪个问题？",
+        "en": "A picnic’s backup space is smaller than planned. Some people already arranged companions; reducing attendance would ease the event for others but disappoint those prepared. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "对参与名额已形成什么承诺，改变时需要怎样向相关人交代？",
+            "en": "What attendance commitments exist, and what account is owed if they change?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样处理这次限制，能践行可靠、坦诚和审慎而非只求省事？",
+            "en": "What response would practise reliability, candour and judgment rather than merely save effort?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "已经依赖旧安排的人，各自有什么需要先被听到的处境？",
+            "en": "What circumstances of people relying on the original arrangement need to be heard?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若必须缩减，依据能否事先公开并给受影响者同样的申述机会？",
+            "en": "If reduction is necessary, could criteria be public with comparable opportunities to raise concerns?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_07",
+      "prompt": {
+        "zh": "手作演示时间不多。按原节奏多数人能完成作品，一位初学者则需要多一点讲解；多解释会让其他人少做一个步骤。你想先核对哪个问题？",
+        "en": "A craft demonstration is short on time. Most can finish at the planned pace, while a beginner needs another explanation that would displace a step for others. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样教与怎样回应，能在当下践行耐心、诚实和实际判断？",
+            "en": "What teaching and response would practise patience, honesty and practical judgment here?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "初学者的具体困难是什么，能否先问清再决定支持方式？",
+            "en": "What is the beginner’s particular difficulty, before deciding what support would respond to it?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "谁能获得额外解释，依据是否公开，并考虑不同起点？",
+            "en": "Are criteria for extra explanation public and attentive to different starting points?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不同分配会怎样影响各人的理解、完成机会和等待成本？",
+            "en": "How would each allocation affect understanding, completion opportunities and waiting costs?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_08",
+      "prompt": {
+        "zh": "一份活动路线图有两种设计：更短的路让多数人早点到达，更熟悉的路则让几位新参加者更容易自行找到集合点。你想先核对哪个问题？",
+        "en": "An activity map has two designs: a shorter route gets most people there earlier, while a familiar route helps several newcomers find the meeting point themselves. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新参加者具体依靠哪些线索，怎样回应而不假定他们需要什么？",
+            "en": "What cues do newcomers actually rely on, without assuming what they need?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同熟悉程度的人是否有可比的抵达机会，地图标准能否公开？",
+            "en": "Do people with different familiarity have comparable access, under transparent map criteria?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各路线会给每位参与者带来什么便利、绕行和走错的可能成本？",
+            "en": "What convenience, detours and possible confusion would each route create for participants?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先前提供的集合说明形成了什么责任，改动要怎样向所有人交代？",
+            "en": "What responsibility follows from earlier instructions, and how should a change be explained?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_09",
+      "prompt": {
+        "zh": "短剧小组只能安排一个开场角色。熟悉台词的人能让演出更稳，新成员则一直没有展示机会；大家都认真准备了。你想先核对哪个问题？",
+        "en": "A short-play group has one opening role. An experienced member could make the performance smoother, while newcomers have had little chance to appear. Everyone prepared seriously. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选角的资格、程序和轮换依据能否对新旧成员同样公开？",
+            "en": "Could eligibility, selection and rotation criteria be equally public for new and established members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同安排会怎样影响演出、准备投入和每位参与者的机会？",
+            "en": "How would each arrangement affect the performance, preparation and opportunities for each participant?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "分配角色时已经接受了什么承诺或原则，怎样一致地说明决定？",
+            "en": "What commitments or principles were accepted for roles, and how could a decision be consistently explained?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这次选择与后续回应怎样体现诚实、勇气和实际判断？",
+            "en": "How could the choice and response practise honesty, courage and practical judgment?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_10",
+      "prompt": {
+        "zh": "植物交换活动剩下的幼苗不多。长期照料苗圃的人希望先挑选，新参与者则以为所有人都有相同机会。你想先核对哪个问题？",
+        "en": "Few seedlings remain at a plant exchange. Long-time nursery volunteers hope to choose first, while newcomers expected a comparable opportunity. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同分配会怎样影响幼苗照料、参与机会和今后活动的实际结果？",
+            "en": "How would each allocation affect plant care, participation and future activity outcomes?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "关于志愿投入和挑选次序，有什么已明确接受的承诺需要认真对待？",
+            "en": "What explicit commitments about volunteering and selection order should be taken seriously?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样协商能在付出与期待不同时仍践行公允、诚实和谦逊？",
+            "en": "What discussion would practise fairness, honesty and humility amid different contributions and expectations?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "长期照料者与新参与者，各有什么具体需要值得被听取？",
+            "en": "What particular needs of long-time volunteers and newcomers deserve a hearing?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_11",
+      "prompt": {
+        "zh": "桌游小组已按一种规则练习。新参加者觉得其中一步太难，希望临时改掉；改变会让先前练习的优势减少。你想先核对哪个问题？",
+        "en": "A board-game group practised under an agreed rule. A newcomer finds one step difficult and asks to change it, which would reduce the value of earlier practice. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先前共同接受了什么规则，修改需要经过怎样可说明的同意？",
+            "en": "What rule was accepted, and what justifiable agreement would a change require?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在经验不同的人之间，什么处理能践行耐心、诚实和审慎？",
+            "en": "What response would practise patience, honesty and judgment across different experience levels?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "新参加者具体卡在哪里，有什么支持能回应而不替对方决定？",
+            "en": "Where is the newcomer actually stuck, and what support would respond without deciding for them?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "规则修改对谁有利，下一位新成员来时能否使用同样的公开标准？",
+            "en": "Whom would a change favour, and could the same public criteria apply to the next newcomer?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_12",
+      "prompt": {
+        "zh": "阅读清单可以保留熟悉作者，让小组更容易开始讨论，也可以加入大家不认识的新作者，但准备会更费力。你想先核对哪个问题？",
+        "en": "A reading list could retain familiar authors for an easier discussion or include unfamiliar voices that require more preparation. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样选择能践行求知、谦逊与审慎，而不只让自己显得见多识广？",
+            "en": "What choice would practise curiosity, humility and judgment rather than display sophistication?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些成员依靠熟悉内容参与，哪些人的阅读经验一直没有被听到？",
+            "en": "Who relies on familiar material to participate, and whose reading experience has gone unheard?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "熟人与陌生作者的提议是否按同样可说明的机会和标准进入清单？",
+            "en": "Do familiar and unfamiliar authors’ suggestions receive comparably explainable opportunities and criteria?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不同清单会给理解、参与和准备负担带来哪些实际影响？",
+            "en": "How would different lists affect understanding, participation and preparation burdens?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_13",
+      "prompt": {
+        "zh": "共同做饭活动按轮次分清理任务。一位这次准备特别多的成员希望少清理一点，其他人担心临时例外让轮次失去意义。你想先核对哪个问题？",
+        "en": "A shared cooking activity rotates cleanup. Someone who prepared much more this time asks for a smaller cleanup task; others worry that exceptions undermine the rotation. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出请求者此刻具体需要什么，其他成员有什么未说出的负担？",
+            "en": "What does the requester specifically need now, and what burdens have others not voiced?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分工是否考虑准备与清理的全部负担，并有新旧成员都知道的标准？",
+            "en": "Do criteria account for both preparation and cleanup burdens and remain known to all members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各分法会怎样影响总的工作量、疲劳和之后愿意参与的机会？",
+            "en": "How would allocations affect total work, fatigue and opportunities for future participation?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家接受轮次时承诺了什么，什么理由足以向参与者说明改动？",
+            "en": "What did accepting the rotation commit people to, and what could justify a change to them?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_14",
+      "prompt": {
+        "zh": "活动说明里有个不影响主要结论的小错误。重印会消耗剩下的纸，只贴补充说明更节省，却可能有人只看到旧页。你想先核对哪个问题？",
+        "en": "An activity handout has a small error that leaves its main conclusion unchanged. Reprinting uses remaining paper; an added correction saves paper but may miss some readers. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拿到不同版本的人，是否都有可比的机会获得同样准确的信息？",
+            "en": "Do readers with different versions have comparable access to the same accurate information?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "各改法会造成多少误解、材料消耗和额外查找，影响有多大？",
+            "en": "How much misunderstanding, material use and extra searching would each correction method cause?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "向读者提供准确说明形成了什么义务，怎样履行并说明更正？",
+            "en": "What obligation follows from providing accurate instructions, and how could correction fulfil it?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样承认并处理这个错误，能践行坦诚、审慎和负责？",
+            "en": "What acknowledgment and response would practise candour, judgment and responsibility?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_15",
+      "prompt": {
+        "zh": "回收手作材料只够一件大作品或几件小作品。有人已经画好大作品方案，另几位则想各做一张小卡片。你想先核对哪个问题？",
+        "en": "Reclaimed craft material is enough for one large piece or several small ones. One participant has designed the large piece; others want to make a small card each. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同用途会带来哪些完成机会、材料浪费或其他实际结果？",
+            "en": "What completion opportunities, waste or other practical results would different uses create?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "关于材料用途和先前准备，已有怎样的承诺需要认真交代？",
+            "en": "What commitments about material use and prior preparation need a serious response?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样商议能践行节制、公允和诚实，不只是替自己的方案找理由？",
+            "en": "What discussion would practise moderation, fairness and honesty rather than rationalise one’s own plan?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几位参与者各自对这次创作有什么具体期待和依赖？",
+            "en": "What particular hopes and reliance do the participants have concerning this activity?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_16",
+      "prompt": {
+        "zh": "集体相册原先约好只写小组名称。一位新成员希望自己的那部分能署名，以便让朋友知道自己参与过，其他人更喜欢保持整体风格。你想先核对哪个问题？",
+        "en": "A group album was meant to carry only the group name. A new member wants credit for their part so friends can recognise their participation; others prefer a collective presentation. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "原先关于署名的约定有什么理由，重新讨论时应承担什么义务？",
+            "en": "What reasons support the original credit agreement, and what is owed when reconsidering it?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样对待个人付出和集体成果，能践行诚实、谦逊与公允？",
+            "en": "What treatment of individual effort and shared work would practise honesty, humility and fairness?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这位成员具体希望得到怎样的认可，其他人的在意是什么？",
+            "en": "What acknowledgment does this member actually seek, and what matters to the others?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果换成别位成员提出同样请求，是否有一致且公开的处理依据？",
+            "en": "Would the same public criteria apply if another member made the request?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_17",
+      "prompt": {
+        "zh": "例会只剩最后十分钟。继续原议程能把主要事项定下来，留给一直没发言的人则可能需要把决定延后。你想先核对哪个问题？",
+        "en": "A meeting has ten minutes left. Finishing its agenda would settle the main arrangements, while hearing people not yet heard might postpone a decision. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样主持和回应，能在时间有限时践行耐心、诚恳与实际判断？",
+            "en": "What facilitation would practise patience, sincerity and practical judgment under a time limit?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尚未发言的人有何具体顾虑，他们是否有适合表达的方式？",
+            "en": "What particular concerns remain unheard, and is there a suitable way to express them?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "发言机会和延后决定的条件，是否对不同成员同样可知、可用？",
+            "en": "Are speaking opportunities and postponement criteria comparably known and available to different members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现在定案或延后，会给哪些人的安排带来多大的帮助与不便？",
+            "en": "What benefits and inconveniences would deciding now or later create for whose arrangements?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_18",
+      "prompt": {
+        "zh": "小组出游已有一条约好的路线，一位成员为此做了很多准备。多数人临时更想换个新地点，换地点又会让这位成员的准备无法使用。你想先核对哪个问题？",
+        "en": "An outing has an agreed route that one member prepared extensively. Most now prefer a new destination, which would leave that preparation unused. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做准备的成员具体在意什么，其他人对新地点的需要是什么？",
+            "en": "What specifically matters to the prepared member, and what needs motivate the others’ preference?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在不知道自己属于哪一方时，会接受怎样的改计划程序？",
+            "en": "What change-of-plan procedure would be acceptable without knowing which side you occupy?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两种安排对各人的体验、准备投入和后续麻烦有什么实际影响？",
+            "en": "What would each arrangement do to experience, preparation and later inconvenience for each person?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "依照原安排作准备的人，有什么来自承诺的合理期待需要回应？",
+            "en": "What reasonable reliance on the original commitment needs a response?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_19",
+      "prompt": {
+        "zh": "合作解谜小组原先说好不看提示。现在有人想看一条提示，让大家能在结束前完成，另一些人更想保留自己解出的过程。你想先核对哪个问题？",
+        "en": "A cooperative puzzle group agreed to avoid hints. Some now want one hint to finish on time; others value working it out themselves. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提示的使用和决定权，能否按每位成员都知道的程序处理？",
+            "en": "Could hint use and decision authority follow a procedure known to every member?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看或不看提示，会给完成感、参与和剩余时间带来什么结果？",
+            "en": "What would using or avoiding a hint do to completion, participation and remaining time?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不看提示的约定基于什么原则，改动需得到怎样的共同认可？",
+            "en": "What principle supports the no-hint agreement, and what shared acceptance would a change require?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对想完成与想坚持的不同期待，怎样回应能践行诚实、耐心与审慎？",
+            "en": "What response to these different hopes would practise honesty, patience and judgment?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_20",
+      "prompt": {
+        "zh": "共享活动室的最后十分钟，可以继续大家期待的小展示，也可以多整理一点，给下一组省去准备时间。原先只约好了基本收拾。你想先核对哪个问题？",
+        "en": "In a shared room’s final ten minutes, your group can hold its anticipated mini-display or do extra tidying to save the next group preparation time. Only basic cleanup was agreed. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "展示或额外整理，会给本组与下一组带来哪些实际收益与损失？",
+            "en": "What practical benefits and losses would the display or extra tidying create for both groups?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "基本收拾与展示的既有承诺，各形成什么义务，额外要求凭什么成立？",
+            "en": "What obligations follow from existing cleanup and display commitments, and what could justify an extra demand?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样处理共同空间和已经期待的安排，能践行负责、慷慨与审慎？",
+            "en": "What treatment of shared space and anticipated plans would practise responsibility, generosity and judgment?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "本组期待展示的人和下一组准备的人，各有什么具体需要值得回应？",
+            "en": "What specific needs of those awaiting a display and those preparing next deserve a response?"
+          },
+          "directionId": "care"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "consequences",
+      "directionIds": [
+        "consequences"
+      ],
+      "title": {
+        "zh": "后果提问：把影响逐项核对",
+        "en": "Consequences: Checking Who Is Affected"
+      },
+      "headline": {
+        "zh": "先问影响，也给未知和承担者留位置。",
+        "en": "Ask about effects while keeping unknowns and affected people in view."
+      },
+      "summary": {
+        "zh": "道德困境的后果提问完整读法：次数与并列、影响和不确定、展示位置例子、反例与可选核对，不推断能力或道德身份。",
+        "en": "Read the consequences lens in moral dilemmas: counts, ties, uncertain effects, examples and counterexamples, without an ability or moral-identity verdict."
+      },
+      "scoreReading": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      },
+      "seo": {
+        "title": {
+          "zh": "道德困境测试结果：后果提问与影响核对",
+          "en": "Moral Dilemma Results: Consequences and Effects"
+        },
+        "description": {
+          "zh": "道德困境的后果提问完整读法：次数与并列、影响和不确定、展示位置例子、反例与可选核对，不推断能力或道德身份。",
+          "en": "Read the consequences lens in moral dilemmas: counts, ties, uncertain effects, examples and counterexamples, without an ability or moral-identity verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "question",
+          "title": {
+            "zh": "后果提问：谁会受到什么影响",
+            "en": "The consequences question: who is affected, and how?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法从选择可能带来的影响入手：谁得到便利，谁承担等待、落空或额外工作，影响有多大、多久、是否还有其他方案。它受后果伦理的讨论启发，但不是认证你属于功利主义，也不把“多数人赞成”自动当总结果更好。你选择的是一个想先问的问题，不是网站已经核实的预测。后果讨论可以同时关心承诺、公允和具体关系，五个编辑入口不是互斥的思想阵营；一次选择也不能说明你会忽略其他考虑。",
+              "en": "This reading begins with possible effects: who gains convenience, who bears waiting, disappointment or extra work, how much, for how long and under which alternatives. It draws inspiration from consequence-oriented ethics without certifying membership of utilitarianism or equating majority approval with a better overall outcome. You selected a question to examine, not a prediction the website has verified. Discussion of effects can also consider commitments, fairness and particular relationships. The five editorial entry points are not mutually exclusive philosophical camps, and one selection cannot establish disregard for the others or what you would actually do when a real person is affected."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数怎样读，为什么保留并列",
+            "en": "Reading counts and retaining ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+              "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+            }
+          ]
+        },
+        {
+          "id": "what-it-opens",
+          "title": {
+            "zh": "这个入口可以把什么放上桌",
+            "en": "What this entry point can bring into view"
+          },
+          "paragraphs": [
+            {
+              "zh": "当两个可取的安排相互挤压时，可以把每种方案影响的人和事分开列清。除了看有多少人受益，还要看每个人的影响程度、持续时间、间接变化和不确定之处；目前不知道的内容应保留不知道。这个问题可以帮助组织讨论，但次数高不证明你估计更准确、更务实或能在压力下做好决定。也不能把难量化的失望、承诺或参与机会塞进一个假装精确的总数字。这里没有成本收益计算器，只有一个阅读和提问的起点。",
+              "en": "When two worthwhile arrangements compete, this entry point invites a separate account of who and what each alternative affects. Alongside the number benefiting, consider magnitude, duration, indirect changes and uncertainty, leaving unknowns unknown. The question can organise discussion, but a higher count establishes neither accurate forecasting, practicality nor good decisions under pressure. Hard-to-quantify disappointment, commitments and opportunities for participation need not be forced into a falsely precise total. This page supplies no cost-benefit calculator. It offers a starting question that still requires facts, other people’s accounts and room to revise an assumption before its possible effects can be assessed."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "预测、分配和可接受性需要另问",
+            "en": "Predictions, distribution and acceptability need more questions"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个看起来总的便利更多的方案，仍可能把负担集中在某几个人身上，或者依赖未经确认的乐观假设。先问后果并不能替他们同意，也不能说明先前承诺可以直接取消。可再问影响由谁承担、哪些条件是推测、有没有不必牺牲同样机会的替代安排。这里描述的是这个问题需要哪些补充，不是给选择后果的人贴冷漠、算计或会伤害人的标签。现实行动的可接受性不能由网页计数或一句“总效果更好”代为决定。",
+              "en": "An arrangement that appears to create more overall convenience may concentrate burdens on particular people or depend on an unconfirmed optimistic assumption. Asking about consequences supplies no consent on their behalf and does not cancel an earlier commitment. Further questions include who bears an effect, which assumptions remain guesses and whether another arrangement avoids losing the same opportunity. These are supplements needed by an inquiry, not labels of coldness, calculation or likely harm attached to someone who selected it. A webpage count and the phrase “better overall effects” cannot decide the acceptability of an actual action or settle what is owed to those affected."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：展示位置与先前的准备",
+            "en": "Example: display space and earlier preparation"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想读书活动只剩几个展示位置，之前准备很久的人已有留位承诺，新作品又能增加主题。后果提问可以先把参观者获得什么、投稿者失去什么以及是否还能调整展示方式分别核对，不只数哪边人数多。这个例子没有给出必须保留或取消留位的答案，也不把投入时间直接换成相同数量的分数。要形成一个真实决定，还需要确认场地限制、承诺内容和参与者意见；网页没有这些资料，不会替任何一方作出决定。",
+              "en": "Imagine the reading event with only a few display places, a reservation promised to someone who prepared for weeks and newer works offering more topics. A consequences question could separately examine what visitors gain, what contributors lose and whether another display arrangement is possible, rather than count only which side has more people. The example prescribes neither retaining nor cancelling the reservation and converts no preparation time into equivalent score units. An actual decision would still need venue constraints, the commitment’s content and participants’ views. The webpage has none of that information and decides for neither side of the situation."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：相同行动可以有不同理由",
+            "en": "Counterexample: the same action can have different reasons"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能先核对影响，最后因看见承诺被取消的连带影响而选择保留位置；另一个人可能先问承诺，同样选择保留。行为相同并不证明提问顺序相同，提问顺序不同也不证明双方一定冲突。你也可能在另一个情境优先问照顾谁或怎样分配，却仍认真考虑结果。因此不能把本次最高次数叫作你一贯的伦理身份，更不能据此推断他人的信任、你的情绪方式或某个职业适合你。",
+              "en": "One person may first examine effects and ultimately retain the reservation because of the wider effects of breaking it; another may begin with the commitment and retain it for that reason. Matching actions establish no matching order of inquiry, and different starting questions create no inevitable conflict. In another setting you might ask first about particular needs or allocation while still taking consequences seriously. The highest count therefore cannot become a permanent ethical identity, a claim about another person’s trust, a description of your emotional style or a career recommendation. The counterexample keeps a menu choice distinct from the fuller reasoning and action it cannot observe."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一个未知，一位承担者",
+            "en": "Optional check: one unknown and one person bearing an effect"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一件普通、可以从容讨论的小安排，在心里找一个尚未确认的后果，以及一位可能承担影响的人。再判断是否需要问一个具体问题，或先保留不作决定。无需记录私事、替别人猜感受，也不为练习制造冲突。这个小核对不保证判断更好、关系改善或分数变化，现实需要其他专业信息的事项也不由本测验指导。你可以不做，只把“预测还需要证据”作为读完这份说明后的一个提醒。",
+              "en": "If useful, take an ordinary arrangement that can be discussed without urgency and privately identify one unconfirmed effect and one person who might bear an effect. Decide whether a concrete question is needed or whether to leave the matter undecided. No private record, guessed feelings or manufactured conflict is required. This optional check guarantees neither better judgment, improved relationships nor a different count, and the quiz supplies no guidance for matters needing other professional information. You may skip the exercise and simply retain the reminder that a forecast still needs evidence rather than treating a selected question as the evidence itself."
+            }
+          ]
+        },
+        {
+          "id": "comparison-sources",
+          "title": {
+            "zh": "与其他框架及后果伦理分开读",
+            "en": "Reading this alongside other frameworks and consequentialism"
+          },
+          "paragraphs": [
+            {
+              "zh": "后果伦理是一类有内部差异的规范理论，不等于多数票，也不只有一种幸福加总。本站只把“核对影响”用作原创提问入口，未采用标准道德发展题库；相关哲学文献不验证二十题或个人能力。道德阵营看两条虚构阅读轴，价值观测试看目标重要度，哲学家趣味版谈阅读思路，都不与本次数换算。你可以比较五种提问怎样互补，而不是把原则、品格、关怀或公允当成后果问题必然排斥的立场。",
+              "en": "Consequentialism is a family of normative theories with internal differences, not majority voting or one simple sum of happiness. Our original entry point is merely checking effects, without a standard moral-development bank or validation of twenty items or individual ability by philosophical literature. Our alignment grid uses two fictional reading axes, the values form rates goals’ importance, and philosopher associations explore lines of reading; their scores do not convert into these counts. Compare how questions can complement one another rather than treating principles, character, care or fairness as considerations necessarily rejected by a consequences question. This simplified map represents neither the entirety nor every dispute of a philosophical tradition."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "完整阅读、重测与分享",
+            "en": "Full reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+              "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "principles",
+      "directionIds": [
+        "principles"
+      ],
+      "title": {
+        "zh": "原则提问：说明承诺与边界",
+        "en": "Principles: Examining Commitments"
+      },
+      "headline": {
+        "zh": "先问义务的根据，也给协商和冲突留空间。",
+        "en": "Ask what grounds an obligation while leaving room for conflict and discussion."
+      },
+      "summary": {
+        "zh": "道德困境的原则提问完整读法：次数与并列、承诺根据、预约工具例子、反例与可选核对，不判守信能力或服从人格。",
+        "en": "Read the principles lens in moral dilemmas: counts, ties, commitments, examples and counterexamples, without a promise-keeping or personality verdict."
+      },
+      "scoreReading": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      },
+      "seo": {
+        "title": {
+          "zh": "道德困境测试结果：原则提问与承诺边界",
+          "en": "Moral Dilemma Results: Principles and Commitments"
+        },
+        "description": {
+          "zh": "道德困境的原则提问完整读法：次数与并列、承诺根据、预约工具例子、反例与可选核对，不判守信能力或服从人格。",
+          "en": "Read the principles lens in moral dilemmas: counts, ties, commitments, examples and counterexamples, without a promise-keeping or personality verdict."
+        }
+      },
+      "sections": [
+        {
+          "id": "question",
+          "title": {
+            "zh": "原则提问：承诺凭什么成立",
+            "en": "The principles question: what makes a commitment binding?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法从承诺、可说明的原则和应认真对待的边界入手，而不把当前结果看起来更方便当作唯一依据。它受义务伦理的讨论启发，但不表示无条件服从外部规则、上级或旧惯例。可以问一条要求为何成立、能否向相关人说明，以及它与另一项义务是否冲突。你选择的是先想核对哪个问题，不是已经证明自己守信或判断正确；现实中怎样行动，还需要具体事实和当事人的意见，不能由选择次数代替。",
+              "en": "This reading begins with commitments, justifiable principles and boundaries that deserve serious attention rather than making present convenience the sole consideration. It draws inspiration from deontological discussion without requiring unconditional obedience to an external rule, a superior or an old custom. Questions include why a requirement holds, whether it can be explained to those affected and whether another obligation conflicts with it. Selecting this starting question proves neither promise-keeping nor a correct judgment. Actual action still needs facts and participants’ views; a count of offered questions cannot supply those or certify a settled philosophical position you consistently follow."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数怎样读，为什么保留并列",
+            "en": "Reading counts and retaining ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+              "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+            }
+          ]
+        },
+        {
+          "id": "what-it-opens",
+          "title": {
+            "zh": "这个入口可以澄清什么义务",
+            "en": "What obligations this entry point can clarify"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以先区分已经共同承诺的事项、只有某人偏好的要求，以及仍未达成一致的安排。再问哪些承诺是基于充分理解作出的，谁合理地依赖它，修改需要怎样交代。这样组织问题不代表任何规则都正当，也不证明你抵得住压力、比别人可靠或适合某种职业。一次网页选择甚至没有观察你是否真正履行过承诺。这个入口只邀请你把义务的根据说清，不给任何一方凭“有原则”就结束讨论的特权。",
+              "en": "This entry point invites a distinction between a shared commitment, one person’s preference and an arrangement that remains unsettled. Further questions concern whether a commitment was understood, who reasonably relied on it and what account a change requires. Organising an inquiry this way legitimises no rule automatically and establishes neither resistance to pressure, reliability nor fitness for an occupation. A webpage choice has not even observed whether a promise was kept. Its purpose is to make the basis of an obligation discussable, not grant either side a privilege to end discussion by announcing that they have principles or that the rules speak for themselves."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "义务可能冲突，规则也需要理由",
+            "en": "Obligations can conflict, and rules need reasons"
+          },
+          "paragraphs": [
+            {
+              "zh": "两项承诺可能不能同时完成，一条旧规则也可能不适合眼前情境。先问原则并不要求忽略这些事实，更不能把不同意见叫作没有原则。可继续查明要求的目的、接受的条件、谁受其约束以及有没有相关人能合理认可的调整。这里没有给现实中的合同、法律或职业职责下结论；普通假想情境也不能变成这类事项的判断工具。要补问的是这次义务为什么成立，而不是用次数最高为自己或他人的立场背书。",
+              "en": "Two commitments may be impossible to fulfil together, and an old rule may fail to fit present circumstances. Beginning with principles requires neither ignoring those facts nor calling disagreement unprincipled. Further inquiry can examine a requirement’s purpose, the conditions under which it was accepted, whom it binds and which adjustments those affected could reasonably recognise. This page reaches no conclusion about real contracts, laws or professional duties; its ordinary hypotheticals are no decision tool for those matters. What needs clarification is why an obligation holds here, not how the highest count could endorse your own position or certify someone else’s failure to respect it."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：预约工具与临时请求",
+            "en": "Example: a reserved tool and a later request"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想共同手作箱里的工具已有周末预约，新成员又临时想借。原则提问可以先核对预约说清了什么、谁依赖了它，以及改变是否需要再协商。它不会直接告诉你必须借或绝不能借，也不能假定新成员的请求不合理。假想案例没有交代所有时间、替代工具或参与者意见；这些资料会影响怎样说明一个决定。即使最后大家接受临时改动，也不意味着承诺本来不重要；同样，保留预约不证明别人的需要不值得听。",
+              "en": "Imagine the reserved tool in the shared craft kit and a newcomer’s later request. A principles question could first examine what the reservation specified, who relied on it and whether a change requires discussion. It prescribes neither lending nor refusal and assumes no unreasonable request by the newcomer. The hypothetical omits timing details, alternative tools and participants’ views, all relevant to explaining an actual decision. A jointly accepted adjustment need not mean the commitment never mattered, just as retaining the reservation need not mean another person’s needs deserve no hearing. The question identifies an issue to examine rather than resolves it on behalf of the group."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：调整不必等于背弃原则",
+            "en": "Counterexample: an adjustment need not abandon a principle"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能优先问承诺，却发现原约定本就允许双方协商，最终支持调整；另一个人可能先问影响，在了解等待成本后支持同样安排。第一位没有因为调整就失去原则，第二位也没有因为先看结果就忽视义务。相同行动可以有不同理由，同一人也会在别的情境先问公允、关怀或品格。因此不能从这个入口的次数判断你僵化、抗诱惑、值得信赖或必然与另一类人冲突，更不能把不同计数当道德高低。",
+              "en": "Someone who begins with commitments may discover that the original agreement allows joint revision and support a change. Someone who begins with effects may support the same arrangement after learning its waiting costs. Adjustment need not make the first person unprincipled, and examining consequences need not make the second indifferent to obligations. Matching actions can have different reasons, and the same person may begin elsewhere in another situation. Counts therefore establish neither rigidity, resistance to temptation, trustworthiness nor inevitable conflict with a supposed other type. Different counts rank no one morally and show no measured capacity to apply principles under pressure."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：把约定与偏好分开",
+            "en": "Optional check: separate an agreement from a preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，选一次普通共同安排，在心里区分一项明确约定与一项个人偏好。再看看是否确实需要向对方补问约定的范围，或只是自己还没想清。你可以不做，不为了练习要求别人承诺，也不记录私人对话。这个小核对不保证信任、判断质量或分数变化，更不要求你接受所有规则或把自己的偏好包装成原则。读完后保留一个问题就足够：我正在援引的义务，对相关人而言有什么可说明的依据？",
+              "en": "If useful, take one ordinary shared arrangement and privately distinguish an explicit agreement from a personal preference. Consider whether a question about scope is genuinely needed or whether your own understanding remains unsettled. You may skip the exercise without extracting promises from someone or recording private conversations. This check guarantees neither trust, better judgment nor changed counts and requires neither accepting every rule nor dressing a preference as a principle. A single question after reading is enough: what explainable basis does the obligation I am invoking have for those affected? The webpage neither supplies that basis nor decides whose preference should prevail."
+            }
+          ]
+        },
+        {
+          "id": "comparison-sources",
+          "title": {
+            "zh": "义务伦理不是一种服从人格",
+            "en": "Deontology is not an obedience personality"
+          },
+          "paragraphs": [
+            {
+              "zh": "义务伦理关心应当、可以或不应当怎样选择，内部也有不同理论；不只是一句“规则说了算”。本版将原则与承诺作为原创阅读入口，未采用康德原著题库或任何标准道德发展工具，哲学背景不验证个人守诺能力。公允提问着重机会和负担如何安排，关怀提问看具体处境，其他入口也可能认真对待承诺。道德阵营、价值观、哲学家联想与本次题本有相邻话题，但方法、问题和计数不同，不相互换算或拼成一个道德总分。",
+              "en": "Deontological theories address required, permitted and forbidden choices and contain internal differences rather than one command that rules prevail. Our principles-and-commitments entry point is original reflection, not a Kant text-derived test bank or a standard moral-development instrument, and philosophical background validates no individual promise-keeping ability. Fairness asks about opportunities and burdens, care attends to particular circumstances, and other inquiries can also take commitments seriously. Alignment, values and philosopher associations cover nearby topics but use different questions and arithmetic. They neither convert into these counts nor combine into an overall morality score. A simplified reading entry represents no complete philosophical school or personality of obedience."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "完整阅读、重测与分享",
+            "en": "Full reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+              "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "character",
+      "directionIds": [
+        "character"
+      ],
+      "title": {
+        "zh": "品格提问：把品质放回实践",
+        "en": "Character: Qualities in Practical Choices"
+      },
+      "headline": {
+        "zh": "先问怎样实践一种品质，再回到处境与具体做法。",
+        "en": "Ask what practising a quality could mean in a particular situation."
+      },
+      "summary": {
+        "zh": "道德困境的品格提问完整读法：次数与并列、具体实践、短剧例子、反例及可选核对，不认证德性或实际行为。",
+        "en": "Read the character lens: counts, ties, practical qualities, examples and counterexamples, without a virtue certificate or behaviour prediction."
+      },
+      "scoreReading": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      },
+      "seo": {
+        "title": {
+          "zh": "道德困境测试结果：品格提问与具体实践",
+          "en": "Moral Dilemma Results: Character and Practical Qualities"
+        },
+        "description": {
+          "zh": "道德困境的品格提问完整读法：次数与并列、具体实践、短剧例子、反例及可选核对，不认证德性或实际行为。",
+          "en": "Read the character lens: counts, ties, practical qualities, examples and counterexamples, without a virtue certificate or behaviour prediction."
+        }
+      },
+      "sections": [
+        {
+          "id": "question",
+          "title": {
+            "zh": "品格提问：什么品质在实践中重要",
+            "en": "The character question: which qualities matter in practice?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法从一个人在具体安排中怎样实践某种品质入手，例如耐心、诚实、勇气或审慎。它不是先给你一个“好人”分数，也不把一句体面的理由等同于已经做到。品格伦理给这个编辑入口提供背景，但一次菜单选择不能认证德性、性格稳定性或道德成长。你选择的是先讨论什么问题，实际还需要知道处境、行动和理由。其他入口也能关心品质，五组提问并非各自独占一种价值。",
+              "en": "This reading starts with qualities a person might practise in a particular arrangement, such as patience, honesty, courage or practical judgment. It supplies no good-person score and does not equate an admirable sentence with an accomplished action. Virtue ethics provides background for this editorial entry point, but a menu selection certifies neither virtue, stable character nor moral growth. You chose what to discuss first; circumstances, actions and reasons would still matter. Other entry points can care about qualities too. The five groups therefore own no exclusive values, and the webpage does not observe whether any quality is actually practised."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数怎样读，为什么保留并列",
+            "en": "Reading counts and retaining ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+              "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+            }
+          ]
+        },
+        {
+          "id": "what-it-opens",
+          "title": {
+            "zh": "把抽象品质放回具体做法",
+            "en": "Put an abstract quality back into concrete practice"
+          },
+          "paragraphs": [
+            {
+              "zh": "当讨论停在“应该勇敢”或“要有耐心”时，这个入口可以追问：对这件事而言，这个词具体要求什么？在有准备者和初学者之间，耐心可能涉及说明节奏，诚实可能涉及讲清限制，审慎可能涉及先确认时间。它们不是必须同时做到的标准答案，也不能用一个词压过参与者的意见。高次数不证明你比别人更有原则或实践更多；这里没有行为观察、他评或长期记录来支持那种结论。",
+              "en": "When a discussion stops at “be courageous” or “show patience,” this entry point asks what that quality would mean here. With experienced participants and beginners, patience might concern explanation pace, honesty might concern explaining limits, and practical judgment might require checking time. These are possibilities to investigate, not a checklist of correct answers or words that override participants’ accounts. More selections establish neither stronger principles nor more frequent practice than someone else. There are no behavioural observations, informant reports or longitudinal records supporting those claims. Naming a quality is the beginning of an inquiry rather than evidence that its demands have been met."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "品质名称不能替别人定义好生活",
+            "en": "A quality label cannot define another person’s good life"
+          },
+          "paragraphs": [
+            {
+              "zh": "不同人可能对勇气、忠诚或节制在同一情境怎样体现有分歧，品质之间也可能形成张力。一个看来很主动的行动，未必尊重他人的参与；一个谨慎的暂缓，也不自动是怯懦。需要说明这个词怎样与具体事实、影响和义务连接，不能把分歧归结为谁品格不好。这个入口更不允许按测试结果评价伴侣、同事或应聘者。网页没有能力判断一个人的整体道德，也没有以最高次数授予可信赖标签。",
+              "en": "People can disagree about what courage, loyalty or restraint calls for in the same setting, and qualities can pull in different directions. An apparently proactive action may leave someone out; a careful pause need not be cowardice. Explain how the quality connects with particular facts, effects and obligations rather than reduce disagreement to deficient character. This entry point does not authorise evaluating a partner, colleague or applicant from quiz results. The webpage cannot judge a person’s morality as a whole or award trustworthiness to the highest count. It also cannot decide which disputed account of a good life others should accept."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：短剧的开场角色",
+            "en": "Example: the opening role in a short play"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想短剧开场角色可以由熟练者完成，也可以留给正在尝试的人。品格提问可能先问怎样实践鼓励、诚实说明难度和审慎安排准备。鼓励不必等于马上把角色交出去，审慎也不必等于永久排除新人。这个例子不指定演员，不判断谁更优秀；还要听当事人的意愿、了解排练时间和可用支持。题目让你选择一个讨论起点，没有观察你如何组织演出，更不会据此认证领导力、教育能力或待人品质。",
+              "en": "Imagine the short play whose opening role could go to an experienced participant or someone trying it for the first time. A character question might first ask what encouragement, an honest account of difficulty and careful preparation would look like. Encouragement need not mean immediately assigning the role, and care in preparation need not mean permanently excluding a newcomer. The example selects no performer and ranks no one’s worth. Participants’ wishes, rehearsal time and available support still matter. A discussion starting point observes no directing behaviour and certifies neither leadership, teaching ability nor how you treat people in practice."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：先问品质不代表从不计算后果",
+            "en": "Counterexample: asking about qualities still permits examining effects"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能先问怎样实践诚实，然后为避免误导而认真核对信息造成的影响；另一个人先问影响，也可能得出必须解释清楚的结论。两人可以采取相同行动，而没有共同的提问顺序。你也可能在一个情境先问关怀，在另一个情境先问承诺，仍对自己的做法有要求。因此这份结果不把你固定为德性论者，不从一次选择推断一生，更不把较少选择品格问题解释为缺乏道德或不想改进。",
+              "en": "Someone might begin by asking how to practise honesty and then examine effects carefully to avoid misleading people. Another might begin with effects and likewise conclude that a clear explanation is needed. They can take the same action without sharing an order of inquiry. You may begin with care in one setting and commitments in another while still expecting something of your own practice. This result therefore makes no permanent virtue-ethicist identity, infers no lifetime pattern from one selection and interprets no lower count as missing morality or unwillingness to improve. A menu can show a starting question without measuring the fuller process."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一个词与一个可观察做法",
+            "en": "Optional check: one word and one observable action"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，从一个普通共同活动中选一个你觉得重要的品质词，再在心里想一个与之相关、但不要求别人配合的具体做法。也可加一个反例，提醒自己同一个动作未必总有同样含义。无需记下个人故事、公开承诺或评判他人。这个练习不认证品格，不保证关系或决策改善，也不要求重测分数增加。可以跳过，只保留“抽象品质需要处境说明”这句话，避免把漂亮的词当成已经完成的行动。",
+              "en": "If useful, choose one quality word you consider relevant to an ordinary shared activity and privately identify a possible action connected with it that requires no one else’s cooperation. Add a counterexample if it helps remind you that the same action need not always have the same meaning. No personal story, public promise or judgment of someone else is required. This exercise certifies no character, guarantees no relationship or decision improvement and seeks no increased retake count. You may skip it and retain only the reminder that an abstract quality needs contextual explanation rather than treating an admirable word as completed practice."
+            }
+          ]
+        },
+        {
+          "id": "comparison-sources",
+          "title": {
+            "zh": "品格伦理与性格优势分数分开",
+            "en": "Separate virtue ethics from character-strength scores"
+          },
+          "paragraphs": [
+            {
+              "zh": "品格伦理重视德性和实践判断，但并不因为关注品质就完全排除规则与后果。本站仅取原创提问的入口，没有把亚里士多德原著改造成题库，也未做道德发展验证。性格优势问卷的自报准确度和本卷情境提问次数方法不同；相同“诚实”或“审慎”词语不能让二者换算。价值观的重要度、道德阵营的虚构阅读轴也不是此次数的标准答案。可以并排阅读这些话题，不能拼成道德总分或优劣排行。",
+              "en": "Virtue ethics gives virtues and practical judgment a central role without necessarily excluding rules or effects. Our original questions borrow an entry point, not an Aristotle-derived test bank or moral-development validation. Character-strength self-report accuracy and this form’s counts of hypothetical starting questions use different methods; a shared word such as honesty or prudence does not make their scores convertible. Values importance and fictional alignment axes provide no answer key for these counts either. Read neighbouring topics alongside one another if useful, without combining them into a morality total, a rank of better people or a demonstrated account of anyone’s behaviour."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "完整阅读、重测与分享",
+            "en": "Full reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+              "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "directionIds": [
+        "care"
+      ],
+      "title": {
+        "zh": "关怀提问：回应具体处境",
+        "en": "Care: Attending to Particular Needs"
+      },
+      "headline": {
+        "zh": "先听具体需要，也保留同意、边界与不知道。",
+        "en": "Hear particular needs while retaining consent, boundaries and uncertainty."
+      },
+      "summary": {
+        "zh": "道德困境的关怀提问完整读法：次数与并列、具体需要、手作例子、反例与可选核对，不推断共情、性别或关系质量。",
+        "en": "Read the care lens: counts, ties, particular needs, examples and counterexamples, without empathy, gender or relationship-quality judgments."
+      },
+      "scoreReading": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      },
+      "seo": {
+        "title": {
+          "zh": "道德困境测试结果：关怀提问与具体处境",
+          "en": "Moral Dilemma Results: Care and Particular Needs"
+        },
+        "description": {
+          "zh": "道德困境的关怀提问完整读法：次数与并列、具体需要、手作例子、反例与可选核对，不推断共情、性别或关系质量。",
+          "en": "Read the care lens: counts, ties, particular needs, examples and counterexamples, without empathy, gender or relationship-quality judgments."
+        }
+      },
+      "sections": [
+        {
+          "id": "question",
+          "title": {
+            "zh": "关怀提问：谁的具体处境需要听见",
+            "en": "The care question: whose particular circumstances need hearing?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法先看关系中的具体需要、依赖和处境，尤其是一个统一安排容易漏掉的声音。它不等于只照顾亲近的人，也不要求你永远答应、替别人决定或承担全部工作。关怀伦理为这个编辑入口提供背景，但选择关怀问题不能证明共情、帮助能力或某种性别人格。需要本人能表达什么、希望什么以及实际可行条件，不能只靠旁观者想象。这里呈现的是先想核对的问题，不是已经知道谁需要什么。",
+              "en": "This reading begins with particular needs, dependencies and circumstances in relationships, especially voices a uniform arrangement could overlook. It means neither caring only for people close to you nor always agreeing, deciding for someone or doing all the work. Care ethics supplies background for this editorial entry point, but selecting it demonstrates neither empathy, helping skill nor a gendered personality. What someone can express, what they want and what is feasible still matter; an observer’s imagination cannot replace them. The page records a question you wanted to examine first, not knowledge of what any person actually needs."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数怎样读，为什么保留并列",
+            "en": "Reading counts and retaining ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+              "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+            }
+          ]
+        },
+        {
+          "id": "what-it-opens",
+          "title": {
+            "zh": "把统一安排没有说清的处境补上",
+            "en": "Bring circumstances missing from a uniform arrangement into view"
+          },
+          "paragraphs": [
+            {
+              "zh": "同样的排队、时长或分工，对不同人可能意味着不同的参与成本。这个入口可以追问是否有人不方便说明、是否有一种不用公开私事也能表达需要的方式，以及支持是否是对方愿意接受的。它不把每种差别都自动变成例外，也不认定提出需要的人必然应该优先。较高次数只是本次较多先选这类问题，不证明你更善解人意、关系更好或能准确读心。真实需要仍要由相关人说明。",
+              "en": "The same queue, duration or division of work can impose different participation costs on different people. This entry point can ask whether someone finds speaking difficult, whether a need can be expressed without public private details and whether the offered support is welcome. It turns no difference automatically into an exception and grants no automatic priority to every request. A higher count means only that you more often selected this kind of question first here, not greater understanding, better relationships or accurate mind-reading. Actual needs still need relevant people’s accounts, and there may be limits to what anyone wishes to explain."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "关怀需要同意、边界和其他人的处境",
+            "en": "Care also needs consent, boundaries and others’ circumstances"
+          },
+          "paragraphs": [
+            {
+              "zh": "根据自己的猜测安排帮助，可能让对方失去选择，也可能把工作转给另一个没有被问到的人。可再问支持是否受欢迎、谁来承担、有没有可以拒绝或调整的方式。拒绝一项请求不自动是不关心，接受也不证明帮助有效。关怀问题不能取消公允、承诺或影响讨论，更不能用“为你好”替代具体意见。这些是提问需要补充的内容，不是给选择本入口的人贴过度付出或没有边界的标签。",
+              "en": "Arranging help from a guess can remove someone’s choice or transfer work to another person who was never asked. Further questions include whether support is welcome, who would provide it and whether declining or adjusting remains possible. Refusal does not automatically mean indifference, and acceptance does not prove effectiveness. Care questions cancel no discussion of fairness, commitments or effects, and “for your good” replaces no specific account. These are supplements an inquiry needs rather than labels of overgiving or poor boundaries attached to someone selecting it. The webpage measures no helping outcome and cannot decide what a relationship requires."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：手作活动中的额外说明",
+            "en": "Example: extra explanation in a craft activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想活动只剩一点时间，一位初学者需要再说明一步，其他人还有共同收尾。关怀提问可以先听哪里没有明白、怎样解释才有用，以及对方是否想要帮助；还要了解带领者和其他参与者的时间。这不是让初学者公开个人困难，也不指定必须延长全组时间。可能存在简短示范、之后自愿补充或暂缓等安排，但题目不掌握可行条件，不替大家决定。选择这个入口不能认证教学、照顾能力或耐心。",
+              "en": "Imagine the craft activity with little time left, a beginner needing another explanation and a shared finishing step still ahead. A care question could first hear what remains unclear, what explanation would help and whether help is wanted, while also learning about the facilitator’s and others’ time. It demands no public account of personal difficulties and prescribes no extension for the whole group. A short demonstration, later voluntary explanation or pause might be possible, but the hypothetical knows no feasibility details and decides for no one. Selecting the entry point certifies neither teaching, caring skill nor patience in practice."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：具体关怀也可能支持一致安排",
+            "en": "Counterexample: particular care can support a shared arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人先问具体需要，可能了解到对方更希望不用被单独安排，于是支持共同节奏；另一个人先问公允，也可能支持相同安排。相同结果不等于没有关怀，不同起点也不必冲突。在另一个情境，你可能先问承诺或后果，仍愿意听对方需要。因此不能根据较低次数说某人冷漠，不能把较高次数当温柔、女性化或必然牺牲自己的证据。这里没有测情绪、关系质量或实际照顾行为。",
+              "en": "Someone who first asks about particular needs may learn that the person prefers no separate arrangement and support the shared pace. Someone beginning with fairness may support the same arrangement. Matching outcomes establish no absence of care, and different starting points create no inevitable conflict. Elsewhere you might begin with commitments or consequences while still listening to needs. A lower count therefore proves no coldness, and a higher count proves neither gentleness, femininity nor inevitable self-sacrifice. The quiz measures no emotion, relationship quality or caring behaviour, and one selected question establishes no response someone would make in a real relationship."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：把猜测改成可拒绝的问题",
+            "en": "Optional check: replace a guess with a question that permits refusal"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，在普通共同安排中留意一句“对方一定需要……”的猜测，在心里改成一个具体、可不回答的问题。只有适合且对方愿意讨论时才需要真的问；不为完成练习搜集私事或提供未经请求的帮助。你也可以只承认不知道。这不保证共情、关系或分数改善，不要求承诺照顾谁，更不把练习变成你的义务。读完保留一个提醒即可：关心处境与自认为知道需要，是两件不同的事。",
+              "en": "If useful, notice an assumption such as “they must need…” in an ordinary shared arrangement and privately turn it into a concrete question someone could decline to answer. Asking aloud is optional and depends on an appropriate context and willingness to discuss. Collect no private details and provide no unsolicited help merely to complete an exercise. Simply acknowledging uncertainty is also possible. This guarantees neither empathy, relationship improvement nor changed counts, and creates no caring commitment. You may retain only the reminder that attending to circumstances and assuming knowledge of needs are different things requiring different evidence."
+            }
+          ]
+        },
+        {
+          "id": "comparison-sources",
+          "title": {
+            "zh": "关怀伦理不是女性专属人格",
+            "en": "Care ethics is not a female-only personality"
+          },
+          "paragraphs": [
+            {
+              "zh": "关怀伦理讨论关系、依赖和处境中的责任，并不是把女性天生定义为照顾者，也不只涉及家庭或喜欢的人。本版借用这一讨论入口，没有改写Gilligan原著或采用标准题库，理论背景不验证二十题。本站共情自评、互动习惯和亲密关系题本各有不同问题，不能与本次数互换。后果、原则、品格、公允也都能关心他人；关怀不是独占善意，更不是与理性相反。可以看这些提问怎样互补，而不是给五类人分工。",
+              "en": "Care ethics discusses relationships, dependency and responsibilities in context rather than defining women as natural carers or limiting concern to family and favoured people. This edition borrows an entry point without adapting Gilligan’s book text or adopting a standard bank; theoretical background validates no twenty-item form. Empathy self-reports, interaction habits and relationship questionnaires on this site ask different questions and do not convert into these counts. Consequences, principles, character and fairness can all concern others too. Care owns no exclusive goodwill and is no opposite of reasoning. Compare complementary questions rather than assign different kinds of people separate ethical jobs."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "完整阅读、重测与分享",
+            "en": "Full reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+              "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fairness",
+      "directionIds": [
+        "fairness"
+      ],
+      "title": {
+        "zh": "公允提问：检视机会和分担",
+        "en": "Fairness: Examining Opportunities and Burdens"
+      },
+      "headline": {
+        "zh": "先问分配的依据，也把需要、程序与影响分开核对。",
+        "en": "Examine allocation reasons while distinguishing needs, procedures and effects."
+      },
+      "summary": {
+        "zh": "道德困境的公允提问完整读法：次数与并列、机会与负担、轮值例子、反例及可选核对，不判中立性或政治立场。",
+        "en": "Read the fairness lens: counts, ties, opportunities, burdens and examples, without neutrality, political or conflict-handling verdicts."
+      },
+      "scoreReading": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      },
+      "seo": {
+        "title": {
+          "zh": "道德困境测试结果：公允提问与机会分担",
+          "en": "Moral Dilemma Results: Fairness and Shared Burdens"
+        },
+        "description": {
+          "zh": "道德困境的公允提问完整读法：次数与并列、机会与负担、轮值例子、反例及可选核对，不判中立性或政治立场。",
+          "en": "Read the fairness lens: counts, ties, opportunities, burdens and examples, without neutrality, political or conflict-handling verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "question",
+          "title": {
+            "zh": "公允提问：机会与负担按什么安排",
+            "en": "The fairness question: how are opportunities and burdens arranged?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份读法先问谁可以参与、谁承担工作或等待，以及用什么可说明的依据分配。它不把公平简化为每次相同份额，也不认为只要有投票或先来先到就自动公允。不同分配原则可能重视平等、需要、贡献或其他因素，具体适用仍有争论。你选的是想先讨论的问题，不是已经会裁决分歧或保证中立。其他四组也能关心公允，这个编辑入口不认证正义人格、社会立场或某套完整政治哲学。",
+              "en": "This reading first asks who can participate, who bears work or waiting and what explainable basis supports an allocation. It reduces fairness neither to an identical share every time nor to automatic approval of voting or first arrival. Different distributive principles can emphasise equality, need, contribution or other considerations, with their application still disputed. You selected a question to discuss, not demonstrated an ability to adjudicate disagreement or guaranteed neutrality. Other entry points can care about fairness too. This editorial reading certifies neither a just personality, a social position nor membership of a complete political philosophy."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数怎样读，为什么保留并列",
+            "en": "Reading counts and retaining ties"
+          },
+          "paragraphs": [
+            {
+              "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+              "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+            }
+          ]
+        },
+        {
+          "id": "what-it-opens",
+          "title": {
+            "zh": "把份额、机会与理由分别说清",
+            "en": "Distinguish shares, opportunities and reasons"
+          },
+          "paragraphs": [
+            {
+              "zh": "表面相同的份额可能对应不同准备和限制；相同机会也可能要求说明谁能进入、谁知道规则以及负担由谁承担。这个入口可以把这些问题拆开，而不是只问谁拿得多。可以核对某个分配依据有没有说明、是否前后一致，以及相关人能否提出不同意见。高次数不证明你更客观、不偏心或能识别所有不公；本卷没有观察实际资源分配或他人的体验。网页只给一个讨论入口，不给适用于任何群体的万能公式。",
+              "en": "Apparently equal shares can accompany different preparation and constraints. Equal opportunity can also require asking who has access, who knows the rule and who bears a burden. This entry point separates those questions rather than asking only who receives more. Consider whether an allocation’s basis is explained, whether it is applied consistently and whether relevant people can question it. Higher counts establish neither objectivity, freedom from bias nor recognition of every injustice. The quiz observes no actual allocation or others’ experiences and supplies no universal formula for every group. Explaining a principle still leaves its justification and practical effects open to examination."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "程序、公平感与实际分担并非一回事",
+            "en": "Procedure, perceived fairness and actual burdens differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个程序一致，仍可能漏掉没有机会参与制定的人；一次特殊调整，也不一定是偏袒。需要同时问规则怎样形成、相关需要是什么以及影响落在哪里。参与者对公允的看法也可能不同，网站不能用最高次数裁定谁有理。这个入口不要求为了“看起来公平”强迫他人透露困难，也不把利益相关者当成应当接受安排的数字。可以保留争议、补问事实，或者承认目前没有足够资料，不用测试把现实分歧抹平。",
+              "en": "A consistent procedure can overlook people with no opportunity to shape it, while a particular adjustment need not be favouritism. Ask how a rule arose, which needs matter and where effects fall. Participants can disagree about fairness; the webpage cannot use a highest count to decide who is right. This entry point demands no disclosure of difficulties for the appearance of fairness and treats no stakeholder as a number obliged to accept an arrangement. Disagreement can remain, facts can be sought and insufficient information can be acknowledged without a quiz pretending to resolve the issue or decide whose account prevails."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：收尾轮值与先前准备",
+            "en": "Example: cleanup rotation and earlier preparation"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想烹饪活动结束，原先按轮值收尾，有人这次已提前做了较多准备。公允提问可以先区分轮值承诺、已完成的工作和剩余负担，再讨论按什么依据安排。它不自动支持平均时间，也不规定准备多就必须免收尾。还要知道分工是否事先说清、工作是否可比较以及大家的意愿。题目没有这些资料，不负责裁决。选择此问题也不意味着你现实中从不偏袒、擅长谈判或适合做某种职业。",
+              "en": "Imagine the cooking activity ending with a cleanup rotation, when someone has already done more preparation this time. A fairness question could distinguish the rotation commitment, completed work and remaining burden before discussing the basis for an arrangement. It automatically supports neither equal minutes nor exemption for whoever prepared more. Prior explanations, whether kinds of work can be compared and participants’ wishes still matter. The hypothetical lacks those facts and adjudicates nothing. Selecting this question does not mean you never show favouritism, negotiate well or fit a profession. It identifies an issue rather than measures how you would distribute real work."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：不同份额也可能出于公允考虑",
+            "en": "Counterexample: unequal shares can reflect fairness considerations"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人先问分配依据，可能因具体需要支持不同份额；另一个人先问关怀，也可能支持相同安排。反过来，听过具体需要后，双方也可能接受共同轮值。相同行动不决定谁先问什么，份额不同不自动证明不公。因此不能从本次计数推断政治立场、对某群体的态度或处理冲突的能力；也不能说次数较少的人不在意正义。你在另一道题先问后果，仍可以认真考虑机会和负担。",
+              "en": "Someone beginning with allocation principles might support different shares because of particular needs; someone beginning with care might support the same arrangement. After hearing the circumstances, both might instead accept a shared rotation. Matching actions determine no starting question, and unequal shares establish no automatic injustice. Counts therefore imply neither political commitments, attitudes toward a group nor conflict-handling ability, and fewer selections prove no indifference to justice. In another item you might ask first about effects while still considering opportunities and burdens seriously. The counterexample keeps a limited menu response separate from the complex judgments and actions it cannot establish."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一项依据、一处未说明",
+            "en": "Optional check: one basis and one unexplained point"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，从普通可讨论的分工想一项分配依据，再找一处还没有说清的地方，例如是否考虑了准备工作。你可以只在心里标记未知，不要求别人配合重分，也不搜集私人状况。这个小核对不保证安排公允、冲突减少或分数提高。若暂时不适合讨论，可以停下；测验不会要求把现实分歧拿来验证结果。读完只保留一个提醒也足够：份额相同、程序一致与安排有充分理由，需要分别核对。",
+              "en": "If useful, identify one basis for an ordinary division of work and one unexplained point, such as whether preparation was considered. You may simply mark the unknown privately without requiring a redistribution or collecting personal circumstances. This check guarantees neither fairness, less conflict nor increased counts. Stop if discussion is unsuitable; the quiz does not ask you to test a result through a real disagreement. A single reminder is enough: identical shares, consistent procedure and an adequately justified arrangement require separate examination. None follows automatically from a selected question or the name of this reading, and an optional exercise creates no obligation."
+            }
+          ]
+        },
+        {
+          "id": "comparison-sources",
+          "title": {
+            "zh": "分配正义不是单一平均主义标签",
+            "en": "Distributive justice is not one label for equal shares"
+          },
+          "paragraphs": [
+            {
+              "zh": "分配正义讨论有多种原则，不能把Rawls等思想简单化为凡事平分，也不能把程序无差别当全部正义。本版是原创日常提问，不是政治哲学知识题、正义判断能力量表或标准道德发展工具。价值观中的普遍关怀或仁爱、性格优势中的公平自报，与本卷次数不是相同测量。共同词语可以帮助比较阅读，不能换算成同一分数。其余四个入口同样可能提出公允理由，五组不是互不相容的道德阵营。",
+              "en": "Distributive justice contains different principles; thinkers such as Rawls cannot be reduced to dividing everything equally, and identical procedure is not the whole of justice. This original everyday inquiry is neither a political-philosophy knowledge test, a justice-judgment ability scale nor a standard moral-development instrument. Universal concern or benevolence in values, and fairness self-reports in character strengths, use different methods from these counts. Shared vocabulary may support comparative reading but permits no score conversion. The other four entry points can also offer fairness-related reasons. They are not incompatible moral camps, and background philosophy validates no personal result on this website."
+            }
+          ]
+        },
+        {
+          "id": "review-privacy",
+          "title": {
+            "zh": "完整阅读、重测与分享",
+            "en": "Full reading, retakes and sharing"
+          },
+          "paragraphs": [
+            {
+              "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+              "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "counts",
+      "title": {
+        "zh": "次数怎样读，为什么保留并列",
+        "en": "Reading counts and retaining ties"
+      },
+      "paragraphs": [
+        {
+          "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+          "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列逐份保留",
+        "en": "Retain every highest tie in full"
+      },
+      "paragraphs": [
+        {
+          "zh": "五组同样各出现16次，计数总和20，轮流省略。最高并列都显示各自全文，不按顺序抹掉、不硬派主副型；不是道德构成百分比。一题差异没有经过心理意义验证。",
+          "en": "Each group appears sixteen times, with rotating omissions and twenty total selections. Every highest tie keeps its full guide without fixed-order elimination or forced primary and secondary types. Counts are not moral composition percentages, and a one-item gap has no validated psychological meaning."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "问题起点与实际行动分开",
+        "en": "Separate a starting question from an actual action"
+      },
+      "paragraphs": [
+        {
+          "zh": "选择想先问什么，不承诺真实会怎样做。相同实际行动可以有不同理由，五个入口也可以互补。没有合适选项可退出，未完成不计个人结果，公开全文仍可免费读。",
+          "en": "Choosing what to ask first promises no actual behaviour. The same action can have different reasons, and questions can complement one another. Leave if none fits; unfinished attempts have no personal result while public full guides remain free."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原创提问与规范伦理背景",
+        "en": "Original questions and normative background"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是原创伦理提问反思，借后果、原则、品格、关怀与公允五个编辑入口阅读日常价值张力，不是五种互斥人格、完整哲学学派归属或道德发展量表。选择某问题不证明决策正确、诚实可信、共情、守诺、判断能力或职业适合，也不表示其他视角被忽略。没有善恶等级、通过线、常模、诊断或真实行动指导。规范伦理传统不是心理测量验证；本版未采用DIT-2、MJT、MFT或竞品题库，也未复制原著正文。现实选择仍需具体事实、约定和当事人意见，网页计数不能替代。",
+          "en": "This original ethical-question reflection uses five editorial entry points—consequences, principles, character, care and fairness—to explore ordinary value tensions. They are not mutually exclusive personalities, membership of complete philosophical schools or a moral-development scale. Selecting a question establishes neither a correct decision, honesty, trustworthiness, empathy, promise-keeping, judgment ability nor career fit, and does not show that other considerations were ignored. There are no good/evil grades, pass marks, norms, diagnoses or instructions for real action. Normative traditions supply no psychometric validation. No DIT-2, MJT, MFT or competitor bank, or original book text, is reproduced. Real choices still need facts, agreements and participants’ views rather than webpage counts."
+        }
+      ]
+    },
+    {
+      "id": "review-privacy",
+      "title": {
+        "zh": "完整阅读、重测与分享",
+        "en": "Full reading, retakes and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+          "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这能测道德高低或推断真实行为吗？",
+        "en": "Does this measure morality or predict actual behaviour?"
+      },
+      "answer": {
+        "zh": "不能。次数只描述在给定假想菜单中先选了哪组问题，不是道德分数、人格、诚实共情能力、决策正确性或真实行动。相同选择可有不同理由，真实情况仍需事实与相关人意见。",
+        "en": "No. Counts describe starting questions selected from hypothetical menus, not morality, personality, honesty, empathy, decision correctness or actual behaviour. The same selection can have different reasons; real situations still need facts and relevant people’s views."
+      }
+    },
+    {
+      "question": {
+        "zh": "后果、原则、品格、关怀和公允是五种人吗？",
+        "en": "Are consequences, principles, character, care and fairness five kinds of people?"
+      },
+      "answer": {
+        "zh": "不是。它们是编辑组织的提问入口，受不同规范伦理讨论启发，互相可以补充，不等同完整哲学学派，也不独占某种价值。",
+        "en": "No. They are editorial lines of inquiry informed by normative discussions. They can complement one another, represent no complete philosophical school and own no exclusive values."
+      }
+    },
+    {
+      "question": {
+        "zh": "每题只有四组，计数怎样保证说明清楚？",
+        "en": "How do counts work when a menu offers only four groups?"
+      },
+      "answer": {
+        "zh": "本卷20个假想情境，每题提供五组提问中的四组，轮流省略。每组出现16次，在四个位置各4次；每选一次加1，无反向或对错分。次数只是你在给定菜单中想先核对什么，不是能力、信念强度或道德份额。全部完成才给个人次数，所有最高并列都保留各自九节全文；全A时五组各4，不认定最平衡、最高尚或完整掌握伦理。没有选到某组，也不能说你不在意它。",
+        "en": "There are twenty hypothetical situations, each offering four of five question groups with a rotating omission. Each group appears sixteen times, four in each position; a selection adds one count without reversals or correctness points. Counts describe which offered question you wanted to examine first, not ability, conviction strength or a share of morality. Personal counts require a complete attempt. Every highest tie retains its own nine-section guide. Choosing A throughout gives four selections per group, without an ideal balance, moral excellence or comprehensive ethical understanding. An unselected group is not evidence that you disregard it, and the menus do not exhaust relevant questions."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是标准道德发展工具或原著题库吗？",
+        "en": "Is this a standard moral-development instrument or a book-derived bank?"
+      },
+      "answer": {
+        "zh": "不是。20道情境和80个选项均为本站原创，未采用DIT-2、MJT、MFT、竞品题库或哲学原著正文。规范伦理背景不构成题目或中文版本的心理测量验证。",
+        "en": "No. Twenty situations and eighty options are original. No DIT-2, MJT, MFT, competitor bank or original philosophical book text is adopted. Normative background provides no psychometric validation of these items or their Chinese version."
+      }
+    },
+    {
+      "question": {
+        "zh": "与道德阵营、价值观或性格优势有什么区别？",
+        "en": "How does this differ from alignment, values or character strengths?"
+      },
+      "answer": {
+        "zh": "道德阵营用两条虚构阅读轴，价值观评目标重要度，性格优势是具体自报准确度；这里选假想困境中先核对的问题。题本、方法和含义不同，不能换算为道德总分。",
+        "en": "Alignment uses two fictional reading axes, values rates goal importance, and character strengths uses self-report accuracy. This form selects questions to examine first in hypothetical tensions. Banks, methods and meanings differ and cannot combine into a morality total."
+      }
+    },
+    {
+      "question": {
+        "zh": "五份完整结果、恢复和分享都免费吗？",
+        "en": "Are all five full guides, drafts and sharing free?"
+      },
+      "answer": {
+        "zh": "五份九节全文、作答、重测和分享都免费，不需另一测评、邮箱或付费解锁。公开说明不关联个人答卷，分享只带测试名、匹配读法名称与公开链接，不含答案、次数或内部表单标识。作答在本设备处理；草稿需主动开启，仅本标签页最多24小时，完成、重测、退出清除即删。重测时菜单或当时关注的情境会影响选择，差异不表示道德进步或退步。这里不收集真实困境、他人情况或私人经历；你可以只阅读全文后结束。",
+        "en": "All five nine-section guides, questions, retakes and sharing are free without another assessment, email or payment. Public guides contain no private attempts. Sharing includes only the test name, matched reading names and public link, without answers, counts or internal form identifiers. Answers are processed on this device. A draft requires explicit opt-in, lasts at most twenty-four hours in this tab and clears on completion, retake or exit-and-clear. Menus and the circumstances you have in mind can affect a retake; differences establish neither moral progress nor decline. No actual dilemma, another person’s circumstances or private history is collected. You may simply finish after reading."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://plato.stanford.edu/entries/consequentialism/",
+      "title": {
+        "zh": "Stanford哲学百科：后果伦理（概念背景）",
+        "en": "Stanford Encyclopedia of Philosophy: Consequentialism (background)"
+      }
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/ethics-deontological/",
+      "title": {
+        "zh": "Stanford哲学百科：义务伦理（概念背景）",
+        "en": "Stanford Encyclopedia of Philosophy: Deontological Ethics (background)"
+      }
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/ethics-virtue/",
+      "title": {
+        "zh": "Stanford哲学百科：品格伦理（概念背景）",
+        "en": "Stanford Encyclopedia of Philosophy: Virtue Ethics (background)"
+      }
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/feminism-ethics/",
+      "title": {
+        "zh": "Stanford哲学百科：女性主义伦理中的关怀讨论（选读）",
+        "en": "Stanford Encyclopedia of Philosophy: Care in Feminist Ethics (selected background)"
+      }
+    },
+    {
+      "url": "https://plato.stanford.edu/entries/justice-distributive/",
+      "title": {
+        "zh": "Stanford哲学百科：分配正义（概念背景）",
+        "en": "Stanford Encyclopedia of Philosophy: Distributive Justice (background)"
+      }
+    }
+  ]
+}

@@ -1762,5 +1762,31 @@
       "free-child",
       "adapted-child"
     ]
+  },
+  {
+    "slug": "moral-dilemma-test",
+    "code": "FIVE_ETHICAL_QUESTIONS_ORIGINAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "道德困境测试",
+      "en": "Moral Dilemma Test"
+    },
+    "description": {
+      "zh": "免费道德困境测试：20道原创日常价值张力情境，探索后果、原则、品格、关怀与公允五组提问。所有最高并列和五份完整说明免费，不判善恶、能力或人格。",
+      "en": "A free moral dilemma test: 20 original situations, five ethical questions and full guides for every highest tie, without moral grades or personality verdicts."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_ethical_questions_choices_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "consequences",
+      "principles",
+      "character",
+      "care",
+      "fairness"
+    ]
   }
 ]

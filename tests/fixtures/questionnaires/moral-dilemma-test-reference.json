@@ -1,0 +1,891 @@
+{
+  "formCode": "fm_ethical_questions_choices_20",
+  "origin": "Twenty original bilingual ordinary hypothetical value tensions with original questions for reflection, informed by broad philosophical traditions. Each menu offers four of five editorial lines of inquiry, not a psychological instrument, a correct-action key or a reproduction of any competitor bank.",
+  "sourceUrl": "https://plato.stanford.edu/entries/consequentialism/",
+  "sourceRead": "Selected currentSEPconsequentialism13-64/deontology13-38/virtue15-53/distributivejustice13-56/care135-145actualread;notwholearticlesorMill/Kant/Aristotle/Gilligan/Rawlsbooks orlicensedstandardmoralreasoningbanks. References are conceptualbackground,notquestionsourceorlocalvalidation.",
+  "directions": [
+    {
+      "id": "consequences",
+      "title": {
+        "zh": "后果与影响",
+        "en": "Consequences and effects"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "principles",
+      "title": {
+        "zh": "原则与承诺",
+        "en": "Principles and commitments"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "character",
+      "title": {
+        "zh": "品格与实践",
+        "en": "Character and practice"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "care",
+      "title": {
+        "zh": "关怀与关系",
+        "en": "Care and relationships"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "fairness",
+      "title": {
+        "zh": "公允与分配",
+        "en": "Fairness and allocation"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "ETHICS_01",
+      "prompt": {
+        "zh": "读书活动的展示桌只剩几个位置。你先前答应给一位准备很久的成员留位，但新收到的其他作品能让更多主题被看见。你想先核对哪个问题？",
+        "en": "A reading event has only a few display spaces left. You promised a place to someone who prepared for weeks, but newer submissions would represent more topics. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先前承诺形成了什么应当认真对待的义务，怎样交代才站得住？",
+            "en": "What obligation did the earlier promise create, and how could a response be justified?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样处理才能在这个具体取舍里践行诚实、审慎和负责？",
+            "en": "How could this particular choice practise honesty, sound judgment and responsibility?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "那位依靠留位作准备的成员，现在具体需要怎样的回应？",
+            "en": "What response is now needed by the member who relied on the reserved place?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果事先不知道自己是哪位投稿者，会接受什么公开选位办法？",
+            "en": "What transparent allocation would be acceptable without knowing which contributor you would be?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_02",
+      "prompt": {
+        "zh": "共同手作箱已被小组预约做周末活动。一位新成员临时想借其中一件工具，按原计划借出会让预约小组等待。你想先核对哪个问题？",
+        "en": "A shared craft kit is reserved for a weekend group activity. A new member wants one tool, but lending it would make the reserving group wait. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样的处理能在资源紧张时仍体现可靠与审慎，而不只是方便自己？",
+            "en": "What response would practise reliability and judgment under scarcity rather than convenience alone?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "双方各自依赖这件工具的具体处境是什么，有什么可以回应的需要？",
+            "en": "What particular circumstances and needs explain each side’s reliance on this tool?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样的借用和例外标准对新旧成员都能公开说明？",
+            "en": "What borrowing and exception criteria could be explained openly to both new and established members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "借出与保留工具，各会带来多少等待、完成机会和额外麻烦？",
+            "en": "How would lending or retaining the tool affect waiting, completion and inconvenience?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_03",
+      "prompt": {
+        "zh": "社区花园想把一片空地做成醒目的花景，部分邻居则希望保留现在安静的小角落。两种安排都有人认真维护。你想先核对哪个问题？",
+        "en": "A community garden could turn an empty patch into a striking display, while some neighbours want to keep its quiet corner. Both arrangements have committed volunteers. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "依赖这个安静角落的人，其具体需要有没有机会被听见？",
+            "en": "Have the particular needs of people relying on the quiet corner had a hearing?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "受影响但不常参加会议的人，怎样获得同等提出理由的机会？",
+            "en": "How could affected people who rarely attend meetings have an equal chance to offer reasons?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各方案对使用体验、维护工作和受影响人数会产生什么后果？",
+            "en": "What would each plan do to use, maintenance work and the people affected?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家原先接受了哪些使用边界，新的安排能以什么原则获得辩护？",
+            "en": "What use boundaries were accepted, and on what principle could a new arrangement be defended?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_04",
+      "prompt": {
+        "zh": "志愿通讯的感谢页空间有限。把所有幕后工作逐一列出会挤掉读者需要的活动说明，只列负责人又可能漏掉别人的付出。你想先核对哪个问题？",
+        "en": "A volunteer newsletter has limited space for acknowledgments. Listing every behind-the-scenes contribution would displace useful event details, but naming only coordinators may overlook others. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "列名的依据能否一致公开，而不是取决于谁认识负责人？",
+            "en": "Could the credit criteria be consistent and public rather than depend on personal connections?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同写法会怎样影响读者获得信息以及贡献者的实际处境？",
+            "en": "How would different versions affect readers’ information and contributors’ circumstances?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "对署名或感谢已作过什么承诺，应怎样履行并说明限制？",
+            "en": "What commitments about credit or thanks were made, and how could limits be explained?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "什么写法能在有限篇幅里仍践行诚实、谦逊和承认他人付出？",
+            "en": "What wording would practise honesty, humility and acknowledgment within limited space?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_05",
+      "prompt": {
+        "zh": "小组已有一份多数人喜欢的活动音乐单，一位参与者说自己更希望留一段安静时间。调整会减少大家期待的音乐时段。你想先核对哪个问题？",
+        "en": "A group has a popular activity playlist, but one participant asks for a quiet interval. Changing it would reduce music time others anticipated. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "音乐与安静的不同安排，会怎样影响每个人的参与体验？",
+            "en": "How would different music and quiet arrangements affect each person’s participation?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "共同活动已承诺怎样照顾参与边界，哪些原则不能只按人数决定？",
+            "en": "What participation boundaries were promised, and which principles are not settled by headcount?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "什么回应能在兴趣不同的时候体现体谅、节制和实际判断？",
+            "en": "What response would practise consideration, moderation and judgment amid differing interests?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "提出安静时间的人，具体在请求什么，怎样听取而不替其猜原因？",
+            "en": "What exactly is the person asking for, without guessing their reason on their behalf?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_06",
+      "prompt": {
+        "zh": "野餐的备用场地比原计划小。有些人已经按旧安排约好同伴，缩减人数能让剩下的人更方便，却会让部分准备落空。你想先核对哪个问题？",
+        "en": "A picnic’s backup space is smaller than planned. Some people already arranged companions; reducing attendance would ease the event for others but disappoint those prepared. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "对参与名额已形成什么承诺，改变时需要怎样向相关人交代？",
+            "en": "What attendance commitments exist, and what account is owed if they change?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样处理这次限制，能践行可靠、坦诚和审慎而非只求省事？",
+            "en": "What response would practise reliability, candour and judgment rather than merely save effort?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "已经依赖旧安排的人，各自有什么需要先被听到的处境？",
+            "en": "What circumstances of people relying on the original arrangement need to be heard?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "若必须缩减，依据能否事先公开并给受影响者同样的申述机会？",
+            "en": "If reduction is necessary, could criteria be public with comparable opportunities to raise concerns?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_07",
+      "prompt": {
+        "zh": "手作演示时间不多。按原节奏多数人能完成作品，一位初学者则需要多一点讲解；多解释会让其他人少做一个步骤。你想先核对哪个问题？",
+        "en": "A craft demonstration is short on time. Most can finish at the planned pace, while a beginner needs another explanation that would displace a step for others. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样教与怎样回应，能在当下践行耐心、诚实和实际判断？",
+            "en": "What teaching and response would practise patience, honesty and practical judgment here?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "初学者的具体困难是什么，能否先问清再决定支持方式？",
+            "en": "What is the beginner’s particular difficulty, before deciding what support would respond to it?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "谁能获得额外解释，依据是否公开，并考虑不同起点？",
+            "en": "Are criteria for extra explanation public and attentive to different starting points?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不同分配会怎样影响各人的理解、完成机会和等待成本？",
+            "en": "How would each allocation affect understanding, completion opportunities and waiting costs?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_08",
+      "prompt": {
+        "zh": "一份活动路线图有两种设计：更短的路让多数人早点到达，更熟悉的路则让几位新参加者更容易自行找到集合点。你想先核对哪个问题？",
+        "en": "An activity map has two designs: a shorter route gets most people there earlier, while a familiar route helps several newcomers find the meeting point themselves. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "新参加者具体依靠哪些线索，怎样回应而不假定他们需要什么？",
+            "en": "What cues do newcomers actually rely on, without assuming what they need?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同熟悉程度的人是否有可比的抵达机会，地图标准能否公开？",
+            "en": "Do people with different familiarity have comparable access, under transparent map criteria?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各路线会给每位参与者带来什么便利、绕行和走错的可能成本？",
+            "en": "What convenience, detours and possible confusion would each route create for participants?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先前提供的集合说明形成了什么责任，改动要怎样向所有人交代？",
+            "en": "What responsibility follows from earlier instructions, and how should a change be explained?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_09",
+      "prompt": {
+        "zh": "短剧小组只能安排一个开场角色。熟悉台词的人能让演出更稳，新成员则一直没有展示机会；大家都认真准备了。你想先核对哪个问题？",
+        "en": "A short-play group has one opening role. An experienced member could make the performance smoother, while newcomers have had little chance to appear. Everyone prepared seriously. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "选角的资格、程序和轮换依据能否对新旧成员同样公开？",
+            "en": "Could eligibility, selection and rotation criteria be equally public for new and established members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "不同安排会怎样影响演出、准备投入和每位参与者的机会？",
+            "en": "How would each arrangement affect the performance, preparation and opportunities for each participant?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "分配角色时已经接受了什么承诺或原则，怎样一致地说明决定？",
+            "en": "What commitments or principles were accepted for roles, and how could a decision be consistently explained?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "这次选择与后续回应怎样体现诚实、勇气和实际判断？",
+            "en": "How could the choice and response practise honesty, courage and practical judgment?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_10",
+      "prompt": {
+        "zh": "植物交换活动剩下的幼苗不多。长期照料苗圃的人希望先挑选，新参与者则以为所有人都有相同机会。你想先核对哪个问题？",
+        "en": "Few seedlings remain at a plant exchange. Long-time nursery volunteers hope to choose first, while newcomers expected a comparable opportunity. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同分配会怎样影响幼苗照料、参与机会和今后活动的实际结果？",
+            "en": "How would each allocation affect plant care, participation and future activity outcomes?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "关于志愿投入和挑选次序，有什么已明确接受的承诺需要认真对待？",
+            "en": "What explicit commitments about volunteering and selection order should be taken seriously?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样协商能在付出与期待不同时仍践行公允、诚实和谦逊？",
+            "en": "What discussion would practise fairness, honesty and humility amid different contributions and expectations?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "长期照料者与新参与者，各有什么具体需要值得被听取？",
+            "en": "What particular needs of long-time volunteers and newcomers deserve a hearing?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_11",
+      "prompt": {
+        "zh": "桌游小组已按一种规则练习。新参加者觉得其中一步太难，希望临时改掉；改变会让先前练习的优势减少。你想先核对哪个问题？",
+        "en": "A board-game group practised under an agreed rule. A newcomer finds one step difficult and asks to change it, which would reduce the value of earlier practice. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先前共同接受了什么规则，修改需要经过怎样可说明的同意？",
+            "en": "What rule was accepted, and what justifiable agreement would a change require?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在经验不同的人之间，什么处理能践行耐心、诚实和审慎？",
+            "en": "What response would practise patience, honesty and judgment across different experience levels?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "新参加者具体卡在哪里，有什么支持能回应而不替对方决定？",
+            "en": "Where is the newcomer actually stuck, and what support would respond without deciding for them?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "规则修改对谁有利，下一位新成员来时能否使用同样的公开标准？",
+            "en": "Whom would a change favour, and could the same public criteria apply to the next newcomer?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_12",
+      "prompt": {
+        "zh": "阅读清单可以保留熟悉作者，让小组更容易开始讨论，也可以加入大家不认识的新作者，但准备会更费力。你想先核对哪个问题？",
+        "en": "A reading list could retain familiar authors for an easier discussion or include unfamiliar voices that require more preparation. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样选择能践行求知、谦逊与审慎，而不只让自己显得见多识广？",
+            "en": "What choice would practise curiosity, humility and judgment rather than display sophistication?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "哪些成员依靠熟悉内容参与，哪些人的阅读经验一直没有被听到？",
+            "en": "Who relies on familiar material to participate, and whose reading experience has gone unheard?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "熟人与陌生作者的提议是否按同样可说明的机会和标准进入清单？",
+            "en": "Do familiar and unfamiliar authors’ suggestions receive comparably explainable opportunities and criteria?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不同清单会给理解、参与和准备负担带来哪些实际影响？",
+            "en": "How would different lists affect understanding, participation and preparation burdens?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_13",
+      "prompt": {
+        "zh": "共同做饭活动按轮次分清理任务。一位这次准备特别多的成员希望少清理一点，其他人担心临时例外让轮次失去意义。你想先核对哪个问题？",
+        "en": "A shared cooking activity rotates cleanup. Someone who prepared much more this time asks for a smaller cleanup task; others worry that exceptions undermine the rotation. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提出请求者此刻具体需要什么，其他成员有什么未说出的负担？",
+            "en": "What does the requester specifically need now, and what burdens have others not voiced?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分工是否考虑准备与清理的全部负担，并有新旧成员都知道的标准？",
+            "en": "Do criteria account for both preparation and cleanup burdens and remain known to all members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "各分法会怎样影响总的工作量、疲劳和之后愿意参与的机会？",
+            "en": "How would allocations affect total work, fatigue and opportunities for future participation?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "大家接受轮次时承诺了什么，什么理由足以向参与者说明改动？",
+            "en": "What did accepting the rotation commit people to, and what could justify a change to them?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_14",
+      "prompt": {
+        "zh": "活动说明里有个不影响主要结论的小错误。重印会消耗剩下的纸，只贴补充说明更节省，却可能有人只看到旧页。你想先核对哪个问题？",
+        "en": "An activity handout has a small error that leaves its main conclusion unchanged. Reprinting uses remaining paper; an added correction saves paper but may miss some readers. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "拿到不同版本的人，是否都有可比的机会获得同样准确的信息？",
+            "en": "Do readers with different versions have comparable access to the same accurate information?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "各改法会造成多少误解、材料消耗和额外查找，影响有多大？",
+            "en": "How much misunderstanding, material use and extra searching would each correction method cause?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "向读者提供准确说明形成了什么义务，怎样履行并说明更正？",
+            "en": "What obligation follows from providing accurate instructions, and how could correction fulfil it?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "怎样承认并处理这个错误，能践行坦诚、审慎和负责？",
+            "en": "What acknowledgment and response would practise candour, judgment and responsibility?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_15",
+      "prompt": {
+        "zh": "回收手作材料只够一件大作品或几件小作品。有人已经画好大作品方案，另几位则想各做一张小卡片。你想先核对哪个问题？",
+        "en": "Reclaimed craft material is enough for one large piece or several small ones. One participant has designed the large piece; others want to make a small card each. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不同用途会带来哪些完成机会、材料浪费或其他实际结果？",
+            "en": "What completion opportunities, waste or other practical results would different uses create?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "关于材料用途和先前准备，已有怎样的承诺需要认真交代？",
+            "en": "What commitments about material use and prior preparation need a serious response?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样商议能践行节制、公允和诚实，不只是替自己的方案找理由？",
+            "en": "What discussion would practise moderation, fairness and honesty rather than rationalise one’s own plan?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几位参与者各自对这次创作有什么具体期待和依赖？",
+            "en": "What particular hopes and reliance do the participants have concerning this activity?"
+          },
+          "directionId": "care"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_16",
+      "prompt": {
+        "zh": "集体相册原先约好只写小组名称。一位新成员希望自己的那部分能署名，以便让朋友知道自己参与过，其他人更喜欢保持整体风格。你想先核对哪个问题？",
+        "en": "A group album was meant to carry only the group name. A new member wants credit for their part so friends can recognise their participation; others prefer a collective presentation. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "原先关于署名的约定有什么理由，重新讨论时应承担什么义务？",
+            "en": "What reasons support the original credit agreement, and what is owed when reconsidering it?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "怎样对待个人付出和集体成果，能践行诚实、谦逊与公允？",
+            "en": "What treatment of individual effort and shared work would practise honesty, humility and fairness?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "这位成员具体希望得到怎样的认可，其他人的在意是什么？",
+            "en": "What acknowledgment does this member actually seek, and what matters to the others?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "如果换成别位成员提出同样请求，是否有一致且公开的处理依据？",
+            "en": "Would the same public criteria apply if another member made the request?"
+          },
+          "directionId": "fairness"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_17",
+      "prompt": {
+        "zh": "例会只剩最后十分钟。继续原议程能把主要事项定下来，留给一直没发言的人则可能需要把决定延后。你想先核对哪个问题？",
+        "en": "A meeting has ten minutes left. Finishing its agenda would settle the main arrangements, while hearing people not yet heard might postpone a decision. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "怎样主持和回应，能在时间有限时践行耐心、诚恳与实际判断？",
+            "en": "What facilitation would practise patience, sincerity and practical judgment under a time limit?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "尚未发言的人有何具体顾虑，他们是否有适合表达的方式？",
+            "en": "What particular concerns remain unheard, and is there a suitable way to express them?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "发言机会和延后决定的条件，是否对不同成员同样可知、可用？",
+            "en": "Are speaking opportunities and postponement criteria comparably known and available to different members?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "现在定案或延后，会给哪些人的安排带来多大的帮助与不便？",
+            "en": "What benefits and inconveniences would deciding now or later create for whose arrangements?"
+          },
+          "directionId": "consequences"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_18",
+      "prompt": {
+        "zh": "小组出游已有一条约好的路线，一位成员为此做了很多准备。多数人临时更想换个新地点，换地点又会让这位成员的准备无法使用。你想先核对哪个问题？",
+        "en": "An outing has an agreed route that one member prepared extensively. Most now prefer a new destination, which would leave that preparation unused. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "做准备的成员具体在意什么，其他人对新地点的需要是什么？",
+            "en": "What specifically matters to the prepared member, and what needs motivate the others’ preference?"
+          },
+          "directionId": "care"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "在不知道自己属于哪一方时，会接受怎样的改计划程序？",
+            "en": "What change-of-plan procedure would be acceptable without knowing which side you occupy?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "两种安排对各人的体验、准备投入和后续麻烦有什么实际影响？",
+            "en": "What would each arrangement do to experience, preparation and later inconvenience for each person?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "依照原安排作准备的人，有什么来自承诺的合理期待需要回应？",
+            "en": "What reasonable reliance on the original commitment needs a response?"
+          },
+          "directionId": "principles"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_19",
+      "prompt": {
+        "zh": "合作解谜小组原先说好不看提示。现在有人想看一条提示，让大家能在结束前完成，另一些人更想保留自己解出的过程。你想先核对哪个问题？",
+        "en": "A cooperative puzzle group agreed to avoid hints. Some now want one hint to finish on time; others value working it out themselves. Which question would you examine first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "提示的使用和决定权，能否按每位成员都知道的程序处理？",
+            "en": "Could hint use and decision authority follow a procedure known to every member?"
+          },
+          "directionId": "fairness"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "看或不看提示，会给完成感、参与和剩余时间带来什么结果？",
+            "en": "What would using or avoiding a hint do to completion, participation and remaining time?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "不看提示的约定基于什么原则，改动需得到怎样的共同认可？",
+            "en": "What principle supports the no-hint agreement, and what shared acceptance would a change require?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "面对想完成与想坚持的不同期待，怎样回应能践行诚实、耐心与审慎？",
+            "en": "What response to these different hopes would practise honesty, patience and judgment?"
+          },
+          "directionId": "character"
+        }
+      ]
+    },
+    {
+      "id": "ETHICS_20",
+      "prompt": {
+        "zh": "共享活动室的最后十分钟，可以继续大家期待的小展示，也可以多整理一点，给下一组省去准备时间。原先只约好了基本收拾。你想先核对哪个问题？",
+        "en": "In a shared room’s final ten minutes, your group can hold its anticipated mini-display or do extra tidying to save the next group preparation time. Only basic cleanup was agreed. Which question comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "展示或额外整理，会给本组与下一组带来哪些实际收益与损失？",
+            "en": "What practical benefits and losses would the display or extra tidying create for both groups?"
+          },
+          "directionId": "consequences"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "基本收拾与展示的既有承诺，各形成什么义务，额外要求凭什么成立？",
+            "en": "What obligations follow from existing cleanup and display commitments, and what could justify an extra demand?"
+          },
+          "directionId": "principles"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "怎样处理共同空间和已经期待的安排，能践行负责、慷慨与审慎？",
+            "en": "What treatment of shared space and anticipated plans would practise responsibility, generosity and judgment?"
+          },
+          "directionId": "character"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "本组期待展示的人和下一组准备的人，各有什么具体需要值得回应？",
+            "en": "What specific needs of those awaiting a display and those preparing next deserve a response?"
+          },
+          "directionId": "care"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "questions": 20,
+    "directionCount": 5,
+    "choicesEach": 4,
+    "exposureEach": 16,
+    "positionsEach": 4,
+    "omittedEach": 4,
+    "reverseItems": [],
+    "rule": "eachchoiceaddsone/all20needed/allhighestIDsretained/nofixedordertiebreak/nohighestpercentageortraitnorms",
+    "meaning": "Counts of offered questions you chose to examine first, not measured moralreasoningability,actualcharacter,actualbehaviour or mutuallyexclusivephilosophicalschools. Equalexposuredoesnotremovemenulimitsorresponsebias.",
+    "verificationPlan": "fullreachable5countvectorDPandallhighestsets comparedruntimeafterintegration,not4^20individualanswerpaths/psychometricvalidation"
+  },
+  "scope": {
+    "zh": "这是原创伦理提问反思，借后果、原则、品格、关怀与公允五个编辑入口阅读日常价值张力，不是五种互斥人格、完整哲学学派归属或道德发展量表。选择某问题不证明决策正确、诚实可信、共情、守诺、判断能力或职业适合，也不表示其他视角被忽略。没有善恶等级、通过线、常模、诊断或真实行动指导。规范伦理传统不是心理测量验证；本版未采用DIT-2、MJT、MFT或竞品题库，也未复制原著正文。现实选择仍需具体事实、约定和当事人意见，网页计数不能替代。",
+    "en": "This original ethical-question reflection uses five editorial entry points—consequences, principles, character, care and fairness—to explore ordinary value tensions. They are not mutually exclusive personalities, membership of complete philosophical schools or a moral-development scale. Selecting a question establishes neither a correct decision, honesty, trustworthiness, empathy, promise-keeping, judgment ability nor career fit, and does not show that other considerations were ignored. There are no good/evil grades, pass marks, norms, diagnoses or instructions for real action. Normative traditions supply no psychometric validation. No DIT-2, MJT, MFT or competitor bank, or original book text, is reproduced. Real choices still need facts, agreements and participants’ views rather than webpage counts."
+  },
+  "instructions": {
+    "zh": "每个假想日常情境都有几种值得讨论的考虑。请选择自己此刻想先核对的一个问题，不是挑最高尚的话，也不要求承诺真实会怎样做。每题只呈现五组提问中的四组，轮流省略；每组全卷出现16次、在四个位置各4次，省略4次。每选一项该组加1，无反向或对错分；20题完成才显示次数和全部最高并列全文，不硬派主副型。其他问题可能同样重要，菜单不穷尽现实做法。若没有合适选项，可退出，公开全文仍免费，不输入私人经历。",
+    "en": "Each ordinary hypothetical tension has several considerations worth discussing. Choose one question you want to examine first now, rather than the noblest sentence or a promise of actual behaviour. A menu presents four of five lines of inquiry with a rotating omission. Each group appears sixteen times, four in each position, and is absent four times. A choice adds one count with no reversals or correctness points. All twenty selections are needed for counts and every highest tie’s full guide, without a forced primary or secondary type. Other questions may matter equally, and menus do not exhaust real actions. Leave if none fits; public guides remain free without personal stories."
+  }
+}
