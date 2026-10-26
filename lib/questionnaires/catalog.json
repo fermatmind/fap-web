@@ -1788,5 +1788,29 @@
       "care",
       "fairness"
     ]
+  },
+  {
+    "slug": "dark-triad",
+    "code": "DARK_TRIAD",
+    "version": "0.1.0-preview-web.1",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "黑暗三角测试",
+      "en": "Dark Triad Test"
+    },
+    "description": {
+      "zh": "免费黑暗三角测试原创主题观察版：18条自报做法，分别看认可与形象、影响方式和影响距离。三份完整结果免费，仅保留页面内存，不作人格或风险判断。",
+      "en": "A free Dark Triad Test: 18 original self-report items and three full thematic guides. Page memory only, without clinical traits, types or risk verdicts."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "dark_triad_theme_likert_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "status-recognition",
+      "instrumental-influence",
+      "impact-distance"
+    ]
   }
 ]

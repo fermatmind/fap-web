@@ -1,0 +1,1817 @@
+{
+  "slug": "dark-triad",
+  "code": "DARK_TRIAD",
+  "version": "0.1.0-preview-web.1",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "黑暗三角测试",
+    "en": "Dark Triad Test"
+  },
+  "resultHeading": {
+    "zh": "三组主题自我观察：完整读法",
+    "en": "Three thematic self-observations: full readings"
+  },
+  "description": {
+    "zh": "免费黑暗三角测试原创主题观察版：18条自报做法，分别看认可与形象、影响方式和影响距离。三份完整结果免费，仅保留页面内存，不作人格或风险判断。",
+    "en": "A free Dark Triad Test: 18 original self-report items and three full thematic guides. Page memory only, without clinical traits, types or risk verdicts."
+  },
+  "seoTitle": {
+    "zh": "黑暗三角测试：原创主题观察与免费完整结果",
+    "en": "Dark Triad Test: Original Themes & Free Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "面对质疑时先核对事实还是维护形象？推进目标时怎样说明信息、回应反对？别人说出影响后，自己怎样回应？这份自有原创题本围绕黑暗三角相关话题，分别回看认可与形象、影响方式、影响距离三组具体做法，每组六条，共十八条。它是小程序候选的网页公开预览，保留中文原题、符合度选项、各组至少四条有效和独立计分，并增加英文试译与完整阅读。三组不是标准自恋、马基雅维利主义或精神病态量表分数，不派三种人格，也不认证谁善良、危险、善于领导或适合某个职业。每条可选择不愿回答，资料不足的组不会补数；三份九节全文始终免费。为保留这项题本的隐私范围，答案只在当前页面内存，刷新或换语言不会恢复，不发送测试流程统计，也不分享个人结果。可以先读公开说明，再决定是否作答。",
+    "en": "When questioned, do you first check facts or protect an image? How do you explain information and respond to objections while pursuing aims? How do you respond after someone describes an effect? This owned original bank revisits topics discussed around the Dark Triad through three groups of specific practices: recognition and image, influence, and impact distance. Six items per group make eighteen. This web public preview carries forward the mini-program candidate’s Chinese items, accuracy options, four-rating minimum and independent scoring, with a new English trial translation and full readings. These are not standard narcissism, Machiavellianism or psychopathy scale scores, three personalities, or verdicts of goodness, danger, leadership or career fit. Every item offers an unscored preference not to answer, and missing groups are not filled in. All three nine-section guides remain free. To retain this bank’s privacy scope, answers stay in page memory: refreshing or changing language loses the attempt, quiz-flow statistics are not sent and personal results are not shared. Read public explanations before deciding whether to answer."
+  },
+  "instructions": {
+    "zh": "仅回看本人过去三个月，选择每句话有多符合自己。1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合；3算有效数值但不解释为稳定中立频率。不愿回答可选独立项，不补零或中点。18条都选择后结束，每组六条至少四条数字才给该组原始和、有效数与描述性均分；三组独立，不算总分、最高型或风险。作答只保留当前页面内存，刷新、换语言或离开后不能恢复，不写入浏览器存储、不发流程统计、不分享个人结果；返回上题可修改，重测或退出清除。三份全文始终免费。",
+    "en": "Refer only to yourself over the past three months and rate how accurately each sentence describes you: 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate. Three counts numerically without representing a stable neutral frequency. The separate prefer-not-to-answer option is unscored, without zero or midpoint substitution. All eighteen selections finish an attempt; each six-item group needs four numeric ratings for its raw sum, rated count and descriptive mean. Groups remain separate without a total, dominant type or risk result. Answers remain only in this page’s memory: refreshing, changing language or leaving loses them. No browser storage, quiz-flow statistics or personal-result sharing is used. Back edits are possible; retake or exit clears the attempt. All three full guides remain free."
+  },
+  "source": {
+    "kind": "FermatMind owned original DARK_TRIAD mini-program public-preview bank: exact eighteen Chinese prompts, IDs, order, accuracy response labels, direct keys and three independent thematic factors; new English trial translation and web presentation. Not SD3, Dirty Dozen, a clinical trait instrument or a direct measure of the three research traits.",
+    "formCode": "dark_triad_theme_likert_18",
+    "itemBankVersion": "0.1.0-preview",
+    "scoringVersion": "0.1.0-preview",
+    "resultContentVersion": "1.0.0-web",
+    "itemBankSha256": "ebe887c002c5616ad653b40b04026ced5699a3e1c7de746607b7025be2418488",
+    "resultContentSha256": "c35523780afc39421b3077f0c58e0800a5fc4e3115e281adba44e625686ea810",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "status-recognition",
+      "title": {
+        "zh": "对地位、认可和形象的关注",
+        "en": "Attention to status, recognition and image"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "instrumental-influence",
+      "title": {
+        "zh": "达成目标时使用信息、关系和影响方式",
+        "en": "Information, relationships and influence in pursuing aims"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "impact-distance",
+      "title": {
+        "zh": "面对他人感受和行为影响时的距离",
+        "en": "Distance from feelings and effects on others"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "DTT_001",
+      "prompt": {
+        "zh": "过去三个月，受到质疑时，我会比核对问题本身更急于维护自己的形象。",
+        "en": "Over the past three months, when questioned, I have been more eager to protect my image than to examine the issue itself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_002",
+      "prompt": {
+        "zh": "过去三个月，进入一个群体时，我会频繁比较自己获得的关注或位置。",
+        "en": "Over the past three months, when entering a group, I have frequently compared the attention or position I received."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_003",
+      "prompt": {
+        "zh": "过去三个月，别人获得更多认可时，我会把话题转回自己的经历或成果。",
+        "en": "Over the past three months, when others received more recognition, I have turned the conversation back to my own experiences or achievements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_004",
+      "prompt": {
+        "zh": "过去三个月，做决定时，我会优先考虑它对外在形象的影响，而不是实际后果。",
+        "en": "Over the past three months, when making decisions, I have prioritised their effect on my public image over their actual consequences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_005",
+      "prompt": {
+        "zh": "过去三个月，为了获得认可，我会少说自己对事情仍有的不确定。",
+        "en": "Over the past three months, to gain recognition, I have said less about uncertainties I still had."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_006",
+      "prompt": {
+        "zh": "过去三个月，我会把更多精力放在容易被看见和获得称赞的任务上。",
+        "en": "Over the past three months, I have put more effort into tasks that are easy for others to notice and praise."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_007",
+      "prompt": {
+        "zh": "过去三个月，为了推进自己的目标，我会只提供有利于对方同意的信息。",
+        "en": "Over the past three months, to advance my own aim, I have provided only information favourable to obtaining someone’s agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_008",
+      "prompt": {
+        "zh": "过去三个月，我会引用关系或以往付出，让别人更难拒绝我的请求。",
+        "en": "Over the past three months, I have referred to a relationship or past efforts to make my request harder for someone to refuse."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_009",
+      "prompt": {
+        "zh": "过去三个月，我会在对方作出初步承诺后，才说明自己的完整意图。",
+        "en": "Over the past three months, I have explained my full intention only after someone made an initial commitment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_010",
+      "prompt": {
+        "zh": "过去三个月，我主动维系某段关系时，主要考虑对方能否帮我达成目标。",
+        "en": "Over the past three months, when actively maintaining a relationship, I have mainly considered whether the person could help me reach an aim."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_011",
+      "prompt": {
+        "zh": "过去三个月，为了尽快推进事情，我会鼓励对方在信息或思考时间不充分时就作决定。",
+        "en": "Over the past three months, to move things forward quickly, I have encouraged someone to decide without enough information or thinking time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_012",
+      "prompt": {
+        "zh": "过去三个月，别人表示反对时，我会更关注如何让对方让步，而不是核对其选择。",
+        "en": "Over the past three months, when someone objected, I have focused more on making them give way than on checking their choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_013",
+      "prompt": {
+        "zh": "过去三个月，我的行为造成影响后，我会继续推进任务，而不是停下来核对。",
+        "en": "Over the past three months, after my actions had an effect, I have continued the task instead of pausing to examine that effect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_014",
+      "prompt": {
+        "zh": "过去三个月，别人表达不适时，我会先把这看作事情推进的阻碍。",
+        "en": "Over the past three months, when someone expressed discomfort, I have first regarded it as an obstacle to progress."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_015",
+      "prompt": {
+        "zh": "过去三个月，在需要快速决定时，我会忽略该决定对其他人的可预见影响。",
+        "en": "Over the past three months, when a quick decision was needed, I have ignored its foreseeable effects on other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_016",
+      "prompt": {
+        "zh": "过去三个月，道歉时我会更关注尽快结束话题，而不是了解已经造成的影响。",
+        "en": "Over the past three months, when apologising, I have focused more on ending the topic quickly than on understanding effects already caused."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_017",
+      "prompt": {
+        "zh": "过去三个月，看到自己行为的后果后，我会推迟回应，希望问题自行淡化。",
+        "en": "Over the past three months, after seeing the consequences of my actions, I have delayed responding in the hope that the issue would fade by itself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_018",
+      "prompt": {
+        "zh": "过去三个月，一项做法对我有利时，我会弱化他人已表达的担忧或边界。",
+        "en": "Over the past three months, when an arrangement benefited me, I have downplayed concerns or boundaries that others had already expressed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "status-recognition",
+      "directionIds": [
+        "status-recognition"
+      ],
+      "title": {
+        "zh": "认可与形象：具体做法的完整读法",
+        "en": "Recognition and Image: A Full Reading"
+      },
+      "headline": {
+        "zh": "把关注认可与具体优先顺序分开核对。",
+        "en": "Distinguish valuing recognition from specific priorities."
+      },
+      "summary": {
+        "zh": "黑暗三角主题观察的认可与形象完整说明：六条符合度、至少四条有效、具体例子与反例，不诊断自恋或推断能力。",
+        "en": "Read the recognition-and-image theme: six accuracy items, missing information, examples and limits, without narcissism or ability verdicts."
+      },
+      "scoreReading": {
+        "zh": "仅描述本组具体做法的自报符合度，至少四条数值才有均分；不与其他组排名。",
+        "en": "Describes self-reported accuracy for this group’s specified practices; four numeric ratings are needed for a mean, without ranking groups."
+      },
+      "seo": {
+        "title": {
+          "zh": "黑暗三角测试结果：认可与形象的完整主题说明",
+          "en": "Dark Triad Results: Recognition and Image Guide"
+        },
+        "description": {
+          "zh": "黑暗三角主题观察的认可与形象完整说明：六条符合度、至少四条有效、具体例子与反例，不诊断自恋或推断能力。",
+          "en": "Read the recognition-and-image theme: six accuracy items, missing information, examples and limits, without narcissism or ability verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "zh": "认可与形象：核对它是否压过事情本身",
+            "en": "Recognition and image: examining what takes priority"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组围绕受到质疑、进入群体、别人被表扬、安排任务等场合，回看形象、关注和认可在自己做法中的位置。关注他人怎样看自己是常见经验；本组只问六条具体描述有多符合，不把所有公开展示都叫自恋，也不测自尊或自信。你可能在某些题认出自己，在其他题不符合或想保留回答。需要把这种不一致留在条目里，不能让一个均分替你解释全部动机、关系或人格。",
+              "en": "This group revisits situations involving questions about your work, entering a group, someone else receiving praise and choosing tasks, asking where image, attention and recognition sit in your own practices. Caring how others see you is common. These six items ask only how accurately particular descriptions fit, rather than call all public presentation narcissism or measure self-esteem or confidence. You may recognise one item and find another inaccurate or prefer not to answer. Keep those differences at item level instead of letting a mean explain every motive, relationship or aspect of personality. The page observes no conduct beyond the answers you choose."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "六条至少四条有效，三组不排名",
+            "en": "At least four of six ratings, without ranking groups"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18条，三组各六条，全部同向，0反向。每条先选择1—5符合度或“我不想回答这题”，全18次选择才结束。每组至少四条数值有效，才显示实际有效数、原始和及未舍入总和除有效数的两位小数均分；四条、五条、六条的原始和范围分别4—20、5—25、6—30，不用六作统一分母，也不比较不同条数的总和。3表示不确定或视情况，数值有效但不是稳定中立频率；不愿回答排除，不补0或3。少于四条只让该组不足，其他组独立保留，三份九节全文始终可读。不加总、不派最高型、不设高低阈值或风险等级；均分不证明类别等距、组间可比或可靠变化。",
+              "en": "This edition has eighteen items, six per group, all direct with zero reversals. Choose a 1–5 accuracy rating or prefer not to answer for every item; eighteen selections finish an attempt. A group needs at least four numeric ratings to show its actual rated count, raw sum and two-decimal mean calculated from the unrounded sum divided by that count. Raw ranges are 4–20, 5–25 or 6–30 for four, five or six ratings. Six is not a universal denominator, and raw sums with different counts are not compared. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Unscored preferences are excluded without zero or three substitution. Fewer than four ratings leave only that group insufficient. Other groups stay independent and all three nine-section guides remain readable. There is no total, highest type, high/low threshold or risk band. Means establish neither equal intervals, cross-group comparability nor reliable change."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "更多或更少符合，需要回到哪几条",
+            "en": "Return to the particular endorsements"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果较多选择符合，可以回看形象维护是否在某些回答里优先于事实核对、分享功劳或不显眼的任务。这里的“可以回看”不是已证明你忽略了责任，也不能从分数判断他人的体验。较少符合只表示这些句子较少被自己认可，不能证明谦逊、可靠或没有现实问题。若主要选择3，要保留不确定或视情况的含义，不把它写成“中等自恋”。同样均分可来自不同题目组合，记忆、机会和作答时的理解也会影响回答。",
+              "en": "With more endorsements, you can revisit whether image protection appeared ahead of checking facts, sharing credit or less visible tasks in particular answers. That invitation is not proof of neglected responsibilities and cannot establish someone else’s experience. Fewer endorsements mean only that you less often endorsed these sentences; they certify neither humility, reliability nor absence of real problems. If many responses are three, retain their uncertainty or conditional meaning rather than invent “moderate narcissism.” Equal means can come from different items. Memory, opportunities and how a sentence is understood while answering can also affect responses without indicating a stable personal change."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "展示、认可需要与实际能力不能互推",
+            "en": "Presentation, recognition needs and ability do not imply one another"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意展示成果、争取合理署名或说明被误解的情况，不自动符合每一条。关键在原句所说的比较、话题转回、隐藏不确定或优先顺序，不能把合理说明删成缺点。反过来，认可某条也不认证领导力、魅力、雄心或承受批评的能力。本站没有观察任务表现，也不依据研究名称把成绩解释为临床自恋、稳定特质或人格障碍。它更不能判断你是好人或坏人，或作为他人应否信任你的依据。",
+              "en": "Presenting work, seeking appropriate credit or explaining a misunderstanding does not automatically endorse every item. Read the actual comparison, conversational redirection, reduced disclosure of uncertainty or priority described rather than turn an appropriate explanation into a defect. Conversely, endorsing an item certifies neither leadership, charisma, ambition nor an ability to tolerate criticism. The website observes no performance and cannot turn answers into clinical narcissism, a stable trait or a personality disorder by invoking a research label. It judges no one as good or bad and provides no basis for deciding whether someone should trust you or grant you responsibility."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：共同活动后的成果说明",
+            "en": "Example: explaining a shared activity’s outcome"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想共同活动后写一小段成果说明。一种需要核对的情况是：为突出自己的贡献，是否少说了别人完成的部分或仍未确定的内容。也可能你只是在补上之前遗漏的真实贡献，情况就不同。这个例子不要求公开检讨、撤掉合理署名或揣测别人不满；只把原句里的优先顺序放回具体事实。测试没有读到实际说明，也不知道分工，不能说哪一种情况已经发生，更不会给出工作表现或声誉评价。",
+              "en": "Imagine writing a short account after a shared activity. One point to check is whether emphasising your contribution left out others’ work or unresolved information. Alternatively, you may simply be adding a real contribution that was previously omitted; that is a different situation. The example requires no public confession, removal of appropriate credit or guessed dissatisfaction. It places an item’s priority back among concrete facts. The test has read no actual account and knows no division of work, so it cannot decide which situation occurred or produce an evaluation of performance, reputation or the fairness of anyone’s credit."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：在意认可仍可完整说明事实",
+            "en": "Counterexample: valuing recognition can coexist with clear facts"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人很希望努力被看见，仍可以完整列出他人贡献、说明未知并做好不显眼的后续。另一个人很少公开展示，也可能在某次互动中忽略事实。外向、安静、喜欢被夸或不喜欢聚光灯，都不直接决定这六条怎样回答。这个反例帮助区分需要认可与具体做法，不是在要求你压低分数以显得谦逊。页面不通过与影响方式、情感距离两组的高低比较来给你定主型，也不把三组当人格的拼图份额。",
+              "en": "Someone who wants effort to be noticed can still acknowledge others’ contributions, explain unknowns and complete less visible follow-up. Someone who rarely presents work publicly can still overlook facts in a particular interaction. Extraversion, quietness, liking praise or disliking attention therefore determines no answer to these six items. This counterexample distinguishes valuing recognition from a specified practice rather than asks you to lower answers to appear humble. The page does not compare this mean against influence or impact-distance readings to assign a dominant type, and the three groups are not pieces adding up to a complete personality or moral identity."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一项贡献与一处未知",
+            "en": "Optional check: one contribution and one unknown"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，在一次普通、非紧急的共同安排里，心里找一项已经知道的他人贡献和一处自己仍不确定的事实。判断是否有必要补全自己的说明，也可以只留作提醒，不要求任何人回应。不记录姓名、真实冲突或私事，不为了练习制造批评。这个核对不保证关系改善、能力增长或均分下降；当时需要暂停、保护隐私或拒绝讨论，也不由本测试判成形象维护。读完后在这里结束同样可以。",
+              "en": "If useful, take an ordinary, non-urgent shared arrangement and privately identify one known contribution by someone else and one fact you remain uncertain about. Consider whether your account needs an addition, or simply retain the reminder without requesting a response. Record no names, actual conflict or private circumstances, and create no criticism for an exercise. This check guarantees neither relationship improvement, increased ability nor a lower mean. A need to pause, protect privacy or decline discussion cannot be classified as image protection by this quiz. You may finish after reading without undertaking an exercise or retaking the form."
+            }
+          ]
+        },
+        {
+          "id": "framework",
+          "title": {
+            "zh": "主题候选与标准自恋量表分开",
+            "en": "Separate this thematic candidate from narcissism instruments"
+          },
+          "paragraphs": [
+            {
+              "zh": "黑暗三角研究把自恋、马基雅维利主义和精神病态作为相关但可区分的研究特质，不能只凭名称就认为任何原创题本测到了它们。本组承接自有小程序的认可与形象六条，不采用SD3或Dirty Dozen，也不继承其常模或验证。难相处人格中的自我抬高、有毒特质中的比较话题与这里有交叠，分数仍不互换。光明三元素也不是本组的反向分数。可以把这些主题并排阅读，但不能算光暗比例或从一个均分诊断任何人。",
+              "en": "Dark Triad research treats narcissism, Machiavellianism and psychopathy as related but distinguishable research traits; a name alone does not establish that an original bank measures them. This group carries forward our owned mini-program’s six recognition-and-image items without adopting SD3 or Dirty Dozen or inheriting their norms or validation. Self-importance in the difficult-person bank and conversational comparisons in interaction habits overlap with this topic, without score conversion. The Light Triad is not its reverse score either. Read neighbouring themes alongside one another if useful, without a light/dark ratio, a clinical conclusion or an assumption that a mean describes someone else."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "只留当前页面内存，全文免费",
+            "en": "Page memory only, with all full guides free"
+          },
+          "paragraphs": [
+            {
+              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "instrumental-influence",
+      "directionIds": [
+        "instrumental-influence"
+      ],
+      "title": {
+        "zh": "影响方式：信息与选择的完整读法",
+        "en": "Influence: Information and Choice"
+      },
+      "headline": {
+        "zh": "把推进目标与保留知情、思考和拒绝空间分开看。",
+        "en": "Examine pursuing aims alongside information, thinking time and choice."
+      },
+      "summary": {
+        "zh": "黑暗三角主题观察的影响方式完整说明：六条符合度、资料不足、请求例子与反例，不测操控能力或派马基雅维利人格。",
+        "en": "Read the influence theme: information, choice, six accuracy items, missing data and examples, without manipulation-skill or personality labels."
+      },
+      "scoreReading": {
+        "zh": "仅描述本组具体做法的自报符合度，至少四条数值才有均分；不与其他组排名。",
+        "en": "Describes self-reported accuracy for this group’s specified practices; four numeric ratings are needed for a mean, without ranking groups."
+      },
+      "seo": {
+        "title": {
+          "zh": "黑暗三角测试结果：影响方式与选择空间完整说明",
+          "en": "Dark Triad Results: Influence, Information and Choice"
+        },
+        "description": {
+          "zh": "黑暗三角主题观察的影响方式完整说明：六条符合度、资料不足、请求例子与反例，不测操控能力或派马基雅维利人格。",
+          "en": "Read the influence theme: information, choice, six accuracy items, missing data and examples, without manipulation-skill or personality labels."
+        }
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "zh": "影响方式：信息、意图和拒绝空间",
+            "en": "Influence: information, intention and room to decline"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组围绕推进目标时怎样说明信息、使用关系、提出请求和回应反对。沟通通常会影响别人，但影响本身不等于操控；六条具体关注信息是否有选择地提供、完整意图何时说明以及对方的决定空间。它不测社交技巧、谈判能力或所谓“读人术”，也不把任何有目标的关系都看成利用。请按原句看本人过去三个月，不猜某个同事或伴侣的意图，不用别人的印象替自己或他人完成回答。",
+              "en": "This group concerns how you explain information, refer to relationships, make requests and respond to objections while pursuing an aim. Communication often influences others, but influence alone is not manipulation. The six specific items concern selective information, when intentions are explained and another person’s room to decide. They measure neither social skill, negotiation ability nor supposed mind-reading and classify no purposeful relationship automatically as exploitation. Refer to your own past three months as the sentences ask, without guessing a colleague’s or partner’s intentions or using someone’s impressions to complete an assessment for another person."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "六条至少四条有效，三组不排名",
+            "en": "At least four of six ratings, without ranking groups"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18条，三组各六条，全部同向，0反向。每条先选择1—5符合度或“我不想回答这题”，全18次选择才结束。每组至少四条数值有效，才显示实际有效数、原始和及未舍入总和除有效数的两位小数均分；四条、五条、六条的原始和范围分别4—20、5—25、6—30，不用六作统一分母，也不比较不同条数的总和。3表示不确定或视情况，数值有效但不是稳定中立频率；不愿回答排除，不补0或3。少于四条只让该组不足，其他组独立保留，三份九节全文始终可读。不加总、不派最高型、不设高低阈值或风险等级；均分不证明类别等距、组间可比或可靠变化。",
+              "en": "This edition has eighteen items, six per group, all direct with zero reversals. Choose a 1–5 accuracy rating or prefer not to answer for every item; eighteen selections finish an attempt. A group needs at least four numeric ratings to show its actual rated count, raw sum and two-decimal mean calculated from the unrounded sum divided by that count. Raw ranges are 4–20, 5–25 or 6–30 for four, five or six ratings. Six is not a universal denominator, and raw sums with different counts are not compared. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Unscored preferences are excluded without zero or three substitution. Fewer than four ratings leave only that group insufficient. Other groups stay independent and all three nine-section guides remain readable. There is no total, highest type, high/low threshold or risk band. Means establish neither equal intervals, cross-group comparability nor reliable change."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "符合度提示回看什么",
+            "en": "What endorsements invite you to revisit"
+          },
+          "paragraphs": [
+            {
+              "zh": "较多符合时，可以逐条看信息、说明时点、时间压力和拒绝空间，而不是把均分叫作操控程度。题目本身有较明显的社会赞许影响，自报低也不证明每次沟通都充分知情。较少符合不能认证诚实或他人绝对自愿，较多符合也不证明策略有效或取得成功。3保留不确定或视情况，不把它解释为中等马基雅维利主义。若只有四条有效，均分只描述那四条，不能当其余两条已知，更不能从另外两组补推。",
+              "en": "With more endorsements, revisit information, timing, time pressure and room to decline item by item rather than call the mean a degree of manipulation. Social desirability can affect these readily evaluated statements, so fewer endorsements prove no fully informed communication in every case. They certify neither honesty nor another person’s completely voluntary choice. More endorsements likewise demonstrate no effective strategy or success. Three retains uncertainty or conditionality instead of becoming moderate Machiavellianism. With only four rated items, the mean describes those four rather than establishes the other two; neither of the other groups supplies their missing information."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "提出请求不等于压缩他人的选择",
+            "en": "Making a request is not the same as narrowing a choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "清楚地提出自己的目标、合理的期限或协作需要，不自动符合只给有利信息或让人更难拒绝的描述。别人不答应也不让请求本身变成错误。需要看原句所指具体做法及情境，而不是按结果是否如愿判断。这个主题不评判谁擅长协商，不把施压包装成必要的商业能力，也不借一个自报结果解释他人为什么不信任你。网页没有听到真实对话、了解对方意愿或观察后续结果，不能代替这些事实。",
+              "en": "Clearly explaining an aim, a reasonable deadline or a need for cooperation does not automatically match withholding information or making refusal harder. A declined request does not itself make the request wrong. Examine the practice and context described rather than judge by whether you obtained the outcome. This theme rates no negotiating skill, presents pressure as no necessary business ability and uses no self-report result to explain why another person might not trust you. The webpage has heard no actual conversation, learned no wishes from the other person and observed no outcome. It cannot replace those facts with an interpretation of a mean."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：邀请别人帮忙整理活动材料",
+            "en": "Example: requesting help with activity materials"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想你想请人帮忙整理一次活动的材料，需要说明工作内容、预计时间和自己希望完成的部分。一个可核对的问题是：对方决定之前，是否已经知道会影响选择的重要内容，并有合适空间说不。这不是教你怎样让对方更容易同意，也不要求别人接受请求。可能对方愿意、拒绝或提出修改，都不由本测验判定好坏。题目没有输入实际任务或对话，不知道真实工作量，更不会认证某次同意是充分自愿。",
+              "en": "Imagine asking someone to help organise materials for an activity. The work, expected time and what you hope to complete need explaining. One point to examine is whether important information affecting the choice was available before a decision and whether declining was possible. This is no lesson in securing agreement and imposes no duty to accept. Agreement, refusal or a proposed adjustment receives no good/bad verdict from the quiz. No actual task or conversation is entered, its workload is unknown and the website cannot certify that a particular agreement was fully voluntary simply because you selected a lower rating."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：有计划仍能完整说明条件",
+            "en": "Counterexample: having a plan can coexist with complete conditions"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人有明确目标和周详安排，仍可以在请求前说明条件，让对方选择；另一个人没有复杂策略，也可能遗漏对方需要知道的重要内容。做了计划不等于马基雅维利主义，没有计划也不等于没有压力。这个反例让“影响”回到具体信息与选择，不把思考长远或组织资源本身贴成黑暗。三组均分不互排，因此不能把这一组最高就叫最强黑暗特质；若全部不足，也不解释为隐瞒或必须补答。",
+              "en": "Someone with a clear aim and detailed plan can explain conditions before requesting a decision and preserve another person’s choice. Someone without an elaborate strategy can still omit important information. Planning is therefore no evidence of Machiavellianism, and an absence of planning guarantees no absence of pressure. This counterexample returns influence to particular information and choices rather than label long-term thinking or organising resources as dark. The three means are not ranked, so this group’s tallest numerical value becomes no strongest dark trait. If all groups are insufficient, that is neither concealment nor an obligation to supply more answers."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：决定前有什么还没说明",
+            "en": "Optional check: what remains unexplained before a decision?"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，在一项普通、可从容讨论的请求里，心里找一条会影响别人决定、但自己还没说清的信息。判断是否适合补充，或先不提出请求；也可只留作阅读提醒。不为了练习联系任何人，不记录真实目标、姓名或谈话，不把这个核对当让别人同意的技巧。它不保证关系、协商效果或分数改善。任何人都可以拒绝这项请求，测验不负责判断其理由，也不要求你继续说服。",
+              "en": "If useful, take an ordinary request that can be discussed without urgency and privately identify one relevant piece of information you have not yet explained. Consider whether adding it is appropriate or whether to leave the request unmade; a reading reminder alone is enough. Contact no one for an exercise and record no actual aims, names or conversations. This check is no technique for obtaining agreement and guarantees neither relationship improvement, successful negotiation nor a changed mean. Someone may decline a request without the quiz judging that reason or asking you to continue persuading them, and you may skip the exercise altogether."
+            }
+          ]
+        },
+        {
+          "id": "framework",
+          "title": {
+            "zh": "原创影响方式主题与研究量表分开",
+            "en": "Separate an original influence theme from research scales"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组承接自有原创题本六条，不是MACH-IV、SD3或Dirty Dozen的替代测量，也不因为研究有三因素就继承它的效度。理论背景谈相关但不同的研究特质，不给这个候选个人分数背书。难相处人格中的隐瞒施压、光明三元素中的不把人当工具，与这里有相邻话题；方法与题项不同，分数不换算，也不能相加成道德或光暗比例。请用每组自己的条目、有效数和局限阅读，不拿网页均分筛选关系或评价他人。",
+              "en": "These six owned original items are no replacement measure for MACH-IV, SD3 or Dirty Dozen, and a three-factor research background transfers no validity to them. Research on related but distinguishable traits does not endorse this candidate’s personal scores. Concealment and pressure in the difficult-person bank and treating people as more than tools in the Light Triad concern neighbouring topics. Methods and items differ, without score conversion or a combined morality or light/dark ratio. Read each group through its own statements, rated count and limits rather than use a webpage mean to screen relationships or evaluate another person’s character or motives."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "只留当前页面内存，全文免费",
+            "en": "Page memory only, with all full guides free"
+          },
+          "paragraphs": [
+            {
+              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impact-distance",
+      "directionIds": [
+        "impact-distance"
+      ],
+      "title": {
+        "zh": "影响距离：回应与核对的完整读法",
+        "en": "Impact Distance: Response and Reflection"
+      },
+      "headline": {
+        "zh": "把情绪表达与是否核对具体影响分开阅读。",
+        "en": "Distinguish emotional expression from checking specific effects."
+      },
+      "summary": {
+        "zh": "黑暗三角主题观察的影响距离完整说明：六条符合度、至少四条有效、具体例子与反例，不判共情能力、精神病态或风险。",
+        "en": "Read the impact-distance theme: six accuracy items, missing information, examples and limits, without empathy, psychopathy or risk verdicts."
+      },
+      "scoreReading": {
+        "zh": "仅描述本组具体做法的自报符合度，至少四条数值才有均分；不与其他组排名。",
+        "en": "Describes self-reported accuracy for this group’s specified practices; four numeric ratings are needed for a mean, without ranking groups."
+      },
+      "seo": {
+        "title": {
+          "zh": "黑暗三角测试结果：影响距离与回应顺序完整说明",
+          "en": "Dark Triad Results: Impact Distance and Response Guide"
+        },
+        "description": {
+          "zh": "黑暗三角主题观察的影响距离完整说明：六条符合度、至少四条有效、具体例子与反例，不判共情能力、精神病态或风险。",
+          "en": "Read the impact-distance theme: six accuracy items, missing information, examples and limits, without empathy, psychopathy or risk verdicts."
+        }
+      },
+      "sections": [
+        {
+          "id": "theme",
+          "title": {
+            "zh": "影响距离：是否停下核对已表达的影响",
+            "en": "Impact distance: pausing to examine expressed effects"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组回看任务继续、别人表达不适、时间紧张、道歉和后续回应等情境里，自己怎样面对已知或可预见的影响。它只包含六条具体做法，不测你有没有情绪、能不能感到别人的感受，或实际是否造成伤害。情感体验、表达方式和行为回应不能用同一个均分替代。请只回答本人过去三个月，不给一个不在场的人评分，也不把保持距离、需要休息或在不安全情境里结束对话自动当成这些题的符合。",
+              "en": "This group revisits continuing a task, hearing someone’s discomfort, time pressure, apologies and later responses, asking how you approached known or foreseeable effects. It contains only six specified practices, not a test of whether you have feelings, experience another person’s emotions or actually caused harm. Emotional experience, expression and behavioural response cannot be replaced by one mean. Answer only for your own past three months rather than rate an absent person. Keeping distance, needing rest or ending a conversation in an unsafe situation does not automatically endorse these statements, and the webpage cannot infer what any of those circumstances meant."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "六条至少四条有效，三组不排名",
+            "en": "At least four of six ratings, without ranking groups"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版18条，三组各六条，全部同向，0反向。每条先选择1—5符合度或“我不想回答这题”，全18次选择才结束。每组至少四条数值有效，才显示实际有效数、原始和及未舍入总和除有效数的两位小数均分；四条、五条、六条的原始和范围分别4—20、5—25、6—30，不用六作统一分母，也不比较不同条数的总和。3表示不确定或视情况，数值有效但不是稳定中立频率；不愿回答排除，不补0或3。少于四条只让该组不足，其他组独立保留，三份九节全文始终可读。不加总、不派最高型、不设高低阈值或风险等级；均分不证明类别等距、组间可比或可靠变化。",
+              "en": "This edition has eighteen items, six per group, all direct with zero reversals. Choose a 1–5 accuracy rating or prefer not to answer for every item; eighteen selections finish an attempt. A group needs at least four numeric ratings to show its actual rated count, raw sum and two-decimal mean calculated from the unrounded sum divided by that count. Raw ranges are 4–20, 5–25 or 6–30 for four, five or six ratings. Six is not a universal denominator, and raw sums with different counts are not compared. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Unscored preferences are excluded without zero or three substitution. Fewer than four ratings leave only that group insufficient. Other groups stay independent and all three nine-section guides remain readable. There is no total, highest type, high/low threshold or risk band. Means establish neither equal intervals, cross-group comparability nor reliable change."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "从条目回看回应与核对的顺序",
+            "en": "Revisit the order of responding and checking"
+          },
+          "paragraphs": [
+            {
+              "zh": "更多符合时，可以看是否有某几条描述了继续任务、推迟回应或弱化已表达影响的做法，核对先后顺序而不是给自己定身份。较少符合不能认证同理能力或保证从不伤害他人，较多符合也不证明冷静、抗压或善于决策。3仍表示不确定或视情况，不代表中等精神病态。若有效数不同，先看各自资料范围，不用原始和或均分给三组排高低；少于四条时不从其他组推断这里的未知。",
+              "en": "With more endorsements, examine which items describe continuing a task, delaying a response or downplaying expressed effects. Revisit sequence rather than assign yourself an identity. Fewer endorsements certify neither empathy nor a guarantee of never harming someone; more establish neither composure, stress tolerance nor good decisions. Three still means uncertain or conditional, not moderate psychopathy. Where rated counts differ, first retain each group’s information limits rather than rank three groups by sums or means. With fewer than four ratings, neither of the other groups can fill this group’s unknowns or establish how someone else experienced an interaction."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "不表达情绪与忽略影响需要分开",
+            "en": "Distinguish emotional expression from disregarding effects"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人说话平静、表情少或需要之后再谈，不等于不关心对方；关键是原句涉及的已表达担忧、已知影响和实际回应。也不能由即时的道歉判断影响已经解决。测试没有测他人的体验、真实责任、事件严重程度或后续事实，不能把它们从分数里推出来。本组不评临床人格、暴力或犯罪风险，也不把低情绪反应包装成外科、军警或危机决策优势。正文只帮助理解题目覆盖的有限做法，不提供对他人的安全结论。",
+              "en": "A calm voice, limited expression or a need to talk later is not indifference. Attend to the expressed concern, known effect and response specified by an item, while recognising that an immediate apology proves no resolved impact either. This form has measured no other person’s experience, actual responsibility, event severity or subsequent facts and cannot infer them from a score. It rates no clinical personality, violence or crime risk and presents no lower emotional response as an advantage in surgery, military or police work, or crisis decisions. The guide explains limited practices rather than supplies a safety conclusion about anyone."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "例子：共享安排临时改动之后",
+            "en": "Example: after a shared arrangement changes"
+          },
+          "paragraphs": [
+            {
+              "zh": "设想共同活动的安排被临时改动，有人已说出对自己时间的影响，而活动还在继续。一个可核对的问题是：这些已知信息是否进入后续安排，还是被当成推进的阻碍。它不要求现场立即展开情绪对话，也不规定必须取消活动；还需知道约定、时间和相关人的选择。网页没有读到实际交流，因此不能认定任何一方被忽视或没有责任。这个例子只让原句中的回应顺序更具体，不把猜测当事实。",
+              "en": "Imagine a shared activity changing unexpectedly. Someone has explained an effect on their time while the activity continues. One point to check is whether that known information enters later arrangements or is treated as an obstacle to progress. The example demands neither an immediate emotional conversation nor cancellation; agreements, timing and the relevant people’s choices still matter. The webpage has read no real exchange and cannot declare that a person was ignored or free of responsibility. It makes the item’s response sequence concrete without turning a hypothetical into an established event, deciding fault or prescribing how the activity must proceed."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：保持冷静仍可以认真回应",
+            "en": "Counterexample: calmness can coexist with a considered response"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人情绪反应不强，仍可以准确复述对方说出的影响并调整安排；另一个人表现得很难过，也可能没有听清具体内容。外在情绪不直接告诉我们这六条怎样回答。暂停、拒绝不合理要求或保留个人隐私，也不应被当作题目默认的负面答案。这份反例没有判哪种表达更好，而是把感受、表达和回应分开。它也不把理解本段文字等同于完成真实修复，是否改变仍需实际情境与后续行为。",
+              "en": "Someone with little emotional arousal can accurately restate an expressed effect and adjust an arrangement; someone visibly upset may not have heard the specifics. Outward emotion therefore determines no answer to these six items. Pausing, declining an unreasonable request or protecting privacy should not be treated as an automatic negative answer either. This counterexample ranks no style of expression; it separates feeling, expression and response. Understanding this paragraph likewise does not complete an actual repair or show changed conduct. That would still require the circumstances and subsequent actions the website does not observe, rather than a label assigned through a questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "optional-check",
+          "title": {
+            "zh": "可选核对：一句已表达的信息",
+            "en": "Optional check: one explicitly expressed piece of information"
+          },
+          "paragraphs": [
+            {
+              "zh": "若愿意，在普通、可从容回看的共同安排里，心里找一句对方已经明确说出的影响，区分它与自己猜测的动机。可以只确认自己记得什么、还不知道什么，不为练习重新联系对方，也不记录对话或私人事件。这个核对不保证修复关系、增加共情或改变分数，不要求你在不合适的情境里继续讨论。它更不用于处理紧急安全问题或替别人作判断。读完之后停在这里、保留未知，是允许的。",
+              "en": "If useful, take an ordinary shared arrangement that can be revisited without urgency and privately identify one explicitly expressed effect, distinguishing it from a guessed motive. Simply establish what you remember and what remains unknown. Contact no one for an exercise and record no conversation or private event. This check guarantees neither repaired relationships, increased empathy nor a changed mean and requires no continued discussion in an unsuitable setting. It handles no urgent safety issue and makes no judgment for another person. You may finish here with uncertainty retained rather than take an action merely to demonstrate that you understood a result."
+            }
+          ]
+        },
+        {
+          "id": "framework",
+          "title": {
+            "zh": "原创主题不等于精神病态量表分数",
+            "en": "An original theme is not a psychopathy scale score"
+          },
+          "paragraphs": [
+            {
+              "zh": "研究中的精神病态、马基雅维利主义和自恋有各自方法，六条“影响距离”不能覆盖其中一个完整特质。本版承接自有小程序候选，不用SD3、Dirty Dozen、PCL-R或临床工具，不提供人格障碍、精神病性症状或风险评估。难相处人格中的忽略感受、光明三元素中的关怀话题与此有关，不能反向换算。低分不是无害证明，高分不是压力优势，也不是未来行为。所有三份正文完整保留，使你能看懂每组范围后自行结束，不靠另一测试补出临床结论。",
+              "en": "Research on psychopathy, Machiavellianism and narcissism uses specific methods; six impact-distance items cannot cover one complete trait. This edition carries forward our owned mini-program candidate without SD3, Dirty Dozen, PCL-R or a clinical instrument. It supplies no personality-disorder, psychotic-symptom or risk assessment. Disregarding feelings in the difficult-person bank and concern-related Light Triad topics are neighbouring themes, not reverse-convertible scores. A lower reading guarantees no harmlessness; a higher one establishes no pressure-related advantage or future action. All three full guides remain available so you can understand their limits and stop, without another test filling in a clinical conclusion."
+            }
+          ]
+        },
+        {
+          "id": "privacy",
+          "title": {
+            "zh": "只留当前页面内存，全文免费",
+            "en": "Page memory only, with all full guides free"
+          },
+          "paragraphs": [
+            {
+              "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+              "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "scoring",
+      "title": {
+        "zh": "六条至少四条有效，三组不排名",
+        "en": "At least four of six ratings, without ranking groups"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版18条，三组各六条，全部同向，0反向。每条先选择1—5符合度或“我不想回答这题”，全18次选择才结束。每组至少四条数值有效，才显示实际有效数、原始和及未舍入总和除有效数的两位小数均分；四条、五条、六条的原始和范围分别4—20、5—25、6—30，不用六作统一分母，也不比较不同条数的总和。3表示不确定或视情况，数值有效但不是稳定中立频率；不愿回答排除，不补0或3。少于四条只让该组不足，其他组独立保留，三份九节全文始终可读。不加总、不派最高型、不设高低阈值或风险等级；均分不证明类别等距、组间可比或可靠变化。",
+          "en": "This edition has eighteen items, six per group, all direct with zero reversals. Choose a 1–5 accuracy rating or prefer not to answer for every item; eighteen selections finish an attempt. A group needs at least four numeric ratings to show its actual rated count, raw sum and two-decimal mean calculated from the unrounded sum divided by that count. Raw ranges are 4–20, 5–25 or 6–30 for four, five or six ratings. Six is not a universal denominator, and raw sums with different counts are not compared. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Unscored preferences are excluded without zero or three substitution. Fewer than four ratings leave only that group insufficient. Other groups stay independent and all three nine-section guides remain readable. There is no total, highest type, high/low threshold or risk band. Means establish neither equal intervals, cross-group comparability nor reliable change."
+        }
+      ]
+    },
+    {
+      "id": "three-themes",
+      "title": {
+        "zh": "三组的实际覆盖",
+        "en": "What these three groups cover"
+      },
+      "paragraphs": [
+        {
+          "zh": "认可与形象看质疑、比较和关注的具体优先顺序；影响方式看信息、意图和他人选择空间；影响距离看已表达的感受或影响怎样进入回应。它们是原创主题，不分别等同三个完整研究特质；不能因名称含黑暗三角就继承SD3或Dirty Dozen的测量证据。",
+          "en": "Recognition and image concerns priorities around questions, comparison and attention. Influence concerns information, intention and another person’s choice. Impact distance concerns responses to expressed feelings or effects. These original themes do not separately equal three complete research traits or inherit SD3 or Dirty Dozen evidence through the title."
+        }
+      ]
+    },
+    {
+      "id": "accuracy",
+      "title": {
+        "zh": "符合度与频率分开",
+        "en": "Keep accuracy distinct from frequency"
+      },
+      "paragraphs": [
+        {
+          "zh": "1—5回答的是原句多符合自己，不是每周出现次数、冲动强度或他人的观察。3表示不确定或视情况，虽数值有效，也不能写成稳定的中等倾向。同均分可来自不同组合，不用一条分差推断进步或恶化。",
+          "en": "The 1–5 options concern how accurately a sentence describes you, not weekly frequency, impulse intensity or another person’s observation. Three means uncertain or conditional and cannot be relabelled a stable moderate tendency. Equal means can represent different patterns, and a numerical gap establishes neither improvement nor decline."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "原创候选的适用范围",
+        "en": "The original candidate’s scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "这是自有小程序原创题本的三组主题自我观察公开预览，借黑暗三角常见话题讨论具体做法，不测标准自恋、马基雅维利主义或精神病态量表分数，不把三组对应为三种人格。不是SD3、Dirty Dozen、临床、司法或风险工具；不能继承现有工具的常模、效度或预测。只回答本人过去三个月，不代他人作答，不评善恶、安全、暴力、犯罪、未来、健康、职业或招聘适配。较少符合不是安全或无伤害证明，较多符合也不认证能力或优势。",
+          "en": "This public preview uses our owned original mini-program bank for three thematic self-observations, informed by topics commonly discussed around the Dark Triad. It supplies no standard narcissism, Machiavellianism or psychopathy scale scores and assigns no three personalities. It is neither SD3, Dirty Dozen nor a clinical, forensic or risk instrument and inherits no norms, validity or prediction from them. Answer only for yourself over the past three months. No morality, safety, violence, crime, future, health, career or hiring fit is assessed. Fewer endorsements guarantee no safety or absence of harm; more establish no ability or advantage."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "只留当前页面内存，全文免费",
+        "en": "Page memory only, with all full guides free"
+      },
+      "paragraphs": [
+        {
+          "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+          "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是27题SD3或Dirty Dozen吗？",
+        "en": "Is this the 27-item SD3 or Dirty Dozen?"
+      },
+      "answer": {
+        "zh": "不是。这是费马自有小程序18条原创主题候选的网页版本，中文题干、顺序、键向和计分边界保留，英文为新试译。三个主题不直接测完整研究特质，不继承既有工具的常模或验证。",
+        "en": "No. This web edition carries forward eighteen owned original mini-program items, retaining Chinese wording, order, keys and scoring limits, with a new English trial translation. Its themes do not directly measure complete research traits or inherit established instruments’ norms or validation."
+      }
+    },
+    {
+      "question": {
+        "zh": "三组怎样计分，不愿回答会怎样？",
+        "en": "How are groups scored, including a preference not to answer?"
+      },
+      "answer": {
+        "zh": "本版18条，三组各六条，全部同向，0反向。每条先选择1—5符合度或“我不想回答这题”，全18次选择才结束。每组至少四条数值有效，才显示实际有效数、原始和及未舍入总和除有效数的两位小数均分；四条、五条、六条的原始和范围分别4—20、5—25、6—30，不用六作统一分母，也不比较不同条数的总和。3表示不确定或视情况，数值有效但不是稳定中立频率；不愿回答排除，不补0或3。少于四条只让该组不足，其他组独立保留，三份九节全文始终可读。不加总、不派最高型、不设高低阈值或风险等级；均分不证明类别等距、组间可比或可靠变化。",
+        "en": "This edition has eighteen items, six per group, all direct with zero reversals. Choose a 1–5 accuracy rating or prefer not to answer for every item; eighteen selections finish an attempt. A group needs at least four numeric ratings to show its actual rated count, raw sum and two-decimal mean calculated from the unrounded sum divided by that count. Raw ranges are 4–20, 5–25 or 6–30 for four, five or six ratings. Six is not a universal denominator, and raw sums with different counts are not compared. Three means uncertain or conditional and counts numerically, not as a stable neutral frequency. Unscored preferences are excluded without zero or three substitution. Fewer than four ratings leave only that group insufficient. Other groups stay independent and all three nine-section guides remain readable. There is no total, highest type, high/low threshold or risk band. Means establish neither equal intervals, cross-group comparability nor reliable change."
+      }
+    },
+    {
+      "question": {
+        "zh": "最高均分就是最强黑暗人格吗？",
+        "en": "Does the highest mean identify a strongest dark personality?"
+      },
+      "answer": {
+        "zh": "本版不跨组排序、加总、设阈值或派型。每组只说明自己六条的有效数、原始和及描述性均分，全部三份完整解释一起保留。更少符合不是安全证明，更多符合也不认证优势或预测伤害。",
+        "en": "This edition does not rank, add, set thresholds or assign types across groups. Each shows its own rated count, raw sum and descriptive mean, with all three complete guides retained. Fewer endorsements guarantee no safety; more certify no advantage or future harm."
+      }
+    },
+    {
+      "question": {
+        "zh": "能替伴侣、同事或别人作答吗？",
+        "en": "Can I answer for a partner, colleague or someone else?"
+      },
+      "answer": {
+        "zh": "不能。这份自报题本只回看本人过去三个月，不收他人资料，也不应用于招聘、关系筛选、学校、医疗、司法或安保评价。网页不能用均分解释他人的动机或风险。",
+        "en": "No. This self-report concerns only your own past three months. It collects no other person’s information and supplies no hiring, relationship-screening, school, medical, forensic or security evaluation. A mean cannot explain someone else’s motives or risk."
+      }
+    },
+    {
+      "question": {
+        "zh": "刷新、换语言和分享有什么限制？",
+        "en": "What happens with refresh, language change and sharing?"
+      },
+      "answer": {
+        "zh": "这项候选保留小程序的敏感主题隐私限制。答案与个人结果只在当前页面内存，不写浏览器存储、不上传答卷或发送测试流程统计，不提供个人结果分享。刷新、换语言或离开后不能恢复；作答中可回上题修改，退出或重测清除。公开全文与私人作答无关，三份九节说明免费，不需邮箱、付费或另一测评解锁，也不要求把真实冲突、姓名或他人情况输入网站。仅回答本人过去三个月，不代伴侣、同事或任何人作答。你可以读完结束；这些说明不能作招聘、关系筛选、医疗、司法、安保或学校评价，不从低均分证明安全，也不从高均分预测伤害。",
+        "en": "This candidate retains the mini-program’s sensitive-topic privacy limits. Answers and personal results stay only in the current page’s memory, without browser storage, uploaded answers, quiz-flow statistics or personal-result sharing. Refreshing, changing language or leaving loses the attempt. Back edits are available while answering; exit or retake clears it. Public full text is unrelated to a private attempt. All three nine-section guides are free without email, payment or another assessment, and the website asks for no actual conflict, names or other people’s circumstances. Answer only for yourself over the past three months, never for a partner, colleague or anyone else. You may stop after reading. These explanations supply no hiring, relationship-screening, medical, forensic, security or school evaluation. A lower mean proves no safety, and a higher mean predicts no harm."
+      }
+    },
+    {
+      "question": {
+        "zh": "与难相处人格、光明三元素是什么关系？",
+        "en": "How does this relate to difficult-person or Light Triad readings?"
+      },
+      "answer": {
+        "zh": "认可、信息施压和对影响的回应有相邻话题，但题项、回顾时间、选项和方法不同，不换算分数，也不算光暗比例或道德总分。本站不把这个专门主题版本自动算作独立的新构念。",
+        "en": "Recognition, information pressure and responses to effects have neighbouring topics, but items, recall periods, options and methods differ. Scores are not converted into a light/dark ratio or morality total. A focused thematic edition is not automatically a new independent construct."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://journals.sagepub.com/doi/10.1177/1073191113514105",
+      "title": {
+        "zh": "Jones与Paulhus：SD3发表论文背景（摘要，非本站题本）",
+        "en": "Jones and Paulhus: SD3 publication background (abstract, not this bank)"
+      }
+    }
+  ]
+}

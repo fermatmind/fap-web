@@ -1,0 +1,1220 @@
+{
+  "formCode": "dark_triad_theme_likert_18",
+  "origin": "FermatMind owned original DARK_TRIAD mini-program public-preview bank: exact eighteen Chinese prompts, IDs, order, accuracy response labels, direct keys and three independent thematic factors; new English trial translation and web presentation. Not SD3, Dirty Dozen, a clinical trait instrument or a direct measure of the three research traits.",
+  "directions": [
+    {
+      "id": "status-recognition",
+      "title": {
+        "zh": "对地位、认可和形象的关注",
+        "en": "Attention to status, recognition and image"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "instrumental-influence",
+      "title": {
+        "zh": "达成目标时使用信息、关系和影响方式",
+        "en": "Information, relationships and influence in pursuing aims"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "impact-distance",
+      "title": {
+        "zh": "面对他人感受和行为影响时的距离",
+        "en": "Distance from feelings and effects on others"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "DTT_001",
+      "prompt": {
+        "zh": "过去三个月，受到质疑时，我会比核对问题本身更急于维护自己的形象。",
+        "en": "Over the past three months, when questioned, I have been more eager to protect my image than to examine the issue itself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_002",
+      "prompt": {
+        "zh": "过去三个月，进入一个群体时，我会频繁比较自己获得的关注或位置。",
+        "en": "Over the past three months, when entering a group, I have frequently compared the attention or position I received."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_003",
+      "prompt": {
+        "zh": "过去三个月，别人获得更多认可时，我会把话题转回自己的经历或成果。",
+        "en": "Over the past three months, when others received more recognition, I have turned the conversation back to my own experiences or achievements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_004",
+      "prompt": {
+        "zh": "过去三个月，做决定时，我会优先考虑它对外在形象的影响，而不是实际后果。",
+        "en": "Over the past three months, when making decisions, I have prioritised their effect on my public image over their actual consequences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_005",
+      "prompt": {
+        "zh": "过去三个月，为了获得认可，我会少说自己对事情仍有的不确定。",
+        "en": "Over the past three months, to gain recognition, I have said less about uncertainties I still had."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_006",
+      "prompt": {
+        "zh": "过去三个月，我会把更多精力放在容易被看见和获得称赞的任务上。",
+        "en": "Over the past three months, I have put more effort into tasks that are easy for others to notice and praise."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "status-recognition",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_007",
+      "prompt": {
+        "zh": "过去三个月，为了推进自己的目标，我会只提供有利于对方同意的信息。",
+        "en": "Over the past three months, to advance my own aim, I have provided only information favourable to obtaining someone’s agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_008",
+      "prompt": {
+        "zh": "过去三个月，我会引用关系或以往付出，让别人更难拒绝我的请求。",
+        "en": "Over the past three months, I have referred to a relationship or past efforts to make my request harder for someone to refuse."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_009",
+      "prompt": {
+        "zh": "过去三个月，我会在对方作出初步承诺后，才说明自己的完整意图。",
+        "en": "Over the past three months, I have explained my full intention only after someone made an initial commitment."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_010",
+      "prompt": {
+        "zh": "过去三个月，我主动维系某段关系时，主要考虑对方能否帮我达成目标。",
+        "en": "Over the past three months, when actively maintaining a relationship, I have mainly considered whether the person could help me reach an aim."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_011",
+      "prompt": {
+        "zh": "过去三个月，为了尽快推进事情，我会鼓励对方在信息或思考时间不充分时就作决定。",
+        "en": "Over the past three months, to move things forward quickly, I have encouraged someone to decide without enough information or thinking time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_012",
+      "prompt": {
+        "zh": "过去三个月，别人表示反对时，我会更关注如何让对方让步，而不是核对其选择。",
+        "en": "Over the past three months, when someone objected, I have focused more on making them give way than on checking their choice."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "instrumental-influence",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_013",
+      "prompt": {
+        "zh": "过去三个月，我的行为造成影响后，我会继续推进任务，而不是停下来核对。",
+        "en": "Over the past three months, after my actions had an effect, I have continued the task instead of pausing to examine that effect."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_014",
+      "prompt": {
+        "zh": "过去三个月，别人表达不适时，我会先把这看作事情推进的阻碍。",
+        "en": "Over the past three months, when someone expressed discomfort, I have first regarded it as an obstacle to progress."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_015",
+      "prompt": {
+        "zh": "过去三个月，在需要快速决定时，我会忽略该决定对其他人的可预见影响。",
+        "en": "Over the past three months, when a quick decision was needed, I have ignored its foreseeable effects on other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_016",
+      "prompt": {
+        "zh": "过去三个月，道歉时我会更关注尽快结束话题，而不是了解已经造成的影响。",
+        "en": "Over the past three months, when apologising, I have focused more on ending the topic quickly than on understanding effects already caused."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_017",
+      "prompt": {
+        "zh": "过去三个月，看到自己行为的后果后，我会推迟回应，希望问题自行淡化。",
+        "en": "Over the past three months, after seeing the consequences of my actions, I have delayed responding in the hope that the issue would fade by itself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DTT_018",
+      "prompt": {
+        "zh": "过去三个月，一项做法对我有利时，我会弱化他人已表达的担忧或边界。",
+        "en": "Over the past three months, when an arrangement benefited me, I have downplayed concerns or boundaries that others had already expressed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Very inaccurate"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Somewhat inaccurate"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "比较符合",
+            "en": "Somewhat accurate"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "非常符合",
+            "en": "Very accurate"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "impact-distance",
+          "label": {
+            "zh": "我不想回答这题",
+            "en": "I prefer not to answer this item"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "likert",
+    "questions": 18,
+    "facets": 3,
+    "itemsEach": 6,
+    "minimumRatedEach": 4,
+    "reverseItems": [],
+    "rule": "exact numeric raw sum divided rated_count only if rated>=4;unscoredprefernotexcluded/notzeroor3;nooveralltotal/ranking/threshold/norm/classification/prediction",
+    "website_display": "rawsum/count independent descriptions/two decimals from unrounded sum,notgeneric1decimalmean;minifourdecimalmeanonlyreferenceformatdifference",
+    "response": "1..5accuracy;3uncertainorconditionalvalid,NOTneutralfrequency;na maps miniPREFER_NOT_TO_ANSWER",
+    "sensitive_privacy": "memoryonly/noStorage/noqueryanswers/noquizanalytics/noresultshare;refresh/languagechange/newmountlosesattempt/backeditscurrentinmemoryallowed/retakeandexitclear"
+  },
+  "scope": {
+    "zh": "这是自有小程序原创题本的三组主题自我观察公开预览，借黑暗三角常见话题讨论具体做法，不测标准自恋、马基雅维利主义或精神病态量表分数，不把三组对应为三种人格。不是SD3、Dirty Dozen、临床、司法或风险工具；不能继承现有工具的常模、效度或预测。只回答本人过去三个月，不代他人作答，不评善恶、安全、暴力、犯罪、未来、健康、职业或招聘适配。较少符合不是安全或无伤害证明，较多符合也不认证能力或优势。",
+    "en": "This public preview uses our owned original mini-program bank for three thematic self-observations, informed by topics commonly discussed around the Dark Triad. It supplies no standard narcissism, Machiavellianism or psychopathy scale scores and assigns no three personalities. It is neither SD3, Dirty Dozen nor a clinical, forensic or risk instrument and inherits no norms, validity or prediction from them. Answer only for yourself over the past three months. No morality, safety, violence, crime, future, health, career or hiring fit is assessed. Fewer endorsements guarantee no safety or absence of harm; more establish no ability or advantage."
+  },
+  "instructions": {
+    "zh": "仅回看本人过去三个月，选择每句话有多符合自己。1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合；3算有效数值但不解释为稳定中立频率。不愿回答可选独立项，不补零或中点。18条都选择后结束，每组六条至少四条数字才给该组原始和、有效数与描述性均分；三组独立，不算总分、最高型或风险。作答只保留当前页面内存，刷新、换语言或离开后不能恢复，不写入浏览器存储、不发流程统计、不分享个人结果；返回上题可修改，重测或退出清除。三份全文始终免费。",
+    "en": "Refer only to yourself over the past three months and rate how accurately each sentence describes you: 1 Very inaccurate, 2 Somewhat inaccurate, 3 Uncertain or depends on the situation, 4 Somewhat accurate, 5 Very accurate. Three counts numerically without representing a stable neutral frequency. The separate prefer-not-to-answer option is unscored, without zero or midpoint substitution. All eighteen selections finish an attempt; each six-item group needs four numeric ratings for its raw sum, rated count and descriptive mean. Groups remain separate without a total, dominant type or risk result. Answers remain only in this page’s memory: refreshing, changing language or leaving loses them. No browser storage, quiz-flow statistics or personal-result sharing is used. Back edits are possible; retake or exit clears the attempt. All three full guides remain free."
+  },
+  "ownedMiniSource": {
+    "versions": {
+      "construct": "0.1.0-preview",
+      "itemBank": "0.1.0-preview",
+      "scoring": "0.1.0-preview"
+    },
+    "fileSha256": {
+      "item_bank": "dfdb515ccf246905b7e6e8b641e7dcaa8211bec1d1c3efc5886533cde7ee5076",
+      "scoring_spec": "33a4ee94980dabf30609597c1899171d5504a23a35f75a4a30f92d016eb12306",
+      "item_review": "87c001360419ba806608431ab572104c92d0f7e77e10cdbda0a97ad90fee86bb",
+      "result_content": "a14ce85ed1dbea1b514107697f6793287677b88060f5e89240da822c7b668655",
+      "product": "7362044aef5bf9590843f03dc34784edd5e21aba08d18321bf265b19ba483d8b"
+    },
+    "exactChineseBankPreserved": true,
+    "privacyMode": "memory_only_no_flow_analytics_no_result_share"
+  }
+}
