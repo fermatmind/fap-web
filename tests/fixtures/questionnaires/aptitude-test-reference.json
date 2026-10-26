@@ -1,0 +1,2040 @@
+{
+  "id": "T159",
+  "edition": "fm_mixed_reasoning_tasks_24_v1",
+  "authorship": "Original FermatMind mixed-reasoning tasks with independently recomputed keys, explicit premises and counterexamples.",
+  "questions": [
+    {
+      "id": "APT_01",
+      "prompt": {
+        "en": "What is 18% of 250?",
+        "zh": "250的18%是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45",
+            "zh": "45"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50",
+            "zh": "50"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "250 × 18/100 = 45. A percentage scales the stated base; adding 18 or substituting a nearby round fraction changes the question.",
+        "zh": "250×18/100=45。百分数应乘题定基数，直接加18或换成接近的整分数，都改变了题目。"
+      }
+    },
+    {
+      "id": "APT_02",
+      "prompt": {
+        "en": "Two quantities are in the ratio 3:5 and total 64 units. How many units are in the second quantity?",
+        "zh": "两项数量之比为3:5，合计64单位。第二项是多少单位？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "There are eight ratio parts, each worth 64/8 = 8 units. The second quantity has five parts, so 5 × 8 = 40. The 24-unit result belongs to the first quantity.",
+        "zh": "共八份，每份64/8=8单位，第二项占五份，所以5×8=40；24是第一项的数量。"
+      }
+    },
+    {
+      "id": "APT_03",
+      "prompt": {
+        "en": "What is the arithmetic mean of 12, 14, 15 and 19?",
+        "zh": "12、14、15、19的算术平均数是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "14.5",
+            "zh": "14.5"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The sum is 60 and there are four values: 60/4 = 15. The middle-pair average would answer a median question, which is different.",
+        "zh": "合计60，共四个数，所以60/4=15。中间两数的平均值是在求中位数，与本题不同。"
+      }
+    },
+    {
+      "id": "APT_04",
+      "prompt": {
+        "en": "In a fictional order, four items cost 13 credits each and delivery costs 7 credits once. What is the total?",
+        "zh": "一份虚构订单含四件商品，每件13积分，另收一次配送费7积分。合计多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "80",
+            "zh": "80"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "57",
+            "zh": "57"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "59",
+            "zh": "59"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Four items cost 4 × 13 = 52 credits. Add the one delivery charge: 52 + 7 = 59. The charge is not repeated for every item.",
+        "zh": "四件商品4×13=52积分，再加一次配送费7，合计59；不能给每件商品都加一次配送费。"
+      }
+    },
+    {
+      "id": "APT_05",
+      "prompt": {
+        "en": "A quantity starts at 80 and increases by 25% of its starting value. What is the new quantity?",
+        "zh": "数量原为80，增加原值的25%后，新数量是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "100",
+            "zh": "100"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "105",
+            "zh": "105"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "20",
+            "zh": "20"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The increase is 80 × 0.25 = 20, so the new value is 100. Twenty is the increase alone, while subtracting it gives a decrease.",
+        "zh": "增加量80×0.25=20，新值为100。20只是增加量；减去20则是在计算下降。"
+      }
+    },
+    {
+      "id": "APT_06",
+      "prompt": {
+        "en": "A fictional machine completes 6 identical tasks in 15 minutes at a constant rate, with no setup time. At that same rate, how many minutes are needed for 24 tasks?",
+        "zh": "虚构机器恒速完成6个相同任务需15分钟，没有准备时间。保持此速度，24个任务需要多少分钟？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "90",
+            "zh": "90"
+          },
+          "directionId": "numerical"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "numerical"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Twenty-four is four times six, so time is four times fifteen: 60 minutes. The constant-rate and no-setup assumptions are supplied; this is not a productivity estimate for a real worker.",
+        "zh": "24是6的四倍，所以时间为15的四倍，即60分钟。恒速和无准备时间是题定条件，不是真实人员生产率估计。"
+      }
+    },
+    {
+      "id": "APT_07",
+      "prompt": {
+        "en": "A fictional studio note says: the online copy is available on Monday; the printed copy is available on Tuesday; both contain the same text. No price is stated. Which claim is supported?",
+        "zh": "虚构工作室说明：线上版本周一可读，印刷版本周二可读，两者文字相同，没有说明价格。哪项有依据？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The printed copy is available on Monday.",
+            "zh": "印刷版周一可读。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The two copies contain different text.",
+            "zh": "两个版本的文字不同。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The same text can be read online on Monday.",
+            "zh": "周一可以在线读到相同文字。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The online copy must be cheaper.",
+            "zh": "线上版本必定更便宜。"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The note gives Monday availability for the online copy and says the text is the same. It does not support a Monday printed release, different content or a price comparison.",
+        "zh": "说明同时给出线上周一可读和文字相同；并不支持印刷版周一发布、内容不同或价格比较。"
+      }
+    },
+    {
+      "id": "APT_08",
+      "prompt": {
+        "en": "A report says 12 people voluntarily answered a survey about meeting preferences. It gives no responses from anyone else and no population totals. Which claim is justified by that report alone?",
+        "zh": "报告说，12人自愿回答了会议偏好问卷，没有其他人的回答，也没有总体人数。仅据报告，哪项成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "All students prefer virtual meetings.",
+            "zh": "所有学生都偏好虚拟会议。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Participation was compulsory.",
+            "zh": "参与是强制的。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "One hundred and twenty people responded.",
+            "zh": "有120人回答。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Twelve people responded.",
+            "zh": "有12人回答。"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The report establishes twelve responses and voluntary participation. It does not establish the preferences of a whole population or a different response count. Keep the stated sample distinct from people who supplied no data.",
+        "zh": "报告确定的是12份回答和自愿参与，不能确定整个群体的偏好，也不能改写回答人数。应区分有资料的样本和没有提供资料的人。"
+      }
+    },
+    {
+      "id": "APT_09",
+      "prompt": {
+        "en": "The brief says: Keri sends a draft; Nia reviews it; Keri revises it only after receiving Nia’s notes. Which sequence summarizes the stated process?",
+        "zh": "简报说：凯里先发初稿，妮娅评阅，凯里收到妮娅意见后才修订。哪个顺序概括了规定流程？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Draft → review → revision",
+            "zh": "初稿→评阅→修订"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Review → revision → draft",
+            "zh": "评阅→修订→初稿"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Revision → draft → review",
+            "zh": "修订→初稿→评阅"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Draft → revision → review",
+            "zh": "初稿→修订→评阅"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The draft must exist before the review, and revision waits for the review notes. The stated order is draft, review, revision. No additional claim about the people’s competence is needed.",
+        "zh": "先有初稿，再评阅，修订要等评阅意见，所以顺序为初稿、评阅、修订，无需推断这些人的能力。"
+      }
+    },
+    {
+      "id": "APT_10",
+      "prompt": {
+        "en": "A notice says some buses were delayed. Weather is mentioned as a possible explanation, but the cause has not been confirmed. Which claim is NOT supported?",
+        "zh": "通知说部分公交晚点，提到天气可能是解释之一，但原因尚未确认。哪项没有得到支持？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Some buses were delayed.",
+            "zh": "部分公交晚点。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Weather has been proved to cause every delay.",
+            "zh": "已经证明每次晚点都由天气造成。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The cause has not been confirmed.",
+            "zh": "原因尚未确认。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Weather is mentioned as a possibility.",
+            "zh": "通知提到天气的可能性。"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The notice distinguishes a possibility from a confirmed cause and does not attribute every delay to weather. The other three options restate information actually supplied.",
+        "zh": "通知区分“可能”和“已确认”，也没有把所有晚点都归因于天气；其余三项均复述了已给信息。"
+      }
+    },
+    {
+      "id": "APT_11",
+      "prompt": {
+        "en": "A memo requires registration by Thursday and says confirmation will arrive on Friday. It says nothing about fees. Which question cannot be answered from the memo?",
+        "zh": "备忘要求周四前登记，确认信息周五到达，没有提费用。哪一个问题无法根据备忘回答？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When is registration due?",
+            "zh": "何时截止登记？"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When should confirmation arrive?",
+            "zh": "确认信息何时到达？"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "What is the attendance fee?",
+            "zh": "参加费用是多少？"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Is registration required?",
+            "zh": "是否需要登记？"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The memo supplies the deadline, confirmation day and registration requirement. It gives no fee, so neither a particular price nor free attendance can be inferred.",
+        "zh": "备忘提供截止日、确认日和登记要求，没有给费用；不能推断具体价格，也不能推断免费。"
+      }
+    },
+    {
+      "id": "APT_12",
+      "prompt": {
+        "en": "A request says: “Please check the measurement units and dimensional consistency. Do not spend this review changing colours or fonts.” Which reply addresses the requested work?",
+        "zh": "请求写道：“请核对计量单位和量纲是否一致，这次评阅不要花在改颜色或字体上。”哪份回复对应所请工作？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "I changed every heading to blue.",
+            "zh": "我把所有标题改成蓝色。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "I chose a different font.",
+            "zh": "我换了字体。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "I checked only the spelling of names.",
+            "zh": "我只核对了姓名拼写。"
+          },
+          "directionId": "verbal"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "I checked units and flagged a mismatch between length and area.",
+            "zh": "我核对了单位，并指出长度与面积混用的问题。"
+          },
+          "directionId": "verbal"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The last reply addresses units and dimensional consistency. Colour, font or name spelling may matter in another task but do not answer this request. Match the response to the writer’s stated purpose rather than a generally useful activity.",
+        "zh": "最后一项回应了单位和量纲一致性。颜色、字体或姓名拼写在别的任务中可能重要，却不回应这次请求。应匹配作者明示目的，而不是随意选择一项通常有用的工作。"
+      }
+    },
+    {
+      "id": "APT_13",
+      "prompt": {
+        "en": "For any item in this logic puzzle: having mark P requires mark Q; an item with Q cannot have R. Which statement must hold?",
+        "zh": "本逻辑题中，任何带P标记的物件都带Q，带Q的物件不能带R。哪项必然成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "An item cannot have both P and R.",
+            "zh": "物件不能同时带P和R。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every item with Q must have P.",
+            "zh": "带Q就一定带P。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every item with R must have Q.",
+            "zh": "带R就一定带Q。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Every item must have P.",
+            "zh": "所有物件都必须带P。"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "P implies Q and Q excludes R, so P excludes R. The rules do not reverse Q into P, force R into Q, or require every item to carry P.",
+        "zh": "P推出Q，Q又排除R，因此P排除R。规则不能反过来从Q推出P，不能从R推出Q，也没要求所有物件都有P。"
+      }
+    },
+    {
+      "id": "APT_14",
+      "prompt": {
+        "en": "In this deductive puzzle, if a token is valid, its gate is open. The token is valid. What follows from the stated rule?",
+        "zh": "本演绎题规定：令牌有效则门开启，且已知令牌有效。能推出什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The gate is closed.",
+            "zh": "门关闭。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The gate is open.",
+            "zh": "门开启。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The token is invalid.",
+            "zh": "令牌无效。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The token is valid and the gate is closed.",
+            "zh": "令牌有效且门关闭。"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Apply the supplied implication to its true premise: validity gives an open gate. This is a formal puzzle rule, not a description or security guarantee for a real access system.",
+        "zh": "把题定蕴含用于已知成立的前提，即可从有效推出开启。这是形式逻辑规则，不描述或保证真实门禁系统。"
+      }
+    },
+    {
+      "id": "APT_15",
+      "prompt": {
+        "en": "Puzzle rule: if alert A occurs, entry L must be present. Entry L is absent. Which conclusion follows?",
+        "zh": "题定规则：如果出现警示A，就一定有记录L。现在没有L，可以推出什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Alert A occurred.",
+            "zh": "出现过A。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Entry L is present.",
+            "zh": "有记录L。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Alert A did not occur.",
+            "zh": "没有出现A。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A occurred and L is present.",
+            "zh": "A出现且有L。"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "If A had occurred, the rule would require L. Since L is absent, A cannot have occurred under this rule. This uses the contrapositive, not the invalid move from “L is present” to “A occurred.”",
+        "zh": "若A出现，按规则就必须有L；现在无L，因此在该规则下A未出现。这是逆否推理，不是从“有L”错误反推“A出现”。"
+      }
+    },
+    {
+      "id": "APT_16",
+      "prompt": {
+        "en": "Three labels L, M and N occupy three distinct positions in a row. L must be before M, and M before N. Which order satisfies both constraints?",
+        "zh": "L、M、N三个标签占一排三个不同位置，要求L在M前，M在N前。哪个顺序同时满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "M, L, N",
+            "zh": "M, L, N"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "N, M, L",
+            "zh": "N, M, L"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "L, N, M",
+            "zh": "L, N, M"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "L, M, N",
+            "zh": "L, M, N"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "L before M and M before N give L, M, N. Each other order breaks at least one stated relation. The positions are distinct, so ties are not an additional possibility.",
+        "zh": "L在M前、M在N前，得到L、M、N；其余顺序至少违反一条。题面给定位置不同，不需要另加并列情况。"
+      }
+    },
+    {
+      "id": "APT_17",
+      "prompt": {
+        "en": "Exactly one of lights A and B is on. A is off. Which statement follows?",
+        "zh": "A、B两灯恰有一盏亮着，已知A灭着。哪项成立？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B is on.",
+            "zh": "B亮着。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Both are on.",
+            "zh": "两盏都亮。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Both are off.",
+            "zh": "两盏都灭。"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A is on.",
+            "zh": "A亮着。"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "“Exactly one” excludes both-on and both-off. With A off, the single on light must be B. This is a binary logic exercise with the states stated explicitly.",
+        "zh": "“恰有一盏”排除全亮和全灭，A已灭，亮着的只能是B。这是状态明确给出的二值逻辑练习。"
+      }
+    },
+    {
+      "id": "APT_18",
+      "prompt": {
+        "en": "Select exactly two labels: one from {A, B} and one from {C, D}. If A is selected, D must be selected. D is not selected. Which offered pair is allowed?",
+        "zh": "恰选两个标签，一项来自{A,B}，另一项来自{C,D}。选A就必须选D，但已知不选D。哪组允许？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A and C",
+            "zh": "A和C"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "B and C",
+            "zh": "B和C"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A and D",
+            "zh": "A和D"
+          },
+          "directionId": "deductive"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "B and D",
+            "zh": "B和D"
+          },
+          "directionId": "deductive"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Not selecting D forces C from the second pair. A would require D, so A is excluded and B must be selected from the first pair. The only offered eligible pair is B and C.",
+        "zh": "不选D，则第二组必须选C；A要求D，因此A排除，第一组只能选B，符合的选项是B和C。"
+      }
+    },
+    {
+      "id": "APT_19",
+      "prompt": {
+        "en": "A sequence starts at 5 and adds exactly 3 each time: 5, 8, 11, 14, ... What is the fifth term?",
+        "zh": "数列从5开始，每次恰加3：5、8、11、14……第五项是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "17",
+            "zh": "17"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Four additions follow the first term: 5 + 4 × 3 = 17. The fixed-step rule is given, so no alternative sequence rule needs to be guessed.",
+        "zh": "第一项之后经过四次加3，5+4×3=17。固定步长已给出，不需要另猜其他规律。"
+      }
+    },
+    {
+      "id": "APT_20",
+      "prompt": {
+        "en": "The four-symbol block A B B C repeats from position 1: A B B C A B B C ... What is at position 9?",
+        "zh": "从第1位开始重复四符号块A B B C：A B B C A B B C……第9位是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "C",
+            "zh": "C"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "D",
+            "zh": "D"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Positions 1–4 and 5–8 are two full blocks. Position 9 starts the next block and is A. Counting positions within a block avoids treating the repeated B as a new rule.",
+        "zh": "1—4位和5—8位各是一个完整块，第9位开始下一块，所以是A。应按块内位置计数，不能把重复的B当成另一个规律。"
+      }
+    },
+    {
+      "id": "APT_21",
+      "prompt": {
+        "en": "Use this supplied alphabet order: A B C D E F. Replace each input letter with the letter two places later; all inputs stay inside this list. What does B A D become?",
+        "zh": "使用题定字母顺序A B C D E F，把输入字母各换成往后两位的字母，输入均不会超出列表。B A D变成什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "D C F",
+            "zh": "D C F"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "C B E",
+            "zh": "C B E"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "D B F",
+            "zh": "D B F"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "F C C",
+            "zh": "F C C"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "B moves to D, A to C and D to F, giving D C F. Apply the same two-place shift to every position without changing their order.",
+        "zh": "B后移两位为D，A为C，D为F，得到D C F。每一位都用同一规则，不交换位置。"
+      }
+    },
+    {
+      "id": "APT_22",
+      "prompt": {
+        "en": "Transformation rule: swap the first and last symbols, leaving the middle unchanged. What does M N P become?",
+        "zh": "变换规则：交换首尾符号，中间不变。M N P变成什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "P M N",
+            "zh": "P M N"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "P N M",
+            "zh": "P N M"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "N M P",
+            "zh": "N M P"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "M P N",
+            "zh": "M P N"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The last symbol P moves first, the first M moves last and N stays in the middle: P N M. A rotation is a different operation.",
+        "zh": "末尾P到首位，开头M到末位，N留在中间，所以是P N M；轮转则是另一种操作。"
+      }
+    },
+    {
+      "id": "APT_23",
+      "prompt": {
+        "en": "A valid three-symbol string contains exactly two X symbols and one O, in any order. Which string is valid?",
+        "zh": "有效的三符号字符串必须恰有两个X和一个O，顺序不限。哪个有效？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "X O O",
+            "zh": "X O O"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "O O X",
+            "zh": "O O X"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "X O X",
+            "zh": "X O X"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "X X X",
+            "zh": "X X X"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "X O X has two X symbols and one O. The first two options each have only one X, and the last has no O. Position is irrelevant because the rule explicitly allows any order.",
+        "zh": "X O X含两个X和一个O。前两个选项都只有一个X，最后一项没有O。规则已说顺序不限，因此位置不影响判断。"
+      }
+    },
+    {
+      "id": "APT_24",
+      "prompt": {
+        "en": "A number machine applies these steps in order: multiply by 2, then add 1. If the input is 4, what is the output?",
+        "zh": "数字机器按顺序先乘2，再加1。输入4，输出是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "patterns"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          },
+          "directionId": "patterns"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "4 × 2 + 1 = 9. Adding first would produce 10, while stopping after multiplication would produce 8. The stated order determines the output.",
+        "zh": "4×2+1=9。先加后乘会得10，只乘不加会得8；题定顺序决定结果。"
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "id": "APT_01",
+      "proof": {
+        "kind": "percent",
+        "base": 250,
+        "percent": 18
+      }
+    },
+    {
+      "id": "APT_02",
+      "proof": {
+        "kind": "ratio",
+        "total": 64,
+        "parts": [
+          3,
+          5
+        ],
+        "target": 1
+      }
+    },
+    {
+      "id": "APT_03",
+      "proof": {
+        "kind": "mean",
+        "values": [
+          12,
+          14,
+          15,
+          19
+        ]
+      }
+    },
+    {
+      "id": "APT_04",
+      "proof": {
+        "kind": "linear_total",
+        "count": 4,
+        "unit": 13,
+        "once": 7
+      }
+    },
+    {
+      "id": "APT_05",
+      "proof": {
+        "kind": "increase",
+        "base": 80,
+        "percent": 25
+      }
+    },
+    {
+      "id": "APT_06",
+      "proof": {
+        "kind": "constant_rate",
+        "tasks": 6,
+        "minutes": 15,
+        "target": 24
+      }
+    },
+    {
+      "id": "APT_07",
+      "proof": {
+        "kind": "facts",
+        "facts": {
+          "onlineDay": "Monday",
+          "printDay": "Tuesday",
+          "sameText": true
+        },
+        "claims": [
+          {
+            "printDay": "Monday"
+          },
+          {
+            "sameText": false
+          },
+          {
+            "onlineDay": "Monday",
+            "sameText": true
+          },
+          {
+            "onlineCheaper": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "APT_08",
+      "proof": {
+        "kind": "facts",
+        "facts": {
+          "respondents": 12,
+          "voluntary": true
+        },
+        "claims": [
+          {
+            "allStudentsPreferVirtual": true
+          },
+          {
+            "voluntary": false
+          },
+          {
+            "respondents": 120
+          },
+          {
+            "respondents": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "APT_09",
+      "proof": {
+        "kind": "order",
+        "source": [
+          "draft",
+          "review",
+          "revision"
+        ],
+        "options": [
+          [
+            "draft",
+            "review",
+            "revision"
+          ],
+          [
+            "review",
+            "revision",
+            "draft"
+          ],
+          [
+            "revision",
+            "draft",
+            "review"
+          ],
+          [
+            "draft",
+            "revision",
+            "review"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_10",
+      "proof": {
+        "kind": "facts",
+        "invert": true,
+        "facts": {
+          "someDelayed": true,
+          "weatherPossible": true,
+          "weatherConfirmed": false
+        },
+        "claims": [
+          {
+            "someDelayed": true
+          },
+          {
+            "weatherConfirmed": true,
+            "allWeather": true
+          },
+          {
+            "weatherConfirmed": false
+          },
+          {
+            "weatherPossible": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "APT_11",
+      "proof": {
+        "kind": "missing_field",
+        "facts": {
+          "registrationDeadline": "Thursday",
+          "confirmationDay": "Friday",
+          "registrationRequired": true
+        },
+        "queries": [
+          "registrationDeadline",
+          "confirmationDay",
+          "fee",
+          "registrationRequired"
+        ]
+      }
+    },
+    {
+      "id": "APT_12",
+      "proof": {
+        "kind": "requires",
+        "required": [
+          "units",
+          "dimensions"
+        ],
+        "capabilities": [
+          [
+            "colour"
+          ],
+          [
+            "font"
+          ],
+          [
+            "spelling"
+          ],
+          [
+            "units",
+            "dimensions"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_13",
+      "proof": {
+        "kind": "logical_worlds",
+        "variables": [
+          "P",
+          "Q",
+          "R"
+        ],
+        "facts": [
+          [
+            "implies",
+            "P",
+            "Q"
+          ],
+          [
+            "implies",
+            "Q",
+            [
+              "not",
+              "R"
+            ]
+          ]
+        ],
+        "claims": [
+          [
+            "not",
+            [
+              "and",
+              "P",
+              "R"
+            ]
+          ],
+          [
+            "implies",
+            "Q",
+            "P"
+          ],
+          [
+            "implies",
+            "R",
+            "Q"
+          ],
+          "P"
+        ]
+      }
+    },
+    {
+      "id": "APT_14",
+      "proof": {
+        "kind": "logical_worlds",
+        "variables": [
+          "V",
+          "O"
+        ],
+        "facts": [
+          [
+            "implies",
+            "V",
+            "O"
+          ],
+          "V"
+        ],
+        "claims": [
+          [
+            "not",
+            "O"
+          ],
+          "O",
+          [
+            "not",
+            "V"
+          ],
+          [
+            "and",
+            "V",
+            [
+              "not",
+              "O"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_15",
+      "proof": {
+        "kind": "logical_worlds",
+        "variables": [
+          "A",
+          "L"
+        ],
+        "facts": [
+          [
+            "implies",
+            "A",
+            "L"
+          ],
+          [
+            "not",
+            "L"
+          ]
+        ],
+        "claims": [
+          "A",
+          "L",
+          [
+            "not",
+            "A"
+          ],
+          [
+            "and",
+            "A",
+            "L"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_16",
+      "proof": {
+        "kind": "ordering",
+        "before": [
+          [
+            "L",
+            "M"
+          ],
+          [
+            "M",
+            "N"
+          ]
+        ],
+        "options": [
+          [
+            "M",
+            "L",
+            "N"
+          ],
+          [
+            "N",
+            "M",
+            "L"
+          ],
+          [
+            "L",
+            "N",
+            "M"
+          ],
+          [
+            "L",
+            "M",
+            "N"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_17",
+      "proof": {
+        "kind": "logical_worlds",
+        "variables": [
+          "A",
+          "B"
+        ],
+        "facts": [
+          [
+            "xor",
+            "A",
+            "B"
+          ],
+          [
+            "not",
+            "A"
+          ]
+        ],
+        "claims": [
+          "B",
+          [
+            "and",
+            "A",
+            "B"
+          ],
+          [
+            "and",
+            [
+              "not",
+              "A"
+            ],
+            [
+              "not",
+              "B"
+            ]
+          ],
+          "A"
+        ]
+      }
+    },
+    {
+      "id": "APT_18",
+      "proof": {
+        "kind": "selection",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "count": 2,
+        "oneOf": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "implications": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "forbidden": [
+          "D"
+        ],
+        "options": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_19",
+      "proof": {
+        "kind": "arithmetic_sequence",
+        "start": 5,
+        "step": 3,
+        "target": 5
+      }
+    },
+    {
+      "id": "APT_20",
+      "proof": {
+        "kind": "repeat_block",
+        "block": [
+          "A",
+          "B",
+          "B",
+          "C"
+        ],
+        "target": 9
+      }
+    },
+    {
+      "id": "APT_21",
+      "proof": {
+        "kind": "alphabet_shift",
+        "alphabet": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "input": [
+          "B",
+          "A",
+          "D"
+        ],
+        "shift": 2
+      }
+    },
+    {
+      "id": "APT_22",
+      "proof": {
+        "kind": "swap_ends",
+        "input": [
+          "M",
+          "N",
+          "P"
+        ]
+      }
+    },
+    {
+      "id": "APT_23",
+      "proof": {
+        "kind": "symbol_counts",
+        "required": {
+          "X": 2,
+          "O": 1
+        }
+      }
+    },
+    {
+      "id": "APT_24",
+      "proof": {
+        "kind": "machine",
+        "input": 4,
+        "multiply": 2,
+        "add": 1
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "numerical",
+      "directionIds": [
+        "numerical"
+      ],
+      "title": {
+        "en": "Numerical reasoning practice",
+        "zh": "数值推理练习"
+      },
+      "headline": {
+        "en": "Keep the base, units and operation visible.",
+        "zh": "写清基数、单位和运算。"
+      },
+      "summary": {
+        "en": "Review percentages, ratios, means, one-off costs, increases and constant rates. Worked arithmetic identifies a missed step without assigning mathematical ability.",
+        "zh": "复习百分数、比例、平均数、一次费用、增长和恒定速率，用明确算式找到错步，不据此分数学能力等级。"
+      },
+      "seo": {
+        "title": {
+          "en": "Numerical reasoning: aptitude practice and worked answers",
+          "zh": "数值推理：能力倾向练习题解与复习"
+        },
+        "description": {
+          "en": "Practise percentages, ratios, means and rates with worked examples and a checking routine. Six-item accuracy is not a norm or hiring score.",
+          "zh": "通过算例和核对步骤复习百分数、比例、平均数和速率。六题正确数不是常模成绩或招聘分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original tasks each count one correct answer. Your count out of six describes these tasks under your practice conditions, not a percentile, IQ estimate or fixed ability band. All worked answers and this complete guide remain available at every count.",
+        "zh": "六道原创任务，每题答对记1题。答对数/6只描述你在所用条件下完成本组任务的结果，不是百分位、智商估计或固定能力等级；任何正确数都能看全部题解和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six tasks check",
+            "zh": "六题具体检查什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The questions ask you to choose the correct base for a percentage, divide a total into ratio parts, calculate an arithmetic mean, add a one-off charge, distinguish an increase from the final value and scale time at a stated constant rate. Each supplies the needed quantities. No external price, employer benchmark or real worker’s productivity is assumed.",
+              "zh": "六题分别要求选对百分数的基数、按比例分配总量、求算术平均数、加一次费用、区分增加量与最终值，以及按题定恒速换算时间。数量都在题面，不假定外部价格、雇主标杆或真实人员生产率。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A separate ratio example",
+            "zh": "另一个比例算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose two fictional batches total 72 units in the ratio 5:4. There are nine parts, so one part is eight units; the batches contain 40 and 32. Check that they add back to 72 and keep the requested batch distinct. A correct calculation for the first batch is still the wrong response if the question asks for the second.",
+              "zh": "例如两批虚构物件合计72单位，比例5:4。共九份，每份8，分别为40和32。再相加检查是否回到72，并看清问的是哪一批。若题目问第二批，第一批的数即使计算正确，也不是所问答案。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Locate the step, not an ability label",
+            "zh": "找出错步，不贴能力标签"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare your selected option with the worked key. Did you use the wrong denominator, report only the increase, repeat a delivery charge or confuse the mean with the median? These are different errors with different repairs. A result of zero, three or six correct does not show how you perform across all numerical tasks or under an employer’s timed conditions.",
+              "zh": "把所选与完整解析对照：是否用了错误分母、只报增加量、重复加配送费，或混淆平均数与中位数？这些错误需要不同修正。答对0、3或6题，都不能说明你在所有数值任务或雇主限时条件下的表现。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Rehearse a checking loop",
+            "zh": "练习一个核对循环"
+          },
+          "paragraphs": [
+            {
+              "en": "Write what is being requested, attach units to each given value and produce a short expression before calculating. Estimate the size of the result, then check it against the original total or rate. Change one number in an invented example and solve again before viewing the explanation. Paper or a calculator is allowed here; keep your chosen conditions consistent when comparing attempts.",
+              "zh": "先写所求，给已知量标单位，列短算式后再算。预估结果量级，再按原总量或速率回查。用自拟例子改一个数，先独立算完再看解释。本练习允许纸笔或计算器；比较几次作答时，应留意所用条件是否一致。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A small original practice set",
+            "zh": "一组小型原创练习"
+          },
+          "paragraphs": [
+            {
+              "en": "The answer keys were independently recomputed using exact fractions and arithmetic. That establishes consistency for these cases, not a general aptitude norm. No speed is measured. Familiarity and rereading answers can improve a repeat count without proving a wider skill change. Use the item explanations to choose the next kind of calculation to practise.",
+              "zh": "答案键已用精确分数和算术另行复算，确认的是案例内部一致性，不是一般能力常模。本版不测速度；熟悉题目或读过答案，可能提高重做正确数，但不证明更广泛技能变化。根据逐题解析选择下一类计算练习。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verbal",
+      "directionIds": [
+        "verbal"
+      ],
+      "title": {
+        "en": "Reading and evidence practice",
+        "zh": "阅读与证据练习"
+      },
+      "headline": {
+        "en": "Separate the stated information from an added assumption.",
+        "zh": "分开明示信息与额外假设。"
+      },
+      "summary": {
+        "en": "Read short notices, reports and requests, then check supported claims, missing information, sequence and relevance. This localized section is not an English proficiency score.",
+        "zh": "阅读短说明、报告与请求，核对有据主张、缺失资料、顺序和相关性。本分项按语言本地化，不是英语水平分数。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading reasoning: aptitude practice and explanations",
+          "zh": "阅读推理：能力倾向练习解析与证据核对"
+        },
+        "description": {
+          "en": "Practise reading claims, evidence limits, process order and a writer’s purpose. Get worked examples without a language level or population ranking.",
+          "zh": "练习主张、证据边界、流程顺序和写作者目的，结合完整算例复习，不提供语言等级或人群排名。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original tasks each count one correct answer. Your count out of six describes these tasks under your practice conditions, not a percentile, IQ estimate or fixed ability band. All worked answers and this complete guide remain available at every count.",
+        "zh": "六道原创任务，每题答对记1题。答对数/6只描述你在所用条件下完成本组任务的结果，不是百分位、智商估计或固定能力等级；任何正确数都能看全部题解和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six ways to stay with the text",
+            "zh": "六种回到原文的核对"
+          },
+          "paragraphs": [
+            {
+              "en": "The tasks cover two versions of a document, a voluntary survey, a review sequence, a possible cause, an omitted fee and a request to check units. You must use the actual passage rather than what is usually true elsewhere. Reading a possible explanation as a confirmed cause, or assuming a service is free because no fee is mentioned, adds information the text does not supply.",
+              "zh": "六题涉及两个文件版本、自愿问卷、评阅流程、可能原因、未写出的费用和核对单位的请求。要依据实际段落，而非其他地方通常怎样。把可能解释读成确认原因，或因未提费用就推断免费，都增加了原文没有的信息。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Absence of a fact is a boundary",
+            "zh": "没写出的事实是一条边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a notice saying a workshop starts at 10:00 and requires registration, with no price stated. You can answer the start-time and registration questions. You cannot infer a fee of zero, a particular price or an exemption. Mark the price as unknown. That is an information limit, not evidence that the writer intended to conceal something.",
+              "zh": "例如通知说工作坊10:00开始、需要登记，却未说明价格。可以回答开始时间和登记问题，不能推出零费用、具体价格或免付条件。应把费用记为未知；这是资料边界，不是写作者有意隐瞒的证据。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Read the question’s direction carefully",
+            "zh": "看清题目要求的方向"
+          },
+          "paragraphs": [
+            {
+              "en": "One item asks for the claim that is not supported; another asks which question cannot be answered. Missing the negative reverses the task even if you understood the passage. For sequence items, preserve the stated dependencies. For a reply, match the requested purpose rather than a different useful activity. Your count describes six reading decisions, not your fluency or intelligence.",
+              "zh": "有题问“没有支持的主张”，有题问“不能回答的问题”，漏看否定会把任务反转，即使你理解了段落。顺序题要保留明确依赖，回复题要回应所请目的，而不是另一项有用工作。正确数只描述六个阅读决定，不代表流利度或智力。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Build an evidence column",
+            "zh": "列一栏原文依据"
+          },
+          "paragraphs": [
+            {
+              "en": "For an invented passage, put each offered claim beside the exact fact it needs. Separate directly supported, contradicted and not supplied. When selecting one answer, check whether the prompt asks for support or for a gap. Try restating the passage without adding a motive, price or population conclusion. This can expose an assumption before it enters your choice.",
+              "zh": "给自拟段落的每个备选主张，写出它需要的具体事实，区分直接支持、被否定和没有资料。单选前再看是找支持还是找缺口。尝试复述原文，同时不增加动机、价格或总体结论，有助于在选择前发现假设。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Language and repetition affect the experience",
+            "zh": "语言与重复作答会影响体验"
+          },
+          "paragraphs": [
+            {
+              "en": "These reading tasks are localized in English and Chinese; no cross-language measurement equivalence or language level is established. They do not test vocabulary breadth, pronunciation or all reading skills. The independent fact and rule checks verify the declared keys, not a clinical or educational diagnosis. Repeated correct answers after reading this guide may reflect recall.",
+              "zh": "这些阅读任务分别用中英文组织，没有建立跨语言测量等价或语言等级。它们不测试全部词汇量、发音或所有阅读技能。独立事实与规则核对确认的是题定答案，不构成临床或教育诊断。读过指南后重复答对，可能来自记忆。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deductive",
+      "directionIds": [
+        "deductive"
+      ],
+      "title": {
+        "en": "Deductive reasoning practice",
+        "zh": "演绎推理练习"
+      },
+      "headline": {
+        "en": "Test what must follow in every allowed case.",
+        "zh": "核对所有允许情况中都成立的结论。"
+      },
+      "summary": {
+        "en": "Review implications, contraposition, ordering, exclusive choices and constrained selections. Finite models and counterexamples explain each key without an ability label.",
+        "zh": "复习蕴含、逆否、排序、二选一与受约束选择，用有限情况和反例解释答案，不派能力标签。"
+      },
+      "seo": {
+        "title": {
+          "en": "Deductive reasoning: aptitude practice with counterexamples",
+          "zh": "演绎推理：能力倾向练习与反例核对"
+        },
+        "description": {
+          "en": "Work through implications, ordering and constrained choices with counterexamples. Six-item correctness is not a general logic ability or recruitment score.",
+          "zh": "通过反例复习蕴含、排序和受约束选择。六题正确数不是一般逻辑能力或招聘成绩。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original tasks each count one correct answer. Your count out of six describes these tasks under your practice conditions, not a percentile, IQ estimate or fixed ability band. All worked answers and this complete guide remain available at every count.",
+        "zh": "六道原创任务，每题答对记1题。答对数/6只描述你在所用条件下完成本组任务的结果，不是百分位、智商估计或固定能力等级；任何正确数都能看全部题解和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What is guaranteed by these rules?",
+            "zh": "这些规则究竟保证什么？"
+          },
+          "paragraphs": [
+            {
+              "en": "The six tasks supply exact puzzle rules: one mark implies another, a missing consequence rules out its required cause, labels occupy distinct ordered positions, exactly one light is on, and a selection must meet several conditions together. Read these as formal constraints for the exercise. Real systems may have exceptions; the puzzle does not inspect or certify them.",
+              "zh": "六题都给出明确逻辑约束：标记间的蕴含、结果缺失时排除必要前因、不同位置的标签顺序、恰有一灯亮，以及同时满足多项条件的选择。应把它们作为本题形式规则；真实系统可能有例外，本练习不检查或认证真实系统。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A counterexample blocks a converse",
+            "zh": "用反例阻止反向推断"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose every red card is stamped, and a card is stamped. It need not be red: a blue stamped card satisfies the rule too. That one allowed case defeats the claim that stamping guarantees red. By contrast, a card with no stamp cannot be red under the supplied rule. Distinguish the converse from the contrapositive rather than treating both as a reversed sentence.",
+              "zh": "例如所有红卡都盖章，某卡有章，并不必然是红卡：蓝卡有章同样满足规则，这一个允许的反例就足以否定“盖章保证红色”。反过来，无章卡在题定规则下不能是红卡。要区分逆命题与逆否命题，而不是都当成把句子倒过来。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Check scope and exact wording",
+            "zh": "核对范围与准确措辞"
+          },
+          "paragraphs": [
+            {
+              "en": "For “must follow,” seek a statement true in every admissible case, not merely one possible case. “Exactly one” differs from “at least one.” A distinct-position ordering excludes ties only because the prompt says so. For a selection, an option that meets one condition but violates another is invalid. The worked explanations identify the particular constraint each missed option breaks.",
+              "zh": "“必然推出”要求在所有允许情况中都成立，不只是某种情况可能成立。“恰有一个”与“至少一个”不同；排序排除并列，是因为题面明确位置不同。选择题中，满足一条却违反另一条仍不合格。逐题解析指出漏看选项违反的具体约束。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Enumerate a small puzzle",
+            "zh": "枚举一个小题的情况"
+          },
+          "paragraphs": [
+            {
+              "en": "For two yes-or-no properties, write all four combinations, cross out those that break a stated rule and inspect the remaining cases. For a short ordering, list the offered orders and test each required relation. Use invented labels rather than assumptions about actual people. Try to find a counterexample before accepting a conclusion as necessary; if none remains, explain which rules excluded it.",
+              "zh": "对两个是非属性，写出四种组合，划掉违反明示规则的情况，再检查剩余情况。短排序可以逐项核对每条关系。使用虚构标签，不借现实人物假设补题。接受某个必然结论前先找反例；若没有反例留下，说清哪些规则把它们排除了。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Proofs verify this edition’s keys",
+            "zh": "证明核对的是本版答案"
+          },
+          "paragraphs": [
+            {
+              "en": "The source checks enumerate finite Boolean worlds, allowed selections and ordering constraints independently of the runtime scorer. They confirm unique keys for these six tasks, not broad reasoning aptitude, cultural fairness or a hiring pass. No time pressure is measured. After seeing a proof, solving the same puzzle again may test recall; use a genuinely new example to practise the method.",
+              "zh": "源核对独立于运行时计分器，枚举有限布尔状态、允许选择和排序约束，确认六题答案唯一，不证明广泛推理能力、文化公平性或招聘通过。本版不测限时表现；看过证明后重做同题可能是记忆，应换新例子练方法。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patterns",
+      "directionIds": [
+        "patterns"
+      ],
+      "title": {
+        "en": "Symbol patterns and transformations",
+        "zh": "符号模式与变换"
+      },
+      "headline": {
+        "en": "Apply the declared rule to the requested position.",
+        "zh": "按明示规则处理所问位置。"
+      },
+      "summary": {
+        "en": "Review fixed steps, repeating blocks, a supplied alphabet, endpoint swaps, symbol counts and ordered operations. The rules are explicit, so keys do not depend on guessing a hidden pattern.",
+        "zh": "复习固定步长、重复块、题定字母表、首尾交换、符号计数和运算顺序。规则都明示，答案不依赖猜隐藏规律。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pattern reasoning: aptitude practice and transformations",
+          "zh": "模式推理：能力倾向练习与符号变换"
+        },
+        "description": {
+          "en": "Practise symbol sequences and declared transformations with worked examples. Read position and operation checks without an IQ or culture-fairness claim.",
+          "zh": "通过算例练符号序列和明示变换，核对位置与操作，不提供智商或文化公平性主张。"
+        }
+      },
+      "scoreReading": {
+        "en": "Six original tasks each count one correct answer. Your count out of six describes these tasks under your practice conditions, not a percentile, IQ estimate or fixed ability band. All worked answers and this complete guide remain available at every count.",
+        "zh": "六道原创任务，每题答对记1题。答对数/6只描述你在所用条件下完成本组任务的结果，不是百分位、智商估计或固定能力等级；任何正确数都能看全部题解和完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six explicit transformation tasks",
+            "zh": "六种明示变换任务"
+          },
+          "paragraphs": [
+            {
+              "en": "These items provide a fixed numeric step, a repeating four-symbol block, a short alphabet order, a swap operation, a symbol-count requirement and a two-step number machine. You apply the stated rule rather than invent one that happens to fit a short sequence. Letter labels are supplied symbols, not a test of English vocabulary or knowledge of a secret code.",
+              "zh": "题目分别给出固定数值步长、四符号重复块、短字母表顺序、交换操作、符号数量条件和两步数字机器。需要应用已给规则，而不是为短序列另造一个碰巧适合的规律。字母是题定符号，不测试英语词汇或秘密编码知识。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Keep block position distinct from symbol identity",
+            "zh": "区分块内位置与符号身份"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the block K L K repeats from position one. The first six symbols are K L K K L K; position seven starts a new block and is K. The repeated K at a boundary does not change the block length. For a long target position, divide its one-based offset by three and use the remainder to locate the symbol within the supplied block.",
+              "zh": "例如K L K从第一位重复，前六位为K L K K L K，第七位开始下一块，仍为K。边界出现相邻K，不改变块长。求较远位置时，可把从零算的偏移按三取余，定位到题定块内的符号。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Identify the operation you actually used",
+            "zh": "确认自己实际做了什么操作"
+          },
+          "paragraphs": [
+            {
+              "en": "A rotation is not an endpoint swap; shifting one letter and leaving another unchanged is not a uniform code; adding before multiplying is not multiplying before adding. In the classification task, order is irrelevant because the rule specifies only counts. If you missed an item, restate the rule and compare your intermediate steps, not just the final offered string.",
+              "zh": "轮转不是首尾交换，只换一部分字母不是统一编码，先加后乘也不是先乘后加。分类题只约束数量，因此顺序无关。错题复习时应复述规则、对照中间步骤，而不只看最后字符串。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Trace a new input step by step",
+            "zh": "逐步追踪一个新输入"
+          },
+          "paragraphs": [
+            {
+              "en": "Use an invented three-symbol string and label its positions before applying a swap. For a small alphabet, draw arrows for every supplied mapping. For a number machine, keep a separate line for each operation. Change one input while keeping the same rule and calculate before reading an answer. This rehearses the method without assuming that a familiar-looking sequence always follows the same pattern.",
+              "zh": "自拟三符号字符串，标清位置后再交换；小字母表可逐项画映射箭头；数字机器则把每步单独写一行。保持规则不变，换一个输入，先算再看答案。这是在练方法，不是假定看起来熟悉的序列总遵循同一规律。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "An explicit-rule section, not an IQ estimate",
+            "zh": "明示规则分项的解释边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Independent source calculations check the sequences, mappings, counts and operation order in this edition. They do not validate a nonverbal intelligence scale, establish culture fairness or cover every form of abstract reasoning. Schooling, reading and familiarity can affect the experience. A perfect count means these six keys were matched; it is not a general cognitive-ability verdict.",
+              "zh": "源计算独立核对本版序列、映射、计数和操作顺序，不验证非言语智力量表、不证明文化公平，也不覆盖所有抽象推理形式。教育、阅读和熟悉程度可能影响体验。满分只表示六题与答案键一致，不是总体认知能力判定。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
