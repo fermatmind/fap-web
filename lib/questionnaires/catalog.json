@@ -1406,5 +1406,32 @@
       "humanism",
       "kantianism"
     ]
+  },
+  {
+    "slug": "inner-child-personality-test",
+    "code": "INNER_CHILD_PLAY_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "zh": "内在童年性格测试",
+      "en": "Inner Child Personality Test"
+    },
+    "description": {
+      "zh": "免费内在童年性格测试：18道原创日常选择，探索六种当下童心玩法，直接读完整结果与最高并列。无需回忆受伤经历，不推断真实童年、创伤或职业。",
+      "en": "Take the Inner Child Personality Test: 18 original choices, six playful approaches and full free guides. An adult metaphor, without reconstructing childhood."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_inner_child_play_choices_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "wonder-explorer",
+      "independent-maker",
+      "prepared-player",
+      "expressive-player",
+      "quiet-imaginer",
+      "welcoming-companion"
+    ]
   }
 ]

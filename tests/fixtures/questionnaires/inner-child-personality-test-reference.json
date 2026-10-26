@@ -1,0 +1,807 @@
+{
+  "formCode": "fm_inner_child_play_choices_18",
+  "origin": "FermatMindoriginalpresentdaychildlikeplaymetaphor18/notvalidatedchildhoodreconstructionorclinicaltaxonomy",
+  "directions": [
+    {
+      "id": "wonder-explorer",
+      "title": {
+        "zh": "好奇发问",
+        "en": "Curious Explorer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "independent-maker",
+      "title": {
+        "zh": "自主试手",
+        "en": "Independent Maker"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "prepared-player",
+      "title": {
+        "zh": "准备入场",
+        "en": "Prepared Player"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "expressive-player",
+      "title": {
+        "zh": "生动表达",
+        "en": "Expressive Player"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "quiet-imaginer",
+      "title": {
+        "zh": "安静想象",
+        "en": "Quiet Imaginer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "welcoming-companion",
+      "title": {
+        "zh": "友善同玩",
+        "en": "Welcoming Companion"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "ICC_01",
+      "prompt": {
+        "zh": "在自愿的周末手作角，你最想怎样开始？",
+        "en": "How would you most like to begin at an optional weekend craft corner?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "研究几种纸张为什么折出不同形状",
+            "en": "Explore why different papers fold into different shapes"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "自己改一个小模型的做法",
+            "en": "Try making a small model in your own way"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "用明亮色彩做一张夸张的面具",
+            "en": "Make an expressive mask with bright colours"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "安静画一个只属于小角色的房间",
+            "en": "Quietly draw a room for an imagined character"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_02",
+      "prompt": {
+        "zh": "拿到一个简单拼装玩具，哪种过程更吸引你？",
+        "en": "With a simple construction toy, which process appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "先按自己的想法拼一个版本",
+            "en": "Build a version from your own idea first"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "看看零件和步骤，再开始拼",
+            "en": "Look through the parts and steps before building"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "慢慢想象它属于怎样的小世界",
+            "en": "Take time imagining the little world it belongs to"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "邀请想加入的人各搭一小部分",
+            "en": "Invite anyone interested to contribute a small part"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_03",
+      "prompt": {
+        "zh": "朋友提议玩一个没玩过的桌游，你更愿意？",
+        "en": "A friend suggests an unfamiliar board game. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先看一轮示范再加入",
+            "en": "Watch a demonstration round before joining"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "给轮到自己时配一句有趣台词",
+            "en": "Add a playful line when your turn arrives"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "问问大家是否想用同一种玩法",
+            "en": "Ask whether everyone wants the same way of playing"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "弄清其中最让你好奇的一条机制",
+            "en": "Explore the rule mechanism that intrigues you most"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_04",
+      "prompt": {
+        "zh": "给旧笔记本做一页纯粹好玩的装饰，你更想？",
+        "en": "For a just-for-fun page in an old notebook, what would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "拼出大胆的颜色和大字",
+            "en": "Combine bold colours and large lettering"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "画一个细小的虚构场景",
+            "en": "Draw a small imagined scene"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "找一个平常没注意过的纹理",
+            "en": "Investigate a texture you usually overlook"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "试自己还没用过的装订小点子",
+            "en": "Try a small binding idea you have not used before"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_05",
+      "prompt": {
+        "zh": "图书馆安排一个可自由参加的趣味角，你倾向？",
+        "en": "A library offers an optional playful activity corner. What draws you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "找个安静位置续写一个小故事",
+            "en": "Find a quiet spot to continue a little story"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "和愿意的人一起轮流编一句",
+            "en": "Take turns adding a line with willing participants"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "选择一种材料自己试出新做法",
+            "en": "Take a material and try a method of your own"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先了解活动规则和退出方式",
+            "en": "Check how the activity works and how to leave"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_06",
+      "prompt": {
+        "zh": "想让一次轻松野餐更有玩心，你更想加入？",
+        "en": "What would you add to make a relaxed picnic more playful?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "一个人人都可选择参与的小游戏",
+            "en": "A small game people can freely join or decline"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "观察草叶形状的寻奇活动",
+            "en": "An exploration of surprising leaf shapes"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "一个提前说明规则的寻物环节",
+            "en": "A treasure hunt with the rules explained first"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "一段随意哼唱或动作模仿",
+            "en": "A little humming or movement imitation"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_07",
+      "prompt": {
+        "zh": "看到一盒不同年代的小摆件，你先想？",
+        "en": "You see a box of little objects from different decades. What comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "研究一个物件原本怎样使用",
+            "en": "Explore how one object was originally used"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "用它们自行搭出一个新组合",
+            "en": "Make a new arrangement in your own way"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "挑几个配成生动的展示",
+            "en": "Combine a few into a vivid display"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "为其中一个想象一段小故事",
+            "en": "Imagine a little story around one of them"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_08",
+      "prompt": {
+        "zh": "想重新体验一种童年玩意儿，但不必回忆往事，你会？",
+        "en": "To revisit a childhood-style activity without recalling personal history, what would you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "把熟悉玩法改成自己的版本",
+            "en": "Adapt the familiar activity into your own version"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先找容易上手的规则与材料",
+            "en": "Find accessible rules and materials first"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "一个人慢慢画格子或折小船",
+            "en": "Quietly draw grids or fold little boats on your own"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "邀请一个也想玩的人共同决定",
+            "en": "Invite an interested person to decide together"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_09",
+      "prompt": {
+        "zh": "报名一个可以中途退出的纸偶活动，你更喜欢？",
+        "en": "At a paper-puppet activity you may leave at any point, what appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先看老师演示一次制作流程",
+            "en": "Watch the making process demonstrated first"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "让纸偶用夸张动作讲一句话",
+            "en": "Give the puppet an expressive movement and line"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "和同伴商量角色怎样轮流登场",
+            "en": "Agree with a companion how characters take turns"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "试着弄懂纸偶活动关节的原理",
+            "en": "Explore how the puppet joints move"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_10",
+      "prompt": {
+        "zh": "收到一张空白明信片，让你随意玩一玩，你想？",
+        "en": "Given a blank postcard simply to play with, what would you do?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "画很大的表情或醒目的图案",
+            "en": "Draw a large expression or striking pattern"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "画一个只有自己知道的小地点",
+            "en": "Draw a little place meaningful only to you"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "试验水滴落在不同颜料上的变化",
+            "en": "Explore how water droplets affect different paints"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "按自己的顺序试一种新画法",
+            "en": "Try a new drawing method in your own sequence"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_11",
+      "prompt": {
+        "zh": "为自己的书架留一小块趣味空间，你更想？",
+        "en": "You leave a little playful space on your bookshelf. What goes there?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "一个可以慢慢补充的微型场景",
+            "en": "A miniature scene you can quietly add to"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "一件可与朋友共同续作的小东西",
+            "en": "A small object you and a willing friend can add to"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "自己动手做的独特支架",
+            "en": "An unusual stand you made in your own way"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "按先想好的布局摆好几件物品",
+            "en": "Several objects arranged from a prepared layout"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_12",
+      "prompt": {
+        "zh": "给一次朋友间的轻松聚会选一个开场，你偏向？",
+        "en": "For a relaxed gathering with friends, which opening appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "先让每个人自由选想不想参与",
+            "en": "Let everyone freely choose whether to participate"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "带大家找找周围不起眼的有趣细节",
+            "en": "Look for overlooked interesting details nearby"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "用一个规则清楚的小活动开场",
+            "en": "Begin with a short activity whose rules are clear"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "用一段有表情的即兴介绍开场",
+            "en": "Begin with an expressive improvised introduction"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_13",
+      "prompt": {
+        "zh": "雨天想做十分钟不求成果的活动，你选？",
+        "en": "For ten rainy-day minutes with no required outcome, what would you choose?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "看看雨滴怎样改变窗上的光",
+            "en": "Explore how raindrops change light on a window"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "自行搭一个不会弄湿桌面的小装置",
+            "en": "Make a little device of your own without wetting the table"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "随节奏画几笔夸张的线条",
+            "en": "Draw expressive lines to a rhythm"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "安静构思一座只有想象中的小屋",
+            "en": "Quietly imagine a tiny house"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_14",
+      "prompt": {
+        "zh": "一个简单的折纸活动有多种做法，你倾向？",
+        "en": "A simple origami activity offers several approaches. What appeals?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "先折一个自己的版本看看",
+            "en": "Try folding a version of your own first"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先挑说明最清楚的版本",
+            "en": "Choose the version with the clearest instructions"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "慢慢折一个虚构场景的小道具",
+            "en": "Quietly fold a small prop for an imagined scene"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "和愿意的同伴各折一件再组合",
+            "en": "Each make a piece with a willing companion, then combine them"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_15",
+      "prompt": {
+        "zh": "公园有可自愿参加的彩粉画区，你会？",
+        "en": "A park offers an optional chalk-art area. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先确认能画的区域与清理办法",
+            "en": "Check the drawing area and cleanup arrangements"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "画一组活泼的大动作形象",
+            "en": "Draw lively figures with large movements"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "和想加入的人商量一块共画的区域",
+            "en": "Agree on a shared drawing space with interested people"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "试试不同表面产生的线条变化",
+            "en": "Explore how lines change on different surfaces"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_16",
+      "prompt": {
+        "zh": "给一个普通茶杯想个仅供娱乐的新身份，你更想？",
+        "en": "For fun, give an ordinary mug a new imaginary identity. How?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "让它表演一段夸张的独白",
+            "en": "Give it an expressive little monologue"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "悄悄写下它居住的小世界",
+            "en": "Quietly describe the little world where it lives"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "研究它的形状能引出什么问题",
+            "en": "Explore questions suggested by its shape"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "独自试出一种不同的摆放用法",
+            "en": "Try a different arrangement in your own way"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_17",
+      "prompt": {
+        "zh": "你有一块小小的自由游戏区，更希望它怎样？",
+        "en": "You have a small area for free play. What would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "quiet-imaginer",
+          "label": {
+            "zh": "留一角安静做想象小物",
+            "en": "Keep a quiet corner for imaginary little creations"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "留出愿意的人一起玩的空间",
+            "en": "Leave room for anyone who wants to play together"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "independent-maker",
+          "label": {
+            "zh": "可以自行改变材料组合和玩法",
+            "en": "Allow yourself to change materials and methods"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "先设定简单清楚的使用安排",
+            "en": "Begin with a few clear arrangements for using it"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ICC_18",
+      "prompt": {
+        "zh": "准备做一本只供自己或自选同伴看的趣味小册，你先选？",
+        "en": "For a playful booklet kept private or shared by choice, what comes first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "welcoming-companion",
+          "label": {
+            "zh": "和同伴确认各自想贡献哪一页",
+            "en": "Agree with a companion which page each wants to contribute"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wonder-explorer",
+          "label": {
+            "zh": "搜集几件让你不断发问的小发现",
+            "en": "Collect little discoveries that raise questions"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "prepared-player",
+          "label": {
+            "zh": "把纸张与制作步骤先排一排",
+            "en": "Lay out the paper and making steps first"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "expressive-player",
+          "label": {
+            "zh": "先画一幅大表情作为开场",
+            "en": "Open with a drawing full of expression"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "rule": "onechoiceonecount/full18required/allhighestties;noextra secondary/equalexposure12positions3;no similarity-percentile,clinical-recovery-childhoodfamilycause-careerorMBTIconversion",
+    "verificationPlan": "exactreachable6countDPandallhighestsetsPLANNED/notyetexecuted/not4^18jointresponsesorpsychvalidation"
+  },
+  "scope": {
+    "zh": "六类是费马为本题组编写的阅读标签，不宣称内在小孩存在统一六类型、临床诊断或本卷测量验证。相同选择可能来自当下材料、时间、文化或个人兴趣，不能证明童年原因、创伤、亲职化、依恋、神经类型、健康或职业。不是IFS、模式疗法、自我状态图或治疗练习，亦非儿童评估。允许不回顾童年、不分享、不完成；所有正文公开可读。",
+    "en": "Six labels were written by FermatMind for this choice set, without claiming a universal six-type inner-child taxonomy, clinical diagnosis or local measurement validation. The same choice may reflect materials, time, culture or interests rather than childhood causes, trauma, parentification, attachment, neurotype, health or career. This is neither IFS, schema therapy, an egogram nor a therapy exercise or child assessment. You may avoid childhood recall, sharing or completion; every guide remains publicly readable."
+  },
+  "instructions": {
+    "zh": "这是给成人的18道原创童心偏好选择，用内在小孩作隐喻，不测量真实童年、创伤或儿童发展。按你目前更想尝试的日常低风险玩法选一项；无需回忆、描述或想象受伤经历。六种编辑标签各出现12次，在四个位置各3次。每选一项相应标签加1，无反向题；完整作答后保留全部最高并列，不硬派主副型。可以随时退出，六份公开说明始终免费。",
+    "en": "These 18 original adult choices use inner child as a metaphor for present-day childlike play, without measuring childhood history, trauma or child development. Choose the ordinary, low-stakes approach you currently prefer. No recall, description or imagining of painful events is required. Six editorial labels each appear twelve times and three times in each position. Each choice adds one count, with no reverse keys. Complete the set to retain every highest tie without a forced primary or secondary type. You may exit at any time, and all six public guides remain free."
+  }
+}
