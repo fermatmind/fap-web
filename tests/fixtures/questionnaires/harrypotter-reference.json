@@ -1,0 +1,869 @@
+{
+  "id": "T120",
+  "version": "1.0.0",
+  "form": "fermatmind_harrypotter_original_21_v1",
+  "method": "Ownselected7castincludingHagrid,notIDRcast/bank.21originalpaperplay/book/fanclubitems,12exp3positioneach.Oneexplicitrawcount/allhighestties.Nohouseassignmentorinheritance/magic/clinical/IQ/moralrank/realabilityinference.",
+  "questions": [
+    {
+      "id": "HP_01",
+      "prompt": {
+        "en": "Friends invent a paper treasure hunt set in an imaginary school. What would you most like to contribute first?",
+        "zh": "朋友设计一场发生在想象学校的纸上寻宝，你最想先贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Try the first harmless clue and help the game get moving.",
+            "zh": "试第一个无害线索，让游戏先开始。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check the written clues against the little reference sheet.",
+            "zh": "对照小参考页，核一下写好的线索。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Make the first round feel like a shared adventure rather than a solo task.",
+            "zh": "让第一轮有共同冒险感，而非各自做任务。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose a role I actually want, rather than the one people assume I will take.",
+            "zh": "选自己真想做的角色，不直接接大家默认的那个。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_02",
+      "prompt": {
+        "en": "You find two different descriptions of the same invented magical object in a hobby booklet. What appeals most?",
+        "zh": "兴趣小册子里，同一个虚构魔法物件有两种描述，你更喜欢怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Compare the sources and note where the descriptions differ.",
+            "zh": "比较来源，记下描述差在哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Talk it through with a friend and enjoy puzzling over it together.",
+            "zh": "和朋友聊聊，一起享受琢磨的过程。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say which interpretation I would like to use for my own contribution.",
+            "zh": "说清自己的贡献更想采用哪种解释。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a small, manageable example before worrying about the whole booklet.",
+            "zh": "先试一个小而可做的例子，不急着担心整本。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_03",
+      "prompt": {
+        "en": "A train-themed board-game evening has a long pause before everyone arrives. What would you enjoy adding?",
+        "zh": "火车主题桌游之夜还要等一阵人才齐，你最喜欢添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Some easy company and a shared joke while we wait.",
+            "zh": "等的时候轻松陪伴，分享一点共同笑料。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A suggestion for the part of the game I would most like to try.",
+            "zh": "提议自己最想试游戏的哪一部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A low-pressure practice turn for anyone who wants to get comfortable.",
+            "zh": "给愿意熟悉的人一轮没压力的试玩。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious alternative story for the train’s imaginary destination.",
+            "zh": "给火车的想象终点编一种好奇的新可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_04",
+      "prompt": {
+        "en": "An optional club activity has a familiar role that others usually assign to you. What would you prefer?",
+        "zh": "可选社团活动里，有个大家常分给你的熟悉角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Name the part I would choose for myself this time.",
+            "zh": "说出这次自己想选哪一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Start with a small role I can grow more comfortable doing.",
+            "zh": "先接一小块，可以逐步做熟悉。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Suggest an unusual version of the role that could be fun to explore.",
+            "zh": "提一个不寻常版本，也许探索起来有趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help the new arrivals find what they need before choosing my own part.",
+            "zh": "先帮刚来的人找到所需，再选自己的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_05",
+      "prompt": {
+        "en": "You want to join a harmless puzzle game but the first attempt feels awkward. What sounds most appealing?",
+        "zh": "想参加无害的解谜游戏，第一次做却不太顺，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Take one smaller turn and see how it feels before doing more.",
+            "zh": "先做一小轮，看看感觉再继续。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Imagine a less obvious possibility that the clue might allow.",
+            "zh": "想一个线索也许允许、较不明显的可能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make sure the table and materials are comfortable for everyone joining.",
+            "zh": "看看桌子、材料是否让加入的人都用得舒服。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Give the next safe step a try rather than leave the game waiting.",
+            "zh": "试一个安全的下一步，不让游戏一直等。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_06",
+      "prompt": {
+        "en": "A fictional creature in your group’s story needs a memorable habit. What would you most enjoy?",
+        "zh": "小组故事里的虚构生物需要一个让人记住的习惯，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "An unexpected little possibility nobody has considered yet.",
+            "zh": "一个大家还没想过的小小意外可能。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A gentle welcome ritual that makes the creature feel cared for in the story.",
+            "zh": "一个让故事中生物有被照顾感的温和欢迎仪式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "An action that gets the next scene started without a long setup.",
+            "zh": "一个不用铺垫很久就让下一幕开始的行动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "A detail that stays consistent with what the story has already established.",
+            "zh": "一个和故事已设内容前后一致的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_07",
+      "prompt": {
+        "en": "A new member arrives at a fan club with no materials and little idea of the plan. What would you prefer?",
+        "zh": "新成员来同人社团，没带材料，也不太清楚安排，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Show them where to sit, what they can borrow and how to join comfortably.",
+            "zh": "指一下座位、可借物品，以及怎样舒服加入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Offer a simple next action we can start together.",
+            "zh": "提一个可以一起开始的简单下一步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Find the relevant instructions so they can see what is planned.",
+            "zh": "找相关说明，让对方知道安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Stay nearby for an easy conversation as they settle in.",
+            "zh": "熟悉环境时在旁轻松聊聊。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_08",
+      "prompt": {
+        "en": "Your group’s imaginary-school map is ready for a first play-through. What would you most like to do?",
+        "zh": "小组的想象学校地图准备好，可以第一次试玩了，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Take the first turn so we can see what actually happens.",
+            "zh": "先走第一轮，看看实际怎样。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check the map key and instructions before the route is tested.",
+            "zh": "试玩路线前，核一下图例与说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Make the trial feel like something we are enjoying together.",
+            "zh": "让试玩有一起享受的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose which part of the map I personally want to explore.",
+            "zh": "选地图上自己真正想探索的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_09",
+      "prompt": {
+        "en": "A library display mixes factual book notes with invented fan additions. What would you prefer to clarify?",
+        "zh": "图书馆小展示把书籍事实笔记和同人虚构添写混在一起，你更想说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Which details come from the book and which were added by the group.",
+            "zh": "哪些来自原书、哪些是小组后来添写。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "How visitors can chat about the display without needing specialist knowledge.",
+            "zh": "访客不用专门知识，也怎样轻松聊展示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Which part expresses a personal reading I want to claim as mine.",
+            "zh": "哪部分表达了自己愿认领的个人读法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A simple starting point for someone who has never joined this kind of display.",
+            "zh": "给从没参加过这类展示的人一个简单起点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_10",
+      "prompt": {
+        "en": "An evening of invented riddles has become a little tense about winning. What would you most enjoy adding?",
+        "zh": "自编谜题之夜有点太在意输赢，你最喜欢加些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "A shared laugh and a reminder of the fun we came for.",
+            "zh": "一个共同笑点，也记起大家本来想要的乐趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A chance to choose a different role instead of following the expected competition.",
+            "zh": "一个改选角色的机会，不继续默认的竞争。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A small practice round where getting used to the clues is enough.",
+            "zh": "一轮小试玩，只要熟悉线索就可以。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "An unusual possibility that makes the riddle interesting beyond the score.",
+            "zh": "一个让谜题在分数之外也有趣的不寻常可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_11",
+      "prompt": {
+        "en": "You can add one contribution to an imaginary school’s open-day booklet. What attracts you most?",
+        "zh": "可以为想象学校的开放日小册子加一项贡献，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A piece that reflects the role I would actually choose there.",
+            "zh": "一篇能体现自己在那里真想选什么角色的内容。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A small first-step guide that helps a hesitant visitor begin.",
+            "zh": "一份帮犹豫来客开始的小小第一步指南。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious detail that invites readers to ask a different question.",
+            "zh": "一个邀请读者问不同问题的好奇细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A welcoming note about the places and materials available to newcomers.",
+            "zh": "一张介绍新人可用场地材料的欢迎便条。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_12",
+      "prompt": {
+        "en": "A plant-themed paper craft is unfamiliar, but you would like to join in. What feels closest?",
+        "zh": "不熟悉植物主题纸手工，但想加入，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Start with a modest version and build familiarity one piece at a time.",
+            "zh": "从小版本开始，一块块慢慢熟悉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Imagine a surprising fictional plant before choosing what to make.",
+            "zh": "先想一种意外的虚构植物，再决定做什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make the table inviting and make sure people have the supplies they need.",
+            "zh": "让桌面好加入，看看大家是否有需要的用品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Try the first simple fold and discover the next step by doing it.",
+            "zh": "试第一道简单折法，边做边找下一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_13",
+      "prompt": {
+        "en": "A picture in a story leaves one odd detail unexplained. What would you most like to offer?",
+        "zh": "故事插图里有一处奇怪细节没解释，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious possible reading, clearly marked as an idea rather than a fact.",
+            "zh": "一个好奇的可能读法，也标明这是想法而非事实。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A warm imagined setting in which the detail has a place.",
+            "zh": "一个温暖想象环境，让那处细节有位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "A small next scene that lets the story move on.",
+            "zh": "一个让故事继续的小小下一幕。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "A check of the text to see what it actually tells us about the detail.",
+            "zh": "核一下正文，看看实际说了哪些相关信息。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_14",
+      "prompt": {
+        "en": "Your fan club is introducing a quiet newcomer to a busy event. What would you prefer to do?",
+        "zh": "同人社团要带安静的新成员参加热闹活动，你更愿意做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Explain the available spaces and let them choose where to be comfortable.",
+            "zh": "介绍可用空间，让对方选舒服的位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Offer one easy activity they can join or decline right away.",
+            "zh": "提一个当下就可加入或拒绝的简单活动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Point out the short guide so they know what to expect.",
+            "zh": "指一下简短指南，让对方知道会发生什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Provide easy company without demanding that they talk.",
+            "zh": "轻松陪着，不要求一定说话。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_15",
+      "prompt": {
+        "en": "A small story game needs someone to make the first ordinary move. What would you prefer?",
+        "zh": "小型故事游戏需要有人先走一个普通步骤，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Make a workable first move and let the group respond.",
+            "zh": "先走一步能行的，再让小组回应。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check that the move fits the rules we agreed on.",
+            "zh": "核一下这一步是否符合约好的规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Help the first player feel that everyone is on the same side of the fun.",
+            "zh": "让先开始的人感觉大家都在同一份乐趣里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose the move that reflects the kind of part I want to play.",
+            "zh": "选能体现自己想参与哪种角色的一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_16",
+      "prompt": {
+        "en": "Two fan explanations of a fictional object sound equally confident. What would you most enjoy doing?",
+        "zh": "对一个虚构物件的两种同人解释都说得很肯定，你最喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Look for the passage each explanation is based on and compare the claims.",
+            "zh": "找出各自依据的段落，比较具体主张。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Enjoy discussing both with a friend without turning it into a contest.",
+            "zh": "和朋友聊两种解释，不把它变成比赛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say which interpretation I prefer for my own optional fan piece.",
+            "zh": "说自己这份可选同人作品更喜欢采用哪一种。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a small example to make the difference easier to follow.",
+            "zh": "试一个小例子，让区别更容易看懂。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_17",
+      "prompt": {
+        "en": "A group trip to a book fair has an unplanned hour between activities. What sounds best?",
+        "zh": "一起逛书展，两项活动中间空出一小时，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Spend the time in easy company, with no need to make it impressive.",
+            "zh": "轻松一起待着，不必把这段时间过得很厉害。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose a stall or session that I personally want to visit.",
+            "zh": "选一个自己真想看的摊位或场次。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a manageable new activity without committing to the whole programme.",
+            "zh": "试一个做得来的新活动，不必承诺整套安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Follow an unexpected curiosity that is easy to leave if it is not interesting.",
+            "zh": "跟一条意外好奇看看，不有趣也容易离开。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_18",
+      "prompt": {
+        "en": "A new hobby role looks appealing, but people remember you in another one. What would you prefer?",
+        "zh": "新兴趣分工很吸引你，但大家记得你以前做另一种，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say plainly that I would like to choose this different part now.",
+            "zh": "明白说这次想选不同的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Begin with a small trial that makes the unfamiliar role easier to enter.",
+            "zh": "从小试玩开始，让陌生分工更好进入。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Suggest a slightly unusual way to combine the two possibilities.",
+            "zh": "提一个稍不寻常的办法，把两种可能合起来。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help whoever takes the old role find the materials and welcome they need.",
+            "zh": "帮接旧分工的人找到所需用品和好加入的环境。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_19",
+      "prompt": {
+        "en": "A short fan-writing exercise feels harder than it looked from the outside. What would you most enjoy next?",
+        "zh": "短短同人写作练习比看起来难，接下来最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Write one small, achievable part before worrying about the complete piece.",
+            "zh": "先写一小块能完成的，不急着担心整篇。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Try an unusual but clearly fictional possibility for the next scene.",
+            "zh": "给下一幕试一种不寻常、但明确虚构的可能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make the work area more welcoming and ask what practical help is wanted.",
+            "zh": "让写作区域更舒服，再问需要哪些实际帮助。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Draft a simple first action and let the story develop from there.",
+            "zh": "先写一个简单行动，让故事从那里长下去。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_20",
+      "prompt": {
+        "en": "Your group invents a creature for a purely paper-based story game. What would you most like to explore?",
+        "zh": "小组为纯纸上故事游戏发明生物，你最想探索什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A surprising possibility that gives the story another direction to consider.",
+            "zh": "一个意外可能，让故事多一个可考虑方向。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "How the imagined creature could be welcomed and cared for in the story.",
+            "zh": "故事里怎样欢迎、照顾这个想象生物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "What the creature does first so the next scene can begin.",
+            "zh": "生物先做什么，让下一幕能开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Which details need to remain consistent with the game’s own reference sheet.",
+            "zh": "哪些细节需和游戏自带参考页保持一致。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_21",
+      "prompt": {
+        "en": "The imaginary-school club is closing its open day. What contribution would you most like to make?",
+        "zh": "想象学校社团的开放日要结束了，你最想作什么贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help people return borrowed supplies and leave with a clear, friendly goodbye.",
+            "zh": "帮大家归还借物，用清楚友好的告别离开。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Take the next simple closing task so the group can finish.",
+            "zh": "接下一个简单收尾任务，让小组顺利结束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check that the notes and labels accurately describe what the club made.",
+            "zh": "核一下笔记标签，是否准确描述社团做了什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Share one ordinary funny moment people can remember together.",
+            "zh": "分享一个大家能共同记住的普通趣味瞬间。"
+          }
+        }
+      ]
+    }
+  ]
+}

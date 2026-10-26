@@ -1,0 +1,1997 @@
+{
+  "slug": "harry-potter-character",
+  "code": "HARRY_POTTER_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Harry Potter Character Test",
+    "zh": "《哈利·波特》角色测试"
+  },
+  "description": {
+    "en": "Try 21 original paper-game, reading and fan-club situations. Compare Harry, Hermione, Ron, Ginny, Neville, Luna and Hagrid with all highest ties and seven complete bilingual guides free. Unofficial fan edition, without house assignment.",
+    "zh": "完成21道原创纸上游戏、阅读与同人社团情境题，比较哈利、赫敏、罗恩、金妮、纳威、卢娜和海格。最高并列及七份完整双语说明免费，无需注册。非官方同人版，不据人物结果分院。"
+  },
+  "seoTitle": {
+    "en": "Harry Potter Character Test: Free Quiz & All 7 Results",
+    "zh": "《哈利·波特》角色测试：免费作答与7种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Harry Potter character readings",
+    "zh": "本次《哈利·波特》角色读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which Harry Potter character do your ordinary fan-club choices bring to mind? This independent edition uses seven limited angles: a first turn, checking a reference, easy company, a chosen role, a manageable start, an unexpected idea and a practical welcome. Twenty-one original situations involve harmless paper play, reading and shared activities, with no episode trivia. All seven complete public guides are available before you start. Character counts do not sort you into a Hogwarts house or predict magical ability.",
+    "zh": "普通同人社团选择让你想到《哈利·波特》的哪位人物？本独立版取七个有限角度：先走一步、核参考、轻松陪伴、自选角色、可做的开始、意外想法和实际欢迎。21个原创情境均为无害纸上游戏、阅读与共同活动，不考剧情。开测前可读七份全文，人物次数不把你分进霍格沃茨学院，也不预测魔法能力。"
+  },
+  "instructions": {
+    "en": "Think about an optional reading, paper-game or fan-club activity you would enjoy now. Choose one of four responses per situation, even if none fits perfectly. No answer earns bravery, intelligence or moral points. A character absent from an item is not rejected. Finish all 21 choices before counts appear; every highest tie keeps its full guide.",
+    "zh": "想想现在愿参加的可选阅读、纸上游戏或同人社团活动，每题从四种回应里选较接近的一项，即使都不完全合适。答案不赚取勇气、智力或道德分。当题没出现的人物不算被拒绝；21题全部完成才显示次数，每个最高并列保留全文。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Official Harry Potter: Harry, Ron and Hermione introductions",
+        "zh": "哈利·波特官方：哈利、罗恩与赫敏简介"
+      },
+      "url": "https://www.harrypotter.com/features/web-harry-potter-whos-who-harry-ron-hermione-hp-at-home"
+    },
+    {
+      "title": {
+        "en": "Official fact file: Luna Lovegood",
+        "zh": "官方人物档案：卢娜·洛夫古德"
+      },
+      "url": "https://www.harrypotter.com/fact-file/characters-and-pets/luna-lovegood"
+    },
+    {
+      "title": {
+        "en": "Official fact file: Neville Longbottom",
+        "zh": "官方人物档案：纳威·隆巴顿"
+      },
+      "url": "https://www.harrypotter.com/fact-file/characters-and-pets/neville-longbottom"
+    },
+    {
+      "title": {
+        "en": "Official fact file: Ginny Weasley",
+        "zh": "官方人物档案：金妮·韦斯莱"
+      },
+      "url": "https://www.harrypotter.com/fact-file/characters-and-pets/ginny-weasley"
+    },
+    {
+      "title": {
+        "en": "Official fact file: Rubeus Hagrid",
+        "zh": "官方人物档案：鲁伯·海格"
+      },
+      "url": "https://www.harrypotter.com/fact-file/characters-and-pets/rubeus-hagrid"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_harrypotter_original_21_v1",
+    "itemBankVersion": "harrypotter_original_21_v1",
+    "scoringVersion": "harrypotter_all_highest_counts_v1",
+    "resultContentVersion": "harrypotter_full_guides_v1",
+    "itemBankSha256": "95a25df074d8da30e48ee8a400d3553b51569913869f5a04dc7bb52c01d86b64",
+    "resultContentSha256": "5295eeb6bd27442480e284f3a355f175f7795a02ef1804ffba2c9f50fb865589",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "harry-potter",
+      "title": {
+        "en": "Harry Potter",
+        "zh": "哈利·波特（Harry Potter）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "hermione-granger",
+      "title": {
+        "en": "Hermione Granger",
+        "zh": "赫敏·格兰杰（Hermione）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ron-weasley",
+      "title": {
+        "en": "Ron Weasley",
+        "zh": "罗恩·韦斯莱（Ron Weasley）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "ginny-weasley",
+      "title": {
+        "en": "Ginny Weasley",
+        "zh": "金妮·韦斯莱（Ginny Weasley）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "neville-longbottom",
+      "title": {
+        "en": "Neville Longbottom",
+        "zh": "纳威·隆巴顿（Neville）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "luna-lovegood",
+      "title": {
+        "en": "Luna Lovegood",
+        "zh": "卢娜·洛夫古德（Luna Lovegood）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rubeus-hagrid",
+      "title": {
+        "en": "Rubeus Hagrid",
+        "zh": "鲁伯·海格（Hagrid）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "HP_01",
+      "prompt": {
+        "en": "Friends invent a paper treasure hunt set in an imaginary school. What would you most like to contribute first?",
+        "zh": "朋友设计一场发生在想象学校的纸上寻宝，你最想先贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Try the first harmless clue and help the game get moving.",
+            "zh": "试第一个无害线索，让游戏先开始。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check the written clues against the little reference sheet.",
+            "zh": "对照小参考页，核一下写好的线索。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Make the first round feel like a shared adventure rather than a solo task.",
+            "zh": "让第一轮有共同冒险感，而非各自做任务。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose a role I actually want, rather than the one people assume I will take.",
+            "zh": "选自己真想做的角色，不直接接大家默认的那个。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_02",
+      "prompt": {
+        "en": "You find two different descriptions of the same invented magical object in a hobby booklet. What appeals most?",
+        "zh": "兴趣小册子里，同一个虚构魔法物件有两种描述，你更喜欢怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Compare the sources and note where the descriptions differ.",
+            "zh": "比较来源，记下描述差在哪里。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Talk it through with a friend and enjoy puzzling over it together.",
+            "zh": "和朋友聊聊，一起享受琢磨的过程。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say which interpretation I would like to use for my own contribution.",
+            "zh": "说清自己的贡献更想采用哪种解释。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a small, manageable example before worrying about the whole booklet.",
+            "zh": "先试一个小而可做的例子，不急着担心整本。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_03",
+      "prompt": {
+        "en": "A train-themed board-game evening has a long pause before everyone arrives. What would you enjoy adding?",
+        "zh": "火车主题桌游之夜还要等一阵人才齐，你最喜欢添什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Some easy company and a shared joke while we wait.",
+            "zh": "等的时候轻松陪伴，分享一点共同笑料。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A suggestion for the part of the game I would most like to try.",
+            "zh": "提议自己最想试游戏的哪一部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A low-pressure practice turn for anyone who wants to get comfortable.",
+            "zh": "给愿意熟悉的人一轮没压力的试玩。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious alternative story for the train’s imaginary destination.",
+            "zh": "给火车的想象终点编一种好奇的新可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_04",
+      "prompt": {
+        "en": "An optional club activity has a familiar role that others usually assign to you. What would you prefer?",
+        "zh": "可选社团活动里，有个大家常分给你的熟悉角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Name the part I would choose for myself this time.",
+            "zh": "说出这次自己想选哪一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Start with a small role I can grow more comfortable doing.",
+            "zh": "先接一小块，可以逐步做熟悉。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Suggest an unusual version of the role that could be fun to explore.",
+            "zh": "提一个不寻常版本，也许探索起来有趣。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help the new arrivals find what they need before choosing my own part.",
+            "zh": "先帮刚来的人找到所需，再选自己的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_05",
+      "prompt": {
+        "en": "You want to join a harmless puzzle game but the first attempt feels awkward. What sounds most appealing?",
+        "zh": "想参加无害的解谜游戏，第一次做却不太顺，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Take one smaller turn and see how it feels before doing more.",
+            "zh": "先做一小轮，看看感觉再继续。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Imagine a less obvious possibility that the clue might allow.",
+            "zh": "想一个线索也许允许、较不明显的可能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make sure the table and materials are comfortable for everyone joining.",
+            "zh": "看看桌子、材料是否让加入的人都用得舒服。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Give the next safe step a try rather than leave the game waiting.",
+            "zh": "试一个安全的下一步，不让游戏一直等。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_06",
+      "prompt": {
+        "en": "A fictional creature in your group’s story needs a memorable habit. What would you most enjoy?",
+        "zh": "小组故事里的虚构生物需要一个让人记住的习惯，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "An unexpected little possibility nobody has considered yet.",
+            "zh": "一个大家还没想过的小小意外可能。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A gentle welcome ritual that makes the creature feel cared for in the story.",
+            "zh": "一个让故事中生物有被照顾感的温和欢迎仪式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "An action that gets the next scene started without a long setup.",
+            "zh": "一个不用铺垫很久就让下一幕开始的行动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "A detail that stays consistent with what the story has already established.",
+            "zh": "一个和故事已设内容前后一致的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_07",
+      "prompt": {
+        "en": "A new member arrives at a fan club with no materials and little idea of the plan. What would you prefer?",
+        "zh": "新成员来同人社团，没带材料，也不太清楚安排，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Show them where to sit, what they can borrow and how to join comfortably.",
+            "zh": "指一下座位、可借物品，以及怎样舒服加入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Offer a simple next action we can start together.",
+            "zh": "提一个可以一起开始的简单下一步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Find the relevant instructions so they can see what is planned.",
+            "zh": "找相关说明，让对方知道安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Stay nearby for an easy conversation as they settle in.",
+            "zh": "熟悉环境时在旁轻松聊聊。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_08",
+      "prompt": {
+        "en": "Your group’s imaginary-school map is ready for a first play-through. What would you most like to do?",
+        "zh": "小组的想象学校地图准备好，可以第一次试玩了，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Take the first turn so we can see what actually happens.",
+            "zh": "先走第一轮，看看实际怎样。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check the map key and instructions before the route is tested.",
+            "zh": "试玩路线前，核一下图例与说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Make the trial feel like something we are enjoying together.",
+            "zh": "让试玩有一起享受的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose which part of the map I personally want to explore.",
+            "zh": "选地图上自己真正想探索的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_09",
+      "prompt": {
+        "en": "A library display mixes factual book notes with invented fan additions. What would you prefer to clarify?",
+        "zh": "图书馆小展示把书籍事实笔记和同人虚构添写混在一起，你更想说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Which details come from the book and which were added by the group.",
+            "zh": "哪些来自原书、哪些是小组后来添写。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "How visitors can chat about the display without needing specialist knowledge.",
+            "zh": "访客不用专门知识，也怎样轻松聊展示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Which part expresses a personal reading I want to claim as mine.",
+            "zh": "哪部分表达了自己愿认领的个人读法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A simple starting point for someone who has never joined this kind of display.",
+            "zh": "给从没参加过这类展示的人一个简单起点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_10",
+      "prompt": {
+        "en": "An evening of invented riddles has become a little tense about winning. What would you most enjoy adding?",
+        "zh": "自编谜题之夜有点太在意输赢，你最喜欢加些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "A shared laugh and a reminder of the fun we came for.",
+            "zh": "一个共同笑点，也记起大家本来想要的乐趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A chance to choose a different role instead of following the expected competition.",
+            "zh": "一个改选角色的机会，不继续默认的竞争。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A small practice round where getting used to the clues is enough.",
+            "zh": "一轮小试玩，只要熟悉线索就可以。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "An unusual possibility that makes the riddle interesting beyond the score.",
+            "zh": "一个让谜题在分数之外也有趣的不寻常可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_11",
+      "prompt": {
+        "en": "You can add one contribution to an imaginary school’s open-day booklet. What attracts you most?",
+        "zh": "可以为想象学校的开放日小册子加一项贡献，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "A piece that reflects the role I would actually choose there.",
+            "zh": "一篇能体现自己在那里真想选什么角色的内容。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "A small first-step guide that helps a hesitant visitor begin.",
+            "zh": "一份帮犹豫来客开始的小小第一步指南。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious detail that invites readers to ask a different question.",
+            "zh": "一个邀请读者问不同问题的好奇细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A welcoming note about the places and materials available to newcomers.",
+            "zh": "一张介绍新人可用场地材料的欢迎便条。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_12",
+      "prompt": {
+        "en": "A plant-themed paper craft is unfamiliar, but you would like to join in. What feels closest?",
+        "zh": "不熟悉植物主题纸手工，但想加入，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Start with a modest version and build familiarity one piece at a time.",
+            "zh": "从小版本开始，一块块慢慢熟悉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Imagine a surprising fictional plant before choosing what to make.",
+            "zh": "先想一种意外的虚构植物，再决定做什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make the table inviting and make sure people have the supplies they need.",
+            "zh": "让桌面好加入，看看大家是否有需要的用品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Try the first simple fold and discover the next step by doing it.",
+            "zh": "试第一道简单折法，边做边找下一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_13",
+      "prompt": {
+        "en": "A picture in a story leaves one odd detail unexplained. What would you most like to offer?",
+        "zh": "故事插图里有一处奇怪细节没解释，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A curious possible reading, clearly marked as an idea rather than a fact.",
+            "zh": "一个好奇的可能读法，也标明这是想法而非事实。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "A warm imagined setting in which the detail has a place.",
+            "zh": "一个温暖想象环境，让那处细节有位置。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "A small next scene that lets the story move on.",
+            "zh": "一个让故事继续的小小下一幕。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "A check of the text to see what it actually tells us about the detail.",
+            "zh": "核一下正文，看看实际说了哪些相关信息。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_14",
+      "prompt": {
+        "en": "Your fan club is introducing a quiet newcomer to a busy event. What would you prefer to do?",
+        "zh": "同人社团要带安静的新成员参加热闹活动，你更愿意做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Explain the available spaces and let them choose where to be comfortable.",
+            "zh": "介绍可用空间，让对方选舒服的位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Offer one easy activity they can join or decline right away.",
+            "zh": "提一个当下就可加入或拒绝的简单活动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Point out the short guide so they know what to expect.",
+            "zh": "指一下简短指南，让对方知道会发生什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Provide easy company without demanding that they talk.",
+            "zh": "轻松陪着，不要求一定说话。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_15",
+      "prompt": {
+        "en": "A small story game needs someone to make the first ordinary move. What would you prefer?",
+        "zh": "小型故事游戏需要有人先走一个普通步骤，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Make a workable first move and let the group respond.",
+            "zh": "先走一步能行的，再让小组回应。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check that the move fits the rules we agreed on.",
+            "zh": "核一下这一步是否符合约好的规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Help the first player feel that everyone is on the same side of the fun.",
+            "zh": "让先开始的人感觉大家都在同一份乐趣里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose the move that reflects the kind of part I want to play.",
+            "zh": "选能体现自己想参与哪种角色的一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_16",
+      "prompt": {
+        "en": "Two fan explanations of a fictional object sound equally confident. What would you most enjoy doing?",
+        "zh": "对一个虚构物件的两种同人解释都说得很肯定，你最喜欢做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Look for the passage each explanation is based on and compare the claims.",
+            "zh": "找出各自依据的段落，比较具体主张。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Enjoy discussing both with a friend without turning it into a contest.",
+            "zh": "和朋友聊两种解释，不把它变成比赛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say which interpretation I prefer for my own optional fan piece.",
+            "zh": "说自己这份可选同人作品更喜欢采用哪一种。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a small example to make the difference easier to follow.",
+            "zh": "试一个小例子，让区别更容易看懂。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_17",
+      "prompt": {
+        "en": "A group trip to a book fair has an unplanned hour between activities. What sounds best?",
+        "zh": "一起逛书展，两项活动中间空出一小时，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Spend the time in easy company, with no need to make it impressive.",
+            "zh": "轻松一起待着，不必把这段时间过得很厉害。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Choose a stall or session that I personally want to visit.",
+            "zh": "选一个自己真想看的摊位或场次。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Try a manageable new activity without committing to the whole programme.",
+            "zh": "试一个做得来的新活动，不必承诺整套安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Follow an unexpected curiosity that is easy to leave if it is not interesting.",
+            "zh": "跟一条意外好奇看看，不有趣也容易离开。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_18",
+      "prompt": {
+        "en": "A new hobby role looks appealing, but people remember you in another one. What would you prefer?",
+        "zh": "新兴趣分工很吸引你，但大家记得你以前做另一种，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ginny-weasley",
+          "label": {
+            "en": "Say plainly that I would like to choose this different part now.",
+            "zh": "明白说这次想选不同的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Begin with a small trial that makes the unfamiliar role easier to enter.",
+            "zh": "从小试玩开始，让陌生分工更好进入。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Suggest a slightly unusual way to combine the two possibilities.",
+            "zh": "提一个稍不寻常的办法，把两种可能合起来。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help whoever takes the old role find the materials and welcome they need.",
+            "zh": "帮接旧分工的人找到所需用品和好加入的环境。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_19",
+      "prompt": {
+        "en": "A short fan-writing exercise feels harder than it looked from the outside. What would you most enjoy next?",
+        "zh": "短短同人写作练习比看起来难，接下来最想试什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "neville-longbottom",
+          "label": {
+            "en": "Write one small, achievable part before worrying about the complete piece.",
+            "zh": "先写一小块能完成的，不急着担心整篇。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "Try an unusual but clearly fictional possibility for the next scene.",
+            "zh": "给下一幕试一种不寻常、但明确虚构的可能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Make the work area more welcoming and ask what practical help is wanted.",
+            "zh": "让写作区域更舒服，再问需要哪些实际帮助。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Draft a simple first action and let the story develop from there.",
+            "zh": "先写一个简单行动，让故事从那里长下去。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_20",
+      "prompt": {
+        "en": "Your group invents a creature for a purely paper-based story game. What would you most like to explore?",
+        "zh": "小组为纯纸上故事游戏发明生物，你最想探索什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "luna-lovegood",
+          "label": {
+            "en": "A surprising possibility that gives the story another direction to consider.",
+            "zh": "一个意外可能，让故事多一个可考虑方向。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "How the imagined creature could be welcomed and cared for in the story.",
+            "zh": "故事里怎样欢迎、照顾这个想象生物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "What the creature does first so the next scene can begin.",
+            "zh": "生物先做什么，让下一幕能开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Which details need to remain consistent with the game’s own reference sheet.",
+            "zh": "哪些细节需和游戏自带参考页保持一致。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HP_21",
+      "prompt": {
+        "en": "The imaginary-school club is closing its open day. What contribution would you most like to make?",
+        "zh": "想象学校社团的开放日要结束了，你最想作什么贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rubeus-hagrid",
+          "label": {
+            "en": "Help people return borrowed supplies and leave with a clear, friendly goodbye.",
+            "zh": "帮大家归还借物，用清楚友好的告别离开。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "harry-potter",
+          "label": {
+            "en": "Take the next simple closing task so the group can finish.",
+            "zh": "接下一个简单收尾任务，让小组顺利结束。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "hermione-granger",
+          "label": {
+            "en": "Check that the notes and labels accurately describe what the club made.",
+            "zh": "核一下笔记标签，是否准确描述社团做了什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ron-weasley",
+          "label": {
+            "en": "Share one ordinary funny moment people can remember together.",
+            "zh": "分享一个大家能共同记住的普通趣味瞬间。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "harry-potter",
+      "directionIds": [
+        "harry-potter"
+      ],
+      "title": {
+        "en": "Harry Potter",
+        "zh": "哈利·波特（Harry Potter）"
+      },
+      "headline": {
+        "en": "Take a workable first turn",
+        "zh": "先走一步能行的"
+      },
+      "summary": {
+        "en": "Read Harry Potter through take a workable first turn: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“先走一步能行的”阅读哈利·波特（Harry Potter）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Harry Potter Test Result: Take a workable first turn | Harry Potter",
+          "zh": "哈利·波特（Harry Potter）测试结果：先走一步能行的｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Harry Potter through take a workable first turn: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“先走一步能行的”阅读哈利·波特（Harry Potter）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Harry’s limited fan reading",
+            "zh": "哈利的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry is the central Hogwarts student whose adventures give the series its name. This edition selects a narrow, ordinary angle: trying a workable first step when a harmless shared activity is waiting to begin. It does not measure heroism, courage, leadership or how you would respond to danger. A paper-game choice cannot give you Harry’s biography, magical abilities or responsibility for a whole group.",
+              "zh": "哈利是系列同名主角，在霍格沃茨的冒险构成故事。本版只选一个普通窄角度：无害共同活动等着开始时，先试能行的一步。不测英雄气概、勇气、领导力或面对危险的反应。纸上游戏选择无法给你哈利的生平、魔力或对整个群体的责任。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The first clue on a paper map",
+            "zh": "纸地图上的第一个线索"
+          },
+          "paragraphs": [
+            {
+              "en": "Friends have invented an imaginary-school treasure hunt. Everyone has ideas about the route, but nobody has tested the first clue. You take a simple turn and let the others respond to what happens. Beginning gives the group something concrete to discuss. It is still reasonable to ask for an explanation, choose a different role or stop if the activity is no longer enjoyable.",
+              "zh": "朋友设计了想象学校纸上寻宝，路线想法很多，却没人试第一个线索。你走个简单步骤，让大家根据实际情况回应。开始带来可讨论的具体东西；仍可请人解释、改选分工，不好玩也可停。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A first turn beside six other contributions",
+            "zh": "第一步与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Hermione checks the reference, Ron makes the game feel shared and Ginny chooses a part for herself. Neville offers a manageable way in, Luna considers an unusual possibility and Hagrid welcomes people and their practical needs. Harry’s selected angle gets a safe trial moving. None of these contributions is more heroic or morally valuable, and a tied guide is not a hidden identity.",
+              "zh": "赫敏核参考，罗恩让游戏有共同感，金妮自选角色；纳威给可做的入口，卢娜考虑不寻常可能，海格迎接人和实际需要。哈利角度让安全试玩动起来。贡献不分谁更英雄、道德更高，并列说明也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Starting does not require taking over",
+            "zh": "开始不需要接管"
+          },
+          "paragraphs": [
+            {
+              "en": "A first move is useful when other people still have a real chance to shape the activity. Explain what you are trying and invite the next contribution instead of turning a trial into a decision for everyone. You can also wait when information is missing. A high count cannot establish impulsivity, confidence or bravery, and a lower count does not mean that you lack initiative.",
+              "zh": "第一步好用的条件，是别人仍有真实塑造活动的机会。说清在试什么，邀请下一项贡献，不把试玩变成替所有人决定。信息不足也可等。高计数不确立冲动、自信或勇敢，低计数不表示没主动性。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an explicitly provisional first step",
+            "zh": "试一个明确暂定的第一步"
+          },
+          "paragraphs": [
+            {
+              "en": "For one small paper game or hobby plan, offer a first action that is easy to revise. Say it is a trial and ask what the group notices afterwards. Compare what became clearer with what still needs discussion. The experiment is about getting useful feedback from a safe beginning, not proving that you are a hero or should take bigger risks.",
+              "zh": "一次纸上游戏或兴趣计划，提一个容易修改的初步行动。说是试玩，之后问大家看见什么，再比较哪些清楚了、哪些仍需讨论。这是在安全开始中取反馈，不证明英雄身份，也不要求冒更大风险。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hermione-granger",
+      "directionIds": [
+        "hermione-granger"
+      ],
+      "title": {
+        "en": "Hermione Granger",
+        "zh": "赫敏·格兰杰（Hermione）"
+      },
+      "headline": {
+        "en": "Check what the reference actually says",
+        "zh": "核清参考实际说了什么"
+      },
+      "summary": {
+        "en": "Read Hermione Granger through check what the reference actually says: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“核清参考实际说了什么”阅读赫敏·格兰杰（Hermione）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Hermione Granger Test Result: Check what the reference actually says | Harry Potter",
+          "zh": "赫敏·格兰杰（Hermione）测试结果：核清参考实际说了什么｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Hermione Granger through check what the reference actually says: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“核清参考实际说了什么”阅读赫敏·格兰杰（Hermione）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Hermione’s limited fan reading",
+            "zh": "赫敏的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Hermione is one of Harry’s close friends at Hogwarts, with reading and study prominent in her story. This edition selects the appeal of checking a reference before using a claim. It does not test intelligence, grades, diligence or academic potential. A count from fictional hobby choices cannot place you in Ravenclaw, Gryffindor or any other house, and it does not establish that your interpretation is always right.",
+              "zh": "赫敏是哈利在霍格沃茨的亲密朋友，阅读与学习在故事里很突出。本版只选引用主张前先查参考的兴趣，不测智力、成绩、勤奋或学业潜力。虚构兴趣选择的次数不能把你放进任何学院，也不确立解释总正确。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two confident explanations of an object",
+            "zh": "物件的两种肯定解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A fan booklet gives two confident explanations of an invented magical object. You look for the passage each relies on and mark where the text ends and the fan addition begins. The aim is clarity, not banning imaginative additions. The group can choose an invented version for its game while being honest that it is a new idea rather than something the original story established.",
+              "zh": "同人册子对一个虚构魔法物件给出两种肯定解释。你找各自依据，标出原文到哪里、同人添写从哪里开始。目的是清楚，不是禁止想象。小组可选虚构版本玩，只需如实说明是新点子，不冒充原作已确立。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A reference beside six other contributions",
+            "zh": "参考与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry starts a trial, Ron offers easy company and Ginny names her own chosen part. Neville makes the first attempt manageable, Luna supplies an unusual possibility and Hagrid considers the welcome. Hermione’s selected angle distinguishes a source from an addition. These can coexist in one fan activity without ranking intelligence, imagination or whose enjoyment deserves to count.",
+              "zh": "哈利开始试玩，罗恩轻松陪伴，金妮说自己的选定部分；纳威让初次尝试做得来，卢娜添意外可能，海格关心欢迎。赫敏角度区分来源与添写。可共存于同一活动，不评智力、想象或谁的乐趣才算数。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Enough checking for this occasion",
+            "zh": "核查到适合这次的程度"
+          },
+          "paragraphs": [
+            {
+              "en": "A casual game does not need an exhaustive research project unless the group actually wants one. Choose which detail matters to the agreement and leave unrelated questions for later. If a source is unclear, say so rather than invent certainty. A high count does not prove perfectionism or superior knowledge, and a lower count is not evidence of carelessness or lower intelligence.",
+              "zh": "轻松游戏不必变成穷尽研究，除非大家真想这样做。挑与约定有关的细节，其他问题以后再看。来源不清就说不清，不造肯定。高计数不证明完美主义或知识更高，低计数不说明粗心或智力较低。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try separating source and invention",
+            "zh": "试着区分来源与虚构添写"
+          },
+          "paragraphs": [
+            {
+              "en": "In one short fan note, label one detail supported by the original and one idea you have added. Let a reader check whether the distinction is clear. Afterwards, notice whether this helped discussion without closing off play. The exercise concerns transparent writing, not a test of literary expertise, school ability or how much information you must collect before joining in.",
+              "zh": "一张短同人笔记，标一处原作有支持的细节和一个自己添的想法。请读者看区别是否清楚，再留意是否既有助讨论又没关住游戏。这是在试透明写法，不测文学专长、学业，也不规定参加前必须搜多少资料。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ron-weasley",
+      "directionIds": [
+        "ron-weasley"
+      ],
+      "title": {
+        "en": "Ron Weasley",
+        "zh": "罗恩·韦斯莱（Ron Weasley）"
+      },
+      "headline": {
+        "en": "Make the ordinary moment feel shared",
+        "zh": "让普通时刻有共同感"
+      },
+      "summary": {
+        "en": "Read Ron Weasley through make the ordinary moment feel shared: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“让普通时刻有共同感”阅读罗恩·韦斯莱（Ron Weasley）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ron Weasley Test Result: Make the ordinary moment feel shared | Harry Potter",
+          "zh": "罗恩·韦斯莱（Ron Weasley）测试结果：让普通时刻有共同感｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Ron Weasley through make the ordinary moment feel shared: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“让普通时刻有共同感”阅读罗恩·韦斯莱（Ron Weasley）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Ron’s limited fan reading",
+            "zh": "罗恩的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Ron is one of Harry’s close Hogwarts friends and Ginny’s brother. This edition independently selects an everyday angle of companionship and a shared sense of fun. It does not reduce his whole story to comic relief or assess your loyalty, humour or social ability. You do not need a particular family, appearance or role in a friendship to recognise the appeal of spending an ordinary hour together.",
+              "zh": "罗恩是哈利在霍格沃茨的亲密朋友，也是金妮的哥哥。本版独立选日常陪伴、共同乐趣这个角度，不把全部故事缩成搞笑担当，也不评忠诚、幽默或社交能力。不需特定家庭、外貌或友情角色，也能喜欢一起过普通一小时。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The wait before a train-themed game",
+            "zh": "火车桌游开始前的等待"
+          },
+          "paragraphs": [
+            {
+              "en": "A train-themed game cannot start until the last friends arrive. You enjoy an easy conversation, share a small joke and make the pause feel like part of being together. There is no need to invent an impressive activity for every spare minute. Others can quietly read or step away; the shared moment works when companionship is offered rather than required.",
+              "zh": "火车主题游戏要等最后几位朋友到，你轻松聊聊、分享小笑话，让等待也成为相聚一部分。每个空闲分钟不必都安排得厉害。别人可安静读、可离开一会；陪伴是邀请而非要求时，共同时刻才好用。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Company beside six other contributions",
+            "zh": "陪伴与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry takes a first turn, Hermione checks the reference and Ginny chooses her own role. Neville offers a smaller entry, Luna follows curiosity and Hagrid looks after practical welcome. Ron’s selected angle keeps the ordinary experience shared. Different contributions can support one game without ranking friendship, warmth or popularity, and an equal count does not place someone permanently in a supporting role.",
+              "zh": "哈利走第一步，赫敏核参考，金妮选角色；纳威给小入口，卢娜跟好奇，海格照顾实际欢迎。罗恩角度保留普通体验的共同感。不同贡献可支持同一游戏，不给友情、温暖或人气排级，并列也不让人永久当配角。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Leave room for different kinds of company",
+            "zh": "给不同陪伴方式留位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may enjoy being present without joking or talking much. You can share space without making them explain their mood, and you may want a quiet hour yourself. Ask what kind of company is welcome. A high count cannot establish extroversion, insecurity or a need for approval, and a lower count does not mean you are a less dependable friend.",
+              "zh": "有人喜欢在场，却不想开玩笑或多说话。可共处，不要求解释心情；自己也可能想安静一小时。问哪种陪伴受欢迎。高计数不确立外向、不安全感或寻求认可，低计数不表示朋友更不可靠。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an ordinary, optional shared pause",
+            "zh": "试一次普通且可选的共同停顿"
+          },
+          "paragraphs": [
+            {
+              "en": "Offer a willing friend a short, unplanned pause: a chat, a quiet seat or a small shared game. Make it easy to decline or change the format. Afterwards, notice whether the time felt pleasant without needing a big outcome. This is feedback on one invitation, not proof of your popularity, humour or responsibility for keeping a group cheerful.",
+              "zh": "给愿意的朋友一个短短、没预设成果的停顿：聊聊、安静坐会或小游戏。让拒绝、换形式都容易，再看没有大成果时是否仍愉快。这只反馈一次邀请，不证明人气、幽默，也不要求负责全组开心。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginny-weasley",
+      "directionIds": [
+        "ginny-weasley"
+      ],
+      "title": {
+        "en": "Ginny Weasley",
+        "zh": "金妮·韦斯莱（Ginny Weasley）"
+      },
+      "headline": {
+        "en": "Choose the part you actually want",
+        "zh": "选自己真想参与的部分"
+      },
+      "summary": {
+        "en": "Read Ginny Weasley through choose the part you actually want: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“选自己真想参与的部分”阅读金妮·韦斯莱（Ginny Weasley）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ginny Weasley Test Result: Choose the part you actually want | Harry Potter",
+          "zh": "金妮·韦斯莱（Ginny Weasley）测试结果：选自己真想参与的部分｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Ginny Weasley through choose the part you actually want: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“选自己真想参与的部分”阅读金妮·韦斯莱（Ginny Weasley）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Ginny’s limited fan reading",
+            "zh": "金妮的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Ginny is a Hogwarts student and a Quidditch player in the story. This edition independently selects the ordinary act of choosing a role for yourself instead of accepting what others assume. It does not assess confidence, athletic skill, gender expression or romantic compatibility. A fan-game preference cannot determine your house or assign Ginny’s relationships and life decisions to you.",
+              "zh": "金妮是作品中的霍格沃茨学生和魁地奇球员。本版独立选一个普通行动：自己选分工，不直接接别人默认的角色。不测自信、运动技能、性别表达或恋爱适配。同人游戏偏好不能决定学院，也不把金妮关系与人生决定赋给你。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The club remembers your old role",
+            "zh": "社团还记得上次的分工"
+          },
+          "paragraphs": [
+            {
+              "en": "At the imaginary-school open day, people assume you will repeat the role you took last time. You would like to try writing a short tour note instead. You say so plainly and ask what needs arranging for the change. Choosing something different does not require rejecting everyone’s expectations dramatically; it can be a practical conversation about this afternoon’s plan.",
+              "zh": "想象学校开放日，大家默认你还做上回的分工，这次你想试写导览短便条。明白说出来，再问更换需怎样安排。选不同部分不必戏剧性反抗所有期待，也可以只是对当天下午计划的实际交谈。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A chosen role beside six other contributions",
+            "zh": "自选角色与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry begins a trial, Hermione checks a claim and Ron offers shared ease. Neville makes a first attempt manageable, Luna opens an unusual possibility and Hagrid welcomes newcomers. Ginny’s selected angle asks what part you would choose now. The same person may offer several contributions, without a ranking of independence, courage or whose preference matters most.",
+              "zh": "哈利开始试玩，赫敏核主张，罗恩带共同轻松；纳威让初次尝试可做，卢娜开不寻常可能，海格迎新人。金妮角度问现在会选哪部分。同一人可有几种贡献，不排名独立、勇气或谁的偏好最重要。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Your choice still belongs in an agreement",
+            "zh": "自己的选择也进入共同约定"
+          },
+          "paragraphs": [
+            {
+              "en": "A personal preference does not automatically settle a shared plan. Explain what you want, hear the practical constraints and decide what you are willing to adapt. You can decline a role if it does not fit. A high count cannot establish assertiveness, rebelliousness or self-esteem, and a lower count does not mean you lack a voice or must accept other people’s assignments.",
+              "zh": "个人偏好不自动决定共同计划。说想要什么，听实际限制，再决定愿调哪里；不合适也可拒绝。高计数不确立果断、叛逆或自尊，低计数不表示没声音或必须接受别人分派。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one clear alternative role",
+            "zh": "试着提出一个明确替代角色"
+          },
+          "paragraphs": [
+            {
+              "en": "For one optional group activity, name a role you would like and the small contribution it involves. Ask what would make the arrangement workable for others too. Afterwards, compare the actual experience with what you hoped to try. This is a local choice experiment, not evidence of a fixed personality or a requirement to become more outspoken.",
+              "zh": "一次可选集体活动，说一个想做的角色及其小贡献，再问怎样也让别人安排得来。之后比较实际与原先想试的部分。这是具体选择尝试，不证明固定人格，也不要求变得更直言。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neville-longbottom",
+      "directionIds": [
+        "neville-longbottom"
+      ],
+      "title": {
+        "en": "Neville Longbottom",
+        "zh": "纳威·隆巴顿（Neville）"
+      },
+      "headline": {
+        "en": "Make the first attempt manageable",
+        "zh": "让第一次尝试做得来"
+      },
+      "summary": {
+        "en": "Read Neville Longbottom through make the first attempt manageable: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“让第一次尝试做得来”阅读纳威·隆巴顿（Neville）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Neville Longbottom Test Result: Make the first attempt manageable | Harry Potter",
+          "zh": "纳威·隆巴顿（Neville）测试结果：让第一次尝试做得来｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Neville Longbottom through make the first attempt manageable: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“让第一次尝试做得来”阅读纳威·隆巴顿（Neville）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Neville’s limited fan reading",
+            "zh": "纳威的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Neville is a Hogwarts student with an interest in Herbology in the official character introduction. This edition selects the ordinary appeal of a manageable first attempt and growing familiarity. It does not diagnose shyness, judge intelligence or measure courage or resilience. You do not need his difficult experiences, and a lower starting point in an activity is not a statement about your worth or potential.",
+              "zh": "官方人物介绍里的纳威是霍格沃茨学生，对草药学有兴趣。本版只选可做的初次尝试和逐步熟悉这份普通乐趣，不诊断害羞，不评智力、勇气或韧性。不需相同艰难经历；活动起点较小，也不陈述价值或潜力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A paper plant, one piece at a time",
+            "zh": "纸植物，一次一小块"
+          },
+          "paragraphs": [
+            {
+              "en": "A plant-themed paper craft looks interesting, but the complete example is unfamiliar. You choose a modest version and try one piece before deciding whether to continue. The smaller start can make the activity easier to enter without promising that practice will solve everything. It is fine to change the material, ask for help or discover that another hobby would be more enjoyable.",
+              "zh": "植物纸手工很有趣，完整示例却陌生。你选小版本，先试一块，再决定继续。起点小一些可更好进入，不保证练习解决一切。换材料、问人帮忙，或发现另一爱好更开心，都可以。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A manageable start beside six other contributions",
+            "zh": "小起点与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry tries the next action, Hermione checks the guide and Ron makes the time feel shared. Ginny chooses her role, Luna considers an unexpected idea and Hagrid attends to practical comfort. Neville’s selected angle gives an unfamiliar activity a manageable beginning. None of these counts measures development, bravery or skill, and a close result need not become a hidden second character.",
+              "zh": "哈利试下一步，赫敏核指南，罗恩保留共同感；金妮选角色，卢娜想意外点子，海格关心实际舒适。纳威角度给陌生活动一个可做开始。次数不测成长、勇敢或技能，近分也不必变成隐藏第二人物。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A small start is a choice, not a limit",
+            "zh": "小开始是选择，不是限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Starting modestly can suit one activity while feeling unnecessary in another. You can choose a bigger version when you want, or stop when it is no longer pleasant. Others should not use this result to assign you only easy roles. A high count does not prove low confidence, vulnerability or slow learning, and a lower count does not mean that you cannot encourage a beginner.",
+              "zh": "这次适合小开始，另一次未必需要。想做大版可做，不愉快可停。别人不应据结果只给你简单角色。高计数不证明自信低、脆弱或学得慢，低计数不表示不能鼓励新手。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a deliberately small first round",
+            "zh": "试一轮刻意缩小的开始"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one unfamiliar, harmless hobby activity and define a first round that takes only a few minutes. Decide afterwards whether to continue, adapt or leave it. Notice what made the entry manageable rather than comparing yourself with an experienced person. The exercise concerns the starting arrangement, not a measure of potential or a prescription to keep pushing through difficulty.",
+              "zh": "选一项陌生无害爱好，定只需几分钟的第一轮。之后决定继续、调整或不做，留意怎样更好进入，不与熟手比。这关乎起始安排，不测潜力，也不要求一直顶着困难。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luna-lovegood",
+      "directionIds": [
+        "luna-lovegood"
+      ],
+      "title": {
+        "en": "Luna Lovegood",
+        "zh": "卢娜·洛夫古德（Luna Lovegood）"
+      },
+      "headline": {
+        "en": "Explore an unexpected possibility as an idea",
+        "zh": "把意外可能当作想法探索"
+      },
+      "summary": {
+        "en": "Read Luna Lovegood through explore an unexpected possibility as an idea: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“把意外可能当作想法探索”阅读卢娜·洛夫古德（Luna Lovegood）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Luna Lovegood Test Result: Explore an unexpected possibility as an idea | Harry Potter",
+          "zh": "卢娜·洛夫古德（Luna Lovegood）测试结果：把意外可能当作想法探索｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Luna Lovegood through explore an unexpected possibility as an idea: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“把意外可能当作想法探索”阅读卢娜·洛夫古德（Luna Lovegood）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Luna’s limited fan reading",
+            "zh": "卢娜的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Luna is a Ravenclaw student and Harry’s friend, with distinctive interests and style in the official fictional context. This edition takes only the pleasure of considering an unusual possibility. It does not infer eccentricity, a diagnosis, beliefs about reality or a Hogwarts house for you. Imagination can be enjoyed while clearly distinguishing an invented idea from evidence about the world.",
+              "zh": "官方虚构背景里的卢娜是拉文克劳学生、哈利的朋友，有独特兴趣与风格。本版只选考虑不寻常可能的乐趣，不推断古怪、诊断、现实信念，也不为你分院。可享受想象，同时清楚区分虚构点子和现实证据。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The unexplained mark in the picture",
+            "zh": "插图里没解释的印记"
+          },
+          "paragraphs": [
+            {
+              "en": "A story picture contains a strange mark that the text does not explain. You imagine another possible reading and mark it as your idea. The group can enjoy exploring it without claiming it is the author’s intended answer. If the game later needs a definite rule, you can agree one explicitly rather than treating the imaginative possibility as an established fact.",
+              "zh": "故事插图有正文没解释的奇怪印记。你想另一种可能读法，标明是自己的想法。大家可享受探索，不主张是作者标准答案。游戏后来若需明确规则，可明白约一条，不把想象可能当已确立事实。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Possibility beside six other contributions",
+            "zh": "可能性与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry starts a trial, Hermione checks the source and Ron offers companionship. Ginny chooses her part, Neville creates a manageable entry and Hagrid makes the welcome practical. Luna’s selected angle adds an unusual idea to consider. Different contributions can coexist without ranking imagination, intelligence or open-mindedness, and an equal count does not establish a hidden or mystical identity.",
+              "zh": "哈利试玩，赫敏核来源，罗恩陪伴；金妮选部分，纳威给可做入口，海格落实欢迎。卢娜角度添一个可考虑的意外点子。可共存，不排名想象、智力或开放，也不从并列确立隐藏或神秘身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Keep curiosity separate from certainty",
+            "zh": "把好奇和肯定分开"
+          },
+          "paragraphs": [
+            {
+              "en": "An unexpected thought does not have to be true to be useful in a fictional game. Ask whether you are inventing, interpreting or making a factual claim, and use the appropriate standard for each. Other people can prefer a simpler version. A high count cannot establish unusual beliefs, creativity or a special way of perceiving reality, and a lower count does not make you unimaginative.",
+              "zh": "意外想法在虚构游戏里不必为真也可有用。问是在虚构、解释，还是主张事实，各用合适标准。别人可喜欢简单版。高计数不确立特别信念、创造力或特殊现实感知，低计数不表示没有想象。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try two clearly fictional possibilities",
+            "zh": "试两个明确虚构的可能"
+          },
+          "paragraphs": [
+            {
+              "en": "For one paper story game, offer two different possible explanations of an unexplained detail. Label both as inventions and let the group choose, combine or ignore them. Afterwards, notice which opened an enjoyable next scene. This is an experiment with fictional options, not a test of truth, intuition, supernatural insight or whether you should believe an extraordinary claim.",
+              "zh": "一次纸上故事游戏，为未解释细节提两种说明，都标为虚构，让小组选、合并或忽略。之后看哪种打开了愉快的下一幕。这是在试虚构选项，不测真理、直觉、超自然洞察，也不决定该信哪项非常主张。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubeus-hagrid",
+      "directionIds": [
+        "rubeus-hagrid"
+      ],
+      "title": {
+        "en": "Rubeus Hagrid",
+        "zh": "鲁伯·海格（Hagrid）"
+      },
+      "headline": {
+        "en": "Make the welcome practical and warm",
+        "zh": "让欢迎既实际又温暖"
+      },
+      "summary": {
+        "en": "Read Rubeus Hagrid through make the welcome practical and warm: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+        "zh": "从“让欢迎既实际又温暖”阅读鲁伯·海格（Hagrid）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rubeus Hagrid Test Result: Make the welcome practical and warm | Harry Potter",
+          "zh": "鲁伯·海格（Hagrid）测试结果：让欢迎既实际又温暖｜哈利·波特"
+        },
+        "description": {
+          "en": "Read Rubeus Hagrid through make the welcome practical and warm: a specific fan-club scene, six character comparisons, a small experiment and transparent scoring. Full original fan guide; no house assignment.",
+          "zh": "从“让欢迎既实际又温暖”阅读鲁伯·海格（Hagrid）：含具体同人社团场景、六角色比较、小尝试与透明计数。原创同人结果全文，不据人物结果分院。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+        "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Hagrid’s limited fan reading",
+            "zh": "海格的有限同人读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Hagrid is Hogwarts’ gamekeeper and a teacher of magical creatures, and he welcomes Harry into the magical world. This edition takes only an ordinary angle of helping newcomers find a comfortable way in. It does not infer appearance, physical size, animal-care skill or a particular family role. Your choices cannot assign his magical creatures, dramatic risks or responsibilities to your life.",
+              "zh": "海格是霍格沃茨猎场看守和神奇动物教师，带哈利进入魔法世界。本版只取帮新人舒服加入的普通角度，不推断外貌、体型、动物照料技能或家庭角色。选择不能把神奇生物、戏剧风险或责任放进你的生活。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A newcomer without the right materials",
+            "zh": "没带齐材料的新成员"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone arrives at a fan club without supplies or a clear picture of the plan. You show what can be borrowed, where to sit and which activities are optional. Ask what would make joining comfortable rather than deciding for them. A practical welcome can be small; you do not have to provide every material, solve every difficulty or act as a permanent host.",
+              "zh": "有人来同人社团，没用品，也不清楚安排。你指可借物、座位和可选活动，问怎样舒服加入，不替人决定。实际欢迎可以很小；不必提供全部材料、解决全部困难，也不必永久当东道主。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Welcome beside six other contributions",
+            "zh": "欢迎与另外六种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Harry gets a trial moving, Hermione checks the reference and Ron offers easy company. Ginny chooses her role, Neville makes the start manageable and Luna suggests an unusual possibility. Hagrid’s selected angle attends to the people and materials needed to join. None of the counts ranks kindness, care or responsibility, and a tie keeps the different full guides available rather than choosing a better person.",
+              "zh": "哈利推动试玩，赫敏核参考，罗恩轻松陪伴；金妮选角色，纳威缩小开始，卢娜提意外可能。海格角度照顾加入所需的人与物。次数不排名善良、关心或责任；并列保留不同全文，不选更好的人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A welcome also needs room to decline",
+            "zh": "欢迎也需要拒绝空间"
+          },
+          "paragraphs": [
+            {
+              "en": "A newcomer may prefer to watch, join later or leave. Make those choices straightforward and ask before offering personal attention. You may also need a limit on what you can provide. A high count cannot establish a nurturing personality, selflessness or a duty to care for everybody, and a lower count does not mean you are unwelcoming or unkind.",
+              "zh": "新人可想看、晚些加入或离开。让选择简单，提供特别关注前先问，也可限制自己能提供多少。高计数不确立照顾型人格、无私或照顾所有人的义务，低计数不表示不欢迎或不善良。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a clear optional welcome",
+            "zh": "试一个清楚且可选的欢迎"
+          },
+          "paragraphs": [
+            {
+              "en": "For one small club activity, explain where useful materials are, what will happen next and how someone can join or skip. Ask a willing newcomer which part was actually helpful. Notice the welcome’s usability rather than how much you gave. This is feedback on an arrangement, not an assessment of hospitality, animal handling, parenting or suitability for a caring profession.",
+              "zh": "一次小社团活动，说清用品在哪、下一步是什么、如何加入或跳过。问愿反馈的新人，哪部分真有用；看欢迎好不好用，不只看付出多不多。这是安排反馈，不评接待、动物处理、养育或照顾类职业适配。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-one choices and every highest tie",
+            "zh": "21次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+              "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Seven raw choice counts",
+        "zh": "七项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete all 21 questions. Each explicitly mapped choice adds one raw count to one of seven characters, for 21 counts in total. Each character appears 12 times, three times in each option position. An absent character option is not a rejection. Every highest count receives its complete guide; all A gives three each and seven full guides. Counts are not similarity percentages, virtues, intelligence, magical ability or population ranks. A small gap has no validated psychological significance and cannot assign a Hogwarts house.",
+          "zh": "21题全部完成，每项按明确映射给七位人物之一加1次，共21次。每位出现12次，四个位置各3次；当题没出现不算被拒绝。每个最高计数都有完整说明；全A会各3次，七份全文一起显示。次数不是相似百分比、美德、智力、魔法能力或人群排名；微小差距没有经验证的心理意义，也不能分派霍格沃茨学院。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Every highest match has a complete reading",
+        "zh": "每个最高匹配都有完整读法"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without selecting a favourite by fixed ordering. Compare every tied guide and explore other close readings through the public pages. Small differences have no established psychological significance. The seven contributions can coexist without becoming hidden types or ranking intelligence, kindness or bravery.",
+          "zh": "最高计数一起显示，不按固定顺序偏爱某位。可比较每份并列全文，也可通过公开页读近分。微小差距没有已确立的心理意义；七种贡献可共存，不变成隐藏类型，也不排名智力、善良或勇敢。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Character comparison and house sorting are separate",
+        "zh": "人物比较与学院分院分开"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition scores Harry, Hermione, Ron, Ginny, Neville, Luna and Hagrid. Draco, Snape and other characters are outside this independently selected set. It is a character comparison, not the Hogwarts house quiz, an official Sorting Ceremony or an interchangeable version of another site’s bank. A character’s fictional house never becomes your house from this result. Other assessments require their own questions and interpretation.",
+          "zh": "本版为哈利、赫敏、罗恩、金妮、纳威、卢娜和海格计数；德拉科、斯内普等不在独立选定集合。这是人物比较，不是霍格沃茨分院测试、官方分院仪式，也不能与别站题本互换。人物在虚构作品里的学院不会据此成为你的学院；其他测评须另行作答与解读。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+          "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices and optional sharing",
+        "zh": "私密选择与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without uploads or answer data in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing includes public character names and a link, never answers or counts. All complete guides are free without an account, email or previous assessment. Optional further assessments have separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不把答案写进网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。可选分享只有公开人物名称和链接，不含答案或次数。全部全文免费，无需账号、邮箱或前置测评。后续测评可选、目的另行，须独立作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Harry Potter characters are included?",
+        "zh": "本版包含哪些哈利·波特人物？"
+      },
+      "answer": {
+        "en": "Harry Potter, Hermione Granger, Ron Weasley, Ginny Weasley, Neville Longbottom, Luna Lovegood and Rubeus Hagrid. All seven have complete bilingual public guides. Draco, Snape and other characters are not scored in this independently selected edition.",
+        "zh": "哈利·波特、赫敏·格兰杰、罗恩·韦斯莱、金妮·韦斯莱、纳威·隆巴顿、卢娜·洛夫古德和鲁伯·海格，各有完整双语公开说明。德拉科、斯内普等不在本独立版计数集合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: its questions, mappings, everyday examples and complete results. Harry Potter and related characters belong to their respective rights holders; no affiliation or endorsement is claimed. Official character introductions provide limited fictional context, not validation of this questionnaire. No dialogue, character art, screenshots or competitor text is reproduced. These seven editorial angles are not complete biographies, a Sorting Ceremony or an official Wizarding World assessment. Choices infer no diagnosis, intelligence, moral worth, real ability, magical powers, relationship fate, MBTI or career suitability. They do not assign a character’s painful experiences or harmful actions to you.",
+        "zh": "费马独立创作本非官方同人版的题目、映射、日常例子和完整结果。《哈利·波特》及相关人物权利归相应权利人，无隶属或认可关系。官方人物介绍只提供有限虚构背景，不验证题本。不复制台词、人物图像、截图或竞品正文。七个编辑角度不是完整传记、分院仪式或官方魔法世界测评。选择不推断诊断、智力、道德价值、真实能力、魔力、关系命运、MBTI或职业适配，也不把人物痛苦经历或伤害行为赋给你。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a character match also give me a Hogwarts house?",
+        "zh": "匹配人物也会给我分院吗？"
+      },
+      "answer": {
+        "en": "No. This bank compares seven character angles and has no house-scoring map. A character’s fictional house does not transfer to you. The separate Hogwarts house quiz has its own questions and interpretation; neither test is an official Sorting Ceremony. A match also establishes no intelligence, bravery, diagnosis or magical ability.",
+        "zh": "不会。本题本比较七个人物角度，没有学院计分映射。人物在作品中的学院不转给你。另一个霍格沃茨分院测试有独立题目与解释，两者都不是官方分院仪式；匹配也不确立智力、勇敢、诊断或魔法能力。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need plot knowledge, and is there a time limit?",
+        "zh": "需要剧情知识吗，有时间限制吗？"
+      },
+      "answer": {
+        "en": "No plot recall is required. All 21 original situations concern optional reading, paper play and fan-club activities with four choices each. Around five minutes is an editorial estimate, not a measured human benchmark or speed requirement. You can take your time and read all seven full guides.",
+        "zh": "不要求记剧情。21个原创情境均为可选阅读、纸上游戏与社团活动，每题四选一。约5分钟是编辑估计，不是实测人类基准，也无速度要求；可以慢慢选，七份全文都可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and full results free in both languages?",
+        "zh": "两语全部题目和完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. English and Chinese include every question, option and full guide without signup, email or a prior MBTI result. Character identities and mappings remain stable across languages; psychometric equivalence has not been established. Optional next assessments need their own questions and do not infer a type from this quiz.",
+        "zh": "是。中英文都有每题、每项和全部全文，无需注册、邮箱或前置MBTI结果。人物身份与映射跨语言一致，尚未建立心理测量等价证据。可选后续测评另行作答，不从本次推断类型。"
+      }
+    }
+  ]
+}

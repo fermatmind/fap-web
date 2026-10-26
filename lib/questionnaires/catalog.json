@@ -2263,5 +2263,33 @@
       "tie"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "harry-potter-character",
+    "code": "HARRY_POTTER_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Harry Potter Character Test",
+      "zh": "《哈利·波特》角色测试"
+    },
+    "description": {
+      "en": "Try 21 original paper-game, reading and fan-club situations. Compare Harry, Hermione, Ron, Ginny, Neville, Luna and Hagrid with all highest ties and seven complete bilingual guides free. Unofficial fan edition, without house assignment.",
+      "zh": "完成21道原创纸上游戏、阅读与同人社团情境题，比较哈利、赫敏、罗恩、金妮、纳威、卢娜和海格。最高并列及七份完整双语说明免费，无需注册。非官方同人版，不据人物结果分院。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_harrypotter_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "harry-potter",
+      "hermione-granger",
+      "ron-weasley",
+      "ginny-weasley",
+      "neville-longbottom",
+      "luna-lovegood",
+      "rubeus-hagrid"
+    ],
+    "collection": "explore"
   }
 ]
