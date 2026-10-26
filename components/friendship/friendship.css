@@ -68,6 +68,8 @@
 .fq-copy h1 { font-size:clamp(2rem,4vw,3.4rem); line-height:1.15; font-weight:750; margin:24px 0; letter-spacing:-.035em; }
 .fq-copy h2 { font-size:1.75rem; font-weight:650; margin:40px 0 16px; line-height:1.25; }
 .fq-copy ol,.fq-copy ul { padding-left:24px; }
+.fq-copy ol { list-style:decimal; }
+.fq-copy ul { list-style:disc; }
 .fq-copy li { margin:10px 0; line-height:1.8; }
 .fq-sheet { border:1px solid #dfd6ee; padding:24px; margin:24px 0; }
 .fq-sheet li { break-inside:avoid; border-bottom:1px dashed #ddd; padding-bottom:10px; }
