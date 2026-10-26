@@ -1,0 +1,1859 @@
+{
+  "slug": "java-test",
+  "code": "FM_JAVA25_CODE_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Java Test",
+    "zh": "Java测试"
+  },
+  "seoTitle": {
+    "en": "Java Test: 24 Free Code Questions & Worked Answers",
+    "zh": "Java测试：24道免费代码题、答案与解析"
+  },
+  "description": {
+    "en": "Read 24 original Java 25 programs and predict output or compilation failure. Get every explanation and four full guides. No level or certificate.",
+    "zh": "阅读24段原创Java 25程序，预测输出或编译失败，免费查看每题答案、完整解析与四份复习指南。不派开发者等级、招聘线或认证。"
+  },
+  "minutes": 10,
+  "introduction": {
+    "en": "Can you trace the supplied program one step at a time? This Java 25 edition offers 24 independently written code-reading tasks across values and expressions, branches and loops, methods and objects, and collections and failures. All snippets were compiler checked with Temurin JDK 25.0.2, without preview features: 22 produce the keyed output and two correctly fail compilation. Complete all choices for this bank’s correct counts, every explanation and four full public revision guides. You do not need to install Java, upload files or submit executable code.",
+    "zh": "能逐步追踪给定程序吗？本Java 25版有24道独立编写的代码阅读题，分值与表达式、分支循环、方法对象、集合及失败处理四组。所有片段用Temurin JDK 25.0.2、不启预览特性核验：22段输出与答案一致，另两段按预期编译失败。完成全部选择后查看本题组正确数、逐题解析和四份公开全文。无需安装Java、上传文件或提交可执行代码。"
+  },
+  "instructions": {
+    "en": "For each complete Main.java program, choose its exact printed text or the stated compilation-failure outcome. Use Java 25 without preview features and ordinary standard-library behaviour. English code and output values stay identical in both interfaces; instructions and explanations are bilingual. Every snippet is independent, and no race, external input or unspecified collection order determines a key. There is no timer or speed bonus. Finish all 24 valid choices to reveal the complete answer review. References can help you learn; an assisted count and an unaided count describe different conditions.",
+    "zh": "每题给完整Main.java程序，选择准确打印文本或所述编译失败结果，按Java 25、不启预览特性及普通标准库行为理解。两语保留相同英文代码和输出值，说明与解析双语。各片段相互独立，不靠竞态、外部输入或未规定的集合顺序决定答案。不计时、无速度奖励；24题全部有效作答后看完整核对。可查资料学习，辅助与独立作答反映不同条件。"
+  },
+  "resultHeading": {
+    "en": "Your Java practice counts and every explanation",
+    "zh": "本次Java练习正确数与全部解析"
+  },
+  "directions": [
+    {
+      "id": "values-and-expressions",
+      "title": {
+        "en": "Values and expressions",
+        "zh": "值与表达式"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "branches-and-loops",
+      "title": {
+        "en": "Branches and loops",
+        "zh": "分支与循环"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "methods-and-objects",
+      "title": {
+        "en": "Methods and objects",
+        "zh": "方法与对象"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "collections-and-failures",
+      "title": {
+        "en": "Collections and failures",
+        "zh": "集合与失败处理"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "JAVA_01",
+      "prompt": {
+        "en": "Integer division and remainder: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int a = 17, b = 5; System.out.print(a / b + \":\" + a % b);\n  }\n}",
+        "zh": "整数除法与余数：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int a = 17, b = 5; System.out.print(a / b + \":\" + a % b);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "3:2",
+            "zh": "3:2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "3.4:2",
+            "zh": "3.4:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "2:3",
+            "zh": "2:3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Both operands are int. Integer division produces 3 and the remainder is 2. The colon starts string concatenation for the output; it does not change the arithmetic already performed. This task does not use floating-point division or division by zero.",
+        "zh": "两个操作数都是int，整数除法得3，余数为2。冒号用于拼接输出，不改变之前的算术。本题没有浮点除法或除零。"
+      }
+    },
+    {
+      "id": "JAVA_02",
+      "prompt": {
+        "en": "Post-increment and later use: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 4; System.out.print(n++ + \":\" + n);\n  }\n}",
+        "zh": "后自增与后续读取：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 4; System.out.print(n++ + \":\" + n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "5:5",
+            "zh": "5:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "4:5",
+            "zh": "4:5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "4:4",
+            "zh": "4:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The postfix n++ expression yields the old value 4 and then stores 5 in n. The later operand reads 5. Evaluation proceeds from the left operand to the right, so the printed text is 4:5. Prefix ++n would be a different expression.",
+        "zh": "后缀n++表达式给出旧值4，再将5存入n，后面的读取取得5。操作数从左向右求值，因此输出4:5；前缀++n是不同表达式。"
+      }
+    },
+    {
+      "id": "JAVA_03",
+      "prompt": {
+        "en": "A string begins an addition chain: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String s = \"R\" + 2 + 3; System.out.print(s);\n  }\n}",
+        "zh": "加法链以字符串开头：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String s = \"R\" + 2 + 3; System.out.print(s);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "R5",
+            "zh": "R5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "5R",
+            "zh": "5R"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "R23",
+            "zh": "R23"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The + operators associate from the left. Once \"R\" and 2 are concatenated, the intermediate value is the string R2; adding 3 appends its text, producing R23. Parenthesising 2+3 would instead calculate a number before concatenation.",
+        "zh": "加号从左结合，\"R\"与2先拼为字符串R2，再加3是追加文本，得到R23。若给2+3加括号，才先算数值再拼接。"
+      }
+    },
+    {
+      "id": "JAVA_04",
+      "prompt": {
+        "en": "An explicit floating-point-to-int cast: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    double amount = 7.9; int whole = (int) amount; System.out.print(whole);\n  }\n}",
+        "zh": "显式浮点转int：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    double amount = 7.9; int whole = (int) amount; System.out.print(whole);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "7.9",
+            "zh": "7.9"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "For this finite in-range positive value, conversion to int discards the fractional part toward zero, giving 7. It is not rounding to the nearest integer. The task explicitly includes a cast; assigning an arbitrary double directly to int without one is a different compile-time question.",
+        "zh": "对这个有限且在范围内的正数，转int向零截去小数部分，得到7，不是四舍五入。本题明确含强制转换；不加转换直接把任意double赋给int是另一种编译问题。"
+      }
+    },
+    {
+      "id": "JAVA_05",
+      "prompt": {
+        "en": "Two separately created strings: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String p = new String(\"cedar\"); String q = new String(\"cedar\"); System.out.print((p == q) + \":\" + p.equals(q));\n  }\n}",
+        "zh": "分别新建的两个字符串：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String p = new String(\"cedar\"); String q = new String(\"cedar\"); System.out.print((p == q) + \":\" + p.equals(q));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:true",
+            "zh": "false:true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "true:true",
+            "zh": "true:true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:false",
+            "zh": "false:false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Each new expression creates a distinct String object. Reference equality is false, while String.equals compares the character sequence and returns true. The explicit new expressions avoid relying on literal interning or a virtual-machine cache. Neither reference is null.",
+        "zh": "每个new表达式创建不同String对象，所以引用相等为false；String.equals比较字符序列，相同则为true。明确new避免依赖字面量驻留或虚拟机缓存，两引用也都非null。"
+      }
+    },
+    {
+      "id": "JAVA_06",
+      "prompt": {
+        "en": "Short-circuit AND with a side effect: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int x = 3; boolean ok = (x > 5) && (++x > 3); System.out.print(ok + \":\" + x);\n  }\n}",
+        "zh": "带副作用的短路与：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int x = 3; boolean ok = (x > 5) && (++x > 3); System.out.print(ok + \":\" + x);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:4",
+            "zh": "false:4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:3",
+            "zh": "false:3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "true:4",
+            "zh": "true:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The left operand x>5 is false. Conditional AND does not evaluate its right operand in that case, so ++x never runs and x remains 3. Replacing && with the non-short-circuit boolean & would change the evaluation behaviour.",
+        "zh": "左侧x>5为false，条件与此时不执行右侧，因此++x不运行，x仍是3。换成不短路的布尔&会改变求值行为。"
+      }
+    },
+    {
+      "id": "JAVA_07",
+      "prompt": {
+        "en": "A bounded loop adds even values: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 4; i++) { if (i % 2 == 0) total += i; } System.out.print(total);\n  }\n}",
+        "zh": "有边界的循环累加偶数：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 4; i++) { if (i % 2 == 0) total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The loop visits 1, 2, 3 and 4. Only 2 and 4 satisfy the remainder check, so total is 2+4=6. The <= boundary includes 4. Listing the visited values separates loop bounds from the condition selecting values to add.",
+        "zh": "循环访问1、2、3、4，只有2和4满足余数条件，总和为6。<=边界包含4，列出访问值能分清循环边界与筛选条件。"
+      }
+    },
+    {
+      "id": "JAVA_08",
+      "prompt": {
+        "en": "A decreasing while loop: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 3, total = 0; while (n > 0) { total += n; n--; } System.out.print(total + \":\" + n);\n  }\n}",
+        "zh": "递减while循环：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 3, total = 0; while (n > 0) { total += n; n--; } System.out.print(total + \":\" + n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6:1",
+            "zh": "6:1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "3:0",
+            "zh": "3:0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6:0",
+            "zh": "6:0"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The bodies add 3, then 2, then 1. After the third decrement n is zero, so the next condition is false. The total is 6 and the final n is 0; the condition is checked before each body execution.",
+        "zh": "三次循环体依次加3、2、1，第三次递减后n为0，下次条件为假。总和6、最终n为0；条件在每次循环体之前判断。"
+      }
+    },
+    {
+      "id": "JAVA_09",
+      "prompt": {
+        "en": "Continue skips one addition: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 0; i < 5; i++) { if (i == 2) continue; total += i; } System.out.print(total);\n  }\n}",
+        "zh": "continue跳过一次累加：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 0; i < 5; i++) { if (i == 2) continue; total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The loop visits zero through four, but continue skips the rest of the body when i is 2. The added values are 0, 1, 3 and 4, totaling 8. The for-loop update still occurs after continue; it does not stop the entire loop.",
+        "zh": "循环访问0到4，i为2时continue跳过剩余循环体，累加0、1、3、4得8。continue后for的更新仍发生，不会终止整个循环。"
+      }
+    },
+    {
+      "id": "JAVA_10",
+      "prompt": {
+        "en": "Break ends a loop before an addition: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 5; i++) { if (i > 2) break; total += i; } System.out.print(total);\n  }\n}",
+        "zh": "break在累加前结束循环：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 5; i++) { if (i > 2) break; total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "For i=1 and i=2 the addition runs. At i=3, break executes before total+=i and exits the loop. The result is 1+2=3. Moving the addition above the break check would be a different program.",
+        "zh": "i为1、2时执行累加；i为3时，break先于total+=i执行并退出，结果为1+2=3。把累加移到break判断上方会成为不同程序。"
+      }
+    },
+    {
+      "id": "JAVA_11",
+      "prompt": {
+        "en": "A switch expression with grouped labels: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int code = 2; String value = switch (code) { case 1 -> \"A\"; case 2, 3 -> \"B\"; default -> \"Z\"; }; System.out.print(value);\n  }\n}",
+        "zh": "带分组标签的switch表达式：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int code = 2; String value = switch (code) { case 1 -> \"A\"; case 2, 3 -> \"B\"; default -> \"Z\"; }; System.out.print(value);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Z",
+            "zh": "Z"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The value 2 matches the case 2,3 arm, whose expression yields B. Arrow arms do not fall through to the next arm. The switch expression has a default, so this ordinary int selection is covered for other values too.",
+        "zh": "值2匹配case 2,3分支，其表达式给出B。箭头分支不贯穿到下一分支；default也覆盖其他普通int取值。"
+      }
+    },
+    {
+      "id": "JAVA_12",
+      "prompt": {
+        "en": "An array update uses its zero-based index: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int[] values = {3, 6, 9}; for (int i = 0; i < values.length; i++) values[i] += i; System.out.print(Arrays.toString(values));\n  }\n}",
+        "zh": "数组更新使用从零开始的下标：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int[] values = {3, 6, 9}; for (int i = 0; i < values.length; i++) values[i] += i; System.out.print(Arrays.toString(values));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[4, 8, 12]",
+            "zh": "[4, 8, 12]"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[3, 6, 9]",
+            "zh": "[3, 6, 9]"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[3, 7, 11]",
+            "zh": "[3, 7, 11]"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Indexes are 0, 1 and 2. Adding each index changes the elements to 3+0, 6+1 and 9+2. The upper bound is exclusive, avoiding index values.length. Arrays.toString formats those resulting values as [3, 7, 11].",
+        "zh": "下标为0、1、2，各加对应下标变成3+0、6+1、9+2。上界不包含length，避免越界；Arrays.toString将结果格式化为[3, 7, 11]。"
+      }
+    },
+    {
+      "id": "JAVA_13",
+      "prompt": {
+        "en": "A primitive argument is changed inside a method: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static void bump(int n) { n += 4; }\n  public static void main(String[] args) {\n    int n = 6; bump(n); System.out.print(n);\n  }\n}",
+        "zh": "方法内部改变基本类型形参：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static void bump(int n) { n += 4; }\n  public static void main(String[] args) {\n    int n = 6; bump(n); System.out.print(n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The method receives a copy of the int value. Changing its parameter does not reassign the caller’s n, so main still prints 6. Java passes values; this example contains no returned value assigned back to n.",
+        "zh": "方法取得int值的副本，改变形参不重新赋值调用方的n，因此main仍打印6。Java按值传递，本例没有把返回值赋回n。"
+      }
+    },
+    {
+      "id": "JAVA_14",
+      "prompt": {
+        "en": "A method changes an element through an array reference: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static void bump(int[] values) { values[0] += 4; }\n  public static void main(String[] args) {\n    int[] values = {6}; bump(values); System.out.print(values[0]);\n  }\n}",
+        "zh": "方法通过数组引用改变元素：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static void bump(int[] values) { values[0] += 4; }\n  public static void main(String[] args) {\n    int[] values = {6}; bump(values); System.out.print(values[0]);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The copied argument value is a reference to the same array. Updating its first element changes that shared array to contain 10. This remains pass-by-value: the reference value was copied, and the method did not reassign the caller’s variable.",
+        "zh": "被复制的实参值是指向同一个数组的引用，改首元素会让该数组含10。它仍是按值传递：复制引用值，方法未重赋调用方变量。"
+      }
+    },
+    {
+      "id": "JAVA_15",
+      "prompt": {
+        "en": "An overloaded call receives an Object-typed variable: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static String pick(Object value) { return \"O\"; } static String pick(String value) { return \"S\"; }\n  public static void main(String[] args) {\n    Object value = \"hi\"; System.out.print(pick(value));\n  }\n}",
+        "zh": "重载调用接收声明为Object的变量：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static String pick(Object value) { return \"O\"; } static String pick(String value) { return \"S\"; }\n  public static void main(String[] args) {\n    Object value = \"hi\"; System.out.print(pick(value));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "S",
+            "zh": "S"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "hi",
+            "zh": "hi"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "O",
+            "zh": "O"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Overload selection uses the declared argument type Object for this call. The Object parameter is applicable; the String overload is not selected merely because the runtime object is a String. This differs from overriding an instance method with the same signature.",
+        "zh": "此调用按实参声明类型Object选择重载，Object形参适用，不因运行对象是String就选String重载。这不同于同签名实例方法的覆盖。"
+      }
+    },
+    {
+      "id": "JAVA_16",
+      "prompt": {
+        "en": "An overridden instance method is called through a parent reference: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static class Parent { String name() { return \"parent\"; } } static class Child extends Parent { @Override String name() { return \"child\"; } }\n  public static void main(String[] args) {\n    Parent value = new Child(); System.out.print(value.name());\n  }\n}",
+        "zh": "通过父类型引用调用覆盖的实例方法：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static class Parent { String name() { return \"parent\"; } } static class Child extends Parent { @Override String name() { return \"child\"; } }\n  public static void main(String[] args) {\n    Parent value = new Child(); System.out.print(value.name());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "parent",
+            "zh": "parent"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Parent",
+            "zh": "Parent"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "child",
+            "zh": "child"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The instance is a Child and name is overridden with the same signature. Dynamic method dispatch invokes Child.name and returns child, although the reference is declared Parent. There are no static methods or overloaded parameters in this example.",
+        "zh": "对象是Child，name按相同签名覆盖，动态分派调用Child.name并返回child，即使引用声明为Parent。本例没有静态方法或重载形参。"
+      }
+    },
+    {
+      "id": "JAVA_17",
+      "prompt": {
+        "en": "A constructor parameter shadows a field: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static class Box { int n; Box(int n) { this.n = n; } }\n  public static void main(String[] args) {\n    Box value = new Box(7); System.out.print(value.n);\n  }\n}",
+        "zh": "构造形参与字段同名：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static class Box { int n; Box(int n) { this.n = n; } }\n  public static void main(String[] args) {\n    Box value = new Box(7); System.out.print(value.n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "In the constructor, this.n names the new object’s field and the unqualified n names its parameter. The assignment stores 7 in the field. Omitting this in an assignment n=n would change the program and leave the field at its default.",
+        "zh": "构造器里this.n指新对象字段，未限定n指形参，赋值将7存字段。若改成n=n，程序就不同，字段会保留默认值。"
+      }
+    },
+    {
+      "id": "JAVA_18",
+      "prompt": {
+        "en": "A lambda captures a local that is reassigned: choose the outcome.\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 2; Runnable task = () -> System.out.print(n); n = 3; task.run();\n  }\n}",
+        "zh": "lambda捕获之后又赋值的局部变量：选择结果。\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 2; Runnable task = () -> System.out.print(n); n = 3; task.run();\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "It compiles and prints nothing.",
+            "zh": "编译通过但不输出。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The lambda uses local n, but n is reassigned after its initial value. It is not final or effectively final, so compilation fails. This is a compile-time restriction, not a choice about whether the task would print the old or new value.",
+        "zh": "lambda使用局部n，但n在初始赋值后又被重赋，不是final或有效final，因此编译失败。这是编译期限制，不是在旧值、新值输出之间选一种。"
+      }
+    },
+    {
+      "id": "JAVA_19",
+      "prompt": {
+        "en": "An ArrayList removes by integer index: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = new ArrayList<>(List.of(\"a\", \"b\", \"c\")); values.remove(1); System.out.print(values);\n  }\n}",
+        "zh": "ArrayList按整数下标删除：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = new ArrayList<>(List.of(\"a\", \"b\", \"c\")); values.remove(1); System.out.print(values);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[b, c]",
+            "zh": "[b, c]"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[a, b]",
+            "zh": "[a, b]"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[a, c]",
+            "zh": "[a, c]"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The int argument selects remove(int index), and index 1 is the second element b. The mutable ArrayList retains a and c in their original order. This call is not remove(Object) and does not remove an element whose textual value is 1.",
+        "zh": "int实参选择remove(int index)，下标1是第二元素b。可变ArrayList保留a、c原顺序。本调用不是remove(Object)，也不是删除文本值为1的元素。"
+      }
+    },
+    {
+      "id": "JAVA_20",
+      "prompt": {
+        "en": "A set receives one repeated string: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Set<String> values = new HashSet<>(); values.add(\"blue\"); values.add(\"blue\"); values.add(\"green\"); System.out.print(values.size());\n  }\n}",
+        "zh": "集合收到重复字符串：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Set<String> values = new HashSet<>(); values.add(\"blue\"); values.add(\"blue\"); values.add(\"green\"); System.out.print(values.size());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A Set does not retain duplicate equal elements. The two equal blue strings contribute one element and green contributes another, giving size 2. Only size is printed, so this answer does not depend on HashSet iteration order.",
+        "zh": "Set不保留相等的重复元素，两个blue只贡献一个元素，green另一个，大小为2。只打印大小，答案不依赖HashSet迭代顺序。"
+      }
+    },
+    {
+      "id": "JAVA_21",
+      "prompt": {
+        "en": "A map replaces the value for the same key: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Map<String, Integer> values = new HashMap<>(); values.put(\"slot\", 4); values.put(\"slot\", 9); System.out.print(values.get(\"slot\") + \":\" + values.size());\n  }\n}",
+        "zh": "映射替换同一个键的值：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Map<String, Integer> values = new HashMap<>(); values.put(\"slot\", 4); values.put(\"slot\", 9); System.out.print(values.get(\"slot\") + \":\" + values.size());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "9:1",
+            "zh": "9:1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "4:2",
+            "zh": "4:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "9:2",
+            "zh": "9:2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The second put replaces the value associated with the equal key slot. The stored value becomes 9 and the map still has one key-value mapping. No iteration order or duplicate-key collection is involved in this output.",
+        "zh": "第二次put替换相等键slot关联的值，储存值变9，映射仍只有一项键值关联。输出不涉及迭代顺序或收集重复键。"
+      }
+    },
+    {
+      "id": "JAVA_22",
+      "prompt": {
+        "en": "A factory-created list is asked to grow: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = List.of(\"p\", \"q\"); try { values.add(\"r\"); System.out.print(\"grown\"); } catch (UnsupportedOperationException e) { System.out.print(\"fixed\"); }\n  }\n}",
+        "zh": "要求工厂创建的列表增加元素：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = List.of(\"p\", \"q\"); try { values.add(\"r\"); System.out.print(\"grown\"); } catch (UnsupportedOperationException e) { System.out.print(\"fixed\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "grown",
+            "zh": "grown"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "fixed",
+            "zh": "fixed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[p, q, r]",
+            "zh": "[p, q, r]"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "List.of creates an unmodifiable list. add throws UnsupportedOperationException, which the catch handles by printing fixed; the following grown print inside try is skipped. Unmodifiable list structure is not a claim that every possible element object is deeply immutable.",
+        "zh": "List.of创建不可修改列表，add抛UnsupportedOperationException，被catch处理并打印fixed，try里后面的grown不执行。列表结构不可修改不代表所有元素对象都深度不可变。"
+      }
+    },
+    {
+      "id": "JAVA_23",
+      "prompt": {
+        "en": "Parsing fails and finally adds a suffix: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { System.out.print(Integer.parseInt(\"x7\")); } catch (NumberFormatException e) { System.out.print(\"bad\"); } finally { System.out.print(\":done\"); }\n  }\n}",
+        "zh": "解析失败后finally追加后缀：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { System.out.print(Integer.parseInt(\"x7\")); } catch (NumberFormatException e) { System.out.print(\"bad\"); } finally { System.out.print(\":done\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "7:done",
+            "zh": "7:done"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "bad",
+            "zh": "bad"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "bad:done",
+            "zh": "bad:done"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The supplied text x7 is not a valid decimal integer, so parseInt throws NumberFormatException before print receives a number. The catch prints bad, then finally prints :done. The program handles that exception rather than terminating with an uncaught one.",
+        "zh": "x7不是有效十进制整数，parseInt在print取得数值之前抛NumberFormatException。catch打印bad，finally再打印:done，异常被处理而非未捕获退出。"
+      }
+    },
+    {
+      "id": "JAVA_24",
+      "prompt": {
+        "en": "A broad catch precedes a covered subtype catch: choose the outcome.\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { throw new IllegalArgumentException(); } catch (Exception e) { System.out.print(\"outer\"); } catch (IllegalArgumentException e) { System.out.print(\"inner\"); }\n  }\n}",
+        "zh": "宽泛catch位于已覆盖的子类catch前：选择结果。\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { throw new IllegalArgumentException(); } catch (Exception e) { System.out.print(\"outer\"); } catch (IllegalArgumentException e) { System.out.print(\"inner\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "outer",
+            "zh": "outer"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "inner",
+            "zh": "inner"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "outerinner",
+            "zh": "outerinner"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Exception already catches every IllegalArgumentException from this try. A later catch for that covered subtype is rejected at compile time. This code therefore never reaches runtime catch selection; put the more specific handler before a covering handler in a corrected program.",
+        "zh": "前面的Exception已覆盖该try抛出的所有IllegalArgumentException，后面再写已覆盖子类型catch会编译失败，因此尚未进入运行期选择。修正程序应将更具体处理器放在覆盖它的处理器之前。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "values-and-expressions",
+      "directionIds": [
+        "values-and-expressions"
+      ],
+      "title": {
+        "en": "Values and expressions",
+        "zh": "值与表达式"
+      },
+      "headline": {
+        "en": "Write down the type and evaluation order before the output.",
+        "zh": "先写类型和求值顺序，再写输出。"
+      },
+      "summary": {
+        "en": "Trace integer arithmetic, casts, string concatenation, identity, postfix updates and short-circuit evaluation.",
+        "zh": "追踪整数运算、转换、字符串拼接、引用身份、后缀自增及短路求值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Values and expressions: Java practice guide",
+          "zh": "值与表达式：Java练习复习指南"
+        },
+        "description": {
+          "en": "Trace integer arithmetic, casts, string concatenation, identity, postfix updates and short-circuit evaluation.",
+          "zh": "追踪整数运算、转换、字符串拼接、引用身份、后缀自增及短路求值。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching keys among these six selected Java 25 tasks. It is not a developer level, percentile, hiring cutoff or qualification. Every explanation and this full revision guide remain available at every count.",
+        "zh": "正确数记录本版六道选定Java 25任务中匹配答案的次数，不是开发者等级、百分位、招聘线或资格。任何正确数都能读每题解析和本篇完整复习指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six expressions with explicit assumptions",
+            "zh": "六个假设明确的表达式"
+          },
+          "paragraphs": [
+            {
+              "en": "This section uses short complete Java 25 programs to separate several easily confused rules. Integer division is not floating-point division; a cast to int is not nearest-number rounding; string concatenation is not arithmetic addition. A later operand can observe an earlier side effect. Two newly constructed strings can have equal content without being the same object. The questions require predicting the supplied program, without inferring what its author probably intended or silently rewriting an expression.",
+              "zh": "本节用短小完整Java 25程序区分易混规则：整数除法不同于浮点除法，转int不是四舍五入，字符串拼接不同于数值加法。后面的操作数能读到前面的副作用，新建字符串内容相同却可不是同一对象。须预测给定程序，不猜作者意图，也不默改表达式。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Trace a fresh unscored expression",
+            "zh": "追踪一个新的不计分表达式"
+          },
+          "paragraphs": [
+            {
+              "en": "Try int n=6; String out=n++ + \":\" + n;. The first n++ yields six, then stores seven. Concatenating the colon creates text, and the later n reads seven, so out is 6:7. Make a two-column note showing the expression’s yielded value and the variable’s stored value. They are different concepts. This fresh example is for revision and does not add a point to the fixed six-item count or create a new calibrated test form.",
+              "zh": "试int n=6; String out=n++ + \":\" + n;，首个n++给出6，再存7，拼冒号成为文本，后面读取n得7，所以out是6:7。用两列分别记表达式给出的值和变量储存值，它们概念不同。这是复习新例，不给固定六题加分，也不生成经校准新题本。"
+            }
+          ]
+        },
+        {
+          "id": "types",
+          "title": {
+            "en": "Keep the arithmetic type visible",
+            "zh": "始终标明算术类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Before doing arithmetic, identify the operand types and any explicit conversion. For these in-range positive examples, integer division drops the fractional quotient and a double-to-int cast discards its fraction toward zero. Do not generalise the simple examples into claims about overflow, NaN, infinity or every negative-number case without checking the relevant rule. When a string enters a plus chain, evaluate each step rather than adding all the visible digits first.",
+              "zh": "运算前标明操作数类型和显式转换。在本版范围内的正数例子中，整数除法去掉商的小数，double转int向零舍弃小数。不核规则就不要把简单例推广到溢出、NaN、无穷或所有负数情况。字符串进入加号链后，逐步求值，不先把可见数字全加起来。"
+            }
+          ]
+        },
+        {
+          "id": "identity",
+          "title": {
+            "en": "Use identity and content comparisons deliberately",
+            "zh": "有意识地区分身份与内容比较"
+          },
+          "paragraphs": [
+            {
+              "en": "The string task explicitly creates two new objects. That removes a distracting dependency on whether equal literals were interned. Reference equality asks whether both operands identify the same object; String.equals asks about character content when invoked on a non-null receiver. A correct choice here does not establish that every equals implementation has identical semantics or that calling a method on null is safe. Name the actual class and the question being compared before choosing an operator.",
+              "zh": "字符串题明确创建两个新对象，避免依赖相同字面量是否驻留。引用相等问是否同一对象，非null接收者的String.equals问字符内容。选对不证明每种equals实现语义相同，也不代表对null调方法安全。先指明实际类和比较的问题，再选操作符。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Change one token and predict again",
+            "zh": "只改一个记号再预测"
+          },
+          "paragraphs": [
+            {
+              "en": "On your own disposable Java 25 file, write a short expression and predict its output before compiling. Change only postfix to prefix, && to boolean &, or the position of a pair of parentheses, one change per attempt. Describe why the result should change before checking it. Avoid using real application state for an exercise. This is a suggested learning routine, without a guaranteed improvement rate or a claim that quick prediction is the only useful programming skill.",
+              "zh": "在可丢弃Java 25文件写短表达式，先预测再编译。每次只改后缀为前缀、&&为布尔&，或一对括号位置，核验前先说为什么会变。练习不用真实应用状态。这只是学习建议，没有保证提高速率，也不认为快速预测是唯一有用的编程技能。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Turn the explanation into a named distinction",
+            "zh": "把解析变成一个有名称的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "If your option differs from the key, identify the exact distinction: quotient versus remainder, old versus new variable value, numeric addition versus concatenation, identity versus content, or evaluated versus skipped operand. A six-item count can hide those differences, so use the complete item explanations. A perfect count also cannot show whether you would notice an unstated assumption in a larger program. Reading the same keys before retaking can improve recall without showing transfer to unfamiliar code.",
+              "zh": "若选择不同于答案，指出精确区别：商与余数、旧值与新值、数值相加与拼接、身份与内容、已执行与跳过的操作数。六题总数会掩盖差异，应读逐题全文。全对也不证明能在大程序发现未明示假设；看过答案重测可提高记忆，不必然迁移到陌生代码。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A checked snippet is not a professional rating",
+            "zh": "核过的片段不是职业评级"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently wrote these examples and checked compilation and outcomes using Temurin JDK 25.0.2 without preview features. The product presents knowledge choices; it does not run code supplied by visitors or inspect a private repository. Java specifications support the selected rules, without endorsing this practice. No Oracle qualification, recruitment tier, population percentile or general intelligence inference follows from your answers. Both interfaces retain identical English code, while instructions and explanations are bilingual.",
+              "zh": "费马独立编例，用Temurin JDK 25.0.2、不启预览特性核编译及结果。产品提供知识选择，不运行访问者提交代码、不读私有仓库。Java规范支持选定规则，不为本练习背书。答案不导出Oracle资格、招聘分档、人群百分位或一般智力；两语保留相同英文代码，说明与解析双语。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "branches-and-loops",
+      "directionIds": [
+        "branches-and-loops"
+      ],
+      "title": {
+        "en": "Branches and loops",
+        "zh": "分支与循环"
+      },
+      "headline": {
+        "en": "List the visits, then mark which statements actually run.",
+        "zh": "列出访问值，再标哪些语句真正执行。"
+      },
+      "summary": {
+        "en": "Review bounded loops, while termination, continue, break, switch expressions and indexed array updates.",
+        "zh": "复习循环边界、while终止、continue、break、switch表达式及按下标更新数组。"
+      },
+      "seo": {
+        "title": {
+          "en": "Branches and loops: Java practice guide",
+          "zh": "分支与循环：Java练习复习指南"
+        },
+        "description": {
+          "en": "Review bounded loops, while termination, continue, break, switch expressions and indexed array updates.",
+          "zh": "复习循环边界、while终止、continue、break、switch表达式及按下标更新数组。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching keys among these six selected Java 25 tasks. It is not a developer level, percentile, hiring cutoff or qualification. Every explanation and this full revision guide remain available at every count.",
+        "zh": "正确数记录本版六道选定Java 25任务中匹配答案的次数，不是开发者等级、百分位、招聘线或资格。任何正确数都能读每题解析和本篇完整复习指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six small control-flow traces",
+            "zh": "六个小型控制流追踪"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks use single-threaded Java 25 programs with explicitly bounded data. They ask which iterations run, what a branch skips and what values remain afterwards. The section covers an even-value selection, a decreasing while loop, continue, break, a switch expression and a zero-based array update. None depends on thread scheduling, input files or an unspecified iteration order. That narrow setup makes an output check possible, rather than claiming to assess every real-world control-flow problem.",
+              "zh": "题目用单线程Java 25程序和边界明确的数据，问哪些轮次运行、分支跳过什么、结束后留下什么值。涵盖选偶数、递减while、continue、break、switch表达式和从零下标更新数组，不依赖线程调度、输入文件或未规定的迭代顺序。缩小条件让输出可核，不声称评所有真实控制流问题。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Make a three-column trace table",
+            "zh": "画一张三列追踪表"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh example, start total at zero and iterate i from one through five, skipping i=3 before adding. Record i, whether the addition runs and the resulting total. The sequence of totals after additions is one, three, seven and twelve. Writing down the skipped visit stops you from confusing continue with break. This example changes the numbers and the skipped value from the scored bank; it is revision material, not another scored question.",
+              "zh": "新例从total=0开始，i访问1到5，在累加前跳过i=3。记录i、是否执行累加、之后total，实际累加后依次为1、3、7、12。把跳过的访问也记下来，能避免把continue当break。本例更换题组数字与跳过值，是复习材料，不另计分。"
+            }
+          ]
+        },
+        {
+          "id": "bounds",
+          "title": {
+            "en": "Separate the condition from the update",
+            "zh": "把条件和更新分开"
+          },
+          "paragraphs": [
+            {
+              "en": "For a while loop, test the condition before entering the body and record how the body changes the next test. For a basic for loop, distinguish initialization, condition, body and update. An exclusive array bound i<values.length permits the final valid index length-1 and does not permit length. Do not decide how many additions occurred merely from the initial and final counter values; a conditional branch can skip an addition while the counter still advances.",
+              "zh": "while先判断条件再进循环体，记录循环体怎样改变下一次判断。基本for分清初始化、条件、循环体、更新。数组边界i<values.length允许最后有效下标length-1，不允许length。不要只看计数器首尾值推累加次数，分支可跳过累加而计数器仍推进。"
+            }
+          ]
+        },
+        {
+          "id": "branches",
+          "title": {
+            "en": "Locate the transfer before changing state",
+            "zh": "改变状态前先定位跳转"
+          },
+          "paragraphs": [
+            {
+              "en": "Continue skips the rest of the current body, while break exits its target loop or switch. Their placement relative to an update matters. Arrow arms in the supplied switch expression select a result without the fall-through behaviour associated with an unbroken traditional colon-style group. Read the actual syntax rather than borrowing a rule from a different construct. These are code-reading distinctions, not advice to use jumps everywhere or avoid them in every application.",
+              "zh": "continue跳过本轮剩余循环体，break退出其目标循环或switch，与更新的前后位置很重要。题中switch表达式的箭头分支给出结果，不采用传统冒号组缺break时的贯穿行为。须读实际语法，不借另一结构的规则；这是读码区别，不是建议处处用跳转或一律禁用。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Predict the trace before asking the compiler",
+            "zh": "先预测轨迹再问编译器"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a disposable program with four or five invented values. Write a trace table before running it, then compare every visited index and final printed output. Change only an inclusive boundary to an exclusive one, or move one addition across a branch check, and predict again. Keep an execution limit when experimenting with a loop so that an accidental non-terminating condition is easy to stop. This practice site itself does not execute visitor-provided code.",
+              "zh": "建含四五个虚构值的可丢弃程序，运行前写追踪表，再比每个访问下标与最终输出。一次只改包含边界为排除边界，或把一次累加移到分支判断另一侧，再预测。自己试循环时留执行限制，便于停掉意外不终止条件；本站本身不执行访问者代码。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Review where your trace first diverged",
+            "zh": "复习轨迹最先偏离的位置"
+          },
+          "paragraphs": [
+            {
+              "en": "When a count is lower than you expected, find the first row at which your predicted trace differs from the worked explanation. Was the upper boundary excluded, the increment still executed after continue, or a break reached before the addition? Naming that first divergence gives you a manageable new exercise. Six correct choices cannot demonstrate debugging a long-running service, and a missed boundary in one supplied example does not establish a permanent programming weakness.",
+              "zh": "正确数低于预期时，找预测轨迹与解析最先不同的一行：上界被排除、continue后仍更新，还是累加前先break？说清首个偏离点，就能选可处理的新练习。六次正确选择不证明能调长运行服务，一题边界失误也不确立永久编程弱点。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Counts stay tied to this fixed edition",
+            "zh": "正确数绑定当前固定版"
+          },
+          "paragraphs": [
+            {
+              "en": "Every selected answer, correct option and explanation is available after all 24 valid choices, together with all four complete guides at every count. This six-task section has no calibrated beginner-to-expert bands, hiring threshold, speed bonus or certificate. The Java 25 snippets were compiler and runtime checked, but that does not validate a broad developer-ability scale. Repeating the same edition after studying its answers can reflect recognition and memory; use a fresh trace to explore whether the distinction transfers.",
+              "zh": "完成24个有效选择后，任何正确数都能看每题所选、答案、解析及四份全文。本节六题没有经校准的初级到专家档、招聘线、速度加分或证书。Java 25片段经过编译和运行核验，不等于验证广泛开发能力量表。学过答案重做同版可反映识别和记忆，宜换新轨迹看区别能否迁移。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "methods-and-objects",
+      "directionIds": [
+        "methods-and-objects"
+      ],
+      "title": {
+        "en": "Methods and objects",
+        "zh": "方法与对象"
+      },
+      "headline": {
+        "en": "Distinguish a copied value from an object reached through it.",
+        "zh": "区分复制的值与经它访问的对象。"
+      },
+      "summary": {
+        "en": "Review primitive and reference arguments, overloads, overriding, constructor fields and lambda capture restrictions.",
+        "zh": "复习基本值与引用实参、重载、覆盖、构造字段及lambda捕获限制。"
+      },
+      "seo": {
+        "title": {
+          "en": "Methods and objects: Java practice guide",
+          "zh": "方法与对象：Java练习复习指南"
+        },
+        "description": {
+          "en": "Review primitive and reference arguments, overloads, overriding, constructor fields and lambda capture restrictions.",
+          "zh": "复习基本值与引用实参、重载、覆盖、构造字段及lambda捕获限制。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching keys among these six selected Java 25 tasks. It is not a developer level, percentile, hiring cutoff or qualification. Every explanation and this full revision guide remain available at every count.",
+        "zh": "正确数记录本版六道选定Java 25任务中匹配答案的次数，不是开发者等级、百分位、招聘线或资格。任何正确数都能读每题解析和本篇完整复习指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six decisions across calls and object state",
+            "zh": "调用与对象状态的六项选择"
+          },
+          "paragraphs": [
+            {
+              "en": "This section moves from small expressions to relationships between a caller, a parameter and an object. It asks what changing a primitive parameter can affect, what an array reference lets a method update, which overload is selected, which overridden method runs, where a constructor stores its argument and whether a lambda capture compiles. The questions use complete independent Java 25 programs. No question asks you to infer a class definition that has been omitted.",
+              "zh": "本节从表达式进入调用方、形参、对象的关系，问改变基本形参影响哪里、数组引用能更新什么、选哪个重载、运行哪个覆盖方法、构造器把实参存哪里、lambda捕获能否编译。题目是完整独立Java 25程序，不要求猜省略的类定义。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Follow a copied reference to one mutable array",
+            "zh": "跟随复制的引用找到同一可变数组"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a new unscored helper setFirst(int[] a) that assigns a[0]=12. A caller creates int[] values={5}, invokes setFirst(values) and prints values[0]. The method receives a copy of a reference to the same array, so the printed value becomes 12. If the helper instead assigns a=new int[]{12}, it rebinds only its parameter and the caller’s original array still contains five. Both examples use pass-by-value; what differs is mutation versus reassignment.",
+              "zh": "新不计分助手setFirst(int[] a)执行a[0]=12。调用方建int[] values={5}，调用后打印values[0]，会得12，因为形参复制的是指向同一数组的引用。若助手改为a=new int[]{12}，只重绑形参，调用方原数组仍含5。两者都按值传递，区别在修改对象与重赋变量。"
+            }
+          ]
+        },
+        {
+          "id": "selection",
+          "title": {
+            "en": "Separate overload selection from overriding",
+            "zh": "把重载选择与覆盖分开"
+          },
+          "paragraphs": [
+            {
+              "en": "An overloaded call is resolved using the applicable signatures and compile-time types of the expressions supplied. In the task, an Object-typed argument selects the Object overload even when it refers to a String. An overridden instance method with an already selected signature is a different question: the child implementation can run through a parent-typed reference. Trace the stage being asked about before applying a rule; the simple witnesses do not cover every interaction of generics, varargs and overload resolution.",
+              "zh": "重载调用按适用签名与表达式编译期类型解析。题中Object声明的实参即使指向String，也选Object重载。签名已定的实例覆盖是另一问题，父类型引用可运行子类实现。先分清所问阶段，再套规则；简单例不覆盖泛型、可变参数和重载的所有交互。"
+            }
+          ]
+        },
+        {
+          "id": "fields",
+          "title": {
+            "en": "Name the variable an assignment changes",
+            "zh": "指出赋值究竟改变哪个变量"
+          },
+          "paragraphs": [
+            {
+              "en": "A constructor parameter can share a field’s name. The expression this.n identifies the new object’s field; an unqualified n can name the parameter in that scope. Read the left-hand side and right-hand side separately before predicting stored state. Likewise, a captured local variable is not the same as a field reached through an object. The supplied lambda task reassigns an initially assigned local, so that local is not effectively final and the program is rejected before execution.",
+              "zh": "构造形参可与字段同名，this.n指出新对象字段，当前作用域里未限定n可指形参。预测储存状态前分开读赋值左右两侧。同理，被捕获局部变量不同于经对象访问的字段。题中lambda局部在初值后重赋，不是有效final，程序在执行前就被拒绝。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Draw variables and objects as separate boxes",
+            "zh": "把变量与对象画成不同方框"
+          },
+          "paragraphs": [
+            {
+              "en": "For a disposable exercise, draw one box for each local variable and another for each created object or array. Write reference values as arrows, then mark whether a statement changes an arrow or changes an element in the target object. Add a method parameter box at each call. Predict the output before compiling with the specified Java edition. This drawing is an aid to following the selected program, not a claim about physical memory addresses or every optimisation a virtual machine can perform.",
+              "zh": "可丢弃练习中，每个局部变量一框，每个新对象或数组另框，用箭头表示引用，标出语句是改箭头还是改目标元素，调用时再加形参框。按指定Java版先预测再编译。画图帮助跟程序，不声称描述物理地址或虚拟机所有优化。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Find the mistaken relationship behind the count",
+            "zh": "从正确数找到弄混的关系"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare your option with the worked explanation and ask which relationship you treated differently. Did you assume that changing a copied int changes the caller, that copying a reference copies its whole object, or that runtime object type selects every overload? A wrong choice names a review opportunity in that supplied example. A correct choice does not show that you could design a maintainable API, review an unfamiliar service or communicate a design decision to a team.",
+              "zh": "对照所选与解析，问哪种关系读错了：是否认为改int副本就改调用方、复制引用就复制整个对象，或运行对象类型决定所有重载？错题指出该例的复习机会。选对不证明能设计可维护API、审陌生服务或向团队解释设计决定。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep compile checks separate from ability claims",
+            "zh": "编译核查与能力主张分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The original bank contains both successful programs and explicitly expected compilation failures, all checked with Temurin JDK 25.0.2. A compile error is one possible keyed outcome, not a broken practice page. This knowledge set has no calibrated developer levels, Oracle certification or hiring recommendation. Full explanations and all four public guides are free at every count. English code stays identical across interfaces; translation of the surrounding instructions does not establish psychometric equivalence between languages.",
+              "zh": "原创题组含成功程序和明确预期的编译失败，均用Temurin JDK 25.0.2核过。编译错误是可能的标准结果，不是练习页坏了。题组没有经校准开发者等级、Oracle认证或招聘推荐；任何正确数都免费提供全解析和四份公开全文。两语代码相同，说明翻译不建立心理测量等价。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collections-and-failures",
+      "directionIds": [
+        "collections-and-failures"
+      ],
+      "title": {
+        "en": "Collections and failures",
+        "zh": "集合与失败处理"
+      },
+      "headline": {
+        "en": "Check the collection contract before tracing the handler.",
+        "zh": "先核集合契约，再追踪处理器。"
+      },
+      "summary": {
+        "en": "Review indexed removal, set uniqueness, map replacement, unmodifiable lists, parsing exceptions and catch order.",
+        "zh": "复习按下标删除、集合唯一性、映射替换、不可修改列表、解析异常与catch顺序。"
+      },
+      "seo": {
+        "title": {
+          "en": "Collections and failures: Java practice guide",
+          "zh": "集合与失败处理：Java练习复习指南"
+        },
+        "description": {
+          "en": "Review indexed removal, set uniqueness, map replacement, unmodifiable lists, parsing exceptions and catch order.",
+          "zh": "复习按下标删除、集合唯一性、映射替换、不可修改列表、解析异常与catch顺序。"
+        }
+      },
+      "scoreReading": {
+        "en": "The count records matching keys among these six selected Java 25 tasks. It is not a developer level, percentile, hiring cutoff or qualification. Every explanation and this full revision guide remain available at every count.",
+        "zh": "正确数记录本版六道选定Java 25任务中匹配答案的次数，不是开发者等级、百分位、招聘线或资格。任何正确数都能读每题解析和本篇完整复习指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six explicit collection and failure outcomes",
+            "zh": "六项明确的集合与失败结果"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks use a mutable ArrayList, a set’s size, a map’s single-key value, a factory-created unmodifiable list and two small exception examples. They distinguish an operation that succeeds, an operation that throws and is handled, and a program that cannot compile. Only deterministic output is requested. The set is not printed in an assumed order, and the map task does not depend on its iteration order or an implementation’s internal layout.",
+              "zh": "题目用可变ArrayList、集合大小、映射单键值、工厂不可修改列表及两个小异常例，区分成功操作、抛异常后被处理、无法编译。只问确定输出，不按假定顺序打印集合，映射题也不依赖迭代顺序或内部布局。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Change a map value without adding another key",
+            "zh": "改映射值，不增加第二个相同键"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh unscored example, place gate→3 in a Map<String,Integer>, then put gate→8. Looking up gate gives eight, and the map has one mapping. A map associates one current value with an equal key; it does not accumulate every past value unless you deliberately store a collection as that value. This is why a size result and a returned value answer different questions. Write both when tracing a replacement, rather than inferring size from how many put calls you saw.",
+              "zh": "新不计分例：Map<String,Integer>先放gate→3，再放gate→8，查gate得8，映射数为1。相等键关联一个当前值，不自动积累所有过去值，除非刻意把集合作为值。因此大小与返回值回答不同问题，追踪替换时应分别写，不能从put次数推大小。"
+            }
+          ]
+        },
+        {
+          "id": "contracts",
+          "title": {
+            "en": "Read the declared operation and collection type",
+            "zh": "读清操作与集合类型"
+          },
+          "paragraphs": [
+            {
+              "en": "An int argument to remove selects the indexed List operation in this bank, and indexes start at zero. A Set rejects duplicate equal elements, so repeated equal strings do not each add to its size. List.of creates an unmodifiable list, while copying those elements into a new ArrayList creates a different structure that can be changed. None of those statements promises deep immutability of every contained object or a universal policy about null for every collection implementation.",
+              "zh": "本题remove的int实参选List按下标操作，下标从零开始。Set不保留相等重复元素，重复字符串不会各占大小。List.of创建不可修改列表；复制元素到新ArrayList得到另一可变结构。这些都不保证所含对象深度不可变，也不概括所有集合实现的null规则。"
+            }
+          ]
+        },
+        {
+          "id": "handlers",
+          "title": {
+            "en": "Distinguish compile-time rejection from a caught failure",
+            "zh": "区分编译拒绝与被捕获失败"
+          },
+          "paragraphs": [
+            {
+              "en": "In the parsing example, Integer.parseInt receives text that is not a decimal integer. It throws before a numeric result reaches print; a matching catch prints the chosen label, and the normally reached finally adds its suffix. The broad-catch-first example is rejected because a later subtype catch is already covered. It never reaches runtime handler selection. Read the stage and the exact exception class before selecting an outcome, rather than treating every failure as an uncaught crash.",
+              "zh": "解析例的Integer.parseInt收到非十进制整数文本，在数值到达print前抛异常，匹配catch输出标签，随后正常执行的finally追加后缀。先宽泛catch的例因后面子类catch已被覆盖而编译拒绝，未进入运行期选处理器。须先分阶段及异常类，不把每种失败都当未捕获崩溃。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Predict the size, value and failure separately",
+            "zh": "分别预测大小、值和失败"
+          },
+          "paragraphs": [
+            {
+              "en": "Make a disposable Java 25 program with invented short labels. First predict a list’s contents after one indexed removal, then a set’s size after a duplicate add, then a map’s value after replacement. In a separate small program, catch one expected parsing exception and print a marker from finally. Keep these examples separate so one failure does not hide all later outputs. The site requires no file upload and does not execute visitor code; this routine is optional practice in your own environment.",
+              "zh": "用虚构短标签写可丢弃Java 25程序，先预测列表下标删除后的内容，再预测重复add后集合大小，再预测替换后映射值。另写小程序捕获预期解析异常，并让finally打印标记。分开例子，避免一次失败掩盖后面所有输出。本站不需上传、不执行访问者代码；这是可选本机练习。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Use an explanation to locate the violated contract",
+            "zh": "用解析定位被误读的契约"
+          },
+          "paragraphs": [
+            {
+              "en": "When an answer differs, name the exact assumption: index versus element value, uniqueness versus count of add attempts, replacement versus accumulation, modifiable versus unmodifiable structure, or compilation versus runtime handling. The six-task count can guide which explanation to revisit, but it does not audit exception safety in a production system. A perfect result does not demonstrate concurrent collection design, resource management or the ability to recover user data after a real failure.",
+              "zh": "答案不同时，说清具体假设：下标还是元素值、唯一性还是add次数、替换还是积累、结构可改还是不可改、编译还是运行处理。六题数可提示重读哪条解析，不审生产系统的异常安全。全对不证明能设计并发集合、管理资源或在真实失败后恢复用户数据。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A fixed practice bank remains a limited sample",
+            "zh": "固定练习题组仍是有限样本"
+          },
+          "paragraphs": [
+            {
+              "en": "All selected answers, keys and complete explanations appear after the 24 valid choices, with every revision guide available regardless of correct count. There are no expert bands, job matches, time rewards or certification claims. The snippets are independently authored and compiler checked against the stated Java 25 environment, rather than copied from a proprietary employer screen. Repeating the same bank after studying the answers can reflect memory. Use a new miniature program when exploring whether you can apply the distinction elsewhere.",
+              "zh": "24题有效选择后显示所选、答案及完整解析，全部指南不受正确数限制。没有专家分档、岗位匹配、时间奖励或认证。片段独立编写，按所述Java 25环境核编译，不复制专有招聘题。学过答案重做同题可能反映记忆，宜换微型程序看能否在别处使用该区别。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_java25_code_practice",
+    "formCode": "fermatmind_java25_original_24_v1",
+    "itemBankVersion": "fermatmind_java25_original_24_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_java25_four_full_revision_guides_v1",
+    "itemBankSha256": "812d6c5ee528e6664b1f6371604d24b1232cd45d57798f7af85117498f4ba1e6",
+    "resultContentSha256": "2ae20096925d1aedceae5d1bacf2b1b165b15d2b8d4566377b6c7cbf548bfe72",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Java 25 expressions",
+        "zh": "Java 25表达式规则"
+      },
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 statements",
+        "zh": "Java 25语句规则"
+      },
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 conversions",
+        "zh": "Java 25转换规则"
+      },
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 exceptions",
+        "zh": "Java 25异常规则"
+      },
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-11.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 List API",
+        "zh": "Java 25 List接口"
+      },
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 Set API",
+        "zh": "Java 25 Set接口"
+      },
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 HashMap API",
+        "zh": "Java 25 HashMap接口"
+      },
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html"
+    },
+    {
+      "title": {
+        "en": "Java 25 Integer parsing",
+        "zh": "Java 25 Integer解析"
+      },
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "One correct item for each matching key",
+        "zh": "每个匹配答案记一道正确"
+      },
+      "paragraphs": [
+        {
+          "en": "Each matching key adds one and each other valid choice adds zero. Four six-item groups total a count out of 24. No weighting, time bonus, partial credit or reverse score is used. All 24 valid choices are needed before any personal correct count appears; missing responses are not silently completed.",
+          "zh": "每个匹配答案加1题，其他有效选择加0题，四组六题合成正确数/24。无加权、时间奖励、部分分或反向计分。24题全部有效选择前不显示个人正确数，不会默补漏答。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Every code snippet and explanation stays available",
+        "zh": "保留每段代码与完整解析"
+      },
+      "paragraphs": [
+        {
+          "en": "The complete report shows each original program, your selected outcome, the key and an explanation. At zero, partial and perfect counts, all four full revision guides remain readable. A count such as 4/6 means four matching keys on those six tasks. It is not a percentile, a Java developer level, an employer pass threshold or an Oracle qualification.",
+          "zh": "完整报告保留每段原创程序、所选结果、答案与解析。零分、部分答对、全对都可读四份完整复习指南。4/6只是该六题四个匹配答案，不是百分位、Java开发者等级、雇主通过线或Oracle资格。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "Compiler checks do not validate a broad ability scale",
+        "zh": "编译核查不验证广泛能力量表"
+      },
+      "paragraphs": [
+        {
+          "en": "This fixed bank was checked against the named JDK environment, not calibrated on a representative population. It does not assess building a project, architecture, teamwork, concurrent-system design or live debugging. Retake repeats the same 24 tasks, so a better count after studying keys can reflect memory. Around ten minutes is an editorial estimate, not a measured timing benchmark.",
+          "zh": "固定题组按指明JDK环境核验，未在人群代表样本上校准，不评项目搭建、架构、团队协作、并发系统设计或现场调试。重测还是同一24题，学过答案后提高可能来自记忆。约十分钟是编辑估计，不是实测计时基准。"
+        }
+      ]
+    },
+    {
+      "id": "practice-original",
+      "title": {
+        "en": "Original Java 25 code and selected primary rules",
+        "zh": "原创Java 25代码与选定原始规则"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the programs, alternatives, explanations and guides, rather than reproducing a proprietary screening bank. Selected Oracle Java specifications and APIs support the rules. Java is an Oracle product name; this independent practice has no Oracle endorsement or certification. The site displays code as text and scores choices in your browser; it does not execute code supplied by visitors.",
+          "zh": "费马编写程序、选项、解析及指南，不复制专有筛选题库。选定Oracle Java规范与接口支持规则。Java是Oracle产品名称，本独立练习无Oracle背书或认证。网站把代码作为文本显示，在浏览器核对选择，不执行访问者提交的代码。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Java version does this test use?",
+        "zh": "本测试使用哪个Java版本？"
+      },
+      "answer": {
+        "en": "This edition specifies Java 25 without preview features. All 24 original snippets were checked with Temurin JDK 25.0.2: 22 printed the keyed text, and two failed compilation as expected. It does not claim to cover every Java API or every earlier edition.",
+        "zh": "本版指定Java 25，不启预览特性。24段原创片段用Temurin JDK 25.0.2核过，22段输出与答案一致，两段按预期编译失败。不声称覆盖全部接口或所有旧版本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I install Java or write code here?",
+        "zh": "需要安装Java或在这里写代码吗？"
+      },
+      "answer": {
+        "en": "No. Read the complete supplied program and choose one outcome. The website does not compile code from visitors, accept file uploads for this practice or inspect a private repository. Code text stays the same in both language interfaces.",
+        "zh": "不用。阅读给定完整程序，每题选择一种结果。网站不编译访问者代码、不为本练习接收文件或检查私有仓库。两语界面代码文本相同。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does my count establish a developer level or qualification?",
+        "zh": "正确数能确定开发者等级或资格吗？"
+      },
+      "answer": {
+        "en": "No. It counts matching keys in one original bank. There are no calibrated beginner-to-expert bands, hiring cutoffs, population norms, job matches or Oracle qualifications. Recognising a supplied program differs from building and maintaining software.",
+        "zh": "不能。它只数一个原创题组里匹配答案的次数，没有经校准的初级到专家档、招聘线、人群常模、岗位匹配或Oracle资格。识别给定程序不同于构建维护软件。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all answers and all four full guides free?",
+        "zh": "所有答案与四份完整指南都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. After all 24 valid choices, see every program, selected answer, key and explanation. Four complete public guides are also available before you begin. No account, email, payment or certificate purchase is required.",
+        "zh": "是。24题有效选择后可看每段程序、所选、答案和解析，四份完整公开指南开测前也可读。无需账户、邮箱、付款或购买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is there a timer, and does retake generate a new bank?",
+        "zh": "有计时吗，重测生成新题组吗？"
+      },
+      "answer": {
+        "en": "There is no timer or speed bonus. Around ten minutes is an editorial estimate. Retake repeats the same fixed 24 tasks, not calibrated parallel forms. After reviewing an answer, practise a fresh miniature program to explore the underlying distinction.",
+        "zh": "无计时或速度奖励，约十分钟是编辑估计。重测重复固定24题，不生成经校准平行题本。看过答案后，可另写新微型程序练背后的区别。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do drafts and sharing work?",
+        "zh": "草稿与分享如何处理？"
+      },
+      "answer": {
+        "en": "Choices stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Without a draft, refresh loses progress. Sharing copies a public test link, without your answers, correct counts or private identifiers.",
+        "zh": "选择留在浏览器，可选标签页草稿24小时失效，完成、退出并清除或重测时删除。未存草稿刷新会丢进度。分享只复制公开测试链接，不含答案、正确数或私有标识。"
+      }
+    }
+  ]
+}

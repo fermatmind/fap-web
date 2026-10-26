@@ -1,0 +1,1402 @@
+{
+  "id": "T136",
+  "version": "1.0.0",
+  "form": "fermatmind_java25_original_24_v1",
+  "method": "24independentlyauthoredJava25codereadingtasks4x6;identicalEnglishcodebothinterfaces;bilingualprompts/explanations;noservercodeexecutionforusers,noraceorVMcachedependentanswer,norm/hiringtier/certification. All24compiler/runtime witnesses bound to T136-javac-verification.json;22stdout+2expectedcompile-errors,Temurin25.0.2,no preview.",
+  "questions": [
+    {
+      "id": "JAVA_01",
+      "prompt": {
+        "en": "Integer division and remainder: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int a = 17, b = 5; System.out.print(a / b + \":\" + a % b);\n  }\n}",
+        "zh": "整数除法与余数：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int a = 17, b = 5; System.out.print(a / b + \":\" + a % b);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "3:2",
+            "zh": "3:2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "3.4:2",
+            "zh": "3.4:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "2:3",
+            "zh": "2:3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Both operands are int. Integer division produces 3 and the remainder is 2. The colon starts string concatenation for the output; it does not change the arithmetic already performed. This task does not use floating-point division or division by zero.",
+        "zh": "两个操作数都是int，整数除法得3，余数为2。冒号用于拼接输出，不改变之前的算术。本题没有浮点除法或除零。"
+      }
+    },
+    {
+      "id": "JAVA_02",
+      "prompt": {
+        "en": "Post-increment and later use: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 4; System.out.print(n++ + \":\" + n);\n  }\n}",
+        "zh": "后自增与后续读取：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 4; System.out.print(n++ + \":\" + n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "5:5",
+            "zh": "5:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "4:5",
+            "zh": "4:5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "4:4",
+            "zh": "4:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The postfix n++ expression yields the old value 4 and then stores 5 in n. The later operand reads 5. Evaluation proceeds from the left operand to the right, so the printed text is 4:5. Prefix ++n would be a different expression.",
+        "zh": "后缀n++表达式给出旧值4，再将5存入n，后面的读取取得5。操作数从左向右求值，因此输出4:5；前缀++n是不同表达式。"
+      }
+    },
+    {
+      "id": "JAVA_03",
+      "prompt": {
+        "en": "A string begins an addition chain: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String s = \"R\" + 2 + 3; System.out.print(s);\n  }\n}",
+        "zh": "加法链以字符串开头：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String s = \"R\" + 2 + 3; System.out.print(s);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "R5",
+            "zh": "R5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "5R",
+            "zh": "5R"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "R23",
+            "zh": "R23"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The + operators associate from the left. Once \"R\" and 2 are concatenated, the intermediate value is the string R2; adding 3 appends its text, producing R23. Parenthesising 2+3 would instead calculate a number before concatenation.",
+        "zh": "加号从左结合，\"R\"与2先拼为字符串R2，再加3是追加文本，得到R23。若给2+3加括号，才先算数值再拼接。"
+      }
+    },
+    {
+      "id": "JAVA_04",
+      "prompt": {
+        "en": "An explicit floating-point-to-int cast: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    double amount = 7.9; int whole = (int) amount; System.out.print(whole);\n  }\n}",
+        "zh": "显式浮点转int：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    double amount = 7.9; int whole = (int) amount; System.out.print(whole);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "7.9",
+            "zh": "7.9"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "For this finite in-range positive value, conversion to int discards the fractional part toward zero, giving 7. It is not rounding to the nearest integer. The task explicitly includes a cast; assigning an arbitrary double directly to int without one is a different compile-time question.",
+        "zh": "对这个有限且在范围内的正数，转int向零截去小数部分，得到7，不是四舍五入。本题明确含强制转换；不加转换直接把任意double赋给int是另一种编译问题。"
+      }
+    },
+    {
+      "id": "JAVA_05",
+      "prompt": {
+        "en": "Two separately created strings: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String p = new String(\"cedar\"); String q = new String(\"cedar\"); System.out.print((p == q) + \":\" + p.equals(q));\n  }\n}",
+        "zh": "分别新建的两个字符串：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String p = new String(\"cedar\"); String q = new String(\"cedar\"); System.out.print((p == q) + \":\" + p.equals(q));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:true",
+            "zh": "false:true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "true:true",
+            "zh": "true:true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:false",
+            "zh": "false:false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Each new expression creates a distinct String object. Reference equality is false, while String.equals compares the character sequence and returns true. The explicit new expressions avoid relying on literal interning or a virtual-machine cache. Neither reference is null.",
+        "zh": "每个new表达式创建不同String对象，所以引用相等为false；String.equals比较字符序列，相同则为true。明确new避免依赖字面量驻留或虚拟机缓存，两引用也都非null。"
+      }
+    },
+    {
+      "id": "JAVA_06",
+      "prompt": {
+        "en": "Short-circuit AND with a side effect: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int x = 3; boolean ok = (x > 5) && (++x > 3); System.out.print(ok + \":\" + x);\n  }\n}",
+        "zh": "带副作用的短路与：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int x = 3; boolean ok = (x > 5) && (++x > 3); System.out.print(ok + \":\" + x);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:4",
+            "zh": "false:4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "false:3",
+            "zh": "false:3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "true:4",
+            "zh": "true:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-expressions",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The left operand x>5 is false. Conditional AND does not evaluate its right operand in that case, so ++x never runs and x remains 3. Replacing && with the non-short-circuit boolean & would change the evaluation behaviour.",
+        "zh": "左侧x>5为false，条件与此时不执行右侧，因此++x不运行，x仍是3。换成不短路的布尔&会改变求值行为。"
+      }
+    },
+    {
+      "id": "JAVA_07",
+      "prompt": {
+        "en": "A bounded loop adds even values: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 4; i++) { if (i % 2 == 0) total += i; } System.out.print(total);\n  }\n}",
+        "zh": "有边界的循环累加偶数：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 4; i++) { if (i % 2 == 0) total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The loop visits 1, 2, 3 and 4. Only 2 and 4 satisfy the remainder check, so total is 2+4=6. The <= boundary includes 4. Listing the visited values separates loop bounds from the condition selecting values to add.",
+        "zh": "循环访问1、2、3、4，只有2和4满足余数条件，总和为6。<=边界包含4，列出访问值能分清循环边界与筛选条件。"
+      }
+    },
+    {
+      "id": "JAVA_08",
+      "prompt": {
+        "en": "A decreasing while loop: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 3, total = 0; while (n > 0) { total += n; n--; } System.out.print(total + \":\" + n);\n  }\n}",
+        "zh": "递减while循环：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 3, total = 0; while (n > 0) { total += n; n--; } System.out.print(total + \":\" + n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6:1",
+            "zh": "6:1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "3:0",
+            "zh": "3:0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6:0",
+            "zh": "6:0"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The bodies add 3, then 2, then 1. After the third decrement n is zero, so the next condition is false. The total is 6 and the final n is 0; the condition is checked before each body execution.",
+        "zh": "三次循环体依次加3、2、1，第三次递减后n为0，下次条件为假。总和6、最终n为0；条件在每次循环体之前判断。"
+      }
+    },
+    {
+      "id": "JAVA_09",
+      "prompt": {
+        "en": "Continue skips one addition: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 0; i < 5; i++) { if (i == 2) continue; total += i; } System.out.print(total);\n  }\n}",
+        "zh": "continue跳过一次累加：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 0; i < 5; i++) { if (i == 2) continue; total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The loop visits zero through four, but continue skips the rest of the body when i is 2. The added values are 0, 1, 3 and 4, totaling 8. The for-loop update still occurs after continue; it does not stop the entire loop.",
+        "zh": "循环访问0到4，i为2时continue跳过剩余循环体，累加0、1、3、4得8。continue后for的更新仍发生，不会终止整个循环。"
+      }
+    },
+    {
+      "id": "JAVA_10",
+      "prompt": {
+        "en": "Break ends a loop before an addition: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 5; i++) { if (i > 2) break; total += i; } System.out.print(total);\n  }\n}",
+        "zh": "break在累加前结束循环：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 5; i++) { if (i > 2) break; total += i; } System.out.print(total);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "For i=1 and i=2 the addition runs. At i=3, break executes before total+=i and exits the loop. The result is 1+2=3. Moving the addition above the break check would be a different program.",
+        "zh": "i为1、2时执行累加；i为3时，break先于total+=i执行并退出，结果为1+2=3。把累加移到break判断上方会成为不同程序。"
+      }
+    },
+    {
+      "id": "JAVA_11",
+      "prompt": {
+        "en": "A switch expression with grouped labels: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int code = 2; String value = switch (code) { case 1 -> \"A\"; case 2, 3 -> \"B\"; default -> \"Z\"; }; System.out.print(value);\n  }\n}",
+        "zh": "带分组标签的switch表达式：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int code = 2; String value = switch (code) { case 1 -> \"A\"; case 2, 3 -> \"B\"; default -> \"Z\"; }; System.out.print(value);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "A",
+            "zh": "A"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Z",
+            "zh": "Z"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "B",
+            "zh": "B"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The value 2 matches the case 2,3 arm, whose expression yields B. Arrow arms do not fall through to the next arm. The switch expression has a default, so this ordinary int selection is covered for other values too.",
+        "zh": "值2匹配case 2,3分支，其表达式给出B。箭头分支不贯穿到下一分支；default也覆盖其他普通int取值。"
+      }
+    },
+    {
+      "id": "JAVA_12",
+      "prompt": {
+        "en": "An array update uses its zero-based index: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int[] values = {3, 6, 9}; for (int i = 0; i < values.length; i++) values[i] += i; System.out.print(Arrays.toString(values));\n  }\n}",
+        "zh": "数组更新使用从零开始的下标：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int[] values = {3, 6, 9}; for (int i = 0; i < values.length; i++) values[i] += i; System.out.print(Arrays.toString(values));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[4, 8, 12]",
+            "zh": "[4, 8, 12]"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[3, 6, 9]",
+            "zh": "[3, 6, 9]"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "branches-and-loops",
+          "label": {
+            "en": "[3, 7, 11]",
+            "zh": "[3, 7, 11]"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Indexes are 0, 1 and 2. Adding each index changes the elements to 3+0, 6+1 and 9+2. The upper bound is exclusive, avoiding index values.length. Arrays.toString formats those resulting values as [3, 7, 11].",
+        "zh": "下标为0、1、2，各加对应下标变成3+0、6+1、9+2。上界不包含length，避免越界；Arrays.toString将结果格式化为[3, 7, 11]。"
+      }
+    },
+    {
+      "id": "JAVA_13",
+      "prompt": {
+        "en": "A primitive argument is changed inside a method: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static void bump(int n) { n += 4; }\n  public static void main(String[] args) {\n    int n = 6; bump(n); System.out.print(n);\n  }\n}",
+        "zh": "方法内部改变基本类型形参：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static void bump(int n) { n += 4; }\n  public static void main(String[] args) {\n    int n = 6; bump(n); System.out.print(n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The method receives a copy of the int value. Changing its parameter does not reassign the caller’s n, so main still prints 6. Java passes values; this example contains no returned value assigned back to n.",
+        "zh": "方法取得int值的副本，改变形参不重新赋值调用方的n，因此main仍打印6。Java按值传递，本例没有把返回值赋回n。"
+      }
+    },
+    {
+      "id": "JAVA_14",
+      "prompt": {
+        "en": "A method changes an element through an array reference: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static void bump(int[] values) { values[0] += 4; }\n  public static void main(String[] args) {\n    int[] values = {6}; bump(values); System.out.print(values[0]);\n  }\n}",
+        "zh": "方法通过数组引用改变元素：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static void bump(int[] values) { values[0] += 4; }\n  public static void main(String[] args) {\n    int[] values = {6}; bump(values); System.out.print(values[0]);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The copied argument value is a reference to the same array. Updating its first element changes that shared array to contain 10. This remains pass-by-value: the reference value was copied, and the method did not reassign the caller’s variable.",
+        "zh": "被复制的实参值是指向同一个数组的引用，改首元素会让该数组含10。它仍是按值传递：复制引用值，方法未重赋调用方变量。"
+      }
+    },
+    {
+      "id": "JAVA_15",
+      "prompt": {
+        "en": "An overloaded call receives an Object-typed variable: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static String pick(Object value) { return \"O\"; } static String pick(String value) { return \"S\"; }\n  public static void main(String[] args) {\n    Object value = \"hi\"; System.out.print(pick(value));\n  }\n}",
+        "zh": "重载调用接收声明为Object的变量：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static String pick(Object value) { return \"O\"; } static String pick(String value) { return \"S\"; }\n  public static void main(String[] args) {\n    Object value = \"hi\"; System.out.print(pick(value));\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "S",
+            "zh": "S"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "hi",
+            "zh": "hi"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "O",
+            "zh": "O"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Overload selection uses the declared argument type Object for this call. The Object parameter is applicable; the String overload is not selected merely because the runtime object is a String. This differs from overriding an instance method with the same signature.",
+        "zh": "此调用按实参声明类型Object选择重载，Object形参适用，不因运行对象是String就选String重载。这不同于同签名实例方法的覆盖。"
+      }
+    },
+    {
+      "id": "JAVA_16",
+      "prompt": {
+        "en": "An overridden instance method is called through a parent reference: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static class Parent { String name() { return \"parent\"; } } static class Child extends Parent { @Override String name() { return \"child\"; } }\n  public static void main(String[] args) {\n    Parent value = new Child(); System.out.print(value.name());\n  }\n}",
+        "zh": "通过父类型引用调用覆盖的实例方法：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static class Parent { String name() { return \"parent\"; } } static class Child extends Parent { @Override String name() { return \"child\"; } }\n  public static void main(String[] args) {\n    Parent value = new Child(); System.out.print(value.name());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "parent",
+            "zh": "parent"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Parent",
+            "zh": "Parent"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "child",
+            "zh": "child"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The instance is a Child and name is overridden with the same signature. Dynamic method dispatch invokes Child.name and returns child, although the reference is declared Parent. There are no static methods or overloaded parameters in this example.",
+        "zh": "对象是Child，name按相同签名覆盖，动态分派调用Child.name并返回child，即使引用声明为Parent。本例没有静态方法或重载形参。"
+      }
+    },
+    {
+      "id": "JAVA_17",
+      "prompt": {
+        "en": "A constructor parameter shadows a field: what is printed?\n\nimport java.util.*;\npublic class Main {\n  static class Box { int n; Box(int n) { this.n = n; } }\n  public static void main(String[] args) {\n    Box value = new Box(7); System.out.print(value.n);\n  }\n}",
+        "zh": "构造形参与字段同名：打印什么？\n\nimport java.util.*;\npublic class Main {\n  static class Box { int n; Box(int n) { this.n = n; } }\n  public static void main(String[] args) {\n    Box value = new Box(7); System.out.print(value.n);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "In the constructor, this.n names the new object’s field and the unqualified n names its parameter. The assignment stores 7 in the field. Omitting this in an assignment n=n would change the program and leave the field at its default.",
+        "zh": "构造器里this.n指新对象字段，未限定n指形参，赋值将7存字段。若改成n=n，程序就不同，字段会保留默认值。"
+      }
+    },
+    {
+      "id": "JAVA_18",
+      "prompt": {
+        "en": "A lambda captures a local that is reassigned: choose the outcome.\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 2; Runnable task = () -> System.out.print(n); n = 3; task.run();\n  }\n}",
+        "zh": "lambda捕获之后又赋值的局部变量：选择结果。\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 2; Runnable task = () -> System.out.print(n); n = 3; task.run();\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "methods-and-objects",
+          "label": {
+            "en": "It compiles and prints nothing.",
+            "zh": "编译通过但不输出。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The lambda uses local n, but n is reassigned after its initial value. It is not final or effectively final, so compilation fails. This is a compile-time restriction, not a choice about whether the task would print the old or new value.",
+        "zh": "lambda使用局部n，但n在初始赋值后又被重赋，不是final或有效final，因此编译失败。这是编译期限制，不是在旧值、新值输出之间选一种。"
+      }
+    },
+    {
+      "id": "JAVA_19",
+      "prompt": {
+        "en": "An ArrayList removes by integer index: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = new ArrayList<>(List.of(\"a\", \"b\", \"c\")); values.remove(1); System.out.print(values);\n  }\n}",
+        "zh": "ArrayList按整数下标删除：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = new ArrayList<>(List.of(\"a\", \"b\", \"c\")); values.remove(1); System.out.print(values);\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[b, c]",
+            "zh": "[b, c]"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[a, b]",
+            "zh": "[a, b]"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[a, c]",
+            "zh": "[a, c]"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The int argument selects remove(int index), and index 1 is the second element b. The mutable ArrayList retains a and c in their original order. This call is not remove(Object) and does not remove an element whose textual value is 1.",
+        "zh": "int实参选择remove(int index)，下标1是第二元素b。可变ArrayList保留a、c原顺序。本调用不是remove(Object)，也不是删除文本值为1的元素。"
+      }
+    },
+    {
+      "id": "JAVA_20",
+      "prompt": {
+        "en": "A set receives one repeated string: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Set<String> values = new HashSet<>(); values.add(\"blue\"); values.add(\"blue\"); values.add(\"green\"); System.out.print(values.size());\n  }\n}",
+        "zh": "集合收到重复字符串：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Set<String> values = new HashSet<>(); values.add(\"blue\"); values.add(\"blue\"); values.add(\"green\"); System.out.print(values.size());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A Set does not retain duplicate equal elements. The two equal blue strings contribute one element and green contributes another, giving size 2. Only size is printed, so this answer does not depend on HashSet iteration order.",
+        "zh": "Set不保留相等的重复元素，两个blue只贡献一个元素，green另一个，大小为2。只打印大小，答案不依赖HashSet迭代顺序。"
+      }
+    },
+    {
+      "id": "JAVA_21",
+      "prompt": {
+        "en": "A map replaces the value for the same key: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Map<String, Integer> values = new HashMap<>(); values.put(\"slot\", 4); values.put(\"slot\", 9); System.out.print(values.get(\"slot\") + \":\" + values.size());\n  }\n}",
+        "zh": "映射替换同一个键的值：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Map<String, Integer> values = new HashMap<>(); values.put(\"slot\", 4); values.put(\"slot\", 9); System.out.print(values.get(\"slot\") + \":\" + values.size());\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "9:1",
+            "zh": "9:1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "4:2",
+            "zh": "4:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "9:2",
+            "zh": "9:2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The second put replaces the value associated with the equal key slot. The stored value becomes 9 and the map still has one key-value mapping. No iteration order or duplicate-key collection is involved in this output.",
+        "zh": "第二次put替换相等键slot关联的值，储存值变9，映射仍只有一项键值关联。输出不涉及迭代顺序或收集重复键。"
+      }
+    },
+    {
+      "id": "JAVA_22",
+      "prompt": {
+        "en": "A factory-created list is asked to grow: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = List.of(\"p\", \"q\"); try { values.add(\"r\"); System.out.print(\"grown\"); } catch (UnsupportedOperationException e) { System.out.print(\"fixed\"); }\n  }\n}",
+        "zh": "要求工厂创建的列表增加元素：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = List.of(\"p\", \"q\"); try { values.add(\"r\"); System.out.print(\"grown\"); } catch (UnsupportedOperationException e) { System.out.print(\"fixed\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "grown",
+            "zh": "grown"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "fixed",
+            "zh": "fixed"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "[p, q, r]",
+            "zh": "[p, q, r]"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "List.of creates an unmodifiable list. add throws UnsupportedOperationException, which the catch handles by printing fixed; the following grown print inside try is skipped. Unmodifiable list structure is not a claim that every possible element object is deeply immutable.",
+        "zh": "List.of创建不可修改列表，add抛UnsupportedOperationException，被catch处理并打印fixed，try里后面的grown不执行。列表结构不可修改不代表所有元素对象都深度不可变。"
+      }
+    },
+    {
+      "id": "JAVA_23",
+      "prompt": {
+        "en": "Parsing fails and finally adds a suffix: what is printed?\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { System.out.print(Integer.parseInt(\"x7\")); } catch (NumberFormatException e) { System.out.print(\"bad\"); } finally { System.out.print(\":done\"); }\n  }\n}",
+        "zh": "解析失败后finally追加后缀：打印什么？\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { System.out.print(Integer.parseInt(\"x7\")); } catch (NumberFormatException e) { System.out.print(\"bad\"); } finally { System.out.print(\":done\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "7:done",
+            "zh": "7:done"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "bad",
+            "zh": "bad"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "bad:done",
+            "zh": "bad:done"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The supplied text x7 is not a valid decimal integer, so parseInt throws NumberFormatException before print receives a number. The catch prints bad, then finally prints :done. The program handles that exception rather than terminating with an uncaught one.",
+        "zh": "x7不是有效十进制整数，parseInt在print取得数值之前抛NumberFormatException。catch打印bad，finally再打印:done，异常被处理而非未捕获退出。"
+      }
+    },
+    {
+      "id": "JAVA_24",
+      "prompt": {
+        "en": "A broad catch precedes a covered subtype catch: choose the outcome.\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { throw new IllegalArgumentException(); } catch (Exception e) { System.out.print(\"outer\"); } catch (IllegalArgumentException e) { System.out.print(\"inner\"); }\n  }\n}",
+        "zh": "宽泛catch位于已覆盖的子类catch前：选择结果。\n\nimport java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { throw new IllegalArgumentException(); } catch (Exception e) { System.out.print(\"outer\"); } catch (IllegalArgumentException e) { System.out.print(\"inner\"); }\n  }\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "outer",
+            "zh": "outer"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "inner",
+            "zh": "inner"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "outerinner",
+            "zh": "outerinner"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "collections-and-failures",
+          "label": {
+            "en": "Compilation fails.",
+            "zh": "编译失败。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Exception already catches every IllegalArgumentException from this try. A later catch for that covered subtype is rejected at compile time. This code therefore never reaches runtime catch selection; put the more specific handler before a covering handler in a corrected program.",
+        "zh": "前面的Exception已覆盖该try抛出的所有IllegalArgumentException，后面再写已覆盖子类型catch会编译失败，因此尚未进入运行期选择。修正程序应将更具体处理器放在覆盖它的处理器之前。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "JAVA_01",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int a = 17, b = 5; System.out.print(a / b + \":\" + a % b);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "3:2",
+      "expected_label": {
+        "en": "3:2",
+        "zh": "3:2"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_01",
+      "verified": true
+    },
+    {
+      "id": "JAVA_02",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 4; System.out.print(n++ + \":\" + n);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "4:5",
+      "expected_label": {
+        "en": "4:5",
+        "zh": "4:5"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_02",
+      "verified": true
+    },
+    {
+      "id": "JAVA_03",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String s = \"R\" + 2 + 3; System.out.print(s);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "R23",
+      "expected_label": {
+        "en": "R23",
+        "zh": "R23"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_03",
+      "verified": true
+    },
+    {
+      "id": "JAVA_04",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    double amount = 7.9; int whole = (int) amount; System.out.print(whole);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "7",
+      "expected_label": {
+        "en": "7",
+        "zh": "7"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_04",
+      "verified": true
+    },
+    {
+      "id": "JAVA_05",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    String p = new String(\"cedar\"); String q = new String(\"cedar\"); System.out.print((p == q) + \":\" + p.equals(q));\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "false:true",
+      "expected_label": {
+        "en": "false:true",
+        "zh": "false:true"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_05",
+      "verified": true
+    },
+    {
+      "id": "JAVA_06",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int x = 3; boolean ok = (x > 5) && (++x > 3); System.out.print(ok + \":\" + x);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "false:3",
+      "expected_label": {
+        "en": "false:3",
+        "zh": "false:3"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_06",
+      "verified": true
+    },
+    {
+      "id": "JAVA_07",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 4; i++) { if (i % 2 == 0) total += i; } System.out.print(total);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "6",
+      "expected_label": {
+        "en": "6",
+        "zh": "6"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_07",
+      "verified": true
+    },
+    {
+      "id": "JAVA_08",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 3, total = 0; while (n > 0) { total += n; n--; } System.out.print(total + \":\" + n);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "6:0",
+      "expected_label": {
+        "en": "6:0",
+        "zh": "6:0"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_08",
+      "verified": true
+    },
+    {
+      "id": "JAVA_09",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 0; i < 5; i++) { if (i == 2) continue; total += i; } System.out.print(total);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "8",
+      "expected_label": {
+        "en": "8",
+        "zh": "8"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_09",
+      "verified": true
+    },
+    {
+      "id": "JAVA_10",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int total = 0; for (int i = 1; i <= 5; i++) { if (i > 2) break; total += i; } System.out.print(total);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "3",
+      "expected_label": {
+        "en": "3",
+        "zh": "3"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_10",
+      "verified": true
+    },
+    {
+      "id": "JAVA_11",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int code = 2; String value = switch (code) { case 1 -> \"A\"; case 2, 3 -> \"B\"; default -> \"Z\"; }; System.out.print(value);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "B",
+      "expected_label": {
+        "en": "B",
+        "zh": "B"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_11",
+      "verified": true
+    },
+    {
+      "id": "JAVA_12",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int[] values = {3, 6, 9}; for (int i = 0; i < values.length; i++) values[i] += i; System.out.print(Arrays.toString(values));\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "[3, 7, 11]",
+      "expected_label": {
+        "en": "[3, 7, 11]",
+        "zh": "[3, 7, 11]"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_12",
+      "verified": true
+    },
+    {
+      "id": "JAVA_13",
+      "code": "import java.util.*;\npublic class Main {\n  static void bump(int n) { n += 4; }\n  public static void main(String[] args) {\n    int n = 6; bump(n); System.out.print(n);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "6",
+      "expected_label": {
+        "en": "6",
+        "zh": "6"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_13",
+      "verified": true
+    },
+    {
+      "id": "JAVA_14",
+      "code": "import java.util.*;\npublic class Main {\n  static void bump(int[] values) { values[0] += 4; }\n  public static void main(String[] args) {\n    int[] values = {6}; bump(values); System.out.print(values[0]);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "10",
+      "expected_label": {
+        "en": "10",
+        "zh": "10"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_14",
+      "verified": true
+    },
+    {
+      "id": "JAVA_15",
+      "code": "import java.util.*;\npublic class Main {\n  static String pick(Object value) { return \"O\"; } static String pick(String value) { return \"S\"; }\n  public static void main(String[] args) {\n    Object value = \"hi\"; System.out.print(pick(value));\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "O",
+      "expected_label": {
+        "en": "O",
+        "zh": "O"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_15",
+      "verified": true
+    },
+    {
+      "id": "JAVA_16",
+      "code": "import java.util.*;\npublic class Main {\n  static class Parent { String name() { return \"parent\"; } } static class Child extends Parent { @Override String name() { return \"child\"; } }\n  public static void main(String[] args) {\n    Parent value = new Child(); System.out.print(value.name());\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "child",
+      "expected_label": {
+        "en": "child",
+        "zh": "child"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_16",
+      "verified": true
+    },
+    {
+      "id": "JAVA_17",
+      "code": "import java.util.*;\npublic class Main {\n  static class Box { int n; Box(int n) { this.n = n; } }\n  public static void main(String[] args) {\n    Box value = new Box(7); System.out.print(value.n);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "7",
+      "expected_label": {
+        "en": "7",
+        "zh": "7"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_17",
+      "verified": true
+    },
+    {
+      "id": "JAVA_18",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    int n = 2; Runnable task = () -> System.out.print(n); n = 3; task.run();\n  }\n}",
+      "outcome": "compile-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Compilation fails.",
+        "zh": "编译失败。"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_18",
+      "verified": true
+    },
+    {
+      "id": "JAVA_19",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = new ArrayList<>(List.of(\"a\", \"b\", \"c\")); values.remove(1); System.out.print(values);\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "[a, c]",
+      "expected_label": {
+        "en": "[a, c]",
+        "zh": "[a, c]"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_19",
+      "verified": true
+    },
+    {
+      "id": "JAVA_20",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Set<String> values = new HashSet<>(); values.add(\"blue\"); values.add(\"blue\"); values.add(\"green\"); System.out.print(values.size());\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "2",
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_20",
+      "verified": true
+    },
+    {
+      "id": "JAVA_21",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    Map<String, Integer> values = new HashMap<>(); values.put(\"slot\", 4); values.put(\"slot\", 9); System.out.print(values.get(\"slot\") + \":\" + values.size());\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "9:1",
+      "expected_label": {
+        "en": "9:1",
+        "zh": "9:1"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_21",
+      "verified": true
+    },
+    {
+      "id": "JAVA_22",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    List<String> values = List.of(\"p\", \"q\"); try { values.add(\"r\"); System.out.print(\"grown\"); } catch (UnsupportedOperationException e) { System.out.print(\"fixed\"); }\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "fixed",
+      "expected_label": {
+        "en": "fixed",
+        "zh": "fixed"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_22",
+      "verified": true
+    },
+    {
+      "id": "JAVA_23",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { System.out.print(Integer.parseInt(\"x7\")); } catch (NumberFormatException e) { System.out.print(\"bad\"); } finally { System.out.print(\":done\"); }\n  }\n}",
+      "outcome": "stdout",
+      "expected_stdout": "bad:done",
+      "expected_label": {
+        "en": "bad:done",
+        "zh": "bad:done"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_23",
+      "verified": true
+    },
+    {
+      "id": "JAVA_24",
+      "code": "import java.util.*;\npublic class Main {\n  public static void main(String[] args) {\n    try { throw new IllegalArgumentException(); } catch (Exception e) { System.out.print(\"outer\"); } catch (IllegalArgumentException e) { System.out.print(\"inner\"); }\n  }\n}",
+      "outcome": "compile-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Compilation fails.",
+        "zh": "编译失败。"
+      },
+      "javac_verification": "T136-javac-verification.json#JAVA_24",
+      "verified": true
+    }
+  ]
+}

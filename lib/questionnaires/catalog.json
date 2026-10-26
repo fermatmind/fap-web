@@ -3003,5 +3003,30 @@
       "thread-weaver"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "java-test",
+    "code": "FM_JAVA25_CODE_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Java Test",
+      "zh": "Java测试"
+    },
+    "description": {
+      "en": "Read 24 original Java 25 programs and predict output or compilation failure. Get every explanation and four full guides. No level or certificate.",
+      "zh": "阅读24段原创Java 25程序，预测输出或编译失败，免费查看每题答案、完整解析与四份复习指南。不派开发者等级、招聘线或认证。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_java25_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "values-and-expressions",
+      "branches-and-loops",
+      "methods-and-objects",
+      "collections-and-failures"
+    ],
+    "collection": "explore"
   }
 ]

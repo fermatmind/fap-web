@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n/locales";
 import type { Questionnaire } from "@/lib/questionnaires/types";
 import type { PracticeResult } from "@/lib/questionnaires/practice";
+import { QuestionnaireJavaCode } from "./QuestionnaireJavaCode";
 import { QuestionnaireReport } from "./QuestionnaireReport";
 
 export function QuestionnairePracticeReport({ quiz, result, locale }: {
@@ -24,7 +25,8 @@ export function QuestionnairePracticeReport({ quiz, result, locale }: {
           const selected = question.options.find(option => option.id === item.selectedOptionId)!;
           const correct = question.options.find(option => option.id === item.correctOptionId)!;
           return <li key={item.questionId} className="rounded-xl border border-slate-200 p-5" data-practice-question={item.questionId}>
-            <h4 className="font-semibold">{index + 1}. {question.prompt[locale]}</h4>
+            <h4 className="font-semibold">{index + 1}. {quiz.slug === "java-test" ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h4>
+            {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={index + 1} />}
             <p className="mt-3 font-semibold">{item.correct ? (zh ? "本题答对" : "Correct answer") : (zh ? "本题未答对" : "Not correct on this item")}</p>
             <dl className="my-3 space-y-2">
               <div><dt className="font-medium">{zh ? "你选择的答案" : "Your selected answer"}</dt><dd>{selected.label[locale]}</dd></div>
