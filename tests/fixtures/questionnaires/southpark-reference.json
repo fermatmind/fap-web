@@ -1,0 +1,869 @@
+{
+  "id": "T117",
+  "version": "1.0.0",
+  "form": "fermatmind_southpark_original_21_v1",
+  "method": "Ownselected7cast,12exposureseach/3eachposition;one explicitrawcount/allhighestties.NoIQ,clinical,moralrank,protectedtraits,violenceorhateinferencing;notIDRcast/bankequivalent.",
+  "questions": [
+    {
+      "id": "SP_01",
+      "prompt": {
+        "en": "A hobby club wants an enormous banner for a very small meeting. What would you most like to do?",
+        "zh": "兴趣小组想给一场很小的聚会做巨型横幅，你最想怎么参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Find out what the meeting actually needs before adding more.",
+            "zh": "先弄清聚会实际需要什么，再决定添不添。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask how the same decision rule will apply to everyone’s ideas.",
+            "zh": "问清决定办法会怎样同样适用于每个点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Pitch the version I personally want in clear, direct words.",
+            "zh": "直截了当地提自己最想要的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Take care of one useful job that keeps the meeting possible.",
+            "zh": "接下一件让聚会能进行的实际小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_02",
+      "prompt": {
+        "en": "An optional game suddenly has a rule about wearing a silly hat. What response appeals most?",
+        "zh": "一个自愿小游戏突然加了戴傻帽的规则，你更倾向哪种回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask whether the rule is being applied consistently to every player.",
+            "zh": "问问这条规则是不是同样适用于每个玩家。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Say plainly which version of the game I would prefer.",
+            "zh": "直接说自己更想玩哪个版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Help arrange the practical pieces so people can still take part.",
+            "zh": "把实际准备安排好，让大家仍能参加。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Try a friendly, playful version with whoever wants to join.",
+            "zh": "和愿意的人试一个友好、好玩的版本。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_03",
+      "prompt": {
+        "en": "Friends are debating a name for a one-off snack table. What would you rather contribute?",
+        "zh": "朋友为只办一次的小零食摊讨论名字，你更想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "A confident pitch for the name I actually like.",
+            "zh": "有底气地提自己真正喜欢的名字。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Practical help getting the small table ready while names are discussed.",
+            "zh": "大家讨论名字时，先把小摊实际准备好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "A cheerful little pretend story that could make choosing fun.",
+            "zh": "编个轻松的小故事，让选名字更好玩。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "A way for quieter participants to have a turn suggesting names.",
+            "zh": "让比较安静的人也有机会提名字。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_04",
+      "prompt": {
+        "en": "A casual outdoor activity has become tangled in minor complications. What would you prefer to do?",
+        "zh": "一次轻松户外活动被小麻烦缠住，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Handle a small practical need without making it the centre of attention.",
+            "zh": "解决一个实际小需要，不必把它变成焦点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Offer a friendly, simple way to keep the activity enjoyable.",
+            "zh": "友好地提个简单办法，让活动还能好玩。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Ask who has not been heard while the group discusses solutions.",
+            "zh": "讨论办法时，问问还有谁没被听见。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Invent a bigger playful alternative, if everyone still wants an adventure.",
+            "zh": "如果大家仍想玩，就大胆想一个更大的有趣替代方案。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_05",
+      "prompt": {
+        "en": "Someone suggests turning an ordinary break into an imaginary ceremony. What attracts you most?",
+        "zh": "有人提议把普通休息变成虚构仪式，你最被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Joining in with a friendly, good-humoured contribution.",
+            "zh": "带着友好心情贡献一点轻松玩法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Making sure people can choose how much attention they receive.",
+            "zh": "让大家可以决定自己想被关注多少。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Adding an elaborate but harmless idea just for the fun of imagining it.",
+            "zh": "为了想象的乐趣，加一个复杂但无害的点子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Checking what would make the short break work in practice.",
+            "zh": "看看怎样做才符合这段短暂休息的实际需要。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_06",
+      "prompt": {
+        "en": "A small group joke is being planned as a shared performance. What matters most to your approach?",
+        "zh": "小组想把一个笑点做成共同小表演，你更在意什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "That people affected can say what feels comfortable before it happens.",
+            "zh": "在发生前，让会被涉及的人说出怎样才舒服。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "The chance to imagine an unexpectedly grand version together.",
+            "zh": "有机会一起想一个意想不到的大阵仗版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "That the performance still fits the simple purpose of the gathering.",
+            "zh": "表演仍然服务聚会的简单目的。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "That the same agreed limits apply to everyone taking part.",
+            "zh": "说好的限制对每位参加者都一样。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_07",
+      "prompt": {
+        "en": "Your group can invent a completely unnecessary hobby award. Which direction appeals most?",
+        "zh": "小组可以发明一个完全没必要的兴趣奖项，你更喜欢哪种方向？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "A gloriously overcomplicated idea that stays an optional bit of play.",
+            "zh": "一个热闹复杂、但始终可以不参加的玩笑点子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Something simple enough to serve the actual gathering.",
+            "zh": "简单一点，符合这次相处的实际需要。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Clear, consistent rules for how the playful award is chosen.",
+            "zh": "好玩的奖项也有清楚、一致的选法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "A direct suggestion for the award I would personally enjoy.",
+            "zh": "直接提自己真会喜欢的那个奖项。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_08",
+      "prompt": {
+        "en": "A club’s noticeboard has more announcements than actual activities. What would you prefer?",
+        "zh": "兴趣小组的公告比活动本身还多，你更想怎么处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Identify which information people really need to take part.",
+            "zh": "找出大家为了参加真正需要哪些信息。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask whether the same posting rules are being followed by everyone.",
+            "zh": "问问发公告的规则是不是大家都同样遵守。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Say which kind of noticeboard I would like and make the case for it.",
+            "zh": "说清自己想要怎样的公告栏，也解释理由。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Do one useful sorting job so people can find the next activity.",
+            "zh": "帮着整理一小部分，让人找得到下一场活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_09",
+      "prompt": {
+        "en": "A casual competition introduces an oddly specific exception. Which response feels closest?",
+        "zh": "一场轻松比赛突然有了特别具体的例外，你更接近哪种回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask how the exception fits the rule everyone accepted.",
+            "zh": "问这个例外怎样符合大家接受的规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "State the version I would rather play, without pretending otherwise.",
+            "zh": "不装作无所谓，直接说自己更想玩哪一版。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Help with the practical arrangement while people decide.",
+            "zh": "大家决定时，先帮着做好实际安排。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Suggest a friendly practice round that keeps the mood light.",
+            "zh": "提议先友好地试玩一轮，让气氛轻松。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_10",
+      "prompt": {
+        "en": "You have one minute to suggest a theme for a shared craft afternoon. What would you choose to do?",
+        "zh": "只有一分钟给共同手工下午提主题，你更愿意怎样提？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Give a clear pitch for my own favourite idea.",
+            "zh": "清楚地推介自己最喜欢的想法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Offer a practical part I can handle whatever theme is chosen.",
+            "zh": "不管选什么主题，都提出自己能做的实际工作。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Bring an imaginative little theme people can have fun trying.",
+            "zh": "带来一个大家可以开心试试的小想象主题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Invite one person who has not spoken to add a possibility.",
+            "zh": "邀请还没说话的人也提一个可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_11",
+      "prompt": {
+        "en": "A shared activity is running late because a small item is missing. What contribution appeals most?",
+        "zh": "共同活动因少了一件小东西而耽搁，你更想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Find a practical substitute and quietly help the activity continue.",
+            "zh": "找个实际替代物，默默帮活动继续。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Offer a friendly workaround that people can enjoy trying.",
+            "zh": "友好地提一个大家可以轻松试的变通办法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Check whether anyone’s needs were missed in deciding the workaround.",
+            "zh": "选变通办法时，看看是否漏掉了谁的需要。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Imagine a much more theatrical replacement, if the group enjoys the joke.",
+            "zh": "如果大家喜欢这个玩笑，就想个更戏剧化的替代版本。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_12",
+      "prompt": {
+        "en": "Friends invite you to invent a harmless fictional club mascot. What would you most enjoy?",
+        "zh": "朋友请你一起发明无害的虚构社团吉祥物，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Giving it a friendly little story people can easily join.",
+            "zh": "给它编个大家容易一起玩的友好小故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Making room for different people’s ideas before settling on it.",
+            "zh": "定下来前，给不同人的点子留空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Imagining a ridiculously elaborate mascot and its tiny adventures.",
+            "zh": "想一个夸张复杂的吉祥物和它的小冒险。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Keeping the idea workable for the materials and event we have.",
+            "zh": "让想法适合现有材料和活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_13",
+      "prompt": {
+        "en": "A group wants to surprise one of its members with public attention. What would you prefer?",
+        "zh": "小组想用公开关注给一位成员惊喜，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Check whether the person would welcome that kind of attention.",
+            "zh": "先确认当事人是否欢迎这种关注。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Dream up a grand, playful version that can be scaled down or skipped.",
+            "zh": "想一个可以缩小或跳过的大阵仗趣味版本。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Ask what would make the gesture useful or enjoyable for this occasion.",
+            "zh": "问这次怎样表达才真有用或让人开心。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Make the consent and participation rules clear for everyone.",
+            "zh": "把同意和参与的规则对每个人说清。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_14",
+      "prompt": {
+        "en": "A shared game needs an imaginary opening scene. Which approach attracts you?",
+        "zh": "共同游戏需要一个想象中的开场，你更喜欢哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Start with a wildly oversized idea and see what the group wants to keep.",
+            "zh": "先想个特别夸张的点子，再看大家愿意留什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Choose the simplest scene that helps the game get going.",
+            "zh": "选一个能让游戏开始的最简单场景。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Check that the scene gives everyone the same understood starting conditions.",
+            "zh": "确认场景给每个人同样、明白的起始条件。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Say clearly which opening I would most like to try.",
+            "zh": "清楚地说自己最想试哪个开场。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_15",
+      "prompt": {
+        "en": "A tiny club project suddenly has a very impressive-sounding title. What would you rather do?",
+        "zh": "一个很小的社团项目突然有了特别厉害的头衔，你更想怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Find out what the project still needs beneath the title.",
+            "zh": "看看头衔下面，项目实际还需要什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask what the title changes about the rules or responsibilities.",
+            "zh": "问头衔到底改变了哪些规则或责任。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Propose the concrete role I actually want instead of accepting a vague one.",
+            "zh": "不接模糊头衔，直接提自己真正想做的角色。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Get on with a useful task that keeps the small project moving.",
+            "zh": "先做好一件有用的小事，让项目继续。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_16",
+      "prompt": {
+        "en": "Two people are applying the same game instruction differently. What contribution would you choose?",
+        "zh": "两个人对同一句游戏说明用了不同办法，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Ask them to agree on a consistent interpretation before continuing.",
+            "zh": "请双方先约一个一致解释，再继续。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Give a direct case for the interpretation I prefer.",
+            "zh": "直接说明自己更喜欢哪种解释、为什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Take care of a practical setup detail while they compare interpretations.",
+            "zh": "他们比较解释时，先帮着做好一处实际准备。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Suggest a light trial round to make the difference easier to see.",
+            "zh": "建议轻松试玩一轮，更容易看清区别。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_17",
+      "prompt": {
+        "en": "The group is choosing a very ordinary snack for an event. How would you prefer to join in?",
+        "zh": "小组在给活动选很普通的零食，你更喜欢怎样参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Say which snack I want, clearly and without a complicated performance.",
+            "zh": "不用复杂表演，清楚说自己想要哪种。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "Handle a practical errand so the agreed choice can be there.",
+            "zh": "接一件实际跑腿，让选好的零食能到场。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "Make the choice a friendly little game, if people want to play.",
+            "zh": "如果大家愿意，就把选择变成友好的小游戏。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Make sure people with quieter preferences have an easy way to contribute.",
+            "zh": "让表达较安静的人也容易说出偏好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_18",
+      "prompt": {
+        "en": "A casual plan encounters one of those small, absurd inconveniences. What would you most like to offer?",
+        "zh": "轻松计划碰上那种有点荒诞的小麻烦，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kenny-mccormick",
+          "label": {
+            "en": "A useful bit of help that does not need a big announcement.",
+            "zh": "一点不用大声宣布的实际帮助。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "A friendly, imaginative workaround that keeps things pleasant.",
+            "zh": "一个友好、有想象力、让事情仍愉快的变通办法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "A question about whose comfort or participation needs checking.",
+            "zh": "问问需要确认谁的舒适和参与意愿。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "An exaggerated alternative that is fun to imagine and easy to decline.",
+            "zh": "一个想起来好玩、也容易拒绝的夸张替代点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_19",
+      "prompt": {
+        "en": "You can add one optional activity to a low-key gathering. What sounds best to you?",
+        "zh": "可以给轻松聚会加一个可选活动，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "butters-stotch",
+          "label": {
+            "en": "A friendly pretend scenario people can step into without preparation.",
+            "zh": "一个不用准备、大家就能加入的友好想象场景。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "A format that gives different voices an accessible turn.",
+            "zh": "一种让不同声音都容易轮到发言的形式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "A larger-than-life idea with a clearly small, harmless version.",
+            "zh": "一个看起来很大的点子，但实际有小而无害的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Something straightforward that fits why we came together.",
+            "zh": "一件简单、符合大家相聚目的的事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_20",
+      "prompt": {
+        "en": "Before a group joke is shared outside the room, what would you prefer to check?",
+        "zh": "小组玩笑要分享到场外之前，你更想先确认什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wendy-testaburger",
+          "label": {
+            "en": "Whether the people involved are comfortable being represented that way.",
+            "zh": "被涉及的人是否觉得这样呈现舒服。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Whether everyone still enjoys the elaborate idea we have built up.",
+            "zh": "大家是否仍喜欢越想越复杂的这个点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Whether the shared version communicates the simple point we intended.",
+            "zh": "分享出去的版本是否讲清原本的简单意思。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Whether the same agreed sharing limits are being respected.",
+            "zh": "大家约好的分享限制是否得到同样尊重。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP_21",
+      "prompt": {
+        "en": "A club’s imaginary project has become much bigger than the actual club. What would you rather suggest?",
+        "zh": "社团的虚构项目已经想得比真实社团还大，你更愿意提什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "randy-marsh",
+          "label": {
+            "en": "Keep a gloriously imaginative version as play, with no obligation to build it.",
+            "zh": "把宏大想象留作游戏，不必真的建出来。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "stan-marsh",
+          "label": {
+            "en": "Return to the one practical thing the club wants to do next.",
+            "zh": "回到小组接下来真正想做的一件实际事情。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kyle-broflovski",
+          "label": {
+            "en": "Clarify the shared rules for choosing which ideas become real tasks.",
+            "zh": "说清哪些点子变成真实任务的共同规则。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eric-cartman",
+          "label": {
+            "en": "Say directly which part I would personally like to pursue.",
+            "zh": "直接说自己想继续哪一部分。"
+          }
+        }
+      ]
+    }
+  ]
+}

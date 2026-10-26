@@ -2132,5 +2132,33 @@
       "shared-work",
       "work-change"
     ]
+  },
+  {
+    "slug": "south-park",
+    "code": "SOUTH_PARK_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "South Park Test",
+      "zh": "《南方公园》角色测试"
+    },
+    "description": {
+      "en": "Try 21 original everyday group situations and compare Stan, Kyle, Cartman, Kenny, Butters, Wendy and Randy. All highest ties and seven full bilingual guides are free without signup. Unofficial fan edition.",
+      "zh": "完成21道原创日常小组情境题，比较斯坦、凯尔、卡特曼、肯尼、巴特斯、温迪与兰迪。全部最高并列和七份双语全文免费，无需注册。非官方同人版，不把剧情伤害赋给真人。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_southpark_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "stan-marsh",
+      "kyle-broflovski",
+      "eric-cartman",
+      "kenny-mccormick",
+      "butters-stotch",
+      "wendy-testaburger",
+      "randy-marsh"
+    ],
+    "collection": "explore"
   }
 ]
