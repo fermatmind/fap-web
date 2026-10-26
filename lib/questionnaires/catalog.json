@@ -1947,5 +1947,32 @@
       "eijiro-kirishima"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "my-little-pony-character-quiz",
+    "code": "MY_LITTLE_PONY_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "My Little Pony Character Quiz",
+      "zh": "小马宝莉（My Little Pony）角色测试"
+    },
+    "description": {
+      "en": "Take 18 original everyday questions about shared activities and compare Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy. Every highest tie and all six complete guides are free, without signup.",
+      "zh": "用18道原创日常题比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪和柔柔。从共同活动阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_mlp_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "twilight-sparkle",
+      "rainbow-dash",
+      "applejack",
+      "rarity",
+      "pinkie-pie",
+      "fluttershy"
+    ],
+    "collection": "explore"
   }
 ]

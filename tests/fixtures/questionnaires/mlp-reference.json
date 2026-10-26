@@ -1,0 +1,746 @@
+{
+  "id": "T114",
+  "version": "1.0.0",
+  "form": "fermatmind_mlp_original_18_v1",
+  "method": "Six fictional editorial angles,12exposures each,3per optionposition; one rawcount per choice,all highestties. No morality/personality/clinical norms.",
+  "questions": [
+    {
+      "id": "MLP_01",
+      "prompt": {
+        "en": "Friends are making a small welcome kit for a new hobby member. Which part would you choose?",
+        "zh": "朋友为兴趣小组新成员准备一份小小欢迎包，你更想做哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Find out which first-session information would actually help.",
+            "zh": "查清第一次参加真正需要哪些信息。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Offer to accompany them through the first activity.",
+            "zh": "提出第一项活动陪对方一起参加。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "Make sure the simple promised items are ready to use.",
+            "zh": "把答应准备的基础用品落实好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "Choose one detail that reflects something the newcomer likes.",
+            "zh": "挑一处符合新成员喜好的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_02",
+      "prompt": {
+        "en": "A friend wants company at an unfamiliar community event. What would you most like to offer?",
+        "zh": "朋友想找人陪着去陌生活动，你最愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "A clear promise that I will join them for the part we agreed.",
+            "zh": "明确答应在说好的那一段陪着。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "A realistic account of when I can come and what I can carry.",
+            "zh": "实话说明能几点到、能带哪些东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "A thoughtful little item that makes arriving feel special.",
+            "zh": "准备一件贴心小物，让到场更有仪式感。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "A light shared game we can use to meet people.",
+            "zh": "想一个轻松小游戏，方便一起认识人。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_03",
+      "prompt": {
+        "en": "Your group is preparing a homemade picnic. Which contribution appeals most?",
+        "zh": "大家准备一次自制野餐，你更喜欢哪种贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Say which preparation I can reliably finish, then do it.",
+            "zh": "说清自己能完成哪项准备，然后落实。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Make an ordinary place setting feel personally welcoming.",
+            "zh": "让普通的餐位布置多一点专属心意。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Invent a small playful activity people can join or skip.",
+            "zh": "想一个可参加也可跳过的轻松玩法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Check whether people would prefer a quieter spot.",
+            "zh": "问问大家是否更想坐在安静一点的位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_04",
+      "prompt": {
+        "en": "You are sending a thank-you note after a shared project. Which approach would you choose?",
+        "zh": "共同项目结束后写感谢卡，你更倾向怎样写？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "Include a small detail that shows I noticed the person’s contribution.",
+            "zh": "写一个细节，让对方知道自己的付出被看见了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Add a friendly little joke that fits our shared experience.",
+            "zh": "加一个适合共同经历的小玩笑。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Use words that leave the recipient comfortable replying in their own time.",
+            "zh": "用不催回复的措辞，让对方按自己的节奏看。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explain clearly what I learned from doing the project together.",
+            "zh": "说清一起做这件事让自己学到了什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_05",
+      "prompt": {
+        "en": "A casual meet-up has a short gap before the main activity. What sounds most inviting?",
+        "zh": "聚会正式活动前空出一小段时间，你更想怎么过？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Start a low-pressure guessing game with whoever wants to play.",
+            "zh": "和愿意的人玩个没有压力的猜谜。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Offer a calm corner where talking is optional.",
+            "zh": "留一个可以聊天也可以不说话的安静角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explore a question about the activity we are about to try.",
+            "zh": "一起弄明白一个关于待会活动的小问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Check in with the friend I promised to spend time with.",
+            "zh": "先陪一会儿自己约好要见的朋友。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_06",
+      "prompt": {
+        "en": "Someone joins your craft table but seems unsure where to sit. What would you prefer to do?",
+        "zh": "有人来到手工桌边，不太确定坐哪里，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Offer a place without making them the centre of attention.",
+            "zh": "留个位置，不让对方一下成了全场焦点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explain briefly how the table is arranged and ask what they want to try.",
+            "zh": "简单说明材料怎样放，再问想试什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Invite them to work beside me for the first small step.",
+            "zh": "邀请对方先在自己旁边一起做第一步。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "Tell them plainly which supplies are free to use.",
+            "zh": "直接说清哪些材料可以随手用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_07",
+      "prompt": {
+        "en": "You can improve one part of a recurring friends’ activity. What would you choose?",
+        "zh": "可以改进朋友固定活动的一处安排，你更想改哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Gather one useful question from participants before changing the plan.",
+            "zh": "先收集一个参与者真正想解决的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Create an easy way for people to ask for a companion.",
+            "zh": "让想找人一起参加的人更容易约到伴。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "Make the practical responsibilities explicit and manageable.",
+            "zh": "把实际分工说清，安排在能承担的范围内。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "Give each person a small personal touch in the shared materials.",
+            "zh": "在共用材料里给每个人留一处个性化细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_08",
+      "prompt": {
+        "en": "A friend asks for help preparing their first small exhibition. Which role attracts you?",
+        "zh": "朋友第一次办小型展览请你帮忙，你更喜欢哪个角色？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Be there during the agreed setup period so they are not alone.",
+            "zh": "在约好的布展时段到场陪着做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "Carry out one practical job and be clear about its limits.",
+            "zh": "落实一项实际工作，也说明自己能做到哪里。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "Help present the work in a way that suits the maker.",
+            "zh": "让展示方式更贴合作者的心意。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Suggest an optional playful way for visitors to interact.",
+            "zh": "给观众想一种自愿参与的小互动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_09",
+      "prompt": {
+        "en": "A shared shelf needs organising. Which approach would you most enjoy?",
+        "zh": "大家共用的架子需要整理，你更喜欢哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Sort the useful items and say honestly what space is available.",
+            "zh": "把有用的物品归好，实话说明还有多少空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Make labels that are pleasant and meaningful to their users.",
+            "zh": "做一套让使用者看着舒服、也看得懂的标签。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Add a small rotating surprise people can contribute to.",
+            "zh": "留一小格轮换惊喜，大家可以自愿放东西。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Arrange it so someone can browse without being hurried.",
+            "zh": "让想慢慢看的人不必被催着走。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_10",
+      "prompt": {
+        "en": "Friends are exchanging inexpensive handmade gifts. What matters most in your approach?",
+        "zh": "朋友交换便宜的手作礼物，你更在意哪一点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "A choice of material or detail that fits this particular person.",
+            "zh": "材料或细节确实适合收到礼物的这个人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "The little moment of shared amusement when it is opened.",
+            "zh": "拆开时能一起会心一笑。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Letting the person enjoy it without needing a public reaction.",
+            "zh": "对方可以安静喜欢，不必当众表现。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Finding out enough about their interests to make a sensible choice.",
+            "zh": "先了解一点兴趣，再做有根据的选择。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_11",
+      "prompt": {
+        "en": "You have ten spare minutes with a friend between activities. What would you rather suggest?",
+        "zh": "和朋友在两项活动之间多出十分钟，你更想提议什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Make up a tiny story using three things nearby.",
+            "zh": "用身边三件东西随口编个小故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Find somewhere comfortable and let the conversation take its time.",
+            "zh": "找个舒服位置，聊天不赶进度。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Investigate something we both wondered about during the activity.",
+            "zh": "查一查刚才共同好奇的那个问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Spend the time together doing the small thing I had promised.",
+            "zh": "一起完成先前答应陪对方做的小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_12",
+      "prompt": {
+        "en": "A member of your group asks for a gentler version of an activity. What would you prefer?",
+        "zh": "小组有人想把活动调得温和一点，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Ask which part would feel more comfortable, without demanding a reason.",
+            "zh": "问怎样会舒服些，不要求对方解释原因。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Find out which parts are essential and which can be adjusted.",
+            "zh": "先弄清哪些环节必要、哪些可以改。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Offer to stay alongside them during the version they choose.",
+            "zh": "提出按对方选的版本一起参加。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "State what adjustment I can practically help provide.",
+            "zh": "说清自己实际能帮着调整哪一项。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_13",
+      "prompt": {
+        "en": "A shared outing could follow two unfamiliar routes. What would you contribute first?",
+        "zh": "一次出游有两条陌生路线，你首先想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Useful information about what each route involves.",
+            "zh": "查清两条路线分别要面对什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "A commitment to help keep our chosen group together.",
+            "zh": "答应在选定路线中照应同行的人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "A plain estimate of the time and supplies I can manage.",
+            "zh": "直接估计自己能承担的时间和物资。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "One detail that could make the chosen route feel memorable.",
+            "zh": "找一处能让这条路线留下回忆的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_14",
+      "prompt": {
+        "en": "Your friend is showing a new hobby to several beginners. What would you most enjoy doing?",
+        "zh": "朋友给几位新手介绍自己的爱好，你最想怎么参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Join the first attempt so the friend has someone taking part beside them.",
+            "zh": "第一轮一起试，让朋友身边有人参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "Handle a straightforward support job we have agreed on.",
+            "zh": "接下一项说好的简单支持工作。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "Prepare a display detail that expresses their enthusiasm.",
+            "zh": "准备一处能表现对方热爱的展示细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Find a playful question that lets everyone join in casually.",
+            "zh": "想一个好玩的提问，让大家轻松加入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_15",
+      "prompt": {
+        "en": "After a shared meal, which small contribution would you choose?",
+        "zh": "一起吃过饭后，你更愿意做哪件小事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Take the practical cleanup task I said I would cover.",
+            "zh": "把自己说好负责的清理工作做完。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Package leftovers with a considerate touch for whoever wants them.",
+            "zh": "给想带走的人细心装好剩余食物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Mark a funny moment from the meal with a little shared memento.",
+            "zh": "把席间好笑的瞬间留成一个共同小纪念。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Check quietly whether anyone needs more time before leaving.",
+            "zh": "轻声问问是否有人还需要坐一会儿。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_16",
+      "prompt": {
+        "en": "You are helping make a shared photo album. Which part attracts you?",
+        "zh": "一起做共同相册时，你更喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "Choose a presentation detail that suits the people in the photos.",
+            "zh": "按照片里的人选择合适的呈现细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Write a playful caption that everyone pictured is comfortable with.",
+            "zh": "写一句照片中每个人都觉得舒服的俏皮配文。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Make it easy for someone to leave out a photo without explaining.",
+            "zh": "让不想放某张照片的人不用解释也能撤下。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Work out a simple way to collect accurate dates and context.",
+            "zh": "找一个简单办法把日期和背景核对清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_17",
+      "prompt": {
+        "en": "Friends want to recognise a very small milestone. Which celebration appeals most?",
+        "zh": "朋友想庆祝一个很小的进展，你更喜欢怎样庆祝？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Invent a brief, silly ritual that people can opt into.",
+            "zh": "临时想个简短傻气、自由参加的小仪式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Ask whether the person would rather enjoy it quietly.",
+            "zh": "问当事人是否更想安静地开心一下。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Learn what made the milestone meaningful before choosing a response.",
+            "zh": "先了解这点进展为什么对对方有意义。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Turn up for the modest celebration we agreed to share.",
+            "zh": "按约定参加这场小小的共同庆祝。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_18",
+      "prompt": {
+        "en": "At the end of an optional group session, what would you most like to leave behind?",
+        "zh": "一次自愿参加的小组活动结束时，你最想留下些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Room for people to leave at their own pace without being pressed.",
+            "zh": "让大家按自己的节奏离开，不必被催。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "One useful thing we now understand better together.",
+            "zh": "一件大家共同弄明白了的有用小事。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "The feeling that I stayed present for the part I promised.",
+            "zh": "自己在答应的那段时间里确实陪着参与。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "A finished practical contribution with no exaggerated promises.",
+            "zh": "一项完成了的实际贡献，不夸大承诺。"
+          }
+        }
+      ]
+    }
+  ]
+}

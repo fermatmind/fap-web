@@ -1,0 +1,1713 @@
+{
+  "slug": "my-little-pony-character-quiz",
+  "code": "MY_LITTLE_PONY_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "My Little Pony Character Quiz",
+    "zh": "小马宝莉（My Little Pony）角色测试"
+  },
+  "description": {
+    "en": "Take 18 original everyday questions about shared activities and compare Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy. Every highest tie and all six complete guides are free, without signup.",
+    "zh": "用18道原创日常题比较紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪和柔柔。从共同活动阅读本次选择，保留全部最高并列，六份完整说明免费可读，无需注册。"
+  },
+  "seoTitle": {
+    "en": "My Little Pony Character Quiz: Free Test & All 6 Results",
+    "zh": "小马宝莉角色测试：免费作答与6种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your My Little Pony character readings",
+    "zh": "本次小马宝莉角色读法"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Which My Little Pony character do your choices bring to mind? This unofficial Friendship Is Magic fan edition explores six everyday ways of joining shared activities: understanding together, showing up, making a practical promise, adding a personal detail, inviting play and leaving comfortable space. Eighteen original situations ask about your own choices, without episode trivia or fictional adventures. All six public guides are readable before starting. The fictional friendship elements give context; these counts do not measure anyone’s honesty, kindness, loyalty or worth as a friend.",
+    "zh": "你的选择让人想起小马宝莉的哪位角色？本非官方《友谊就是魔法》同人版，从共同理解、在场陪伴、实际承诺、个人细节、邀请玩乐和舒服空间六个角度看共同活动。18道原创日常情境问自己的选择，不考剧情，也不复现冒险。开始前即可阅读六份完整公开说明。虚构友谊元素只是背景，计数不衡量诚实、善良、忠诚或做朋友的价值。"
+  },
+  "instructions": {
+    "en": "Choose one of four responses in each ordinary, optional shared activity. Think about what you would prefer now, even if none fits perfectly. A pony absent from an item is not rejected. There are no correct answers, virtue points or reverse-keyed items. Complete all 18 questions to see the six raw counts and every highest-match guide in full.",
+    "zh": "每题在普通、自愿参加的共同活动中，从四种回应选现在较愿意的一项，即使都不完全合适。当题没有某位小马不表示你拒绝了她。没有正确答案、美德分或反向题；18题全部完成后，才显示六项原始计数和全部最高匹配全文。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Hasbro Rainbow Dash Parent Guide — fictional friendship context",
+        "zh": "孩之宝云宝黛西家长指南：仅核虚构友谊背景"
+      },
+      "url": "https://www.hasbro.com/common/documents/dad2af6e1c4311ddbd0b0800200c9a66/181B0FAA50569047F5720C1AE5593872.pdf"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_mlp_original_18_v1",
+    "itemBankVersion": "mlp_original_18_v1",
+    "scoringVersion": "mlp_all_highest_counts_v1",
+    "resultContentVersion": "mlp_full_guides_v1",
+    "itemBankSha256": "95dd1315b38b9906864f5ce5830903a37c7bb2c7cdc494072f7d28ca465cbed3",
+    "resultContentSha256": "a0261df728fa04ff988851a3113444fee13d98c0317152ddb501cce311082f65",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "twilight-sparkle",
+      "title": {
+        "en": "Twilight Sparkle",
+        "zh": "紫悦（Twilight Sparkle）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rainbow-dash",
+      "title": {
+        "en": "Rainbow Dash",
+        "zh": "云宝黛西（Rainbow Dash）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "applejack",
+      "title": {
+        "en": "Applejack",
+        "zh": "苹果嘉儿（Applejack）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "rarity",
+      "title": {
+        "en": "Rarity",
+        "zh": "珍奇（Rarity）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "pinkie-pie",
+      "title": {
+        "en": "Pinkie Pie",
+        "zh": "碧琪（Pinkie Pie）"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "fluttershy",
+      "title": {
+        "en": "Fluttershy",
+        "zh": "柔柔（Fluttershy）"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "MLP_01",
+      "prompt": {
+        "en": "Friends are making a small welcome kit for a new hobby member. Which part would you choose?",
+        "zh": "朋友为兴趣小组新成员准备一份小小欢迎包，你更想做哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Find out which first-session information would actually help.",
+            "zh": "查清第一次参加真正需要哪些信息。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Offer to accompany them through the first activity.",
+            "zh": "提出第一项活动陪对方一起参加。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "Make sure the simple promised items are ready to use.",
+            "zh": "把答应准备的基础用品落实好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "Choose one detail that reflects something the newcomer likes.",
+            "zh": "挑一处符合新成员喜好的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_02",
+      "prompt": {
+        "en": "A friend wants company at an unfamiliar community event. What would you most like to offer?",
+        "zh": "朋友想找人陪着去陌生活动，你最愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "A clear promise that I will join them for the part we agreed.",
+            "zh": "明确答应在说好的那一段陪着。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "A realistic account of when I can come and what I can carry.",
+            "zh": "实话说明能几点到、能带哪些东西。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "A thoughtful little item that makes arriving feel special.",
+            "zh": "准备一件贴心小物，让到场更有仪式感。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "A light shared game we can use to meet people.",
+            "zh": "想一个轻松小游戏，方便一起认识人。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_03",
+      "prompt": {
+        "en": "Your group is preparing a homemade picnic. Which contribution appeals most?",
+        "zh": "大家准备一次自制野餐，你更喜欢哪种贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Say which preparation I can reliably finish, then do it.",
+            "zh": "说清自己能完成哪项准备，然后落实。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Make an ordinary place setting feel personally welcoming.",
+            "zh": "让普通的餐位布置多一点专属心意。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Invent a small playful activity people can join or skip.",
+            "zh": "想一个可参加也可跳过的轻松玩法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Check whether people would prefer a quieter spot.",
+            "zh": "问问大家是否更想坐在安静一点的位置。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_04",
+      "prompt": {
+        "en": "You are sending a thank-you note after a shared project. Which approach would you choose?",
+        "zh": "共同项目结束后写感谢卡，你更倾向怎样写？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "Include a small detail that shows I noticed the person’s contribution.",
+            "zh": "写一个细节，让对方知道自己的付出被看见了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Add a friendly little joke that fits our shared experience.",
+            "zh": "加一个适合共同经历的小玩笑。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Use words that leave the recipient comfortable replying in their own time.",
+            "zh": "用不催回复的措辞，让对方按自己的节奏看。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explain clearly what I learned from doing the project together.",
+            "zh": "说清一起做这件事让自己学到了什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_05",
+      "prompt": {
+        "en": "A casual meet-up has a short gap before the main activity. What sounds most inviting?",
+        "zh": "聚会正式活动前空出一小段时间，你更想怎么过？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Start a low-pressure guessing game with whoever wants to play.",
+            "zh": "和愿意的人玩个没有压力的猜谜。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Offer a calm corner where talking is optional.",
+            "zh": "留一个可以聊天也可以不说话的安静角落。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explore a question about the activity we are about to try.",
+            "zh": "一起弄明白一个关于待会活动的小问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Check in with the friend I promised to spend time with.",
+            "zh": "先陪一会儿自己约好要见的朋友。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_06",
+      "prompt": {
+        "en": "Someone joins your craft table but seems unsure where to sit. What would you prefer to do?",
+        "zh": "有人来到手工桌边，不太确定坐哪里，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Offer a place without making them the centre of attention.",
+            "zh": "留个位置，不让对方一下成了全场焦点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Explain briefly how the table is arranged and ask what they want to try.",
+            "zh": "简单说明材料怎样放，再问想试什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Invite them to work beside me for the first small step.",
+            "zh": "邀请对方先在自己旁边一起做第一步。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "Tell them plainly which supplies are free to use.",
+            "zh": "直接说清哪些材料可以随手用。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_07",
+      "prompt": {
+        "en": "You can improve one part of a recurring friends’ activity. What would you choose?",
+        "zh": "可以改进朋友固定活动的一处安排，你更想改哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Gather one useful question from participants before changing the plan.",
+            "zh": "先收集一个参与者真正想解决的问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Create an easy way for people to ask for a companion.",
+            "zh": "让想找人一起参加的人更容易约到伴。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "Make the practical responsibilities explicit and manageable.",
+            "zh": "把实际分工说清，安排在能承担的范围内。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "Give each person a small personal touch in the shared materials.",
+            "zh": "在共用材料里给每个人留一处个性化细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_08",
+      "prompt": {
+        "en": "A friend asks for help preparing their first small exhibition. Which role attracts you?",
+        "zh": "朋友第一次办小型展览请你帮忙，你更喜欢哪个角色？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Be there during the agreed setup period so they are not alone.",
+            "zh": "在约好的布展时段到场陪着做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "Carry out one practical job and be clear about its limits.",
+            "zh": "落实一项实际工作，也说明自己能做到哪里。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "Help present the work in a way that suits the maker.",
+            "zh": "让展示方式更贴合作者的心意。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Suggest an optional playful way for visitors to interact.",
+            "zh": "给观众想一种自愿参与的小互动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_09",
+      "prompt": {
+        "en": "A shared shelf needs organising. Which approach would you most enjoy?",
+        "zh": "大家共用的架子需要整理，你更喜欢哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Sort the useful items and say honestly what space is available.",
+            "zh": "把有用的物品归好，实话说明还有多少空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Make labels that are pleasant and meaningful to their users.",
+            "zh": "做一套让使用者看着舒服、也看得懂的标签。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Add a small rotating surprise people can contribute to.",
+            "zh": "留一小格轮换惊喜，大家可以自愿放东西。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Arrange it so someone can browse without being hurried.",
+            "zh": "让想慢慢看的人不必被催着走。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_10",
+      "prompt": {
+        "en": "Friends are exchanging inexpensive handmade gifts. What matters most in your approach?",
+        "zh": "朋友交换便宜的手作礼物，你更在意哪一点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "A choice of material or detail that fits this particular person.",
+            "zh": "材料或细节确实适合收到礼物的这个人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "The little moment of shared amusement when it is opened.",
+            "zh": "拆开时能一起会心一笑。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Letting the person enjoy it without needing a public reaction.",
+            "zh": "对方可以安静喜欢，不必当众表现。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Finding out enough about their interests to make a sensible choice.",
+            "zh": "先了解一点兴趣，再做有根据的选择。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_11",
+      "prompt": {
+        "en": "You have ten spare minutes with a friend between activities. What would you rather suggest?",
+        "zh": "和朋友在两项活动之间多出十分钟，你更想提议什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Make up a tiny story using three things nearby.",
+            "zh": "用身边三件东西随口编个小故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Find somewhere comfortable and let the conversation take its time.",
+            "zh": "找个舒服位置，聊天不赶进度。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Investigate something we both wondered about during the activity.",
+            "zh": "查一查刚才共同好奇的那个问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Spend the time together doing the small thing I had promised.",
+            "zh": "一起完成先前答应陪对方做的小事。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_12",
+      "prompt": {
+        "en": "A member of your group asks for a gentler version of an activity. What would you prefer?",
+        "zh": "小组有人想把活动调得温和一点，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Ask which part would feel more comfortable, without demanding a reason.",
+            "zh": "问怎样会舒服些，不要求对方解释原因。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Find out which parts are essential and which can be adjusted.",
+            "zh": "先弄清哪些环节必要、哪些可以改。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Offer to stay alongside them during the version they choose.",
+            "zh": "提出按对方选的版本一起参加。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "State what adjustment I can practically help provide.",
+            "zh": "说清自己实际能帮着调整哪一项。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_13",
+      "prompt": {
+        "en": "A shared outing could follow two unfamiliar routes. What would you contribute first?",
+        "zh": "一次出游有两条陌生路线，你首先想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Useful information about what each route involves.",
+            "zh": "查清两条路线分别要面对什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "A commitment to help keep our chosen group together.",
+            "zh": "答应在选定路线中照应同行的人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "applejack",
+          "label": {
+            "en": "A plain estimate of the time and supplies I can manage.",
+            "zh": "直接估计自己能承担的时间和物资。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rarity",
+          "label": {
+            "en": "One detail that could make the chosen route feel memorable.",
+            "zh": "找一处能让这条路线留下回忆的细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_14",
+      "prompt": {
+        "en": "Your friend is showing a new hobby to several beginners. What would you most enjoy doing?",
+        "zh": "朋友给几位新手介绍自己的爱好，你最想怎么参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Join the first attempt so the friend has someone taking part beside them.",
+            "zh": "第一轮一起试，让朋友身边有人参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "applejack",
+          "label": {
+            "en": "Handle a straightforward support job we have agreed on.",
+            "zh": "接下一项说好的简单支持工作。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rarity",
+          "label": {
+            "en": "Prepare a display detail that expresses their enthusiasm.",
+            "zh": "准备一处能表现对方热爱的展示细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Find a playful question that lets everyone join in casually.",
+            "zh": "想一个好玩的提问，让大家轻松加入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_15",
+      "prompt": {
+        "en": "After a shared meal, which small contribution would you choose?",
+        "zh": "一起吃过饭后，你更愿意做哪件小事？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "applejack",
+          "label": {
+            "en": "Take the practical cleanup task I said I would cover.",
+            "zh": "把自己说好负责的清理工作做完。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rarity",
+          "label": {
+            "en": "Package leftovers with a considerate touch for whoever wants them.",
+            "zh": "给想带走的人细心装好剩余食物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Mark a funny moment from the meal with a little shared memento.",
+            "zh": "把席间好笑的瞬间留成一个共同小纪念。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Check quietly whether anyone needs more time before leaving.",
+            "zh": "轻声问问是否有人还需要坐一会儿。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_16",
+      "prompt": {
+        "en": "You are helping make a shared photo album. Which part attracts you?",
+        "zh": "一起做共同相册时，你更喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rarity",
+          "label": {
+            "en": "Choose a presentation detail that suits the people in the photos.",
+            "zh": "按照片里的人选择合适的呈现细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Write a playful caption that everyone pictured is comfortable with.",
+            "zh": "写一句照片中每个人都觉得舒服的俏皮配文。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Make it easy for someone to leave out a photo without explaining.",
+            "zh": "让不想放某张照片的人不用解释也能撤下。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Work out a simple way to collect accurate dates and context.",
+            "zh": "找一个简单办法把日期和背景核对清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_17",
+      "prompt": {
+        "en": "Friends want to recognise a very small milestone. Which celebration appeals most?",
+        "zh": "朋友想庆祝一个很小的进展，你更喜欢怎样庆祝？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pinkie-pie",
+          "label": {
+            "en": "Invent a brief, silly ritual that people can opt into.",
+            "zh": "临时想个简短傻气、自由参加的小仪式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Ask whether the person would rather enjoy it quietly.",
+            "zh": "问当事人是否更想安静地开心一下。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "Learn what made the milestone meaningful before choosing a response.",
+            "zh": "先了解这点进展为什么对对方有意义。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "Turn up for the modest celebration we agreed to share.",
+            "zh": "按约定参加这场小小的共同庆祝。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MLP_18",
+      "prompt": {
+        "en": "At the end of an optional group session, what would you most like to leave behind?",
+        "zh": "一次自愿参加的小组活动结束时，你最想留下些什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "fluttershy",
+          "label": {
+            "en": "Room for people to leave at their own pace without being pressed.",
+            "zh": "让大家按自己的节奏离开，不必被催。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "twilight-sparkle",
+          "label": {
+            "en": "One useful thing we now understand better together.",
+            "zh": "一件大家共同弄明白了的有用小事。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rainbow-dash",
+          "label": {
+            "en": "The feeling that I stayed present for the part I promised.",
+            "zh": "自己在答应的那段时间里确实陪着参与。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "applejack",
+          "label": {
+            "en": "A finished practical contribution with no exaggerated promises.",
+            "zh": "一项完成了的实际贡献，不夸大承诺。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "twilight-sparkle",
+      "directionIds": [
+        "twilight-sparkle"
+      ],
+      "title": {
+        "en": "Twilight Sparkle",
+        "zh": "紫悦（Twilight Sparkle）"
+      },
+      "headline": {
+        "en": "Prepare a shared question, then join the experience",
+        "zh": "带着共同的问题，也亲自参与"
+      },
+      "summary": {
+        "en": "Read Twilight Sparkle through prepare a shared question, then join the experience: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“带着共同的问题，也亲自参与”阅读紫悦（Twilight Sparkle）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Twilight Sparkle Quiz Result: Prepare a shared question, then join the experience | My Little Pony",
+          "zh": "紫悦角色测试结果：带着共同的问题，也亲自参与｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Twilight Sparkle through prepare a shared question, then join the experience: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“带着共同的问题，也亲自参与”阅读紫悦（Twilight Sparkle）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A curious friendship lens",
+            "zh": "好奇的朋友角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle is linked with the magic of friendship in Hasbro’s fictional character framing. This edition uses a narrower everyday lens: understanding something together before acting. Selecting these responses means that questions, useful context and shared learning appealed to you in the offered situations. It does not establish intelligence, academic standing or a permanent planner identity.",
+              "zh": "孩之宝的虚构人物设定把紫悦与友谊的魔法相连。本版只选一个日常角度：先和别人共同理解，再采取行动。选择这些回应，表示题里提供的提问、背景信息和一起学习较吸引你，不代表智力、成绩或永久的计划型身份。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "At a first hobby meeting",
+            "zh": "第一次参加兴趣活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine helping someone join a hobby table. You ask what they would like to try, identify the instructions that matter and leave the rest until later. This can turn an unfamiliar situation into something approachable. The useful question is not whether you know the most, but whether the information makes it easier for both of you to take part.",
+              "zh": "例如陪人第一次坐到兴趣活动桌边，可以先问想试什么，挑出眼前需要的说明，其余以后再看。陌生场面就可能容易进入一点。重点不是谁懂得最多，而是这些信息有没有帮助双方开始参与。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How the other five add something",
+            "zh": "其他五位怎样补充"
+          },
+          "paragraphs": [
+            {
+              "en": "Rainbow Dash adds being present beside a friend; Applejack makes the practical promise clear. Rarity notices a personal detail, Pinkie Pie creates a moment to enjoy, and Fluttershy leaves room for a comfortable pace. A question can support any of those contributions. Reading another guide does not make it a hidden second identity or invalidate this one.",
+              "zh": "云宝黛西补充陪伴在场，苹果嘉儿把实际承诺说清；珍奇注意专属细节，碧琪创造共同乐趣，柔柔留出舒服的节奏。提问能支持其中任何一种贡献。阅读另一说明不等于获得隐藏第二身份，也不推翻这一读法。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "When preparation crowds out company",
+            "zh": "准备挤占相处时"
+          },
+          "paragraphs": [
+            {
+              "en": "An explanation is helpful only while it serves the people involved. You might offer more background when a friend simply wants to try, or keep collecting facts after the group has enough to begin. These are possibilities to notice, not flaws inferred from a raw count. Ask whether another answer is needed before opening another source.",
+              "zh": "说明只有服务眼前的人才有用。朋友可能只想试试，你却补了更多背景；大家已足够开始，也可能仍在查资料。这些只是可以留意的情境，不是从计数推断的缺点。打开下一份资料前，可以先问是否还需要另一个答案。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "A small shared experiment",
+            "zh": "一次小小共同尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "For one optional activity, choose a single question that would make joining easier. Find a usable answer, share it briefly and then participate alongside the others. Afterwards ask what helped and what was unnecessary. The point is to test a way of spending time together, without proving that you deserve this pony or trying to raise a score.",
+              "zh": "挑一次自愿参加的活动，只找一个能帮助加入的问题。找到可用答案、简单分享，然后和大家一起玩。结束后问哪些有用、哪些其实多余。这是在试一种共同相处的办法，不是在证明自己配得上紫悦，也不是为了刷高次数。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rainbow-dash",
+      "directionIds": [
+        "rainbow-dash"
+      ],
+      "title": {
+        "en": "Rainbow Dash",
+        "zh": "云宝黛西（Rainbow Dash）"
+      },
+      "headline": {
+        "en": "Make companionship a promise people can use",
+        "zh": "把陪伴变成可依靠的约定"
+      },
+      "summary": {
+        "en": "Read Rainbow Dash through make companionship a promise people can use: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“把陪伴变成可依靠的约定”阅读云宝黛西（Rainbow Dash）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rainbow Dash Quiz Result: Make companionship a promise people can use | My Little Pony",
+          "zh": "云宝黛西角色测试结果：把陪伴变成可依靠的约定｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Rainbow Dash through make companionship a promise people can use: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“把陪伴变成可依靠的约定”阅读云宝黛西（Rainbow Dash）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A lens on showing up",
+            "zh": "在场陪伴的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Hasbro connects Rainbow Dash with loyalty in the fictional Elements of Harmony. This edition asks about a limited everyday version: choosing to be alongside someone for an agreed activity. Your selections can suggest that visible companionship appealed today. They do not certify loyalty, athletic ability, bravery or a superior way of being a friend.",
+              "zh": "孩之宝在虚构和谐元素中把云宝黛西与忠诚相连。本版取一个有限的日常版本：在约好的活动中陪在别人身边。本次选择可能表示这种看得见的陪伴较吸引你，不认证忠诚、运动能力、勇敢，也不代表做朋友更高一等。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Joining the first attempt",
+            "zh": "一起试第一遍"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend feels unsure at a beginner event. You offer to join the first round, clarify how long you can stay and let them choose whether they want the company. The useful part is a specific, welcome commitment. Taking over their decisions or promising the whole evening when you cannot stay would change the meaning of that offer.",
+              "zh": "朋友在入门活动有点犹豫，你提出第一轮一起参加，说明能陪多久，也让对方决定是否需要。有效之处是具体且被欢迎的约定。替对方决定，或明明待不了却答应陪整晚，都会改变这份陪伴的意义。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Company among six contributions",
+            "zh": "六种贡献中的陪伴"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle clarifies what is unfamiliar; Applejack names the practical job. Rarity gives the moment a personal touch, Pinkie Pie makes room for shared play, and Fluttershy checks the pace. Rainbow Dash’s angle is staying engaged alongside someone. None of these requires a person to be fast, outgoing or competitive, and several can happen in the same afternoon.",
+              "zh": "紫悦解释陌生处，苹果嘉儿说清实际工作；珍奇加入贴合个人的心意，碧琪带来共同游戏，柔柔照顾节奏。云宝黛西这一角度强调并肩参与。这些做法都不要求速度快、外向或爱竞争，同一下午也能做出好几种贡献。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Leave room for a different choice",
+            "zh": "给不同选择留空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Being available need not mean remaining in every activity. A friend may prefer going alone, changing plans or declining your invitation. Treating an offer as a debt can make companionship less welcome. If this situation is familiar, separate the promise you actually made from the extra responsibility you imagined. A quiz cannot establish whether anyone has let someone down.",
+              "zh": "愿意在场不等于每场都必须留下。朋友可以更想独自去、改计划或谢绝邀请。把陪伴变成欠情，反而可能让人不自在。如果这有共鸣，可区分真正约好的事和自己额外想象的责任。测试不能判定谁辜负了谁。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one bounded promise",
+            "zh": "试一项有范围的约定"
+          },
+          "paragraphs": [
+            {
+              "en": "Offer one small, optional piece of company with a clear start and finish: a first round, a walk to the venue or ten minutes setting up. Check that the offer is wanted. Afterwards notice whether the boundary helped you both relax. You can value friendship while saying you cannot take part in the next activity.",
+              "zh": "给出一小段可选的陪伴，起止清楚：第一轮、走到场地的路、十分钟布置。先确认对方想要。之后看看有范围是否让双方更轻松。即使下一场没法参加，也仍可以重视这份友谊。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "applejack",
+      "directionIds": [
+        "applejack"
+      ],
+      "title": {
+        "en": "Applejack",
+        "zh": "苹果嘉儿（Applejack）"
+      },
+      "headline": {
+        "en": "Let a plain promise meet a real task",
+        "zh": "让朴素承诺落到实际事情上"
+      },
+      "summary": {
+        "en": "Read Applejack through let a plain promise meet a real task: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“让朴素承诺落到实际事情上”阅读苹果嘉儿（Applejack）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Applejack Quiz Result: Let a plain promise meet a real task | My Little Pony",
+          "zh": "苹果嘉儿角色测试结果：让朴素承诺落到实际事情上｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Applejack through let a plain promise meet a real task: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“让朴素承诺落到实际事情上”阅读苹果嘉儿（Applejack）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A practical, candid lens",
+            "zh": "实际而坦率的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Applejack represents honesty in Hasbro’s fictional friendship framing. Here the angle is deliberately modest: saying what practical contribution you can make and following the agreed part through. Choosing these options reflects an appeal within this bank. It is not a lie detector, a work ethic rating or evidence that people selecting other ponies are less honest.",
+              "zh": "孩之宝的虚构友谊设定把苹果嘉儿与诚实相连。这里的角度很具体：实话说明能做的实际贡献，并把约好的部分落实。选择这些选项只反映本题本里的吸引力，不是测谎、工作态度评级，更不表示其他角色的选择者较不诚实。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A realistic picnic contribution",
+            "zh": "一份现实的野餐贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose friends are planning a picnic. You can prepare one dish and carry a small bag, but cannot organise transport. Saying that plainly gives the others usable information. Completing the manageable piece can be more useful than announcing that you will handle everything. The same approach can work with shared supplies, cleanup or a straightforward hobby task.",
+              "zh": "例如朋友计划野餐，你能准备一道菜、带一小包物品，却没法安排交通。直接说明，别人才能据此协调。完成能承担的那部分，可能比宣布全部包办更有用。共用材料、收拾或一项简单兴趣工作也可以这样处理。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "How practical help fits the group",
+            "zh": "实际帮助怎样融入小组"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle asks what is needed, Rainbow Dash offers company and Rarity makes a detail personal. Pinkie Pie contributes play; Fluttershy protects a comfortable pace. Applejack’s angle turns an agreement into a usable action. A practical task need not cancel imagination or gentleness, and another person’s different contribution is not evidence that they avoid helping.",
+              "zh": "紫悦问清需要什么，云宝黛西提供陪伴，珍奇让细节贴合个人；碧琪贡献游戏，柔柔维护舒服节奏。苹果嘉儿角度把约定变成可用行动。做实际工作不必排斥想象或温柔，别人贡献不同也不等于不肯帮忙。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "When directness needs a question",
+            "zh": "直说之前也需要提问"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful task is one the people involved actually want done. You could finish a job efficiently yet miss a request for company, or state a limit so briefly that someone does not understand it. If that happens, add a question about the need and a little context about your boundary. The count itself cannot show how considerate your delivery was.",
+              "zh": "有用的工作首先得是对方真想完成的。事情可能做得很快，却错过别人想有人陪的请求；限度也可能说得太简短，让人不明白。遇到这种情况，可补问需要什么，再解释一点自己的范围。计数本身看不出表达是否体贴。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Make one commitment explicit",
+            "zh": "把一项承诺说清"
+          },
+          "paragraphs": [
+            {
+              "en": "For the next shared task, name one piece you can finish, when it will be ready and what you cannot cover. Invite the others to adjust the arrangement. After doing it, ask whether it met the actual need. This is an experiment in coordination, not a test of whether you are dependable enough to keep a fictional label.",
+              "zh": "下一次共同做事，说清一部分能完成的工作、何时完成、哪些顾不到，也邀请大家调整。做完后问是否解决了实际需要。这是在尝试协调方式，不是检验自己够不够可靠、能不能保留某个虚构标签。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rarity",
+      "directionIds": [
+        "rarity"
+      ],
+      "title": {
+        "en": "Rarity",
+        "zh": "珍奇（Rarity）"
+      },
+      "headline": {
+        "en": "Put the person into the detail",
+        "zh": "让细节装下对方的心意"
+      },
+      "summary": {
+        "en": "Read Rarity through put the person into the detail: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“让细节装下对方的心意”阅读珍奇（Rarity）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rarity Quiz Result: Put the person into the detail | My Little Pony",
+          "zh": "珍奇角色测试结果：让细节装下对方的心意｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Rarity through put the person into the detail: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“让细节装下对方的心意”阅读珍奇（Rarity）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A thoughtful-detail lens",
+            "zh": "贴心细节的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Hasbro associates Rarity with generosity in the fictional friendship elements. This edition focuses on a particular expression: choosing a detail with a recipient in mind. Your answers can show that this option appealed in the situations offered. They do not measure artistic talent, wealth, physical attractiveness, generosity as a moral virtue or a requirement to give gifts.",
+              "zh": "孩之宝在虚构友谊元素中把珍奇与慷慨相连。本版聚焦一种表达：想着接收的人来选细节。本次答案可能表示这种选择在题中较吸引你，不测艺术天分、财富、外貌或道德意义的慷慨，也不要求必须送礼。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An inexpensive welcome detail",
+            "zh": "一处不昂贵的欢迎细节"
+          },
+          "paragraphs": [
+            {
+              "en": "A new hobby member mentioned liking a particular colour. You use a scrap of that colour for their name label, then check that they like using it. The value is attention to this person, rather than elaborate decoration. A plain, accessible label can express the same care if it fits what the person actually needs.",
+              "zh": "新成员提过喜欢某种颜色，你拿一点同色边角料做名签，再问用起来是否喜欢。意义在于注意到了这个人，而不在装饰复杂。只要符合实际需要，朴素、清楚、方便使用的标签也能表达同样的心意。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Personal detail among other angles",
+            "zh": "个人细节与其他角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle contributes understanding, Rainbow Dash companionship and Applejack practical delivery. Pinkie Pie creates shared amusement; Fluttershy leaves comfortable space. Rarity asks what would make this gesture fit its recipient. These angles often cooperate: a clear fact, a reliable handover or a quiet seat can also be a deeply personal detail, without becoming a separate personality type.",
+              "zh": "紫悦贡献理解，云宝黛西贡献陪伴，苹果嘉儿落实实际工作；碧琪创造共同乐趣，柔柔留出舒服空间。珍奇问的是：这份表达怎样更适合接收的人？清楚的信息、可靠的交接、一个安静座位，也都可以是很贴心的细节，不必拆成另一种人格。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Ask before adding more",
+            "zh": "加细节前先问一问"
+          },
+          "paragraphs": [
+            {
+              "en": "A carefully chosen touch can lose its purpose if it makes the recipient feel watched, indebted or obliged to react publicly. More work does not always mean more care. If a gesture becomes complicated, ask what would actually feel useful or welcome. This is a possible tradeoff to consider, not a claim that selecting Rarity makes you demanding or dramatic.",
+              "zh": "精心细节若让接收者觉得被盯着、欠了情或必须公开反应，就可能偏离目的。多花工夫不一定更贴心。表达变复杂时，可以问什么真正有用、让人舒服。这是可以思考的取舍，不是说选珍奇就意味着苛刻或戏剧化。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a small recipient-led choice",
+            "zh": "试一次由对方带路的小选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one low-cost gesture and offer two simple versions, including doing nothing extra. Let the recipient choose. Afterwards notice which detail mattered to them and which mattered mostly to you. That gives practical feedback without ranking anyone’s taste or proving that a friendship is more valuable because a gift looked polished.",
+              "zh": "挑一份低成本的小心意，给两个简单版本，也允许不额外做什么，让对方选。之后看看哪处是对方在意、哪处主要是自己喜欢。这样能得到实际反馈，不评判品味，也不因礼物精致就证明友谊更珍贵。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinkie-pie",
+      "directionIds": [
+        "pinkie-pie"
+      ],
+      "title": {
+        "en": "Pinkie Pie",
+        "zh": "碧琪（Pinkie Pie）"
+      },
+      "headline": {
+        "en": "Make play an invitation people can decline",
+        "zh": "让玩乐成为可以婉拒的邀请"
+      },
+      "summary": {
+        "en": "Read Pinkie Pie through make play an invitation people can decline: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“让玩乐成为可以婉拒的邀请”阅读碧琪（Pinkie Pie）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Pinkie Pie Quiz Result: Make play an invitation people can decline | My Little Pony",
+          "zh": "碧琪角色测试结果：让玩乐成为可以婉拒的邀请｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Pinkie Pie through make play an invitation people can decline: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“让玩乐成为可以婉拒的邀请”阅读碧琪（Pinkie Pie）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A shared-play lens",
+            "zh": "共同玩乐的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Pinkie Pie is connected with laughter in Hasbro’s fictional character framing. This edition uses that as a prompt for optional shared play: a tiny story, an amusing ritual or a light activity. Selecting these choices does not measure extroversion, emotional wellbeing, a duty to entertain or an ability to make everyone happy. Quiet people can enjoy them too.",
+              "zh": "孩之宝的虚构角色设定把碧琪与欢笑相连。本版借此看自愿共同玩乐：小故事、有趣小仪式或轻松活动。选择它们不测外向、情绪健康，不表示有义务逗人开心，也不保证能让人人快乐。安静的人同样可以喜欢这些方式。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A tiny milestone, lightly marked",
+            "zh": "轻轻庆祝一个小进展"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend finishes the first page of a long craft project. You suggest a ten-second imaginary award ceremony, then check whether they would enjoy it. They might laugh, prefer a simple congratulations or want to carry on. The playful contribution works when it follows the people present, rather than demanding that they perform excitement for your idea.",
+              "zh": "朋友终于完成漫长手工的第一页，你提议来个十秒钟虚构颁奖，先问想不想玩。对方可能大笑、只想听一句祝贺，也可能想继续做。玩乐得跟着在场的人走，而不是要求别人为了你的点子表演兴奋。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "What the other five contribute",
+            "zh": "其他五位的贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle brings a useful question, Rainbow Dash a companion and Applejack a practical commitment. Rarity makes a gesture personal; Fluttershy makes the pace comfortable. Pinkie Pie adds an optional moment people can enjoy together. A silly idea can sit beside serious care, and enjoying a joke says nothing about how deeply someone understands a difficult situation.",
+              "zh": "紫悦带来有用的问题，云宝黛西带来陪伴，苹果嘉儿带来实际承诺；珍奇让表达贴合个人，柔柔让节奏舒服。碧琪补一段可以一起享受、也可选择不参加的乐趣。傻气点子能与认真关怀共存，爱玩笑也看不出谁对困难理解得深浅。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "When play needs a pause",
+            "zh": "什么时候该暂停玩乐"
+          },
+          "paragraphs": [
+            {
+              "en": "A joke or activity may be welcome at one moment and tiring at another. Someone can decline without rejecting you. If people have stopped responding or need to concentrate, pause and ask what would suit them now. These possibilities do not mean a high count hides sadness or a low count signals a lack of humour; neither conclusion is supported here.",
+              "zh": "玩笑和活动这一刻受欢迎，下一刻也可能令人累。别人谢绝不等于拒绝你。大家不再回应或需要专心时，可暂停并问现在怎样更合适。高计数不表示用笑容掩盖难过，低计数也不代表没幽默感，这里都没有这类依据。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Offer one easy opt-out",
+            "zh": "给一次轻松退出的选择"
+          },
+          "paragraphs": [
+            {
+              "en": "At the next casual gathering, suggest a brief activity with an explicit option to watch or skip. Keep it easy to end. Afterwards ask whether it made the moment more enjoyable, rather than counting how many people joined. You are exploring a shared experience, not auditioning for the role of the cheerful person in every group.",
+              "zh": "下次轻松聚会，可以提议一个简短活动，明确说明旁观、跳过都行，而且容易结束。之后问是否让当时更好玩，不统计多少人被你带动。这是在探索共同体验，不是在应聘每个小组里永远开朗的那个人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluttershy",
+      "directionIds": [
+        "fluttershy"
+      ],
+      "title": {
+        "en": "Fluttershy",
+        "zh": "柔柔（Fluttershy）"
+      },
+      "headline": {
+        "en": "Let comfort set the pace of an invitation",
+        "zh": "让邀请跟着舒服的节奏走"
+      },
+      "summary": {
+        "en": "Read Fluttershy through let comfort set the pace of an invitation: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+        "zh": "从“让邀请跟着舒服的节奏走”阅读柔柔（Fluttershy）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Fluttershy Quiz Result: Let comfort set the pace of an invitation | My Little Pony",
+          "zh": "柔柔角色测试结果：让邀请跟着舒服的节奏走｜小马宝莉"
+        },
+        "description": {
+          "en": "Read Fluttershy through let comfort set the pace of an invitation: an everyday scene, comparisons with all five ponies, a practical experiment and scoring limits. Complete free fan result guide.",
+          "zh": "从“让邀请跟着舒服的节奏走”阅读柔柔（Fluttershy）：含日常例子、另外五位角色比较、小尝试及计数边界。非官方同人完整说明免费可读。"
+        }
+      },
+      "scoreReading": {
+        "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+        "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "A comfortable-pace lens",
+            "zh": "舒服节奏的角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Fluttershy is linked with kindness in Hasbro’s fictional friendship elements. This edition focuses on leaving space for someone’s own pace, volume or level of participation. Choosing these options can reflect an appeal today. It does not establish shyness, anxiety, empathy, a clinical condition or whether someone is a kinder person than the rest of the group.",
+              "zh": "孩之宝在虚构友谊元素中把柔柔与善良相连。本版聚焦给别人自己的节奏、音量和参与程度留空间。本次选择可能表示这种做法较吸引你，不判定害羞、焦虑、共情能力或临床状况，也不评谁比组内其他人更善良。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A seat without a spotlight",
+            "zh": "一个不带聚光灯的位置"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone arrives at a craft table and hesitates. You offer a seat nearby, mention that watching first is fine and avoid asking for a public introduction immediately. They may want quiet company or may soon join the lively conversation. Leaving room means letting them choose, not deciding on their behalf that they must be nervous or fragile.",
+              "zh": "有人来到手工桌边犹豫，你留出旁边的位置，说先看看也可以，不马上要求当众自我介绍。对方可能想安静待一会儿，也可能很快加入热闹。留空间是让对方选择，不是替对方认定紧张或脆弱。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Comfort with five other contributions",
+            "zh": "舒服与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Twilight Sparkle supplies useful context, Rainbow Dash a companion and Applejack a clear practical offer. Rarity notices a personal detail; Pinkie Pie invites shared play. Fluttershy asks whether the pace suits the people involved. Comfortable space can support any of those actions. It need not mean silence, avoiding all disagreement or giving up your own preferences.",
+              "zh": "紫悦提供有用背景，云宝黛西提供陪伴，苹果嘉儿提出清楚实际的帮助；珍奇注意个人细节，碧琪邀请共同玩乐。柔柔问节奏是否适合在场的人。舒服空间能支持每一种行动，不必等于沉默、避免所有分歧或放弃自己的偏好。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Do not guess what silence means",
+            "zh": "不替沉默猜原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Quietness can mean concentration, enjoyment, tiredness or something else entirely. A considerate pause becomes less useful if you assume you already know the reason or keep your own needs invisible. Ask a simple question and include yourself in the arrangement. A raw choice count cannot tell you whether you avoid conflict or should speak more often.",
+              "zh": "安静可能是专心、享受、累了，也可能另有原因。若自认已懂原因，或把自己的需要藏起来，体贴的停顿也会失去作用。可以简单问一问，并把自己也放进安排。原始计数看不出你是否逃避冲突，也不能规定你该多说几句。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one choice about pace",
+            "zh": "试一次有关节奏的选择"
+          },
+          "paragraphs": [
+            {
+              "en": "For a shared activity, offer two ways to join: immediately with the group or after watching briefly. Say which pace would suit you too. Let each person decide without an explanation. Afterwards notice whether the choice helped participation. There is no requirement to become louder or quieter to deserve this character, and no friendship score to improve.",
+              "zh": "共同活动时，提供两种加入方式：马上和大家一起，或先看一会儿。也说说自己适合哪种。每个人可不解释地选择。之后看看这样的选择是否帮助参与。不必为了配得上角色而变得更大声或更安静，也没有需要提高的友谊分数。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the counts and every highest tie",
+            "zh": "阅读计数与全部最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+              "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and fictional scope",
+            "zh": "原创同人版本与虚构范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+              "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Answer all 18 questions. Each chosen option adds one raw count to its named pony; the six counts sum to 18. Every pony is offered 12 times, three times in each of four positions. An absent option is not a rejection. Every highest count keeps its full guide; all A gives three each and six complete guides. Counts are not similarity percentages, virtues or population ranks. A one-choice gap has no validated psychological meaning, and the second count is not a hidden identity.",
+          "zh": "18题全部作答，每项按明确映射给一位小马加1次，六项加总18。每位出现12次，四位置各3次；当题未提供不算被拒绝。最高并列全部保留全文；全A会各3次，显示六份完整说明。计数不是相似度百分比、美德或人群排名；相差一次没有经过验证的心理意义，第二高也不是隐藏身份。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "All tied ponies keep their complete guides",
+        "zh": "并列小马全部保留完整说明"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts are shown together without a preferred title. Close results can be compared through the public guides, but a second count does not create a second personality or a hidden pony. Someone can ask a useful question, keep a promise and enjoy a playful moment in the same activity. The offered options limit what this bank can describe.",
+          "zh": "最高计数一起呈现，不设优先头衔。近分可通过公开说明比较，但第二高不产生第二人格或隐藏小马。同一次活动可以既提有用问题、守住承诺，也享受玩乐。题目提供的选项限定了本题本能描述的范围。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "Fictional friendship is context, not a virtue scale",
+        "zh": "虚构友谊是背景，不是美德量表"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition covers six Friendship Is Magic leads and a limited editorial angle for each. It does not include Spike, every supporting character or every generation. A count does not establish a friendship element in a real person. No gender, age, clinical condition or relationship decision can be inferred from a character match.",
+          "zh": "本版只含《友谊就是魔法》六位主角及各一个有限编辑角度，不含穗龙、所有配角或所有世代。计数不能确立真人具有某个友谊元素；角色匹配也不推断性别、年龄、临床状况或关系决定。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版本"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+          "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices, optional drafts and sharing",
+        "zh": "私密选择、可选草稿与分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without uploading answers or putting them in URLs or analytics. Saving is optional, limited to this tab and expires after 24 hours; completion, retake or exit-and-clear removes the draft. Optional sharing includes public character names and a link, without counts or answers. Full results need no signup, email or other assessment. Any next test is optional and uses its own questions.",
+          "zh": "选择在浏览器计分，答案不上传、不进网址或分析。保存自选、只限本标签页、24小时失效；完成、重测或退出清除会删草稿。可选分享只含公开角色名和链接，不含次数或答案。看完整结果无需注册、邮箱或另一测试；后续测试自选并另行作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which ponies are included?",
+        "zh": "本版包含哪些小马？"
+      },
+      "answer": {
+        "en": "Twilight Sparkle, Rainbow Dash, Applejack, Rarity, Pinkie Pie and Fluttershy from Friendship Is Magic. All six have complete bilingual guides, and every highest tie keeps its full text. This is not a complete cast or a quiz about a different My Little Pony generation.",
+        "zh": "《友谊就是魔法》的紫悦、云宝黛西、苹果嘉儿、珍奇、碧琪与柔柔。六位均有双语全文，最高并列全部保留。本版不是全阵容，也不是其他小马宝莉世代的测试。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或经过科学验证的版本吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: questions, mappings, examples and result text. It covers the six Friendship Is Magic leads, not every My Little Pony generation or character. Names belong to their respective rights holders; no affiliation or endorsement is claimed. Hasbro’s parent guide supplies fictional names and friendship context only. No art, dialogue, competitor bank or source activity is reproduced. The quiz has no psychometric validation and infers no diagnosis, moral worth, gender role, MBTI type or career suitability.",
+        "zh": "费马独立创作本非官方同人版的题目、映射、例子与结果正文。范围是《友谊就是魔法》的六位主角，不覆盖小马宝莉所有世代或人物。角色名权利归相应权利人，无隶属或认可关系。孩之宝家长指南仅提供虚构名称与友谊背景，不复制立绘、台词、竞品题库或来源活动。本题本未经心理测量验证，不推断诊断、道德价值、性别角色、MBTI或职业适配。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does Applejack or Fluttershy mean I am more honest or kind?",
+        "zh": "匹配苹果嘉儿或柔柔说明我更诚实、善良吗？"
+      },
+      "answer": {
+        "en": "No. The fictional element is background only. This edition maps ordinary choices to limited editorial angles, without a morality scale, lie detection, a measure of kindness or a ranking of friendship quality. Lower counts do not indicate that you lack any virtue.",
+        "zh": "不说明。虚构元素只作背景；本站把普通选择映射到有限编辑角度，没有道德量表、测谎、善良测量或友谊质量排名。次数低不表示缺少某项美德。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every complete result in Chinese or English?",
+        "zh": "能用中英文读到全部完整结果吗？"
+      },
+      "answer": {
+        "en": "Yes. Every question, option, scoring explanation and full guide is available in Chinese and English. Switching the interface preserves the same named choices and mappings. A saved tab draft can resume within its limit. Psychometric equivalence between the languages has not been established.",
+        "zh": "可以。每道题、选项、计分说明和完整指南均有中英文，切换界面保留相同选项身份和映射；自选保存的标签页草稿可在期限内恢复。两语尚未建立心理测量等价证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to pay or take another test first?",
+        "zh": "需要付费或先做另一项测试吗？"
+      },
+      "answer": {
+        "en": "No. All questions and all six complete result guides are free without an account or email. Optional sharing reveals only public names and a link. Further assessments are optional, have separate purposes and require separate answers; a pony match cannot be converted into MBTI or career suitability.",
+        "zh": "不需要。全部题目和六份完整指南免费，无需账号或邮箱。可选分享只透露公开名称与链接。后续测评自选，目的独立、另行作答；小马匹配不能换算成MBTI或职业适配。"
+      }
+    }
+  ]
+}
