@@ -3107,5 +3107,30 @@
       "constraints"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "javascript-test",
+    "code": "FM_JAVASCRIPT_NODE24_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "JavaScript Test",
+      "zh": "JavaScript测试"
+    },
+    "description": {
+      "en": "Read 24 original JavaScript programs in a stated Node ES module context. Get every worked answer and four full guides. No level or certificate.",
+      "zh": "阅读24段原创JavaScript程序，按明确的Node ES模块条件预测输出或语法错误。免费查看全部答案、逐题解析和四份完整复习指南，不派等级或认证。"
+    },
+    "minutes": 10,
+    "formCode": "fermatmind_javascript_node24_esm_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "values-and-operators",
+      "bindings-and-functions",
+      "arrays-and-objects",
+      "promises-and-errors"
+    ],
+    "collection": "explore"
   }
 ]

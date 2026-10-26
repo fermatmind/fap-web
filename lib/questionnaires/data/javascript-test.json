@@ -1,0 +1,1831 @@
+{
+  "slug": "javascript-test",
+  "code": "FM_JAVASCRIPT_NODE24_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "JavaScript Test",
+    "zh": "JavaScript测试"
+  },
+  "seoTitle": {
+    "en": "JavaScript Test: 24 Free Code Questions & Answers",
+    "zh": "JavaScript测试：24道免费代码题、答案与解析"
+  },
+  "description": {
+    "en": "Read 24 original JavaScript programs in a stated Node ES module context. Get every worked answer and four full guides. No level or certificate.",
+    "zh": "阅读24段原创JavaScript程序，按明确的Node ES模块条件预测输出或语法错误。免费查看全部答案、逐题解析和四份完整复习指南，不派等级或认证。"
+  },
+  "minutes": 10,
+  "introduction": {
+    "en": "What does this program print, and can execution begin at all? Work through 24 independently written JavaScript tasks in a declared Node 24.19.0 ES module environment. Four groups cover values and operators, bindings and functions, arrays and objects, and Promises and errors. Each supplied program was checked: 22 produce the keyed output and two fail syntax checking as expected. Every explanation and all four full guides are free. You select outcomes here; the website does not run code submitted by visitors, require a file upload or issue a developer qualification.",
+    "zh": "程序打印什么，又能否开始执行？用24道独立编写的JavaScript题，按明确的Node 24.19.0 ES模块环境练习值与运算符、绑定函数、数组对象、Promise及错误四组。每段均已核验：22段输出与答案一致，另两段按预期未过语法检查。全部解析和四份完整指南免费。这里选择结果，网站不运行访问者代码、不要求上传文件，也不颁开发者资格。"
+  },
+  "instructions": {
+    "en": "Treat each snippet as an independent .mjs ES module in Node 24.19.0. Choose its exact console output or the stated syntax-error outcome before execution. ES modules use strict mode. No example depends on DOM APIs, external input, Node I/O or mixed timer ordering. English code and output values remain identical across interfaces; instructions and explanations are bilingual. There is no timer or speed bonus. Finish all 24 valid choices to see every selected answer, key, explanation and complete guide. If you check references while answering, interpret your count under those conditions.",
+    "zh": "每段独立作为Node 24.19.0的.mjs ES模块，选择准确控制台输出或执行前语法错误结果。ES模块为严格模式；无题依赖DOM、外部输入、Node I/O或混合定时器顺序。两语保留相同英文代码及输出值，说明与解析双语。无计时或速度奖励，24题有效选择后显示全部所选、答案、解析及全文。若边答边查资料，请按该条件理解正确数。"
+  },
+  "resultHeading": {
+    "en": "Your JavaScript practice counts and every explanation",
+    "zh": "本次JavaScript练习正确数与全部解析"
+  },
+  "directions": [
+    {
+      "id": "values-and-operators",
+      "title": {
+        "en": "Values and operators",
+        "zh": "值与运算符"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "bindings-and-functions",
+      "title": {
+        "en": "Bindings and functions",
+        "zh": "绑定与函数"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "arrays-and-objects",
+      "title": {
+        "en": "Arrays and objects",
+        "zh": "数组与对象"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "promises-and-errors",
+      "title": {
+        "en": "Promises and errors",
+        "zh": "Promise与错误"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "JS_01",
+      "prompt": {
+        "en": "A number is added to a string: what text is printed?\n\nconsole.log(5 + \"2\");",
+        "zh": "数值与字符串使用加号：打印什么文本？\n\nconsole.log(5 + \"2\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "For this + expression, one primitive operand is a string. The number 5 is converted to text and concatenated with 2, producing 52. This is not numeric addition. Changing the operator or explicitly converting the string to a number would change the program.",
+        "zh": "此加号表达式有一个基本值操作数为字符串，数值5转成文本再与2拼接，得到52，不是数值相加。换操作符或显式把字符串转数值会改变程序。"
+      }
+    },
+    {
+      "id": "JS_02",
+      "prompt": {
+        "en": "Subtraction receives a numeric string: what text is printed?\n\nconsole.log(5 - \"2\");",
+        "zh": "减法收到数字字符串：打印什么文本？\n\nconsole.log(5 - \"2\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "NaN",
+            "zh": "NaN"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Subtraction is a numeric operation here. The string \"2\" converts to the number 2, then 5-2 gives 3. The special string-concatenation behaviour of + does not apply to -. The supplied string is numeric, not arbitrary text.",
+        "zh": "此处减法按数值运算，将字符串\"2\"转为数值2，再算5-2得3。加号的字符串拼接行为不适用于减号；题给字符串是数字，不是任意文字。"
+      }
+    },
+    {
+      "id": "JS_03",
+      "prompt": {
+        "en": "Strict equality compares a number with a boolean: what is printed?\n\nconsole.log(0 === false);",
+        "zh": "严格相等比较数值与布尔值：打印什么？\n\nconsole.log(0 === false);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The operands have different language types, Number and Boolean. Strict equality does not convert false to zero, so the result is false. This task uses ===, not the different abstract-equality operator ==.",
+        "zh": "两操作数语言类型不同，分别为Number与Boolean。严格相等不把false转成零，所以结果为false。本题使用===，不是规则不同的抽象相等==。"
+      }
+    },
+    {
+      "id": "JS_04",
+      "prompt": {
+        "en": "Nullish coalescing receives null: what is printed?\n\nconsole.log(null ?? \"spare\");",
+        "zh": "空值合并收到null：打印什么？\n\nconsole.log(null ?? \"spare\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "spare",
+            "zh": "spare"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The left value is null, one of the two nullish values. The right-hand expression is therefore selected, and console.log prints spare. Nullish coalescing is distinct from a general truthiness test; zero and an empty string would not trigger its fallback.",
+        "zh": "左值为null，属于两种空值之一，因此选择右侧并打印spare。空值合并不同于一般真假判断，零和空字符串不会触发它的后备值。"
+      }
+    },
+    {
+      "id": "JS_05",
+      "prompt": {
+        "en": "Logical OR receives zero: what is printed?\n\nconsole.log(0 || 8);",
+        "zh": "逻辑或收到零：打印什么？\n\nconsole.log(0 || 8);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Zero is falsy. Logical OR therefore evaluates and returns the right operand 8. The operator returns an operand value rather than always returning a Boolean. Replacing || with ?? would preserve zero instead.",
+        "zh": "零是假值，因此逻辑或求值并返回右操作数8。该操作符返回某个操作数的值，不是始终返回布尔值。若换成??，就会保留零。"
+      }
+    },
+    {
+      "id": "JS_06",
+      "prompt": {
+        "en": "An explicit numeric conversion fails: what is printed?\n\nconsole.log(Number.isNaN(Number(\"pear\")));",
+        "zh": "显式数值转换未得到数字：打印什么？\n\nconsole.log(Number.isNaN(Number(\"pear\")));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Number(\"pear\") produces NaN because that text is not a numeric string. Number.isNaN then checks the resulting Number value and returns true. Number.isNaN by itself does not coerce its argument; the conversion is explicitly nested in this program.",
+        "zh": "Number(\"pear\")因文本不是数字字符串而得到NaN，Number.isNaN检查这个Number值并返回true。Number.isNaN本身不强制转换参数，本程序把转换明确写在内层。"
+      }
+    },
+    {
+      "id": "JS_07",
+      "prompt": {
+        "en": "A const binding refers to a mutable array: what is printed?\n\nconst labels = [];\nlabels.push(\"x\");\nconsole.log(labels.length);",
+        "zh": "const绑定指向可变数组：打印什么？\n\nconst labels = [];\nlabels.push(\"x\");\nconsole.log(labels.length);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "const prevents reassigning the binding labels. It does not freeze the array reached through that binding, so push adds one element and length is 1. There is no reassignment to labels and no Object.freeze call in this program.",
+        "zh": "const禁止重赋labels绑定，不会冻结它指向的数组，因此push添加一个元素，length为1。本程序既未重赋labels，也没有Object.freeze。"
+      }
+    },
+    {
+      "id": "JS_08",
+      "prompt": {
+        "en": "An inner block shadows a let binding: what is printed?\n\nlet total = 2;\n{ let total = 9; }\nconsole.log(total);",
+        "zh": "内部块遮蔽let绑定：打印什么？\n\nlet total = 2;\n{ let total = 9; }\nconsole.log(total);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The block declares a separate total binding with block scope. After leaving the block, console.log resolves the outer total, whose value remains 2. This is shadowing, not assigning 9 to the existing outer binding.",
+        "zh": "块内声明了另一条具有块作用域的total绑定。离开块后，console.log找到外部total，其值仍为2。这是遮蔽，不是把外部原绑定赋成9。"
+      }
+    },
+    {
+      "id": "JS_09",
+      "prompt": {
+        "en": "A returned closure keeps one counter: what is printed?\n\nfunction makeStep() {\n  let count = 3;\n  return () => ++count;\n}\nconst step = makeStep();\nconsole.log(step() + \":\" + step());",
+        "zh": "返回的闭包保留同一个计数器：打印什么？\n\nfunction makeStep() {\n  let count = 3;\n  return () => ++count;\n}\nconst step = makeStep();\nconsole.log(step() + \":\" + step());"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "4:5",
+            "zh": "4:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "4:4",
+            "zh": "4:4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "3:4",
+            "zh": "3:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "5:5",
+            "zh": "5:5"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "One call to makeStep creates the count binding captured by the returned function. The first step call increments it to 4 and the second to 5. Both calls use the same closure, not two fresh makeStep calls; the plus chain then joins the values with a colon.",
+        "zh": "调用一次makeStep，创建被返回函数捕获的count绑定。首个step调用增至4，第二个增至5。它们使用同一个闭包，不是分别新建makeStep，再由加号链用冒号拼起来。"
+      }
+    },
+    {
+      "id": "JS_10",
+      "prompt": {
+        "en": "An explicit undefined uses a default parameter: what is printed?\n\nfunction twice(n = 6) { return n * 2; }\nconsole.log(twice(undefined));",
+        "zh": "显式undefined使用默认形参：打印什么？\n\nfunction twice(n = 6) { return n * 2; }\nconsole.log(twice(undefined));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "NaN",
+            "zh": "NaN"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Passing undefined causes the parameter initializer to supply 6. The function then returns 6*2=12. A default parameter is not a fallback for every falsy value; passing null or zero would be a different task.",
+        "zh": "传入undefined使形参初始化器提供6，函数返回6*2=12。默认形参不是为所有假值提供后备；传null或零是不同任务。"
+      }
+    },
+    {
+      "id": "JS_11",
+      "prompt": {
+        "en": "Two lexical declarations use the same name in one scope: choose the outcome.\n\nlet item = 1;\nlet item = 2;\nconsole.log(item);",
+        "zh": "同一作用域两次声明同名词法绑定：选择结果。\n\nlet item = 1;\nlet item = 2;\nconsole.log(item);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The same lexical scope cannot contain these two let declarations of item. The module fails its syntax/early-error check before console.log can execute. This differs from a later assignment item=2 without a second declaration.",
+        "zh": "同一词法作用域不能包含这两条同名let声明，模块在语法及早期错误检查时失败，尚未执行console.log。这不同于不重复声明、只在后面写item=2。"
+      }
+    },
+    {
+      "id": "JS_12",
+      "prompt": {
+        "en": "A const declaration has no initializer: choose the outcome.\n\nconst limit;\nconsole.log(limit);",
+        "zh": "const声明没有初始化表达式：选择结果。\n\nconst limit;\nconsole.log(limit);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "This ordinary const declaration requires an initializer. The standalone module fails to parse before execution, so it does not print undefined. The code is not a const binding inside a for-of declaration, which follows a different grammatical form.",
+        "zh": "这种普通const声明需要初始化表达式，独立模块在执行前解析失败，不会打印undefined。它不是采用另一语法形式的for-of声明中的const绑定。"
+      }
+    },
+    {
+      "id": "JS_13",
+      "prompt": {
+        "en": "Array map builds a new result: what is printed?\n\nconst source = [2, 5, 8];\nconst result = source.map(n => n + 1);\nconsole.log(source[0] + \":\" + result[0]);",
+        "zh": "数组map生成新结果：打印什么？\n\nconst source = [2, 5, 8];\nconst result = source.map(n => n + 1);\nconsole.log(source[0] + \":\" + result[0]);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:3",
+            "zh": "2:3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3:3",
+            "zh": "3:3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:2",
+            "zh": "2:2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3:2",
+            "zh": "3:2"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The callback returns each number plus one and does not mutate source. map creates a result array, whose first value is 3; source[0] remains 2. A callback that deliberately mutates another object could behave differently, so the supplied callback matters.",
+        "zh": "回调返回各数加一，没有修改source。map创建结果数组，首值为3，source[0]仍是2。若回调刻意修改别的对象，情况可能不同，因此须读给定回调。"
+      }
+    },
+    {
+      "id": "JS_14",
+      "prompt": {
+        "en": "Filtering positive values preserves their order: what is printed?\n\nconsole.log([-1, 0, 3, 7].filter(n => n > 0).join(\",\"));",
+        "zh": "筛选正数并保留顺序：打印什么？\n\nconsole.log([-1, 0, 3, 7].filter(n => n > 0).join(\",\"));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "0,3,7",
+            "zh": "0,3,7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3,7",
+            "zh": "3,7"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "-1,3,7",
+            "zh": "-1,3,7"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7,3",
+            "zh": "7,3"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The predicate n>0 includes 3 and 7 and excludes both -1 and zero. filter retains the selected elements’ order, and join inserts a comma between them. No sort operation is present in this program.",
+        "zh": "条件n>0包含3和7，排除-1和零。filter保留所选元素原顺序，join在它们之间加逗号；程序没有排序。"
+      }
+    },
+    {
+      "id": "JS_15",
+      "prompt": {
+        "en": "Reduce has an explicit initial accumulator: what is printed?\n\nconsole.log([3, 4, 5].reduce((sum, n) => sum + n, 1));",
+        "zh": "reduce明确给出初始累加值：打印什么？\n\nconsole.log([3, 4, 5].reduce((sum, n) => sum + n, 1));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The accumulator starts at the explicitly supplied 1. It then adds 3, 4 and 5, giving 13. Omitting the initial value would change the setup; it is not omitted here. This is a numeric sum, not a concatenation of strings.",
+        "zh": "累加器从明确提供的1开始，再加3、4、5，得到13。省略初始值会改变设置，本题未省略；它是数值求和，不是拼接字符串。"
+      }
+    },
+    {
+      "id": "JS_16",
+      "prompt": {
+        "en": "A spread copy shares a nested object: what is printed?\n\nconst source = { inner: { n: 2 } };\nconst copy = { ...source };\ncopy.inner.n = 8;\nconsole.log(source.inner.n + \":\" + (source === copy));",
+        "zh": "展开复制共享嵌套对象：打印什么？\n\nconst source = { inner: { n: 2 } };\nconst copy = { ...source };\ncopy.inner.n = 8;\nconsole.log(source.inner.n + \":\" + (source === copy));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:false",
+            "zh": "2:false"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "8:true",
+            "zh": "8:true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:true",
+            "zh": "2:true"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "8:false",
+            "zh": "8:false"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The spread creates a distinct outer object, so source===copy is false. Its inner property contains the same nested object value, so changing copy.inner.n also affects source.inner.n. This plain-object copy is shallow; no deep-clone operation is performed.",
+        "zh": "展开创建不同的外层对象，因此source===copy为false。inner属性仍含同一个嵌套对象值，修改copy.inner.n也影响source.inner.n。这是普通对象的浅复制，没有深克隆。"
+      }
+    },
+    {
+      "id": "JS_17",
+      "prompt": {
+        "en": "A Set receives a duplicate string: what is printed?\n\nconsole.log(new Set([\"red\", \"red\", \"blue\"]).size);",
+        "zh": "Set收到重复字符串：打印什么？\n\nconsole.log(new Set([\"red\", \"red\", \"blue\"]).size);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The two equal red string values contribute one set entry, and blue contributes another, producing size 2. The output asks only for size and does not depend on inspecting or guessing an iteration order.",
+        "zh": "两个相等red字符串值只贡献一个集合条目，blue另一个，大小为2。只问大小，不依赖查看或猜测迭代顺序。"
+      }
+    },
+    {
+      "id": "JS_18",
+      "prompt": {
+        "en": "A property is inherited rather than owned: what is printed?\n\nconst parent = { n: 7 };\nconst child = Object.create(parent);\nconsole.log(child.n + \":\" + Object.hasOwn(child, \"n\"));",
+        "zh": "属性来自继承而非自有：打印什么？\n\nconst parent = { n: 7 };\nconst child = Object.create(parent);\nconsole.log(child.n + \":\" + Object.hasOwn(child, \"n\"));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7:true",
+            "zh": "7:true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7:false",
+            "zh": "7:false"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "undefined:false",
+            "zh": "undefined:false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "undefined:true",
+            "zh": "undefined:true"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Property lookup finds n on child’s prototype parent and returns 7. Object.hasOwn checks only child’s own properties, so it returns false. Finding a property through the prototype chain is different from owning it directly.",
+        "zh": "属性查找在child的原型parent上找到n并取7。Object.hasOwn只查child自己的属性，因此返回false。沿原型链找到属性与直接拥有它不同。"
+      }
+    },
+    {
+      "id": "JS_19",
+      "prompt": {
+        "en": "A Promise reaction follows the synchronous push: what is printed?\n\nconst order = [];\nPromise.resolve().then(() => order.push(\"later\"))\n  .then(() => console.log(order.join(\",\")));\norder.push(\"now\");",
+        "zh": "Promise反应晚于同步push：打印什么？\n\nconst order = [];\nPromise.resolve().then(() => order.push(\"later\"))\n  .then(() => console.log(order.join(\",\")));\norder.push(\"now\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "later,now",
+            "zh": "later,now"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "now",
+            "zh": "now"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "now,later",
+            "zh": "now,later"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "later",
+            "zh": "later"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The synchronous push of now runs during module evaluation. The fulfilled Promise’s reaction runs as a later job, pushing later; the next reaction prints both entries. This example uses no timer or I/O, and does not claim identical ordering for every browser and Node host API.",
+        "zh": "模块求值时先同步push now，已履行Promise的反应在后续作业中push later，再由下一反应打印两项。本例没有定时器或I/O，不声称所有浏览器与Node宿主接口的排序相同。"
+      }
+    },
+    {
+      "id": "JS_20",
+      "prompt": {
+        "en": "Promise.all receives two fulfilled values: what is printed?\n\nPromise.all([Promise.resolve(3), Promise.resolve(7)])\n  .then(values => console.log(values.join(\":\")));",
+        "zh": "Promise.all接收两个已履行值：打印什么？\n\nPromise.all([Promise.resolve(3), Promise.resolve(7)])\n  .then(values => console.log(values.join(\":\")));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "7:3",
+            "zh": "7:3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "3:7",
+            "zh": "3:7"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The combined Promise fulfills with the input values in input order: 3 then 7. The callback joins them using a colon. Promise.all is not a numeric sum and does not reverse the values according to an assumed completion order. Both supplied Promises fulfill in this example.",
+        "zh": "组合Promise按输入顺序给出3、7，回调用冒号连接。Promise.all不做数值求和，也不按猜测完成顺序反转值；本例两个输入都履行。"
+      }
+    },
+    {
+      "id": "JS_21",
+      "prompt": {
+        "en": "Catch returns a replacement value: what is printed?\n\nPromise.reject(\"stop\")\n  .catch(reason => \"caught:\" + reason)\n  .then(value => console.log(value));",
+        "zh": "catch返回替代值：打印什么？\n\nPromise.reject(\"stop\")\n  .catch(reason => \"caught:\" + reason)\n  .then(value => console.log(value));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "caught:stop",
+            "zh": "caught:stop"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "stop",
+            "zh": "stop"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Nothing; the rejection remains unhandled.",
+            "zh": "没有输出，拒绝仍未处理。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The catch handler receives stop and returns the ordinary string caught:stop. That returned value fulfills the next Promise, so the following then prints it. The rejection is handled in the supplied chain rather than left unhandled.",
+        "zh": "catch处理器收到stop并返回普通字符串caught:stop，该返回值让下一个Promise履行，随后then打印。给定链已处理拒绝，不是未处理拒绝。"
+      }
+    },
+    {
+      "id": "JS_22",
+      "prompt": {
+        "en": "An async function returns a number: what is printed?\n\nasync function four() { return 4; }\nfour().then(value => console.log(value + 1));",
+        "zh": "async函数返回数值：打印什么？\n\nasync function four() { return 4; }\nfour().then(value => console.log(value + 1));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "41",
+            "zh": "41"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "An async function returns a Promise, fulfilled here with the number 4. Its then callback receives that number and adds 1, printing 5. The function call itself is not the number, and there is no string operand in the addition.",
+        "zh": "async函数返回Promise，本例以数值4履行。then回调收到数值并加1，打印5。函数调用本身不是数值，且加法中没有字符串操作数。"
+      }
+    },
+    {
+      "id": "JS_23",
+      "prompt": {
+        "en": "Invalid JSON is parsed inside try: what name is printed?\n\ntry {\n  JSON.parse(\"{\");\n} catch (error) {\n  console.log(error.name);\n}",
+        "zh": "在try中解析无效JSON：打印哪个名称？\n\ntry {\n  JSON.parse(\"{\");\n} catch (error) {\n  console.log(error.name);\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError",
+            "zh": "TypeError"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "ReferenceError",
+            "zh": "ReferenceError"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "SyntaxError",
+            "zh": "SyntaxError"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The JavaScript module itself is valid. At runtime, JSON.parse receives incomplete JSON and throws a SyntaxError object, which the catch handles and prints by name. This runtime parsing failure is distinct from the module failing its own JavaScript syntax check.",
+        "zh": "JavaScript模块本身语法有效，运行时JSON.parse收到不完整JSON，抛SyntaxError对象，被catch处理后打印名称。这种运行时解析失败与模块自身JavaScript语法检查失败不同。"
+      }
+    },
+    {
+      "id": "JS_24",
+      "prompt": {
+        "en": "A frozen property is assigned in an ES module: what is printed?\n\nconst box = Object.freeze({ n: 2 });\ntry {\n  box.n = 5;\n} catch (error) {\n  console.log(error.name + \":\" + box.n);\n}",
+        "zh": "在ES模块中给冻结属性赋值：打印什么？\n\nconst box = Object.freeze({ n: 2 });\ntry {\n  box.n = 5;\n} catch (error) {\n  console.log(error.name + \":\" + box.n);\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError:5",
+            "zh": "TypeError:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "undefined:2",
+            "zh": "undefined:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Nothing; the assignment silently succeeds.",
+            "zh": "没有输出，赋值悄悄成功。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError:2",
+            "zh": "TypeError:2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "ES module code uses strict mode. The frozen object’s n property is non-writable, so the attempted assignment throws TypeError; the catch prints its name and the unchanged 2. Object.freeze is shallow, but this example changes a direct numeric property rather than a nested object.",
+        "zh": "ES模块采用严格模式，冻结对象的n不可写，尝试赋值抛TypeError，catch打印名称与未改变的2。Object.freeze是浅层冻结，但本例改的是直接数值属性，不是嵌套对象。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "values-and-operators",
+      "directionIds": [
+        "values-and-operators"
+      ],
+      "title": {
+        "en": "Values and operators",
+        "zh": "值与运算符"
+      },
+      "headline": {
+        "en": "Name the operator before predicting a conversion.",
+        "zh": "先说清运算符，再预测转换。"
+      },
+      "summary": {
+        "en": "Review concatenation, subtraction, strict equality, nullish coalescing, logical OR and explicit NaN checking.",
+        "zh": "复习拼接、减法、严格相等、空值合并、逻辑或及显式NaN核对。"
+      },
+      "seo": {
+        "title": {
+          "en": "Values and operators: JavaScript practice guide",
+          "zh": "值与运算符：JavaScript练习指南"
+        },
+        "description": {
+          "en": "Review concatenation, subtraction, strict equality, nullish coalescing, logical OR and explicit NaN checking.",
+          "zh": "复习拼接、减法、严格相等、空值合并、逻辑或及显式NaN核对。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count records matching keys on six supplied Node 24 ES module tasks. It is not a developer level, percentile, employer cutoff or qualification. Every answer and all four complete guides are available at every count.",
+        "zh": "正确数记录六道给定Node 24 ES模块任务中匹配答案的次数，不是开发者等级、百分位、雇主门槛或资格。任何正确数都能读全部答案及四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six different value decisions",
+            "zh": "六种不同的值判断"
+          },
+          "paragraphs": [
+            {
+              "en": "These tasks use explicitly supplied primitive values in short JavaScript ES modules. The six checks are not all applications of one loose rule that JavaScript converts everything. Addition can concatenate strings, subtraction uses numeric conversion, and strict equality does not equate a Number with a Boolean. Nullish coalescing and logical OR choose fallback values using different tests. The final item separates an explicit Number conversion from Number.isNaN’s own non-coercing check.",
+              "zh": "题目在短JavaScript ES模块中给出明确基本值，六项不能混成“JavaScript把一切都转换”的笼统规则。加法可拼字符串，减法采用数值转换，严格相等不把Number与Boolean视为同值；空值合并与逻辑或按不同条件选后备值。最后一题把显式Number转换与Number.isNaN本身不转换的核对分开。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Compare zero under two fallback rules",
+            "zh": "比较零在两种后备规则中的结果"
+          },
+          "paragraphs": [
+            {
+              "en": "In a new unscored example, compare 0 ?? 9 with 0 || 9. The first expression yields zero because zero is neither null nor undefined. The second yields nine because zero is falsy. Printing the two selected values with a colon gives 0:9. Keep parentheses around each expression when combining them into a larger printed expression, so that you inspect the intended grouping rather than accidentally asking a different precedence question.",
+              "zh": "新的不计分例比较0 ?? 9与0 || 9：前者给零，因为零既非null也非undefined；后者给9，因为零是假值。用冒号打印两值为0:9。把它们组合到更大输出表达式时，分别保留括号，核的是预定分组，不要意外变成另一道优先级题。"
+            }
+          ]
+        },
+        {
+          "id": "conversion",
+          "title": {
+            "en": "Follow the actual conversion path",
+            "zh": "跟随实际转换路径"
+          },
+          "paragraphs": [
+            {
+              "en": "For a plus expression, first identify whether a primitive operand is already a string. For subtraction, identify the numeric values produced from the supplied operands. Do not infer the result solely from how a value looks on screen: the text \"2\" and the number 2 are distinct inputs. A successful conversion in a small example does not establish that every arbitrary text value is numeric, and a failed conversion to NaN is different from throwing an exception in that example.",
+              "zh": "加号表达式先辨基本操作数是否已有字符串；减法则辨给定操作数转换出的数值。不要只按屏幕外观推结果，文本\"2\"与数值2是不同输入。小例转换成功不证明任意文本都可转数值，转成NaN也不同于该例抛异常。"
+            }
+          ]
+        },
+        {
+          "id": "checks",
+          "title": {
+            "en": "Distinguish equality from a NaN predicate",
+            "zh": "区分相等比较与NaN谓词"
+          },
+          "paragraphs": [
+            {
+              "en": "The strict-equality item compares different types without converting the Boolean into a number. The NaN item explicitly calls Number on nonnumeric text and then checks the resulting value with Number.isNaN. These are different questions. When revising, state the type and the operation at each step. Avoid replacing them with a blanket rule about truthiness, or assuming that a function whose name sounds numeric must itself perform a conversion on every argument.",
+              "zh": "严格相等题不把布尔转数值；NaN题则明确先对非数字文本调用Number，再由Number.isNaN核结果。它们是不同问题。复习时逐步说出类型与操作，别套笼统真假规则，也别因函数名像数值功能就假定它转换所有实参。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Change one value and keep the operator",
+            "zh": "只换一个值，保留操作符"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a disposable .mjs file with invented values. Predict the output for one expression, then change only the left value from null to zero or from a number to a numeric string. Explain which rule remains the same and which input property changed. Run it in the specified Node environment after predicting. This is optional revision in your own environment; the practice website displays code as text and does not execute code supplied by visitors.",
+              "zh": "在可丢弃.mjs文件用虚构值，先预测一表达式，再只把左值从null换成零，或从数值换成数字字符串。说明哪条规则不变、输入哪点改变，再在指定Node环境运行。本机复习可自选，网站把代码当文本显示，不执行访问者代码。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Review the earliest mistaken step",
+            "zh": "复习最早出错的一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare your selected answer with the complete explanation and identify the first divergence: string concatenation versus numeric addition, a selected operand versus a Boolean result, or a nullish value versus a falsy one. The six-item count does not reveal that distinction by itself. A perfect count cannot show whether you would notice a hidden conversion in an unfamiliar application. After studying the key, use a fresh example rather than treating a repeated correct answer as proof of general mastery.",
+              "zh": "对照所选与解析，找最早偏离点：字符串拼接还是数值相加、选中操作数还是布尔结果、空值还是假值。六题正确数本身不揭示这些区别，全对也不证明能发现陌生应用的隐式转换。看过答案后宜用新例，不把重做答对当普遍掌握。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep results tied to the declared environment",
+            "zh": "结果绑定所声明环境"
+          },
+          "paragraphs": [
+            {
+              "en": "The 24 original snippets were checked with Node 24.19.0 as ES modules, including two deliberately invalid programs elsewhere in the bank. This guide discusses selected core rules, not every JavaScript feature or every browser-host behaviour. It supplies no validated developer bands, hiring recommendation or certificate. English code is identical in both interfaces, while the instructions and explanations are bilingual; that consistency does not establish psychometric equivalence across languages.",
+              "zh": "24段原创片段按Node 24.19.0的ES模块核过，题组其他部分含两段刻意无效程序。本指南只谈选定核心规则，不覆盖所有JavaScript特性或浏览器宿主行为。无验证过的开发者档位、招聘推荐或证书。两语英文代码相同、说明解析双语，不因此建立心理测量等价。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bindings-and-functions",
+      "directionIds": [
+        "bindings-and-functions"
+      ],
+      "title": {
+        "en": "Bindings and functions",
+        "zh": "绑定与函数"
+      },
+      "headline": {
+        "en": "Track which binding a function can still reach.",
+        "zh": "追踪函数仍能访问哪条绑定。"
+      },
+      "summary": {
+        "en": "Review const and mutation, block shadowing, retained closures, default parameters and two early syntax errors.",
+        "zh": "复习const与修改、块内遮蔽、闭包保留绑定、默认形参及两种早期语法错误。"
+      },
+      "seo": {
+        "title": {
+          "en": "Bindings and functions: JavaScript practice guide",
+          "zh": "绑定与函数：JavaScript练习指南"
+        },
+        "description": {
+          "en": "Review const and mutation, block shadowing, retained closures, default parameters and two early syntax errors.",
+          "zh": "复习const与修改、块内遮蔽、闭包保留绑定、默认形参及两种早期语法错误。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count records matching keys on six supplied Node 24 ES module tasks. It is not a developer level, percentile, employer cutoff or qualification. Every answer and all four complete guides are available at every count.",
+        "zh": "正确数记录六道给定Node 24 ES模块任务中匹配答案的次数，不是开发者等级、百分位、雇主门槛或资格。任何正确数都能读全部答案及四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six checks on declarations and calls",
+            "zh": "六项声明与调用核对"
+          },
+          "paragraphs": [
+            {
+              "en": "This section separates a binding from the object value it can reach. A const declaration does not freeze an array, and a new let declaration inside a block does not assign to an outer binding of the same name. A returned function can retain access to one local counter across calls. Default parameters respond to undefined rather than every falsy argument. Two other tasks ask you to recognise a module that fails its syntax check before any code runs.",
+              "zh": "本节区分绑定与经它访问的对象值：const不冻结数组，块内新let不等于给外部同名绑定赋值；返回函数能在多次调用间保留一个局部计数器。默认形参针对undefined，不针对一切假值。另两题要求辨认执行前就未通过语法检查的模块。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Call the same closure twice",
+            "zh": "连续调用同一个闭包"
+          },
+          "paragraphs": [
+            {
+              "en": "For a new unscored example, a maker sets count to one and returns a function that adds two and returns count. Store one returned function as step, then call step twice. The values returned are three and five, so joining them with a colon prints 3:5. Calling the maker twice would create two different counters and ask a different question. Write down the number of maker calls before tracing the number of returned-function calls.",
+              "zh": "新的不计分例：创建函数设count为1，返回每次加2并返回count的函数。只存一个返回函数step，连续调用两次得3、5，用冒号拼为3:5。若创建函数调用两次，就是两个计数器，是另一问题。先记创建函数调用次数，再追踪返回函数次数。"
+            }
+          ]
+        },
+        {
+          "id": "bindings",
+          "title": {
+            "en": "Mutation and reassignment affect different things",
+            "zh": "修改与重赋影响不同对象"
+          },
+          "paragraphs": [
+            {
+              "en": "When labels is const, assigning a different array to labels would attempt to change the binding. Calling labels.push instead changes the existing array’s contents. Likewise, a block-local variable that shadows an outer name is a separate binding; leaving that block restores lookup of the outer one. Draw a small box for each binding and a separate shape for each array or object. This is a reasoning aid, not a physical-memory diagram or a promise about engine implementation.",
+              "zh": "labels是const时，赋另一数组试图改变绑定；labels.push则改现有数组内容。同样，块内遮蔽外部名称的局部变量是另一绑定，离块后查找外部那条。每个绑定画小框、每个数组对象另画形状，帮助推理，不描述物理内存或承诺引擎实现。"
+            }
+          ]
+        },
+        {
+          "id": "defaults",
+          "title": {
+            "en": "Keep argument conditions explicit",
+            "zh": "明确实参条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The default-parameter task passes undefined explicitly, which triggers the supplied initializer. It does not pass null, zero or an empty string, and those alternatives should not be silently substituted while reading. Before evaluating the function body, write down the parameter value after initialization. Then compute the return expression. This keeps a question about defaulting separate from a question about multiplication or string conversion later in the function.",
+              "zh": "默认形参题明确传undefined，触发初始化器，并未传null、零或空字符串，阅读时不能暗换。算函数体前先写初始化后的形参值，再算返回表达式，就能把默认取值问题与后续乘法、字符串转换分开。"
+            }
+          ]
+        },
+        {
+          "id": "early-errors",
+          "title": {
+            "en": "Check whether execution can begin",
+            "zh": "先核执行能否开始"
+          },
+          "paragraphs": [
+            {
+              "en": "The duplicate let declarations share one lexical scope, and the ordinary const declaration lacks a required initializer. Those supplied programs fail before execution, rather than printing undefined or allowing the later console.log to explain the problem. Distinguish a declaration from a later assignment and an ordinary declaration from special loop syntax. The runtime verification keeps parse checking separate from executing valid snippets so that an expected syntax failure is recorded as a keyed outcome.",
+              "zh": "重复let处于同一词法作用域，普通const声明缺必需初始化器，这些程序在执行前失败，不会打印undefined，也不会等后面的console.log解释问题。须分声明与后续赋值、普通声明与特殊循环语法。核验将解析检查与有效片段执行分开，把预期语法失败记为标准结果。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Predict one changed declaration before running",
+            "zh": "改一条声明后先预测"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a new disposable .mjs file and change only one feature at a time: remove the second declaration and use assignment, move a declaration into a separate block, or call a returned function again. Predict whether the result is a value, a handled failure or a syntax error before running. Keep invented variable names and values. This is a suggested revision routine, without a guaranteed time to learn or a claim that visible-option recognition demonstrates independent software development.",
+              "zh": "在新可丢弃.mjs里每次只改一处：去掉第二次声明改为赋值，把声明移到另一块，或再调用一次返回函数。运行前预测是值、已处理失败还是语法错误，使用虚构名和值。这是复习建议，没有保证学会时间，也不声称可见选项识别证明独立开发。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Treat the count as a review pointer",
+            "zh": "把正确数当作复习线索"
+          },
+          "paragraphs": [
+            {
+              "en": "All six items contribute equally to this section’s count. Every explanation and all four complete guides appear at zero, partial and perfect results after a valid full attempt. There is no beginner-to-expert assignment, population percentile, employer pass mark or professional qualification. Understanding one captured counter does not assess every closure, asynchronous callback or design choice. Repeating the fixed bank after reading its answers can show memory; try a fresh binding trace to explore transfer.",
+              "zh": "六题等权计入本节正确数。完整有效作答后，零分、部分答对、全对都给每条解析与四份全文。没有初级到专家标签、人群百分位、雇主通过分或资格。理解一个捕获计数器不评所有闭包、异步回调或设计选择；看过答案重测可反映记忆，宜换绑定追踪看迁移。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arrays-and-objects",
+      "directionIds": [
+        "arrays-and-objects"
+      ],
+      "title": {
+        "en": "Arrays and objects",
+        "zh": "数组与对象"
+      },
+      "headline": {
+        "en": "Separate a new outer object from shared nested values.",
+        "zh": "区分新外层对象与共享嵌套值。"
+      },
+      "summary": {
+        "en": "Review map, filter, reduce, shallow spread copies, Set size and own versus inherited properties.",
+        "zh": "复习map、filter、reduce、浅展开复制、Set大小以及自有与继承属性。"
+      },
+      "seo": {
+        "title": {
+          "en": "Arrays and objects: JavaScript practice guide",
+          "zh": "数组与对象：JavaScript练习指南"
+        },
+        "description": {
+          "en": "Review map, filter, reduce, shallow spread copies, Set size and own versus inherited properties.",
+          "zh": "复习map、filter、reduce、浅展开复制、Set大小以及自有与继承属性。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count records matching keys on six supplied Node 24 ES module tasks. It is not a developer level, percentile, employer cutoff or qualification. Every answer and all four complete guides are available at every count.",
+        "zh": "正确数记录六道给定Node 24 ES模块任务中匹配答案的次数，不是开发者等级、百分位、雇主门槛或资格。任何正确数都能读全部答案及四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six explicit data transformations",
+            "zh": "六个明确的数据变化"
+          },
+          "paragraphs": [
+            {
+              "en": "The array items use short numeric lists with callbacks that are fully shown. They ask whether map leaves the supplied source unchanged, which values filter selects and how an explicit reduce accumulator contributes. The object items distinguish a new outer object from its shared nested value, repeated equal strings from distinct set entries, and a property found through a prototype from a property owned directly. The answers depend on these stated operations, not a general guess about what copying ought to mean.",
+              "zh": "数组题给完整回调和短数列，问map是否保持给定源不变、filter选哪些值、reduce显式初值怎样参与。对象题区分新外层与共享嵌套值、重复字符串与不同集合项、沿原型找到与直接自有的属性。答案依赖所述操作，不凭“复制理应怎样”的猜测。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Trace a shallow copy with a nested list",
+            "zh": "追踪含嵌套列表的浅复制"
+          },
+          "paragraphs": [
+            {
+              "en": "In a new unscored example, source contains items:[\"m\"]. Make copy with {...source}, then call copy.items.push(\"n\"). The two outer objects are different, but their items properties reach the same array. The source list now contains m and n. Printing source.items.join(\":\") and the outer identity comparison with another colon gives m:n:false. Draw the shared nested array once, rather than drawing an independent array merely because another outer object exists.",
+              "zh": "新不计分例：source含items:[\"m\"]，用{...source}建copy，再copy.items.push(\"n\")。外层对象不同，items却访问同一数组，源列表现含m和n。将source.items.join(\":\")与外层身份比较再用冒号连接，得m:n:false。共享嵌套数组只画一次，不因外层多一个对象就另画独立数组。"
+            }
+          ]
+        },
+        {
+          "id": "callbacks",
+          "title": {
+            "en": "Read the callback before declaring an operation safe",
+            "zh": "先读回调，再判断操作影响"
+          },
+          "paragraphs": [
+            {
+              "en": "In this bank’s map item, the callback returns n+1 and does not mutate the source. That supports the stated unchanged-source answer. It is not a promise that every map callback is free of side effects. The filter item uses n>0, which excludes zero, and preserves the selected values’ original order. The reduce item starts from the explicitly supplied one. Write the actual callback and initial value beside your predicted result instead of relying on a remembered method name alone.",
+              "zh": "本题map回调返回n+1、不改源，因此支持源不变答案，却不保证所有map回调无副作用。filter用n>0，排除零并保留原顺序；reduce从明确给出的1开始。预测结果时把实际回调及初值写旁边，不只靠记住方法名。"
+            }
+          ]
+        },
+        {
+          "id": "ownership",
+          "title": {
+            "en": "Keep lookup and ownership distinct",
+            "zh": "区分属性查找与属性自有"
+          },
+          "paragraphs": [
+            {
+              "en": "Object.create(parent) makes an object whose prototype is the supplied parent. A property read can find a value there while Object.hasOwn reports that the child does not own it. That is consistent, not an error in one of the operations. Likewise, a Set’s size counts retained entries rather than how many input positions you supplied. These small examples use ordinary objects and strings; they do not cover every proxy, accessor, custom equality assumption or deliberately unusual object design.",
+              "zh": "Object.create(parent)建立以parent为原型的对象，读取属性可在那里找到值，Object.hasOwn却可报告子对象不自有它，二者一致而非谁错了。同理Set大小数保留条目，不数输入位置。例子用普通对象与字符串，不覆盖所有代理、访问器、特殊相等假设或异常对象设计。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Describe both the result and the surviving source",
+            "zh": "同时说明结果与保留下来的源"
+          },
+          "paragraphs": [
+            {
+              "en": "Create a disposable .mjs file with invented values. Before running an array transformation, predict the returned array and separately predict the source. For an object copy, predict the outer identity and one nested mutation. Change one variable at a time, such as the filter boundary or the location of a nested value. Check the output after writing the prediction. Use synthetic data, so the exercise cannot expose customer details or alter useful application state.",
+              "zh": "在可丢弃.mjs中用虚构值，数组变换前分别预测返回数组和源；对象复制则预测外层身份与一次嵌套修改。每次只改筛选边界或嵌套值位置等一项，先写预测再核输出。用合成数据，避免暴露客户资料或改有用应用状态。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Identify which object or position was confused",
+            "zh": "定位混淆的是对象还是位置"
+          },
+          "paragraphs": [
+            {
+              "en": "A missed item may come from treating a shallow copy as deep, forgetting an accumulator’s initial value or assuming an inherited property must be owned. Use the complete explanation to locate that exact distinction. A six-question total cannot say whether you can model a large dataset or prevent unintended mutation throughout an application. Even a perfect count should lead to a fresh example with new values if you want to explore whether the reasoning transfers.",
+              "zh": "错题可能来自把浅复制当深复制、漏掉累加初值，或认为继承属性一定自有。用完整解析定位具体区别。六题总数不能判断能否建模大型数据或在整个应用避免意外修改；即使全对，想看推理能否迁移仍宜换新值新例。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "The full review is available without a rank",
+            "zh": "完整复习不附排名"
+          },
+          "paragraphs": [
+            {
+              "en": "All answer explanations and all four complete guides stay available after a valid full attempt, regardless of count. The original snippets were run in the declared Node 24.19.0 ES module environment; this is not a broad browser compatibility study or an assessment of working with a real database. No employer cutoff, developer tier or certification is assigned. Repeated exposure and checking aids can affect the count, so record those conditions when using the bank for your own revision.",
+              "zh": "完整有效作答后，无论正确数都可读全部题解和四份全文。原创片段按声明的Node 24.19.0 ES模块环境运行，不是广泛浏览器兼容研究，也不评真实数据库工作。不派雇主门槛、开发者档位或认证；重读与辅助查阅会影响正确数，个人复习宜记这些条件。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "promises-and-errors",
+      "directionIds": [
+        "promises-and-errors"
+      ],
+      "title": {
+        "en": "Promises and errors",
+        "zh": "Promise与错误"
+      },
+      "headline": {
+        "en": "Identify the stage of failure and the value a handler returns.",
+        "zh": "辨认失败阶段和处理器返回的值。"
+      },
+      "summary": {
+        "en": "Review Promise reactions, all, catch recovery, async return values, JSON parsing and strict frozen-property assignment.",
+        "zh": "复习Promise反应、all、catch恢复、async返回值、JSON解析及严格模式冻结属性赋值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Promises and errors: JavaScript practice guide",
+          "zh": "Promise与错误：JavaScript练习指南"
+        },
+        "description": {
+          "en": "Review Promise reactions, all, catch recovery, async return values, JSON parsing and strict frozen-property assignment.",
+          "zh": "复习Promise反应、all、catch恢复、async返回值、JSON解析及严格模式冻结属性赋值。"
+        }
+      },
+      "scoreReading": {
+        "en": "This count records matching keys on six supplied Node 24 ES module tasks. It is not a developer level, percentile, employer cutoff or qualification. Every answer and all four complete guides are available at every count.",
+        "zh": "正确数记录六道给定Node 24 ES模块任务中匹配答案的次数，不是开发者等级、百分位、雇主门槛或资格。任何正确数都能读全部答案及四份完整指南。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Six deterministic async and failure examples",
+            "zh": "六个确定的异步与失败例子"
+          },
+          "paragraphs": [
+            {
+              "en": "The Promise tasks use already settled inputs or an async function with a directly returned value. They ask about a synchronous array push before reactions, the values collected by Promise.all, a catch handler’s replacement value and the result of an async function. The error tasks distinguish valid JavaScript that parses invalid JSON at runtime from a strict-mode assignment to a frozen property. No question requires guessing a network response, a timer delay or the ordering of unrelated host APIs.",
+              "zh": "Promise题用已落定输入或直接返回值的async函数，问同步push与反应先后、Promise.all收集值、catch替代值及async结果。错误题区分有效JavaScript在运行时解析无效JSON，与严格模式给冻结属性赋值。无题要求猜网络响应、计时延迟或无关宿主接口顺序。"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "title": {
+            "en": "Follow the value after a catch returns",
+            "zh": "跟随catch返回后的值"
+          },
+          "paragraphs": [
+            {
+              "en": "For a new unscored example, begin with Promise.reject(\"no\"), attach catch(()=>6), and then print value+2 in the next then. The handler returns the ordinary number six, which fulfills the next Promise; the later callback prints eight. If the catch instead throws, or returns another rejecting Promise, the continuation would differ. Track the returned value and the next Promise’s state separately, rather than assuming that entering catch permanently prevents the chain from fulfilling.",
+              "zh": "新不计分例从Promise.reject(\"no\")开始，接catch(()=>6)，再在下一then打印value+2。处理器返回普通数值6，让下一个Promise履行，后面的回调打印8。若catch改为抛错或返回另一个拒绝Promise，后续不同。分别追踪返回值与下一Promise状态，不认为进入catch就永久不能履行。"
+            }
+          ]
+        },
+        {
+          "id": "jobs",
+          "title": {
+            "en": "Keep the synchronous phase separate",
+            "zh": "分清同步阶段"
+          },
+          "paragraphs": [
+            {
+              "en": "In the supplied ordering task, the module first performs its ordinary synchronous push. Promise reactions run as later jobs, and the next reaction prints after the earlier one has changed the array. That supports this one deterministic trace. It is not a blanket claim that every browser and Node event loop behaves identically or that all callbacks run after every possible loop. Those broader claims require the host, API and placement to be specified.",
+              "zh": "题定排序例先在模块同步阶段执行普通push，Promise反应随后作为作业运行，下一反应在前者改变数组后打印。这支持该确定轨迹，不是笼统断言浏览器与Node所有事件循环相同、或一切回调都晚于所有循环；更广主张须说明宿主、接口及位置。"
+            }
+          ]
+        },
+        {
+          "id": "settlement",
+          "title": {
+            "en": "Read all and async as Promise operations",
+            "zh": "把all与async读成Promise操作"
+          },
+          "paragraphs": [
+            {
+              "en": "Promise.all in this bank collects two fulfilled values in input order, rather than summing numbers or choosing a guessed completion order. An async function returns a Promise that can fulfill with its returned number, so its then receives that number. A rejection handled by a catch that returns an ordinary value can become fulfillment downstream. None of these examples establishes that rejecting a combined Promise cancels work represented by its other inputs; cancellation is a separate concern.",
+              "zh": "本题Promise.all按输入顺序收两个履行值，不做求和，也不按猜测完成顺序选择。async函数返回可用所返回数值履行的Promise，then收到该数值；catch返回普通值可使下游履行。例子不建立组合Promise拒绝会取消其他输入工作的结论，取消是另一个问题。"
+            }
+          ]
+        },
+        {
+          "id": "failure-stages",
+          "title": {
+            "en": "Distinguish a syntax error from a printed error name",
+            "zh": "区分语法失败与打印的错误名称"
+          },
+          "paragraphs": [
+            {
+              "en": "A valid module can call JSON.parse on incomplete JSON, catch the resulting SyntaxError object and print its name. That differs from the two declaration tasks elsewhere that fail before execution. In the frozen-property task, ES module strict mode makes the non-writable assignment throw TypeError, and the numeric property remains unchanged. State whether you are predicting a parser outcome, a thrown error, a caught error or a printed string before selecting the answer.",
+              "zh": "有效模块可调用JSON.parse解析不完整JSON，捕获SyntaxError对象并打印名称，这不同于题组另两道声明题在执行前失败。冻结属性题中，ES模块严格模式使不可写赋值抛TypeError，原数值不变。选答案前先说明预测的是解析、抛错、捕获，还是打印字符串。"
+            }
+          ]
+        },
+        {
+          "id": "routine",
+          "title": {
+            "en": "Write a short state-and-output trace",
+            "zh": "写简短的状态与输出轨迹"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a fresh .mjs file with invented labels and no external requests. Mark synchronous steps first, then each reaction’s input, returned value and next state. Test one recovery path and one explicit thrown error separately so their outputs cannot obscure each other. Predict before running in the declared environment. This is optional practice on your own machine, without a promised improvement rate; the website does not run scripts submitted by visitors or inspect real production logs.",
+              "zh": "用新.mjs、虚构标签且无外部请求，先标同步步骤，再记每个反应的输入、返回值与下一状态。恢复路径与明确抛错分开测，避免输出互相掩盖；按声明环境先预测再运行。这是可选本机练习，没有保证提高速率；网站不运行访问者脚本或查看真实生产日志。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Use the worked review instead of a professional label",
+            "zh": "使用完整复习，不附职业标签"
+          },
+          "paragraphs": [
+            {
+              "en": "The six matching-key choices describe these selected tasks only. They do not establish that you can diagnose a production race, design reliable asynchronous software or meet an employer’s requirements. All explanations and complete guides are free at every count, with no calibrated ability bands or certificate. The bank is fixed, and English code remains unchanged across interfaces. Reading keys before a repeat attempt can improve memory without demonstrating transfer to unfamiliar asynchronous code.",
+              "zh": "六个匹配选择只描述选定任务，不确定能否诊断生产竞态、设计可靠异步软件或满足雇主要求。任何正确数都免费给解析与全文，无校准能力档位或证书。题组固定，两语英文代码一致；重做前读答案可提高记忆，不证明迁移到陌生异步代码。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_javascript_node24_esm_practice",
+    "formCode": "fermatmind_javascript_node24_esm_original_24_v1",
+    "itemBankVersion": "fermatmind_javascript_node24_esm_original_24_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_javascript_four_full_revision_guides_v1",
+    "itemBankSha256": "a39944d8467c99f406b5d51ad80a2aa430f1d348924acdb57b947671ad661126",
+    "resultContentSha256": "53235374dc9e7f9eb0e3c288f30e151704a6df4893e53ac395c29680572aa565",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "ECMAScript 2024: selected expression rules",
+        "zh": "ECMAScript 2024：选定表达式规则"
+      },
+      "url": "https://tc39.es/ecma262/2024/multipage/ecmascript-language-expressions.html"
+    },
+    {
+      "title": {
+        "en": "ECMAScript 2024: Array operations",
+        "zh": "ECMAScript 2024：数组操作"
+      },
+      "url": "https://tc39.es/ecma262/2024/multipage/indexed-collections.html"
+    },
+    {
+      "title": {
+        "en": "ECMAScript 2024: Promise operations",
+        "zh": "ECMAScript 2024：Promise操作"
+      },
+      "url": "https://tc39.es/ecma262/2024/multipage/control-abstraction-objects.html"
+    },
+    {
+      "title": {
+        "en": "Node 24 documentation: ES module markers",
+        "zh": "Node 24文档：ES模块标记"
+      },
+      "url": "https://nodejs.org/docs/latest-v24.x/api/esm.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-scoring",
+      "title": {
+        "en": "One correct item for a matching key",
+        "zh": "每个匹配答案记一道正确"
+      },
+      "paragraphs": [
+        {
+          "en": "Each matching key adds one; another valid choice adds zero. Four six-item groups total a correct count out of 24, without weighting, partial credit, reverse scoring or a time bonus. All 24 valid choices are required before personal counts appear. Missing items are not silently completed.",
+          "zh": "每个匹配答案加1题，其他有效选择加0题。四组六题合成正确数/24，无加权、部分分、反向计分或时间奖励。24题有效选择前不给个人正确数，不默补漏题。"
+        }
+      ]
+    },
+    {
+      "id": "practice-reading",
+      "title": {
+        "en": "Use the complete code-and-answer review",
+        "zh": "使用完整代码与答案核对"
+      },
+      "paragraphs": [
+        {
+          "en": "Every original snippet, selected answer, key and explanation remains in the report. At zero, partial and perfect counts, all four complete guides remain readable. A count such as 2/6 means two matching keys on those six supplied tasks. It is not a percentile, a calibrated developer level, a hiring threshold or a qualification.",
+          "zh": "报告保留每段原创代码、所选、答案及解析。零分、部分答对、全对都可读四份全文。2/6只是所给六题两个匹配答案，不是百分位、校准开发者等级、招聘线或资格。"
+        }
+      ]
+    },
+    {
+      "id": "practice-limits",
+      "title": {
+        "en": "A fixed, declared-environment practice bank",
+        "zh": "固定且声明环境的练习题组"
+      },
+      "paragraphs": [
+        {
+          "en": "This bank was run with Node 24.19.0 as .mjs ES modules. Selected ECMAScript 2024 core rules are reference context; the product does not claim the latest feature coverage or identical behaviour for every browser and Node host API. It does not assess project development, architecture or production debugging. Retake repeats the same 24 tasks; around ten minutes is an editorial estimate, not a measured timing benchmark.",
+          "zh": "题组按Node 24.19.0的.mjs ES模块实跑，选定ECMAScript 2024核心规则作参考，不声称覆盖最新特性或所有浏览器、Node宿主接口行为相同。不评项目开发、架构或生产调试。重测还是24题，约十分钟是编辑估计，不是实测计时基准。"
+        }
+      ]
+    },
+    {
+      "id": "practice-original",
+      "title": {
+        "en": "Original snippets and checked outcomes",
+        "zh": "原创片段与核过的结果"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the programs, distractors, worked explanations and guides. The sources document selected language or module rules; their examples and proprietary recruitment banks are not reproduced. This independent practice has no vendor endorsement or certification. Code is displayed as escaped text and choices are scored in your browser; the site does not execute scripts supplied by visitors.",
+          "zh": "费马编写程序、干扰项、解析及指南，来源说明选定语言或模块规则，不搬其例子或专有招聘题。本独立练习无厂商背书或认证。代码作为转义文本显示，选择在浏览器计分，不执行访问者脚本。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which JavaScript environment is used?",
+        "zh": "采用哪个JavaScript环境？"
+      },
+      "answer": {
+        "en": "Each snippet is an independent .mjs ES module checked with Node 24.19.0, in strict mode. The tasks use selected core language and Promise behaviours, without DOM, I/O or mixed timer ordering. This is not a claim of identical behaviour for every browser and host API.",
+        "zh": "每段是用Node 24.19.0核过的独立.mjs ES模块，采用严格模式。任务取选定核心语言与Promise行为，不含DOM、I/O或混合定时器排序，不声称所有浏览器与宿主接口相同。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to install Node or submit code?",
+        "zh": "需要安装Node或提交代码吗？"
+      },
+      "answer": {
+        "en": "No. Read the supplied snippet and select an outcome. The site does not execute visitor scripts, require uploads or inspect a private repository. English code stays identical in both interfaces, with bilingual instructions and explanations.",
+        "zh": "不用。读给定片段并选择结果，网站不执行访问者脚本、不要求上传、不查私有仓库。两语代码相同，说明及解析双语。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a correct count give a developer level or certificate?",
+        "zh": "正确数会给开发者等级或证书吗？"
+      },
+      "answer": {
+        "en": "No. It counts matching answers in one original bank. There are no validated beginner-to-expert tiers, population norms, employer cutoffs, job matches or vendor qualifications. Recognising visible options differs from developing and maintaining an application.",
+        "zh": "不会。它只数一个原创题组匹配答案的次数，没有验证过的初级到专家档、人群常模、雇主门槛、岗位匹配或厂商资格。识别可见选项不同于开发维护应用。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all worked answers and all four full guides free?",
+        "zh": "全部题解与四份完整指南免费吗？"
+      },
+      "answer": {
+        "en": "Yes. Finish all 24 valid choices to see every program, selected answer, key and explanation. All four full public guides can be read before starting too. No signup, email, payment or certificate purchase is required.",
+        "zh": "是。24题有效选择后可看每段代码、所选、答案与解析，四份完整公开指南开测前也可读。无需注册、邮箱、付款或买证书。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is it timed, and does retake create new questions?",
+        "zh": "有计时吗，重测会换题吗？"
+      },
+      "answer": {
+        "en": "There is no timer or speed bonus. Around ten minutes is an editorial estimate. Retake uses the same fixed bank, not calibrated parallel forms. After reading the keys, try a fresh small program; an improved repeat count can reflect memory.",
+        "zh": "无计时或速度奖励，约十分钟是编辑估计。重测用固定题组，不生成经校准平行题本。看过答案后宜换小程序，重测提高可能来自记忆。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are drafts and sharing handled?",
+        "zh": "草稿与分享怎样处理？"
+      },
+      "answer": {
+        "en": "Answers stay in the browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake; without one, refresh loses progress. Sharing copies a public practice link, without answers, correct counts or private identifiers.",
+        "zh": "答案留在浏览器，可选标签页草稿24小时失效，完成、退出并清除或重测时删除，未存草稿则刷新丢进度。分享只有公开练习链接，不含答案、正确数或私有标识。"
+      }
+    }
+  ]
+}

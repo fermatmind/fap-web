@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { QuestionnaireChakraReport } from "./QuestionnaireChakraReport";
 import { QuestionnaireJavaCode } from "./QuestionnaireJavaCode";
+import { QuestionnaireJavaScriptCode } from "./QuestionnaireJavaScriptCode";
 import { QuestionnairePracticeReport } from "./QuestionnairePracticeReport";
 import { QuestionnaireEgogramReport } from "./QuestionnaireEgogramReport";
 import { QuestionnaireSocialReport } from "./QuestionnaireSocialReport";
@@ -89,7 +90,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   useEffect(() => {
     if (stage !== "welcome") {
       heading.current?.focus();
-      if (quiz.slug === "eras-of-you-test") heading.current?.scrollIntoView({ block: "start" });
+      if (quiz.slug === "eras-of-you-test" || quiz.slug === "javascript-test") heading.current?.scrollIntoView({ block: "start" });
     }
   }, [position, stage, quiz.slug]);
   useEffect(() => {
@@ -150,10 +151,11 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
     {stage === "answer" && question && <>
       <p className="mb-3 text-sm">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="mb-5 w-full accent-violet-700" />
-      <h2 ref={heading} tabIndex={-1} className={`text-xl font-semibold leading-8 outline-none${quiz.slug === "java-test" || quiz.slug === "eras-of-you-test" ? " scroll-mt-24" : ""}`}>{quiz.slug === "java-test" ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
+      <h2 ref={heading} tabIndex={-1} className={`text-xl font-semibold leading-8 outline-none${quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "eras-of-you-test" ? " scroll-mt-24" : ""}`}>{(quiz.slug === "java-test" || quiz.slug === "javascript-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
       {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
+      {quiz.slug === "javascript-test" && <QuestionnaireJavaScriptCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
       {requiresStimulus && <QuestionnaireInkblotStimulus key={question.id} stimulus={getInkblotStimulus(question.id)} locale={locale} onAvailabilityChange={available => setLoadedStimulusId(available ? question.id : null)} />}
-      <fieldset className="mt-5 space-y-3"><legend className="sr-only">{quiz.slug === "java-test" ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
+      <fieldset className="mt-5 space-y-3"><legend className="sr-only">{(quiz.slug === "java-test" || quiz.slug === "javascript-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</legend>{question.options.map(option => <label key={option.id} className="flex min-h-12 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 p-4 has-[:checked]:border-violet-700 has-[:checked]:bg-violet-50">
         <input type="radio" className="mt-1 size-5 shrink-0 accent-violet-700" name={question.id} value={option.id} checked={answers[question.id] === option.id} onChange={() => { if (submitted.current) return; const next = { ...answers, [question.id]: option.id }; setAnswers(next); setMessage(""); persist(next, saving); }} /><span className="min-w-0 leading-7 [overflow-wrap:anywhere]">{option.label[locale]}</span>
       </label>)}</fieldset>
       <div className="mt-6 flex flex-wrap gap-3"><button className={button} disabled={position === 0} onClick={() => { setLoadedStimulusId(null); setPosition(position - 1); setMessage(""); }}>{zh ? "上一题" : "Back"}</button><button className={`${button} bg-violet-700 text-white`} disabled={requiresStimulus && loadedStimulusId !== question.id} onClick={advance}>{position === quiz.questions.length - 1 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next")}</button></div>
@@ -161,7 +163,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <button className="mt-3 min-h-11 text-sm underline" onClick={() => { clear(); setAnswers({}); setSaving(false); setStage("welcome"); setMessage(""); }}>{zh ? "退出并清除本次进度" : "Exit and clear this attempt"}</button>
     </>}
     {stage === "result" && result.status === "complete" && <>
-      <h2 ref={heading} tabIndex={-1} className={`text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]${quiz.slug === "java-test" || quiz.slug === "eras-of-you-test" ? " scroll-mt-24" : ""}`}>{profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
+      <h2 ref={heading} tabIndex={-1} className={`text-3xl font-semibold leading-tight outline-none [overflow-wrap:anywhere]${quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "eras-of-you-test" ? " scroll-mt-24" : ""}`}>{profile?.title[locale] ?? quiz.resultHeading?.[locale] ?? (zh ? `${quiz.title.zh}：完整结果` : `${quiz.title.en}: your complete result`)}</h2>
       {directional && profile && <>
       <section className="my-6 rounded-lg bg-slate-50 p-4" aria-label={zh ? "本次原始选择次数" : "Raw choice counts for this attempt"}><h3 className="font-semibold">{zh ? "各方向的本次选择次数" : "Your counts across the directions"}</h3><dl className="mt-3 space-y-3">{quiz.directions.map(direction => <div className="flex flex-wrap justify-between gap-3" key={direction.id}><dt>{direction.title[locale]}</dt><dd>{directional.counts[direction.id]} / {direction.comparisons}</dd></div>)}</dl><p className="mt-3 text-sm leading-7">{zh ? "分母为该方向参加比较的次数。原始次数只比较本题组内的选择，不是人群排名或能力分数。" : "The denominator is the number of comparisons for that direction. Raw counts compare choices within this question set, not population ranks or ability scores."}</p></section>
       <QuestionnaireReport profile={profile} locale={locale} />

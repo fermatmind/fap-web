@@ -1,0 +1,1402 @@
+{
+  "id": "T137",
+  "version": "1.0.0",
+  "form": "fermatmind_javascript_node24_esm_original_24_v1",
+  "method": "24independentlyauthoredJavaScriptcoretasks4x6,Node24.19.0ESmodule.mjscontext/strictmode,identicalEnglishcodebothinterfaces,selectedpre2025coreECMAScriptrules;noDOM/NodeI/O/hosttimerordering.22actualstdout+2expectedsyntaxerrors verifiedwithNode24.19.0;rawmjs/parse/runbytesandcodehashesboundtoT137-node-verification.json. No visitor codeexecution,norms/hiringtiers/certification.",
+  "questions": [
+    {
+      "id": "JS_01",
+      "prompt": {
+        "en": "A number is added to a string: what text is printed?\n\nconsole.log(5 + \"2\");",
+        "zh": "数值与字符串使用加号：打印什么文本？\n\nconsole.log(5 + \"2\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "For this + expression, one primitive operand is a string. The number 5 is converted to text and concatenated with 2, producing 52. This is not numeric addition. Changing the operator or explicitly converting the string to a number would change the program.",
+        "zh": "此加号表达式有一个基本值操作数为字符串，数值5转成文本再与2拼接，得到52，不是数值相加。换操作符或显式把字符串转数值会改变程序。"
+      }
+    },
+    {
+      "id": "JS_02",
+      "prompt": {
+        "en": "Subtraction receives a numeric string: what text is printed?\n\nconsole.log(5 - \"2\");",
+        "zh": "减法收到数字字符串：打印什么文本？\n\nconsole.log(5 - \"2\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "52",
+            "zh": "52"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "NaN",
+            "zh": "NaN"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Subtraction is a numeric operation here. The string \"2\" converts to the number 2, then 5-2 gives 3. The special string-concatenation behaviour of + does not apply to -. The supplied string is numeric, not arbitrary text.",
+        "zh": "此处减法按数值运算，将字符串\"2\"转为数值2，再算5-2得3。加号的字符串拼接行为不适用于减号；题给字符串是数字，不是任意文字。"
+      }
+    },
+    {
+      "id": "JS_03",
+      "prompt": {
+        "en": "Strict equality compares a number with a boolean: what is printed?\n\nconsole.log(0 === false);",
+        "zh": "严格相等比较数值与布尔值：打印什么？\n\nconsole.log(0 === false);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The operands have different language types, Number and Boolean. Strict equality does not convert false to zero, so the result is false. This task uses ===, not the different abstract-equality operator ==.",
+        "zh": "两操作数语言类型不同，分别为Number与Boolean。严格相等不把false转成零，所以结果为false。本题使用===，不是规则不同的抽象相等==。"
+      }
+    },
+    {
+      "id": "JS_04",
+      "prompt": {
+        "en": "Nullish coalescing receives null: what is printed?\n\nconsole.log(null ?? \"spare\");",
+        "zh": "空值合并收到null：打印什么？\n\nconsole.log(null ?? \"spare\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "spare",
+            "zh": "spare"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The left value is null, one of the two nullish values. The right-hand expression is therefore selected, and console.log prints spare. Nullish coalescing is distinct from a general truthiness test; zero and an empty string would not trigger its fallback.",
+        "zh": "左值为null，属于两种空值之一，因此选择右侧并打印spare。空值合并不同于一般真假判断，零和空字符串不会触发它的后备值。"
+      }
+    },
+    {
+      "id": "JS_05",
+      "prompt": {
+        "en": "Logical OR receives zero: what is printed?\n\nconsole.log(0 || 8);",
+        "zh": "逻辑或收到零：打印什么？\n\nconsole.log(0 || 8);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Zero is falsy. Logical OR therefore evaluates and returns the right operand 8. The operator returns an operand value rather than always returning a Boolean. Replacing || with ?? would preserve zero instead.",
+        "zh": "零是假值，因此逻辑或求值并返回右操作数8。该操作符返回某个操作数的值，不是始终返回布尔值。若换成??，就会保留零。"
+      }
+    },
+    {
+      "id": "JS_06",
+      "prompt": {
+        "en": "An explicit numeric conversion fails: what is printed?\n\nconsole.log(Number.isNaN(Number(\"pear\")));",
+        "zh": "显式数值转换未得到数字：打印什么？\n\nconsole.log(Number.isNaN(Number(\"pear\")));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "false",
+            "zh": "false"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "true",
+            "zh": "true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "values-and-operators",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Number(\"pear\") produces NaN because that text is not a numeric string. Number.isNaN then checks the resulting Number value and returns true. Number.isNaN by itself does not coerce its argument; the conversion is explicitly nested in this program.",
+        "zh": "Number(\"pear\")因文本不是数字字符串而得到NaN，Number.isNaN检查这个Number值并返回true。Number.isNaN本身不强制转换参数，本程序把转换明确写在内层。"
+      }
+    },
+    {
+      "id": "JS_07",
+      "prompt": {
+        "en": "A const binding refers to a mutable array: what is printed?\n\nconst labels = [];\nlabels.push(\"x\");\nconsole.log(labels.length);",
+        "zh": "const绑定指向可变数组：打印什么？\n\nconst labels = [];\nlabels.push(\"x\");\nconsole.log(labels.length);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "const prevents reassigning the binding labels. It does not freeze the array reached through that binding, so push adds one element and length is 1. There is no reassignment to labels and no Object.freeze call in this program.",
+        "zh": "const禁止重赋labels绑定，不会冻结它指向的数组，因此push添加一个元素，length为1。本程序既未重赋labels，也没有Object.freeze。"
+      }
+    },
+    {
+      "id": "JS_08",
+      "prompt": {
+        "en": "An inner block shadows a let binding: what is printed?\n\nlet total = 2;\n{ let total = 9; }\nconsole.log(total);",
+        "zh": "内部块遮蔽let绑定：打印什么？\n\nlet total = 2;\n{ let total = 9; }\nconsole.log(total);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "9",
+            "zh": "9"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The block declares a separate total binding with block scope. After leaving the block, console.log resolves the outer total, whose value remains 2. This is shadowing, not assigning 9 to the existing outer binding.",
+        "zh": "块内声明了另一条具有块作用域的total绑定。离开块后，console.log找到外部total，其值仍为2。这是遮蔽，不是把外部原绑定赋成9。"
+      }
+    },
+    {
+      "id": "JS_09",
+      "prompt": {
+        "en": "A returned closure keeps one counter: what is printed?\n\nfunction makeStep() {\n  let count = 3;\n  return () => ++count;\n}\nconst step = makeStep();\nconsole.log(step() + \":\" + step());",
+        "zh": "返回的闭包保留同一个计数器：打印什么？\n\nfunction makeStep() {\n  let count = 3;\n  return () => ++count;\n}\nconst step = makeStep();\nconsole.log(step() + \":\" + step());"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "4:5",
+            "zh": "4:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "4:4",
+            "zh": "4:4"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "3:4",
+            "zh": "3:4"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "5:5",
+            "zh": "5:5"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "One call to makeStep creates the count binding captured by the returned function. The first step call increments it to 4 and the second to 5. Both calls use the same closure, not two fresh makeStep calls; the plus chain then joins the values with a colon.",
+        "zh": "调用一次makeStep，创建被返回函数捕获的count绑定。首个step调用增至4，第二个增至5。它们使用同一个闭包，不是分别新建makeStep，再由加号链用冒号拼起来。"
+      }
+    },
+    {
+      "id": "JS_10",
+      "prompt": {
+        "en": "An explicit undefined uses a default parameter: what is printed?\n\nfunction twice(n = 6) { return n * 2; }\nconsole.log(twice(undefined));",
+        "zh": "显式undefined使用默认形参：打印什么？\n\nfunction twice(n = 6) { return n * 2; }\nconsole.log(twice(undefined));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "NaN",
+            "zh": "NaN"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Passing undefined causes the parameter initializer to supply 6. The function then returns 6*2=12. A default parameter is not a fallback for every falsy value; passing null or zero would be a different task.",
+        "zh": "传入undefined使形参初始化器提供6，函数返回6*2=12。默认形参不是为所有假值提供后备；传null或零是不同任务。"
+      }
+    },
+    {
+      "id": "JS_11",
+      "prompt": {
+        "en": "Two lexical declarations use the same name in one scope: choose the outcome.\n\nlet item = 1;\nlet item = 2;\nconsole.log(item);",
+        "zh": "同一作用域两次声明同名词法绑定：选择结果。\n\nlet item = 1;\nlet item = 2;\nconsole.log(item);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The same lexical scope cannot contain these two let declarations of item. The module fails its syntax/early-error check before console.log can execute. This differs from a later assignment item=2 without a second declaration.",
+        "zh": "同一词法作用域不能包含这两条同名let声明，模块在语法及早期错误检查时失败，尚未执行console.log。这不同于不重复声明、只在后面写item=2。"
+      }
+    },
+    {
+      "id": "JS_12",
+      "prompt": {
+        "en": "A const declaration has no initializer: choose the outcome.\n\nconst limit;\nconsole.log(limit);",
+        "zh": "const声明没有初始化表达式：选择结果。\n\nconst limit;\nconsole.log(limit);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "null",
+            "zh": "null"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bindings-and-functions",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "This ordinary const declaration requires an initializer. The standalone module fails to parse before execution, so it does not print undefined. The code is not a const binding inside a for-of declaration, which follows a different grammatical form.",
+        "zh": "这种普通const声明需要初始化表达式，独立模块在执行前解析失败，不会打印undefined。它不是采用另一语法形式的for-of声明中的const绑定。"
+      }
+    },
+    {
+      "id": "JS_13",
+      "prompt": {
+        "en": "Array map builds a new result: what is printed?\n\nconst source = [2, 5, 8];\nconst result = source.map(n => n + 1);\nconsole.log(source[0] + \":\" + result[0]);",
+        "zh": "数组map生成新结果：打印什么？\n\nconst source = [2, 5, 8];\nconst result = source.map(n => n + 1);\nconsole.log(source[0] + \":\" + result[0]);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:3",
+            "zh": "2:3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3:3",
+            "zh": "3:3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:2",
+            "zh": "2:2"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3:2",
+            "zh": "3:2"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The callback returns each number plus one and does not mutate source. map creates a result array, whose first value is 3; source[0] remains 2. A callback that deliberately mutates another object could behave differently, so the supplied callback matters.",
+        "zh": "回调返回各数加一，没有修改source。map创建结果数组，首值为3，source[0]仍是2。若回调刻意修改别的对象，情况可能不同，因此须读给定回调。"
+      }
+    },
+    {
+      "id": "JS_14",
+      "prompt": {
+        "en": "Filtering positive values preserves their order: what is printed?\n\nconsole.log([-1, 0, 3, 7].filter(n => n > 0).join(\",\"));",
+        "zh": "筛选正数并保留顺序：打印什么？\n\nconsole.log([-1, 0, 3, 7].filter(n => n > 0).join(\",\"));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "0,3,7",
+            "zh": "0,3,7"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3,7",
+            "zh": "3,7"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "-1,3,7",
+            "zh": "-1,3,7"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7,3",
+            "zh": "7,3"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The predicate n>0 includes 3 and 7 and excludes both -1 and zero. filter retains the selected elements’ order, and join inserts a comma between them. No sort operation is present in this program.",
+        "zh": "条件n>0包含3和7，排除-1和零。filter保留所选元素原顺序，join在它们之间加逗号；程序没有排序。"
+      }
+    },
+    {
+      "id": "JS_15",
+      "prompt": {
+        "en": "Reduce has an explicit initial accumulator: what is printed?\n\nconsole.log([3, 4, 5].reduce((sum, n) => sum + n, 1));",
+        "zh": "reduce明确给出初始累加值：打印什么？\n\nconsole.log([3, 4, 5].reduce((sum, n) => sum + n, 1));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The accumulator starts at the explicitly supplied 1. It then adds 3, 4 and 5, giving 13. Omitting the initial value would change the setup; it is not omitted here. This is a numeric sum, not a concatenation of strings.",
+        "zh": "累加器从明确提供的1开始，再加3、4、5，得到13。省略初始值会改变设置，本题未省略；它是数值求和，不是拼接字符串。"
+      }
+    },
+    {
+      "id": "JS_16",
+      "prompt": {
+        "en": "A spread copy shares a nested object: what is printed?\n\nconst source = { inner: { n: 2 } };\nconst copy = { ...source };\ncopy.inner.n = 8;\nconsole.log(source.inner.n + \":\" + (source === copy));",
+        "zh": "展开复制共享嵌套对象：打印什么？\n\nconst source = { inner: { n: 2 } };\nconst copy = { ...source };\ncopy.inner.n = 8;\nconsole.log(source.inner.n + \":\" + (source === copy));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:false",
+            "zh": "2:false"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "8:true",
+            "zh": "8:true"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2:true",
+            "zh": "2:true"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "8:false",
+            "zh": "8:false"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The spread creates a distinct outer object, so source===copy is false. Its inner property contains the same nested object value, so changing copy.inner.n also affects source.inner.n. This plain-object copy is shallow; no deep-clone operation is performed.",
+        "zh": "展开创建不同的外层对象，因此source===copy为false。inner属性仍含同一个嵌套对象值，修改copy.inner.n也影响source.inner.n。这是普通对象的浅复制，没有深克隆。"
+      }
+    },
+    {
+      "id": "JS_17",
+      "prompt": {
+        "en": "A Set receives a duplicate string: what is printed?\n\nconsole.log(new Set([\"red\", \"red\", \"blue\"]).size);",
+        "zh": "Set收到重复字符串：打印什么？\n\nconsole.log(new Set([\"red\", \"red\", \"blue\"]).size);"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The two equal red string values contribute one set entry, and blue contributes another, producing size 2. The output asks only for size and does not depend on inspecting or guessing an iteration order.",
+        "zh": "两个相等red字符串值只贡献一个集合条目，blue另一个，大小为2。只问大小，不依赖查看或猜测迭代顺序。"
+      }
+    },
+    {
+      "id": "JS_18",
+      "prompt": {
+        "en": "A property is inherited rather than owned: what is printed?\n\nconst parent = { n: 7 };\nconst child = Object.create(parent);\nconsole.log(child.n + \":\" + Object.hasOwn(child, \"n\"));",
+        "zh": "属性来自继承而非自有：打印什么？\n\nconst parent = { n: 7 };\nconst child = Object.create(parent);\nconsole.log(child.n + \":\" + Object.hasOwn(child, \"n\"));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7:true",
+            "zh": "7:true"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "7:false",
+            "zh": "7:false"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "undefined:false",
+            "zh": "undefined:false"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "arrays-and-objects",
+          "label": {
+            "en": "undefined:true",
+            "zh": "undefined:true"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Property lookup finds n on child’s prototype parent and returns 7. Object.hasOwn checks only child’s own properties, so it returns false. Finding a property through the prototype chain is different from owning it directly.",
+        "zh": "属性查找在child的原型parent上找到n并取7。Object.hasOwn只查child自己的属性，因此返回false。沿原型链找到属性与直接拥有它不同。"
+      }
+    },
+    {
+      "id": "JS_19",
+      "prompt": {
+        "en": "A Promise reaction follows the synchronous push: what is printed?\n\nconst order = [];\nPromise.resolve().then(() => order.push(\"later\"))\n  .then(() => console.log(order.join(\",\")));\norder.push(\"now\");",
+        "zh": "Promise反应晚于同步push：打印什么？\n\nconst order = [];\nPromise.resolve().then(() => order.push(\"later\"))\n  .then(() => console.log(order.join(\",\")));\norder.push(\"now\");"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "later,now",
+            "zh": "later,now"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "now",
+            "zh": "now"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "now,later",
+            "zh": "now,later"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "later",
+            "zh": "later"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The synchronous push of now runs during module evaluation. The fulfilled Promise’s reaction runs as a later job, pushing later; the next reaction prints both entries. This example uses no timer or I/O, and does not claim identical ordering for every browser and Node host API.",
+        "zh": "模块求值时先同步push now，已履行Promise的反应在后续作业中push later，再由下一反应打印两项。本例没有定时器或I/O，不声称所有浏览器与Node宿主接口的排序相同。"
+      }
+    },
+    {
+      "id": "JS_20",
+      "prompt": {
+        "en": "Promise.all receives two fulfilled values: what is printed?\n\nPromise.all([Promise.resolve(3), Promise.resolve(7)])\n  .then(values => console.log(values.join(\":\")));",
+        "zh": "Promise.all接收两个已履行值：打印什么？\n\nPromise.all([Promise.resolve(3), Promise.resolve(7)])\n  .then(values => console.log(values.join(\":\")));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "7:3",
+            "zh": "7:3"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "3:7",
+            "zh": "3:7"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The combined Promise fulfills with the input values in input order: 3 then 7. The callback joins them using a colon. Promise.all is not a numeric sum and does not reverse the values according to an assumed completion order. Both supplied Promises fulfill in this example.",
+        "zh": "组合Promise按输入顺序给出3、7，回调用冒号连接。Promise.all不做数值求和，也不按猜测完成顺序反转值；本例两个输入都履行。"
+      }
+    },
+    {
+      "id": "JS_21",
+      "prompt": {
+        "en": "Catch returns a replacement value: what is printed?\n\nPromise.reject(\"stop\")\n  .catch(reason => \"caught:\" + reason)\n  .then(value => console.log(value));",
+        "zh": "catch返回替代值：打印什么？\n\nPromise.reject(\"stop\")\n  .catch(reason => \"caught:\" + reason)\n  .then(value => console.log(value));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "caught:stop",
+            "zh": "caught:stop"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "stop",
+            "zh": "stop"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "undefined",
+            "zh": "undefined"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Nothing; the rejection remains unhandled.",
+            "zh": "没有输出，拒绝仍未处理。"
+          }
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The catch handler receives stop and returns the ordinary string caught:stop. That returned value fulfills the next Promise, so the following then prints it. The rejection is handled in the supplied chain rather than left unhandled.",
+        "zh": "catch处理器收到stop并返回普通字符串caught:stop，该返回值让下一个Promise履行，随后then打印。给定链已处理拒绝，不是未处理拒绝。"
+      }
+    },
+    {
+      "id": "JS_22",
+      "prompt": {
+        "en": "An async function returns a number: what is printed?\n\nasync function four() { return 4; }\nfour().then(value => console.log(value + 1));",
+        "zh": "async函数返回数值：打印什么？\n\nasync function four() { return 4; }\nfour().then(value => console.log(value + 1));"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "41",
+            "zh": "41"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "An uncaught TypeError before any text is printed.",
+            "zh": "未打印文本即发生未捕获TypeError。"
+          }
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "An async function returns a Promise, fulfilled here with the number 4. Its then callback receives that number and adds 1, printing 5. The function call itself is not the number, and there is no string operand in the addition.",
+        "zh": "async函数返回Promise，本例以数值4履行。then回调收到数值并加1，打印5。函数调用本身不是数值，且加法中没有字符串操作数。"
+      }
+    },
+    {
+      "id": "JS_23",
+      "prompt": {
+        "en": "Invalid JSON is parsed inside try: what name is printed?\n\ntry {\n  JSON.parse(\"{\");\n} catch (error) {\n  console.log(error.name);\n}",
+        "zh": "在try中解析无效JSON：打印哪个名称？\n\ntry {\n  JSON.parse(\"{\");\n} catch (error) {\n  console.log(error.name);\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError",
+            "zh": "TypeError"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "ReferenceError",
+            "zh": "ReferenceError"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "SyntaxError",
+            "zh": "SyntaxError"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Syntax error before execution.",
+            "zh": "执行前发生语法错误。"
+          }
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The JavaScript module itself is valid. At runtime, JSON.parse receives incomplete JSON and throws a SyntaxError object, which the catch handles and prints by name. This runtime parsing failure is distinct from the module failing its own JavaScript syntax check.",
+        "zh": "JavaScript模块本身语法有效，运行时JSON.parse收到不完整JSON，抛SyntaxError对象，被catch处理后打印名称。这种运行时解析失败与模块自身JavaScript语法检查失败不同。"
+      }
+    },
+    {
+      "id": "JS_24",
+      "prompt": {
+        "en": "A frozen property is assigned in an ES module: what is printed?\n\nconst box = Object.freeze({ n: 2 });\ntry {\n  box.n = 5;\n} catch (error) {\n  console.log(error.name + \":\" + box.n);\n}",
+        "zh": "在ES模块中给冻结属性赋值：打印什么？\n\nconst box = Object.freeze({ n: 2 });\ntry {\n  box.n = 5;\n} catch (error) {\n  console.log(error.name + \":\" + box.n);\n}"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError:5",
+            "zh": "TypeError:5"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "undefined:2",
+            "zh": "undefined:2"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "Nothing; the assignment silently succeeds.",
+            "zh": "没有输出，赋值悄悄成功。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "promises-and-errors",
+          "label": {
+            "en": "TypeError:2",
+            "zh": "TypeError:2"
+          }
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "ES module code uses strict mode. The frozen object’s n property is non-writable, so the attempted assignment throws TypeError; the catch prints its name and the unchanged 2. Object.freeze is shallow, but this example changes a direct numeric property rather than a nested object.",
+        "zh": "ES模块采用严格模式，冻结对象的n不可写，尝试赋值抛TypeError，catch打印名称与未改变的2。Object.freeze是浅层冻结，但本例改的是直接数值属性，不是嵌套对象。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "JS_01",
+      "code": "console.log(5 + \"2\");",
+      "outcome": "stdout",
+      "expected_stdout": "52\n",
+      "expected_label": {
+        "en": "52",
+        "zh": "52"
+      },
+      "node_verification": "T137-node-verification.json#JS_01",
+      "verified": true
+    },
+    {
+      "id": "JS_02",
+      "code": "console.log(5 - \"2\");",
+      "outcome": "stdout",
+      "expected_stdout": "3\n",
+      "expected_label": {
+        "en": "3",
+        "zh": "3"
+      },
+      "node_verification": "T137-node-verification.json#JS_02",
+      "verified": true
+    },
+    {
+      "id": "JS_03",
+      "code": "console.log(0 === false);",
+      "outcome": "stdout",
+      "expected_stdout": "false\n",
+      "expected_label": {
+        "en": "false",
+        "zh": "false"
+      },
+      "node_verification": "T137-node-verification.json#JS_03",
+      "verified": true
+    },
+    {
+      "id": "JS_04",
+      "code": "console.log(null ?? \"spare\");",
+      "outcome": "stdout",
+      "expected_stdout": "spare\n",
+      "expected_label": {
+        "en": "spare",
+        "zh": "spare"
+      },
+      "node_verification": "T137-node-verification.json#JS_04",
+      "verified": true
+    },
+    {
+      "id": "JS_05",
+      "code": "console.log(0 || 8);",
+      "outcome": "stdout",
+      "expected_stdout": "8\n",
+      "expected_label": {
+        "en": "8",
+        "zh": "8"
+      },
+      "node_verification": "T137-node-verification.json#JS_05",
+      "verified": true
+    },
+    {
+      "id": "JS_06",
+      "code": "console.log(Number.isNaN(Number(\"pear\")));",
+      "outcome": "stdout",
+      "expected_stdout": "true\n",
+      "expected_label": {
+        "en": "true",
+        "zh": "true"
+      },
+      "node_verification": "T137-node-verification.json#JS_06",
+      "verified": true
+    },
+    {
+      "id": "JS_07",
+      "code": "const labels = [];\nlabels.push(\"x\");\nconsole.log(labels.length);",
+      "outcome": "stdout",
+      "expected_stdout": "1\n",
+      "expected_label": {
+        "en": "1",
+        "zh": "1"
+      },
+      "node_verification": "T137-node-verification.json#JS_07",
+      "verified": true
+    },
+    {
+      "id": "JS_08",
+      "code": "let total = 2;\n{ let total = 9; }\nconsole.log(total);",
+      "outcome": "stdout",
+      "expected_stdout": "2\n",
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "node_verification": "T137-node-verification.json#JS_08",
+      "verified": true
+    },
+    {
+      "id": "JS_09",
+      "code": "function makeStep() {\n  let count = 3;\n  return () => ++count;\n}\nconst step = makeStep();\nconsole.log(step() + \":\" + step());",
+      "outcome": "stdout",
+      "expected_stdout": "4:5\n",
+      "expected_label": {
+        "en": "4:5",
+        "zh": "4:5"
+      },
+      "node_verification": "T137-node-verification.json#JS_09",
+      "verified": true
+    },
+    {
+      "id": "JS_10",
+      "code": "function twice(n = 6) { return n * 2; }\nconsole.log(twice(undefined));",
+      "outcome": "stdout",
+      "expected_stdout": "12\n",
+      "expected_label": {
+        "en": "12",
+        "zh": "12"
+      },
+      "node_verification": "T137-node-verification.json#JS_10",
+      "verified": true
+    },
+    {
+      "id": "JS_11",
+      "code": "let item = 1;\nlet item = 2;\nconsole.log(item);",
+      "outcome": "syntax-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Syntax error before execution.",
+        "zh": "执行前发生语法错误。"
+      },
+      "node_verification": "T137-node-verification.json#JS_11",
+      "verified": true
+    },
+    {
+      "id": "JS_12",
+      "code": "const limit;\nconsole.log(limit);",
+      "outcome": "syntax-error",
+      "expected_stdout": null,
+      "expected_label": {
+        "en": "Syntax error before execution.",
+        "zh": "执行前发生语法错误。"
+      },
+      "node_verification": "T137-node-verification.json#JS_12",
+      "verified": true
+    },
+    {
+      "id": "JS_13",
+      "code": "const source = [2, 5, 8];\nconst result = source.map(n => n + 1);\nconsole.log(source[0] + \":\" + result[0]);",
+      "outcome": "stdout",
+      "expected_stdout": "2:3\n",
+      "expected_label": {
+        "en": "2:3",
+        "zh": "2:3"
+      },
+      "node_verification": "T137-node-verification.json#JS_13",
+      "verified": true
+    },
+    {
+      "id": "JS_14",
+      "code": "console.log([-1, 0, 3, 7].filter(n => n > 0).join(\",\"));",
+      "outcome": "stdout",
+      "expected_stdout": "3,7\n",
+      "expected_label": {
+        "en": "3,7",
+        "zh": "3,7"
+      },
+      "node_verification": "T137-node-verification.json#JS_14",
+      "verified": true
+    },
+    {
+      "id": "JS_15",
+      "code": "console.log([3, 4, 5].reduce((sum, n) => sum + n, 1));",
+      "outcome": "stdout",
+      "expected_stdout": "13\n",
+      "expected_label": {
+        "en": "13",
+        "zh": "13"
+      },
+      "node_verification": "T137-node-verification.json#JS_15",
+      "verified": true
+    },
+    {
+      "id": "JS_16",
+      "code": "const source = { inner: { n: 2 } };\nconst copy = { ...source };\ncopy.inner.n = 8;\nconsole.log(source.inner.n + \":\" + (source === copy));",
+      "outcome": "stdout",
+      "expected_stdout": "8:false\n",
+      "expected_label": {
+        "en": "8:false",
+        "zh": "8:false"
+      },
+      "node_verification": "T137-node-verification.json#JS_16",
+      "verified": true
+    },
+    {
+      "id": "JS_17",
+      "code": "console.log(new Set([\"red\", \"red\", \"blue\"]).size);",
+      "outcome": "stdout",
+      "expected_stdout": "2\n",
+      "expected_label": {
+        "en": "2",
+        "zh": "2"
+      },
+      "node_verification": "T137-node-verification.json#JS_17",
+      "verified": true
+    },
+    {
+      "id": "JS_18",
+      "code": "const parent = { n: 7 };\nconst child = Object.create(parent);\nconsole.log(child.n + \":\" + Object.hasOwn(child, \"n\"));",
+      "outcome": "stdout",
+      "expected_stdout": "7:false\n",
+      "expected_label": {
+        "en": "7:false",
+        "zh": "7:false"
+      },
+      "node_verification": "T137-node-verification.json#JS_18",
+      "verified": true
+    },
+    {
+      "id": "JS_19",
+      "code": "const order = [];\nPromise.resolve().then(() => order.push(\"later\"))\n  .then(() => console.log(order.join(\",\")));\norder.push(\"now\");",
+      "outcome": "stdout",
+      "expected_stdout": "now,later\n",
+      "expected_label": {
+        "en": "now,later",
+        "zh": "now,later"
+      },
+      "node_verification": "T137-node-verification.json#JS_19",
+      "verified": true
+    },
+    {
+      "id": "JS_20",
+      "code": "Promise.all([Promise.resolve(3), Promise.resolve(7)])\n  .then(values => console.log(values.join(\":\")));",
+      "outcome": "stdout",
+      "expected_stdout": "3:7\n",
+      "expected_label": {
+        "en": "3:7",
+        "zh": "3:7"
+      },
+      "node_verification": "T137-node-verification.json#JS_20",
+      "verified": true
+    },
+    {
+      "id": "JS_21",
+      "code": "Promise.reject(\"stop\")\n  .catch(reason => \"caught:\" + reason)\n  .then(value => console.log(value));",
+      "outcome": "stdout",
+      "expected_stdout": "caught:stop\n",
+      "expected_label": {
+        "en": "caught:stop",
+        "zh": "caught:stop"
+      },
+      "node_verification": "T137-node-verification.json#JS_21",
+      "verified": true
+    },
+    {
+      "id": "JS_22",
+      "code": "async function four() { return 4; }\nfour().then(value => console.log(value + 1));",
+      "outcome": "stdout",
+      "expected_stdout": "5\n",
+      "expected_label": {
+        "en": "5",
+        "zh": "5"
+      },
+      "node_verification": "T137-node-verification.json#JS_22",
+      "verified": true
+    },
+    {
+      "id": "JS_23",
+      "code": "try {\n  JSON.parse(\"{\");\n} catch (error) {\n  console.log(error.name);\n}",
+      "outcome": "stdout",
+      "expected_stdout": "SyntaxError\n",
+      "expected_label": {
+        "en": "SyntaxError",
+        "zh": "SyntaxError"
+      },
+      "node_verification": "T137-node-verification.json#JS_23",
+      "verified": true
+    },
+    {
+      "id": "JS_24",
+      "code": "const box = Object.freeze({ n: 2 });\ntry {\n  box.n = 5;\n} catch (error) {\n  console.log(error.name + \":\" + box.n);\n}",
+      "outcome": "stdout",
+      "expected_stdout": "TypeError:2\n",
+      "expected_label": {
+        "en": "TypeError:2",
+        "zh": "TypeError:2"
+      },
+      "node_verification": "T137-node-verification.json#JS_24",
+      "verified": true
+    }
+  ]
+}
