@@ -1,0 +1,1071 @@
+{
+  "formCode": "fm_long_goal_frequency_16",
+  "origin": "FermatMind independently authored sixteen-item long-term-goal reflection. Two editorial observation topics informed by public discussions of direction and sustained effort; not the copyrighted Grit Scale, Grit-O/Grit-S, JobCannon twelve-item bank or a validated substitute.",
+  "directions": [
+    {
+      "id": "goal-continuity",
+      "title": {
+        "zh": "长期目标的延续",
+        "en": "Continuity of a Long-Term Aim"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "effort-return",
+      "title": {
+        "zh": "受阻之后的努力续接",
+        "en": "Returning to Effort After Setbacks"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "LONGGOAL_01",
+      "prompt": {
+        "zh": "安排接下来一段时间时，我会让这项目标在计划中保留一个具体位置。",
+        "en": "When planning the next stretch of time, I keep a specific place for this aim in the plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_02",
+      "prompt": {
+        "zh": "原定做法遇到小障碍后，在有条件继续时，我会找一个仍能推进目标的小步骤。",
+        "en": "After a small obstacle interrupts the planned approach, I look for a feasible smaller step toward the aim when continuing is possible."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_03",
+      "prompt": {
+        "zh": "遇到新的有趣机会时，我会先核对它与这项长期目标的关系，再决定是否改变方向。",
+        "en": "When an interesting opportunity appears, I check how it relates to this long-term aim before deciding whether to change direction."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_04",
+      "prompt": {
+        "zh": "这项目标的一段任务进展很慢时，我会在可用时间里继续做下一段具体工作。",
+        "en": "When one stage of this aim progresses slowly, I continue with the next specific piece of work within the time available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_05",
+      "prompt": {
+        "zh": "完成一段阶段任务后，我会回到同一长期目标，确认下一段要接什么。",
+        "en": "After a stage of work ends, I return to the same long-term aim to identify what the following stage would connect to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_06",
+      "prompt": {
+        "zh": "一次尝试没有达到预期后，我会整理得到的信息，再安排下一次可行尝试。",
+        "en": "After an attempt falls short of expectations, I organise what I learned before arranging another feasible attempt."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_07",
+      "prompt": {
+        "zh": "短期热闹过去后，我仍能指出自己在这项目标中想继续探索的具体部分。",
+        "en": "After an initial busy period passes, I can still identify a specific part of this aim that I want to keep exploring."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_08",
+      "prompt": {
+        "zh": "一段必要工作不太有趣时，我会按自己能承担的节奏把它继续做下去。",
+        "en": "When a necessary piece of work is not engaging, I continue it at a pace I can sustain."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_09",
+      "prompt": {
+        "zh": "有人提出与这项目标无关的新计划时，我会直接把原目标移出安排，而不再考虑是否保留。",
+        "en": "When someone proposes a new plan unrelated to this aim, I remove the original aim from my arrangements without considering whether to retain it."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_10",
+      "prompt": {
+        "zh": "小失误打断进度后，即使还有可行条件，我也不再安排任何后续步骤。",
+        "en": "After a small mistake interrupts progress, I arrange no follow-up step even when feasible conditions remain."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_11",
+      "prompt": {
+        "zh": "这项目标暂时没有新鲜感时，我会把注意力完全换到别处，不再核对它对我是否仍有意义。",
+        "en": "When this aim feels less fresh for a while, I move my attention elsewhere without checking whether it still matters to me."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_12",
+      "prompt": {
+        "zh": "某个方法第一次没奏效时，我会直接取消后续尝试，而不考虑其他可行做法。",
+        "en": "When an approach first fails, I cancel further attempts without considering another feasible way to proceed."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_13",
+      "prompt": {
+        "zh": "选择这项目标的下一步时，我会考虑它与自己较长期想投入的方向怎样相连。",
+        "en": "When choosing the next step for this aim, I consider how it connects with the direction I want to invest in over a longer period."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_14",
+      "prompt": {
+        "zh": "暂停这项目标一段时间后，条件允许时，我会从一个清楚的小环节重新接上。",
+        "en": "After pausing this aim for a while, I reconnect through a clear small step when conditions allow."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_15",
+      "prompt": {
+        "zh": "回顾过去几个月的安排时，我能找出几段围绕同一目标接续的选择。",
+        "en": "When reviewing arrangements across recent months, I can identify successive choices organised around the same aim."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_16",
+      "prompt": {
+        "zh": "发现当前做法不合适时，我会在可承受范围内试着调整做法，而不是只重复原来的一步。",
+        "en": "When the current approach is unsuitable, I try an adjustment within what I can afford rather than only repeating the same step."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "questions": 16,
+    "facets": 2,
+    "itemsEach": 8,
+    "minimumRatedEach": 6,
+    "reverseItems": [
+      "LONGGOAL_09",
+      "LONGGOAL_10",
+      "LONGGOAL_11",
+      "LONGGOAL_12"
+    ],
+    "reverseRule": "4reverseitems =6-validrating;NAexcludedbeforekeying",
+    "mean": "Atleast6of8numericratingsperpart, exactkeyedsum/ratedcount rounded2decimals;notgenericone-decimalreconstruction. Rawsumrange dependsratedcount;no fixedrawtotal or overallgritscore.",
+    "total": "No overall sum-mean,0–100percentage,4bands,types,percentiles,norms or ranking. Bothfullguidesalwaysvisible;independentmissingness."
+  },
+  "scope": {
+    "zh": "这只是针对一个目标、六个月回想的原创自我观察，不测Duckworth标准量表或多年稳定毅力。频率反映机会、资源、记忆和措辞；不推智力、天赋、价值、成功概率、招聘录取、健康或可靠变化。换目标、调整方法、合理暂停或停止不因分数被视为失败。",
+    "en": "This original reflection concerns one aim and six months of recall, not the Duckworth instrument or stable years-long grit. Frequency reflects opportunity, resources, memory and wording, without intelligence, talent, worth, success probabilities, hiring, admissions, health or reliable-change claims. Changing an aim, adjusting a method, pausing or stopping appropriately is not failure inferred from a score."
+  },
+  "instructions": {
+    "zh": "在心里选一项你曾打算持续半年以上、由自己选择的长期目标，以同一项目标回顾过去六个月。在出现相应机会且有现实选择空间时，题目所写做法出现得多频繁？按从不1至几乎总是5选择。没有这项目标、没有相关机会、资料不足或不愿回答，选单独NA，不猜测；目标名称不需要输入或上传。全部16条选择后显示两部分；各8条至少6条有效评分才显示均分，四条反向按6减有效评分处理。两份全文免费，没有总体毅力百分比、等级或成就预测，也不要求继续已不适合的目标。",
+    "en": "Privately choose one self-selected aim you intended to pursue for at least six months. Keep that same aim in mind while reviewing the past six months. When relevant opportunities and room to choose existed, how often did the stated practice occur? Select Never 1 through Almost always 5. Use separate NA for no such aim, no relevant opportunity, insufficient information or preferring not to answer, without guessing. No aim name is entered or uploaded. All sixteen selections finish the attempt. Each eight-item part needs six numeric ratings for its mean; four reverse items use six minus a valid rating. Both guides are free, without an overall grit percentage, level or achievement prediction, and you are not required to continue an unsuitable aim."
+  }
+}

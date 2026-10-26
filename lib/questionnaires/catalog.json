@@ -1641,5 +1641,28 @@
       "explanation-first",
       "past-dispute-carryover"
     ]
+  },
+  {
+    "slug": "grit-test",
+    "code": "LONG_GOAL_REFLECTION_ORIGINAL_16",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "毅力测试",
+      "en": "Grit Test"
+    },
+    "description": {
+      "zh": "免费毅力测试原创长期目标回顾版：16道频率题，分开理解目标延续与受阻后的努力续接。两份完整说明免费，不用总分、四等级或成功预测给自己定性。",
+      "en": "A free Grit Test reflection: 16 original items on long-term aims and returning to effort. Two full guides, without overall bands or success predictions."
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_long_goal_frequency_16",
+    "questionCount": 16,
+    "resultSlugs": [
+      "goal-continuity",
+      "effort-return"
+    ]
   }
 ]

@@ -1,0 +1,1491 @@
+{
+  "slug": "grit-test",
+  "code": "LONG_GOAL_REFLECTION_ORIGINAL_16",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "title": {
+    "zh": "毅力测试",
+    "en": "Grit Test"
+  },
+  "resultHeading": {
+    "zh": "长期目标回顾：两部分完整结果",
+    "en": "Long-term goal reflection: two complete parts"
+  },
+  "description": {
+    "zh": "免费毅力测试原创长期目标回顾版：16道频率题，分开理解目标延续与受阻后的努力续接。两份完整说明免费，不用总分、四等级或成功预测给自己定性。",
+    "en": "A free Grit Test reflection: 16 original items on long-term aims and returning to effort. Two full guides, without overall bands or success predictions."
+  },
+  "seoTitle": {
+    "zh": "毅力测试：16道原创题与长期目标免费完整结果",
+    "en": "Grit Test: Free Long-Term Goal Reflection & Full Guides"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "一个目标可以延续很久，方法却不断调整；你也可能很愿意努力，但投入的方向正在变化。本版把长期目标的延续与遇阻后的努力续接分开，用16条原创频率题回看你私下选择的一项目标，参照过去六个月，给出两份完整说明。它不是Duckworth的Grit-O或Grit-S标准量表，不把研究中的多年毅力当作这份短期回顾已测到的稳定特质。原计划持续半年以上的目标只需在心里选，不填写名称；没有目标或相关机会时可以明确保留NA。各八条至少六条有效才显示各自均分，不生成总体0—100、四等级或成功预测。目标已不适合时，调整、暂停或停止都需要根据现实考虑，分数不替你决定。全文免费，也可以先读说明再决定是否作答。",
+    "en": "An aim can continue while its methods change, and serious effort can also move between directions. This edition separates continuity of a long-term aim from returning to effort after setbacks, using sixteen original frequency items about one privately chosen aim and the past six months, with two full guides. It is not Duckworth’s Grit-O or Grit-S and does not establish a stable years-long trait from this shorter review. Privately choose an aim you intended to pursue for at least six months; no name is entered. NA preserves the absence of an aim or relevant opportunity. Each eight-item part needs six ratings for its own mean, without an overall 0–100 score, four bands or success predictions. Adjusting, pausing or stopping an unsuitable aim remains a decision informed by circumstances, not a score. Full text is free, and you can read it before deciding to answer."
+  },
+  "instructions": {
+    "zh": "在心里选一项你曾打算持续半年以上、由自己选择的长期目标，以同一项目标回顾过去六个月。在出现相应机会且有现实选择空间时，题目所写做法出现得多频繁？按从不1至几乎总是5选择。没有这项目标、没有相关机会、资料不足或不愿回答，选单独NA，不猜测；目标名称不需要输入或上传。全部16条选择后显示两部分；各8条至少6条有效评分才显示均分，四条反向按6减有效评分处理。两份全文免费，没有总体毅力百分比、等级或成就预测，也不要求继续已不适合的目标。",
+    "en": "Privately choose one self-selected aim you intended to pursue for at least six months. Keep that same aim in mind while reviewing the past six months. When relevant opportunities and room to choose existed, how often did the stated practice occur? Select Never 1 through Almost always 5. Use separate NA for no such aim, no relevant opportunity, insufficient information or preferring not to answer, without guessing. No aim name is entered or uploaded. All sixteen selections finish the attempt. Each eight-item part needs six numeric ratings for its mean; four reverse items use six minus a valid rating. Both guides are free, without an overall grit percentage, level or achievement prediction, and you are not required to continue an unsuitable aim."
+  },
+  "source": {
+    "kind": "FermatMind independently authored sixteen-item long-term-goal reflection. Two editorial observation topics informed by public discussions of direction and sustained effort; not the copyrighted Grit Scale, Grit-O/Grit-S, JobCannon twelve-item bank or a validated substitute.",
+    "formCode": "fm_long_goal_frequency_16",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "d89d47154b45b95c0206cd13f1ff61716f7e951ff7f984734a01938739065452",
+    "resultContentSha256": "a4922a326b298a01cb7643dab91801ffe19d819d10cc091f662ef4229080d0e9",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "goal-continuity",
+      "title": {
+        "zh": "长期目标的延续",
+        "en": "Continuity of a Long-Term Aim"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "effort-return",
+      "title": {
+        "zh": "受阻之后的努力续接",
+        "en": "Returning to Effort After Setbacks"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "LONGGOAL_01",
+      "prompt": {
+        "zh": "安排接下来一段时间时，我会让这项目标在计划中保留一个具体位置。",
+        "en": "When planning the next stretch of time, I keep a specific place for this aim in the plan."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_02",
+      "prompt": {
+        "zh": "原定做法遇到小障碍后，在有条件继续时，我会找一个仍能推进目标的小步骤。",
+        "en": "After a small obstacle interrupts the planned approach, I look for a feasible smaller step toward the aim when continuing is possible."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_03",
+      "prompt": {
+        "zh": "遇到新的有趣机会时，我会先核对它与这项长期目标的关系，再决定是否改变方向。",
+        "en": "When an interesting opportunity appears, I check how it relates to this long-term aim before deciding whether to change direction."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_04",
+      "prompt": {
+        "zh": "这项目标的一段任务进展很慢时，我会在可用时间里继续做下一段具体工作。",
+        "en": "When one stage of this aim progresses slowly, I continue with the next specific piece of work within the time available."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_05",
+      "prompt": {
+        "zh": "完成一段阶段任务后，我会回到同一长期目标，确认下一段要接什么。",
+        "en": "After a stage of work ends, I return to the same long-term aim to identify what the following stage would connect to."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_06",
+      "prompt": {
+        "zh": "一次尝试没有达到预期后，我会整理得到的信息，再安排下一次可行尝试。",
+        "en": "After an attempt falls short of expectations, I organise what I learned before arranging another feasible attempt."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_07",
+      "prompt": {
+        "zh": "短期热闹过去后，我仍能指出自己在这项目标中想继续探索的具体部分。",
+        "en": "After an initial busy period passes, I can still identify a specific part of this aim that I want to keep exploring."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_08",
+      "prompt": {
+        "zh": "一段必要工作不太有趣时，我会按自己能承担的节奏把它继续做下去。",
+        "en": "When a necessary piece of work is not engaging, I continue it at a pace I can sustain."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_09",
+      "prompt": {
+        "zh": "有人提出与这项目标无关的新计划时，我会直接把原目标移出安排，而不再考虑是否保留。",
+        "en": "When someone proposes a new plan unrelated to this aim, I remove the original aim from my arrangements without considering whether to retain it."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_10",
+      "prompt": {
+        "zh": "小失误打断进度后，即使还有可行条件，我也不再安排任何后续步骤。",
+        "en": "After a small mistake interrupts progress, I arrange no follow-up step even when feasible conditions remain."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_11",
+      "prompt": {
+        "zh": "这项目标暂时没有新鲜感时，我会把注意力完全换到别处，不再核对它对我是否仍有意义。",
+        "en": "When this aim feels less fresh for a while, I move my attention elsewhere without checking whether it still matters to me."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_12",
+      "prompt": {
+        "zh": "某个方法第一次没奏效时，我会直接取消后续尝试，而不考虑其他可行做法。",
+        "en": "When an approach first fails, I cancel further attempts without considering another feasible way to proceed."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_13",
+      "prompt": {
+        "zh": "选择这项目标的下一步时，我会考虑它与自己较长期想投入的方向怎样相连。",
+        "en": "When choosing the next step for this aim, I consider how it connects with the direction I want to invest in over a longer period."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_14",
+      "prompt": {
+        "zh": "暂停这项目标一段时间后，条件允许时，我会从一个清楚的小环节重新接上。",
+        "en": "After pausing this aim for a while, I reconnect through a clear small step when conditions allow."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_15",
+      "prompt": {
+        "zh": "回顾过去几个月的安排时，我能找出几段围绕同一目标接续的选择。",
+        "en": "When reviewing arrangements across recent months, I can identify successive choices organised around the same aim."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "goal-continuity",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LONGGOAL_16",
+      "prompt": {
+        "zh": "发现当前做法不合适时，我会在可承受范围内试着调整做法，而不是只重复原来的一步。",
+        "en": "When the current approach is unsuitable, I try an adjustment within what I can afford rather than only repeating the same step."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "从不",
+            "en": "Never"
+          }
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          }
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          }
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          }
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          }
+        },
+        {
+          "id": "na",
+          "score": null,
+          "directionId": "effort-return",
+          "label": {
+            "zh": "没有这项目标或相关机会／资料不足／不愿回答",
+            "en": "No such aim or relevant opportunity / insufficient information / prefer not to answer"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "goal-continuity",
+      "directionIds": [
+        "goal-continuity"
+      ],
+      "title": {
+        "zh": "长期目标延续：连接不同阶段",
+        "en": "Continuity of a Long-Term Aim: Connecting the Stages"
+      },
+      "summary": {
+        "zh": "回看同一长期目标怎样进入不同阶段的安排、选择和兴趣；区分目标延续、方法调整与合理停止，不给毅力分等级。",
+        "en": "Review how one long-term aim connects plans, choices and interest across stages. Distinguish continuity, changed methods and appropriate stopping without grit bands."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "目标延续在这里指什么",
+            "en": "What continuity means in this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "这部分观察你在不同阶段是否仍给同一目标留位置：计划时怎样安排，面对新机会怎样决定，阶段结束怎样接下一步，以及短期热闹过去后是否仍有想探索的具体部分。它不是要求每天做同一件事，也不要求拒绝一切新兴趣。为了让回答有共同参照，请始终想着那一项自选、原本打算持续半年以上的目标。过去六个月的回顾不能代表多年的稳定倾向，更不能覆盖你生活中所有目标。",
+              "en": "This part asks how the same aim remains present across stages: making room in plans, deciding about new opportunities, connecting the next stage and identifying something still worth exploring after an initial busy period. It does not require identical daily activity or rejection of every new interest. Keep the same self-selected aim, originally intended to last at least six months, as the reference for all items. A six-month review does not establish a stable tendency across years or represent every aim in your life. Different pursuits can have different histories, resources and reasons for continuing."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "较高较低都要结合具体目标",
+            "en": "Reading higher and lower in context"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示较常自报保留、连接和回到这项目标的做法，并在两条反向表述上较少选择相反做法。它不证明目标正确、兴趣真诚或长期坚持一定值得。较低也不能叫作缺乏毅力：目标可能已经过时，现实条件可能改变，或者这六个月你正在有意识地探索其他方向。没有相关目标或机会时可选NA；若不足六条，不生成个人均分。均分高低不是发展中、果断或无情等四种身份，也不与人群比较。",
+              "en": "A higher mean indicates more reported practices of retaining, connecting and returning to this aim, with less endorsement of the opposing practices in two reverse items. It proves neither that the aim is sound nor that continued commitment is worthwhile. A lower mean is not a verdict of insufficient grit: the aim may be outdated, circumstances may have changed, or exploration may have been intentional. NA covers the absence of a relevant aim or opportunity. Fewer than six ratings leave no personal mean. Higher and lower are not developing, determined or relentless identities and provide no population comparison."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "同一方向可以换做法",
+            "en": "A direction can continue through changed methods"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你想长期记录附近植物的季节变化。前一阶段拍照，后一阶段发现手绘更方便，两种方法仍可能服务同一目标。如果一项新活动出现，你可以核对它是在帮助理解原目标，还是带你转向另一件想做的事；两种选择都可能合理。本题本不把换工具当作换目标，也不把保留最初安排当作唯一正确答案。这个例子只用来区分方向与方法，不需要你输入真实地点、目标名称或作品。",
+              "en": "Suppose you want to document seasonal changes in nearby plants. Photographs served one stage, while drawing becomes more practical in another; both methods could support the same aim. A new activity might help that aim or lead toward a different pursuit you now prefer. Either choice could be reasonable. Changing tools is not automatically changing the direction, and preserving the first plan is not the only correct response. This example distinguishes an aim from its methods. You need not supply an actual location, an aim name or any work you produced, and the questionnaire does not check achievement."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选地画出目标与步骤的区别",
+            "en": "Optionally separating the aim and its steps"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以在心里区分三件事：这项目标原先对你有什么意义，目前采用什么做法，下一段还想探索什么。随后再考虑一个新机会与哪一层相连。你不必写成长篇计划，更不需要向本站提交内容。若发现目标已不适合，也可以把停止或转向列为真实选择；本次分数没有权力要求你继续。这个小回顾旨在让选择更清楚，不承诺会让毅力提高、兴趣稳定或未来表现更好。",
+              "en": "If useful, distinguish three things privately: what the aim originally meant to you, the method you currently use, and what you still want to explore next. Then consider which layer a new opportunity relates to. No lengthy plan or submission to this site is needed. If the aim no longer fits, stopping or changing direction can remain genuine choices; this result cannot require continuation. The review aims to make a choice more explicit. It does not promise increased grit, stable interest or better future performance, and you can simply read the guide without trying an exercise."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "目标延续与努力续接并不互换",
+            "en": "Continuity and returning to effort are not interchangeable"
+          },
+          "paragraphs": [
+            {
+              "zh": "目标延续问的是不同阶段围绕什么展开，努力续接问的是遇到慢进展或挫折后怎样重新安排具体行动。你可能方向一直没变，却暂时没有可行条件继续；也可能很愿意努力，但不断把努力投入不同方向。两部分较高较低的四种组合都只是阅读顺序，不是新增四种人格；资料不足也不由另一部分补分。本站其他题本的一般坚持完成或学习信念涉及相关主题，但参照、题目和计分不同，不把结果换算成同一个数。",
+              "en": "Continuity concerns what successive stages are organised around; returning to effort concerns arranging concrete action after slow progress or a setback. A direction might remain unchanged while practical conditions prevent action, or substantial effort might be invested in changing directions. Four possible higher-and-lower combinations are ways to read two descriptions, not four new personality types. One part never supplies missing ratings for the other. General completion practices or learning beliefs in other questionnaires are related topics with different references, items and scoring. Their results cannot be converted into one common number or used to validate this edition."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "有些改变不应被当作失败",
+            "en": "Changes that cannot be classified as failure"
+          },
+          "paragraphs": [
+            {
+              "zh": "停止一个已不安全、不值得或无法承担的目标，可能是经过考虑的选择，而不是题目能否定的失败。工作、照护、资源变化或新的信息都可能改变原先安排；本版没有测量那些条件。较高均分也不能证明你会灵活止损，较低不能证明你没有认真投入。它不预测你适合哪个职业，也不能替任何人决定是否录用、录取或值得支持。回顾只对你选择的普通目标有有限意义，不要求把本该保留的边界让给“坚持”的口号。",
+              "en": "Ending an aim that is unsafe, no longer worthwhile or beyond what you can afford may be a considered choice, not failure this questionnaire can establish. Work, care responsibilities, resources and new information can alter an earlier plan, and these conditions are not measured here. A higher mean cannot prove wise stopping decisions, just as a lower mean cannot prove a lack of serious investment. No career suitability, hiring, admission or entitlement to support follows from it. The reflection has a limited reference to the chosen aim and does not ask you to surrender a needed boundary to a slogan about persistence."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "怎样回顾而不追逐更高分",
+            "en": "Reviewing without chasing a higher score"
+          },
+          "paragraphs": [
+            {
+              "zh": "想继续回看时，可以选两个不必记录隐私的阶段，找出其中仍相连的目标、已经变化的方法，以及现在不再适合的部分。你可能决定保留方向、换一种做法、缩小目标或停止；这都不是测验提供的标准答案。之后重测请注意参照目标和回想时段是否改变。同一个均分可能由不同回答形成，不同小数也可能来自机会与记忆差异。本版没有提供可靠变化阈值，不用重测分数证明自己更成功或更有价值。",
+              "en": "For a closer review, consider two stages without recording private details. Identify the aim that still connects them, methods that changed and elements that no longer fit. You might retain the direction, change the method, narrow the aim or stop; none is a test-prescribed answer. If you retake it, notice whether the reference aim and recalled period differ. Equal means can arise from different answers, while small decimal changes can reflect opportunity or recall. This edition provides no reliable-change threshold, and a later score cannot prove greater success, worth or enduring grit."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "十六条、四条反向与两项均分",
+            "en": "Sixteen items, four reversals and two means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每题按从不1、很少2、有时3、经常4、几乎总是5，或单独NA作答。16条各选一次后呈现本次结果，两部分各8条。第9、10、11、12条为反向表述，数值有效时按6减回答处理；其他12条直接计分。NA先排除，不翻成6或补零。每部分至少6条有效，才用该组未舍入计分和除有效条数，显示两位均分及条数，不从一位小数均分倒推。少于6条明确资料不足，不借另一组补分；两份完整说明始终可读。没有两项总和、总体均分、0—100、百分位、四个等级或最高类型。频率类别是有序自报，均分为呈现约定，不证明等距精度、组间可比、显著差异或可靠变化。同均分可以来自不同条目组合，不用一个小数推成就或价值。",
+              "en": "Each item offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or separate NA. All sixteen selections finish the attempt; each of two parts contains eight items. Items nine, ten, eleven and twelve are opposing statements: valid numeric ratings use six minus the response, while the other twelve are direct. NA is excluded before keying rather than becoming six or zero. Each part needs six ratings for a mean from its unrounded keyed sum divided by rated count, displayed to two decimals with that count, never reconstructed from a one-decimal mean. Fewer than six remain insufficient without borrowing ratings from the other part. Both full guides remain readable. There is no combined sum or mean, 0–100 score, percentile, four bands or highest type. Ordered self-report categories and averaging establish neither interval precision, cross-part comparability, significant differences nor reliable change. Equal means can reflect different patterns without achievement or worth inferred from a decimal."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "原创版本、来源与隐私",
+            "en": "Original edition, sources and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16条本站原创长期目标回顾，不采用Duckworth标准版权题库、官方总分或竞品12题。研究中的长期方向与努力讨论提供背景，不验证本版六个月频率题、反向键、最低条数或中文英文等价，也不能预测成功、职业、健康或招聘录取。全部结果免费，无另一测试解锁。目标名称不输入或上传；草稿主动开启，仅本设备24小时，完成、退出或重测清除。分享只含测试名和公开入口，不带答案、均分、目标或缺失条数。你可以不保存、不分享，也可直接读完后结束。",
+              "en": "These sixteen original long-goal reflection items use neither Duckworth’s copyrighted instrument, its official total nor the competitor’s twelve-item bank. Public discussions of sustained direction and effort supply background, not validation of this edition’s six-month frequencies, reverse key, minimum count or language equivalence. No success, career, health, hiring or admission prediction follows. All results are free without another test. Aim names are neither entered nor uploaded. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake. Sharing includes only the test name and public entry, without answers, means, aims or missing counts. You may decline saving and sharing or stop after reading."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看同一长期目标怎样进入不同阶段的安排、选择和兴趣；区分目标延续、方法调整与合理停止，不给毅力分等级。",
+        "en": "Review how one long-term aim connects plans, choices and interest across stages. Distinguish continuity, changed methods and appropriate stopping without grit bands."
+      },
+      "scoreReading": {
+        "zh": "各八条至少六条有效才显示各自频率均分；两份全文始终可读，无总分、等级或成功预测。",
+        "en": "Each eight-item part needs six ratings for its own frequency mean. Both full guides remain readable, without a total, bands or success prediction."
+      },
+      "seo": {
+        "title": {
+          "zh": "长期目标延续：毅力测试免费完整结果",
+          "en": "Long-Term Aim Continuity: Full Grit Reflection Guide"
+        },
+        "description": {
+          "zh": "阅读目标延续的完整说明：阶段安排、新机会、方法与方向、反例和可选回顾。不分毅力等级，也不要求坚持已不适合的目标。",
+          "en": "Read the full goal-continuity guide: plans, new opportunities, methods, examples and limits. No grit bands or demand to retain an unsuitable aim."
+        }
+      }
+    },
+    {
+      "id": "effort-return",
+      "directionIds": [
+        "effort-return"
+      ],
+      "title": {
+        "zh": "努力续接：找回可行的下一步",
+        "en": "Returning to Effort: Finding a Feasible Next Step"
+      },
+      "summary": {
+        "zh": "回看慢进展、失误、暂停或方法不合适之后，怎样在条件允许时接续行动；不把休息、调整与合理停止判为失败。",
+        "en": "Review reconnecting with action after slow progress, mistakes, pauses or unsuitable methods when conditions permit. Rest, adjustment and appropriate stopping are not failures."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "努力续接具体观察什么",
+            "en": "What returning to effort explores"
+          },
+          "paragraphs": [
+            {
+              "zh": "这部分围绕同一目标的八种具体做法：小障碍后找更小的一步，进展慢时继续一段工作，尝试未达预期后整理信息，面对不太有趣的必要环节保留可承受节奏，暂停后重新接上，以及发现方法不合适后调整。它不统计工作时长，也不测试你能忍受多少痛苦。题目里的“有条件”“可行”和“可承受”很重要：没有机会或条件不明时，应保留NA，不用想象自己理应怎样做来填满答案。",
+              "en": "This part covers eight concrete practices around the same aim: finding a smaller step after an obstacle, continuing a piece of slow work, organising information after an attempt falls short, sustaining an affordable pace through an unengaging necessary step, reconnecting after a pause and adjusting an unsuitable method. It counts neither working hours nor tolerance for pain. “When possible,” “feasible” and “within what I can afford” matter in these items. If an opportunity was absent or conditions are unclear, NA preserves that gap rather than asking you to imagine the response you believe you should have made."
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "zh": "频率不等于能力或未来表现",
+            "en": "Frequency is not ability or future performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示较常自报这些续接做法，加上两条相反表述的反向处理，不证明你的学习或工作能力更强，也不保证最终完成目标。较低可能涉及可行步骤难找、资源不足、目标已不适合或回忆不同，问卷没有确认具体原因。它不能从较低分推出懒惰，从较高分推出天赋不足靠努力弥补。每组八条至少六条有效才显示均分；有效条数、相反题和资料不足都应一起看，不能只取一个小数给自己定性。",
+              "en": "A higher mean indicates more reported return-to-action practices after reversing two opposing items. It does not establish stronger learning or work ability or guarantee completion. A lower mean may involve difficulty finding a feasible step, unavailable resources, an unsuitable aim or different recall; the questionnaire has not established the cause. It cannot infer laziness from a lower value or compensation for low talent from a higher one. Each eight-item part needs six ratings. Consider the rated count, opposing wording and missing information alongside the decimal instead of turning that decimal into an identity."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把卡住的一大步换成小范围尝试",
+            "en": "Replacing a blocked step with a bounded attempt"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你长期想整理一份家中物品的可查找目录，尝试一种分类方法后发现不好用。续接可以是先拿几件普通物品试另一种分类，而不是要求自己一次重做全部，也不是机械重复已不合适的方法。若这段时间没有余力，合理暂停与日后在条件允许时重接，也是需要按实际情况区分的事情。本题本没有查看你的目录或结果，不会把一个小例子认证为毅力强、能力好或一定能完成长期目标。",
+              "en": "Suppose you have a long-term aim to make household objects easier to locate. A first classification method proves impractical. Reconnecting could mean testing a different grouping with a few ordinary objects, rather than redoing everything or mechanically repeating the unsuitable method. If capacity is unavailable, pausing and reconnecting later when conditions permit are possibilities to distinguish through the actual circumstances. The questionnaire sees neither your catalogue nor its outcome. One small example cannot certify strong grit, good ability or inevitable completion, and the guide requires no photograph, object list or private household information."
+            }
+          ]
+        },
+        {
+          "id": "optional",
+          "title": {
+            "zh": "可选地把下一步说得更小",
+            "en": "Optionally making the next step smaller"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以问自己：现在究竟卡在方法、时间、资料还是目标本身？在仍值得继续且条件允许时，是否有一个能撤回的小尝试？也许是只整理一类物品、查一条缺失信息，或者重新确定可承担的节奏。没有可行一步时，不必为了得高分制造行动；可以保留暂停、求助或停止的选择。这个回顾没有经过本版效果验证，不保证提高毅力、消除困难或改善表现，也不是要求你牺牲休息来维持连续行动。",
+              "en": "If useful, ask whether the obstacle concerns a method, time, information or the aim itself. If continuing still makes sense and conditions permit, is there a small reversible attempt? That could mean grouping one category of objects, checking one missing fact or choosing a more manageable pace. If no feasible step exists, there is no need to manufacture action for a higher score. Pausing, support or stopping remain options. This reflection has not been evaluated for effects in this edition and promises no increased grit, removed difficulty or improved performance. It does not require sacrificing rest to preserve uninterrupted action."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "把方向与行动分别理解",
+            "en": "Reading direction and action separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果两组做法都较符合你的回想，可以分别找出目标的连接线与遇阻后的具体续接；若目标延续较符合而行动续接较少，需要另看机会条件，不能叫作空想；若行动续接较符合而目标经常换，可能是在不同方向认真投入，而非没有价值。两组都较少符合，也不等于最差一档。这些是定性的阅读路径，不是计分分界或四类人格；本版没有证明两组均分具有可比较的等距单位，也不根据两项小数差派一个“偏向类型”。",
+              "en": "If both sets of practices fit your recollection, look separately for the connecting aim and concrete returns after setbacks. If continuity fits more than return-to-action, opportunity and conditions still need examination; that is not a label of empty dreaming. Frequent action alongside changing directions could involve serious investment in different pursuits. Less endorsement of both is not a lowest band. These are qualitative reading paths, not scoring thresholds or four personalities. This edition has not established comparable interval units between the two means, and their decimal difference does not assign a leaning type or meaningful imbalance."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "休息与停止不等于续接失败",
+            "en": "Rest and stopping are not failures of return"
+          },
+          "paragraphs": [
+            {
+              "zh": "健康、照护责任、经济条件或其他现实限制可能让继续不可行；题目没有评估这些情况，不能把NA当作意志弱。完成目标也可能需要换方法、缩小范围，或承认目标已不再值得继续。较高均分不代表你不会过度投入，较低不代表你一定会放弃。它不筛查任何健康状态，也不预测耗竭、成功率或职位表现。即使有人愿意用“毅力”解释一切，这份结果也没有证据把个人处境简化成够不够努力。",
+              "en": "Health, care responsibilities, finances or other constraints can make continuation impractical. These conditions are not assessed, and NA cannot be interpreted as weak will. Pursuing an aim may require another method, a smaller scope, or recognising that it is no longer worth continuing. A higher mean does not establish freedom from excessive investment, and a lower mean does not predict abandonment. No health screening, exhaustion prediction, success probability or job-performance conclusion follows. Even when grit is offered as a universal explanation, this result supplies no evidence for reducing someone’s circumstances to whether they tried hard enough."
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "zh": "只回顾一次续接过程",
+            "en": "Reviewing one return-to-action process"
+          },
+          "paragraphs": [
+            {
+              "zh": "想更具体时，可以选一次不涉及私人细节的小挫折，回看当时有哪些条件、你怎样处理已有信息，以及后来有没有一个可行步骤。不要把结果倒推成当时一定应该继续；适当停止也可能是认真判断后的决定。下次是否尝试调整由你选择，不是问卷给出的任务。重测若换了目标、时间范围或近期事件，分数可能变化，而这并不证明稳定毅力改变。本版没有可靠变化阈值，也不用短期分数认证长期成就或个人价值。",
+              "en": "For more detail, choose one small setback that can be considered without private records. Review the conditions available, how you handled the information and whether a feasible later step existed. Do not reason backward from the result that you should necessarily have continued; stopping appropriately may reflect a considered decision. Any next experiment is your choice rather than an assignment from the test. Different aims, recalled periods or recent events can change later scores without establishing a change in stable grit. No reliable-change threshold or short-term score certifies long-term achievement or personal worth."
+            }
+          ]
+        },
+        {
+          "id": "facet-scoring",
+          "title": {
+            "zh": "十六条、四条反向与两项均分",
+            "en": "Sixteen items, four reversals and two means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每题按从不1、很少2、有时3、经常4、几乎总是5，或单独NA作答。16条各选一次后呈现本次结果，两部分各8条。第9、10、11、12条为反向表述，数值有效时按6减回答处理；其他12条直接计分。NA先排除，不翻成6或补零。每部分至少6条有效，才用该组未舍入计分和除有效条数，显示两位均分及条数，不从一位小数均分倒推。少于6条明确资料不足，不借另一组补分；两份完整说明始终可读。没有两项总和、总体均分、0—100、百分位、四个等级或最高类型。频率类别是有序自报，均分为呈现约定，不证明等距精度、组间可比、显著差异或可靠变化。同均分可以来自不同条目组合，不用一个小数推成就或价值。",
+              "en": "Each item offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or separate NA. All sixteen selections finish the attempt; each of two parts contains eight items. Items nine, ten, eleven and twelve are opposing statements: valid numeric ratings use six minus the response, while the other twelve are direct. NA is excluded before keying rather than becoming six or zero. Each part needs six ratings for a mean from its unrounded keyed sum divided by rated count, displayed to two decimals with that count, never reconstructed from a one-decimal mean. Fewer than six remain insufficient without borrowing ratings from the other part. Both full guides remain readable. There is no combined sum or mean, 0–100 score, percentile, four bands or highest type. Ordered self-report categories and averaging establish neither interval precision, cross-part comparability, significant differences nor reliable change. Equal means can reflect different patterns without achievement or worth inferred from a decimal."
+            }
+          ]
+        },
+        {
+          "id": "scope-privacy",
+          "title": {
+            "zh": "原创版本、来源与隐私",
+            "en": "Original edition, sources and privacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "这是16条本站原创长期目标回顾，不采用Duckworth标准版权题库、官方总分或竞品12题。研究中的长期方向与努力讨论提供背景，不验证本版六个月频率题、反向键、最低条数或中文英文等价，也不能预测成功、职业、健康或招聘录取。全部结果免费，无另一测试解锁。目标名称不输入或上传；草稿主动开启，仅本设备24小时，完成、退出或重测清除。分享只含测试名和公开入口，不带答案、均分、目标或缺失条数。你可以不保存、不分享，也可直接读完后结束。",
+              "en": "These sixteen original long-goal reflection items use neither Duckworth’s copyrighted instrument, its official total nor the competitor’s twelve-item bank. Public discussions of sustained direction and effort supply background, not validation of this edition’s six-month frequencies, reverse key, minimum count or language equivalence. No success, career, health, hiring or admission prediction follows. All results are free without another test. Aim names are neither entered nor uploaded. Drafts require opt-in, stay on this device for twenty-four hours and clear on completion, exit or retake. Sharing includes only the test name and public entry, without answers, means, aims or missing counts. You may decline saving and sharing or stop after reading."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回看慢进展、失误、暂停或方法不合适之后，怎样在条件允许时接续行动；不把休息、调整与合理停止判为失败。",
+        "en": "Review reconnecting with action after slow progress, mistakes, pauses or unsuitable methods when conditions permit. Rest, adjustment and appropriate stopping are not failures."
+      },
+      "scoreReading": {
+        "zh": "各八条至少六条有效才显示各自频率均分；两份全文始终可读，无总分、等级或成功预测。",
+        "en": "Each eight-item part needs six ratings for its own frequency mean. Both full guides remain readable, without a total, bands or success prediction."
+      },
+      "seo": {
+        "title": {
+          "zh": "受阻后的努力续接：毅力测试免费完整结果",
+          "en": "Returning to Effort: Full Grit Reflection Guide"
+        },
+        "description": {
+          "zh": "阅读遇阻后努力续接的完整说明：可行步骤、慢进展、调整、暂停、具体例子和反例。不预测成功，也不把休息当失败。",
+          "en": "Read about feasible next steps, slow progress, adjustments and pauses, with full examples and limits. No success prediction or failure label for rest."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "十六条、四条反向与两项均分",
+        "en": "Sixteen items, four reversals and two means"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题按从不1、很少2、有时3、经常4、几乎总是5，或单独NA作答。16条各选一次后呈现本次结果，两部分各8条。第9、10、11、12条为反向表述，数值有效时按6减回答处理；其他12条直接计分。NA先排除，不翻成6或补零。每部分至少6条有效，才用该组未舍入计分和除有效条数，显示两位均分及条数，不从一位小数均分倒推。少于6条明确资料不足，不借另一组补分；两份完整说明始终可读。没有两项总和、总体均分、0—100、百分位、四个等级或最高类型。频率类别是有序自报，均分为呈现约定，不证明等距精度、组间可比、显著差异或可靠变化。同均分可以来自不同条目组合，不用一个小数推成就或价值。",
+          "en": "Each item offers Never 1, Rarely 2, Sometimes 3, Often 4, Almost always 5, or separate NA. All sixteen selections finish the attempt; each of two parts contains eight items. Items nine, ten, eleven and twelve are opposing statements: valid numeric ratings use six minus the response, while the other twelve are direct. NA is excluded before keying rather than becoming six or zero. Each part needs six ratings for a mean from its unrounded keyed sum divided by rated count, displayed to two decimals with that count, never reconstructed from a one-decimal mean. Fewer than six remain insufficient without borrowing ratings from the other part. Both full guides remain readable. There is no combined sum or mean, 0–100 score, percentile, four bands or highest type. Ordered self-report categories and averaging establish neither interval precision, cross-part comparability, significant differences nor reliable change. Equal means can reflect different patterns without achievement or worth inferred from a decimal."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "同一目标、六个月与机会",
+        "en": "One aim, six months and relevant opportunity"
+      },
+      "paragraphs": [
+        {
+          "zh": "两组保持同一目标作为参照。频率受到机会、时间、资源和回忆影响，NA不代表意志弱。过去六个月不能代表所有目标或多年稳定特质。",
+          "en": "Keep one aim as the reference for both parts. Opportunity, time, resources and recall affect frequencies; NA is not weak will. Six months cannot represent every aim or a stable years-long trait."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "两个完整主题，不派四个人设",
+        "en": "Two full topics without four personas"
+      },
+      "paragraphs": [
+        {
+          "zh": "两份各九模块说明分别覆盖定义、频率、例子、可选尝试、相邻主题、反例、回顾、完整计分与隐私。定性合读不创建分数cutoff、四个人设或总体排名。",
+          "en": "Each nine-section guide covers definition, frequency, examples, optional review, comparisons, counterexamples, scoring and privacy. Qualitative combined reading creates no score cutoffs, four personas or overall ranking."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是Angela Duckworth的标准Grit Scale吗？",
+        "en": "Is this Angela Duckworth’s standard Grit Scale?"
+      },
+      "answer": {
+        "zh": "不是。标准量表的版权和使用条件不授权本网站复制；本版另写16条长期目标频率题，没有标准分数或效度转移。",
+        "en": "No. The standard scale’s copyright and use conditions do not authorise copying here. This edition uses sixteen independently authored items without standard scores or transferred validity."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么没有总体毅力分或四个等级？",
+        "en": "Why is there no overall grit score or four bands?"
+      },
+      "answer": {
+        "zh": "两部分分别回看方向延续与行动续接，各有完整说明。本版没有建立总体分数、等级或人群常模，不能借四个名称假装已验证。",
+        "en": "The two parts review direction and action separately, each with a full guide. This edition has established no overall score, bands or population norms."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有长期目标或相关机会怎么办？",
+        "en": "What if I have no long-term aim or relevant opportunity?"
+      },
+      "answer": {
+        "zh": "选单独NA，不猜测、不补零。每部分至少六条有效才显示均分；资料不足也能读到全部结果。目标名无需输入。",
+        "en": "Choose separate NA without guessing or zero-filling. Each part needs six ratings for a mean; all full guides remain available with missing information. No aim name is entered."
+      }
+    },
+    {
+      "question": {
+        "zh": "较高分意味着成功，较低分应该更坚持吗？",
+        "en": "Does a higher score mean success or a lower score require more persistence?"
+      },
+      "answer": {
+        "zh": "都不能推出。机会与现实条件没有被测量，合理调整、暂停或停止不能被分数否定。本版不用于招聘、录取、健康判断或改变效果认证。",
+        "en": "Neither follows. Opportunity and circumstances are not measured, and a score cannot invalidate appropriate adjustment, rest or stopping. It is not for hiring, admissions, health judgments or certifying change."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.angeladuckworth.com/grit/",
+      "title": {
+        "zh": "Angela Duckworth：长期目标讨论与标准量表使用边界（不采其题库）",
+        "en": "Angela Duckworth: long-term-goal discussion and scale-use limits; items not adopted"
+      }
+    },
+    {
+      "url": "https://www.angeladuckworth.com/measures",
+      "title": {
+        "zh": "官方测量页面：版权、公开使用与前后变化的限制",
+        "en": "Official measures page: copyright, public use and change-score limitations"
+      }
+    }
+  ]
+}
