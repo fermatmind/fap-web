@@ -2612,5 +2612,33 @@
       "line-rewriter"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "blue-lock",
+    "code": "BLUE_LOCK_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "Blue Lock Test",
+      "zh": "《蓝色监狱》角色测试"
+    },
+    "description": {
+      "en": "Try 21 original tabletop football-design situations. Compare Isagi, Bachira, Nagi, Reo, Rin, Barou and Chigiri with all highest ties and seven complete bilingual guides free. Unofficial anime fan edition, without sports ability or plot trivia.",
+      "zh": "完成21道原创桌面足球游戏设计情境，比较洁、蜂乐、凪、玲王、凛、马狼、千切。所有最高并列与七份双语全文免费。非官方动画同人版，不测运动能力、不考剧情。"
+    },
+    "minutes": 6,
+    "formCode": "fermatmind_blue_lock_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "isagi",
+      "bachira",
+      "nagi",
+      "reo",
+      "rin",
+      "barou",
+      "chigiri"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,869 @@
+{
+  "id": "T129",
+  "version": "1.0.0",
+  "form": "fermatmind_blue_lock_original_21_v1",
+  "method": "Ownselectedsevenanimecharacters;21originalvoluntarytabletopfootball-design/replay-withtokensquestions84options;12exposures3perpositioneach;allhighestrawcountties. Notphysicalexercise/tryout/athleticability/trauma/mentalhealth/talent/IQ/dominance/ranking/moral/relationshipassessment. NotIDRbank/scoring.",
+  "questions": [
+    {
+      "id": "BLK_01",
+      "prompt": {
+        "en": "Friends invent a voluntary tabletop football game using paper and counters. What would you enjoy first?",
+        "zh": "朋友用纸和棋子自编自愿桌面足球游戏，你喜欢先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "isagi",
+          "label": {
+            "en": "Watch one sample turn and revise my idea of how the pieces connect.",
+            "zh": "看一回合示例，再改对棋子连接方式的想法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bachira",
+          "label": {
+            "en": "Try a playful counter movement everyone agrees is part of the game.",
+            "zh": "试大家同意属于游戏的趣味棋子走法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nagi",
+          "label": {
+            "en": "Begin with one simple move instead of a whole elaborate sequence.",
+            "zh": "从一个简单走步开始，不先作复杂整套。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose a contribution, with room to switch if another part interests me.",
+            "zh": "选一个贡献，也留换感兴趣部分的空间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_02",
+      "prompt": {
+        "en": "The paper pitch has room for a new optional rule. What appeals most?",
+        "zh": "纸球场可加一条可选新规则，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bachira",
+          "label": {
+            "en": "Invent a lighthearted variation and ask if the group wants to try it.",
+            "zh": "编轻松变式，问大家是否想试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nagi",
+          "label": {
+            "en": "Test the shortest version of the rule before adding detail.",
+            "zh": "加细节前先试最简版规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "reo",
+          "label": {
+            "en": "Take whichever agreed role I currently want to explore.",
+            "zh": "接现在想探索、已约好的角色。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rin",
+          "label": {
+            "en": "Write a precise example so everybody knows what the new rule means.",
+            "zh": "写精确例子，让大家知新规则何意。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_03",
+      "prompt": {
+        "en": "A complicated token sequence makes the homemade game hard to start. What would you prefer?",
+        "zh": "复杂棋子序列让自编游戏难开场，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nagi",
+          "label": {
+            "en": "Try a single easy turn and build from what actually works.",
+            "zh": "试一个简单回合，从真可用处往下做。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "reo",
+          "label": {
+            "en": "Switch to another voluntary contribution that fits my current interest.",
+            "zh": "换另个合当前兴趣的自愿贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rin",
+          "label": {
+            "en": "Clarify the sequence’s steps before the group uses it.",
+            "zh": "小组用前，澄清序列步骤。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barou",
+          "label": {
+            "en": "Use a small personal setup routine so my own pieces are ready.",
+            "zh": "用个人小准备习惯，把自己的棋子放好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_04",
+      "prompt": {
+        "en": "Your group offers several roles in the tabletop session. What appeals most?",
+        "zh": "桌面活动有几个角色可选，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose one I want now and stay free to change by agreement later.",
+            "zh": "选现在想做的，留以后约好再换的自由。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rin",
+          "label": {
+            "en": "Agree exactly what the selected role involves before starting.",
+            "zh": "开始前约清所选角色具体做什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barou",
+          "label": {
+            "en": "Arrange my own counters in a repeatable order I like.",
+            "zh": "按自己喜欢、可重复顺序摆自己的棋子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Choose a comfortable pace rather than follow somebody else’s fastest turn.",
+            "zh": "选舒服节奏，不跟别人的最快回合。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_05",
+      "prompt": {
+        "en": "Two friends understand a homemade passing rule differently. What would you enjoy?",
+        "zh": "两朋友对自编传棋子规则理解不同，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rin",
+          "label": {
+            "en": "Make a clear example and agree which interpretation to use.",
+            "zh": "作清楚示例，约用哪种解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barou",
+          "label": {
+            "en": "Keep a consistent personal preparation step while the group decides.",
+            "zh": "大家决定时，保持自己的固定准备步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Allow enough pause between turns for the chosen pace to feel comfortable.",
+            "zh": "回合间容许够暂停，让选定节奏舒服。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "isagi",
+          "label": {
+            "en": "Observe both sample moves and update my proposed arrangement.",
+            "zh": "看两种示例走法，再改建议布局。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_06",
+      "prompt": {
+        "en": "You are setting out your own pieces for the optional paper-pitch game. What would you prefer?",
+        "zh": "为可选纸球场游戏摆自己的棋子，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barou",
+          "label": {
+            "en": "Use a neat personal routine that does not impose an order on anyone else.",
+            "zh": "用整齐个人惯例，不把顺序强加别人。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Set a pace that lets me enjoy placing the pieces.",
+            "zh": "定能享受摆棋子的节奏。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "isagi",
+          "label": {
+            "en": "Look at the layout and revise one connection I had assumed.",
+            "zh": "看布局，改一处原本默认的连接。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bachira",
+          "label": {
+            "en": "Add a harmless playful detail if the group wants it.",
+            "zh": "若大家愿意，添一项无害趣味细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_07",
+      "prompt": {
+        "en": "Friends suggest playing the tabletop round as fast as possible. What appeals most?",
+        "zh": "朋友建议桌面这一轮尽快玩，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Agree a tempo I actually want, including pauses or passing my turn.",
+            "zh": "约自己真想的节奏，含暂停或略过回合。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "isagi",
+          "label": {
+            "en": "Watch how one round unfolds before changing my approach.",
+            "zh": "先看一轮怎样展开，再改方法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bachira",
+          "label": {
+            "en": "Try a playful variation that is enjoyable without racing.",
+            "zh": "试不竞速也有趣的变式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nagi",
+          "label": {
+            "en": "Start with a short, simple turn rather than speed up everything.",
+            "zh": "从简短回合开始，不把所有都加速。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_08",
+      "prompt": {
+        "en": "A replay with counters reveals a gap in your first paper-pitch idea. What would you enjoy?",
+        "zh": "用棋子回放发现首个纸球场点子有缺口，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "isagi",
+          "label": {
+            "en": "Redraw one connection based on what the replay actually shows.",
+            "zh": "依回放实际所示，重画一个连接。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bachira",
+          "label": {
+            "en": "Explore an agreed unexpected move for the fun of trying it.",
+            "zh": "为尝试乐趣，探索约好的意外走法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nagi",
+          "label": {
+            "en": "Reduce the idea to a small move that can be tested now.",
+            "zh": "把点子缩成现在可试的小走步。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose a different part of the project if it now interests me more.",
+            "zh": "若更感兴趣，就选项目另一部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_09",
+      "prompt": {
+        "en": "The group wants a cheerful twist for its invented tabletop match. What would you prefer?",
+        "zh": "小组想给虚构桌面比赛添开心变化，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bachira",
+          "label": {
+            "en": "Suggest a surprising but agreed counter pattern with no target for ridicule.",
+            "zh": "提惊喜、经同意的棋子图样，不拿谁嘲笑。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nagi",
+          "label": {
+            "en": "Try the least complicated version so we can begin playing.",
+            "zh": "试最不复杂版，让大家能开玩。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "reo",
+          "label": {
+            "en": "Explore a different voluntary role for this round.",
+            "zh": "这轮探索不同自愿角色。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rin",
+          "label": {
+            "en": "Give the twist a clear definition before it becomes a shared rule.",
+            "zh": "成为共同规则前，给变化清楚定义。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_10",
+      "prompt": {
+        "en": "Only a few minutes are available for the paper game today. What appeals most?",
+        "zh": "今天纸游戏只剩几分钟，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nagi",
+          "label": {
+            "en": "Enjoy one simple sequence rather than wait for a perfect full match.",
+            "zh": "享受一个简单序列，不等完美全场。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "reo",
+          "label": {
+            "en": "Pick the contribution I want for this short session.",
+            "zh": "给短活动选自己想作的贡献。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rin",
+          "label": {
+            "en": "Agree the exact stopping point so the short round is clear.",
+            "zh": "约准确终点，让短轮清楚。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barou",
+          "label": {
+            "en": "Use my usual small setup order to get my pieces ready.",
+            "zh": "用惯常小准备顺序，把自己棋子备好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_11",
+      "prompt": {
+        "en": "You have already tried arranging counters and could now write rules. What would you enjoy?",
+        "zh": "已试摆棋子，现在能写规则，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "reo",
+          "label": {
+            "en": "Change contribution because the new part interests me, without owing anyone a fixed role.",
+            "zh": "因新部分有兴趣而换贡献，不欠谁固定角色。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rin",
+          "label": {
+            "en": "Agree a clear example of what the written rule should cover.",
+            "zh": "约书面规则涵盖什么的清楚例子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barou",
+          "label": {
+            "en": "Keep a repeatable personal way of organising my materials.",
+            "zh": "保持自己组织材料的可重复方法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Choose a tempo that makes the change comfortable.",
+            "zh": "选让切换舒服的节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_12",
+      "prompt": {
+        "en": "A new counter rule needs an example before friends can use it. What appeals most?",
+        "zh": "新棋子规则需示例才好用，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rin",
+          "label": {
+            "en": "Write the steps precisely and invite the group to check them.",
+            "zh": "精确写步骤，邀小组核对。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barou",
+          "label": {
+            "en": "Set out my own example pieces using a familiar routine.",
+            "zh": "按熟悉惯例，摆自己的示例棋子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Give people time to follow the example without racing to finish.",
+            "zh": "给时间跟示例，不抢完成。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "isagi",
+          "label": {
+            "en": "Watch a trial turn and revise what the example leaves unclear.",
+            "zh": "看试走回合，改示例不清处。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_13",
+      "prompt": {
+        "en": "Your own materials keep getting mixed during the voluntary tabletop session. What would you prefer?",
+        "zh": "自愿桌面活动中，自己的材料总混起来，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barou",
+          "label": {
+            "en": "Create a small personal place-and-reset routine that others do not have to copy.",
+            "zh": "作个人放置、复位小惯例，别人不必照搬。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Pause long enough to reset at a pace I choose.",
+            "zh": "按自己选节奏，暂停够久再复位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "isagi",
+          "label": {
+            "en": "Observe which arrangement actually causes the confusion and change it.",
+            "zh": "观察哪布局真造成混淆，再改它。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bachira",
+          "label": {
+            "en": "Try a playful label system if everyone enjoys the idea.",
+            "zh": "若大家喜欢，试趣味标签系统。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_14",
+      "prompt": {
+        "en": "The next round can include longer pauses or quicker token turns. What would you enjoy?",
+        "zh": "下一轮可长暂停或快走棋子，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Choose the tempo I want rather than treat quickness as a requirement.",
+            "zh": "选想要的节奏，不把快当要求。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "isagi",
+          "label": {
+            "en": "Watch one turn at each tempo and update my layout idea.",
+            "zh": "各节奏看一回合，改布局点子。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bachira",
+          "label": {
+            "en": "Invent a harmless optional pattern that works at either pace.",
+            "zh": "编两节奏都可用的无害可选图样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nagi",
+          "label": {
+            "en": "Keep just one easy move so the round stays approachable.",
+            "zh": "只留一个易走步，让这轮好加入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_15",
+      "prompt": {
+        "en": "A counter replay makes an earlier plan look less useful. What appeals most?",
+        "zh": "棋子回放让早先计划显得没用，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "isagi",
+          "label": {
+            "en": "Use the new observation to revise the plan without defending every old detail.",
+            "zh": "用新观察改计划，不替每个旧细节辩护。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bachira",
+          "label": {
+            "en": "Try a lighthearted alternative the group agrees to explore.",
+            "zh": "试小组同意探索的轻松替代。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "nagi",
+          "label": {
+            "en": "Return to one workable move and see what follows.",
+            "zh": "回到一个可用走步，看后续怎样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "reo",
+          "label": {
+            "en": "Take another agreed role if that is what I want now.",
+            "zh": "若现在想如此，就接另一约好角色。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_16",
+      "prompt": {
+        "en": "The optional paper game has begun to feel repetitive. What would you prefer?",
+        "zh": "可选纸游戏开始重复，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bachira",
+          "label": {
+            "en": "Offer an imaginative counter variation that everyone can decline.",
+            "zh": "提有想象的棋子变式，人人可拒绝。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "nagi",
+          "label": {
+            "en": "Try a single fresh move without building a large new system.",
+            "zh": "试一个新走步，不另造大系统。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose another part of the session that interests me.",
+            "zh": "选活动里另一感兴趣部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rin",
+          "label": {
+            "en": "Clarify which rule can change and which one the group wants to keep.",
+            "zh": "澄清哪条可变、哪条大家想留。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_17",
+      "prompt": {
+        "en": "Friends have designed an impressive tabletop sequence that takes too long to explain. What appeals most?",
+        "zh": "朋友设计精彩桌面序列，却要解释很久，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "nagi",
+          "label": {
+            "en": "Test one small part now rather than postpone all the enjoyment.",
+            "zh": "现在试一小部分，不推迟全部乐趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose whether I want to explain, arrange or simply watch this time.",
+            "zh": "选这次想解释、摆放或只看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rin",
+          "label": {
+            "en": "Define one short example that the group can check.",
+            "zh": "定义一个小组可核的短示例。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "barou",
+          "label": {
+            "en": "Prepare my own pieces in the familiar order that suits me.",
+            "zh": "按合自己的熟悉顺序，备自己的棋子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_18",
+      "prompt": {
+        "en": "People expect you to repeat the same role at the next paper-pitch session. What would you enjoy?",
+        "zh": "大家期待下次纸球场活动还做同角色，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "reo",
+          "label": {
+            "en": "Choose again, agreeing any change instead of assuming the role is permanent.",
+            "zh": "重新选、约好变化，不默认角色永久。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rin",
+          "label": {
+            "en": "Set out what the next agreed role includes in precise terms.",
+            "zh": "精确写下次约好角色含什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "barou",
+          "label": {
+            "en": "Keep one personal preparation habit regardless of which role I choose.",
+            "zh": "无论选哪角色，都留一个个人准备习惯。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Decide how quickly I want to move through the new session.",
+            "zh": "决定想用多快节奏进行新活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_19",
+      "prompt": {
+        "en": "A written rule and a sample counter move do not quite agree. What would you prefer?",
+        "zh": "书面规则与棋子示例不太一致，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rin",
+          "label": {
+            "en": "Compare them carefully and agree a precise correction.",
+            "zh": "仔细比较，约一项准确修正。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "barou",
+          "label": {
+            "en": "Reset my own materials in a consistent order while we decide.",
+            "zh": "决定时，用一致顺序复位自己的材料。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Allow a pause rather than rush people through the mismatch.",
+            "zh": "容许暂停，不催人草草过差异。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "isagi",
+          "label": {
+            "en": "Observe another trial and revise my interpretation of the layout.",
+            "zh": "再看一试走，改对布局的解释。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_20",
+      "prompt": {
+        "en": "The homemade game is ending, and you are putting away your own counters. What appeals most?",
+        "zh": "自编游戏结束，正收自己的棋子，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "barou",
+          "label": {
+            "en": "Use my chosen tidy routine without setting a standard for everyone else.",
+            "zh": "用自选整理惯例，不给所有人定标准。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Close the session at a comfortable pace with room to pause.",
+            "zh": "按舒服节奏收尾，留暂停空间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "isagi",
+          "label": {
+            "en": "Notice one layout detail worth revising next time.",
+            "zh": "注意一处下次值得改的布局细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bachira",
+          "label": {
+            "en": "Keep one optional playful idea for another session.",
+            "zh": "留一个可选玩趣点子待后续活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BLK_21",
+      "prompt": {
+        "en": "Friends ask what tempo you would want for another voluntary tabletop round. What would you enjoy?",
+        "zh": "朋友问下次自愿桌面一轮想用何节奏，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "chigiri",
+          "label": {
+            "en": "Choose it afresh, including slower play, pauses or sitting the round out.",
+            "zh": "重新选，含慢玩、暂停或这轮不参加。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "isagi",
+          "label": {
+            "en": "Watch a sample before deciding how to revise my approach.",
+            "zh": "决定怎样改方法前，看一个示例。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bachira",
+          "label": {
+            "en": "Try a consensual imaginative move instead of making speed the focus.",
+            "zh": "试经同意的想象走法，不把速度当重点。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "nagi",
+          "label": {
+            "en": "Begin with a small straightforward sequence and see if I want more.",
+            "zh": "先作小而直接序列，看是否还想继续。"
+          }
+        }
+      ]
+    }
+  ]
+}
