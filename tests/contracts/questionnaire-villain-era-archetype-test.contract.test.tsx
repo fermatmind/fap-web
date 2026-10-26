@@ -23,7 +23,7 @@ describe("T078 original theatrical boundary-opening edition", () => {
     expect(quiz.source.itemBankSha256).toBe(createHash("sha256").update(bytes).digest("hex"));
     expect(quiz.source.resultContentSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(quiz.source.psychometricValidationCompleted).toBe(false);
-    expect(reference.sourceRead).toContain("first3of10");
+    expect(reference.sourceRead).toContain("all10questions/40options");
     expect(quiz.directions.map(d => d.id)).toEqual(["scene-planner", "honest-antihero", "warm-decliner", "rule-questioner", "offstage-keeper", "line-rewriter"]);
     for (const direction of quiz.directions) {
       expect(direction.comparisons).toBe(12); expect(quiz.questions.filter(q => q.options.some(o => o.directionId === direction.id))).toHaveLength(12);
