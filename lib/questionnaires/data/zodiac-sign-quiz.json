@@ -2126,7 +2126,7 @@
   ],
   "guide": [
     {
-      "id": "story-rule",
+      "id": "archetype-counts",
       "title": {
         "en": "A transparent raw-choice rule",
         "zh": "透明的原始选择规则"
@@ -2139,7 +2139,7 @@
       ]
     },
     {
-      "id": "story-ties",
+      "id": "archetype-ties",
       "title": {
         "en": "Ties are allowed, including all twelve",
         "zh": "允许并列，包括十二项全并列"
@@ -2152,7 +2152,7 @@
       ]
     },
     {
-      "id": "story-reading",
+      "id": "archetype-metaphor",
       "title": {
         "en": "Read a particular action before a sign name",
         "zh": "先读具体动作，再读星座名"
