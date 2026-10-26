@@ -2926,5 +2926,30 @@
       "office"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "feminine-energy",
+    "code": "FEMININE_EXPRESSION_OBSERVATIONS_ORIGINAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "zh": "女性气质能量测试",
+      "en": "Feminine Energy Test"
+    },
+    "description": {
+      "zh": "免费女性气质能量测试：20项原创频率观察，分别阅读亲昵俏皮、鲜明表达、诗意细节和从容主张四份九节完整说明。不计算女性程度或激素分数。",
+      "en": "Free Feminine Energy Test: 20 original observations and four full guides to expression over four weeks. No femininity percentage or hormone score."
+    },
+    "minutes": 6,
+    "formCode": "fm_feminine_expression_observations_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "playful-warmth",
+      "expressive-flair",
+      "poetic-detail",
+      "composed-clarity"
+    ],
+    "collection": "explore"
   }
 ]

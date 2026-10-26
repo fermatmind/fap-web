@@ -1,0 +1,2104 @@
+{
+  "slug": "feminine-energy",
+  "code": "FEMININE_EXPRESSION_OBSERVATIONS_ORIGINAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "女性气质能量测试",
+    "en": "Feminine Energy Test"
+  },
+  "resultHeading": {
+    "zh": "过去四周的四组表达观察",
+    "en": "Four expression observations from the past four weeks"
+  },
+  "description": {
+    "zh": "免费女性气质能量测试：20项原创频率观察，分别阅读亲昵俏皮、鲜明表达、诗意细节和从容主张四份九节完整说明。不计算女性程度或激素分数。",
+    "en": "Free Feminine Energy Test: 20 original observations and four full guides to expression over four weeks. No femininity percentage or hormone score."
+  },
+  "seoTitle": {
+    "zh": "女性气质能量测试：四组表达观察与免费完整结果",
+    "en": "Feminine Energy Test: Four Expression Themes, Full Guides"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "一句带玩心的感谢、一个愿意让人看见的小特点、留住某个时刻的细节，或把自己的选择说清楚：过去四周，你在合适且自愿的场面里用了哪些表达？本版用20个原创频率条目，分别观察亲昵俏皮、鲜明表达、诗意细节和从容主张四组做法。每组都有九节完整指南，含具体小场面、可调整的表达大小、相近主题比较与小尝试，作答前后都能免费读完。这里的“女性气质能量”是一个可自由采用的文化表达标题，不判断性别、生理、性取向、激素、魅力或女性程度，任何性别都可以使用。四组是本站编辑观察入口，不是四种普世女性原型；WHO只提供概念边界，未验证本题。20项均选择后，四组分别显示有效频率均分；每组至少3项有效，不足明确资料不足，不补零，不按最高值派型，也不相加为总能量。可以先读、修改、清除或重测；自愿草稿只在本标签页最多24小时，分享不含答案或均分。",
+    "en": "A playful thank-you, a characteristic you want visible, a detail holding a moment or a clear preference: which expressions did you use in fitting, voluntary situations over four weeks? Twenty original frequency observations cover Playful Warmth, Expressive Flair, Poetic Detail and Composed Clarity separately. Each has a full nine-section guide with particular scenes, adjustable scope, comparisons and a little experiment, free before and after answering. Feminine energy is an optional cultural expression title here, assessing no gender, biology, orientation, hormones, charm or degree of femininity. People of any gender can use it. The four groups are original editorial observation entrances rather than universal female archetypes; WHO supplies conceptual context without validating this bank. After all twenty choices, groups show separate rated-frequency means. At least three rated items are required per group; otherwise information is insufficient, not zero. There is no highest-value type or total energy. Read first, edit, clear or retake. Optional drafts remain in this tab for up to twenty-four hours, and sharing contains no answers or means."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在你自己愿意表达、且有相应机会的普通小场面中，这些具体做法出现得多频繁。只评自己的做法，不猜别人是否被吸引、尊重你或如何评价你的性别。用1—5记录频率；没有相关经历、情境不适合或无法判断，请选“未经历／无法判断”，不按最低频率代填。20项均需选择，其中四组各5项、全部正向记录；没有反向、权重或隐藏主副型。每组至少3项有效才显示本组均分，均分为有效频率加总除以有效项数、保留一位小数；不足时明确资料不足，不补零。四组分别呈现，不加总成女性程度、能量百分比或人格等级，也不从近分判定固定原型。任何性别都可以使用；无需身体、照片、性取向、关系经历或身份信息。题目不合适可停止，四份公开完整读法仍免费。",
+    "en": "Think about the past four weeks and ordinary situations in which you wanted to express yourself and had the relevant opportunity. Rate your own actions, not whether others were attracted, respected you or judged your gender. Record frequency from one to five. Choose Not experienced / cannot judge when there was no relevant experience, the setting did not fit or you cannot judge; do not substitute the lowest frequency. All twenty items need a choice. Four groups have five items each, all positively keyed, without reversals, weights or hidden primary and secondary types. A group needs at least three rated items for its mean: sum the rated frequencies, divide by rated items and round to one decimal. Otherwise information is insufficient, not zero. Groups stay separate without a femininity total, energy percentage or personality grade, and close means assign no fixed archetype. People of any gender can use this. Provide no body, photograph, sexual orientation, relationship history or identity information. Leave if the questions do not fit; all four public full guides remain free."
+  },
+  "source": {
+    "kind": "frontend_original_four_expression_observations",
+    "formCode": "fm_feminine_expression_observations_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "fe9c217f8ce44530cb98e34bfc944426adad9ad24ac3cac43c4f236b1a3bd42a",
+    "resultContentSha256": "d0957b0e0faed605ce6abf6885893608398503931626034d0002f69abbead4c9",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "playful-warmth",
+      "title": {
+        "zh": "亲昵俏皮",
+        "en": "Playful Warmth"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "expressive-flair",
+      "title": {
+        "zh": "鲜明表达",
+        "en": "Expressive Flair"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "poetic-detail",
+      "title": {
+        "zh": "诗意细节",
+        "en": "Poetic Detail"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "composed-clarity",
+      "title": {
+        "zh": "从容主张",
+        "en": "Composed Clarity"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "FEXP_01",
+      "prompt": {
+        "zh": "当我愿意和熟悉的人轻松聊天时，我加了一句双方都能接下去的小玩笑。",
+        "en": "When I wanted a light chat with someone familiar, I added a little joke we could both continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_02",
+      "prompt": {
+        "zh": "在可以自由选择的日常穿搭或小物上，我用了一个自己想让人注意到的颜色、图案或细节。",
+        "en": "When freely choosing an everyday outfit or little object, I used a colour, pattern or detail I wanted to make noticeable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_03",
+      "prompt": {
+        "zh": "当一个普通场景让我想留念时，我用一句话、一个颜色或一小段声音记下它的意味。",
+        "en": "When I wanted to remember an ordinary scene, I kept its meaning in a line, colour or little stretch of sound."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_04",
+      "prompt": {
+        "zh": "在我愿意参与的小安排中，我先用一两句话说清自己喜欢的版本。",
+        "en": "In a little arrangement I wanted to join, I first stated the version I preferred in one or two sentences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_05",
+      "prompt": {
+        "zh": "在对方也愿意的熟悉互动里，我用了一个双方喜欢的昵称、表情或轻松暗号。",
+        "en": "In a familiar exchange the other person also wanted, I used a nickname, expression or light little sign we both enjoyed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_06",
+      "prompt": {
+        "zh": "当有机会给自己的作品选开场时，我保留了一个有鲜明个人味道的标题或亮点。",
+        "en": "When choosing an opening for something of my own, I kept a title or highlight with a distinctive personal flavour."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_07",
+      "prompt": {
+        "zh": "当我可以自己安排一个角落时，我让两件小物的颜色、质地或位置形成自己喜欢的呼应。",
+        "en": "When arranging a corner of my own, I let the colours, textures or positions of two little objects echo in a way I liked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_08",
+      "prompt": {
+        "zh": "当有人询问我对一件小事的想法时，我给出一个清楚的偏好，而没有只列出所有可能。",
+        "en": "When someone asked my view on a small matter, I gave a clear preference rather than only listing every possibility."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_09",
+      "prompt": {
+        "zh": "当我想表达对一件普通好事的感谢时，我用具体又带一点玩心的方式说出来。",
+        "en": "When I wanted to thank someone for an ordinary good thing, I expressed it specifically with a little playfulness."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_10",
+      "prompt": {
+        "zh": "当有一个自愿展示的小机会时，我选择了让自己的某个小特点被看见。",
+        "en": "When a voluntary chance to show something arose, I chose to let one little characteristic of my own be visible."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_11",
+      "prompt": {
+        "zh": "当一首歌、一幅图或一句文字打动我时，我停下来留意究竟是哪一小处让我喜欢。",
+        "en": "When a song, image or line appealed to me, I paused to notice the particular part I liked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_12",
+      "prompt": {
+        "zh": "当我愿意继续一个合作小项目时，我说明了自己想保留的标准或范围，让下一步具体一些。",
+        "en": "When I wanted to continue a small shared project, I stated a standard or scope I wanted to keep so the next step was more concrete."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_13",
+      "prompt": {
+        "zh": "在双方愿意延续的日常对话里，我给一个普通话题加了一个轻松的比喻或小角色。",
+        "en": "In an everyday conversation both people wanted to continue, I added a light image or little character to an ordinary topic."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_14",
+      "prompt": {
+        "zh": "当几种表达方式都可行时，我试了一种比自己平常版本更醒目的措辞、配色或呈现。",
+        "en": "When several ways of expressing something were available, I tried wording, colour or presentation more noticeable than my usual version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_15",
+      "prompt": {
+        "zh": "当我想让一句话更贴近自己的感受时，我调整了一个词、停顿或意象，而不是只补更多解释。",
+        "en": "When I wanted a line to fit my own feeling, I adjusted a word, pause or image rather than only adding more explanation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_16",
+      "prompt": {
+        "zh": "当我想给一次小讨论收尾时，我把自己的决定说成一句可以直接理解的话。",
+        "en": "When I wanted to close a small discussion, I put my decision into a sentence that could be understood directly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_17",
+      "prompt": {
+        "zh": "当我和熟悉的人回想一件共同小事时，我愿意用带一点亲昵的趣味方式重提它。",
+        "en": "When recalling a shared little event with someone familiar, I wanted to revisit it with an affectionate touch of play."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_18",
+      "prompt": {
+        "zh": "当我可以决定要展示哪一部分时，我挑了一个自己愿意认领的亮点，而没有把所有特点都藏到背景里。",
+        "en": "When deciding which part to show, I chose a highlight I wanted to own rather than putting every characteristic into the background."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_19",
+      "prompt": {
+        "zh": "当我留下一件小纪念时，我更在意它能否承接一个具体时刻的感觉，并为此改过一个细节。",
+        "en": "When keeping a little memento, I cared whether it held the feeling of a particular moment and changed a detail for that reason."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_20",
+      "prompt": {
+        "zh": "在我愿意表达不同意见的小事上，我保留了自己的说法，同时让对方有回应的位置。",
+        "en": "On a small matter where I wanted to express a different view, I kept my own wording while leaving room for the other person to respond."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "playful-warmth",
+      "directionIds": [
+        "playful-warmth"
+      ],
+      "title": {
+        "zh": "亲昵俏皮",
+        "en": "Playful Warmth"
+      },
+      "headline": {
+        "zh": "让熟悉的对话有一点双方愿意的玩心。",
+        "en": "Let a familiar conversation have a little play both people want."
+      },
+      "summary": {
+        "zh": "这一组记录过去四周你在自愿的熟悉互动中使用小玩笑、共同暗号、具体感谢与轻松比喻的频率。它不判断别人是否被你吸引、你的性别或亲密关系状况，也不要求承担维持气氛的责任。",
+        "en": "This group records little jokes, shared signs, specific thanks and light images in willing familiar exchanges over four weeks. It judges neither others’ attraction, your gender nor relationship status and assigns no duty to maintain the mood."
+      },
+      "seo": {
+        "title": {
+          "zh": "亲昵俏皮：女性气质能量测试的完整读法",
+          "en": "Playful Warmth: Feminine Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从熟悉对话、共同暗号与带玩心的感谢读亲昵俏皮，理解四周频率、机会差异、相近表达与资料不足时怎样阅读全文。",
+          "en": "Read Playful Warmth through familiar chats, shared signs and playful thanks. Understand four-week frequencies, opportunities, themes and insufficient data."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一组5项只记录过去四周的自报频率，全部正向。未经历／无法判断不补零；至少3项有效才把有效项加总除以有效项数，保留一位小数。不足时明确资料不足。四组分别呈现，任何同分或不同分都保留四份完整说明，不按最高均分派主副型，也不加总为女性能量、魅力或人格等级。",
+        "en": "This group has five positively keyed observations of self-reported frequency over four weeks. Not experienced / cannot judge is not zero. At least three rated items are needed to divide their sum by their number and round to one decimal; otherwise information is insufficient. Four groups stay separate. Every guide remains whether means tie or differ, without highest-mean primary or secondary types, feminine energy totals, charm scores or personality grades."
+      },
+      "sections": [
+        {
+          "id": "observed",
+          "title": {
+            "zh": "五项在记录什么样的表达",
+            "en": "The expressions these five observations record"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组把注意力放在你自己说过或做过的小表达：给普通对话加一句玩笑、使用双方喜欢的暗号，或把感谢说得具体又带一点玩心。它不要求你每次都热闹，也不等同于一般意义上的照顾别人。回想一项回答时，先找一个实际小片段：当时你想表达什么，对方是否也愿意继续，哪一句是自己主动加上的。没有这样的经历就可以选无法判断，而不是替自己补一个理想形象。",
+              "en": "These observations attend to little expressions you used: a joke in an ordinary conversation, a sign both people enjoy or thanks made specific with some play. They require no continual liveliness and are not a general measure of caring for people. Revisit an answer through an actual little moment: what you wanted to express, whether the other person also wanted to continue and which line you added voluntarily. Without such an experience, cannot judge is available instead of supplying an ideal image of yourself for the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一句感谢，可以有轻松和直接两种版本",
+            "en": "A thank-you can have a playful and a direct version"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象熟人帮你把一叠书搬回桌边。直接版本可以是“谢谢你，省了我一次来回”；带玩心的版本可以是“谢谢，今天的小书山有了可靠运输队”。哪个更合适取决于你们愿意怎样说话，不是后者更温暖或更女性。也可以只保留第一句。用两个版本对照，是为了看清亲昵俏皮具体出现在哪一小处，而不是训练自己让别人更喜欢你。",
+              "en": "Imagine someone familiar helping return books to a desk. A direct version thanks them for saving a trip; a playful version calls them the dependable transport team for today’s little book mountain. The fit depends on how both people want to speak, not on the second being warmer or more feminine. Keep only the first if it suits. Comparing versions locates where play actually appears rather than training yourself to become more liked. An ordinary direct thank-you remains complete, with no missing ingredient for the reading to repair."
+            }
+          ]
+        },
+        {
+          "id": "size",
+          "title": {
+            "zh": "玩心不必把整段交流变成表演",
+            "en": "Play need not turn the whole exchange into a performance"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个共同暗号或一句轻松比喻，可能就足够表达当时想要的亲近感。你可以之后回到普通语气，也可以在对方没接时自然换话题。题目只记录这些做法在相应机会里出现多频繁，没有观察对话是否成功。对照具体片段时，可以分开“我喜欢这样说”和“我希望对方一定回应”；前者是自己的表达选择，后者还涉及另一个人的意愿。",
+              "en": "A shared sign or light image may be enough for the closeness you wanted to express then. Return to an ordinary tone afterward or move to another topic when the other person does not continue. The items record how frequently these actions appeared in relevant opportunities, without observing conversational success. Separate liking to speak this way from wanting a guaranteed reply. The former concerns your expression; the latter also involves another person’s willingness. A small dose of play can keep its place without taking responsibility for the whole exchange."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "熟悉程度、机会与这一段时间",
+            "en": "Familiarity, opportunity and this stretch of time"
+          },
+          "paragraphs": [
+            {
+              "zh": "过去四周如果多是正式沟通，可能几乎没有适合共同玩笑的场面；如果恰好与熟人一起做了些轻松小事，回想材料可能更多。均分不能把这些条件消掉。可以看有效题数，再挑一两项回想自己依据哪种机会作答。不必为了凑够3项有效而把未经历填成低频；资料不足时，公开解释仍然完整，等以后真有相关经历再决定要不要重做。",
+              "en": "Four weeks of mostly formal communication may offer few fitting moments for shared jokes. Light activities with familiar people may supply more examples. A mean cannot remove those conditions. Check the number of rated items and revisit the opportunities behind one or two answers. Do not replace missing experience with low frequency to reach three rated items. With insufficient information, the public explanation stays complete, and you can decide whether to retake later if relevant experiences arise. No scheduled retake or target number of playful exchanges is required by this reading."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲜明表达、诗意细节怎么分开看",
+            "en": "Distinguish Expressive Flair and Poetic Detail"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲜明表达更关心自己选择让哪个特点被看见，例如一个醒目的标题；亲昵俏皮更关心双方愿意延续的轻松来回。诗意细节可能先调整一句话里的意象，亲昵俏皮则先看这个意象能否成为共同的小趣味。同一句话能同时涉及两组，不需要硬拆。四组都高、都低或近分，都没有固定类型结论；比较的是条目在问什么，不是给人贴甜美、强势或深刻的等级。",
+              "en": "Expressive Flair concerns the characteristic you choose to make visible, such as a noticeable title; Playful Warmth attends to a light exchange both people want to continue. Poetic Detail may begin with an image inside a sentence, while Playful Warmth asks whether it became a shared little enjoyment. One line can involve both without being forcibly divided. High, low or close means across groups assign no fixed type. Compare what the items ask rather than ranking people as sweet, forceful or profound, or requiring one expression to explain all the others."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "有亲昵的表达，也可以保留自己的范围",
+            "en": "An affectionate expression can keep your own scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以愿意接一个玩笑，同时不愿继续聊天；也可以表达感谢，而不接下对方随后的请求。这些选择不需要互相抵消。若你发现自己曾为了维持轻松语气而多答应一件事，可以只把它记作那次场面的一个区别，不必从这份结果给自己下关系诊断。亲昵俏皮不是顺从、免费照护或讨人喜欢的义务，也不规定任何性别应该怎样表达。",
+              "en": "You can enjoy a joke without wanting to keep chatting or express thanks without accepting the next request. Those choices need not cancel each other. If a light tone accompanied an extra agreement you did not want, record that distinction in the particular scene rather than using this guide for a relationship diagnosis. Playful Warmth creates no duty of compliance, unpaid care or being pleasing and prescribes no expression for any gender. You can keep a familiar little sign while giving the surrounding conversation whatever scope you actually want it to have."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只给一句话添一个可以拿掉的小比喻",
+            "en": "Add one little image a line can also do without"
+          },
+          "paragraphs": [
+            {
+              "zh": "用完全虚构的搬书场面，先写一句直接感谢，再添一个双方可能觉得有趣的小比喻。比较它是否更贴近这次想表达的感觉，也可以删掉。不要用真实私人聊天作材料，不必发送任何一句，也不统计别人笑了没有。最后带走一个关于自己表达的观察，例如“我喜欢感谢里有一点共同的玩心，但不需要整段都活泼”。它不是提升女性能量或社交能力的练习。",
+              "en": "Use the entirely invented book-moving scene. Write a direct thank-you, then add one little image both people might enjoy. Compare its fit for what you wanted to express, or remove it. Use no actual private chat, send neither version and count no laughs. Keep an observation about your expression: perhaps enjoying a little shared play within thanks without wanting the whole conversation lively. This is no exercise for increasing feminine energy or social ability. The imagined line can remain a small comparison with no obligation to perform it for anyone."
+            }
+          ]
+        },
+        {
+          "id": "means",
+          "title": {
+            "zh": "有效项、近分与四组分别阅读",
+            "en": "Rated items, close means and four separate readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组5项用1—5记录频率，未经历／无法判断不计入分子或分母；至少3项有效才显示均分。比如4、5、4、4与一项无法判断，有效加总17除以4，显示4.3；只有2项有效时不计算个人均分。20项都选择后，四组分别呈现，不相加、不互相抵消、不按最高值派型。近分可能在换一项回答后变化，一位小数只是显示约定，不是测量精度。没有人群常模、优劣阈值或女性程度百分比，四份全文始终保留。",
+              "en": "Five items use frequencies from one to five. Not experienced / cannot judge enters neither numerator nor denominator. At least three rated items are needed for a mean. Ratings of four, five, four and four with one unjudged item total seventeen over four, displayed as 4.3; two rated items produce no personal mean. After all twenty choices, groups stay separate without addition, cancellation or highest-value types. Close means may change with one answer. One decimal is a display convention, not measurement precision. There are no population norms, better-or-worse thresholds or femininity percentages, and all four full guides remain."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "开放全文、可选草稿与文化表达的范围",
+            "en": "Open guides, optional drafts and a cultural expression frame"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节完整指南在作答前后都免费。20个条目、四组名称和解释为本站原创文化表达观察，不是普世女性原型，不判断性别、生理、性取向、魅力、能力、健康或职业适配。任何性别都能使用，也可以不采用“女性气质”这个框架。无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。分享只含测试名称、“完整自我观察”及公开链接，不含答案或均分。WHO资料解释概念边界，不验证本题。",
+              "en": "All four nine-section guides are free before and after answering. Twenty items, four names and explanations are original cultural expression observations rather than universal female archetypes, assessing no gender, biology, orientation, charm, ability, health or career fit. People of any gender can use them or decline the feminine frame. No account, body, photograph or relationship history is required. Optional drafts stay in this tab for up to twenty-four hours, clearing on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public link without answers or means. WHO provides conceptual context, not bank validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expressive-flair",
+      "directionIds": [
+        "expressive-flair"
+      ],
+      "title": {
+        "zh": "鲜明表达",
+        "en": "Expressive Flair"
+      },
+      "headline": {
+        "zh": "挑一个自己愿意认领的细节，让它被看见。",
+        "en": "Choose one detail you want to own and let it be visible."
+      },
+      "summary": {
+        "zh": "这一组记录过去四周你自愿使用醒目颜色、个人标题、展示亮点或不同呈现的频率。它不判断别人是否欣赏、你的外貌、性别、勇气或自信水平，也不要求成为焦点。",
+        "en": "This group records noticeable colours, personal titles, visible highlights and different presentations you chose over four weeks. It judges neither admiration, appearance, gender, courage nor confidence and requires no centre stage."
+      },
+      "seo": {
+        "title": {
+          "zh": "鲜明表达：女性气质能量测试的完整读法",
+          "en": "Expressive Flair: Feminine Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从醒目小物、个人标题与自愿展示读鲜明表达，理解四周频率、亮点的大小、相近主题和资料不足时的完整说明。",
+          "en": "Read Expressive Flair through an object, personal title and voluntary display. Compare four-week frequency, highlight sizes, nearby themes and missing data."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一组5项只记录过去四周的自报频率，全部正向。未经历／无法判断不补零；至少3项有效才把有效项加总除以有效项数，保留一位小数。不足时明确资料不足。四组分别呈现，任何同分或不同分都保留四份完整说明，不按最高均分派主副型，也不加总为女性能量、魅力或人格等级。",
+        "en": "This group has five positively keyed observations of self-reported frequency over four weeks. Not experienced / cannot judge is not zero. At least three rated items are needed to divide their sum by their number and round to one decimal; otherwise information is insufficient. Four groups stay separate. Every guide remains whether means tie or differ, without highest-mean primary or secondary types, feminine energy totals, charm scores or personality grades."
+      },
+      "sections": [
+        {
+          "id": "observed",
+          "title": {
+            "zh": "五项关心的是自己选了怎样的呈现",
+            "en": "These observations concern the presentation you chose"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组问的是你有没有主动留下一个可见的个人特点：一种颜色、一个标题、一小段更醒目的措辞，或愿意展示的片段。它没有询问别人是否觉得好看，也不以赞美多少计分。回看一项回答，可以找一个实际决定：当时有哪几种版本，自己挑了哪一个，希望哪一点被看见。看见一个小特点，和希望整个人成为注意中心，是不同大小的表达；本题没有把后者当成目标。",
+              "en": "These items ask whether you chose a visible personal characteristic: a colour, title, more noticeable line or little part you wanted to show. They ask for no judgment of beauty and count no compliments. Revisit an answer through an actual decision: which versions were available, which you selected and what you wanted visible. Letting a little characteristic appear differs in scale from wanting to be the centre of attention. The latter is no target for these observations, and a single visible detail need not make the whole arrangement conspicuous."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一张便签，也可以承接一个亮点",
+            "en": "One little note can hold a highlight"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象你为自己的手作本写一张封面便签，可以选平常的细字，也可以给标题添一笔自己喜欢的明亮颜色。你可能只想让那个标题有一点个人味道，不希望别人评论整本手作。也可以保持原版，把亮色留到下一页。这个例子让鲜明表达落在一次具体选择上，不需要购买新东西、公开作品或让某种风格适合所有人。",
+              "en": "Imagine a cover note for a craft notebook. Keep your usual small writing or add a bright colour you like to the title. You may only want that title to have a personal flavour without inviting judgment on the whole notebook. Keep the original and leave the colour for another page if preferred. The example locates expression in a particular choice rather than requiring a purchase, public work or a style that suits everybody. A highlight can remain as small as the line you decided to change."
+            }
+          ]
+        },
+        {
+          "id": "size",
+          "title": {
+            "zh": "显眼程度可以由自己决定",
+            "en": "You can choose how noticeable the detail becomes"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲜明不只等于大面积、强烈配色或夸张语气。一个简洁但明确的标题、一件小物上的纹样，甚至只在自己愿意展示时露出的一页，都可能是你这次认领的特点。可以问自己：我想让人看见的是哪一小处，还有哪些部分想保持普通或私下。这样比较的是呈现范围，不是在把低调和醒目分成胆小与勇敢，也不要求把日常表达做成表演。",
+              "en": "Distinctiveness need mean neither a large area, strong palette nor dramatic tone. A concise definite title, a pattern on a little object or one page shown only when you want may hold the characteristic you chose. Ask which part you want visible and which parts can remain ordinary or private. That compares the reach of presentation rather than dividing quiet and noticeable choices into timidity and courage. Everyday expression need not become a performance, and a modest detail can be as intentional as an arrangement that takes more visual space."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "有展示机会，不等于必须展示",
+            "en": "An opportunity to show something creates no duty to do so"
+          },
+          "paragraphs": [
+            {
+              "zh": "过去四周可能刚好有展示作品、选择小物或尝试新呈现的机会，也可能多数场面要求统一格式。回想时按实际适合的场面答，不把没有机会选成几乎没有。即使有机会，你也可以不想采用醒目版本；这是一项真实回答，不需要修成更高的分数。资料不足说明这些条目没取得足够材料，不是缺少个性或尚未发挥所谓女性力量。",
+              "en": "Four weeks may have offered chances to show work, choose an object or try another presentation, or mostly required a common format. Rate fitting actual opportunities instead of turning their absence into almost never. Even with an opportunity, you may not have wanted a noticeable version; that is a real answer without a higher score to correct toward. Insufficient information means these items lack enough rated material, not that you lack individuality or have yet to unlock supposed feminine power. Keep opportunity and preference separate when revisiting what you selected."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与亲昵俏皮、从容主张怎么分开看",
+            "en": "Distinguish Playful Warmth and Composed Clarity"
+          },
+          "paragraphs": [
+            {
+              "zh": "亲昵俏皮更看双方愿意延续的轻松趣味，鲜明表达更看自己让哪一点变得可见。一句醒目的标题不需要有人接话；一个共同玩笑也可以说得很低调。从容主张可能先把选择说清楚，鲜明表达则可能先给选择一个个人呈现。三者能同时出现，也可以分别发生。近分时回到条目例子，不把可见特点当作真实自信、把清楚主张当作权威或把俏皮当作吸引力。",
+              "en": "Playful Warmth attends to light enjoyment both people want to continue; Expressive Flair concerns the part you make visible. A noticeable title needs no reply, and a shared joke can stay quiet. Composed Clarity may first state a choice plainly, while Expressive Flair gives it a personal presentation. These can occur together or separately. Revisit the item examples with close means rather than making a visible characteristic prove confidence, a clear preference prove authority or play prove attraction. None of those larger qualities or effects on other people was measured by these frequency observations."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "让细节被看见，不等于同意所有评价",
+            "en": "A visible detail gives no blanket invitation to judgment"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以愿意分享封面标题，却不愿讨论外貌、身体或私人生活；也可以只给熟人看一页，不公开整本内容。这份观察不要求你接受注意或评论来证明自己表达成功。若一次展示让你想缩小范围，可以回看想保留的是内容、对象还是时间，不必把调整解释成退步。鲜明表达不专属于某种性别，也没有一套所有人都应达到的吸引力或审美标准。",
+              "en": "You can share a cover title without inviting discussion of appearance, body or private life, or show a page to someone familiar without publishing the notebook. These observations require no attention or comments as proof of success. If you later want a smaller scope, distinguish content, audience and time rather than interpreting the adjustment as regression. Expressive Flair belongs to no particular gender and has no attraction or aesthetic standard everyone should reach. You can keep the chosen detail while deciding how much of the surrounding work you want seen."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "同一张便签，只改一个可见细节",
+            "en": "Change only one visible detail on the same note"
+          },
+          "paragraphs": [
+            {
+              "zh": "用虚构的手作封面便签，写一个日常标题，再只改一个词或一笔颜色。比较哪一版更贴近这次想让人看见的小特点，也可以保留原版。无需制作、购物、拍照或发布，也不请别人打分。最后只带走一个呈现观察，例如“我想让标题活泼一点，但不想整页都醒目”。这不是胆量、自信或女性程度的训练，不需要让数字变高才有收获。",
+              "en": "Use an invented notebook cover note with an ordinary title, then change just one word or stroke of colour. Compare the little characteristic each version makes visible, or keep the original. Make, buy, photograph and publish nothing, and ask nobody for a rating. Keep an observation about presentation, such as wanting a lively title without a conspicuous whole page. This trains neither courage, confidence nor femininity and needs no rise in a number to count as useful. The comparison can simply clarify how much of a detail you wanted to express this time."
+            }
+          ]
+        },
+        {
+          "id": "means",
+          "title": {
+            "zh": "有效项、近分与四组分别阅读",
+            "en": "Rated items, close means and four separate readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组5项用1—5记录频率，未经历／无法判断不计入分子或分母；至少3项有效才显示均分。比如4、5、4、4与一项无法判断，有效加总17除以4，显示4.3；只有2项有效时不计算个人均分。20项都选择后，四组分别呈现，不相加、不互相抵消、不按最高值派型。近分可能在换一项回答后变化，一位小数只是显示约定，不是测量精度。没有人群常模、优劣阈值或女性程度百分比，四份全文始终保留。",
+              "en": "Five items use frequencies from one to five. Not experienced / cannot judge enters neither numerator nor denominator. At least three rated items are needed for a mean. Ratings of four, five, four and four with one unjudged item total seventeen over four, displayed as 4.3; two rated items produce no personal mean. After all twenty choices, groups stay separate without addition, cancellation or highest-value types. Close means may change with one answer. One decimal is a display convention, not measurement precision. There are no population norms, better-or-worse thresholds or femininity percentages, and all four full guides remain."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "开放全文、可选草稿与文化表达的范围",
+            "en": "Open guides, optional drafts and a cultural expression frame"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节完整指南在作答前后都免费。20个条目、四组名称和解释为本站原创文化表达观察，不是普世女性原型，不判断性别、生理、性取向、魅力、能力、健康或职业适配。任何性别都能使用，也可以不采用“女性气质”这个框架。无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。分享只含测试名称、“完整自我观察”及公开链接，不含答案或均分。WHO资料解释概念边界，不验证本题。",
+              "en": "All four nine-section guides are free before and after answering. Twenty items, four names and explanations are original cultural expression observations rather than universal female archetypes, assessing no gender, biology, orientation, charm, ability, health or career fit. People of any gender can use them or decline the feminine frame. No account, body, photograph or relationship history is required. Optional drafts stay in this tab for up to twenty-four hours, clearing on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public link without answers or means. WHO provides conceptual context, not bank validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poetic-detail",
+      "directionIds": [
+        "poetic-detail"
+      ],
+      "title": {
+        "zh": "诗意细节",
+        "en": "Poetic Detail"
+      },
+      "headline": {
+        "zh": "让一个词、一种颜色，承接这一刻想留下的感觉。",
+        "en": "Let a word or colour hold the feeling you want to keep from this moment."
+      },
+      "summary": {
+        "zh": "这一组记录过去四周你在文字、图像、声音和小纪念里留意意味、调整细节的频率。它不评审作品、品位、情绪深度、性别或艺术能力，也不要求公开私人感受。",
+        "en": "This group records noticing meaning and adjusting details in words, images, sounds and little mementos over four weeks. It judges no work, taste, emotional depth, gender or artistic ability and requires no public feeling."
+      },
+      "seo": {
+        "title": {
+          "zh": "诗意细节：女性气质能量测试的完整读法",
+          "en": "Poetic Detail: Feminine Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从一个词、两件小物和一段歌声读诗意细节，理解四周频率、具体意味、相近表达与有效项不足时的读法。",
+          "en": "Read Poetic Detail through a word, two objects and a song. Explore four-week frequency, particular meanings, nearby themes and missing data."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一组5项只记录过去四周的自报频率，全部正向。未经历／无法判断不补零；至少3项有效才把有效项加总除以有效项数，保留一位小数。不足时明确资料不足。四组分别呈现，任何同分或不同分都保留四份完整说明，不按最高均分派主副型，也不加总为女性能量、魅力或人格等级。",
+        "en": "This group has five positively keyed observations of self-reported frequency over four weeks. Not experienced / cannot judge is not zero. At least three rated items are needed to divide their sum by their number and round to one decimal; otherwise information is insufficient. Four groups stay separate. Every guide remains whether means tie or differ, without highest-mean primary or secondary types, feminine energy totals, charm scores or personality grades."
+      },
+      "sections": [
+        {
+          "id": "observed",
+          "title": {
+            "zh": "五项记录的是你怎样留意和调整",
+            "en": "The noticing and adjusting these observations record"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组关心一个实际动作：你是否停下来注意一段声音哪里吸引自己，是否为了贴近一个时刻而换过一个词，或让两件小物形成喜欢的呼应。它没有让你证明感受深刻，也不评作品是否优美。回想一项时，先找出原先的版本、自己注意到的差别，以及实际作过哪一点调整。没有相关机会或记不清，可以留下无法判断，不必为了“有诗意”而补出经历。",
+              "en": "This group concerns an action: pausing to notice the part of a sound you liked, changing a word to fit a moment or letting two objects echo one another. It asks for no proof of deep feeling and judges no work as beautiful. Revisit the earlier version, the difference you noticed and the adjustment you actually made. Without a relevant opportunity or a clear memory, cannot judge remains available. There is no poetic image to maintain by supplying an experience that did not happen or turning an ordinary preference into an impressive story."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "一句散步记录，可以只换一个词",
+            "en": "A walking note can change by just one word"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一条完全虚构的散步记录：“傍晚的街很安静。”你把“安静”换成“像书翻到空白页”，也可能比较后觉得原句更贴近这幕。两种版本都成立，不需要后者更高级。这个例子指向对某个词和意象的留意，而不是要求写诗、解释私人过去或获得读者认可。保留普通句子，也可以是一次经过比较的细节决定。",
+              "en": "Imagine an entirely invented walking note saying the evening street was quiet. Change quiet to an image of a book opening to a blank page, or compare them and find the ordinary line closer to the scene. Both versions can stand without the second being more sophisticated. The example concerns attention to a word and image rather than a demand to write poetry, explain a private past or win a reader’s approval. Keeping a plain sentence can itself be a detail chosen after comparing what you wanted the line to hold."
+            }
+          ]
+        },
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "意味可以具体，也可以很普通",
+            "en": "A meaning can be particular and ordinary"
+          },
+          "paragraphs": [
+            {
+              "zh": "喜欢某张纸的颜色，是因为它让你想到午后的光；想留一段声音，是因为其中一个停顿刚好合这次心情。这些小联系不必有重大来历，也不必在别人那里产生同样感觉。你可以只保留一处，不把整个空间或整段文字都整理成统一风格。诗意细节这个名称只是帮助找到这一类观察，不把它变成固定的优雅、浪漫或敏感人格。",
+              "en": "A paper colour may recall afternoon light, or a pause in a sound may fit this mood. Those little connections need no important history and need not produce the same feeling for another person. Keep one detail without arranging the whole space or passage into a unified style. Poetic Detail is simply a name for finding these observations again, without making them a fixed elegant, romantic or sensitive personality. A particular meaning can stay small, shift later and matter only to the little moment in which you noticed it."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "一段时间的材料，不等于全部生活",
+            "en": "Material from one stretch is not your whole life"
+          },
+          "paragraphs": [
+            {
+              "zh": "四周里如果很少听歌、写字或摆弄小纪念，相关条目可能没有足够依据。忙碌或固定格式的场面，也未必提供自由调整细节的机会。可以先看自己有几项有效，再回想是否把机会多少和偏好混在一起。低频不等于没有感受，资料不足也不等于没有审美；均分只承接这组有限的自报材料，不用数字代替你对其他经历的理解。",
+              "en": "Four weeks with little music, writing or handling of mementos may supply few examples. Busy settings and fixed formats may also offer little freedom to adjust details. Check rated items before considering whether opportunity and preference became mixed in your answers. Low frequency establishes no absence of feeling, and insufficient information means no absence of taste. The mean only holds this limited self-reported material rather than replacing your understanding of other experiences. Keep the time window visible when reading the result, especially if these four weeks were unlike your usual arrangements."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲜明表达、亲昵俏皮怎么分开看",
+            "en": "Distinguish Expressive Flair and Playful Warmth"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲜明表达更关心你希望哪个特点被看见，诗意细节更关心某个细节是否承接了自己想留的意味；同一标题可以既醒目又贴近感受，也可以只占其中一部分。亲昵俏皮可能把比喻变成共同趣味，诗意细节可以私下保留那个意象。四组都能出现在同一件事里，不必争一个主型。近分时比较条目在问的动作，不给人排深浅、品位或吸引力高低。",
+              "en": "Expressive Flair concerns the characteristic you want visible; Poetic Detail asks whether a detail holds the meaning you wanted to keep. A title can be noticeable and fitting, or involve only one part. Playful Warmth may turn an image into shared enjoyment, while Poetic Detail can keep that image private. All groups can appear in one little event without competing for a primary type. With close means, compare the actions asked about rather than ranking people’s depth, taste or attraction. The observations concern different parts of expression without establishing independent psychological dimensions."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "喜欢一个意味，不必让它解释全部",
+            "en": "A meaning you like need not explain everything"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个词可以只为这次场面服务，不需要被解释成你一贯的内在世界。你可以之后换掉它，或发现自己当时其实更喜欢普通版本。这样的调整不叫失去深度，也不用证明自己足够敏感。若一段意味涉及私人经历，可以让公开介绍只停在颜色、声音或文字本身。诗意细节不要求自我暴露，也不能据此判断心理健康、关系能力或适合何种职业。",
+              "en": "A word can serve this scene without explaining your usual inner world. Replace it later or discover that the plain version was what you preferred then. An adjustment loses no depth and requires no proof of sufficient sensitivity. When a meaning touches a private experience, let any public introduction stop with the colour, sound or words themselves. Poetic Detail calls for no self-disclosure and establishes no mental health, relationship ability or career suitability. The guide can remain about the little decision you recalled instead of becoming an explanation for every feeling you have."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给一个细节写两条都能成立的说明",
+            "en": "Write two descriptions that can both stand for a detail"
+          },
+          "paragraphs": [
+            {
+              "zh": "用虚构的午后光线，分别写一句直接描述和一句带意象的描述，比较哪一条更合想保留的画面，也可以都不选。无需使用真实日记、照片或关系材料，也不用发布和请人评价。最后带走一个关于表达的观察，例如“这个场面用普通词就够了，另一个场面才想加比喻”。它不训练所谓女性直觉，不给作品评分，也不要求结果均分提高。",
+              "en": "Use invented afternoon light for one direct description and one with an image. Compare their fit for the picture you want to keep, or choose neither. The material needs no actual diary, photograph or relationship, and no publication or outside rating. Keep an observation about expression, such as plain words being enough for this scene while another might invite an image. This trains no supposed feminine intuition, grades no work and requires no rise in a result mean. A small choice between two descriptions is a complete use of the exercise on its own."
+            }
+          ]
+        },
+        {
+          "id": "means",
+          "title": {
+            "zh": "有效项、近分与四组分别阅读",
+            "en": "Rated items, close means and four separate readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组5项用1—5记录频率，未经历／无法判断不计入分子或分母；至少3项有效才显示均分。比如4、5、4、4与一项无法判断，有效加总17除以4，显示4.3；只有2项有效时不计算个人均分。20项都选择后，四组分别呈现，不相加、不互相抵消、不按最高值派型。近分可能在换一项回答后变化，一位小数只是显示约定，不是测量精度。没有人群常模、优劣阈值或女性程度百分比，四份全文始终保留。",
+              "en": "Five items use frequencies from one to five. Not experienced / cannot judge enters neither numerator nor denominator. At least three rated items are needed for a mean. Ratings of four, five, four and four with one unjudged item total seventeen over four, displayed as 4.3; two rated items produce no personal mean. After all twenty choices, groups stay separate without addition, cancellation or highest-value types. Close means may change with one answer. One decimal is a display convention, not measurement precision. There are no population norms, better-or-worse thresholds or femininity percentages, and all four full guides remain."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "开放全文、可选草稿与文化表达的范围",
+            "en": "Open guides, optional drafts and a cultural expression frame"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节完整指南在作答前后都免费。20个条目、四组名称和解释为本站原创文化表达观察，不是普世女性原型，不判断性别、生理、性取向、魅力、能力、健康或职业适配。任何性别都能使用，也可以不采用“女性气质”这个框架。无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。分享只含测试名称、“完整自我观察”及公开链接，不含答案或均分。WHO资料解释概念边界，不验证本题。",
+              "en": "All four nine-section guides are free before and after answering. Twenty items, four names and explanations are original cultural expression observations rather than universal female archetypes, assessing no gender, biology, orientation, charm, ability, health or career fit. People of any gender can use them or decline the feminine frame. No account, body, photograph or relationship history is required. Optional drafts stay in this tab for up to twenty-four hours, clearing on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public link without answers or means. WHO provides conceptual context, not bank validation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "composed-clarity",
+      "directionIds": [
+        "composed-clarity"
+      ],
+      "title": {
+        "zh": "从容主张",
+        "en": "Composed Clarity"
+      },
+      "headline": {
+        "zh": "把自己的版本说清楚，也给回应留一个位置。",
+        "en": "State your own version clearly and leave a place for a reply."
+      },
+      "summary": {
+        "zh": "这一组记录过去四周你在自愿小安排中说清偏好、标准、范围或收尾决定的频率。从容是表达画面，不证明内心平静、领导力、权威、道德或性别；有不同意见也不需要命令别人。",
+        "en": "This group records stating a preference, standard, scope or closing decision in voluntary little arrangements over four weeks. Composed is an image, not proof of calm, leadership, authority, morality or gender; disagreement needs no command."
+      },
+      "seo": {
+        "title": {
+          "zh": "从容主张：女性气质能量测试的完整读法",
+          "en": "Composed Clarity: Feminine Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从活动偏好、合作范围与讨论收尾读从容主张，理解四周频率、可回应的句子、相近主题和资料不足时的读法。",
+          "en": "Read Composed Clarity through preferences, shared scopes and closing a discussion. Explore four-week frequency, answerable lines and missing data."
+        }
+      },
+      "scoreReading": {
+        "zh": "这一组5项只记录过去四周的自报频率，全部正向。未经历／无法判断不补零；至少3项有效才把有效项加总除以有效项数，保留一位小数。不足时明确资料不足。四组分别呈现，任何同分或不同分都保留四份完整说明，不按最高均分派主副型，也不加总为女性能量、魅力或人格等级。",
+        "en": "This group has five positively keyed observations of self-reported frequency over four weeks. Not experienced / cannot judge is not zero. At least three rated items are needed to divide their sum by their number and round to one decimal; otherwise information is insufficient. Four groups stay separate. Every guide remains whether means tie or differ, without highest-mean primary or secondary types, feminine energy totals, charm scores or personality grades."
+      },
+      "sections": [
+        {
+          "id": "observed",
+          "title": {
+            "zh": "五项记录的是怎样把自己的版本说出来",
+            "en": "How these observations record stating your own version"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组关心你在愿意表达、且有相应机会时，有没有把偏好、标准或范围说成对方能理解的一两句话。它不看别人最后是否同意，也不要求你担任负责人。回看一项回答，找出自己当时想保留的是什么，以及实际说出了哪一部分。也许你说得清楚，心里仍然紧张；这种情况不矛盾，因为条目记录表达的动作，不评你的内心是否始终平静。",
+              "en": "This group asks whether, when you wanted to express yourself and had the opportunity, you put a preference, standard or scope into a sentence or two another person could understand. It counts no eventual agreement and requires no coordinator role. Revisit what you wanted to keep and which part you actually stated. You might have spoken clearly while feeling nervous. That can coexist because the items record an expressive action rather than evaluating whether you remained inwardly calm or confidently controlled the situation throughout the exchange."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "给一个阅读角的安排说出自己的版本",
+            "en": "State your version of a reading-corner arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象和熟人安排一个临时阅读角，几种摆法都可以。你说：“我想让桌边留一个空位，书只摆这一小排，其他部分可以再一起看。”这句话既保留了自己的偏好，也没有替对方作全部决定。它可以很普通，不需要庄重或有气场。例子的重点是让想法有可回应的形状，不是练习指挥、证明地位或让别人按你的标准行事。",
+              "en": "Imagine arranging a temporary reading corner with someone familiar when several layouts could work. Say you want a clear place beside the table and this short row of books, with the rest open to discussion. The sentence retains your preference without deciding everything for the other person. It can sound ordinary rather than grand or impressive. Its point is to give an idea a shape that can receive a reply, not to rehearse command, prove standing or make another person follow your standards because of this reading."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "清楚可以只覆盖眼前的一小段",
+            "en": "Clarity can cover only the little part in front of you"
+          },
+          "paragraphs": [
+            {
+              "zh": "不必把一次偏好说成永久原则。你可以说“这次我想先保留这一版”，也可以解释只对这一小段有确定想法，其他部分仍未决定。这样能把已想清的内容与尚有余地的内容分开，不要求自己对所有事情都立场鲜明。本组较高频率只描述这些具体条目，不能据此判断你可靠、成熟、有影响力或比别人更会作决定。",
+              "en": "A preference need become no permanent principle. Say you would like this version for this attempt, or explain that only this little part is settled while the rest remains undecided. That separates what you have chosen from what still has room, without a definite position on everything. A higher frequency here only describes the particular observations. It establishes neither reliability, maturity, influence nor superior decision-making. You can keep the sentence local to the arrangement rather than using it as a description of the authority you hold elsewhere."
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "zh": "有意见、有机会和选择说出来是三件事",
+            "en": "Having a view, having an opportunity and expressing it can differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "过去四周，你可能对很多事有想法，却没有参与讨论的机会；也可能一些场面并不适合公开说出全部偏好。作答时只看条目所说的自愿小场面，不把没有机会或不安全的情境填成低频。如果资料不足，可以先读完整指南而不生成个人均分。题本不评你应不应该在某次真实场合开口，也不要求用一次表达来证明独立、勇气或所谓女性力量。",
+              "en": "You may have had many views over four weeks without opportunities to discuss them, or encountered settings where openly stating every preference did not fit. Rate the voluntary little situations the items describe rather than making absent opportunities or unsuitable circumstances low frequency. With insufficient information, read the full guide without a personal mean. The bank does not decide whether you should have spoken in an actual setting and requires no expression as proof of independence, courage or supposed feminine power. Keep circumstances visible rather than letting the number stand for them."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲜明表达、亲昵俏皮和沟通风格怎么比",
+            "en": "Compare Flair, Warmth and the Communication Style edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲜明表达可能先让一个个人特点被看见，从容主张先让偏好或范围被理解；醒目不一定明确，明确也可以很低调。亲昵俏皮可以让同一句话带一点共同趣味，但不必替代范围。既有沟通风格版观察24条互动做法，本版把清楚表达放在四组文化表达主题之一，不换算分数，也不证明心理独立。比较条目在问什么，比把自己定成女王、领袖或某种人格更贴近这次材料。",
+              "en": "Expressive Flair may make a characteristic visible first, while Composed Clarity makes a preference or scope understandable. Noticeable need not mean clear, and clear can stay quiet. Playful Warmth can add shared enjoyment without replacing the scope. The existing Communication Style edition observes twenty-four interaction practices; this edition places clear expression among four cultural expression themes without score conversion or established psychological independence. Compare what the observations ask instead of turning the material into a queen, leader or personality identity expected to explain you in every context."
+            }
+          ]
+        },
+        {
+          "id": "change",
+          "title": {
+            "zh": "说清之后仍然可以调整",
+            "en": "An expressed preference can still be revised"
+          },
+          "paragraphs": [
+            {
+              "zh": "对方补充了新情况，你可以保留原来的一部分，也可以换一种安排。改口不自动说明不坚定，坚持也不自动说明更有原则。你可以把变化说具体：“这个条件变了，所以我想把时间改到这里。”从容主张没有不许协商的规则，也不把高标准、控制他人或拒绝支持当成成熟表现。结果只帮助回看一段表达，不替真实关系作权力或道德判断。",
+              "en": "When another person adds a circumstance, keep part of your earlier preference or choose another arrangement. A revision is not automatically weakness, and persistence does not automatically prove stronger principles. Make the change specific: this condition changed, so you want the timing here instead. Composed Clarity has no rule against discussion and makes neither demanding standards, controlling others nor refusing support a sign of maturity. The reading only helps revisit an expressive action rather than deciding power, morality or the correct outcome of an actual relationship for either person."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "写一句有偏好、也有余地的话",
+            "en": "Write a line with a preference and some room"
+          },
+          "paragraphs": [
+            {
+              "zh": "仍用虚构阅读角，写出你想保留的一个小细节，再加一句哪一部分愿意一起商量。比较“全部定好”和“只说清这一小段”两个版本，看看哪个更贴近这次想表达的内容。无需带入真实争执、向任何人发送话术或看对方是否服从。最后只保留一个句子层面的观察，例如“我能说清这一小排书，但不必决定整个角落”。它不训练领导力，也不需要均分变高。",
+              "en": "Keep the invented reading corner. Write one detail you want to retain and add which part you would like to discuss together. Compare settling everything with stating only this little part, noticing the fit for what you wanted to express. Bring in no actual disagreement, send no script and count no compliance. Keep a sentence-level observation, such as being able to specify the short row of books without deciding the whole corner. This trains no leadership and requires no higher mean; the little comparison can stand without changing any actual arrangement."
+            }
+          ]
+        },
+        {
+          "id": "means",
+          "title": {
+            "zh": "有效项、近分与四组分别阅读",
+            "en": "Rated items, close means and four separate readings"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组5项用1—5记录频率，未经历／无法判断不计入分子或分母；至少3项有效才显示均分。比如4、5、4、4与一项无法判断，有效加总17除以4，显示4.3；只有2项有效时不计算个人均分。20项都选择后，四组分别呈现，不相加、不互相抵消、不按最高值派型。近分可能在换一项回答后变化，一位小数只是显示约定，不是测量精度。没有人群常模、优劣阈值或女性程度百分比，四份全文始终保留。",
+              "en": "Five items use frequencies from one to five. Not experienced / cannot judge enters neither numerator nor denominator. At least three rated items are needed for a mean. Ratings of four, five, four and four with one unjudged item total seventeen over four, displayed as 4.3; two rated items produce no personal mean. After all twenty choices, groups stay separate without addition, cancellation or highest-value types. Close means may change with one answer. One decimal is a display convention, not measurement precision. There are no population norms, better-or-worse thresholds or femininity percentages, and all four full guides remain."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "开放全文、可选草稿与文化表达的范围",
+            "en": "Open guides, optional drafts and a cultural expression frame"
+          },
+          "paragraphs": [
+            {
+              "zh": "四份九节完整指南在作答前后都免费。20个条目、四组名称和解释为本站原创文化表达观察，不是普世女性原型，不判断性别、生理、性取向、魅力、能力、健康或职业适配。任何性别都能使用，也可以不采用“女性气质”这个框架。无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。分享只含测试名称、“完整自我观察”及公开链接，不含答案或均分。WHO资料解释概念边界，不验证本题。",
+              "en": "All four nine-section guides are free before and after answering. Twenty items, four names and explanations are original cultural expression observations rather than universal female archetypes, assessing no gender, biology, orientation, charm, ability, health or career fit. People of any gender can use them or decline the feminine frame. No account, body, photograph or relationship history is required. Optional drafts stay in this tab for up to twenty-four hours, clearing on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public link without answers or means. WHO provides conceptual context, not bank validation."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "五项频率怎样计算，未经历怎样处理",
+        "en": "How five frequencies and unexperienced items are handled"
+      },
+      "paragraphs": [
+        {
+          "zh": "四组各5项，全部正向记录，无反向或加权。频率1—5只是一组自报分档，未经历／无法判断不计零。每组至少3项有效才把有效项加总除以有效项数，四舍五入保留一位小数；不足明确资料不足。20项都需要选择后才显示四组结果。",
+          "en": "Four groups have five positively keyed observations each, without reversals or weighting. Frequencies from one to five are self-reported categories. Not experienced / cannot judge is not zero. At least three rated items are needed per group to divide the sum by their number and round to one decimal; otherwise information is insufficient. All twenty items need a choice before results appear."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "四组分别读，不加总也不派型",
+        "en": "Read four groups separately without a total or assigned type"
+      },
+      "paragraphs": [
+        {
+          "zh": "每组回答的是过去四周一类具体表达出现得多频繁，不代表他人反应或稳定人格。四组可以同时高、同时低或接近；没有总能量、主副原型、女性程度百分比或验证阈值。相同或不同均分都保留四份全文，资料不足也能读通用解释。",
+          "en": "Each group concerns the frequency of particular expressions over four weeks, not other people’s responses or stable personality. Means can all be high, low or close. There is no total energy, primary or secondary archetype, femininity percentage or validated threshold. All four full guides remain whether means tie or differ; insufficient information still permits general reading."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "近分先回到具体条目和机会",
+        "en": "Return to items and opportunities for close means"
+      },
+      "paragraphs": [
+        {
+          "zh": "1位小数是显示约定，不是测量精度。一项回答、有效项数或不同四周机会都可能改变均分，不能把0.1差距当成类型边界。可以比较自己实际回想了哪些场面，不直接拿两个人的数字排高低，也不把未经历的内容当缺少某种气质。",
+          "en": "One decimal is a display convention, not measurement precision. An answer, rated-item count or different four-week opportunities can change a mean, so a difference of 0.1 establishes no type boundary. Compare the scenes you actually recalled rather than ranking two people’s numbers or making unexperienced situations an absence of a quality."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "zh": "文化表达标题与概念边界",
+        "en": "The cultural expression title and conceptual limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "“女性气质能量”在本版是一个可自由使用的文化表达标题，下面的四组名称和题目是本站原创观察入口，不是四种普世女性原型，也不借WHO验证题本。性别规范随文化和时间变化；表达偏好不能判定生理性别、性别认同、性取向、激素、女性程度或人生价值。亲昵、鲜明、诗意与清楚主张不专属于女性，任何人都不必符合其中一种。题本不测魅力、他人的反应、共情或领导能力、心理健康、职业或关系适配，不复刻JobCannon的16题两轴原型或IDRlabs的24题明暗二分。不设高低好坏，不把照护劳动、顺从、身体外形或取悦别人当女性义务；四组均分也没有常模、效度或跨语言等价证明。",
+          "en": "Feminine energy is used here as an optional cultural expression title. The four names and items are original observation entrances, not four universal female archetypes or a WHO-validated bank. Gender norms vary across cultures and time. Expression preferences establish no biological sex, gender identity, sexual orientation, hormones, degree of femininity or human worth. Warmth, flair, poetry and clear preferences belong to no single gender, and nobody must fit one. This bank assesses no charm, other people’s responses, empathy, leadership, mental health, career or relationship fit. It replicates neither JobCannon’s sixteen-item two-axis archetypes nor IDRlabs’ twenty-four-item light/dark split. There is no good or bad ranking, and care labour, compliance, body shape or pleasing others is no feminine obligation. Means have no established norms, validity or cross-language equivalence."
+        }
+      ]
+    },
+    {
+      "id": "original-method",
+      "title": {
+        "zh": "原创建议读法，不复刻竞品题本",
+        "en": "An original reading convention, not a competitor bank replica"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版20项与四组名称均原创，只提供当前条目的自报观察。它不复刻JobCannon的16题两轴四原型或IDRlabs的24题明暗二分，也不对二者换算。WHO资料说明性别规范、身体与认同概念的区别，不验证本版条目、分项结构、信效度、常模或跨语言等价；全部正向的频率题也没有因结构检查通过而变成心理量表。",
+          "en": "Twenty items and four names are original conventions for observing these self-reports. They replicate neither JobCannon’s sixteen-item two-axis archetypes nor IDRlabs’ twenty-four-item light/dark split, and scores cannot be converted. WHO explains distinctions among gender norms, biology and identity, not this bank’s items, factor structure, reliability, validity, norms or language equivalence. Passing structural checks does not turn these positively keyed frequency observations into a psychological instrument."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "女性气质能量测试在这里观察什么？",
+        "en": "What does the Feminine Energy Test observe here?"
+      },
+      "answer": {
+        "zh": "它分别回看过去四周亲昵俏皮、鲜明表达、诗意细节和从容主张四组具体做法的频率。每组5项、全部正向，合计20项；不是测量女性程度、魅力、别人是否喜欢你或身体与激素，也不按最高均分给人派原型。",
+        "en": "It revisits four-week frequencies of Playful Warmth, Expressive Flair, Poetic Detail and Composed Clarity separately. Five positively keyed items per group make twenty. It measures no degree of femininity, charm, others’ liking, body or hormones and assigns no highest-mean archetype."
+      }
+    },
+    {
+      "question": {
+        "zh": "任何性别都可以使用吗？",
+        "en": "Can people of any gender use it?"
+      },
+      "answer": {
+        "zh": "可以，也可以不采用这个文化标题。四组表达不专属于女性，也不要求任何人符合一种理想。题本不收集或判定生理性别、性别认同、性取向、身体、照片或关系经历，分数不能用来替他人分类。",
+        "en": "Yes, and you can decline the cultural title. The expressions belong to no single gender and require no ideal. The bank collects or determines no biological sex, gender identity, orientation, body, photograph or relationship history, and scores cannot classify another person."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么没有经历不能选最低频率？",
+        "en": "Why is no experience different from the lowest frequency?"
+      },
+      "answer": {
+        "zh": "最低频率仍表示你有相关机会并作了频率判断；未经历、情境不适合或无法判断时，请选不适用项，不补零。每组至少3项有效才计算均分，不足就显示资料不足，四份公开全文仍完整开放。",
+        "en": "The lowest frequency still describes a judgment with a relevant opportunity. Choose the unjudged option when unexperienced, unsuitable or uncertain; it is not zero. A group needs three rated items for a mean; otherwise information is insufficient. All four full public guides remain open."
+      }
+    },
+    {
+      "question": {
+        "zh": "四组可以同分吗？有没有主型或总分？",
+        "en": "Can groups tie, and is there a primary type or total?"
+      },
+      "answer": {
+        "zh": "可以同分，也可以都高、都低或近分；四组分别呈现，不加总、不互相抵消、不按最高值派主副型。均分只用当前有效频率计算，1位小数不是测量精度，没有女性能量百分比、常模或高低好坏阈值。",
+        "en": "Groups can tie, be high, low or close. They remain separate without addition, cancellation or highest-value primary and secondary types. Means only use current rated frequencies; one decimal is no measurement precision. There are no feminine-energy percentages, norms or better-or-worse thresholds."
+      }
+    },
+    {
+      "question": {
+        "zh": "与Egen-Teto、沟通风格及两个竞品版本一样吗？",
+        "en": "Is this the same as Egen-Teto, Communication Style or competitor editions?"
+      },
+      "answer": {
+        "zh": "不是同一题本或分数。Egen-Teto是18题双入口菜单，沟通风格是24条互动做法；本版是20条四组表达频率。它也不复刻JobCannon16题两轴原型或IDRlabs24题明暗二分。主题可能交叠，没有分数换算或心理独立性的证明；不能把同名词当同一成绩。",
+        "en": "They are different banks and scores. Egen-Teto uses eighteen two-option menus; Communication Style observes twenty-four practices; this edition has twenty expression-frequency items. It replicates neither JobCannon’s sixteen-item axes nor IDRlabs’ twenty-four-item light/dark split. Themes may overlap without score conversion or established psychological independence. Shared words do not make the same result."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整指南、草稿和分享需要付费吗？",
+        "en": "Are full guides, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "四份九节完整指南在作答前后都免费。20个条目、四组名称和解释为本站原创文化表达观察，不是普世女性原型，不判断性别、生理、性取向、魅力、能力、健康或职业适配。任何性别都能使用，也可以不采用“女性气质”这个框架。无需账号，不提供身体、照片或关系经历；自愿草稿只在本标签页保留最多24小时，完成、清除或重测即删。分享只含测试名称、“完整自我观察”及公开链接，不含答案或均分。WHO资料解释概念边界，不验证本题。",
+        "en": "All four nine-section guides are free before and after answering. Twenty items, four names and explanations are original cultural expression observations rather than universal female archetypes, assessing no gender, biology, orientation, charm, ability, health or career fit. People of any gender can use them or decline the feminine frame. No account, body, photograph or relationship history is required. Optional drafts stay in this tab for up to twenty-four hours, clearing on completion, clearing or retaking. Sharing contains the test name, Complete self-reflection and a public link without answers or means. WHO provides conceptual context, not bank validation."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.who.int/health-topics/gender",
+      "title": {
+        "zh": "WHO：性别与健康（概念边界，不验证题本）",
+        "en": "WHO: Gender and health (conceptual context, not bank validation)"
+      }
+    }
+  ]
+}

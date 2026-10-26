@@ -1,0 +1,1341 @@
+{
+  "formCode": "fm_feminine_expression_observations_20",
+  "origin": "frontend_original_four_expression_observations",
+  "directions": [
+    {
+      "id": "playful-warmth",
+      "title": {
+        "zh": "亲昵俏皮",
+        "en": "Playful Warmth"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "expressive-flair",
+      "title": {
+        "zh": "鲜明表达",
+        "en": "Expressive Flair"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "poetic-detail",
+      "title": {
+        "zh": "诗意细节",
+        "en": "Poetic Detail"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "composed-clarity",
+      "title": {
+        "zh": "从容主张",
+        "en": "Composed Clarity"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "FEXP_01",
+      "prompt": {
+        "zh": "当我愿意和熟悉的人轻松聊天时，我加了一句双方都能接下去的小玩笑。",
+        "en": "When I wanted a light chat with someone familiar, I added a little joke we could both continue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_02",
+      "prompt": {
+        "zh": "在可以自由选择的日常穿搭或小物上，我用了一个自己想让人注意到的颜色、图案或细节。",
+        "en": "When freely choosing an everyday outfit or little object, I used a colour, pattern or detail I wanted to make noticeable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_03",
+      "prompt": {
+        "zh": "当一个普通场景让我想留念时，我用一句话、一个颜色或一小段声音记下它的意味。",
+        "en": "When I wanted to remember an ordinary scene, I kept its meaning in a line, colour or little stretch of sound."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_04",
+      "prompt": {
+        "zh": "在我愿意参与的小安排中，我先用一两句话说清自己喜欢的版本。",
+        "en": "In a little arrangement I wanted to join, I first stated the version I preferred in one or two sentences."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_05",
+      "prompt": {
+        "zh": "在对方也愿意的熟悉互动里，我用了一个双方喜欢的昵称、表情或轻松暗号。",
+        "en": "In a familiar exchange the other person also wanted, I used a nickname, expression or light little sign we both enjoyed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_06",
+      "prompt": {
+        "zh": "当有机会给自己的作品选开场时，我保留了一个有鲜明个人味道的标题或亮点。",
+        "en": "When choosing an opening for something of my own, I kept a title or highlight with a distinctive personal flavour."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_07",
+      "prompt": {
+        "zh": "当我可以自己安排一个角落时，我让两件小物的颜色、质地或位置形成自己喜欢的呼应。",
+        "en": "When arranging a corner of my own, I let the colours, textures or positions of two little objects echo in a way I liked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_08",
+      "prompt": {
+        "zh": "当有人询问我对一件小事的想法时，我给出一个清楚的偏好，而没有只列出所有可能。",
+        "en": "When someone asked my view on a small matter, I gave a clear preference rather than only listing every possibility."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_09",
+      "prompt": {
+        "zh": "当我想表达对一件普通好事的感谢时，我用具体又带一点玩心的方式说出来。",
+        "en": "When I wanted to thank someone for an ordinary good thing, I expressed it specifically with a little playfulness."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_10",
+      "prompt": {
+        "zh": "当有一个自愿展示的小机会时，我选择了让自己的某个小特点被看见。",
+        "en": "When a voluntary chance to show something arose, I chose to let one little characteristic of my own be visible."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_11",
+      "prompt": {
+        "zh": "当一首歌、一幅图或一句文字打动我时，我停下来留意究竟是哪一小处让我喜欢。",
+        "en": "When a song, image or line appealed to me, I paused to notice the particular part I liked."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_12",
+      "prompt": {
+        "zh": "当我愿意继续一个合作小项目时，我说明了自己想保留的标准或范围，让下一步具体一些。",
+        "en": "When I wanted to continue a small shared project, I stated a standard or scope I wanted to keep so the next step was more concrete."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_13",
+      "prompt": {
+        "zh": "在双方愿意延续的日常对话里，我给一个普通话题加了一个轻松的比喻或小角色。",
+        "en": "In an everyday conversation both people wanted to continue, I added a light image or little character to an ordinary topic."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_14",
+      "prompt": {
+        "zh": "当几种表达方式都可行时，我试了一种比自己平常版本更醒目的措辞、配色或呈现。",
+        "en": "When several ways of expressing something were available, I tried wording, colour or presentation more noticeable than my usual version."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_15",
+      "prompt": {
+        "zh": "当我想让一句话更贴近自己的感受时，我调整了一个词、停顿或意象，而不是只补更多解释。",
+        "en": "When I wanted a line to fit my own feeling, I adjusted a word, pause or image rather than only adding more explanation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_16",
+      "prompt": {
+        "zh": "当我想给一次小讨论收尾时，我把自己的决定说成一句可以直接理解的话。",
+        "en": "When I wanted to close a small discussion, I put my decision into a sentence that could be understood directly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_17",
+      "prompt": {
+        "zh": "当我和熟悉的人回想一件共同小事时，我愿意用带一点亲昵的趣味方式重提它。",
+        "en": "When recalling a shared little event with someone familiar, I wanted to revisit it with an affectionate touch of play."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "playful-warmth",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "playful-warmth",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "playful-warmth",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "playful-warmth",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "playful-warmth",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "playful-warmth",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_18",
+      "prompt": {
+        "zh": "当我可以决定要展示哪一部分时，我挑了一个自己愿意认领的亮点，而没有把所有特点都藏到背景里。",
+        "en": "When deciding which part to show, I chose a highlight I wanted to own rather than putting every characteristic into the background."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "expressive-flair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "expressive-flair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "expressive-flair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "expressive-flair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "expressive-flair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "expressive-flair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_19",
+      "prompt": {
+        "zh": "当我留下一件小纪念时，我更在意它能否承接一个具体时刻的感觉，并为此改过一个细节。",
+        "en": "When keeping a little memento, I cared whether it held the feeling of a particular moment and changed a detail for that reason."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "poetic-detail",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "poetic-detail",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "poetic-detail",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "poetic-detail",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "poetic-detail",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "poetic-detail",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FEXP_20",
+      "prompt": {
+        "zh": "在我愿意表达不同意见的小事上，我保留了自己的说法，同时让对方有回应的位置。",
+        "en": "On a small matter where I wanted to express a different view, I kept my own wording while leaving room for the other person to respond."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "composed-clarity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "composed-clarity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "composed-clarity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "composed-clarity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "composed-clarity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "composed-clarity",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "“女性气质能量”在本版是一个可自由使用的文化表达标题，下面的四组名称和题目是本站原创观察入口，不是四种普世女性原型，也不借WHO验证题本。性别规范随文化和时间变化；表达偏好不能判定生理性别、性别认同、性取向、激素、女性程度或人生价值。亲昵、鲜明、诗意与清楚主张不专属于女性，任何人都不必符合其中一种。题本不测魅力、他人的反应、共情或领导能力、心理健康、职业或关系适配，不复刻JobCannon的16题两轴原型或IDRlabs的24题明暗二分。不设高低好坏，不把照护劳动、顺从、身体外形或取悦别人当女性义务；四组均分也没有常模、效度或跨语言等价证明。",
+    "en": "Feminine energy is used here as an optional cultural expression title. The four names and items are original observation entrances, not four universal female archetypes or a WHO-validated bank. Gender norms vary across cultures and time. Expression preferences establish no biological sex, gender identity, sexual orientation, hormones, degree of femininity or human worth. Warmth, flair, poetry and clear preferences belong to no single gender, and nobody must fit one. This bank assesses no charm, other people’s responses, empathy, leadership, mental health, career or relationship fit. It replicates neither JobCannon’s sixteen-item two-axis archetypes nor IDRlabs’ twenty-four-item light/dark split. There is no good or bad ranking, and care labour, compliance, body shape or pleasing others is no feminine obligation. Means have no established norms, validity or cross-language equivalence."
+  },
+  "instructions": {
+    "zh": "回想过去四周，在你自己愿意表达、且有相应机会的普通小场面中，这些具体做法出现得多频繁。只评自己的做法，不猜别人是否被吸引、尊重你或如何评价你的性别。用1—5记录频率；没有相关经历、情境不适合或无法判断，请选“未经历／无法判断”，不按最低频率代填。20项均需选择，其中四组各5项、全部正向记录；没有反向、权重或隐藏主副型。每组至少3项有效才显示本组均分，均分为有效频率加总除以有效项数、保留一位小数；不足时明确资料不足，不补零。四组分别呈现，不加总成女性程度、能量百分比或人格等级，也不从近分判定固定原型。任何性别都可以使用；无需身体、照片、性取向、关系经历或身份信息。题目不合适可停止，四份公开完整读法仍免费。",
+    "en": "Think about the past four weeks and ordinary situations in which you wanted to express yourself and had the relevant opportunity. Rate your own actions, not whether others were attracted, respected you or judged your gender. Record frequency from one to five. Choose Not experienced / cannot judge when there was no relevant experience, the setting did not fit or you cannot judge; do not substitute the lowest frequency. All twenty items need a choice. Four groups have five items each, all positively keyed, without reversals, weights or hidden primary and secondary types. A group needs at least three rated items for its mean: sum the rated frequencies, divide by rated items and round to one decimal. Otherwise information is insufficient, not zero. Groups stay separate without a femininity total, energy percentage or personality grade, and close means assign no fixed archetype. People of any gender can use this. Provide no body, photograph, sexual orientation, relationship history or identity information. Leave if the questions do not fit; all four public full guides remain free."
+  },
+  "scoring": {
+    "kind": "likert",
+    "questions": 20,
+    "parts": 4,
+    "itemsEach": 5,
+    "minimumRatedItems": 3,
+    "reverseItems": [],
+    "statesEach": 66,
+    "ratedStatesEach": 51,
+    "mean": "Math.round(sum/rated*10)/10; insufficient null; NA neither zero nor denominator",
+    "meaning": "Four separate voluntary four-week expression-frequency observations. All four full guides always shown; no highest-type/total/percentage/norms/gender/biology/ability/health/career assessment."
+  },
+  "sourceRead": "Current JobCannon EN52/ZH45, four public guides main29-54/about74, all16 five-point items and one all-neutral attempt visible paid report/save/shareDarling; no actual free formula/tie/all4result patterns. IDR public24 light/dark intro/FAQ/range0-4;11actual items read before observed reset to question2, no full24/result/formula verified. WHO gender85-87 conceptual context only, not validation. Original20/fourthemes/fullguides; Egen18/Communication24/MaleArchetype20 original prompts read, mini21keys read. No copied competitor bank/body/art; psychological independence/finalFJ pending."
+}
