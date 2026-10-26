@@ -1,0 +1,2644 @@
+{
+  "id": "T175",
+  "edition": "fm_chakra_daily_reflection_28_v1",
+  "sourceUrl": "https://health.clevelandclinic.org/chakras",
+  "sourceScope": "Contemporary seven-name belief/metaphor context only; all prompts, mappings, scoring and reports independently authored. No questionnaire or validation is licensed or copied from the reference.",
+  "directions": [
+    {
+      "id": "root",
+      "title": {
+        "en": "Root: steadiness in daily life",
+        "zh": "海底轮：日常安顿"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "sacral",
+      "title": {
+        "en": "Sacral: room for enjoyment and making",
+        "zh": "脐轮：感受与创意"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "solar-plexus",
+      "title": {
+        "en": "Solar plexus: choosing a next step",
+        "zh": "太阳神经丛轮：自主行动"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "heart",
+      "title": {
+        "en": "Heart: giving and receiving care",
+        "zh": "心轮：关心的往来"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "throat",
+      "title": {
+        "en": "Throat: expressing a preference",
+        "zh": "喉轮：表达自己的意思"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "third-eye",
+      "title": {
+        "en": "Third eye: pausing to see another angle",
+        "zh": "眉心轮：留意不同视角"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "crown",
+      "title": {
+        "en": "Crown: connecting a day with what matters",
+        "zh": "顶轮：日常与意义"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CHAKRA_ROOT_01",
+      "prompt": {
+        "en": "I made a small, realistic plan for a basic part of my day, such as a meal or a break.",
+        "zh": "我给吃饭、休息等一项基本日常安排了一个现实的小计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "root",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "root",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "root",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "root",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "root",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "root",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SACRAL_01",
+      "prompt": {
+        "en": "I gave myself a little time for something enjoyable without requiring a useful result.",
+        "zh": "我留了一点时间做感兴趣的小事，没有要求它必须有用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "sacral",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sacral",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sacral",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "sacral",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "sacral",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "sacral",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SOLAR_PLEXUS_01",
+      "prompt": {
+        "en": "For a decision that was mine to make, I named a small next step I could choose.",
+        "zh": "遇到属于自己决定的事情时，我说清了一个可以由自己选择的小步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "solar-plexus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "solar-plexus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "solar-plexus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "solar-plexus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "solar-plexus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "solar-plexus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_HEART_01",
+      "prompt": {
+        "en": "I offered a small form of care after checking whether the other person wanted it.",
+        "zh": "我先确认对方是否需要，再提供一份小小的关心。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "heart",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "heart",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "heart",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "heart",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "heart",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "heart",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THROAT_01",
+      "prompt": {
+        "en": "In a situation where I felt safe to do so, I said a small preference in plain words.",
+        "zh": "在觉得可以安全表达的情境里，我用简单的话说出一个小偏好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "throat",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "throat",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "throat",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "throat",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "throat",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "throat",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THIRD_EYE_01",
+      "prompt": {
+        "en": "Before settling on an explanation, I considered one other plausible account.",
+        "zh": "确定一个解释之前，我还想过另一种说得通的可能。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "third-eye",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "third-eye",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "third-eye",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "third-eye",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "third-eye",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "third-eye",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_CROWN_01",
+      "prompt": {
+        "en": "I noticed one ordinary action that connected with something I personally care about.",
+        "zh": "我注意到一件普通行动，和自己真正重视的事有联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "crown",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "crown",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "crown",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "crown",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "crown",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "crown",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_ROOT_02",
+      "prompt": {
+        "en": "When plans changed, I identified one familiar thing I could still return to.",
+        "zh": "计划变化时，我找出一件仍然可以回到的熟悉小事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "root",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "root",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "root",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "root",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "root",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "root",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SACRAL_02",
+      "prompt": {
+        "en": "I tried a different way of making or arranging something, just to see how it felt.",
+        "zh": "我试着换一种方式制作或摆放东西，看看自己有什么感觉。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "sacral",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sacral",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sacral",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "sacral",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "sacral",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "sacral",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SOLAR_PLEXUS_02",
+      "prompt": {
+        "en": "I completed a modest action even though I could not control the entire outcome.",
+        "zh": "即使不能控制全部结果，我也做完了一项力所能及的小行动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "solar-plexus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "solar-plexus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "solar-plexus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "solar-plexus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "solar-plexus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "solar-plexus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_HEART_02",
+      "prompt": {
+        "en": "I let someone know when a specific kind of support would be welcome.",
+        "zh": "需要支持时，我让别人知道哪一种具体帮助是欢迎的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "heart",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "heart",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "heart",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "heart",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "heart",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "heart",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THROAT_02",
+      "prompt": {
+        "en": "I asked someone to clarify what they meant instead of assuming I understood.",
+        "zh": "我请别人说清意思，而不是直接认定自己已经懂了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "throat",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "throat",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "throat",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "throat",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "throat",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "throat",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THIRD_EYE_02",
+      "prompt": {
+        "en": "I noticed a detail that did not fit my first impression and paused to reconsider it.",
+        "zh": "发现一个细节不符合第一印象时，我停下来重新想了想。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "third-eye",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "third-eye",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "third-eye",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "third-eye",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "third-eye",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "third-eye",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_CROWN_02",
+      "prompt": {
+        "en": "I made a small amount of room for reflection, wonder or appreciation without needing a final answer.",
+        "zh": "我给回想、好奇或欣赏留了一点位置，不要求最后得出答案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "crown",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "crown",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "crown",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "crown",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "crown",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "crown",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_ROOT_03",
+      "prompt": {
+        "en": "I noticed what in my surroundings helped me settle into the next task.",
+        "zh": "我留意了周围哪些条件有助于安顿下来、接着做事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "root",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "root",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "root",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "root",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "root",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "root",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SACRAL_03",
+      "prompt": {
+        "en": "I noticed which everyday activity I wanted more of and which I wanted less of.",
+        "zh": "我留意了哪些日常活动想多一点，哪些想少一点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "sacral",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sacral",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sacral",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "sacral",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "sacral",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "sacral",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SOLAR_PLEXUS_03",
+      "prompt": {
+        "en": "I checked whether an accepted commitment still matched what I could realistically do.",
+        "zh": "我检查了已经答应的事，是否仍符合自己现实能做到的范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "solar-plexus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "solar-plexus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "solar-plexus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "solar-plexus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "solar-plexus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "solar-plexus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_HEART_03",
+      "prompt": {
+        "en": "I kept some room for my own needs while responding to someone else.",
+        "zh": "回应别人时，我也给自己的需要留了一点位置。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "heart",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "heart",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "heart",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "heart",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "heart",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "heart",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THROAT_03",
+      "prompt": {
+        "en": "I checked whether my message conveyed the point I actually wanted to make.",
+        "zh": "我检查了自己说出的话，是否传达了真正想表达的重点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "throat",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "throat",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "throat",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "throat",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "throat",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "throat",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THIRD_EYE_03",
+      "prompt": {
+        "en": "I separated what I had directly observed from what I was guessing.",
+        "zh": "我把自己直接看到的部分，和正在猜测的部分分开了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "third-eye",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "third-eye",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "third-eye",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "third-eye",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "third-eye",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "third-eye",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_CROWN_03",
+      "prompt": {
+        "en": "I reconsidered whether a repeated activity still belonged in the kind of life I wanted.",
+        "zh": "面对一件反复在做的事，我重新想过它是否仍属于自己想过的生活。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "crown",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "crown",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "crown",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "crown",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "crown",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "crown",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_ROOT_04",
+      "prompt": {
+        "en": "When the day became busy, I repeatedly postponed a break I had intended to take.",
+        "zh": "一天忙起来时，我反复把原本打算休息的间隔挪到后面。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "root",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "root",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "root",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "root",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "root",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "root",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SACRAL_04",
+      "prompt": {
+        "en": "I dismissed a small creative idea because it did not seem productive enough.",
+        "zh": "一个创作小念头冒出来时，我因为它看着不够有产出就把它否定了。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "sacral",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "sacral",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "sacral",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "sacral",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "sacral",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "sacral",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_SOLAR_PLEXUS_04",
+      "prompt": {
+        "en": "On a choice I was free to make, I waited for someone else to decide for me.",
+        "zh": "面对本可自由选择的事，我仍等着别人替自己决定。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "solar-plexus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "solar-plexus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "solar-plexus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "solar-plexus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "solar-plexus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "solar-plexus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_HEART_04",
+      "prompt": {
+        "en": "I automatically refused a small offer of help even when I would have liked to accept it.",
+        "zh": "别人提供一份小帮助时，即使自己愿意接受，我也先自动回绝。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "heart",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "heart",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "heart",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "heart",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "heart",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "heart",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THROAT_04",
+      "prompt": {
+        "en": "To avoid mild awkwardness, I left an ordinary preference unspoken even though I wanted it known.",
+        "zh": "为了避开一点小尴尬，我没有说出一个本来希望别人知道的普通偏好。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "throat",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "throat",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "throat",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "throat",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "throat",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "throat",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_THIRD_EYE_04",
+      "prompt": {
+        "en": "When an explanation sounded appealing, I stopped checking whether another view might fit.",
+        "zh": "一种解释听着顺耳时，我就不再核对是否还有别的视角。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "third-eye",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "third-eye",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "third-eye",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "third-eye",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "third-eye",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "third-eye",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "CHAKRA_CROWN_04",
+      "prompt": {
+        "en": "At the end of a day, I found it hard to name any link between what I did and what mattered to me.",
+        "zh": "一天结束时，我很难说出所做的事与自己在意的东西有什么联系。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "crown",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "crown",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "crown",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "crown",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "crown",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "没有相关情境／无法判断／不愿回答"
+          },
+          "directionId": "crown",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "root",
+      "directionIds": [
+        "root"
+      ],
+      "title": {
+        "en": "Root: steadiness in daily life",
+        "zh": "海底轮：日常安顿"
+      },
+      "headline": {
+        "en": "A symbol for finding somewhere to begin again.",
+        "zh": "用一个象征，看看自己怎样重新安顿。"
+      },
+      "summary": {
+        "en": "Read daily steadiness through the root symbol: basic routines, changed plans and surroundings. The mean describes four self-reports, not physical security, grounding energy or health.",
+        "zh": "借海底轮意象观察基本日常、计划改变和环境支持。均分只概括四条自述，不判断现实安全程度、身体能量或健康。"
+      },
+      "seo": {
+        "title": {
+          "en": "Root Chakra: Everyday Steadiness Reflection",
+          "zh": "海底轮：日常安顿：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Explore daily steadiness through four root-chakra self-reports, examples and a small reflection. No energy, health or safety diagnosis.",
+          "zh": "借海底轮意象观察基本日常、计划改变和环境支持。均分只概括四条自述，不判断现实安全程度、身体能量或健康。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The symbol and this edition’s questions",
+            "zh": "意象和本版题目"
+          },
+          "paragraphs": [
+            {
+              "en": "The root name is used here as a reminder to look at ordinary supports. The four items ask about a realistic basic plan, something familiar after a change, helpful surroundings and postponed breaks. They do not measure housing security, financial resources or a chakra at the base of the body.",
+              "zh": "这里借海底轮的名字，提醒自己看看普通日子由什么支撑。四题分别问基本计划、变化后可回到的小事、周围支持，以及推迟休息；不测居住保障、财务资源或身体底部的某种脉轮。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Higher, lower or mixed self-reports",
+            "zh": "较高、较低或混合时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean means these particular supports were more often available in your account, after reversing postponed breaks. A lower mean can describe a disrupted fortnight, limited choices or a routine that did not help. A middle mean can hide frequent planning alongside frequent postponement; read the individual answers instead of treating the mean as a state of balance.",
+              "zh": "计分后均分较高，表示在你的自述里，这几种日常支持较常出现，包括把反复推迟休息反向计入。较低可能来自被打乱的两周、选择有限或安排本身不好用。中间均分也可能掩盖经常计划、又经常推迟的组合，不应把一个均分叫作平衡状态。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A familiar support during change",
+            "zh": "变化里一个熟悉的支点"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a busy day loses its original schedule. Keeping one manageable meal break or clearing a small working surface could be a useful support. Being unable to do either may say more about the demands around you than about personal steadiness. The symbol should not make difficult circumstances your fault.",
+              "zh": "比如一天的安排全被打乱，仍保留一小段吃饭时间，或清出一点工作台面，可能就是可用的支持。两件都做不到时，也许主要反映周围要求，而不是个人不够稳定。这个意象不应把困难处境变成你的过错。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "When information is insufficient",
+            "zh": "资料不足时"
+          },
+          "paragraphs": [
+            {
+              "en": "With fewer than three ratings, no mean is shown. You may not have encountered a plan change or may prefer not to describe basic routines. The public guide remains readable, but it is not a personal interpretation. An unavailable response is not evidence that you lack support.",
+              "zh": "不足三条有效评分不显示均分。也许这段时间没有遇到计划改变，也许不想描述基本日常。公开说明仍可阅读，但不作为个人解释；不能判断的回答，不代表没有支持。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Try a smaller anchor",
+            "zh": "试一个更小的落脚点"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one routine you can influence and make it smaller enough to be realistic. Note whether it helped on two different days, without forcing it when circumstances make it unsuitable. This is an observation exercise, not a treatment or a requirement to feel calm.",
+              "zh": "选一件自己能影响的日常，把规模缩到现实可做，找两天看看是否有帮助。环境不合适时不强做。这只是观察练习，不是治疗，也不要求必须平静。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Steadiness is different from meaning",
+            "zh": "安顿和意义不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Root items concern supports for getting through the day. Crown items concern links with what matters to you; either theme can be frequent while the other is less so. Neither mean is an energy level, a diagnosis, a spiritual rank or a judgement of how well you live.",
+              "zh": "海底轮这组关心日子怎样有支撑；顶轮那组关心所做的事和在意之物怎样相连。一组可以较常出现，另一组较少；两者都不是能量等级、诊断、灵性高低或生活好坏的裁定。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sacral",
+      "directionIds": [
+        "sacral"
+      ],
+      "title": {
+        "en": "Sacral: room for enjoyment and making",
+        "zh": "脐轮：感受与创意"
+      },
+      "headline": {
+        "en": "A symbol for noticing what you enjoy and might make.",
+        "zh": "借一个意象，留意想感受、想创造的小事。"
+      },
+      "summary": {
+        "en": "Explore enjoyment, experimentation and noticing preferences through the sacral symbol. Read the four-item mean alongside real opportunities, without a creativity or bodily-energy score.",
+        "zh": "借脐轮意象观察兴趣、尝试和偏好。结合现实机会理解四条自述，不把均分当创意水平、身体能量或感官健康分数。"
+      },
+      "seo": {
+        "title": {
+          "en": "Sacral Chakra: Enjoyment and Creative Room",
+          "zh": "脐轮：感受与创意：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Read enjoyment, trying ideas and everyday preferences through the sacral symbol. Full examples, four self-reports and no creativity or energy score.",
+          "zh": "借脐轮意象观察兴趣、尝试和偏好。结合现实机会理解四条自述，不把均分当创意水平、身体能量或感官健康分数。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Enjoyment and experimentation in this edition",
+            "zh": "本版所说的兴趣与尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "These items ask about a little enjoyable time, trying a different way to make or arrange something, noticing preferences and dismissing ideas for not being productive. They use the sacral label as a contemporary symbol. They do not ask about sexuality, fertility, anatomy or a religious practice.",
+              "zh": "这组问是否给兴趣一点时间、试过不同制作或摆放方式、留意喜欢与不喜欢，以及因不够有产出而否定点子。脐轮在这里只是当代象征标签，不询问性、身体生育状况、解剖或宗教实践。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read opportunity alongside frequency",
+            "zh": "把机会和频率一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean suggests you reported more room for these specific actions. It does not demonstrate artistic talent. A lower mean could reflect a week dominated by practical needs rather than a lack of imagination. A mixed mean may combine clear preferences with little permission or time to act on them.",
+              "zh": "较高计分均分表示你自述较常给这些行动留位置，不证明艺术天赋。较低可能是这段日子主要被现实需要占据，不是缺乏想象。混合均分也可能表示很清楚喜欢什么，却没时间或没允许自己去做。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An ordinary experiment can be enough",
+            "zh": "普通的小尝试就可以"
+          },
+          "paragraphs": [
+            {
+              "en": "Rearranging a familiar lunch, sketching an unimportant shape or testing another way to fold a card can express this theme. None needs to become content, a skill or an achievement. Equally, choosing a familiar comforting activity can be enjoyable without being novel.",
+              "zh": "把常吃的午饭换个摆法、画一个没有任务的小形状，或试另一种折卡方式，都可以表达这组主题；不必变成内容、技能或成绩。选择熟悉而舒服的活动也可以有乐趣，不一定非要新奇。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "No relevant opportunity is a real answer",
+            "zh": "没有机会也是有效信息"
+          },
+          "paragraphs": [
+            {
+              "en": "If fewer than three items can be rated, the mean stays unavailable. It may simply be difficult to recall a creative choice in this fortnight. Do not replace that with Never unless Never actually describes relevant occasions; an activity you had no chance to try is different from one you chose not to do.",
+              "zh": "不足三条能评分时，均分保持不可用。也许这两周很难回忆相关选择。不要因此把无法判断改成从未，除非确实有相关机会而从未发生；没有机会，和有机会但没做不同。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Keep one experiment unproductive",
+            "zh": "留一个不必有产出的尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to, reserve ten minutes for a harmless small activity with no audience or useful outcome required. Afterwards name one detail you liked or disliked. Stop if it becomes another duty. The point is learning a preference, not unlocking an energy centre or proving that you can be creative.",
+              "zh": "愿意的话，留十分钟做一件无害的小事，不设观众，也不要求有用。事后说出一个喜欢或不喜欢的细节；一旦变成任务，可以停。目的只是认识偏好，不是打开能量中心或证明自己有创造力。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Enjoyment and action are separate",
+            "zh": "兴趣和行动是两回事"
+          },
+          "paragraphs": [
+            {
+              "en": "Sacral items concern room for enjoyment and trying. Solar-plexus items concern choosing and carrying out a manageable action, including an uninteresting necessary one. They need not have similar means. This edition makes no claim about reproductive health, creative potential or an ideal balance between the two.",
+              "zh": "脐轮这组关心有没有兴趣和尝试的空间；太阳神经丛轮那组关心选择并落实小行动，也包括不有趣但需要做的事。两组均分不必接近。本版不判断生殖健康、创造潜能或两者的理想比例。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solar-plexus",
+      "directionIds": [
+        "solar-plexus"
+      ],
+      "title": {
+        "en": "Solar plexus: choosing a next step",
+        "zh": "太阳神经丛轮：自主行动"
+      },
+      "headline": {
+        "en": "A symbol for choices that are actually yours.",
+        "zh": "把注意力放回真正属于自己的小选择。"
+      },
+      "summary": {
+        "en": "Read self-chosen actions, realistic commitments and waiting for others through the solar-plexus symbol. This is no leadership, confidence or success-potential assessment.",
+        "zh": "借太阳神经丛轮意象观察自主步骤、现实承诺和等待别人决定。这里不评领导力、自信等级或成功潜力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Solar Plexus Chakra: Daily Agency Reflection",
+          "zh": "太阳神经丛轮：自主行动：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Explore self-chosen steps and realistic commitments through the solar-plexus symbol. Full self-report guide, without confidence or leadership rankings.",
+          "zh": "借太阳神经丛轮意象观察自主步骤、现实承诺和等待别人决定。这里不评领导力、自信等级或成功潜力。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Agency at a manageable scale",
+            "zh": "把自主缩到能做的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "The four items concern naming a next step, doing something without controlling its whole outcome, reviewing a commitment and waiting for someone else on a free choice. The solar-plexus name supplies a symbol, not a location where decision power is physically measured.",
+              "zh": "四题问说清下一步、在不能控制全局时做一件事、重新检查承诺，以及明明可自由选择却等待别人决定。太阳神经丛轮只提供意象，不表示在某个身体位置测量决定能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "What a higher or lower mean can mean here",
+            "zh": "这里的均分可以怎样理解"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean describes more reported action within these prompts. It is not stronger willpower, leadership or a guarantee of good decisions. A lower mean can reflect needing information or having fewer genuine choices. A mixed mean may combine readiness to start with sensible hesitation about an unrealistic commitment.",
+              "zh": "较高计分均分表示题目中这类行动自述较多，不等于意志更强、领导力更好或决定更正确。较低可能是需要资料，或真正能选择的空间较少。混合均分也可能是既愿意开始，又对不现实的承诺保持合理犹豫。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A step without control of the finish",
+            "zh": "不能控制结局，也可以有一步"
+          },
+          "paragraphs": [
+            {
+              "en": "You might decide to draft one question for a meeting without controlling the meeting’s outcome. That is a small action, not proof of confidence. Waiting for a safety check or a decision outside your authority can be appropriate; the item about waiting refers only to choices you were free to make.",
+              "zh": "比如可以先写好开会想问的一个问题，却不能控制会议结果。这是一项小行动，不是自信证明。等待安全核对或权限之外的决定完全可能合理；有关等待的题目只问本可自由选择的事。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Do not rate a choice you did not have",
+            "zh": "没有选择空间，不必硬评"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the unavailable option when there was no relevant free choice, you cannot judge or you prefer not to answer. With fewer than three rated items, no mean is provided. That is a limit of this short self-report, not an indication of helplessness or a blocked chakra.",
+              "zh": "没有相关自由选择、无法判断或不想回答时，可以选不可评分项。不足三条有效评分就不显示均分。这是短自述的资料边界，不代表无助，也不代表脉轮堵塞。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Name the boundary around one next step",
+            "zh": "给下一步画清边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a low-stakes action you can reasonably influence. Write what you can do, what depends on someone else and where you will stop for now. Completing the first part can be enough. Do not use a chakra result to take an unsafe risk, accept extra obligations or overrule professional advice.",
+              "zh": "选一个后果很小、自己确实能影响的行动，写清自己能做什么、哪些需要别人，以及这次到哪里先停。只完成第一部分也可以。不据脉轮结果冒险、多揽责任，或推翻专业建议。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Action is not the same as expression",
+            "zh": "行动和表达不相同"
+          },
+          "paragraphs": [
+            {
+              "en": "Throat items concern communicating a preference or checking a message. Solar-plexus items concern choosing and acting. You may act decisively while finding a preference hard to say, or speak clearly while deliberately waiting to act. Neither pattern establishes a fixed personality, ambition level or future success.",
+              "zh": "喉轮这组关心表达偏好、核对意思；太阳神经丛轮这组关心选择和落实。可能行动明确，却难说出偏好；也可能表达清楚，却有意暂缓行动。两种组合都不确定固定人格、野心大小或未来成败。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heart",
+      "directionIds": [
+        "heart"
+      ],
+      "title": {
+        "en": "Heart: giving and receiving care",
+        "zh": "心轮：关心的往来"
+      },
+      "headline": {
+        "en": "A symbol for care that can move in both directions.",
+        "zh": "关心可以流向别人，也可以回到自己。"
+      },
+      "summary": {
+        "en": "Explore offering support with consent, asking for help and keeping your own needs visible. The heart-symbol reflection does not score love, empathy or relationship health.",
+        "zh": "观察先确认再关心、说出需要、保留自身边界和接受帮助。心轮意象不评分爱得多少、同理心高低或关系健康。"
+      },
+      "seo": {
+        "title": {
+          "en": "Heart Chakra: Giving and Receiving Care",
+          "zh": "心轮：关心的往来：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Explore offering, requesting and receiving care through the heart symbol. Full examples and boundaries, without love, empathy or relationship scores.",
+          "zh": "观察先确认再关心、说出需要、保留自身边界和接受帮助。心轮意象不评分爱得多少、同理心高低或关系健康。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Care, requests and receiving",
+            "zh": "关心、请求和接收"
+          },
+          "paragraphs": [
+            {
+              "en": "This edition asks about checking whether support is wanted, describing useful help, keeping room for your own needs and reflexively refusing welcome assistance. It borrows the heart symbol for reciprocity. It does not test the heart as an organ, attachment style or how much anyone loves another person.",
+              "zh": "本版问是否确认对方想不想要支持、说明有用的帮助、给自身需要留位置，以及自动回绝本来愿意接受的帮助。借心轮象征往来，不测心脏器官、依恋类型或任何人爱别人有多少。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "More is not automatically better",
+            "zh": "较多不自动等于更好"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean means these particular reciprocal actions were more often reported. A lower mean may reflect few opportunities, an unreliable environment or a preference for different forms of support. A middle mean can mix generous offering with difficulty receiving. Look at the combination before drawing an explanation from the mean.",
+              "zh": "较高计分均分表示这几种双向行动自述较常出现。较低可能是机会少、环境不可靠，或偏好的支持方式不同。中间均分可能混合了很愿意给予、却难以接收；先看组合，不直接替均分编一个原因。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An offer with an actual choice",
+            "zh": "给人真实选择的帮助"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine asking whether someone wants a short call or help with a small errand, then accepting a no. Receiving can be equally small: allowing someone to bring a meal you would welcome. Neither example obliges either person to disclose private feelings or remain available without limits.",
+              "zh": "比如问对方想不想短聊一会儿、是否需要跑一趟小事，并接受拒绝。接收也可以很小：愿意的话，接受别人带一份饭。两者都不要求透露私密感受，也不要求随时无边界待命。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "When support was not available to rate",
+            "zh": "没有相关往来时"
+          },
+          "paragraphs": [
+            {
+              "en": "Some weeks offer little contact, or no relationship in which a request feels appropriate. That can make several items unrateable. Below three ratings, the guide stays general and no mean is shown. An unavailable response is not a zero for caring, and a low mean is not evidence that a relationship is unsafe.",
+              "zh": "有些日子接触很少，或暂时没有适合开口请求的关系，就可能多题无法判断。低于三条评分时只给通用说明，不显示均分。无法评分不是关心零分，较低均分也不能证明关系不安全。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Make one small request or offer",
+            "zh": "试一次小而具体的往来"
+          },
+          "paragraphs": [
+            {
+              "en": "If a suitable relationship exists, ask for or offer one specific, bounded thing and leave a comfortable way to decline. Afterwards notice whether the choice felt voluntary for both people. Skip the exercise if the circumstances do not support it; there is no need to earn a better score by being more available.",
+              "zh": "如果有合适关系，可以请求或提供一件具体、有边界的小事，并留出安心拒绝的方式。之后看看双方是否都自愿。条件不支持就跳过；不用靠对别人更有求必应来换更高分。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Expression and care overlap without merging",
+            "zh": "表达和关心有关，但不是一项"
+          },
+          "paragraphs": [
+            {
+              "en": "Throat items ask whether a message was expressed and understood. Heart items ask about the exchange of care and room for each person’s needs. The means can differ. Neither is an empathy assessment, compatibility score, diagnosis or instruction to repair a relationship through energy practices.",
+              "zh": "喉轮这组问意思有没有表达和被核对；心轮这组问关心怎样往来、各自需要有没有位置。均分可以不同。两者都不是同理心评估、配对分、诊断，也不指示用能量练习修复关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat",
+      "directionIds": [
+        "throat"
+      ],
+      "title": {
+        "en": "Throat: expressing a preference",
+        "zh": "喉轮：表达自己的意思"
+      },
+      "headline": {
+        "en": "A symbol for giving your meaning a clear form.",
+        "zh": "借一个意象，把自己的意思说清一点。"
+      },
+      "summary": {
+        "en": "Read ordinary preferences, clarification and message checking through the throat symbol. Context and safety matter; silence and a low mean are not communication defects or physical blockages.",
+        "zh": "借喉轮意象观察普通偏好、澄清和核对意思。表达要看情境与安全；沉默或较低均分都不等于沟通缺陷、喉部问题或堵塞。"
+      },
+      "seo": {
+        "title": {
+          "en": "Throat Chakra: Everyday Expression Guide",
+          "zh": "喉轮：表达自己的意思：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Read everyday preferences and clarification through the throat symbol. Four self-reports, full examples and attention to context, without an energy score.",
+          "zh": "借喉轮意象观察普通偏好、澄清和核对意思。表达要看情境与安全；沉默或较低均分都不等于沟通缺陷、喉部问题或堵塞。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Words, meaning and context",
+            "zh": "话语、意思与情境"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items cover saying a preference when safe, asking for clarification, checking your intended point and withholding an ordinary preference to avoid mild awkwardness. The throat label is symbolic. It does not assess vocal health, language proficiency or an obligation to speak in every situation.",
+              "zh": "四题问在安全时表达偏好、请求澄清、核对重点，以及因一点尴尬而吞回普通偏好。喉轮只是象征，不评嗓音健康、语言能力，也不要求在每种情境都讲话。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Frequency is not communication quality",
+            "zh": "频率不等于表达质量"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean describes more frequent reported acts in these prompts, not how well a listener understood you. A lower mean may reflect thoughtful restraint, cultural conventions or fewer safe opportunities. A mixed mean can mean that you ask good questions yet rarely state your own preference; the mean alone cannot settle that distinction.",
+              "zh": "较高计分均分描述这些行动自述较常，不说明听者实际理解得怎样。较低可能是审慎保留、文化习惯或安全机会较少。混合均分也可能是常常问清别人，却很少说自己的偏好；均分本身分不清这些情况。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An ordinary preference can be enough",
+            "zh": "普通偏好就够具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Saying “I would prefer a quieter place” in a friendly planning conversation is one example. Asking “Do you mean today or tomorrow?” is another. Neither needs a dramatic revelation or a claim to be completely authentic. In a risky interaction, choosing not to disclose can be a sensible boundary.",
+              "zh": "在友好的安排中说“我更想去安静一点的地方”，或问“你的意思是今天还是明天”，都是例子。不需要重大袒露，也不用证明自己绝对真实。互动有风险时，选择不透露可能正是合理边界。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Safe opportunities may be missing",
+            "zh": "可能缺少适合表达的机会"
+          },
+          "paragraphs": [
+            {
+              "en": "If you had no relevant conversation, could not judge its safety or prefer not to describe it, unavailable is appropriate. Fewer than three ratings leave the mean blank. That does not count as suppressed expression, and the general guide must not be read as a claim about your circumstances.",
+              "zh": "没有相关谈话、无法判断是否适合表达，或不愿描述时，可以选不可评分。少于三条评分就不计算均分，不记作表达受到压抑；通用说明也不应冒充对处境的判断。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Check one small message",
+            "zh": "核对一句小消息"
+          },
+          "paragraphs": [
+            {
+              "en": "In a low-stakes exchange, name one preference or ask one clarifying question. You can draft it first. Afterwards ask whether it conveyed the intended point and respected both people’s boundaries, not simply whether you spoke more. There is no need for public disclosure or a voice exercise.",
+              "zh": "在后果很小的交流里，说一个偏好或问一个澄清问题，可以先写草稿。之后看有没有传达原意、有没有尊重双方边界，不只统计自己是否说得更多。不需要公开披露，也不需要嗓音练习。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Expression is not the same as influence",
+            "zh": "说出来与有影响力不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Solar-plexus items concern a choice and its next action; throat items concern making meaning available to another person. Clear speech does not guarantee control over what follows. These self-reports certify neither confidence nor interpersonal influence, and no mean identifies a blocked energy centre.",
+              "zh": "太阳神经丛轮这组关心选择和下一步行动，喉轮这组关心让别人有机会理解自己的意思。说清楚不保证能控制后续。自述不认证自信或人际影响力，任何均分都不识别能量中心是否堵塞。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "third-eye",
+      "directionIds": [
+        "third-eye"
+      ],
+      "title": {
+        "en": "Third eye: pausing to see another angle",
+        "zh": "眉心轮：留意不同视角"
+      },
+      "headline": {
+        "en": "A symbol for a second look rather than a special power.",
+        "zh": "象征再看一眼，不象征特殊感知能力。"
+      },
+      "summary": {
+        "en": "Explore alternative explanations, mismatched details and the line between observation and inference. The third-eye reflection does not assess intuition, intelligence or spiritual perception.",
+        "zh": "观察其他解释、不合第一印象的细节，以及事实与猜测的区别。眉心轮意象不评直觉、智力、预知或灵性知觉。"
+      },
+      "seo": {
+        "title": {
+          "en": "Third Eye Chakra: Reflection on Perspectives",
+          "zh": "眉心轮：留意不同视角：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Explore other explanations and observation versus inference through the third-eye symbol. Full self-report guide, without an intuition or intelligence score.",
+          "zh": "观察其他解释、不合第一印象的细节，以及事实与猜测的区别。眉心轮意象不评直觉、智力、预知或灵性知觉。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Perspective checking in this edition",
+            "zh": "本版问的是视角核对"
+          },
+          "paragraphs": [
+            {
+              "en": "The items ask about another plausible account, a detail that challenges a first impression, separating observation from guessing and stopping once a view sounds appealing. This is a report of reflective actions. The third-eye name does not introduce clairvoyance, unusual perception or a test of reasoning performance.",
+              "zh": "四题问另一种可能、挑战第一印象的细节、把观察与猜测分开，以及听到顺耳解释就停止核对。这是在自报反思行动；眉心轮的名字不引入预知、特殊感知或实际推理能力测验。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Reported checking is not proven insight",
+            "zh": "自述核对，不等于看得更准"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean means you reported these checks more frequently, but it cannot show that the alternatives were good or the conclusion correct. A lower mean may describe familiar tasks with little need for a second explanation. A mixed result may reflect noticing doubts without knowing how to check them.",
+              "zh": "较高计分均分表示自述核对较常，不能证明备选解释合理或结论正确。较低可能是处理熟悉任务，没怎么需要另找解释。混合结果也可能是注意到疑问，却不知道怎样核对。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Leave an observation open to checking",
+            "zh": "让一个观察可被核对"
+          },
+          "paragraphs": [
+            {
+              "en": "If a reply arrives late, “the message arrived after the agreed time” is an observation; “the person does not care” is an explanation. Other accounts may exist. This example does not tell you which account is true. It shows the difference between naming what happened and becoming certain about why it happened.",
+              "zh": "比如回复晚到，“消息在约定时间后才收到”是观察，“对方不在乎”是解释；可能还有别的原因。这个例子不裁定哪种原因是真的，只展示把发生了什么和为什么发生分开的做法。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Some activities offer little to compare",
+            "zh": "有些日常不需要比较解释"
+          },
+          "paragraphs": [
+            {
+              "en": "You may not recall a relevant disagreement or uncertain claim in the last fortnight. Unavailable can be more accurate than inventing one. With fewer than three ratings, no mean appears. Neither unavailable nor a lower mean means that you lack insight, and repeated self-questioning is not required to complete this theme.",
+              "zh": "过去两周可能没有相关分歧或不确定说法。无法判断，比硬编一个情境更准确。不足三条评分就不显示均分。不可评分或较低都不表示缺乏洞见，也不用为了这组主题而反复质疑自己。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "One alternative and a stopping point",
+            "zh": "一种替代解释，加一个停点"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an ordinary, low-stakes uncertainty. Write what you observed, one possible explanation and one different explanation. Decide what small check would help and when you will stop. Endless searching is not a better version of this exercise; leaving a claim unconfirmed is sometimes the accurate outcome.",
+              "zh": "选一件低风险的小不确定，写下观察、一种解释和另一种解释，再决定什么小核对有用、到什么时候停。无尽查找不是更高级的练习；暂时无法确认，有时就是准确结果。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Understanding and meaning ask different questions",
+            "zh": "理解与意义问不同的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Third-eye items concern how you revisit an account. Crown items concern how an activity connects with what matters to you. Understanding a claim does not automatically make it meaningful, and finding meaning does not prove a claim true. No score measures wisdom, psychic ability or an ideal level of analysis.",
+              "zh": "眉心轮这组关心怎样回头核对解释，顶轮那组关心活动和在意之物怎样相连。懂一个说法，不自动让它有意义；觉得有意义，也不证明说法为真。分数不测智慧、超感知或理想分析程度。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crown",
+      "directionIds": [
+        "crown"
+      ],
+      "title": {
+        "en": "Crown: connecting a day with what matters",
+        "zh": "顶轮：日常与意义"
+      },
+      "headline": {
+        "en": "A symbol for noticing why an ordinary day matters to you.",
+        "zh": "借一个意象，留意普通一天为何对自己有意义。"
+      },
+      "summary": {
+        "en": "Read links between ordinary actions, reflection and personal priorities through the crown symbol. The mean does not measure faith, enlightenment, life worth or psychological health.",
+        "zh": "借顶轮意象观察普通行动、回想和个人重视之物的联系。均分不测信仰深浅、开悟程度、人生价值或心理健康。"
+      },
+      "seo": {
+        "title": {
+          "en": "Crown Chakra: Everyday Meaning Reflection",
+          "zh": "顶轮：日常与意义：脉轮平衡测试完整读法"
+        },
+        "description": {
+          "en": "Explore connections between daily actions and what matters through the crown symbol. Full self-report guide, without faith, enlightenment or health scores.",
+          "zh": "借顶轮意象观察普通行动、回想和个人重视之物的联系。均分不测信仰深浅、开悟程度、人生价值或心理健康。"
+        }
+      },
+      "scoreReading": {
+        "en": "Four original action reports belong to this theme. The fourth is reversed with 6 − response. At least three rated items are needed for a mean; unavailable responses are excluded. This is not an energy measurement.",
+        "zh": "本主题有四条原创行动自述，第四条用6减原回答反向计分。至少三条有效评分才显示均分；无法判断等回答排除，不补零。这不是能量测量。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Personal meaning without a required belief",
+            "zh": "不要求信仰的意义观察"
+          },
+          "paragraphs": [
+            {
+              "en": "These items ask about noticing a link with something you care about, allowing reflection or appreciation, reconsidering a repeated activity and difficulty naming such links at day’s end. The crown name is a symbol in this edition. You do not need a spiritual identity, religious belief or a single life purpose to answer.",
+              "zh": "四题问普通行动与在意之物的联系、允许回想或欣赏、重新考虑反复活动，以及一天结束时难说出联系。顶轮在本版是象征标签；作答不需要灵性身份、宗教信仰或一个统一人生目标。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Higher and lower accounts are not life verdicts",
+            "zh": "均分高低，不裁定人生"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean indicates more reported moments of connection in these prompts, not greater enlightenment. A lower mean can reflect routine, tiredness, an unsettled period or items that do not fit. A middle mean may combine meaningful commitments with days that feel merely necessary; it is not proof that half your life lacks purpose.",
+              "zh": "较高计分均分表示这些自述里的联系时刻较常，不代表更开悟。较低可能和日常惯性、疲惫、过渡阶段或题目不贴合有关。中间均分可以混合有意义的投入和只是完成必要事务的日子，不证明人生有一半缺乏目标。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A small link can count",
+            "zh": "很小的联系也可以"
+          },
+          "paragraphs": [
+            {
+              "en": "Completing an ordinary errand might connect with being dependable, while a few minutes looking at the sky might connect with curiosity. You decide whether the link feels real. Neither needs to become a grand explanation of your life, and some days can remain ordinary without a lesson attached.",
+              "zh": "一件跑腿小事可以和“愿意可靠”相连，看几分钟天空也可以和好奇相连。联系是否真实，由自己体会；两者都不必上升成人生解释，有些日子也可以普通地过去，不附一条领悟。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Not knowing is allowed",
+            "zh": "暂时不知道也可以"
+          },
+          "paragraphs": [
+            {
+              "en": "Use unavailable if the items do not fit, you cannot judge or you prefer not to answer. Fewer than three ratings mean no personal mean. Difficulty naming a value in a questionnaire is not a diagnosis or evidence that your life has less worth. The full public guide stays available without requiring disclosure.",
+              "zh": "题目不贴合、无法判断或不愿回答时，可以选不可评分。少于三条评分不产生个人均分。在问卷里说不清重视什么，不是诊断，也不表示人生价值更少；完整公开说明始终可读，不要求袒露私人内容。"
+            }
+          ]
+        },
+        {
+          "id": "try",
+          "title": {
+            "en": "Look for one modest connection",
+            "zh": "找一条不过度拔高的联系"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want, choose one thing you did today and ask what, if anything, it served that matters to you. “It was simply necessary” is an acceptable answer. You might keep the activity, change its scale or leave the question open. The exercise promises no revelation, mood change or health effect.",
+              "zh": "愿意的话，选今天做的一件事，问它是否服务了自己在意的什么。“只是现实需要”也可以。可能继续做、改小一点，或先把问题放着。练习不承诺顿悟、情绪改变或健康效果。"
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "en": "Meaning does not outrank other themes",
+            "zh": "意义不高于其他主题"
+          },
+          "paragraphs": [
+            {
+              "en": "Root items concern ordinary supports; crown items concern perceived connections with what matters. Neither is a higher stage of a ladder. A low or unavailable mean is not spiritual failure, and all seven guides are offered together without a total, an ideal equal profile or a recommended belief system.",
+              "zh": "海底轮这组关心普通日常的支撑，顶轮这组关心与重视之物的感受联系；两者不是阶梯上的高低阶段。较低或不可评分不表示灵性失败。七份说明一起提供，不合成总分，不要求均匀的理想轮廓，也不推荐信仰体系。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

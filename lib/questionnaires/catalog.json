@@ -1892,5 +1892,33 @@
       "niffty"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "chakra",
+    "code": "FM_CHAKRA_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "metaphor",
+    "title": {
+      "en": "Chakra Balance Test",
+      "zh": "脉轮平衡测试"
+    },
+    "description": {
+      "en": "Try 28 original questions inspired by seven chakra symbols. Read all seven full reflections, clear scoring and unavailable states for free. No energy or health diagnosis.",
+      "zh": "免费完成28道原创日常频率题，借七个脉轮意象分别观察安顿、兴趣、行动、关心、表达、视角与意义。七份完整说明直接可读，不判断身体能量、堵塞或健康。"
+    },
+    "minutes": 7,
+    "collection": "explore",
+    "formCode": "fm_chakra_daily_reflection_28_v1",
+    "questionCount": 28,
+    "resultSlugs": [
+      "root",
+      "sacral",
+      "solar-plexus",
+      "heart",
+      "throat",
+      "third-eye",
+      "crown"
+    ]
   }
 ]
