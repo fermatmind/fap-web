@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "twilight-character": async () => (await import("./data/twilight-character.json")).default as Questionnaire,
   "wednesday-addams-character": async () => (await import("./data/wednesday-addams-character.json")).default as Questionnaire,
   "stranger-things": async () => (await import("./data/stranger-things.json")).default as Questionnaire,
   "avengers-character": async () => (await import("./data/avengers-character.json")).default as Questionnaire,

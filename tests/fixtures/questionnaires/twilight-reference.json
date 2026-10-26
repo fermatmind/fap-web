@@ -1,0 +1,869 @@
+{
+  "id": "T125",
+  "version": "1.0.0",
+  "form": "fermatmind_twilight_original_21_v1",
+  "method": "Own7selectedcharacterangles;21originalharmlessrainy-daycreativeafternoonquestions84options;12exposures3perpositioneach. Allhighestrawcountties;notIDRbank/scoring. No relationshipcompatibility/clinical/ethnic/violence/magic/professionalabilityinference.",
+  "questions": [
+    {
+      "id": "TWI_01",
+      "prompt": {
+        "en": "Rain changes a voluntary creative afternoon indoors. What would you most like to choose?",
+        "zh": "下雨让自愿创作下午改到室内，你最想选什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "A personally meaningful little activity, even if it is quieter than the first plan.",
+            "zh": "一个对自己有意义的小活动，即使比原计划安静。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "A moment to consider the practical change before making another commitment.",
+            "zh": "先留一刻想清实际变化，再作另一个承诺。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "A simple hands-on fix that lets the group use the room comfortably.",
+            "zh": "一个简单动手小修，让房间好用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "A few playful details that make the changed afternoon feel like an occasion.",
+            "zh": "一些趣味细节，让改后的下午也有活动感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_02",
+      "prompt": {
+        "en": "Friends propose a new indoor plan faster than you can consider it. What appeals most?",
+        "zh": "朋友提新室内计划，比自己考虑还快，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Ask for a short pause to understand what the plan involves before agreeing.",
+            "zh": "要求短暂停，弄清计划涉及什么再同意。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Try setting up the basic materials so the practical possibilities are visible.",
+            "zh": "试着摆基本材料，让实际可能看得见。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Imagine a small enjoyable reveal that could make this version feel special.",
+            "zh": "想个令人愉快的小揭幕，让这版特别。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Say clearly which parts I am willing to join and which I would rather skip.",
+            "zh": "说清愿加入哪部分、想跳过哪部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_03",
+      "prompt": {
+        "en": "A familiar craft tool needs an ordinary, harmless adjustment. What would you enjoy?",
+        "zh": "熟悉手作工具需一项普通无害调整，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Work on the little fix because trying the mechanism is enjoyable itself.",
+            "zh": "动手小修，因为试机关本身就好玩。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Use the fix as a chance to add a playful decorative detail.",
+            "zh": "借小修加一处趣味装饰。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Check what changes the owner actually wants made to their tool.",
+            "zh": "核主人实际想改工具什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Turn the attempt into an optional lighthearted challenge we can share.",
+            "zh": "把尝试变成可选轻松挑战，一起玩。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_04",
+      "prompt": {
+        "en": "Your friends want the modest afternoon to feel memorable. What would you prefer?",
+        "zh": "朋友想让不大的下午活动值得记住，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Plan a few enjoyable details that suit the people who actually want them.",
+            "zh": "设计几项适合真正想要者的愉快细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Make sure nobody is expected to accept a surprise they dislike.",
+            "zh": "不让人被期待接受不喜欢的惊喜。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Offer a playful shared activity with a comfortable way to watch instead.",
+            "zh": "给一个共同趣味活动，也容舒服旁观。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what would make each person comfortable enough to enjoy the afternoon.",
+            "zh": "问怎样让各人舒服享受下午。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_05",
+      "prompt": {
+        "en": "Someone assumes you will take a role you did not agree to. What would you prefer?",
+        "zh": "有人默认自己会接一个没同意的角色，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Clarify what I actually choose to offer and leave the rest open for discussion.",
+            "zh": "说清自己实际选择提供什么，其他再讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Suggest a lighthearted shared task rather than assigning it silently to one person.",
+            "zh": "建议一起轻松做，不默默派给一个人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what help is wanted and what each person can comfortably give.",
+            "zh": "问需要什么帮助、各人舒服能给什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Choose the part that feels personally worthwhile to me.",
+            "zh": "选对自己有意义的那部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_06",
+      "prompt": {
+        "en": "The afternoon has a little spare time. What sounds most enjoyable?",
+        "zh": "下午多一点空闲，什么最好玩？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "A gentle, optional challenge where the shared laughter matters more than winning.",
+            "zh": "一个温和可选挑战，共同笑声比赢更重要。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "A conversation about what would help everyone enjoy the rest of the session.",
+            "zh": "聊聊什么让各人更享受剩余活动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "A quiet choice that lets me spend time on something I actually care about.",
+            "zh": "一个安静选择，把时间留给真在意的事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "A pause to decide whether adding anything more would improve the afternoon.",
+            "zh": "暂停想再加内容是否真改善下午。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_07",
+      "prompt": {
+        "en": "A friend seems uncertain about joining the changed plan. What would you most like to do?",
+        "zh": "朋友对改后计划犹豫，你最想怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what they would find helpful without deciding their needs for them.",
+            "zh": "问什么有帮助，不替对方决定需要。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Share what I personally hope to get from the activity and invite their preference.",
+            "zh": "说自己希望从活动得到什么，再邀其偏好。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Give them time to consider the details before they answer.",
+            "zh": "给时间考虑细节再回答。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Show a simple practical option they can try without committing to the whole plan.",
+            "zh": "展示可先试的简单实际选项，不必承诺全计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_08",
+      "prompt": {
+        "en": "There are several equally acceptable ways to spend the rainy afternoon. What would you prefer?",
+        "zh": "雨天下午有几种同样可行玩法，你更愿意怎样选？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Choose the one that feels meaningful to me rather than the most impressive on paper.",
+            "zh": "选对自己有意义的，不选纸面最厉害的。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Consider the commitments each option creates before making a choice.",
+            "zh": "选择前想每项带来什么承诺。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Try a little hands-on sample to discover which activity is satisfying.",
+            "zh": "动手试个小样，看看哪项满足。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Imagine how a few thoughtful details could make one option especially enjoyable.",
+            "zh": "想怎样用细节让某项特别愉快。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_09",
+      "prompt": {
+        "en": "A new craft idea would require more time than the group first planned. What appeals most?",
+        "zh": "新手作点子需比原计划多花时间，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Take a moment to understand the extra commitment and decide whether to accept it.",
+            "zh": "先懂额外承诺，再决定接不接受。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Test a small working version before guessing how much effort it needs.",
+            "zh": "先试小工作版，别猜需要多少投入。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Plan a smaller enjoyable version that still has a sense of occasion.",
+            "zh": "设计小些仍有活动感的愉快版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "State a comfortable limit on my own part of the extra work.",
+            "zh": "说自己额外工作舒服的上限。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_10",
+      "prompt": {
+        "en": "Your friends are making a simple prop for their own original story. What would you enjoy?",
+        "zh": "朋友给自己的原创故事做简单道具，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Experiment with the ordinary parts and enjoy discovering a workable arrangement.",
+            "zh": "试普通部件，享受发现可行组合。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Add a delightful little feature that makes the prop fun to present.",
+            "zh": "加一项愉快小功能，让展示道具好玩。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Ask the maker which parts they want left as they are.",
+            "zh": "问制作者哪些想保持原样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Make the demonstration into a gentle game people may freely join.",
+            "zh": "把演示变成可自由加入的温和游戏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_11",
+      "prompt": {
+        "en": "The group considers adding a surprise to a voluntary gathering. What would you prefer?",
+        "zh": "小组想给自愿聚会加个惊喜，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Design the pleasant detail around preferences people have actually shared.",
+            "zh": "按人们实际分享过的喜好，设计愉快细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Keep an easy way to decline or change the surprise.",
+            "zh": "留容易拒绝、改惊喜的办法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Choose a playful reveal that people can enjoy without performing excitement.",
+            "zh": "选有趣揭幕，不要求人表演兴奋。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what would make the event comfortable for the participants.",
+            "zh": "问怎样让参与者舒服。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_12",
+      "prompt": {
+        "en": "You like the activity but want a smaller role than others suggest. What attracts you?",
+        "zh": "喜欢活动，却想比别人建议接更小角色，什么吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Name the part I want and the point where my contribution ends.",
+            "zh": "说想做哪部分、贡献到哪结束。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Find a shared playful version that spreads the effort voluntarily.",
+            "zh": "找自愿分担投入的共同趣味版。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what support would make a smaller contribution workable for everyone.",
+            "zh": "问怎样支持，让小贡献对大家可行。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Keep the piece that is personally meaningful instead of accepting the whole role.",
+            "zh": "留对自己有意义的一块，不接全角色。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_13",
+      "prompt": {
+        "en": "Friends want a little competition after making their crafts. What would you enjoy?",
+        "zh": "手作后朋友想来点小竞赛，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "A friendly challenge people can laugh about without ranking the participants.",
+            "zh": "友好挑战，让人一起笑，不排名参与者。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "A check that everyone can choose a comfortable way to join or observe.",
+            "zh": "核每人都能选舒服参与或旁观。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "The activity I would genuinely enjoy even without an audience.",
+            "zh": "即使没人看也真享受的活动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "A moment to consider whether another game fits the time and energy available.",
+            "zh": "先想另一游戏是否合剩余时间、精力。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_14",
+      "prompt": {
+        "en": "One person’s plan for the afternoon no longer fits the changed room. What would you prefer?",
+        "zh": "一人的下午计划不再适合改后的房间，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what they need now and help discuss options they genuinely want.",
+            "zh": "问现在需要什么，帮聊真正想要的选项。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Share which part of the activity still feels worthwhile to me.",
+            "zh": "说自己仍觉得哪部分值得。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Pause before offering a solution so the actual change is clear.",
+            "zh": "先看清实际变化，再给解法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Try a straightforward practical adjustment to the room or materials.",
+            "zh": "试一个直截了当的房间、材料调整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_15",
+      "prompt": {
+        "en": "The group can keep one modest part of its original outdoor plan indoors. What would you prefer?",
+        "zh": "原室外计划有一小部分能留到室内，你更愿意选什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "The part that carries a personal meaning I still want to enjoy.",
+            "zh": "仍想享受、有个人意义的部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "The part whose commitments we have had time to understand and accept.",
+            "zh": "已经有时间理解、接受承诺的部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "The part we can make work with a little practical tinkering.",
+            "zh": "稍作实际修整就能运作的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "The part that can become a thoughtfully prepared little celebration.",
+            "zh": "能成为用心准备小庆祝的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_16",
+      "prompt": {
+        "en": "Someone asks for your answer to a new shared project immediately. What would you prefer?",
+        "zh": "有人要立刻回答新共同项目，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Ask for enough time to consider what I would be agreeing to.",
+            "zh": "要求足够时间，想自己到底同意什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Try one small practical step before promising the finished project.",
+            "zh": "承诺全项目之前，先试一个小实际步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Imagine a compact enjoyable version before deciding how much to plan.",
+            "zh": "先想紧凑愉快版，再决定计划多少。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Say clearly which part I can choose now and which remains undecided.",
+            "zh": "说清哪部分现在能选、哪部分未定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_17",
+      "prompt": {
+        "en": "A homemade object is almost working, with one harmless loose connection. What would you enjoy?",
+        "zh": "自制物件快能用了，还松一处无害接点，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Try a simple adjustment and see how the mechanism responds.",
+            "zh": "试简单调整，看看机关回应。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "Turn the working version into a pleasant little presentation.",
+            "zh": "把能用版本变成愉快小展示。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Check whether the owner wants the connection changed or left flexible.",
+            "zh": "核主人想改接点，还是留弹性。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Share an optional playful attempt at solving it together.",
+            "zh": "一起作可选趣味尝试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_18",
+      "prompt": {
+        "en": "The group is deciding which little event details matter. What appeals most?",
+        "zh": "小组在决定活动哪些小细节重要，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alice-cullen",
+          "label": {
+            "en": "A few personal touches that make a modest gathering feel deliberately prepared.",
+            "zh": "少数个人化点缀，让小聚会有用心准备感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "A clear limit so the details do not create work people never accepted.",
+            "zh": "清楚上限，不让细节变成没接过的工作。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "A playful moment people can share without a demanding performance.",
+            "zh": "一个不要求费力表演的共同趣味时刻。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "A practical check on what participants would find helpful or comfortable.",
+            "zh": "实际核参与者觉得什么有用、舒服。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_19",
+      "prompt": {
+        "en": "A friend offers to decide every detail of your part for you. What would you prefer?",
+        "zh": "朋友提议替自己决定所有细节，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "rosalie-cullen",
+          "label": {
+            "en": "Keep the choices I want to make myself and ask for only the help I welcome.",
+            "zh": "保留自己想作的选择，只请愿意接的帮助。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "Suggest a shared playful task where each person can choose their part.",
+            "zh": "提共同趣味任务，各人自选部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Discuss what support would help without taking over anyone’s decision.",
+            "zh": "聊怎样支持，又不接管谁的决定。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Return to the part of the afternoon that feels personally worthwhile.",
+            "zh": "回到下午对自己有意义的部分。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_20",
+      "prompt": {
+        "en": "The crafts are finished and friends want to mark the moment. What would you enjoy?",
+        "zh": "手作完工，朋友想留个时刻，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "emmett-cullen",
+          "label": {
+            "en": "A gentle shared game or laugh that lets everyone join in their own way.",
+            "zh": "一个温和共同游戏、笑声，各人按自己方式加入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "A conversation that recognises what people need before wrapping up.",
+            "zh": "收尾前聊聊，看见各人需要。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "A quiet moment with the piece that means something to me.",
+            "zh": "与对自己有意义作品安静相处一刻。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "A pause to decide whether more activity is wanted or the session is complete.",
+            "zh": "暂停决定还想不想加活动，或已完成。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TWI_21",
+      "prompt": {
+        "en": "The indoor afternoon is ending with one person unsure what comes next. What would you prefer?",
+        "zh": "室内下午将结束，一人不确定接着怎样，你更愿意做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "carlisle-cullen",
+          "label": {
+            "en": "Ask what would be useful and agree help that both people freely choose.",
+            "zh": "问什么有用，约双方都自选的帮助。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bella-swan",
+          "label": {
+            "en": "Say which part I personally want to keep doing another time.",
+            "zh": "说自己另一天还想继续哪部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "edward-cullen",
+          "label": {
+            "en": "Leave time to consider a next commitment rather than promising immediately.",
+            "zh": "留时间考虑下个承诺，不立刻答应。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jacob-black",
+          "label": {
+            "en": "Make a simple practical note or adjustment that helps the next session start.",
+            "zh": "做个简单实际记录、调整，让下次好开始。"
+          }
+        }
+      ]
+    }
+  ]
+}

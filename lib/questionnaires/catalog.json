@@ -2424,5 +2424,33 @@
       "thing"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "twilight-character",
+    "code": "TWILIGHT_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Twilight Character Test",
+      "zh": "《暮光之城》角色测试"
+    },
+    "description": {
+      "en": "Try 21 original, harmless rainy-day hobby situations. Compare Bella, Edward, Jacob, Alice, Rosalie, Emmett and Carlisle with all highest ties and seven complete bilingual guides free. Unofficial fan edition, without plot trivia.",
+      "zh": "完成21道原创无害雨天爱好情境，比较贝拉、爱德华、雅各布、爱丽丝、罗莎莉、埃美特、卡莱尔。所有最高并列和七份双语全文免费。非官方同人版，不考剧情。"
+    },
+    "minutes": 6,
+    "formCode": "fermatmind_twilight_original_21_v1",
+    "questionCount": 21,
+    "resultSlugs": [
+      "bella-swan",
+      "edward-cullen",
+      "jacob-black",
+      "alice-cullen",
+      "rosalie-cullen",
+      "emmett-cullen",
+      "carlisle-cullen"
+    ],
+    "collection": "explore"
   }
 ]
