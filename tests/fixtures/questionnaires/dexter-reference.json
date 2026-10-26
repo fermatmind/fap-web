@@ -1,0 +1,992 @@
+{
+  "id": "T121",
+  "version": "1.0.0",
+  "form": "fermatmind_dexter_original_24_v1",
+  "method": "Ownselected6originalcast,notIDRset/bank.24originalharmlesspaper-mystery/clubcollaborationitems,16exp4positioneach.Oneexplicitrawcount/allhighestties.No realcrime/clinical/forensic/violencerisk/moralityorprofessionalabilityassessment.",
+  "questions": [
+    {
+      "id": "DEX_01",
+      "prompt": {
+        "en": "A club’s harmless paper mystery begins with an envelope of invented props. What would you most enjoy first?",
+        "zh": "社团的无害纸上谜案从一封虚构道具信封开始，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look closely at how the small details are arranged before suggesting a pattern.",
+            "zh": "先细看小细节怎样摆放，再提出可能的规律。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask plainly what the group needs to decide in this round.",
+            "zh": "直接问这一轮小组需要决定什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Make sure everyone has a comfortable way to join the first discussion.",
+            "zh": "让每个人都能舒服地加入第一次讨论。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try the little prop mechanism and see what makes it amusing.",
+            "zh": "试试小道具机关，看看哪里有趣。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_02",
+      "prompt": {
+        "en": "The rules for a fictional clue game sound vague. Which contribution appeals most?",
+        "zh": "虚构线索游戏的规则听起来含糊，你最喜欢作什么贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask a direct question about the part we are supposed to do next.",
+            "zh": "直接问清接下来到底要做哪部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help the group discuss it without making uncertainty feel embarrassing.",
+            "zh": "帮大家轻松讨论，不让不清楚变成尴尬。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Test a playful example so the unclear part is easier to picture.",
+            "zh": "试一个有趣例子，让含糊部分更好想象。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Point out the specific inconsistency that prevents the rule from working.",
+            "zh": "指出让规则行不通的那处具体不一致。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_03",
+      "prompt": {
+        "en": "A newcomer joins a puzzle table after the first clue has been opened. What would you prefer?",
+        "zh": "第一个线索拆开后，新人来到解谜桌，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Give a friendly, short recap so they can join without feeling left behind.",
+            "zh": "友好地简短回顾，让对方容易加入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Show the most entertaining little mechanism in the props.",
+            "zh": "展示道具里最有趣的小机关。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Check that the recap does not skip a contradiction we still need to discuss.",
+            "zh": "看看回顾有没有漏掉还需讨论的矛盾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Clarify the remaining roles so the new person can choose where to contribute.",
+            "zh": "说清剩余分工，让新人选择怎样贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_04",
+      "prompt": {
+        "en": "A toy lock in a paper mystery has an unexpected extra feature. What would you most enjoy?",
+        "zh": "纸上谜案里的玩具锁多了一个意外功能，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Experiment with the feature as a playful part of the game.",
+            "zh": "把功能当成游戏趣味的一部分试一试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask whether the extra feature fits the instructions we were given.",
+            "zh": "问额外功能和给的说明是否一致。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Decide how the group can use its time without getting stuck on the extra.",
+            "zh": "安排怎样用时间，免得被额外部分卡住。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe the small changes the feature makes before drawing a conclusion.",
+            "zh": "先观察功能带来哪些小变化，再下结论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_05",
+      "prompt": {
+        "en": "Two clue cards in an invented story cannot both be correct as written. What would you prefer?",
+        "zh": "自编故事里的两张线索卡，按文字看不可能同时正确，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Name the contradiction clearly and ask which detail needs checking.",
+            "zh": "说清矛盾，问需核哪一处细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree on a short plan for resolving it and continuing the round.",
+            "zh": "约一个短计划，解决后继续这一轮。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the wording and layout closely to see what differs.",
+            "zh": "细比措辞和版式，看看差在哪里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the organiser directly what the cards are intended to establish.",
+            "zh": "直接问组织者，这两张卡原本要确立什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_06",
+      "prompt": {
+        "en": "Your group is preparing a completely fictional mystery-club afternoon. Which part appeals most?",
+        "zh": "小组在准备完全虚构的谜案社团下午活动，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Clarify the scope, roles and point at which the preparation is finished.",
+            "zh": "说清范围、分工，以及准备到哪里算完成。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Check the small arrangement of props for a coherent pattern.",
+            "zh": "检查道具小细节是否形成一致规律。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say directly what information the plan still needs.",
+            "zh": "直接说计划还缺什么信息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Make sure the people helping still feel included in the process.",
+            "zh": "让一起帮忙的人仍有被包括在过程里的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_07",
+      "prompt": {
+        "en": "An illustration in the game contains several tiny repeated marks. What would you most like to do?",
+        "zh": "游戏插图里有几处微小重复印记，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe the repetition carefully and describe it before interpreting it.",
+            "zh": "仔细观察重复，先描述，再解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask what question noticing the marks is meant to help answer.",
+            "zh": "问注意这些印记，是为了回答哪个问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Compare observations with others in a way that keeps the discussion easy to join.",
+            "zh": "和别人比较发现，让讨论仍好加入。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try a playful way to reproduce the marks and see what happens.",
+            "zh": "用趣味办法重现印记，看看会怎样。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_08",
+      "prompt": {
+        "en": "The next step in a paper puzzle is unclear, but the group keeps circling around it. What would you prefer?",
+        "zh": "纸上谜题下一步不清楚，小组却一直绕着聊，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the unanswered question in a plain sentence.",
+            "zh": "用一句平实的话把没回答的问题问出来。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help someone finish explaining what they are finding confusing.",
+            "zh": "帮一个人把困惑完整说完。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Make a quick, amusing example of what the step might mean.",
+            "zh": "迅速做个有趣例子，展示步骤可能是什么意思。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Challenge the assumption that is making the discussion go in circles.",
+            "zh": "质疑让讨论打转的那个假设。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_09",
+      "prompt": {
+        "en": "A friend’s idea for a fictional puzzle has been misunderstood. What contribution attracts you?",
+        "zh": "朋友给虚构谜题提的点子被误解了，什么贡献更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help them feel heard while the group works out what they meant.",
+            "zh": "小组弄清原意时，让对方感到自己被听到了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Demonstrate the fun part of the idea with a harmless prop.",
+            "zh": "用无害小道具演示点子里有趣的部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Separate the actual idea from the assumption people are arguing against.",
+            "zh": "区分真正点子与大家正在反对的假设。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Set out a short discussion plan so the idea gets a fair amount of time.",
+            "zh": "安排短讨论流程，让点子有合适时间被讨论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_10",
+      "prompt": {
+        "en": "The group can add one optional trick to a puzzle box. What would you most enjoy?",
+        "zh": "小组可以给谜题盒加一个可选小机关，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "An entertaining mechanism people can discover and laugh about together.",
+            "zh": "一个大家能一起发现、觉得有趣的机关。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A feature whose behaviour can be checked against the stated rule.",
+            "zh": "一个行为能与写明规则核对的功能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "An extra that fits the time, supplies and roles we have agreed.",
+            "zh": "一个符合约好时间、用品与分工的额外部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "A subtle visual pattern that rewards careful observation of the box.",
+            "zh": "一个细看盒子就能注意到的微妙视觉规律。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_11",
+      "prompt": {
+        "en": "A proposed solution to the fictional mystery leaves one clue unexplained. What would you prefer?",
+        "zh": "虚构谜案的提议解法还解释不了一条线索，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask specifically how the unexplained clue fits before calling the solution complete.",
+            "zh": "宣布解完前，具体问那条未解释线索怎样成立。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree how much more time to give it and who will check the remaining detail.",
+            "zh": "约好再给多少时间、谁核剩余细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look again at the clue’s small details without assuming the first reading was right.",
+            "zh": "不预设初次读法正确，再看线索细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "State plainly which question still needs an answer.",
+            "zh": "平实说出还需回答的是哪个问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_12",
+      "prompt": {
+        "en": "Several people want to help with a simple mystery-game leaflet. What would you most like to clarify?",
+        "zh": "几个人都想帮忙做一张简单谜案游戏传单，你最想先说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "The agreed outcome, responsibilities and deadline.",
+            "zh": "约好的成果、责任与截止时间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "The small details that need to remain consistent across the leaflet.",
+            "zh": "传单各部分需保持一致的小细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "The exact information a visitor needs from us.",
+            "zh": "访客到底需要我们提供什么信息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "How everyone can contribute without feeling pushed aside.",
+            "zh": "大家怎样都能贡献，不觉得被挤到一旁。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_13",
+      "prompt": {
+        "en": "You are comparing two versions of an invented clue sheet. What sounds most satisfying?",
+        "zh": "比较两版自编线索页时，什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Notice the small differences and record them before deciding which matter.",
+            "zh": "注意小差异，先记下，再决定哪些重要。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say directly which difference changes the task for the reader.",
+            "zh": "直接说哪处差异改变了读者任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Discuss the versions in a way that keeps their authors comfortable contributing.",
+            "zh": "讨论时让两版作者都能舒服贡献。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try each version as a playful prop and enjoy discovering how it behaves.",
+            "zh": "把两版都当趣味道具试，享受发现怎样运作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_14",
+      "prompt": {
+        "en": "A friend asks whether their puzzle introduction is clear enough. What would you prefer to offer?",
+        "zh": "朋友问谜题开场说明是否够清楚，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "A plain account of what I understood and the one thing I still need to know.",
+            "zh": "平实说自己理解了什么，还有哪一点需知道。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A friendly response that helps them keep discussing the draft.",
+            "zh": "友好回应，让对方愿意继续聊草稿。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A quick example that brings out the playful part of the introduction.",
+            "zh": "迅速用例子带出开场有趣的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A specific challenge to a claim that the draft has not yet supported.",
+            "zh": "具体质疑草稿里一项尚未支持的主张。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_15",
+      "prompt": {
+        "en": "Two people at the puzzle table have begun talking past each other. What would you most like to do?",
+        "zh": "解谜桌边两个人开始各说各话，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help each person finish a short explanation and feel included.",
+            "zh": "让双方各说完一小段，也感觉被包括在内。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Use a harmless prop to demonstrate the difference in a lighter way.",
+            "zh": "用无害道具轻松演示两种说法差在哪里。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask which assumption they are actually disagreeing about.",
+            "zh": "问真正不同意的是哪一个假设。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Set a short order for comparing the ideas and choosing a next step.",
+            "zh": "约一个短顺序，比较想法再选下一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_16",
+      "prompt": {
+        "en": "A paper mystery includes an amusing gadget that is not necessary for the answer. What appeals most?",
+        "zh": "纸上谜案有个解题并不必需的有趣小机关，你最喜欢怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Enjoy trying the gadget as its own playful extra.",
+            "zh": "把机关当独立趣味额外部分玩一玩。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Keep clear which part is optional and which claim the answer depends on.",
+            "zh": "分清哪部分可选、答案依赖哪项主张。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Give it a bounded amount of time so the main plan still works.",
+            "zh": "给它一段有范围的时间，让主计划仍能进行。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe how the mechanism changes the prop’s small details.",
+            "zh": "观察机关怎样改变道具的小细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_17",
+      "prompt": {
+        "en": "The organiser says the fictional mystery is solved, but a rule has changed without explanation. What would you prefer?",
+        "zh": "组织者说虚构谜案解完了，却有一条规则没解释就变了，你更愿意做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask what changed and whether the new rule is meant to apply to everyone.",
+            "zh": "问改了什么、新规则是否对每个人同样适用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree how to update the group’s plan so we can move on consistently.",
+            "zh": "约好怎样更新共同计划，再一致地继续。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the original and changed wording carefully.",
+            "zh": "仔细比较原文与改后措辞。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say plainly what explanation I need before accepting the ending.",
+            "zh": "平实说接受结尾前，自己需要什么解释。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_18",
+      "prompt": {
+        "en": "A mock-case club has more preparation ideas than time. What would you most enjoy contributing?",
+        "zh": "模拟谜案社团的准备点子比时间多，你最喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Choose a workable scope and clarify who is doing which agreed part.",
+            "zh": "选能做的范围，说清谁负责哪一块约定部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Inspect the essential props for small inconsistencies.",
+            "zh": "检查必需道具里的小小不一致。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the direct question that will settle the next practical choice.",
+            "zh": "直接问一个能确定下一项实际选择的问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Keep the conversation welcoming as the group simplifies the plan.",
+            "zh": "计划缩小时，仍让交谈好加入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_19",
+      "prompt": {
+        "en": "A harmless photo puzzle seems to depend on the arrangement of ordinary objects. What would you prefer?",
+        "zh": "无害照片谜题似乎取决于普通物件的摆放，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Describe the arrangement closely before naming a possible pattern.",
+            "zh": "先仔细描述摆放，再提出可能规律。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask what information the puzzle actually wants us to extract.",
+            "zh": "问谜题到底要我们提取什么信息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Compare observations with a partner so it remains a shared activity.",
+            "zh": "和伙伴比较观察，让它仍是共同活动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Recreate the arrangement with simple props to enjoy testing it.",
+            "zh": "用简单道具重摆，享受试验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_20",
+      "prompt": {
+        "en": "The group’s invented story has a missing detail everybody is avoiding naming. What would you most like to offer?",
+        "zh": "小组自编故事缺一个细节，却没人明说，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "A direct question that makes the missing part discussable.",
+            "zh": "一个直接问题，让缺的部分可以被讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A friendly opening that makes it easier for someone to admit uncertainty.",
+            "zh": "一个友好入口，让人容易承认不确定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A playful example that shows what the missing detail might affect.",
+            "zh": "一个趣味例子，展示缺失细节可能影响什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A clear challenge to the unsupported assumption that is covering the gap.",
+            "zh": "清楚质疑掩住空缺、却未获支持的那个假设。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_21",
+      "prompt": {
+        "en": "Your paper-mystery club is choosing how to give feedback on unfinished drafts. What appeals most?",
+        "zh": "纸上谜案社团在选怎样反馈未完成草稿，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A conversation where each author can explain what they are trying to do.",
+            "zh": "让每位作者都能解释自己想做什么的交谈。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A playful demonstration round that lets people see ideas in action.",
+            "zh": "一轮趣味演示，让点子动起来给人看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A method that asks which claim or rule each comment is testing.",
+            "zh": "一种问清每条意见在检验哪项主张或规则的办法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "A clear sequence, time limit and agreed purpose for the feedback.",
+            "zh": "明确反馈顺序、时间上限与共同目的。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_22",
+      "prompt": {
+        "en": "A simple puzzle prop can be made in a serious or a comic version. What would you most enjoy?",
+        "zh": "简单谜题道具有认真版、喜剧版两种做法，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try the comic mechanism if the group enjoys that sort of play.",
+            "zh": "小组喜欢这种玩法的话，试喜剧小机关。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Check that either version follows the same understood rules.",
+            "zh": "核一下两版是否遵循同一套明白规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Choose the version that fits the agreed resources and running order.",
+            "zh": "选符合约定资源与流程的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the visual details that distinguish the two versions.",
+            "zh": "比较两版不同的视觉细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_23",
+      "prompt": {
+        "en": "Before the group publishes its completely fictional puzzle, what would you most like to check?",
+        "zh": "小组公开完全虚构的谜题前，你最想核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Whether the solution actually follows from the clues and rules we present.",
+            "zh": "解法是否真的来自呈现的线索与规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Whether the agreed checks, roles and release plan are complete.",
+            "zh": "约好的检查、分工与发布安排是否完成。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Whether small labels and details tell one consistent story.",
+            "zh": "小标签与细节是否讲同一个前后一致的故事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Whether readers can tell plainly what they are being asked to do.",
+            "zh": "读者能否平实看懂需要做什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_24",
+      "prompt": {
+        "en": "The mystery-club session is ending with one small task unfinished. What would you prefer?",
+        "zh": "谜案社团活动快结束，还有一项小事未做完，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree on a bounded next step and who is genuinely willing to take it.",
+            "zh": "约一个有范围的下一步，确认谁真愿意接。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look closely at the remaining details so the next person can see what is unfinished.",
+            "zh": "细看剩余部分，让接手的人看清缺什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "State directly what still needs doing and what can wait.",
+            "zh": "直接说还需做什么、哪些可以等。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Close with a friendly recap that recognises everyone’s contribution.",
+            "zh": "友好回顾收尾，让各人的贡献得到看见。"
+          }
+        }
+      ]
+    }
+  ]
+}

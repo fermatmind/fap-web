@@ -2316,5 +2316,32 @@
       "word-endings"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "dexter",
+    "code": "DEXTER_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Dexter Test",
+      "zh": "《嗜血法医》角色测试"
+    },
+    "description": {
+      "en": "Try 24 original, harmless paper-mystery and club situations. Compare Dexter, Debra, Angel, Masuka, Doakes and LaGuerta with all highest ties and six complete bilingual guides free. Unofficial TV fan quiz, without clinical or crime inference.",
+      "zh": "完成24道原创、无害的纸上谜案与社团情境题，比较德克斯特、黛布拉、安吉尔、马苏卡、多克斯和拉圭尔塔。最高并列及六份完整双语说明免费，无需注册。非官方Dexter同人版，不推断临床或犯罪。"
+    },
+    "minutes": 7,
+    "formCode": "fermatmind_dexter_original_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "dexter-morgan",
+      "debra-morgan",
+      "angel-batista",
+      "vince-masuka",
+      "james-doakes",
+      "maria-laguerta"
+    ],
+    "collection": "explore"
   }
 ]

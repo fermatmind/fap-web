@@ -1,0 +1,1966 @@
+{
+  "slug": "dexter",
+  "code": "DEXTER_FAN",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "fantasy",
+  "kind": "archetype",
+  "title": {
+    "en": "Dexter Test",
+    "zh": "《嗜血法医》角色测试"
+  },
+  "description": {
+    "en": "Try 24 original, harmless paper-mystery and club situations. Compare Dexter, Debra, Angel, Masuka, Doakes and LaGuerta with all highest ties and six complete bilingual guides free. Unofficial TV fan quiz, without clinical or crime inference.",
+    "zh": "完成24道原创、无害的纸上谜案与社团情境题，比较德克斯特、黛布拉、安吉尔、马苏卡、多克斯和拉圭尔塔。最高并列及六份完整双语说明免费，无需注册。非官方Dexter同人版，不推断临床或犯罪。"
+  },
+  "seoTitle": {
+    "en": "Dexter Test: Free TV Character Quiz & All 6 Results",
+    "zh": "《嗜血法医》角色测试：免费作答与6种完整结果"
+  },
+  "resultHeading": {
+    "en": "Your Dexter character readings",
+    "zh": "本次《嗜血法医》角色读法"
+  },
+  "minutes": 7,
+  "introduction": {
+    "en": "Which Dexter character do your harmless hobby choices bring to mind? This independent fan edition uses six limited angles on a completely fictional paper-mystery club: observing details, asking plainly, keeping people included, playful mechanisms, checking a claim and coordinating the plan. Twenty-four original situations involve no violence, real evidence or episode trivia. All six complete public guides are available before you start. The comparison is not a clinical, moral, criminality or forensic-ability assessment, and it does not assign or excuse harmful fictional actions.",
+    "zh": "无害的兴趣选择让你想到《嗜血法医》的哪位人物？本独立同人版在完全虚构的纸上谜案社团里取六个有限角度：看细节、平实提问、让人参与、趣味机关、核主张和协调计划。24道原创情境不设暴力、真实证据，也不考剧情。开测前可读六份全文。比较不评临床、道德、犯罪或法医能力，既不把虚构伤害赋给你，也不为它免责。"
+  },
+  "instructions": {
+    "en": "Think about a voluntary paper-puzzle or club activity you would enjoy now. Choose one of four responses for each of 24 situations, even if none is a perfect fit. No answer is correct, morally better or more professionally skilled. A character absent from an item is not rejected. Finish every choice before counts appear; all highest ties receive complete guides.",
+    "zh": "想象现在愿参加的自愿纸上谜题或社团活动，24个情境，每题四选一，即使都不完全合适。没有正确、道德更高或专业更强的答案。当题没出现的人物不算被拒绝。全部选择完成才显示计数，所有最高并列都有完整说明。"
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Paramount Global Content: original Dexter cast and series scope",
+        "zh": "Paramount官方发行目录：Dexter原剧名单与范围"
+      },
+      "url": "https://paramountglobalcontent.com/title/dexter"
+    },
+    {
+      "title": {
+        "en": "Paramount+: Debra Morgan character biography",
+        "zh": "Paramount+：黛布拉·摩根基本人物简介"
+      },
+      "url": "https://www.paramountplus.com/shows/dexter/cast/216683/"
+    }
+  ],
+  "source": {
+    "kind": "original_unofficial_fan_quiz",
+    "formCode": "fermatmind_dexter_original_24_v1",
+    "itemBankVersion": "dexter_original_24_v1",
+    "scoringVersion": "dexter_all_highest_counts_v1",
+    "resultContentVersion": "dexter_full_guides_v1",
+    "itemBankSha256": "b344df655a45074bfad81ca9112c543987420899315c9905bd3899c2bd3d5405",
+    "resultContentSha256": "b0543c2e68489e264327c2405078243a74f023d30ee00f81787e69b5150d0bfa",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "dexter-morgan",
+      "title": {
+        "en": "Dexter Morgan",
+        "zh": "德克斯特·摩根（Dexter）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "debra-morgan",
+      "title": {
+        "en": "Debra Morgan",
+        "zh": "黛布拉·摩根（Debra）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "angel-batista",
+      "title": {
+        "en": "Angel Batista",
+        "zh": "安吉尔·巴蒂斯塔（Angel）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "vince-masuka",
+      "title": {
+        "en": "Vince Masuka",
+        "zh": "文斯·马苏卡（Masuka）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "james-doakes",
+      "title": {
+        "en": "James Doakes",
+        "zh": "詹姆斯·多克斯（Doakes）"
+      },
+      "comparisons": 16
+    },
+    {
+      "id": "maria-laguerta",
+      "title": {
+        "en": "Maria LaGuerta",
+        "zh": "玛丽亚·拉圭尔塔（LaGuerta）"
+      },
+      "comparisons": 16
+    }
+  ],
+  "questions": [
+    {
+      "id": "DEX_01",
+      "prompt": {
+        "en": "A club’s harmless paper mystery begins with an envelope of invented props. What would you most enjoy first?",
+        "zh": "社团的无害纸上谜案从一封虚构道具信封开始，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look closely at how the small details are arranged before suggesting a pattern.",
+            "zh": "先细看小细节怎样摆放，再提出可能的规律。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask plainly what the group needs to decide in this round.",
+            "zh": "直接问这一轮小组需要决定什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Make sure everyone has a comfortable way to join the first discussion.",
+            "zh": "让每个人都能舒服地加入第一次讨论。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try the little prop mechanism and see what makes it amusing.",
+            "zh": "试试小道具机关，看看哪里有趣。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_02",
+      "prompt": {
+        "en": "The rules for a fictional clue game sound vague. Which contribution appeals most?",
+        "zh": "虚构线索游戏的规则听起来含糊，你最喜欢作什么贡献？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask a direct question about the part we are supposed to do next.",
+            "zh": "直接问清接下来到底要做哪部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help the group discuss it without making uncertainty feel embarrassing.",
+            "zh": "帮大家轻松讨论，不让不清楚变成尴尬。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Test a playful example so the unclear part is easier to picture.",
+            "zh": "试一个有趣例子，让含糊部分更好想象。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Point out the specific inconsistency that prevents the rule from working.",
+            "zh": "指出让规则行不通的那处具体不一致。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_03",
+      "prompt": {
+        "en": "A newcomer joins a puzzle table after the first clue has been opened. What would you prefer?",
+        "zh": "第一个线索拆开后，新人来到解谜桌，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Give a friendly, short recap so they can join without feeling left behind.",
+            "zh": "友好地简短回顾，让对方容易加入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Show the most entertaining little mechanism in the props.",
+            "zh": "展示道具里最有趣的小机关。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Check that the recap does not skip a contradiction we still need to discuss.",
+            "zh": "看看回顾有没有漏掉还需讨论的矛盾。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Clarify the remaining roles so the new person can choose where to contribute.",
+            "zh": "说清剩余分工，让新人选择怎样贡献。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_04",
+      "prompt": {
+        "en": "A toy lock in a paper mystery has an unexpected extra feature. What would you most enjoy?",
+        "zh": "纸上谜案里的玩具锁多了一个意外功能，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Experiment with the feature as a playful part of the game.",
+            "zh": "把功能当成游戏趣味的一部分试一试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask whether the extra feature fits the instructions we were given.",
+            "zh": "问额外功能和给的说明是否一致。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Decide how the group can use its time without getting stuck on the extra.",
+            "zh": "安排怎样用时间，免得被额外部分卡住。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe the small changes the feature makes before drawing a conclusion.",
+            "zh": "先观察功能带来哪些小变化，再下结论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_05",
+      "prompt": {
+        "en": "Two clue cards in an invented story cannot both be correct as written. What would you prefer?",
+        "zh": "自编故事里的两张线索卡，按文字看不可能同时正确，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Name the contradiction clearly and ask which detail needs checking.",
+            "zh": "说清矛盾，问需核哪一处细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree on a short plan for resolving it and continuing the round.",
+            "zh": "约一个短计划，解决后继续这一轮。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the wording and layout closely to see what differs.",
+            "zh": "细比措辞和版式，看看差在哪里。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the organiser directly what the cards are intended to establish.",
+            "zh": "直接问组织者，这两张卡原本要确立什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_06",
+      "prompt": {
+        "en": "Your group is preparing a completely fictional mystery-club afternoon. Which part appeals most?",
+        "zh": "小组在准备完全虚构的谜案社团下午活动，你最喜欢哪部分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Clarify the scope, roles and point at which the preparation is finished.",
+            "zh": "说清范围、分工，以及准备到哪里算完成。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Check the small arrangement of props for a coherent pattern.",
+            "zh": "检查道具小细节是否形成一致规律。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say directly what information the plan still needs.",
+            "zh": "直接说计划还缺什么信息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Make sure the people helping still feel included in the process.",
+            "zh": "让一起帮忙的人仍有被包括在过程里的感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_07",
+      "prompt": {
+        "en": "An illustration in the game contains several tiny repeated marks. What would you most like to do?",
+        "zh": "游戏插图里有几处微小重复印记，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe the repetition carefully and describe it before interpreting it.",
+            "zh": "仔细观察重复，先描述，再解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask what question noticing the marks is meant to help answer.",
+            "zh": "问注意这些印记，是为了回答哪个问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Compare observations with others in a way that keeps the discussion easy to join.",
+            "zh": "和别人比较发现，让讨论仍好加入。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try a playful way to reproduce the marks and see what happens.",
+            "zh": "用趣味办法重现印记，看看会怎样。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_08",
+      "prompt": {
+        "en": "The next step in a paper puzzle is unclear, but the group keeps circling around it. What would you prefer?",
+        "zh": "纸上谜题下一步不清楚，小组却一直绕着聊，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the unanswered question in a plain sentence.",
+            "zh": "用一句平实的话把没回答的问题问出来。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help someone finish explaining what they are finding confusing.",
+            "zh": "帮一个人把困惑完整说完。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Make a quick, amusing example of what the step might mean.",
+            "zh": "迅速做个有趣例子，展示步骤可能是什么意思。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Challenge the assumption that is making the discussion go in circles.",
+            "zh": "质疑让讨论打转的那个假设。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_09",
+      "prompt": {
+        "en": "A friend’s idea for a fictional puzzle has been misunderstood. What contribution attracts you?",
+        "zh": "朋友给虚构谜题提的点子被误解了，什么贡献更吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help them feel heard while the group works out what they meant.",
+            "zh": "小组弄清原意时，让对方感到自己被听到了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Demonstrate the fun part of the idea with a harmless prop.",
+            "zh": "用无害小道具演示点子里有趣的部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Separate the actual idea from the assumption people are arguing against.",
+            "zh": "区分真正点子与大家正在反对的假设。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Set out a short discussion plan so the idea gets a fair amount of time.",
+            "zh": "安排短讨论流程，让点子有合适时间被讨论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_10",
+      "prompt": {
+        "en": "The group can add one optional trick to a puzzle box. What would you most enjoy?",
+        "zh": "小组可以给谜题盒加一个可选小机关，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "An entertaining mechanism people can discover and laugh about together.",
+            "zh": "一个大家能一起发现、觉得有趣的机关。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A feature whose behaviour can be checked against the stated rule.",
+            "zh": "一个行为能与写明规则核对的功能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "An extra that fits the time, supplies and roles we have agreed.",
+            "zh": "一个符合约好时间、用品与分工的额外部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "A subtle visual pattern that rewards careful observation of the box.",
+            "zh": "一个细看盒子就能注意到的微妙视觉规律。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_11",
+      "prompt": {
+        "en": "A proposed solution to the fictional mystery leaves one clue unexplained. What would you prefer?",
+        "zh": "虚构谜案的提议解法还解释不了一条线索，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask specifically how the unexplained clue fits before calling the solution complete.",
+            "zh": "宣布解完前，具体问那条未解释线索怎样成立。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree how much more time to give it and who will check the remaining detail.",
+            "zh": "约好再给多少时间、谁核剩余细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look again at the clue’s small details without assuming the first reading was right.",
+            "zh": "不预设初次读法正确，再看线索细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "State plainly which question still needs an answer.",
+            "zh": "平实说出还需回答的是哪个问题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_12",
+      "prompt": {
+        "en": "Several people want to help with a simple mystery-game leaflet. What would you most like to clarify?",
+        "zh": "几个人都想帮忙做一张简单谜案游戏传单，你最想先说清什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "The agreed outcome, responsibilities and deadline.",
+            "zh": "约好的成果、责任与截止时间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "The small details that need to remain consistent across the leaflet.",
+            "zh": "传单各部分需保持一致的小细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "The exact information a visitor needs from us.",
+            "zh": "访客到底需要我们提供什么信息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "How everyone can contribute without feeling pushed aside.",
+            "zh": "大家怎样都能贡献，不觉得被挤到一旁。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_13",
+      "prompt": {
+        "en": "You are comparing two versions of an invented clue sheet. What sounds most satisfying?",
+        "zh": "比较两版自编线索页时，什么最让你满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Notice the small differences and record them before deciding which matter.",
+            "zh": "注意小差异，先记下，再决定哪些重要。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say directly which difference changes the task for the reader.",
+            "zh": "直接说哪处差异改变了读者任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Discuss the versions in a way that keeps their authors comfortable contributing.",
+            "zh": "讨论时让两版作者都能舒服贡献。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try each version as a playful prop and enjoy discovering how it behaves.",
+            "zh": "把两版都当趣味道具试，享受发现怎样运作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_14",
+      "prompt": {
+        "en": "A friend asks whether their puzzle introduction is clear enough. What would you prefer to offer?",
+        "zh": "朋友问谜题开场说明是否够清楚，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "A plain account of what I understood and the one thing I still need to know.",
+            "zh": "平实说自己理解了什么，还有哪一点需知道。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A friendly response that helps them keep discussing the draft.",
+            "zh": "友好回应，让对方愿意继续聊草稿。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A quick example that brings out the playful part of the introduction.",
+            "zh": "迅速用例子带出开场有趣的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A specific challenge to a claim that the draft has not yet supported.",
+            "zh": "具体质疑草稿里一项尚未支持的主张。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_15",
+      "prompt": {
+        "en": "Two people at the puzzle table have begun talking past each other. What would you most like to do?",
+        "zh": "解谜桌边两个人开始各说各话，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Help each person finish a short explanation and feel included.",
+            "zh": "让双方各说完一小段，也感觉被包括在内。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Use a harmless prop to demonstrate the difference in a lighter way.",
+            "zh": "用无害道具轻松演示两种说法差在哪里。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask which assumption they are actually disagreeing about.",
+            "zh": "问真正不同意的是哪一个假设。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Set a short order for comparing the ideas and choosing a next step.",
+            "zh": "约一个短顺序，比较想法再选下一步。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_16",
+      "prompt": {
+        "en": "A paper mystery includes an amusing gadget that is not necessary for the answer. What appeals most?",
+        "zh": "纸上谜案有个解题并不必需的有趣小机关，你最喜欢怎样处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Enjoy trying the gadget as its own playful extra.",
+            "zh": "把机关当独立趣味额外部分玩一玩。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Keep clear which part is optional and which claim the answer depends on.",
+            "zh": "分清哪部分可选、答案依赖哪项主张。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Give it a bounded amount of time so the main plan still works.",
+            "zh": "给它一段有范围的时间，让主计划仍能进行。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Observe how the mechanism changes the prop’s small details.",
+            "zh": "观察机关怎样改变道具的小细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_17",
+      "prompt": {
+        "en": "The organiser says the fictional mystery is solved, but a rule has changed without explanation. What would you prefer?",
+        "zh": "组织者说虚构谜案解完了，却有一条规则没解释就变了，你更愿意做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Ask what changed and whether the new rule is meant to apply to everyone.",
+            "zh": "问改了什么、新规则是否对每个人同样适用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree how to update the group’s plan so we can move on consistently.",
+            "zh": "约好怎样更新共同计划，再一致地继续。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the original and changed wording carefully.",
+            "zh": "仔细比较原文与改后措辞。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Say plainly what explanation I need before accepting the ending.",
+            "zh": "平实说接受结尾前，自己需要什么解释。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_18",
+      "prompt": {
+        "en": "A mock-case club has more preparation ideas than time. What would you most enjoy contributing?",
+        "zh": "模拟谜案社团的准备点子比时间多，你最喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Choose a workable scope and clarify who is doing which agreed part.",
+            "zh": "选能做的范围，说清谁负责哪一块约定部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Inspect the essential props for small inconsistencies.",
+            "zh": "检查必需道具里的小小不一致。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask the direct question that will settle the next practical choice.",
+            "zh": "直接问一个能确定下一项实际选择的问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Keep the conversation welcoming as the group simplifies the plan.",
+            "zh": "计划缩小时，仍让交谈好加入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_19",
+      "prompt": {
+        "en": "A harmless photo puzzle seems to depend on the arrangement of ordinary objects. What would you prefer?",
+        "zh": "无害照片谜题似乎取决于普通物件的摆放，你更愿意怎么做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Describe the arrangement closely before naming a possible pattern.",
+            "zh": "先仔细描述摆放，再提出可能规律。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Ask what information the puzzle actually wants us to extract.",
+            "zh": "问谜题到底要我们提取什么信息。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Compare observations with a partner so it remains a shared activity.",
+            "zh": "和伙伴比较观察，让它仍是共同活动。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Recreate the arrangement with simple props to enjoy testing it.",
+            "zh": "用简单道具重摆，享受试验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_20",
+      "prompt": {
+        "en": "The group’s invented story has a missing detail everybody is avoiding naming. What would you most like to offer?",
+        "zh": "小组自编故事缺一个细节，却没人明说，你最想提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "A direct question that makes the missing part discussable.",
+            "zh": "一个直接问题，让缺的部分可以被讨论。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A friendly opening that makes it easier for someone to admit uncertainty.",
+            "zh": "一个友好入口，让人容易承认不确定。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A playful example that shows what the missing detail might affect.",
+            "zh": "一个趣味例子，展示缺失细节可能影响什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A clear challenge to the unsupported assumption that is covering the gap.",
+            "zh": "清楚质疑掩住空缺、却未获支持的那个假设。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_21",
+      "prompt": {
+        "en": "Your paper-mystery club is choosing how to give feedback on unfinished drafts. What appeals most?",
+        "zh": "纸上谜案社团在选怎样反馈未完成草稿，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "A conversation where each author can explain what they are trying to do.",
+            "zh": "让每位作者都能解释自己想做什么的交谈。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "A playful demonstration round that lets people see ideas in action.",
+            "zh": "一轮趣味演示，让点子动起来给人看。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "A method that asks which claim or rule each comment is testing.",
+            "zh": "一种问清每条意见在检验哪项主张或规则的办法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "A clear sequence, time limit and agreed purpose for the feedback.",
+            "zh": "明确反馈顺序、时间上限与共同目的。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_22",
+      "prompt": {
+        "en": "A simple puzzle prop can be made in a serious or a comic version. What would you most enjoy?",
+        "zh": "简单谜题道具有认真版、喜剧版两种做法，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vince-masuka",
+          "label": {
+            "en": "Try the comic mechanism if the group enjoys that sort of play.",
+            "zh": "小组喜欢这种玩法的话，试喜剧小机关。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Check that either version follows the same understood rules.",
+            "zh": "核一下两版是否遵循同一套明白规则。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Choose the version that fits the agreed resources and running order.",
+            "zh": "选符合约定资源与流程的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Compare the visual details that distinguish the two versions.",
+            "zh": "比较两版不同的视觉细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_23",
+      "prompt": {
+        "en": "Before the group publishes its completely fictional puzzle, what would you most like to check?",
+        "zh": "小组公开完全虚构的谜题前，你最想核对什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "james-doakes",
+          "label": {
+            "en": "Whether the solution actually follows from the clues and rules we present.",
+            "zh": "解法是否真的来自呈现的线索与规则。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Whether the agreed checks, roles and release plan are complete.",
+            "zh": "约好的检查、分工与发布安排是否完成。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Whether small labels and details tell one consistent story.",
+            "zh": "小标签与细节是否讲同一个前后一致的故事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "Whether readers can tell plainly what they are being asked to do.",
+            "zh": "读者能否平实看懂需要做什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DEX_24",
+      "prompt": {
+        "en": "The mystery-club session is ending with one small task unfinished. What would you prefer?",
+        "zh": "谜案社团活动快结束，还有一项小事未做完，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "maria-laguerta",
+          "label": {
+            "en": "Agree on a bounded next step and who is genuinely willing to take it.",
+            "zh": "约一个有范围的下一步，确认谁真愿意接。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "dexter-morgan",
+          "label": {
+            "en": "Look closely at the remaining details so the next person can see what is unfinished.",
+            "zh": "细看剩余部分，让接手的人看清缺什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "debra-morgan",
+          "label": {
+            "en": "State directly what still needs doing and what can wait.",
+            "zh": "直接说还需做什么、哪些可以等。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-batista",
+          "label": {
+            "en": "Close with a friendly recap that recognises everyone’s contribution.",
+            "zh": "友好回顾收尾，让各人的贡献得到看见。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "dexter-morgan",
+      "directionIds": [
+        "dexter-morgan"
+      ],
+      "title": {
+        "en": "Dexter Morgan",
+        "zh": "德克斯特·摩根（Dexter）"
+      },
+      "headline": {
+        "en": "Describe the detail before the theory",
+        "zh": "先描述细节，再提想法"
+      },
+      "summary": {
+        "en": "Read Dexter Morgan through describe the detail before the theory: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“先描述细节，再提想法”阅读德克斯特·摩根（Dexter）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "Dexter Morgan Test Result: Describe the detail before the theory | Dexter",
+          "zh": "德克斯特·摩根（Dexter）测试结果：先描述细节，再提想法｜嗜血法医"
+        },
+        "description": {
+          "en": "Read Dexter Morgan through describe the detail before the theory: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“先描述细节，再提想法”阅读德克斯特·摩根（Dexter）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Dexter’s deliberately limited angle",
+            "zh": "刻意收窄的德克斯特角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter Morgan is the title character of the original crime series, which depicts serious violence. This edition does not turn those actions into virtues or traits assigned to you. It independently selects only careful observation of harmless, invented props. The match does not suggest emotional detachment, hidden urges, a diagnosis or a capacity for crime. Read it as a small editorial comparison, not a complete character portrait.",
+              "zh": "德克斯特·摩根是原犯罪剧同名主角，剧集呈现严重暴力。本版不把这些行为变成美德或赋给你的特质，只独立选观察无害虚构道具这个小角度。匹配不暗示情感疏离、隐藏冲动、诊断或犯罪能力；把它当小范围编辑比较，不当完整人物画像。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "An envelope of invented props",
+            "zh": "一封虚构道具信封"
+          },
+          "paragraphs": [
+            {
+              "en": "A club opens an envelope containing a drawing, a label and a toy token for a completely fictional puzzle. You first describe how the small details are arranged, without deciding that the arrangement must reveal a particular answer. The observations give the group something concrete to compare. There is no real evidence, victim or suspect here, and noticing a pattern does not establish that your interpretation is correct.",
+              "zh": "社团拆一封完全虚构的谜题信封，里面有画、标签和玩具标记。你先描述小细节怎样摆，不预先决定必然指向哪个答案。观察给小组具体比较对象。这里没有真实证据、受害者或嫌疑人；看见规律也不确立解释正确。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Observation beside five other contributions",
+            "zh": "观察与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Debra asks a plain question, Angel keeps people included and Masuka explores the playful mechanism. Doakes questions an inconsistency while LaGuerta clarifies the scope and roles. Dexter’s selected angle describes the detail before interpreting it. These contributions can coexist in the same paper game without ranking intelligence, competence or morality, and a tied reading does not reveal a hidden personality or a darker self.",
+              "zh": "黛布拉问平实问题，安吉尔让人有参与感，马苏卡探索趣味机关；多克斯质疑不一致，拉圭尔塔约范围分工。德克斯特角度在解释前描述细节。可共存于纸上游戏，不评智力、能力或道德，并列也不揭示隐藏人格或黑暗自我。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A pattern is a starting point",
+            "zh": "规律只是起点"
+          },
+          "paragraphs": [
+            {
+              "en": "Similar details can have several explanations, especially in a handmade game with imperfect props. Ask what would support or contradict the first reading, and allow the organiser to correct an accidental inconsistency. A high count here does not establish obsessive attention, suspiciousness or forensic talent. It also gives no reason to scrutinise real people, collect private information or treat ordinary behaviour as evidence of wrongdoing.",
+              "zh": "相似细节可有几种解释，手作道具也可能不完美。问什么支持、什么反对初读，并让组织者纠正无意的不一致。高计数不确立强迫关注、多疑或法医天分，也不构成审视真人、收集隐私或把普通行为当作过错证据的理由。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try two columns for one fictional prop",
+            "zh": "给一个虚构道具列两栏"
+          },
+          "paragraphs": [
+            {
+              "en": "For a paper puzzle, make two short columns: what you can directly describe and what you think it might mean. Invite a willing partner to add another possible interpretation. Afterwards, notice whether separating the columns helped the game discussion. This is feedback on a harmless hobby method, not a test of investigative skill, emotional capacity or the ability to read another person.",
+              "zh": "纸上谜题里列两小栏：直接能描述什么、觉得可能意味着什么。请愿意的伙伴添另一个解释，再看分栏是否帮助讨论。这是无害爱好方法的反馈，不测调查技能、情感能力或看透他人的本领。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "debra-morgan",
+      "directionIds": [
+        "debra-morgan"
+      ],
+      "title": {
+        "en": "Debra Morgan",
+        "zh": "黛布拉·摩根（Debra）"
+      },
+      "headline": {
+        "en": "Ask the plain question that is missing",
+        "zh": "问出缺的那个平实问题"
+      },
+      "summary": {
+        "en": "Read Debra Morgan through ask the plain question that is missing: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“问出缺的那个平实问题”阅读黛布拉·摩根（Debra）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "Debra Morgan Test Result: Ask the plain question that is missing | Dexter",
+          "zh": "黛布拉·摩根（Debra）测试结果：问出缺的那个平实问题｜嗜血法医"
+        },
+        "description": {
+          "en": "Read Debra Morgan through ask the plain question that is missing: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“问出缺的那个平实问题”阅读黛布拉·摩根（Debra）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Debra’s limited angle",
+            "zh": "黛布拉的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Debra Morgan appears in the original cast, and the official character biography identifies her as a police officer and Dexter’s sister. This edition selects a separate, ordinary angle of asking a direct question when the next step is unclear. It does not infer anger, toughness, trauma, gender expectations or the quality of your relationships. A plain question in a hobby group is not a test of professional interviewing ability.",
+              "zh": "原剧名单包括黛布拉·摩根，官方人物简介确认她是警员、德克斯特的妹妹。本版另选普通角度：下一步不清楚时直接提问。不推断愤怒、强硬、创伤、性别期待或关系质量；兴趣小组的平实问题也不测专业访谈能力。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The step everyone keeps circling",
+            "zh": "大家绕着聊的那一步"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional clue game has stalled because people are discussing possible answers before agreeing what the next instruction asks. You put the missing question into one sentence. That can make uncertainty discussable without blaming anyone for not understanding. You may still need to listen to a longer explanation; asking directly does not guarantee that every answer will be short or immediately satisfying.",
+              "zh": "虚构线索游戏卡住了，大家没约清下一条说明要做什么，就开始聊答案。你用一句话问缺的部分，让不确定可讨论，不责怪谁没理解。仍可能要听较长解释；直接问不保证答案都短或立刻满意。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A plain voice beside five other contributions",
+            "zh": "平实声音与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter observes details, Angel supports an inclusive exchange and Masuka tests a playful example. Doakes challenges an unsupported assumption, while LaGuerta gives the discussion a workable structure. Debra’s selected angle states the question plainly. Each contribution may help at a different moment, without ranking honesty, confidence or effectiveness. A close result can be useful without becoming a hidden second character.",
+              "zh": "德克斯特观察细节，安吉尔让交流有参与感，马苏卡试趣味例子；多克斯质疑无支持假设，拉圭尔塔给讨论可行结构。黛布拉角度平实说出问题。不同阶段都可有用，不评诚实、自信或效果，近分也不变成隐藏第二人物。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Directness still leaves room for an answer",
+            "zh": "直接也给回答留空间"
+          },
+          "paragraphs": [
+            {
+              "en": "A question is easier to answer when it describes the actual gap rather than implying that someone has failed. Ask what is needed, then allow a response or a request for time. You can also choose a quieter format. A high count does not prove bluntness, emotional volatility or assertiveness, and a lower count does not mean you are dishonest or unable to speak for yourself.",
+              "zh": "描述实际空缺的问题，比暗示谁失败的问题更容易回答。问需要什么，再留回应或多想一会的空间，也可用安静形式。高计数不证明生硬、情绪不稳或果断，低计数不表示不诚实或不能为自己表达。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one concrete question",
+            "zh": "试一个具体问题"
+          },
+          "paragraphs": [
+            {
+              "en": "In one optional club task, name the exact information you need before continuing. Ask for that information in a plain sentence and listen before adding another question. Afterwards, compare what became clearer with what still needs discussion. The exercise concerns a local exchange, not your courage, communication competence or a duty to confront people more often.",
+              "zh": "一次可选社团任务，指出继续前确实需要的信息，用平实句子问，再先听后补问。之后比较哪些清楚了、哪些仍需讨论。这关乎具体交流，不测勇气或沟通能力，也不要求更常与人对峙。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angel-batista",
+      "directionIds": [
+        "angel-batista"
+      ],
+      "title": {
+        "en": "Angel Batista",
+        "zh": "安吉尔·巴蒂斯塔（Angel）"
+      },
+      "headline": {
+        "en": "Keep people included in the exchange",
+        "zh": "让人仍在交流里面"
+      },
+      "summary": {
+        "en": "Read Angel Batista through keep people included in the exchange: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“让人仍在交流里面”阅读安吉尔·巴蒂斯塔（Angel）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "Angel Batista Test Result: Keep people included in the exchange | Dexter",
+          "zh": "安吉尔·巴蒂斯塔（Angel）测试结果：让人仍在交流里面｜嗜血法医"
+        },
+        "description": {
+          "en": "Read Angel Batista through keep people included in the exchange: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“让人仍在交流里面”阅读安吉尔·巴蒂斯塔（Angel）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Angel’s limited angle",
+            "zh": "安吉尔的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Angel Batista is part of the original-series ensemble named in the official distribution cast list. This edition independently selects a friendly, inclusive contribution to an optional group activity. It is not an assessment of empathy, optimism, loyalty or moral goodness, and it does not summarise all his fictional decisions. You can recognise this angle without becoming responsible for every person’s feelings or for keeping a group together.",
+              "zh": "官方发行名单中的安吉尔·巴蒂斯塔是原剧群像一员。本版独立选可选集体活动里友好、让人参与的贡献，不评共情、乐观、忠诚或道德善良，也不概括全部虚构决定。可以认出这个角度，不必负责每个人感受或维持整个群体。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "The newcomer at the puzzle table",
+            "zh": "解谜桌边的新成员"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone arrives after a paper-mystery group has opened the first clue. You give a short recap and make room for them to ask a question or simply watch. The welcome is useful when it fits what they want, rather than requiring an enthusiastic response. You can help the person join without restarting everything or taking over their choices about how much to participate.",
+              "zh": "纸上谜案小组拆过第一条线索后，有人刚到。你简短回顾，留提问或只看的空间。欢迎好用在于合对方意愿，不要求热情回应。可以帮加入，不必全部重来，也不接管对方参与多少的决定。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Inclusion beside five other contributions",
+            "zh": "参与感与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter describes details, Debra asks what needs answering and Masuka demonstrates the playful part. Doakes identifies a contradiction and LaGuerta clarifies roles and time. Angel’s selected angle helps people remain part of the conversation. These can support the same session without ranking kindness, popularity or social skill. Several close guides do not establish a hidden identity or a permanent support role.",
+              "zh": "德克斯特描述细节，黛布拉问要回答什么，马苏卡演示趣味部分；多克斯指出矛盾，拉圭尔塔约分工时间。安吉尔角度让人仍在交谈中。可支持同一活动，不评善良、人气或社交技能，近分也不确立隐藏身份或永久辅助角色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An invitation can be declined",
+            "zh": "邀请也可以被拒绝"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may prefer to observe, speak later or leave the activity. Make those options easy rather than treating participation as proof that your welcome worked. You can also set a limit on your own availability. A high count cannot establish selflessness, conflict avoidance or emotional warmth, and a lower count does not prove indifference or a lack of care.",
+              "zh": "有人想观察、稍后说或离开。让这些选择容易，不把参与当成欢迎成功的证明。自己也可限制能投入多少。高计数不确立无私、回避冲突或温暖，低计数不证明冷漠或不关心。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a short recap with an open choice",
+            "zh": "试一段留选择的短回顾"
+          },
+          "paragraphs": [
+            {
+              "en": "For one willing newcomer, explain what the group has done and offer a clear choice to join, watch or skip. Ask later which information was useful. Notice whether the invitation was usable rather than how much attention you gave. This is feedback about one arrangement, not a test of empathy, friendship quality or suitability for a caring profession.",
+              "zh": "对愿意听的新人，说明小组已做什么，明确可加入、可看、可跳过。之后问哪些信息有用，留意邀请是否好用，不只看给了多少关注。这是具体安排反馈，不测共情、友情质量或照顾类职业适配。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vince-masuka",
+      "directionIds": [
+        "vince-masuka"
+      ],
+      "title": {
+        "en": "Vince Masuka",
+        "zh": "文斯·马苏卡（Masuka）"
+      },
+      "headline": {
+        "en": "Explore the playful mechanism",
+        "zh": "探索小机关的趣味"
+      },
+      "summary": {
+        "en": "Read Vince Masuka through explore the playful mechanism: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“探索小机关的趣味”阅读文斯·马苏卡（Masuka）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "Vince Masuka Test Result: Explore the playful mechanism | Dexter",
+          "zh": "文斯·马苏卡（Masuka）测试结果：探索小机关的趣味｜嗜血法医"
+        },
+        "description": {
+          "en": "Read Vince Masuka through explore the playful mechanism: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“探索小机关的趣味”阅读文斯·马苏卡（Masuka）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Masuka’s limited angle",
+            "zh": "马苏卡的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Vince Masuka appears in the original-series cast list. This edition independently selects playful curiosity about a harmless mechanism or example, rather than claiming an official personality profile. It does not measure intelligence, humour, laboratory ability or professional judgement. Playfulness here means an optional part of a hobby game that others can enjoy or decline; it does not excuse unwanted jokes or any harmful fictional conduct.",
+              "zh": "原剧人物名单包括文斯·马苏卡。本版独立选对无害小机关、例子的趣味好奇，不宣称是官方人格档案。不测智力、幽默、实验室能力或专业判断。这里的趣味是别人能享受、也能拒绝的爱好玩法，不为不受欢迎玩笑或虚构伤害行为免责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "A toy lock with an extra feature",
+            "zh": "玩具锁多出来的小功能"
+          },
+          "paragraphs": [
+            {
+              "en": "A paper puzzle contains a toy lock with an unexpected feature that is not necessary to solve the story. You enjoy trying it and seeing what makes it amusing. The extra can be worthwhile as play without becoming a claim about the answer. If the group prefers to move on, you can keep the experiment brief or return to it on your own later.",
+              "zh": "纸上谜题的玩具锁多了意外功能，却不影响解故事。你喜欢试一试，看看有趣在哪里。额外部分可作为游戏有价值，不变成答案主张。大家想继续时，可短试一下，或以后自己回来玩。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Play beside five other contributions",
+            "zh": "趣味与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter notices the detail and Debra asks a plain question. Angel keeps people included, Doakes checks the unsupported claim and LaGuerta defines a workable scope. Masuka’s selected angle makes room for an entertaining experiment. Each contribution may help a different part of the session, without ranking creativity, seriousness or skill. A tie preserves the full readings rather than selecting a better kind of person.",
+              "zh": "德克斯特注意细节，黛布拉问平实问题；安吉尔让人参与，多克斯核无支持主张，拉圭尔塔定可做范围。马苏卡角度给有趣试验留位置。可各有用途，不评创意、认真或技能，并列保留全文，不据此评定人的优劣。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "Check whether the play is welcome",
+            "zh": "看看趣味是否受欢迎"
+          },
+          "paragraphs": [
+            {
+              "en": "An entertaining extra can distract from a task someone else wants to finish. Ask whether people would like to try it and keep the choice genuinely optional. You can enjoy curiosity without demanding an audience. A high count cannot establish impulsivity, social confidence or technical expertise, and a lower count does not mean you lack a sense of humour or interest in how things work.",
+              "zh": "有趣额外部分可能打断别人想完成的任务。问愿不愿试，让可选真的可选；可享受好奇，不要求观众。高计数不确立冲动、社交自信或技术专长，低计数不表示没幽默或不关心东西怎样运作。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try an optional two-minute demonstration",
+            "zh": "试一个可选的两分钟演示"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one harmless toy or paper mechanism and offer a brief demonstration to a willing partner. Separate what is fun to explore from what the puzzle actually requires. Afterwards, ask what was enjoyable or distracting. The exercise is feedback on one optional example, not a test of technical aptitude, comic talent or permission to joke at somebody else’s expense.",
+              "zh": "选无害玩具或纸机关，给愿意伙伴一个短示范。分开“探索起来好玩”和“谜题实际需要”，之后问什么愉快、什么分心。这只反馈一个可选例子，不测技术天分、喜剧才能，也不许可拿别人取乐。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "james-doakes",
+      "directionIds": [
+        "james-doakes"
+      ],
+      "title": {
+        "en": "James Doakes",
+        "zh": "詹姆斯·多克斯（Doakes）"
+      },
+      "headline": {
+        "en": "Ask what supports the claim",
+        "zh": "问主张得到什么支持"
+      },
+      "summary": {
+        "en": "Read James Doakes through ask what supports the claim: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“问主张得到什么支持”阅读詹姆斯·多克斯（Doakes）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "James Doakes Test Result: Ask what supports the claim | Dexter",
+          "zh": "詹姆斯·多克斯（Doakes）测试结果：问主张得到什么支持｜嗜血法医"
+        },
+        "description": {
+          "en": "Read James Doakes through ask what supports the claim: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“问主张得到什么支持”阅读詹姆斯·多克斯（Doakes）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "Doakes’s limited angle",
+            "zh": "多克斯的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "James Doakes appears in the official original-series distribution cast. This edition selects a narrow editorial angle of questioning a contradiction in invented clue cards. It does not assess instincts, suspiciousness, anger or investigative skill. Challenging a claim in a paper game is separate from judging a real person’s intentions, honesty or risk, and the result offers no authority to investigate other people.",
+              "zh": "官方原剧发行名单包括詹姆斯·多克斯。本版只选质疑虚构线索卡矛盾的窄编辑角度，不评直觉、多疑、愤怒或调查技能。纸上游戏质疑主张，与判断真人意图、诚实或风险分开；结果不授权调查别人。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "Two cards that cannot both be right",
+            "zh": "不能同时成立的两张卡"
+          },
+          "paragraphs": [
+            {
+              "en": "A completely fictional mystery includes two cards whose written details contradict each other. You name the mismatch and ask which part needs checking before the group calls the solution complete. It may be an intentional puzzle, an editing error or a misunderstanding. Asking for support can help the game without assuming that the organiser is deceptive or that the first challenge must win.",
+              "zh": "完全虚构的谜案有两张文字矛盾的卡。你说出对不上之处，问解完前需核哪部分。可能是刻意谜题、编辑失误，也可能误解。要支持能帮助游戏，不必假设组织者欺骗，也不必让第一次质疑赢。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "A challenge beside five other contributions",
+            "zh": "质疑与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter describes the details, Debra states the missing question and Angel keeps the exchange inclusive. Masuka tests a playful example while LaGuerta organises the next step. Doakes’s selected angle checks what supports the claim. These contributions can coexist without ranking honesty, courage or judgement, and several full results do not establish a hidden or more suspicious personality.",
+              "zh": "德克斯特描述细节，黛布拉说缺的问题，安吉尔让交流好参与；马苏卡试趣味例子，拉圭尔塔组织下一步。多克斯角度检查主张的支持。可共存，不评诚实、勇气或判断，并列全文也不确立隐藏或更疑虑的人格。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "A challenge should be open to an answer",
+            "zh": "质疑也应容得下回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Ask what could resolve the contradiction and allow the answer to change your view. The point is not to keep raising objections after the group has a workable explanation. You can agree on a temporary game rule when the original wording is imperfect. A high count cannot establish distrust, moral rigidity or superior reasoning, and a lower count does not prove gullibility.",
+              "zh": "问什么能解决矛盾，也容许回答改变自己看法。目的不是有了可行解释后仍不断反对。原文不完美时，可共同约临时游戏规则。高计数不确立不信任、道德僵化或推理更强，低计数不证明易受骗。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try one specific, answerable challenge",
+            "zh": "试一个具体、能回答的质疑"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional puzzle, identify one claim and the exact clue that appears not to fit. Ask what would explain the difference, then compare the proposed answer with the cards. Keep the discussion about the invented material. This is feedback on a game explanation, not an assessment of critical-thinking ability or a reason to suspect real people of wrongdoing.",
+              "zh": "虚构谜题里指出一项主张与一条似乎对不上的线索，问什么解释差别，再与卡片比较。讨论留在虚构材料上。这是游戏解释的反馈，不评批判思考能力，也不成为怀疑真人过错的理由。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maria-laguerta",
+      "directionIds": [
+        "maria-laguerta"
+      ],
+      "title": {
+        "en": "Maria LaGuerta",
+        "zh": "玛丽亚·拉圭尔塔（LaGuerta）"
+      },
+      "headline": {
+        "en": "Give the group a workable scope",
+        "zh": "给小组一个可做的范围"
+      },
+      "summary": {
+        "en": "Read Maria LaGuerta through give the group a workable scope: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+        "zh": "从“给小组一个可做的范围”阅读玛丽亚·拉圭尔塔（LaGuerta）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+      },
+      "seo": {
+        "title": {
+          "en": "Maria LaGuerta Test Result: Give the group a workable scope | Dexter",
+          "zh": "玛丽亚·拉圭尔塔（LaGuerta）测试结果：给小组一个可做的范围｜嗜血法医"
+        },
+        "description": {
+          "en": "Read Maria LaGuerta through give the group a workable scope: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
+          "zh": "从“给小组一个可做的范围”阅读玛丽亚·拉圭尔塔（LaGuerta）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+        }
+      },
+      "scoreReading": {
+        "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+        "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+      },
+      "sections": [
+        {
+          "id": "reading-1",
+          "title": {
+            "en": "LaGuerta’s limited angle",
+            "zh": "拉圭尔塔的有限角度"
+          },
+          "paragraphs": [
+            {
+              "en": "Maria LaGuerta appears in the official original-series distribution cast list. This edition independently selects coordination of scope, responsibilities and time in an optional hobby activity. It does not infer ambition, status, manipulation, leadership competence or gender expectations. The comparison does not endorse how any fictional authority uses power, and a raw count cannot tell who should be in charge of real people.",
+              "zh": "官方原剧发行名单包括玛丽亚·拉圭尔塔。本版独立选可选爱好活动里的范围、责任与时间协调，不推断抱负、地位、操纵、领导能力或性别期待。比较不认可虚构权威怎样用权，原始次数也不能决定真人该由谁负责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-2",
+          "title": {
+            "en": "More preparation ideas than time",
+            "zh": "准备点子比时间多"
+          },
+          "paragraphs": [
+            {
+              "en": "A mock-mystery club has an afternoon plan, limited supplies and more suggested extras than it can comfortably finish. You help agree which parts are necessary, who genuinely wants each role and when preparation is complete. The plan remains a shared arrangement, not an instruction others must accept. A smaller scope can preserve enjoyment without turning the hobby into a professional project.",
+              "zh": "模拟谜案社团有下午安排、有限用品，额外点子却多到做不完。你帮约必需部分、谁真想接哪个角色、准备何时算完成。计划仍是共同安排，不是别人必须接的命令。范围缩小可保留乐趣，不把爱好变职业项目。"
+            }
+          ]
+        },
+        {
+          "id": "reading-3",
+          "title": {
+            "en": "Coordination beside five other contributions",
+            "zh": "协调与另外五种贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "Dexter observes details, Debra asks plainly what is needed and Angel attends to participation. Masuka explores an amusing mechanism while Doakes checks a contradiction. LaGuerta’s selected angle makes the shared commitment workable. These contributions can support one session without ranking maturity, influence or competence, and a close or tied reading does not assign a permanent leader or support role.",
+              "zh": "德克斯特看细节，黛布拉平实问需要什么，安吉尔留意参与；马苏卡探索有趣机关，多克斯核矛盾。拉圭尔塔角度让共同承诺可做。可支持同一活动，不评成熟、影响或能力，近分并列也不永久分派领导、辅助角色。"
+            }
+          ]
+        },
+        {
+          "id": "reading-4",
+          "title": {
+            "en": "An agreement needs real choices",
+            "zh": "约定需要真实选择"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear plan helps only when people can say what they can offer, decline a role or ask to revise the scope. Do not treat your preferred order as everyone’s consent. If circumstances change, return to the agreement openly. A high count cannot establish controlling behaviour, managerial talent or confidence, and a lower count does not mean you are disorganised or unable to take responsibility.",
+              "zh": "清楚计划好用，要让人能说提供什么、拒绝角色或改范围。别把自己喜欢的顺序当所有人同意；情况变了公开回到约定。高计数不确立控制行为、管理天分或自信，低计数不表示散乱或不能负责。"
+            }
+          ]
+        },
+        {
+          "id": "reading-5",
+          "title": {
+            "en": "Try a short shared definition of done",
+            "zh": "试一个简短共同完成条件"
+          },
+          "paragraphs": [
+            {
+              "en": "For one optional club task, write the outcome, a realistic stopping point and the roles people have chosen. Invite corrections before beginning, and leave an easy way to reduce the scope. Afterwards, compare the agreement with the actual experience. This is feedback on a planning arrangement, not an assessment of professional ability, authority or whether you should manage other people.",
+              "zh": "一次可选社团任务，写成果、实际停止点和各人已选择的角色。开始前邀请修正，保留缩范围的容易办法；之后比较约定与实际体验。这是安排反馈，不评职业能力、权威，也不决定应不应该管理别人。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Twenty-four choices and every highest tie",
+            "zh": "24次选择与每个最高并列"
+          },
+          "paragraphs": [
+            {
+              "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+              "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original fan edition and source limits",
+            "zh": "原创同人版与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+              "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "en": "Six raw choice counts",
+        "zh": "六项原始选择次数"
+      },
+      "paragraphs": [
+        {
+          "en": "Complete all 24 questions. Each explicitly mapped choice adds one raw count to one of six characters, for 24 counts in total. Every character appears 16 times, four times in each option position. An absent character option is not rejected. All highest counts receive complete guides; all A gives four each and six full guides. Counts are not similarity percentages, moral scores, diagnoses, forensic skill or population ranks. A small gap has no validated psychological significance.",
+          "zh": "24题全部完成，每项按明确映射给六位人物之一加1次，共24次。每位出现16次，四个位置各4次；当题没出现不算被拒绝。最高计数全部得到完整说明；全A会各4次，六份全文一起显示。次数不是相似百分比、道德分、诊断、法医技能或人群排名，微小差距没有经验证的心理意义。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "en": "Complete guides for every highest tie",
+        "zh": "每个最高并列都有完整说明"
+      },
+      "paragraphs": [
+        {
+          "en": "All highest counts appear together without a favourite chosen by fixed ordering. Read every tied guide and compare other close readings through the public pages. A small gap is not a validated difference in personality, morality or ability. The six contributions can coexist within one hobby session without becoming hidden types or ranking people’s worth.",
+          "zh": "最高计数一起显示，不按固定顺序选偏爱的一个。可读每份并列全文，通过公开页比较近分。微小差距不是经验证的人格、道德或能力差异。六种贡献可共存于一次爱好活动，不变成隐藏类型，也不排名人的价值。"
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "en": "A selected original-series cast, not a clinical profile",
+        "zh": "选定原剧人物，不作临床画像"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition includes Dexter Morgan, Debra Morgan, Angel Batista, Vince Masuka, James Doakes and Maria LaGuerta from the original-series ensemble. Brian Moser, Frank Lundy, Quinn, Rita and other characters are outside this set. The angles and bank are independently authored and not interchangeable with another site’s test. They do not assess a moral compass, diagnose a personality or predict violent or criminal conduct.",
+          "zh": "本版取原剧群像里的德克斯特、黛布拉、安吉尔、马苏卡、多克斯和拉圭尔塔；布莱恩、兰迪、奎因、丽塔等不在集合。角度与题本独立创作，不能与别站测试互换。不评道德指南针，不诊断人格，也不预测暴力或犯罪行为。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Unofficial original edition",
+        "zh": "非官方原创版"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+          "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private choices and optional sharing",
+        "zh": "私密选择与可选分享"
+      },
+      "paragraphs": [
+        {
+          "en": "Choices are scored in your browser without uploads or answer data in URLs or analytics. Optional tab drafts expire after 24 hours and clear on completion, retake or exit-and-clear. Optional sharing contains public character names and a link, never answers or counts. All complete guides are free without signup, email or a previous assessment. Optional next assessments have separate purposes and require their own answers.",
+          "zh": "选择在浏览器计分，不上传，不把答案放进网址或分析。可选标签页草稿24小时失效，完成、重测或退出清除即删除。可选分享只有公开人物名称与链接，不含答案或次数。全部全文免费，无需注册、邮箱或前置测评。后续测评可选、目的另行，须独立作答。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which Dexter characters are included?",
+        "zh": "本版包含哪些《嗜血法医》人物？"
+      },
+      "answer": {
+        "en": "Dexter Morgan, Debra Morgan, Angel Batista, Vince Masuka, James Doakes and Maria LaGuerta, each with a complete bilingual public guide. This is a limited original-series selection, not every character, sequel cast or another site’s result set.",
+        "zh": "德克斯特·摩根、黛布拉·摩根、安吉尔·巴蒂斯塔、文斯·马苏卡、詹姆斯·多克斯和玛丽亚·拉圭尔塔，各有完整双语公开说明。这是有限原剧选角，不含全部人物、续作名单，也不等同别站结果集合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this official or scientifically validated?",
+        "zh": "这是官方或科学验证版吗？"
+      },
+      "answer": {
+        "en": "FermatMind independently authored this unofficial fan edition: every question, mapping, harmless example and complete result. Dexter and its characters belong to their respective rights holders; no affiliation or endorsement is claimed. The original-series distribution cast list supplies basic identities; these six angles are FermatMind’s selective editorial comparisons, not official personality descriptions or questionnaire validation. No dialogue, screenshots, character art or competitor text is reproduced. The series depicts serious harm, which this quiz neither assigns to you nor excuses. Choices assess no criminality, violent tendencies, psychopathy, trauma, diagnosis, moral worth, real forensic or professional ability, MBTI or career suitability.",
+        "zh": "费马独立创作本非官方同人版的每题、映射、无害例子和完整结果。《嗜血法医》及人物权利归相应权利人，无隶属或认可关系。原剧发行目录人物名单只核基本身份，六个角度是费马选择性的编辑比较，不是官方人格描述，也不验证问卷。不复制台词、截图、人物图像或竞品正文。剧集呈现严重伤害，本测试既不把它赋给你，也不为其免责。选择不评犯罪、暴力倾向、心理病态、创伤、诊断、道德价值、真实法医或职业能力、MBTI及职业适配。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a Dexter match imply a diagnosis or violent tendencies?",
+        "zh": "匹配德克斯特表示诊断或暴力倾向吗？"
+      },
+      "answer": {
+        "en": "No. Harmless hobby choices cannot establish psychopathy, trauma, a diagnosis, moral worth, criminality or violent tendencies. The results are selective editorial comparisons, not clinical or forensic assessments. No fictional harm is assigned to you or excused by a match. You may reject the comparison.",
+        "zh": "不表示。无害兴趣选择无法确立心理病态、创伤、诊断、道德价值、犯罪或暴力倾向。结果是选择性的编辑比较，不是临床或法医评估；匹配既不把虚构伤害赋给你，也不为其免责，不合适可不同意。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do the questions involve violence, real cases or forensic knowledge?",
+        "zh": "题目涉及暴力、真实案件或法医知识吗？"
+      },
+      "answer": {
+        "en": "No. All 24 original questions concern harmless, completely fictional paper puzzles and optional club work. No episode recall, real investigation or professional expertise is needed. Around seven minutes is an editorial estimate, not a measured human benchmark or speed requirement.",
+        "zh": "不涉及。24道原创题均为无害、完全虚构的纸上谜题与可选社团工作，不需要记剧情、真实调查或专业知识。约7分钟是编辑估计，不是实测人类基准，也无速度要求。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all questions and complete results free in both languages?",
+        "zh": "两语全部题目和完整结果都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. English and Chinese include every question, option and full guide without signup, email or an MBTI result. Character identities and mappings remain stable across languages; psychometric equivalence has not been established. Optional next assessments need their own questions and do not infer a type from this quiz.",
+        "zh": "是。中英文都有每题、每项和全部全文，无需注册、邮箱或MBTI结果。人物身份与映射跨语言一致，尚未建立心理测量等价证据。可选后续测评须另行作答，不从本次推断类型。"
+      }
+    }
+  ]
+}
