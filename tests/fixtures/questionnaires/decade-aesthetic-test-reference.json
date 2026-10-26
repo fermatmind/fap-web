@@ -1,0 +1,816 @@
+{
+  "formCode": "fm_decade_visual_projects_18",
+  "origin": "frontend_original_historical_visual_entertainment",
+  "directions": [
+    {
+      "id": "deco-1920s",
+      "title": {
+        "zh": "1920年代：几何装饰",
+        "en": "1920s: Art Deco Lines"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "boho-1960s",
+      "title": {
+        "zh": "1960年代：手作花纹",
+        "en": "1960s: Bohemian Pattern"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "disco-1970s",
+      "title": {
+        "zh": "1970年代：舞池光影",
+        "en": "1970s: Disco Shimmer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "graphic-1980s",
+      "title": {
+        "zh": "1980年代：利落色块",
+        "en": "1980s: Graphic Structure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "grunge-1990s",
+      "title": {
+        "zh": "1990年代：层叠旧感",
+        "en": "1990s: Grunge Layers"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "digital-2000s",
+      "title": {
+        "zh": "2000年前后：Y2K数字糖彩",
+        "en": "Turn-of-Millennium Y2K"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DECADE_01",
+      "prompt": {
+        "zh": "为一个虚构的小型展览画邀请卡，哪种画法更让你想动笔？",
+        "en": "For a fictional small exhibition, which invitation-card design makes you want to start drawing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "黑色细框里排开金色扇形，中央留一个对称标题。",
+            "en": "Gold fans inside a fine black border, with a centred, symmetrical title."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "米色纸上绕一圈手绘藤叶，标题像被花纹轻轻包住。",
+            "en": "Hand-drawn leafy curves around a cream sheet, loosely enclosing the title."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用连续银点画出转动的圆，标题穿过一束紫色光带。",
+            "en": "Silver dots forming a turning circle, with the title crossing a violet beam."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用两个干净的大色块分割版面，标题沿一条斜线站稳。",
+            "en": "Two clean, large colour blocks divide the page, with a title held along a diagonal."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_02",
+      "prompt": {
+        "zh": "给周末手作桌画一张想象中的桌布图，哪种细节更吸引你？",
+        "en": "Draw an imagined cloth for a weekend craft table. Which detail attracts you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不完全一样的小花和叶片交错，边缘留下手缝似的短线。",
+            "en": "Uneven little flowers and leaves interlace, edged with stitch-like marks."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几圈亮点像灯光扫过水面，随桌面转角延伸。",
+            "en": "Rings of bright dots suggest light crossing water and continue around the corners."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "宽窄分明的直条配一块高对比色面，边缘收得利落。",
+            "en": "Clearly sized stripes meet a high-contrast panel with a crisp edge."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "褪色格纹叠着一块补丁形状，像几次使用留下的层次。",
+            "en": "Faded checks overlap a patch shape, suggesting layers from repeated use."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_03",
+      "prompt": {
+        "zh": "为一段自己写的短故事画封面小稿，你更想保留哪种处理？",
+        "en": "Sketch a cover for a short story you wrote. Which treatment would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一束旋转的亮片小圆，把标题带进有节奏的弧线里。",
+            "en": "A turning cluster of sequin-like circles draws the title into rhythmic curves."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把标题切成两行粗体，用锐角和明确留白撑住画面。",
+            "en": "Two bold title lines are held by sharp angles and deliberate empty space."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "撕边纸片压着不齐的字，底层露出浅灰格纹。",
+            "en": "Ragged paper pieces overlap uneven lettering above faint grey checks."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "圆润的立体字像半透明软糖，旁边跳出几枚小像素。",
+            "en": "Rounded dimensional letters resemble translucent sweets, with small pixels beside them."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_04",
+      "prompt": {
+        "zh": "只是在纸上给一件普通外套设计胸针，不考虑购买，你会先画哪一种？",
+        "en": "Design a brooch on paper for a plain jacket, without buying anything. Which would you draw first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个边界清楚的几何色片，斜切角像缩小的肩线。",
+            "en": "A sharply bounded geometric panel, its diagonal echoing a small shoulder line."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "两层不规则旧布形状，留出一处明显的补缀痕迹。",
+            "en": "Two irregular fabric-like layers with one visible mended mark."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一枚圆鼓鼓的透明蓝色气泡，里面放一个白色像素星。",
+            "en": "A plump translucent blue bubble holding a small white pixel star."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "细线围成对称阶梯，几颗金点沿中心轴排开。",
+            "en": "Fine lines form symmetrical steps, with gold dots arranged along a central axis."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_05",
+      "prompt": {
+        "zh": "给书桌上的旧小钟画一张可替换的纸面，你更想怎样安排刻度？",
+        "en": "Make a replaceable paper face for an old desk clock. How would you arrange its marks?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "像复印过的深灰短线，有些边缘略毛，外圈叠一层旧格纹。",
+            "en": "Dark grey copied-looking marks, slightly rough, over a faded checked rim."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用圆角数字和半透明渐变圈，角落藏一颗小像素。",
+            "en": "Rounded numbers in a translucent gradient ring, with a tiny pixel at one corner."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由内向外放射的细直线，十二个刻度保持严整对称。",
+            "en": "Fine straight rays expand outward, with twelve precisely symmetrical marks."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把刻度画成大小微异的小叶，圈边像手绕的一根线。",
+            "en": "Slightly varied leaves mark the hours, edged by a hand-drawn wandering line."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_06",
+      "prompt": {
+        "zh": "设计一张不打算寄出的虚构明信片背面，你更喜欢哪种分隔？",
+        "en": "Design the back of a fictional postcard you will not send. Which division appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一条果冻色透明带分开文字区，小图标像早期屏幕按钮。",
+            "en": "A jelly-coloured translucent band divides the text, with small screen-button-like icons."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "窄窄的金黑阶梯边框，把文字区排成对称的两个方格。",
+            "en": "A narrow gold-and-black stepped frame arranges the text in two symmetrical boxes."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一圈随手画的枝叶围住地址区，让线条有自然起伏。",
+            "en": "Loose leafy branches surround the address area with an uneven hand-drawn rhythm."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几条弯曲光带划开空间，银色小点像从边缘转进来。",
+            "en": "Curved light ribbons divide the space, with silver dots turning in from the edge."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_07",
+      "prompt": {
+        "zh": "给一盏虚构小台灯画灯罩纹样，你更愿意让光穿过哪种图形？",
+        "en": "Draw a shade pattern for an imagined small lamp. Which shapes would you like the light to pass through?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几何扇面从中间均匀展开，边缘像一圈细金框。",
+            "en": "Geometric fans open evenly from the centre, edged like a fine gold frame."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大小不一的花叶透出柔软的点，保留手画的弯曲。",
+            "en": "Uneven flowers and leaves reveal soft spots of light through hand-drawn curves."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "密密的小圆点随着转动变成亮暗相接的一串光。",
+            "en": "Dense small circles become a moving chain of bright and dark reflections."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几条明确的斜线切开大色面，让明暗边界很清楚。",
+            "en": "Firm diagonals divide broad colour panels into clearly bounded light and shade."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_08",
+      "prompt": {
+        "zh": "为一个虚构读书小组画分章节的笔记页，你更想加哪种页签？",
+        "en": "Draw chapter tabs for a fictional reading group’s notes. Which details would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "像窄布条的小页签，各有一笔不同的花叶线。",
+            "en": "Narrow fabric-like tabs, each with a slightly different leafy mark."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一排银色圆片小页签，翻动时像亮点顺次出现。",
+            "en": "Small silver-disc tabs that suggest a sequence of light as pages turn."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整齐的大号字母压在清楚的色块上，一眼能分区。",
+            "en": "Large orderly letters on clean colour blocks make the sections immediately distinct."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "边缘不齐的旧标签叠贴，故意露一点底下的格纸。",
+            "en": "Uneven worn labels overlap, leaving parts of checked paper visible beneath."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_09",
+      "prompt": {
+        "zh": "在纸上给一只素色帆布袋画正面图案，你更喜欢哪种版本？",
+        "en": "Sketch a front graphic for a plain canvas bag on paper. Which version do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一束发散亮点包住大圆，像把转动的光带装进袋面。",
+            "en": "A burst of reflected dots surrounds a circle, as if catching a turning light ribbon."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个大矩形和一条斜线形成明确构图，只留两种强对比颜色。",
+            "en": "A large rectangle and diagonal make a firm composition in two contrasting colours."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几块撕边字纸重叠，浅浅的磨旧纹理从空隙里露出来。",
+            "en": "Ragged printed scraps overlap, with a worn texture showing through the gaps."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "透明感的圆角小窗装着像素花，外沿有亮面的弧度。",
+            "en": "A translucent-looking rounded window holds a pixel flower inside a glossy curved rim."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_10",
+      "prompt": {
+        "zh": "设计一本自编相册的内衬纸，不用真实照片，你会先试哪一种？",
+        "en": "Design endpaper for an album without using actual photographs. Which would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大面积留白配一条直切色带，照片位像利落的展板。",
+            "en": "A clean cut of colour crosses generous white space, like a sharply organised display."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "模糊的旧格纸、复印纹理和一条补缀线叠在一起。",
+            "en": "Soft old graph paper, copied texture and a mended-looking line form layers."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几枚圆角小图框悬在透明渐变上，像轻巧的屏幕窗口。",
+            "en": "Rounded little frames float above a translucent gradient like light screen windows."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对称细线收成几层阶梯，边角有一枚小小的放射图形。",
+            "en": "Symmetrical fine lines form stepped layers with a small radiating motif at each corner."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_11",
+      "prompt": {
+        "zh": "想象在旧架子后面垫一张自己画的背景纸，你更愿意留下哪种层次？",
+        "en": "Imagine putting a hand-drawn paper backdrop behind an old shelf. Which layering would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "格纹、旧报纸形状和褪色边缘错开，像慢慢加上去。",
+            "en": "Checks, newsprint-like shapes and faded edges sit at different angles, as if added over time."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "半透明蓝绿块一层压一层，边角点缀几颗方形小亮点。",
+            "en": "Translucent blue-green panels overlap, dotted with small square highlights."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "金色细线与深色矩形一层套一层，左右保持对称。",
+            "en": "Gold lines and dark rectangles nest inside each other with left-right symmetry."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不等宽的植物线和手画弧线交错，让底纸的纹理露着。",
+            "en": "Plant-like strokes of varied width interweave with hand-drawn curves over visible paper texture."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_12",
+      "prompt": {
+        "zh": "只画一张虚构聚会角落的灵感图，你更想怎样处理一小片墙面？",
+        "en": "Draw an inspiration sketch for one corner of a fictional gathering. How would you treat a small wall area?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用圆润透明色块叠出一片亮面，夹几枚像素状小装饰。",
+            "en": "Rounded translucent panels create a glossy patch with a few pixel-shaped details."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用对称扇形与细线边框，让一个小角落像完整的小舞台。",
+            "en": "Symmetrical fans and a fine border make the corner resemble a small, complete stage."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用手画花叶和一块不规则织纹纸，边缘不刻意拉齐。",
+            "en": "Hand-drawn leaves meet irregular woven-looking paper without forcing the edges straight."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让银点围着一个圆面散开，旁边画几条会转弯的光线。",
+            "en": "Silver dots scatter around a round surface beside a few curving light trails."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_13",
+      "prompt": {
+        "zh": "给一次虚构社区展画海报，不讨论口号内容，你更喜欢哪种标题布局？",
+        "en": "Sketch a poster for a fictional community display, setting aside its message. Which title layout appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "字排在放射几何形中间，上下边框像细密的阶梯。",
+            "en": "Lettering sits within radiating geometry, between finely stepped top and bottom borders."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "标题跟着一条手画长藤走，几朵花不规则地伸出边缘。",
+            "en": "The title follows a long hand-drawn vine, with flowers extending unevenly beyond the edge."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "字被几束弧形亮点围住，像灯光转动时留下的轨迹。",
+            "en": "Curved trails of bright dots surround the letters like traces of moving light."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "粗字跨过两个明亮色块，斜线把视觉中心推向一侧。",
+            "en": "Bold letters cross two bright panels as a diagonal shifts the visual centre to one side."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_14",
+      "prompt": {
+        "zh": "给自己画一枚不用夹进真实书里的大书签，你会把哪种纹样画在下端？",
+        "en": "Draw an oversized bookmark as a paper exercise. Which pattern would you put at its lower end?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几条像手绣的弯曲枝叶，留出能看见纸纹的空隙。",
+            "en": "A few embroidered-looking leafy curves leave spaces where the paper grain can show."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一串银色小圆从密到疏散开，像一束渐弱的舞台光。",
+            "en": "A chain of silver circles thins out like a fading beam of stage light."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一块明确的亮色切角和两条粗直线，收成利落的轮廓。",
+            "en": "A clear bright cut corner and two strong straight lines make a crisp outline."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "撕边小字纸贴在褪色格纹上，露出一小段手写记号。",
+            "en": "A ragged text scrap lies over faded checks beside a small handwritten mark."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_15",
+      "prompt": {
+        "zh": "为一个空纸盒试画包装纸，不买新材料，哪种表面更让你想保留？",
+        "en": "Try a wrapping-paper sketch for an empty box, without buying materials. Which surface would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一层层短弧和亮点围着盒角转，折痕也像光带的一部分。",
+            "en": "Short arcs and bright dots turn around the corners, folding into the light pattern."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大片纯色配几条精确的斜切线，折完仍能看出清楚的几何。",
+            "en": "Broad solid colours meet precise diagonals that remain clear after folding."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "像旧纸拼成的格纹与印刷纹理，每一面略有不同。",
+            "en": "Checks and printed textures resemble assembled old paper, slightly different on each face."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "半透明感的小方块叠着圆角亮面，像糖纸与屏幕窗口相遇。",
+            "en": "Translucent-looking squares overlap rounded glossy panels, between sweet wrappers and screen windows."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_16",
+      "prompt": {
+        "zh": "给一段自己录的普通环境声画虚构封面，不选真实歌曲，你更想怎样画？",
+        "en": "Make a fictional cover for an ordinary sound recording of your own, without choosing an existing song. How would you draw it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个大号标题贴近利落直边，背景用两块对比强的颜色。",
+            "en": "A large title hugs a crisp straight edge above two contrasting background panels."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "模糊字迹、粗糙复印点和一块不规则暗色层叠在一起。",
+            "en": "Blurred lettering, rough copied dots and an irregular dark layer overlap."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个有透明亮边的圆角窗口，里面漂着几枚糖色像素。",
+            "en": "A rounded window with a translucent bright rim holds floating candy-coloured pixels."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "同心阶梯线围住小标题，角落用细金线做对称装饰。",
+            "en": "Concentric stepped lines surround a small title, with symmetrical fine gold corners."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_17",
+      "prompt": {
+        "zh": "为虚构展览画一枚参观证，只比较纸面样式，你更想随手留下哪一种？",
+        "en": "Design a visitor badge for a fictional display. Considering only the paper design, which would you want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不齐的格纹拼贴配一小条像反复盖过的字，边缘略旧。",
+            "en": "Uneven checked collage meets a repeatedly stamped-looking word and worn edges."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "半透明的小圆牌搭一枚像素角标，颜色像淡蓝软糖。",
+            "en": "A translucent-looking round badge carries a pixel corner mark in pale sweet-blue."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "细黑框与金色扇形彼此对称，中央字排得很稳。",
+            "en": "A fine black frame and gold fans mirror each other around steady central lettering."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "边框像手缝过的线，几片不一样的叶子绕着名字位置。",
+            "en": "A stitch-like border carries varied leaves around the space for a name."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_18",
+      "prompt": {
+        "zh": "把这次练习剩下的碎纸画成最后一张小拼贴，你更想带走哪种组合？",
+        "en": "Imagine one final collage from the paper left in this exercise. Which combination would you take with you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "圆角透明色片、几枚像素与一条很亮的弧，轻巧地浮在白底上。",
+            "en": "Rounded translucent panels, a few pixels and a bright arc float lightly over white."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对称的深浅几何、细金线和一小块放射纹，像收拢好的装饰面。",
+            "en": "Symmetrical dark and light geometry, gold lines and a small radiating motif form a composed panel."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "手画花叶、布纹似的小纸片和弯曲线，保留不齐的手作感。",
+            "en": "Hand-drawn leaves, fabric-like scraps and curved lines keep an uneven handmade feel."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "转动的点光、银色小圆和弧形色带，像把一瞬亮光留在纸上。",
+            "en": "Turning points of light, silver circles and coloured arcs hold a brief reflection on paper."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "kind": "archetype",
+    "questions": 18,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 12,
+    "positionsEach": 3,
+    "omittedEach": 6,
+    "reverseItems": [],
+    "completeCountVectors": 31363,
+    "highestSets": 57,
+    "meaning": "Selections among offered historical visual cue descriptions; no era personality, birth year, skill, values, income, job or romantic fit. All highest ties kept in full, no forced winner or secondary type."
+  },
+  "scope": {
+    "zh": "六组只是本站选定的历史视觉线索，主要参照西方时装与设计中的部分例子，不代表整个年代、所有地区或六种人的本质。2000年前后包含世纪之交线索，不把一个十年简化成唯一风格。题目与结果原创，不复刻竞品题库、正文或图片，不测出生年代、价值观、性格、收入、职业、关系适配或历史知识。",
+    "en": "These six groups are selected historical visual cues, drawing mainly on limited examples in Western fashion and design. They represent neither whole decades, every region nor six kinds of people. Turn-of-millennium cues cross a calendar boundary without reducing a decade to one style. Original items and guides copy no competitor bank, text or artwork and measure no birth era, values, personality, income, job or relationship fit, or historical knowledge."
+  },
+  "instructions": {
+    "zh": "只按这次更喜欢的视觉描述选择，不按出生年份、购买能力、真实性格或某种风格的人应该怎样做。每个虚构纸面项目有四项，来自六组编辑线索；各组出现12次、在每个位置各3次、轮流省略6次。每选一项加1，无反向、对错或加权；完整18题后比较本题组原始次数，所有最高并列都保留全文，不硬派主副型。全选同一位置会六组各3，不证明风格均衡。两项以上都喜欢可选更想先试的一项；都不合适可以退出，六份公开说明始终免费。不需制作、购物、上传照片、输入年龄或私人经历。",
+    "en": "Choose the visual description you prefer on this attempt, not your birth year, purchasing power, actual personality or what someone with a label ought to do. Each fictional paper project offers four of six editorial cue groups. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, right answers or weighting. Compare raw counts only after all eighteen; keep every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving balanced taste. If several appeal, choose what you would try first; leave if none fits. All six public guides stay free. No making, shopping, photo uploads, age or private experiences are required."
+  },
+  "sourceRead": "JobCannon EN149/ZH119 visible rows, all10questions/40options and one complete key1 path read. Free five Flapper-consistent bullets captured, asynchronous type heading missed; not six runtime outcomes, scoring formula or paid report. Six public guide main ranges and about/entry read. Six primary museum/curatorial source ranges read for limited visual context only, not bank/scoring validation. All18projects,72options and full guides original."
+}

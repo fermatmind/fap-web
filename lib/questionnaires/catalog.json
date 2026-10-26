@@ -2452,5 +2452,32 @@
       "carlisle-cullen"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "decade-aesthetic-test",
+    "code": "DECADE_VISUAL_CUES_ORIGINAL_18",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "十年美学测试",
+      "en": "Decade Aesthetic Test"
+    },
+    "description": {
+      "zh": "免费十年美学测试：18道原创视觉小项目，探索1920年代几何装饰、1960年代手作花纹、舞池光影到Y2K数字感。六份完整结果与全部最高并列免费。",
+      "en": "Free Decade Aesthetic Test: 18 original visual projects, six full guides from Art Deco to Y2K, and every highest tie. Explore colour, lines and texture."
+    },
+    "minutes": 5,
+    "formCode": "fm_decade_visual_projects_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "deco-1920s",
+      "boho-1960s",
+      "disco-1970s",
+      "graphic-1980s",
+      "grunge-1990s",
+      "digital-2000s"
+    ],
+    "collection": "explore"
   }
 ]

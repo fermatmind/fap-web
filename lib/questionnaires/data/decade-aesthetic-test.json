@@ -1,0 +1,1914 @@
+{
+  "slug": "decade-aesthetic-test",
+  "code": "DECADE_VISUAL_CUES_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "archetype",
+  "title": {
+    "zh": "十年美学测试",
+    "en": "Decade Aesthetic Test"
+  },
+  "resultHeading": {
+    "zh": "六组年代视觉线索：次数与完整读法",
+    "en": "Six decade-inspired visual cues: counts and full guides"
+  },
+  "description": {
+    "zh": "免费十年美学测试：18道原创视觉小项目，探索1920年代几何装饰、1960年代手作花纹、舞池光影到Y2K数字感。六份完整结果与全部最高并列免费。",
+    "en": "Free Decade Aesthetic Test: 18 original visual projects, six full guides from Art Deco to Y2K, and every highest tie. Explore colour, lines and texture."
+  },
+  "seoTitle": {
+    "zh": "十年美学测试：从1920年代到Y2K，免费完整结果",
+    "en": "Decade Aesthetic Test: Art Deco to Y2K, Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "一张邀请卡可以有对称金线，也可以像亮片转过的一束光。用18个原创纸面小项目，看看这次更吸引你的是1920年代几何装饰、1960年代手作花纹、1970年代舞池光影、1980年代利落色块、1990年代层叠旧感，还是2000年前后的Y2K数字糖彩。六份九节全文把颜色、线条、表面与排列拆开，给出具体例子、年代比较和只需现有纸笔的小练习。这里的“十年”指年代风格，不预测未来十年；六组来自部分历史视觉线索，不概括整个年代或由审美推断人格。每组选项曝光相同，结果显示原始次数，所有最高并列都保留全文。可以先读说明再决定是否作答；无需账号、照片或购买材料。支持编辑、重测、自愿开启的本标签页草稿，以及只含结果名称和公开链接的分享。",
+    "en": "An invitation can carry symmetrical gold lines or a turning sweep of reflected light. Across eighteen original paper projects, explore what attracts you now: 1920s Art Deco Lines, 1960s Bohemian Pattern, 1970s Disco Shimmer, 1980s Graphic Structure, 1990s Grunge Layers or turn-of-millennium Y2K. Six nine-section guides separate colour, line, surface and arrangement through concrete examples, comparisons and small exercises with paper you already have. Decades refer to selected historical visual cues, not a prediction of your next ten years or a whole era reduced to one look. The quiz does not infer personality from taste. Every group has equal exposure; raw counts retain the full guide for every highest tie. Read the explanations before deciding whether to answer, without an account, photos or purchases. You can edit, retake, opt into a tab draft and share result names with public links."
+  },
+  "instructions": {
+    "zh": "只按这次更喜欢的视觉描述选择，不按出生年份、购买能力、真实性格或某种风格的人应该怎样做。每个虚构纸面项目有四项，来自六组编辑线索；各组出现12次、在每个位置各3次、轮流省略6次。每选一项加1，无反向、对错或加权；完整18题后比较本题组原始次数，所有最高并列都保留全文，不硬派主副型。全选同一位置会六组各3，不证明风格均衡。两项以上都喜欢可选更想先试的一项；都不合适可以退出，六份公开说明始终免费。不需制作、购物、上传照片、输入年龄或私人经历。",
+    "en": "Choose the visual description you prefer on this attempt, not your birth year, purchasing power, actual personality or what someone with a label ought to do. Each fictional paper project offers four of six editorial cue groups. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, right answers or weighting. Compare raw counts only after all eighteen; keep every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving balanced taste. If several appeal, choose what you would try first; leave if none fits. All six public guides stay free. No making, shopping, photo uploads, age or private experiences are required."
+  },
+  "source": {
+    "kind": "frontend_original_historical_visual_entertainment",
+    "formCode": "fm_decade_visual_projects_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "6701fe2587013e3082d0099fb6851927c31220cc0191cc508166fbfb2fa1cab4",
+    "resultContentSha256": "39872f3faeb1b7a73bc178180fac96139d24e987eba1777192e8f43f4f86a9e6",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "deco-1920s",
+      "title": {
+        "zh": "1920年代：几何装饰",
+        "en": "1920s: Art Deco Lines"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "boho-1960s",
+      "title": {
+        "zh": "1960年代：手作花纹",
+        "en": "1960s: Bohemian Pattern"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "disco-1970s",
+      "title": {
+        "zh": "1970年代：舞池光影",
+        "en": "1970s: Disco Shimmer"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "graphic-1980s",
+      "title": {
+        "zh": "1980年代：利落色块",
+        "en": "1980s: Graphic Structure"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "grunge-1990s",
+      "title": {
+        "zh": "1990年代：层叠旧感",
+        "en": "1990s: Grunge Layers"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "digital-2000s",
+      "title": {
+        "zh": "2000年前后：Y2K数字糖彩",
+        "en": "Turn-of-Millennium Y2K"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "DECADE_01",
+      "prompt": {
+        "zh": "为一个虚构的小型展览画邀请卡，哪种画法更让你想动笔？",
+        "en": "For a fictional small exhibition, which invitation-card design makes you want to start drawing?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "黑色细框里排开金色扇形，中央留一个对称标题。",
+            "en": "Gold fans inside a fine black border, with a centred, symmetrical title."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "米色纸上绕一圈手绘藤叶，标题像被花纹轻轻包住。",
+            "en": "Hand-drawn leafy curves around a cream sheet, loosely enclosing the title."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用连续银点画出转动的圆，标题穿过一束紫色光带。",
+            "en": "Silver dots forming a turning circle, with the title crossing a violet beam."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "用两个干净的大色块分割版面，标题沿一条斜线站稳。",
+            "en": "Two clean, large colour blocks divide the page, with a title held along a diagonal."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_02",
+      "prompt": {
+        "zh": "给周末手作桌画一张想象中的桌布图，哪种细节更吸引你？",
+        "en": "Draw an imagined cloth for a weekend craft table. Which detail attracts you most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不完全一样的小花和叶片交错，边缘留下手缝似的短线。",
+            "en": "Uneven little flowers and leaves interlace, edged with stitch-like marks."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "几圈亮点像灯光扫过水面，随桌面转角延伸。",
+            "en": "Rings of bright dots suggest light crossing water and continue around the corners."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "宽窄分明的直条配一块高对比色面，边缘收得利落。",
+            "en": "Clearly sized stripes meet a high-contrast panel with a crisp edge."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "褪色格纹叠着一块补丁形状，像几次使用留下的层次。",
+            "en": "Faded checks overlap a patch shape, suggesting layers from repeated use."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_03",
+      "prompt": {
+        "zh": "为一段自己写的短故事画封面小稿，你更想保留哪种处理？",
+        "en": "Sketch a cover for a short story you wrote. Which treatment would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一束旋转的亮片小圆，把标题带进有节奏的弧线里。",
+            "en": "A turning cluster of sequin-like circles draws the title into rhythmic curves."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把标题切成两行粗体，用锐角和明确留白撑住画面。",
+            "en": "Two bold title lines are held by sharp angles and deliberate empty space."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "撕边纸片压着不齐的字，底层露出浅灰格纹。",
+            "en": "Ragged paper pieces overlap uneven lettering above faint grey checks."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "圆润的立体字像半透明软糖，旁边跳出几枚小像素。",
+            "en": "Rounded dimensional letters resemble translucent sweets, with small pixels beside them."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_04",
+      "prompt": {
+        "zh": "只是在纸上给一件普通外套设计胸针，不考虑购买，你会先画哪一种？",
+        "en": "Design a brooch on paper for a plain jacket, without buying anything. Which would you draw first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个边界清楚的几何色片，斜切角像缩小的肩线。",
+            "en": "A sharply bounded geometric panel, its diagonal echoing a small shoulder line."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "两层不规则旧布形状，留出一处明显的补缀痕迹。",
+            "en": "Two irregular fabric-like layers with one visible mended mark."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一枚圆鼓鼓的透明蓝色气泡，里面放一个白色像素星。",
+            "en": "A plump translucent blue bubble holding a small white pixel star."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "细线围成对称阶梯，几颗金点沿中心轴排开。",
+            "en": "Fine lines form symmetrical steps, with gold dots arranged along a central axis."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_05",
+      "prompt": {
+        "zh": "给书桌上的旧小钟画一张可替换的纸面，你更想怎样安排刻度？",
+        "en": "Make a replaceable paper face for an old desk clock. How would you arrange its marks?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "像复印过的深灰短线，有些边缘略毛，外圈叠一层旧格纹。",
+            "en": "Dark grey copied-looking marks, slightly rough, over a faded checked rim."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用圆角数字和半透明渐变圈，角落藏一颗小像素。",
+            "en": "Rounded numbers in a translucent gradient ring, with a tiny pixel at one corner."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "由内向外放射的细直线，十二个刻度保持严整对称。",
+            "en": "Fine straight rays expand outward, with twelve precisely symmetrical marks."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把刻度画成大小微异的小叶，圈边像手绕的一根线。",
+            "en": "Slightly varied leaves mark the hours, edged by a hand-drawn wandering line."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_06",
+      "prompt": {
+        "zh": "设计一张不打算寄出的虚构明信片背面，你更喜欢哪种分隔？",
+        "en": "Design the back of a fictional postcard you will not send. Which division appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一条果冻色透明带分开文字区，小图标像早期屏幕按钮。",
+            "en": "A jelly-coloured translucent band divides the text, with small screen-button-like icons."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "窄窄的金黑阶梯边框，把文字区排成对称的两个方格。",
+            "en": "A narrow gold-and-black stepped frame arranges the text in two symmetrical boxes."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用一圈随手画的枝叶围住地址区，让线条有自然起伏。",
+            "en": "Loose leafy branches surround the address area with an uneven hand-drawn rhythm."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几条弯曲光带划开空间，银色小点像从边缘转进来。",
+            "en": "Curved light ribbons divide the space, with silver dots turning in from the edge."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_07",
+      "prompt": {
+        "zh": "给一盏虚构小台灯画灯罩纹样，你更愿意让光穿过哪种图形？",
+        "en": "Draw a shade pattern for an imagined small lamp. Which shapes would you like the light to pass through?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几何扇面从中间均匀展开，边缘像一圈细金框。",
+            "en": "Geometric fans open evenly from the centre, edged like a fine gold frame."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大小不一的花叶透出柔软的点，保留手画的弯曲。",
+            "en": "Uneven flowers and leaves reveal soft spots of light through hand-drawn curves."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "密密的小圆点随着转动变成亮暗相接的一串光。",
+            "en": "Dense small circles become a moving chain of bright and dark reflections."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "几条明确的斜线切开大色面，让明暗边界很清楚。",
+            "en": "Firm diagonals divide broad colour panels into clearly bounded light and shade."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_08",
+      "prompt": {
+        "zh": "为一个虚构读书小组画分章节的笔记页，你更想加哪种页签？",
+        "en": "Draw chapter tabs for a fictional reading group’s notes. Which details would you add?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "像窄布条的小页签，各有一笔不同的花叶线。",
+            "en": "Narrow fabric-like tabs, each with a slightly different leafy mark."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一排银色圆片小页签，翻动时像亮点顺次出现。",
+            "en": "Small silver-disc tabs that suggest a sequence of light as pages turn."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "整齐的大号字母压在清楚的色块上，一眼能分区。",
+            "en": "Large orderly letters on clean colour blocks make the sections immediately distinct."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "边缘不齐的旧标签叠贴，故意露一点底下的格纸。",
+            "en": "Uneven worn labels overlap, leaving parts of checked paper visible beneath."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_09",
+      "prompt": {
+        "zh": "在纸上给一只素色帆布袋画正面图案，你更喜欢哪种版本？",
+        "en": "Sketch a front graphic for a plain canvas bag on paper. Which version do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用一束发散亮点包住大圆，像把转动的光带装进袋面。",
+            "en": "A burst of reflected dots surrounds a circle, as if catching a turning light ribbon."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个大矩形和一条斜线形成明确构图，只留两种强对比颜色。",
+            "en": "A large rectangle and diagonal make a firm composition in two contrasting colours."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几块撕边字纸重叠，浅浅的磨旧纹理从空隙里露出来。",
+            "en": "Ragged printed scraps overlap, with a worn texture showing through the gaps."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "透明感的圆角小窗装着像素花，外沿有亮面的弧度。",
+            "en": "A translucent-looking rounded window holds a pixel flower inside a glossy curved rim."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_10",
+      "prompt": {
+        "zh": "设计一本自编相册的内衬纸，不用真实照片，你会先试哪一种？",
+        "en": "Design endpaper for an album without using actual photographs. Which would you try first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "大面积留白配一条直切色带，照片位像利落的展板。",
+            "en": "A clean cut of colour crosses generous white space, like a sharply organised display."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "模糊的旧格纸、复印纹理和一条补缀线叠在一起。",
+            "en": "Soft old graph paper, copied texture and a mended-looking line form layers."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "几枚圆角小图框悬在透明渐变上，像轻巧的屏幕窗口。",
+            "en": "Rounded little frames float above a translucent gradient like light screen windows."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "对称细线收成几层阶梯，边角有一枚小小的放射图形。",
+            "en": "Symmetrical fine lines form stepped layers with a small radiating motif at each corner."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_11",
+      "prompt": {
+        "zh": "想象在旧架子后面垫一张自己画的背景纸，你更愿意留下哪种层次？",
+        "en": "Imagine putting a hand-drawn paper backdrop behind an old shelf. Which layering would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "格纹、旧报纸形状和褪色边缘错开，像慢慢加上去。",
+            "en": "Checks, newsprint-like shapes and faded edges sit at different angles, as if added over time."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "半透明蓝绿块一层压一层，边角点缀几颗方形小亮点。",
+            "en": "Translucent blue-green panels overlap, dotted with small square highlights."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "金色细线与深色矩形一层套一层，左右保持对称。",
+            "en": "Gold lines and dark rectangles nest inside each other with left-right symmetry."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "不等宽的植物线和手画弧线交错，让底纸的纹理露着。",
+            "en": "Plant-like strokes of varied width interweave with hand-drawn curves over visible paper texture."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_12",
+      "prompt": {
+        "zh": "只画一张虚构聚会角落的灵感图，你更想怎样处理一小片墙面？",
+        "en": "Draw an inspiration sketch for one corner of a fictional gathering. How would you treat a small wall area?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "用圆润透明色块叠出一片亮面，夹几枚像素状小装饰。",
+            "en": "Rounded translucent panels create a glossy patch with a few pixel-shaped details."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "用对称扇形与细线边框，让一个小角落像完整的小舞台。",
+            "en": "Symmetrical fans and a fine border make the corner resemble a small, complete stage."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "用手画花叶和一块不规则织纹纸，边缘不刻意拉齐。",
+            "en": "Hand-drawn leaves meet irregular woven-looking paper without forcing the edges straight."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "让银点围着一个圆面散开，旁边画几条会转弯的光线。",
+            "en": "Silver dots scatter around a round surface beside a few curving light trails."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_13",
+      "prompt": {
+        "zh": "给一次虚构社区展画海报，不讨论口号内容，你更喜欢哪种标题布局？",
+        "en": "Sketch a poster for a fictional community display, setting aside its message. Which title layout appeals to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "字排在放射几何形中间，上下边框像细密的阶梯。",
+            "en": "Lettering sits within radiating geometry, between finely stepped top and bottom borders."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "标题跟着一条手画长藤走，几朵花不规则地伸出边缘。",
+            "en": "The title follows a long hand-drawn vine, with flowers extending unevenly beyond the edge."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "字被几束弧形亮点围住，像灯光转动时留下的轨迹。",
+            "en": "Curved trails of bright dots surround the letters like traces of moving light."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "粗字跨过两个明亮色块，斜线把视觉中心推向一侧。",
+            "en": "Bold letters cross two bright panels as a diagonal shifts the visual centre to one side."
+          },
+          "directionId": "graphic-1980s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_14",
+      "prompt": {
+        "zh": "给自己画一枚不用夹进真实书里的大书签，你会把哪种纹样画在下端？",
+        "en": "Draw an oversized bookmark as a paper exercise. Which pattern would you put at its lower end?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "几条像手绣的弯曲枝叶，留出能看见纸纹的空隙。",
+            "en": "A few embroidered-looking leafy curves leave spaces where the paper grain can show."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一串银色小圆从密到疏散开，像一束渐弱的舞台光。",
+            "en": "A chain of silver circles thins out like a fading beam of stage light."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一块明确的亮色切角和两条粗直线，收成利落的轮廓。",
+            "en": "A clear bright cut corner and two strong straight lines make a crisp outline."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "撕边小字纸贴在褪色格纹上，露出一小段手写记号。",
+            "en": "A ragged text scrap lies over faded checks beside a small handwritten mark."
+          },
+          "directionId": "grunge-1990s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_15",
+      "prompt": {
+        "zh": "为一个空纸盒试画包装纸，不买新材料，哪种表面更让你想保留？",
+        "en": "Try a wrapping-paper sketch for an empty box, without buying materials. Which surface would you keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一层层短弧和亮点围着盒角转，折痕也像光带的一部分。",
+            "en": "Short arcs and bright dots turn around the corners, folding into the light pattern."
+          },
+          "directionId": "disco-1970s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "大片纯色配几条精确的斜切线，折完仍能看出清楚的几何。",
+            "en": "Broad solid colours meet precise diagonals that remain clear after folding."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "像旧纸拼成的格纹与印刷纹理，每一面略有不同。",
+            "en": "Checks and printed textures resemble assembled old paper, slightly different on each face."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "半透明感的小方块叠着圆角亮面，像糖纸与屏幕窗口相遇。",
+            "en": "Translucent-looking squares overlap rounded glossy panels, between sweet wrappers and screen windows."
+          },
+          "directionId": "digital-2000s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_16",
+      "prompt": {
+        "zh": "给一段自己录的普通环境声画虚构封面，不选真实歌曲，你更想怎样画？",
+        "en": "Make a fictional cover for an ordinary sound recording of your own, without choosing an existing song. How would you draw it?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个大号标题贴近利落直边，背景用两块对比强的颜色。",
+            "en": "A large title hugs a crisp straight edge above two contrasting background panels."
+          },
+          "directionId": "graphic-1980s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "模糊字迹、粗糙复印点和一块不规则暗色层叠在一起。",
+            "en": "Blurred lettering, rough copied dots and an irregular dark layer overlap."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个有透明亮边的圆角窗口，里面漂着几枚糖色像素。",
+            "en": "A rounded window with a translucent bright rim holds floating candy-coloured pixels."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "同心阶梯线围住小标题，角落用细金线做对称装饰。",
+            "en": "Concentric stepped lines surround a small title, with symmetrical fine gold corners."
+          },
+          "directionId": "deco-1920s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_17",
+      "prompt": {
+        "zh": "为虚构展览画一枚参观证，只比较纸面样式，你更想随手留下哪一种？",
+        "en": "Design a visitor badge for a fictional display. Considering only the paper design, which would you want to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "不齐的格纹拼贴配一小条像反复盖过的字，边缘略旧。",
+            "en": "Uneven checked collage meets a repeatedly stamped-looking word and worn edges."
+          },
+          "directionId": "grunge-1990s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "半透明的小圆牌搭一枚像素角标，颜色像淡蓝软糖。",
+            "en": "A translucent-looking round badge carries a pixel corner mark in pale sweet-blue."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "细黑框与金色扇形彼此对称，中央字排得很稳。",
+            "en": "A fine black frame and gold fans mirror each other around steady central lettering."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "边框像手缝过的线，几片不一样的叶子绕着名字位置。",
+            "en": "A stitch-like border carries varied leaves around the space for a name."
+          },
+          "directionId": "boho-1960s"
+        }
+      ]
+    },
+    {
+      "id": "DECADE_18",
+      "prompt": {
+        "zh": "把这次练习剩下的碎纸画成最后一张小拼贴，你更想带走哪种组合？",
+        "en": "Imagine one final collage from the paper left in this exercise. Which combination would you take with you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "圆角透明色片、几枚像素与一条很亮的弧，轻巧地浮在白底上。",
+            "en": "Rounded translucent panels, a few pixels and a bright arc float lightly over white."
+          },
+          "directionId": "digital-2000s"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "对称的深浅几何、细金线和一小块放射纹，像收拢好的装饰面。",
+            "en": "Symmetrical dark and light geometry, gold lines and a small radiating motif form a composed panel."
+          },
+          "directionId": "deco-1920s"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "手画花叶、布纹似的小纸片和弯曲线，保留不齐的手作感。",
+            "en": "Hand-drawn leaves, fabric-like scraps and curved lines keep an uneven handmade feel."
+          },
+          "directionId": "boho-1960s"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "转动的点光、银色小圆和弧形色带，像把一瞬亮光留在纸上。",
+            "en": "Turning points of light, silver circles and coloured arcs hold a brief reflection on paper."
+          },
+          "directionId": "disco-1970s"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "deco-1920s",
+      "directionIds": [
+        "deco-1920s"
+      ],
+      "title": {
+        "zh": "1920年代：几何装饰",
+        "en": "1920s: Art Deco Lines"
+      },
+      "headline": {
+        "zh": "把线条排成一个有边框、有中心的小场面。",
+        "en": "Compose a small scene with a frame and a centre."
+      },
+      "summary": {
+        "zh": "在这份菜单里，几何扇形、阶梯边框、对称线和金黑对比更常被你选中。它们是本版借1920年代装饰艺术取用的一组视觉线索，不说明你属于过去、爱好夜生活或具有某种性格。",
+        "en": "Geometric fans, stepped borders, symmetry and gold-dark contrasts were selected more often in these menus. This edition borrows a limited set of Art Deco cues associated with the 1920s, without placing you in the past or inferring nightlife or personality."
+      },
+      "seo": {
+        "title": {
+          "zh": "1920年代几何装饰结果：完整读法与年代比较",
+          "en": "1920s Art Deco Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "看1920年代几何装饰结果：对称、扇形与阶梯线如何进入具体纸面设计，比较舞池光影与1980年代色块，读近分并列和完整练习。",
+          "en": "Explore an Art Deco-style result through frames, fans and symmetry. Compare nearby looks, read ties and try a small paper exercise. Full guide free."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "先看你选中了什么",
+            "en": "Start with the cues you selected"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组画面偏爱一个清楚的中心：细线一层层向外排，扇形左右呼应，阶梯边框把字和留白围成完整的小场面。你可能只喜欢某一道细线，不必连带接受整组标签。把结果重新落到题目上，例如“我喜欢邀请卡的对称标题”，比说“我就是1920年代的人”更具体。题本没有观察你的真实房间、衣着或行为，也没有测试设计水平。",
+              "en": "This group gives a composition a clear centre: fine lines expand in layers, fans echo across the page, and stepped borders organise lettering and space. You may like one particular line without accepting the whole label. Return the result to a specific choice, such as preferring the symmetrical title on an invitation. That is more precise than declaring yourself a person from the 1920s. The bank has observed neither your actual room, clothing nor behaviour and has tested no design skill."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "1920年代只是有限的视觉借用",
+            "en": "The decade is a limited visual reference"
+          },
+          "paragraphs": [
+            {
+              "zh": "V&A的装饰艺术介绍把Art Deco说明为多种风格与来源的组合，并展示1920年代几何形式进入日常小物的例子。本版只从这种资料中选取对称、放射、阶梯与细边框来做原创纸面描述。装饰艺术跨越年份、地区与媒介，1920年代也远不止一种面貌；它不是全世界某个十年的统一制服，更不是一套能由图案推出性格的心理分类。",
+              "en": "The V&A introduction describes Art Deco as a mixture of sources and styles, including geometric forms appearing in everyday objects during the 1920s. This edition selects symmetry, rays, steps and fine borders for original paper descriptions. Art Deco extends across years, places and media, while the decade contained far more than one appearance. A selected visual reference is neither a uniform for an entire world nor a psychological classification that derives a personality from a pattern."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "用邀请卡把偏好说清楚",
+            "en": "Make the invitation example concrete"
+          },
+          "paragraphs": [
+            {
+              "zh": "假设你要在废纸上画一个虚构展览的邀请卡，可以先写标题，再画左右对应的两道边线，最后只在上方加一个扇形。看看你更喜欢的是对称、细线，还是深浅反差。若拿掉金色仍然喜欢，吸引你的可能主要是结构，不是材料的昂贵感。这里无需做成成品、购买金箔或寻找复古物件；一支现有的笔也能让你比较布局。",
+              "en": "On scrap paper, write a fictional exhibition title, place matching lines to either side and add one fan above it. Notice whether symmetry, thin strokes or light-dark contrast attracts you most. If the arrangement still appeals without gold, structure may matter more than a costly-looking material. No finished object, gold leaf or vintage purchase is needed. An existing pencil can make the layout comparison visible. The experiment concerns what you like in this small draft, not the authenticity of a historical reconstruction."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "可以保留结构，换掉熟悉配色",
+            "en": "Keep the structure and change the palette"
+          },
+          "paragraphs": [
+            {
+              "zh": "几何装饰不要求永远黑金。你可以用深蓝和米白、铅笔灰和纸色，甚至只靠线条粗细，让同一套阶梯与扇面成立。也可以只保留一个角上的装饰，把中心留得很空。颜色、材质、密度和排列是不同选择，题本只是把它们临时组在一起。喜欢一张金黑卡片，不能推断你在所有空间都偏好金属、奢华或正式场合。",
+              "en": "The structure does not require black and gold every time. Try dark blue and cream, pencil grey and paper, or only different line weights. A stepped edge or fan can remain while the centre stays almost empty. Colour, material, density and arrangement are distinct choices that the menus temporarily group together. Liking one gold-dark card cannot establish a preference for metallic surfaces, luxury or formal occasions in every setting. Keep only the parts that continue to interest you when the other elements change."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "装饰要给文字留一个位置",
+            "en": "Give the lettering a place to be read"
+          },
+          "paragraphs": [
+            {
+              "zh": "细边框、放射纹和标题同时很满时，画面可能没有清楚的落点。可以先遮住一半装饰，比较文字是否更容易进入视线，再决定放回哪些。这不是结果在诊断你“爱表现”或“过度讲究”，只是一个具体草稿里的层次问题。相反，极少的线条也不一定更好；如果小场面的丰富感正是你喜欢的部分，可以保留它，同时让标题与边框之间有一点呼吸空间。",
+              "en": "A draft filled with borders, rays and a large title may have no clear place for the eye to land. Cover half the decoration, compare how easily the title is noticed, then decide what to restore. This is a question about one composition, not a diagnosis of being showy or fussy. Fewer lines are not automatically better either. If a richly framed little scene is the appealing part, keep that interest while giving its lettering a little room to breathe."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "和舞池光影、利落色块怎么比",
+            "en": "Compare shimmer and graphic structure"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版1970年代舞池光影也可能有银点和弧线，不过更着重反光与转动的感觉；几何装饰更着重中心轴和重复边界。1980年代利落色块同样使用几何，但通常在本菜单里用较大的色面、粗字或斜切构图。你可以三者都喜欢，甚至把静态边框和一处亮点放在同一张纸上。这里没有谁更高级、更成熟，也没有验证过的“最能平衡你”的年代。",
+              "en": "The Disco Shimmer group can also use dots and curves, but its menus emphasise reflected light and a sense of turning. Art Deco Lines emphasises an axis and repeated boundaries. Graphic Structure uses geometry too, generally through larger colour panels, bold lettering or a diagonal. You can like all three and put a quiet frame beside one bright detail. None is more advanced or mature, and the bank has established no decade that best balances you. Compare the actual elements rather than ranking the labels."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只改一个地方的小练习",
+            "en": "A small exercise with one change"
+          },
+          "paragraphs": [
+            {
+              "zh": "画两张同样大小的小卡：第一张有中心对称的细框，第二张只把框改成偏向一侧的斜线，其他文字和颜色先不动。比较此刻更想留下哪一张，再写一句原因，例如“边框让我觉得标题有收束”。不要把这句话扩大成生活价值观或工作能力。两张都喜欢或都不喜欢都可以；这次比较只是在拆开一个视觉偏好，不是复测准确率或练习变成某种人。",
+              "en": "Make two equal-sized little cards. Give the first a symmetrical fine frame, then replace only that frame with an off-centre diagonal on the second. Keep the lettering and colours the same. Choose what you want to keep now and write one reason about the layout. Do not turn that reason into a life value or workplace ability. Liking both or neither is allowed. The exercise separates a visual preference; it is not an accuracy retest or training to become a certain kind of person."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部并列",
+            "en": "Counts, close results and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "六组各在12个菜单出现，18次选择合计18；你没有在每题同时比较全部六组。最高次数只决定本次先显示哪些完整说明，所有最高并列都保留，不硬分主型、次型或纯度。全选同一个位置会六组各3，不能当作理想混合。相差一两次可以邀请你多读另一份全文，但没有验证的人群分界、人格百分比或历史知识等级。",
+              "en": "Each group appears in twelve menus and eighteen choices total eighteen. You did not compare all six groups in every question. The highest count only determines which full readings appear first, with every highest tie retained and no forced primary type, secondary type or purity. Repeating one position gives each group three counts without establishing ideal mixture. A small gap can invite reading another full guide, but provides no validated population boundary, personality percentage or level of historical knowledge."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读与这份题本的边界",
+            "en": "Full reading and the bank’s boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份说明在作答前后都免费，不需账号、购物、照片或出生年份。18个项目、72段选项和结果正文均为本站原创，历史资料仅作有限视觉背景，不验证计分；不推断性格、伦理、收入、职业或恋爱适配。草稿需主动开启，仅限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。若某题四项都不合适，可以停止，完整公开说明仍能读。",
+              "en": "All six guides are free before and after answering, without an account, shopping, photographs or a birth year. The eighteen projects, seventy-two option descriptions and guides are original. Historical material supplies limited visual background rather than validating the count method. Results infer no personality, ethics, income, career or romantic fit. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links only. Stop if a menu does not fit; the full public explanations remain available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boho-1960s",
+      "directionIds": [
+        "boho-1960s"
+      ],
+      "title": {
+        "zh": "1960年代：手作花纹",
+        "en": "1960s: Bohemian Pattern"
+      },
+      "headline": {
+        "zh": "留一点不完全相同的线，让图案像慢慢长出来。",
+        "en": "Leave a little variation so the pattern seems to grow."
+      },
+      "summary": {
+        "zh": "你在给定菜单里更常选中手画花叶、织纹似的底纸、弯曲线和不完全一致的重复。这组只取1960年代部分手作与波西米亚视觉线索，不把花纹解释成价值观、生活方式或文化身份。",
+        "en": "Your offered-menu choices more often favoured drawn leaves, woven-looking paper, curves and slightly varied repetition. This group takes limited handmade and bohemian cues associated with the 1960s, without deriving values, lifestyle or cultural identity from a pattern."
+      },
+      "seo": {
+        "title": {
+          "zh": "1960年代手作花纹结果：完整说明与风格比较",
+          "en": "1960s Bohemian Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "读1960年代手作花纹结果：从花叶、线迹与织纹的具体纸面例子，看有限年代背景、近分并列、与层叠旧感的差别及低成本尝试。",
+          "en": "Read a bohemian-pattern result through leaves, stitching and texture. Explore a limited 1960s reference, compare neighbouring looks and keep every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "一笔一笔的差别是画面的一部分",
+            "en": "Small differences belong to the composition"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组描述里，叶子不必完全等大，边框可以有轻微起伏，底纸的纹理也不需要藏起来。吸引你的可能是重复中保留差别的方式：看起来有连续性，却不像同一个形状被盖了很多次。回看你选的那张页签或桌布图，找出究竟是弧线、花叶、织纹还是留白在起作用。把线索拆开后，也许你会发现自己只想保留其中一项。",
+              "en": "In these descriptions, leaves can vary in size, a border can wander slightly, and the grain beneath a drawing can remain visible. The appeal may lie in repetition that keeps differences: a continuous pattern without the impression of one identical stamp used everywhere. Revisit a selected tab or table-cloth sketch and separate the curves, leaves, woven effect and empty space. Once the elements are apart, you may want only one of them. The whole label does not have to travel with that preference."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "1960年代也同时有别的面貌",
+            "en": "The 1960s held more than one look"
+          },
+          "paragraphs": [
+            {
+              "zh": "FIT的Youthquake展览档案同时讨论Mods与Hippies，也说明这些风格如何进入设计与大众市场。本版只挑手作感、花叶、织纹与松动排列来组织一个有限的分组，没有把它叫作整个1960年代的标准样子。真实服饰图案有各自的地区、作者和使用背景；想了解某一种，可以继续查具体来源。这里使用自编的纸面花叶，不把别人的文化符号当成一个“异域感”标签。",
+              "en": "The Museum at FIT’s Youthquake archive discusses both Mods and Hippies and how their looks reached design and mass markets. This edition selects handmade effects, leaves, woven texture and loose arrangement for one limited group. It does not present them as the standard appearance of an entire decade. Actual textile patterns have particular places, makers and uses worth investigating separately. The fictional paper leaves here are original, rather than treating someone else’s cultural symbols as a general exotic effect."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "把桌布图缩成一小块就能比较",
+            "en": "A small cloth sketch is enough to compare"
+          },
+          "paragraphs": [
+            {
+              "zh": "不用真的做桌布，可以在纸上画一个巴掌大的方块：三片不同的叶子沿边绕一圈，中间留空。再画一版把叶子变得完全一样、间距也相同的图，看看更喜欢哪一种。两张的颜色先保持一致，这样比较的主要是重复方式。若第二张也很喜欢，就把这个发现留下；偏好可以跨过分组，不必为了维持“手作花纹”的名字而拒绝更整齐的画面。",
+              "en": "There is no need to make an actual cloth. Draw a palm-sized square with three different leaves repeating around its edge and leave the centre open. Make a second version with identical leaves and equal spacing. Keep the colours the same so the main comparison concerns repetition. You may like the more regular version too. Keep that discovery rather than rejecting it to preserve a handmade-pattern label. A useful reading allows preferences to cross the groups instead of requiring a consistent costume."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "手作感可以很轻，也可以很密",
+            "en": "A handmade effect can be light or dense"
+          },
+          "paragraphs": [
+            {
+              "zh": "一条细细的枝叶线和整页层叠花纹，都可能来自这组线索，视觉负担却很不一样。可以让花叶只停在书签下端，也可以把织纹放进一条窄边，给标题留出安静区域。色彩同样可以变化：铅笔灰、浅蓝或暖纸色都能配手画线，不必一直使用某套“天然色”。比较的是你此刻喜欢怎样安排元素，不是某种材料能证明你更真诚、更环保或更有深度。",
+              "en": "A single thin branch and a page full of layered flowers can both use these cues while creating very different amounts of visual activity. Keep leaves at the bottom of a bookmark or put woven texture in one narrow strip, leaving the title a quiet place. Pencil grey, pale blue and warm paper can all accompany a drawn line without requiring a natural-colour palette. The comparison concerns arrangement, not whether a material proves sincerity, environmental responsibility or depth in the person choosing it."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "让松动排列仍然有可读的关系",
+            "en": "A loose arrangement can still have clear relationships"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每条线都弯、每片叶子都抢眼，标题可能找不到自己的位置。可以保留不规则的边缘，同时让正文从同一条起点开始，或把密集花纹留在一侧。这种小调整不用抹掉手画感，也没有一个必须达到的整齐等级。读者要找什么、这张纸要用来做什么，会影响你怎样取舍；用作封面的草稿和需要迅速识别章节的页签，可能需要不同的安排。",
+              "en": "If every line bends and every leaf demands attention, a title may struggle to find its place. Keep an irregular edge while starting the main text along one line, or reserve dense pattern for one side. A small adjustment need not erase the drawn quality, and there is no required neatness level. Consider what someone will look for and what the paper is meant to do. A decorative cover draft and tabs used to identify chapters quickly may call for different arrangements."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与层叠旧感、几何装饰分别看什么",
+            "en": "Compare worn layers and organised ornament"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版1990年代层叠旧感也会留下不齐边缘，但更常用撕纸、复印点、褪色格纹和覆盖关系；手作花纹则更着重画出来的曲线与连续纹样。1920年代几何装饰同样可以很细密，不过本菜单里常有中心轴、阶梯和对称。你可以给同一张纸用花叶边框、格纸底层，再把标题排得很对称。组合并不稀奇，也不需要被解释成矛盾性格。",
+              "en": "Grunge Layers also keeps uneven edges, but its menus emphasise torn paper, copied dots, faded checks and overlapping surfaces. Bohemian Pattern focuses more on drawn curves and continuous motifs. Art Deco Lines can be intricate too, generally using an axis, steps and symmetry in this bank. One sheet can combine a leafy border, checked underlayer and symmetrical title. Such a combination needs no rare-blend story or contradictory-personality explanation. Describe what each element is doing in the arrangement you actually prefer."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "选一个重复单元，留一点变化",
+            "en": "Try one repeated unit with a little variation"
+          },
+          "paragraphs": [
+            {
+              "zh": "在草稿纸上画一个自己编的小叶形，重复六次：一版每次大小一样，另一版让其中两片稍微转向。把它们放在同样的边框位置，比较哪张更想继续画。不要借用不了解来源的真实传统图案，也不必为了这一页买材料。最后用一句视觉描述记下选择，例如“变化让边缘没那么像印章”。记录也可以只留在脑中，不需要把个人日记或真实照片交给测试。",
+              "en": "Invent a simple leaf shape and repeat it six times on scrap paper. Keep its size fixed in one version and turn two leaves slightly in the other. Place both patterns along an otherwise identical border and see which makes you want to continue drawing. No unfamiliar traditional motif or new material is needed. Keep one visual reason for the preference, such as variation making an edge feel less stamped. That reason may remain in your head; the test asks for no diary or actual photograph."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "高次数不是整套生活方式的认可",
+            "en": "A high count does not adopt a whole lifestyle"
+          },
+          "paragraphs": [
+            {
+              "zh": "六组各出现12次，你从18个四选一菜单里选出18项，所以次数只属于这份菜单。某个小花纹吸引你，就能给这一组加1，不要求你同时喜欢它关联的所有材料或文化想象。最高并列时，每份全文都保留，不按位置、年龄或隐藏规则派主副型。近一两次可以多读另一份说明，没有验证的风格纯度或人群排名；全选同一位置的六组各3也不是平衡能力。",
+              "en": "Each group appears twelve times, and eighteen four-choice menus produce eighteen selections. A small appealing leaf can add one count without requiring approval of every material or cultural association in the group. Every highest tie keeps its complete guide, with no position-, age- or secretly chosen primary and secondary type. A small gap may invite another reading, not a validated purity or population rank. Repeating one position gives all six groups three counts without demonstrating an ability to balance styles."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "保留喜欢的细节，其他部分可以放下",
+            "en": "Keep the detail you like and leave the rest"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版六份完整说明始终免费，可以先看、改答、重测或停止。它是原创视觉偏好趣味题，不评历史知识、价值观、收入或职业适配，也不要求你属于某一文化身份。无需购买、账号、照片或出生年份。临时草稿只有主动开启后才在本标签页保存，24小时到期，完成、清除或重测即删；分享只带名称与公开链接，不带答卷或计数。你可以只把一片好看的叶子带走，不必带走整个标签。",
+              "en": "All six full explanations stay free to read before answering, edit, retake or leave. This original visual-preference quiz rates no historical knowledge, values, income or career fit and requires no cultural identity. No purchase, account, photograph or birth year is needed. Optional drafts remain in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains a name and public link, without answers or counts. Keep one appealing leaf if that is all you want from the label."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disco-1970s",
+      "directionIds": [
+        "disco-1970s"
+      ],
+      "title": {
+        "zh": "1970年代：舞池光影",
+        "en": "1970s: Disco Shimmer"
+      },
+      "headline": {
+        "zh": "让一串亮点像正在转弯，静止的纸也可以有节奏。",
+        "en": "Let points of light seem to turn, giving still paper a rhythm."
+      },
+      "summary": {
+        "zh": "在这份菜单里，你更常选中反光小圆、弧形光带、明暗交错和转动感。本版以部分1970年代disco视觉作线索，读的是给定画面的吸引力，不判断你是否爱跳舞、外向或喜欢通宵。",
+        "en": "Reflected dots, curved light ribbons, alternating brightness and a sense of turning appeared more often in your selections. Limited 1970s disco visuals provide the reference; the reading establishes no preference for dancing, extraversion or staying out all night."
+      },
+      "seo": {
+        "title": {
+          "zh": "1970年代舞池光影结果：完整说明与风格比较",
+          "en": "1970s Disco Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "从亮点、弧线与反光画面读1970年代舞池光影结果，比较几何装饰和Y2K数字感，查看近分并列、纸面例子和完整练习。",
+          "en": "Read a disco-shimmer result through reflected dots, curves and rhythm. Compare Deco and Y2K cues, understand ties and try a small paper exercise."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "你选的是光的画法",
+            "en": "The result follows a way of depicting light"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组画面常有成串小亮点、银色圆面和拐弯的色带，像灯光从某个表面扫过。即使描述中出现舞池，也可以只喜欢那种明暗与圆弧的关系，不必喜欢大音量、拥挤或晚睡。试着回看一条具体选项：你留意的是圆形、反光、疏密变化，还是仿佛正在转动的感觉？不同答案会带你走向不同的小尝试，整个标签不需要一次全收下。",
+              "en": "These scenes use chains of highlights, silver circles and bending colour ribbons, suggesting light passing over a surface. A dance-floor reference need not mean you enjoy loud music, crowds or late nights. You may simply like the relationship between bright marks and curves. Revisit one selected option and separate its circles, reflections, spacing and implied motion. Each can suggest a different small experiment. The result is more useful when the elements become specific than when the entire label must be accepted at once."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "从disco取线索，不包办整个1970年代",
+            "en": "Disco supplies cues rather than a whole decade"
+          },
+          "paragraphs": [
+            {
+              "zh": "FIT的All That Glitters展览资料把亮片、珠饰和水钻的反光，与1970年代disco以及1990年代rave等视觉联系起来。一个反光细节本来就可能跨越年代；本版只选择其中一组联想，用于原创纸面菜单。1970年代还包含很多其他风格，disco文化也不只是一层闪亮外观。若想了解具体服装、场景或社群，可以沿资料继续读，而不是由一个选择次数替整段历史下定义。",
+              "en": "The Museum at FIT’s All That Glitters material connects reflective sequins, beads and rhinestones with settings including 1970s disco and 1990s rave. A reflective detail can cross periods. This edition selects one association for original paper menus, while the 1970s contained many other looks and disco culture involved more than a shiny surface. Follow the background material to explore a particular garment, setting or community. A selection count cannot supply a definition for that whole history."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "用银点画一个不用转动的圆",
+            "en": "Draw a circle that need not actually turn"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上画一个普通圆，把小点先密后疏地排在一段弧线上，再留一段完全空白。你可以把这些点想成光的轨迹，而不是真的制作灯具或亮片物件。接着画一版小点均匀排开的图，比较更喜欢哪种节奏。两张没有正确答案，也不用做成照片；这个小项目只是把菜单里的“转动感”拆成可比较的疏密、方向与留白。",
+              "en": "Draw an ordinary circle, add dots close together along one arc, space them farther apart and leave another arc empty. Imagine a trail of light without making a lamp or an embellished object. Make a second version with evenly spaced dots and compare the rhythm you prefer. Neither draft has a correct answer or needs to become a photograph. The exercise turns the menu’s suggestion of motion into spacing, direction and empty areas that can be compared on a small, still sheet of paper."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "闪亮不一定等于整张纸都很满",
+            "en": "Shimmer does not require filling the whole page"
+          },
+          "paragraphs": [
+            {
+              "zh": "一小束亮点可以停在邀请卡的角落，也可以绕着标题转半圈；大片背景仍然能很安静。反过来，如果你喜欢密集的光点，可以先让它们集中在一条带状区域，而不是到处平均铺开。颜色也不必照搬银紫：铅笔深浅、蓝白或单色线条都能表达光带的想象。喜欢这个分组，不要求房间、衣柜或每个设计都变成同样的闪亮背景。",
+              "en": "A small cluster of highlights can stay in an invitation’s corner or curve halfway around its title while most of the background remains quiet. If dense dots are appealing, concentrate them in one ribbon instead of distributing them evenly everywhere. Pencil values, blue and white, or a single ink colour can suggest a light trail without reproducing a silver-violet palette. Selecting these cues does not require a room, wardrobe or every future draft to become the same shimmering setting."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "给亮点安排主次",
+            "en": "Give the highlights a hierarchy"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果标题、边框和所有小点同样醒目，读者可能不知道先看哪里。可以把一部分点缩小，或在文字周围留出一圈空白，比较它是否更接近你想要的画面。这里没有“少一点才高级”的规定：密集本身也可能是你喜欢的部分。你要决定的是这张具体纸面里，什么先被看见、什么随后出现，而不是证明自己有多少社交能量或表现欲。",
+              "en": "When lettering, borders and dots all demand equal attention, it may be difficult to know where to look first. Make some dots smaller or leave space around the text and compare the result with the image you wanted. There is no rule that less is automatically more refined; density itself may be appealing. Decide what should be noticed first in this particular draft and what can follow. That is a composition choice, not evidence about social energy or a desire to perform."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "几何装饰与数字糖彩各像什么",
+            "en": "Compare ornament and digital-looking gloss"
+          },
+          "paragraphs": [
+            {
+              "zh": "1920年代几何装饰也会使用亮色与重复，但本菜单里更常把它们收进中心轴、阶梯边框或对称扇面。2000年前后Y2K数字感也有亮面，不过更常像半透明小窗口、圆角按钮和像素标记；舞池光影则偏向散开的反光与转弯光带。同一张卡可以同时有三者：边框很稳、角落有几个亮点、标题像一个透明窗口。混用只需要看效果，不需要编出主副人格或稀有组合。",
+              "en": "Art Deco Lines can also use bright accents and repetition, usually gathered into an axis, stepped border or symmetrical fan in this bank. Turn-of-Millennium Y2K uses glossy effects too, more often through translucent-looking windows, rounded buttons and pixels. Disco Shimmer emphasises scattered reflections and bending trails. One card can combine a steady frame, a few corner highlights and a window-like title. Mixing these elements calls for examining the result, not inventing primary and secondary personalities or a rare combination story."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "让同一条弧线有两种节奏",
+            "en": "Give one curve two different rhythms"
+          },
+          "paragraphs": [
+            {
+              "zh": "画两条相同的弧线：第一条周围的点等大、等距；第二条让点由大到小、由密到疏。其余颜色和位置先保持一样，再看哪条更想放在自己的虚构封面上。你也可以各取一半，保留第一条的秩序和第二条的变化。用一句关于画面的理由结束就够了，例如“疏开的末端像还在延伸”。不用上传作品，也不需要让别人替你验证这个年代结果。",
+              "en": "Draw two matching curves. Around the first, keep dots equal in size and distance. Around the second, make them smaller and farther apart along the curve. Leave the colours and positions unchanged and decide which you would place on a fictional cover. Combining the first version’s order with some variation from the second is also possible. Finish with one reason about the picture. No upload or outside confirmation of your era result is required; the comparison is already useful at the level of the draft."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "次数只属于这18个菜单",
+            "en": "Counts belong to these eighteen menus"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组线索在12题出现、各位置3次，但每题只提供六组中的四组。完成18题后，次数合计18，所有最高并列都显示完整说明。若光影和另一个分组很接近，可以把两份具体例子一起看，不必强行寻找“真正是哪一型”。次数不能换算成舞蹈兴趣、外向程度、身体活力或人群排名；全选一个位置的六组各3也只是菜单和位置安排产生的结果。",
+              "en": "Each cue group appears in twelve questions, three times in each position, while a menu contains only four of the six groups. Eighteen complete choices total eighteen, and every highest tie displays its full reading. If shimmer is close to another group, compare the concrete examples from both instead of finding a supposedly true type. Counts convert into no dance interest, extraversion, physical energy or population rank. Repeating one position gives each group three counts through the menu arrangement, without establishing balanced taste."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "看完就可以结束",
+            "en": "You can finish with the full reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节完整指南不设付费或注册门槛，也不用另做一测来解锁。题目与文字为本站原创，只讨论给定视觉选择，不推断性格、年龄、收入、职业或关系适配。无需制作作品、购买材料、上传照片或填出生年份。草稿由你主动开启，限本标签页24小时，完成、清除或重测即删；复制分享只带结果名称和公开链接，不含答卷与次数。看完也可以直接结束，把喜欢的一束光留作一个小创作念头。",
+              "en": "All six nine-section guides are free without registration or another test to unlock them. The original items and text discuss offered visual choices rather than personality, age, income, career or relationship fit. No making, materials purchase, photo upload or birth year is needed. Drafts require an explicit opt-in, stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying shares names and public links without answers or counts. You can stop here with one appealing visual idea."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "graphic-1980s",
+      "directionIds": [
+        "graphic-1980s"
+      ],
+      "title": {
+        "zh": "1980年代：利落色块",
+        "en": "1980s: Graphic Structure"
+      },
+      "headline": {
+        "zh": "让大色面、粗字和斜线先把轮廓立起来。",
+        "en": "Let broad colour panels, bold type and diagonals establish the outline."
+      },
+      "summary": {
+        "zh": "在给定菜单里，你更常选清楚的色块边界、利落直线、粗标题与斜切构图。本版把1980年代部分鲜明造型线索转成纸面选择，不从这些边界推断野心、权力、能力或工作风格。",
+        "en": "You more often selected clear colour boundaries, crisp lines, bold titles and diagonals in the offered menus. This edition translates limited bold 1980s references into paper choices without inferring ambition, power, ability or workplace style."
+      },
+      "seo": {
+        "title": {
+          "zh": "1980年代利落色块结果：完整说明与近分比较",
+          "en": "1980s Graphic Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "读1980年代利落色块结果：从粗字、斜线与大色面看具体布局，理解power dressing的有限视觉背景、相近风格与全部并列。",
+          "en": "Explore this 1980s graphic result through bold type, diagonals and colour panels. Read its limited power-dressing reference, comparisons and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "先看清楚的边界和大形状",
+            "en": "Notice boundaries and large shapes first"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组画面往往不用很多小装饰，而是让一个大矩形、一条斜线或一行粗字先把布局撑起来。你可能喜欢的是元素之间明确的分区，也可能只是两种颜色相遇的反差。把这两点分开比较：如果换成同色但仍喜欢，结构可能更吸引你；如果拿掉斜线仍喜欢，色彩关系可能更重要。一项选择不需要带出“强势”或“想赢”的人生故事。",
+              "en": "These scenes often let a rectangle, diagonal or bold title hold the layout before adding small ornament. The appealing part may be a clear division between elements or simply the contrast where two colours meet. Separate those possibilities. If a single-colour version remains appealing, structure may matter more; if removing the diagonal changes little, the colour relationship may be the important part. One selection does not need an accompanying life story about being forceful, competitive or determined to win."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "借鲜明造型，不借一套权力人格",
+            "en": "Borrow a visual outline rather than a power personality"
+          },
+          "paragraphs": [
+            {
+              "zh": "FIT的Power Mode展览资料讨论1980年代宽肩西装与power dressing，也提醒服装和身份的关系要看具体语境。本版把清楚肩线、鲜明轮廓的联想借到纸面，用粗字、大色面和切角组织一组原创描述。这不是1980年代全部设计史，也不是说一件西装或一个矩形能证明领导力。资料帮助说明我们选了哪部分视觉背景，个人计数仍只来自这18个菜单。",
+              "en": "The Museum at FIT’s Power Mode material discusses broad-shouldered 1980s suits and power dressing while keeping clothing and status in context. This edition borrows an association with pronounced outlines for original paper descriptions using bold lettering, large panels and cut corners. It supplies no complete design history of the decade and treats neither a suit nor a rectangle as proof of leadership. The source explains a selected reference; your count still comes only from these eighteen offered menus."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "用两块颜色先做一张海报小稿",
+            "en": "Begin a poster draft with two panels"
+          },
+          "paragraphs": [
+            {
+              "zh": "在草稿纸上画一个长方形，先把它分成两块大小不同的区域，再放一个简短标题。你可以让字跨过分界，也可以让它紧贴一条直边。随后只加一条斜线，看看它让画面更明确，还是反而打散了原来的关系。这个小项目不用任何设计软件，也没有品牌或商业用途；它只是让你看到，题目中的“大色面”和“利落构图”分别指什么。",
+              "en": "Draw a rectangle on scrap paper, divide it into two differently sized areas and add a short fictional title. Let the letters cross the boundary or align them with one straight edge. Add only one diagonal and see whether it clarifies the image or disrupts a relationship you already liked. No software, brand or commercial purpose is required. The small project makes broad panels and a crisp composition concrete, instead of leaving the result as a general description of confidence or ambition."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "利落可以很亮，也可以很克制",
+            "en": "A crisp layout can be bright or restrained"
+          },
+          "paragraphs": [
+            {
+              "zh": "深蓝与白、铅笔灰与纸色，也能做出清楚的边界，不必永远采用高饱和撞色。粗标题可以只占一个角，大色面也可以让出大片空白。你还可以保留一条斜线，同时把其他边缘排得很安静。颜色强弱、字的大小和排列方向是不同变量；本题把它们临时组在一起供选择，完整读法允许你把不想要的部分拆掉。",
+              "en": "Dark blue and white, or pencil grey and paper, can make a clear boundary without a strongly saturated clash. A bold title may occupy one corner while a broad panel leaves substantial empty space. Keep one diagonal and let the remaining edges stay quiet. Colour intensity, type size and direction are different variables temporarily grouped in a menu. A full reading lets you remove the parts you do not want, rather than requiring every graphic element to be loud or imposing."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "清楚的构图也要照顾具体内容",
+            "en": "A clear structure still needs to fit its content"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果标题很长，强行压进预想的大色块，可能让字变得难读；如果所有元素都沿同一条斜线，也可能缺少稳定的阅读位置。可以先安排文字，再让色块服务它，或只保留一个切角作为重点。这不是叫你降低某种气势，而是在解决这张纸的实际问题。不同用途有不同需要：展览海报、书签和访客证，并不必共用同一个构图力度。",
+              "en": "A long title forced into a planned panel may become difficult to read, while making every element follow one diagonal can remove a stable reading position. Arrange the words first and let the panels support them, or keep only one cut corner as a focal point. This addresses the sheet’s particular content rather than reducing a personal level of forcefulness. An exhibition poster, bookmark and visitor badge have different needs and need not share the same amount or direction of visual emphasis."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与几何装饰、层叠旧感怎么分",
+            "en": "Compare ordered ornament and rough layering"
+          },
+          "paragraphs": [
+            {
+              "zh": "1920年代几何装饰也有明确线条，不过本菜单里更常用细框、对称扇面和重复阶梯；利落色块则偏向较大的面、粗字和直接的切分。1990年代层叠旧感也可以有大矩形，但边缘往往像撕纸或复印过，强调覆盖留下的痕迹。你可以选择清楚的大色面，再叠一小块粗糙纸纹。分组是帮助比较细节的工具，不要求现实中的设计只能归进一个年代。",
+              "en": "Art Deco Lines also uses definite marks, usually through fine borders, symmetrical fans and repeated steps in these menus. Graphic Structure favours larger panels, bold lettering and direct divisions. Grunge Layers can contain big rectangles too, with torn or copied-looking edges that emphasise traces of overlap. A crisp colour panel can carry a small rough-textured patch. The groups help compare details; they do not require an actual design to belong to exactly one decade, and their shared elements need not be explained away."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把斜线拿走一次，再放回来",
+            "en": "Remove the diagonal once, then restore it"
+          },
+          "paragraphs": [
+            {
+              "zh": "准备两张大小一样的草稿，文字、配色和矩形都相同，只让其中一张多一条斜线。你更喜欢它带来的方向，还是没有斜线时的稳定？再把粗标题换成细字，比较答案有没有变。每次只改一个部分，容易看清偏好落在哪里。你不需要选出最专业的一张，也不用把它给别人评分；一句关于版面关系的观察，就足以让这个结果变得更具体。",
+              "en": "Make two equal-sized drafts with matching words, colours and rectangles, adding a diagonal to only one. Compare its direction with the stability of the version without it. Then replace bold lettering with thin lettering and notice whether the preference changes. Altering one part at a time makes the attractive element easier to identify. There is no need to choose the most professional design or submit it for somebody’s rating. One observation about the layout already makes the reading more specific."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "把次数留在本题组的范围里",
+            "en": "Keep counts within this question set"
+          },
+          "paragraphs": [
+            {
+              "zh": "六组各在12题出现、在每个位置各3次，18次完整选择合计18。最高并列时每份全文都完整呈现，没有隐藏的主副型，也不按最后一题强行决胜。如果利落色块只比另一组多一两次，可以一起比较具体选项；这个差距没有验证的心理意义。次数不代表领导力、权力欲、职业能力或风格纯度，也不能据此推荐金融、管理或其他工作。",
+              "en": "Every group appears in twelve questions, three times in each position, and eighteen complete choices total eighteen. Each highest tie retains its whole guide without hidden primary and secondary types or a last-item tiebreaker. Compare concrete options if graphic structure leads another group by only a small amount; the gap has no validated psychological significance. Counts establish neither leadership, desire for power, occupational ability nor style purity, and cannot recommend finance, management or any other work."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "保留一个构图想法就够了",
+            "en": "One composition idea is enough to keep"
+          },
+          "paragraphs": [
+            {
+              "zh": "这份原创视觉趣味题的六份完整说明都免费，不需付费、注册、照片、购物或出生年份。你可以改答、重测，也可以在不合适的菜单处停止，不完整作答不会派个人结果。临时草稿需主动开启，只在本标签页保留最多24小时，完成、清除或重测即删；分享只带名称与公开说明链接，不含答卷或次数。结果不推断性格、价值观、收入、年龄或关系适配，愿意的话只带走一个想试的构图就可以。",
+              "en": "All six complete guides in this original visual quiz are free without payment, registration, photographs, shopping or a birth year. Edit, retake or stop at a menu that does not fit; incomplete attempts receive no personal result. Drafts need an explicit opt-in, stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public guide links rather than answers or counts. The reading infers no personality, values, income, age or relationship fit. Keeping one composition idea is enough."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grunge-1990s",
+      "directionIds": [
+        "grunge-1990s"
+      ],
+      "title": {
+        "zh": "1990年代：层叠旧感",
+        "en": "1990s: Grunge Layers"
+      },
+      "headline": {
+        "zh": "让纸边、覆盖和磨旧纹理留下各自的位置。",
+        "en": "Give paper edges, overlaps and worn-looking texture a place."
+      },
+      "summary": {
+        "zh": "在给定菜单里，你更常保留褪色格纹、复印颗粒、撕边纸片和看得见的覆盖关系。这组借部分1990年代grunge视觉作线索，描述画面的吸引力，不评真假、道德、收入或对商业的立场。",
+        "en": "Faded checks, copied-looking grain, torn edges and visible overlaps appeared more often in your selections. Limited 1990s grunge cues provide a visual reference without judging authenticity, ethics, income or attitudes towards commerce."
+      },
+      "seo": {
+        "title": {
+          "zh": "1990年代层叠旧感结果：完整说明与风格比较",
+          "en": "1990s Grunge Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "从格纹、撕边与复印纹理读1990年代层叠旧感结果，理解有限历史背景，比较手作花纹和利落色块，查看近分并列与完整纸面练习。",
+          "en": "Read a grunge-layer result through checks, rough edges and copied texture. Compare handmade and graphic looks, understand ties and try a small paper draft."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "层次来自边缘怎样相遇",
+            "en": "Layers begin where the edges meet"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组描述经常让底层露出来：一张字纸盖住格纹的一角，另一片纸边没有拉齐，印刷颗粒或褪色像是画面本来的一部分。你也许只喜欢那一处覆盖，而不喜欢整张图都很粗糙。回看具体选项时，可以分别找纸边、明暗、字迹和留白；“层叠旧感”只是把几种线索暂时放在一起的名字，不要求你的真实物品都旧，也不把不整齐当成一种人格优点。",
+              "en": "These scenes often leave an underlayer visible: text covers one corner of a check pattern, another scrap sits unevenly, and grain or fading remains part of the image. You may like one overlap without wanting every surface to look rough. Revisit the paper edges, light and dark, lettering and empty space separately. Grunge Layers temporarily gathers several cues under one name. It does not require your actual belongings to be old or make untidiness into a personal virtue."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "1990年代并不只有grunge",
+            "en": "The 1990s contained more than grunge"
+          },
+          "paragraphs": [
+            {
+              "zh": "FIT的1990年代展览资料把grunge放在极简、解构与奢华回潮等多种变化之间，也提到它与美国太平洋西北部音乐场景中的层叠、磨旧服装有关，并进入1993年的高时装秀场。本版只用格纹、覆盖、复印感与不齐边缘做原创纸面线索。它没有把一个年代简化成“反商业”，更不能由这些选择判断你是否真诚、收入应当多少或适合哪类工作。",
+              "en": "The Museum at FIT’s account of the 1990s places grunge alongside minimalism, deconstruction and returning luxury. It connects worn, layered clothing with the Pacific Northwest music scene and its translation to high-fashion runways in 1993. This edition selects checks, overlaps, copied effects and uneven edges for original paper descriptions. It does not reduce a decade to opposition to commerce or derive sincerity, an appropriate income or a suitable job from those visual choices."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "让一块格纹只露出一个角",
+            "en": "Let a check pattern show through one corner"
+          },
+          "paragraphs": [
+            {
+              "zh": "在草稿纸上画一小块格纹，再用另一张空白纸遮住大半，只留一角。把上层纸稍微旋转，比较你更喜欢对齐还是错开。接着给上层加一个虚构标题，看看边缘变化是否仍然吸引你。你不需要真的撕书、弄旧衣物或使用私人照片；画出来的纸片形状就够了。这个项目把“粗糙氛围”拆成可比较的角度、覆盖面积和文字位置。",
+              "en": "Draw a small checked area, cover most of it with another blank sheet and leave one corner showing. Turn the upper sheet slightly and compare an aligned arrangement with an offset one. Add a fictional title and notice whether the edge relationship remains appealing. There is no need to tear a book, distress clothing or use private photographs. Drawn scrap shapes are enough. The project separates a broad rough-looking mood into angles, visible area and lettering positions that can be compared directly."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "旧感可以很轻，不必铺满灰暗",
+            "en": "A worn effect can remain a small accent"
+          },
+          "paragraphs": [
+            {
+              "zh": "一条不齐的边、一个淡淡的复印点块，已经可以提供这组线索；整页不必都暗，也不用所有字都模糊。你可以把亮蓝色放在格纹上，或让背景很干净，只在角落留一片旧纸形状。颜色明暗、边缘粗细与层数并不是同一件事。若你只喜欢少量纹理，把其他部分保留清楚就很好，不用为了符合名字而把每个细节都做成破旧效果。",
+              "en": "An uneven edge or a small patch of copied-looking dots can provide the cue without making the entire page dark or every letter blurred. Put bright blue over checks, or keep a clean background with one worn-paper shape in a corner. Colour values, edge roughness and the number of layers are separate choices. Keep other areas clear if only a little texture is appealing. There is no need to distress every detail in order to look consistent with the result’s name."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "丰富纹理和清楚阅读可以协商",
+            "en": "Texture and legibility can be negotiated"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果字、格纹和复印颗粒叠在同一区域，想读的那一句话可能被盖住。可以先让标题停在一块较清楚的底上，再把粗糙层放到旁边，或减少一层覆盖。这样调整是在回应纸面用途，不是在给某种风格判高下。反过来，如果你本来就在做一张只看整体的灵感小卡，也可以保留更多纹理。要比较的是“这张图想让我看见什么”，而不是“哪种人会喜欢这种图”。",
+              "en": "When lettering, checks and grain overlap in one area, the sentence you want to read may disappear. Give the title a clearer backing, move roughness beside it or remove one layer. That adjustment responds to the sheet’s purpose rather than ranking styles. An inspiration card meant to be seen as a whole might keep more texture. Ask what this image should let you notice, instead of turning the layout problem into a judgement about the kind of person who would like it."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与手作花纹、利落色块怎么比",
+            "en": "Compare handmade motifs and crisp panels"
+          },
+          "paragraphs": [
+            {
+              "zh": "1960年代手作花纹也会有不规则线条，但本菜单里更着重花叶、弧线和连续纹样；层叠旧感更常把边缘、覆盖与印刷痕迹放到眼前。1980年代利落色块也能使用大矩形，不过边界通常更清楚、色面更整。可以把一块清楚的色面放在粗糙纸层之上，再加一条手画线。它们是能重组的视觉部分，不是互相排斥的生活立场。",
+              "en": "Bohemian Pattern can also use irregular marks, generally through leaves, curves and continuous motifs in this bank. Grunge Layers foregrounds edges, overlap and printing traces. Graphic Structure can use large rectangles too, usually with clearer boundaries and more unified colour areas. Put a crisp panel over rough-looking scraps and add a drawn line if that combination appeals. These are visual elements available for rearrangement rather than incompatible positions about how to live, spend money or participate in popular culture."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只改变一条纸边",
+            "en": "Change only one paper edge"
+          },
+          "paragraphs": [
+            {
+              "zh": "给同一段虚构标题画两张底纸：第一张四边齐整，第二张只把一条边画成不规则，其余颜色和大小保持不动。再试一版，让底下露出的格纹从少变多。你可能发现自己喜欢的是覆盖关系，而不是越粗糙越好。把这个发现写成一句很小的描述就行，不需要评判别人整理物品的习惯，也不用把视觉趣味变成收入、消费或道德上的证明。",
+              "en": "Draw two backings for the same fictional title. Keep one square-edged and make only a single edge uneven on the other, leaving colour and size unchanged. Then alter how much of a checked underlayer is visible. You may find that overlap matters more than increasing roughness. Keep the finding as a small description. It requires no judgement of someone else’s tidiness and no attempt to make visual taste prove something about income, consumption or ethics."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "近分适合回看具体选项",
+            "en": "Use a close count to revisit particular options"
+          },
+          "paragraphs": [
+            {
+              "zh": "六组各出现12次，18题每题只选一项，所有次数合计18；每个菜单只呈现六组中的四组。最高并列时，完整说明逐份保留，不用隐藏优先级挑一个赢家。若两个分组只差一两次，可以回到具体选项看看更在意什么，没有验证的纯度、真实性或人群排名可读。3/12也不是25%的“grunge人格”；全选同一位置的各3只是菜单安排会产生的一种结果。",
+              "en": "Each group appears twelve times, and one choice in each of eighteen questions produces eighteen total counts. A menu shows only four of the six groups. Every highest tie keeps its full explanation without a hidden priority selecting one winner. Revisit particular options when two groups differ by a small amount; no validated purity, authenticity or population rank is available. Three out of twelve is not a twenty-five-percent grunge personality. Equal counts after repeating one position can arise from the menu arrangement alone."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "把一小块喜欢的纹理留下",
+            "en": "Keep one small texture you like"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份完整指南在作答前后都能免费读，也可改答、重测或停止。题本和结果为本站原创，文化资料只作有限视觉背景，不验证人格，也不推荐工作或关系对象。无需注册、购物、照片、年龄或出生年份。临时草稿仅在主动开启后保存在本标签页，最多24小时，完成、清除或重测即删；复制分享只有名称与公开链接，不含答卷或次数。喜欢一角格纹已经足够，不需要让整个生活变成这个标签。",
+              "en": "All six complete guides are free before and after answering, with editing, retaking or stopping available. The bank and readings are original; cultural sources give limited visual background rather than personality validation or job and relationship matches. No account, shopping, photograph, age or birth year is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links without answers or counts. One appealing checked corner is enough to keep."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "digital-2000s",
+      "directionIds": [
+        "digital-2000s"
+      ],
+      "title": {
+        "zh": "2000年前后：Y2K数字糖彩",
+        "en": "Turn-of-Millennium Y2K"
+      },
+      "headline": {
+        "zh": "让透明色片、圆角小窗和像素点浮在纸面上。",
+        "en": "Let translucent panels, rounded windows and pixels float on the page."
+      },
+      "summary": {
+        "zh": "在给定菜单里，你更常选择半透明色片、圆鼓鼓的亮边、屏幕小窗和像素标记。本版借世纪之交部分数字物件的视觉联想，不推断出生年代、数字能力、消费习惯或是否怀旧。",
+        "en": "Translucent colour panels, rounded glossy edges, little screen-like windows and pixels appeared more often in your selections. This group borrows limited turn-of-millennium digital-object cues without inferring birth era, digital ability, consumption or nostalgia."
+      },
+      "seo": {
+        "title": {
+          "zh": "Y2K数字糖彩结果：完整说明与年代风格比较",
+          "en": "Y2K Digital Aesthetic: Full Decade Test Result"
+        },
+        "description": {
+          "zh": "从透明色片、圆角与像素读2000年前后Y2K数字糖彩结果，比较舞池光影和利落色块，理解有限年代背景、近分并列与完整纸面尝试。",
+          "en": "Explore a Y2K-style result through translucent colour, rounded windows and pixels. Compare shimmer and graphic panels, read ties and try a small paper draft."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题只选一项，六组各出现12次、在四个位置各3次。次数只比较本菜单里被选的次数，所有最高并列都保留完整说明，不派隐藏主副型。相差一两次没有验证的心理意义，3/12也不表示25%的年代人格。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts compare selections within the offered menus; every highest tie keeps its full guide without hidden primary or secondary types. A one- or two-count gap has no validated psychological meaning, and three out of twelve does not mean a twenty-five-percent era personality."
+      },
+      "sections": [
+        {
+          "id": "cues",
+          "title": {
+            "zh": "像小窗口一样，把元素轻轻托起来",
+            "en": "Give an element a little window of its own"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组描述常给一个图形加圆角、亮边或透明感，让它像轻轻浮在背景上。你可能喜欢的是柔软轮廓，也可能只是颜色叠起来时的变化；像素点则提供一个很小、很明确的节奏。回看你选中的明信片或封面，试着分别拿掉透明感、圆角和小像素，想象哪一项最舍不得删。这个观察比把整套风格当成必须拥有的物品清单更具体。",
+              "en": "These descriptions give a shape rounded corners, a bright rim or a translucent-looking surface so it seems to float above a background. The appealing element may be a soft outline or the colour change where two panels overlap. Pixels add a small, distinct rhythm. Revisit a selected postcard or cover and imagine removing the transparency, rounded shape and pixel detail separately. Notice what you would most miss. That observation is more specific than treating the whole look as a list of objects you need to own."
+            }
+          ]
+        },
+        {
+          "id": "background",
+          "title": {
+            "zh": "“2000年前后”是一段有限的设计联想",
+            "en": "The reference sits around a calendar boundary"
+          },
+          "paragraphs": [
+            {
+              "zh": "Cooper Hewitt的Saturated展览资料展示过1999—2000年的彩色半透明电脑外壳，为这组提供一个可核对的设计例子。本版从这类资料借用透明色、圆润外形与数字小物的联想，再写成原创纸面描述。Y2K在这里指世纪之交的一组选择线索，不等于整个2000年代，更不要求你当年用过某种设备。它也没有覆盖那个时期所有地区、服装或数字界面，历史比六个分组更丰富。",
+              "en": "Cooper Hewitt’s Saturated material includes a 1999–2000 computer with a brightly coloured translucent case, providing one identifiable design example. This edition borrows limited associations with translucent colour, rounded forms and small digital objects for original paper descriptions. Y2K here names selected turn-of-millennium cues rather than an entire calendar decade or a requirement to have used a particular device. The group does not cover every region, garment or interface of the period. Its six-part menu leaves a much richer history outside the frame."
+            }
+          ]
+        },
+        {
+          "id": "project",
+          "title": {
+            "zh": "画一扇并不存在的小窗口",
+            "en": "Draw a window that exists only on paper"
+          },
+          "paragraphs": [
+            {
+              "zh": "在纸上画一个圆角方框，给一侧加很窄的亮边，再把一个自编的小像素花放进去。你可以把底色换成淡蓝、浅绿或暖橙，看看变化来自颜色还是形状。它不需要像任何真实软件，也不用复制商标、界面或别人的图案。这个小项目只是把“数字感”拆成一个可想象的轮廓：圆角、边缘、前后层次和少量方形小点。",
+              "en": "Draw a rounded square, add a narrow bright rim on one side and put an invented pixel flower inside. Change its background to pale blue, light green or warm orange and notice whether colour or shape drives the preference. It need not resemble any actual software, logo, interface or another person’s image. The small project breaks a digital-looking impression into an imaginable outline: rounded corners, an edge, front-and-back layers and a few tiny squares. A paper sketch is enough to make those choices visible."
+            }
+          ]
+        },
+        {
+          "id": "variation",
+          "title": {
+            "zh": "糖彩不是规定好的配色表",
+            "en": "Candy-like colour is not a required palette"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只用一块透明感的蓝色，让其他地方保持灰白；也可以让一枚很小的像素星成为唯一亮点。圆润、透明、渐变和密集排列各自都能单独变化，不必一次全部叠满。若拿掉鲜艳颜色后仍然喜欢，吸引你的可能是边缘与层次。喜欢这个分组，不需要购买复古设备、收藏某类配件，也不说明你更擅长技术或更喜欢未来。",
+              "en": "One translucent-looking blue panel can sit inside an otherwise grey-and-white draft, or a tiny pixel star can be the only bright accent. Rounded forms, transparency, gradients and density can each change independently without filling a page with all of them. If a less colourful version still appeals, edges and layering may matter more. Selecting this group requires no vintage device or accessory collection and establishes neither greater technical ability nor a general preference for the future. Keep the combination that works in the particular sketch."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "亮边与小装饰需要一点安静背景",
+            "en": "Bright rims benefit from a little quiet space"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果每个小窗都有很亮的边、每个空隙都有像素，标题可能被分散。可以保留一个主要窗口，把其他形状变淡，或让一片底色不加装饰。也可能你正喜欢图形很多的感觉，那就比较怎样让它们有前后顺序。这只是这张虚构封面的组织问题，不是“克制一点才成熟”的评判，更不把一种颜色或小物偏好解释成消费习惯、年龄或成长阶段。",
+              "en": "When every window has a bright rim and every gap contains pixels, the title may lose attention. Keep one main window, lighten other shapes or leave a background area unadorned. If many objects are the appealing feature, compare ways of giving them a front-to-back order. This concerns the fictional cover’s organisation rather than judging restraint as maturity. Neither a colour nor a small-object preference can establish consumption habits, age or a stage of growing up."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与舞池光影、利落色块分别看什么",
+            "en": "Compare reflected light and crisp graphic panels"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版1970年代舞池光影也会有亮点，但更常像光扫过表面或绕着圆面转动；Y2K数字感则更常把亮面画成小窗、软边和按钮似的独立物件。1980年代利落色块同样分区清楚，不过本菜单里多用直边、粗字和大面切分。你可以把圆角窗口放在一块利落背景上，再加少量弧形亮点。这样的组合只是设计选择，不需要用主副人格或世代身份来解释。",
+              "en": "Disco Shimmer also uses bright marks, more often suggesting light crossing a surface or turning around a circle. Turn-of-Millennium Y2K places glossy effects into little windows, soft edges and button-like objects. Graphic Structure divides a page clearly too, generally through straight edges, bold lettering and large panels in these menus. A rounded window can sit over a crisp background with a few curved highlights. That combination is a design choice, not something requiring primary and secondary personalities or a generational identity to explain it."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "把透明感拿走，看还喜欢什么",
+            "en": "Remove the translucent effect and see what remains"
+          },
+          "paragraphs": [
+            {
+              "zh": "画两枚一样大小的圆角方形，一枚只用平色，另一枚让重叠区域颜色变深、边缘留一条亮线。先比较形状和透明感，再把小像素加到其中一枚，看看它是否改变你的选择。每次只改一个部分，会更容易说清偏好落在哪里。练习不要求会用设计软件，也不需要上传成果或证明年代知识。你可以只在脑中比较，带走一个想继续看的细节就够了。",
+              "en": "Draw two rounded squares of equal size. Give one flat colour and make the other darker where it overlaps a second shape, leaving a narrow bright edge. Compare the form and translucent effect before adding pixels to only one version. Notice whether that changes the preference. Altering one part at a time makes the appealing detail easier to identify. No design-software skill, upload or proof of historical knowledge is required. You may make the comparison entirely in your imagination and keep one detail worth looking at again."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "计数不判断你是否属于某一代",
+            "en": "Counts do not assign a generation"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组线索各在12题出现、在四个位置各3次，18次完整选择合计18。每题只提供六组中的四组，菜单并不穷尽你的风格。所有最高并列都保留全文，不靠年龄、最后一题或隐藏规则挑唯一类型；接近的其他分组也可以免费阅读。次数不是数字原生能力、怀旧程度或人群排名，3/12不代表25%的Y2K人格。全选同一位置的六组各3也不证明理想混合。",
+              "en": "Each group appears twelve times, three in every position, and eighteen complete choices total eighteen. Menus offer only four groups at a time and do not exhaust your style. Every highest tie retains its whole guide without age, a last item or a hidden rule selecting one type. Other close readings remain free too. Counts establish no digital-native ability, level of nostalgia or population rank. Three out of twelve is not a twenty-five-percent Y2K personality, and repeating one position to obtain six equal counts proves no ideal mixture."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整结果不要求证明经历或消费",
+            "en": "Full results require no proof of experience or purchases"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节指南始终免费，无需注册、付费、照片、购物或出生年份。题目与结果为本站原创，有限文化资料只是视觉背景，不验证人格，不推断价值观、收入、职业或恋爱适配。你可以改答、重测，也可以在不合适的菜单处停止，缺答不派个人结果。临时草稿需主动开启，限本标签页24小时，完成、清除或重测即删；分享只带名称与公开链接，不含答卷与计数。喜欢一个圆角小窗，并不要求你把生活装成一个年代。",
+              "en": "All six nine-section guides stay free without registration, payment, photographs, shopping or a birth year. The bank and readings are original; limited cultural sources provide visual background, not personality validation or inferences about values, income, careers or romantic fit. Edit, retake or stop at an unsuitable menu; partial answers produce no personal result. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links, without answers or counts. One appealing rounded window requires no era-themed life."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数、近分与全部并列",
+        "en": "Counts, close results and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "六组各在12个菜单出现，18次选择合计18；你没有在每题同时比较全部六组。最高次数只决定本次先显示哪些完整说明，所有最高并列都保留，不硬分主型、次型或纯度。全选同一个位置会六组各3，不能当作理想混合。相差一两次可以邀请你多读另一份全文，但没有验证的人群分界、人格百分比或历史知识等级。",
+          "en": "Each group appears in twelve menus and eighteen choices total eighteen. You did not compare all six groups in every question. The highest count only determines which full readings appear first, with every highest tie retained and no forced primary type, secondary type or purity. Repeating one position gives each group three counts without establishing ideal mixture. A small gap can invite reading another full guide, but provides no validated population boundary, personality percentage or level of historical knowledge."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列都保留全文",
+        "en": "Every highest tie keeps its full guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，每组出现12次。只比较最高次数，不强派主副型。六组各3时显示六份54节；相差一两次可邀请你多读另一组，但不换成人格百分比、风格纯度或人群排名。",
+          "en": "Eighteen choices total eighteen, with twelve appearances per group. Compare highest counts without forced primary or secondary types. Six groups of three show all six guides and fifty-four sections. A small gap can invite another reading, but becomes no personality percentage, style purity or population rank."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "年代名字指向哪些细节",
+        "en": "What the decade names point to"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版借六个年代入口整理几何、花纹、反光、色面、磨旧层次与透明数字感。它们可以交叠；喜欢某一张纸面的一个细节，不必接受整组标签。六份全文会分别说明借用的历史例子与可变化的部分。",
+          "en": "Six decade names organise geometry, pattern, reflection, colour panels, worn layers and translucent digital cues. These can overlap. Liking one detail on a page does not require accepting its whole label. Each full guide explains its limited historical reference and the elements you can vary."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "有限的历史视觉参考",
+        "en": "Limited historical visual references"
+      },
+      "paragraphs": [
+        {
+          "zh": "六组只是本站选定的历史视觉线索，主要参照西方时装与设计中的部分例子，不代表整个年代、所有地区或六种人的本质。2000年前后包含世纪之交线索，不把一个十年简化成唯一风格。题目与结果原创，不复刻竞品题库、正文或图片，不测出生年代、价值观、性格、收入、职业、关系适配或历史知识。",
+          "en": "These six groups are selected historical visual cues, drawing mainly on limited examples in Western fashion and design. They represent neither whole decades, every region nor six kinds of people. Turn-of-millennium cues cross a calendar boundary without reducing a decade to one style. Original items and guides copy no competitor bank, text or artwork and measure no birth era, values, personality, income, job or relationship fit, or historical knowledge."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "完整阅读与这份题本的边界",
+        "en": "Full reading and the bank’s boundaries"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份说明在作答前后都免费，不需账号、购物、照片或出生年份。18个项目、72段选项和结果正文均为本站原创，历史资料仅作有限视觉背景，不验证计分；不推断性格、伦理、收入、职业或恋爱适配。草稿需主动开启，仅限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。若某题四项都不合适，可以停止，完整公开说明仍能读。",
+          "en": "All six guides are free before and after answering, without an account, shopping, photographs or a birth year. The eighteen projects, seventy-two option descriptions and guides are original. Historical material supplies limited visual background rather than validating the count method. Results infer no personality, ethics, income, career or romantic fit. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links only. Stop if a menu does not fit; the full public explanations remain available."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "十年美学测试里的“十年”是什么意思？",
+        "en": "What does “decade” mean in this aesthetic test?"
+      },
+      "answer": {
+        "zh": "指以年代为入口的视觉风格，不预测你未来十年的生活。六组分别取用1920年代几何装饰、1960年代手作花纹、1970年代反光、1980年代色块、1990年代旧感层次与世纪之交Y2K线索，并不代表整个年代或所有地区。",
+        "en": "It means decade-inspired visual styles, not a forecast of your next ten years. Six groups select Art Deco geometry, handmade pattern, disco reflections, graphic colour panels, worn layers and turn-of-millennium Y2K cues, without representing whole eras or every region."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和已有的美学风格测试有什么区别？",
+        "en": "How does this differ from the Aesthetic Core Test?"
+      },
+      "answer": {
+        "zh": "这版用历史视觉线索组织18个纸面项目；已有美学风格版比较田园、暗黑学院、清爽等当代命名风格。两者都只能描述给定菜单里的偏好，结果可能交叠，不能据此证明心理维度互相独立。",
+        "en": "This edition organises eighteen paper projects around historical visual cues. The Aesthetic Core edition compares contemporary named styles such as Cottagecore, Dark Academia and Clean Girl. Both describe offered-menu preferences; overlap is possible and psychological independence is not established."
+      }
+    },
+    {
+      "question": {
+        "zh": "四个选项怎样对应六组结果？",
+        "en": "How do four options relate to six result groups?"
+      },
+      "answer": {
+        "zh": "各组出现12次、在四个位置各3次、轮流省略6次。每次选择加1，完整18题后只显示原始次数和全部最高并列。全选同一位置会各3次，不能解释成理想均衡。",
+        "en": "Each group appears twelve times, three in each position, and is omitted six times. Every choice adds one count. Complete all eighteen to see raw counts and every highest tie. Repeating one position gives each group three counts without establishing ideal balance."
+      }
+    },
+    {
+      "question": {
+        "zh": "会判断出生年代、人格或设计水平吗？",
+        "en": "Does it determine birth era, personality or design skill?"
+      },
+      "answer": {
+        "zh": "不会。题目只问你此刻更喜欢哪段视觉描述，不考历史知识，也不测年龄、价值观、收入、职业或关系适配。博物馆资料提供有限历史背景，不验证本题本或计分。",
+        "en": "No. Items ask which visual description appeals now, without testing historical knowledge, age, values, income, careers or relationship fit. Museum sources provide limited historical background rather than validating this bank or its counts."
+      }
+    },
+    {
+      "question": {
+        "zh": "这是JobCannon题本或标准心理量表吗？",
+        "en": "Is this a JobCannon bank or a standard psychological scale?"
+      },
+      "answer": {
+        "zh": "不是。18个项目、72段选项及结果正文均为本站原创。只对齐年代审美的趣味需求，不复制竞品题库、结果正文或图像；没有本站常模、效度或跨语言等价验证。",
+        "en": "No. All eighteen projects, seventy-two option descriptions and result guides are original. The edition addresses a broad decade-aesthetic topic without copying competitor items, result text or artwork. It has no local norms, validity or established language equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、草稿和分享需要付费吗？",
+        "en": "Are full results, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份说明在作答前后都免费，不需账号、购物、照片或出生年份。18个项目、72段选项和结果正文均为本站原创，历史资料仅作有限视觉背景，不验证计分；不推断性格、伦理、收入、职业或恋爱适配。草稿需主动开启，仅限本标签页24小时，完成、清除或重测即删；分享只含结果名称和公开链接。若某题四项都不合适，可以停止，完整公开说明仍能读。",
+        "en": "All six guides are free before and after answering, without an account, shopping, photographs or a birth year. The eighteen projects, seventy-two option descriptions and guides are original. Historical material supplies limited visual background rather than validating the count method. Results infer no personality, ethics, income, career or romantic fit. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing contains names and public links only. Stop if a menu does not fit; the full public explanations remain available."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.vam.ac.uk/articles/an-introduction-to-art-deco",
+      "title": {
+        "zh": "V&A：装饰艺术介绍（几何线索背景）",
+        "en": "V&A: An Introduction to Art Deco (geometric-cue background)"
+      }
+    },
+    {
+      "url": "https://sites.fitnyc.edu/depts/museum/Youthquake/default.htm",
+      "title": {
+        "zh": "FIT博物馆：Youthquake（1960年代时装背景）",
+        "en": "The Museum at FIT: Youthquake (1960s fashion background)"
+      }
+    },
+    {
+      "url": "https://exhibitions.fitnyc.edu/all-that-glitters/category/objects/adornment/",
+      "title": {
+        "zh": "FIT博物馆：All That Glitters（反光装饰背景）",
+        "en": "The Museum at FIT: All That Glitters (reflective adornment)"
+      }
+    },
+    {
+      "url": "https://www.fitnyc.edu/museum/exhibitions/power-mode.php",
+      "title": {
+        "zh": "FIT博物馆：Power Mode（1980年代廓形背景）",
+        "en": "The Museum at FIT: Power Mode (1980s silhouette background)"
+      }
+    },
+    {
+      "url": "https://www.fitnyc.edu/museum/exhibitions/fashion-in-the-nineties.php",
+      "title": {
+        "zh": "FIT博物馆：Fashion in the Nineties（1990年代多样风格）",
+        "en": "The Museum at FIT: Fashion in the Nineties (varied 1990s styles)"
+      }
+    },
+    {
+      "url": "https://www.cooperhewitt.org/2018/02/27/cooper-hewitt-presents-saturated-the-allure-and-science-of-color/",
+      "title": {
+        "zh": "Cooper Hewitt：Saturated（世纪之交透明彩色物件例子）",
+        "en": "Cooper Hewitt: Saturated (turn-of-millennium translucent colour)"
+      }
+    }
+  ]
+}
