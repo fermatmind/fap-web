@@ -86,3 +86,10 @@
 .fq-radar i { width:24px; height:0; display:inline-block; }
 .fq-radar-you { border-top:3px solid #7c3aed; }
 .fq-radar-average { border-top:2px dashed #64748b; }
+
+.fq-downloads { background:#f2edff; border:1px solid #ddd2f4; padding:20px; border-radius:16px; margin:28px 0; }
+.fq-downloads h2 { margin-top:0; }
+.fq-example { width:100%; border-collapse:collapse; margin:24px 0; text-align:left; }
+.fq-example caption { text-align:left; margin-bottom:12px; font-weight:600; }
+.fq-example th,.fq-example td { border-bottom:1px solid #dfd6ee; padding:10px; }
+@media print { .fq-copy h2,.fq-copy h3 { break-after:avoid; }.fq-copy li,.fq-example { break-inside:avoid; } }
