@@ -1,0 +1,746 @@
+{
+  "id": "T124",
+  "version": "1.0.0",
+  "form": "fermatmind_wednesday_original_18_v1",
+  "method": "Ownselected6Wednesday/Enid/Bianca/Eugene/Morticia/Thing;18originalharmlesscuriosity-cabinet/nature-photo/craftquestions72options;12exposures3perpositioneach;allhighestrawcountties. No copiedplot/dialogue/IDRbank,clinical/IQ/manipulation/violence/animalhandlingclaims.",
+  "questions": [
+    {
+      "id": "WED_01",
+      "prompt": {
+        "en": "Friends are making an entirely original cabinet of harmless paper curiosities. What would you most enjoy first?",
+        "zh": "朋友做一个完全原创、无害的纸上趣物柜，你最喜欢先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Find one puzzling label and ask what its details actually support.",
+            "zh": "找一张有疑问的标签，问细节实际支持什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Choose a bright, welcoming introduction that makes the cabinet easy to approach.",
+            "zh": "选一个明亮友好介绍，让趣物柜好接近。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Propose a fair little challenge visitors can freely choose to try.",
+            "zh": "提一个访客能自由选试的公平小挑战。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Look closely at a fallen leaf’s ordinary shape for a nature-notebook page.",
+            "zh": "细看落叶普通形状，给自然笔记添一页。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_02",
+      "prompt": {
+        "en": "A shy visitor is looking at the group’s handmade curiosity display. What appeals most?",
+        "zh": "一位拘谨访客在看手作趣物展，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Offer a cheerful invitation with a comfortable way to watch before joining.",
+            "zh": "愉快邀请，也给先看再加入的舒服办法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Explain the optional challenge clearly so joining is a real choice.",
+            "zh": "讲清可选挑战，让参与真能自选。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Point out a small nature detail they might enjoy observing quietly.",
+            "zh": "指出一个可安静观察的小自然细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Show how the repeated colours and shapes give the display its own style.",
+            "zh": "展示重复色形怎样让陈列有自己的风格。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_03",
+      "prompt": {
+        "en": "The group wants a playful contest beside its paper curiosities. What would you prefer?",
+        "zh": "小组想在纸趣物旁设个趣味竞赛，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Agree clear rules, equal turns and an easy way to decline the contest.",
+            "zh": "约清规则、平等轮次和容易拒绝的办法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Make the activity about noticing ordinary natural details rather than collecting living things.",
+            "zh": "让活动看普通自然细节，不采集活物。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Give the contest a coherent visual theme that fits the rest of the cabinet.",
+            "zh": "给竞赛一致视觉主题，合柜子其他部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thing",
+          "label": {
+            "en": "Prepare the small practical pieces people need for a turn.",
+            "zh": "备好每回合需要的小实际物件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_04",
+      "prompt": {
+        "en": "You can add one page to an original nature-and-curiosities notebook. What would you most enjoy?",
+        "zh": "原创自然趣物笔记能加一页，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Observe a common fallen leaf or a photo and record a detail I had not noticed.",
+            "zh": "观察普通落叶或照片，记一个没注意过的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Arrange the page so its shapes and tones belong to the notebook’s chosen style.",
+            "zh": "摆好页面形色，让它属于笔记选定风格。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thing",
+          "label": {
+            "en": "Make a simple fold or tab that helps someone use the page.",
+            "zh": "做个简单折页、纸扣，让页面好用。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Ask what the page’s label can honestly claim from the observation.",
+            "zh": "问页面标签能据观察诚实说什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_05",
+      "prompt": {
+        "en": "The cabinet contains many different paper objects. What would you prefer to contribute?",
+        "zh": "柜里有很多不同纸物件，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "A consistent arrangement that lets the collection have a distinctive atmosphere.",
+            "zh": "一致摆法，让收藏有独特气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thing",
+          "label": {
+            "en": "A small practical adjustment that makes the objects easier to handle.",
+            "zh": "一个小实际调整，让物件更好使用。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "A careful question about an object whose explanation seems incomplete.",
+            "zh": "为解释不完整的物件提出仔细问题。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "A friendly colourful cue that helps someone feel welcome to look.",
+            "zh": "一个友好彩色提示，让人愿意看。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_06",
+      "prompt": {
+        "en": "A visitor cannot work out how to open a harmless paper compartment. What would you most like to do?",
+        "zh": "访客看不懂怎样开无害纸隔层，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thing",
+          "label": {
+            "en": "Offer a clear little demonstration or cue, then let them try.",
+            "zh": "给个清楚小演示或提示，再让对方试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Inspect the explanation to see which step the wording leaves unclear.",
+            "zh": "看说明漏了哪步、哪里不清。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Make the invitation feel friendly rather than like a test they have failed.",
+            "zh": "让邀请友好，不像已经做错的考试。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Check that the activity’s rules give every visitor the same information.",
+            "zh": "核活动规则是否给每访客同样信息。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_07",
+      "prompt": {
+        "en": "A fictional label on the cabinet claims more than the paper object shows. What appeals most?",
+        "zh": "趣物柜一张虚构标签说得比纸物件展示多，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Separate the observed detail from the extra story the group has invented.",
+            "zh": "分开实际细节与小组另外编的故事。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Rewrite the invitation so visitors can enjoy asking about it.",
+            "zh": "重写邀请，让访客好享受提问。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Turn the difference into a fair optional puzzle with a clear explanation afterwards.",
+            "zh": "把差别变公平可选谜题，之后给清楚解释。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Compare a similar ordinary natural pattern without disturbing any living creature.",
+            "zh": "比一个类似普通自然规律，不打扰活物。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_08",
+      "prompt": {
+        "en": "Friends disagree over whether the cabinet should look dark or colourful. What would you enjoy?",
+        "zh": "朋友不同意趣物柜该暗色还是多彩，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Find a welcoming way to give both tastes a place in the display.",
+            "zh": "用友好办法，让两种喜好在陈列都有位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Agree a fair choice process without making one taste the winner as a person.",
+            "zh": "约公平选择方式，不把一种喜好等同人的胜利。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Look at ordinary natural colours for another source of inspiration.",
+            "zh": "看普通自然颜色，找另一个灵感来源。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Choose a deliberate shared style, with room for a few contrasting pieces.",
+            "zh": "有意识选共同风格，也容少量对比物件。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_09",
+      "prompt": {
+        "en": "Someone proposes a challenge where experienced friends would have a large advantage. What would you prefer?",
+        "zh": "有人提的挑战对有经验朋友特别有利，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Adjust the rules so newcomers can choose a meaningful, fair way to participate.",
+            "zh": "改规则，让新人也能选有意义、公平的参与。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Use an observation task with familiar natural details rather than specialist knowledge.",
+            "zh": "用熟悉自然细节的观察任务，不考专门知识。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Keep the challenge’s presentation consistent with the cabinet’s atmosphere.",
+            "zh": "让挑战呈现仍与趣物柜气氛一致。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thing",
+          "label": {
+            "en": "Prepare an example turn that makes the action easy to understand.",
+            "zh": "备一个样例回合，让动作好理解。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_10",
+      "prompt": {
+        "en": "An ordinary leaf photo has an unexpectedly intricate pattern. What would you most enjoy?",
+        "zh": "普通叶片照片有意外复杂的纹路，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Spend a little time noticing and recording the visible pattern itself.",
+            "zh": "花一点时间注意、记录可见纹路本身。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Use the pattern to develop the notebook’s recurring visual style.",
+            "zh": "用纹路发展笔记重复视觉风格。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thing",
+          "label": {
+            "en": "Make a small movable frame that helps people compare parts of the photo.",
+            "zh": "做个可动小框，让人比较照片不同部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Ask which parts of our explanation come from the picture and which are guesses.",
+            "zh": "问解释哪部分来自照片、哪部分是猜想。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_11",
+      "prompt": {
+        "en": "The group wants its collection to feel intentional without buying more things. What attracts you?",
+        "zh": "小组想不用再买东西，也让收藏有设计感，什么吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Repeat a few chosen shapes and tones across what we already have.",
+            "zh": "让已有物件重复几种选定形状、色调。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thing",
+          "label": {
+            "en": "Rearrange one small fitting so the cabinet works more comfortably.",
+            "zh": "重摆一个小配件，让柜子用着更舒服。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Check whether each object’s label says something distinct and supportable.",
+            "zh": "核每物件标签是否有独特、可支持的内容。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Create a warm opening note that recognises the different makers.",
+            "zh": "做一张温暖开场卡，看见不同制作者。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_12",
+      "prompt": {
+        "en": "A friend is explaining a foldable paper object but words are becoming confusing. What would you prefer?",
+        "zh": "朋友解释折纸物件，越说越乱，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thing",
+          "label": {
+            "en": "Show one simple movement, with permission, and invite the friend to correct it.",
+            "zh": "经同意演示一个简单动作，邀请朋友修正。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Ask a precise question about the step that has two possible meanings.",
+            "zh": "对有两种意思的步骤提具体问题。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Keep the exchange light and welcoming while the friend tries again.",
+            "zh": "朋友重试时，让交流轻松友好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Check that the demonstration would be available equally to everyone in the activity.",
+            "zh": "核活动里每人是否都同样有机会看演示。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_13",
+      "prompt": {
+        "en": "The cabinet’s fictional story contains a curious contradiction. What would you most enjoy?",
+        "zh": "趣物柜虚构故事有个奇怪矛盾，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Compare the details and ask whether the contradiction is intentional or needs editing.",
+            "zh": "比细节，问矛盾是故意设定，还是需编辑。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Make the question inviting enough that others want to explore it too.",
+            "zh": "让问题好接近，别人也想探索。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Offer a bounded puzzle round that gives everyone the same chance to examine it.",
+            "zh": "给一轮有范围谜题，让人人同样有机会看。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Look for a small natural observation that could inspire a harmless alternative explanation.",
+            "zh": "找个小自然观察，启发无害的替代解释。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_14",
+      "prompt": {
+        "en": "Your cabinet-making group is welcoming someone with a different creative taste. What would you prefer?",
+        "zh": "趣物柜小组迎来一个创作喜好不同的人，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Invite them to show what they enjoy without first matching our mood.",
+            "zh": "邀对方展示喜欢什么，不用先配合我们气氛。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Make sure the group’s challenge and turn-taking rules remain fair to them.",
+            "zh": "让挑战、轮流规则对新人仍公平。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Find a shared ordinary observation that we can explore without needing the same taste.",
+            "zh": "找一个共同普通观察，不必喜好相同也能探索。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Discuss how their piece could sit within or beside the collection’s chosen style.",
+            "zh": "讨论对方作品怎样在选定风格之内或旁边出现。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_15",
+      "prompt": {
+        "en": "The group is designing a friendly observation game for its handmade display. What appeals most?",
+        "zh": "小组给手作展设计友好观察游戏，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Clear challenge rules that reward participation without ranking people’s worth.",
+            "zh": "清楚挑战规则，重参与，不排名人的价值。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "A small nature-photo detail that becomes interesting when you look twice.",
+            "zh": "一个多看一次就有趣的小自然照片细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "A coherent visual motif that makes the game feel part of the collection.",
+            "zh": "一致视觉母题，让游戏属于整套收藏。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "thing",
+          "label": {
+            "en": "A practical demonstration piece that lets someone understand the move quickly.",
+            "zh": "一个实际演示件，让人快懂怎样动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_16",
+      "prompt": {
+        "en": "A nature-notebook page is interesting, but the explanation is becoming too certain. What would you prefer?",
+        "zh": "自然笔记页有趣，解释却越来越肯定，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "eugene-ottinger",
+          "label": {
+            "en": "Return to what we actually observed and leave the unknown parts open.",
+            "zh": "回到实际观察，未知部分先开放。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Keep the page’s visual atmosphere while simplifying the explanation.",
+            "zh": "简化解释，也保留页面视觉气氛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "thing",
+          "label": {
+            "en": "Add a simple comparison tool that helps visitors look for themselves.",
+            "zh": "加一个简单比较工具，让访客自己看。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Ask exactly which claim needs more support before it is printed.",
+            "zh": "问印出来前，到底哪项主张还需支持。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_17",
+      "prompt": {
+        "en": "Your collection needs a final page that belongs with the earlier ones. What would you enjoy?",
+        "zh": "收藏需一张与前页相属的末页，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "morticia-addams",
+          "label": {
+            "en": "Carry the chosen shapes, spacing and tone into a deliberate closing design.",
+            "zh": "把选定形状、间距、色调延续到收尾设计。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "thing",
+          "label": {
+            "en": "Make the page easy to open and return to its place.",
+            "zh": "让页面好开，也好回原位。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Check that the closing explanation follows the details shown earlier.",
+            "zh": "核收尾解释是否来自前面展示细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Offer a friendly closing invitation for visitors to share their own harmless idea.",
+            "zh": "友好收尾，邀访客分享自己的无害点子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WED_18",
+      "prompt": {
+        "en": "The handmade curiosity session is ending with one awkward little task. What would you prefer?",
+        "zh": "手作趣物活动快结束，剩一项别扭小任务，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "thing",
+          "label": {
+            "en": "Offer a specific practical action I am willing to do, with a clear finish.",
+            "zh": "给一项自己愿做、有明确终点的实际行动。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "wednesday-addams",
+          "label": {
+            "en": "Ask what the task actually requires before anyone keeps guessing.",
+            "zh": "别再猜之前，问任务实际需要什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "enid-sinclair",
+          "label": {
+            "en": "Make the closing exchange warm enough that people can say what help they want.",
+            "zh": "让收尾温暖，人们能说想要什么帮助。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bianca-barclay",
+          "label": {
+            "en": "Agree a fair way to share the remaining optional effort.",
+            "zh": "约一个公平办法，分余下可选投入。"
+          }
+        }
+      ]
+    }
+  ]
+}

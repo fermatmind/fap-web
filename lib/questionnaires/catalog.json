@@ -2397,5 +2397,32 @@
       "max-mayfield"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "wednesday-addams-character",
+    "code": "WEDNESDAY_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Wednesday Addams Character Test",
+      "zh": "《星期三》角色测试"
+    },
+    "description": {
+      "en": "Try 18 original, harmless curiosity-cabinet and craft situations. Compare Wednesday, Enid, Bianca, Eugene, Morticia and Thing with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
+      "zh": "完成18道原创无害趣物柜与手作情境，比较星期三、伊妮德、比安卡、尤金、莫蒂西亚和小手。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_wednesday_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "wednesday-addams",
+      "enid-sinclair",
+      "bianca-barclay",
+      "eugene-ottinger",
+      "morticia-addams",
+      "thing"
+    ],
+    "collection": "explore"
   }
 ]
