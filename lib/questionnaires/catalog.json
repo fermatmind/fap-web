@@ -2191,26 +2191,27 @@
   {
     "slug": "aptitude-test",
     "code": "FM_APTITUDE_PRACTICE",
-    "version": "1.0.0",
-    "updated": "2026-10-26",
+    "version": "2.0.0",
+    "updated": "2026-10-27",
     "category": "everyday",
     "title": {
       "en": "Aptitude & Cognitive Ability Test",
       "zh": "能力倾向与认知能力测试"
     },
     "description": {
-      "en": "Practise numerical, reading, deductive and symbol reasoning with 24 original tasks, all worked answers and four full guides. No IQ or ability band.",
-      "zh": "通过24道原创任务练习数值、阅读、演绎和符号推理，查看全部答案、逐题解析与四份完整复习指南。免费、不计时、无需注册，正确数不换算智商或认知能力等级。"
+      "en": "Try 30 original numerical, verbal, deductive, pattern and error-checking tasks. Get every answer and five free guides. No IQ, norm or hiring score.",
+      "zh": "30道原创数值、阅读、演绎、符号与查错练习，提供全部答案、逐题解析和五份免费指南。不计时、无需注册，不换算智商、常模或招聘分数。"
     },
-    "minutes": 10,
+    "minutes": 15,
     "collection": "explore",
-    "formCode": "fm_mixed_reasoning_tasks_24_v1",
-    "questionCount": 24,
+    "formCode": "fm_mixed_reasoning_tasks_30_v2",
+    "questionCount": 30,
     "resultSlugs": [
       "numerical",
       "verbal",
       "deductive",
-      "patterns"
+      "patterns",
+      "error-checking"
     ]
   },
   {

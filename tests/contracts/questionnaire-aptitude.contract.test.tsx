@@ -1,3 +1,4 @@
+import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
@@ -52,16 +53,31 @@ for (const question of source.questions) {
   else if (kind === "alphabet_shift") { const alphabet = p.alphabet as string[], value = (p.input as string[]).map(v => alphabet[alphabet.indexOf(v) + Number(p.shift)]).join(" "); matches = labels.map(v => v === value); }
   else if (kind === "swap_ends") { const input = p.input as string[], value = [input.at(-1), ...input.slice(1, -1), input[0]].join(" "); matches = labels.map(v => v === value); }
   else if (kind === "symbol_counts") { const required = p.required as Record<string, number>; matches = labels.map(v => { const tokens = v.split(" "); return tokens.length === Object.values(required).reduce((a, b) => a + b, 0) && Object.entries(required).every(([k, n]) => tokens.filter(t => t === k).length === n); }); }
+  else if (kind === "exact_string") matches = labels.map(v => v === p.source);
+  else if (kind === "one_mismatch") { assert.deepStrictEqual(labels.map(v => v.split(" => ")), p.pairs); matches = (p.pairs as string[][]).map(([a,b]) => a !== b); }
+  else if (kind === "strip_hyphens") matches = labels.map(v => v.replaceAll("-", "") === String(p.source).replaceAll("-", ""));
+  else if (kind === "ordered_records") matches = labels.map(v => JSON.stringify(v.split(", ")) === JSON.stringify(p.source));
+  else if (kind === "field_changes") matches = labels.map(v => v.split(" / ").filter((field,i) => field !== (p.source as string[])[i]).length === p.count);
   else throw new Error(`Unknown independent source proof ${kind}`);
   const accepted = question.options.filter((_, i) => matches[i]); if (accepted.length !== 1) throw new Error(`Nonunique source key ${question.id}`); truth.set(question.id, accepted[0].id);
 }
-const answer = (counts = [6, 6, 6, 6]) => {
+const answer = (counts = [6, 6, 6, 6, 6]) => {
   const answers: QuestionnaireAnswers = {};
   quiz.directions.forEach((d, i) => source.questions.filter(q => q.options[0].directionId === d.id).forEach((q, j) => { answers[q.id] = j < counts[i] ? truth.get(q.id)! : q.options.find(o => o.id !== truth.get(q.id))!.id; }));
   return answers;
 };
 
-describe("T159 original mixed-reasoning practice", () => {
+describe("T159/T166/T145 original mixed-reasoning practice", () => {
+  it("retains the accepted24tasks and4guides while coveringT145 without a duplicate route", () => {
+    expect(createHash("sha256").update(JSON.stringify(quiz.questions.slice(0,24))).digest("hex")).toBe("f636caf434ebb83f054b99df70176977b4321933bf35725478e73401afe8ba68");
+    expect(createHash("sha256").update(JSON.stringify(quiz.profiles.slice(0,4))).digest("hex")).toBe("0d164f5e731021f7e4d460bc2823fee6e96ae131aef13164a8685c7c4b3a4bf4");
+    expect(quiz.version).toBe("2.0.0");expect(quiz.source.formCode).toBe("fm_mixed_reasoning_tasks_30_v2");expect(quiz.introduction.en).toContain("psychometric");
+    expect(quiz.directions.map(v=>v.id)).toEqual(["numerical","verbal","deductive","patterns","error-checking"]);
+    expect(readQuestionnaireDraft(quiz,JSON.stringify({version:"1.0.0",savedAt:100,answers:{APT_01:"A"}}),200)).toBeNull();
+    const cat=JSON.parse(readFileSync("lib/questionnaires/catalog.json","utf8")) as {slug:string;questionCount:number;resultSlugs:string[];formCode:string}[];
+    expect(cat.filter(v=>v.slug===quiz.slug)).toHaveLength(1);expect(cat.some(v=>v.slug==="psychometric-test")).toBe(false);expect(cat.find(v=>v.slug===quiz.slug)).toMatchObject({questionCount:30,resultSlugs:quiz.profiles.map(v=>v.id),formCode:quiz.source.formCode});
+  });
+
   it("also serves T166 cognitive practice through the same bank and canonical", () => {
     expect(quiz.slug).toBe("aptitude-test");
     expect(quiz.title).toEqual({ en: "Aptitude & Cognitive Ability Test", zh: "能力倾向与认知能力测试" });
@@ -75,44 +91,46 @@ describe("T159 original mixed-reasoning practice", () => {
     expect(quiz.questions).toEqual(source.questions);
     expect(quiz.profiles).toEqual(source.profiles);
   });
-  it("binds24bilingual tasks and4fullrevisionguides to independently recomputed source keys", () => {
-    expect(isPracticeConfigurationValid(quiz)).toBe(true); expect(quiz.questions).toHaveLength(24); expect(quiz.profiles).toHaveLength(4);
+  it("binds30bilingual tasks and5fullrevisionguides to independently recomputed source keys", () => {
+    expect(isPracticeConfigurationValid(quiz)).toBe(true); expect(quiz.questions).toHaveLength(30); expect(quiz.profiles).toHaveLength(5);
     expect(quiz.questions).toEqual(source.questions); expect(quiz.profiles).toEqual(source.profiles);
     expect(quiz.source.itemBankSha256).toBe(createHash("sha256").update(bytes).digest("hex")); expect(quiz.source.resultContentSha256).toBe(createHash("sha256").update(JSON.stringify(quiz.profiles)).digest("hex"));
     expect(quiz.questions.map(q => q.correctOptionId)).toEqual(quiz.questions.map(q => truth.get(q.id))); expect(quiz.questions.some(q => q.reverse || q.options.some(o => o.score !== undefined))).toBe(false);
-    expect(quiz.directions.map(d => d.itemCount)).toEqual([6, 6, 6, 6]); expect(quiz.source.psychometricValidationCompleted).toBe(false);
-    const positions = quiz.questions.map(q => q.correctOptionId); for (const id of ["A", "B", "C", "D"]) expect(positions.filter(v => v === id)).toHaveLength(6);
-    for (const profile of quiz.profiles) { expect(profile.sections).toHaveLength(5); expect(profile.sections.flatMap(s => s.paragraphs).map(p => p.en).join(" ").split(/\s+/).length).toBeGreaterThanOrEqual(230); expect(profile.seo!.title.en.length).toBeLessThanOrEqual(60); expect(profile.seo!.description.en.length).toBeLessThanOrEqual(160); }
+    expect(quiz.directions.map(d => d.itemCount)).toEqual([6, 6, 6, 6, 6]); expect(quiz.source.psychometricValidationCompleted).toBe(false);
+    const positions = quiz.questions.map(q => q.correctOptionId); expect(Object.fromEntries(["A", "B", "C", "D"].map(id => [id,positions.filter(v => v === id).length]))).toEqual({A:7,B:8,C:7,D:8});
+    for (const profile of quiz.profiles) { expect(profile.sections).toHaveLength(profile.id === "error-checking" ? 7 : 5); expect(profile.sections.flatMap(s => s.paragraphs).map(p => p.en).join(" ").split(/\s+/).length).toBeGreaterThanOrEqual(230); expect(profile.seo!.title.en.length).toBeLessThanOrEqual(60); expect(profile.seo!.description.en.length).toBeLessThanOrEqual(160); }
     const check = (value: unknown): void => { if (!value || typeof value !== "object") return; const obj = value as Record<string, unknown>; if ("en" in obj || "zh" in obj) { expect(String(obj.en).trim()).not.toBe(""); expect(obj.en).not.toMatch(/\p{Script=Han}|\bTODO\b|placeholder/u); expect(String(obj.zh).trim()).not.toBe(""); if (!/\p{Script=Han}/u.test(String(obj.zh))) expect(obj.zh).toBe(obj.en); } else Object.values(obj).forEach(check); }; check(quiz);
   });
-  it("matches every2401reachable four-section correctness vector and all item judgements", () => {
+  it("matches all16807five-section correctness vectors and120option probes", () => {
     let checked = 0;
-    for (let a = 0; a <= 6; a++) for (let b = 0; b <= 6; b++) for (let c = 0; c <= 6; c++) for (let d = 0; d <= 6; d++) {
-      const values = [a, b, c, d], answers = answer(values), result = scoreQuestionnaire(quiz, answers);
-      if (result.status !== "complete" || !("practice" in result)) throw new Error("Practice witness rejected");
-      expect(result.practice.correct).toBe(a + b + c + d); expect(result.practice.total).toBe(24);
-      for (const [i, part] of quiz.directions.entries()) expect(result.practice.sections[part.id]).toEqual({ correct: values[i], total: 6 });
-      for (const item of result.practice.items) expect(item).toEqual({ questionId: item.questionId, selectedOptionId: answers[item.questionId], correctOptionId: truth.get(item.questionId), correct: answers[item.questionId] === truth.get(item.questionId) });
-      for (const field of ["rank", "percentile", "profileId", "ability", "type"]) expect(result).not.toHaveProperty(field); checked++;
-    } expect(checked).toBe(2401); console.info("Aptitude:24independentproofkeys+2401reachablecorrectnessvectors;not4^24answerpathsorpsychometricvalidation.");
+    for (let a=0;a<=6;a++) for(let b=0;b<=6;b++) for(let c=0;c<=6;c++) for(let d=0;d<=6;d++) for(let e=0;e<=6;e++) {
+      const values=[a,b,c,d,e], answers=answer(values), result=scoreQuestionnaire(quiz,answers);
+      assert.deepStrictEqual(result, {status:"complete",answered:30,practice:{correct:a+b+c+d+e,total:30,
+        sections:Object.fromEntries(quiz.directions.map((part,i)=>[part.id,{correct:values[i],total:6}])),
+        items:source.questions.map(item=>({questionId:item.id,selectedOptionId:answers[item.id],correctOptionId:truth.get(item.id),correct:answers[item.id]===truth.get(item.id)})),
+      }}, `Incorrect aptitude result for ${values.join(",")}`); checked++;
+    }
+    expect(checked).toBe(16807); let probes=0;
+    for(const q of quiz.questions) for(const option of q.options) {const answers=answer();answers[q.id]=option.id;const result=scoreQuestionnaire(quiz,answers);assert.equal(result.status,"complete");if(result.status!=="complete"||!("practice" in result))throw new Error("Option witness rejected");assert.equal(result.practice.correct,option.id===truth.get(q.id)?30:29);assert.equal(result.practice.items.find(v=>v.questionId===q.id)?.correct,option.id===truth.get(q.id));probes++;}
+    expect(probes).toBe(120); console.info("Aptitude:30recomputedkeys+16807reachablecorrectnessvectors+120optionprobes;not4^30answerpathsorpsychometricvalidation.");
   });
-  it("shows all24correctanswers and explanations and4completeguides at zero,partial and perfect counts", () => {
-    for (const locale of ["en", "zh"] as const) for (const values of [[0, 0, 0, 0], [2, 6, 0, 5], [6, 6, 6, 6]]) {
+  it("shows all30correctanswers and explanations and5completeguides at zero,partial and perfect counts", () => {
+    for (const locale of ["en", "zh"] as const) for (const values of [[0, 0, 0, 0, 0], [2, 6, 0, 5, 3], [6, 6, 6, 6, 6]]) {
       const result = scoreQuestionnaire(quiz, answer(values)); if (result.status !== "complete" || !("practice" in result)) throw new Error("Report witness rejected");
       const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<QuestionnairePracticeReport quiz={quiz} result={result} locale={locale} />);
-      expect(dom.querySelectorAll("[data-practice-question]")).toHaveLength(24); expect(dom.querySelectorAll("[data-practice-explanation]")).toHaveLength(24); expect(dom.querySelectorAll("[data-practice-guide]")).toHaveLength(4);
+      expect(dom.querySelectorAll("[data-practice-question]")).toHaveLength(30); expect(dom.querySelectorAll("[data-practice-explanation]")).toHaveLength(30); expect(dom.querySelectorAll("[data-practice-guide]")).toHaveLength(5);
       for (const question of quiz.questions) { const item = dom.querySelector(`[data-practice-question="${question.id}"]`)!; expect(item.textContent).toContain(question.explanation![locale]); expect(item.textContent).toContain(question.options.find(o => o.id === truth.get(question.id))!.label[locale]); }
       for (const p of quiz.profiles) for (const s of p.sections) for (const text of s.paragraphs) expect(dom.textContent).toContain(text[locale]);
       const ids = Array.from(dom.querySelectorAll("[id]"), e => e.id); expect(new Set(ids).size).toBe(ids.length);
     }
   });
   it("withholds partial results,rejects malformed answers/keys and expires opt-in drafts", () => {
-    const partial = answer(); delete partial.APT_24; expect(scoreQuestionnaire(quiz, partial)).toEqual({ status: "incomplete", answered: 23 });
+    const partial = answer(); delete partial.APT_30; expect(scoreQuestionnaire(quiz, partial)).toEqual({ status: "incomplete", answered: 29 });
     for (const invalid of [null, [], new Date(), { UNKNOWN: "A" }, { APT_01: "na" }, { APT_01: 1 }]) expect(scoreQuestionnaire(quiz, invalid).status).toBe("invalid");
     const bad = structuredClone(quiz); bad.questions[0].correctOptionId = "not-an-option"; expect(scoreQuestionnaire(bad, {})).toEqual({ status: "unavailable", answered: 0 });
     const draft = JSON.stringify({ version: quiz.version, savedAt: 100, answers: { APT_01: "D" } }); expect(readQuestionnaireDraft(quiz, draft, 200)).toEqual({ APT_01: "D" }); expect(readQuestionnaireDraft(quiz, draft, 86400100)).toBeNull();
   });
-  it("publishes10nativeENZHpageswith practice language,complete guides and correct publicSEO", async () => {
+  it("publishes12nativeENZHpageswith practice language,complete guides and correct publicSEO", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com"); vi.resetModules(); const entry = await import("@/app/(localized)/[locale]/tests/explore/[slug]/page"), guide = await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page"), maps = appendFunSitemapEntries([]);
     try { for (const locale of ["en", "zh"] as const) {
       const path = `/${locale}/tests/explore/aptitude-test`, props = { params: Promise.resolve({ locale, slug: quiz.slug }) }, html = renderToStaticMarkup(await entry.default(props)), meta = await entry.generateMetadata(props);

@@ -1,6 +1,6 @@
 {
   "id": "T159",
-  "edition": "fm_mixed_reasoning_tasks_24_v1",
+  "edition": "fm_mixed_reasoning_tasks_30_v2",
   "authorship": "Original FermatMind mixed-reasoning tasks with independently recomputed keys, explicit premises and counterexamples.",
   "questions": [
     {
@@ -1106,6 +1106,282 @@
         "en": "4 × 2 + 1 = 9. Adding first would produce 10, while stopping after multiplication would produce 8. The stated order determines the output.",
         "zh": "4×2+1=9。先加后乘会得10，只乘不加会得8；题定顺序决定结果。"
       }
+    },
+    {
+      "id": "APT_25",
+      "prompt": {
+        "en": "Copy this fictional reference exactly: QN-80517-R. Which option preserves every character, including both hyphens?",
+        "zh": "把虚构编号QN-80517-R逐字抄录，连字符也必须保留。哪项完全一致？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "QN-85017-R",
+            "zh": "QN-85017-R"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "QN-80517-R",
+            "zh": "QN-80517-R"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "QN-80571-R",
+            "zh": "QN-80571-R"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "QN-80517-P",
+            "zh": "QN-80517-P"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The exact reference is QN-80517-R. The other copies transpose digits or replace the final R. Compare fixed groups against the source instead of reconstructing a plausible reference from memory.",
+        "zh": "原编号是QN-80517-R。其余选项有数字换位或把末尾R改成P。应按固定分组回看原件，不能凭记忆拼出看似合理的编号。"
+      }
+    },
+    {
+      "id": "APT_26",
+      "prompt": {
+        "en": "Each option shows a source code, then its copy after =>. Which pair has a mismatch? Read characters literally.",
+        "zh": "每项把原编码写在=>左边、抄本写在右边。按字符逐个比较，哪一对不一致？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ZX-301 => ZX-301",
+            "zh": "ZX-301 => ZX-301"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "LK-440 => LK-440",
+            "zh": "LK-440 => LK-440"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "DM-227 => DM-227",
+            "zh": "DM-227 => DM-227"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "VR-682 => VR-628",
+            "zh": "VR-682 => VR-628"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "VR-682 became VR-628: the final two digits swapped places. The other three source/copy pairs are identical. A code can keep the same length and the same digits while still being a wrong copy.",
+        "zh": "VR-682被抄成VR-628，末尾两个数字交换位置。其余三对完全一致。长度和所用数字都相同，并不代表位置正确。"
+      }
+    },
+    {
+      "id": "APT_27",
+      "prompt": {
+        "en": "A fictional label displays 42.60 credits. Preserve its printed amount exactly, including two digits after the decimal point. Which copy is correct?",
+        "zh": "虚构标签写着42.60点数。要求保留原样，包括小数点后的两位数字。哪项抄录符合要求？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "42.60",
+            "zh": "42.60"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "42.06",
+            "zh": "42.06"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "42.600",
+            "zh": "42.600"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4260",
+            "zh": "4260"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Only 42.60 preserves the required printed text. Although 42.600 has the same mathematical value, it adds a decimal place and fails this exact-copy instruction. This item checks copying, not a real price or currency.",
+        "zh": "只有42.60保留了要求的印刷文本。42.600虽然数值相等，却多一位小数，不符合逐字抄录规则。这里检查抄录，不涉及真实价格或货币。"
+      }
+    },
+    {
+      "id": "APT_28",
+      "prompt": {
+        "en": "For this comparison only, remove hyphens (-) and change nothing else. The source is Ab-73-X. Which option then matches the source?",
+        "zh": "仅在本题中删去连字符(-)，其他字符不变。原串为Ab-73-X，哪项在处理后与原串一致？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AB73X",
+            "zh": "AB73X"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Ab37X",
+            "zh": "Ab37X"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "A-b73X",
+            "zh": "A-b73X"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ab73x",
+            "zh": "Ab73x"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Removing hyphens from Ab-73-X and A-b73X gives Ab73X in both cases. AB73X changes the lowercase b, Ab37X swaps digits, and Ab73x changes the final X. The rule permits no case folding.",
+        "zh": "原串和A-b73X删去连字符后都是Ab73X。AB73X改变了小写b，Ab37X换位数字，Ab73x改变了末尾X；规则没有允许忽略大小写。"
+      }
+    },
+    {
+      "id": "APT_29",
+      "prompt": {
+        "en": "Preserve this ordered dispatch list exactly: TX4, TX7, TY7, TZ4. Which copy keeps every entry and its position?",
+        "zh": "按原顺序保留这份虚构发运清单：TX4、TX7、TY7、TZ4。哪项同时保留每个条目及位置？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "TX4, TY7, TX7, TZ4",
+            "zh": "TX4, TY7, TX7, TZ4"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "TX4, TX7, TY7, TZ4",
+            "zh": "TX4, TX7, TY7, TZ4"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "TX4, TX7, TY7, TZ7",
+            "zh": "TX4, TX7, TY7, TZ7"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "TX4, TX7, TZ4, TY7",
+            "zh": "TX4, TX7, TZ4, TY7"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The second list matches all four source positions. The first and fourth reorder entries; the third changes TZ4 to TZ7. Check corresponding positions, rather than merely checking whether familiar tokens appear.",
+        "zh": "第二项四个位置都与原清单相同。第一和第四项调换顺序，第三项把TZ4改成TZ7。应逐位置核对，而不是只看是否出现熟悉的编码。"
+      }
+    },
+    {
+      "id": "APT_30",
+      "prompt": {
+        "en": "Source record: tray 26 / count 14 / bin K8. Each option copies the three fields in that order. Which copy has exactly TWO changed fields?",
+        "zh": "原记录为tray 26 / count 14 / bin K8。各选项按这个顺序抄录三字段。哪项恰好改动了两个字段？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "tray 26 / count 14 / bin K8",
+            "zh": "tray 26 / count 14 / bin K8"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "tray 62 / count 14 / bin K8",
+            "zh": "tray 62 / count 14 / bin K8"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "tray 62 / count 41 / bin K9",
+            "zh": "tray 62 / count 41 / bin K9"
+          },
+          "directionId": "error-checking"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "tray 26 / count 41 / bin K9",
+            "zh": "tray 26 / count 41 / bin K9"
+          },
+          "directionId": "error-checking"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The last copy preserves tray 26 but changes count 14 to 41 and bin K8 to K9: two field changes. The other copies change zero, one and three fields. Count changed fields, not the number of individual characters that differ.",
+        "zh": "最后一项保留tray 26，把count 14改为41、bin K8改为K9，恰好两字段变化。其余依次改动零、一、三字段。题目数的是变化字段，不是不同字符个数。"
+      }
     }
   ],
   "proofs": [
@@ -1637,6 +1913,75 @@
         "multiply": 2,
         "add": 1
       }
+    },
+    {
+      "id": "APT_25",
+      "proof": {
+        "kind": "exact_string",
+        "source": "QN-80517-R"
+      }
+    },
+    {
+      "id": "APT_26",
+      "proof": {
+        "kind": "one_mismatch",
+        "pairs": [
+          [
+            "ZX-301",
+            "ZX-301"
+          ],
+          [
+            "LK-440",
+            "LK-440"
+          ],
+          [
+            "DM-227",
+            "DM-227"
+          ],
+          [
+            "VR-682",
+            "VR-628"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "APT_27",
+      "proof": {
+        "kind": "exact_string",
+        "source": "42.60"
+      }
+    },
+    {
+      "id": "APT_28",
+      "proof": {
+        "kind": "strip_hyphens",
+        "source": "Ab-73-X"
+      }
+    },
+    {
+      "id": "APT_29",
+      "proof": {
+        "kind": "ordered_records",
+        "source": [
+          "TX4",
+          "TX7",
+          "TY7",
+          "TZ4"
+        ]
+      }
+    },
+    {
+      "id": "APT_30",
+      "proof": {
+        "kind": "field_changes",
+        "source": [
+          "tray 26",
+          "count 14",
+          "bin K8"
+        ],
+        "count": 2
+      }
     }
   ],
   "profiles": [
@@ -2035,6 +2380,136 @@
           ]
         }
       ]
+    },
+    {
+      "id": "error-checking",
+      "directionIds": [
+        "error-checking"
+      ],
+      "title": {
+        "en": "Error-checking practice: codes, formats and records",
+        "zh": "查错练习：编码、格式与记录核对"
+      },
+      "headline": {
+        "en": "Compare what the instruction actually asks you to preserve.",
+        "zh": "按题定规则逐处回查原件。"
+      },
+      "summary": {
+        "en": "Practise literal copies, transpositions, printed decimals, controlled normalization, ordered lists and changed-field counts with six original tasks.",
+        "zh": "用六道原创任务练习原样抄录、换位识别、小数格式、限定转换、清单顺序和变化字段计数。"
+      },
+      "scoreReading": {
+        "en": "Your correct count out of six refers to this fixed practice section. No timing, attention diagnosis, clerical qualification, norm or hiring threshold follows. Every answer and this guide remain free.",
+        "zh": "答对数/6只属于这组固定练习，不推导速度、注意力诊断、文书资格、人群常模或招聘线。全部题解和本指南免费。"
+      },
+      "seo": {
+        "title": {
+          "en": "Error-Checking Practice: Codes, Formats and Worked Answers",
+          "zh": "查错练习：编码、格式、记录核对与题解"
+        },
+        "description": {
+          "en": "Review six original error-checking tasks and fresh examples of exact copies, decimal formats, order and field changes. No timer, diagnosis or hiring score.",
+          "zh": "复习六道原创查错题，结合新例子核对逐字抄录、小数格式、顺序和变化字段。不计时、不诊断、不提供招聘分数。"
+        }
+      },
+      "sections": [
+        {
+          "id": "literal-source",
+          "title": {
+            "en": "Decide what must remain identical",
+            "zh": "先明确哪些内容必须原样保留"
+          },
+          "paragraphs": [
+            {
+              "en": "An exact-copy task is governed by the instruction, not by whether a replacement looks reasonable. The six new items distinguish a literal reference, a mismatched source/copy pair, a printed decimal amount, one permitted normalization, an ordered list and a count of changed fields. Each includes its entire reference on the page. These are fictional strings and records; you do not need a customer database, a real payment or outside knowledge to check them.",
+              "zh": "逐字核对以题面要求为准，不能用“看起来也合理”代替一致。新增六题分别检查原样编号、编码抄录不一致、固定小数格式、唯一允许的标准化、清单顺序，以及变化字段数。原件全部在题面；编码和记录均属虚构，不需要客户数据库、真实付款或外部知识。"
+            }
+          ]
+        },
+        {
+          "id": "groups",
+          "title": {
+            "en": "Compare corresponding groups",
+            "zh": "按对应分组逐处比较"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh example, compare LM-29406-S with LM-29460-S. The prefix and suffix agree, but the final two digit positions differ. Both strings have the same length and contain the same digits, so a length check or a set of digits would miss the error. Divide the reference into prefix, numeric block and suffix, then compare matching positions. After finding one difference, finish the requested comparison rather than assuming there cannot be another.",
+              "zh": "另看一例：LM-29406-S与LM-29460-S的前后缀一致，数字段最后两位的位置不同。两串长度相同、所含数字也相同，仅核长度或数字集合会漏掉换位。先把编号分为前缀、数字段和后缀，再对应位置检查；找到一处差异后，也应按题意完成余下核对，不能假定只可能错一处。"
+            }
+          ]
+        },
+        {
+          "id": "format",
+          "title": {
+            "en": "Numeric equality and printed equality differ",
+            "zh": "数值相等不等于格式相同"
+          },
+          "paragraphs": [
+            {
+              "en": "If a new source label reads 08.40, the text 8.4 represents the same decimal value but is not an identical printed copy. Whether leading or trailing zeros may be removed depends on the stated task. Here an instruction to preserve the printed text requires preserving them. Conversely, a numerical calculation may care about value rather than formatting. State which comparison is required before accepting or rejecting a copy; do not invent a universal financial-record rule from this exercise.",
+              "zh": "若另一张虚构标签写08.40，8.4在数学上数值相同，却不是相同印刷文本。能否去掉前导零或末尾零，取决于任务。本题若要求原样保留，就必须保留；另一道计算题则可能只比较数值。应先确定所需的一致性，不从练习推出适用于所有财务记录的通用规定。"
+            }
+          ]
+        },
+        {
+          "id": "normalization",
+          "title": {
+            "en": "Apply only the permitted transformation",
+            "zh": "只做明确允许的转换"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a separate rule that ignores hyphens only. Pa-91-Z and P-a91Z both become Pa91Z, whereas PA91Z and Pa91z remain different because letter case is still significant. This is a local comparison rule, not permission to remove spaces, punctuation or leading zeros everywhere. Write the permitted transformation once, apply it to both strings, then compare the entire output. A familiar code should not receive extra corrections that the source instruction never allowed.",
+              "zh": "另设一条“只忽略连字符”的规则：Pa-91-Z和P-a91Z处理后都是Pa91Z，但PA91Z、Pa91z仍不同，因为大小写仍有意义。这只是本次比较规则，不代表所有场景都能删空格、标点或前导零。先写明允许的转换，对两边同样处理，再比较完整输出；不能因编码看起来熟悉，就擅自修正题面没允许改的部分。"
+            }
+          ]
+        },
+        {
+          "id": "fields",
+          "title": {
+            "en": "Keep field boundaries and list order",
+            "zh": "保留字段边界与清单顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "A row containing rack 12 / quantity 30 / bay H6 copied as rack 12 / quantity 03 / bay H9 has two changed fields: quantity and bay. That answer differs from counting how many characters changed. Similarly, a list with the right set of codes can still be wrong when two positions are swapped. Label corresponding fields or positions before comparing. If a prompt asks for exactly two changed fields, a copy with three changes does not satisfy it even though two of its fields are also wrong.",
+              "zh": "把rack 12 / quantity 30 / bay H6抄成rack 12 / quantity 03 / bay H9，变化的是quantity和bay两字段；这与数字符差异不是同一任务。清单即使包含相同编码，只要两个位置交换，也可能不符合顺序要求。先标出对应字段或位置。题目若要求“恰好两字段变化”，改了三字段的抄本也不满足，不能因其中包含两个错误就选它。"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "title": {
+            "en": "Use the explanation to select a fresh drill",
+            "zh": "根据错因设计下一道练习"
+          },
+          "paragraphs": [
+            {
+              "en": "After reading a worked answer, identify the operation you missed: exact text, source/copy inequality, a permitted normalization, sequence order or field counting. Create one fresh fictional example with the same operation and different characters; solve it before checking. Keep the source beside the copy and make a second pass through the specified fields. A higher repeat count on this fixed bank can reflect remembered answers, so use new examples to inspect your method rather than claiming a measured improvement in attention.",
+              "zh": "看完解析后，把错因写成具体操作：逐字一致、原件与抄本不同、规则允许的转换、序列顺序或字段计数。另编同操作、不同字符的虚构例子，先做再核。原件与抄本并排，对指定字段再检查一遍。固定题本重做提高可能来自记住答案；新例子适合检查方法，不能据此宣称注意力获得了可测量的提升。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Read six-item counts within this edition",
+            "zh": "六题正确数只属于本版练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Every valid answer is checked against a deterministic source rule, with one point for a match and zero otherwise. Your count out of six describes these six items under your chosen conditions. It does not measure processing speed, establish a concentration diagnosis, certify clerical accuracy or predict recruitment success. There is no timer or standardized testing environment. English and Chinese instructions have not been calibrated as equivalent measures. All explanations and this complete guide are available at every count, including zero.",
+              "zh": "每个有效选择按确定的原件规则核对，答对记1、否则记0。答对数/6只描述你在所用条件下完成这六题的结果；它不测处理速度、不诊断注意力、不认证文书准确度，也不预测招聘成败。本版不计时，没有标准化测试环境，中英文说明未校准为等价测量。任何正确数，包括零，都能阅读全部解析和完整指南。"
+            }
+          ]
+        }
+      ]
     }
+  ],
+  "coverageIds": [
+    "T159",
+    "T166",
+    "T145"
   ]
 }
