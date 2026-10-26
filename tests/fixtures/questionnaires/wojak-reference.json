@@ -1,0 +1,746 @@
+{
+  "id": "T115",
+  "version": "1.0.0",
+  "form": "fermatmind_wojak_original_18_v1",
+  "method": "Six limited meme tone/remix lenses,12exposures each,3per optionposition; rawcounts andallhighestties; no age/gender/ideology/clinical/personalityinferencing; notIDRequivalent.",
+  "questions": [
+    {
+      "id": "WOJ_01",
+      "prompt": {
+        "en": "A friend shares a post about an ordinary day going slightly wrong. Which reply would you prefer?",
+        "zh": "朋友发帖说普通的一天有点不顺，你更愿意怎样回复？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "A short acknowledgement that I recognise that kind of moment.",
+            "zh": "简单说一句，自己懂这种时刻。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bloomer",
+          "label": {
+            "en": "A small next step that could still make the evening pleasant.",
+            "zh": "想一个仍能让今晚舒服些的小步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "doomer",
+          "label": {
+            "en": "A dry observation about how neat plans meet messy reality.",
+            "zh": "淡淡调侃一下完美计划和混乱现实的差别。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "boomer",
+          "label": {
+            "en": "A familiar old reference we have both enjoyed before.",
+            "zh": "提一个彼此以前都喜欢的老梗。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_02",
+      "prompt": {
+        "en": "An online hobby group proposes a fresh start for its weekly activity. What attracts you first?",
+        "zh": "线上兴趣小组想给每周活动换个开头，你首先被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bloomer",
+          "label": {
+            "en": "A modest change we can actually try this week.",
+            "zh": "这周就能试的一点小改进。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "doomer",
+          "label": {
+            "en": "An honest note about what the change will not magically fix.",
+            "zh": "坦率说清换开头不会神奇解决什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "boomer",
+          "label": {
+            "en": "Keeping the part of the old format that people still enjoy.",
+            "zh": "保留旧形式里大家仍喜欢的部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Trying a recently invented format just to see what it feels like.",
+            "zh": "体验一种最近才出现的新形式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_03",
+      "prompt": {
+        "en": "A post promises that one tiny hack will transform every hobby session. What response appeals most?",
+        "zh": "一条帖子声称一个小技巧就能改变每次兴趣练习，你更接近哪种回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "doomer",
+          "label": {
+            "en": "An understated reaction to the gap between the promise and real life.",
+            "zh": "克制地吐槽一下宣传和现实之间的距离。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "boomer",
+          "label": {
+            "en": "An example of the familiar method I still enjoy using.",
+            "zh": "举一个自己仍喜欢的老办法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zoomer",
+          "label": {
+            "en": "A quick trial of the new presentation style, without assuming it works.",
+            "zh": "不先认定有效，快速体验一下新呈现方式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "npc",
+          "label": {
+            "en": "Continuing the simple routine that already suits this session.",
+            "zh": "照这次活动合适的简单流程继续。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_04",
+      "prompt": {
+        "en": "You can choose the style of a casual weekend playlist post. What would you favour?",
+        "zh": "周末随手分享歌单，你更喜欢哪种呈现？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "boomer",
+          "label": {
+            "en": "A familiar selection with a story about why I kept it.",
+            "zh": "熟悉的曲目，再讲讲为什么一直留着。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zoomer",
+          "label": {
+            "en": "A new sharing format I have not played with before.",
+            "zh": "用一种自己还没试过的新分享形式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "npc",
+          "label": {
+            "en": "The regular list format that makes browsing straightforward.",
+            "zh": "照常列清单，让人容易浏览。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "A line about the ordinary feeling that connected these songs for me.",
+            "zh": "写一句这些歌共同勾起的普通感受。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_05",
+      "prompt": {
+        "en": "A friend introduces a new way to record hobby progress. What interests you most?",
+        "zh": "朋友介绍一种记录兴趣进展的新方式，你最感兴趣的是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Exploring its unfamiliar format for one low-stakes entry.",
+            "zh": "先用不重要的一条记录试试陌生格式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "npc",
+          "label": {
+            "en": "Seeing whether it fits the small routine I want to keep.",
+            "zh": "看看是否适合自己想保留的小流程。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Finding a way to express the experience, not just the finished item.",
+            "zh": "找到一种能写出过程感受、不只晒成品的方式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Using it to choose a manageable next attempt.",
+            "zh": "用它安排一次能做到的下一步尝试。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_06",
+      "prompt": {
+        "en": "You have a few minutes to contribute to a recurring community thread. Which post would you choose?",
+        "zh": "有几分钟参与固定的社区帖子，你更愿意发什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "npc",
+          "label": {
+            "en": "My usual brief check-in in the familiar thread format.",
+            "zh": "按常用格式简单报个到。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "A small experience someone else might recognise in their own day.",
+            "zh": "分享别人也许会有共鸣的小经历。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bloomer",
+          "label": {
+            "en": "One feasible thing I am looking forward to trying.",
+            "zh": "说一件自己期待尝试、也做得到的小事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "doomer",
+          "label": {
+            "en": "A wry comment about a minor inconvenience we all met.",
+            "zh": "对大家碰到的小麻烦来一句冷调调侃。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_07",
+      "prompt": {
+        "en": "An imperfect craft attempt is ready to share. What caption feels closest?",
+        "zh": "一件不完美的手工作品可以分享了，你更接近哪种配文？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Something that names the very ordinary feeling of making it.",
+            "zh": "写出做它时那种很普通的感受。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bloomer",
+          "label": {
+            "en": "A note about one small part I can build on next time.",
+            "zh": "记下下次可以接着改好的一小处。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "doomer",
+          "label": {
+            "en": "A restrained joke about the difference between the tutorial and my version.",
+            "zh": "克制地开个玩笑，比较教程和自己的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "boomer",
+          "label": {
+            "en": "A nod to an older attempt or reference that I still like.",
+            "zh": "提一提自己仍喜欢的旧作或老参考。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_08",
+      "prompt": {
+        "en": "A favourite casual activity is becoming more complicated online. Which response attracts you?",
+        "zh": "喜欢的休闲活动在线上越玩越复杂，你更倾向怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Pick one uncomplicated part I can still enjoy doing.",
+            "zh": "挑一个不复杂、仍能开心做的小部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "doomer",
+          "label": {
+            "en": "Question the idea that every session needs to become an achievement.",
+            "zh": "质疑一下是否每次都得变成成果。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "boomer",
+          "label": {
+            "en": "Revisit the earlier version that made me like it.",
+            "zh": "回头玩玩当初让自己喜欢上的版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Try a new lightweight format that changes the experience.",
+            "zh": "试一种改变体验的轻巧新形式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_09",
+      "prompt": {
+        "en": "You see an unusually polished account of someone’s daily routine. What would you rather share?",
+        "zh": "看到别人把日常流程展示得格外完美，你更想分享什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "doomer",
+          "label": {
+            "en": "A dry reminder that ordinary days rarely follow a perfect edit.",
+            "zh": "冷冷补一句，普通一天很少照完美剪辑来过。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "boomer",
+          "label": {
+            "en": "A well-worn favourite that has stayed enjoyable without an upgrade.",
+            "zh": "一件没升级、却一直喜欢的老物件或老玩法。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zoomer",
+          "label": {
+            "en": "A playful experiment with the presentation format itself.",
+            "zh": "拿这种呈现形式本身做个轻松实验。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "npc",
+          "label": {
+            "en": "An unremarkable piece of my own repeatable routine.",
+            "zh": "发一点自己可以重复的小日常。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_10",
+      "prompt": {
+        "en": "An old game you liked is being discussed again. Which contribution feels most appealing?",
+        "zh": "以前喜欢的老游戏又被讨论起来，你更愿意贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "boomer",
+          "label": {
+            "en": "A specific detail I still enjoy from the original experience.",
+            "zh": "说一个原来体验里至今仍喜欢的细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zoomer",
+          "label": {
+            "en": "An unfamiliar way people are now sharing or remixing it.",
+            "zh": "体验大家现在分享或改编它的新方式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "npc",
+          "label": {
+            "en": "A simple account of how it fits my regular downtime.",
+            "zh": "简单说说它怎样融入平时的休息。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "The feeling of recognising a moment I had almost forgotten.",
+            "zh": "说说重新认出一个快忘掉的瞬间是什么感觉。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_11",
+      "prompt": {
+        "en": "A chat is experimenting with a new kind of weekly prompt. What would you prefer to do?",
+        "zh": "聊天小组在试新的每周话题格式，你更愿意怎么参加？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Try the format once, even without a polished contribution.",
+            "zh": "先试一次格式，不追求成品漂亮。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "npc",
+          "label": {
+            "en": "Use the clear repeatable part that makes joining easy.",
+            "zh": "用容易重复的清楚步骤来参加。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Share a response that lets someone say they have felt that too.",
+            "zh": "写一段别人也能说“我也有过”的回应。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Suggest one small version that could work next week.",
+            "zh": "建议一个下周可以落实的小版本。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_12",
+      "prompt": {
+        "en": "There is nothing remarkable to post at the end of your hobby week. What suits you best?",
+        "zh": "兴趣活动这一周没什么特别值得发的，你更接近哪种做法？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "npc",
+          "label": {
+            "en": "Keep the ordinary check-in short and familiar.",
+            "zh": "照常简短地记录一下。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Describe one small moment that felt recognisable rather than impressive.",
+            "zh": "写一个有共鸣、不必惊艳的小瞬间。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Choose a modest thing to look forward to next week.",
+            "zh": "选一件下周可以期待的小事。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "doomer",
+          "label": {
+            "en": "Make a restrained joke about the demand to have weekly highlights.",
+            "zh": "对每周都得有高光这件事轻轻吐槽。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_13",
+      "prompt": {
+        "en": "A friend posts a slightly awkward first attempt at a new pastime. What response appeals most?",
+        "zh": "朋友分享新爱好的第一次尝试，有点笨拙，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Recognise the experience without turning it into a big lesson.",
+            "zh": "承认自己懂这种经历，不急着升华。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Notice one usable part they could try again if they want.",
+            "zh": "指出一处想继续时可以再试的小部分。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "doomer",
+          "label": {
+            "en": "Share a dry, friendly observation about how first attempts usually look.",
+            "zh": "友善而冷调地说说第一次通常就这模样。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "boomer",
+          "label": {
+            "en": "Recall an older example we still enjoy despite its rough edges.",
+            "zh": "提一件虽粗糙却一直喜欢的旧例子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_14",
+      "prompt": {
+        "en": "A long hobby wish list is starting to feel like homework. What would you prefer?",
+        "zh": "兴趣愿望清单越来越像作业，你更想怎么处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Choose one small enjoyable item and leave the rest undecided.",
+            "zh": "选一件小而好玩的，其余先不定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "doomer",
+          "label": {
+            "en": "Point out, with a little irony, that leisure does not need a productivity target.",
+            "zh": "略带讽刺地提醒，休闲也不一定要生产力指标。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "boomer",
+          "label": {
+            "en": "Return to a favourite I already know how to enjoy.",
+            "zh": "回到一个自己已知道怎样享受的老爱好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Try a different format that makes the list feel playful again.",
+            "zh": "换一种新形式，让清单重新像在玩。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_15",
+      "prompt": {
+        "en": "A casual online challenge comes with an enormous success story. What would you contribute?",
+        "zh": "轻松线上挑战配了一段特别宏大的成功故事，你更想贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "doomer",
+          "label": {
+            "en": "A down-to-earth observation that keeps the grand claim in proportion.",
+            "zh": "讲一句贴近现实的话，给宏大宣传降降调。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "boomer",
+          "label": {
+            "en": "A familiar reference showing that simple enjoyment also lasts.",
+            "zh": "拿熟悉的例子说明，简单的快乐也能长久。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zoomer",
+          "label": {
+            "en": "A trial of a new version of the challenge, with no promise attached.",
+            "zh": "不作效果承诺，试试挑战的新版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "npc",
+          "label": {
+            "en": "My ordinary repeatable entry without an ambitious headline.",
+            "zh": "按可重复的方式参加，不加雄心勃勃的标题。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_16",
+      "prompt": {
+        "en": "You are choosing one item to bring to a low-key hobby swap. What appeals most?",
+        "zh": "参加轻松的兴趣物品交换，只带一件，你更喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "boomer",
+          "label": {
+            "en": "Something familiar with a specific memory attached to it.",
+            "zh": "一件带着具体回忆的熟悉物品。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zoomer",
+          "label": {
+            "en": "An example of a new format I have enjoyed exploring.",
+            "zh": "一个自己最近玩得开心的新形式样品。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "npc",
+          "label": {
+            "en": "A simple everyday item that fits the agreed exchange routine.",
+            "zh": "一件符合约定交换流程的简单日用品。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Something that captures an ordinary experience others may recognise.",
+            "zh": "一件能带出普通生活共鸣的东西。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_17",
+      "prompt": {
+        "en": "A community offers a completely different way to present a familiar topic. What attracts you?",
+        "zh": "社区给熟悉话题换了一套完全不同的呈现方式，你被什么吸引？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zoomer",
+          "label": {
+            "en": "Discovering how the new format changes what people can make.",
+            "zh": "看看新格式会让人做出什么不同东西。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "npc",
+          "label": {
+            "en": "Finding the stable steps that make participation straightforward.",
+            "zh": "找到让参加变简单的固定步骤。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "The chance to share a recognisable feeling in my own words.",
+            "zh": "有机会用自己的话讲一种能引起共鸣的感受。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "bloomer",
+          "label": {
+            "en": "A manageable new possibility I can try without a big commitment.",
+            "zh": "有个不用大承诺、能小小试一下的新可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "WOJ_18",
+      "prompt": {
+        "en": "How would you prefer to end a quiet evening of online hobby browsing?",
+        "zh": "安静地刷完一晚兴趣内容，你更愿意怎样收尾？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "npc",
+          "label": {
+            "en": "Complete the little closing routine that makes the evening feel settled.",
+            "zh": "做完让这一晚有个收尾的小流程。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "feels-guy",
+          "label": {
+            "en": "Send one message about a moment that felt familiar.",
+            "zh": "发一句话，说说某个熟悉的感受。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "bloomer",
+          "label": {
+            "en": "Save one small idea I might enjoy trying another day.",
+            "zh": "存下一点改天也许会喜欢尝试的小想法。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "doomer",
+          "label": {
+            "en": "Leave a dry note about the absurdity of endlessly chasing the next big thing.",
+            "zh": "冷调地写一句，一直追下一个大东西有点荒诞。"
+          }
+        }
+      ]
+    }
+  ]
+}

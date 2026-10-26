@@ -1999,5 +1999,32 @@
       "quantities",
       "formats"
     ]
+  },
+  {
+    "slug": "wojak",
+    "code": "WOJAK_MEME_LENSES",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Wojak Test",
+      "zh": "Wojak 角色测试"
+    },
+    "description": {
+      "en": "Take 18 original everyday questions and compare six Wojak meme lenses: Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC. Every highest tie and all complete guides are free. Text-only, unofficial and no signup.",
+      "zh": "用18道原创日常题比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC六种Wojak梗图角度。最高并列全部保留，完整说明免费，无需注册。纯文字非官方同人版，不给真人下定义。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_wojak_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "feels-guy",
+      "bloomer",
+      "doomer",
+      "boomer",
+      "zoomer",
+      "npc"
+    ],
+    "collection": "explore"
   }
 ]
