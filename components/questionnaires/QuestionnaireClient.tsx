@@ -67,6 +67,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const [stage, setStage] = useState<"welcome" | "answer" | "result">("welcome");
   const [position, setPosition] = useState(0), [saving, setSaving] = useState(false);
   const [message, setMessage] = useState(""), [manualCopy, setManualCopy] = useState("");
+  const questionContext = useRef<HTMLParagraphElement>(null);
   const heading = useRef<HTMLHeadingElement>(null), submitted = useRef(false), viewed = useRef(false);
   const draft = useSyncExternalStore(subscribe, () => {
     try { const raw = sessionStorage.getItem(key); return readQuestionnaireDraft(quiz, raw) ? raw : null; } catch { return null; }
@@ -94,7 +95,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   useEffect(() => {
     if (stage !== "welcome") {
       heading.current?.focus();
-      heading.current?.scrollIntoView({ block: "start" });
+      (stage === "answer" ? questionContext.current : heading.current)?.scrollIntoView({ block: "start" });
     }
   }, [position, stage, quiz.slug]);
   useEffect(() => {
@@ -153,9 +154,9 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       <p className="mt-4 text-sm leading-7 text-slate-600">{zh ? "完整题目和结果免费，无需注册。只有主动保存才会在刷新或换语言后提供恢复；本标签页保存24小时后失效，完成或重测即清除。" : "All questions and full results are free, with no signup. Saving is optional; only saved attempts can be resumed after a refresh or language change. Tab drafts expire after 24 hours and clear on completion or retake."}</p>
     </>}
     {stage === "answer" && question && <>
-      <p className="mb-3 text-sm">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
+      <p ref={questionContext} className="mb-3 text-sm scroll-mt-24">{zh ? `第${position + 1}题，共${quiz.questions.length}题` : `Question ${position + 1} of ${quiz.questions.length}`}</p>
       <progress aria-label={zh ? "已作答题数" : "Questions answered"} max={quiz.questions.length} value={Object.keys(answers).length} className="mb-5 w-full accent-violet-700" />
-      <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-8 outline-none scroll-mt-40">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
+      <h2 ref={heading} tabIndex={-1} className="text-xl font-semibold leading-8 outline-none scroll-mt-24">{(quiz.slug === "java-test" || quiz.slug === "javascript-test" || quiz.slug === "python-test" || quiz.slug === "sql-test") ? question.prompt[locale].split("\n\n")[0] : question.prompt[locale]}</h2>
       {quiz.slug === "java-test" && <QuestionnaireJavaCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
       {quiz.slug === "javascript-test" && <QuestionnaireJavaScriptCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}
       {quiz.slug === "python-test" && <QuestionnairePythonCode code={question.prompt[locale].split("\n\n").slice(1).join("\n\n")} locale={locale} number={position + 1} />}

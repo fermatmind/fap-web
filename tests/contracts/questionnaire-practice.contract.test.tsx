@@ -26,8 +26,13 @@ const quiz: Questionnaire = {
   profiles: ["arithmetic", "code"].map(id => ({ id, directionIds: [id], title: text(`${id} revision`, `${id}复习`), headline: text("Read the explanation", "阅读说明"), summary: text("Test-only revision text", "测试专用复习文本"), scoreReading: text("Counts in this bank only", "只描述本题本的正确数"), sections: [{ id: "review", title: text("Review the method", "回看方法"), paragraphs: [text(`Revision text for ${id}`, `${id}的方法说明`)] }] })),
   guide: [], faq: [],
 };
+const originalScrollIntoView = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "scrollIntoView");
 const all = { q1: "a", q2: "b", q3: "b", q4: "a" };
-afterEach(() => { cleanup(); window.sessionStorage.clear(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+afterEach(() => {
+  cleanup(); window.sessionStorage.clear(); vi.restoreAllMocks(); vi.unstubAllGlobals();
+  if (originalScrollIntoView) Object.defineProperty(HTMLElement.prototype, "scrollIntoView", originalScrollIntoView);
+  else Reflect.deleteProperty(HTMLElement.prototype, "scrollIntoView");
+});
 
 describe("standard-answer practice shared runtime", () => {
   it("recomputes all16 answer combinations with independent item and section counts, without personality assignments", () => {
@@ -91,16 +96,24 @@ describe("standard-answer practice shared runtime", () => {
   });
 
   for (const locale of ["en", "zh"] as const) it(`runs the actual shared answer client without premature answers, then review, retake and practice next steps: ${locale}`, async () => {
+    // JSDOM omits this native API; real viewport geometry is covered by browser tests.
+    const scrollIntoView = vi.fn();
+    Object.defineProperty(HTMLElement.prototype, "scrollIntoView", { configurable: true, value: scrollIntoView });
     const copy = vi.fn().mockResolvedValue(undefined); vi.stubGlobal("navigator", { clipboard: { writeText: copy } });
     const zh = locale === "zh"; const { container } = render(<QuestionnaireClient quiz={quiz} locale={locale} />);
     expect(screen.getByRole("heading", { name: zh ? "开始4题练习" : "Start your 4-question practice" })).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: zh ? "开始测试" : "Start test" }));
+    expect(scrollIntoView.mock.contexts.at(-1)).toBe(container.querySelector("progress")?.previousElementSibling);
+    expect(document.activeElement).toBe(screen.getByRole("heading", { name: "2 + 2 = ?" }));
     fireEvent.click(screen.getByRole("button", { name: zh ? "下一题" : "Next" })); expect(screen.getByRole("status")).toHaveTextContent(zh ? "请选择" : "Choose an option");
     for (const [i, question] of quiz.questions.entries()) {
       expect(container.querySelector("[data-practice-result]")).toBeNull(); expect(container.querySelector("[data-practice-explanation]")).toBeNull();
       fireEvent.click(container.querySelector(`input[name="${question.id}"][value="${all[question.id as keyof typeof all]}"]`)!);
       fireEvent.click(screen.getByRole("button", { name: i === 3 ? (zh ? "查看完整结果" : "See full result") : (zh ? "下一题" : "Next") }));
     }
+    expect(scrollIntoView).toHaveBeenLastCalledWith({ block: "start" });
+    expect(scrollIntoView.mock.contexts.at(-1)).toBe(document.activeElement);
+    expect(document.activeElement?.tagName).toBe("H2");
     expect(container.querySelector("[data-practice-correct]")).toHaveTextContent("4 / 4"); expect(container.querySelectorAll("[data-practice-explanation]")).toHaveLength(4);
     expect(screen.getByRole("link", { name: /RIASEC/ })).toHaveAttribute("href", `/${locale}/tests/holland-career-interest-test-riasec`);
     expect(screen.queryByRole("link", { name: /Explore MBTI|了解MBTI/ })).toBeNull();
