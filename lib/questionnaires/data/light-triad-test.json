@@ -1,0 +1,1469 @@
+{
+  "slug": "light-triad-test",
+  "code": "LIGHT_TRIAD_LTS_12",
+  "version": "1.0.0",
+  "updated": "2026-10-26",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "zh": "光明三元素测试",
+    "en": "Light Triad Test"
+  },
+  "resultHeading": {
+    "zh": "本次LTS整体分数与三侧面完整解释",
+    "en": "Your LTS overall score and three full facet guides"
+  },
+  "description": {
+    "zh": "采用发表LTS十二条英文与中文试译，透明计分，优先读整体并保留三份完整侧面说明。按CC BY 4.0归属原作者，不派善良类型、评善恶或换算黑暗特质。",
+    "en": "Read twelve published LTS items, transparent scores and three full free guides. Chinese is a trial translation; no goodness type or Dark Triad conversion."
+  },
+  "seoTitle": {
+    "zh": "光明三元素测试：LTS十二条与完整结果解释",
+    "en": "Light Triad Test: LTS-12 and Full Free Result Guides"
+  },
+  "minutes": 3,
+  "introduction": {
+    "zh": "你通常怎样看待他人的善意与个体价值，又怎样理解诚实和不把人仅当工具？本版保留发表LTS Table 3的十二条英文，提供中文试译和透明原始计分。全部十二条有效才显示整体总分与均分，三个四条侧面各自保留有效题数和原始结果；缺答明确显示不足，不填零或中点。原作者建议优先关注整体，三份完整解释一起呈现例子、其他两侧面对照和反例。它不是善恶计、可信任认证或黑暗特质的反数。",
+    "en": "How do you generally view others’ good will and individual worth, and understand honesty and treating people as ends? This edition preserves twelve published Table 3 LTS English items with a Chinese trial translation and transparent raw scoring. All twelve ratings are required for an overall total and mean; each four-item facet keeps its rated count and raw reading. Missing information remains explicit without zero or midpoint filling. Following the authors’ total-first recommendation, three full guides appear together with examples, two comparisons and counterexamples. This is no goodness meter, trust certificate or inverse Dark Triad score."
+  },
+  "instructions": {
+    "zh": "按每句话通常描述你的观点和做法的程度，选择1非常不同意至5非常同意；无法判断或不愿回答可暂不作答，不补零或中点。英文12条保留发表论文Table 3原文，中文为本站试译，不采用竞品情境或三个人设。三部分各4条全部有效才显示该部分原始和与均分；全部12条有效才显示整体原始总分12—60及均分1—5。所有条目同向，英文出现不、很少等措辞不等于反向键。原作者建议优先关注整体，三侧面只作描述性理解，三份完整说明一起保留；不排名唯一类型。它不计算黑暗特质、光暗比例或人群百分位，不认定谁善良、可相信或需要原谅谁，也不要求放弃边界。",
+    "en": "Rate how well each statement generally reflects your views and conduct, from 1 Strongly disagree to 5 Strongly agree. Use the unscored response when needed without zero or midpoint substitution. Twelve English items preserve published Table 3 wording; Chinese is a website trial translation, without competitor scenarios or three personas. Each four-item part needs all four ratings for its raw sum and mean. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5. All items have the same key direction: words such as not or rarely are not reverse keys. The authors recommend focusing on the total; three facets receive descriptive readings with all three full guides, without a sole highest-score type. No dark-trait score, light/dark percentage or population percentile is computed. Results identify nobody as good or trustworthy and require neither forgiveness nor abandoned boundaries."
+  },
+  "source": {
+    "kind": "PublishedCCBY4.0Table3English12/KaufmanYadenHydeTsukayama2019/ownZHtrial/notJobDawnHearthLantern",
+    "formCode": "lts12_table3_agreement_web",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "ba2cadbbd7b2ff0364dc0721cc8999b25bee5f66a5f59d04aeea0a59d2083e5d",
+    "resultContentSha256": "f277d202bdfa10f31e59bb0824092b74b75b9495e5e0ef184f838ca32ad2861a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "faith-in-humanity",
+      "title": {
+        "zh": "人性信念",
+        "en": "Faith in Humanity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "humanism",
+      "title": {
+        "zh": "人文关怀",
+        "en": "Humanism"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "kantianism",
+      "title": {
+        "zh": "不把人仅当工具（康德主义）",
+        "en": "Kantianism"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "LTS_01",
+      "prompt": {
+        "zh": "我倾向于看到人们身上最好的一面。",
+        "en": "I tend to see the best in people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_02",
+      "prompt": {
+        "zh": "我通常相信别人会公平地对待我。",
+        "en": "I tend to trust that other people will deal fairly with me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_03",
+      "prompt": {
+        "zh": "我认为大多数人是善良的。",
+        "en": "I think people are mostly good."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_04",
+      "prompt": {
+        "zh": "我会很快原谅伤害过我的人。",
+        "en": "I’m quick to forgive people who have hurt me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_05",
+      "prompt": {
+        "zh": "我常常欣赏别人。",
+        "en": "I tend to admire others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_06",
+      "prompt": {
+        "zh": "我通常会为别人的成功喝彩。",
+        "en": "I tend to applaud the successes of other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_07",
+      "prompt": {
+        "zh": "我通常把别人视为有价值的人。",
+        "en": "I tend to treat others as valuable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_08",
+      "prompt": {
+        "zh": "我喜欢倾听来自各行各业的人。",
+        "en": "I enjoy listening to people from all walks of life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_09",
+      "prompt": {
+        "zh": "比起魅力，我更看重诚实。",
+        "en": "I prefer honesty over charm."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_10",
+      "prompt": {
+        "zh": "为了得到自己想要的东西而公然操纵别人，会让我感到不自在。",
+        "en": "I don’t feel comfortable overtly manipulating people to do something I want."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_11",
+      "prompt": {
+        "zh": "即使可能损害自己的名声，我也希望保持真实。",
+        "en": "I would like to be authentic even if it may damage my reputation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_12",
+      "prompt": {
+        "zh": "与人交谈时，我很少在想自己想从他们那里得到什么。",
+        "en": "When I talk to people, I am rarely thinking about what I want from them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "faith-in-humanity",
+      "directionIds": [
+        "faith-in-humanity"
+      ],
+      "title": {
+        "zh": "人性信念：善意预期与具体证据",
+        "en": "Faith in Humanity: Expectations and Evidence"
+      },
+      "headline": {
+        "zh": "人性信念：善意预期与具体证据",
+        "en": "Faith in Humanity: Expectations and Evidence"
+      },
+      "summary": {
+        "zh": "理解LTS人性信念四条的自报同意程度，区分一般善意预期、宽恕与对具体人的判断，含计分例子及其他两侧面对照；不评天真、善恶或信任资格。",
+        "en": "Read LTS Faith in Humanity through four responses, a scoring example and two comparisons. General expectations certify nobody as good, naive or trustworthy."
+      },
+      "seo": {
+        "title": {
+          "zh": "光明三元素人性信念：LTS分数与完整解释",
+          "en": "Faith in Humanity: LTS Score and Full Result Guide"
+        },
+        "description": {
+          "zh": "理解LTS人性信念四条的自报同意程度，区分一般善意预期、宽恕与对具体人的判断，含计分例子及其他两侧面对照；不评天真、善恶或信任资格。",
+          "en": "Explore LTS Faith in Humanity: four self-reports, scoring, two comparisons and full examples. No goodness, naivety or trustworthiness verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+        "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个侧面描述什么",
+            "en": "What this facet describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个侧面涉及你通常是否看到别人较好的一面、相信人会公平相待、认为多数人善良，以及是否较快宽恕。它由发表LTS的四条自报陈述组织，不是对周围人的行为调查，也不等于某个具体人已经值得相信。四条可以回答不同，总均分不替每条作同一种解释。原作者建议优先关注整体LTS；侧面帮助描述内容，不给你派一个固定“先信任型”，也不把较低回答归为黑暗人格。",
+              "en": "This facet concerns generally seeing others’ better qualities, expecting fair treatment, believing most people are good and readiness to forgive. Four published LTS self-reports organise it rather than a survey of other people’s conduct. They establish no specific person’s trustworthiness. Responses can differ, so a mean cannot give every item one interpretation. The authors recommend focusing on the total LTS; facets describe content without assigning a fixed trust-first type or turning lower responses into a dark personality."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始计分与整体的例子",
+            "en": "A raw scoring and overall example"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个可复算例子是四条为5、4、3、2，原始和14、均分3.5；四条都选3或4的其他组合也可能接近这个均分，不能据此还原逐题内容。若另八条总和30，全十二条原始和44、整体均分约3.67；整体用十二条未舍入相加，不是把已经舍入的三个均分再平均。任一暂不作答不估计整体；本侧面少一条有效就保留侧面资料不足，不当作不同意。",
+              "en": "For a worked example, ratings of five, four, three and two sum to 14 with mean 3.5. Other response patterns can give nearby or identical means without revealing the individual answers. If the remaining eight sum to 30, all twelve total 44 with overall mean about 3.67. Compute the overall result from unrounded item sums rather than averaging already rounded facet means. Any unscored item prevents an estimated total; one missing rating here also leaves this facet insufficient rather than treating it as disagreement."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通相处情境",
+            "en": "An ordinary interaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是共同安排中的一个小误会：你可能愿意先认为对方并非故意，同时仍要核清约定和实际发生的事。善意预期与查证可以一起保留；评分没有要求忽略不一致的行为、额外提供资源或继续一段不愿维持的互动。若现在还不知道对方的原因，可以把原因留作未知，不必为了符合较高回答而补出一个好解释，也不由较低回答认定对方一定恶意。",
+              "en": "Imagine a small misunderstanding in a shared arrangement. You may initially expect no deliberate harm while still checking the agreement and what happened. Good-faith expectations and verification can coexist. A score requires neither ignoring inconsistent conduct, providing extra resources nor continuing an unwanted interaction. Keep an unknown reason unknown instead of inventing a favourable account to fit higher responses or deciding from lower ones that the other person must have bad intentions."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "表达与现实边界",
+            "en": "Wording and actual boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我还不清楚这次的原因，愿意先听你的说明；已经约好的部分也需要核清。”它同时保留开放与事实边界，而不是保证继续信任或要求对方接受你的解释。原题中涉及宽恕，只描述你对这句话的同意程度；问卷不要求原谅伤害、恢复接触、和解或放弃已有边界。你也不需要把私人经历告诉任何人来证明回答，或为了得到另一种读法再经历一次类似情况。",
+              "en": "You might say, “I do not yet know the reason and am willing to hear your explanation; we also need to clarify what we agreed.” Openness and factual boundaries remain visible without a promise of continuing trust or a demand that others accept your account. The forgiveness item records agreement with a statement; it requires no forgiveness, renewed contact, reconciliation or abandoned boundary. Nobody needs a private history to justify an answer or another similar experience to obtain a different reading."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他两侧面比较",
+            "en": "Comparing the two other facets"
+          },
+          "paragraphs": [
+            {
+              "zh": "人文关怀侧面更关注欣赏他人、为其成功喝彩、尊重个体价值和倾听，不必先相信对方通常公平；康德主义侧面关注诚实、真实及不把人仅当获取目标的工具。三者并非同一种信任的三个等级，也不能互相补分。你可以尊重某个人，同时保留对其具体行为的判断。整体LTS也不是黑暗三联征的反数；低一点不等于更多黑暗，高一点不证明谁更安全、善良或适合交往。",
+              "en": "Humanism concerns admiration, appreciating success, individual worth and listening without first requiring an expectation of fairness. Kantianism concerns honesty, authenticity and not treating others merely as tools for a goal. These are neither three levels of trust nor interchangeable scores. Respect for someone can coexist with a specific judgment about conduct. The total LTS is not the inverse of the Dark Triad: lower values imply no greater darkness, and higher ones certify no safety, goodness or suitability as a companion."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，近期具体经历可能影响这四条的回答，而某个人仍可以在其他情境保持不同预期；较快宽恕也不等于判断准确或恢复关系。这里不测天真、防骗能力、依恋、疾病、道德、职业或他人是否可信。原研究的相关与内部一致性不验证本站中文试译、NA规则或你的个人答卷，也不能把其样本均值当你所在人群的常模。三份完整说明都保留，不按最高侧面给你派类型。",
+              "en": "Recent experiences may affect these four responses while expectations differ in other situations. Readiness to forgive establishes neither accurate judgment nor restored relationships. This measures no naivety, fraud-detection skill, attachment, illness, morality, career or another person’s trustworthiness. Original correlations and internal consistency validate neither the Chinese trial translation, unscored-response convention nor an individual attempt, and source sample means are no norms for your population. All three full guides remain without a highest-facet type assignment."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选回顾：只回想一次已经结束的普通误会，分开记下当时的一般预期、确实知道的事实，以及最后得到的说明。没有记录的部分保留未知，不用现在的印象补写。无需联系对方、原谅、重新参与或提高信任分数；只阅读也可以。这个观察帮助区别预期与证据，不承诺修复关系、改善心情或让你变得更光明，也不把某个分数当必须达成的目标。",
+              "en": "For an optional review, recall an ordinary completed misunderstanding and distinguish your general expectation, facts actually known and any explanation received. Preserve missing records as unknown rather than reconstructing them from present impressions. No contact, forgiveness, renewed participation or higher trust score is required; reading alone is enough. This distinguishes expectations from evidence without promising repaired relationships, improved mood or a more light-sided identity, and no score becomes a required target."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十二条计分、缺答与整体优先",
+            "en": "Twelve-item scoring, missing data and total first"
+          },
+          "paragraphs": [
+            {
+              "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+              "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源归属、改编与使用范围",
+            "en": "Attribution, adaptation and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版采用发表论文Table 3的12条英文与三侧面组织，中文为费马试译，NA与严格完整度规则、解释和网页呈现属于本站改编。原作者把LTS称为初稿，并建议优先关注总分；三侧面不作为三种固定善良类型。原研究的相关、内部一致性、样本均值和其他发现不验证本站中文、缺答规则或个体解释，不套用到某人的生活、健康或职业。没有黑暗三联征题本、EQ、MBTI或职业换算，没有道德、信任、相容性或临床判断；较高分不认证任何人安全、善良或诚实，较低不证明邪恶、冷漠或操纵。原题宽恕不要求原谅、和解、恢复接触或放弃边界。未采用竞品十二情境、三十六选项、Dawn／Hearth／Lantern人设或正文。",
+              "en": "This edition adopts the twelve published Table 3 English items and three-facet organisation. Chinese is a FermatMind trial translation; unscored responses, strict completeness conventions, explanations and presentation are website adaptations. The authors described LTS as a first draft and recommended focusing on the total rather than three fixed kinds of goodness. Original correlations, reliability, sample means and other findings validate neither this Chinese version, missing-data convention nor individual interpretation and predict no personal life, health or career outcome. There is no Dark Triad bank, EQ, MBTI or career conversion, moral, trust, compatibility or clinical judgment. Higher scores certify nobody as safe, good or honest, and lower ones establish no evil, coldness or manipulation. The forgiveness item requires no forgiveness, reconciliation, renewed contact or abandoned boundary. No competitor scenarios, answer options, Dawn/Hearth/Lantern personas or report body are adopted."
+            },
+            {
+              "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+              "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "humanism",
+      "directionIds": [
+        "humanism"
+      ],
+      "title": {
+        "zh": "人文关怀：尊严、倾听与个体价值",
+        "en": "Humanism: Dignity, Listening and Individual Worth"
+      },
+      "headline": {
+        "zh": "人文关怀：尊严、倾听与个体价值",
+        "en": "Humanism: Dignity, Listening and Individual Worth"
+      },
+      "summary": {
+        "zh": "完整解释LTS人文关怀四条，区分欣赏、倾听与个体价值，含原始计分、其他两侧面对照和具体情境；不评实际共情、道德、社交能力或职业。",
+        "en": "Explore four LTS Humanism items, raw scoring, two comparisons and concrete situations. No empathy, morality, social skill or career verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "光明三元素人文关怀：LTS分数与完整解释",
+          "en": "Humanism: LTS Score and Full Result Guide"
+        },
+        "description": {
+          "zh": "完整解释LTS人文关怀四条，区分欣赏、倾听与个体价值，含原始计分、其他两侧面对照和具体情境；不评实际共情、道德、社交能力或职业。",
+          "en": "Explore LTS Humanism: dignity, listening, four responses, scoring and two comparisons. No empathy, morality, social skill or career verdict."
+        }
+      },
+      "scoreReading": {
+        "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+        "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个侧面描述什么",
+            "en": "What this facet describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "这个侧面依据发表LTS的四条陈述，涉及欣赏别人、为他人的成功喝彩、把别人视为有价值的人，以及倾听不同背景者。这里的Humanism指量表里对个体尊严和价值的关怀，不是对整个人文主义哲学、政治立场或职业身份的考试。它记录自报同意程度，没有观察你实际怎样倾听或别人是否感觉受到尊重。原作者建议优先读整体总分，三个侧面只描述内容，不把你固定分为关怀型。",
+              "en": "This facet follows four published LTS statements about admiration, applauding others’ success, treating people as valuable and listening across backgrounds. Humanism here concerns individual dignity and worth in this scale, rather than a test of an entire humanist philosophy, political position or professional identity. Agreement is self-reported: neither listening behaviour nor another person’s experience of respect was observed. The authors recommend prioritising the overall total, with facets describing content rather than assigning a fixed caring type."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始计分与整体的例子",
+            "en": "A raw scoring and overall example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，四条为4、4、2、2，原始和12、均分3.0；四条都为3也有同一均分，但欣赏、倾听和个体价值的具体回答可能不同。若另八条和为32，全十二条原始和44，整体均分约3.67。中点3只是回答尺度中间，不是最理想或人群平均。任何一条暂不作答都不估计整体分数，本侧面四条未全有效则保留侧面不足；缺答也不判断你是否缺少关怀。",
+              "en": "For example, four ratings of four, four, two and two sum to 12 with mean 3.0, as do four ratings of three. Specific responses about admiration, listening and worth can still differ. If the remaining eight sum to 32, all twelve total 44 with overall mean about 3.67. Three is the response-scale midpoint, not an ideal or population average. Any unscored item prevents an estimated overall score; fewer than four rated items here also retain an insufficient facet, without judging an absence of care."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通相处情境",
+            "en": "An ordinary interaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是参加一次兴趣交流，你愿意听一个背景不同的人介绍经历，同时未必认同其所有观点。可以把对人的尊重、对某项说法的判断，以及这次能投入的时间分别说明。尊重个体不等于赞成每个行为，倾听也不需要无期限继续。原题没有判断这段交流是否有效、谁更会沟通，或对方是否愿意分享；这些仍要看具体互动，而不是从一个较高均分补出。",
+              "en": "Imagine an interest-sharing session where you are willing to hear someone with a different background without agreeing with every view. Separate respect for the person, judgment of a particular claim and the time you can offer. Respect does not require endorsing every behaviour, and listening need not continue indefinitely. The items judge neither effectiveness, communication skill nor willingness to share. These require the actual interaction rather than being inferred from a higher mean."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "表达与现实边界",
+            "en": "Wording and actual boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我愿意听你怎么看，这一部分我还没有同意；我现在能继续聊一会儿。”它把倾听、判断和可用时间同时说清，而不是以关怀分数要求自己全盘接受或要求别人敞开心扉。若对方不想继续，可以接受这一决定。对自己需要的尊重也不与个体价值自动冲突；问卷不要求你额外承担情绪责任、压下异议或用更多关注证明自己是好人。",
+              "en": "You might say, “I am willing to hear your view, though I have not agreed with this part; I have a little time to continue.” Keep listening, judgment and available time visible without using a score to require complete acceptance or someone else’s disclosure. Accept a decision not to continue. Respect for your own needs does not automatically oppose individual worth. This questionnaire requires neither added emotional responsibility, suppressed disagreement nor extra attention as proof of goodness."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他两侧面比较",
+            "en": "Comparing the two other facets"
+          },
+          "paragraphs": [
+            {
+              "zh": "人性信念更多涉及对别人通常善意、公平及宽恕的自报预期；人文关怀不需要先认定某个具体人可信。康德主义侧面更多涉及诚实、真实和避免把人仅当达成目标的工具；尊重与提出正当请求也可以同时存在。三个侧面可以一起较高、较低或有差异，不是三个互斥角色，也不能拿较高的人文关怀补出另两项。整体分数不换算成黑暗三联征、EQ、大五或MBTI结果。",
+              "en": "Faith in Humanity concerns general good-faith expectations, fairness and forgiveness; Humanism requires no prior certification of a particular person’s trustworthiness. Kantianism concerns honesty, authenticity and not treating people merely as instruments for goals. Respect and a legitimate request can coexist. All three facets can be higher, lower or different without exclusive roles or one facet supplying another’s missing responses. No overall score converts into Dark Triad, EQ, Big Five or MBTI results."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人很看重尊严，但在某次交流中可能因疲劳、语言或条件而难以倾听；擅长倾听者也未必在这四条都同意。较高均分不认证共情、友善、包容、疗愈能力或关系质量，较低也不证明冷漠、偏见或不适合与人工作。本中文试译、缺答规则和完整解释没有本地效度或等价验证；不能把原论文相关当成你会获得的生活、健康或职业结果，也不凭一分差作道德评价。",
+              "en": "Someone valuing dignity can struggle to listen because of fatigue, language or circumstances; a skilled listener need not agree with all four statements. Higher means certify no empathy, kindness, inclusiveness, healing skill or relationship quality, and lower means establish no coldness, prejudice or unsuitability for people-facing work. This Chinese trial, missing-data convention and explanations have no local validity or equivalence evidence. Original correlations predict no individual life, health or career outcome, and one point supplies no moral judgment."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选回顾：回想一次已结束的普通交流，分开记下自己想了解的内容、实际听到的内容，以及当时表达过的不同意见或时间边界。没有问清的部分保留未知，不补写对方感受。无需重新联系、提供更多关注或提高关怀分数；只阅读也足够。如果本来就会继续讨论，可以提出一个具体问题，同时保留双方不继续的选择。回顾不承诺改善关系、沟通或共情能力。",
+              "en": "For an optional review, recall an ordinary completed conversation and separate what you wanted to understand, what you heard and any disagreement or time boundary expressed. Preserve unknown details without reconstructing someone else’s feelings. No renewed contact, extra attention or higher care score is required; reading is enough. If discussion is already continuing, ask one specific question while retaining both parties’ choice to stop. This review promises no improvement in relationships, communication or empathy."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十二条计分、缺答与整体优先",
+            "en": "Twelve-item scoring, missing data and total first"
+          },
+          "paragraphs": [
+            {
+              "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+              "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源归属、改编与使用范围",
+            "en": "Attribution, adaptation and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版采用发表论文Table 3的12条英文与三侧面组织，中文为费马试译，NA与严格完整度规则、解释和网页呈现属于本站改编。原作者把LTS称为初稿，并建议优先关注总分；三侧面不作为三种固定善良类型。原研究的相关、内部一致性、样本均值和其他发现不验证本站中文、缺答规则或个体解释，不套用到某人的生活、健康或职业。没有黑暗三联征题本、EQ、MBTI或职业换算，没有道德、信任、相容性或临床判断；较高分不认证任何人安全、善良或诚实，较低不证明邪恶、冷漠或操纵。原题宽恕不要求原谅、和解、恢复接触或放弃边界。未采用竞品十二情境、三十六选项、Dawn／Hearth／Lantern人设或正文。",
+              "en": "This edition adopts the twelve published Table 3 English items and three-facet organisation. Chinese is a FermatMind trial translation; unscored responses, strict completeness conventions, explanations and presentation are website adaptations. The authors described LTS as a first draft and recommended focusing on the total rather than three fixed kinds of goodness. Original correlations, reliability, sample means and other findings validate neither this Chinese version, missing-data convention nor individual interpretation and predict no personal life, health or career outcome. There is no Dark Triad bank, EQ, MBTI or career conversion, moral, trust, compatibility or clinical judgment. Higher scores certify nobody as safe, good or honest, and lower ones establish no evil, coldness or manipulation. The forgiveness item requires no forgiveness, reconciliation, renewed contact or abandoned boundary. No competitor scenarios, answer options, Dawn/Hearth/Lantern personas or report body are adopted."
+            },
+            {
+              "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+              "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kantianism",
+      "directionIds": [
+        "kantianism"
+      ],
+      "title": {
+        "zh": "康德主义侧面：诚实与把人当目的",
+        "en": "Kantianism: Honesty and Treating People as Ends"
+      },
+      "headline": {
+        "zh": "康德主义侧面：诚实与把人当目的",
+        "en": "Kantianism: Honesty and Treating People as Ends"
+      },
+      "summary": {
+        "zh": "完整解释LTS康德主义四条中的诚实、真实与非工具性，含计分例子、其他两侧面对照及普通请求；不把哲学、道德或他人意图当作已测事实。",
+        "en": "Read four LTS Kantianism items, honesty, authenticity, a scoring example and two comparisons. No moral, philosophical or intention-reading verdict."
+      },
+      "seo": {
+        "title": {
+          "zh": "光明三元素康德主义侧面：LTS分数与完整解释",
+          "en": "Kantianism: LTS Score and Full Result Guide"
+        },
+        "description": {
+          "zh": "完整解释LTS康德主义四条中的诚实、真实与非工具性，含计分例子、其他两侧面对照及普通请求；不把哲学、道德或他人意图当作已测事实。",
+          "en": "Explore LTS Kantianism: honesty, authenticity, scoring and two comparisons. No moral judgment, philosophy exam or ability to read hidden intentions."
+        }
+      },
+      "scoreReading": {
+        "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+        "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "这个侧面描述什么",
+            "en": "What this facet describes"
+          },
+          "paragraphs": [
+            {
+              "zh": "发表LTS用Kantianism指把人视为目的本身，而不只是达成自己目标的工具；本侧面四条涉及诚实胜于魅力、不自在于公开操纵、保持真实以及交谈中较少只想从对方得到什么。它不是康德全部伦理学的测验，也不证明你一直讲真话或能看穿别人。原作者建议优先读整体LTS，三个侧面只是描述性资料；不以较高均分派给你原则型，也不把较低回答当成操纵或道德缺陷。",
+              "en": "Published LTS uses Kantianism for treating people as ends rather than merely instruments for goals. Four items concern honesty over charm, discomfort with overt manipulation, authenticity and thinking less about what to obtain during conversation. This is no test of all Kantian ethics and proves neither consistent truthfulness nor insight into others. The authors recommend focusing on the total LTS, with descriptive facets rather than a principled type from a higher mean or manipulation and moral deficiency from lower responses."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "原始计分与整体的例子",
+            "en": "A raw scoring and overall example"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，四条都选4，原始和16、均分4.0；另八条和为24时，全十二条和40、整体均分约3.33。陈述里有“不自在”“很少”等措辞，但这些已发表条目仍同向计分，不做6减回答。任一暂不作答不估计整体；该侧面四条未全有效时也不生成侧面均分。中点3不是光暗平衡，较高值不等于百分之几的诚实；总和与均分都不是人群常模或可信度证明。",
+              "en": "For example, four ratings of four sum to 16 with mean 4.0. If the remaining eight sum to 24, all twelve total 40 with overall mean about 3.33. Words such as discomfort and rarely do not make these published items reverse-keyed: there is no six-minus-response transformation. Any unscored item prevents the overall result, and fewer than four ratings here prevent its mean. Three is no light/dark balance, and a higher value is no percentage of honesty. Sums and means provide neither population norms nor proof of trustworthiness."
+            }
+          ]
+        },
+        {
+          "id": "ordinary-context",
+          "title": {
+            "zh": "一次普通相处情境",
+            "en": "An ordinary interaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "普通情境是你想请熟悉的人帮忙完成一件小事。可以直接说明自己的目的、对方要投入什么以及是否愿意，而不是把有请求等同于把人当工具。相互合作本来就可能有各自目标；关键事实仍是这一次怎样沟通和是否尊重选择。问卷没有观察你的请求，也不能从较高回答推断你从不隐瞒意图，或从较低回答认定某次合作有操纵。",
+              "en": "Imagine asking someone familiar for help with a small task. State your aim, what their involvement would require and whether they want to participate, rather than equating any request with treating someone as a tool. Cooperation can involve different personal goals. Actual communication and respect for choice remain the relevant facts. This questionnaire observed no request, so higher responses prove no absence of concealed motives and lower ones establish no manipulation in a particular collaboration."
+            }
+          ]
+        },
+        {
+          "id": "wording",
+          "title": {
+            "zh": "表达与现实边界",
+            "en": "Wording and actual boundaries"
+          },
+          "paragraphs": [
+            {
+              "zh": "一句表达可以是：“我想完成这件事，需要这一部分帮助；如果你不愿意或没时间，可以直接说。”它把目标放在明处，也保留对方拒绝的空间；不需要额外赞美、试探或说服来证明自己的诚实。真实表达也可以有分寸，不等于必须直白披露所有私人信息。分数既不要求你伤害性地说出每个想法，也不授权别人要求你证明一切；实际边界、承诺和事实仍须具体商量。",
+              "en": "You might say, “I want to complete this task and could use help with this part; please say if you do not want to or have no time.” Make the aim visible and preserve refusal without extra praise, testing or persuasion as proof of honesty. Authentic expression can be considerate and requires no disclosure of every private detail. A score demands neither hurtful expression of every thought nor exhaustive proof to others. Boundaries, commitments and facts still need specific discussion."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与其他两侧面比较",
+            "en": "Comparing the two other facets"
+          },
+          "paragraphs": [
+            {
+              "zh": "人文关怀关注个体价值、欣赏与倾听，可以和拒绝某个请求并存；人性信念关注一般善意预期、公平及宽恕，不等于辨识这次对方的意图。康德主义侧面也不替它们提供分数，三项不是谁更善良的阶梯。较少赞美不一定更诚实，表达有魅力也不自动是操纵；原题的同意程度不能代替实际行为证据。整体LTS不与黑暗特质一一反向，更不由其中一项换算职业、EQ或人格类型。",
+              "en": "Humanism concerns individual worth, admiration and listening and can coexist with declining a request. Faith in Humanity concerns general expectations, fairness and forgiveness rather than identifying a current intention. Kantianism supplies neither facet’s score and creates no ladder of goodness. Less praise does not necessarily mean more honesty, nor charm automatic manipulation. Agreement with an item replaces no behavioural evidence. The overall LTS is no one-to-one inverse of dark traits and no facet converts to a career, EQ or personality type."
+            }
+          ]
+        },
+        {
+          "id": "counterexamples",
+          "title": {
+            "zh": "反例与不能推断的事",
+            "en": "Counterexamples and limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是，一个人可能很同意真实表达，却因隐私或情境选择暂不公开；另一个人明确提出自身目标，也可以尊重对方而非工具化。均分不测诚实能力、原则坚持、僵化、欺骗、犯罪、道德或适合的工作，不给任何人安全认证。原研究样本的相关、均值和内部一致性不验证本中文、NA规则或你的答卷。一个侧面的几条陈述更不能判定别人隐藏的目的，或决定关系应继续还是结束。",
+              "en": "Someone endorsing authenticity may choose privacy in a particular situation. Someone openly stating a personal goal can respect another person rather than instrumentalising them. The mean measures no honesty skill, principled persistence, rigidity, deception, crime, morality or suitable work and certifies nobody as safe. Source correlations, means and internal consistency validate neither this Chinese trial, unscored-response rule nor an individual attempt. A few statements cannot determine another person’s hidden aim or whether a relationship should continue or end."
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "zh": "可选的一次回顾",
+            "en": "An optional review"
+          },
+          "paragraphs": [
+            {
+              "zh": "可选回顾：回想一次普通请求，分开记录自己的目标、当时实际说明的内容，以及对方是否有机会表达意愿。未问清的部分保留未知，不重新推断动机。无需为了复核分数而试探谁、坦白隐私或再次请求；只回顾即可。若本来就有一件小事要协商，可以把一个已经存在的目标说清楚，同时接受拒绝。它不承诺提升道德、获得信任或让某个侧面变高。",
+              "en": "For an optional review, recall an ordinary request and separate your aim, what you actually communicated and the other person’s opportunity to express a preference. Keep unconfirmed details unknown rather than inferring motives. No testing someone, disclosing private information or repeated request is needed to verify a score. If a small matter already needs discussion, clarify one existing aim while accepting refusal. This promises neither improved morality, earned trust nor a higher facet score."
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "zh": "十二条计分、缺答与整体优先",
+            "en": "Twelve-item scoring, missing data and total first"
+          },
+          "paragraphs": [
+            {
+              "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+              "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "来源归属、改编与使用范围",
+            "en": "Attribution, adaptation and scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版采用发表论文Table 3的12条英文与三侧面组织，中文为费马试译，NA与严格完整度规则、解释和网页呈现属于本站改编。原作者把LTS称为初稿，并建议优先关注总分；三侧面不作为三种固定善良类型。原研究的相关、内部一致性、样本均值和其他发现不验证本站中文、缺答规则或个体解释，不套用到某人的生活、健康或职业。没有黑暗三联征题本、EQ、MBTI或职业换算，没有道德、信任、相容性或临床判断；较高分不认证任何人安全、善良或诚实，较低不证明邪恶、冷漠或操纵。原题宽恕不要求原谅、和解、恢复接触或放弃边界。未采用竞品十二情境、三十六选项、Dawn／Hearth／Lantern人设或正文。",
+              "en": "This edition adopts the twelve published Table 3 English items and three-facet organisation. Chinese is a FermatMind trial translation; unscored responses, strict completeness conventions, explanations and presentation are website adaptations. The authors described LTS as a first draft and recommended focusing on the total rather than three fixed kinds of goodness. Original correlations, reliability, sample means and other findings validate neither this Chinese version, missing-data convention nor individual interpretation and predict no personal life, health or career outcome. There is no Dark Triad bank, EQ, MBTI or career conversion, moral, trust, compatibility or clinical judgment. Higher scores certify nobody as safe, good or honest, and lower ones establish no evil, coldness or manipulation. The forgiveness item requires no forgiveness, reconciliation, renewed contact or abandoned boundary. No competitor scenarios, answer options, Dawn/Hearth/Lantern personas or report body are adopted."
+            },
+            {
+              "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+              "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "整体原始分数与三个侧面",
+        "en": "Overall raw score and three facets"
+      },
+      "paragraphs": [
+        {
+          "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+          "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "三个侧面、原研究与解释边界",
+        "en": "Facets, original research and limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "LTS的三个侧面是人性信念（一般善意、公平与宽恕的自报）、人文关怀（个体尊严、欣赏与倾听）和康德主义（诚实、真实与不把人仅当工具）。这不是整个人文主义或康德伦理学的考试，也不是三种互斥人格。原作者建议优先关注整体总分，并强调需要更多文化和长期研究；三侧面保持描述性，不将内部差异解释成缺陷、冲突、成长处方或黑暗三联征的三个对应反面。",
+          "en": "The three LTS facets are Faith in Humanity, involving general expectations and forgiveness; Humanism, concerning dignity, appreciation and listening; and Kantianism, concerning honesty, authenticity and not treating people merely as tools. This tests neither an entire philosophy nor three exclusive personalities. The authors recommend focusing on the overall total and call for broader cultural and longitudinal research. Facets remain descriptive rather than deficits, conflicts, growth prescriptions or three direct inverses of Dark Triad traits."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "原作者、许可与本站改编",
+        "en": "Authors, licence and website adaptation"
+      },
+      "paragraphs": [
+        {
+          "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+          "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "研究证据与使用范围",
+        "en": "Research evidence and scope"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版采用发表论文Table 3的12条英文与三侧面组织，中文为费马试译，NA与严格完整度规则、解释和网页呈现属于本站改编。原作者把LTS称为初稿，并建议优先关注总分；三侧面不作为三种固定善良类型。原研究的相关、内部一致性、样本均值和其他发现不验证本站中文、缺答规则或个体解释，不套用到某人的生活、健康或职业。没有黑暗三联征题本、EQ、MBTI或职业换算，没有道德、信任、相容性或临床判断；较高分不认证任何人安全、善良或诚实，较低不证明邪恶、冷漠或操纵。原题宽恕不要求原谅、和解、恢复接触或放弃边界。未采用竞品十二情境、三十六选项、Dawn／Hearth／Lantern人设或正文。",
+          "en": "This edition adopts the twelve published Table 3 English items and three-facet organisation. Chinese is a FermatMind trial translation; unscored responses, strict completeness conventions, explanations and presentation are website adaptations. The authors described LTS as a first draft and recommended focusing on the total rather than three fixed kinds of goodness. Original correlations, reliability, sample means and other findings validate neither this Chinese version, missing-data convention nor individual interpretation and predict no personal life, health or career outcome. There is no Dark Triad bank, EQ, MBTI or career conversion, moral, trust, compatibility or clinical judgment. Higher scores certify nobody as safe, good or honest, and lower ones establish no evil, coldness or manipulation. The forgiveness item requires no forgiveness, reconciliation, renewed contact or abandoned boundary. No competitor scenarios, answer options, Dawn/Hearth/Lantern personas or report body are adopted."
+        }
+      ]
+    },
+    {
+      "id": "free-and-private",
+      "title": {
+        "zh": "完整免费、草稿与分享",
+        "en": "Full free access, drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "十二条题目、整体读法和三份完整说明免费，无需注册、邮箱或另一测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不收集受伤经历或对他人的私人评价。草稿主动开启后仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、总分、均分或内部ID；公开正文不是个人答卷。其他测评须另行完整作答，不从本次分数补出任何类型或职业。",
+          "en": "All twelve items, overall reading and three full guides are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; no personal account of harm or private assessment of another person is requested. Drafts require opt-in, remain in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, totals, means or internal IDs. Public guides contain no private attempts. Other assessments require separate full answers rather than types or careers filled in from these scores."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这份测试用的是已发表的LTS吗？",
+        "en": "Does this edition use the published LTS items?"
+      },
+      "answer": {
+        "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+        "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+      }
+    },
+    {
+      "question": {
+        "zh": "三个侧面分别是什么，会得到固定类型吗？",
+        "en": "What are the three facets, and is there a fixed type?"
+      },
+      "answer": {
+        "zh": "LTS的三个侧面是人性信念（一般善意、公平与宽恕的自报）、人文关怀（个体尊严、欣赏与倾听）和康德主义（诚实、真实与不把人仅当工具）。这不是整个人文主义或康德伦理学的考试，也不是三种互斥人格。原作者建议优先关注整体总分，并强调需要更多文化和长期研究；三侧面保持描述性，不将内部差异解释成缺陷、冲突、成长处方或黑暗三联征的三个对应反面。",
+        "en": "The three LTS facets are Faith in Humanity, involving general expectations and forgiveness; Humanism, concerning dignity, appreciation and listening; and Kantianism, concerning honesty, authenticity and not treating people merely as tools. This tests neither an entire philosophy nor three exclusive personalities. The authors recommend focusing on the overall total and call for broader cultural and longitudinal research. Facets remain descriptive rather than deficits, conflicts, growth prescriptions or three direct inverses of Dark Triad traits."
+      }
+    },
+    {
+      "question": {
+        "zh": "怎样计分，反向题和暂不作答怎样处理？",
+        "en": "How do scoring, reverse keys and unscored items work?"
+      },
+      "answer": {
+        "zh": "十二条按1非常不同意至5非常同意同向计分，0条反向；不、很少等语义不自动变成反向键。三个侧面各四条全部有效，才显示该部分原始和4—20与均分1—5；全部十二条有效才显示整体原始总分12—60与均分1—5，直接用未舍入的条目和除12。任何NA都不估计整体，本部分缺答不补零或中点。先阅读整体，三个侧面作为描述性内容；所有三份全文一起呈现，不按最高项或并列顺序派类型。没有官方常模、人群百分位、固定分区、显著差异或本站测量验证。均分3只在回答尺度中间，不是光暗平衡；本版没有测黑暗三联征，不能由总分补出黑暗特质、100%减光明或光暗比例。",
+        "en": "Twelve items use the same key direction, from 1 Strongly disagree to 5 Strongly agree, with no reverse keys. Negative wording does not automatically reverse a key. Each four-item facet needs all four ratings for a raw sum of 4–20 and mean of 1–5. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5, computed from the unrounded item sum divided by twelve. Any unscored item prevents an estimated overall score, without zero or midpoint filling. Read the total first and facets descriptively; all three full guides appear together without a highest-score or tie-order type. There are no official norms, population percentiles, fixed regions, significant differences or local measurement validation. Three is the response midpoint, not a light/dark balance. Dark Triad traits were not measured and cannot be inferred through subtraction, a complementary percentage or a light/dark ratio."
+      }
+    },
+    {
+      "question": {
+        "zh": "低分等于黑暗人格，高分等于善良或可信吗？",
+        "en": "Does a lower score mean dark traits, or a higher one goodness or trust?"
+      },
+      "answer": {
+        "zh": "不能这样推断。原研究发现两套特质不是直接反面，本版也没有测黑暗三联征，不能算100%减光明、光暗比例或另一个测试的分数。这里是同意程度自报，不认证个人道德、健康、能力或他人意图。原样本均值也不作为本站常模，不能据此决定聘用、关系或职业。",
+        "en": "No. Original research found the constructs were not direct opposites, and this edition does not measure Dark Triad traits. There is no complementary percentage, light/dark ratio or another assessment’s score. Self-reported agreement certifies neither morality, health, ability nor someone else’s intention. Source sample means are no website norms and decide no hiring, relationship or career question."
+      }
+    },
+    {
+      "question": {
+        "zh": "涉及宽恕的原题要求我原谅或恢复关系吗？",
+        "en": "Does the forgiveness item require forgiving or renewing contact?"
+      },
+      "answer": {
+        "zh": "不要求。它只记录你对原陈述的同意程度，无法判断发生了什么、对方是否安全、是否应继续接触。可以暂不作答，不必提交私人经历或解释原因。完整说明不会要求原谅、和解、披露隐私或放弃边界；可选回顾也可只阅读而不联系任何人。",
+        "en": "No. It records agreement with a statement without judging what happened, anyone’s safety or whether contact should continue. You may leave it unscored without supplying a private account or reason. Guides require no forgiveness, reconciliation, disclosure or abandoned boundary; optional reviews can remain reading without contacting anyone."
+      }
+    },
+    {
+      "question": {
+        "zh": "中文和网站解释已经获得测量验证吗？",
+        "en": "Have the Chinese version and website explanations been validated?"
+      },
+      "answer": {
+        "zh": "本版采用发表论文Table 3的12条英文与三侧面组织，中文为费马试译，NA与严格完整度规则、解释和网页呈现属于本站改编。原作者把LTS称为初稿，并建议优先关注总分；三侧面不作为三种固定善良类型。原研究的相关、内部一致性、样本均值和其他发现不验证本站中文、缺答规则或个体解释，不套用到某人的生活、健康或职业。没有黑暗三联征题本、EQ、MBTI或职业换算，没有道德、信任、相容性或临床判断；较高分不认证任何人安全、善良或诚实，较低不证明邪恶、冷漠或操纵。原题宽恕不要求原谅、和解、恢复接触或放弃边界。未采用竞品十二情境、三十六选项、Dawn／Hearth／Lantern人设或正文。",
+        "en": "This edition adopts the twelve published Table 3 English items and three-facet organisation. Chinese is a FermatMind trial translation; unscored responses, strict completeness conventions, explanations and presentation are website adaptations. The authors described LTS as a first draft and recommended focusing on the total rather than three fixed kinds of goodness. Original correlations, reliability, sample means and other findings validate neither this Chinese version, missing-data convention nor individual interpretation and predict no personal life, health or career outcome. There is no Dark Triad bank, EQ, MBTI or career conversion, moral, trust, compatibility or clinical judgment. Higher scores certify nobody as safe, good or honest, and lower ones establish no evil, coldness or manipulation. The forgiveness item requires no forgiveness, reconciliation, renewed contact or abandoned boundary. No competitor scenarios, answer options, Dawn/Hearth/Lantern personas or report body are adopted."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、重测与分享免费吗？",
+        "en": "Are full results, retaking and sharing free?"
+      },
+      "answer": {
+        "zh": "十二条题目、整体读法和三份完整说明免费，无需注册、邮箱或另一测试解锁。答案只在浏览器计分，不上传、不进网址或分析；不收集受伤经历或对他人的私人评价。草稿主动开启后仅本标签页保留24小时，完成、退出清除或重测即删。分享自选，只含测试名称与公开链接，不含答案、总分、均分或内部ID；公开正文不是个人答卷。其他测评须另行完整作答，不从本次分数补出任何类型或职业。",
+        "en": "All twelve items, overall reading and three full guides are free without signup, email or another test. Answers are scored in the browser without uploading or entering URLs or analytics; no personal account of harm or private assessment of another person is requested. Drafts require opt-in, remain in this tab for 24 hours and clear on completion, exit-and-clear or retaking. Optional sharing contains the test name and public link without answers, totals, means or internal IDs. Public guides contain no private attempts. Other assessments require separate full answers rather than types or careers filled in from these scores."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Kaufman等（2019）：原LTS论文及Table 3十二条",
+        "en": "Kaufman et al. (2019): original LTS article and twelve Table 3 items"
+      },
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.00467/full"
+    },
+    {
+      "title": {
+        "zh": "Creative Commons：CC BY 4.0许可",
+        "en": "Creative Commons: CC BY 4.0 licence"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "title": {
+        "zh": "Neumann等（2020）：LTS五点回答与均分方法说明",
+        "en": "Neumann et al. (2020): LTS five-point responses and mean-score method"
+      },
+      "url": "https://doi.org/10.1016/j.paid.2020.110121"
+    }
+  ]
+}

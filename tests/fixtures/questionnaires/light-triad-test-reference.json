@@ -1,0 +1,818 @@
+{
+  "formCode": "lts12_table3_agreement_web",
+  "origin": "PublishedCCBY4.0Table3English12/KaufmanYadenHydeTsukayama2019/ownZHtrial/notJobDawnHearthLantern",
+  "directions": [
+    {
+      "id": "faith-in-humanity",
+      "title": {
+        "zh": "人性信念",
+        "en": "Faith in Humanity"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "humanism",
+      "title": {
+        "zh": "人文关怀",
+        "en": "Humanism"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "kantianism",
+      "title": {
+        "zh": "不把人仅当工具（康德主义）",
+        "en": "Kantianism"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "LTS_01",
+      "prompt": {
+        "zh": "我倾向于看到人们身上最好的一面。",
+        "en": "I tend to see the best in people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_02",
+      "prompt": {
+        "zh": "我通常相信别人会公平地对待我。",
+        "en": "I tend to trust that other people will deal fairly with me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_03",
+      "prompt": {
+        "zh": "我认为大多数人是善良的。",
+        "en": "I think people are mostly good."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_04",
+      "prompt": {
+        "zh": "我会很快原谅伤害过我的人。",
+        "en": "I’m quick to forgive people who have hurt me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "faith-in-humanity",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "faith-in-humanity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_05",
+      "prompt": {
+        "zh": "我常常欣赏别人。",
+        "en": "I tend to admire others."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_06",
+      "prompt": {
+        "zh": "我通常会为别人的成功喝彩。",
+        "en": "I tend to applaud the successes of other people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_07",
+      "prompt": {
+        "zh": "我通常把别人视为有价值的人。",
+        "en": "I tend to treat others as valuable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_08",
+      "prompt": {
+        "zh": "我喜欢倾听来自各行各业的人。",
+        "en": "I enjoy listening to people from all walks of life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "humanism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "humanism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "humanism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "humanism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "humanism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "humanism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_09",
+      "prompt": {
+        "zh": "比起魅力，我更看重诚实。",
+        "en": "I prefer honesty over charm."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_10",
+      "prompt": {
+        "zh": "为了得到自己想要的东西而公然操纵别人，会让我感到不自在。",
+        "en": "I don’t feel comfortable overtly manipulating people to do something I want."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_11",
+      "prompt": {
+        "zh": "即使可能损害自己的名声，我也希望保持真实。",
+        "en": "I would like to be authentic even if it may damage my reputation."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LTS_12",
+      "prompt": {
+        "zh": "与人交谈时，我很少在想自己想从他们那里得到什么。",
+        "en": "When I talk to people, I am rarely thinking about what I want from them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "非常不同意",
+            "en": "Strongly disagree"
+          },
+          "directionId": "kantianism",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "不同意",
+            "en": "Disagree"
+          },
+          "directionId": "kantianism",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "既不赞同也不反对",
+            "en": "Neither agree nor disagree"
+          },
+          "directionId": "kantianism",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "同意",
+            "en": "Agree"
+          },
+          "directionId": "kantianism",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常同意",
+            "en": "Strongly agree"
+          },
+          "directionId": "kantianism",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "暂不作答／无法判断",
+            "en": "Prefer not to answer / cannot judge"
+          },
+          "directionId": "kantianism",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "response": "agreement1Stronglydisagree..5Stronglyagree/addedNAexcluded",
+    "reverseItems": [],
+    "minimumRatedItems": 4,
+    "facet": "4validratingsrequired/otherwiseexplicitnull/rawsum4..20/exactmean1..5;3facetsDESCRIPTIVEnottypes",
+    "overall": "ONLYall12valid SUM12..60 andmeanSUM/12;calculateunrounded/notaveragealreadyroundedfacetmeans;ANYNAoverallnull",
+    "scope": "Author2019recommendsfocusTOTAL;firstdraft/notinverseDarkTriad/nodarkscore-balance-proportionorLPAclassification;no officialnorm-bands-percentiles-healthmoralityjobtrustforgivenessverdicts",
+    "verificationPlan": "135individualfacetDP=45x3 plus325global(rated,sum)sourceDP/49fullyratedtotals PLANNEDnotexecuted;not6^12joint/psychvalidation"
+  },
+  "scope": "Usepublished12CCBYEnglishitemsascredited;ownZHtrial+NAstrictcompletion+original3FULLexplanationsnotvalidated/endorsed. No protectedJob12scenarios36options,DawnHearthLanternbody/personasorotherDarkTriadbank. Originalresearchcorrelationsnotindividualpredictions/websitevalidation;nomoral-health-hiring-compatibilityjudgment.",
+  "instructions": {
+    "zh": "按每句话通常描述你的观点和做法的程度，选择1非常不同意至5非常同意；无法判断或不愿回答可暂不作答，不补零或中点。英文12条保留发表论文Table 3原文，中文为本站试译，不采用竞品情境或三个人设。三部分各4条全部有效才显示该部分原始和与均分；全部12条有效才显示整体原始总分12—60及均分1—5。所有条目同向，英文出现不、很少等措辞不等于反向键。原作者建议优先关注整体，三侧面只作描述性理解，三份完整说明一起保留；不排名唯一类型。它不计算黑暗特质、光暗比例或人群百分位，不认定谁善良、可相信或需要原谅谁，也不要求放弃边界。",
+    "en": "Rate how well each statement generally reflects your views and conduct, from 1 Strongly disagree to 5 Strongly agree. Use the unscored response when needed without zero or midpoint substitution. Twelve English items preserve published Table 3 wording; Chinese is a website trial translation, without competitor scenarios or three personas. Each four-item part needs all four ratings for its raw sum and mean. All twelve ratings are required for the overall raw total of 12–60 and mean of 1–5. All items have the same key direction: words such as not or rarely are not reverse keys. The authors recommend focusing on the total; three facets receive descriptive readings with all three full guides, without a sole highest-score type. No dark-trait score, light/dark percentage or population percentile is computed. Results identify nobody as good or trustworthy and require neither forgiveness nor abandoned boundaries."
+  },
+  "attribution": {
+    "zh": "英文12条依据Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E.（2019）《The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature》，Frontiers in Psychology, 10, 467，Table 3，DOI:10.3389/fpsyg.2019.00467。© 2019 Kaufman、Yaden、Hyde与Tsukayama，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。英文条目保留；中文为费马试译，增加可不作答及严格完整度规则，报告解释与网页呈现为本站改编和原创。原材料按原样提供，无担保；原作者及出版方不为本网站背书。条目与中文改编保留CC BY 4.0使用权，不额外限制许可允许的再利用；未宣称本中文、缺答规则或网页解释已获测量验证。",
+    "en": "The twelve English items follow Kaufman, S. B., Yaden, D. B., Hyde, E., & Tsukayama, E. (2019), The Light vs. Dark Triad of Personality: Contrasting Two Very Different Profiles of Human Nature, Frontiers in Psychology, 10, 467, Table 3, DOI:10.3389/fpsyg.2019.00467. Copyright 2019 Kaufman, Yaden, Hyde and Tsukayama; CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). English wording is retained. FermatMind supplied a Chinese trial translation, an unscored response, strict completeness conventions, and adapted or original explanations and presentation. Material is provided as is without warranties; authors and publisher do not endorse this website. Items and the Chinese adaptation retain CC BY 4.0 reuse rights without additional restrictions on licensed use. No validation of this Chinese version, missing-data convention or website reading is claimed."
+  }
+}

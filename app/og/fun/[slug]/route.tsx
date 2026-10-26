@@ -45,6 +45,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.slug === "aesthetic-core-test" ? (zh ? "原创视觉偏好自评" : "Original aesthetic reflection")
     : questionnaire?.slug === "travel-personality-test" ? (zh ? "原创旅行偏好自评" : "Original travel reflection")
     : questionnaire?.slug === "leadership-style" ? (zh ? "原创领导情境自评" : "Original leadership reflection")
+    : questionnaire?.slug === "light-triad-test" ? (zh ? "发表LTS条目" : "Published LTS items")
     : questionnaire?.slug === "values" ? (zh ? "原创价值目标反思" : "Original value reflection")
     : questionnaire?.slug === "socionics" ? (zh ? "原创四组价值观察" : "Original quadra value reflection")
     : questionnaire?.slug === "temperament" ? (zh ? "原创古典气质自评" : "Original classical-style reflection")

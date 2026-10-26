@@ -1382,5 +1382,29 @@
       "benevolence",
       "universalism"
     ]
+  },
+  {
+    "slug": "light-triad-test",
+    "code": "LIGHT_TRIAD_LTS_12",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "framework",
+    "title": {
+      "zh": "光明三元素测试",
+      "en": "Light Triad Test"
+    },
+    "description": {
+      "zh": "采用发表LTS十二条英文与中文试译，透明计分，优先读整体并保留三份完整侧面说明。按CC BY 4.0归属原作者，不派善良类型、评善恶或换算黑暗特质。",
+      "en": "Read twelve published LTS items, transparent scores and three full free guides. Chinese is a trial translation; no goodness type or Dark Triad conversion."
+    },
+    "minutes": 3,
+    "collection": "explore",
+    "formCode": "lts12_table3_agreement_web",
+    "questionCount": 12,
+    "resultSlugs": [
+      "faith-in-humanity",
+      "humanism",
+      "kantianism"
+    ]
   }
 ]
