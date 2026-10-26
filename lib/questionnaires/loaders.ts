@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "hazbin-hotel-character-quiz": async () => (await import("./data/hazbin-hotel-character-quiz.json")).default as Questionnaire,
   "ginny-and-georgia-character-quiz": async () => (await import("./data/ginny-and-georgia-character-quiz.json")).default as Questionnaire,
   "next-life": async () => (await import("./data/next-life.json")).default as Questionnaire,
   "dark-triad": async () => (await import("./data/dark-triad.json")).default as Questionnaire,

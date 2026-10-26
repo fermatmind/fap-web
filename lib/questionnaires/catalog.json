@@ -1865,5 +1865,32 @@
       "max"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "hazbin-hotel-character-quiz",
+    "code": "HAZBIN_HOTEL_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-26",
+    "category": "fantasy",
+    "title": {
+      "en": "Hazbin Hotel Character Quiz",
+      "zh": "地狱客栈（Hazbin Hotel）角色测试"
+    },
+    "description": {
+      "en": "Choose your responses to 18 original everyday situations. Compare Charlie, Vaggie, Alastor, Angel Dust, Husk and Niffty, keep every highest tie and read all six complete guides. Free, with no registration.",
+      "zh": "完成18道原创日常情境题，比较夏莉、薇姬、阿拉斯托、安吉尔、哈斯克与妮芙蒂六个角度。全部最高并列保留，六份完整说明免费可读，无需注册。"
+    },
+    "minutes": 4,
+    "formCode": "fermatmind_hazbin_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "charlie",
+      "vaggie",
+      "alastor",
+      "angel-dust",
+      "husk",
+      "niffty"
+    ],
+    "collection": "explore"
   }
 ]

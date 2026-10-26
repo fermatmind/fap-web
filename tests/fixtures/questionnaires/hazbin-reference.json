@@ -1,0 +1,746 @@
+{
+  "id": "T112",
+  "version": "1.0.0",
+  "form": "fermatmind_hazbin_original_18_v1",
+  "method": "One rawcount per explicitly mapped option; sixcharacters12exposure/3perposition; allhighestties; no similarity% or clinical conclusions.",
+  "questions": [
+    {
+      "id": "HAZBIN_01",
+      "prompt": {
+        "en": "You are helping open a small community workshop. What would you like to contribute first?",
+        "zh": "你在帮忙开一个小型社区工作坊，最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "charlie",
+          "label": {
+            "en": "Make it easy for someone uncertain to try the first activity.",
+            "zh": "让不确定怎么参加的人先试一小步。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Clarify the arrangements people need before they arrive.",
+            "zh": "把大家来之前需要知道的安排确认清楚。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alastor",
+          "label": {
+            "en": "Give the opening a distinctive style and a clear sense of occasion.",
+            "zh": "为开场设计独特风格，让它有正式开始的感觉。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Add an unexpected bit of humour that invites a relaxed response.",
+            "zh": "添一点出其不意的幽默，让回应轻松起来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_02",
+      "prompt": {
+        "en": "A friend asks you to help run a borrowed space for one afternoon. What matters most to you?",
+        "zh": "朋友请你一起借用场地办一个下午的活动，你最在意什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Agree who is responsible for which decisions and what is off limits.",
+            "zh": "说清谁负责哪些决定，哪些范围不能动。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alastor",
+          "label": {
+            "en": "Arrange the sequence so the whole afternoon feels deliberately presented.",
+            "zh": "把顺序排好，让整个下午有经过设计的呈现。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Leave room for playful improvisation when a moment goes flat.",
+            "zh": "给即兴和笑点留地方，冷场时有变化。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "husk",
+          "label": {
+            "en": "Be clear about the help I can give without promising more.",
+            "zh": "直接说自己能帮到哪一步，不多作承诺。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_03",
+      "prompt": {
+        "en": "You are choosing how to introduce a collaborative audio project. Which approach attracts you?",
+        "zh": "要介绍一个合作音频小项目，你更喜欢哪种开场？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alastor",
+          "label": {
+            "en": "A composed introduction with a recognisable voice and rhythm.",
+            "zh": "用有辨识度的声音和节奏，做一段从容的开场。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "A playful opening that lets people laugh before listening closely.",
+            "zh": "用俏皮的开头，让大家先笑一下再认真听。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "husk",
+          "label": {
+            "en": "A plain explanation of what the recording contains.",
+            "zh": "直白说明录音里有什么，不加太多包装。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "niffty",
+          "label": {
+            "en": "Check and tidy all the little audio transitions first.",
+            "zh": "先检查、整理每个小转场。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_04",
+      "prompt": {
+        "en": "There is a small delay before your group can enter an activity room. What would you prefer to do?",
+        "zh": "小组要稍等一会儿才能进活动室，你更想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Make a light, optional joke about the situation.",
+            "zh": "开个轻松、不勉强别人接话的玩笑。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "husk",
+          "label": {
+            "en": "Find a comfortable place to wait without turning it into an event.",
+            "zh": "找个舒服的地方等，不必把等待也办成活动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "niffty",
+          "label": {
+            "en": "Use the time to sort the loose materials we brought.",
+            "zh": "趁这会儿把带来的零散材料分好。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "charlie",
+          "label": {
+            "en": "Help anyone unfamiliar with the group find an easy way to join.",
+            "zh": "让还不熟悉小组的人找到轻松加入的方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_05",
+      "prompt": {
+        "en": "Someone asks whether you can take on an extra role in a hobby event. Which answer feels closest?",
+        "zh": "兴趣活动临时多出一个角色，别人问你能否接下，你更接近哪种回答？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "husk",
+          "label": {
+            "en": "State simply what I can do and what I cannot.",
+            "zh": "简单说清能做什么、不能做什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "niffty",
+          "label": {
+            "en": "Offer to finish one small, specific task that has been left loose.",
+            "zh": "愿意先补完一个具体、没收好的小任务。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "charlie",
+          "label": {
+            "en": "Ask whether a smaller version would give more people a chance to take part.",
+            "zh": "问能否做小一点，让更多人有机会参与。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Check the responsibilities and limits before I agree.",
+            "zh": "先核对责任和边界，再决定接不接。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_06",
+      "prompt": {
+        "en": "The shared materials drawer is untidy. What contribution would you find most satisfying?",
+        "zh": "共用材料抽屉有点乱，你觉得哪种贡献最让自己满足？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "niffty",
+          "label": {
+            "en": "Finish the small sorting jobs so each item has a place.",
+            "zh": "把细小的分类工作做完，让东西各有位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "charlie",
+          "label": {
+            "en": "Create an easy first-use guide for newcomers.",
+            "zh": "给初次使用的人写一份容易上手的说明。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Agree which supplies are shared and which need permission.",
+            "zh": "分清哪些能共用、哪些得先问过。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alastor",
+          "label": {
+            "en": "Give the drawer a consistent, distinctive presentation.",
+            "zh": "把抽屉做成风格一致、有辨识度的呈现。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_07",
+      "prompt": {
+        "en": "A newcomer says they are not very good at the activity your group enjoys. What do you favour?",
+        "zh": "新来的人说自己不太会大家正在做的活动，你更愿意怎么回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "charlie",
+          "label": {
+            "en": "Offer a low-pressure first step they can accept or decline.",
+            "zh": "给一个没压力的起点，让对方自己决定试不试。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Explain the expectations so they know what they are agreeing to.",
+            "zh": "先讲清活动要求，让对方知道参与意味着什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alastor",
+          "label": {
+            "en": "Make a confident introduction that gives the activity a clear frame.",
+            "zh": "从容介绍这项活动，给它一个清楚的框架。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Use a gentle, non-personal joke to make the situation less stiff.",
+            "zh": "开个不针对个人的小玩笑，减少拘谨。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_08",
+      "prompt": {
+        "en": "Your group is lending equipment to another group. Where would you put your attention?",
+        "zh": "小组要把设备借给另一组，你更想把注意力放在哪里？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Set clear return arrangements and check that both sides agree.",
+            "zh": "说明归还安排，确认两边都认可。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alastor",
+          "label": {
+            "en": "Present the equipment and its uses in a polished little demonstration.",
+            "zh": "用一段讲究的小演示介绍设备和用途。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Make the handover friendly with a bit of shared fun.",
+            "zh": "在交接时添一点共同乐趣，让过程亲近。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "husk",
+          "label": {
+            "en": "Say directly what condition it is in and avoid overselling it.",
+            "zh": "直接说设备现状，不把效果夸大。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_09",
+      "prompt": {
+        "en": "An ordinary recurring meetup could have a signature opening. What sounds good to you?",
+        "zh": "固定小聚会想有一个自己的开场，你觉得哪种有意思？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alastor",
+          "label": {
+            "en": "A short ritual with a deliberate, recognisable style.",
+            "zh": "来一段风格明确、能被记住的小仪式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "A rotating comic prompt that people can choose to respond to.",
+            "zh": "轮流出一个逗趣提示，愿意的人再回应。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "husk",
+          "label": {
+            "en": "A brief, straightforward check of what people want today.",
+            "zh": "简短直接地核对今天大家想做什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "niffty",
+          "label": {
+            "en": "Have the small practical details ready before anyone begins.",
+            "zh": "在开始前把细小的实际准备做好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_10",
+      "prompt": {
+        "en": "Your handmade sign has a harmless crooked letter. Which response appeals most?",
+        "zh": "手写标牌上有个字母歪了一点，但不影响理解，你更想怎么处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Make the crooked letter part of a playful design.",
+            "zh": "把歪字母变成一个好玩的设计。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "husk",
+          "label": {
+            "en": "Leave it if it communicates clearly and move on.",
+            "zh": "只要看得懂就留着，继续下一步。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "niffty",
+          "label": {
+            "en": "Neaten that detail because finishing it would please me.",
+            "zh": "把这处修整好，做完细节会让我高兴。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "charlie",
+          "label": {
+            "en": "Invite a newcomer to add something rather than aim for a flawless sign.",
+            "zh": "邀请新来的人也添一点，不把完美标牌当目标。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_11",
+      "prompt": {
+        "en": "A friend asks for your response to an overly grand plan for a casual meetup. What do you prefer?",
+        "zh": "朋友给普通小聚会提出一个很宏大的计划，你更愿意怎样回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "husk",
+          "label": {
+            "en": "Say plainly which part seems workable and which seems excessive.",
+            "zh": "直说哪些部分可行，哪些做得太大了。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "niffty",
+          "label": {
+            "en": "Pick a small unfinished detail I can help complete.",
+            "zh": "挑一个没做完的小细节，看看自己能否补上。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "charlie",
+          "label": {
+            "en": "Keep the inviting idea and suggest a gentler first version.",
+            "zh": "保留其中欢迎大家的想法，建议先做轻量版本。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Make sure nobody has been committed to work without agreeing.",
+            "zh": "先确认没有人还没同意就被安排了任务。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_12",
+      "prompt": {
+        "en": "The last visitors have left a shared activity area. What feels like a good closing task?",
+        "zh": "最后一批参与者离开共用活动区，你觉得哪种收尾最合心意？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "niffty",
+          "label": {
+            "en": "Put the small scattered things back where they belong.",
+            "zh": "把散落的小东西归回各自的位置。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "charlie",
+          "label": {
+            "en": "Leave a welcoming note for the next group that comes.",
+            "zh": "给下一组留一张欢迎使用的小纸条。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Confirm the space has been handed back under the agreed terms.",
+            "zh": "确认场地按约定完成交还。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alastor",
+          "label": {
+            "en": "Arrange a final view that gives the event a distinct ending.",
+            "zh": "整理一个最后画面，让活动有鲜明的结束感。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_13",
+      "prompt": {
+        "en": "Someone wants to restart a small group project that was set aside. What first response would you choose?",
+        "zh": "有人想重启一个搁置的小组项目，你最先偏向哪种回应？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "charlie",
+          "label": {
+            "en": "Look for one attainable starting point if people still want it.",
+            "zh": "如果大家仍愿意，就找一个能重新开始的小起点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Check what changed and what each person is willing to take on now.",
+            "zh": "核对条件变了什么、现在各自愿承担多少。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "alastor",
+          "label": {
+            "en": "Suggest a fresh presentation that makes the restart feel intentional.",
+            "zh": "为重启设计新的呈现，让它像经过选择的开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Offer an amusing new angle so it does not feel like repeating the past.",
+            "zh": "提供一个逗趣的新角度，不只是重复过去。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_14",
+      "prompt": {
+        "en": "You can change one thing about a group invitation. Which would you choose?",
+        "zh": "小组邀请函可以改一处，你最想改什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Make the expectations and permission to decline unmistakable.",
+            "zh": "把参与要求和可以拒绝的空间写得明白。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "alastor",
+          "label": {
+            "en": "Give it a distinctive voice people will recognise.",
+            "zh": "赋予它能被认出的独特口吻。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Add a playful line that feels easy to respond to.",
+            "zh": "加一句容易接话的俏皮话。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "husk",
+          "label": {
+            "en": "Remove unnecessary claims and say exactly what is offered.",
+            "zh": "删掉多余承诺，直说实际提供什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_15",
+      "prompt": {
+        "en": "People have different ideas for a shared games evening. How would you like to contribute?",
+        "zh": "大家对游戏晚上的安排各有想法，你更想怎样参与？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "alastor",
+          "label": {
+            "en": "Frame a clear sequence that gives the evening its own character.",
+            "zh": "设计清楚的顺序，让这晚有自己的特色。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Keep an optional silly variation ready for a moment that needs it.",
+            "zh": "准备一个可选的搞怪变式，合适时再拿出来。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "husk",
+          "label": {
+            "en": "Say honestly which games I want to play without making a big pitch.",
+            "zh": "诚实说想玩哪些，不必很用力地推销。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "niffty",
+          "label": {
+            "en": "Check the little pieces and materials so the games are ready.",
+            "zh": "把小零件和材料查好，让游戏随时能开始。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_16",
+      "prompt": {
+        "en": "A small shared project has become more serious than you expected. What would you prefer next?",
+        "zh": "一个共同小项目变得比预想中严肃，你更倾向下一步做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "angel-dust",
+          "label": {
+            "en": "Offer a harmless playful moment, without making anyone the joke.",
+            "zh": "给一个无伤大雅的轻松时刻，不拿人当笑点。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "husk",
+          "label": {
+            "en": "Say directly whether this is still something I want to do.",
+            "zh": "直接说这是否仍是自己想参加的事。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "niffty",
+          "label": {
+            "en": "Finish one manageable detail before deciding about the rest.",
+            "zh": "先做好一个能处理的小细节，再考虑其余。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "charlie",
+          "label": {
+            "en": "Ask what would make participation feel possible again.",
+            "zh": "问问怎样调整，大家才会觉得仍能参与。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_17",
+      "prompt": {
+        "en": "Your group is explaining its event to people who may not attend. What contribution do you prefer?",
+        "zh": "小组要向可能不来参加的人介绍活动，你更愿意提供什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "husk",
+          "label": {
+            "en": "A plain account without pressure to be excited.",
+            "zh": "一份直白介绍，不要求别人也很兴奋。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "niffty",
+          "label": {
+            "en": "A precise list of the small things already prepared.",
+            "zh": "列清已经备好的小细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "charlie",
+          "label": {
+            "en": "A friendly explanation of how someone could try it once.",
+            "zh": "亲切说明想试一次可以从哪里开始。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Clear information about the arrangements and who to ask.",
+            "zh": "讲清安排，以及遇事可以找谁。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HAZBIN_18",
+      "prompt": {
+        "en": "You have ten minutes left to help with a casual gathering. What would you choose to do?",
+        "zh": "还有十分钟能帮忙准备一个轻松聚会，你最想做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "niffty",
+          "label": {
+            "en": "Complete a few tiny jobs that would otherwise remain unfinished.",
+            "zh": "把几件容易被遗漏的小活收好。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "charlie",
+          "label": {
+            "en": "Make the first activity easy for someone arriving alone to join.",
+            "zh": "让独自来的人能轻松加入第一项活动。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "vaggie",
+          "label": {
+            "en": "Confirm the important arrangements and each helper’s agreement.",
+            "zh": "确认重要安排和各位帮手的意愿。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "alastor",
+          "label": {
+            "en": "Set up a distinctive introduction to begin the gathering.",
+            "zh": "布置一个有特色的开场，让聚会正式开始。"
+          }
+        }
+      ]
+    }
+  ]
+}
