@@ -1,0 +1,1342 @@
+{
+  "formCode": "fm_rizz_conversation_practices_20",
+  "origin": "frontend_original_willing_flirting_practice_observations",
+  "directions": [
+    {
+      "id": "showing-interest",
+      "title": {
+        "zh": "说明兴趣",
+        "en": "Showing Interest"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "threading-a-reply",
+      "title": {
+        "zh": "接住话头",
+        "en": "Threading a Reply"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "offering-playfulness",
+      "title": {
+        "zh": "轻松邀玩",
+        "en": "Offering Playfulness"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "checking-the-invitation",
+      "title": {
+        "zh": "确认邀约",
+        "en": "Checking the Invitation"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "RIZ_01",
+      "prompt": {
+        "zh": "一次彼此都愿意继续的轻松交谈后，我说出自己喜欢这段交流的一个具体地方，没有替对方宣布同样喜欢我。",
+        "en": "After a light conversation we both wanted to continue, I named one particular thing I enjoyed without declaring that the other person liked me back."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_02",
+      "prompt": {
+        "zh": "有好感的人提到一本书、一段音乐或普通爱好时，我接着其实际提过的一点聊，而不是立刻换成预备好的撩人台词。",
+        "en": "When someone I liked mentioned a book, music or an ordinary interest, I followed one detail they actually shared rather than switch straight to a prepared flirting line."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_03",
+      "prompt": {
+        "zh": "彼此已经愿意轻松打趣时，我提出一个可直接跳过的小话题或小游戏，没有把参与当作证明对我有兴趣的测试。",
+        "en": "When light banter was already welcome between us, I offered a small topic or game that could simply be skipped rather than use participation to test interest in me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_04",
+      "prompt": {
+        "zh": "双方都愿意继续认识时，我把一次小邀约的活动与大致安排说清楚，并明确留出拒绝的空间。",
+        "en": "When we both wanted to keep getting acquainted, I stated one small invitation and its rough arrangements clearly while leaving an explicit option to decline."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_05",
+      "prompt": {
+        "zh": "想给有好感且愿意联系的人发第一条消息时，我说明自己想继续聊的缘由，没有假装有一件必须请其帮忙的急事。",
+        "en": "When sending a first message to someone I liked who welcomed contact, I explained why I wanted to talk rather than invent an urgent favour they had to provide."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_06",
+      "prompt": {
+        "zh": "想回应有好感的人讲的一件小事时，我先问其愿意继续讲还是想听我的想法，没有把建议当成必须的接话。",
+        "en": "When responding to a small story from someone I liked, I checked whether they wanted to keep telling it or hear my thoughts rather than assume advice was required."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_07",
+      "prompt": {
+        "zh": "在有好感的聊天里开玩笑时，我选共同的普通场景作素材，没有拿对方的身体、身份或难堪经历作笑点。",
+        "en": "When joking in a conversation with someone I liked, I used an ordinary shared situation rather than their body, identity or an embarrassing experience as the target."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_08",
+      "prompt": {
+        "zh": "不确定有好感的人是否愿意另约时间见面时，我直接问一次，没有把笑容、礼貌或聊天顺畅当作已经同意。",
+        "en": "When unsure whether someone I liked wanted a separate meeting, I asked directly once rather than treat smiling, politeness or an easy conversation as agreement."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_09",
+      "prompt": {
+        "zh": "想和有好感的人再见面时，我用普通的话说明自己的兴趣，没有把这句话包装成对方一定要接受的承诺。",
+        "en": "When I wanted to meet someone I liked again, I put my interest into ordinary words without turning it into a commitment they had to accept."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_10",
+      "prompt": {
+        "zh": "与有好感的人互相了解时，我先回应其问我的那个问题，再提出自己的一个问题，没有只让对方连续作答。",
+        "en": "While getting acquainted with someone I liked, I answered the question they asked before adding one of mine rather than make them answer a string of questions alone."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_11",
+      "prompt": {
+        "zh": "自己的一句轻松玩笑没有被接住时，我让它过去，没有要求对方解释为什么不笑或继续证明自己很幽默。",
+        "en": "When a light joke of mine was not taken up, I let it pass rather than ask the other person to explain not laughing or keep proving I was funny."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_12",
+      "prompt": {
+        "zh": "自己的一次邀约被拒绝时，我接受这个回答，没有把对方拉进讨价还价、解释理由或安慰我的过程。",
+        "en": "When an invitation of mine was declined, I accepted the answer rather than draw the other person into bargaining, justifying it or reassuring me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_13",
+      "prompt": {
+        "zh": "想在有好感的交流里表达欣赏时，我具体提及对方愿意展示的表达或兴趣，而不是给其外表打分。",
+        "en": "When expressing appreciation in a conversation with someone I liked, I referred to an expression or interest they chose to share rather than rate their appearance."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_14",
+      "prompt": {
+        "zh": "有好感的人主动换了一个普通话题时，我接住其新话题，没有为了完成自己的开场安排硬拉回去。",
+        "en": "When someone I liked chose another ordinary topic, I followed their new thread rather than pull them back to complete my planned opening."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_15",
+      "prompt": {
+        "zh": "想把有好感的交流聊得活泼一点时，我给出一个对方可不接的小想象，没有用暧昧暗示藏起一项实际要求。",
+        "en": "When I wanted a livelier exchange with someone I liked, I offered a little imaginary idea they could leave alone rather than hide an actual demand inside an ambiguous hint."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_16",
+      "prompt": {
+        "zh": "一次小邀约没有收到明确回应时，我没有用连续追问或制造紧迫感逼出答复，而是把是否回应留给对方。",
+        "en": "When a small invitation received no clear response, I left answering to the other person rather than use repeated questions or invented urgency to force a reply."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_17",
+      "prompt": {
+        "zh": "谈到自己希望怎样继续认识时，我说明自己的意愿，没有替对方规定其感受或应该处于的关系位置。",
+        "en": "When discussing how I hoped to keep getting acquainted, I described my own wishes without assigning the other person a feeling or relationship position."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_18",
+      "prompt": {
+        "zh": "找到一个双方都愿意聊的共同兴趣时，我分享自己的一个普通细节，给对方自行决定分享多少的空间。",
+        "en": "When we found a shared interest we both wanted to discuss, I offered one ordinary detail of my own and left the other person room to choose how much to share."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_19",
+      "prompt": {
+        "zh": "有好感的人把轻松话题转为认真表达时，我跟着调整了语气，没有坚持让对方维持好玩的反应。",
+        "en": "When someone I liked moved from a light topic to something sincere, I adjusted my tone rather than insist that they keep supplying a playful response."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_20",
+      "prompt": {
+        "zh": "一次邀约被接受后，我确认双方方便的安排，没有把同意见面扩写成对进一步亲密、触碰或长期联系的同意。",
+        "en": "After an invitation was accepted, I checked arrangements that suited us both without extending agreement to meet into agreement to further intimacy, touch or ongoing contact."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    }
+  ],
+  "scope": {
+    "zh": "本版Rizz是对说明兴趣、接住话头、轻松邀玩与确认邀约四组具体做法的原创自我观察，不测魅力、颜值、读心、社交能力、道德价值、受欢迎程度或约会成功率。频率高低不是L/W/无言魅力等级，也不推断他人喜欢你。笑容、礼貌、沉默、回复速度、一次同意见面或本次分数都不能替代对具体下一步的同意。可以没有相关经历或不想认识新的人，所有全文仍可通用阅读；不因缺少机会判低Rizz，不要求接触陌生人、持续追求、分享隐私或开展任何关系。",
+    "en": "Rizz here is original self-observation of Showing Interest, Threading a Reply, Offering Playfulness and Checking the Invitation. It measures no charm, attractiveness, mind-reading, social ability, moral worth, popularity or dating success. Frequencies are no L/W/Unspoken tiers and infer no one’s interest in you. Smiles, politeness, silence, reply speed, one agreement to meet or these scores replace no agreement to a particular next step. Having no experience or no wish to meet anyone permits general reading without low Rizz assignment or a requirement to approach strangers, persist, disclose private information or pursue any relationship."
+  },
+  "instructions": {
+    "zh": "回看过去四周，在双方自愿、适合继续认识的成年人轻松交流或邀约里，你在有相关机会时多常做过题目所说的具体做法。只答自己的行为，不上传真实对话、不替对方猜心；没有机会、无法判断或不想回答就选对应选项，不补零。20项全部选择后，四组各自至少3项有效才显示频率均分，全部四份九节完整指南始终开放，不加总、不派Rizz等级或最高型。",
+    "en": "Look back over four weeks at light conversations or invitations between willing adults getting acquainted. Rate how often you used each particular practice when a relevant opportunity existed. Report your own actions without uploading real messages or guessing another person’s mind. With no opportunity, judgment or wish to answer, choose that option rather than zero. After all twenty choices, each group needs three ratings for a separate frequency mean. All four nine-section guides stay open without a total, Rizz tier or highest type."
+  },
+  "resultContentSha256": "8dc6c6748672e74905af44b2e6f06338b27fd7de4ff2e7034e4bc8d77909026a",
+  "scoring": {
+    "kind": "likert",
+    "questions": 20,
+    "parts": 4,
+    "itemsEach": 5,
+    "minimumRatedItems": 3,
+    "reverseItems": [],
+    "statesEach": 66,
+    "ratedStatesEach": 51,
+    "mean": "Math.round(sum/rated*10)/10; insufficient null; NA neither zero nor denominator",
+    "meaning": "Four separate willing adult conversation/invitation practice frequencies over four weeks. All4FULL9always/no total/highest/primarysecondary/LWUnspoken tier/attractiveness/ability/moralgrade/partnerinterest/datingoutcome."
+  },
+  "sourceRead": "CurrentJobCannonENexpanded80ZH41/actualassessmentabout48read;all12EN48optsand12ZH48optsactualflowread. ENfirstoptionearly2freeWhatMeansbullets3locked/report0.95/signupsave/Retake/mapstillbuilding/no actualcompletedgradecard/dimensioncountsshare. ZH无言魅力textwhilematching+reportupsell,nocompletedsharecard. Otherpatterns/ties/formula/thresholds/paid/accountsaveunverified. About4shorttiertreatmentsread/no4publicresultmainbodiesinvented/no4resultURLsobservedboundedsearchnotabsenceproof. Original20positive4week4practices5each/min3/NAexcluded/all4guidesalways/no total/highest/Rizzranking/attractiveness/ability/moralworth/partneroutcomeprediction. Currentcommunication24/social4/lovelanguages50prompts/LIKED20comparisonactualread;miniPERSONALITY_ATTRACTION24pairs48options4generalpresentationaxesread/nominiincrement/notpsychologicalindependence/finalFJpending."
+}

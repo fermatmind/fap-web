@@ -1,0 +1,2095 @@
+{
+  "slug": "rizz-test",
+  "code": "RIZZ_CONVERSATION_PRACTICES_ORIGINAL_20",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 3,
+  "title": {
+    "zh": "Rizz 测试",
+    "en": "Rizz Test"
+  },
+  "resultHeading": {
+    "zh": "本次四组有意交流观察",
+    "en": "Your four flirting-practice observations"
+  },
+  "description": {
+    "zh": "免费Rizz 测试：20项原创四周频率观察，分别阅读说明兴趣、接住话头、轻松邀玩与确认邀约四份完整指南，含具体对话和反例。不派魅力等级。",
+    "en": "Free Rizz Test: 20 original four-week observations and four full guides with dialogues and counterexamples. No charm tier or dating prediction."
+  },
+  "seoTitle": {
+    "zh": "Rizz 测试：四组交流做法与免费完整结果",
+    "en": "Rizz Test: Four Flirting Practices & Free Full Guides"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "想继续认识时怎样说明兴趣，怎样接住一个真正分享的话头，什么时候提供可跳过的小玩笑，又怎样确认一次具体邀约？本版20项原创频率观察，回看过去四周成年人双方自愿、适合继续交流时自己的具体做法，四组各5项。所有四份九节完整指南含原创双方对话、反例、主题比较与纸上小练习，作答前后都免费。这里的Rizz不测颜值、魅力、读心、社交能力或关系成败，不按L/W/无言魅力阶梯给人排名。没有相关经历、无法判断或不想回答可选不适用，不补零；20项全部选择后，每组至少3项有效才显示各自频率均分，全部全文仍开放，不加总、不按最高值派型。只答自己的行为，不上传真实聊天、照片、联系人或伴侣资料，也不根据笑容、礼貌、沉默或回复速度猜对方已同意某一步。可以先读、返回修改、清除或重测，不必联系任何人。自愿草稿只在本标签页最多24小时，分享只有公开主题名和链接，不含答案或均分。",
+    "en": "How do you express wanting to get acquainted, follow something actually shared, offer optional light play and check one particular invitation? Twenty original frequency observations revisit your own practices over four weeks in conversations or invitations between willing adults. Each of four groups has five items. All four nine-section guides include original two-way dialogues, counterexamples, comparisons and small paper exercises, free before and after answering. Rizz here measures neither attractiveness nor charm, mind-reading, social ability or relationship outcomes and assigns no L/W/Unspoken ranking. Missing experience, judgment or willingness permits an unjudged option, never zero. After all twenty choices, each group needs three ratings for its own frequency mean, with every full guide still open and no total or highest-value type. Report your actions without uploading actual chats, photographs, contacts or partner information or treating smiles, politeness, silence or reply speed as agreement to a step. Read first, edit, clear or retake without contacting anyone. Optional drafts stay in this tab for up to twenty-four hours; sharing contains public theme names and links, not answers or means."
+  },
+  "instructions": {
+    "zh": "回看过去四周，在双方自愿、适合继续认识的成年人轻松交流或邀约里，你在有相关机会时多常做过题目所说的具体做法。只答自己的行为，不上传真实对话、不替对方猜心；没有机会、无法判断或不想回答就选对应选项，不补零。20项全部选择后，四组各自至少3项有效才显示频率均分，全部四份九节完整指南始终开放，不加总、不派Rizz等级或最高型。",
+    "en": "Look back over four weeks at light conversations or invitations between willing adults getting acquainted. Rate how often you used each particular practice when a relevant opportunity existed. Report your own actions without uploading real messages or guessing another person’s mind. With no opportunity, judgment or wish to answer, choose that option rather than zero. After all twenty choices, each group needs three ratings for a separate frequency mean. All four nine-section guides stay open without a total, Rizz tier or highest type."
+  },
+  "source": {
+    "kind": "frontend_original_willing_flirting_practice_observations",
+    "formCode": "fm_rizz_conversation_practices_20",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "1fa225b5bc0b0f7dce808ea022a7a517a3c67afbdf2fa793039a83df8ebd6ea1",
+    "resultContentSha256": "8dc6c6748672e74905af44b2e6f06338b27fd7de4ff2e7034e4bc8d77909026a",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "showing-interest",
+      "title": {
+        "zh": "说明兴趣",
+        "en": "Showing Interest"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "threading-a-reply",
+      "title": {
+        "zh": "接住话头",
+        "en": "Threading a Reply"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "offering-playfulness",
+      "title": {
+        "zh": "轻松邀玩",
+        "en": "Offering Playfulness"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "checking-the-invitation",
+      "title": {
+        "zh": "确认邀约",
+        "en": "Checking the Invitation"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "RIZ_01",
+      "prompt": {
+        "zh": "一次彼此都愿意继续的轻松交谈后，我说出自己喜欢这段交流的一个具体地方，没有替对方宣布同样喜欢我。",
+        "en": "After a light conversation we both wanted to continue, I named one particular thing I enjoyed without declaring that the other person liked me back."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_02",
+      "prompt": {
+        "zh": "有好感的人提到一本书、一段音乐或普通爱好时，我接着其实际提过的一点聊，而不是立刻换成预备好的撩人台词。",
+        "en": "When someone I liked mentioned a book, music or an ordinary interest, I followed one detail they actually shared rather than switch straight to a prepared flirting line."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_03",
+      "prompt": {
+        "zh": "彼此已经愿意轻松打趣时，我提出一个可直接跳过的小话题或小游戏，没有把参与当作证明对我有兴趣的测试。",
+        "en": "When light banter was already welcome between us, I offered a small topic or game that could simply be skipped rather than use participation to test interest in me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_04",
+      "prompt": {
+        "zh": "双方都愿意继续认识时，我把一次小邀约的活动与大致安排说清楚，并明确留出拒绝的空间。",
+        "en": "When we both wanted to keep getting acquainted, I stated one small invitation and its rough arrangements clearly while leaving an explicit option to decline."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_05",
+      "prompt": {
+        "zh": "想给有好感且愿意联系的人发第一条消息时，我说明自己想继续聊的缘由，没有假装有一件必须请其帮忙的急事。",
+        "en": "When sending a first message to someone I liked who welcomed contact, I explained why I wanted to talk rather than invent an urgent favour they had to provide."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_06",
+      "prompt": {
+        "zh": "想回应有好感的人讲的一件小事时，我先问其愿意继续讲还是想听我的想法，没有把建议当成必须的接话。",
+        "en": "When responding to a small story from someone I liked, I checked whether they wanted to keep telling it or hear my thoughts rather than assume advice was required."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_07",
+      "prompt": {
+        "zh": "在有好感的聊天里开玩笑时，我选共同的普通场景作素材，没有拿对方的身体、身份或难堪经历作笑点。",
+        "en": "When joking in a conversation with someone I liked, I used an ordinary shared situation rather than their body, identity or an embarrassing experience as the target."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_08",
+      "prompt": {
+        "zh": "不确定有好感的人是否愿意另约时间见面时，我直接问一次，没有把笑容、礼貌或聊天顺畅当作已经同意。",
+        "en": "When unsure whether someone I liked wanted a separate meeting, I asked directly once rather than treat smiling, politeness or an easy conversation as agreement."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_09",
+      "prompt": {
+        "zh": "想和有好感的人再见面时，我用普通的话说明自己的兴趣，没有把这句话包装成对方一定要接受的承诺。",
+        "en": "When I wanted to meet someone I liked again, I put my interest into ordinary words without turning it into a commitment they had to accept."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_10",
+      "prompt": {
+        "zh": "与有好感的人互相了解时，我先回应其问我的那个问题，再提出自己的一个问题，没有只让对方连续作答。",
+        "en": "While getting acquainted with someone I liked, I answered the question they asked before adding one of mine rather than make them answer a string of questions alone."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_11",
+      "prompt": {
+        "zh": "自己的一句轻松玩笑没有被接住时，我让它过去，没有要求对方解释为什么不笑或继续证明自己很幽默。",
+        "en": "When a light joke of mine was not taken up, I let it pass rather than ask the other person to explain not laughing or keep proving I was funny."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_12",
+      "prompt": {
+        "zh": "自己的一次邀约被拒绝时，我接受这个回答，没有把对方拉进讨价还价、解释理由或安慰我的过程。",
+        "en": "When an invitation of mine was declined, I accepted the answer rather than draw the other person into bargaining, justifying it or reassuring me."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_13",
+      "prompt": {
+        "zh": "想在有好感的交流里表达欣赏时，我具体提及对方愿意展示的表达或兴趣，而不是给其外表打分。",
+        "en": "When expressing appreciation in a conversation with someone I liked, I referred to an expression or interest they chose to share rather than rate their appearance."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_14",
+      "prompt": {
+        "zh": "有好感的人主动换了一个普通话题时，我接住其新话题，没有为了完成自己的开场安排硬拉回去。",
+        "en": "When someone I liked chose another ordinary topic, I followed their new thread rather than pull them back to complete my planned opening."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_15",
+      "prompt": {
+        "zh": "想把有好感的交流聊得活泼一点时，我给出一个对方可不接的小想象，没有用暧昧暗示藏起一项实际要求。",
+        "en": "When I wanted a livelier exchange with someone I liked, I offered a little imaginary idea they could leave alone rather than hide an actual demand inside an ambiguous hint."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_16",
+      "prompt": {
+        "zh": "一次小邀约没有收到明确回应时，我没有用连续追问或制造紧迫感逼出答复，而是把是否回应留给对方。",
+        "en": "When a small invitation received no clear response, I left answering to the other person rather than use repeated questions or invented urgency to force a reply."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_17",
+      "prompt": {
+        "zh": "谈到自己希望怎样继续认识时，我说明自己的意愿，没有替对方规定其感受或应该处于的关系位置。",
+        "en": "When discussing how I hoped to keep getting acquainted, I described my own wishes without assigning the other person a feeling or relationship position."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "showing-interest",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "showing-interest",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "showing-interest",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "showing-interest",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "showing-interest",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "showing-interest",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_18",
+      "prompt": {
+        "zh": "找到一个双方都愿意聊的共同兴趣时，我分享自己的一个普通细节，给对方自行决定分享多少的空间。",
+        "en": "When we found a shared interest we both wanted to discuss, I offered one ordinary detail of my own and left the other person room to choose how much to share."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "threading-a-reply",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "threading-a-reply",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "threading-a-reply",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "threading-a-reply",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "threading-a-reply",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "threading-a-reply",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_19",
+      "prompt": {
+        "zh": "有好感的人把轻松话题转为认真表达时，我跟着调整了语气，没有坚持让对方维持好玩的反应。",
+        "en": "When someone I liked moved from a light topic to something sincere, I adjusted my tone rather than insist that they keep supplying a playful response."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "offering-playfulness",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "offering-playfulness",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "offering-playfulness",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "offering-playfulness",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "offering-playfulness",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "offering-playfulness",
+          "score": null
+        }
+      ],
+      "reverse": false
+    },
+    {
+      "id": "RIZ_20",
+      "prompt": {
+        "zh": "一次邀约被接受后，我确认双方方便的安排，没有把同意见面扩写成对进一步亲密、触碰或长期联系的同意。",
+        "en": "After an invitation was accepted, I checked arrangements that suited us both without extending agreement to meet into agreement to further intimacy, touch or ongoing contact."
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "从未",
+            "en": "Never"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "很少",
+            "en": "Rarely"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "几乎总是",
+            "en": "Almost always"
+          },
+          "directionId": "checking-the-invitation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "没有相关机会／无法判断／不想回答",
+            "en": "No relevant opportunity, cannot judge or prefer not to answer"
+          },
+          "directionId": "checking-the-invitation",
+          "score": null
+        }
+      ],
+      "reverse": false
+    }
+  ],
+  "profiles": [
+    {
+      "id": "showing-interest",
+      "directionIds": [
+        "showing-interest"
+      ],
+      "title": {
+        "zh": "说明兴趣",
+        "en": "Showing Interest"
+      },
+      "headline": {
+        "zh": "把自己的兴趣说清楚，把回应留给对方",
+        "en": "Make your interest clear and leave the response to them"
+      },
+      "summary": {
+        "zh": "这组回看你怎样在自愿交流里说明想继续认识、具体欣赏什么或希望如何再见。不测胆量、魅力或对方是否喜欢你。",
+        "en": "This group revisits expressing interest in getting acquainted, a specific appreciation or a wish to meet again. It rates neither courage nor charm nor anyone’s interest in you."
+      },
+      "seo": {
+        "title": {
+          "zh": "说明兴趣完整指南｜Rizz 测试",
+          "en": "Showing Interest Guide | Rizz Test"
+        },
+        "description": {
+          "zh": "免费阅读说明兴趣九节全文，比较直接表达、具体欣赏与替他人猜心的差别；含原创对话和反例，不派魅力等级。",
+          "en": "Read nine free sections on expressing interest, specific appreciation and leaving room for a response, with original dialogues. No charm tier."
+        }
+      },
+      "scoreReading": {
+        "zh": "这组5项回看过去四周有相关机会时自己的具体做法。1—5为频率，不适用不补零、不进分母；至少3项有效才用有效项总和除以有效项数，四舍五入保留1位小数。它不是Rizz等级、魅力或道德成绩，不预测对方的回应。四组可以同分、近分、都高或都低，全部四份全文始终开放，不加总、不按最高均分派主副型。",
+        "en": "Five items revisit your particular actions over four weeks when relevant opportunities existed. Ratings one to five are frequencies. Unjudged items are neither zero nor part of the denominator. Three ratings are needed to divide their sum by their number and round to one decimal. This is no Rizz tier, charm or moral grade and predicts no response. Groups can tie, be close, high or low, with all four full guides always open and no total or highest-mean primary or secondary type."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "看自己的表达，不替别人作答",
+            "en": "Read your expression without answering for them"
+          },
+          "paragraphs": [
+            {
+              "zh": "说明兴趣只指你有没有把自己的意愿说成对方能理解、也能拒绝的话。更常这样做，不等于不紧张或拥有更高魅力；说得少也可能是没有合适机会或根本不想认识新人。这里不把主动当作义务，不规定谁应先开口，也不由一次回应判断你表达得是否值得。",
+              "en": "Showing Interest concerns putting your own wishes into words another person can understand and decline. Reporting this more often establishes neither freedom from nerves nor greater charm. Fewer occasions may reflect missing opportunities or no wish to meet someone new. Initiating is no duty here, and no gender or role must speak first. One response cannot determine the worth of your expression or validate the frequency score."
+            }
+          ]
+        },
+        {
+          "id": "plain",
+          "title": {
+            "zh": "用一句普通的话说明缘由",
+            "en": "Use an ordinary sentence to explain why"
+          },
+          "paragraphs": [
+            {
+              "zh": "假想两位成年人都愿意继续刚才的书店聊天。你可以说：“刚才聊那位作者挺有意思，我想找机会继续聊。”对方可答“可以，也许下周”，也可说“谢谢，不过我不想继续认识”。两种回答都不改变你刚才表达的是自己的兴趣；没有一句台词保证第二种回答变成第一种，也不需要追问原因。",
+              "en": "Imagine two adults who both welcomed a bookshop conversation. You might say, “I enjoyed talking about that author and would like to talk again sometime.” They could answer, “Maybe next week,” or, “Thanks, but I do not want to keep getting acquainted.” Both responses leave your statement an expression of your own interest. No line guarantees converting the second answer into the first, and no explanation needs to be demanded."
+            }
+          ]
+        },
+        {
+          "id": "appreciation",
+          "title": {
+            "zh": "具体欣赏，不给外表打分",
+            "en": "Appreciate something specific without appearance grading"
+          },
+          "paragraphs": [
+            {
+              "zh": "另一个例子是：“你刚才讲那段旅行的小细节，我觉得很有画面。”如果对方愿意，可接着聊；如果只说“谢谢”，这也可以是一句完整回应。你没有因此获得索取照片、进一步联系或继续调情的资格。这里关注你是否说清自己欣赏的内容，不把礼貌感谢当作对方已表达同等兴趣。",
+              "en": "Another example is, “The small detail in your travel story made it vivid for me.” They may continue if they want, while a simple “Thanks” is also a complete response. Your appreciation creates no entitlement to photographs, more contact or continued flirting. This group concerns identifying what you appreciated, without treating a polite acknowledgment as proof that the other person has expressed the same interest or agreed to anything further."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一句话如何偷偷加入要求",
+            "en": "How a sentence can smuggle in a demand"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是“我都主动告诉你了，你总得给个机会吧”。它把自己的表达变成对方必须回报的投入。可在自己的草稿里改成“这是我自己的兴趣，你不想继续也可以”。若对方已经拒绝，就接受并结束，不为发送一条修订版而再次联系。纸上修句练习不创造重新开启交流的理由。",
+              "en": "Consider the counterexample, “I put myself out there, so you owe me a chance.” It turns expression into an investment another person must repay. On a private draft, replace it with, “That is my interest; it is fine if you do not want to continue.” If they have already declined, accept that and stop rather than contact them again to send a corrected line. A writing exercise creates no reason to reopen contact."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与接话、邀玩和邀约的差别",
+            "en": "Distinguish expression, replies, play and invitations"
+          },
+          "paragraphs": [
+            {
+              "zh": "“我想继续认识你”说明意愿；接住对方提到的书是接话；问愿不愿意玩一个轻松的小假想是邀玩；问周末是否愿意见面是具体邀约。四件事可一起发生，也可完全不发生。说得明确不代表后面几步自动获准，另一组均分更高也不说明你缺少一种必要的魅力组件。",
+              "en": "“I would like to keep getting acquainted” states a wish. Following the book they mentioned threads a reply; offering a small imaginary game introduces play; asking about a weekend meeting makes an invitation. These practices may coexist or never arise. Clear expression automatically authorises none of the later steps. A higher mean in another group does not reveal a missing component you must acquire to become sufficiently charming."
+            }
+          ]
+        },
+        {
+          "id": "paper",
+          "title": {
+            "zh": "在纸上检查一句话就够了",
+            "en": "Checking one sentence on paper is enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以写一句虚构的兴趣表达，画线区分“我喜欢什么”和“我要求对方怎样”。保留前者，把后者改成真正可以不接受的选择，再检查有没有夸大承诺或假装急事。不必发给任何人，也不用把一次更顺口的草稿当成社交技能已经提高的证据。若不想练习，读到这里结束同样完整。",
+              "en": "Write one fictional expression of interest and underline what you like separately from what you demand of the other person. Keep the first and replace the second with a choice they can actually decline, checking for inflated promises or invented urgency. Nothing needs to be sent. A smoother draft is no evidence of improved social ability. Reading and finishing here is an equally complete option when you do not want an exercise."
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "title": {
+            "zh": "频率高低不能回答“我够好吗”",
+            "en": "Frequency cannot answer whether you are good enough"
+          },
+          "paragraphs": [
+            {
+              "zh": "这五项只回看四周里可回想的场面，可能受记忆、机会、用语与自己的理解影响。它不知道对方如何看你，也不能区分一段表达是否让对方舒服；具体回应仍要在真实交流里尊重。若均分改变，可以回看哪项回答变了，不必给自己升级或降级，也不要据此评价另一位不在作答的人。",
+              "en": "Five items revisit remembered situations over four weeks and can be influenced by memory, opportunity, wording and your interpretation. They reveal neither how another person sees you nor whether a particular expression felt comfortable to them; actual responses still deserve respect. If a mean changes, inspect which answer changed without promoting or demoting yourself. This is also no basis for grading another person who did not answer the questions."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "机会、有效条目与近分",
+            "en": "Opportunity, rated items and close means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组5项只回看有相关机会时的频率，至少3项有效才显示均分；没有相关经历、无法判断或不想回答都不补零。资料不足时只作通用阅读，不把没约会或不想认识新人当低Rizz。有效项目不同或一项回答变化都能影响均分，0.1不是测量精度、能力界线或魅力差距。四组各自阅读、可同分或都高，不加总、不派L/W/无言等级，不按最高值选择唯一类型，全部四份九节全文始终呈现。",
+              "en": "Five items per group revisit frequency when relevant opportunities existed. Three ratings are needed for a mean; missing experience, judgment or willingness is never replaced by zero. Insufficient information permits general reading without classifying not dating or not wanting new acquaintances as low Rizz. Different rated items or one changed answer can alter a mean. A difference of 0.1 establishes no precision, ability boundary or charm gap. Groups remain separate and may tie or all be high, without a total, L/W/Unspoken tier or sole highest-value type. All four nine-section guides always remain available."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "原创全文、隐私与自主决定",
+            "en": "Original full guides, privacy and your own choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "20项、四组与全部对话例子均为本版原创，不复刻竞品12题或其魅力阶梯，不声称心理测量或跨语言等价验证。所有四份完整指南作答前后都免费，不收真实聊天、照片、联系人、身体或伴侣资料；不测读心、颜值、能力、道德价值或关系成败。草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；复制只含公开主题名与链接，不含答案或均分。练习可只在自己草稿上想一想，随时结束，无需联系任何人或另做测试；笑容、礼貌、沉默、回复速度和本次结果都不能代替对某一步的同意。",
+              "en": "Twenty items, four groups and every dialogue example are original to this edition, replicating neither a competitor twelve-item bank nor its charm ladder. Psychometric validation and language equivalence are not established. All four full guides are free before and after answering, without collecting actual chats, photos, contacts, bodies or partner information or measuring mind-reading, attractiveness, ability, moral worth or relationship outcomes. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying includes public theme names and links without answers or means. Think on a private draft and stop whenever you want, without contacting anyone or taking another test. Smiles, politeness, silence, reply speed and these results replace no agreement to a particular step."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "threading-a-reply",
+      "directionIds": [
+        "threading-a-reply"
+      ],
+      "title": {
+        "zh": "接住话头",
+        "en": "Threading a Reply"
+      },
+      "headline": {
+        "zh": "回应已经说出的内容，给交流留一点来回",
+        "en": "Respond to what was said and leave room for an exchange"
+      },
+      "summary": {
+        "zh": "这组回看你怎样跟进有好感的人主动分享的细节、回应其问题并让话题可以改变。不测读心、聊天胜率或语言能力。",
+        "en": "This group revisits following shared details, answering questions and allowing topics to change with someone you liked. It measures no mind-reading, chat success or language ability."
+      },
+      "seo": {
+        "title": {
+          "zh": "接住话头完整指南｜Rizz 测试",
+          "en": "Threading a Reply Guide | Rizz Test"
+        },
+        "description": {
+          "zh": "免费阅读接住话头九节全文，比较具体接话、连环追问和预备台词；含原创双方对话及反例，不预测对方好感。",
+          "en": "Read nine free sections on following details and exchanging replies, with original dialogues and counterexamples. No prediction of attraction."
+        }
+      },
+      "scoreReading": {
+        "zh": "这组5项回看过去四周有相关机会时自己的具体做法。1—5为频率，不适用不补零、不进分母；至少3项有效才用有效项总和除以有效项数，四舍五入保留1位小数。它不是Rizz等级、魅力或道德成绩，不预测对方的回应。四组可以同分、近分、都高或都低，全部四份全文始终开放，不加总、不按最高均分派主副型。",
+        "en": "Five items revisit your particular actions over four weeks when relevant opportunities existed. Ratings one to five are frequencies. Unjudged items are neither zero nor part of the denominator. Three ratings are needed to divide their sum by their number and round to one decimal. This is no Rizz tier, charm or moral grade and predicts no response. Groups can tie, be close, high or low, with all four full guides always open and no total or highest-mean primary or secondary type."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "接住已经分享的内容",
+            "en": "Follow what was actually shared"
+          },
+          "paragraphs": [
+            {
+              "zh": "接住话头指回应一个对方已经愿意说出的细节，而不是猜中其内心或找出能让其喜欢你的问题。更常报告这一做法，不等于语言流畅、社交能力强或每段聊天都成功。对方也可以不继续讲，或只愿意聊某个普通主题；这组没有要求把每次回复都延长成更亲密的交流。",
+              "en": "Threading a Reply means responding to a detail someone has chosen to share, rather than guessing their mind or discovering a question that makes them like you. Reporting it more often establishes neither fluency nor social ability or successful conversations. They can stop explaining or prefer one ordinary subject. This group requires no conversion of every reply into a longer, more intimate exchange, and a short response can be enough."
+            }
+          ]
+        },
+        {
+          "id": "detail",
+          "title": {
+            "zh": "一个细节足以成为下一句",
+            "en": "One detail can supply the next sentence"
+          },
+          "paragraphs": [
+            {
+              "zh": "假想对方说“我周末终于把那本侦探小说看完了”。你可以答“你之前提过那个不太可靠的叙述者，结尾解决了吗？不想剧透也没关系”。对方可说一点，也可换题。这里接住的是对方实际提过的内容，不是偷偷搜索其私人账号来制造熟悉，也不要求记住所有细节证明在意。",
+              "en": "Imagine them saying, “I finally finished that detective novel this weekend.” You could answer, “You mentioned an unreliable narrator; did the ending resolve that? No spoilers needed if you prefer.” They can explain a little or change subjects. The reply follows something actually shared, not private accounts secretly searched to manufacture familiarity. Remembering every detail is no required proof of care, and the example guarantees no particular response."
+            }
+          ]
+        },
+        {
+          "id": "exchange",
+          "title": {
+            "zh": "先回答，再加一个问题",
+            "en": "Answer before adding another question"
+          },
+          "paragraphs": [
+            {
+              "zh": "另一段假想交流是对方问“你周末通常做什么”。可以说“我喜欢走一小段路，偶尔看展。你刚才提的那场展是什么主题？”你既贡献了自己的普通信息，也只接一个对方愿意提的点。对方不必交出日程、住处或联系方式。来回指有选择的交流，不是轮流提供同样数量的私人资料。",
+              "en": "Suppose they ask, “What do you usually do at weekends?” You might say, “I like a short walk and sometimes an exhibition. What was the exhibition you mentioned about?” You contribute ordinary information and follow one point they offered. They owe no schedule, address or contact information. An exchange means optional participation, not an obligation to provide equal quantities of private material or answer every question in return."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "连环提问不等于更会聊",
+            "en": "A string of questions is no better conversation"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是对方说喜欢音乐，你立刻问喜欢谁、在哪里住、和谁去、几点结束、为什么还不回复。它把一个爱好扩成一串未经邀请的要求。可在虚构草稿中改为“你愿意推荐一首最近常听的吗？不推荐也可以”。如果对方没有继续交流的意愿，就停下，不把换一种问法当再次追问的许可。",
+              "en": "A counterexample starts with their interest in music and immediately demands favourite artists, where they live, who they go with, finishing times and why they have not replied. One shared interest becomes a series of uninvited demands. On a fictional draft, try, “Would you like to recommend something you have enjoyed lately? It is fine not to.” Stop if they do not want to continue; rephrasing creates no permission to ask again."
+            }
+          ]
+        },
+        {
+          "id": "change",
+          "title": {
+            "zh": "让话题能转弯，也能结束",
+            "en": "Let a thread turn or end"
+          },
+          "paragraphs": [
+            {
+              "zh": "对方把书的话题转到天气，可能有很多原因，你不需要把它解码为欲擒故纵、无趣或拒绝。可以跟着聊普通天气，也可以让对话自然结束。如果不清楚是否还愿意聊，可以问一次，而不是用本次均分推断其意图。接话关注你怎样回应可见内容，不训练从沉默或回复速度读取隐藏感情。",
+              "en": "If they move from books to the weather, there may be many reasons. You need no interpretation involving playing hard to get, boredom or rejection. Follow the ordinary topic or let the exchange finish. Ask once if willingness to continue is unclear rather than use your mean to infer intent. This group concerns responses to visible content and teaches no extraction of hidden feelings from silence or reply speed."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "它与说明兴趣不是同一件事",
+            "en": "This differs from stating interest"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以接住一个小说细节却没有浪漫兴趣，也可以明确说想继续认识却暂时找不到接话点。轻松邀玩另外观察可跳过的小玩笑或想象；确认邀约关乎对具体下一步的意愿。四组没有先后通关顺序，更高的接话频率也不让一段对话、一个约会或身体接触自动得到同意。",
+              "en": "You can follow a novel detail without romantic interest, or clearly express wanting to get acquainted while finding no immediate follow-up. Offering Playfulness concerns optional light ideas; Checking the Invitation concerns willingness toward a particular next step. There is no sequence of levels to pass. More frequent replies automatically authorise neither a conversation nor a date or physical contact, and they establish no required balance among the four groups."
+            }
+          ]
+        },
+        {
+          "id": "paper",
+          "title": {
+            "zh": "写一个回应，再写停止的位置",
+            "en": "Draft a reply and a place to stop"
+          },
+          "paragraphs": [
+            {
+              "zh": "可用虚构的“我最近在练一首曲子”写一句回应，再写一句对方不想继续时你会怎样结束。检查自己的句子是否用了已经提供的信息，是否留出不回答的余地。不要粘贴真实聊天来给别人评分，也不必把练习发出去。一个可理解的草稿只说明这次文字更清楚，不代表已测出魅力或改善效果。",
+              "en": "Use the fictional statement, “I have been practising a piece of music,” to draft one reply and a sentence for ending if the other person does not want to continue. Check whether you used information already offered and left room not to answer. Paste no real chat to grade another person, and send nothing unless independently wanted. A clearer draft describes these words, without measuring charm or establishing an improvement effect."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "机会、有效条目与近分",
+            "en": "Opportunity, rated items and close means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组5项只回看有相关机会时的频率，至少3项有效才显示均分；没有相关经历、无法判断或不想回答都不补零。资料不足时只作通用阅读，不把没约会或不想认识新人当低Rizz。有效项目不同或一项回答变化都能影响均分，0.1不是测量精度、能力界线或魅力差距。四组各自阅读、可同分或都高，不加总、不派L/W/无言等级，不按最高值选择唯一类型，全部四份九节全文始终呈现。",
+              "en": "Five items per group revisit frequency when relevant opportunities existed. Three ratings are needed for a mean; missing experience, judgment or willingness is never replaced by zero. Insufficient information permits general reading without classifying not dating or not wanting new acquaintances as low Rizz. Different rated items or one changed answer can alter a mean. A difference of 0.1 establishes no precision, ability boundary or charm gap. Groups remain separate and may tie or all be high, without a total, L/W/Unspoken tier or sole highest-value type. All four nine-section guides always remain available."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "原创全文、隐私与自主决定",
+            "en": "Original full guides, privacy and your own choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "20项、四组与全部对话例子均为本版原创，不复刻竞品12题或其魅力阶梯，不声称心理测量或跨语言等价验证。所有四份完整指南作答前后都免费，不收真实聊天、照片、联系人、身体或伴侣资料；不测读心、颜值、能力、道德价值或关系成败。草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；复制只含公开主题名与链接，不含答案或均分。练习可只在自己草稿上想一想，随时结束，无需联系任何人或另做测试；笑容、礼貌、沉默、回复速度和本次结果都不能代替对某一步的同意。",
+              "en": "Twenty items, four groups and every dialogue example are original to this edition, replicating neither a competitor twelve-item bank nor its charm ladder. Psychometric validation and language equivalence are not established. All four full guides are free before and after answering, without collecting actual chats, photos, contacts, bodies or partner information or measuring mind-reading, attractiveness, ability, moral worth or relationship outcomes. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying includes public theme names and links without answers or means. Think on a private draft and stop whenever you want, without contacting anyone or taking another test. Smiles, politeness, silence, reply speed and these results replace no agreement to a particular step."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "offering-playfulness",
+      "directionIds": [
+        "offering-playfulness"
+      ],
+      "title": {
+        "zh": "轻松邀玩",
+        "en": "Offering Playfulness"
+      },
+      "headline": {
+        "zh": "给出一个可不接的小想象，不要求对方配合演出",
+        "en": "Offer a little imaginary idea without requiring a performance"
+      },
+      "summary": {
+        "zh": "这组回看双方已愿意轻松交流时，你怎样提出可跳过的话题、用普通场景开玩笑，并允许语气改变。不以笑声判断好感。",
+        "en": "This group revisits optional light topics, ordinary shared jokes and changes of tone when play was welcome. Laughter determines no attraction."
+      },
+      "seo": {
+        "title": {
+          "zh": "轻松邀玩完整指南｜Rizz 测试",
+          "en": "Offering Playfulness Guide | Rizz Test"
+        },
+        "description": {
+          "zh": "免费阅读轻松邀玩九节全文，比较可跳过的小想象与要求配合的玩笑；含原创对话和反例，不用笑声预测好感。",
+          "en": "Read nine free sections on optional light conversation and changing tone, with original dialogues and counterexamples. Laughter predicts no attraction."
+        }
+      },
+      "scoreReading": {
+        "zh": "这组5项回看过去四周有相关机会时自己的具体做法。1—5为频率，不适用不补零、不进分母；至少3项有效才用有效项总和除以有效项数，四舍五入保留1位小数。它不是Rizz等级、魅力或道德成绩，不预测对方的回应。四组可以同分、近分、都高或都低，全部四份全文始终开放，不加总、不按最高均分派主副型。",
+        "en": "Five items revisit your particular actions over four weeks when relevant opportunities existed. Ratings one to five are frequencies. Unjudged items are neither zero nor part of the denominator. Three ratings are needed to divide their sum by their number and round to one decimal. This is no Rizz tier, charm or moral grade and predicts no response. Groups can tie, be close, high or low, with all four full guides always open and no total or highest-mean primary or secondary type."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "轻松需要有选择的空间",
+            "en": "Lightness needs room for a choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "轻松邀玩指在双方已经愿意的交流里，给出一个可忽略、可换题的小想象，而不是扮演很会逗笑的人。次数更多不说明你更有趣、外向或有吸引力，也不意味着对方必须觉得好玩。严肃、安静或不喜欢小游戏都可以是正常选择，这一组没有规定什么气氛才算聊天成功。",
+              "en": "Offering Playfulness concerns a small imaginary idea that can be ignored or replaced within an exchange both people already welcome. It requires no performance as someone who always makes others laugh. Higher frequency establishes neither humour nor extraversion or attractiveness, and the other person need not enjoy the idea. Seriousness, quietness and disliking games are ordinary choices. This group defines no atmosphere that a successful conversation must achieve."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "邀请可以有一个简单的“不想”",
+            "en": "An offer can receive a simple no"
+          },
+          "paragraphs": [
+            {
+              "zh": "假想你们都乐意聊路边一家取名奇怪的咖啡店。可以问：“要不要各想一个更离谱但无害的店名？不想玩也没关系。”对方可给一个名字，也可说“我今天不太想动脑”。你可以答“好，那就不玩”。这个例子只说明一份容易拒绝的提议，不是借小游戏判断对方有多喜欢你。",
+              "en": "Imagine you both welcome talking about a strangely named café. You could ask, “Want to invent an even sillier harmless name each? It is fine not to.” They may offer one or say, “I do not feel like thinking today.” You can answer, “Sure, let us leave it.” The example describes an easily declined offer rather than a game for measuring how much the other person likes you."
+            }
+          ]
+        },
+        {
+          "id": "ordinary",
+          "title": {
+            "zh": "笑点可以放在共同的小场景",
+            "en": "Put the joke in an ordinary shared situation"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如两人都觉得一份虚构菜单的名字很夸张，你可以说“这杯茶的名字比我的周末计划还长”。它不需要嘲笑谁的外貌、口音或经历，也不需要暴露另一人的糗事。对方没有笑时，不必追问有没有听懂。你可以换成普通聊天；不同笑点不构成配对失败或某个人不够有趣的证据。",
+              "en": "Suppose you both find a fictional menu’s naming elaborate. You might say, “That tea has a longer name than my weekend plan.” Nobody’s appearance, accent or experience needs to become the target, and no embarrassing story about someone else is required. If they do not laugh, avoid demanding proof they understood. Return to ordinary talk. Different humour establishes neither a failed match nor an insufficiently interesting person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "把玩笑变成考试的反例",
+            "en": "When a joke becomes an examination"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是“这个都不接，你是不是太无趣了”。它把能否配合变成评价人的依据，也抹掉拒绝的空间。可在虚构草稿里改成“这个笑点没合上，我们换个话题吧”。若已经有人说不舒服，应停止，不用“只是开玩笑”把感受推回给对方。这不是让每个失误都必须重发解释或继续保持联系。",
+              "en": "The counterexample, “If you cannot play along, are you boring?” makes participation a judgment of a person and removes room to decline. On a fictional draft, try, “That joke did not connect; let us change subjects.” Stop when someone says they are uncomfortable rather than send the feeling back with “It was just a joke.” This creates no requirement to resend explanations after every mistake or to maintain further contact."
+            }
+          ]
+        },
+        {
+          "id": "tone",
+          "title": {
+            "zh": "气氛转认真时可以跟着变",
+            "en": "Let the tone become sincere"
+          },
+          "paragraphs": [
+            {
+              "zh": "对方在玩笑后说“其实我最近挺忙的，不想计划新活动”，你可以回应“明白，那我们不安排”。没有必要再用笑话拉回热闹，也不用把认真理解为对你失去兴趣。这里不训练扭转对方情绪；只回看你有没有允许交流改变方向。愿不愿意继续、何时继续，仍由参与者各自决定。",
+              "en": "If they follow a joke with, “I am actually busy lately and do not want to plan another activity,” you can answer, “Understood; let us not arrange one.” There is no need to restore a lively mood or interpret sincerity as lost interest in you. This group teaches no manipulation of another person’s feelings. It revisits allowing an exchange to change direction while leaving whether and when to continue to each participant."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "邀玩不等于邀约，更不等于同意亲密",
+            "en": "Play is not a meeting or agreement to intimacy"
+          },
+          "paragraphs": [
+            {
+              "zh": "接住话头关注已经分享的内容，说明兴趣讲自己的意愿，轻松邀玩提供一个可不接的玩法，确认邀约才问某个具体安排。对方接了笑话、给了一个有趣回复或同意玩一次，都不意味着同意见面、触碰或继续调情。四组不按谁更高级排序，安静交流也不需要用另一份高分来弥补。",
+              "en": "Threading a Reply follows shared content, Showing Interest states your wish, Offering Playfulness introduces something optional, and Checking the Invitation asks about a specific arrangement. Taking up a joke, giving a witty answer or joining one game agrees to neither meeting nor touch or further flirting. The four groups have no hierarchy. A quiet exchange needs no compensating score in another group to become acceptable or complete."
+            }
+          ]
+        },
+        {
+          "id": "paper",
+          "title": {
+            "zh": "只在纸上写一个轻松版本",
+            "en": "Draft one light version privately"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以写一个关于虚构咖啡店或天气的小想象，再写一个完全不玩也成立的普通版本。检查有没有把个人弱点、身份或隐私放进笑点，或暗藏必须答应的要求。选择自己愿意的版本即可，不必拿真人试验效果；一份草稿也不证明幽默能力提高。对玩笑没有兴趣，可以直接读其他完整指南或结束。",
+              "en": "Draft one little idea about a fictional café or the weather, then an ordinary version that works without playing. Check whether a personal vulnerability, identity or private information became the target, or whether an actual demand is hidden inside the joke. Choose whichever version you want without testing it on a real person. A draft proves no improvement in humour ability. Read another full guide or finish if play does not interest you."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "机会、有效条目与近分",
+            "en": "Opportunity, rated items and close means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组5项只回看有相关机会时的频率，至少3项有效才显示均分；没有相关经历、无法判断或不想回答都不补零。资料不足时只作通用阅读，不把没约会或不想认识新人当低Rizz。有效项目不同或一项回答变化都能影响均分，0.1不是测量精度、能力界线或魅力差距。四组各自阅读、可同分或都高，不加总、不派L/W/无言等级，不按最高值选择唯一类型，全部四份九节全文始终呈现。",
+              "en": "Five items per group revisit frequency when relevant opportunities existed. Three ratings are needed for a mean; missing experience, judgment or willingness is never replaced by zero. Insufficient information permits general reading without classifying not dating or not wanting new acquaintances as low Rizz. Different rated items or one changed answer can alter a mean. A difference of 0.1 establishes no precision, ability boundary or charm gap. Groups remain separate and may tie or all be high, without a total, L/W/Unspoken tier or sole highest-value type. All four nine-section guides always remain available."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "原创全文、隐私与自主决定",
+            "en": "Original full guides, privacy and your own choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "20项、四组与全部对话例子均为本版原创，不复刻竞品12题或其魅力阶梯，不声称心理测量或跨语言等价验证。所有四份完整指南作答前后都免费，不收真实聊天、照片、联系人、身体或伴侣资料；不测读心、颜值、能力、道德价值或关系成败。草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；复制只含公开主题名与链接，不含答案或均分。练习可只在自己草稿上想一想，随时结束，无需联系任何人或另做测试；笑容、礼貌、沉默、回复速度和本次结果都不能代替对某一步的同意。",
+              "en": "Twenty items, four groups and every dialogue example are original to this edition, replicating neither a competitor twelve-item bank nor its charm ladder. Psychometric validation and language equivalence are not established. All four full guides are free before and after answering, without collecting actual chats, photos, contacts, bodies or partner information or measuring mind-reading, attractiveness, ability, moral worth or relationship outcomes. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying includes public theme names and links without answers or means. Think on a private draft and stop whenever you want, without contacting anyone or taking another test. Smiles, politeness, silence, reply speed and these results replace no agreement to a particular step."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "checking-the-invitation",
+      "directionIds": [
+        "checking-the-invitation"
+      ],
+      "title": {
+        "zh": "确认邀约",
+        "en": "Checking the Invitation"
+      },
+      "headline": {
+        "zh": "问清一个具体下一步，也让“不继续”有出口",
+        "en": "Ask about one particular next step and leave an exit"
+      },
+      "summary": {
+        "zh": "这组回看你怎样说明小邀约、直接确认意愿、接受拒绝并限定已同意的范围。不把礼貌、沉默或一次见面当作进一步同意。",
+        "en": "This group revisits specific invitations, direct checks, accepting refusal and keeping agreement within its scope. Politeness, silence and one meeting imply no further agreement."
+      },
+      "seo": {
+        "title": {
+          "zh": "确认邀约完整指南｜Rizz 测试",
+          "en": "Checking the Invitation Guide | Rizz Test"
+        },
+        "description": {
+          "zh": "免费阅读确认邀约九节全文，比较明确邀请、未知回应与反复施压；含原创对话和反例，不预测约会或关系结局。",
+          "en": "Read nine free sections on clear invitations, uncertain replies and accepting refusal, with original dialogues. No dating or relationship prediction."
+        }
+      },
+      "scoreReading": {
+        "zh": "这组5项回看过去四周有相关机会时自己的具体做法。1—5为频率，不适用不补零、不进分母；至少3项有效才用有效项总和除以有效项数，四舍五入保留1位小数。它不是Rizz等级、魅力或道德成绩，不预测对方的回应。四组可以同分、近分、都高或都低，全部四份全文始终开放，不加总、不按最高均分派主副型。",
+        "en": "Five items revisit your particular actions over four weeks when relevant opportunities existed. Ratings one to five are frequencies. Unjudged items are neither zero nor part of the denominator. Three ratings are needed to divide their sum by their number and round to one decimal. This is no Rizz tier, charm or moral grade and predicts no response. Groups can tie, be close, high or low, with all four full guides always open and no total or highest-mean primary or secondary type."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "确认一件事，不替整段关系盖章",
+            "en": "Check one thing without certifying a relationship"
+          },
+          "paragraphs": [
+            {
+              "zh": "确认邀约只指对一个具体下一步问清意愿与安排，不是用技巧取得同意。更常报告这些做法，不证明你道德更高、约会更顺利或更懂别人；一次漏做也不是给人格盖章。没有邀约机会或不想约人都可选不适用。它关注你自己的行为，不能替一个没有作答的人判断其真实意愿。",
+              "en": "Checking the Invitation concerns willingness and arrangements for one particular next step, not obtaining agreement through a technique. Reporting these practices more often establishes neither superior morality nor dating success or knowledge of another person. One omission is no character verdict. Missing opportunities or no wish to invite someone permit an unjudged response. This concerns your actions and cannot determine the wishes of someone who did not answer the questionnaire."
+            }
+          ]
+        },
+        {
+          "id": "clear",
+          "title": {
+            "zh": "把活动说清楚，把拒绝留清楚",
+            "en": "Make the activity and the option to decline clear"
+          },
+          "paragraphs": [
+            {
+              "zh": "假想双方已愿意继续认识，你可以说：“你愿意周六下午在那家店喝杯茶吗？不方便或不想都没关系。”对方可说不，也可提出不同安排。若只说“到时候看”，可以把它留作未定，不需要替其决定已经答应。这里展示可理解的邀约句子，不是保证别人接受的一套话术。",
+              "en": "Imagine you both want to keep getting acquainted. You could ask, “Would you like tea at that café on Saturday afternoon? It is fine if the time does not work or you do not want to.” They can decline or suggest something different. “We will see” can remain undecided rather than be counted as acceptance. This illustrates a comprehensible invitation and guarantees no method for securing a positive response."
+            }
+          ]
+        },
+        {
+          "id": "uncertain",
+          "title": {
+            "zh": "不知道时，不靠信号替代询问",
+            "en": "Do not replace an unknown answer with a signal"
+          },
+          "paragraphs": [
+            {
+              "zh": "对方聊天很热情或回复很快，并没有自动回答是否愿意另约见面。可以就一项具体安排直接问一次，随后把是否回应留给对方。若没有明确回答，就不把它记为已经同意，不需要用连续消息、倒计时或“最后一次机会”逼出决定。这一组也不提供从回复速度识别欲擒故纵的方法。",
+              "en": "Enthusiastic conversation or a quick reply does not automatically answer whether someone wants a separate meeting. Ask directly once about one arrangement, then leave responding to them. With no clear answer, avoid recording agreement or forcing a decision through repeated messages, countdowns or a supposed last chance. This group supplies no decoding method for interpreting reply speed as playing hard to get or as evidence that continued pursuit is wanted."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "投入不是对方欠你的答复",
+            "en": "Your investment creates no debt"
+          },
+          "paragraphs": [
+            {
+              "zh": "反例是“我都订好了，你不能让我白准备吧”。它把你自己的投入变成对方必须参与的债。虚构草稿可改成“我还没替你决定，只有你想去我们才安排”。若对方已经拒绝，就接受；不为了证明你学会更尊重的说法而再次发消息，也不要求其安慰、给理由或允许转成朋友。",
+              "en": "Consider, “I already booked it, so you cannot waste my preparation.” It turns your own investment into a debt requiring their participation. A fictional draft could say, “I have not decided for you; we will arrange it only if you want to.” Accept an existing refusal rather than message again to demonstrate a more respectful formulation. They owe neither reassurance nor reasons or agreement to become friends instead."
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "zh": "同意见面只限于已经说好的事",
+            "en": "A meeting agreement stays within what was discussed"
+          },
+          "paragraphs": [
+            {
+              "zh": "对方答应喝茶，可以再确认双方方便的时间地点，也可以有变动后重新商量。它没有自动包含触碰、亲密、拍照、公开关系、长期联系或任何下一场安排。你不用从本次均分推算同意有多可靠；想改变具体下一步时，仍要把选择交给参与者，而不是拿之前的一个“好”无限外推。",
+              "en": "An agreement to tea allows checking a time and place that suit both people and discussing changes when needed. It automatically includes neither touch nor intimacy, photographs, public relationship labels, ongoing contact or another meeting. Your mean estimates no reliability of agreement. When changing the particular next step, leave the choice to the people involved rather than extrapolate one earlier yes indefinitely or use it to settle a new question."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "确认与主动表达可以分别读",
+            "en": "Read checking separately from initiating"
+          },
+          "paragraphs": [
+            {
+              "zh": "说明兴趣讲“我想继续认识”，确认邀约问“你愿不愿意做这件事”。接话与邀玩可以让交流有来回，却不代替这个问题。四组可能同分，也可能机会完全不同；不能用高接话均分抵消一次不尊重拒绝，也不能凭这份问卷认定一个人安全或不安全。具体情况仍需要具体回应与自主选择。",
+              "en": "Showing Interest says, “I would like to keep getting acquainted”; Checking the Invitation asks, “Would you like to do this particular thing?” Replies and play may support an exchange without replacing that question. Groups can tie or involve different opportunities. A higher reply mean cancels no disregard of refusal, and this questionnaire certifies nobody as safe or unsafe. Particular situations still call for particular responses and each person’s independent choices."
+            }
+          ]
+        },
+        {
+          "id": "paper",
+          "title": {
+            "zh": "用三个虚构回答检查同一句邀请",
+            "en": "Check an invitation against three fictional answers"
+          },
+          "paragraphs": [
+            {
+              "zh": "在私人草稿里给同一句邀请写三个回答：愿意、不愿意、暂时不知道。再各写一句你自己的回应，检查有没有只允许“愿意”才算正常。练习可完全停留纸上，不必联系真人或翻出旧聊天。能写出三个出口不证明现实行为或关系质量已经改变；它只是帮你更具体地看见这句话预留了什么选择。",
+              "en": "On a private draft, write three fictional answers to the same invitation: yes, no and not sure. Add one response of your own for each, checking whether only yes is treated as normal. Keep the exercise entirely on paper without contacting someone or retrieving old messages. Writing three exits proves no change in actual behaviour or relationship quality. It simply makes the choices left by this particular sentence easier to examine."
+            }
+          ]
+        },
+        {
+          "id": "frequency",
+          "title": {
+            "zh": "机会、有效条目与近分",
+            "en": "Opportunity, rated items and close means"
+          },
+          "paragraphs": [
+            {
+              "zh": "每组5项只回看有相关机会时的频率，至少3项有效才显示均分；没有相关经历、无法判断或不想回答都不补零。资料不足时只作通用阅读，不把没约会或不想认识新人当低Rizz。有效项目不同或一项回答变化都能影响均分，0.1不是测量精度、能力界线或魅力差距。四组各自阅读、可同分或都高，不加总、不派L/W/无言等级，不按最高值选择唯一类型，全部四份九节全文始终呈现。",
+              "en": "Five items per group revisit frequency when relevant opportunities existed. Three ratings are needed for a mean; missing experience, judgment or willingness is never replaced by zero. Insufficient information permits general reading without classifying not dating or not wanting new acquaintances as low Rizz. Different rated items or one changed answer can alter a mean. A difference of 0.1 establishes no precision, ability boundary or charm gap. Groups remain separate and may tie or all be high, without a total, L/W/Unspoken tier or sole highest-value type. All four nine-section guides always remain available."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "原创全文、隐私与自主决定",
+            "en": "Original full guides, privacy and your own choice"
+          },
+          "paragraphs": [
+            {
+              "zh": "20项、四组与全部对话例子均为本版原创，不复刻竞品12题或其魅力阶梯，不声称心理测量或跨语言等价验证。所有四份完整指南作答前后都免费，不收真实聊天、照片、联系人、身体或伴侣资料；不测读心、颜值、能力、道德价值或关系成败。草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；复制只含公开主题名与链接，不含答案或均分。练习可只在自己草稿上想一想，随时结束，无需联系任何人或另做测试；笑容、礼貌、沉默、回复速度和本次结果都不能代替对某一步的同意。",
+              "en": "Twenty items, four groups and every dialogue example are original to this edition, replicating neither a competitor twelve-item bank nor its charm ladder. Psychometric validation and language equivalence are not established. All four full guides are free before and after answering, without collecting actual chats, photos, contacts, bodies or partner information or measuring mind-reading, attractiveness, ability, moral worth or relationship outcomes. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying includes public theme names and links without answers or means. Think on a private draft and stop whenever you want, without contacting anyone or taking another test. Smiles, politeness, silence, reply speed and these results replace no agreement to a particular step."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "机会、有效条目与近分",
+        "en": "Opportunity, rated items and close means"
+      },
+      "paragraphs": [
+        {
+          "zh": "每组5项只回看有相关机会时的频率，至少3项有效才显示均分；没有相关经历、无法判断或不想回答都不补零。资料不足时只作通用阅读，不把没约会或不想认识新人当低Rizz。有效项目不同或一项回答变化都能影响均分，0.1不是测量精度、能力界线或魅力差距。四组各自阅读、可同分或都高，不加总、不派L/W/无言等级，不按最高值选择唯一类型，全部四份九节全文始终呈现。",
+          "en": "Five items per group revisit frequency when relevant opportunities existed. Three ratings are needed for a mean; missing experience, judgment or willingness is never replaced by zero. Insufficient information permits general reading without classifying not dating or not wanting new acquaintances as low Rizz. Different rated items or one changed answer can alter a mean. A difference of 0.1 establishes no precision, ability boundary or charm gap. Groups remain separate and may tie or all be high, without a total, L/W/Unspoken tier or sole highest-value type. All four nine-section guides always remain available."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "四组分别阅读，不派最高型或等级",
+        "en": "Four separate readings without a highest type or tier"
+      },
+      "paragraphs": [
+        {
+          "zh": "四组回看不同的具体做法，可以同分、近分、都高或都低。没有总分，也不按最高均分、年龄、性别或关系身份派Rizz类型。全部四份全文完成后同时呈现，资料不足的一组只读通用解释，不将没机会或不想认识新人判低魅力。",
+          "en": "Groups revisit different practices and can tie, be close, high or low. There is no total or Rizz assignment by highest mean, age, gender or relationship status. All four full guides appear together after completion. An insufficient group permits general reading without classifying missing opportunities or no wish to meet someone as low charm."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "近分看条目与机会，不推断他人",
+        "en": "Read close means beside items and opportunity"
+      },
+      "paragraphs": [
+        {
+          "zh": "每组5项、至少3项有效，1位小数不代表测量精度。有效条目、机会或一项回答不同就能改变均分，不能把0.1解释为魅力差距、道德界线或对方好感。对话例子只是虚构可选文字，不保证交流、约会或关系效果。",
+          "en": "Five items per group need three ratings; one decimal is no measurement precision. Different rated items, opportunities or one changed answer can alter a mean. A difference of 0.1 establishes no charm gap, moral boundary or another person’s interest. Fictional optional dialogues guarantee no conversation, dating or relationship effect."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "本人行为与对方意愿的界线",
+        "en": "Your actions and another person’s willingness"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版Rizz是对说明兴趣、接住话头、轻松邀玩与确认邀约四组具体做法的原创自我观察，不测魅力、颜值、读心、社交能力、道德价值、受欢迎程度或约会成功率。频率高低不是L/W/无言魅力等级，也不推断他人喜欢你。笑容、礼貌、沉默、回复速度、一次同意见面或本次分数都不能替代对具体下一步的同意。可以没有相关经历或不想认识新的人，所有全文仍可通用阅读；不因缺少机会判低Rizz，不要求接触陌生人、持续追求、分享隐私或开展任何关系。",
+          "en": "Rizz here is original self-observation of Showing Interest, Threading a Reply, Offering Playfulness and Checking the Invitation. It measures no charm, attractiveness, mind-reading, social ability, moral worth, popularity or dating success. Frequencies are no L/W/Unspoken tiers and infer no one’s interest in you. Smiles, politeness, silence, reply speed, one agreement to meet or these scores replace no agreement to a particular next step. Having no experience or no wish to meet anyone permits general reading without low Rizz assignment or a requirement to approach strangers, persist, disclose private information or pursue any relationship."
+        }
+      ]
+    },
+    {
+      "id": "original-method",
+      "title": {
+        "zh": "原创四组做法，不复刻魅力阶梯",
+        "en": "Four original practice groups, not a charm ladder"
+      },
+      "paragraphs": [
+        {
+          "zh": "20项、四组主题及全部正文原创，不复刻竞品12题、L/Mid/W/Unspoken分区或把其魅力研究说明当本版验证。结构检查只确认题目、计分和显示一致，不证明信效度、潜在结构、跨语言等价或练习效果。不分析上传聊天，不给他人评分。",
+          "en": "Twenty items, four themes and all prose are original, replicating neither a competitor twelve-item bank nor L/Mid/W/Unspoken bands or adopting its charisma-research account as validation. Structural checks confirm items, scoring and display rather than reliability, validity, latent structure, language equivalence or exercise effects. This is no uploaded-chat analysis or grading of another person."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "Rizz 测试在这里具体观察什么？",
+        "en": "What does this Rizz Test actually observe?"
+      },
+      "answer": {
+        "zh": "它分别回看过去四周在双方自愿的成年人轻松交流与邀约里，你怎样说明兴趣、接住话头、轻松邀玩与确认邀约。20项均为本人具体做法的频率，不测魅力、颜值、社交能力、道德价值或别人是否喜欢你。",
+        "en": "It separately revisits Showing Interest, Threading a Reply, Offering Playfulness and Checking the Invitation over four weeks of light conversations or invitations between willing adults. Twenty items concern frequencies of your particular practices, measuring neither charm nor attractiveness, social ability, moral worth or anyone’s interest in you."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有约会或不想认识新人也能阅读吗？",
+        "en": "Can I read this without dating or wanting new acquaintances?"
+      },
+      "answer": {
+        "zh": "可以，四份完整指南作答前后都免费，例子也可只作通用阅读。没有相关机会、无法判断或不想回答就选不适用，不补零、不判低Rizz。无需联系陌生人、上传聊天、披露伴侣或为了作答编经历。",
+        "en": "Yes. Four full guides are free before and after answering and their examples permit general reading. Missing opportunity, judgment or willingness is unjudged, never zero or low Rizz. No contacting strangers, uploading chats, disclosing partners or inventing experiences is required."
+      }
+    },
+    {
+      "question": {
+        "zh": "会给L/W/无言魅力等级或最高类型吗？",
+        "en": "Will I receive an L/W/Unspoken tier or highest type?"
+      },
+      "answer": {
+        "zh": "本版呈现四组具体做法的分别频率，不派魅力阶梯、最高类型或隐藏主副型，也没有总分。四组可同分或近分，全部九节全文始终呈现，次数与均分都不预测约会、受欢迎程度或关系结局。",
+        "en": "This edition shows separate frequencies of four practices without a charm ladder, highest type, hidden primary or secondary type or total. Groups can tie or be close and every nine-section guide remains available. Neither counts nor means predict dates, popularity or relationship outcomes."
+      }
+    },
+    {
+      "question": {
+        "zh": "不适用、有效题数与均分怎样计算？",
+        "en": "How do unjudged items, rated counts and means work?"
+      },
+      "answer": {
+        "zh": "这组5项回看过去四周有相关机会时自己的具体做法。1—5为频率，不适用不补零、不进分母；至少3项有效才用有效项总和除以有效项数，四舍五入保留1位小数。它不是Rizz等级、魅力或道德成绩，不预测对方的回应。四组可以同分、近分、都高或都低，全部四份全文始终开放，不加总、不按最高均分派主副型。",
+        "en": "Five items revisit your particular actions over four weeks when relevant opportunities existed. Ratings one to five are frequencies. Unjudged items are neither zero nor part of the denominator. Three ratings are needed to divide their sum by their number and round to one decimal. This is no Rizz tier, charm or moral grade and predicts no response. Groups can tie, be close, high or low, with all four full guides always open and no total or highest-mean primary or secondary type."
+      }
+    },
+    {
+      "question": {
+        "zh": "这和沟通风格、爱语或分析聊天记录一样吗？",
+        "en": "Is this communication style, love languages or chat analysis?"
+      },
+      "answer": {
+        "zh": "它不是同一题本。沟通风格版观察日常协商四组表达做法，爱语版分别看表达与接收关怀；本版只回看轻松认识与邀约中的四组本人行为，不换算分数、分析真实消息或替对方判型。结构不同也不证明心理独立或跨语言等价。",
+        "en": "These are different banks. Communication Style observes everyday negotiation practices, while Love Languages separates giving and receiving care. This edition revisits your four practice groups in light getting-acquainted exchanges and invitations. It converts no scores, analyses no actual messages and assigns nobody else a type. Different structures establish neither psychological independence nor language equivalence."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整指南、草稿和分享需要付费吗？",
+        "en": "Are full guides, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "20项、四组与全部对话例子均为本版原创，不复刻竞品12题或其魅力阶梯，不声称心理测量或跨语言等价验证。所有四份完整指南作答前后都免费，不收真实聊天、照片、联系人、身体或伴侣资料；不测读心、颜值、能力、道德价值或关系成败。草稿自愿，只在本标签页最多24小时，完成、清除或重测即删；复制只含公开主题名与链接，不含答案或均分。练习可只在自己草稿上想一想，随时结束，无需联系任何人或另做测试；笑容、礼貌、沉默、回复速度和本次结果都不能代替对某一步的同意。",
+        "en": "Twenty items, four groups and every dialogue example are original to this edition, replicating neither a competitor twelve-item bank nor its charm ladder. Psychometric validation and language equivalence are not established. All four full guides are free before and after answering, without collecting actual chats, photos, contacts, bodies or partner information or measuring mind-reading, attractiveness, ability, moral worth or relationship outcomes. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Copying includes public theme names and links without answers or means. Think on a private draft and stop whenever you want, without contacting anyone or taking another test. Smiles, politeness, silence, reply speed and these results replace no agreement to a particular step."
+      }
+    }
+  ]
+}

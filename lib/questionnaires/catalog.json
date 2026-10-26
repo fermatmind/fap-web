@@ -3308,5 +3308,30 @@
       "budget-and-quantities"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "rizz-test",
+    "code": "RIZZ_CONVERSATION_PRACTICES_ORIGINAL_20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "zh": "Rizz 测试",
+      "en": "Rizz Test"
+    },
+    "description": {
+      "zh": "免费Rizz 测试：20项原创四周频率观察，分别阅读说明兴趣、接住话头、轻松邀玩与确认邀约四份完整指南，含具体对话和反例。不派魅力等级。",
+      "en": "Free Rizz Test: 20 original four-week observations and four full guides with dialogues and counterexamples. No charm tier or dating prediction."
+    },
+    "minutes": 6,
+    "formCode": "fm_rizz_conversation_practices_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "showing-interest",
+      "threading-a-reply",
+      "offering-playfulness",
+      "checking-the-invitation"
+    ],
+    "collection": "explore"
   }
 ]
