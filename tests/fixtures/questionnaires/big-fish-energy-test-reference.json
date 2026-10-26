@@ -1,0 +1,816 @@
+{
+  "formCode": "fm_ocean_mood_metaphors_18",
+  "origin": "frontend_original_ocean_mood_preferences",
+  "directions": [
+    {
+      "id": "shark",
+      "title": {
+        "zh": "鲨鱼",
+        "en": "Shark"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dolphin",
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "whale",
+      "title": {
+        "zh": "鲸鱼",
+        "en": "Whale"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "octopus",
+      "title": {
+        "zh": "章鱼",
+        "en": "Octopus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "pufferfish",
+      "title": {
+        "zh": "河豚",
+        "en": "Pufferfish"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "anglerfish",
+      "title": {
+        "zh": "鮟鱇鱼",
+        "en": "Anglerfish"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "OCEAN_01",
+      "prompt": {
+        "zh": "你想给这个周末做一张海洋主题心情卡。哪一种小安排更想先写进去？",
+        "en": "You are making an ocean-themed mood card for this weekend. Which little arrangement would you put on it first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一件一直想完成的小事，给它留一段明确时间。",
+            "en": "Choose one small thing you have wanted to finish and give it a definite slot."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "约一位愿意一起玩的朋友，留个轻松互动的片段。",
+            "en": "Invite a willing friend and leave space for a light shared moment."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己一段不赶进度的阅读或发呆时间。",
+            "en": "Leave yourself an unhurried stretch for reading or simply sitting."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把两种平常分开的爱好放在一起，试一个新组合。",
+            "en": "Bring two usually separate hobbies together and try one new combination."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_02",
+      "prompt": {
+        "zh": "朋友带了几张海边照片，问你想怎样一起度过接下来的半小时。哪一项更有吸引力？",
+        "en": "A friend brings seaside photographs and asks how you would like to spend the next half hour together. What appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "轮流给照片配一句有趣的旁白，让对方也能接下去。",
+            "en": "Take turns adding a playful caption the other person can continue."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢看其中一张，聊聊各自注意到的一个细节。",
+            "en": "Look slowly at one photograph and discuss one detail each of you notices."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换几种摆法，把几张照片拼成不同的主题。",
+            "en": "Try several arrangements and combine the photographs into different themes."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先说好只参与这半小时，结束后保留自己的安排。",
+            "en": "Agree to join for this half hour while keeping your later arrangements."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_03",
+      "prompt": {
+        "zh": "你想在日常书桌上添一点海洋气氛，哪种变化更像这次想要的？",
+        "en": "You want a little ocean atmosphere at your everyday desk. Which change suits what you want this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只留一张颜色安静的海景卡，让桌面有一点空白。",
+            "en": "Keep one quiet-coloured seascape card and some clear space around it."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把卡片、笔记和小物换位，看看能不能搭出新感觉。",
+            "en": "Move a card, notebook and little object around to try a different feel."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的那一小块桌面划个范围，暂时不再添东西。",
+            "en": "Mark out your own little patch of desk and add nothing more for now."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "放一件只有自己知道来历的小物，不急着讲给别人。",
+            "en": "Keep a little object whose story you know without rushing to explain it."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_04",
+      "prompt": {
+        "zh": "你有几首想听的歌，准备给一个普通傍晚起海洋主题的名字。哪种听法更想试？",
+        "en": "You have a few songs and want an ocean-themed name for an ordinary evening. Which way of listening would you try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种平常不相邻的曲风交替放，听听过渡有什么变化。",
+            "en": "Alternate two styles you do not usually pair and notice the transition."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先定一个听歌时段，结束后就不接新的邀请。",
+            "en": "Set a listening period and decline new invitations after it ends."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一首私下喜欢的歌，自己慢慢听，不必解释选择。",
+            "en": "Choose one privately enjoyed song and listen without explaining your choice."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选定一张一直想听完的专辑，这次从头到尾听一次。",
+            "en": "Choose an album you have wanted to finish and listen through it once."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_05",
+      "prompt": {
+        "zh": "海洋主题的线上闲聊约好了很短，你更想怎样参加？",
+        "en": "An ocean-themed online chat is meant to be brief. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说清自己能待多久，到点自然告别。",
+            "en": "State how long you can stay and say goodbye when that time arrives."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分享一小段自己喜欢的画面，其他想法暂时留在私下。",
+            "en": "Share one little image you like and keep your other thoughts private for now."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "带一个想完成的小问题，聊到答案后就收好。",
+            "en": "Bring one small question you want to finish and keep its answer when done."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "接住别人发来的轻松梗，再加一句让大家能回应的话。",
+            "en": "Pick up someone’s light joke and add a line others can answer."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_06",
+      "prompt": {
+        "zh": "你想从一叠海洋贴纸里挑一个放在私人笔记本上。选择时更想保留哪种感觉？",
+        "en": "You want one ocean sticker for a private notebook. Which feeling would you like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个不需要别人看懂的小暗号，只对这次心情有意义。",
+            "en": "A little sign that need not make sense to others, only to this mood."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个能提醒自己完成眼前小事的清楚标记。",
+            "en": "A clear mark that reminds you to finish the small thing in front of you."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个下次见朋友时可以拿来开玩笑的共同话题。",
+            "en": "A shared talking point for a playful exchange when you next meet a friend."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让翻页节奏慢一点、看着舒服的留白。",
+            "en": "Some comfortable-looking space that lets the page turn a little more slowly."
+          },
+          "directionId": "whale"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_07",
+      "prompt": {
+        "zh": "你要把一组海洋主题书签整理到抽屉里。哪种做法更想先选？",
+        "en": "You are putting ocean-themed bookmarks into a drawer. Which approach would you choose first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先挑出这周要用的一张，完成这一个小决定。",
+            "en": "Pick the one you will use this week and finish that single small decision."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找两张能和朋友交换的，让整理带一点互动。",
+            "en": "Find two to exchange with a friend and give the sorting a shared moment."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢看每张的颜色，不急着一次整理完。",
+            "en": "Look at each colour slowly without needing to finish the whole sorting now."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "改用两种分法摆一摆，再选这次更喜欢的版本。",
+            "en": "Try two ways of grouping them and choose the version you prefer this time."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_08",
+      "prompt": {
+        "zh": "朋友提议用海洋颜色装饰聚会的一小角。你更想负责哪一部分？",
+        "en": "Friends suggest ocean colours for one little corner of a gathering. Which part would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给愿意加入的人留一个能轻松参与的小环节。",
+            "en": "Leave an easy little part for anyone who wants to join."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一处可以安静坐一会儿的布置，不塞满整面墙。",
+            "en": "Arrange one place to sit quietly instead of filling the whole wall."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两种手边材料换着搭，保留一个意外的新组合。",
+            "en": "Pair two available materials in different ways and keep an unexpected combination."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认自己只做这一角，其余装饰不默认接下。",
+            "en": "Confirm that you are doing this corner without automatically taking the rest."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_09",
+      "prompt": {
+        "zh": "一段日常散步回来，你想用海洋比喻给它写个小标题。哪种切入点更喜欢？",
+        "en": "After an everyday walk, you want a little title using an ocean image. Which starting point do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记录一处让自己放慢脚步的颜色或声音。",
+            "en": "Record one colour or sound that made you slow your steps."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把路上两个不相干的小发现拼成一个新名字。",
+            "en": "Combine two unrelated little discoveries from the walk into a new name."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清这段时间属于自己，暂时不把它变成别的任务。",
+            "en": "State that this time was yours without turning it into another task for now."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只给自己留一句话，不需要发到任何地方。",
+            "en": "Leave one sentence for yourself without needing to post it anywhere."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_10",
+      "prompt": {
+        "zh": "你在做一份海洋主题的小点心菜单，只是想象口味和摆法，不必实际烹饪。哪一部分更有趣？",
+        "en": "You are imagining an ocean-themed snack menu without needing to cook. Which part is more interesting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种熟悉口味换个组合，试着给它起新名字。",
+            "en": "Pair two familiar flavours differently and give the combination a new name."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只设计一道自己愿意做的，其余留给别人自选。",
+            "en": "Design only one you would enjoy making and let others choose the rest."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "藏一个只有自己知道的名字由来，暂时不写说明。",
+            "en": "Keep a private reason for a name without adding an explanation yet."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选定一个小主题，把这页菜单先做成完整版本。",
+            "en": "Choose one small theme and finish a complete version of this page."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_11",
+      "prompt": {
+        "zh": "海洋主题读书角有人希望你推荐很多书，你这次更想怎样回应？",
+        "en": "Someone at an ocean-themed reading corner asks for many book recommendations. How would you prefer to respond this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明这次只想分享一本，其他书目先不承诺。",
+            "en": "Explain that you want to share one book this time without promising a longer list."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下一本对自己很特别的书名，不展开私人原因。",
+            "en": "Leave one personally special title without expanding its private reason."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先选最想推荐的一本，完整说清为什么愿意读它。",
+            "en": "Choose the one you most want to recommend and finish describing its appeal."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请对方也说一本喜欢的，让推荐变成一来一回。",
+            "en": "Invite the other person’s favourite so the recommendations go both ways."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_12",
+      "prompt": {
+        "zh": "你想给一个没有特别安排的上午选一张海洋壁纸。更喜欢它提醒自己什么？",
+        "en": "You want an ocean wallpaper for a morning without special plans. What would you like it to remind you of?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以有一小段不向外说明的个人兴趣时间。",
+            "en": "You can have a little time for a private interest without explaining it outwardly."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先完成一件很小的事，再决定下一步。",
+            "en": "Finish one very small thing before deciding what comes next."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "可以主动找一个愿意闲聊的人，交换一点轻松话题。",
+            "en": "You can reach out to someone who wants a light exchange."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以留出一点没有任务的空白，不急着填满。",
+            "en": "You can leave some task-free space without rushing to fill it."
+          },
+          "directionId": "whale"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_13",
+      "prompt": {
+        "zh": "你想给海洋主题相册做一张封面，今天更想从哪里开始？",
+        "en": "You want a cover for an ocean-themed album. Where would you prefer to begin today?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先选定一个标题，把封面这一小步完成。",
+            "en": "Choose one title and finish that small cover step."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问一位朋友愿不愿意各写一个候选标题，互相接一句。",
+            "en": "Ask a willing friend for a title each and answer one another’s suggestion."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一会儿空白版面，让颜色慢慢定下来。",
+            "en": "Look at the blank layout for a while and let the colours settle gradually."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做两个很不同的小样，比较哪种拼法更合这次心情。",
+            "en": "Make two very different little drafts and compare their fit for this mood."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_14",
+      "prompt": {
+        "zh": "朋友发来一张海豚照片，你想回复一条轻松消息。哪种更像这次想表达的？",
+        "en": "A friend sends a dolphin photograph and you want a light reply. What would you prefer to express this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接一个有趣的小问题，让这段闲聊能往下走。",
+            "en": "Add a playful little question that lets the conversation continue."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说说自己想慢慢看这张图的哪一处，不急着换下一张。",
+            "en": "Describe one part you want to look at slowly without rushing to another image."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试两种不同的旁白，看看哪一版更有新鲜感。",
+            "en": "Try two different captions and notice which feels fresher."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "友善说明自己只聊一会儿，晚一点要留给别的安排。",
+            "en": "Kindly say you can chat briefly and have other plans for later."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_15",
+      "prompt": {
+        "zh": "你在私人手账里留了一页海洋主题空白。接下来更想怎样使用？",
+        "en": "You left an ocean-themed blank page in a private journal. How would you like to use it next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一个大一点的安静色块，让这页不必装满。",
+            "en": "Leave a larger quiet block of colour without filling the page."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两种旧贴纸重新拼一下，不沿用平常排版。",
+            "en": "Recombine two old stickers instead of keeping your usual layout."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给这一页限定一小块书写范围，写完就停。",
+            "en": "Set a small writing area for this page and stop when it is filled."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记一个自己才懂的小发现，不加公开解释。",
+            "en": "Record a little discovery you understand without a public explanation."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_16",
+      "prompt": {
+        "zh": "一个海洋主题小游戏允许自己改规则，只供熟人轻松玩。你更想改哪一处？",
+        "en": "An ocean-themed game lets you change a rule just for light play with friends. What would you prefer to change?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种已有玩法拼到同一轮，看看会有什么新变化。",
+            "en": "Combine two existing ways of playing in one round and see what changes."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给每人留一个可跳过的环节，让参与范围能自己选。",
+            "en": "Give each person one part to skip so they can choose their participation."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一张不需要解释的私人提示卡，只有本人看。",
+            "en": "Keep one private prompt card that only its holder sees and need not explain."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先定一个清楚的小目标，完成这一轮再考虑别的变化。",
+            "en": "Set one clear little goal and finish this round before considering more changes."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_17",
+      "prompt": {
+        "zh": "海洋主题的周末活动临时增加一个小环节，你更想保留什么？",
+        "en": "A weekend ocean-themed activity adds another little part unexpectedly. What would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己原先答应的那一段，不自动扩大参与范围。",
+            "en": "The part you originally agreed to without automatically expanding it."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一小段独自看展卡的时间，不必随时向别人解释。",
+            "en": "A little time looking at display cards alone without constant explanation."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原先选定的一件小事，先把它做完。",
+            "en": "The one small thing you had chosen, finishing it first."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和愿意一起玩的同伴之间轻松接话的空间。",
+            "en": "Room for a light exchange with a companion who wants to join."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_18",
+      "prompt": {
+        "zh": "你想给今天的海洋心情卡收个尾，哪一种句子更想留在最后？",
+        "en": "You want to close today’s ocean mood card. Which kind of line would you keep at the end?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“有一点喜欢，可以暂时只属于我自己。”",
+            "en": "“A little liking can stay just mine for now.”"
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“今天这件小事到这里就完成了。”",
+            "en": "“This small thing is finished for today.”"
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“有空时，想和你接着聊刚才那个轻松话题。”",
+            "en": "“When there is time, I would like to continue that light conversation with you.”"
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这页留一点空白，明天再慢慢翻。”",
+            "en": "“Leave some space on this page and turn it slowly tomorrow.”"
+          },
+          "directionId": "whale"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "zh": "“大鱼能量”是海洋主题的趣味名称，不是生物分类、体力或心理能量。鲸与海豚是哺乳动物，章鱼是软体动物；六组也不是六个精确物种。鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼在这里分别作为完成小事、轻松互动、留白慢读、变化组合、小范围划界与私人微光的原创编辑比喻，不完整代表动物的行为。深海鮟鱇的发光诱饵也有共生细菌参与，不证明人“自带光”或独立性。生物背景不验证题目、人格、智力、共情、适应、韧性、临床状况、职业匹配、常模或语言等价；不复制JobCannon题本或解释。",
+    "en": "Big fish energy is a playful ocean-themed name, not biological classification, physical capacity or psychological energy. Whales and dolphins are mammals; octopuses are molluscs, and the six groups are not six precise species. Shark, Dolphin, Whale, Octopus, Pufferfish and Anglerfish are original editorial metaphors here for finishing a little thing, light interaction, unhurried space, recombination, a small boundary and private glimmers, without representing whole animal behaviours. Symbiotic bacteria also contribute to deep-sea anglerfish lures; their light proves no human self-sufficiency. Biological context validates neither these items, personality, intelligence, empathy, adaptation, resilience, clinical conditions, career fit, norms nor language equivalence. This is no JobCannon bank or explanation replica."
+  },
+  "instructions": {
+    "zh": "把海洋心情卡当成这次日常小安排的比喻，选给定四项中更想先尝试的一项，不是选更聪明、更强或更像真实动物的答案。四个编辑选项不能穷尽偏好，不合适可退出，六份公开指南仍免费。六组各出现12次、每个位置各3次、省略6次；一选加1，无反向、对错或能力权重。完整18题后才显示原始次数，所有最高并列都保留全文，不硬派主副型。一直选同一位置会各3次，不证明理想均衡。无需真实经历、位置、照片或他人信息。",
+    "en": "Treat the ocean mood card as a metaphor for little everyday arrangements. Choose the offered step you would prefer first, not the cleverest, strongest or most biologically animal-like answer. Four editorial choices cannot exhaust preferences; leave if none fits and all six guides remain free. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, correctness or ability weighting. Complete all eighteen to see raw counts and every highest tie in full, without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Enter no actual experiences, locations, photographs or another person’s information."
+  },
+  "scoring": {
+    "kind": "archetype",
+    "questions": 18,
+    "directionCount": 6,
+    "optionsEach": 4,
+    "exposureEach": 12,
+    "positionsEach": 3,
+    "omittedEach": 6,
+    "reverseItems": [],
+    "completeCountVectors": 31363,
+    "highestSets": 57,
+    "meaning": "Currentoceanmooddailyarrangements/sixlimitededitorialimages/notbiologicalclassification/humanenergy/personality/ability/health/jobfit.Allhighesttiesfull/noforcedprimarysecondary/percent."
+  },
+  "sourceRead": "CurrentJobCannonEN56ZH47/sixmainbody31-56+visiblecareerlabels/about90/entryZH16andfreshENflowread. All10questions/40optionsandoneactualfirst-optionShark100percent/sixfreecards/fivefreebulletsread;map/cardgenerationstillvisible/notactualsharecardcompletionverified.Noall6answerpatterns/ties/formula/paidprofile/accountsave. NOAA5-14dolphinswhalesmammals/MBA347359399-401eightarmsmollusc/Smithsonian67-73diverseanglerfishsymbioticbacteriallureprimarycontextonly/notquizorhumanabilityvalidation. All18specificoceanmoodscenes72options6limitededitorialimagesandfullguidesoriginal. SpiritAnimal16prompts8themesincldolphin/Dog12/Superpower20actualread/mini21keysread/exactoceanregistrysearch0hits;currentbanknormalizedpromptduplicates0/notpsychologicalindependence/finalFJpending."
+}

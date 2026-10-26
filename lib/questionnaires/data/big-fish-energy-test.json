@@ -1,0 +1,1893 @@
+{
+  "slug": "big-fish-energy-test",
+  "code": "OCEAN_MOOD_METAPHORS_ORIGINAL_18",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "metaphor",
+  "kind": "archetype",
+  "title": {
+    "zh": "大鱼能量测试",
+    "en": "Big Fish Energy Test"
+  },
+  "resultHeading": {
+    "zh": "六种海洋比喻：次数与完整读法",
+    "en": "Six ocean images: counts and full guides"
+  },
+  "description": {
+    "zh": "免费大鱼能量测试：18道原创海洋心情小场面，探索鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼六种比喻，免费读九节完整结果与全部最高并列。",
+    "en": "Free Big Fish Energy Test: 18 original ocean mood scenes and six full guides, from Shark to Anglerfish. Read every highest tie without signup."
+  },
+  "seoTitle": {
+    "zh": "大鱼能量测试：六种海洋比喻与免费完整结果",
+    "en": "Big Fish Energy Test: Six Ocean Images, Full Results"
+  },
+  "minutes": 5,
+  "introduction": {
+    "zh": "一张海边照片，可以先配一句旁白，也可以安静看一会儿；一页海洋心情卡，可以先做完一个小部分，也可以试两种不同的拼法。用18个原创日常小安排，探索鲨鱼、海豚、鲸鱼、章鱼、河豚与鮟鱇鱼六种海洋比喻。每份九节完整结果都有具体例子、可调整的取舍、相近结果比较和小尝试，所有最高并列都保留全文。本版的“能量”只是趣味名称，不是心理能量或体力；鲸与海豚不是鱼，章鱼也不是鱼，六组不是六个精确物种。生物资料只解释有限画面，不验证人的人格、智力、共情、适应、健康或职业匹配。每组曝光相同，结果只读本次菜单的原始次数，不派隐藏主副型。可以先读再作答、修改或重测；无需账号或真实经历。草稿自愿开启，在本标签页最多保存24小时；分享只含结果名与公开链接。",
+    "en": "A seaside photograph can invite a playful caption or a quiet look. An ocean mood card can begin with finishing a little part or trying two arrangements. Across eighteen original everyday scenes, explore six marine images: Shark, Dolphin, Whale, Octopus, Pufferfish and Anglerfish. Each nine-section guide offers particular examples, adjustable tradeoffs, comparisons and a little experiment, retaining every highest tie in full. Energy is a playful title here, not psychological energy or fitness. Whales and dolphins are not fish; octopuses are not fish either, and the groups are not six precise species. Biological sources explain limited images without validating personality, intelligence, empathy, adaptability, health or career fit. Equal exposure produces raw counts for this attempt’s menus without hidden primary or secondary types. Read first, answer, edit or retake without an account or actual experiences. Optional drafts remain in this tab for up to twenty-four hours; sharing contains only names and public links."
+  },
+  "instructions": {
+    "zh": "把海洋心情卡当成这次日常小安排的比喻，选给定四项中更想先尝试的一项，不是选更聪明、更强或更像真实动物的答案。四个编辑选项不能穷尽偏好，不合适可退出，六份公开指南仍免费。六组各出现12次、每个位置各3次、省略6次；一选加1，无反向、对错或能力权重。完整18题后才显示原始次数，所有最高并列都保留全文，不硬派主副型。一直选同一位置会各3次，不证明理想均衡。无需真实经历、位置、照片或他人信息。",
+    "en": "Treat the ocean mood card as a metaphor for little everyday arrangements. Choose the offered step you would prefer first, not the cleverest, strongest or most biologically animal-like answer. Four editorial choices cannot exhaust preferences; leave if none fits and all six guides remain free. Every group appears twelve times, three in each position, and is omitted six times. A choice adds one count without reversals, correctness or ability weighting. Complete all eighteen to see raw counts and every highest tie in full, without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Enter no actual experiences, locations, photographs or another person’s information."
+  },
+  "source": {
+    "kind": "frontend_original_ocean_mood_preferences",
+    "formCode": "fm_ocean_mood_metaphors_18",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "3dbfc50db1632e00acaa50b5cb6db7bd853f08e548207074b18307bf056685c4",
+    "resultContentSha256": "97f399d1acd14faa45d36945d2fa47ad314dd060c30fee3976f04dc0d377c6c7",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "shark",
+      "title": {
+        "zh": "鲨鱼",
+        "en": "Shark"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "dolphin",
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "whale",
+      "title": {
+        "zh": "鲸鱼",
+        "en": "Whale"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "octopus",
+      "title": {
+        "zh": "章鱼",
+        "en": "Octopus"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "pufferfish",
+      "title": {
+        "zh": "河豚",
+        "en": "Pufferfish"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "anglerfish",
+      "title": {
+        "zh": "鮟鱇鱼",
+        "en": "Anglerfish"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "OCEAN_01",
+      "prompt": {
+        "zh": "你想给这个周末做一张海洋主题心情卡。哪一种小安排更想先写进去？",
+        "en": "You are making an ocean-themed mood card for this weekend. Which little arrangement would you put on it first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "挑一件一直想完成的小事，给它留一段明确时间。",
+            "en": "Choose one small thing you have wanted to finish and give it a definite slot."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "约一位愿意一起玩的朋友，留个轻松互动的片段。",
+            "en": "Invite a willing friend and leave space for a light shared moment."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己一段不赶进度的阅读或发呆时间。",
+            "en": "Leave yourself an unhurried stretch for reading or simply sitting."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "把两种平常分开的爱好放在一起，试一个新组合。",
+            "en": "Bring two usually separate hobbies together and try one new combination."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_02",
+      "prompt": {
+        "zh": "朋友带了几张海边照片，问你想怎样一起度过接下来的半小时。哪一项更有吸引力？",
+        "en": "A friend brings seaside photographs and asks how you would like to spend the next half hour together. What appeals most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "轮流给照片配一句有趣的旁白，让对方也能接下去。",
+            "en": "Take turns adding a playful caption the other person can continue."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "慢慢看其中一张，聊聊各自注意到的一个细节。",
+            "en": "Look slowly at one photograph and discuss one detail each of you notices."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "换几种摆法，把几张照片拼成不同的主题。",
+            "en": "Try several arrangements and combine the photographs into different themes."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先说好只参与这半小时，结束后保留自己的安排。",
+            "en": "Agree to join for this half hour while keeping your later arrangements."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_03",
+      "prompt": {
+        "zh": "你想在日常书桌上添一点海洋气氛，哪种变化更像这次想要的？",
+        "en": "You want a little ocean atmosphere at your everyday desk. Which change suits what you want this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "只留一张颜色安静的海景卡，让桌面有一点空白。",
+            "en": "Keep one quiet-coloured seascape card and some clear space around it."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把卡片、笔记和小物换位，看看能不能搭出新感觉。",
+            "en": "Move a card, notebook and little object around to try a different feel."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给自己的那一小块桌面划个范围，暂时不再添东西。",
+            "en": "Mark out your own little patch of desk and add nothing more for now."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "放一件只有自己知道来历的小物，不急着讲给别人。",
+            "en": "Keep a little object whose story you know without rushing to explain it."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_04",
+      "prompt": {
+        "zh": "你有几首想听的歌，准备给一个普通傍晚起海洋主题的名字。哪种听法更想试？",
+        "en": "You have a few songs and want an ocean-themed name for an ordinary evening. Which way of listening would you try?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种平常不相邻的曲风交替放，听听过渡有什么变化。",
+            "en": "Alternate two styles you do not usually pair and notice the transition."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先定一个听歌时段，结束后就不接新的邀请。",
+            "en": "Set a listening period and decline new invitations after it ends."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "挑一首私下喜欢的歌，自己慢慢听，不必解释选择。",
+            "en": "Choose one privately enjoyed song and listen without explaining your choice."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选定一张一直想听完的专辑，这次从头到尾听一次。",
+            "en": "Choose an album you have wanted to finish and listen through it once."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_05",
+      "prompt": {
+        "zh": "海洋主题的线上闲聊约好了很短，你更想怎样参加？",
+        "en": "An ocean-themed online chat is meant to be brief. How would you prefer to join?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先说清自己能待多久，到点自然告别。",
+            "en": "State how long you can stay and say goodbye when that time arrives."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "分享一小段自己喜欢的画面，其他想法暂时留在私下。",
+            "en": "Share one little image you like and keep your other thoughts private for now."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "带一个想完成的小问题，聊到答案后就收好。",
+            "en": "Bring one small question you want to finish and keep its answer when done."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "接住别人发来的轻松梗，再加一句让大家能回应的话。",
+            "en": "Pick up someone’s light joke and add a line others can answer."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_06",
+      "prompt": {
+        "zh": "你想从一叠海洋贴纸里挑一个放在私人笔记本上。选择时更想保留哪种感觉？",
+        "en": "You want one ocean sticker for a private notebook. Which feeling would you like to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "一个不需要别人看懂的小暗号，只对这次心情有意义。",
+            "en": "A little sign that need not make sense to others, only to this mood."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一个能提醒自己完成眼前小事的清楚标记。",
+            "en": "A clear mark that reminds you to finish the small thing in front of you."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "一个下次见朋友时可以拿来开玩笑的共同话题。",
+            "en": "A shared talking point for a playful exchange when you next meet a friend."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "一个让翻页节奏慢一点、看着舒服的留白。",
+            "en": "Some comfortable-looking space that lets the page turn a little more slowly."
+          },
+          "directionId": "whale"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_07",
+      "prompt": {
+        "zh": "你要把一组海洋主题书签整理到抽屉里。哪种做法更想先选？",
+        "en": "You are putting ocean-themed bookmarks into a drawer. Which approach would you choose first?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先挑出这周要用的一张，完成这一个小决定。",
+            "en": "Pick the one you will use this week and finish that single small decision."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "找两张能和朋友交换的，让整理带一点互动。",
+            "en": "Find two to exchange with a friend and give the sorting a shared moment."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "慢慢看每张的颜色，不急着一次整理完。",
+            "en": "Look at each colour slowly without needing to finish the whole sorting now."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "改用两种分法摆一摆，再选这次更喜欢的版本。",
+            "en": "Try two ways of grouping them and choose the version you prefer this time."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_08",
+      "prompt": {
+        "zh": "朋友提议用海洋颜色装饰聚会的一小角。你更想负责哪一部分？",
+        "en": "Friends suggest ocean colours for one little corner of a gathering. Which part would you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "给愿意加入的人留一个能轻松参与的小环节。",
+            "en": "Leave an easy little part for anyone who wants to join."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "选一处可以安静坐一会儿的布置，不塞满整面墙。",
+            "en": "Arrange one place to sit quietly instead of filling the whole wall."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "把两种手边材料换着搭，保留一个意外的新组合。",
+            "en": "Pair two available materials in different ways and keep an unexpected combination."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "确认自己只做这一角，其余装饰不默认接下。",
+            "en": "Confirm that you are doing this corner without automatically taking the rest."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_09",
+      "prompt": {
+        "zh": "一段日常散步回来，你想用海洋比喻给它写个小标题。哪种切入点更喜欢？",
+        "en": "After an everyday walk, you want a little title using an ocean image. Which starting point do you prefer?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "记录一处让自己放慢脚步的颜色或声音。",
+            "en": "Record one colour or sound that made you slow your steps."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把路上两个不相干的小发现拼成一个新名字。",
+            "en": "Combine two unrelated little discoveries from the walk into a new name."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "写清这段时间属于自己，暂时不把它变成别的任务。",
+            "en": "State that this time was yours without turning it into another task for now."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "只给自己留一句话，不需要发到任何地方。",
+            "en": "Leave one sentence for yourself without needing to post it anywhere."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_10",
+      "prompt": {
+        "zh": "你在做一份海洋主题的小点心菜单，只是想象口味和摆法，不必实际烹饪。哪一部分更有趣？",
+        "en": "You are imagining an ocean-themed snack menu without needing to cook. Which part is more interesting?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种熟悉口味换个组合，试着给它起新名字。",
+            "en": "Pair two familiar flavours differently and give the combination a new name."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "只设计一道自己愿意做的，其余留给别人自选。",
+            "en": "Design only one you would enjoy making and let others choose the rest."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "藏一个只有自己知道的名字由来，暂时不写说明。",
+            "en": "Keep a private reason for a name without adding an explanation yet."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "选定一个小主题，把这页菜单先做成完整版本。",
+            "en": "Choose one small theme and finish a complete version of this page."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_11",
+      "prompt": {
+        "zh": "海洋主题读书角有人希望你推荐很多书，你这次更想怎样回应？",
+        "en": "Someone at an ocean-themed reading corner asks for many book recommendations. How would you prefer to respond this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "说明这次只想分享一本，其他书目先不承诺。",
+            "en": "Explain that you want to share one book this time without promising a longer list."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "留下一本对自己很特别的书名，不展开私人原因。",
+            "en": "Leave one personally special title without expanding its private reason."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先选最想推荐的一本，完整说清为什么愿意读它。",
+            "en": "Choose the one you most want to recommend and finish describing its appeal."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "请对方也说一本喜欢的，让推荐变成一来一回。",
+            "en": "Invite the other person’s favourite so the recommendations go both ways."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_12",
+      "prompt": {
+        "zh": "你想给一个没有特别安排的上午选一张海洋壁纸。更喜欢它提醒自己什么？",
+        "en": "You want an ocean wallpaper for a morning without special plans. What would you like it to remind you of?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "可以有一小段不向外说明的个人兴趣时间。",
+            "en": "You can have a little time for a private interest without explaining it outwardly."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "先完成一件很小的事，再决定下一步。",
+            "en": "Finish one very small thing before deciding what comes next."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "可以主动找一个愿意闲聊的人，交换一点轻松话题。",
+            "en": "You can reach out to someone who wants a light exchange."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "可以留出一点没有任务的空白，不急着填满。",
+            "en": "You can leave some task-free space without rushing to fill it."
+          },
+          "directionId": "whale"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_13",
+      "prompt": {
+        "zh": "你想给海洋主题相册做一张封面，今天更想从哪里开始？",
+        "en": "You want a cover for an ocean-themed album. Where would you prefer to begin today?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "先选定一个标题，把封面这一小步完成。",
+            "en": "Choose one title and finish that small cover step."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "问一位朋友愿不愿意各写一个候选标题，互相接一句。",
+            "en": "Ask a willing friend for a title each and answer one another’s suggestion."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "先看一会儿空白版面，让颜色慢慢定下来。",
+            "en": "Look at the blank layout for a while and let the colours settle gradually."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "做两个很不同的小样，比较哪种拼法更合这次心情。",
+            "en": "Make two very different little drafts and compare their fit for this mood."
+          },
+          "directionId": "octopus"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_14",
+      "prompt": {
+        "zh": "朋友发来一张海豚照片，你想回复一条轻松消息。哪种更像这次想表达的？",
+        "en": "A friend sends a dolphin photograph and you want a light reply. What would you prefer to express this time?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "接一个有趣的小问题，让这段闲聊能往下走。",
+            "en": "Add a playful little question that lets the conversation continue."
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "说说自己想慢慢看这张图的哪一处，不急着换下一张。",
+            "en": "Describe one part you want to look at slowly without rushing to another image."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "试两种不同的旁白，看看哪一版更有新鲜感。",
+            "en": "Try two different captions and notice which feels fresher."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "友善说明自己只聊一会儿，晚一点要留给别的安排。",
+            "en": "Kindly say you can chat briefly and have other plans for later."
+          },
+          "directionId": "pufferfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_15",
+      "prompt": {
+        "zh": "你在私人手账里留了一页海洋主题空白。接下来更想怎样使用？",
+        "en": "You left an ocean-themed blank page in a private journal. How would you like to use it next?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "留一个大一点的安静色块，让这页不必装满。",
+            "en": "Leave a larger quiet block of colour without filling the page."
+          },
+          "directionId": "whale"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "把两种旧贴纸重新拼一下，不沿用平常排版。",
+            "en": "Recombine two old stickers instead of keeping your usual layout."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "给这一页限定一小块书写范围，写完就停。",
+            "en": "Set a small writing area for this page and stop when it is filled."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "记一个自己才懂的小发现，不加公开解释。",
+            "en": "Record a little discovery you understand without a public explanation."
+          },
+          "directionId": "anglerfish"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_16",
+      "prompt": {
+        "zh": "一个海洋主题小游戏允许自己改规则，只供熟人轻松玩。你更想改哪一处？",
+        "en": "An ocean-themed game lets you change a rule just for light play with friends. What would you prefer to change?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "把两种已有玩法拼到同一轮，看看会有什么新变化。",
+            "en": "Combine two existing ways of playing in one round and see what changes."
+          },
+          "directionId": "octopus"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "给每人留一个可跳过的环节，让参与范围能自己选。",
+            "en": "Give each person one part to skip so they can choose their participation."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "留一张不需要解释的私人提示卡，只有本人看。",
+            "en": "Keep one private prompt card that only its holder sees and need not explain."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "先定一个清楚的小目标，完成这一轮再考虑别的变化。",
+            "en": "Set one clear little goal and finish this round before considering more changes."
+          },
+          "directionId": "shark"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_17",
+      "prompt": {
+        "zh": "海洋主题的周末活动临时增加一个小环节，你更想保留什么？",
+        "en": "A weekend ocean-themed activity adds another little part unexpectedly. What would you prefer to keep?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "自己原先答应的那一段，不自动扩大参与范围。",
+            "en": "The part you originally agreed to without automatically expanding it."
+          },
+          "directionId": "pufferfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "一小段独自看展卡的时间，不必随时向别人解释。",
+            "en": "A little time looking at display cards alone without constant explanation."
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "原先选定的一件小事，先把它做完。",
+            "en": "The one small thing you had chosen, finishing it first."
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "和愿意一起玩的同伴之间轻松接话的空间。",
+            "en": "Room for a light exchange with a companion who wants to join."
+          },
+          "directionId": "dolphin"
+        }
+      ]
+    },
+    {
+      "id": "OCEAN_18",
+      "prompt": {
+        "zh": "你想给今天的海洋心情卡收个尾，哪一种句子更想留在最后？",
+        "en": "You want to close today’s ocean mood card. Which kind of line would you keep at the end?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "zh": "“有一点喜欢，可以暂时只属于我自己。”",
+            "en": "“A little liking can stay just mine for now.”"
+          },
+          "directionId": "anglerfish"
+        },
+        {
+          "id": "B",
+          "label": {
+            "zh": "“今天这件小事到这里就完成了。”",
+            "en": "“This small thing is finished for today.”"
+          },
+          "directionId": "shark"
+        },
+        {
+          "id": "C",
+          "label": {
+            "zh": "“有空时，想和你接着聊刚才那个轻松话题。”",
+            "en": "“When there is time, I would like to continue that light conversation with you.”"
+          },
+          "directionId": "dolphin"
+        },
+        {
+          "id": "D",
+          "label": {
+            "zh": "“这页留一点空白，明天再慢慢翻。”",
+            "en": "“Leave some space on this page and turn it slowly tomorrow.”"
+          },
+          "directionId": "whale"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "shark",
+      "directionIds": [
+        "shark"
+      ],
+      "title": {
+        "zh": "鲨鱼",
+        "en": "Shark"
+      },
+      "headline": {
+        "zh": "先给一件小事一个清楚的终点。",
+        "en": "Give one little thing a clear finishing point first."
+      },
+      "summary": {
+        "zh": "你更常选完成一张封面、听完一张专辑或收好一个小决定。鲨鱼是本版“先完成这一件”的编辑比喻，不证明掠食本能、效率、意志、竞争力或压力下决策能力。",
+        "en": "You more often chose a finished cover, an album heard through or one small decision settled. Shark is this edition’s image for finishing this one thing first, not predatory instinct, efficiency, willpower, competitiveness or decisions under pressure."
+      },
+      "seo": {
+        "title": {
+          "zh": "鲨鱼结果：大鱼能量测试的完整读法",
+          "en": "Shark Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从周末心情卡、相册封面与听歌小安排读鲨鱼结果，比较小事的终点、留白、相近海洋比喻与全部最高并列全文。",
+          "en": "Read the Shark result through a weekend mood card, album cover and music. Compare small finishing points, room to pause, nearby images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常给哪件小事一个终点",
+            "en": "The little thing you more often wanted to finish"
+          },
+          "paragraphs": [
+            {
+              "zh": "在海洋心情卡菜单里，你可能先写一件周末想完成的小事，或从一叠书签里选定这周要用的一张。吸引你的可能是“到这里就好”的清楚感，不必是更快、更多或比别人做得好。回看一题，找出你想完成的是选择本身，还是想让下一段时间不再围着它转。这个具体区别，比“我总会坚持到底”的大结论更接近这次作答。",
+              "en": "In the ocean mood card menus, you may begin with a little weekend task or choose this week’s bookmark from a pile. The appeal may be a clear point at which something is enough, without doing it faster, doing more or outperforming someone. Revisit one question and separate finishing the choice itself from wanting the next stretch of time free of that decision. That concrete difference stays closer to this attempt than a large conclusion that you always persist until everything is done."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "把相册封面这一小步先做完",
+            "en": "Finish just the little album-cover step"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象你有一组普通海景照片，只想给相册做张封面。你可以先定一个标题和一张图，把这页收好，不必同时决定整本相册的排序。这样的结束让小事有边界，也允许你接着去休息、聊天或做别的喜欢的事。它不是工作效率实验，也没有观察你实际上能做多快；你完全可以只比较自己更喜欢哪一种安排。",
+              "en": "Imagine an ordinary set of seascape photographs and the wish for an album cover. Choose one title and image, then put that page away without deciding the order of the whole album. The ending gives the little task a boundary and leaves you free to rest, talk or enjoy something else. It is no productivity experiment and has not observed how quickly you can actually work. You can simply compare which arrangement you prefer, without making or uploading a cover or timing your performance."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "完成可以替下一段时间腾出地方",
+            "en": "A finish can leave room for the next stretch"
+          },
+          "paragraphs": [
+            {
+              "zh": "一件小事有了终点，可能不再占着你的心情卡。比如推荐一本书时，只把这一本为什么吸引你说完整；玩一轮小游戏时，先让这一轮正常收场。这种菜单偏好让注意力落到一段有限的事情上，不要求你放弃变化和互动。题目没有测注意力、可靠性、执行力、拖延或自律，也不能证明你比别人更容易完成现实长期目标。",
+              "en": "A small thing with an ending may no longer occupy the mood card. Recommend one book and finish describing its appeal, or let a round of a light game close before adding another variation. This preference puts attention on something bounded without requiring you to abandon change or company. The questions measure neither attention, reliability, execution, delay nor self-discipline. They cannot establish that you finish actual long-term goals more readily than someone else. An offered little finishing point may simply be what suited today’s scene."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "鲨鱼在这里是编辑比喻，不是人的生物解释",
+            "en": "Shark is an editorial image, not human biology"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版用鲨鱼这个名字指向“先完成这一件”的海洋画面，不从真实鲨鱼的捕食或游动推导人的行为。鲨鱼也不是一个精确物种，六个结果不构成动物分类表。不要把结果理解成必须持续工作、不能休息、天生直接或适合竞争。海洋比喻可以帮助记住一个小选择，却不能为人格、智力、健康、职业或社会地位提供生物依据。",
+              "en": "This edition uses Shark as an ocean image for finishing this one thing first, without deriving human behaviour from actual hunting or swimming. Shark also names no single precise species, and these six readings form no taxonomy. The result requires neither continual work nor avoiding rest and establishes no natural directness or suitability for competition. A marine image can make a little preference memorable. It supplies no biological basis for conclusions about personality, intelligence, health, careers or social standing outside these particular offered menus."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "终点可以小，也可以重新选",
+            "en": "A finishing point can stay small or be chosen again"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你把“做封面”扩大成“今晚整理完全部照片”，原本的小安排可能变得不再有趣。试着把范围退回一张图、一个标题，看看是否更喜欢；也可以决定这次先不做。改变终点不等于失败，暂停也不违背这个结果。这里比较的是自己想怎样安排一件小事，不是在诊断你过度追求成就、不会放松或缺少坚持。",
+              "en": "If making a cover grows into sorting every photograph tonight, the original little arrangement may become less inviting. Return to one image and title and compare the appeal, or choose not to do it this time. Changing the finishing point is no failure, and pausing does not contradict the reading. This compares how you want to arrange one small thing rather than diagnosing achievement seeking, inability to relax or lack of persistence. Keep the finish proportionate to the scene instead of trying to act like the animal’s name."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲸鱼、章鱼怎么比",
+            "en": "Compare Whale and Octopus"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲸鱼可能更想让一段时间保留空白，不急着给它终点；鲨鱼更常先选一个愿意收好的小部分。章鱼可能更想试两种封面搭法，鲨鱼则先把选定的一版做到“这次够了”。两种动作也可以前后相接。近分时读完整例子，不把这三组排成勤奋、缓慢或聪明的等级，也不据此判断谁更适合现实工作。",
+              "en": "Whale may prefer an unhurried stretch without giving it an ending yet; Shark more often starts with a small part worth closing. Octopus may want two cover arrangements to try, while Shark first takes one chosen version to enough for this attempt. The actions can also follow each other. Compare the complete examples with close counts instead of turning these images into levels of diligence, slowness or intelligence. They provide no basis for deciding who is better suited to actual work or a responsibility in a group."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "写一个只包含一步的收尾句",
+            "en": "Write a closing line containing only one step"
+          },
+          "paragraphs": [
+            {
+              "zh": "不必真的整理照片，在想象中给相册封面写一句收尾：“选好这一张，今天先到这里。”再写另一个版本：“先留两个标题，明天再看。”比较哪一句更合这次心情，也可以都喜欢。这个尝试不计时、不评正确率，不证明实际执行能力。只带走一个关于小事范围的发现，无需上传草稿，也不用让自己或朋友按结果名字行动。",
+              "en": "Without actually sorting photographs, imagine a closing line for the cover: choose this image and stop here today. Write another version leaving two titles to revisit tomorrow. Compare their fit for this mood, or like both. The experiment has no timer or accuracy score and proves no practical ability to execute a plan. Keep an observation about the size of a little task, uploading no draft and requiring neither yourself nor a friend to behave according to the animal name. The comparison itself is enough."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dolphin",
+      "directionIds": [
+        "dolphin"
+      ],
+      "title": {
+        "zh": "海豚",
+        "en": "Dolphin"
+      },
+      "headline": {
+        "zh": "给一个轻松话题留下一来一回。",
+        "en": "Leave a light topic room to go back and forth."
+      },
+      "summary": {
+        "zh": "你更常选轮流配旁白、交换书签或接住一句轻松话题。海豚是本版愿意互动的海洋比喻，不证明外向、共情、社交技巧、群体忠诚或别人对你的评价。",
+        "en": "You more often chose taking turns with captions, exchanging bookmarks or continuing a light topic. Dolphin is an image for a willing exchange here, not extroversion, empathy, social skill, group loyalty or how others regard you."
+      },
+      "seo": {
+        "title": {
+          "zh": "海豚结果：大鱼能量测试的完整读法",
+          "en": "Dolphin Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从海边照片旁白、书签交换和轻松闲聊读海豚结果，比较自愿互动、安静相处、相近海洋比喻与全部最高并列全文。",
+          "en": "Read Dolphin through seaside captions, bookmark exchanges and light chats. Compare willing interaction, quiet company, nearby images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常想让哪个小话题来回一次",
+            "en": "The little topic you wanted to exchange"
+          },
+          "paragraphs": [
+            {
+              "zh": "朋友带来海边照片时，你可能更想轮流配旁白；整理书签时，你可能想到找两张与朋友交换。吸引你的可以是具体这一来一回，而不是越多人越好。看见海豚结果，不需要把所有相聚都安排得热闹。回看一题，区分自己喜欢的是这位同伴、这个话题，还是轮到双方都能加一点内容；菜单没有把这几种原因拆开测量。",
+              "en": "A friend’s seaside photographs may invite taking turns with captions; sorting bookmarks may suggest finding two to exchange. The appeal can be this particular back-and-forth rather than more people being better. A Dolphin reading requires no lively plan for every gathering. Revisit a question and distinguish liking this companion, this topic or the chance for both people to add something. The menus have not measured those reasons separately, and the animal’s name need not replace the specific detail that attracted you in this attempt."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让照片旁白留一个可接的位置",
+            "en": "Leave a caption somewhere another person can join"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一张海边长椅的照片，你写“这张椅子今天在等谁？”愿意一起玩的人可以给出一个普通答案，也可以反问。你不必把照片发出去，只是在比较这种互动是否比独自看图更合这次心情。即使对方没有回应，照片也没有失去意义。这不是检验别人喜欢不喜欢你，也不是靠一条回复判断你是否有社交魅力。",
+              "en": "Imagine a photograph of a seaside bench and a caption asking whom the bench is waiting for today. A willing companion can offer an ordinary answer or another question. Send no photograph; simply compare whether that exchange suits this mood more than looking alone. A missing reply does not remove the picture’s meaning. This is no test of whether someone likes you or whether a single response proves social charm. The invented exchange can remain a possibility you enjoy rather than an outcome anyone has to deliver."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "互动不一定要承担维持气氛的责任",
+            "en": "An exchange need not become responsibility for the mood"
+          },
+          "paragraphs": [
+            {
+              "zh": "一次轮流起标题、推荐一本书或接一句轻松梗，就可以完成这个入口。你不需要让每个人加入，不负责使大家开心，也不必掩盖自己的不同喜好。题目问的是给定小场面中更愿意选哪一步，没有观察你维持群体关系的能力。海豚次数较高不能证明你会读空气、应该做协调者，或比选其他结果的人更温暖、更容易被信任。",
+              "en": "Taking turns with titles, recommending one book or answering a light joke can be enough for this opening. You need neither everyone’s participation nor responsibility for happiness, and no different preference of your own needs hiding. The questions ask which offered step you would prefer in small scenes without observing group relationship skills. A higher Dolphin count cannot establish that you read a room, should coordinate people or are warmer and more trustworthy than someone whose highest reading uses another creature. Keep the voluntary exchange at its actual scale."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "海豚的生物身份不验证人的社交类型",
+            "en": "Dolphin biology does not validate a human social type"
+          },
+          "paragraphs": [
+            {
+              "zh": "NOAA说明海豚属于哺乳动物，用肺呼吸；鲸也不是鱼。“大鱼能量”因此是宽泛的趣味名称，不是六种鱼的分类测验。本版把海豚作为轻松互动的编辑形象，不把动物社会行为等同人的共情、聪明或群体忠诚。你可以喜欢这个比喻，却不把真实海豚当人的行为范本，也不用根据动物研究来确认这份题本有效。",
+              "en": "NOAA describes dolphins as mammals that breathe air with lungs; whales are not fish either. Big fish energy is therefore a broad playful title, not a classification test for six fishes. This edition uses Dolphin as an editorial image for a light exchange without equating animal social behaviour with human empathy, intelligence or group loyalty. You can enjoy the metaphor without treating actual dolphins as a model for human conduct or taking animal research as validation of the questions, scoring or interpretations offered on this page."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "给对方留位置，也给自己的喜好留位置",
+            "en": "Leave room for the other person and your own preference"
+          },
+          "paragraphs": [
+            {
+              "zh": "轮流写旁白时，你可以先写自己想说的，再让对方选择接不接，而不是先猜一个最讨喜的答案。如果这次更想安静看图，也可以直接换一种安排。海豚这个结果不要求你持续配合，不把暂停解释成失去类型。这里的取舍是一次小互动要占多大空间，不是在诊断讨好、缺少界限、孤独或过度依赖他人回应。",
+              "en": "When taking turns with captions, write what you want to say and let the other person choose whether to continue, rather than guessing the most pleasing answer first. If looking quietly suits you better this time, change the arrangement. Dolphin requires no continual cooperation and does not make a pause mean losing a type. The tradeoff concerns the space a little exchange occupies. It diagnoses neither pleasing others, lack of boundaries, loneliness nor dependence on replies, because the menus contain no observations that could establish those conclusions."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲸鱼、河豚和精神动物版怎么比",
+            "en": "Compare Whale, Pufferfish and the Spirit Animal edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲸鱼可能更想慢慢看一张照片，海豚更常先想让对方也加一句；河豚可能先说好闲聊的时间范围，海豚则先把话题接起来。这些动作能够同时出现。既有精神动物版也有海豚，但它用16个宽泛日常情境比较八种动物；本版用18个具体海洋心情小安排比较六组，不换算分数，也没有证明两版心理独立。相同名字不代表同一成绩。",
+              "en": "Whale may want to look slowly at one photograph; Dolphin more often begins with a line another person can add. Pufferfish may first agree how long a chat lasts, while Dolphin first connects the topic. These actions can coexist. The existing Spirit Animal edition also has a dolphin but compares eight animals through sixteen broader everyday scenes. This edition compares six groups through eighteen particular ocean mood arrangements. There is no score conversion or established psychological independence between editions, and a shared name does not make their counts the same result."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给一句旁白写有回应和没回应的两版",
+            "en": "Give a caption a reply and a no-reply version"
+          },
+          "paragraphs": [
+            {
+              "zh": "仍用虚构长椅照片，先写一句旁白，再分别补上“朋友接了一句”和“朋友暂时没回”两个后续。看看两个版本是否都能保留你喜欢的画面，不需要真的发消息。这个尝试不评社交成功率，不用真实聊天记录，也不要求谁承担回应。最后只保留一条关于互动大小的发现，例如“有一句来回很好，没有来回也不影响我喜欢这张图”。",
+              "en": "Keep the invented bench photograph and one caption. Write a continuation where a friend replies and another where no reply arrives yet. Notice whether both retain something you like in the image, without actually messaging anyone. This evaluates no social success rate, uses no real chat history and requires nobody to answer. Keep an observation about the size of an exchange: a line back can be enjoyable while the photograph remains appealing without one. That is enough for the exercise without deciding what kind of person you or anyone else must be."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whale",
+      "directionIds": [
+        "whale"
+      ],
+      "title": {
+        "zh": "鲸鱼",
+        "en": "Whale"
+      },
+      "headline": {
+        "zh": "让这一段时间不用急着变成下一件事。",
+        "en": "Let this stretch of time be without hurrying it into the next thing."
+      },
+      "summary": {
+        "zh": "你更常选慢看一张照片、给桌面留白或不赶进度的阅读。鲸鱼是本版从容留白的海洋比喻，不证明智慧、深度、反应速度、内向程度或压力恢复能力。",
+        "en": "You more often chose a slowly viewed photograph, clear desk space or unhurried reading. Whale is an image for space without hurry here, not wisdom, depth, reaction speed, introversion or recovery from stress."
+      },
+      "seo": {
+        "title": {
+          "zh": "鲸鱼结果：大鱼能量测试的完整读法",
+          "en": "Whale Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从海景卡、阅读角和手账留白读鲸鱼结果，比较慢看一会儿的偏好、活动的节奏、相近海洋比喻与全部最高并列全文。",
+          "en": "Read Whale through a seascape card, reading corner and blank journal space. Compare unhurried moments, activity rhythms, nearby images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常愿意让哪一段慢一点",
+            "en": "The stretch you more often wanted to leave unhurried"
+          },
+          "paragraphs": [
+            {
+              "zh": "面对海边照片，你可能想先慢慢看其中一张；安排周末时，你可能先保留一段没有进度要求的阅读。这个入口不要求你总是安静，也不说慢比快更好。回看一个选项，看看吸引你的是那个画面、没有立即结束的感觉，还是暂时不用再添内容。它们可能一起出现，题目却没有把它们变成不同能力，也没有观察现实中的阅读速度。",
+              "en": "With seaside photographs, you may want to look slowly at one; a weekend may begin with reading that has no progress requirement. This opening requires no continual quiet and makes slow no better than fast. Revisit an option and distinguish the image, the feeling of not ending immediately and the chance not to add more content yet. They can appear together without becoming separate abilities. The questions have not observed actual reading speed or established that an unhurried choice means you usually act slowly elsewhere."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "让海景卡旁边有一点空白",
+            "en": "Leave a little clear space beside a seascape card"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象桌上只有一张海景卡，旁边留出一小块空地。你可以看它一会儿，也可以去做别的事，不需要让空白发挥某种效果。再想一个版本：旁边添两张卡，把颜色排满。比较哪一版更合今天的心情即可。这个例子不建议你购物或改造房间，也不是减压、恢复专注或治疗任何问题的方法；只是在读一个布置偏好。",
+              "en": "Imagine one seascape card on a desk with a little clear patch beside it. Look for a while or move to something else without needing the space to produce an effect. Imagine another version with two more cards filling the colour arrangement, then compare their fit for today’s mood. Buy nothing and change no room to use the example. It offers no method for reducing stress, restoring attention or treating a problem. The comparison simply gives a concrete arrangement to the preference described by this reading."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "空白可以是安排的一部分",
+            "en": "A blank can belong to the arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "手账不必每一格都写满，相册也不必一次放进全部照片。你可以有意保留一页，让之后想添的东西仍有位置；也可以决定永远不补。鲸鱼这一组偏好让“不急着填满”成为一个可选择的动作，不把它解释成高级智慧或深刻人格。题本没有测长远眼光、持续注意、判断力、情绪稳定或你在生活中承担多少事情。",
+              "en": "A journal need not fill every box, and an album need not receive every photograph at once. Leave a page so something you later want to add has a place, or decide never to fill it. These preferences make not rushing to fill space an available action rather than a sign of superior wisdom or a profound personality. The bank has assessed no long view, sustained attention, judgment, emotional stability or amount of responsibility you carry in actual life. A blank page is enough without those larger claims."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "鲸鱼不是智慧或慢节奏的生物证明",
+            "en": "A whale supplies no biological proof of human wisdom"
+          },
+          "paragraphs": [
+            {
+              "zh": "NOAA把鲸与海豚都归为哺乳动物；“大鱼”不是这里的严格生物学分类。鲸鱼这个宽泛名称也包括不同动物，不能用一个“古老智慧”的形容概括它们。本版只借一个海洋画面来命名从容留白的编辑入口，不把真实鲸的生活方式变成人的默认节奏。结果不证明你更聪明、更有分量，也不判断你反应慢或不适合快节奏生活。",
+              "en": "NOAA places whales and dolphins among mammals, so big fish is no strict biological classification here. Whale is also a broad name for different animals rather than a whole group explained by ancient wisdom. This edition borrows an ocean image to name an editorial opening for unhurried space, without making actual whale lives a human default rhythm. The result establishes no greater intelligence or weight of presence and judges neither slow reactions nor unsuitability for a fast-moving life. Animal facts provide background rather than a test of your abilities."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "慢一点可以有范围，不必成为整天的规定",
+            "en": "An unhurried moment need not become a rule for the whole day"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只给一张照片留几分钟，随后去参加热闹活动；也可以今天想慢看，明天更想赶快选好。场景与心情变了，安排可以随之调整，不需要维护一种固定节奏。这里的小取舍是这次留多大空间，不是在判断拖延、逃避或生活方式的对错。最高次数也不支持别人要求你更快，或要求你永远保持沉静。",
+              "en": "Leave a few minutes for one photograph, then join a lively activity. Prefer looking slowly today and making a quick choice tomorrow. Arrangements can move with the scene and mood without maintaining a fixed rhythm. The little tradeoff concerns how much space you want this time, not delay, avoidance or a correct way to live. A highest count supports neither another person’s demand that you hurry nor a demand that you remain serene. Keep the reading local to the offered arrangements instead of turning it into a rule for every day."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲨鱼、鮟鱇鱼怎么比",
+            "en": "Compare Shark and Anglerfish"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲨鱼可能先把相册封面这一小步做完，鲸鱼更常先给颜色和画面一点停留时间。鮟鱇鱼可能先把一段喜欢留在私下，鲸鱼则先保留不赶进度的空间；慢看也可以和朋友一起，私人兴趣也可以很快完成。近分时看这些具体区别，不把鲸鱼等同深刻、鮟鱇鱼等同孤独或鲨鱼等同效率。三组都没有测这些特质。",
+              "en": "Shark may first finish the little album-cover step, while Whale more often leaves colours and images some time to stay. Anglerfish may first keep a liking private; Whale begins with space without a progress demand. Slow looking can happen with a friend, and a private interest can be finished quickly. Compare these concrete distinctions with close counts instead of making Whale mean profundity, Anglerfish loneliness or Shark efficiency. None of those qualities was assessed, and several of the described actions can belong to the same afternoon."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给同一页写一个满版和一个留白版",
+            "en": "Give one page a full version and a spacious version"
+          },
+          "paragraphs": [
+            {
+              "zh": "在想象中给海洋手账排一页，第一版放满三张卡，第二版只留一张。各写一句自己下一步想做什么，看看哪版更合这次心情。无需动手装饰、购买材料或公布手账，也不用要求自己变得平静。最后只保留一个关于画面密度的观察，例如“这次我喜欢一张卡旁边有空位”。这不是恢复能力、注意力或心理健康的测验。",
+              "en": "Imagine an ocean journal page filled with three cards and another keeping only one. Write one line about what you would like to do next with each and compare this mood’s preference. Decorate nothing, buy no materials and publish no journal to try it. You need not make yourself calm. Keep an observation about the density of an image, such as liking clear space beside one card this time. It is no assessment of recovery, attention or mental health and supplies no target state you are meant to achieve."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "octopus",
+      "directionIds": [
+        "octopus"
+      ],
+      "title": {
+        "zh": "章鱼",
+        "en": "Octopus"
+      },
+      "headline": {
+        "zh": "把两种熟悉的东西换一种接法。",
+        "en": "Give two familiar things a different connection."
+      },
+      "summary": {
+        "zh": "你更常选换摆法、试两个小样或把熟悉爱好搭出新组合。章鱼是本版变化组合的海洋比喻，不证明多任务、适应力、智力、创造力高低或识别环境的能力。",
+        "en": "You more often chose rearrangements, two little drafts or a new combination of familiar hobbies. Octopus is an image for recombination here, not multitasking, adaptability, intelligence, levels of creativity or environmental awareness."
+      },
+      "seo": {
+        "title": {
+          "zh": "章鱼结果：大鱼能量测试的完整读法",
+          "en": "Octopus Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从照片拼法、听歌顺序与海洋心情卡读章鱼结果，比较新组合、保留旧版本、相近海洋比喻和全部最高并列全文。",
+          "en": "Read Octopus through photo arrangements, music sequences and an ocean mood card. Compare new combinations, older versions, nearby images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常想把哪两部分重新接起来",
+            "en": "The parts you more often wanted to reconnect"
+          },
+          "paragraphs": [
+            {
+              "zh": "海洋照片摆到一起时，你可能想换两种顺序；熟悉的两种曲风，也可能让你想试一个平常没有的过渡。这个入口关心的是已有东西换个接法，不要求不断追新，更不要求同时做很多任务。回看一题，区分你喜欢的是新鲜感、两种版本的对照，还是某一种具体颜色与声音。计数没有把这些原因拆成能力或稳定人格。",
+              "en": "Ocean photographs together may invite two arrangements, and two familiar music styles may suggest an unusual transition. This opening concerns reconnecting existing things without requiring continual novelty or many tasks at once. Revisit a question and separate freshness, comparing versions and a particular colour or sound. The counts have not made those reasons into abilities or stable personality features. A specific combination can be appealing even when you normally prefer one thing at a time or would not want a varied schedule throughout the day."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "给同一组照片排两个小样",
+            "en": "Arrange two little drafts from the same photographs"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象有三张海边照片，第一版按颜色从浅到深，第二版把同一颜色隔开放。每版补一个短标题，看看哪种搭法更合这次心情。照片不需要来自真实旅行，也不用制作成品。你可以只想象两版之间的变化，再保留其中一版或两版。这里没有评审，不看创意是否新颖、是否比别人强，也不证明你能适应复杂现实环境。",
+              "en": "Imagine three seaside photographs, arranged from light to dark in one draft and with similar colours separated in another. Give each a short title and compare their fit for this mood. The pictures need no actual trip or finished product. Imagine the change and keep either or both versions. No judge evaluates originality or superiority here, and the exercise proves no ability to adapt to a complicated actual environment. The small comparison can stay enjoyable without becoming a demonstration of creative talent or flexible thinking."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "变化可以很小，不用推翻原来的版本",
+            "en": "A variation can stay small without replacing the original"
+          },
+          "paragraphs": [
+            {
+              "zh": "移动一张卡片、换一个标题或把两种曲风相邻放，都能让同一批内容出现不同感觉。你不必删除旧版，也不必给变化找出重大意义。章鱼这一组菜单偏好让“试另一种接法”成为入口，不把它当更聪明或更有创造力的证据。题本没有测多任务表现、跨领域迁移、学习速度或你处理突发状况的方式。",
+              "en": "Moving one card, changing a title or placing two music styles next to each other can give the same material another feel. Delete no earlier version and find no large meaning for the variation. These menus make trying another connection an entrance without treating it as evidence of greater intelligence or creativity. They assess neither multitasking performance, transfer between domains, learning speed nor responses to surprises. The change can remain a small preference about familiar content instead of travelling into claims about how you manage actual work or demands."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "八腕形象不是人的多任务能力模型",
+            "en": "An eight-arm image is no model of human multitasking"
+          },
+          "paragraphs": [
+            {
+              "zh": "蒙特雷湾水族馆介绍巨型太平洋章鱼的八腕、变色和软体动物身份，这些是具体动物的背景。本版只借章鱼形象给变化组合命名，不把八只腕解释成人能同时处理八项工作，也不把“九个大脑”的流行说法搬成人格结论。章鱼不是鱼，动物的能力不自动属于选中这个结果的人；生物资料不验证本题的计分、效度或跨语言等价。",
+              "en": "Monterey Bay Aquarium describes the giant Pacific octopus’s eight arms, changing skin colour and identity as a mollusc. Those facts concern an animal. This edition only borrows the image to name recombination, without making eight arms mean a human can manage eight jobs or turning a popular nine-brain phrase into a personality conclusion. An octopus is not a fish, and animal capacities do not transfer to someone receiving this reading. Biological information validates neither this scoring, validity nor equivalence between the two language versions of these original menus."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "多一个版本之后，也可以停止比较",
+            "en": "After another version, comparison can stop"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果一直想再换一种排版，原本的小心情卡可能变成没有尽头的项目。可以先保留两版，把下一步改成“今天先到这里”，也可以继续玩，只要这是你当下愿意的。停止或继续都不改变你是否配得上章鱼这个名字。这里的取舍是想比较几种版本，不是在诊断犹豫、缺少深度、身份不稳定或难以专注；题目没有收集那些材料。",
+              "en": "Continually finding another layout can turn a little mood card into a project without an ending. Keep two versions and stop here today, or continue playing if that is what you currently want. Neither stopping nor continuing decides whether you qualify for the name Octopus. The tradeoff concerns how many versions you want to compare rather than hesitation, lack of depth, an unstable identity or difficulty focusing. The questions have collected no material to establish those conclusions or to recommend how many tasks you should carry in actual life."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲨鱼、海豚怎么比",
+            "en": "Compare Shark and Dolphin"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲨鱼可能先把选定的一版封面收好，章鱼更常先想两种不同小样。海豚可能更想让同伴给照片接一句旁白，章鱼则先想旁白和画面怎样换个组合。一个人可以先试两版、邀请朋友选，再做一个收尾。近分时读这些实际动作，不把变化读成聪明、互动读成外向或收尾读成效率，也不用根据结果给朋友安排分工。",
+              "en": "Shark may first put away one chosen cover version; Octopus more often begins with two different little drafts. Dolphin may want a companion’s next caption, while Octopus first imagines a different pairing of caption and image. One person can try two versions, invite a friend to choose and then make an ending. Compare these actions with close counts instead of making variation mean intelligence, interaction mean extroversion or completion mean efficiency. The readings also provide no basis for allocating work to friends who receive different names from the same menus."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "只换一个连接，留下两个版本",
+            "en": "Change one connection and keep two versions"
+          },
+          "paragraphs": [
+            {
+              "zh": "用完全虚构的海洋相册，只改一张照片的位置，分别给两版写一句标题。比较改变前后更想接着添哪一个细节，也可以保留原版。无需真正编辑照片、上传素材或学习任何软件，不用把结果发给别人评创意。最后只带走一个关于组合的发现，例如“同一张图换位置，标题也想换一句”。它不是多任务、适应力或创造力测验。",
+              "en": "Use an entirely invented ocean album and move only one photograph. Give the two versions a line each, then notice which detail you want to add next, or retain the original. Edit no actual images, upload no material and learn no software to use the exercise. Send no result to be judged for creativity. Keep an observation about combination, such as a changed image position inviting another title. That is enough without a multitasking, adaptability or creativity assessment or a demand to produce something impressive from the comparison."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pufferfish",
+      "directionIds": [
+        "pufferfish"
+      ],
+      "title": {
+        "zh": "河豚",
+        "en": "Pufferfish"
+      },
+      "headline": {
+        "zh": "给喜欢的小活动留一条自己能接受的边。",
+        "en": "Give a little activity you like an edge you can accept."
+      },
+      "summary": {
+        "zh": "你更常选说清参与多久、只分享一本书或给手账限定一小块范围。河豚是本版小范围划界的海洋比喻，不证明防御本能、对抗能力、胆量、边界健康程度或被低估。",
+        "en": "You more often chose a participation period, one book to share or a little journal area. Pufferfish is an image for a small stated limit here, not defensive instinct, confrontation, courage, healthy boundaries or being underestimated."
+      },
+      "seo": {
+        "title": {
+          "zh": "河豚结果：大鱼能量测试的完整读法",
+          "en": "Pufferfish Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从短聊时段、读书推荐与活动小范围读河豚结果，比较明确的限度、轻松回应、相近海洋比喻和全部最高并列全文。",
+          "en": "Read Pufferfish through a short chat, one book and a small activity scope. Compare stated limits, light replies, nearby ocean images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常想先给哪一小段说清范围",
+            "en": "The small stretch you wanted to give a limit first"
+          },
+          "paragraphs": [
+            {
+              "zh": "海洋主题闲聊约得很短时，你可能想先说能待多久；有人要很多书单时，你可能更想只推荐一本。这个入口关心愿意参与多少，不要求拒绝整件事，也不把小范围当作更正确的选择。回看一个选项，看看吸引你的是时间、任务大小还是能够自己决定结束。题目没有进一步分开这些原因，也没有观察你现实中能否做到所选的回应。",
+              "en": "A brief ocean-themed chat may invite saying how long you can stay; a request for a long book list may invite recommending only one. This opening concerns how much you want to join, without requiring a refusal of the whole activity or making a smaller scope more correct. Revisit an option and distinguish time, task size and choosing an ending for yourself. The questions have not separated those reasons further or observed whether you can carry out the reply you selected in an actual situation."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "愿意推荐一本，也可以只承诺一本",
+            "en": "A book you want to recommend can stay one book"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象读书角有人问你能不能推荐一串海洋主题作品。你可以写：“这次我先分享一本，我喜欢它这一页的颜色。”话题仍能继续，你也没有接下完整书单。这个纸面例子不需要真的推荐书、拒绝谁或证明自己有界限。它只是让“喜欢参与，但范围有限”变得具体；是否适合某次真实谈话，还取决于题目没有了解的实际情况。",
+              "en": "Imagine someone at a reading corner asking for a series of ocean-themed works. Say you would like to share one this time and mention the colour of a page. The topic can continue without a commitment to a complete list. Recommend no actual book, refuse nobody and prove no personal boundary to use the paper example. It only makes wanting to join within a limited scope concrete. Whether that line suits an actual conversation depends on circumstances the questions have not learned and cannot decide for you."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "范围清楚，可以让一个小活动保持大小",
+            "en": "A stated scope can let a little activity stay little"
+          },
+          "paragraphs": [
+            {
+              "zh": "你可以只做聚会的一角装饰、只参加半小时，或让手账一小格写满就停。范围不一定需要解释成长篇理由，也可以在条件变化时重新商量。河豚这组菜单偏好让“这一段就好”成为一个入口，不把它当有胆量或不容易被利用的证明。题本没有测安全感、冲突处理、关系质量或现实中受到的尊重。",
+              "en": "Decorate one gathering corner, join for half an hour or stop when a small journal box is filled. A scope needs no long explanation and can be discussed again if circumstances change. These menus make this part is enough an entrance, without treating it as evidence of courage or resistance to exploitation. The bank assesses neither security, conflict handling, relationship quality nor respect you receive in actual life. A preference for a small stated limit can remain local to an activity rather than becoming a description of your social position."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "河豚形象不是要求你鼓起来或反击",
+            "en": "The Pufferfish image requires no puffing up or retaliation"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版只借河豚的轮廓联想“小范围有边”，不把动物防御方式变成人的相处规则。结果不建议威吓、报复、升级争执或把他人当威胁，这里只在想象中比较日常小活动的范围。河豚不是一个精确物种，“小而强大”也不是这份题本验证的能力。生物画面最多帮助记住一段偏好，不能证明你现实中的胆量、健康界限或危险程度。",
+              "en": "This edition borrows a silhouette for a little area with an edge, without turning animal defence into rules for human relationships. It recommends no intimidation, retaliation, escalation or treating others as threats. The comparison remains an imagined scope for little everyday activities. Pufferfish names no single precise species, and small but powerful is no ability established by this bank. A biological image can at most make a preference memorable. It proves no actual courage, healthy boundary or level of danger and creates no need to act out the image."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "一句范围可以温和，也可以重新调整",
+            "en": "A limit can be gentle and open to adjustment"
+          },
+          "paragraphs": [
+            {
+              "zh": "你不必为了显得坚定把普通一句话说成宣言，也不需要每次都解释所有私人原因。可以比较“我只聊半小时”和“我今天先听这一段”哪句更合场面。愿意增加一点参与也不等于失去界限，暂时不参加也不等于过度防御。这里讨论的是菜单里更喜欢怎样开口，不是在为实际关系判定健康、危险、被动或攻击性。",
+              "en": "You need no declaration of firmness for an ordinary sentence and no full account of private reasons. Compare saying you can chat for half an hour with saying you will listen to this part today. A little extra participation does not mean losing a boundary, and not joining this time does not mean excessive defence. This concerns a preferred offered opening rather than a judgment that an actual relationship is healthy, dangerous, passive or aggressive. The questions have no evidence for making those classifications about you or another person."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与海豚、鮟鱇鱼和反派时代怎么比",
+            "en": "Compare Dolphin, Anglerfish and Villain Era"
+          },
+          "paragraphs": [
+            {
+              "zh": "海豚可能先把轻松话题接起来，河豚更常先说愿意聊多长一段。鮟鱇鱼可能把一部分喜欢留在私下，河豚则先给参与范围一个说法；私下兴趣不一定涉及拒绝。反派时代版另用18个轻度边界场面比较六种戏剧开场，本版只在海洋心情菜单中保留一个小范围主题，不换算两版次数，也没有证明心理独立。近分时读具体例子，不凭名字贴性格标签。",
+              "en": "Dolphin may connect a light topic first; Pufferfish more often starts with how long to chat. Anglerfish may keep part of a liking private, while Pufferfish gives participation a stated scope; a private interest need involve no refusal. Villain Era separately compares six theatrical openings across eighteen light boundary scenes. This edition includes one small-scope theme among ocean mood menus. Their counts cannot be converted, and psychological independence is unestablished. Compare concrete examples with close counts rather than assigning a personality label from the creature or theatrical name."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给同一场短聊写两种范围句",
+            "en": "Write two scope lines for the same short chat"
+          },
+          "paragraphs": [
+            {
+              "zh": "用一段虚构的海洋照片闲聊，写“我可以聊半小时”和“我想先回这一张图”两个版本。比较哪种范围更合这次心情，也可以都不选。不要借用真实冲突，不给任何人发送话术，也不把对方的回应当成功率。最后只记录一句关于参与大小的观察，例如“按一张图来收尾比按时间更合这次心情”。这不是界限健康程度的测验。",
+              "en": "Use an invented seaside-photo conversation and write two versions: you can chat for half an hour, or you want to answer this one image first. Compare the scopes for this mood, or choose neither. Borrow no actual conflict, send no script to anyone and treat no reply as a success rate. Keep an observation about the size of participation, such as ending with one image fitting this mood better than ending by time. It is no assessment of healthy boundaries and need change no actual relationship to be useful."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anglerfish",
+      "directionIds": [
+        "anglerfish"
+      ],
+      "title": {
+        "zh": "鮟鱇鱼",
+        "en": "Anglerfish"
+      },
+      "headline": {
+        "zh": "有一点喜欢，可以暂时只照亮自己的这一页。",
+        "en": "A little liking can light just your own page for now."
+      },
+      "summary": {
+        "zh": "你更常选私人小暗号、一首自己喜欢的歌或不急着公开的发现。鮟鱇鱼是本版私人微光的海洋比喻，不证明神秘、孤独、独立性、深度、韧性或面对未知的能力。",
+        "en": "You more often chose a private little sign, a personally liked song or a discovery not yet shared. Anglerfish is an image for a private glimmer here, not mystery, loneliness, independence, depth, resilience or handling the unknown."
+      },
+      "seo": {
+        "title": {
+          "zh": "鮟鱇鱼结果：大鱼能量测试的完整读法",
+          "en": "Anglerfish Result: Big Fish Energy Test Full Guide"
+        },
+        "description": {
+          "zh": "从私人贴纸、喜欢的歌与手账小发现读鮟鱇鱼结果，比较分享的范围、安静的兴趣、相近海洋比喻与全部最高并列全文。",
+          "en": "Read Anglerfish through a private sticker, a song and a little journal discovery. Compare sharing, quiet interests, nearby images and every highest tie."
+        }
+      },
+      "scoreReading": {
+        "zh": "18题每题一选，六组各出现12次、每个位置各3次。次数只读这些海洋心情菜单里的偏好，所有最高并列保留全文，不硬派主副型。全选同一位置会各3次，不证明理想均衡；3/12不是25%的心理能量、动物相似度或人群排名。",
+        "en": "Each of eighteen questions takes one choice. Every group appears twelve times, three in each position. Counts concern these ocean mood menus, retaining every highest tie in full without forced primary or secondary types. Repeating one position gives each group three counts without proving ideal balance. Three out of twelve is no twenty-five-percent psychological energy, animal similarity or population ranking."
+      },
+      "sections": [
+        {
+          "id": "selected",
+          "title": {
+            "zh": "你更常愿意把哪一点喜欢先留给自己",
+            "en": "The little liking you wanted to keep for yourself first"
+          },
+          "paragraphs": [
+            {
+              "zh": "选海洋贴纸时，你可能喜欢一个不必让别人看懂的小暗号；听歌时，你可能想让一首歌暂时只属于自己的这段时间。这个入口不要求内容深奥，也不要求始终保密。它可以是普通的一句歌词、一种颜色或随手想到的名字。回看一题，想想如果别人也喜欢同一个东西，你是否仍会保留原来的感觉；私人意义不需要靠独一无二才能成立。",
+              "en": "Choosing an ocean sticker may invite a little sign others need not understand; a song may belong just to this stretch of your own time. The opening requires neither obscurity nor permanent secrecy. An ordinary lyric, colour or passing name can be enough. Revisit a question and imagine someone else liking the same thing. Your original feeling can remain without being unique. A private meaning needs no rarity to exist, and a little interest need not become an important life story before it is worth keeping on this page."
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "zh": "给一张贴纸留一个自己的名字",
+            "en": "Give one sticker a name of your own"
+          },
+          "paragraphs": [
+            {
+              "zh": "想象一张深蓝色的小贴纸，你私下叫它“星期二的小海湾”，只是因为那天看见它时喜欢这个名字。你可以把它贴在想象中的笔记本，也可以只记住这个叫法。将来有人问起，可以讲一点，也可以说暂时想留给自己。这个例子没有隐藏秘密的任务；重点是公开介绍不是喜欢一件小东西的必要条件，不需要观众才算完成。",
+              "en": "Imagine a little dark-blue sticker privately named Tuesday’s Small Cove, simply because the name appealed when you saw it that day. Put it in an imagined notebook or keep only the name. If someone asks later, tell a little or say you would like to keep it for now. The example sets no task of hiding a secret. Its point is that a public explanation is not a requirement for liking something little. No audience needs to approve the meaning or complete the experience for the imagined page to feel finished."
+            }
+          ]
+        },
+        {
+          "id": "contribution",
+          "title": {
+            "zh": "私人意义可以让普通东西多一层",
+            "en": "A private meaning can add another layer to an ordinary thing"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一首歌可以被很多人听见，其中一句却刚好让你想起一段普通散步。那一层联系可以留下，不必把整段经历写清楚，也不用把喜欢变成可以展示的成果。你也可以之后分享，原先的私人意义不会因此消失。这一组菜单偏好给小兴趣留一个自己的角落；它不要求你离开他人或只能独处，也不需要让自己的爱好显得特别神秘。",
+              "en": "Many people can hear the same song while one line happens to remind you of an ordinary walk. Keep that connection without explaining the whole experience or turning the liking into an achievement to display. Sharing later does not erase the earlier private meaning. These menus leave a corner of your own for a little interest. They require neither withdrawing from others nor only spending time alone, and your hobby need not look especially mysterious. The private layer can remain plain, changeable and small enough to fit a single familiar line."
+            }
+          ]
+        },
+        {
+          "id": "image",
+          "title": {
+            "zh": "鮟鱇的光是生物背景，不是人的独立性证明",
+            "en": "Anglerfish light is biological context, not proof of human independence"
+          },
+          "paragraphs": [
+            {
+              "zh": "史密森尼海洋资料介绍鮟鱇类的多样性，并说明深海类群的发光诱饵有共生细菌参与。本版因此不把它说成“完全靠自己发光”，也不据此推断人的自给自足。这里取“暗色画面里一点微光”的有限编辑联想，不完整代表真实动物。中文用鮟鱇鱼对应Anglerfish；它是趣味结果名称，不测生物知识，也不证明你的孤独、神秘或心理韧性。",
+              "en": "Smithsonian Ocean describes diverse anglerfishes and the contribution of symbiotic bacteria to deep-sea lures. This edition therefore makes no claim that the light is entirely self-produced and draws no conclusion about human self-sufficiency from it. The limited editorial image is a little glimmer in a dark-coloured picture, without representing the whole animal. Anglerfish names this playful reading rather than assessing biology knowledge or establishing loneliness, mystery or psychological resilience. The factual source explains the borrowed image and offers no validation of the human questions or their scoring."
+            }
+          ]
+        },
+        {
+          "id": "tradeoff",
+          "title": {
+            "zh": "不公开与不想被理解，可以是不同的事",
+            "en": "Keeping something private and not wanting understanding can differ"
+          },
+          "paragraphs": [
+            {
+              "zh": "有时你只是暂时不想组织语言，不代表拒绝别人靠近。可以给自己留一句简短介绍，例如“我喜欢它的颜色，其他部分还想自己留一会儿”；也可以完全不介绍。喜欢被理解和保留一点私人空间能够同时发生。菜单没有要求选择永久立场。考虑这一点，是让海洋比喻有可调整的大小，不是把不分享判断为冷漠、封闭或不善交往。",
+              "en": "Sometimes you simply do not want to organise words yet, rather than reject closeness. Keep a brief introduction if you like: the colour appeals, and the rest can stay yours for a while. Or give no introduction. Wanting understanding and keeping some private space can coexist. The menus require no permanent position between them. Considering this gives the ocean image an adjustable size instead of judging a lack of sharing as coldness, withdrawal or poor interaction. A small choice about explanation need not carry an entire account of your relationships."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": {
+            "zh": "与鲸鱼、河豚和独行记录者怎么比",
+            "en": "Compare Whale, Pufferfish and Solo Chronicler"
+          },
+          "paragraphs": [
+            {
+              "zh": "鲸鱼更常先留一段不赶进度的空间，鮟鱇鱼更常先保留一个不必解释的喜欢；私人兴趣可以很快完成，慢看也可以公开分享。河豚先说参与范围，鮟鱇鱼先保留内容的私人意义。启示录版的独行记录者是在虚构营地里写私人视角，本版读日常海洋心情安排，不换算计数，也不宣称心理独立。近分时看具体动作，不把三个安静意象合成同一种人格。",
+              "en": "Whale more often begins with time without a progress demand; Anglerfish starts with a liking that needs no explanation. A private interest can finish quickly, and slow looking can be shared publicly. Pufferfish states participation’s scope; Anglerfish keeps content’s private meaning. Apocalypse’s Solo Chronicler writes a private viewpoint in a fictional camp, while this edition concerns everyday ocean mood arrangements. Their counts cannot be converted and psychological independence is unestablished. Compare the actions with close readings instead of combining several quiet images into one supposed personality type for all settings."
+            }
+          ]
+        },
+        {
+          "id": "experiment",
+          "title": {
+            "zh": "给小暗号写私下版和简短介绍版",
+            "en": "Give the little sign a private version and a brief introduction"
+          },
+          "paragraphs": [
+            {
+              "zh": "仍用虚构的“星期二的小海湾”贴纸，写一条只给自己看的名字说明，再写一条愿意告诉别人的简短介绍。看看哪些部分想保留、哪些部分可以分享，也可以两条都不使用。别拿真实私密材料练习，不必发到任何平台。最后只留下关于解释范围的发现，例如“颜色可以说，名字的来历先留着”。它不衡量独立性，也不要求你改变现实社交安排。",
+              "en": "Keep the invented Tuesday’s Small Cove sticker. Write an explanation just for yourself and a brief introduction you would be willing to give someone. Notice which parts you want to keep and share, or use neither version. Use no actual private material and post to no platform. Keep a finding about explanation’s reach, such as the colour being easy to mention while the name’s history stays private for now. The exercise measures no independence and requires no change to actual social arrangements or proof that you can enjoy life without support."
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "zh": "原始次数、近分与全部最高并列",
+            "en": "Raw counts, close readings and every highest tie"
+          },
+          "paragraphs": [
+            {
+              "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+              "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+            }
+          ]
+        },
+        {
+          "id": "access",
+          "title": {
+            "zh": "完整阅读、草稿与海洋比喻的边界",
+            "en": "Full reading, drafts and the ocean metaphor’s limits"
+          },
+          "paragraphs": [
+            {
+              "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+              "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "archetype-counts",
+      "title": {
+        "zh": "原始次数、近分与全部最高并列",
+        "en": "Raw counts, close readings and every highest tie"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，六组各出现12次、在每个位置各3次，每题只比较其中四组。最高次数决定先显示哪份完整读法，全部最高并列都保留，不派隐藏主副型。一直选同一位置会各3次，显示六份54节，不证明人格均衡。近分可以邀请你多读另一份，不是验证过的能量分界、能力水平、动物基因比例或人群排名；不能用来给真实朋友、同事或家人分型。",
+          "en": "Eighteen choices total eighteen. Every group appears twelve times, three in each position, while each menu compares only four groups. Highest counts decide which full readings appear first, retaining every highest tie without hidden primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving a balanced personality. Close counts invite another guide rather than a validated energy boundary, ability level, animal genetic proportion or population ranking. Use no result to assign types to actual friends, colleagues or family members."
+        }
+      ]
+    },
+    {
+      "id": "archetype-ties",
+      "title": {
+        "zh": "所有最高并列保留九节全文",
+        "en": "Every highest tie keeps its full nine-section guide"
+      },
+      "paragraphs": [
+        {
+          "zh": "18次选择合计18，各组出现12次。完整作答后，所有最高次数都保留九节全文，不硬派主副型。一直选同一位置会六组各3，显示全部54节，不证明理想均衡。3/12不是25%的能量或动物相似度，近分也没有验证的能力分界。",
+          "en": "Eighteen choices total eighteen, with twelve appearances per group. After completion, every highest count retains its nine-section guide without forced primary or secondary types. Repeating one position gives each group three counts and all fifty-four sections without proving ideal balance. Three out of twelve is no twenty-five-percent energy or animal similarity; close counts have no validated ability boundary."
+        }
+      ]
+    },
+    {
+      "id": "archetype-metaphor",
+      "title": {
+        "zh": "几种海洋画面可以出现在同一天",
+        "en": "Several ocean images can share the same day"
+      },
+      "paragraphs": [
+        {
+          "zh": "先完成一页、与朋友接句话、留一点空白、换一种拼法、说明小范围和保留私人兴趣，可以在同一天发生。这里只比较给定菜单更想先用哪一步，没有证明六组互斥或心理独立。没有一项合适就停止，所有公开指南仍免费。",
+          "en": "Finish a page, exchange a line, leave space, try another combination, state a little scope and keep a private interest in the same day. The menus compare what you prefer first, establishing neither exclusive groups nor psychological independence. Stop if nothing fits; all public guides remain free."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "海洋画面与人的结论之间有什么距离",
+        "en": "The distance between a marine image and a human conclusion"
+      },
+      "paragraphs": [
+        {
+          "zh": "“大鱼能量”是海洋主题的趣味名称，不是生物分类、体力或心理能量。鲸与海豚是哺乳动物，章鱼是软体动物；六组也不是六个精确物种。鲨鱼、海豚、鲸鱼、章鱼、河豚和鮟鱇鱼在这里分别作为完成小事、轻松互动、留白慢读、变化组合、小范围划界与私人微光的原创编辑比喻，不完整代表动物的行为。深海鮟鱇的发光诱饵也有共生细菌参与，不证明人“自带光”或独立性。生物背景不验证题目、人格、智力、共情、适应、韧性、临床状况、职业匹配、常模或语言等价；不复制JobCannon题本或解释。",
+          "en": "Big fish energy is a playful ocean-themed name, not biological classification, physical capacity or psychological energy. Whales and dolphins are mammals; octopuses are molluscs, and the six groups are not six precise species. Shark, Dolphin, Whale, Octopus, Pufferfish and Anglerfish are original editorial metaphors here for finishing a little thing, light interaction, unhurried space, recombination, a small boundary and private glimmers, without representing whole animal behaviours. Symbiotic bacteria also contribute to deep-sea anglerfish lures; their light proves no human self-sufficiency. Biological context validates neither these items, personality, intelligence, empathy, adaptation, resilience, clinical conditions, career fit, norms nor language equivalence. This is no JobCannon bank or explanation replica."
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "title": {
+        "zh": "完整阅读、草稿与海洋比喻的边界",
+        "en": "Full reading, drafts and the ocean metaphor’s limits"
+      },
+      "paragraphs": [
+        {
+          "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+          "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "大鱼能量测试在这里测什么？",
+        "en": "What does the Big Fish Energy Test assess here?"
+      },
+      "answer": {
+        "zh": "它比较18个原创海洋心情小安排中的偏好：先完成一件小事、轻松互动、从容留白、变化组合、小范围划界或保留私人兴趣。六种动物名称是编辑比喻，不是心理能量、体力、生物知识或固定人格评估。",
+        "en": "It compares preferences in eighteen original ocean mood arrangements: finishing a little thing, light exchange, unhurried space, recombination, a small scope or a private interest. The creatures are editorial images rather than psychological energy, fitness, biology knowledge or fixed personality assessments."
+      }
+    },
+    {
+      "question": {
+        "zh": "六种结果分别是什么？",
+        "en": "What are the six readings?"
+      },
+      "answer": {
+        "zh": "鲨鱼对应先完成这一件，海豚对应轻松来回，鲸鱼对应从容留白，章鱼对应变化组合，河豚对应小范围划界，鮟鱇鱼对应私人微光。每个都有九节完整读法，可以交叠，不给人或动物排高低。",
+        "en": "Shark names finishing this one thing; Dolphin a light exchange; Whale unhurried space; Octopus recombination; Pufferfish a small stated scope; Anglerfish a private glimmer. Each has a full nine-section guide. They can overlap without ranking people or animals."
+      }
+    },
+    {
+      "question": {
+        "zh": "鲸、海豚和章鱼也算鱼吗？",
+        "en": "Are whales, dolphins and octopuses fish?"
+      },
+      "answer": {
+        "zh": "不是。鲸和海豚属于哺乳动物，章鱼属于软体动物。“大鱼能量”是宽泛趣味名称，六组也不是六个精确物种。鮟鱇鱼对应Anglerfish；本版不把深海发光诱饵说成完全靠自己发光，也不据此证明人的独立性。",
+        "en": "No. Whales and dolphins are mammals, and octopuses are molluscs. Big fish energy is a broad playful name, and the groups are not six precise species. This edition makes no claim that deep-sea anglerfish lures light entirely by themselves or prove human independence."
+      }
+    },
+    {
+      "question": {
+        "zh": "次数、近分和并列怎样读？",
+        "en": "How do counts, close readings and ties work?"
+      },
+      "answer": {
+        "zh": "六组各出现12次、四位置各3次、省略6次；每题一选加1，完整18题才显示原始次数。最高并列全部保留全文，近分可比较另一份指南。没有主副型、能量百分比、常模、动物基因比例或验证过的能力阈值。",
+        "en": "Each group appears twelve times, three in each position, and is omitted six times. A choice adds one count; all eighteen are required for raw counts. Every highest tie keeps its full guide, while close counts invite comparison. There are no primary or secondary types, energy percentages, norms, animal genetic proportions or validated ability thresholds."
+      }
+    },
+    {
+      "question": {
+        "zh": "和精神动物、反派时代测试一样吗？",
+        "en": "Is this the same as Spirit Animal or Villain Era?"
+      },
+      "answer": {
+        "zh": "精神动物版用16个较宽的日常场面比较八种动物，其中也有海豚；反派时代版比较18个轻度边界场面的六种戏剧开场。本版用18个海洋心情小安排比较六组，没有两版换算、通用类型对应或心理独立性的证明。相同名称也不是相同成绩。",
+        "en": "Spirit Animal compares eight animals, including a dolphin, in sixteen broader everyday scenes. Villain Era compares six theatrical openings in eighteen light boundary scenes. This edition uses eighteen ocean mood arrangements and six groups without score conversion, universal type correspondence or established psychological independence. A shared name does not make the same result."
+      }
+    },
+    {
+      "question": {
+        "zh": "完整结果、草稿和分享需要付费吗？",
+        "en": "Are full results, drafts and sharing paid?"
+      },
+      "answer": {
+        "zh": "六份九节全文在作答前后都免费。18个场面、72选项和结果正文均原创；海洋生物只提供有限编辑比喻，不测动物知识、人格、智力、共情、体力、心理健康或职业匹配。无需账号，不提交位置、照片、真实经历或他人资料。自愿开启的草稿只在本标签页保存最多24小时，完成、清除或重测即删；分享只有结果名与公开链接，不带答案或次数。哪项都不合适可以停止，所有公开指南仍能完整阅读。",
+        "en": "All six nine-section guides are free before and after answering. The eighteen scenes, seventy-two options and result text are original. Marine creatures provide limited editorial images, assessing no animal knowledge, personality, intelligence, empathy, fitness, mental health or career fit. No account, location, photograph, actual experience or another person’s information is needed. Optional drafts stay in this tab for up to twenty-four hours and clear on completion, clearing or retaking. Sharing includes names and public links without answers or counts. Leave if nothing fits; every public guide remains available in full."
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://oceanservice.noaa.gov/facts/dolphin.html",
+      "title": {
+        "zh": "NOAA：海豚是鱼吗？（动物身份背景）",
+        "en": "NOAA: Are dolphins fish? (animal identity context)"
+      }
+    },
+    {
+      "url": "https://www.montereybayaquarium.org/visit/exhibits/giant-pacific-octopus/",
+      "title": {
+        "zh": "蒙特雷湾水族馆：巨型太平洋章鱼（动物背景）",
+        "en": "Monterey Bay Aquarium: Giant Pacific octopus (animal context)"
+      }
+    },
+    {
+      "url": "https://ocean.si.edu/ocean-life/fish/anglerfish-lure-prey-throughout-ocean",
+      "title": {
+        "zh": "史密森尼海洋：鮟鱇类与诱饵（动物背景）",
+        "en": "Smithsonian Ocean: Anglerfish and their lures (animal context)"
+      }
+    }
+  ]
+}
