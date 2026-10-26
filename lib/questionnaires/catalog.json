@@ -2506,5 +2506,32 @@
       "jaime-lannister"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "amazing-digital-circus",
+    "code": "DIGITAL_CIRCUS_FAN",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "title": {
+      "en": "The Amazing Digital Circus Test",
+      "zh": "《神奇数字马戏团》角色测试"
+    },
+    "description": {
+      "en": "Try 18 original, voluntary toy-stage and paper-festival situations. Compare Pomni, Jax, Ragatha, Gangle, Kinger and Zooble with all highest ties and six complete bilingual guides free. Unofficial fan edition, without plot trivia.",
+      "zh": "完成18道原创自愿玩具舞台与纸上小节情境，比较波姆尼、贾克斯、拉嘉莎、甘格、金格和祖布。所有最高并列与六份双语全文免费。非官方同人版，不考剧情。"
+    },
+    "minutes": 5,
+    "formCode": "fermatmind_digital_circus_original_18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "pomni",
+      "jax",
+      "ragatha",
+      "gangle",
+      "kinger",
+      "zooble"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,746 @@
+{
+  "id": "T127",
+  "version": "1.0.0",
+  "form": "fermatmind_digital_circus_original_18_v1",
+  "method": "OwnselectedsixPomni/Jax/Ragatha/Gangle/Kinger/Zooble;18originalvoluntarytoy-stage/paperfestivalquestions72options;12exposures3perpositioneach;allhighestrawcountties. No coping/clinical/trauma/health/gender/abilityinferenceorbullyingendorsement;notIDRbank/set/scoring.",
+  "questions": [
+    {
+      "id": "ADC_01",
+      "prompt": {
+        "en": "Friends invite you to an original, voluntary cardboard-stage festival. What would you most like to do first?",
+        "zh": "朋友邀你参加原创、自愿纸板舞台小节，你最想先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask how a newcomer can join and what the first little activity involves.",
+            "zh": "问新人怎样加入、首个小活动要做什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jax",
+          "label": {
+            "en": "Suggest a silly twist that everyone can freely agree to try.",
+            "zh": "提一个人人能自由同意试的搞怪变化。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Offer a friendly welcome that gives different people comfortable ways to join.",
+            "zh": "友好欢迎，让不同人有舒服加入方式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gangle",
+          "label": {
+            "en": "Choose colours or a paper face that express the mood I want for my piece.",
+            "zh": "选颜色或纸面孔，表达自己想给作品的气氛。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_02",
+      "prompt": {
+        "en": "The group’s invented stage game has become very predictable. What appeals most?",
+        "zh": "小组自编舞台游戏变得很可预测，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jax",
+          "label": {
+            "en": "Offer an absurd rule variation, clearly optional and with everyone’s agreement.",
+            "zh": "提一项荒诞规则变式，清楚可选、大家同意才用。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Make the next round welcoming for somebody who has not joined yet.",
+            "zh": "让下一轮也好欢迎尚未加入的人。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gangle",
+          "label": {
+            "en": "Change the visual expression of my paper character to give the round another tone.",
+            "zh": "改纸人物视觉表情，给这一轮另一气氛。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kinger",
+          "label": {
+            "en": "Look closely at a small prop detail the group has been overlooking.",
+            "zh": "细看大家漏看的道具小细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_03",
+      "prompt": {
+        "en": "A friend wants to watch the toy-stage activity before deciding whether to join. What would you enjoy?",
+        "zh": "朋友想先看玩具舞台活动，再决定加入，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Keep the invitation friendly and let watching be an equally welcome choice.",
+            "zh": "保持友好邀请，让旁观同样受欢迎。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gangle",
+          "label": {
+            "en": "Offer a paper image that shows the activity’s intended mood without a long explanation.",
+            "zh": "给一个纸画面，不用长解释也能展示气氛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kinger",
+          "label": {
+            "en": "Point out an interesting ordinary detail they can notice from where they are.",
+            "zh": "指出从原位就能看见的有趣普通细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zooble",
+          "label": {
+            "en": "Ask which part, if any, they would actually like to take.",
+            "zh": "问对方实际想接哪部分，或都不接。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_04",
+      "prompt": {
+        "en": "Your original paper performer needs a look for a short, harmless scene. What would you prefer?",
+        "zh": "原创纸表演者需一个短暂、无害场景造型，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gangle",
+          "label": {
+            "en": "Use a drawn expression, colour or simple shape to set the scene’s tone.",
+            "zh": "用画的表情、颜色或简单形状定场景调子。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kinger",
+          "label": {
+            "en": "Notice a tiny feature of the prop that could make the scene distinctive.",
+            "zh": "注意道具一个微小特征，让场景独特。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose the parts and format I want rather than accept the first suggested role.",
+            "zh": "选自己想要的部件、形式，不必接首个建议角色。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask what the scene’s rules let the performer do before choosing.",
+            "zh": "选之前，问场景规则允许表演者做什么。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_05",
+      "prompt": {
+        "en": "A familiar stage prop has an odd little mark nobody has discussed. What would you most enjoy?",
+        "zh": "熟悉舞台道具有一处没人聊的小印记，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kinger",
+          "label": {
+            "en": "Look carefully at the mark and describe what is actually visible.",
+            "zh": "仔细看印记，描述实际可见什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zooble",
+          "label": {
+            "en": "Decide whether I want that feature included in my own contribution.",
+            "zh": "决定是否把特征加到自己贡献里。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask how the mark relates to the activity’s stated instructions.",
+            "zh": "问印记与活动写明说明怎样有关。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jax",
+          "label": {
+            "en": "Invent a silly, clearly fictional use for it if others want to play along.",
+            "zh": "别人愿意一起玩的话，给它编搞怪、清楚虚构用法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_06",
+      "prompt": {
+        "en": "The group suggests a toy-stage role that does not interest you. What would you prefer?",
+        "zh": "小组建议一个自己没兴趣的玩具舞台角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose a different part or decline, while being clear about what I do want.",
+            "zh": "选另一部分、或拒绝，也说清真想什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask what other ways of joining the activity are available.",
+            "zh": "问还有哪些加入活动方式。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jax",
+          "label": {
+            "en": "Offer an agreed comic variation that could make the role more enjoyable.",
+            "zh": "提一个可约好、让角色更好玩的喜剧变式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Keep the exchange welcoming so different preferences can be discussed comfortably.",
+            "zh": "让交流好加入，舒服讨论不同偏好。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_07",
+      "prompt": {
+        "en": "You arrive halfway through a harmless handmade performance game. What would you most like?",
+        "zh": "无害手作表演游戏进行到一半才到，你最想要什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pomni",
+          "label": {
+            "en": "A clear explanation of where the round is now and how I can enter.",
+            "zh": "清楚解释这一轮到哪、自己怎样进入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jax",
+          "label": {
+            "en": "A chance to suggest an optional absurd twist after I understand the game.",
+            "zh": "懂玩法后，有机会提可选荒诞变化。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ragatha",
+          "label": {
+            "en": "A friendly opening that lets me join without feeling I have interrupted.",
+            "zh": "友好入口，让加入不觉得打断。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gangle",
+          "label": {
+            "en": "A visual cue that shows the tone of the scene I am entering.",
+            "zh": "一个视觉提示，展示将加入场景的调子。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_08",
+      "prompt": {
+        "en": "Friends are choosing a lighthearted twist for their paper-stage show. What would you prefer?",
+        "zh": "朋友为纸舞台小节目选轻松变化，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jax",
+          "label": {
+            "en": "Try an agreed, harmless reversal of an ordinary rule for comic effect.",
+            "zh": "为喜剧效果，试约好、无害的普通规则反转。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Make sure the invitation still gives everyone a comfortable option.",
+            "zh": "让邀请仍给每人舒服选项。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gangle",
+          "label": {
+            "en": "Use a changed paper expression or colour scheme to create the comic shift.",
+            "zh": "改纸表情、配色，作喜剧转折。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kinger",
+          "label": {
+            "en": "Notice a small prop feature that could make the twist work more clearly.",
+            "zh": "注意一个道具小特征，让变化更清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_09",
+      "prompt": {
+        "en": "Someone’s first handmade scene does not land as they hoped. What would you enjoy contributing?",
+        "zh": "一人的首个手作场景不如预期，你喜欢贡献什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ragatha",
+          "label": {
+            "en": "A warm response that lets them say what they want to try next.",
+            "zh": "温暖回应，让对方说接着想试什么。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gangle",
+          "label": {
+            "en": "A different visual expression that gives the scene another possible mood.",
+            "zh": "另一种视觉表情，给场景另一气氛可能。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kinger",
+          "label": {
+            "en": "A careful observation about one ordinary detail in the props.",
+            "zh": "对道具一个普通细节的仔细观察。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zooble",
+          "label": {
+            "en": "A reminder that they can change their part rather than keep the suggested role.",
+            "zh": "提醒对方能改部分，不必一直守建议角色。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_10",
+      "prompt": {
+        "en": "The group can redraw one paper face for its original stage scene. What appeals most?",
+        "zh": "小组可为原创舞台场景重画一张纸面孔，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gangle",
+          "label": {
+            "en": "Explore how the expression changes the scene’s tone without claiming anyone must feel it.",
+            "zh": "探索表情怎样改场景调子，不说谁必须有此感觉。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kinger",
+          "label": {
+            "en": "Inspect the face’s small shape changes before deciding what they communicate.",
+            "zh": "先看面孔形状小变，再决定传达什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose the visual parts I genuinely want for my contribution.",
+            "zh": "选自己真想给作品的视觉部分。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask how the redraw fits the activity’s instructions and choices.",
+            "zh": "问重画怎样合活动说明、选择。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_11",
+      "prompt": {
+        "en": "A quiet part of the toy-stage table contains several tiny handmade details. What would you enjoy?",
+        "zh": "玩具舞台桌一处安静角落有几项手作小细节，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kinger",
+          "label": {
+            "en": "Spend a moment noticing the details without needing a dramatic explanation.",
+            "zh": "花一刻注意细节，不必找戏剧化解释。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zooble",
+          "label": {
+            "en": "Pick which of the details, if any, I want to use myself.",
+            "zh": "选是否、想用哪项细节。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask what each detail is meant to do in the game.",
+            "zh": "问每项细节在游戏里原本做什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jax",
+          "label": {
+            "en": "Suggest an absurd but harmless interpretation as an optional joke.",
+            "zh": "提一个荒诞无害解释，当可选笑点。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_12",
+      "prompt": {
+        "en": "Your friends want everyone to use the same paper-character parts. What would you prefer?",
+        "zh": "朋友想人人用同一套纸人物部件，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose the parts or level of participation that actually suit me.",
+            "zh": "选实际适合自己的部件、参与程度。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask which parts are required for the shared game and which are optional.",
+            "zh": "问哪些为共同游戏必需、哪些可选。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jax",
+          "label": {
+            "en": "Offer a consensual comic variation on the standard set.",
+            "zh": "给标准套件提经同意的喜剧变式。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Make sure different choices can remain welcome at the same table.",
+            "zh": "让不同选择在同一桌仍受欢迎。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_13",
+      "prompt": {
+        "en": "A new handmade stage activity has several unclear instructions. What would you most enjoy?",
+        "zh": "新手作舞台活动有几条不清说明，你最喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask one concrete question that helps me understand how to join.",
+            "zh": "问一个帮助自己懂怎样加入的具体问题。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "jax",
+          "label": {
+            "en": "Propose a silly example that makes the unclear rule easier to picture.",
+            "zh": "提搞怪例子，让含糊规则好想。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Keep the explanation welcoming enough that others can ask too.",
+            "zh": "让解释好加入，别人也能问。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "gangle",
+          "label": {
+            "en": "Draw a simple visual cue for the mood or action the instructions describe.",
+            "zh": "画简单视觉提示，呈现说明的气氛、动作。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_14",
+      "prompt": {
+        "en": "The group’s playful stage idea would be fun only if everyone wanted the surprise. What would you prefer?",
+        "zh": "小组趣味舞台点子，只有人人想要惊喜才好玩，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "jax",
+          "label": {
+            "en": "Offer it openly as an optional absurd twist rather than spring it on people.",
+            "zh": "公开给可选荒诞变化，不突然施加。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Ask how people would like to join, watch or skip.",
+            "zh": "问想怎样加入、看或跳过。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "gangle",
+          "label": {
+            "en": "Create a visual preview that lets people understand the intended tone.",
+            "zh": "作视觉预览，让人懂预期调子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "kinger",
+          "label": {
+            "en": "Check one small prop detail that could make the choice clearer.",
+            "zh": "核一个能让选择清楚的道具细节。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_15",
+      "prompt": {
+        "en": "Your toy-stage group has mixed energy levels near the end. What appeals most?",
+        "zh": "玩具舞台小组到收尾时精力不同，什么最吸引你？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "ragatha",
+          "label": {
+            "en": "A welcoming check-in that allows people to want different endings.",
+            "zh": "友好问一声，容许各人想不同收尾。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "gangle",
+          "label": {
+            "en": "A simple image that gives the closing scene its chosen mood.",
+            "zh": "一张简单图，给收尾场景选定气氛。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "kinger",
+          "label": {
+            "en": "A quiet look at one little detail the group enjoyed making.",
+            "zh": "安静看一处大家喜欢制作的小细节。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "zooble",
+          "label": {
+            "en": "A clear choice about how much of the final activity I want to take part in.",
+            "zh": "清楚选择自己想参与最后活动多少。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_16",
+      "prompt": {
+        "en": "Friends want to show two different tones in a short original paper scene. What would you enjoy?",
+        "zh": "朋友想在一段原创纸场景展示两种调子，你喜欢什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "gangle",
+          "label": {
+            "en": "Use different drawn expressions or colours without turning them into labels for people.",
+            "zh": "用不同画表情、颜色，不变成人的标签。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "kinger",
+          "label": {
+            "en": "Notice which small visual detail makes the transition readable.",
+            "zh": "注意哪个视觉小细节让转折好懂。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose which tone I want my own piece to take.",
+            "zh": "选自己的作品想用哪种调子。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask how the two versions fit the scene’s agreed structure.",
+            "zh": "问两版怎样合约好场景结构。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_17",
+      "prompt": {
+        "en": "The handmade festival is nearly ready, and a small prop remains unexplained. What would you prefer?",
+        "zh": "手作小节快备好，还有一个小道具没解释，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "kinger",
+          "label": {
+            "en": "Look at what it actually does and share one careful observation.",
+            "zh": "看实际怎样运作，分享一个仔细观察。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "zooble",
+          "label": {
+            "en": "Decide whether the unexplained extra belongs in my own role.",
+            "zh": "决定未解释的额外部分是否属于自己角色。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask the organiser what a newcomer needs to know about it.",
+            "zh": "问组织者，新人需要知道它什么。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "jax",
+          "label": {
+            "en": "Give it a deliberately silly, clearly optional fictional purpose.",
+            "zh": "给它一个刻意搞怪、清楚可选的虚构用途。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADC_18",
+      "prompt": {
+        "en": "After the cardboard-stage session, the group suggests the same role for next time. What would you prefer?",
+        "zh": "纸板舞台活动后，小组建议下次同一角色，你更愿意怎样做？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "zooble",
+          "label": {
+            "en": "Choose again rather than assume that today’s role has become permanent.",
+            "zh": "重新选择，不默认今天角色已永久。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "pomni",
+          "label": {
+            "en": "Ask what the next session involves before deciding how to join.",
+            "zh": "决定怎样加入前，问下次要做什么。"
+          }
+        },
+        {
+          "id": "C",
+          "directionId": "jax",
+          "label": {
+            "en": "Suggest an agreed comic variation that keeps the next round playful.",
+            "zh": "提约好的喜剧变式，让下轮好玩。"
+          }
+        },
+        {
+          "id": "D",
+          "directionId": "ragatha",
+          "label": {
+            "en": "Keep the invitation open and friendly even if people choose different parts.",
+            "zh": "即使各人另选部分，邀请仍开放友好。"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,752 @@
+[
+  {
+    "id": "pomni",
+    "directionIds": [
+      "pomni"
+    ],
+    "title": {
+      "en": "Pomni",
+      "zh": "波姆尼（Pomni）"
+    },
+    "headline": {
+      "en": "Ask how to enter the activity",
+      "zh": "问清怎样进入活动"
+    },
+    "summary": {
+      "en": "Read Pomni through ask how to enter the activity: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“问清怎样进入活动”阅读波姆尼（Pomni）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Pomni Test Result: Ask how to enter the activity | The Amazing Digital Circus",
+        "zh": "波姆尼（Pomni）测试结果：问清怎样进入活动｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Pomni through ask how to enter the activity: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“问清怎样进入活动”阅读波姆尼（Pomni）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Pomni’s selected angle",
+          "zh": "波姆尼的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni is one of the six names chosen for this independent fan edition. The angle here is asking how to join an unfamiliar, voluntary toy-stage activity. It does not use fictional captivity as a model of your life or interpret a question as anxiety, panic, trauma or a need to escape. A clear orientation can help somebody join, watch or decline without requiring them to perform confidence.",
+            "zh": "波姆尼是本独立同人版选定六名称之一。本版角度是问清怎样加入不熟悉、自愿玩具舞台活动，不用虚构囚禁作生活模型，也不把提问解释为焦虑、恐慌、创伤或逃离需要。清楚介绍可帮加入、看或拒绝，不用表演自信。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A newcomer can ask an ordinary question",
+          "zh": "新人可以问普通问题"
+        },
+        "paragraphs": [
+          {
+            "en": "You arrive halfway through a harmless handmade performance game. Instead of guessing what everyone expects, you ask where the round is now and which ways of joining are available. The answer might be a quick demonstration, a watching role or the next round. Asking makes the choice clearer; it does not establish that the setting is dangerous or that you cannot manage unfamiliar experiences.",
+            "zh": "无害手作表演游戏到一半才到，你不猜期待，而问这一轮到哪、怎样能加入。可给快演示、旁观角色或下轮。提问让选择清楚，不证明环境危险，也不证明不能应付陌生体验。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Orientation beside five other contributions",
+          "zh": "介绍与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Jax offers an agreed absurd variation, Ragatha keeps the welcome open and Gangle gives the scene a visual tone. Kinger notices a little prop detail while Zooble chooses the terms of participation. Pomni’s selected angle asks how the activity works. These can coexist without ranking confidence, rationality or emotional stability. A tied reading is not evidence of competing coping mechanisms or a hidden clinical profile.",
+            "zh": "贾克斯提同意后的荒诞变化，拉嘉莎留开放欢迎，甘格给视觉调子；金格看道具细节，祖布选参与条件。波姆尼角度问活动怎样运作。可共存，不评自信、理性、情绪稳定；并列不证明竞争应对机制、隐藏临床画像。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Clarity can lead to a no too",
+          "zh": "清楚也可以通向拒绝"
+        },
+        "paragraphs": [
+          {
+            "en": "An explanation does not obligate you to participate. You can ask one question, decide that the activity is not for you and choose something else. Nor does every detail need to be known before a small attempt. A high count cannot establish anxiety or helplessness, and a lower count does not mean recklessness, lack of awareness or a superior ability to cope with uncertainty.",
+            "zh": "解释不使参与成为义务。可问一问题，觉得不适合，再选别的；小尝试前也不需全知。高计数不确立焦虑、无助，低计数不表示冒失、不觉察或更会应对未知。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one clear way to join or watch",
+          "zh": "试一个清楚加入或旁观方式"
+        },
+        "paragraphs": [
+          {
+            "en": "Before an optional new hobby activity, ask what the first step involves and whether watching is welcome. Use the answer to choose how much you want to join. Afterwards, notice whether the explanation made the choice easier. This is feedback on an invitation, not an anxiety screen, a resilience score or advice about coping with real distress or confinement.",
+            "zh": "可选新爱好前，问首步做什么、是否欢迎旁观，再选参与多少。之后看解释是否让选择更容易。这反馈邀请，不是焦虑筛查、韧性分数，也不建议应对现实痛苦、囚禁。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jax",
+    "directionIds": [
+      "jax"
+    ],
+    "title": {
+      "en": "Jax",
+      "zh": "贾克斯（Jax）"
+    },
+    "headline": {
+      "en": "Make absurd play a shared choice",
+      "zh": "让荒诞玩乐成为共同选择"
+    },
+    "summary": {
+      "en": "Read Jax through make absurd play a shared choice: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“让荒诞玩乐成为共同选择”阅读贾克斯（Jax）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Jax Test Result: Make absurd play a shared choice | The Amazing Digital Circus",
+        "zh": "贾克斯（Jax）测试结果：让荒诞玩乐成为共同选择｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Jax through make absurd play a shared choice: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“让荒诞玩乐成为共同选择”阅读贾克斯（Jax）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Jax’s selected angle",
+          "zh": "贾克斯的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Jax is included in the official public voice-cast listing. This edition selects an absurd, consensual variation in a harmless game, not cruelty, bullying or a psychological explanation for harmful pranks. Nobody’s fear, discomfort or private characteristics need to become the entertainment. You can enjoy a ridiculous rule while respecting a no, and a match does not excuse a fictional character’s treatment of others.",
+            "zh": "官方公开配音名单包括贾克斯。本版选无害游戏中荒诞、经同意的变式，不选残酷、欺凌或替伤人恶作剧作心理解释。不用把恐惧、不适、私人特征变娱乐。可享受离谱规则，也尊重拒绝；匹配不为人物待人方式免责。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A silly reversal people can see coming",
+          "zh": "一个人人预先知道的搞怪反转"
+        },
+        "paragraphs": [
+          {
+            "en": "The cardboard-stage game has become predictable, so you propose reversing one ordinary rule for a comic round. You explain the idea before trying it and let people choose whether to join. The surprise comes from the fictional situation, not from tricking a participant. A simple alternative keeps the activity playable for someone who prefers the original version.",
+            "zh": "纸板舞台游戏可预测了，你提反转一普通规则作喜剧轮次。先解释，再让自选。惊喜来自虚构情境，不来自骗参与者；简单替代让喜欢原版者也能玩。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Absurdity beside five other contributions",
+          "zh": "荒诞与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni asks how to enter, Ragatha offers a welcome and Gangle changes the visual tone. Kinger observes a little prop feature while Zooble selects a preferred part. Jax’s selected angle adds an agreed absurd possibility. These can coexist without ranking humour, empathy or how entertaining a person is. Several high counts do not reveal cruelty beneath friendliness or another hidden motive.",
+            "zh": "波姆尼问怎样入，拉嘉莎欢迎，甘格改视觉调子；金格看小特征，祖布选部分。贾克斯角度加同意后的荒诞可能。可共存，不评幽默、共情、有趣程度；多项高不揭友好下藏残酷或其他动机。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Optional is more useful than a forced reaction",
+          "zh": "自选比强迫反应有用"
+        },
+        "paragraphs": [
+          {
+            "en": "Ask whether the joke is wanted and stop if it is not enjoyable. A variation can remain an idea rather than a performance, and a plain version may work better. A high count cannot establish callousness, insecurity or detachment, while a lower count does not mean humourlessness, oversensitivity or an inability to play. No score makes another person’s discomfort an acceptable punchline.",
+            "zh": "问笑点想不想要，不好玩就停。变式可只留点子，不必演；平实版也许更好。高计数不确立冷酷、不安全或疏离，低计数不表示没幽默、过敏或不会玩。分数不让别人的不适变合理包袱。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a comic variation with an ordinary option",
+          "zh": "试一个带普通选项的喜剧变式"
+        },
+        "paragraphs": [
+          {
+            "en": "For a harmless hobby game, describe one absurd rule change and offer the original version too. Ask the participants what they want before starting, and keep the joke about the invented scene. Afterwards, compare which version people enjoyed. This gives feedback on game design, not a personality judgement, an excuse for harmful humour or a theory about why somebody behaves unkindly.",
+            "zh": "无害爱好游戏描述一项荒诞规则变，也给原版；开前问想要什么，笑点留在自编场景，之后比喜欢哪版。这反馈游戏设计，不判人格，不为伤人幽默免责，也不解释谁为什么不友好。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ragatha",
+    "directionIds": [
+      "ragatha"
+    ],
+    "title": {
+      "en": "Ragatha",
+      "zh": "拉嘉莎（Ragatha）"
+    },
+    "headline": {
+      "en": "Keep the welcome open to real preferences",
+      "zh": "让欢迎容得下真实偏好"
+    },
+    "summary": {
+      "en": "Read Ragatha through keep the welcome open to real preferences: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“让欢迎容得下真实偏好”阅读拉嘉莎（Ragatha）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Ragatha Test Result: Keep the welcome open to real preferences | The Amazing Digital Circus",
+        "zh": "拉嘉莎（Ragatha）测试结果：让欢迎容得下真实偏好｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Ragatha through keep the welcome open to real preferences: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“让欢迎容得下真实偏好”阅读拉嘉莎（Ragatha）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Ragatha’s selected angle",
+          "zh": "拉嘉莎的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Ragatha appears in the public cast list for the series. This edition selects a friendly invitation that leaves room for different preferences. It does not assess caretaking, toxic positivity, emotional suppression or a need to hold a group together. A welcoming response can include honest disappointment, a smaller offer or a clear limit. Nobody has to stay cheerful or accept an activity to keep another person comfortable.",
+            "zh": "公开配音名单有拉嘉莎。本版选给不同偏好余地的友好邀请，不评照顾、毒性积极、压抑情绪或维系群体需要。欢迎可包括诚实失望、小些提供、清楚上限；不用永远开心、接活动来让别人舒服。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "Watching can belong at the same table",
+          "zh": "旁观也可以属于同一桌"
+        },
+        "paragraphs": [
+          {
+            "en": "A friend wants to see the toy-stage round before deciding whether to join. You keep the invitation warm and let watching count as an equally acceptable choice. They may later choose a role, offer an idea or simply enjoy the handmade scene. You do not need to persuade them that joining is good for them or smooth away every uncertainty they express.",
+            "zh": "朋友想先看玩具舞台轮次再决定。你留温暖邀请，让旁观同样可行；之后可选角色、提点子或只享受场景。不必说服加入对其有益，也不必抹去说出的每项不确定。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Welcome beside five other contributions",
+          "zh": "欢迎与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni asks for orientation, Jax suggests consensual absurdity and Gangle gives the scene a visual expression. Kinger notices a detail while Zooble chooses a personal format. Ragatha’s selected angle helps these different preferences share the table. It does not rank kindness, emotional intelligence or who is responsible for the group’s mood. A tied reading does not establish a fragile or hidden caring identity.",
+            "zh": "波姆尼问介绍，贾克斯提经同意荒诞，甘格给视觉表达；金格看细节，祖布选形式。拉嘉莎角度让不同偏好同桌，不评善良、情商、谁负责心情；并列不确立脆弱或隐藏照顾身份。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A welcome can have limits",
+          "zh": "欢迎可以有上限"
+        },
+        "paragraphs": [
+          {
+            "en": "You can offer one friendly opening without becoming the permanent organiser or emotional buffer. Ask what people want instead of assuming that a positive response will help. Let disagreement remain discussable. A high count cannot establish people-pleasing, suppressed distress or exceptional empathy, and a lower count does not mean coldness, selfishness or an inability to care about the people around you.",
+            "zh": "可给一次友好入口，不变永久组织者、情绪缓冲。问想要什么，不预设积极回应有帮助；分歧仍可聊。高计数不确立讨好、压痛苦、超强共情，低计数不表示冷、自私、不在意周围人。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a welcome that includes a real choice",
+          "zh": "试一个包含真实选择的欢迎"
+        },
+        "paragraphs": [
+          {
+            "en": "At a small optional craft activity, invite someone to join, watch or skip without ranking those options. Say what you can offer and ask what they would prefer. Afterwards, notice whether the choice was easy to use. This is feedback on an invitation, not a measure of empathy, a diagnosis of positivity or a requirement to keep everybody feeling good.",
+            "zh": "小型可选手作邀人加入、看或跳过，不排高低；说能给什么，问更想哪项，再看选择好不好用。这反馈邀请，不测共情、不诊断积极性，也不要求维持人人好心情。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gangle",
+    "directionIds": [
+      "gangle"
+    ],
+    "title": {
+      "en": "Gangle",
+      "zh": "甘格（Gangle）"
+    },
+    "headline": {
+      "en": "Give the scene a chosen visual tone",
+      "zh": "给场景一个自选视觉调子"
+    },
+    "summary": {
+      "en": "Read Gangle through give the scene a chosen visual tone: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“给场景一个自选视觉调子”阅读甘格（Gangle）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Gangle Test Result: Give the scene a chosen visual tone | The Amazing Digital Circus",
+        "zh": "甘格（Gangle）测试结果：给场景一个自选视觉调子｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Gangle through give the scene a chosen visual tone: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“给场景一个自选视觉调子”阅读甘格（Gangle）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Gangle’s selected angle",
+          "zh": "甘格的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Gangle is included in the series’ public voice-cast list. This edition selects a visual expression for an original paper-stage scene. It does not interpret fictional masks as a model of real emotions, mental health, empathy or identity. A drawn smile or a different colour can serve a creative purpose without claiming that the maker feels that way. You may change the image or choose another form of contribution.",
+            "zh": "公开配音名单有甘格。本版选原创纸舞台场景的视觉表达，不把虚构面具当现实情绪、健康、共情或身份模型。画笑脸、换颜色可服务创作，不称制作者就有此感受；可改图或换贡献形式。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "Two tones in one handmade scene",
+          "zh": "一个手作场景，两种调子"
+        },
+        "paragraphs": [
+          {
+            "en": "Friends want to show a light change of tone in an entirely invented paper scene. You try different drawn expressions, colours or simple shapes and ask which makes the intended transition readable. The image belongs to the fictional piece. Nobody needs to disclose private feelings, be labelled cheerful or sad, or explain why they prefer one visual version over another.",
+            "zh": "朋友想在完全自编纸场景轻转调子。你试不同画表情、颜色、形状，问哪个让转折可读。图属于虚构作品；不用交私感、被标开心悲伤，也不用解释偏好哪版的私因。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Expression beside five other contributions",
+          "zh": "表达与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni asks how to enter, Jax suggests agreed absurdity and Ragatha keeps the welcome open. Kinger notices a little prop detail while Zooble chooses a preferred part. Gangle’s selected angle supplies a visual tone for the scene. These can coexist without ranking sensitivity, artistic ability or emotional depth, and a tied result does not reveal a fragile personality or a hidden emotional state.",
+            "zh": "波姆尼问怎样入，贾克斯提同意后的荒诞，拉嘉莎留欢迎；金格看小道具细节，祖布选部分。甘格角度给场景视觉调子。可共存，不评敏感、美术、情绪深度；并列不揭脆弱人格、隐藏情绪。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A creative image is not a personal label",
+          "zh": "创作图像不是个人标签"
+        },
+        "paragraphs": [
+          {
+            "en": "Ask whether the image communicates the intended scene rather than whether it exposes something about its maker. A simple or deliberately mismatched expression can be a playful design choice. A high count cannot establish emotional instability, artistic talent or exceptional empathy, while a lower count does not mean emotional flatness, lack of imagination or an inability to express yourself in another way.",
+            "zh": "问图是否传达场景，不问揭露作者什么。简单、刻意错配表情可只是趣味设计。高计数不确立情绪不稳、美术天分、超强共情，低计数不表示情绪平、没想象或不能另样表达。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try two images without assigning feelings",
+          "zh": "试两张图，不分派感受"
+        },
+        "paragraphs": [
+          {
+            "en": "For a harmless invented scene, create two simple visual versions using expressions, colours or shapes. Ask a willing partner what tone each communicates, without asking for private emotional disclosure. Keep the version that serves the story or revise both. This is feedback on a creative image, not an art score, an emotional assessment or proof of what anybody feels behind a mask.",
+            "zh": "无害自编场景用表情、颜色或形状作两简版，问愿意伙伴各传达什么调子，不问私情绪；留合故事版，或两版都改。这反馈图像，不是美术分、情绪评估，也不证明面具后谁感受什么。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kinger",
+    "directionIds": [
+      "kinger"
+    ],
+    "title": {
+      "en": "Kinger",
+      "zh": "金格（Kinger）"
+    },
+    "headline": {
+      "en": "Notice an ordinary little detail",
+      "zh": "注意一个普通小细节"
+    },
+    "summary": {
+      "en": "Read Kinger through notice an ordinary little detail: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“注意一个普通小细节”阅读金格（Kinger）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Kinger Test Result: Notice an ordinary little detail | The Amazing Digital Circus",
+        "zh": "金格（Kinger）测试结果：注意一个普通小细节｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Kinger through notice an ordinary little detail: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“注意一个普通小细节”阅读金格（Kinger）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Kinger’s selected angle",
+          "zh": "金格的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Kinger appears in the official public cast listing. This edition selects a careful observation of a little handmade prop. It does not use fictional memory, darkness, isolation or trauma to interpret your mind, and it does not measure resilience, attention or hidden competence. You can enjoy a quiet detail in an ordinary setting without needing a dramatic explanation or a claim about how you would behave under stress.",
+            "zh": "官方公开名单有金格。本版选仔细看一个手作道具小细节，不用虚构记忆、黑暗、孤立、创伤解释头脑，也不测韧性、注意或隐藏能力。普通场景可享受安静细节，不需戏剧解释、压力行为推断。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "A prop mark can remain just a mark",
+          "zh": "道具印记可以就只是印记"
+        },
+        "paragraphs": [
+          {
+            "en": "The toy-stage table has a small handmade mark nobody has discussed. You look closely, describe what is visible and ask whether it matters to the activity. It may be a useful cue, an accidental line or a decorative choice. The observation does not need to uncover a secret, and the group can decide to leave it unexplained without losing the enjoyment of the scene.",
+            "zh": "玩具舞台桌有没人聊过的小手作印记。你细看、描述可见，问对活动重要吗。可为有用提示、误画线、装饰；不需揭秘密，也可不解释而仍享受场景。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Noticing beside five other contributions",
+          "zh": "注意与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni asks for orientation, Jax offers consensual absurdity and Ragatha makes the welcome usable. Gangle gives the scene a visual tone while Zooble selects a personal format. Kinger’s selected angle notices one ordinary detail. These can work together without ranking awareness, memory or how much a person understands. Several high counts do not suggest a hidden breakdown, trauma history or exceptional survival skill.",
+            "zh": "波姆尼问介绍，贾克斯给经同意荒诞，拉嘉莎让欢迎可用；甘格给视觉调子，祖布选形式。金格角度注意普通细节。可合作，不评觉察、记忆、懂多少；多项高不暗示崩溃、创伤过去或特别生存技能。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "A detail does not need endless analysis",
+          "zh": "细节不必无限分析"
+        },
+        "paragraphs": [
+          {
+            "en": "Agree whether the observation helps the current hobby and stop when it does not. You can share a small notice without defending its importance or needing others to see it the same way. A high count cannot establish hypervigilance, confusion or superior concentration, while a lower count does not mean inattention or a lack of curiosity. The quiz does not assess cognitive function or memory health.",
+            "zh": "约观察是否帮当下爱好，不帮就停。可分享小发现，不必守其重要，也不必人人同样看。高计数不确立过度警觉、混乱或更会专注，低计数不表示不注意、不好奇；测验不评认知功能、记忆健康。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try a describe-first prop note",
+          "zh": "试一张先描述的道具卡"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one harmless handmade object and record three things you can actually see before offering an interpretation. Ask a friend whether any of those details helps them use or enjoy the object. Leave uncertain explanations open. This is feedback on a small observation, not an attention test, a memory exercise prescribed for health or evidence about how you cope in difficult situations.",
+            "zh": "选无害手作物，解释前记三个真看见的事，问朋友哪些帮使用、欣赏；未确定解释留开放。这反馈小观察，不是注意测验、健康记忆训练处方，也不证明怎样应对困难。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zooble",
+    "directionIds": [
+      "zooble"
+    ],
+    "title": {
+      "en": "Zooble",
+      "zh": "祖布（Zooble）"
+    },
+    "headline": {
+      "en": "Choose the terms of your own part",
+      "zh": "选择自己那部分的参与条件"
+    },
+    "summary": {
+      "en": "Read Zooble through choose the terms of your own part: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+      "zh": "从“选择自己那部分的参与条件”阅读祖布（Zooble）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+    },
+    "seo": {
+      "title": {
+        "en": "Zooble Test Result: Choose the terms of your own part | The Amazing Digital Circus",
+        "zh": "祖布（Zooble）测试结果：选择自己那部分的参与条件｜神奇数字马戏团"
+      },
+      "description": {
+        "en": "Read Zooble through choose the terms of your own part: an original voluntary toy-stage scene, five character comparisons, a tradeoff, a small experiment and transparent counts. Complete unofficial fan guide.",
+        "zh": "从“选择自己那部分的参与条件”阅读祖布（Zooble）：含原创自愿玩具舞台场景、五人物比较、取舍、小尝试与透明计数。非官方原创同人完整说明。"
+      }
+    },
+    "scoreReading": {
+      "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+      "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+    },
+    "sections": [
+      {
+        "id": "reading-1",
+        "title": {
+          "en": "Zooble’s selected angle",
+          "zh": "祖布的选定角度"
+        },
+        "paragraphs": [
+          {
+            "en": "Zooble is one of the six names chosen for this fan edition. This edition selects choosing a format and level of participation in a voluntary paper activity. It does not infer gender, body image, identity, burnout, irritability or a need for solitude. Parts of a fictional avatar are not a model of a real person’s body or self. You can join, customise, watch or decline without having to justify a private identity.",
+            "zh": "祖布是本版选定六名称之一。本版选自愿纸活动的形式、参与程度，不推性别、身体形象、身份、倦怠、易怒或独处需要。虚构化身部件不是现实身体、自我模型；可加入、自改、看、拒，不用证明私密身份。"
+          }
+        ]
+      },
+      {
+        "id": "reading-2",
+        "title": {
+          "en": "The suggested role is not permanent",
+          "zh": "建议角色并不永久"
+        },
+        "paragraphs": [
+          {
+            "en": "Friends suggest the same paper-character parts and the same stage role for everyone. You ask what is genuinely required for the shared game, then choose what you want for your own contribution. A small variation or a watching role may fit. Choosing differently does not need to reject the people at the table, and accepting the standard set can also be a freely made choice.",
+            "zh": "朋友建议人人同纸人物部件、舞台角色。你问共同游戏真需什么，再选自己贡献想要什么。小变、旁观也可合适。不同选择不用拒绝同桌人，接标准套件也可自由选。"
+          }
+        ]
+      },
+      {
+        "id": "reading-3",
+        "title": {
+          "en": "Customisation beside five other contributions",
+          "zh": "自改与另外五种贡献"
+        },
+        "paragraphs": [
+          {
+            "en": "Pomni asks how the activity works, Jax proposes agreed absurdity and Ragatha welcomes different preferences. Gangle shapes the visual tone while Kinger notices a little detail. Zooble’s selected angle chooses the terms of a personal part. These can coexist without ranking independence, authenticity or how much someone belongs. A tied reading does not identify an unstable or fragmented self.",
+            "zh": "波姆尼问玩法，贾克斯提同意后的荒诞，拉嘉莎欢迎不同偏好；甘格做视觉调子，金格看小细节。祖布角度选个人部分条件。可共存，不评独立、真实、归属多少；并列不识别不稳、碎裂自我。"
+          }
+        ]
+      },
+      {
+        "id": "reading-4",
+        "title": {
+          "en": "Different should remain optional too",
+          "zh": "不同也应保持可选"
+        },
+        "paragraphs": [
+          {
+            "en": "You do not need to keep customising to prove that you are independent. Choose the standard option if you enjoy it, revise the choice later or say that you are undecided. A high count cannot establish detachment, burnout or hidden unhappiness, while a lower count does not mean conformity, weakness or a lack of self-knowledge. A participation choice is smaller than a claim about identity.",
+            "zh": "不必不停自改来证明独立。喜欢就选标准版，之后可改、也可未定。高计数不确立疏离、倦怠、隐藏不开心，低计数不表示从众、弱或不懂自己。参与选择小于身份断言。"
+          }
+        ]
+      },
+      {
+        "id": "reading-5",
+        "title": {
+          "en": "Try one adjustable role",
+          "zh": "试一个可调整的角色"
+        },
+        "paragraphs": [
+          {
+            "en": "For an optional creative game, choose one part you want to take and one part you want to leave open. Ask which shared rules matter, then agree an easy way to change or stop your role. Afterwards, compare the experience with your preference. This is feedback on participation, not an identity test, a body-image assessment or advice to withdraw from people who enjoy a different format.",
+            "zh": "可选创作游戏选想接一部分、想开放一部分，问哪些共同规则重要，再约易改、易停角色的方法；之后比体验与偏好。这反馈参与，不是身份测验、身体形象评估，也不建议远离喜好不同的人。"
+          }
+        ]
+      },
+      {
+        "id": "scoring",
+        "title": {
+          "en": "Eighteen choices and every highest tie",
+          "zh": "18次选择与每个最高并列"
+        },
+        "paragraphs": [
+          {
+            "en": "Finish all 18 situations. Each explicitly mapped choice adds one raw count to one of six characters, making 18 counts in total. Every character appears 12 times, three times in each option position; an absent character is not rejected. Every highest count receives a complete guide. All A gives three counts each and a six-way tie. These are choices in this bank, not match percentages, norms, coping styles, clinical findings or validated personality differences.",
+            "zh": "完成18情境，每项明确映射选择给六人物中一位加一次原始次数，总计18次。每人物出现12次、每位置3次；没出现者不算被拒绝。所有最高获全文；全选A各3次，六方并列。次数仅描述题本，不是匹配百分比、常模、应对方式、临床发现或经验证人格差异。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Original fan edition and source limits",
+          "zh": "原创同人版与来源边界"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind independently authored this unofficial fan edition: original situations, mappings, examples and complete readings. GLITCH’s show page and Netflix Tudum’s public voice-cast list support only the series identity and basic character names; they do not validate these angles or this bank. Names belong to their respective rights holders. No show images, dialogue, episode scenes or competitor questions and reports are reproduced. This is entertainment without official affiliation or scientific validation, not a model of trauma, anxiety, burnout, sanity, identity or real coping.",
+            "zh": "费马独立创作本非官方同人版的情境、映射、例子、全文。GLITCH作品页与Netflix Tudum公开配音名单只支持作品身份、基本名称，不验证角度、题本。名称属于各权利方，不复用剧照、台词、剧情场景、竞品题目或报告。本版娱乐，无官方合作、科学验证，不作创伤、焦虑、倦怠、理智、身份或现实应对模型。"
+          }
+        ]
+      }
+    ]
+  }
+]
