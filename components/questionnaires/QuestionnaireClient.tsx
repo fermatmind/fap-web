@@ -59,6 +59,12 @@ function subscribe(listener: () => void) {
   return () => window.removeEventListener(draftEvent, listener);
 }
 
+// Keep the pre-existing public play entry's analytics identity while upgrading its full content.
+function questionnaireTrackingPayload(quiz: Questionnaire, locale: Locale) {
+  const legacyPlayEntry = quiz.slug === "relationship-values";
+  return { slug: quiz.slug, locale, entry_surface: legacyPlayEntry ? "entertainment" : "questionnaire", scale_code: legacyPlayEntry ? "ENTERTAINMENT" : quiz.code, form_code: legacyPlayEntry ? `fun_${quiz.slug}_v1` : quiz.source.formCode, test_type: legacyPlayEntry ? "entertainment" : quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: legacyPlayEntry ? "entertainment" : "test_detail" };
+}
+
 export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; locale: Locale }) {
   const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", key = `fm_questionnaire_draft:${quiz.slug}`;
@@ -69,7 +75,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const [position, setPosition] = useState(0), [saving, setSaving] = useState(false);
   const [message, setMessage] = useState(""), [manualCopy, setManualCopy] = useState("");
   const questionContext = useRef<HTMLParagraphElement>(null);
-  const heading = useRef<HTMLHeadingElement>(null), submitted = useRef(false), viewed = useRef(false);
+  const heading = useRef<HTMLHeadingElement>(null), submitted = useRef(false), viewed = useRef(false), enteredLegacyPlay = useRef(false);
   const draft = useSyncExternalStore(subscribe, () => {
     try { const raw = sessionStorage.getItem(key); return readQuestionnaireDraft(quiz, raw) ? raw : null; } catch { return null; }
   }, () => null);
@@ -88,11 +94,19 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const hasCompleteResult = result.status === "complete";
   const profile = directional ? quiz.profiles.find(p => p.id === directional.profileId) : undefined;
   const question = quiz.questions[position];
-  const emit = (event: string) => trackEvent(event, { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: "test_detail" });
+  const emit = (event: string) => trackEvent(event, questionnaireTrackingPayload(quiz, locale));
   const mbtiBase = `/${locale}/tests/mbti-personality-test-16-personality-types`;
-  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: "questionnaire_result_mbti", targetAction: "questionnaire_result_mbti", targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
+  const recommendationId = quiz.slug === "relationship-values" ? "entertainment_result_mbti" : "questionnaire_result_mbti";
+  const recommendation = { locale, sourceRouteFamily: "test_detail" as const, sourceSlug: quiz.slug, sourcePath: questionnairePath(locale, quiz.slug), href: mbtiBase, ctaId: recommendationId, targetAction: recommendationId, targetTestSlug: "mbti-personality-test-16-personality-types", scaleCode: "MBTI" };
   const mbtiHref = appendSeoCtaContextParamsToHref(mbtiBase, buildSeoCtaContextParams(recommendation));
   const versions = listMbtiFormMetas().map(form => zh ? `${form.questionCount}题（约${form.estimatedMinutes}分钟）` : `${form.questionCount} questions (about ${form.estimatedMinutes} min)`).join(zh ? "、" : " or ");
+
+  useEffect(() => {
+    if (ready && quiz.slug === "relationship-values" && !enteredLegacyPlay.current) {
+      enteredLegacyPlay.current = true;
+      trackEvent("landing_view", { slug: quiz.slug, locale, entry_surface: "entertainment", scale_code: "ENTERTAINMENT", form_code: `fun_${quiz.slug}_v1` });
+    }
+  }, [ready, quiz.slug, locale]);
 
   useEffect(() => {
     if (stage !== "welcome") {
@@ -103,7 +117,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   useEffect(() => {
     if (stage === "result" && hasCompleteResult && !viewed.current) {
       viewed.current = true;
-      trackEvent("view_result", { slug: quiz.slug, locale, entry_surface: "questionnaire", scale_code: quiz.code, form_code: quiz.source.formCode, test_type: quiz.kind === "practice" ? "knowledge_practice" : "self_report", page_type: "test_detail" });
+      trackEvent("view_result", questionnaireTrackingPayload(quiz, locale));
     }
   }, [stage, hasCompleteResult, quiz, locale]);
 
@@ -148,6 +162,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   }
 
   return <section id="take-test" className="my-8 rounded-xl border border-violet-200 bg-white p-5 sm:p-8" aria-label={zh ? "作答与完整结果" : "Questionnaire and full results"}>
+    {quiz.slug === "relationship-values" && <span id="play" className="block scroll-mt-24" aria-hidden="true" />}
     {stage === "welcome" && <>
       <h2 className="text-2xl font-semibold">{quiz.kind === "practice" ? (zh ? `开始${quiz.questions.length}题练习` : `Start your ${quiz.questions.length}-question practice`) : (zh ? `开始${quiz.questions.length}题的自我观察` : `Start your ${quiz.questions.length}-question reflection`)}</h2>
       <p className="my-4 leading-7">{quiz.instructions?.[locale] ?? (zh ? "每题比较两种做法，选择通常更自然或更先出现的一项。没有正确答案。答完全部题目后再生成计数和完整解释。" : "Each question compares two responses. Choose the one that comes more naturally or happens first. There are no correct answers. Counts and full explanations appear only after all questions are complete.")}</p>
@@ -190,7 +205,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {practice && <QuestionnairePracticeReport quiz={quiz} result={practice} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>
       {manualCopy && <textarea readOnly aria-label={zh ? "手动复制结果" : "Result text for manual copying"} value={manualCopy} onFocus={e => e.target.select()} className="mt-4 min-h-40 w-full rounded border p-3" />}
-      {quiz.slug === "color-season" ? <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "再比较一张小色卡，或在这里结束" : "Compare one small colour card, or finish here"}</h3><p className="my-4 leading-7 text-slate-600">{zh ? "可以回看其他三份完整配色指南，在私人草稿上只换一种颜色再比较。无需购买、外观鉴定或继续人格测试；配色次数不换算成MBTI或职业匹配。" : "Read the other full palette guides or change one colour on a private draft for comparison. No purchase, appearance analysis or further personality test is needed. Palette counts convert into neither MBTI nor career fit."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/color-season#questionnaire-results`}>{zh ? "比较全部四份配色指南" : "Compare all four palette guides"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section> : practice ? <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "先复习，再选择下一步" : "Review first, then choose what comes next"}</h3><p className="my-4 leading-7 text-slate-600">{zh ? "可以先回看逐题解析和分项说明，再从全部测试中选择其他练习。本题正确数只描述当前题本，不换算成MBTI类型或职业兴趣。若另想探索喜欢怎样的工作活动，可以独立完整作答RIASEC；也可以在这里结束。" : "Review the item explanations and section guides, then choose another exercise from all tests. Correct counts describe this bank and are not converted into MBTI types or career interests. To explore preferred work activities separately, RIASEC requires its own full attempt. You can also stop here."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试与练习" : "Back to all tests and practice"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/holland-career-interest-test-riasec`}>{zh ? "可选：另做RIASEC职业兴趣测试" : "Optional: take a separate RIASEC career-interest test"}</Link></section> : <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(optimism?.total === null || extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["rizz-test", "eras-of-you-test", "feminine-energy", "egogram", "social-intelligence-test", "grit-test", "toxic-trait", "locus-of-control", "growth-mindset-fixed-mindset", "maturity-test", "light-triad-test", "values", "sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent("click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>}
+      {quiz.slug === "color-season" ? <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "再比较一张小色卡，或在这里结束" : "Compare one small colour card, or finish here"}</h3><p className="my-4 leading-7 text-slate-600">{zh ? "可以回看其他三份完整配色指南，在私人草稿上只换一种颜色再比较。无需购买、外观鉴定或继续人格测试；配色次数不换算成MBTI或职业匹配。" : "Read the other full palette guides or change one colour on a private draft for comparison. No purchase, appearance analysis or further personality test is needed. Palette counts convert into neither MBTI nor career fit."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/explore/color-season#questionnaire-results`}>{zh ? "比较全部四份配色指南" : "Compare all four palette guides"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section> : practice ? <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{zh ? "先复习，再选择下一步" : "Review first, then choose what comes next"}</h3><p className="my-4 leading-7 text-slate-600">{zh ? "可以先回看逐题解析和分项说明，再从全部测试中选择其他练习。本题正确数只描述当前题本，不换算成MBTI类型或职业兴趣。若另想探索喜欢怎样的工作活动，可以独立完整作答RIASEC；也可以在这里结束。" : "Review the item explanations and section guides, then choose another exercise from all tests. Correct counts describe this bank and are not converted into MBTI types or career interests. To explore preferred work activities separately, RIASEC requires its own full attempt. You can also stop here."}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试与练习" : "Back to all tests and practice"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests/holland-career-interest-test-riasec`}>{zh ? "可选：另做RIASEC职业兴趣测试" : "Optional: take a separate RIASEC career-interest test"}</Link></section> : <section className="mt-10 border-t pt-7"><h3 className="text-xl font-semibold">{(optimism?.total === null || extraversion?.total === null || (affection && Object.values(affection.affectionFacets).every(f => f.mean === null)) || (attachment && Object.values(attachment.attachmentAxes).every(a => a.mean === null)) || (facets && ["rizz-test", "eras-of-you-test", "feminine-energy", "egogram", "social-intelligence-test", "grit-test", "toxic-trait", "locus-of-control", "growth-mindset-fixed-mindset", "maturity-test", "light-triad-test", "values", "sdt-motivation", "type-ab", "communication-style", "humor-style-test", "music-taste-test", "people-pleaser", "difficult-person-test", "procrastinator-type-test", "learning-style", "character-strengths"].includes(quiz.slug) && Object.values(facets.facets).every(f => f.mean === null))) ? (zh ? "本次作答已结束，下一步由你选择" : "This attempt is finished. Choose what comes next.") : (zh ? "完整结果已呈现，下一步由你选择" : "Your full result is ready. Choose what comes next.")}</h3><p className="my-4 leading-7 text-slate-600">{zh ? `如果想用另一套框架探索偏好，可以另做MBTI：${versions}。需要重新完整作答，这项结果不会换算成MBTI类型。也可以在这里结束。` : `For another perspective on preferences, MBTI offers ${versions}. It needs a separate full attempt; this result is never converted into an MBTI type. You can also stop here.`}</p><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={mbtiHref} onClick={() => trackEvent(quiz.slug === "relationship-values" ? "article_to_test_click" : "click_test", buildSeoCtaTrackingPayload(recommendation))}>{zh ? "了解MBTI与题本选择" : "Explore MBTI and its versions"}</Link><br /><Link prefetch={false} className="inline-block min-h-11 py-2 underline" href={`/${locale}/tests#more-tests`}>{zh ? "返回全部测试" : "Back to all tests"}</Link></section>}
     </>}
     {message && <p role="status" className="mt-5 rounded-lg bg-amber-50 p-3 text-sm leading-7">{message}</p>}
   </section>;

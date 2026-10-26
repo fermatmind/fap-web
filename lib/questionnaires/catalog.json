@@ -3590,5 +3590,41 @@
       "tradition"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "relationship-values",
+    "code": "LOVE_ROLE",
+    "version": "2.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Relationship Values Test",
+      "zh": "爱情阵营测试"
+    },
+    "description": {
+      "en": "Compare 24 paired choices about rituals, shared tasks, companionship and autonomy. Read all 15 full result guides, including ties. Free, without signup.",
+      "zh": "通过24道原创二选一题，回看仪式、协作、陪伴与成长自主的相对选择。15种单方向及并列结果均有完整双语说明，免费作答，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "love_role_forced_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "romantic-expression",
+      "practical-partnership",
+      "emotional-companionship",
+      "growth-autonomy",
+      "rituals-cooperation-tie",
+      "rituals-companionship-tie",
+      "rituals-autonomy-tie",
+      "cooperation-companionship-tie",
+      "cooperation-autonomy-tie",
+      "companionship-autonomy-tie",
+      "rituals-cooperation-companionship-tie",
+      "rituals-cooperation-autonomy-tie",
+      "rituals-companionship-autonomy-tie",
+      "cooperation-companionship-autonomy-tie",
+      "four-values-tied"
+    ],
+    "collection": "play"
   }
 ]

@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "relationship-values": async () => (await import("./data/relationship-values.json")).default as Questionnaire,
   "8-values-political": async () => (await import("./data/8-values-political.json")).default as Questionnaire,
   "situational-judgement": async () => (await import("./data/situational-judgement.json")).default as Questionnaire,
   "love-personality": async () => (await import("./data/love-personality.json")).default as Questionnaire,

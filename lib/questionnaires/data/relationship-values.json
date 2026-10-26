@@ -1,0 +1,3326 @@
+{
+  "slug": "relationship-values",
+  "code": "LOVE_ROLE",
+  "kind": "directional",
+  "version": "2.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "title": {
+    "en": "Relationship Values Test",
+    "zh": "爱情阵营测试"
+  },
+  "seoTitle": {
+    "en": "Relationship Values Test: 24 Choices & Full Results",
+    "zh": "爱情阵营测试：24题关系价值侧重与完整并列解读"
+  },
+  "description": {
+    "en": "Compare 24 paired choices about rituals, shared tasks, companionship and autonomy. Read all 15 full result guides, including ties. Free, without signup.",
+    "zh": "通过24道原创二选一题，回看仪式、协作、陪伴与成长自主的相对选择。15种单方向及并列结果均有完整双语说明，免费作答，无需注册。"
+  },
+  "resultHeading": {
+    "en": "Relationship values in these choices",
+    "zh": "本次关系价值侧重"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "What matters in a shared moment can change with the occasion, the people and what each person wants. This original questionnaire compares four sets of relationship value situations. It keeps raw choice counts and every highest tie, with concrete examples in all 15 complete guides. “Camp” is a product name, not a fixed identity or a measure of love.",
+    "zh": "同一个共同时刻，在不同对象、阶段和现实条件下，可能在意不同的部分。这份原创题本比较四组关系价值情境，保留原始选择次数和全部顶部并列，15份完整说明均配具体例子。“阵营”只是产品名称，不定义固定身份，也不衡量爱意。"
+  },
+  "instructions": {
+    "en": "For each pair, choose the option closer to your natural choices lately, using experiences you are comfortable considering. Neither is a correct answer. All 24 are needed for an interpreted result; if neither option fits, you can stop or read the guides. No partner’s information or private messages are needed.",
+    "zh": "每题从两个选项中选择更接近自己近期自然选择的一项，可以回看你愿意观察的经历。两项没有正确答案；24题全部有效后才生成解释。两项都不适合时，可以结束或先读公开指南，无需伴侣资料或私人聊天记录。"
+  },
+  "source": {
+    "kind": "original-mini-program-web-adaptation",
+    "formCode": "love_role_forced_choice_24",
+    "itemBankVersion": "0.1.0-preview+web-en.2",
+    "scoringVersion": "0.1.0-preview.web-raw-count.1",
+    "resultContentVersion": "0.2.0-editorial-candidate+web-en.2",
+    "itemBankSha256": "0118ec28153c75ad6729d7d50b7a6aea1d2c3bf30532e7094731dc0a8350c00d",
+    "resultContentSha256": "2c78890088bed9fdd35e85a0e7dafd3deca42333c50dfd920e8b13a906513e6b",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "romantic_expression",
+      "title": {
+        "en": "Romantic expression and rituals",
+        "zh": "浪漫表达与仪式感"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "practical_partnership",
+      "title": {
+        "en": "Practical partnership and building together",
+        "zh": "务实协作与共同建设"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "emotional_companionship",
+      "title": {
+        "en": "Emotional companionship and understanding",
+        "zh": "情感陪伴与相互理解"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "growth_autonomy",
+      "title": {
+        "en": "Shared growth and personal autonomy",
+        "zh": "共同成长与彼此独立"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "On an important day, I would rather design a memorable occasion together.",
+            "zh": "重要日子里，我更想一起设计一段有纪念感的安排。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "On an important day, I would rather complete something together that helps our everyday life.",
+            "zh": "重要日子里，我更想一起完成一件对生活有帮助的事。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When showing care, I more naturally take on a practical task the other person is facing.",
+            "zh": "表达在意时，我更自然地处理一项对方正面对的实际任务。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When showing care, I more naturally prepare a small ritual with personal meaning.",
+            "zh": "表达在意时，我更自然地准备带有个人意义的小仪式。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When planning a weekend, I look forward more to creating an experience different from everyday life.",
+            "zh": "规划周末时，我更期待营造一次不同于日常的体验。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When planning a weekend, I look forward more to advancing a plan we both care about.",
+            "zh": "规划周末时，我更期待推进一项双方都关心的计划。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Looking back on a relationship’s development, I value more the real-life problems we have solved together.",
+            "zh": "回看关系进展时，我更珍惜共同解决过的现实问题。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Looking back on a relationship’s development, I value more our shared stories and symbols.",
+            "zh": "回看关系进展时，我更珍惜共同故事和象征。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When the other person feels low, I would rather express care through a thoughtful arrangement.",
+            "zh": "对方经历低落时，我更想用有心意的安排表达在意。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When the other person feels low, I would rather make time to understand how they feel now.",
+            "zh": "对方经历低落时，我更想留出时间听懂当下感受。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a relationship settles into a steady period, I would rather maintain attentive emotional conversation.",
+            "zh": "关系进入平稳期后，我更想保持细致的情绪交流。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a relationship settles into a steady period, I would rather keep surprises and rituals alive.",
+            "zh": "关系进入平稳期后，我更想继续保留惊喜和仪式。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When wanting more closeness, I more naturally create a special shared experience.",
+            "zh": "想增加亲近感时，我更自然地创造一段特别的共同体验。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When wanting more closeness, I more naturally have an unhurried conversation.",
+            "zh": "想增加亲近感时，我更自然地进行一次不赶时间的对话。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "After a minor disagreement, I would rather first hear fully what matters to both people.",
+            "zh": "发生小摩擦后，我更愿意先把双方在意的部分听完整。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "After a minor disagreement, I would rather reconnect through a meaningful action.",
+            "zh": "发生小摩擦后，我更愿意用一个有意义的动作重新靠近。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When celebrating progress together, I place more value on keeping the moment as a relationship memory.",
+            "zh": "共同庆祝进展时，我更看重把时刻记录成关系记忆。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When celebrating progress together, I place more value on both people continuing to develop their own directions.",
+            "zh": "共同庆祝进展时，我更看重彼此仍能发展自己的方向。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When thinking about what keeps a relationship lively, I would rather support both people in trying new personal goals.",
+            "zh": "想到关系的活力时，我更愿意支持双方尝试新的个人目标。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When thinking about what keeps a relationship lively, I would rather arrange new shared rituals.",
+            "zh": "想到关系的活力时，我更愿意安排新的共同仪式。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "During a busy period, I would rather keep a regular moment that belongs just to us.",
+            "zh": "面对忙碌阶段，我更想保留一个只属于双方的固定时刻。"
+          },
+          "directionId": "romantic_expression"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "During a busy period, I would rather give both people uninterrupted time for personal growth.",
+            "zh": "面对忙碌阶段，我更想让双方都有不被打断的成长时间。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When expressing long-term care, I more naturally support the other person in making important choices autonomously.",
+            "zh": "表达长期在意时，我更自然地支持对方自主作出重要选择。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When expressing long-term care, I more naturally create ways of marking memories that can continue.",
+            "zh": "表达长期在意时，我更自然地创造可延续的纪念方式。"
+          },
+          "directionId": "romantic_expression"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When life gets busy, I would rather first redistribute specific tasks.",
+            "zh": "生活变忙时，我更想先重新分配具体任务。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When life gets busy, I would rather first understand the pressure each person is carrying.",
+            "zh": "生活变忙时，我更想先了解双方承受的压力。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When facing a shared difficulty, I more naturally clarify what each person most needs understood.",
+            "zh": "遇到共同难题时，我更自然地确认彼此最需要被理解的部分。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When facing a shared difficulty, I more naturally list available resources and the next step.",
+            "zh": "遇到共同难题时，我更自然地列出资源和下一步。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When planning the future, I place more value on whether responsibilities and time arrangements are workable.",
+            "zh": "规划未来时，我更看重责任和时间安排是否可执行。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When planning the future, I place more value on whether both people’s hopes and concerns have been expressed clearly.",
+            "zh": "规划未来时，我更看重双方的期待和担忧是否被说清。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When one person needs support, I tend more toward steady, attentive company.",
+            "zh": "一方需要支持时，我更倾向提供稳定而专注的陪伴。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When one person needs support, I tend more toward practical assistance that can be put into action.",
+            "zh": "一方需要支持时，我更倾向提供可落地的协助。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When building an everyday life together, I place more value on a reliable way to cooperate.",
+            "zh": "建立共同生活时，我更看重形成可靠的合作方式。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When building an everyday life together, I place more value on room for both people to make independent decisions.",
+            "zh": "建立共同生活时，我更看重双方保留独立决定的空间。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When resources are limited, I would rather clarify each person’s individual development needs they do not want to give up.",
+            "zh": "资源有限时，我更想分别确认各自不能放弃的发展需要。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When resources are limited, I would rather agree on priorities and a division of tasks together.",
+            "zh": "资源有限时，我更想一起确定优先顺序和分工。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "For a long-term goal, I would rather break it into steps we carry out together.",
+            "zh": "面对长期目标时，我更愿意把它拆成共同执行的步骤。"
+          },
+          "directionId": "practical_partnership"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "For a long-term goal, I would rather let each person advance along a path that suits them.",
+            "zh": "面对长期目标时，我更愿意让双方按适合自己的路径推进。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "Once a relationship is stable, I place more value on continuing to revisit personal boundaries and directions for growth.",
+            "zh": "关系稳定后，我更重视持续更新个人边界和成长方向。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "Once a relationship is stable, I place more value on continuing to maintain everyday cooperation.",
+            "zh": "关系稳定后，我更重视持续维护日常合作。"
+          },
+          "directionId": "practical_partnership"
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When the other person tries a new direction, I would rather keep learning how they feel during the process.",
+            "zh": "对方尝试新方向时，我更想持续了解过程中的感受。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When the other person tries a new direction, I would rather respect the pace of their autonomous exploration.",
+            "zh": "对方尝试新方向时，我更想尊重对方自主探索的节奏。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When opinions differ, I place more value on both people still having room for their own judgment.",
+            "zh": "出现意见差异时，我更看重双方是否仍能保留自己的判断。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When opinions differ, I place more value on both people feeling understood.",
+            "zh": "出现意见差异时，我更看重双方是否感到被理解。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When a relationship gives a sense of security, I would rather deepen sharing and mutual company.",
+            "zh": "关系带来安全感时，我更想加深分享和相互陪伴。"
+          },
+          "directionId": "emotional_companionship"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When a relationship gives a sense of security, I would rather use that support for each person’s growth.",
+            "zh": "关系带来安全感时，我更想把这份支持用于各自成长。"
+          },
+          "directionId": "growth_autonomy"
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "en": "Which feels closer to your natural choices lately?",
+        "zh": "以下哪一种更接近你近期自然的选择？"
+      },
+      "options": [
+        {
+          "id": "o1",
+          "label": {
+            "en": "When arranging shared time, I look forward more to also supporting each person’s independent plans.",
+            "zh": "安排共同时间时，我更期待也能支持各自独立的计划。"
+          },
+          "directionId": "growth_autonomy"
+        },
+        {
+          "id": "o2",
+          "label": {
+            "en": "When arranging shared time, I look forward more to room for an in-depth conversation.",
+            "zh": "安排共同时间时，我更期待有深入交流的空间。"
+          },
+          "directionId": "emotional_companionship"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "romantic-expression",
+      "directionIds": [
+        "romantic_expression"
+      ],
+      "title": {
+        "en": "Romantic Expression",
+        "zh": "浪漫表达与仪式感"
+      },
+      "headline": {
+        "en": "More choices for romantic expression and rituals in this attempt",
+        "zh": "本次题组中，浪漫表达与仪式感对应选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, you more often selected situations involving commemoration, symbols and experiences that feel special.",
+        "zh": "在 24 道二选一里，涉及纪念、象征和特别体验的情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count describes a relative choice within this set. It does not measure romantic ability or how much you invest in a relationship.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示浪漫能力或投入程度。"
+      },
+      "seo": {
+        "title": {
+          "en": "Romantic Expression: Relationship Values Test Result",
+          "zh": "浪漫表达与仪式感：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read romantic expression in the Relationship Values Test: raw counts, meaningful rituals, shared willingness, a concrete example and an optional exercise.",
+          "zh": "完整理解爱情阵营测试中的浪漫表达与仪式感：原始次数、纪念方式、双方意愿、具体例子与可选练习。次数不测浪漫能力或爱意多少。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning-and-items",
+          "title": {
+            "en": "What these choices concern",
+            "zh": "这些选项具体涉及什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This direction concerns relationship situations involving commemoration, symbolism, special experiences and specific forms of expression.",
+              "zh": "本方向题目描述纪念、象征、特别体验和具体表达形式的关系情境。"
+            },
+            {
+              "en": "The offered choices include marking important dates, personally meaningful rituals, experiences that differ from ordinary routines, shared stories and symbols, and regular moments together.",
+              "zh": "题目覆盖：重要日子的纪念安排、带个人意义的仪式、不同于日常的体验、共同故事和象征、固定共同时刻。"
+            },
+            {
+              "en": "These choices compare romantic expression and rituals with other relationship values. The result identifies a relative emphasis within the comparisons, rather than a better or worse way to express care.",
+              "zh": "题目把浪漫表达与仪式感放进与其他关系价值的情境比较中，因此结果只能说明相对侧重，不能说明表达形式的好坏。"
+            }
+          ]
+        },
+        {
+          "id": "check-an-experience",
+          "title": {
+            "en": "Check a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider what a commemoration or ritual means to you and to the other person separately. Check whether both people want to participate.",
+              "zh": "可以回看：你在意的纪念或仪式，对你和对方分别意味着什么；是否双方都愿意参与。"
+            },
+            {
+              "en": "Recall a recent arrangement that you found satisfying. Was the other person also willing to take part?",
+              "zh": "最近一次让你满意的纪念安排是什么；那次对方是否同样愿意参与。"
+            },
+            {
+              "en": "Was it the form of expression that mattered, or the feeling of being remembered? Only you can check that distinction against the experience.",
+              "zh": "你在意的是表达本身，还是被对方记住的感觉？这个区别只能由你自己确认。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "An optional, negotiable step",
+            "zh": "可协商的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write a ritual you would like to keep as a specific, negotiable arrangement. Both people must be able to discuss or decline it. You can skip the exercise if recording a ritual does not appeal to you.",
+              "zh": "如果愿意，可以把想保留的仪式写成具体可协商的安排；仪式必须允许双方协商和拒绝，不能要求对方参与。不想记录仪式时可以跳过。"
+            },
+            {
+              "en": "Rituals and special experiences require voluntary participation. This result cannot require a partner to cooperate or establish that an arrangement will move them.",
+              "zh": "任何仪式或特别体验都需要双方自愿；结果不能要求伴侣配合，也不能证明对方会因此更感动。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional anniversary plan, one person wants to keep a handwritten line about an ordinary day. The other likes remembering the occasion but does not want a surprise event. A request could be, “Would you like us to choose one memory each, or would you prefer to leave the day unplanned?” The value being explored is how a moment is marked. A purchase, public display or particular reaction is not needed to make the example relevant.",
+              "zh": "在一个虚构纪念日安排中，一人想用手写的一句话记下普通的一天，另一人愿意纪念，却不想参加惊喜活动。可以把请求写成：“要不要各选一个记忆，也可以让这天不另作安排？”这里回看的价值是如何标记一个时刻，不取决于消费、公开展示或某种规定的反应。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“If you cared, you would enjoy the surprise I planned” turns a preferred form into a demand. This count cannot establish what the other person should appreciate. Declining an event does not provide a measurement of their love.",
+              "zh": "“在意我就应该喜欢这个惊喜”把偏好的形式变成了要求。次数不能决定对方应该欣赏什么；不参加某次安排，也不是对方爱意的测量结果。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "On a private page, describe one modest way of marking an event and one ordinary way of spending it. Note what you would want remembered, the time or cost involved, and an option to decline. The draft can remain unfinished; it is not evidence of romantic ability.",
+              "zh": "可以在私人纸页上写一种简朴纪念方式和一种照常度过的方式，标明想记住什么、需要多少时间或花费，以及可以不参加的选项。草稿可以不完成，也不证明浪漫能力。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The count cannot establish romantic ability, stronger love, greater charm or investment, skill at surprises, a need for expensive purchases, more passion, or the other person’s emotional response.",
+              "zh": "它不能说明浪漫能力、爱得更多、更有情趣、更愿意投入、擅长制造惊喜、需要高消费、关系更有激情或对方会因此更感动。"
+            },
+            {
+              "en": "A leading count does not establish romantic ability.",
+              "zh": "顶部方向不代表具备浪漫能力"
+            },
+            {
+              "en": "Rituals do not mean loving more.",
+              "zh": "仪式感不等于更爱"
+            },
+            {
+              "en": "They do not require high spending.",
+              "zh": "也不等于需要高消费"
+            },
+            {
+              "en": "A leading count describes the relative choices in this attempt. It does not assign a fixed camp or romantic role.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是固定阵营，也不产生恋爱角色。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practical-partnership",
+      "directionIds": [
+        "practical_partnership"
+      ],
+      "title": {
+        "en": "Practical Partnership",
+        "zh": "务实协作与共同建设"
+      },
+      "headline": {
+        "en": "More choices for practical partnership and building together in this attempt",
+        "zh": "本次题组中，务实协作与共同建设对应选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, you more often selected situations involving shared tasks, division of work and following through.",
+        "zh": "在 24 道二选一里，涉及分工、执行和共同任务的情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count describes a relative choice within this set. It does not measure responsibility or reliability.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示责任感或可靠程度。"
+      },
+      "seo": {
+        "title": {
+          "en": "Practical Partnership: Relationship Values Test Result",
+          "zh": "务实协作与共同建设：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore practical partnership: shared tasks, division of work and willingness, with a fictional example. Counts do not measure responsibility or reliability.",
+          "zh": "完整理解务实协作与共同建设：共同任务、分工、双方意愿与具体例子。原始次数不衡量责任感、可靠性，也不替双方分配责任。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning-and-items",
+          "title": {
+            "en": "What these choices concern",
+            "zh": "这些选项具体涉及什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This direction concerns relationship situations involving division of work, execution, shared tasks and practical arrangements.",
+              "zh": "本方向题目描述分工、执行、共同任务和现实安排的关系情境。"
+            },
+            {
+              "en": "The offered choices include completing something useful on an important day, helping with a current task, advancing a shared plan, valuing problems solved together and breaking a long term goal into steps.",
+              "zh": "题目覆盖：重要日子一起完成有帮助的事、处理对方正面对的任务、推进共同计划、珍惜共同解决过的问题、拆解长期目标。"
+            },
+            {
+              "en": "These comparisons place practical partnership alongside other relationship values. A greater count does not establish that practical action is wiser than emotional exchange.",
+              "zh": "题目把务实协作放进与其他关系价值的情境比较中，因此结果只能说明相对侧重，不能说明务实比情感更高明。"
+            }
+          ]
+        },
+        {
+          "id": "check-an-experience",
+          "title": {
+            "en": "Check a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether doing something together is a way you express care, or whether completing the task itself matters more. Check whether both people accept the division of work.",
+              "zh": "可以回看：你更常通过一起做事表达在意，还是更在意做事本身；分工是否双方都认可。"
+            },
+            {
+              "en": "Recall a shared task that felt satisfying. Was the division of work comfortable for both people?",
+              "zh": "最近一次让你有成就感的共同任务；那次分工双方是否都舒适。"
+            },
+            {
+              "en": "Was the important part finishing the task or the connection of working together? Only you can distinguish those meanings in a concrete example.",
+              "zh": "你在意的是任务完成，还是共同做事的连接感？这个区别只能由你自己分辨。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "An optional, negotiable step",
+            "zh": "可协商的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write down the parts each person would voluntarily take in one shared task. Practical action does not establish greater maturity or an absence of feeling. You can skip arranging a task.",
+              "zh": "如果愿意，可以把一项共同任务写清楚双方各自承担的部分；务实不等于更成熟，也不等于缺乏感情。不想整理任务时可以跳过。"
+            },
+            {
+              "en": "A shared task and division of work require both people’s voluntary participation. This count cannot require someone to cooperate in your preferred way.",
+              "zh": "分工和共同任务需要双方自愿参与；结果不能要求对方按你的方式配合。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people preparing for a small move. One proposes a short list: who wants to check transport, what can wait, and which task neither has agreed to take. A possible sentence is, “I can check these two times; would either be useful, or is another part more important?” This makes an offer concrete while leaving its usefulness open. Completing the list would be a particular event, not proof that one person is the dependable partner.",
+              "zh": "假设两人准备一次小搬动，一人想列出谁愿意查交通、什么能等待、哪些任务还没有人同意承担。可以写：“我能查这两个时段，有用吗，还是另一部分更要紧？”这把提供变具体，也保留对方判断是否需要的空间。完成一次清单，只是一个事件，不证明谁是更可靠的伴侣。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“I am the practical one, so I should decide the plan” goes beyond these choices. A higher raw count gives no authority over someone else’s time, budget or responsibilities. A finished task also does not establish that an emotional request was answered.",
+              "zh": "“我更务实，所以应该由我决定”超出了本次选择。次数较多不赋予你支配对方时间、预算或责任的权力；任务做完，也不代表情感上的请求已被回应。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one fictional shared task and write the smallest useful offer. Leave separate spaces for an agreed part, an unagreed part and a limit. Do not fill the other person’s space for them. This is a planning example rather than a permanent division of roles.",
+              "zh": "选一项虚构共同任务，只写最小的具体提供，再分别留出“已同意”“未同意”“边界”三处。不要替对方填写同意部分；这是一张安排草稿，不是永久角色分工。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The count cannot establish responsibility, reliability, suitability for a lasting relationship, financial or household skills, leadership, stability, or a promise that you will carry more responsibility.",
+              "zh": "它不能说明责任感、可靠程度、更适合长期关系、经济能力、家务能力、领导力、关系稳定性或你会承担更多责任。"
+            },
+            {
+              "en": "A leading count does not establish greater responsibility.",
+              "zh": "顶部方向不代表更负责"
+            },
+            {
+              "en": "Practical action does not establish greater maturity.",
+              "zh": "务实不等于更成熟"
+            },
+            {
+              "en": "It does not mean an absence of feeling.",
+              "zh": "也不等于缺乏感情"
+            },
+            {
+              "en": "A leading count describes the relative choices in this attempt. It does not assign a fixed camp or romantic role.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是固定阵营，也不产生恋爱角色。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotional-companionship",
+      "directionIds": [
+        "emotional_companionship"
+      ],
+      "title": {
+        "en": "Emotional Companionship",
+        "zh": "情感陪伴与相互理解"
+      },
+      "headline": {
+        "en": "More choices for emotional companionship and understanding in this attempt",
+        "zh": "本次题组中，情感陪伴与相互理解对应选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, you more often selected situations involving listening, sharing, companionship and understanding needs.",
+        "zh": "在 24 道二选一里，涉及倾听、分享、陪伴和理解需要的情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count describes a relative choice within this set. It does not measure empathy or emotional maturity.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示共情能力或情绪成熟度。"
+      },
+      "seo": {
+        "title": {
+          "en": "Emotional Companionship: Relationship Values Test Result",
+          "zh": "情感陪伴与相互理解：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read emotional companionship: listening, available capacity and boundaries, with examples. Choice counts cannot establish empathy or another person’s feelings.",
+          "zh": "完整理解情感陪伴与相互理解：倾听、当下余力、边界与虚构例子。选择次数不能证明共情能力，也不能读出对方感受。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning-and-items",
+          "title": {
+            "en": "What these choices concern",
+            "zh": "这些选项具体涉及什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This direction concerns relationship situations involving listening, sharing, companionship and understanding needs.",
+              "zh": "本方向题目描述倾听、分享、陪伴和理解需要的关系情境。"
+            },
+            {
+              "en": "The offered choices include time to hear someone during a low moment, detailed emotional exchange in a calm period, unhurried conversation, hearing what mattered to each person after friction, and steady attentive company.",
+              "zh": "题目覆盖：低落时留时间听懂感受、平稳期细致情绪交流、不赶时间的对话、摩擦后把双方在意的部分听完整、稳定专注的陪伴。"
+            },
+            {
+              "en": "These comparisons place emotional companionship alongside other relationship values. They cannot establish who understands people better.",
+              "zh": "题目把情感陪伴放进与其他关系价值的情境比较中，因此结果只能说明相对侧重，不能说明谁更会理解人。"
+            }
+          ]
+        },
+        {
+          "id": "check-an-experience",
+          "title": {
+            "en": "Check a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether listening and companionship are ways you tend to express care, or whether you more often want the other person to understand you first.",
+              "zh": "可以回看：你更常通过倾听和陪伴表达在意，还是更常期待对方先理解你。"
+            },
+            {
+              "en": "Recall a conversation in which you felt understood. Did that companionship also leave room for your boundaries?",
+              "zh": "最近一次让你觉得被理解的对话；那次陪伴是否也保留了你的边界。"
+            },
+            {
+              "en": "Did you value spending time together itself or the experience of being understood? Companionship cannot replace either person’s boundaries.",
+              "zh": "你更享受陪伴本身，还是被理解的感觉？陪伴不能替代双方边界。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "An optional, negotiable step",
+            "zh": "可协商的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, ask whether the other person currently has room for company or conversation. Companionship does not require you to carry all their emotions. You can skip trying the question.",
+              "zh": "如果愿意，想陪伴时可以先询问对方现在是否有余力；陪伴不要求承担对方全部情绪。不想尝试询问时可以跳过。"
+            },
+            {
+              "en": "Listening and company require willingness and current capacity. This result cannot require you to respond at any time or require the other person to disclose their feelings.",
+              "zh": "倾听和陪伴需要双方自愿与当下余力；结果不能要求你随时回应，也不能要求对方必须倾诉。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional conversation after a tiring day, one person wants to share a frustration while the other has only a little attention available. A request might be, “Would ten minutes of listening fit now, or would you prefer another time?” Either person may keep details private. The example concerns the place given to attentive company. It does not establish that talking is wanted, that the listener understands accurately, or that a longer conversation would help more.",
+              "zh": "在一个虚构的疲惫日子里，一人想说件烦心事，另一人当下只能留出少量注意力。可以写：“现在听十分钟合适吗，还是换个时间？”任何一方都可以保留细节。这里观察专注陪伴的位置，不预设对方想谈、倾听者已经理解正确，或聊得更久就更有帮助。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“We must talk about every feeling because this is my leading value” treats the result as permission to demand disclosure. The count establishes neither emotional maturity nor an obligation to listen whenever asked. Quiet can be a clearly expressed preference.",
+              "zh": "“这是我最高的价值，所以每种感受都必须谈”把结果当成要求披露的许可。次数既不证明情绪成熟，也不要求任何时候都倾听；安静也可以是明确表达的需要。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately draft three possible requests: listening, thinking through a practical option, and time alone. Describe when you might want each, without assigning the other person a response. Keeping more than one possible request can help you examine a specific event without turning the label into a rule.",
+              "zh": "可以私下分别写出“想被倾听”“想一起想一个实际办法”“想独处”三种请求，说明自己可能在什么情境下需要它们，不替对方填写回应。保留多个选项，便于核对事件，而不是让标签变成规定。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The count cannot establish empathy, emotional maturity, attachment style, an ability to heal, access to another person’s mind, an obligation to respond, greater intimacy, or whether the other person feels understood.",
+              "zh": "它不能说明共情能力、情绪成熟度、依恋类型、治愈能力、你能理解对方内心、你必须随时回应、关系更亲密或对方会感到被理解。"
+            },
+            {
+              "en": "A leading count does not establish greater empathy.",
+              "zh": "顶部方向不代表更会共情"
+            },
+            {
+              "en": "Companionship does not require carrying all another person’s emotions.",
+              "zh": "陪伴不等于承担对方全部情绪"
+            },
+            {
+              "en": "It does not establish a closer relationship.",
+              "zh": "也不等于关系更亲密"
+            },
+            {
+              "en": "A leading count describes the relative choices in this attempt. It does not assign a fixed camp or romantic role.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是固定阵营，也不产生恋爱角色。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growth-autonomy",
+      "directionIds": [
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Growth and Autonomy",
+        "zh": "共同成长与彼此独立"
+      },
+      "headline": {
+        "en": "More choices for shared growth and personal autonomy in this attempt",
+        "zh": "本次题组中，共同成长与彼此独立对应选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 24 paired choices, you more often selected situations involving personal goals, autonomous choices and support for growth.",
+        "zh": "在 24 道二选一里，涉及个人目标、自主选择和成长支持的情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count describes a relative choice within this set. It does not establish greater independence or maturity.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示更独立或更成熟。"
+      },
+      "seo": {
+        "title": {
+          "en": "Growth & Autonomy: Relationship Values Test Result",
+          "zh": "共同成长与彼此独立：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore growth and autonomy: personal goals, shared responsibilities and negotiation, with a concrete example. Counts do not measure maturity or independence.",
+          "zh": "完整理解共同成长与彼此独立：个人目标、共同责任、协商与具体例子。次数不衡量成熟度或独立程度，也不决定关系安排。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning-and-items",
+          "title": {
+            "en": "What these choices concern",
+            "zh": "这些选项具体涉及什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This direction concerns relationship situations involving personal goals, autonomous decisions, mutual influence and support for growth.",
+              "zh": "本方向题目描述个人目标、自主选择、共同影响和成长支持的关系情境。"
+            },
+            {
+              "en": "The offered choices include supporting a new personal goal, respecting someone’s pace of exploration, keeping your own judgment, supporting an important autonomous decision, and revisiting personal boundaries and development.",
+              "zh": "题目覆盖：支持对方尝试新个人目标、尊重自主探索节奏、保留自己判断、支持对方自主作出重要选择、更新个人边界和成长方向。"
+            },
+            {
+              "en": "These comparisons place growth and autonomy alongside other relationship values. A greater count cannot establish who respects a partner more.",
+              "zh": "题目把共同成长与彼此独立放进与其他关系价值的情境比较中，因此结果只能说明相对侧重，不能说明谁更尊重伴侣。"
+            }
+          ]
+        },
+        {
+          "id": "check-an-experience",
+          "title": {
+            "en": "Check a specific experience",
+            "zh": "带回具体经历核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether you place more emphasis on supporting the other person’s development or preserving your own independent space. Have both needs been discussed?",
+              "zh": "可以回看：你更看重支持对方成长，还是更看重自己的独立空间；两者是否都得到协商。"
+            },
+            {
+              "en": "Recall a situation in which you supported someone’s autonomous choice. Were your own needs also discussed?",
+              "zh": "最近一次你支持对方自主选择的情境；那次你的需要是否也被讨论。"
+            },
+            {
+              "en": "Did you value the other person’s development or freedom from being constrained by a relationship? Autonomy cannot be used to avoid shared responsibilities.",
+              "zh": "你在意的是对方的发展，还是自己不被关系牵制？自主不能用来回避共同责任。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "An optional, negotiable step",
+            "zh": "可协商的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, separately list the directions each person wants to develop and the matters that need discussion. Growing together does not require matching timelines. You can skip recording these matters.",
+              "zh": "如果愿意，可以把各自想要的发展方向和需要协商的事项分别写下来；共同成长不要求同步。不想记录这些事项时可以跳过。"
+            },
+            {
+              "en": "Support and independence require willingness and negotiation. This count cannot require a partner to support every choice you make.",
+              "zh": "支持和独立都需要双方自愿与协商；结果不能要求伴侣必须支持你的每个选择。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people considering a Saturday. One wants a personal class; both also want some shared time. A draft might say, “I would like to keep this class. Is there a small shared plan we both want around it?” The actual answer could change either proposal. The example explores room for individual directions within an arrangement. It cannot establish that independent plans are more mature or that a particular amount of time together suits everyone.",
+              "zh": "假设两人在商量周六，一人想参加个人课程，双方也都想留一点共同时间。可以先写：“我想保留这节课，前后有没有我们都愿意的小安排？”真实回应可能改变任何一项提议。这里回看个人方向怎样进入共同安排，不说明独立计划更成熟，也不规定每个人应有多少相处时间。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“Autonomy means I do not need to discuss shared consequences” confuses an individual choice with absence of effects on others. The result does not decide which responsibilities are shared, authorise a boundary violation or tell either person which relationship arrangement to accept.",
+              "zh": "“自主就是不用商量共同影响”混淆了个人选择与对他人的影响。结果不决定哪些责任属于共同事项，也不许可越界，或要求任何一方接受某种关系安排。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "On paper, separate one personal aim from one arrangement affecting both people. Mark what you can choose yourself, what needs agreement and what remains unknown. You do not need a common goal in every area, and the draft does not prove how you act in practice.",
+              "zh": "可以在纸上区分一项个人目标与一项影响双方的安排，标明什么能自行决定、什么需要同意、什么还不清楚。不必每个领域都有共同目标，草稿也不证明现实行为。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The count cannot establish independence, maturity, greater respect, lack of a need for closeness, suitability for an open relationship, career priority, avoidant attachment, or a guarantee that you support another person’s choices.",
+              "zh": "它不能说明更独立、更成熟、更尊重伴侣、不需要亲密、适合开放关系、事业优先、依恋回避或你一定支持对方选择。"
+            },
+            {
+              "en": "A leading count does not establish greater independence.",
+              "zh": "顶部方向不代表更独立"
+            },
+            {
+              "en": "Autonomy cannot remove shared responsibilities.",
+              "zh": "自主不能回避共同责任"
+            },
+            {
+              "en": "It does not mean having no need for closeness.",
+              "zh": "也不等于不需要亲密"
+            },
+            {
+              "en": "A leading count describes the relative choices in this attempt. It does not assign a fixed camp or romantic role.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是固定阵营，也不产生恋爱角色。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-cooperation-tie",
+      "directionIds": [
+        "romantic_expression",
+        "practical_partnership"
+      ],
+      "title": {
+        "en": "Rituals and Cooperation Tied",
+        "zh": "仪式与协作并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for romantic expression and rituals and practical partnership and building together",
+        "zh": "浪漫表达与务实协作的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals and practical partnership and building together were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达与仪式感和务实协作与共同建设的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish that you are skilled in both areas or that either is more desirable.",
+        "zh": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更理想。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals & Cooperation: Relationship Values Tie",
+          "zh": "仪式与协作并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a rituals–cooperation tie: equal highest counts, commemoration and shared tasks, a concrete tradeoff and an optional private exercise. No mixed type.",
+          "zh": "理解仪式与协作并列最高：原始计数、纪念与共同任务的具体取舍、虚构例子及私人练习；不生成混合人格或规定伴侣责任。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish that you are skilled in both areas or that either is more desirable.",
+              "zh": "两个方向次数相同，不表示你同时擅长两者，也不表示哪一边更理想。"
+            },
+            {
+              "en": "Romantic expression: forms of expression involving commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验的表达形式。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "The two tied directions cover different situations, including commemorative arrangements and rituals alongside division of tasks and carrying out plans.",
+              "zh": "并列的两个方向对应选项覆盖纪念安排、仪式体验，以及任务分工、计划执行等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider which situations prompted choices for each value. Were the choices shaped more by the circumstances or by a preference you tend to keep?",
+              "zh": "可以回看：两类选项分别出现在哪些情境里；你更常根据情境还是固定偏好选择。"
+            },
+            {
+              "en": "Did you value the feeling of being remembered or what you completed together? Only you can check their relative importance against an actual example.",
+              "zh": "你更在意被记住的感觉，还是一起完成的事？这个比例只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Both rituals and division of work require voluntary participation and discussion. This result cannot require a partner to cooperate.",
+              "zh": "无论仪式还是分工，都需要双方自愿与协商；结果不能要求伴侣配合。"
+            },
+            {
+              "en": "If useful, privately record one ritual and one shared task that you would like to keep. No contact or request to another person is required, and you can skip this exercise.",
+              "zh": "如果愿意，可以分别写下最想保留的一项仪式和一项共同任务；这只用于个人记录，不需要联系或要求对方，也可以不做。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional milestone, the available evening could hold a small keepsake activity or work on a shared practical need. Write both proposals clearly: what the occasion would mark, what the task would accomplish, and what each needs in time or resources. These are possibilities to compare, not a prediction that you will combine them. An equal count cannot tell you whether the other person wants either plan.",
+              "zh": "在一个虚构里程碑的晚上，可以留一项小纪念，也可以处理一件共同的实际需要。先分别写清：想标记什么、任务想完成什么、各需要多少时间和资源。这些是可比较的提案，不预测你会把两者组合；次数相等，也不知道对方是否愿意参加任何一项。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“We should celebrate by finishing this task” might work if both want it, but the tie does not make it a better compromise. A practical need and a desired ritual can remain separate or both be declined.",
+              "zh": "“就用完成任务来庆祝”只有双方愿意时才是一个选项，并列不会让它成为更好的折中。实际需要与纪念愿望可以分开，也可以都不采用。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately give one proposal a modest version, then do the same for the other. Add a blank space for information you do not have. Examine the difference between wanting a memory and wanting an outcome without deciding which you must put first.",
+              "zh": "可以私下给两项提议各写一个简朴版本，再留一处空白给未知信息。比较自己想留下记忆与想完成事情的不同，不决定哪项必须优先。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-companionship-tie",
+      "directionIds": [
+        "romantic_expression",
+        "emotional_companionship"
+      ],
+      "title": {
+        "en": "Rituals and Companionship Tied",
+        "zh": "仪式与陪伴并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for romantic expression and rituals and emotional companionship and understanding",
+        "zh": "浪漫表达与情感陪伴的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals and emotional companionship and understanding were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达与仪式感和情感陪伴与相互理解的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish greater skill at expression or listening, or that either value makes a relationship closer.",
+        "zh": "两个方向次数相同，不表示你更会表达或更会倾听，也不表示哪一边更亲密。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals & Companionship: Relationship Values Tie",
+          "zh": "仪式与陪伴并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a rituals–companionship tie: special arrangements, listening and willingness, with a fictional example. Equal counts cannot predict a partner’s response.",
+          "zh": "理解仪式与陪伴并列最高：特别安排、倾听与双方意愿的具体例子；次数不证明表达能力，不预测对方会怎样回应。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish greater skill at expression or listening, or that either value makes a relationship closer.",
+              "zh": "两个方向次数相同，不表示你更会表达或更会倾听，也不表示哪一边更亲密。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验的表达形式。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "The tied directions cover rituals and shared memories alongside emotional exchange, listening and companionship.",
+              "zh": "并列的两个方向对应选项覆盖仪式体验、共同记忆，以及情绪交流、陪伴倾听等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall which choices concerned a ritual and which concerned companionship. Did what you chose change with the situation?",
+              "zh": "可以回看：哪些题选向了仪式，哪些选向了陪伴；你的选择是否随情境变化。"
+            },
+            {
+              "en": "Do you more often express care through a special arrangement or through company? Only you can check that distinction against actual experiences.",
+              "zh": "你更常用特别安排表达在意，还是用陪伴表达在意？这个区别只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Rituals and companionship require willingness and current capacity. This result cannot require someone to participate or disclose their feelings.",
+              "zh": "仪式与陪伴都需要双方自愿与当下余力；结果不能要求对方参与或倾诉。"
+            },
+            {
+              "en": "If useful, first ask yourself which form of expression you want, then ask whether the other person wants it. You can skip trying an expression of care.",
+              "zh": "如果愿意，想表达在意时可以先问自己更想用哪种方式，再询问对方是否愿意；不想尝试表达时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an ordinary evening when a memorable gesture and an unhurried conversation are both being considered. One possible draft is, “Would you enjoy choosing a song together, or would you rather have room to talk without another activity?” This asks about a form, not a test of closeness. The two equal counts do not establish that you prefer both at once or that either person will experience the evening as meaningful.",
+              "zh": "假设一个普通晚上，双方在考虑留一个有记忆点的动作，或只进行一次不赶时间的谈话。可以写：“要不要一起选首歌，还是更想不另加活动地聊一会儿？”这在询问形式，不是考验亲近。两个次数相等，不说明你同时想要两种方式，也不保证任何一方觉得这个晚上有意义。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An elaborate surprise does not substitute for willingness to talk, and a long conversation does not have to become a ritual. The result cannot turn “this matters to me” into “you must feel cared for by it.”",
+              "zh": "精心惊喜不能替代愿意谈话，长谈也不必被做成仪式。结果不能把“这对我重要”变成“你必须因此感到被爱”。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Write one sentence about what you want remembered and another about what you want understood. They may refer to different events. Leave room for the other person to prefer neither form; no real conversation is required by this exercise.",
+              "zh": "可以分别写一句想被记住什么、想被理解什么，两句可以对应不同事件。留出对方不选择任何一种形式的空间；练习不要求实际找人谈。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-autonomy-tie",
+      "directionIds": [
+        "romantic_expression",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Rituals and Autonomy Tied",
+        "zh": "仪式与自主并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for romantic expression and rituals and shared growth and personal autonomy",
+        "zh": "浪漫表达与成长自主的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达与仪式感和共同成长与彼此独立的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish a stable combination of valuing rituals and independence, or that either is more mature.",
+        "zh": "两个方向次数相同，不表示你既重仪式又重独立，也不表示哪一边更成熟。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals & Autonomy: Relationship Values Tie",
+          "zh": "仪式与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a rituals–autonomy tie: shared occasions and separate goals, with a concrete example and private exercise. Equal counts do not decide a schedule.",
+          "zh": "理解仪式与自主并列最高：共同时刻、各自目标与可协商安排，配有具体例子和私人练习；并列不替你决定时间表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish a stable combination of valuing rituals and independence, or that either is more mature.",
+              "zh": "两个方向次数相同，不表示你既重仪式又重独立，也不表示哪一边更成熟。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验的表达形式。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The tied directions cover regular moments together and commemoration alongside personal goals and independent space.",
+              "zh": "并列的两个方向对应选项覆盖固定共同时刻、纪念方式，以及个人目标、自主空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall choices about shared time and personal space. Did your choices change with how busy the circumstances were?",
+              "zh": "可以回看：哪些题选向了共同时刻，哪些选向了个人空间；选择是否随忙碌程度变化。"
+            },
+            {
+              "en": "Do you want to preserve regular time together or uninterrupted time for individual growth? Only you can check this balance in context.",
+              "zh": "你更想保留两人的固定时刻，还是各自不被打断的成长时间？这个平衡只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Shared moments and personal space both need discussion. This result cannot require a partner to accommodate your arrangement.",
+              "zh": "共同时刻与个人空间都需要协商；结果不能要求伴侣迁就你的安排。"
+            },
+            {
+              "en": "If useful, separately record the time together and the individual development time you would want. Discuss them only if both people are willing; you can also skip this exercise.",
+              "zh": "如果愿意，可以把想要的共同时刻和各自成长时间分别写下来；只有双方都愿意时再讨论，也可以不做。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional month in which a shared occasion and a personal learning plan compete for a few free hours. Write the meaning of the occasion and the personal aim before designing a calendar. A modest shared moment and uninterrupted individual time are possible proposals, not a solution implied by the tie. The count says nothing about how much either person should give up.",
+              "zh": "设想一个虚构月份，共同纪念与个人学习计划都需要少量空闲时间。安排日程前，先分别写明纪念的意义与个人目标。简朴共同时刻和不被打断的个人时间都可作为提案，但不是并列预先给出的方案；次数也不说明任何一方应放弃多少。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“A shared ritual matters, so the personal goal can wait” and “independence matters, so the occasion is unnecessary” both insert a priority that these equal counts did not establish. Neither person’s preference is supplied by your result.",
+              "zh": "“共同仪式重要，所以个人目标可以等”和“独立重要，所以无需纪念”都加入了本次同分没有给出的顺序。你的结果也不提供对方的偏好。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Draft one way of marking an event that preserves choice, and one way of describing personal time that makes shared effects clear. Compare their costs and unknowns without using the result as a reason to request sacrifice.",
+              "zh": "可以写一种保留选择权的纪念方式，再写一种能说明共同影响的个人时间安排，比较成本与未知信息，不把结果当成要求牺牲的理由。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cooperation-companionship-tie",
+      "directionIds": [
+        "practical_partnership",
+        "emotional_companionship"
+      ],
+      "title": {
+        "en": "Cooperation and Companionship Tied",
+        "zh": "协作与陪伴并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for practical partnership and building together and emotional companionship and understanding",
+        "zh": "务实协作与情感陪伴的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for practical partnership and building together and emotional companionship and understanding were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，务实协作与共同建设和情感陪伴与相互理解的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish a combination of practicality and gentleness, or that either value is more responsible.",
+        "zh": "两个方向次数相同，不表示你既务实又温柔，也不表示哪一边更负责任。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cooperation & Companionship: Relationship Values Tie",
+          "zh": "协作与陪伴并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a cooperation–companionship tie: shared tasks, listening and current capacity, with a fictional example. A tie cannot prescribe which comes first.",
+          "zh": "理解协作与陪伴并列最高：共同任务、倾听与当下余力，配有虚构场景；并列不规定该先解决问题还是先谈感受。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish a combination of practicality and gentleness, or that either value is more responsible.",
+              "zh": "两个方向次数相同，不表示你既务实又温柔，也不表示哪一边更负责任。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "The tied directions cover task allocation and prioritizing resources alongside emotional exchange, listening and companionship.",
+              "zh": "并列的两个方向对应选项覆盖任务分配、资源排序，以及情绪交流、陪伴倾听等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall choices about solving a problem first and choices about understanding an emotion first.",
+              "zh": "可以回看：哪些题选向了先解决问题，哪些选向了先理解情绪。"
+            },
+            {
+              "en": "When life becomes busy, do you want to redistribute tasks first or understand the pressure first? Only you can check that ordering against an actual situation.",
+              "zh": "生活变忙时，你更想先重新分配任务，还是先了解压力？这个先后只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Help and companionship both require willingness. This result cannot require either person to carry more tasks or emotions.",
+              "zh": "协助与陪伴都需要双方自愿；结果不能要求一方承担更多任务或情绪。"
+            },
+            {
+              "en": "If useful, when both people are busy and a conversation is welcome, ask whether practical help or listening would be more useful. You can skip this exercise.",
+              "zh": "如果愿意，下次双方都忙且适合沟通时，可以询问对方更需要协助还是倾听；也可以不做。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine someone describing a difficult week. A possible offer is, “Would checking one practical task be useful, or would you prefer me to listen for a while?” They may want neither, or something not listed. This example distinguishes a concrete task from room to be heard. Equal counts cannot determine the response you usually offer first or establish that both are needed in the same moment.",
+              "zh": "假设有人说起艰难的一周，可以先拟一句：“查清一项实际任务有用吗，还是更想让我听一会儿？”对方可能都不需要，也可能需要未列出的事。例子区分具体任务与被听见的空间；同分不能决定你通常先给哪种回应，也不说明当下两种都需要。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Completing an unwanted task may leave the stated request untouched. Continuing to ask about feelings when a practical answer was requested may also miss the point. The tie does not make either response more caring or responsible.",
+              "zh": "做完对方没请求的任务，可能仍没有回应明确需要；对方想要实际答案时持续追问感受，也可能没有接住问题。并列不会让任何一种回应更有爱或更负责。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately split one fictional request into what was explicitly asked, what you inferred, and what needs checking. Write one possible task offer and one listening offer. The exercise is about information, not proof of empathy or competence.",
+              "zh": "可以私下把一项虚构请求分成“明确说了什么”“自己推断什么”“还需核对什么”，再各写一种任务提供和倾听提供。练习是在核对信息，不证明同理心或能力。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cooperation-autonomy-tie",
+      "directionIds": [
+        "practical_partnership",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Cooperation and Autonomy Tied",
+        "zh": "协作与自主并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for practical partnership and building together and shared growth and personal autonomy",
+        "zh": "务实协作与成长自主的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for practical partnership and building together and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，务实协作与共同建设和共同成长与彼此独立的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish skill at both cooperation and independence, or that either value is more worth pursuing.",
+        "zh": "两个方向次数相同，不表示你既会合作又独立，也不表示哪一边更值得追求。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cooperation & Autonomy: Relationship Values Tie",
+          "zh": "协作与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a cooperation–autonomy tie: joint steps and individual goals, with an example and private exercise. Equal counts cannot decide who should compromise.",
+          "zh": "理解协作与自主并列最高：共同步骤、个人目标与双方意愿，配有例子和私人练习；并列不决定该由谁让步。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish skill at both cooperation and independence, or that either value is more worth pursuing.",
+              "zh": "两个方向次数相同，不表示你既会合作又独立，也不表示哪一边更值得追求。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The tied directions cover shared execution and priorities alongside personal development and independent space.",
+              "zh": "并列的两个方向对应选项覆盖共同执行、优先排序，以及个人发展、自主空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall choices about joint steps and separate paths. Did your choices change with the scale of the goal?",
+              "zh": "可以回看：哪些题选向了共同步骤，哪些选向了各自路径；选择是否随目标大小变化。"
+            },
+            {
+              "en": "For a long term goal, would you rather break it into shared steps or advance separately? Only you can check this preference against an actual example.",
+              "zh": "面对长期目标，你更想共同拆解执行，还是各自推进？这个偏好只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Cooperation and autonomy both require discussion. This result cannot require a partner to sacrifice their own goals.",
+              "zh": "合作与自主都需要协商；结果不能要求伴侣牺牲自己的目标。"
+            },
+            {
+              "en": "If useful, list shared goals separately from individual goals, then identify which steps both people would need to take together. You can skip organizing goals.",
+              "zh": "如果愿意，可以把共同目标和各自目标分开列，再确认哪些需要双方一起做；不想整理目标时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional shared project, both people have personal aims as well as a possible joint outcome. A draft can distinguish an agreed shared step from choices each person keeps. For example, “We could agree on one deadline together, while choosing our own way to prepare; does that fit what you want?” The proposal may be refused. Equal counts do not establish that this division is fair or suitable.",
+              "zh": "在一个虚构共同计划里，两人既有个人目标，也在考虑共同成果。可以把已同意的共同步骤与各自保留的选择分开，例如：“是否一起约一个截止时间，准备方式各自决定？”提议可以被拒绝；次数相等不证明这种分法公平或适合。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Calling a plan “shared” does not establish consent to every task. Calling a choice “independent” does not remove its agreed shared consequences. The result cannot allocate responsibility, labour or decision-making authority.",
+              "zh": "把计划称为“共同”，不表示每项任务都已获同意；把选择称为“独立”，也不消除已约定的共同影响。结果不分配责任、劳动或决定权。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Create two columns for a fictional goal: possible joint actions and possible individual actions. Mark which entries have agreement and which are only suggestions. Keep an unknown column so a neat list does not stand in for another person’s choice.",
+              "zh": "可以为虚构目标列“可能共同行动”“可能个人行动”两栏，标明哪些已有同意、哪些只是建议，并保留未知栏，不用整齐清单代替对方选择。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "companionship-autonomy-tie",
+      "directionIds": [
+        "emotional_companionship",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Companionship and Autonomy Tied",
+        "zh": "陪伴与自主并列"
+      },
+      "headline": {
+        "en": "Equal highest counts for emotional companionship and understanding and shared growth and personal autonomy",
+        "zh": "情感陪伴与成长自主的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for emotional companionship and understanding and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，情感陪伴与相互理解和共同成长与彼此独立的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not establish a stable combination of companionship and independence, or that either value is healthier.",
+        "zh": "两个方向次数相同，不表示你既重陪伴又重独立，也不表示哪一边更健康。"
+      },
+      "seo": {
+        "title": {
+          "en": "Companionship & Autonomy: Relationship Values Tie",
+          "zh": "陪伴与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a companionship–autonomy tie: feeling understood, personal judgment and boundaries, with examples. Equal counts do not reveal a fixed role.",
+          "zh": "理解陪伴与自主并列最高：被理解、个人判断和边界的具体例子；次数不定义固定恋爱角色，也不要求随时回应或独立。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish a stable combination of companionship and independence, or that either value is healthier.",
+              "zh": "两个方向次数相同，不表示你既重陪伴又重独立，也不表示哪一边更健康。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The tied directions cover in depth exchange and feeling understood alongside autonomous exploration and independent space.",
+              "zh": "并列的两个方向对应选项覆盖深入交流、被理解，以及自主探索、独立空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall choices about understanding and autonomy. Did your choices change in situations involving different opinions?",
+              "zh": "可以回看：哪些题选向了理解，哪些选向了自主；选择是否随意见差异场景变化。"
+            },
+            {
+              "en": "When opinions differ, do you value being understood or retaining your own judgment first? Only you can check that ordering against the experience.",
+              "zh": "出现意见差异时，你更看重被理解，还是保留自己判断？这个排序只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "Companionship and autonomy both require willingness. This result cannot require constant disclosure or independence in every matter.",
+              "zh": "陪伴与自主都需要双方自愿；结果不能要求对方随时倾诉或事事独立。"
+            },
+            {
+              "en": "If useful, separately list topics you would like to discuss in depth and matters you would like to decide independently. You can skip making these lists.",
+              "zh": "如果愿意，可以把想深入交流的话题和想保留独立的事项分别列出来；不想列出这些事项时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine one person starting an individual project while the other wants to understand the experience. A possible sentence is, “Would you like to tell me about it, and are there parts you would rather explore privately?” The answer can change over time. The example makes sharing and autonomy available as choices; the equal counts do not establish that either person needs more distance or more conversation.",
+              "zh": "假设一人开始个人计划，另一人想了解过程。可以写：“愿意聊聊吗，有没有更想自己探索的部分？”答案以后也可以变化。例子把分享与自主都留作选择；次数相等，不说明任何一方更需要距离或更多谈话。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“If we understand each other, we should tell each other everything” turns companionship into required disclosure. “If I am autonomous, I never need support” turns a relative count into a fixed identity. Neither follows from the tie.",
+              "zh": "“相互理解就应该无话不说”把陪伴变成必须披露；“我自主就不需要支持”把相对次数变成固定身份。两者都不是并列能推出的结论。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "On paper, choose one topic you might want to share and one matter you might want to decide independently. Describe an invitation rather than an expectation. You can leave both blank if the exercise does not fit; the test does not measure a need for intimacy.",
+              "zh": "可以在纸上各选一个可能想分享的话题、可能想自主决定的事项，写成邀请而不是预期。不合情境时两栏都可以留空；测试不测量亲密需要。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish two corresponding abilities.",
+              "zh": "不表示你同时具备两种能力"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-cooperation-companionship-tie",
+      "directionIds": [
+        "romantic_expression",
+        "practical_partnership",
+        "emotional_companionship"
+      ],
+      "title": {
+        "en": "Rituals, Cooperation and Companionship Tied",
+        "zh": "仪式、协作与陪伴并列"
+      },
+      "headline": {
+        "en": "Three directions have equal highest counts",
+        "zh": "三个方向的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals, practical partnership and building together and emotional companionship and understanding were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达、务实协作和情感陪伴三个方向的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+        "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals, Cooperation & Company: Relationship Values Tie",
+          "zh": "仪式、协作与陪伴并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore a three-way rituals, cooperation and companionship tie: raw counts, a fictional example and tradeoffs, without inventing a combined personality.",
+          "zh": "理解仪式、协作与陪伴三方向并列：完整次数读法、虚构场景与具体取舍，不生成综合人格，也不证明三项能力齐全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+              "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "The three tied directions cover different situations involving rituals, task arrangements and emotional exchange.",
+              "zh": "并列的三个方向对应选项覆盖仪式体验、任务安排和情绪交流等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether your choices changed more with the circumstances or with a preference you tend to keep.",
+              "zh": "可以回看：你的选择更常随情境变化，还是随固定偏好变化。"
+            },
+            {
+              "en": "Which relationship value mattered more in each situation? A tie cannot automatically establish that ordering.",
+              "zh": "不同情境下你更在意哪种关系价值？这个顺序不能从并列结果自动得出。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "All three directions require voluntary participation and discussion. This result cannot require a partner to cooperate.",
+              "zh": "三个方向都需要双方自愿与协商；结果不能要求伴侣配合。"
+            },
+            {
+              "en": "If useful, record which value you actually prioritized in three recent situations. You can skip revisiting those situations.",
+              "zh": "如果愿意，可以把最近三种情境里实际优先的价值分别写下来核对；不想回看这些情境时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Picture a fictional milestone during a busy week. Three proposals could be noted separately: mark the occasion, complete one agreed task, or leave unhurried room to talk. Describe what each proposal would serve before trying to merge them. The three equal counts do not establish that all three are wanted, that you will combine them, or that one should occur first.",
+              "zh": "设想繁忙一周里的一个虚构里程碑，可以分别列三项提议：标记时刻、完成一项同意的任务、留出不赶时间的谈话。合并前先写清各想回应什么。三项同分不说明三种都需要，也不说明你会组合或先做哪一种。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A full evening that contains a ritual, a task and conversation may still leave someone with no choice. More activities do not establish a more complete relationship response. The remaining lower direction is not a missing ability.",
+              "zh": "一个同时塞进仪式、任务与谈话的晚上，也可能没给某人选择权。活动更多不证明关系回应更全面，另一项较低方向也不代表缺少能力。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "For a private fictional plan, give each proposal one sentence about its purpose and one about what remains unknown. Choose no final schedule. This helps separate stated information from the order a tied label might tempt you to assume. For example, whether a task has a deadline and whether conversation is wanted now are separate unknowns that could lead to different plans.",
+              "zh": "可以在私人虚构计划里，为三项提议各写一句目的、各写一句未知信息，暂不排日程，用来区分明确内容与可能从并列标签中猜出的顺序。例如，任务是否有截止时间、现在是否愿意交谈，是两个不同的未知条件，可能需要不同安排。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish ability in all three areas.",
+              "zh": "不表示三方面能力齐全"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-cooperation-autonomy-tie",
+      "directionIds": [
+        "romantic_expression",
+        "practical_partnership",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Rituals, Cooperation and Autonomy Tied",
+        "zh": "仪式、协作与自主并列"
+      },
+      "headline": {
+        "en": "Three directions have equal highest counts",
+        "zh": "三个方向的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals, practical partnership and building together and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达、务实协作和成长自主三个方向的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+        "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals, Cooperation & Autonomy: Relationship Values Tie",
+          "zh": "仪式、协作与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore a three-way rituals, cooperation and autonomy tie: shared occasions, tasks and personal goals. Equal counts cannot choose a real-life priority.",
+          "zh": "理解仪式、协作与自主三方向并列：共同时刻、任务和个人目标的具体例子；并列不推导现实中的固定优先顺序。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+              "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The three tied directions cover moments of commemoration, carrying out tasks and personal space.",
+              "zh": "并列的三个方向对应选项覆盖仪式时刻、任务执行和个人空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether the circumstances or a preference you tend to keep shaped the choice.",
+              "zh": "可以回看：选择更常被情境还是固定偏好决定。"
+            },
+            {
+              "en": "The order of rituals, cooperation and autonomy in different situations cannot be inferred automatically from a tie.",
+              "zh": "仪式、协作和成长自主在不同情境里的先后，不能从并列结果自动得出。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "All three directions require willingness and discussion. This result cannot require a partner to accommodate your preferences.",
+              "zh": "三个方向都需要双方自愿与协商；结果不能要求伴侣迁就。"
+            },
+            {
+              "en": "If useful, record which value actually took priority in situations concerning a ritual, cooperation and growth. You can skip comparing those situations.",
+              "zh": "如果愿意，可以把仪式、协作、成长三种情境里实际优先的价值写下来；不想比较三种情境时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people deciding how to use a free day. A shared memory, a joint practical step and protected personal time are three possible aims. Write each aim on its own rather than announce a balanced itinerary. A conversation could ask which aims are actually wanted and what constraints apply. Your three equal counts supply neither the other person’s answer nor a workable allocation of time.",
+              "zh": "假设两人在商量一个空闲日，共同记忆、共同实际步骤和受保护的个人时间是三个可能目标。先分别写下，而不是宣布一张“平衡日程”。真实讨论可以核对哪些目标确实想要、有哪些限制；三项同分不提供对方答案，也不自动分好时间。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“We should do one of each because my result is tied” converts a score pattern into a schedule. The test cannot decide which aim is urgent or whether any activity should be shared. A lower companionship count does not establish inability to listen.",
+              "zh": "“我的结果并列，所以每样都该做一点”把计数结构变成日程。测试不决定哪个目标紧急，也不决定任何活动是否应共同进行；陪伴次数较低不说明不会倾听。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately mark one fictional constraint for each aim: time, resources or agreement. Add an option to leave the day undecided. Compare what each proposal would mean without treating completion as evidence of maturity or commitment.",
+              "zh": "可以私下为每个目标各标一项虚构限制，例如时间、资源或同意，再加上暂不决定的选项。比较提议意义，不把是否完成当成熟度或投入程度的证据。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish ability in all three areas.",
+              "zh": "不表示三方面能力齐全"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rituals-companionship-autonomy-tie",
+      "directionIds": [
+        "romantic_expression",
+        "emotional_companionship",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Rituals, Companionship and Autonomy Tied",
+        "zh": "仪式、陪伴与自主并列"
+      },
+      "headline": {
+        "en": "Three directions have equal highest counts",
+        "zh": "三个方向的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for romantic expression and rituals, emotional companionship and understanding and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，浪漫表达、情感陪伴和成长自主三个方向的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+        "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rituals, Company & Autonomy: Relationship Values Tie",
+          "zh": "仪式、陪伴与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore a three-way rituals, companionship and autonomy tie: expression, company and space, with a fictional example. Counts do not establish three abilities.",
+          "zh": "理解仪式、陪伴与自主三方向并列：表达、陪伴、个人空间的具体情境与可选练习；不凭次数判断三种能力或伴侣适配。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+              "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The three tied directions cover ritual experiences, emotional exchange and independent space.",
+              "zh": "并列的三个方向对应选项覆盖仪式体验、情绪交流和自主空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether your choices were consistent across different situations.",
+              "zh": "可以回看：不同情境里你的选择是否一致。"
+            },
+            {
+              "en": "Only you can check how you ordered rituals, companionship and autonomy in different situations.",
+              "zh": "仪式、陪伴和自主在不同情境里的先后，只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "All three directions require willingness and discussion. This result cannot require someone to participate or disclose their feelings.",
+              "zh": "三个方向都需要双方自愿与协商；结果不能要求伴侣参与或倾诉。"
+            },
+            {
+              "en": "If useful, record what took priority in recent situations involving rituals, companionship and autonomy. You can skip recording these situations.",
+              "zh": "如果愿意，可以记录最近仪式、陪伴、自主三种情境里优先的价值；不想记录近期情境时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional celebration, one person suggests a familiar shared ritual, another wants time to talk, and both have individual plans. These can be written as separate wishes with room for a different answer. A meaningful occasion need not require a long conversation, and conversation need not replace personal time. The tie records selections across different questions rather than a preference for this exact combination.",
+              "zh": "在一个虚构庆祝安排中，一项愿望是熟悉的共同仪式，一项是留时间交流，双方也各有个人计划。可以把它们分别写成愿望，保留不同答案。纪念不一定要求长谈，交流也不必替代个人时间；并列记录不同题中的选择，不表示偏好这个具体组合。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "An invitation to share a memory is not permission to request every private feeling. Time alone is not evidence of rejecting the occasion. Neither interpretation can be supplied by three equal counts or by the lower fourth direction.",
+              "zh": "邀请分享记忆，不等于可以要求全部私人感受；留个人时间，也不是拒绝纪念的证据。三项同分或另一项较低次数都不能提供这些解释。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a short private invitation for each wish and underline any word that assumes another person agrees. Revise it to leave a choice. You need not send any invitation, and the exercise does not demonstrate romantic or emotional ability. An invitation could offer a brief shared memory now and leave a longer conversation undecided, while asking whether the timing fits existing individual plans.",
+              "zh": "可以给每项愿望各写一句私人邀请，圈出默认对方会同意的词，再改成保留选择的句子。不必发出任何邀请，练习也不展示浪漫或情绪能力。例如邀请可以只提现在短暂分享一个记忆，长谈暂不决定，同时询问这个时间是否与各自已有计划相容。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish ability in all three areas.",
+              "zh": "不表示三方面能力齐全"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cooperation-companionship-autonomy-tie",
+      "directionIds": [
+        "practical_partnership",
+        "emotional_companionship",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "Cooperation, Companionship and Autonomy Tied",
+        "zh": "协作、陪伴与自主并列"
+      },
+      "headline": {
+        "en": "Three directions have equal highest counts",
+        "zh": "三个方向的选项次数相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, the options for practical partnership and building together, emotional companionship and understanding and shared growth and personal autonomy were selected equally often. These are equal highest raw counts. They do not create a combined personality or a new camp.",
+        "zh": "在 24 道二选一里，务实协作、情感陪伴和成长自主三个方向的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合人格或新阵营。"
+      },
+      "scoreReading": {
+        "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+        "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+      },
+      "seo": {
+        "title": {
+          "en": "Cooperation, Company & Autonomy: Relationship Values Tie",
+          "zh": "协作、陪伴与自主并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Explore a three-way cooperation, companionship and autonomy tie: tasks, listening and separate goals, with examples. A tie does not mean an ideal partner.",
+          "zh": "理解协作、陪伴与自主三方向并列：共同任务、倾听及个人目标，配有虚构例子；并列不代表理想伴侣或更健康关系。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts across three directions do not establish skill in all three, or that the values are equally important.",
+              "zh": "三方向次数相同，不表示你三方面都擅长，也不表示三种价值同等重要。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The three tied directions cover task arrangements, emotional exchange and independent space.",
+              "zh": "并列的三个方向对应选项覆盖任务安排、情绪交流和自主空间等不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether your choices changed more with the circumstances or resembled a habit you tend to keep.",
+              "zh": "可以回看：你的选择更常随情境变化，还是更接近固定习惯。"
+            },
+            {
+              "en": "The order of cooperation, companionship and autonomy needs to be checked against specific experiences.",
+              "zh": "协作、陪伴和自主在不同情境里的先后，需要你结合具体经历判断。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "All three directions require willingness and discussion. This result cannot require either person to take on more.",
+              "zh": "三个方向都需要双方自愿与协商；结果不能要求一方承担更多。"
+            },
+            {
+              "en": "If useful, record which value actually took priority in situations concerning cooperation, companionship and autonomy. You can skip checking these priorities.",
+              "zh": "如果愿意，可以写下协作、陪伴、自主三种情境里实际优先的价值；不想核对优先项时可以跳过。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional busy period involving a shared task, a wish to be heard and an individual goal. A draft might list what help is being requested, what conversation is wanted, and what decisions remain personal. Keeping them separate makes the unknowns visible. The three equal counts do not prove that you can provide all three or tell you which the other person needs first.",
+              "zh": "设想一个虚构繁忙阶段：有共同任务、想被听见的部分，也有个人目标。可以分别列需要什么协助、想进行什么交流、哪些决定仍属个人。分开写能看见未知信息；三项同分不证明你能同时提供三种，也不告诉你对方先需要什么。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A list of helpful actions can still assign unwanted duties or require disclosure. An autonomy label can still conceal an unclear shared expectation. These are matters to check in a specific example rather than explanations established by the score.",
+              "zh": "一份帮助清单仍可能分配了不想承担的义务，或要求披露；自主标签也可能遮住含糊的共同预期。这些需要在例子中核对，不是计分已经给出的解释。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately label each item in a fictional request as stated, inferred or undecided. Write one question that would clarify an unknown without demanding an answer. Leave the exercise there if you want; the score does not create a duty to solve the situation.",
+              "zh": "可以私下把虚构请求中的内容标成“已明确”“自己推断”“未决定”，再写一个能澄清未知、又不要求必须回答的问题。也可以到此结束；计数不产生解决情境的义务。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not establish ability in all three areas.",
+              "zh": "不表示三方面能力齐全"
+            },
+            {
+              "en": "They do not establish a more complete or ideal person.",
+              "zh": "不表示更全面或更理想"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader.",
+              "zh": "并列被原样保留，不强行指定唯一方向。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "four-values-tied",
+      "directionIds": [
+        "romantic_expression",
+        "practical_partnership",
+        "emotional_companionship",
+        "growth_autonomy"
+      ],
+      "title": {
+        "en": "All Four Relationship Values Tied",
+        "zh": "四种关系价值完全并列"
+      },
+      "headline": {
+        "en": "All four directions have equal counts",
+        "zh": "四个方向的选项次数全部相同"
+      },
+      "summary": {
+        "en": "Across 24 paired choices, each of the four directions was selected six times. This attempt has no unique leading direction.",
+        "zh": "在 24 道二选一里，四个方向的选项被选择的次数相同，都是 6 次。结果没有识别出唯一顶部方向。"
+      },
+      "scoreReading": {
+        "en": "Equal counts across four directions do not mean perfect balance or an all capable lover. They do not mean the test has failed.",
+        "zh": "四方向次数相同，不等于完美平衡或全能恋人，也不表示测试失效。"
+      },
+      "seo": {
+        "title": {
+          "en": "All Four Values Tied: Relationship Values Test Result",
+          "zh": "四种关系价值完全并列：爱情阵营完整结果说明"
+        },
+        "description": {
+          "en": "Read a four-way Relationship Values Test tie: six choices per direction, no unique leader, concrete examples and why equal counts do not mean perfect balance.",
+          "zh": "完整理解爱情阵营测试四方向完全并列：每方向6次、没有唯一顶部方向，配有具体例子与私人练习；不解释为完美平衡或全能恋人。"
+        }
+      },
+      "sections": [
+        {
+          "id": "count-and-scope",
+          "title": {
+            "en": "Read every tied direction",
+            "zh": "各并列方向的次数读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts across four directions do not mean perfect balance or an all capable lover. They do not mean the test has failed.",
+              "zh": "四方向次数相同，不等于完美平衡或全能恋人，也不表示测试失效。"
+            },
+            {
+              "en": "Romantic expression: commemoration, symbols and special experiences.",
+              "zh": "浪漫表达：纪念、象征和特别体验。"
+            },
+            {
+              "en": "Practical partnership: division of work, execution and shared tasks.",
+              "zh": "务实协作：分工、执行和共同任务。"
+            },
+            {
+              "en": "Emotional companionship: listening, sharing and mutual understanding.",
+              "zh": "情感陪伴：倾听、分享和相互理解。"
+            },
+            {
+              "en": "Growth and autonomy: personal goals, autonomous decisions and support for growth.",
+              "zh": "成长自主：个人目标、自主选择和成长支持。"
+            },
+            {
+              "en": "The items compare four relationship values in pairs across different situations. Each direction covers its corresponding value situations.",
+              "zh": "题目把四种关系价值放进不同情境的两两比较中，四个方向各自覆盖相应的价值情境。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-tradeoffs",
+          "title": {
+            "en": "Compare situations and tradeoffs",
+            "zh": "比较具体情境与取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider which value mattered more in different circumstances. If the circumstances were removed, would you make the same choice?",
+              "zh": "可以回看：不同情境下你更在意哪种价值；把情境去掉后，选择还会一样吗。"
+            },
+            {
+              "en": "If you temporarily had to prioritize one of the four values, which would it be? A tie cannot establish that ordering; only you can check it against the situation.",
+              "zh": "如果只能在四种价值里暂时选一种最优先，你会选哪个？这个顺序不能从并列结果自动得出，只能由你自己核对。"
+            }
+          ]
+        },
+        {
+          "id": "willingness-and-action",
+          "title": {
+            "en": "Willingness and optional action",
+            "zh": "双方意愿与可选行动"
+          },
+          "paragraphs": [
+            {
+              "en": "All four directions require willingness and discussion. This result cannot require a partner to cooperate or accommodate you.",
+              "zh": "四个方向都需要双方自愿与协商；结果不能要求伴侣配合或迁就。"
+            },
+            {
+              "en": "If useful, record the first priority separately for different situations. You can skip this exercise and do not need to change any relationship decision because of this result.",
+              "zh": "如果愿意，可以按不同情境分别写下最优先的一种关系价值；也可以不做，不需要仅因本结果改变任何关系决定。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A fictional situation to compare",
+            "zh": "一个可比较的虚构情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider four fictional situations separately: marking an occasion, arranging a shared task, making room to talk and supporting an individual plan. Equal totals do not tell you which would matter most in any one of them. Each can involve different information, resources and wishes. A useful reading starts by choosing one concrete example, not by trying to make every real day contain all four values.",
+              "zh": "可以分别想四个虚构情境：标记一个时刻、安排一项共同任务、留出谈话空间、支持个人计划。总次数相等，不说明每个情境里什么最重要；它们各有不同信息、资源和意愿。可以先挑一个具体例子阅读，而不是让每个真实日子都装下四种价值。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "What the example cannot justify",
+            "zh": "这个例子不能支持什么"
+          },
+          "paragraphs": [
+            {
+              "en": "“I have all four, so I am an ideal partner” adds an ability and relationship judgment that the questionnaire never measured. “No leader means I have no values” adds a different unsupported conclusion. Four equal counts are simply six selected options per direction.",
+              "zh": "“四种都有，所以我是理想伴侣”加入了题本没测过的能力与关系判断；“没有最高就是没有价值观”则加入了另一个无依据的结论。四项相等，只是每方向各选中6次。"
+            }
+          ]
+        },
+        {
+          "id": "private-exercise",
+          "title": {
+            "en": "An optional private exercise",
+            "zh": "可以只在私人纸页上练习"
+          },
+          "paragraphs": [
+            {
+              "en": "On a private page, choose one fictional situation and write what matters there and what is still unknown. You can consider another situation later without ranking your whole life. There is no requirement to retake the test, find a partner’s score or change a relationship decision.",
+              "zh": "可以在私人纸页上选一个虚构情境，写当下在意什么、还有什么未知。以后也可以换个情境观察，不必给整个人生排序。无需重测、索取伴侣分数或改变关系决定。"
+            }
+          ]
+        },
+        {
+          "id": "meaning-and-limits",
+          "title": {
+            "en": "Keep the count within its limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "Equal counts do not mean perfect balance.",
+              "zh": "不等于完美平衡"
+            },
+            {
+              "en": "They do not mean an all capable lover.",
+              "zh": "不等于全能恋人"
+            },
+            {
+              "en": "They do not mean wanting everything.",
+              "zh": "不等于什么都想要"
+            },
+            {
+              "en": "They do not establish all four corresponding abilities.",
+              "zh": "不表示四种能力齐全"
+            },
+            {
+              "en": "They do not predict which direction comes first in an actual relationship.",
+              "zh": "不预测真实关系中先采取哪个方向"
+            },
+            {
+              "en": "The tie is preserved without forcing a unique leader. No combined romantic personality is created.",
+              "zh": "并列被原样保留，不强行指定唯一方向，也不生成综合恋爱人格。"
+            },
+            {
+              "en": "This is an original product framework for exploring relationship values. It has not completed independent psychometric validation.",
+              "zh": "这是产品化观察框架的关系价值方向，未经独立心理测量验证。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "low-direction-explanation",
+      "title": {
+        "en": "Four values, concrete situations",
+        "zh": "四组价值落到具体情境"
+      },
+      "paragraphs": [
+        {
+          "en": "Romantic expression concerns marking moments and symbols; practical partnership concerns shared tasks; emotional companionship concerns listening and understanding; growth and autonomy concern goals and independent choices. These are names for the offered situations, not four abilities. A count cannot reconstruct a particular answer or show what another person wants.",
+          "zh": "浪漫表达看纪念与象征，务实协作看共同任务，情感陪伴看倾听与理解，成长自主看目标与自主选择。这是题目情境的名称，不是四项能力。汇总次数不能还原某道具体选择，也不能说明他人希望怎样。"
+        }
+      ]
+    },
+    {
+      "id": "raw-wins-explanation",
+      "title": {
+        "en": "How each choice is counted",
+        "zh": "每次选择如何计数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each selected option adds one count to its direction. Each of the six pairs appears four times; every direction has 12 comparisons, with six options in each position. The four counts sum to 24, so increasing one necessarily reduces what remains for the others. They are relative choices within this bank, not independent ratings, population ranks, percentiles or low and high thresholds.",
+          "zh": "每个选中选项给对应方向加1次。六种两两配对各出现4次，每方向参与12次比较，在两种位置各6次。四项次数总和固定为24，一个方向增多必然减少其他方向可分得的次数。这是本题组内的相对选择，不是独立评分、人群排名、百分位或高低阈值。"
+        }
+      ]
+    },
+    {
+      "id": "ties-explanation",
+      "title": {
+        "en": "Every highest tie remains complete",
+        "zh": "每种顶部并列都有完整说明"
+      },
+      "paragraphs": [
+        {
+          "en": "All directions with the highest count remain together. The 15 possible leading sets each have a complete public guide. No item order or option position selects a winner. Four equal counts mean six choices each and no unique leader, rather than perfect balance. A lower count does not establish a missing value or weakness. A tie does not reveal a fixed combination, priority order or strength of a difference.",
+          "zh": "所有共同最高方向原样保留，15种可能的顶部集合各有完整公开说明，不按题号或选项位置选赢家。四向相同就是各6次、没有唯一顶部方向，不是完美平衡。较少次数不表示不重视、缺失或弱点；并列也不揭示固定组合、优先顺序或稳定强度差异。"
+        }
+      ]
+    },
+    {
+      "id": "context-and-consent",
+      "title": {
+        "en": "Check meaning, willingness and circumstances",
+        "zh": "核对意义、意愿和现实条件"
+      },
+      "paragraphs": [
+        {
+          "en": "For a fictional important date, an arrangement might involve a ritual, a useful shared task, unhurried conversation or time for separate goals. Which option is useful depends on the people and circumstances. Agreements need voluntary, explicit consent that can be withdrawn. No count requires a partner to cooperate, disclose feelings or change plans. A private reflection is enough; no real contact is required.",
+          "zh": "例如一个虚构的重要日子，可以安排纪念、完成有帮助的任务、留时间交谈，也可以保留各自目标的时间。何者合适取决于具体对象和现实条件。安排需要双方自愿、明确且可撤回的同意；次数不能要求伴侣配合、倾诉或改变计划。只做私人回看即可，不要求联系真人。"
+        }
+      ]
+    },
+    {
+      "id": "model-and-limits",
+      "title": {
+        "en": "The original model and its limits",
+        "zh": "原题本与适用范围"
+      },
+      "paragraphs": [
+        {
+          "en": "This is FermatMind’s original mini-program relationship values framework. It has not completed reliability, validity, norms, fairness or accuracy validation. It is not the Five Love Languages, attachment theory or Sternberg’s triangular theory. It does not measure empathy, maturity, responsibility or romance, match partners, judge relationship quality, predict success or separation, or decide whether to stay or leave. Different results later may reflect different circumstances; they do not automatically establish changed values.",
+          "zh": "本模型来自费马自有小程序的关系价值题本，尚未完成信度、效度、常模、公平性或准确率验证，不等同五种爱的语言、依恋理论或Sternberg爱情三角理论。不测共情、成熟、责任或浪漫能力，不做伴侣配对、关系质量判断、成功分合预测或关系去留决定。以后结果不同可能与情境有关，不能自动说明价值已经改变。"
+        }
+      ]
+    },
+    {
+      "id": "distinct-models",
+      "title": {
+        "en": "How this differs from other relationship tests",
+        "zh": "与其他关系测试有什么区别"
+      },
+      "paragraphs": [
+        {
+          "en": "The Love Personality Test compares interaction entries such as expression, response, space and repair. This test compares relationship values such as rituals, cooperation, companionship and autonomy. The original mini-program Love Type model concerns relationship arrangements, including shared participation, space, certainty and flexibility. They have different items, scoring and interpretations. None is an interchangeable score or a LoveType16 label.",
+          "zh": "恋爱人格比较表达、回应、空间和修复等互动入口；本测试比较仪式、协作、陪伴与自主等关系价值。原小程序恋爱类型模型观察共同参与、个人空间、确定和弹性等关系安排。三者题目、评分和解释不同，不换算分数，也不把本结果冒充LoveType16标签。"
+        }
+      ]
+    },
+    {
+      "id": "private-by-choice",
+      "title": {
+        "en": "Drafts and sharing are optional",
+        "zh": "草稿与分享由你选择"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers remain in the page while you work. Only choosing to save adds a versioned draft in this browser tab for up to 24 hours. Completion, retake or clearing removes it. A saved draft can resume after refresh or an interface language change. This web edition does not persist a final result cache. Copying shares only a result name and public explanation link, without answers or counts. No account is required.",
+          "zh": "作答时答案保留在当前页面；只有主动保存才在本标签页留下带版本草稿，最多24小时，完成、重测或清除即移除。已保存草稿可刷新或换界面语言后恢复。网页版不持久保存最终结果缓存；复制只分享结果名称与公开说明链接，不含答卷或次数，无需账号。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "How are the counts and ties calculated?",
+        "zh": "次数和并列怎样计算？"
+      },
+      "answer": {
+        "en": "Complete all 24 paired choices. Each selected option adds one count to one direction; every direction has 12 comparisons. All directions sharing the highest count remain tied, without an item order tiebreak. Counts sum to 24 and are not population percentiles.",
+        "zh": "完整回答24题后，每次选择给一个方向加1次，各方向参与12次比较。共同最高方向全部保留，不按题序破同分；四项总和24，不是人群百分位。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is a leading direction a fixed relationship identity?",
+        "zh": "最高方向代表固定爱情阵营吗？"
+      },
+      "answer": {
+        "en": "No. It is a relative choice count from this attempt. It does not measure ability, love, maturity, attachment or a fixed romantic role. A lower count does not mean that a value is absent.",
+        "zh": "不是。它只是本次题组的相对选择次数，不测能力、爱意、成熟度或依恋，也不定义固定恋爱角色。较少次数不代表缺失某种价值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every full result without signing up?",
+        "zh": "无需注册也能读全部完整结果吗？"
+      },
+      "answer": {
+        "en": "Yes. All 15 public guides are free, including every pair, triple and four-way tie. They explain a possible count pattern rather than a private person’s answers. Your own complete attempt displays its matching explanation and four counts.",
+        "zh": "可以。15份公开指南均免费，包含全部双向、三向和四向并列。它们解释可能的计数结构，不是他人私人答卷；完整作答后才显示本次对应说明与四项次数。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can this test match partners or predict a relationship?",
+        "zh": "能配对伴侣或预测关系吗？"
+      },
+      "answer": {
+        "en": "No. This original bank has not completed psychometric validation. It cannot establish fit, relationship quality, who should compromise, future stability or whether to stay or leave. No result requires disclosure or contact.",
+        "zh": "不能。本原创题本未完成心理测量验证，不判断适配、关系质量、该由谁让步、未来稳定或关系去留，也不要求披露或联系。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if neither option fits?",
+        "zh": "两个选项都不适合怎么办？"
+      },
+      "answer": {
+        "en": "You can stop or read the guides. The original bank requires a choice between two options; it does not replace missing answers with zero. An incomplete attempt receives no interpreted ranking.",
+        "zh": "可以结束或先读指南。原题本每题二选一，不把缺失答案替换为零分；未完成作答不生成解释排序。"
+      }
+    },
+    {
+      "question": {
+        "en": "What changed from the earlier web edition?",
+        "zh": "与早期网页版有什么变化？"
+      },
+      "answer": {
+        "en": "The same 24 bilingual paired items and four existing result URLs remain. This edition adds full original mini-program explanations, all 11 tied guides and new fictional examples. It keeps all highest ties. A saved draft from the older edition cannot be resumed as a version 2 attempt.",
+        "zh": "24道双语二选一题和四个既有结果URL保留，新增原小程序完整解释、11种并列指南与原创虚构例子，所有共同最高方向保留。旧版本草稿不能被当作第二版作答恢复。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "答案会被保存或分享到外部吗？"
+      },
+      "answer": {
+        "en": "Only opting in saves a tab-local draft for up to 24 hours. Completion, retake or clearing removes it. No final result cache is persisted. Copying shares a name and public guide link, without answers or counts.",
+        "zh": "只有主动选择才保存本标签页草稿，最多24小时；完成、重测或清除即移除，不持久保存最终结果缓存。复制只分享名称与公开指南链接，不含答卷或次数。"
+      }
+    }
+  ]
+}
