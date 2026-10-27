@@ -1,0 +1,979 @@
+{
+  "id": "T102",
+  "state": "external original method and item-bank proposal; parent adoption pending, no runtime or accepted count",
+  "slug": "skills-audit",
+  "code": "FM_SKILL_EXAMPLE_INVENTORY20",
+  "kind": "skills-evidence",
+  "form": "fm_skills_example_inventory20_v1",
+  "scoring": "fm_skills_fourgroups_five_task_state_counts_no_score_v1",
+  "instructions": {
+    "en": "For each activity, choose the state that describes an example you can currently recall. Recent means within the past 12 months; older means before that. An example can come from work, study, volunteering, a hobby or everyday life, and its outcome may have been helpful, mixed or unhelpful. Do not judge its quality or rate your ability. If you have no example but want to explore the activity, choose that option. Otherwise use not relevant, cannot judge or prefer not to answer. You do not enter an example, upload a file or disclose another person’s information. The page records only your selected state; it never verifies the event or the quality of a skill.",
+    "zh": "逐项选择目前能回想的实例状态。“近期”指过去12个月，“更早”指这之前。实例可来自工作、学习、志愿活动、爱好或日常生活，结果可以有用、好坏参半或没有帮助。不评价实例质量，也不为自己的能力打分。没有实例但愿意了解这项活动时选相应选项，其他情况可选不相关、无法判断或暂不回答。无需输入实例、上传文件或披露他人信息；页面只记录所选状态，不核实事件或技能质量。"
+  },
+  "parts": [
+    {
+      "id": "methods",
+      "title": {
+        "en": "Methods and task steps",
+        "zh": "方法与任务步骤"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "tools",
+      "title": {
+        "en": "Tools and information handling",
+        "zh": "工具与信息处理"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "communication",
+      "title": {
+        "en": "Communication and coordination",
+        "zh": "表达与协同"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "domain",
+      "title": {
+        "en": "Task knowledge and its limits",
+        "zh": "任务知识与适用边界"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "SKI_01",
+      "prompt": {
+        "en": "Breaking a familiar task into ordered steps.",
+        "zh": "把一项熟悉任务拆成有先后顺序的步骤。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_02",
+      "prompt": {
+        "en": "Using a stated method on an ordinary problem.",
+        "zh": "把一种明确方法用于普通问题。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_03",
+      "prompt": {
+        "en": "Checking an output against the conditions it needed to meet.",
+        "zh": "按需要满足的条件核对一次产出。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_04",
+      "prompt": {
+        "en": "Recognising a case where the usual method might not fit.",
+        "zh": "识别一种常用方法可能不适用的情况。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_05",
+      "prompt": {
+        "en": "Explaining an assumption that affected how a task was done.",
+        "zh": "解释影响一次任务做法的前提。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_06",
+      "prompt": {
+        "en": "Finding the version of a file or record that you were permitted to use.",
+        "zh": "找到自己获准使用的文件或记录版本。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_07",
+      "prompt": {
+        "en": "Organising a small set of information in a suitable tool.",
+        "zh": "用合适工具整理一小组信息。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_08",
+      "prompt": {
+        "en": "Repeating a tool-based task while preserving the source information.",
+        "zh": "重复一项工具操作，同时保留来源信息。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_09",
+      "prompt": {
+        "en": "Checking who could access information before sharing it through a tool.",
+        "zh": "通过工具分享信息前，核对谁能访问。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_10",
+      "prompt": {
+        "en": "Using an appropriate way to undo or recover an ordinary change.",
+        "zh": "用合适方式撤销或恢复一次普通改动。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_11",
+      "prompt": {
+        "en": "Explaining a familiar term to someone who had a different background.",
+        "zh": "向背景不同的人解释一个熟悉术语。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_12",
+      "prompt": {
+        "en": "Clarifying what another person needed from a handover.",
+        "zh": "澄清别人从一次交接中需要什么。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_13",
+      "prompt": {
+        "en": "Recording a shared decision so the people involved could check it.",
+        "zh": "记录一次共同决定，方便参与者核对。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_14",
+      "prompt": {
+        "en": "Changing a piece of work after considering specific feedback.",
+        "zh": "考虑具体反馈后修改一份成果。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_15",
+      "prompt": {
+        "en": "Adjusting a shared plan when two stated requirements conflicted.",
+        "zh": "两项已知要求冲突时，调整共同计划。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_16",
+      "prompt": {
+        "en": "Identifying the task-specific terms needed to understand a situation.",
+        "zh": "找出理解一次情况所需的任务专用概念。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_17",
+      "prompt": {
+        "en": "Locating a relevant source and checking whether it was current enough for a task.",
+        "zh": "找到相关来源，并核对它对任务是否足够新。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_18",
+      "prompt": {
+        "en": "Applying a stated rule while noting a limit to where it applied.",
+        "zh": "应用一项明示规则，同时留意适用限制。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_19",
+      "prompt": {
+        "en": "Recognising a question that needed someone with the relevant expertise or authority.",
+        "zh": "识别一个需要相关专业知识或权限者处理的问题。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_20",
+      "prompt": {
+        "en": "Distinguishing a supported claim from a point that was still uncertain.",
+        "zh": "区分有依据的说法与仍不确定的部分。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    }
+  ],
+  "state_definitions": [
+    {
+      "id": "recent",
+      "label": {
+        "en": "I can recall an example from the past 12 months and its outcome",
+        "zh": "我能回想过去12个月的一次实例及其结果"
+      }
+    },
+    {
+      "id": "older",
+      "label": {
+        "en": "I can recall only an older example; I would need to revisit it",
+        "zh": "我只能回想更早的实例，需要重新查看"
+      }
+    },
+    {
+      "id": "explore",
+      "label": {
+        "en": "I cannot recall an example, and I would like to explore this task",
+        "zh": "我想不到实例，愿意了解或尝试这项任务"
+      }
+    },
+    {
+      "id": "na",
+      "label": {
+        "en": "Not relevant / cannot judge / prefer not to answer",
+        "zh": "不相关／无法判断／暂不回答"
+      }
+    }
+  ],
+  "method": "Exactly20originalbilingualtasks/foureditorialareas×5. Eachitemchoosesrecent/older/explore/na;noscorevalues/reverse/mean/abilityscale. Completionrequires20recognisedchoicesincludingallNA. Resultkeeps20task+selectedstate rows and fourintegerstatecountspergroup(each0..5,sum5). Nooveralltotal/strongest/lowest/profilelevel/norm/jobmatch/competency/hiringclaim. Countsareinventoryaccounting,notabilityscores. Twelve-monthrecallandfourstatesareeditorialconvenience,notvalidatedthresholds. Anyoutcomequalifiesasanexample;recentisnotgoodperformanceandolderisnotlostskill. AllfourFULL6guidesalwaysavailable.",
+  "rightsAndProvenance": "All20taskprompts,ENZHwording,states/grouping/methodandfutureguidesareFermatMindoriginal. EuropassrecordingconceptandO*NETskilltopicsarebackgroundonly,nottheirassessment/itembank/certification/endorsement. NoJobCannon55orNCS40itemsaccessed/copied. NoMabeWest/SchmidtHuntereffectsizeborrowedtopromisepersonalvalidity.",
+  "primary": [
+    {
+      "url": "https://europass.europa.eu/en/what-europass",
+      "actual_read": "normalTLSsavedwholemainbody538–578;webnavtruncationandlater400timeoutnotmisrepresentedasfullwebread",
+      "supports": "recordexperiences,skills,qualifications/supportingdocuments;notvalidationofthisinventory"
+    },
+    {
+      "url": "https://europass.europa.eu/en/how-complete-my-europass-profile",
+      "actual_read": "web362–367+saved538–543wholemainbody",
+      "supports": "updatingprojects/achievements/work/study;notfourstateor12monthcutoffvalidation"
+    },
+    {
+      "url": "https://www.onetonline.org/find/descriptor/browse/2.A",
+      "actual_read": "web50–101wholeEssentialSkillsmainbody",
+      "supports": "currentFoundationalAreasandWaysOfWorkingconceptdescriptions;occupationratingsnotpersonalnorms"
+    },
+    {
+      "url": "https://nationalcareers.service.gov.uk/discover-your-skills-and-careers",
+      "actual_read": "webwhole70linesafterredirectfromskills-assessment",
+      "supports": "publicservice40likes/goodatmotivationassessmentdescriptiononly;notactual40bankorcareerrecommendationreuse"
+    }
+  ],
+  "competitorRead": {
+    "en_entry": "actualcurrentwebwhole118lines plus saved167lines downloaded; seven FAQs read viaweb; public55 claim, fourcategories, five level guides; not55actualbank",
+    "zh_entry": "webInternalError; independent normalTLS200 actualsavedwhole102lines read, seven FAQs",
+    "about": "actualwebwhole69lines; current savedwhole47lines read, fiveFAQs. Currentraw3min vsweb11min; 3Types claim with fourareas description; no author/time/cause inferred",
+    "results": "all five ENmainbody/strength/growth/career and6FAQ each read from currentweb; initialexpertwebtruncated52 then whole85lines followupread. Saved five resulttexts downloaded but not independently read in full; no allZHguides/privatebank/runtimealgorithm read",
+    "not_adopted": [
+      "beginner/developing/competent/advanced/expert assignment",
+      "top15/top5norms",
+      "unverifiedsalarystatistics",
+      "senior/executive readiness or fixed careerpercentages",
+      "work-sample/interviewvalidity borrowed for self-report",
+      "fixed improvement timeline",
+      "blindspots corrected by honest self-report"
+    ]
+  },
+  "nativeAndMiniCheck": "W4factualcatalog/loaders/entsearchskills-audit/skilllevel/competency/技能: onlyspecificExcel/WordknowledgeandSJTpractice, noexactskillsaudit. NoexactMini21skillproduct. NewinventoryisnotT104communicationrulepractice/T101workhabitfrequency/T100MIactivityconfidence. T107competencymethodnotyetfrozen, mustpreservethisboundary. NoexistingURLsorcanonicalchange.",
+  "future_profiles": [
+    "methods-reading",
+    "tools-reading",
+    "communication-reading",
+    "domain-reading"
+  ],
+  "languageEquivalence": "Originalbilingualwording;noformalreliability/norms/validity/crosslanguagemeasurementequivalence.",
+  "pending": [
+    "parent full-content/source/method review",
+    "Root shared integration of formal closed kind",
+    "repository QA/browser/PNG/exactSHA deployment"
+  ]
+}

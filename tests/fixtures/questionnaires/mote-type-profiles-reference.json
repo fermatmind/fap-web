@@ -1,0 +1,454 @@
+[
+  {
+    "id": "energy-presence-reading",
+    "directionIds": [
+      "EXPRESSIVE_ENERGY",
+      "CALM_PRESENCE"
+    ],
+    "title": {
+      "en": "Expressive Energy and Calm Presence: Reading Your Six Choices",
+      "zh": "表达能量与平稳在场：六次选择怎么看"
+    },
+    "headline": {
+      "en": "Notice how you enter an exchange",
+      "zh": "看看自己怎样进入交流"
+    },
+    "summary": {
+      "en": "This comparison records whether you more often selected a visible expression of energy or a steadier way of participating in six situations. Both can be available to the same person.",
+      "zh": "这组记录六个情境中，你更常选择明显表达能量，还是以平稳方式参与。同一个人可以采用两种方式。"
+    },
+    "seo": {
+      "title": {
+        "en": "Expressive Energy and Calm Presence: Reading Your Six Choices",
+        "zh": "表达能量与平稳在场：六次选择怎么看"
+      },
+      "description": {
+        "en": "Read six expression-versus-presence choices, including 3:3 ties. Compare discussion and group-chat examples, then try a small participation adjustment.",
+        "zh": "理解表达与在场的六次选择及3:3并列，用小组讨论、群聊例子核对自己的参与时机，并尝试一次小调整。"
+      }
+    },
+    "scoreReading": {
+      "en": "The ordered counts are expressive energy : calm presence. The seven possible pairs are 0:6, 1:5, 2:4, 3:3, 4:2, 5:1 and 6:0. They count these six choices only.",
+      "zh": "次数顺序是表达能量：平稳在场。可能为0:6、1:5、2:4、3:3、4:2、5:1、6:0，只记录本组六次选择。"
+    },
+    "sections": [
+      {
+        "id": "coverage",
+        "title": {
+          "en": "What these choices cover",
+          "zh": "这六题实际比较什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The six situations involve opening a familiar discussion, a pause at a gathering, sharing an exciting experience, starting work with a new colleague, joining a group chat and responding to someone who seems tired. Selecting expressive energy usually means putting out a signal earlier or making it more visible. Selecting calm presence usually means listening, joining briefly or leaving more space. These are paired choices in this bank, not established opposite personality traits. You can speak with visible enthusiasm and still provide steady company.",
+            "zh": "六个情境涉及熟悉小组开场、聚会冷场、分享兴奋经历、与新同事协作、加入群聊和回应疲惫的人。表达能量一侧通常较早或较明显地发出参与信号；平稳在场一侧通常先听、简洁加入或留出空间。它们是本题组中的相对选择，不是已经证实相互排斥的人格两极。一个人可以表达兴奋，也能稳定陪伴。"
+          }
+        ]
+      },
+      {
+        "id": "expressive",
+        "title": {
+          "en": "If expressive energy was selected more often",
+          "zh": "表达能量次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 4:2, 5:1 or 6:0 result means that more of your choices went to initiating a topic, adding an exchange or making your response more noticeable. It does not show whether other people enjoyed that contribution. In a group planning a weekend outing, proposing one place may help the discussion begin; continuing with five more suggestions while someone is trying to answer may crowd it. The useful question is whether your contribution left a clear opening for the next person, rather than whether you were entertaining enough.",
+            "zh": "4:2、5:1或6:0表示你较多选择发起话题、增加互动或让回应更明显；它不能说明别人是否喜欢这些回应。例如朋友讨论周末出游，先提一个地点可以启动商量；别人正准备回答时再连续抛出五个方案，也可能挤占接话空间。可核对的是发言后是否留下清楚的接续机会，不必评价自己够不够有趣。"
+          }
+        ]
+      },
+      {
+        "id": "calm",
+        "title": {
+          "en": "If calm presence was selected more often",
+          "zh": "平稳在场次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 2:4, 1:5 or 0:6 result means you more often selected a measured pace, a shorter response or space for others. Quiet participation can suit a tired friend or a discussion where you first need context. It can also leave an intended contribution unnoticed. A colleague cannot always tell the difference between attentive silence and having nothing to add. If being included matters to you, a brief signal such as “I am following; I have one question after this” can make your participation visible without requiring you to become louder.",
+            "zh": "2:4、1:5或0:6表示你较多选择平稳节奏、简短回应或给别人空间。疲惫的朋友、自己还需要了解背景的讨论，都可能适合这种参与方式；但想说的内容也可能没有被看见。同事未必能区分认真倾听与没有意见。若希望别人知道自己在参与，可以说“我在听，这段结束后有一个问题”，不需要把自己变得更高声。"
+          }
+        ]
+      },
+      {
+        "id": "tie",
+        "title": {
+          "en": "What a 3:3 tie can tell you",
+          "zh": "3:3并列能够说明什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Three choices on each side keep both approaches visible. Look at which situations led to each answer: perhaps you initiated a familiar group discussion but waited before entering a new collaboration. That is a possible pattern to check, not an explanation supplied by the score. The same six-count result can come from many different answer sets. A tie does not prove perfect balance, social versatility or uncertainty about who you are. There is no need to answer again simply to obtain a more distinctive label.",
+            "zh": "两侧各三次就同时保留。可以回看具体题目：也许熟悉小组开场时先发言，新协作开始时则先观察。这只是值得核对的线索，分数本身没有给出原因；不同答案组合也能形成同样次数。并列不证明完美平衡、特别灵活或不了解自己，不需要为了得到鲜明标签重新选择。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "One small conversation experiment",
+          "zh": "一次小型交流尝试"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one low-pressure exchange where you already want to participate. An expressive option is “I have one idea; would you like to hear it?” A calmer option is “I would like to hear your view first, then add mine.” Both state an intention and leave the other person a choice. The counterexample is treating the result as an instruction to keep everyone amused or to remain silent all evening. Try only one change, and notice whether it feels workable rather than counting approval or trying to generate attraction.",
+            "zh": "选择一次本来就愿意参与、压力不大的交流。表达式说法可以是“我有一个想法，现在方便听吗？”平稳式说法可以是“我想先听听你的看法，再补充我的”。两种都说明意图，并让对方有选择。反例是把结果当成整晚活跃气氛或整晚保持沉默的命令。只试一个小变化，看是否合适，不统计认可次数，也不以制造吸引力为目标。"
+          }
+        ]
+      },
+      {
+        "id": "review",
+        "title": {
+          "en": "Review the exchange, not your social worth",
+          "zh": "回看交流事实"
+        },
+        "paragraphs": [
+          {
+            "en": "Afterward, record what you wanted to contribute, when you spoke and whether there was room for a reply. If the experiment was awkward, consider the setting, fatigue, language or familiarity before making a broad conclusion. Nobody has to perform enthusiasm to deserve inclusion. This unvalidated original bank cannot measure extroversion, communication ability, popularity or romantic prospects. Its value is a concrete question about participation that you may keep private; it does not require contacting anyone or sharing your answers.",
+            "zh": "事后记录自己原本想表达什么、何时开口、有没有给回应留位置。若尝试不顺，先看场合、疲惫、语言和熟悉程度，不据此下整体结论。任何人都不需要表演热情才能获得参与资格。这份尚未完成心理测量学验证的原创题本不测外向程度、沟通能力、人气或恋爱前景；它提供的是一个可以私下核对的参与问题，不要求联系他人或公开答案。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clarity-pacing-reading",
+    "directionIds": [
+      "DIRECT_CLARITY",
+      "TACTFUL_PACING"
+    ],
+    "title": {
+      "en": "Direct Clarity and Tactful Pacing: Timing the Main Point",
+      "zh": "直接清楚与委婉节奏：怎样安排重点"
+    },
+    "headline": {
+      "en": "Look at when the main message arrives",
+      "zh": "看看核心信息何时出现"
+    },
+    "summary": {
+      "en": "Six choices compare stating the point earlier with arranging timing, background and sequence first. A direct message can still be considerate; a tactful introduction can still lead to a clear answer.",
+      "zh": "六次选择比较较早说明重点，还是先安排时机、背景和顺序。直接也可以顾及他人，委婉铺垫后也可以有清楚结论。"
+    },
+    "seo": {
+      "title": {
+        "en": "Direct Clarity and Tactful Pacing: Timing the Main Point",
+        "zh": "直接清楚与委婉节奏：怎样安排重点"
+      },
+      "description": {
+        "en": "Understand direct-versus-tactful choice counts and ties. Use feedback, changed plans and invitation examples to make your main point easier to find.",
+        "zh": "理解直接与委婉的原始次数及并列，通过反馈、改约和拒绝邀请的例子，检查核心信息是否清楚可见。"
+      }
+    },
+    "scoreReading": {
+      "en": "Read direct clarity : tactful pacing as 0:6 through 6:0, including a 3:3 tie. Four or more choices describe the more selected side in this bank, without a communication-skill grade.",
+      "zh": "按直接清楚：委婉节奏阅读0:6至6:0，含3:3并列。四次及以上仅表示本组较多选择该侧，不是沟通能力等级。"
+    },
+    "sections": [
+      {
+        "id": "coverage",
+        "title": {
+          "en": "The six decisions about delivery",
+          "zh": "六种表达安排"
+        },
+        "paragraphs": [
+          {
+            "en": "The items ask about disagreeing, changing an arrangement, giving feedback, clarifying a request, declining an invitation and returning a meeting to its goal. The contrast concerns when and how the central message appears. It does not compare truthfulness with dishonesty or kindness with cruelty. In real life you can say the point early and choose a suitable moment for it. A six-choice comparison cannot capture every aspect of tone, power, culture or the relationship in which the words are used.",
+            "zh": "题目涉及提出异议、临时改约、给反馈、澄清请求、拒绝邀请和把会议带回目标。比较的是核心信息出现的时机和安排，不是诚实与虚假、善良与粗鲁。现实中可以既尽早说重点，也选择合适时机。六次选择无法覆盖语气、权力、文化和关系的全部影响。"
+          }
+        ]
+      },
+      {
+        "id": "direct",
+        "title": {
+          "en": "When direct clarity is more selected",
+          "zh": "直接清楚较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "Counts of 4:2, 5:1 or 6:0 mean you more often chose to state the disagreement, change or requirement promptly. This may be useful when a decision needs an unambiguous answer. For example, “I cannot finish both tasks by Friday; which comes first?” makes a constraint visible. “You should already know this is impossible” adds a judgment the task does not need. A direct answer does not guarantee understanding, so allow a question or ask the other person to confirm the next step.",
+            "zh": "4:2、5:1或6:0表示你较多选择及时说出分歧、变化或要求。需要明确决策时，这可能便于让限制被看见。例如“周五前两项不能都完成，哪项优先？”给出可讨论的信息；“你早该知道这不可能”则加入了并非任务所需的评判。直接不保证别人理解，仍可以留出提问，或核对下一步。"
+          }
+        ]
+      },
+      {
+        "id": "tactful",
+        "title": {
+          "en": "When tactful pacing is more selected",
+          "zh": "委婉节奏较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "Counts of 2:4, 1:5 or 0:6 mean you more often chose background, timing or a gentler sequence before the point. For sensitive feedback, asking “Is now a suitable time to discuss the draft?” can create a better opening. The message still needs its actual content: “The figures on these two pages differ.” A long introduction that never says what needs changing can leave both people guessing. Tactful pacing does not require you to agree, provide a personal excuse or take responsibility for every reaction.",
+            "zh": "2:4、1:5或0:6表示你较多选择先安排背景、时机或较缓和的顺序。敏感反馈可以先问“现在方便讨论稿件吗？”但随后仍需要说明具体内容，例如“这两页的数据不一致”。铺垫很久却不说哪里需要改变，可能让双方继续猜测。委婉不要求赞同、交代私人理由，也不要求承担别人所有反应。"
+          }
+        ]
+      },
+      {
+        "id": "tie",
+        "title": {
+          "en": "Keep a 3:3 result as it is",
+          "zh": "原样保留3:3"
+        },
+        "paragraphs": [
+          {
+            "en": "A tie leaves both delivery approaches available in the result. You might be direct when a request is unclear and more gradual when giving feedback; you might also make a different distinction. Check your selected scenarios instead of assigning yourself a hybrid personality. Three choices each do not establish greater empathy or adaptability, and six choices on one side do not establish rigidity. These are relative selections from a small editorial bank, with no norms for how many direct answers a person should choose.",
+            "zh": "并列时同时保留两种表达安排。也许请求不清楚时直接提问，给反馈时先铺垫；也可能是别的情境差异。回看具体选择即可，不必为自己建立混合人格。各三次不证明同理心或适应性更强，一侧六次也不证明僵化。这是小型原创题组内的相对选择，没有规定一个人应该选几次直接表达。"
+          }
+        ]
+      },
+      {
+        "id": "dialogue",
+        "title": {
+          "en": "Try a message with both a point and a choice",
+          "zh": "试一句既有重点又留余地的话"
+        },
+        "paragraphs": [
+          {
+            "en": "For a changed plan, try “I need to move our call to tomorrow. Would ten or three work?” If timing matters, begin with “Can we check tomorrow’s arrangement now?” and then state the same change. The helpful part is that the listener can identify what happened and what response is needed. A counterexample is repeatedly hinting that tomorrow is difficult while expecting the listener to infer a cancellation. Another is announcing a new time as though the other person has already agreed. Neither count excuses ignoring consent or practical constraints.",
+            "zh": "临时改约可以说“我需要把通话挪到明天，十点或三点你方便吗？”若要先核对时机，可以先问“现在能商量一下明天的安排吗？”再说明同样变化。关键是让对方知道发生了什么、需要回应什么。反例包括反复暗示明天很忙，却期待对方自行猜出取消；或者把新时间宣布成已经同意的安排。任何次数都不能代替双方确认和实际限制。"
+          }
+        ]
+      },
+      {
+        "id": "review",
+        "title": {
+          "en": "Check clarity without grading the person",
+          "zh": "核对信息而非评价人格"
+        },
+        "paragraphs": [
+          {
+            "en": "After one ordinary exchange, ask whether the main point was stated, whether necessary context was available and whether the next action was understood. You can revise a sentence without changing your identity. In an unsafe or unequal situation, protecting your boundaries may matter more than testing a new style. The bank has not been psychometrically validated and cannot rate honesty, emotional intelligence, maturity or workplace effectiveness. The other three comparisons remain separate; there is no formula combining directness and expression into a charm type.",
+            "zh": "一次普通交流后，核对重点是否说出、必要背景是否足够、下一步是否理解。修改一句话不等于改变身份。不安全或权力不对等时，保护边界可能比尝试表达方式更重要。这份题本未完成心理测量学验证，不能评价诚实、情商、成熟或工作效能。其余三组仍独立阅读，不会把直接程度与表达能量合成魅力类型。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "support-timing-reading",
+    "directionIds": [
+      "IMMEDIATE_RESPONSE",
+      "FOLLOW_THROUGH"
+    ],
+    "title": {
+      "en": "Immediate Response and Later Follow-up: Reading the Timing",
+      "zh": "即时回应与后续跟进：回应时点读法"
+    },
+    "headline": {
+      "en": "Separate acknowledging now from continuing later",
+      "zh": "分清现在回应与之后继续"
+    },
+    "summary": {
+      "en": "This comparison records which moment you prioritised in six paired situations. Responding now and following up later can happen in the same real conversation; the score does not compare kindness or reliability.",
+      "zh": "这组记录六个情境中更优先选择的回应时点。现实中可以既当下回应又之后跟进，次数不比较善良或可靠程度。"
+    },
+    "seo": {
+      "title": {
+        "en": "Immediate Response and Later Follow-up: Reading the Timing",
+        "zh": "即时回应与后续跟进：回应时点读法"
+      },
+      "description": {
+        "en": "Read immediate-versus-later response counts and 3:3 ties. Practise a brief acknowledgement or a realistic follow-up without taking on unwanted obligations.",
+        "zh": "理解即时回应、后续跟进次数和3:3并列，练习简短确认或可做到的后续约定，不额外承担不愿承担的义务。"
+      }
+    },
+    "scoreReading": {
+      "en": "The pair is immediate response : later follow-up, with seven possible counts from 0:6 to 6:0. A 3:3 tie preserves both timings, without a combined support score.",
+      "zh": "按即时回应：后续跟进阅读，可能为0:6至6:0共七种。3:3同时保留两种时点，不形成支持能力总分。"
+    },
+    "sections": [
+      {
+        "id": "coverage",
+        "title": {
+          "en": "What the timing comparison contains",
+          "zh": "这组时点选择包含什么"
+        },
+        "paragraphs": [
+          {
+            "en": "The six situations involve good news, a heavy workload, a new idea, a worry, a completed stage and someone having a difficult day. One option gives attention to the current message; the other leaves attention for a later check or development. The pair does not establish that immediate response and later follow-up compete in every real situation. You may do both, do neither when unavailable or use another approach. The result records the relative choice requested by this particular form.",
+            "zh": "六题涉及好消息、任务繁重、新想法、担心的事、阶段完成和当天状态不好。一侧把注意力放在当下信息，另一侧留给之后确认或发展。题目不证明现实中的即时回应与后续跟进总是竞争；可以两者都做、没有余力时都不做，或采用其他方式。结果只记录这份题本要求的相对选择。"
+          }
+        ]
+      },
+      {
+        "id": "immediate",
+        "title": {
+          "en": "When immediate response has more choices",
+          "zh": "即时回应次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 4:2, 5:1 or 6:0 result means you more often chose a prompt sign that you heard what was said. “You finished the first stage; I saw the work you put into it” acknowledges a stated event without inventing how the person feels. It does not mean you have understood everything or agreed to provide help. A quick “Everything will be fine” can miss what was actually expressed. If more discussion is wanted, check whether you have time rather than treating a short acknowledgement as a promise to solve the issue.",
+            "zh": "4:2、5:1或6:0表示你较多选择及时让对方知道自己听见了。“第一阶段完成了，我看到了你投入的工作”回应已经表达的事件，不替对方想象感受。但这不等于已经理解全部内容，或答应提供帮助。匆忙说“一切都会好”也可能没有接住原话。若需要继续聊，核对自己是否有时间，别把简短回应变成解决问题的承诺。"
+          }
+        ]
+      },
+      {
+        "id": "later",
+        "title": {
+          "en": "When later follow-up has more choices",
+          "zh": "后续跟进次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 2:4, 1:5 or 0:6 result means you more often chose to continue at a later suitable point. “Would you like me to check back after your appointment?” makes the proposed next contact explicit and optional. Waiting without saying anything may leave the other person unsure whether you heard them. Following up also does not mean becoming responsible for the outcome or monitoring someone. A useful arrangement specifies what you can realistically do and leaves room for the person to decline or change their mind.",
+            "zh": "2:4、1:5或0:6表示你较多选择在之后合适节点继续。“你希望我在预约结束后再问问进展吗？”把后续联系说清，也让对方可以拒绝。什么都不说地等待，则可能让对方不知道你有没有听见。跟进不等于承担结果或监控他人。可行的约定说明自己能做到什么，并允许对方拒绝或改变想法。"
+          }
+        ]
+      },
+      {
+        "id": "tie",
+        "title": {
+          "en": "A 3:3 tie does not create a caretaker type",
+          "zh": "3:3不会形成照顾者类型"
+        },
+        "paragraphs": [
+          {
+            "en": "Three choices each retain both timings. Review whether the difference follows urgency, familiarity, workload or another feature of the examples; the count cannot decide this for you. A person can acknowledge a message now and still fail to follow through, or follow up later after a brief acknowledgement. That is why the result makes no conclusion about being warmer, more dependable or more deserving of trust. A tie is an arithmetic outcome, not evidence that you can satisfy everyone’s needs at all times.",
+            "zh": "各三次时同时保留两种时点。可以查看差异是否与紧急程度、熟悉度、任务量或情境中其他因素有关；次数不能替你确定原因。一个人可能当下回应却没有后续，也可能先简短确认再之后跟进。因此结果不判断谁更温暖、更可靠或更值得信任。并列是算术结果，不证明能够随时满足所有人的需要。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Make one offer that fits your capacity",
+          "zh": "提出一个符合自己余力的安排"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want to try a small change, combine a factual acknowledgement with a bounded offer: “I heard that today was difficult. I can talk for ten minutes now, or check in tomorrow if you prefer.” Use that wording only if both options are real for you. The counterexample is promising daily contact because a result labelled you supportive, then feeling obliged to continue. The choice to offer nothing further is also available. No answer in this quiz gives another person a claim on your time or emotional labour.",
+            "zh": "若愿意尝试，可以把事实确认和有边界的提议放在一起：“我听到你说今天很难。我现在能聊十分钟，或者你愿意的话明天再问问。”只有两个选项都真实可行时才这样说。反例是因为结果看起来很会支持人，就承诺每天联系，随后被义务困住。也可以不提出进一步安排。题目中的任何选择都不会赋予别人索取你时间和情绪劳动的权利。"
+          }
+        ]
+      },
+      {
+        "id": "review",
+        "title": {
+          "en": "Review agreements rather than goodwill",
+          "zh": "回看约定而非评判好心程度"
+        },
+        "paragraphs": [
+          {
+            "en": "After a voluntary exchange, note what was said, what was offered and whether any next step was agreed. A missed check-in may have practical explanations; one example cannot establish a global character judgment. This original form has not completed psychometric validation. It does not measure care, responsibility, support skills or relationship stability, and it cannot tell you what another person needed without asking them. Keep your observations private if you wish, and read the expression, delivery and sharing comparisons separately from this one.",
+            "zh": "自愿交流后，记下对方说了什么、自己提出了什么、是否约定下一步。一次没有跟进可能有实际原因，不能据此评价整体品格。这份原创题本尚未完成心理测量学验证，不测关心、责任感、支持技能或关系稳定，也不能在没有询问的情况下知道别人需要什么。可以把观察留在私下；表达、节奏和披露三组与本组分别阅读。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sharing-boundary-reading",
+    "directionIds": [
+      "OPEN_SHARING",
+      "BOUNDARIED_RESERVE"
+    ],
+    "title": {
+      "en": "Open Sharing and Bounded Reserve: Choosing What to Disclose",
+      "zh": "开放分享与有边界保留：选择披露范围"
+    },
+    "headline": {
+      "en": "Your disclosure remains your choice",
+      "zh": "是否披露仍由自己决定"
+    },
+    "summary": {
+      "en": "Six choices compare earlier personal sharing with keeping information within a chosen boundary. Neither side establishes sincerity, closeness or a right for someone else to know more.",
+      "zh": "六次选择比较较早分享个人信息，还是按自己选定的边界保留。任何一侧都不能证明真诚、亲密，也不会让别人有权知道更多。"
+    },
+    "seo": {
+      "title": {
+        "en": "Open Sharing and Bounded Reserve: Choosing What to Disclose",
+        "zh": "开放分享与有边界保留：选择披露范围"
+      },
+      "description": {
+        "en": "Understand sharing-versus-reserve counts, ties and privacy boundaries. Compare introductions and online examples, then choose a safe information boundary.",
+        "zh": "理解分享与保留的次数、并列和隐私边界，通过自我介绍及网络表达例子，选择适合自己的信息范围。"
+      }
+    },
+    "scoreReading": {
+      "en": "Read open sharing : bounded reserve as one of seven pairs from 0:6 to 6:0. At 3:3, retain both sides. More sharing is not a higher score or a recommendation to disclose.",
+      "zh": "按开放分享：有边界保留阅读0:6至6:0共七种次数。3:3保留两侧。分享更多不是更高分，也不是增加披露的建议。"
+    },
+    "sections": [
+      {
+        "id": "coverage",
+        "title": {
+          "en": "Which disclosures are being compared",
+          "zh": "本组比较哪些披露"
+        },
+        "paragraphs": [
+          {
+            "en": "The six items involve a new colleague asking about a weekend, discussing feelings, introducing yourself to a group, talking after a disagreement, expressing an opinion online and sharing background as a relationship develops. The options compare how early or widely you reveal personal information in those situations. They do not establish whether the information is true, whether the relationship is safe or whether the listener will respond respectfully. Sharing and reserving can coexist: you may discuss a hobby while keeping your family background private.",
+            "zh": "六题涉及新同事问周末、谈感受、小组自我介绍、分歧结束后的交流、网络表达和关系熟悉后的背景分享。比较的是这些情境中较早或较广地披露信息，不能证明内容是否真实、关系是否安全或对方是否尊重回应。分享与保留可以同时存在：可以谈兴趣，也可以不谈家庭背景。"
+          }
+        ]
+      },
+      {
+        "id": "open",
+        "title": {
+          "en": "When open sharing is more selected",
+          "zh": "开放分享次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 4:2, 5:1 or 6:0 result means you more often chose to add an experience, interest, feeling or personal view. That may give a conversation more context, but the score cannot show whether it created trust. A short account of a recent walk can offer a starting point for a chat without disclosing sensitive details. Telling an intimate story because you feel expected to be open is a different decision. Before sharing, consider whether this is information you actually want this person, audience or platform to retain.",
+            "zh": "4:2、5:1或6:0表示你较多选择补充经历、兴趣、感受或个人看法。这可能提供交流背景，但次数不能证明因此建立信任。简单说一次散步经历，可以提供聊天起点，而不披露敏感细节；因为觉得必须开放才讲私密故事，则是另一种决定。分享前可以核对：自己是否愿意让这个人、这群听众或这个平台长期保留这些信息？"
+          }
+        ]
+      },
+      {
+        "id": "reserve",
+        "title": {
+          "en": "When bounded reserve is more selected",
+          "zh": "有边界保留次数较多时"
+        },
+        "paragraphs": [
+          {
+            "en": "A 2:4, 1:5 or 0:6 result means you more often chose a general answer, listening without adding your story or keeping disclosure within the situation’s needs. That can preserve privacy and pacing; it does not show dishonesty, fear of intimacy or a lack of connection skills. If collaboration needs a specific fact, you can provide that fact without a personal explanation. “I am unavailable on Friday; I can send the draft Thursday” gives useful information while leaving the reason private.",
+            "zh": "2:4、1:5或0:6表示你较多选择概括回答、先听而不加入自己的故事，或把披露限制在当前情境所需范围。这可以保留隐私和节奏，不说明虚假、害怕亲密或缺少连接能力。合作需要一项事实时，可以只提供该事实而不交代私人原因。例如“周五我不在，周四能把稿件发出”，已经给出必要信息，理由仍可保留。"
+          }
+        ]
+      },
+      {
+        "id": "tie",
+        "title": {
+          "en": "How to read 3:3 without inventing a mystery",
+          "zh": "怎样读3:3而不制造神秘标签"
+        },
+        "paragraphs": [
+          {
+            "en": "A tie keeps both choices in view. You may have shared interests in an introduction but kept an opinion off a public platform. Look at audience, permanence and safety rather than turning the result into a charmingly mysterious persona. The six-count total does not preserve why you chose each option, so the same pair may reflect different circumstances for different people. Neither three choices each nor a larger count on one side determines how much you owe a partner, friend, colleague or stranger.",
+            "zh": "并列时同时保留两侧。也许自我介绍时谈兴趣，却不在公共平台发表个人意见。可以看受众、信息是否会长期保留和安全条件，而不是把自己塑造成有吸引力的神秘人物。次数没有保存每项选择的原因，同样结果在不同人身上可能来自不同情境。各三次或一侧更多，都不能决定你欠伴侣、朋友、同事或陌生人多少披露。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Use a boundary that states what you will share",
+          "zh": "用一句话说明愿意分享的范围"
+        },
+        "paragraphs": [
+          {
+            "en": "An optional response to a personal question is “I can tell you about the activity, but I would rather keep the family part private.” Another is “I do not want to discuss that here.” A counterexample is sharing someone else’s story to appear more open, or asking a person to reveal more because their quiz result says they are reserved. No result provides consent for disclosure. In a public, unequal or unsafe setting, ending the conversation or not experimenting may be the most workable choice.",
+            "zh": "面对私人问题，可以自愿说“活动本身可以聊，家庭那部分我想保留”，也可以说“我不想在这里讨论这个”。反例是为了显得开放而讲别人的私事，或因为对方结果偏保留就要求多披露。任何结果都不代表披露同意。公开、权力不对等或不安全的环境里，结束话题或不尝试新表达，都可能是更适合的选择。"
+          }
+        ]
+      },
+      {
+        "id": "review",
+        "title": {
+          "en": "Check comfort and information needs afterward",
+          "zh": "事后核对舒适度和信息需要"
+        },
+        "paragraphs": [
+          {
+            "en": "If you chose to try a response, ask whether you shared what you intended, kept what you wished to keep and provided any information the practical situation required. You do not need to report the answer to anyone. This unvalidated original bank cannot measure authenticity, intimacy, attractiveness or the reasons another person likes you. It differs from a quiz about being liked because it records your own paired choices only. The other three dimensions remain separate, and no combination of openness and energy becomes a romantic identity.",
+            "zh": "若自愿尝试了回应，可以核对是否只分享了原本打算说的、保留了想保留的，以及实际合作所需的信息是否足够。这些答案不必向任何人报告。这份未完成心理测量学验证的原创题本不测真实程度、亲密、吸引力或别人喜欢你的原因。它与被喜欢原因类问题不同，只记录自己的相对选择。其余三维分别阅读，开放程度和表达能量不会合成恋爱身份。"
+          }
+        ]
+      }
+    ]
+  }
+]

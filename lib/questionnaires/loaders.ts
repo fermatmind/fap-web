@@ -3,6 +3,8 @@ import type { Questionnaire } from "./types";
 const loaders = {
   "culture-fit": async () => (await import("./data/culture-fit.json")).default as Questionnaire,
   "empathy": async () => (await import("./data/empathy.json")).default as Questionnaire,
+  "skills-audit": async () => (await import("./data/skills-audit.json")).default as Questionnaire,
+  "mote-type": async () => (await import("./data/mote-type.json")).default as Questionnaire,
   "work-ethics": async () => (await import("./data/work-ethics.json")).default as Questionnaire,
   "multiple-intelligences": async () => (await import("./data/multiple-intelligences.json")).default as Questionnaire,
   "apology-language": async () => (await import("./data/apology-language.json")).default as Questionnaire,

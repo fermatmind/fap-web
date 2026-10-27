@@ -4465,5 +4465,55 @@
       "change-rhythm-reading",
       "feedback-rhythm-reading"
     ]
+  },
+  {
+    "slug": "mote-type",
+    "code": "PERSONALITY_ATTRACTION",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Mote Type Test: Interaction Choices",
+      "zh": "魅力类型测试：互动呈现方式"
+    },
+    "description": {
+      "en": "Compare four pairs of interaction choices with FermatMind’s original 24-item form. Read all four full guides and ties free, without signup or an attractiveness score.",
+      "zh": "用费马原创24题比较四组互动选择，四篇完整指南和并列读法免费，无需注册。不计算吸引力，不生成四型魅力标签。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "personality_attraction_paired_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "energy-presence-reading",
+      "clarity-pacing-reading",
+      "support-timing-reading",
+      "sharing-boundary-reading"
+    ]
+  },
+  {
+    "slug": "skills-audit",
+    "code": "FM_SKILL_EXAMPLE_INVENTORY20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Skills Audit Test: Example Inventory",
+      "zh": "技能审计测试：任务实例盘点"
+    },
+    "description": {
+      "en": "Record examples you recall for 20 tasks across methods, tools, communication and knowledge. Read four full guides free, with no ability score, proficiency level or job-match percentage.",
+      "zh": "围绕方法、工具、沟通和知识的20项任务记录实例状态，四篇完整指南免费。不计算能力分、熟练等级或岗位匹配百分比。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_skills_example_inventory20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "methods-reading",
+      "tools-reading",
+      "communication-reading",
+      "domain-reading"
+    ]
   }
 ]

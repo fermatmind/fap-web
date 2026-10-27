@@ -1,0 +1,1501 @@
+{
+  "slug": "skills-audit",
+  "code": "FM_SKILL_EXAMPLE_INVENTORY20",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "skills-evidence",
+  "title": {
+    "en": "Skills Audit Test: Example Inventory",
+    "zh": "技能审计测试：任务实例盘点"
+  },
+  "seoTitle": {
+    "en": "Skills Audit Test: 20 Task Records and Full Guides Free",
+    "zh": "技能审计测试：20项实例盘点与完整免费读法"
+  },
+  "description": {
+    "en": "Record examples you recall for 20 tasks across methods, tools, communication and knowledge. Read four full guides free, with no ability score, proficiency level or job-match percentage.",
+    "zh": "围绕方法、工具、沟通和知识的20项任务记录实例状态，四篇完整指南免费。不计算能力分、熟练等级或岗位匹配百分比。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "For each activity, choose the state that describes an example you can currently recall. Recent means within the past 12 months; older means before that. An example can come from work, study, volunteering, a hobby or everyday life, and its outcome may have been helpful, mixed or unhelpful. Do not judge its quality or rate your ability. If you have no example but want to explore the activity, choose that option. Otherwise use not relevant, cannot judge or prefer not to answer. You do not enter an example, upload a file or disclose another person’s information. The page records only your selected state; it never verifies the event or the quality of a skill.",
+    "zh": "逐项选择目前能回想的实例状态。“近期”指过去12个月，“更早”指这之前。实例可来自工作、学习、志愿活动、爱好或日常生活，结果可以有用、好坏参半或没有帮助。不评价实例质量，也不为自己的能力打分。没有实例但愿意了解这项活动时选相应选项，其他情况可选不相关、无法判断或暂不回答。无需输入实例、上传文件或披露他人信息；页面只记录所选状态，不核实事件或技能质量。"
+  },
+  "introduction": {
+    "en": "A useful skills audit can begin with a specific task and an example to examine. This original FermatMind inventory asks which examples you can currently recall for twenty activities. It records recent, older, explore and not-recorded states across four editorial areas; it does not assess whether the task was done well. An unsuccessful example still counts as an example. Europass and O*NET provide background concepts, not an endorsed question bank or validation. There is no overall beginner-to-expert level, ability average, ranking, hiring verdict or career-fit percentage. All four complete guides are free before and after answering.",
+    "zh": "技能盘点可以从一项具体任务和一个可查看的实例开始。这份费马原创盘点询问目前能回想哪些活动实例，将20项记录为近期、更早、探索和暂不记录，并放入四个编辑类别；不评估任务做得好不好，失败实例也算实例。Europass与O*NET仅提供概念背景，不提供背书题库或验证。没有从新手到专家的整体等级、能力均分、排名、招聘判断或职业匹配百分比。作答前后均免费开放四篇完整指南。"
+  },
+  "resultHeading": {
+    "en": "Your task-example inventory and four full readings",
+    "zh": "任务实例盘点与四篇完整读法"
+  },
+  "directions": [
+    {
+      "id": "methods",
+      "title": {
+        "en": "Methods and task steps",
+        "zh": "方法与任务步骤"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "tools",
+      "title": {
+        "en": "Tools and information handling",
+        "zh": "工具与信息处理"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "communication",
+      "title": {
+        "en": "Communication and coordination",
+        "zh": "表达与协同"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "domain",
+      "title": {
+        "en": "Task knowledge and its limits",
+        "zh": "任务知识与适用边界"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "SKI_01",
+      "prompt": {
+        "en": "Breaking a familiar task into ordered steps.",
+        "zh": "把一项熟悉任务拆成有先后顺序的步骤。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_02",
+      "prompt": {
+        "en": "Using a stated method on an ordinary problem.",
+        "zh": "把一种明确方法用于普通问题。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_03",
+      "prompt": {
+        "en": "Checking an output against the conditions it needed to meet.",
+        "zh": "按需要满足的条件核对一次产出。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_04",
+      "prompt": {
+        "en": "Recognising a case where the usual method might not fit.",
+        "zh": "识别一种常用方法可能不适用的情况。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_05",
+      "prompt": {
+        "en": "Explaining an assumption that affected how a task was done.",
+        "zh": "解释影响一次任务做法的前提。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "methods"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "methods"
+        }
+      ]
+    },
+    {
+      "id": "SKI_06",
+      "prompt": {
+        "en": "Finding the version of a file or record that you were permitted to use.",
+        "zh": "找到自己获准使用的文件或记录版本。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_07",
+      "prompt": {
+        "en": "Organising a small set of information in a suitable tool.",
+        "zh": "用合适工具整理一小组信息。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_08",
+      "prompt": {
+        "en": "Repeating a tool-based task while preserving the source information.",
+        "zh": "重复一项工具操作，同时保留来源信息。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_09",
+      "prompt": {
+        "en": "Checking who could access information before sharing it through a tool.",
+        "zh": "通过工具分享信息前，核对谁能访问。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_10",
+      "prompt": {
+        "en": "Using an appropriate way to undo or recover an ordinary change.",
+        "zh": "用合适方式撤销或恢复一次普通改动。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "tools"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "tools"
+        }
+      ]
+    },
+    {
+      "id": "SKI_11",
+      "prompt": {
+        "en": "Explaining a familiar term to someone who had a different background.",
+        "zh": "向背景不同的人解释一个熟悉术语。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_12",
+      "prompt": {
+        "en": "Clarifying what another person needed from a handover.",
+        "zh": "澄清别人从一次交接中需要什么。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_13",
+      "prompt": {
+        "en": "Recording a shared decision so the people involved could check it.",
+        "zh": "记录一次共同决定，方便参与者核对。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_14",
+      "prompt": {
+        "en": "Changing a piece of work after considering specific feedback.",
+        "zh": "考虑具体反馈后修改一份成果。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_15",
+      "prompt": {
+        "en": "Adjusting a shared plan when two stated requirements conflicted.",
+        "zh": "两项已知要求冲突时，调整共同计划。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "communication"
+        }
+      ]
+    },
+    {
+      "id": "SKI_16",
+      "prompt": {
+        "en": "Identifying the task-specific terms needed to understand a situation.",
+        "zh": "找出理解一次情况所需的任务专用概念。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_17",
+      "prompt": {
+        "en": "Locating a relevant source and checking whether it was current enough for a task.",
+        "zh": "找到相关来源，并核对它对任务是否足够新。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_18",
+      "prompt": {
+        "en": "Applying a stated rule while noting a limit to where it applied.",
+        "zh": "应用一项明示规则，同时留意适用限制。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_19",
+      "prompt": {
+        "en": "Recognising a question that needed someone with the relevant expertise or authority.",
+        "zh": "识别一个需要相关专业知识或权限者处理的问题。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    },
+    {
+      "id": "SKI_20",
+      "prompt": {
+        "en": "Distinguishing a supported claim from a point that was still uncertain.",
+        "zh": "区分有依据的说法与仍不确定的部分。"
+      },
+      "options": [
+        {
+          "id": "recent",
+          "label": {
+            "en": "I can recall an example from the past 12 months and its outcome",
+            "zh": "我能回想过去12个月的一次实例及其结果"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "older",
+          "label": {
+            "en": "I can recall only an older example; I would need to revisit it",
+            "zh": "我只能回想更早的实例，需要重新查看"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "explore",
+          "label": {
+            "en": "I cannot recall an example, and I would like to explore this task",
+            "zh": "我想不到实例，愿意了解或尝试这项任务"
+          },
+          "directionId": "domain"
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Not relevant / cannot judge / prefer not to answer",
+            "zh": "不相关／无法判断／暂不回答"
+          },
+          "directionId": "domain"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "methods-reading",
+      "directionIds": [
+        "methods"
+      ],
+      "title": {
+        "en": "Skills Audit: Examples of Methods and Task Steps",
+        "zh": "技能审计：方法与任务步骤实例"
+      },
+      "headline": {
+        "en": "Start with a task you can describe, including what did not work",
+        "zh": "从能说清的任务开始，包括没有奏效的部分"
+      },
+      "summary": {
+        "en": "Five activities concern steps, methods, checks, limits and assumptions. The inventory records which examples you recall, without rating the quality of your methods.",
+        "zh": "五项涉及步骤、方法、核对、限制与前提，只记录能回想的实例，不评价方法质量。"
+      },
+      "seo": {
+        "title": {
+          "en": "Skills Audit: Examples of Methods and Task Steps",
+          "zh": "技能审计：方法与任务步骤实例"
+        },
+        "description": {
+          "en": "Read your five task-method records and four state counts. Use a small planning example to distinguish recalled experience, its limits and a useful next question.",
+          "zh": "阅读五项任务方法记录与四种状态计数，用小型规划例子区分记得的经验、限制及下一步问题。"
+        }
+      },
+      "scoreReading": {
+        "en": "Count how many of the five tasks have each selected state: recent, older, explore or not recorded. The four counts sum to five. No average, level or strongest skill is calculated.",
+        "zh": "分别统计五项任务中近期、更早、探索与暂不记录的个数，四个计数合计五；不取平均，不分等级，也不选最强技能。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Five places to look for an example",
+            "zh": "可以回找实例的五个位置"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about arranging steps, using a stated method, checking an output, noticing a limit and explaining an assumption. The activities are prompts for remembering an experience, not a complete technical-skills inventory. An example can come from work, study, a hobby or daily life and can have an unsuccessful outcome. Selecting recent does not mean the method was sound. The page stores no description or file and cannot inspect what you did, how difficult it was or what support you needed.",
+              "zh": "本组询问安排步骤、采用明示方法、核对产出、发现限制和说明前提，提示回想经验，不构成完整技术技能清单。实例可来自工作、学习、爱好或日常生活，也可以没有成功。选近期不代表方法合理。页面不存实例描述或文件，不能检查做了什么、有多难或需要哪些支持。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "An inventory count is not a score",
+            "zh": "清点个数不是打分"
+          },
+          "paragraphs": [
+            {
+              "en": "If your five choices are recent, recent, older, explore and not recorded, the display shows 2 recent, 1 older, 1 explore and 1 not recorded. The sum of five checks that each activity appears once. It does not award two skill points or place you above someone with fewer recent examples. A single older experience may be complex and well documented; several recent ones may be routine or unsuccessful. The report keeps the individual tasks and states visible rather than compressing them into a level.",
+              "zh": "例如五项依次为近期、近期、更早、探索、暂不记录，会显示2、1、1、1，合计五只用于核对每项出现一次，不奖励两点技能，也不表示高于近期实例较少的人。一次更早的经验可能复杂且记录充分，多次近期经验也可能普通或不成功。报告保留逐任务状态，不压缩为等级。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Use an ordinary plan to make the evidence specific",
+            "zh": "用普通计划把经验说具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine organising a fictional study session. You listed topics, estimated time and checked which materials were available, but a topic took longer than expected. This can be an example of planning steps even though the schedule failed. Privately, you could note the aim, your part, the support used and the actual outcome. A counterexample is writing “excellent planning skills” with no event or criterion. The inventory does not require you to enter either account or let it judge which person has better planning ability.",
+              "zh": "假设安排一次虚构学习讨论：列了话题、估了时间、核对材料，但一个话题超时。即使排程失败，它仍可作为安排步骤的实例。私下可记目的、自身部分、所用支持及实际结果。反例是只写“规划能力优秀”，没有事件或判断条件。问卷不要求输入任何叙述，也不据此判断谁规划能力更强。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recency, memory and access have different meanings",
+            "zh": "新近、记忆与接触条件含义不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Recent means within the past twelve months; older means before that. The boundary is an editorial convenience, not a scientific point at which skill expires. You may have relevant experience you do not recall now, or no opportunity to use a method. Choose not recorded when the activity is irrelevant, you cannot judge or you prefer not to answer. No state proves competence, incompetence or motivation. A tie between state counts is simply a tie in this small inventory, without a tiebreaker or a dominant profile.",
+              "zh": "近期指过去12个月，更早指之前；这个界限便于整理，不是技能过期的科学界点。可能有经验但暂时想不起，也可能没有应用机会。不相关、无法判断或不愿回答时选暂不记录。任何状态都不证明胜任、不胜任或动机；计数并列就保留并列，不决出主导档案。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Choose one example to revisit or one small task to explore",
+            "zh": "选一个实例重看，或一项小任务探索"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, select one activity that matters to a task you actually want to do. For a recalled example, consider what the method was meant to achieve, what happened and which assumption might need checking now. For explore, identify a safe practice task and a source or person that can help define the requirements. You do not need to perform it or buy a course. Keep private material in an appropriate place outside the questionnaire and do not treat a remembered event as a current qualification.",
+              "zh": "若有用，选一项与实际想做任务有关的活动。有实例时回看方法原本要达到什么、结果如何，以及哪个前提现在需重核；想探索时，找一项安全练习及能帮助明确要求的来源或人员。不必实际执行，也不必购课。私密材料应放在问卷外的合适位置，不把记忆事件当当前资格。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Compare an example with a real requirement",
+            "zh": "将实例与真实要求对照"
+          },
+          "paragraphs": [
+            {
+              "en": "An actual role or project can require a specific method, complexity, accuracy or permission. Read those requirements before deciding whether an example is relevant, and seek suitable feedback when needed. This original inventory has no norms, reliability findings or validated link to performance, salary or hiring. It is not a skills certificate or a ranking of people. All four full readings remain available when every item is not recorded, and sharing copies only a public title and link rather than your personal inventory.",
+              "zh": "真实角色或项目可能要求特定方法、复杂度、准确性或权限。先读要求再判断实例是否相关，需要时寻求合适反馈。本原创盘点没有常模、信度结果或验证过的表现、薪资、录用关联，不是技能证书或人员排名。全部暂不记录时四篇全文仍开放；分享只含公开标题与链接，不含个人盘点。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools-reading",
+      "directionIds": [
+        "tools"
+      ],
+      "title": {
+        "en": "Skills Audit: Tool and Information-Handling Examples",
+        "zh": "技能审计：工具与信息处理实例"
+      },
+      "headline": {
+        "en": "Record what a tool helped you do and what stayed uncertain",
+        "zh": "记录工具帮助完成了什么，以及哪里仍不确定"
+      },
+      "summary": {
+        "en": "Five prompts concern versions, organising information, preserving sources, access and recovery. A recalled example does not certify software proficiency or permission to act.",
+        "zh": "五项涉及版本、整理信息、保留来源、访问与恢复；记得实例不认证软件熟练度，也不授予操作权限。"
+      },
+      "seo": {
+        "title": {
+          "en": "Skills Audit: Tool and Information-Handling Examples",
+          "zh": "技能审计：工具与信息处理实例"
+        },
+        "description": {
+          "en": "Understand your five tool-use inventory states, including older and unrecorded examples. Use a fictional file revision to identify context, support and a bounded next check.",
+          "zh": "理解五项工具使用状态，包括更早与暂不记录，用虚构文件修订例子辨认背景、支持和范围明确的下一项核对。"
+        }
+      },
+      "scoreReading": {
+        "en": "Keep each task’s selected state and count the four states separately. With five tasks, each count is 0–5 and the counts sum to five. None is a proficiency mark.",
+        "zh": "保留每项所选状态，分别清点四种状态。五项任务中每个计数为0—5，合计五；都不是熟练度分数。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What the tool prompts actually cover",
+            "zh": "工具提示实际覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The activities involve locating an authorised version, organising information, repeating an operation without losing its source, checking access before sharing and using a suitable recovery route. They are broad prompts for examples rather than tests of Excel, Word, programming or a particular platform. You may have used assistive technology, instructions or another person’s help. That context belongs in an account of the task. The inventory does not observe a live operation or infer your proficiency from the name of a tool you used.",
+              "zh": "活动涉及找到获准版本、整理信息、重复操作时保留来源、分享前核访问，以及使用合适恢复途径。它们是宽泛实例提示，不是Excel、Word、编程或某平台考试。可能使用辅助技术、说明或他人帮助，这些背景应放进任务叙述。问卷不观察现场操作，也不按用过的工具名称推断熟练程度。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "Read the four counts without averaging them",
+            "zh": "分别读四种计数，不作平均"
+          },
+          "paragraphs": [
+            {
+              "en": "Choices of recent, older, older, not recorded and not recorded produce counts of 1, 2, 0 and 2 for recent, older, explore and not recorded. Zero explore means only that you did not choose that state for these five prompts; it does not mean you have nothing to learn. Two older examples do not turn into a middle proficiency band. The display keeps their task identities so you can decide which, if any, matters to an actual project without an automatic priority ranking.",
+              "zh": "若选择近期、更早、更早、暂不记录、暂不记录，四种状态计数为1、2、0、2。探索为零只表示这五项没选该状态，不代表无须学习；两个更早实例也不会转换为中级熟练度。展示保留任务身份，便于自行判断哪项与真实项目有关，不自动排学习优先级。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A file revision can reveal context rather than mastery",
+            "zh": "文件修订能说明背景，不证明精通"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine revising a fictional event list in a practice copy. You found the permitted version, changed a column and later checked that the original information remained available. That example may involve careful support from a guide or colleague. A counterexample is describing yourself as an expert because you opened the application many times. The important details would be the task, the version, the assistance and the observed result. This story is illustrative; do not reproduce a risky recovery operation or share a real file for the questionnaire.",
+              "zh": "假设在练习副本里修改一份虚构活动清单：找到获准版本、改一列，后来核对原信息仍可用。过程可能依赖指南或同事细致帮助。反例是因为多次打开软件就称自己专家。有用细节包括任务、版本、帮助和实际结果。故事仅作说明；不要为问卷重做有风险的恢复操作或分享真实文件。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "An old example can be relevant, and a recent one can be weak evidence",
+            "zh": "旧实例可能相关，新实例也可能证据有限"
+          },
+          "paragraphs": [
+            {
+              "en": "A platform can change, but this form does not know which functions changed or whether they affect your task. An older example may transfer to a current tool, while a recent one may rely on a setting you no longer have. Memory, accessibility and access permissions also affect which state you choose. Not recorded is not a failed skill test. All four state choices are accepted as responses, and no response is used to assign an overall level, mark a person untrustworthy or decide a job match.",
+              "zh": "平台可能变化，但问卷不知道哪些功能变了、是否影响任务。旧实例可能适用于新工具，新实例也可能依赖已无权限使用的设置。记忆、无障碍条件与访问许可也影响选择。暂不记录不是技能考试不及格；四种状态都算作答，不用于整体分级、不可信标签或岗位匹配。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Revisit a harmless example against current requirements",
+            "zh": "按当前要求重看一项无风险实例"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want to revisit an example, identify what the current task needs and whether the old account contains relevant detail. Consult current official instructions or a suitable colleague for a specific uncertainty. If an ordinary practice exercise is useful, use authorised, non-sensitive material and the safeguards already appropriate to that setting. This reading does not authorise installation, data changes or access. You may simply note a question to ask later; no practical exercise or disclosure is required to finish the inventory.",
+              "zh": "若想重看实例，明确当前任务需要什么，旧叙述是否包含相关细节。具体不确定处可查当前官方说明或询问合适同事。普通练习有用时，使用获准、非敏感材料并遵循原有适用保护。本读法不授权安装、改数据或访问；也可只记下以后要问的问题，完成盘点不要求实际练习或披露。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Use a specific demonstration for a consequential claim",
+            "zh": "重要能力主张需要具体展示"
+          },
+          "paragraphs": [
+            {
+              "en": "When a role requires a particular tool function, relevant training, a suitable work sample or an authorised observation can supply information this inventory cannot. Do not equate a recalled action with current certification or a guarantee of accuracy. The four editorial categories are not calibrated against each other, so their counts do not identify your strongest skill cluster. Every full guide remains free before and after answering, including for an entirely unrecorded inventory; the result is a private planning aid rather than an employee assessment.",
+              "zh": "角色要求某项工具功能时，相关训练、合适工作样本或获准观察能提供本盘点没有的信息。不把回想行动等同当前认证或准确性保证。四个编辑类别没有相互校准，计数不找最强技能集群。四篇全文作答前后均免费，全部暂不记录也能读；结果用于私人规划，不是员工测评。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communication-reading",
+      "directionIds": [
+        "communication"
+      ],
+      "title": {
+        "en": "Skills Audit: Communication and Coordination Examples",
+        "zh": "技能审计：表达与协同实例"
+      },
+      "headline": {
+        "en": "Describe your part in an exchange, not a broad people-skills label",
+        "zh": "说明一次交流中的自身部分，不贴人际能力标签"
+      },
+      "summary": {
+        "en": "Five activities cover explaining a term, a handover, a shared decision, feedback and conflicting requirements. The selected states concern recalled examples, not communication ability.",
+        "zh": "五项覆盖解释术语、交接、共同决定、反馈和要求冲突；所选状态针对回想实例，不测沟通能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Skills Audit: Communication and Coordination Examples",
+          "zh": "技能审计：表达与协同实例"
+        },
+        "description": {
+          "en": "Read five communication-example records with an independent count example and a fictional volunteer handover. Keep context and consent separate from a skills claim.",
+          "zh": "用独立计数例子和虚构志愿活动交接阅读五项沟通实例，分别考虑背景、同意与技能主张。"
+        }
+      },
+      "scoreReading": {
+        "en": "The report lists each task and its selected state, then counts recent, older, explore and not recorded. All five responses are accounted for without an ability average or interpersonal type.",
+        "zh": "报告逐项列出任务与所选状态，再清点近期、更早、探索和暂不记录，完整对应五项，不生成能力均分或人际类型。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Communication examples have participants and conditions",
+            "zh": "沟通实例有参与者与条件"
+          },
+          "paragraphs": [
+            {
+              "en": "This group prompts examples of explaining a familiar term, clarifying a handover, recording a decision, considering feedback and adjusting a shared plan. You might have communicated through speech, writing, sign, assistive technology or another accessible route. The form does not privilege one medium. It cannot hear the exchange, know whether another person agreed or establish that an outcome resulted from your contribution. A remembered event can start a question about a specific interaction without becoming a general communication-skills score.",
+              "zh": "本组提示解释术语、澄清交接、记录决定、考虑反馈及调整共同计划的实例。可能使用口头、文字、手语、辅助技术或其他适合的方式，问卷不把某种媒介放在更高位置。它没有听到交流、不知道对方是否同意，也不能确定结果由自身贡献造成。回想事件可启动一次具体互动问题，不生成整体沟通能力分。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "Three recent examples are three recalled examples",
+            "zh": "三个近期实例只表示回想到了三次相关经验"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you choose recent for the first three tasks, explore for the fourth and not recorded for the fifth. The four counts are 3, 0, 1 and 1. This is not a score of three out of five or evidence that you communicate better than someone who recalls older examples. A remembered meeting may have gone badly and still belong to recent. The report preserves that state without praising or penalising it, and equal counts in another group do not establish equal skill.",
+              "zh": "例如前三项选近期，第四项探索，第五项暂不记录，四种计数为3、0、1、1。它不是五分中的三分，也不证明比只能回想旧实例的人沟通更好。记得的会议可能效果不好，仍属于近期；报告不因此奖惩，另一组计数相同也不表示技能相等。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Make a handover account specific",
+            "zh": "把交接叙述说具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine handing over a fictional volunteer event. You clarified who would bring the materials, wrote down the decision and later learned that the opening time had been misunderstood. A useful private account distinguishes what you said, what you checked and what remained unclear. A counterexample is claiming excellent teamwork solely because you attended the meeting. The example can reveal an unanswered question without deciding who was at fault. It does not ask you to contact other participants, recount a conflict publicly or upload their messages.",
+              "zh": "假设交接一次虚构志愿活动：澄清谁带材料、记下决定，后来却发现开场时间被误解。私人记录可区分自己说了什么、核对过什么、哪里仍含糊。反例是仅因参加会议就说团队协作优秀。实例可揭示待答问题，不判谁有错，也不要求联系参与者、公开冲突或上传消息。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A communication context can change what was possible",
+            "zh": "沟通背景会影响可行性"
+          },
+          "paragraphs": [
+            {
+              "en": "Language, access, group size, roles, power, time and the safety of disagreeing can shape an interaction. A state choice cannot isolate their effects or judge a person’s social confidence. Recent and older refer only to the recall window. Explore does not prove a deficiency, and not recorded can mean an activity was irrelevant or you did not want to answer. The inventory keeps all four guides available without turning any state into an employer rating, relationship verdict or requirement to become more outgoing.",
+              "zh": "语言、接触条件、人数、角色、权力、时间和表达不同意见是否安全，都可能影响互动。一个状态选择不能分离这些影响，也不判断社交自信。近期与更早只描述时间窗；探索不证明欠缺，暂不记录可能是不相关或不愿答。四篇指南始终开放，不把状态变成雇主评级、关系判断或更外向的要求。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Review one exchange privately before deciding on an action",
+            "zh": "先私下回看一次交流，再决定行动"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, select a task that matters to something you want to do. For a recalled exchange, consider the intended audience, your particular contribution, the support you used and what you actually know about the outcome. For an activity to explore, a fictional rehearsal or a question about requirements may be sufficient. Seeking another person’s feedback is optional and should respect willingness and privacy. The purpose is a clearer example or question, not to obtain approval, increase a count or make someone else complete the inventory.",
+              "zh": "若有用，选一项与自己想做事情相关的活动。有交流实例时，考虑对象、自身具体贡献、所用支持，以及实际知道哪些结果；想探索时，虚构练习或询问要求可能已足够。寻求他人反馈是可选的，应尊重意愿与隐私。目的是更清楚的实例或问题，不是求认可、增加计数或让别人也填问卷。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Keep this separate from communication practice or assessment",
+            "zh": "与沟通练习或正式测评分开使用"
+          },
+          "paragraphs": [
+            {
+              "en": "A practice scenario can ask which action fits supplied conditions; this inventory instead records whether you recall an example of an activity. Neither automatically establishes real-world competence. For a consequential role, use its actual requirements and appropriate evidence of performance. This original bilingual edition has no established norms, reliability or cross-language measurement equivalence. No overall level, career match or hiring recommendation follows from its counts, and the public guide does not reveal your choices to anyone who opens its link.",
+              "zh": "情境练习可问哪项行动符合给定条件，本盘点则记录是否回想过某项活动实例，两者都不自动证明现实胜任。重要角色应看实际要求及合适表现证据。本原创双语版没有建立常模、信度或跨语言测量等价性，不按计数给整体等级、职业匹配或招聘建议；别人打开公开指南链接也看不到你的选择。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "domain-reading",
+      "directionIds": [
+        "domain"
+      ],
+      "title": {
+        "en": "Skills Audit: Task Knowledge, Sources and Limits",
+        "zh": "技能审计：任务知识、来源与边界"
+      },
+      "headline": {
+        "en": "Connect a knowledge claim to its context and source",
+        "zh": "把知识主张联系到背景与来源"
+      },
+      "summary": {
+        "en": "Five prompts concern terms, current sources, rules, expert input and uncertainty. They help organise examples to revisit without testing the depth or accuracy of your knowledge.",
+        "zh": "五项涉及术语、当前来源、规则、专业协助与不确定性，用来整理可重看的实例，不考知识深度或准确性。"
+      },
+      "seo": {
+        "title": {
+          "en": "Skills Audit: Task Knowledge, Sources and Limits",
+          "zh": "技能审计：任务知识、来源与边界"
+        },
+        "description": {
+          "en": "Understand five knowledge-example states and their counts. Use a fictional community instruction to distinguish a remembered claim, its evidence and a present requirement.",
+          "zh": "理解五项知识实例状态及计数，用虚构社区说明区分记得的说法、依据与当前要求。"
+        }
+      },
+      "scoreReading": {
+        "en": "Count the selected recent, older, explore and not-recorded states among five tasks. Keep each task visible; do not convert counts into expertise, a certificate or a job-fit percentage.",
+        "zh": "清点五项中的近期、更早、探索与暂不记录，同时保留逐项内容；不转换为专业水平、证书或岗位匹配百分比。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Knowledge is more specific than knowing a topic name",
+            "zh": "知识不只是知道话题名称"
+          },
+          "paragraphs": [
+            {
+              "en": "The prompts concern identifying relevant terms, locating a source that is current enough, applying a rule within its limits, recognising when expertise is needed and distinguishing evidence from uncertainty. They are not a test of facts in medicine, law, finance, engineering or another profession. The form does not verify a source, inspect a qualification or judge whether an interpretation is correct. A remembered example may include a mistaken assumption; recording its state does not endorse the assumption or authorise advice to another person.",
+              "zh": "提示涉及识别术语、寻找足够新的来源、在边界内应用规则、识别专业协助需要，以及区分证据和不确定。它不考试医学、法律、金融、工程等专业事实，不核验来源、检查资格或判断解释是否正确。记得的实例也可能有错误前提，记录状态不背书该前提，更不授权向别人提供建议。"
+            }
+          ]
+        },
+        {
+          "id": "counts",
+          "title": {
+            "en": "Keep the count tied to the selected tasks",
+            "zh": "计数只对应所选任务"
+          },
+          "paragraphs": [
+            {
+              "en": "For choices older, explore, explore, not recorded and recent, the report counts 1 recent, 1 older, 2 explore and 1 not recorded. All five tasks are accounted for. Two explore entries do not mean two knowledge deficits, and one recent entry is not a unit of expertise. The counts cannot say which subject matters most to a role. They offer a way to find a task you might revisit, while leaving its actual requirement, the quality of evidence and your interest for separate consideration.",
+              "zh": "若依次选更早、探索、探索、暂不记录、近期，报告计为1个近期、1个更早、2个探索、1个暂不记录，完整对应五项。两个探索不等于两项知识缺陷，一个近期也不是一单位专业水平。计数不能确定某角色最需哪个学科，只帮助找到可重看的任务；实际要求、证据质量与自身兴趣仍需分别考虑。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check which instruction a claim depended on",
+            "zh": "核对说法依赖了哪份说明"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine explaining a fictional community booking rule using an old notice. Later, a newer notice appears with a different time limit. The example can prompt you to identify the source you used and whether the newer notice applies to the same setting. A counterexample is treating a remembered rule as current because you once knew it well. This does not mean every old source is wrong: context and the relevant authority matter. The story is illustrative and cannot settle an actual legal, professional or organisational requirement.",
+              "zh": "假设按旧通知解释一项虚构社区预约规则，后来出现期限不同的新通知。实例可提醒找出当时来源，以及新通知是否适用于同一背景。反例是因为曾经熟悉，就把记得的规则当当前规则；这也不表示所有旧来源都错，仍要看背景与相关权威。故事仅作说明，不能裁决真实法律、专业或组织要求。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Recall is not evidence that knowledge remains accurate",
+            "zh": "记得不证明知识仍准确"
+          },
+          "paragraphs": [
+            {
+              "en": "The twelve-month boundary helps organise recollection and does not define how long a fact stays valid. Some requirements change quickly; others remain stable for years. Access to training, references, accessible materials and expert help can affect which experiences you have. Not recorded is an available response without an adverse inference. Explore identifies a self-selected interest in an activity, not a compulsory training gap. The inventory supplies no percentile, occupational norm, validated expertise ladder or automatic comparison between the four categories.",
+              "zh": "12个月界限用于整理回忆，不规定事实有效多久。有的要求变化快，有的多年稳定；训练、参考资料、无障碍材料与专业帮助会影响接触经验。暂不记录不会触发负面推断，探索表示自己愿意了解某活动，不是强制培训缺口。盘点不提供百分位、职业常模、验证过的专业水平阶梯或四类之间的自动比较。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Choose one present question with a suitable source",
+            "zh": "选一个当前问题，配一个合适来源"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, select a relevant, low-stakes task and state the question you want to clarify. Check which source or person is appropriate for that specific requirement, including whether the material is current enough and applies to your setting. You may simply note that specialist advice is needed. Do not attempt a consequential procedure or give advice outside your competence to create an example. No upload, real incident account, course purchase or demonstration is required; keeping one bounded question can be a useful stopping point.",
+              "zh": "若有用，选一项相关且低影响的任务，写清想澄清的问题，核对哪份来源或哪位人员适合这个要求，包括资料是否足够新、是否适用于自身情况。也可以只注明需要专业意见。不要为制造实例执行重要程序或在能力外提供建议。不要求上传、真实事件叙述、购课或演示；留下一个范围明确的问题就可结束。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Use requirements and evidence for real decisions",
+            "zh": "实际决定依赖要求与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "A job, course or project can require defined knowledge, qualifications, experience or supervised performance. Compare those requirements with appropriate evidence rather than interpreting a state count as readiness. This original inventory is not endorsed by Europass, O*NET or the National Careers Service, and it does not reuse their assessment banks. It has no established psychometric validity or predictive link to employment outcomes. All four full public guides are free without signup, including when all twenty tasks are not recorded, and sharing never includes your personal states.",
+              "zh": "工作、课程或项目可能要求明确知识、资格、经验或受监督表现，应将要求与合适证据对照，不把状态计数理解成已准备好。本原创盘点未获Europass、O*NET或英国职业服务背书，也不复用其测评题库；没有建立心理测量学效度或就业结果预测关联。无需注册即可免费读四篇全文，20项都暂不记录也开放，分享不含个人状态。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_skill_example_inventory",
+    "formCode": "fm_skills_example_inventory20_v1",
+    "itemBankVersion": "fm_skills_example_inventory20_v1",
+    "scoringVersion": "fm_skills_fourgroups_five_task_state_counts_no_score_v1",
+    "resultContentVersion": "fm_skills_four_example_inventory_readings_v1",
+    "itemBankSha256": "9c4c5ad158d7a6e0440a86278d4bf255dc7dea6f8536a64f2ee14f4b4bc1dcc5",
+    "resultContentSha256": "697bd13d7ec47981cbd5b57e42f52a7e889c2a876105792e5e8495442d128488",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Europass: recording skills, experiences and supporting documents",
+        "zh": "Europass：记录技能、经验与支持材料"
+      },
+      "url": "https://europass.europa.eu/en/what-europass"
+    },
+    {
+      "title": {
+        "en": "Europass: updating a personal experience profile",
+        "zh": "Europass：更新个人经验记录"
+      },
+      "url": "https://europass.europa.eu/en/how-complete-my-europass-profile"
+    },
+    {
+      "title": {
+        "en": "O*NET Essential Skills: conceptual background, not personal norms",
+        "zh": "O*NET基础技能：概念背景，不是个人常模"
+      },
+      "url": "https://www.onetonline.org/find/descriptor/browse/2.A"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Examples to examine, without a proficiency test",
+        "zh": "整理可查看实例，不测熟练等级"
+      },
+      "paragraphs": [
+        {
+          "en": "The twenty original bilingual task prompts cover methods, tools, communication and task knowledge. They are not a complete inventory of professional competence. Choose a state for an example you can recall, including mixed or unsuccessful outcomes; you do not rate the quality of your performance. No competitor assessment, official occupational rating or work-sample validity is adopted.",
+          "zh": "20个原创双语任务提示覆盖方法、工具、沟通和任务知识，不构成专业胜任力的完整清单。可回想好坏参半或失败实例，只选状态，不评表现质量；不采用竞品测评、官方职业评分或工作样本效度。"
+        }
+      ]
+    },
+    {
+      "id": "states",
+      "title": {
+        "en": "Four states with an explicit recall boundary",
+        "zh": "四种状态与明确回忆边界"
+      },
+      "paragraphs": [
+        {
+          "en": "Recent means an example from the past twelve months; older means an earlier example you would need to revisit. Explore means no example comes to mind and you would like to explore the activity. Use not recorded when irrelevant, uncertain or unwilling to answer. The states and twelve-month boundary are editorial choices, not validated skill levels, and no event is verified.",
+          "zh": "近期指过去12个月的实例，更早指需重看的旧实例；探索指目前想不到实例且愿意了解该活动。不相关、无法判断或不愿回答时选暂不记录。状态与12个月界限是编辑选择，不是验证过的技能等级，也不核实事件。"
+        }
+      ]
+    },
+    {
+      "id": "counts",
+      "title": {
+        "en": "Each group accounts for five task records",
+        "zh": "每组完整对应五项任务记录"
+      },
+      "paragraphs": [
+        {
+          "en": "Every recognised choice counts as a response, including not recorded. All twenty are needed before the inventory is presented, and all-not-recorded can finish. Within each five-task group, the four state counts sum to five. There are no score values, reverse coding, averages, dominant profiles, levels or automatic priorities. Close or tied counts remain unchanged.",
+          "zh": "每个有效选项都算作答，包括暂不记录；20项完整后呈现盘点，全部暂不记录也能完成。每组五项的四种状态计数合计五。没有分值、反向处理、均分、主导档案、等级或自动优先级；相近与并列计数保留。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Keep any real examples outside the questionnaire",
+        "zh": "真实实例保留在问卷之外"
+      },
+      "paragraphs": [
+        {
+          "en": "The tool asks only for a selected state. Do not enter documents, client details, incidents or another person’s messages; there is no upload or example-text field. Optional drafts stay in this tab for up to twenty-four hours and clear on completion or reset. Copying shares only the public title and URL, never your task states or counts.",
+          "zh": "工具只询问所选状态，没有实例文本或上传栏；不要输入文件、客户细节、事件或他人消息。可选草稿最多在本标签页保留24小时，完成或重置清除。复制只含公开标题与地址，不含任务状态或计数。"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": {
+        "en": "Choose a real requirement before planning a next step",
+        "zh": "先看实际要求，再规划下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "Each full guide includes a count example, fictional task, counterexample and optional action. Use a relevant task, current requirement and appropriate evidence when considering a role or course. This original inventory has no established reliability, norms, validity or cross-language measurement equivalence. It cannot certify competence, correct self-assessment bias or predict salary, performance or hiring.",
+          "zh": "每篇全文含计数算例、虚构任务、反例与自选行动。考虑角色或课程时，使用相关任务、当前要求及合适证据。本原创盘点未建立信度、常模、效度或跨语言测量等价性，不能认证胜任、纠正自评偏差或预测薪资、表现和录用。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this audit measure my professional skill level?",
+        "zh": "盘点能测出专业技能等级吗？"
+      },
+      "answer": {
+        "en": "No. It records which examples you recall for twenty activities. It does not observe performance or judge an example’s quality, and it provides no beginner-to-expert level, certification or job-fit percentage.",
+        "zh": "不能。它记录20项活动中能回想哪些实例，不观察表现或判断实例质量，不给新手到专家等级、认证或岗位匹配百分比。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can an unsuccessful event count as an example?",
+        "zh": "没有成功的事件也算实例吗？"
+      },
+      "answer": {
+        "en": "Yes. The state refers to recalling an event, not doing it well. Helpful, mixed and unhelpful outcomes can all qualify. The questionnaire never verifies the event or awards a quality score.",
+        "zh": "算。状态指回想到事件，不表示做得好。有用、好坏参半、没有帮助的结果都可以，问卷不核实事件或给质量分。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do recent and older mean?",
+        "zh": "近期与更早指什么？"
+      },
+      "answer": {
+        "en": "Recent is within the past twelve months and older is before that. This is a convenient recall boundary, not evidence that skill expires or that recent experience is better.",
+        "zh": "近期为过去12个月，更早为之前；这个界限便于回忆，不表示技能到期，也不证明新经验更好。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot recall an example?",
+        "zh": "想不起实例怎么办？"
+      },
+      "answer": {
+        "en": "If you want to explore the activity, choose explore. Otherwise use not recorded when irrelevant, uncertain or unwilling to answer. All-not-recorded can finish and all four full guides remain available.",
+        "zh": "愿意了解该活动时选探索；不相关、无法判断或不愿答时选暂不记录。全部暂不记录也能完成，四篇全文仍开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this decide which course or career I should choose?",
+        "zh": "能决定应该选哪门课或哪个职业吗？"
+      },
+      "answer": {
+        "en": "No. Counts do not establish competence, interests or a priority gap. Read the actual requirements and compare appropriate examples or qualifications; seek suitable advice where needed. No hiring or salary prediction is made.",
+        "zh": "不能。计数不确定胜任、兴趣或优先缺口。应读实际要求，对照合适实例或资格，需要时寻求合适意见；不预测录用或薪资。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the full guides free, and are examples uploaded?",
+        "zh": "全文免费吗，会上传实例吗？"
+      },
+      "answer": {
+        "en": "All twenty tasks and four complete guides are free without signup. You select states only; no example text or documents are collected. Optional tab drafts expire after twenty-four hours and clear on completion or reset; sharing uses a public link only.",
+        "zh": "20项任务与四篇完整指南免费，无需注册。只选状态，不收实例文本或文件。可选标签页草稿24小时失效，完成或重置清除；分享只用公开链接。"
+      }
+    }
+  ]
+}

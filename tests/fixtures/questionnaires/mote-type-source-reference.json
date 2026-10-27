@@ -1,0 +1,764 @@
+{
+  "id": "T099",
+  "state": "external source candidate only; method/title/reuse count pending parent review; no runtime publication",
+  "slug": "mote-type",
+  "code": "PERSONALITY_ATTRACTION",
+  "kind": "interaction-pairs",
+  "form": "personality_attraction_paired_choice_24",
+  "itemBankVersion": "0.2.0-preview",
+  "scoring": "0.2.0-preview",
+  "originalMiniScoringModel": {
+    "name": "paired_dimension_raw_wins",
+    "items_per_dimension": 6,
+    "preserve_dimension_ties": true,
+    "combined_type_enabled": false,
+    "thresholds_enabled": false,
+    "norming_enabled": false
+  },
+  "parts": [
+    {
+      "id": "ENERGY_PRESENCE",
+      "title": {
+        "en": "Expressive energy and calm presence",
+        "zh": "表达能量与平稳在场"
+      },
+      "poleIds": [
+        "EXPRESSIVE_ENERGY",
+        "CALM_PRESENCE"
+      ],
+      "comparisons": 6,
+      "profileId": "energy-presence-reading"
+    },
+    {
+      "id": "CLARITY_PACING",
+      "title": {
+        "en": "Direct clarity and tactful pacing",
+        "zh": "直接清楚与委婉节奏"
+      },
+      "poleIds": [
+        "DIRECT_CLARITY",
+        "TACTFUL_PACING"
+      ],
+      "comparisons": 6,
+      "profileId": "clarity-pacing-reading"
+    },
+    {
+      "id": "SUPPORT_TIMING",
+      "title": {
+        "en": "Immediate response and later follow-up",
+        "zh": "即时回应与后续跟进"
+      },
+      "poleIds": [
+        "IMMEDIATE_RESPONSE",
+        "FOLLOW_THROUGH"
+      ],
+      "comparisons": 6,
+      "profileId": "support-timing-reading"
+    },
+    {
+      "id": "SHARING_BOUNDARY",
+      "title": {
+        "en": "Open sharing and bounded reserve",
+        "zh": "开放分享与有边界地保留"
+      },
+      "poleIds": [
+        "OPEN_SHARING",
+        "BOUNDARIED_RESERVE"
+      ],
+      "comparisons": 6,
+      "profileId": "sharing-boundary-reading"
+    }
+  ],
+  "directions": [
+    {
+      "id": "EXPRESSIVE_ENERGY",
+      "title": {
+        "en": "More visible expressive energy",
+        "zh": "更明显的表达能量"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "CALM_PRESENCE",
+      "title": {
+        "en": "A calmer way of being present",
+        "zh": "更平稳的在场方式"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "DIRECT_CLARITY",
+      "title": {
+        "en": "Direct clarity",
+        "zh": "直接清楚"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "TACTFUL_PACING",
+      "title": {
+        "en": "Tactful pacing",
+        "zh": "委婉并留意节奏"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "IMMEDIATE_RESPONSE",
+      "title": {
+        "en": "Immediate response",
+        "zh": "即时回应"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "FOLLOW_THROUGH",
+      "title": {
+        "en": "Later follow-up",
+        "zh": "后续跟进"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "OPEN_SHARING",
+      "title": {
+        "en": "More open sharing",
+        "zh": "较开放地分享"
+      },
+      "comparisons": 6
+    },
+    {
+      "id": "BOUNDARIED_RESERVE",
+      "title": {
+        "en": "Bounded reserve",
+        "zh": "有边界地保留"
+      },
+      "comparisons": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "ATTRACTION_PC_001",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a familiar group discussion begins, I more naturally put forward an idea first.",
+            "zh": "熟悉的小组讨论刚开始时，我更自然地先抛出一个观点。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a familiar group discussion begins, I more naturally listen to a round of comments, then join with a brief response.",
+            "zh": "熟悉的小组讨论刚开始时，我更自然地先听一轮，再用简短回应参与。"
+          },
+          "directionId": "CALM_PRESENCE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_002",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a gathering briefly falls quiet, I more naturally stay at ease and leave space for someone else to continue.",
+            "zh": "聚会短暂冷场时，我更自然地保持自在，给别人接续的空间。"
+          },
+          "directionId": "CALM_PRESENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a gathering briefly falls quiet, I more naturally suggest a new topic.",
+            "zh": "聚会短暂冷场时，我更自然地提出一个新话题。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_003",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When sharing an exciting experience, my tone and facial expressions become more noticeable.",
+            "zh": "分享一件兴奋的经历时，我的语气和表情会更明显。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When sharing an exciting experience, I explain the main points at a steady pace.",
+            "zh": "分享一件兴奋的经历时，我会用平稳节奏讲清重点。"
+          },
+          "directionId": "CALM_PRESENCE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_004",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When starting to work with a new colleague, I stay present and respond when needed.",
+            "zh": "与新同事开始协作时，我会持续在场，并在需要时回应。"
+          },
+          "directionId": "CALM_PRESENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When starting to work with a new colleague, I actively add a few more exchanges.",
+            "zh": "与新同事开始协作时，我会主动增加几次互动。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_005",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a familiar topic comes up in a group chat, I join fairly quickly and bring energy to the conversation.",
+            "zh": "群聊出现我熟悉的话题时，我会较快加入并带出气氛。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a familiar topic comes up in a group chat, I wait until I have relevant information, then join briefly.",
+            "zh": "群聊出现我熟悉的话题时，我会等有合适信息时再简洁加入。"
+          },
+          "directionId": "CALM_PRESENCE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_006",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When someone around me seems tired, I offer steady company to reduce the pressure to talk.",
+            "zh": "身边的人显得疲惫时，我会用稳定的陪伴降低交流压力。"
+          },
+          "directionId": "CALM_PRESENCE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When someone around me seems tired, I respond with more energy to get the exchange going.",
+            "zh": "身边的人显得疲惫时，我会用更有能量的回应带动交流。"
+          },
+          "directionId": "EXPRESSIVE_ENERGY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_007",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When offering a different opinion, I more naturally state the central disagreement first.",
+            "zh": "提出不同意见时，我更自然地先说清核心分歧。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When offering a different opinion, I more naturally check the timing first, then express it gradually.",
+            "zh": "提出不同意见时，我更自然地先确认时机，再逐步表达。"
+          },
+          "directionId": "TACTFUL_PACING"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_008",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When an arrangement needs to change at short notice, I first explain the background and leave room for the other person to respond.",
+            "zh": "需要临时改约定时，我会先交代背景，并给对方回应余地。"
+          },
+          "directionId": "TACTFUL_PACING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When an arrangement needs to change at short notice, I directly explain the change and the new need.",
+            "zh": "需要临时改约定时，我会直接说明变化和新需求。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_009",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When giving work feedback, I first point out an observable problem.",
+            "zh": "给出工作反馈时，我会先指出可观察的问题。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When giving work feedback, I first check whether it is a convenient time to listen, then arrange the information.",
+            "zh": "给出工作反馈时，我会先确认对方是否方便听，再安排信息顺序。"
+          },
+          "directionId": "TACTFUL_PACING"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_010",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When I receive an unclear request, I first restate my understanding, then raise the parts that need checking.",
+            "zh": "收到不清楚的请求时，我会先复述理解，再提出需要核对的部分。"
+          },
+          "directionId": "TACTFUL_PACING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When I receive an unclear request, I immediately ask for the specific requirements.",
+            "zh": "收到不清楚的请求时，我会立刻问清具体要求。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_011",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When declining an invitation, I clearly say that I cannot attend this time.",
+            "zh": "拒绝邀请时，我会明确说自己这次不能参加。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When declining an invitation, I first express thanks, then explain in a gentler way that I cannot attend.",
+            "zh": "拒绝邀请时，我会先表达感谢，再用较缓和的方式说明不能参加。"
+          },
+          "directionId": "TACTFUL_PACING"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_012",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a meeting goes off topic, I wait for a natural transition, then remind the group of the original goal.",
+            "zh": "会议偏离主题时，我会等一个自然转折，再提醒原目标。"
+          },
+          "directionId": "TACTFUL_PACING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a meeting goes off topic, I directly bring the discussion back to the goal.",
+            "zh": "会议偏离主题时，我会直接把讨论拉回目标。"
+          },
+          "directionId": "DIRECT_CLARITY"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_013",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a friend shares good news, I first respond to their joy in the moment.",
+            "zh": "朋友分享一个好消息时，我会先在当下回应这份喜悦。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a friend shares good news, I arrange to ask about the details later.",
+            "zh": "朋友分享一个好消息时，我会约好稍后再问具体进展。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_014",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a colleague says their workload has been heavy, I note the main points and later check whether they need help.",
+            "zh": "同事说最近任务很重时，我会记下重点，之后再确认是否需要协助。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a colleague says their workload has been heavy, I first give a brief response to confirm that I heard them.",
+            "zh": "同事说最近任务很重时，我会先用一句回应确认我听见了。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_015",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a collaborator suggests a new idea, I first respond to the part that interests me most.",
+            "zh": "协作伙伴提出一个新想法时，我会先回应最吸引我的部分。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a collaborator suggests a new idea, I continue giving feedback when I learn how it develops.",
+            "zh": "协作伙伴提出一个新想法时，我会在了解后续变化时再继续反馈。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_016",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a friend mentions something they are worried about, I arrange to check later on how it develops.",
+            "zh": "朋友提到一件正在担心的事时，我会约定之后再确认事情进展。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a friend mentions something they are worried about, I first respond to how they feel right now.",
+            "zh": "朋友提到一件正在担心的事时，我会先回应当下感受。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_017",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a team member finishes a stage of work, I first acknowledge promptly that I noticed.",
+            "zh": "团队成员完成一个阶段时，我会先及时表达我看见了。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a team member finishes a stage of work, I follow up at the next stage on how the outcome is being used.",
+            "zh": "团队成员完成一个阶段时，我会在下个节点再跟进成果如何使用。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_018",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When someone I know says they are not feeling their best today, I ask at a suitable later time whether they want to keep talking.",
+            "zh": "熟人说今天状态不太好时，我会在合适时间再问是否需要继续聊。"
+          },
+          "directionId": "FOLLOW_THROUGH"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When someone I know says they are not feeling their best today, I first give a brief response.",
+            "zh": "熟人说今天状态不太好时，我会先给出简短回应。"
+          },
+          "directionId": "IMMEDIATE_RESPONSE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_019",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a colleague I have just met asks about my weekend, I share a recent activity.",
+            "zh": "刚认识的同事问起周末时，我会分享一件近期活动。"
+          },
+          "directionId": "OPEN_SHARING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a colleague I have just met asks about my weekend, I give a general answer first and say more when we know each other better.",
+            "zh": "刚认识的同事问起周末时，我会先给概括回答，等更熟悉再展开。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_020",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a conversation turns to feelings, I first listen and do not necessarily add an experience of my own.",
+            "zh": "对话谈到感受时，我会先倾听，不一定加入自己的经历。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a conversation turns to feelings, I share a related personal experience.",
+            "zh": "对话谈到感受时，我会分享一段相关的个人经历。"
+          },
+          "directionId": "OPEN_SHARING"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_021",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When introducing myself to a group, I mention some interests beyond my role.",
+            "zh": "小组自我介绍时，我会说一些角色之外的兴趣。"
+          },
+          "directionId": "OPEN_SHARING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When introducing myself to a group, I initially keep to information needed for the current collaboration.",
+            "zh": "小组自我介绍时，我会先保留在当前合作需要的信息范围。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_022",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "After a disagreement ends, I initially discuss only the behaviour that needs to change next.",
+            "zh": "一次分歧结束后，我会先只讨论接下来需要改变的行为。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "After a disagreement ends, I explain what was going on internally for me at the time.",
+            "zh": "一次分歧结束后，我会说明自己当时的内在过程。"
+          },
+          "directionId": "OPEN_SHARING"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_023",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "When a familiar issue comes up on social media, I am willing to express my personal view.",
+            "zh": "社交平台出现熟悉议题时，我愿意表达个人看法。"
+          },
+          "directionId": "OPEN_SHARING"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When a familiar issue comes up on social media, I prefer to keep my personal view private.",
+            "zh": "社交平台出现熟悉议题时，我更愿意把个人看法留在私下。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        }
+      ]
+    },
+    {
+      "id": "ATTRACTION_PC_024",
+      "prompt": {
+        "en": "Of these two equally acceptable approaches, which is closer to the choice that feels more natural to you currently?",
+        "zh": "以下两种同样可取的做法中，哪一种更接近你当前更自然的选择？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "As a relationship becomes more familiar, I wait for trust to build before gradually talking about my background.",
+            "zh": "关系逐渐熟悉时，我会等信任累积后再逐步谈自己的背景。"
+          },
+          "directionId": "BOUNDARIED_RESERVE"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "As a relationship becomes more familiar, I talk about my background relatively early.",
+            "zh": "关系逐渐熟悉时，我会较早谈到自己的背景。"
+          },
+          "directionId": "OPEN_SHARING"
+        }
+      ]
+    }
+  ],
+  "instructions": {
+    "en": "Choose the approach that feels more natural to you currently in each situation. Both choices are acceptable; neither is a correct answer. Consider your own current way of interacting, without a required recall period. All 24 choices are needed before any of the four comparisons is interpreted. If neither option fits or you do not wish to choose, you may leave the attempt unfinished; a missing answer is never converted into the other side. This bank records interaction choices and does not ask you to increase disclosure, perform warmth or contact anyone.",
+    "zh": "每个情境选择目前对自己更自然的做法。两种选择都成立，没有标准答案。按自己目前的互动方式作答，不设固定回忆期限。完整选择24题后才解释四组比较。两项都不适合或不愿选择时，可以保留未完成状态；缺题不会算到另一侧。题组只记录互动选择，不要求增加披露、表演热情或联系任何人。"
+  },
+  "scoringPolicy": "Faithful Mini arithmetic: four independent 6-choice paired counts, each pair sums 6. Top side by within-pair count only; 3:3 retains both sorted pole codes. No total, cross-pair ranking, combined type, percentiles, thresholds, attractiveness or outcome prediction. No NA option was present in the source form: missing answers leave the whole attempt incomplete with no interpretation. All four complete guides always displayed after valid completion, each explaining both sides and ties.",
+  "originalRightsEvidence": {
+    "itemBankCopyrightOrigin": "original",
+    "evidence": "User-owned Mini source as actually read, not an external item-bank licence. No third-party Mote items, result prose or archetype map copied. New English is a translation of the user-owned 24 Chinese items; new guides are FermatMind editorial content."
+  },
+  "languageEquivalence": "Chinese 24 prompts and 48 options, IDs, order and pole mapping preserved exactly. English new translation; no empirical validation or cross-language measurement invariance claimed.",
+  "modelDifference": "JobCannon has 16 Likert statements summed into four named charm archetypes on two conceptual axes. This reuse is the different FermatMind four-comparison original Mini model, without archetype assignment or attractiveness claims. Title/SEO must state the local scope clearly.",
+  "publicSourceRead": "T099-source/public-fetch-binding.json: actual complete saved EN/ZH entries, About 6 FAQs, all four EN result bodies/strengths/growth/6 FAQs each read; private bank/runtime not read.",
+  "futureProfiles": [
+    "energy-presence-reading",
+    "clarity-pacing-reading",
+    "support-timing-reading",
+    "sharing-boundary-reading"
+  ],
+  "pending": [
+    "parent review of reuse identity/title/count and closed module interface",
+    "entry/package and independent SEO",
+    "runtime/contract/E2E/font implementation and real checks",
+    "exact-SHA delivery and public acceptance"
+  ]
+}
