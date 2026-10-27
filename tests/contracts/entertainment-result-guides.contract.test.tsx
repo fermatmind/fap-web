@@ -88,7 +88,10 @@ describe("complete public entertainment result assets", () => {
   it("uses a local, bounded content image instead of personal result payloads or runtime remote fonts", () => {
     const source = readFileSync("app/og/fun/[slug]/route.tsx", "utf8");
     expect(source).toContain("findPublicPortrait"); expect(source).toContain("fun-700.ttf");
-    expect(source).not.toMatch(/fetch\(|score\W|answers\W/);
+    // Public editorial labels may say "score guide"; only locale and public portrait
+    // identity may be read from the request. Personal result input stays unused.
+    expect([...source.matchAll(/query\.get\(["']([^"']+)["']\)/g)].map(match => match[1])).toEqual(["locale", "portrait"]);
+    expect(source).not.toMatch(/fetch\(|request\.(?:json|formData|text)\s*\(|\bscoreQuestionnaire\s*\(/);
     expect(readFileSync("public/fonts/noto-sans-sc/fun-700.ttf").byteLength).toBeLessThan(300000);
   });
 });

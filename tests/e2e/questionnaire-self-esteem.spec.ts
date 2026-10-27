@@ -57,6 +57,8 @@ test("@release RSES all four native pages, four bilingual images and closed resu
     const p = quiz.profiles[0], path = `/${locale}/tests/explore/self-esteem/results/${p.id}`; expect((await page.goto(path))?.status()).toBe(200); await expect(page.getByRole("heading", { level: 1 })).toHaveText(p.title[locale]); await expect(page.locator("[data-rosenberg-score]")).toHaveCount(0);
     for (const section of p.sections) { const own = page.locator(`#report-${section.id}`); await expect(own.getByRole("heading", { level: 2 })).toHaveText(section.title[locale]); for (const text of section.paragraphs) await expect(own).toContainText(text[locale]); }
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", `https://fermatmind.com/en/tests/explore/self-esteem/results/${p.id}`); const image = await request.get(`/og/fun/self-esteem?locale=${locale}&portrait=${p.id}`); expect(image.status()).toBe(200); expect(image.headers()["content-type"]).toContain("image/png");
+    const privateQuery = await request.get(`/og/fun/self-esteem?locale=${locale}&portrait=${p.id}&score=30&answers=SYNTHETIC_PRIVATE_ANSWER`);
+    expect(privateQuery.status()).toBe(200); expect(await privateQuery.body()).toEqual(await image.body());
   }
   expect((await request.get("/en/tests/explore/self-esteem/results/high")).status()).toBe(404); expect((await request.get("/og/fun/self-esteem?portrait=normal")).status()).toBe(404);
 });
