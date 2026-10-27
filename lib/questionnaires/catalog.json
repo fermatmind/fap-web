@@ -1,30 +1,5 @@
 [
   {
-    "slug": "political-coordinates",
-    "code": "FM_ORIGINAL_POLICY_COORDINATES",
-    "version": "1.0.0",
-    "updated": "2026-10-27",
-    "category": "framework",
-    "title": {
-      "en": "Political Coordinates Test: Original Policy-Choice Edition",
-      "zh": "政治坐标测试：原创公共政策取舍版"
-    },
-    "description": {
-      "en": "Compare 36 original policy choices on separate economic left–right and social communitarian–liberal axes. Read raw counts, ties, uncertainty and all four full guides.",
-      "zh": "比较36道原创公共政策方案，经济左—右与社会共同体—个人自由两轴分别计数；公开原始差值、边界与资料不足，四份完整双语指南始终可读，不派政党身份。"
-    },
-    "minutes": 8,
-    "collection": "explore",
-    "formCode": "fm_original_policy_coordinates_36_v1",
-    "questionCount": 36,
-    "resultSlugs": [
-      "left-communitarian",
-      "left-liberal",
-      "right-communitarian",
-      "right-liberal"
-    ]
-  },
-  {
     "slug": "disc",
     "code": "DISC_BEHAVIOR",
     "version": "1.0.0",
@@ -3957,5 +3932,30 @@
       "relationship-linked-investment"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "political-coordinates",
+    "code": "FM_ORIGINAL_POLICY_COORDINATES",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Political Coordinates Test: Original Policy-Choice Edition",
+      "zh": "政治坐标测试：原创公共政策取舍版"
+    },
+    "description": {
+      "en": "Compare 36 original policy choices on separate economic left–right and social communitarian–liberal axes. Read raw counts, ties, uncertainty and all four full guides.",
+      "zh": "比较36道原创公共政策方案，经济左—右与社会共同体—个人自由两轴分别计数；公开原始差值、边界与资料不足，四份完整双语指南始终可读，不派政党身份。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_original_policy_coordinates_36_v1",
+    "questionCount": 36,
+    "resultSlugs": [
+      "left-communitarian",
+      "left-liberal",
+      "right-communitarian",
+      "right-liberal"
+    ]
   }
 ]
