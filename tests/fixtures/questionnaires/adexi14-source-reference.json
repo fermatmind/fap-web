@@ -1,0 +1,998 @@
+{
+  "id": "T189",
+  "state": "external_source_candidate_permission_scope_parentreviewpending_notruntime_notaccepted",
+  "slug": "executive-function",
+  "code": "ADEXI14_OFFICIAL_SELFREPORT",
+  "proposed_kind": "adexi14",
+  "form": "adexi14_current_official_en_angela_siu_simplified_zh_v1",
+  "scoring": "adexi14_coloured_rawsum_partmean_strictcomplete_v1",
+  "version": "Current official self-report14 EN+providedSimplifiedChinese byAngelaSiu. NotCHEXI/TEXI/otherreport/notcompetitororiginal12/fourdomains. Allwording/order/sourceanchorsretained;onlytable linewrap/whitespace removed.",
+  "questions": [
+    {
+      "id": "ADEXI_01",
+      "prompt": {
+        "en": "I have difficulty remembering lengthy instructions",
+        "zh": "我难以记住一些冗长的指示。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_02",
+      "prompt": {
+        "en": "I have difficulty remembering what I am doing in the middle of an activity",
+        "zh": "我难以记得自己在活动中途所做的事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_03",
+      "prompt": {
+        "en": "I have a tendency to do things without first thinking about what could happen",
+        "zh": "我有倾向在做事时不首先想一想后果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_04",
+      "prompt": {
+        "en": "I have difficulty stopping myself from doing something that I like even though someone tells me that it is not allowed.",
+        "zh": "即使有人告诉我有一件我喜欢的事是不准做的，我仍难以制止自己继续做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_05",
+      "prompt": {
+        "en": "When someone asks me to do several things, I remember only the first or last",
+        "zh": "当有人要求我做几件事，我只记得第一件或最后一件事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_06",
+      "prompt": {
+        "en": "I have difficulty refraining for smiling or laughing in situations where it is inappropriate",
+        "zh": "我难以在不适宜笑的场合忍笑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_07",
+      "prompt": {
+        "en": "I have difficulty coming up with a different way of solving a problem when I get stuck",
+        "zh": "当我被问题困扰着时，我难以想出另一个解决方法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_08",
+      "prompt": {
+        "en": "When someone asks me to fetch something, I forget what I am supposed to fetch",
+        "zh": "当别人叫我拿东西回来，我忘记究竟要拿什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_09",
+      "prompt": {
+        "en": "I have difficulty planning for an activity (e.g., remembering to bring everything necessary when going on a trip/to work/to school)",
+        "zh": "我难以计划好一项活动（例如：记得带齐去旅行／上班／上学所需要的东西)。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_10",
+      "prompt": {
+        "en": "I have difficulty stopping an activity that I like (e.g., I watch TV or sit in front of the computer in the evening even though it is time to go to bed)",
+        "zh": "我难以在自己喜欢的活动中停下来（例如：睇电视或在夜深要睡觉的时候仍玩电脑）。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_11",
+      "prompt": {
+        "en": "I have difficulty understanding verbal instructions unless I am also shown how to do something",
+        "zh": "我难以理解用言语表达的指示，除非亦有向我示范怎样做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_12",
+      "prompt": {
+        "en": "I have difficulties with tasks or activities that involve several steps",
+        "zh": "我难以应付一些包含多个步骤的任务或活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_13",
+      "prompt": {
+        "en": "I have difficulty thinking ahead or learning from experience",
+        "zh": "我难以预先想好未来的事或从经验中学习。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_14",
+      "prompt": {
+        "en": "People that I meet seem to think that I am more lively/wilder compared to other people my age",
+        "zh": "我遇到的人们都似乎认为我比同龄的人更活泼／狂野。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "working-memory",
+      "title": {
+        "en": "Working memory",
+        "zh": "工作记忆"
+      },
+      "items": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "itemCount": 9,
+      "rawRange": [
+        9,
+        45
+      ]
+    },
+    {
+      "id": "inhibition",
+      "title": {
+        "en": "Inhibition",
+        "zh": "抑制控制"
+      },
+      "items": [
+        3,
+        4,
+        6,
+        10,
+        14
+      ],
+      "itemCount": 5,
+      "rawRange": [
+        5,
+        25
+      ]
+    }
+  ],
+  "source_PDFs": {
+    "adexi-en.pdf": {
+      "sha256": "f22891b8d0503e50a5793dc21ad15629d3ff3614365be15252dc7ca3c6ca755b",
+      "bytes": 201510
+    },
+    "adexi-zh-simplified.pdf": {
+      "sha256": "63d314855d151c57085c9d5af195ce1482c63925f9d0ac31f893c7c20ea7499c",
+      "bytes": 219816
+    },
+    "adexi-en-coloured.pdf": {
+      "sha256": "5aaf08adeb596389df013b1ed995fa5a2bb8e2b83d4669e399e5c13175d08473",
+      "bytes": 261687
+    },
+    "adexi-subscales.pdf": {
+      "sha256": "d2d27125115ab553413537513e8a5d2a143eae9d6bdfb943ef6d48d30ebfe1b4",
+      "bytes": 43005
+    }
+  },
+  "permission": {
+    "url": "https://www.chexi.se/translations",
+    "actual_read": "Full page13–26: providedavailablelanguageversions require noauthorpermission;contactwhenlanguageunavailable;translationsmadebyclinicians/researchers,notallguaranteed100percentcorrect. Both ENandSimplifiedChinese selfreport links actually present and PDFs read.",
+    "home": "https://www.chexi.se/ states instruments freelyavailable for researchersandclinicians; noformalnorms.",
+    "scope_status": "Directcurrentexisting-versionpermission observed. Public-site commercial embedding scope requires parentrawreview;do not expand to PD/anypurpose/permissiontomodifyallitems/newtranslation;noemailsent.",
+    "Chinese_attribution": "Angela Siu,The Chinese University of Hong Kong,as printed PDFpage2; do notsilentlyMandarinrewrite粤语睇电视 or typo/punctuation.",
+    "English_attribution": "Lisa B.Thorell,KarolinskaInstitutet,as printed PDFpage2; sourceitem6literally refraining FOR retained.",
+    "psychometric_evidence": "Providedtranslation status is not proof of empiricalvalidation or crosslanguageequivalence. Publicationabstract read; full original validation paper not yet actually read; no language-specific validation asserted."
+  },
+  "instructions_scope": "Howwellstatementdescribesyouasaperson;selfreportperspectivenototherreport;no fixedrecentrecallperiod added. Website NA separate/unscored.",
+  "scoring_source_resolution": {
+    "coloured_page3": "Actuallyviewed: Total score for WM9items,IN5items,andADEXItotal. This binds the RAW SUM algorithm:9..45,5..25,overall14..70;no reversals.",
+    "separate_key": "Actuallyviewed current adexi-subscales.pdf: Mean score for same9/5groups,not Total score. Also show clearlylabelledpartmean=sum/n1..5.",
+    "no_overall_mean_claim": "Do not addthetwo means or average thetwo means to produce overall. Official coloured raw14sum is the adoptedoverall. No overallmean selected/claimed.",
+    "scope": "Both numeric presentations preserve samecontributions; distinctlabelsevidence explicitlyretained; no samplemeans/norms/cutoffs/percentiles/neurotypemapping/careerfit/abilityranking."
+  },
+  "website_missing_policy": "Editorialstrictallnumericwithinpart;skipwithholdsownsum/meanandoveralltotal,othercompletepartretained;allNAfinishedwithno scores;nozero/proration/imputation;notvalidatedmissingthreshold.",
+  "direction": "Larger rawsum/meanreflectsmorereporteddifficultiesinthegivenitems,notstrongerEF. Parts9vs5 rawsumscannotberanked. Equal meansdonotmeanequivalentconstructs.",
+  "primary_research": "Holst,Y.,&Thorell,L.B.(2018). Adult executive functioning inventory(ADEXI):Validity,reliability,andrelationstoADHD.IntJMethodsPsychiatrRes,27(1),e1567.DOI10.1002/mpr.1567;PubMed28497641. Officialsite listsstudyunderSwedish;do nottransfer validationautomaticallytoEN/ZH.",
+  "future_FULL": [
+    "overall-sum-reading",
+    "working-memory-reading",
+    "inhibition-reading"
+  ],
+  "FULL_accepted": 0,
+  "competitor_read": "ActualEN+ZHentryall7FAQ,ENAboutall5FAQ,all4ENpublicresultsentirebodies/strengths/growth/careerclaims/sixFAQ each read. No privatebank/runtime orallZHresultsread. No adoptedneurotypemapping,20–28percentnormclaims,celebritytypes orcareerfit.",
+  "native_search": "Atc0catalog/loaders executivefunction无exact;attention-to-detail is objectivepractice and T103 timehabits is different original24itemmodel;repeatfreshnative/mini before integration.",
+  "at": 1793093284.120615
+}

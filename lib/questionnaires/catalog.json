@@ -4726,5 +4726,29 @@
       "sexual-passion-reading",
       "loss-reading"
     ]
+  },
+  {
+    "slug": "executive-function",
+    "code": "ADEXI14_OFFICIAL_SELFREPORT",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Executive Function Check-In",
+      "zh": "执行功能测试"
+    },
+    "description": {
+      "en": "Answer the official ADEXI-14 self-report. Read the raw total, two part sums and means, with all three full guides free. No diagnostic cutoffs or signup.",
+      "zh": "完成官方ADEXI14题自评，阅读原始合计、两个部分的合计与均分，三篇完整指南免费，无需注册。不套诊断阈值，不据此判神经类型。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "adexi14_current_official_en_angela_siu_simplified_zh_v1",
+    "questionCount": 14,
+    "resultSlugs": [
+      "overall-sum-reading",
+      "working-memory-reading",
+      "inhibition-reading"
+    ]
   }
 ]

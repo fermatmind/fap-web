@@ -1,0 +1,1471 @@
+{
+  "slug": "executive-function",
+  "code": "ADEXI14_OFFICIAL_SELFREPORT",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "kind": "adexi14",
+  "category": "everyday",
+  "title": {
+    "en": "Executive Function Check-In",
+    "zh": "执行功能测试"
+  },
+  "seoTitle": {
+    "en": "Executive Function Check-In: ADEXI-14 Full Free Results",
+    "zh": "执行功能测试：ADEXI14题与完整免费读法"
+  },
+  "description": {
+    "en": "Answer the official ADEXI-14 self-report. Read the raw total, two part sums and means, with all three full guides free. No diagnostic cutoffs or signup.",
+    "zh": "完成官方ADEXI14题自评，阅读原始合计、两个部分的合计与均分，三篇完整指南免费，无需注册。不套诊断阈值，不据此判神经类型。"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Read each statement and choose how well it describes you as a person, from 1 — Definitely not true to 5 — Definitely true. The source asks for your own view even when people who know you might think differently. No fixed recent recall period is added. The English and provided simplified-Chinese wording and anchors are retained. A separate prefer-not-to-answer choice is unscored: it withholds that part and the overall sum, while a complete other part remains available. Four minutes is an editorial estimate, without a timer.",
+    "zh": "按陈述对你本人的贴切程度，选择1—完全不正确至5—完全正确。来源要求自己的看法，即使认识你的人可能看法不同；不另加固定近期回忆期限。英文及官网所提供的简体中文措辞和选项锚点保留。独立的暂不回答不计分，会使该部分及整体合计暂不可用，另一部分完整时仍保留。约四分钟为编辑估计，不计时。"
+  },
+  "introduction": {
+    "en": "This check-in uses the current official 14-item Adult Executive Functioning Inventory self-report, with English supplied by Lisa B. Thorell and simplified Chinese supplied by Angela Siu on the authors’ website. Its official key contains working memory and inhibition, rather than the competitor’s four-domain original questionnaire. The adopted colour-coded form specifies raw part sums and a fourteen-item total; a separate official key also supplies part means, shown with clear labels. All three complete readings are free. This website has not established its own validation or cross-language equivalence and applies no clinical cutoffs, neurotype mapping or ability rankings.",
+    "zh": "本检查采用当前官方14题成人执行功能量表自评：作者官网提供Lisa B. Thorell英文及Angela Siu简体中文。官方计分键是工作记忆与抑制控制两部分，不是竞品原创四领域问卷。采用的彩色题本要求原始分项及14题合计，另份官方键也给分项均分，本版明确标注两种展示。三篇完整读法免费。网站未建立自己的验证或跨语言等值证据，不套临床阈值、不映射神经类型、不排名能力。"
+  },
+  "resultHeading": {
+    "en": "Your ADEXI raw sums and complete readings",
+    "zh": "ADEXI原始合计与完整读法"
+  },
+  "directions": [
+    {
+      "id": "working-memory",
+      "title": {
+        "en": "Working memory",
+        "zh": "工作记忆"
+      },
+      "itemCount": 9
+    },
+    {
+      "id": "inhibition",
+      "title": {
+        "en": "Inhibition",
+        "zh": "抑制控制"
+      },
+      "itemCount": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "ADEXI_01",
+      "prompt": {
+        "en": "I have difficulty remembering lengthy instructions",
+        "zh": "我难以记住一些冗长的指示。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_02",
+      "prompt": {
+        "en": "I have difficulty remembering what I am doing in the middle of an activity",
+        "zh": "我难以记得自己在活动中途所做的事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_03",
+      "prompt": {
+        "en": "I have a tendency to do things without first thinking about what could happen",
+        "zh": "我有倾向在做事时不首先想一想后果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_04",
+      "prompt": {
+        "en": "I have difficulty stopping myself from doing something that I like even though someone tells me that it is not allowed.",
+        "zh": "即使有人告诉我有一件我喜欢的事是不准做的，我仍难以制止自己继续做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_05",
+      "prompt": {
+        "en": "When someone asks me to do several things, I remember only the first or last",
+        "zh": "当有人要求我做几件事，我只记得第一件或最后一件事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_06",
+      "prompt": {
+        "en": "I have difficulty refraining for smiling or laughing in situations where it is inappropriate",
+        "zh": "我难以在不适宜笑的场合忍笑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_07",
+      "prompt": {
+        "en": "I have difficulty coming up with a different way of solving a problem when I get stuck",
+        "zh": "当我被问题困扰着时，我难以想出另一个解决方法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_08",
+      "prompt": {
+        "en": "When someone asks me to fetch something, I forget what I am supposed to fetch",
+        "zh": "当别人叫我拿东西回来，我忘记究竟要拿什么。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_09",
+      "prompt": {
+        "en": "I have difficulty planning for an activity (e.g., remembering to bring everything necessary when going on a trip/to work/to school)",
+        "zh": "我难以计划好一项活动（例如：记得带齐去旅行／上班／上学所需要的东西)。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_10",
+      "prompt": {
+        "en": "I have difficulty stopping an activity that I like (e.g., I watch TV or sit in front of the computer in the evening even though it is time to go to bed)",
+        "zh": "我难以在自己喜欢的活动中停下来（例如：睇电视或在夜深要睡觉的时候仍玩电脑）。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_11",
+      "prompt": {
+        "en": "I have difficulty understanding verbal instructions unless I am also shown how to do something",
+        "zh": "我难以理解用言语表达的指示，除非亦有向我示范怎样做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_12",
+      "prompt": {
+        "en": "I have difficulties with tasks or activities that involve several steps",
+        "zh": "我难以应付一些包含多个步骤的任务或活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_13",
+      "prompt": {
+        "en": "I have difficulty thinking ahead or learning from experience",
+        "zh": "我难以预先想好未来的事或从经验中学习。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "working-memory",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "working-memory",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "working-memory",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "working-memory",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "working-memory",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "working-memory",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "ADEXI_14",
+      "prompt": {
+        "en": "People that I meet seem to think that I am more lively/wilder compared to other people my age",
+        "zh": "我遇到的人们都似乎认为我比同龄的人更活泼／狂野。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Definitely not true",
+            "zh": "1 — 完全不正确"
+          },
+          "directionId": "inhibition",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Not true",
+            "zh": "2 — 不正确"
+          },
+          "directionId": "inhibition",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Partially true",
+            "zh": "3 — 部分正确"
+          },
+          "directionId": "inhibition",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — True",
+            "zh": "4 — 正确"
+          },
+          "directionId": "inhibition",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Definitely true",
+            "zh": "5 — 完全正确"
+          },
+          "directionId": "inhibition",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Prefer not to answer — unscored",
+            "zh": "暂不回答——不计分"
+          },
+          "directionId": "inhibition",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "overall-sum-reading",
+      "directionIds": [
+        "working-memory",
+        "inhibition"
+      ],
+      "title": {
+        "en": "ADEXI: Read the Overall Raw Sum",
+        "zh": "ADEXI：整体原始合计怎样读"
+      },
+      "headline": {
+        "en": "Fourteen reports of difficulty, with both parts visible",
+        "zh": "汇总十四项困难体验，同时保留两部分"
+      },
+      "summary": {
+        "en": "The ADEXI overall raw sum adds all 14 numeric responses. Larger values reflect more reported difficulties across its working-memory and inhibition items. This is not a measure of intelligence, personal worth or a neurotype.",
+        "zh": "ADEXI整体原始合计把14项数值回答相加；较大表示在工作记忆及抑制条目上报告了更多困难，不测量智力、个人价值或神经类型。"
+      },
+      "scoreReading": {
+        "en": "Add 14 values from 1 to 5: range 14–70. All 14 are needed, with no reversal, cutoff or percentage conversion.",
+        "zh": "把14个1—5数值相加，范围14—70；需要14题全部有效，不反向、不设分档、不换百分比。"
+      },
+      "seo": {
+        "title": {
+          "en": "Executive Function Check-In: ADEXI Total Explained",
+          "zh": "执行功能检查：ADEXI整体合计的算法与读法"
+        },
+        "description": {
+          "en": "Read the ADEXI-14 raw total, nine- and five-item parts, missing answers and practical examples without capacity rankings or diagnostic cutoffs.",
+          "zh": "理解ADEXI14题原始合计、九题与五题部分、缺答规则及具体例子，不作能力排名，也不套诊断阈值。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the total brings together",
+            "zh": "合计汇总哪些回答"
+          },
+          "paragraphs": [
+            {
+              "en": "ADEXI is a self-report inventory about everyday difficulties. Nine items belong to working memory and five to inhibition in the official two-part key used here. Some questions concern following instructions, multistep activities or changing an approach; others concern acting before thinking or stopping an enjoyable activity. Your answers report how these statements describe you. They are not observed performance on a memory task, a scan of your brain or a full account of executive functioning. The two parts remain visible because a single total can hide very different response patterns.",
+              "zh": "ADEXI自评的是日常困难，本版官方两部分计分键把九题归入工作记忆、五题归入抑制。有的问指示、多步骤活动或转换解决办法，有的问先行动后思考、停止喜欢的活动。回答说明这些陈述对你的贴切程度，不是现场记忆任务表现、脑部扫描或执行功能全貌。保留两部分，是因为同一合计可能包含很不同的回答组合。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "The adopted total is a raw sum",
+            "zh": "所采用的整体值是原始合计"
+          },
+          "paragraphs": [
+            {
+              "en": "The official colour-coded self-report form instructs users to calculate two part totals and the ADEXI total. Each numeric answer contributes its chosen value, with no reversals. Fourteen answers of 1 give 14; fourteen answers of 5 give 70. If all nine working-memory answers are 2 and all five inhibition answers are 4, the part sums are 18 and 20, and the overall is 38. A separate official key labels part means. We show those transparently as 18/9 = 2.00 and 20/5 = 4.00; averaging these two means does not produce the adopted raw total.",
+              "zh": "官方彩色自评题本要求计算两个部分及ADEXI合计。每个有效回答直接贡献所选数值，没有反向题。14题全1得14，全5得70；九个工作记忆回答都为2、五个抑制回答都为4时，分项合计18和20，整体38。另一份官方计分文件标注分项均分，因此另清楚显示18/9=2.00、20/5=4.00；平均两个均分不会得到本版采用的原始合计。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Put one answer back into its setting",
+            "zh": "把回答放回具体场景"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine receiving a long set of spoken instructions while several people are talking. You might relate to a statement about remembering instructions, yet manage the same task comfortably with a written list. A different person might remember the instructions but find it difficult to stop a preferred activity when it is time to leave. The total cannot tell these situations apart or explain why they occurred. Clear instructions, language familiarity, opportunities to practise and the setting are details worth noting, without assuming that any one detail caused your score.",
+              "zh": "例如多人同时说话时，你收到一长串口头指示，可能觉得记指示的陈述很贴近；同一任务若给书面清单却很顺利。另一个人可能记得指示，但到离开时间仍难停下喜欢的活动。合计不能区分这些场景，也不解释成因。指示是否清楚、语言是否熟悉、有无练习机会及现场环境值得记录，但不能因此认定某个因素造成了分数。"
+            }
+          ]
+        },
+        {
+          "id": "direction",
+          "title": {
+            "en": "Larger means more reported difficulty",
+            "zh": "较大表示报告更多困难"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger total reflects more endorsement of the adopted difficulty statements, not stronger executive ability. A smaller total does not certify strong skills or rule out a condition. This edition applies no population percentile, low-to-high band, clinical threshold or comparison with a research sample mean. It does not map a pattern onto ADHD, autism or another neurotype. Equal totals need not describe equal experiences, and a small change between attempts does not establish improvement or deterioration. There is no winning part or recommended occupation.",
+              "zh": "合计较大表示更认同所用的困难陈述，不是执行能力更强；较小也不证明技能强或排除某种情况。本版不套人群百分位、高低分档、临床阈值或研究样本均值，不据组合映射ADHD、自闭症或其他神经类型。同分不一定是相同体验，两次的一点变化也不证明改善或恶化。没有获胜部分或推荐职业。"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "title": {
+            "en": "The total requires all fourteen numeric answers",
+            "zh": "整体合计需要十四个有效数值"
+          },
+          "paragraphs": [
+            {
+              "en": "A prefer-not-to-answer choice is unscored. It withholds its part's sum and mean and the overall total; a fully answered other part remains available. Missing is never zero, and answered items are not scaled up to replace missing ones. All fourteen choices can complete the questionnaire even when no sum can be calculated. This strict completeness policy is editorial, not a validated missing-data threshold. The nine- and five-item raw sums have different ranges, so their numerical sizes must not be used to select your stronger or weaker capacity.",
+              "zh": "暂不回答不计分，会使该部分合计、均分及整体合计暂不可用；另一部分完整时仍保留。缺答不是零，也不放大已答项补足。14题都有选择，即使没有可算分数也能完成问卷。这是编辑完整度政策，并非验证过的缺失阈值。九题与五题原始合计范围不同，不能拿数字大小选出较强或较弱能力。"
+            }
+          ]
+        },
+        {
+          "id": "action-source",
+          "title": {
+            "en": "An optional observation and the source version",
+            "zh": "一个自选观察及来源版本"
+          },
+          "paragraphs": [
+            {
+              "en": "You could choose one manageable task, try a written sequence or a planned stopping cue, and privately note what was easier, harder or unchanged. This is an optional task experiment, not a treatment or a promise that the score will fall. The English and Angela Siu simplified-Chinese self-report files are supplied by the authors' website; item wording and order are retained. Availability is not proof of cross-language equivalence or validation of this website. If difficulties persist and interfere with daily life, you can discuss concrete examples with an appropriately qualified professional rather than relying on a total.",
+              "zh": "可选一项可承受的小任务，试用书面步骤或预先约定的停止提示，私下记录哪里更容易、更难或没变。这是自选任务观察，不是治疗，也不承诺分数下降。英文及Angela Siu简体中文自评文件来自作者官网，题序和措辞保留；可获取不等于已证明跨语言等值或本网站验证。若困难持续影响日常，可带具体例子与适合的专业人士讨论，不必依赖一个合计。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "working-memory-reading",
+      "directionIds": [
+        "working-memory"
+      ],
+      "title": {
+        "en": "ADEXI Working Memory: Nine-Item Sum and Mean",
+        "zh": "ADEXI工作记忆：九题合计与均分"
+      },
+      "headline": {
+        "en": "Report the situations behind remembered instructions and steps",
+        "zh": "回看记指示与多步骤活动的具体场景"
+      },
+      "summary": {
+        "en": "The official working-memory group contains nine ADEXI items, including instructions, multistep activities, planning and finding another approach. Its sum and mean describe endorsed difficulty statements, rather than memory capacity measured on a task.",
+        "zh": "官方工作记忆组含九道ADEXI条目，涉及指示、多步骤活动、计划及另找办法。合计和均分描述对困难陈述的认同程度，不是现场任务测得的记忆容量。"
+      },
+      "scoreReading": {
+        "en": "Sum items 1, 2, 5, 7, 8, 9, 11, 12 and 13 for 9–45; divide by nine for the labelled 1–5 mean. All nine numeric answers are required.",
+        "zh": "第1、2、5、7、8、9、11、12、13题相加得9—45分；另除以九显示1—5均分。需要九个有效数值。"
+      },
+      "seo": {
+        "title": {
+          "en": "ADEXI Working Memory: Nine Items and Score Reading",
+          "zh": "ADEXI工作记忆：九题分数、均分及情境读法"
+        },
+        "description": {
+          "en": "Explore the nine-item ADEXI working-memory sum and mean, written-instruction examples and skipped answers without inferring IQ or ranking abilities.",
+          "zh": "阅读ADEXI工作记忆九题合计与均分、书面指示例子及跳题处理，不推断智商，不排名能力，也不据此决定职业。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The content of this nine-item group",
+            "zh": "这九题实际涵盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The official key places items 1, 2, 5, 7, 8, 9, 11, 12 and 13 in the working-memory group. They cover remembering instructions or an ongoing activity, retaining several requests, fetching something, planning, handling steps, understanding spoken instructions, thinking ahead and finding another approach when stuck. Those are the contents of this particular self-report group. The website does not split them into newly validated planning or flexibility factors. Nor does it replace the answers with performance on mental arithmetic, a memory game or a general intelligence test.",
+              "zh": "官方计分键把第1、2、5、7、8、9、11、12、13题归入工作记忆，涵盖记指示与正在进行的活动、记住多项请求、取东西、计划、多步骤任务、理解口头指示、预想以及卡住后另找办法。这是这组自评条目的具体范围；网站不把它们拆成新验证的计划或灵活性因素，也不换成心算、记忆游戏或一般智力表现。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Keep sum and mean labels distinct",
+            "zh": "清楚区分合计与均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each selected value contributes directly, with no reversed items. Add the nine values for the raw sum from 9 to 45. Divide that sum by nine for the part mean from 1 to 5, displayed to two decimals after calculation. For example, one response of 5 and eight responses of 2 give a sum of 21 and a mean of 21/9, displayed as 2.33. These are two presentations of the same responses. The mean is not a percentage or population rank, and it is not used to give this group half of a new overall score.",
+              "zh": "每项直接使用所选值，不反向。九项相加得原始合计9—45，再除以九得1—5均分，计算后显示两位小数。例如一项5、八项2，合计21，均分21/9显示2.33。它们是同组回答的两种数值展示，均分不是百分比或人群排名，也不会让这一组在新造整体分中占一半。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A long instruction can have several contexts",
+            "zh": "一长串指示可能对应多种处境"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine being asked to collect three materials and complete a sequence before an appointment. You remember the first request but lose track of the next step. You could note what was said, what was written down and which step became unclear. A counterexample is an instruction that omitted a necessary detail: confusion then does not by itself establish a memory problem. The questionnaire cannot determine which explanation applies. It also cannot tell whether an unfamiliar language, a noisy setting, lack of prior knowledge or another factor influenced that interaction.",
+              "zh": "例如约定时间前，要收集三份材料并按顺序完成准备，你记得第一项请求，却忘了下一步。可以记录原话、写下了什么及从哪一步开始不清楚。反例是指示本来漏掉了必要信息，此时困惑本身不能证明记忆问题。问卷不能确定属于哪种解释，也不能判断陌生语言、嘈杂环境、先备知识不足或其他因素是否影响了那次互动。"
+            }
+          ]
+        },
+        {
+          "id": "direction",
+          "title": {
+            "en": "More endorsement is not greater memory strength",
+            "zh": "更认同困难，不是记忆更强"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger sum or mean means more reported difficulty in these nine statements. It does not indicate superior memory, lower IQ, a diagnosis or a fixed limit on learning. A smaller value does not guarantee easy performance on every task. This edition sets no high, medium or low bands and makes no comparison with people of your age or a published sample mean. The working-memory sum has nine contributions while inhibition has five; comparing their raw sizes would confuse item counts with ability. Equal part means likewise do not establish equal capacities.",
+              "zh": "合计或均分较大表示更认同这九项困难，不表示记忆更好、智商更低、某项诊断或学习上限固定。较小也不保证所有任务都轻松。本版不分高、中、低，不比同龄人或发表样本均值。工作记忆合计九项、抑制合计五项，比较原始数字大小会混淆题数与能力；分项均分相同也不证明能力相同。"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "title": {
+            "en": "What happens to unanswered items",
+            "zh": "缺答怎样处理"
+          },
+          "paragraphs": [
+            {
+              "en": "The working-memory sum and mean appear only when all nine answers are numeric. One skip withholds both and the fourteen-item total, but a complete inhibition group remains visible. A skipped statement is never treated as the midpoint, zero or an opportunity that must have happened. No partial response set is scaled up. This is the website's editorial completeness policy, not a validated missing-data rule. All three complete public guides remain available, even if every answer is skipped. A later numerical difference does not by itself establish meaningful change.",
+              "zh": "工作记忆九题全有数值时才显示合计和均分。一项跳过会使两者及14题整体暂不可用，完整抑制组仍可显示。跳题不是中间档、零，也不强定相关事情发生过；不把部分回答放大补足。这是网站编辑完整度规则，并非验证过的缺失标准。即使全部跳过，三份完整公开指南仍可读；后来有数值差也不自动代表有意义变化。"
+            }
+          ]
+        },
+        {
+          "id": "action-source",
+          "title": {
+            "en": "An optional task note, with the version visible",
+            "zh": "一个自选任务记录及版本说明"
+          },
+          "paragraphs": [
+            {
+              "en": "For one manageable activity, you could ask for a written sequence, check the first next step and note which part still needs clarification. The purpose is to observe that task, not to prove a personal deficit or promise that a tool will improve executive capacity. The item group and wording come from the current official ADEXI self-report files, including the provided Angela Siu simplified-Chinese version. This website has not established its own psychometric validation or cross-language equivalence. You need not share answers with an employer or another person; a qualified professional can consider persistent difficulties in a broader context.",
+              "zh": "可选一件可承受的活动，请对方给书面步骤，核对眼下的下一步，并记录还有哪里需要说明。目的是观察该任务，不是证明个人缺陷，也不承诺工具提升执行容量。题组和措辞来自当前官方ADEXI自评文件，含所提供的Angela Siu简体中文。网站尚未建立自己的心理测量验证或跨语言等值证据；无需向雇主或他人提交回答。若困难持续，可由适合的专业人士在更完整背景中考虑。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inhibition-reading",
+      "directionIds": [
+        "inhibition"
+      ],
+      "title": {
+        "en": "ADEXI Inhibition: Five-Item Sum and Mean",
+        "zh": "ADEXI抑制控制：五题合计与均分"
+      },
+      "headline": {
+        "en": "Describe the adopted statements without grading obedience",
+        "zh": "理解所用陈述，不把服从当作能力等级"
+      },
+      "summary": {
+        "en": "The official inhibition group contains five statements about acting before thinking, stopping preferred activities, laughter in an unsuitable setting and perceived liveliness. Larger values indicate more endorsement of these statements, without defining a disorder or character type.",
+        "zh": "官方抑制组含五项陈述，涉及未先想后果、停止喜欢的活动、不适宜场合的笑及自觉他人认为自己活泼。较大表示更认同这些陈述，不定义疾病或人格类型。"
+      },
+      "scoreReading": {
+        "en": "Sum items 3, 4, 6, 10 and 14 for 5–25; divide by five for the labelled 1–5 mean. All five numeric answers are required.",
+        "zh": "第3、4、6、10、14题相加得5—25；另除以五显示1—5均分，需要五个有效数值。"
+      },
+      "seo": {
+        "title": {
+          "en": "ADEXI Inhibition: Five Items, Scores and Context",
+          "zh": "ADEXI抑制控制：五题分数、均分与日常情境"
+        },
+        "description": {
+          "en": "Read the ADEXI inhibition sum and mean with stopping-activity examples, source wording and skipped-answer rules, without neurotype or moral judgments.",
+          "zh": "结合停止活动的日常例子、原题措辞与跳题规则，理解ADEXI抑制五题合计和均分，不据此推断神经类型或评价品格。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Which five statements contribute",
+            "zh": "哪五项陈述计入这一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "The official two-part ADEXI key assigns items 3, 4, 6, 10 and 14 to inhibition. These concern doing something before considering consequences, stopping a liked activity when told it is not allowed, refraining from laughter in an unsuitable setting, stopping an enjoyable activity at bedtime and seeming livelier or wilder than peers. The last item is retained as part of the source key; liveliness alone is not proof of impairment. This is a report about how well statements describe you, rather than a count of incidents or an observed test of response inhibition.",
+              "zh": "官方ADEXI两部分计分键把第3、4、6、10、14题归入抑制，涉及未先想后果、别人说不准时仍难停下喜欢的事、不适宜场合忍笑、睡前停下喜欢的活动及觉得别人认为自己更活泼或狂野。最后一项按来源键保留，但活泼本身不证明功能损害。它问陈述对自己的贴切程度，不计事件发生次数，也不是现场反应抑制任务。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Calculate a sum and its labelled mean",
+            "zh": "计算合计及明确标注的均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Each numeric answer keeps its selected value from 1 to 5. No statement is reversed. The five values add to a raw sum from 5 to 25, and the part mean is that sum divided by five. For example, responses 2, 3, 1, 4 and 2 give 12 and 2.40. The colour-coded official form labels part totals, while the separate official subscale file labels part means; both presentations are made explicit here. The larger possible raw sum in the nine-item working-memory group does not make that group a stronger trait or a more serious problem.",
+              "zh": "每个1—5数值原样计入，没有反向题。五项相加得5—25，除以五另得均分；例如2、3、1、4、2合计12，均分2.40。官方彩色题本标分项合计，独立官方分量表文件标均分，因此本版清楚展示两者。九题工作记忆的原始合计上限更大，不表示那部分是更强特质或更严重问题。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Stopping an enjoyable activity",
+            "zh": "停止一项喜欢的活动"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine planning to leave a familiar activity at a certain time but finding yourself continuing beyond that point. You could note the agreed time, whether a cue was available and what you did when you noticed. A counterexample is choosing to stay because plans changed with everyone's agreement; that choice is not automatically an inhibition failure. Similarly, disagreement with an unreasonable restriction does not establish a cognitive deficit or a moral flaw. The questionnaire cannot judge whether a rule was fair, what another person intended or why a particular situation unfolded.",
+              "zh": "例如原打算到点离开一项熟悉活动，却发现自己又继续了一段。可记录约定时间、有无提示及察觉后做了什么。反例是各方同意改变安排后决定留下，不自动构成抑制失败。同样，不同意不合理限制也不能证明认知缺陷或品格问题。问卷不判断规则是否公平、别人有何意图，也不解释某个场景为何这样发展。"
+            }
+          ]
+        },
+        {
+          "id": "direction",
+          "title": {
+            "en": "Do not turn endorsement into a neurotype",
+            "zh": "不把认同程度换成神经类型"
+          },
+          "paragraphs": [
+            {
+              "en": "Larger values indicate more endorsement of the adopted inhibition statements, not better inhibitory control. Smaller values do not certify safe decisions, dependable work or the absence of a condition. This edition applies no diagnostic threshold, ADHD-versus-autism pattern, population rank, celebrity comparison or career match. It also does not assign a superior or inferior personality. Equal numbers in the two parts describe different item sets; nearby numbers across attempts need not show meaningful change. Consider the concrete examples you had in mind, without using a score to judge someone else's intentions or worth.",
+              "zh": "数值较大表示更认同这些抑制条目，不是抑制更好；较小也不证明决策安全、工作可靠或没有某种情况。本版不套诊断阈值、ADHD与自闭症组合模式、人群排名、名人对照或职业适配，也不分人格优劣。两个部分同分对应不同题组，两次相近数字也未必代表有意义变化。可回看作答时的具体例子，不用数字判断他人的动机或价值。"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "title": {
+            "en": "Skipped items withhold this part",
+            "zh": "跳题使本部分暂不计分"
+          },
+          "paragraphs": [
+            {
+              "en": "All five numeric inhibition answers are required to display its sum and mean. A skip withholds these and the overall fourteen-item total, while a complete working-memory group keeps its own values. Missing is not zero, a low rating or an average substituted by the website. Nothing is prorated. All fourteen skip choices can finish the questionnaire with no calculated scores and all public readings still accessible. This is an editorial completeness policy, not a source-validated missing-data threshold. You can decline to answer a statement without treating the absence of a score as a personal failure.",
+              "zh": "抑制五题全有数值时才显示合计与均分。跳题会使两者及14题整体暂不可用，完整工作记忆组仍有自己的值。缺答不是零、低档或网站代填的平均值，不按比例补足。14题全选跳过，也能完成且全部公开指南可读。这是编辑完整度规则，并非来源验证过的缺失阈值；可以不回答，不必把没有分数视为自己的失败。"
+            }
+          ]
+        },
+        {
+          "id": "action-source",
+          "title": {
+            "en": "A voluntary cue and the supplied wording",
+            "zh": "一个自选提示及所用原题措辞"
+          },
+          "paragraphs": [
+            {
+              "en": "For one manageable activity you want to stop, you could decide on a stopping point, place a visible cue and privately note what happened. This is an optional observation, without a promise of treatment or improved capacity. The current official ADEXI English and Angela Siu simplified-Chinese wording is retained, including the Chinese expression “睇电视” for watching television. The website has not established language equivalence or its own psychometric validation. If difficulties persist in daily life, a qualified professional can consider their history and context; these five responses cannot select a diagnosis, medication or a course of care.",
+              "zh": "可为一项自己希望停止、又可承受的活动约定结束点，放一个可见提示，私下记录实际情况。这是自选观察，不承诺治疗或提升容量。保留当前官方ADEXI英文及Angela Siu简体中文，包括表示看电视的“睇电视”用语。网站尚未建立语言等值或自己的心理测量验证。若困难持续影响日常，可由适合的专业人士结合历史与处境考虑，五项回答不能选择诊断、药物或照护方案。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "adexi_existing_official_en_siu_zh",
+    "formCode": "adexi14_current_official_en_angela_siu_simplified_zh_v1",
+    "itemBankVersion": "adexi14_current_official_en_angela_siu_simplified_zh_v1",
+    "scoringVersion": "adexi14_coloured_rawsum_partmean_strictcomplete_v1",
+    "resultContentVersion": "fm_adexi14_three_full_readings_v1",
+    "itemBankSha256": "a9e93abd31d0b69f88876f14222099265d4d5aa64976cb78f6f75275f1d9180c",
+    "resultContentSha256": "ec84cb3f5bed05bb954db3b6b5dd94813ab7663721cda897a2321ad9c34bad82",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Official ADEXI English self-report, supplied by Lisa B. Thorell",
+        "zh": "官方ADEXI英文自评，Lisa B. Thorell提供"
+      },
+      "url": "https://www.chexi.se/onewebmedia/English%20ADEXI%20self-report.pdf"
+    },
+    {
+      "title": {
+        "en": "Official simplified-Chinese ADEXI self-report, translated by Angela Siu, The Chinese University of Hong Kong",
+        "zh": "官方简体中文ADEXI自评，香港中文大学Angela Siu翻译"
+      },
+      "url": "https://www.chexi.se/onewebmedia/Adult%20Self%20Report%20Executive%20Functioning%20Inventory_SimplifiedChinese.pdf"
+    },
+    {
+      "title": {
+        "en": "Official colour-coded self-report: raw part sums and total, page 3",
+        "zh": "官方彩色自评：第3页原始分项与整体合计"
+      },
+      "url": "https://www.chexi.se/onewebmedia/English%20ADEXI%20self-report%20colour-coded.pdf"
+    },
+    {
+      "title": {
+        "en": "Official ADEXI subscales: part means and item groups",
+        "zh": "官方ADEXI分量表：分项均分与题组"
+      },
+      "url": "https://www.chexi.se/onewebmedia/ADEXI%20subscales.pdf"
+    },
+    {
+      "title": {
+        "en": "Authors’ translations page: available versions and permission",
+        "zh": "作者翻译页面：现有版本与使用说明"
+      },
+      "url": "https://www.chexi.se/translations"
+    },
+    {
+      "title": {
+        "en": "Holst, Y., & Thorell, L. B. (2018). Adult executive functioning inventory (ADEXI): Validity, reliability, and relations to ADHD. International Journal of Methods in Psychiatric Research, 27(1), e1567. DOI: 10.1002/mpr.1567.",
+        "zh": "Holst与Thorell（2018），Adult executive functioning inventory (ADEXI): Validity, reliability, and relations to ADHD，27(1)，e1567。DOI：10.1002/mpr.1567。"
+      },
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28497641/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "version",
+      "title": {
+        "en": "The current fourteen-item self-report",
+        "zh": "当前十四题自评版本"
+      },
+      "paragraphs": [
+        {
+          "en": "This uses the official ADEXI adult self-report, not CHEXI for children, TEXI for teenagers, an other-report form or a new translation. All fourteen English and supplied simplified-Chinese items retain their source wording and order. The provided Chinese version includes regional wording such as “睇电视” for watching television. Its presence on the authors’ website is not a claim of validation in every Chinese-speaking population.",
+          "zh": "采用官方ADEXI成人自评，不是儿童CHEXI、青少年TEXI、他评或新翻译。14条英文和所提供的简体中文保留来源措辞和题序，包括表示看电视的“睇电视”等地区用语。译本出现在作者官网，不表示已在所有中文人群中验证。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Raw sums and clearly labelled part means",
+        "zh": "原始合计与标明的分项均分"
+      },
+      "paragraphs": [
+        {
+          "en": "Working memory uses items 1, 2, 5, 7, 8, 9, 11, 12 and 13: raw sum 9–45. Inhibition uses 3, 4, 6, 10 and 14: raw sum 5–25. The colour-coded source form adds all fourteen for a 14–70 total. The separate official key labels part means, so each complete part also shows its own sum divided by its own item count. No item is reversed, and the two means are not averaged to create a different total.",
+          "zh": "工作记忆为第1、2、5、7、8、9、11、12、13题，原始合计9—45；抑制为第3、4、6、10、14题，合计5—25。彩色来源题本将14题相加得14—70整体合计。独立官方键标注分项均分，因此完整部分另显示合计除以自身题数。不反向，也不平均两个均分另造整体值。"
+        }
+      ]
+    },
+    {
+      "id": "direction",
+      "title": {
+        "en": "Larger values report more difficulty",
+        "zh": "较大数值表示报告更多困难"
+      },
+      "paragraphs": [
+        {
+          "en": "Larger sums or part means reflect more endorsement of difficulty statements. They do not mean stronger executive function. The raw part sums have different item counts and cannot identify a strongest or weakest capacity. No percentile, population average, clinical band, neurotype pattern or career-fit calculation is supplied. Self-report is not the same as performance on a memory or inhibition task.",
+          "zh": "合计或分项均分较大，表示更认同困难陈述，不是执行功能更强。原始分项题数不同，不能据此选最强或最弱容量。不提供百分位、人群平均、临床分档、神经类型组合或职业适配计算。自评不同于记忆或抑制任务的现场表现。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "An explicit completeness policy",
+        "zh": "明确的完整度政策"
+      },
+      "paragraphs": [
+        {
+          "en": "A part needs all its numeric responses before its sum and mean appear; the overall total needs all fourteen. A skipped item withholds only its own part and the total, while a complete other part remains visible. Missing is not zero and is not estimated or prorated. All skip choices can complete the questionnaire. This is the website’s editorial policy, not a source-validated missing-data threshold.",
+          "zh": "分项全部数值有效才显示该项合计与均分，整体需要14题有效。跳题只使所在分项及整体暂不可用，另一完整部分仍显示。缺答不是零，不估算、不按比例补足。全部选跳过也能完成。这是网站编辑政策，并非来源验证过的缺失阈值。"
+        }
+      ]
+    },
+    {
+      "id": "source-action",
+      "title": {
+        "en": "Source, permission and optional next steps",
+        "zh": "来源、使用说明及自选下一步"
+      },
+      "paragraphs": [
+        {
+          "en": "The authors’ website supplies these existing language versions and states that author permission is not needed to use versions already available there. Source and translator attribution are retained; no public-domain status or endorsement is claimed. The English form and Angela Siu simplified-Chinese version follow the authors’ supplied materials. The three guides include worked examples and optional task observations. Persistent difficulties affecting daily life can be discussed in context with a qualified professional; the score does not choose a diagnosis or treatment.",
+          "zh": "作者官网提供这两种现有语言版本，并说明使用已提供版本无需作者许可。保留来源与译者署名，不声称公版或背书。英文与Angela Siu简体中文采用作者提供的材料。三篇指南有算例与自选任务观察；若持续困难影响日常，可与适合的专业人士结合背景讨论，分数不选择诊断或治疗。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which version does this use?",
+        "zh": "采用哪个版本？"
+      },
+      "answer": {
+        "en": "The official 14-item ADEXI adult self-report in English and the supplied Angela Siu simplified-Chinese version, with the original wording, order and five response anchors retained.",
+        "zh": "官方14题ADEXI成人自评英文及所提供的Angela Siu简体中文，保留原题措辞、题序和五个回答锚点。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why show sums and part means?",
+        "zh": "为什么同时显示合计和分项均分？"
+      },
+      "answer": {
+        "en": "The official colour-coded form labels raw part totals and an overall total. A separate official key labels part means for the same groups. Both are made explicit: sum the items and divide each part sum by its own count for its mean. Do not average the two means into a new total.",
+        "zh": "官方彩色题本标原始分项与整体合计，独立官方键标同题组均分。本版分别说明：逐项相加，分项均分另除以自身题数，不平均两个均分另造整体值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a larger number mean stronger executive function?",
+        "zh": "数值较大表示执行功能更强吗？"
+      },
+      "answer": {
+        "en": "No. Larger values reflect more endorsement of difficulty statements. They do not measure IQ, observed capacity or personal worth, and no strongest-part ranking is produced.",
+        "zh": "不是。较大表示更认同困难陈述，不测智商、现场容量或个人价值，不选最强分项。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can this identify ADHD or autism?",
+        "zh": "能识别ADHD或自闭症吗？"
+      },
+      "answer": {
+        "en": "No diagnostic cutoff or neurotype mapping is applied. A self-report score alone cannot identify a condition, select treatment or explain why difficulties occur. Consider persistent everyday difficulties in a broader context.",
+        "zh": "不套诊断阈值，不映射神经类型。自评数字不能单独识别某种情况、选择治疗或解释困难成因；持续日常困难需结合更多背景考虑。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when I skip an item?",
+        "zh": "跳过一题会怎样？"
+      },
+      "answer": {
+        "en": "Its part and the overall sum are withheld; the other complete part remains visible. Missing is not zero or imputed. This strict complete-item rule is a website policy, not a validated missing-data threshold.",
+        "zh": "暂不给所在分项及整体合计，另一完整分项保留。缺答不是零，不填补。全有效规则是网站政策，不是验证过的缺失阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all readings free and private?",
+        "zh": "完整读法免费吗？回答如何保存？"
+      },
+      "answer": {
+        "en": "All fourteen items and all three full public guides are free without signup. Optional drafts stay in this tab for at most 24 hours and clear on completion or reset. Copying shares a public title and link, never answers or personal scores.",
+        "zh": "14题与三篇完整公开指南免费，无需注册。可选草稿最多保留本标签页24小时，完成或重置即清除。复制只分享公开标题和链接，不带回答或个人分数。"
+      }
+    }
+  ]
+}
