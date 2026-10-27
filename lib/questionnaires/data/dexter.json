@@ -10,12 +10,12 @@
     "zh": "《嗜血法医》角色测试"
   },
   "description": {
-    "en": "Try 24 original, harmless paper-mystery and club situations. Compare Dexter, Debra, Angel, Masuka, Doakes and LaGuerta with all highest ties and six complete bilingual guides free. Unofficial TV fan quiz, without clinical or crime inference.",
-    "zh": "完成24道原创、无害的纸上谜案与社团情境题，比较德克斯特、黛布拉、安吉尔、马苏卡、多克斯和拉圭尔塔。最高并列及六份完整双语说明免费，无需注册。非官方Dexter同人版，不推断临床或犯罪。"
+    "en": "Take 24 original clue-game questions to explore six Dexter characters. Read every highest tie and all six complete result guides free. Unofficial fan quiz.",
+    "zh": "用24道原创纸上谜案与社团情境题，探索德克斯特、黛布拉等六位角色。最高并列完整保留，六份结果说明免费可读，含具体例子、计数解释与小练习。非官方同人测验。"
   },
   "seoTitle": {
-    "en": "Dexter Test: Free TV Character Quiz & All 6 Results",
-    "zh": "《嗜血法医》角色测试：免费作答与6种完整结果"
+    "en": "Dexter Test: Which Character Are You?",
+    "zh": "嗜血法医角色测试：24题与六种完整结果"
   },
   "resultHeading": {
     "en": "Your Dexter character readings",
@@ -53,7 +53,7 @@
     "scoringVersion": "dexter_all_highest_counts_v1",
     "resultContentVersion": "dexter_full_guides_v1",
     "itemBankSha256": "b344df655a45074bfad81ca9112c543987420899315c9905bd3899c2bd3d5405",
-    "resultContentSha256": "b0543c2e68489e264327c2405078243a74f023d30ee00f81787e69b5150d0bfa",
+    "resultContentSha256": "497ad60d6f90570bc9caadc5f407d0d6c55f78436ceff0d4ec80f04d7cfeb453",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1112,12 +1112,12 @@
       },
       "seo": {
         "title": {
-          "en": "Dexter Morgan Test Result: Describe the detail before the theory | Dexter",
-          "zh": "德克斯特·摩根（Dexter）测试结果：先描述细节，再提想法｜嗜血法医"
+          "en": "Dexter Morgan Test Result: Observation | Dexter",
+          "zh": "德克斯特测试结果：先观察，再解释｜嗜血法医"
         },
         "description": {
-          "en": "Read Dexter Morgan through describe the detail before the theory: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“先描述细节，再提想法”阅读德克斯特·摩根（Dexter）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Explore Dexter Morgan's observation angle through a fictional clue game. Compare six characters, separate detail from theory and read your score clearly.",
+          "zh": "从虚构线索游戏理解德克斯特的细节观察角度：把直接描述与推测分栏，比较其他五位角色的贡献，并阅读计数和并列说明。附可自选的小练习，不作完整人物或人格判定。"
         }
       },
       "scoreReading": {
@@ -1237,12 +1237,12 @@
       },
       "seo": {
         "title": {
-          "en": "Debra Morgan Test Result: Ask the plain question that is missing | Dexter",
-          "zh": "黛布拉·摩根（Debra）测试结果：问出缺的那个平实问题｜嗜血法医"
+          "en": "Debra Morgan Test Result: Direct Questions | Dexter",
+          "zh": "黛布拉测试结果：直接问清下一步｜嗜血法医"
         },
         "description": {
-          "en": "Read Debra Morgan through ask the plain question that is missing: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“问出缺的那个平实问题”阅读黛布拉·摩根（Debra）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Read Debra Morgan's direct-question angle. Explore a stalled clue-game example, compare six characters and try asking one clear question. Unofficial guide.",
+          "zh": "游戏卡住时，怎样问清大家缺的那条信息？通过原创线索场景阅读黛布拉的直接提问角度，比较另外五位角色，并试着说清一个具体问题。含计数与并列解释，非官方同人说明。"
         }
       },
       "scoreReading": {
@@ -1362,12 +1362,12 @@
       },
       "seo": {
         "title": {
-          "en": "Angel Batista Test Result: Keep people included in the exchange | Dexter",
-          "zh": "安吉尔·巴蒂斯塔（Angel）测试结果：让人仍在交流里面｜嗜血法医"
+          "en": "Angel Batista Test Result: Inclusion | Dexter",
+          "zh": "安吉尔测试结果：给新成员留参与空间｜嗜血法医"
         },
         "description": {
-          "en": "Read Angel Batista through keep people included in the exchange: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“让人仍在交流里面”阅读安吉尔·巴蒂斯塔（Angel）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Read Angel Batista's inclusion angle through a newcomer-at-the-table example. Compare six character readings and try an invitation that leaves room to decline.",
+          "zh": "从解谜桌边新成员的情境，理解安吉尔让人参与交流的角度：给简短回顾，也允许对方加入、观察或拒绝。阅读六角色比较、选择计数与一个可选练习，不把照顾群体当成你的义务。"
         }
       },
       "scoreReading": {
@@ -1487,12 +1487,12 @@
       },
       "seo": {
         "title": {
-          "en": "Vince Masuka Test Result: Explore the playful mechanism | Dexter",
-          "zh": "文斯·马苏卡（Masuka）测试结果：探索小机关的趣味｜嗜血法医"
+          "en": "Vince Masuka Test Result: Playful Curiosity | Dexter",
+          "zh": "马苏卡测试结果：探索小机关的趣味｜嗜血法医"
         },
         "description": {
-          "en": "Read Vince Masuka through explore the playful mechanism: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“探索小机关的趣味”阅读文斯·马苏卡（Masuka）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Explore Vince Masuka's playful-curiosity angle with a toy-lock example. Compare six characters and try an optional demonstration. Unofficial Dexter guide.",
+          "zh": "一个玩具锁的额外功能，怎样让纸上谜题更有趣？阅读马苏卡的趣味探索角度，区分游戏需要与可选演示，比较六位角色的贡献，并看计数如何得到。非官方原创同人指南。"
         }
       },
       "scoreReading": {
@@ -1612,12 +1612,12 @@
       },
       "seo": {
         "title": {
-          "en": "James Doakes Test Result: Ask what supports the claim | Dexter",
-          "zh": "詹姆斯·多克斯（Doakes）测试结果：问主张得到什么支持｜嗜血法医"
+          "en": "James Doakes Test Result: Checking Claims | Dexter",
+          "zh": "多克斯测试结果：核对线索与主张｜嗜血法医"
         },
         "description": {
-          "en": "Read James Doakes through ask what supports the claim: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“问主张得到什么支持”阅读詹姆斯·多克斯（Doakes）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Explore James Doakes's claim-checking angle with two contradictory clue cards. Read six character comparisons, scoring and one specific question to try.",
+          "zh": "两张虚构线索卡对不上时，可以怎样问一个能回答的问题？阅读多克斯核对主张的角度、六角色比较与计数说明，并试着让证据改变初步解释。情境限于纸上游戏，不用于判断真人。"
         }
       },
       "scoreReading": {
@@ -1737,12 +1737,12 @@
       },
       "seo": {
         "title": {
-          "en": "Maria LaGuerta Test Result: Give the group a workable scope | Dexter",
-          "zh": "玛丽亚·拉圭尔塔（LaGuerta）测试结果：给小组一个可做的范围｜嗜血法医"
+          "en": "Maria LaGuerta Test Result: Coordination | Dexter",
+          "zh": "拉圭尔塔测试结果：约定范围与分工｜嗜血法医"
         },
         "description": {
-          "en": "Read Maria LaGuerta through give the group a workable scope: a harmless paper-mystery scene, five character comparisons, a bounded experiment and transparent scoring. Complete unofficial fan guide; no clinical or crime inference.",
-          "zh": "从“给小组一个可做的范围”阅读玛丽亚·拉圭尔塔（LaGuerta）：含无害纸上谜案场景、五角色比较、有范围的小尝试和透明计数。非官方原创同人全文，不推断临床或犯罪。"
+          "en": "Read Maria LaGuerta's coordination angle through a club plan with limited time. Compare six characters and try a shared scope and stopping point.",
+          "zh": "当社团的点子比时间多，怎样约定做什么、谁愿意参与和何时结束？通过原创活动场景阅读拉圭尔塔的协调角度，比较六位角色，查看计数与并列，并试一个共同完成条件。"
         }
       },
       "scoreReading": {

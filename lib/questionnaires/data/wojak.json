@@ -10,12 +10,12 @@
     "zh": "Wojak 角色测试"
   },
   "description": {
-    "en": "Take 18 original everyday questions and compare six Wojak meme lenses: Feels Guy, Bloomer, Doomer, Boomer, Zoomer and NPC. Every highest tie and all complete guides are free. Text-only, unofficial and no signup.",
-    "zh": "用18道原创日常题比较Feels Guy、Bloomer、Doomer、Boomer、Zoomer与NPC六种Wojak梗图角度。最高并列全部保留，完整说明免费，无需注册。纯文字非官方同人版，不给真人下定义。"
+    "en": "Which Wojak are you? Explore six meme lenses with 18 original everyday questions. Read all highest ties and complete guides free, without an account.",
+    "zh": "你更偏向哪一种Wojak梗图表达？用18道原创日常题探索共鸣、小步尝试、冷调质疑、熟悉喜好、新格式和日常流程。最高并列及六份完整说明免费可读，无需账号。"
   },
   "seoTitle": {
-    "en": "Wojak Test: Free Meme Quiz & All 6 Result Guides",
-    "zh": "Wojak角色测试：免费梗图测验与6种完整说明"
+    "en": "Wojak Test: Six Meme Results and Full Guides",
+    "zh": "Wojak测试：18道题与六种梗图结果"
   },
   "resultHeading": {
     "en": "Your Wojak meme-lens readings",
@@ -81,7 +81,7 @@
     "scoringVersion": "wojak_all_highest_counts_v1",
     "resultContentVersion": "wojak_full_guides_v1",
     "itemBankSha256": "ee21da0d5e8cb42023f4db83a1e843c70c0f82f2795c8c069a9eeccbc6913661",
-    "resultContentSha256": "2314d83607c48fffd6f35c2f49b1d7df0a175f19d34190e43dae41074f69601b",
+    "resultContentSha256": "dcdcbb1d0f116994f604e1e24cf9080205adb9cb2f3aa194e99889e380527ae8",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -894,12 +894,12 @@
       },
       "seo": {
         "title": {
-          "en": "Wojak / Feels Guy Test Result: Recognise the moment without making it a whole identity | Wojak",
-          "zh": "Wojak／感同身受者测试结果：认出一个瞬间，不把它变成全部身份｜Wojak"
+          "en": "Wojak / Feels Guy Test Result: Shared Moments",
+          "zh": "Wojak／Feels Guy测试结果：认出共鸣的瞬间"
         },
         "description": {
-          "en": "Explore the Wojak / Feels Guy meme lens through recognise the moment without making it a whole identity. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“认出一个瞬间，不把它变成全部身份”阅读Wojak／感同身受者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Explore the Feels Guy meme through a friend's first craft attempt. Read six lens comparisons and try acknowledging one moment without assuming a whole life.",
+          "zh": "朋友第一次手工不太顺利时，一句回应怎样表达共鸣？通过具体帖子情境阅读Feels Guy角度、六种梗图比较和选择计数，试着认出一个瞬间，也给对方留下继续聊或不聊的空间。"
         }
       },
       "scoreReading": {
@@ -1019,12 +1019,12 @@
       },
       "seo": {
         "title": {
-          "en": "Bloomer Test Result: Keep a small possibility separate from a grand promise | Wojak",
-          "zh": "Bloomer／小步向前者测试结果：把小小可能与宏大承诺分开｜Wojak"
+          "en": "Bloomer Test Result: Small Possibilities | Wojak",
+          "zh": "Bloomer测试结果：一次做得来的小尝试｜Wojak"
         },
         "description": {
-          "en": "Explore the Bloomer meme lens through keep a small possibility separate from a grand promise. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“把小小可能与宏大承诺分开”阅读Bloomer／小步向前者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Read the Bloomer meme through an oversized hobby list and one manageable next attempt. Compare six lenses and try a small experiment without pressure to improve.",
+          "zh": "当兴趣清单大到不好玩，能否先选一件仍想试的小事？阅读Bloomer的小可能角度、六种梗图比较与计数说明，再为一次尝试设定投入范围。休息或不继续也可以。"
         }
       },
       "scoreReading": {
@@ -1144,12 +1144,12 @@
       },
       "seo": {
         "title": {
-          "en": "Doomer Test Result: Give the big claim a dry, proportionate reply | Wojak",
-          "zh": "Doomer／冷调旁观者测试结果：用冷调回应给大话一点尺度｜Wojak"
+          "en": "Doomer Test Result: Dry Scepticism | Wojak",
+          "zh": "Doomer测试结果：给夸大宣传一点尺度｜Wojak"
         },
         "description": {
-          "en": "Explore the Doomer meme lens through give the big claim a dry, proportionate reply. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“用冷调回应给大话一点尺度”阅读Doomer／冷调旁观者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Read the Doomer meme as dry commentary on exaggerated hobby claims. Compare six lenses and turn a sweeping verdict into a concrete question. Unofficial guide.",
+          "zh": "遇到声称改变所有创作的整理技巧，怎样质疑说法而不嘲笑喜欢它的人？通过日常宣传场景阅读Doomer的冷调评论角度，比较六种结果，并试一个关于时间或材料的具体问题。"
         }
       },
       "scoreReading": {
@@ -1269,12 +1269,12 @@
       },
       "seo": {
         "title": {
-          "en": "Boomer Test Result: Keep a familiar favourite for a specific reason | Wojak",
-          "zh": "Boomer／熟悉收藏者测试结果：因为具体的喜欢而保留熟悉事物｜Wojak"
+          "en": "Boomer Test Result: Familiar Favourites | Wojak",
+          "zh": "Boomer测试结果：说清老爱好仍好在哪里｜Wojak"
         },
         "description": {
-          "en": "Explore the Boomer meme lens through keep a familiar favourite for a specific reason. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“因为具体的喜欢而保留熟悉事物”阅读Boomer／熟悉收藏者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Read Boomer Wojak through a familiar game you still enjoy. Compare six meme lenses and share one specific pleasure without turning taste into an age label.",
+          "zh": "聊到仍喜欢的老游戏，你会提起哪处玩法、音效或回忆？通过具体例子理解Boomer的熟悉喜好角度，比较六种梗图、查看计数与并列，再试着分享一处今天仍有乐趣的细节。"
         }
       },
       "scoreReading": {
@@ -1394,12 +1394,12 @@
       },
       "seo": {
         "title": {
-          "en": "Zoomer Test Result: Try the format without signing up for a whole identity | Wojak",
-          "zh": "Zoomer／新格式尝鲜者测试结果：试一种格式，不必认领整套身份｜Wojak"
+          "en": "Zoomer Test Result: Trying a New Format | Wojak",
+          "zh": "Zoomer测试结果：给新格式一次小试用｜Wojak"
         },
         "description": {
-          "en": "Explore the Zoomer meme lens through try the format without signing up for a whole identity. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“试一种格式，不必认领整套身份”阅读Zoomer／新格式尝鲜者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Read Zoomer Wojak through a trial of a new hobby format. Compare six lenses and explore what it changes before deciding whether to keep it. No age inference.",
+          "zh": "给兴趣记录换个新格式，不必一口气搬走所有笔记。阅读Zoomer的尝鲜情境、六种梗图比较及计数解释，试一次可以舍弃的小样，再决定新旧形式怎样适合自己。名称不代表年龄。"
         }
       },
       "scoreReading": {
@@ -1519,12 +1519,12 @@
       },
       "seo": {
         "title": {
-          "en": "NPC Test Result: Choose a useful routine while keeping your agency | Wojak",
-          "zh": "NPC／日常流程者测试结果：选择有用流程，同时保留自己的决定｜Wojak"
+          "en": "NPC Test Result: A Routine You Choose | Wojak",
+          "zh": "NPC测试结果：主动选择有用的日常流程｜Wojak"
         },
         "description": {
-          "en": "Explore the NPC meme lens through choose a useful routine while keeping your agency. Read an everyday example, comparisons with all five lenses, a small experiment and explicit limits. Complete original fan guide.",
-          "zh": "从“选择有用流程，同时保留自己的决定”阅读NPC／日常流程者梗图角度，含日常例子、另外五角度比较、小尝试和明确边界。原创同人全文免费可读，不给真人下定义。"
+          "en": "Explore the NPC meme as a chosen hobby routine. Compare six lenses, review one repeated step and decide to keep, change or drop it. No judgement of real people.",
+          "zh": "固定的每周兴趣报到，可以省下哪些重新安排的精力？阅读本版NPC的自选流程角度、六种梗图比较与计数说明，再决定一个步骤要保留、修改还是放下，不拿标签评判真人。"
         }
       },
       "scoreReading": {
