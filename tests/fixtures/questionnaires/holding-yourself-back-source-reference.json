@@ -1,0 +1,418 @@
+{
+  "identity": "fermatmind-holding-yourself-back-original35-2026-10-28",
+  "authorship": "FermatMind Editorial / 费马测试编辑部; independently authored bilingual scenarios and interpretation; not an IPRS translation or competitor adaptation",
+  "items": [
+    {
+      "id": "emotion-recovery-1",
+      "directionId": "emotion-recovery",
+      "prompt": {
+        "en": "A small change to a plan left me unsettled through the next ordinary activity.",
+        "zh": "计划出现小变动后，接下来的日常活动中我仍心绪不定。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "emotion-recovery-2",
+      "directionId": "emotion-recovery",
+      "prompt": {
+        "en": "After an inconvenient delay, I needed so much time to settle that I abandoned what I had planned next.",
+        "zh": "遇到不方便的延误后，我花了很久才平复，以至于放弃了下一件原定要做的事。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "emotion-recovery-3",
+      "directionId": "emotion-recovery",
+      "prompt": {
+        "en": "When several minor demands arrived together, I became too overwhelmed to choose one manageable response.",
+        "zh": "几件小事同时需要处理时，我被情绪淹没，难以选出一个能应付的做法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "emotion-recovery-4",
+      "directionId": "emotion-recovery",
+      "prompt": {
+        "en": "I carried the agitation from an earlier setback into an unrelated conversation.",
+        "zh": "我把之前受挫时的烦躁带进了一场不相关的谈话。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "emotion-recovery-5",
+      "directionId": "emotion-recovery",
+      "prompt": {
+        "en": "A minor frustration kept pulling my attention back even after the immediate problem was resolved.",
+        "zh": "一个小挫折已经解决后，我的注意力仍被当时的不快反复拉回。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "self-doubt-1",
+      "directionId": "self-doubt",
+      "prompt": {
+        "en": "After receiving a small correction, I treated it privately as evidence that I was inadequate in many areas.",
+        "zh": "收到一个小小的纠正后，我私下把它当成自己在很多方面都不够好的证据。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "self-doubt-2",
+      "directionId": "self-doubt",
+      "prompt": {
+        "en": "While reviewing an ordinary day, I dismissed what had gone adequately and dwelt on what I disliked about myself.",
+        "zh": "回顾普通的一天时，我忽略了做得还可以的部分，反复想着自己令自己不满意的地方。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "self-doubt-3",
+      "directionId": "self-doubt",
+      "prompt": {
+        "en": "In a routine choice that was mine to make, doubt about my own judgment kept me from choosing.",
+        "zh": "面对一件由我自己作主的日常小事，我因怀疑自己的判断而迟迟选不下来。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "self-doubt-4",
+      "directionId": "self-doubt",
+      "prompt": {
+        "en": "A disappointing moment became a harsh private story about who I am, rather than about that one event.",
+        "zh": "一次失望的经历变成了我对自己整个人的苛刻评价，而不只是对那件事的看法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "self-doubt-5",
+      "directionId": "self-doubt",
+      "prompt": {
+        "en": "I withdrew from an ordinary activity because I felt discouraged about myself, even though participation was available.",
+        "zh": "虽然有机会参加一项日常活动，我还是因为对自己感到灰心而退了出来。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "direction-attention-1",
+      "directionId": "direction-attention",
+      "prompt": {
+        "en": "I set aside time for something I wanted to move forward, but finished the time slot without choosing a concrete next step.",
+        "zh": "我为一件自己想推进的事留出了时间，却到时间结束还没有选出具体下一步。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "direction-attention-2",
+      "directionId": "direction-attention",
+      "prompt": {
+        "en": "During a short task I had chosen, I repeatedly opened unrelated material and lost the thread of what I was doing.",
+        "zh": "做一件自己选定的短任务时，我反复打开不相关的内容，忘了原本做到哪里。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "direction-attention-3",
+      "directionId": "direction-attention",
+      "prompt": {
+        "en": "When two small personal priorities competed, I kept switching between them without advancing either.",
+        "zh": "两件自己的小事同时需要安排时，我来回切换，却两件都没有推进。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "direction-attention-4",
+      "directionId": "direction-attention",
+      "prompt": {
+        "en": "After a brief interruption, I did not return to the step I had intended to finish despite having time left.",
+        "zh": "短暂被打断后，虽然还有时间，我也没有回到本来打算做完的那一步。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "direction-attention-5",
+      "directionId": "direction-attention",
+      "prompt": {
+        "en": "I agreed with a personal plan in principle but let its next action remain vague when it was time to act.",
+        "zh": "我原则上认同自己的某个计划，但到了该行动时，仍把下一步停留在模糊的说法里。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "outward-actions-1",
+      "directionId": "outward-actions",
+      "prompt": {
+        "en": "In a shared activity, I took a shortcut that ignored an agreed rule and left someone else to handle the consequence.",
+        "zh": "共同活动中，我为了省事绕过约定的规则，把后果留给别人处理。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "outward-actions-2",
+      "directionId": "outward-actions",
+      "prompt": {
+        "en": "I sent or posted a response before checking its likely effect on the people involved.",
+        "zh": "发出消息或发布回应前，我没有先想它可能给相关的人带来什么影响。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "outward-actions-3",
+      "directionId": "outward-actions",
+      "prompt": {
+        "en": "For a small immediate benefit, I used a shared resource in a way that went beyond the permission I had.",
+        "zh": "为了眼前一点方便，我使用共同资源时超出了自己已有的许可。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "outward-actions-4",
+      "directionId": "outward-actions",
+      "prompt": {
+        "en": "I made a quick commitment involving another person before checking whether I could keep it.",
+        "zh": "涉及别人时，我还没有确认自己能否做到，就很快作出了承诺。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "outward-actions-5",
+      "directionId": "outward-actions",
+      "prompt": {
+        "en": "When a routine limit frustrated me, I pushed past it rather than checking a permitted alternative.",
+        "zh": "一项日常限制让我不耐烦时，我直接越过了它，没有先找符合约定的替代办法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "rigid-standards-1",
+      "directionId": "rigid-standards",
+      "prompt": {
+        "en": "I continued polishing an ordinary piece of work after it already met the purpose we had agreed on.",
+        "zh": "一件普通的工作已经达到事先约定的用途后，我仍继续打磨细节。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "rigid-standards-2",
+      "directionId": "rigid-standards",
+      "prompt": {
+        "en": "A harmless change in how a shared task was done bothered me enough to delay progress.",
+        "zh": "共同任务的做法有一个无害的小变化，我为此纠结到耽误了进度。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "rigid-standards-3",
+      "directionId": "rigid-standards",
+      "prompt": {
+        "en": "I repeated a routine check without finding new information, while another planned activity waited.",
+        "zh": "没有出现新信息时，我仍重复一项例行检查，让另一件原定要做的事一直等着。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "rigid-standards-4",
+      "directionId": "rigid-standards",
+      "prompt": {
+        "en": "I avoided showing a usable first attempt because it did not match the exact standard in my head.",
+        "zh": "第一版已经能用，我却因为它不符合自己脑中的精确标准而不愿拿出来。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "rigid-standards-5",
+      "directionId": "rigid-standards",
+      "prompt": {
+        "en": "I used more time than the situation required to keep a minor detail exactly as I preferred.",
+        "zh": "为了让一个小细节完全符合自己的偏好，我花了超出情境实际需要的时间。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "imagined-scenarios-1",
+      "directionId": "imagined-scenarios",
+      "prompt": {
+        "en": "While I had a concrete action available, I spent the time imagining how the finished outcome would look instead.",
+        "zh": "明明有具体一步可以做，我却把时间花在想象完成后的样子上。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "imagined-scenarios-2",
+      "directionId": "imagined-scenarios",
+      "prompt": {
+        "en": "I mentally replayed an imagined version of a conversation until I missed part of the real conversation or activity around me.",
+        "zh": "我在脑中反复演着一段设想的谈话，以至于漏掉了身边真实谈话或活动的一部分。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "imagined-scenarios-3",
+      "directionId": "imagined-scenarios",
+      "prompt": {
+        "en": "I elaborated a possible future so far that I lost track of the small decision actually in front of me.",
+        "zh": "我把一种可能的未来想得越来越细，反而忘了眼前真正要作的小决定。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "imagined-scenarios-4",
+      "directionId": "imagined-scenarios",
+      "prompt": {
+        "en": "During time meant for an ordinary activity, I remained absorbed in an invented story and left the activity unfinished.",
+        "zh": "本来留给一项日常活动的时间里，我一直沉浸在自己编想的故事中，让活动没有完成。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "imagined-scenarios-5",
+      "directionId": "imagined-scenarios",
+      "prompt": {
+        "en": "After noticing that I was mentally elsewhere, I returned to the imagined scene rather than the practical step I had selected.",
+        "zh": "发现自己神游后，我又回到想象中的情节，没有回到已经选好的实际一步。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "interest-engagement-1",
+      "directionId": "interest-engagement",
+      "prompt": {
+        "en": "When I had a little free time, none of the available activities felt worth engaging with.",
+        "zh": "有一点空闲时，眼前可选的活动都让我觉得提不起投入的意愿。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "interest-engagement-2",
+      "directionId": "interest-engagement",
+      "prompt": {
+        "en": "I joined an activity I usually choose freely but felt little personal interest while taking part.",
+        "zh": "我参加了一项平时会主动选择的活动，但参与时很少感到自己的兴趣。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "interest-engagement-3",
+      "directionId": "interest-engagement",
+      "prompt": {
+        "en": "An invitation that normally fits my interests felt flat to me, even after practical obstacles were removed.",
+        "zh": "一个通常符合我兴趣的邀请，在实际障碍已经排除后，仍让我觉得索然无味。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "interest-engagement-4",
+      "directionId": "interest-engagement",
+      "prompt": {
+        "en": "I let an enjoyable possibility pass because I felt little pull toward it, rather than because I could not organize the steps.",
+        "zh": "一个可能有趣的机会过去了，我没有行动，主要是因为没有兴趣牵引，而不是不会安排步骤。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "interest-engagement-5",
+      "directionId": "interest-engagement",
+      "prompt": {
+        "en": "At the end of a chosen leisure activity, I noticed that I had gone through it with very little feeling of involvement.",
+        "zh": "完成一项自己选择的休闲活动后，我发现自己只是走完了过程，很少有参与其中的感觉。"
+      },
+      "reverse": false
+    }
+  ],
+  "anchors": [
+    {
+      "id": "1",
+      "score": 1,
+      "label": {
+        "en": "Never",
+        "zh": "从不"
+      }
+    },
+    {
+      "id": "2",
+      "score": 2,
+      "label": {
+        "en": "Rarely",
+        "zh": "很少"
+      }
+    },
+    {
+      "id": "3",
+      "score": 3,
+      "label": {
+        "en": "Sometimes",
+        "zh": "有时"
+      }
+    },
+    {
+      "id": "4",
+      "score": 4,
+      "label": {
+        "en": "Often",
+        "zh": "经常"
+      }
+    },
+    {
+      "id": "5",
+      "score": 5,
+      "label": {
+        "en": "Almost always",
+        "zh": "几乎每次"
+      }
+    },
+    {
+      "id": "na",
+      "score": null,
+      "label": {
+        "en": "Not applicable / prefer not to answer",
+        "zh": "不适用／不想回答"
+      }
+    }
+  ],
+  "method": {
+    "timeframe": "past four weeks",
+    "unit": "unweighted arithmetic mean of five ordinal frequency responses; descriptive website summary only",
+    "itemDirection": "all direct; no reversals",
+    "formula": "round((sum of the five numeric values / 5) * 10) / 10",
+    "numericValidity": "only integer numbers 1..5; no strings, booleans, null, inherited entries, NaN, Infinity, decimals or extra keys accepted as numeric answers",
+    "finish": "exact 35 known item keys, each with integer1..5 or literal na",
+    "perDomainMissing": "any na in a domain withholds only that domain mean; show numeric count/5; never impute or treat na as1/0",
+    "incomplete": "unanswered/invalid item cannot finish; do not silently convert to na",
+    "allNa": "all35 na is a finished unscored report with all seven complete guides",
+    "reportOrder": "fixed original seven-topic order; never sort by score",
+    "forbiddenOutputs": [
+      "overall sum or mean",
+      "winner/dominant type",
+      "percentile",
+      "percentage of a disorder",
+      "severity bands",
+      "norms",
+      "good/bad person",
+      "cross-domain ranking",
+      "relative or person-centered normative scoring"
+    ],
+    "workedExample": {
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sum": 15,
+      "count": 5,
+      "mean": 3,
+      "meaning": "arithmetic illustration only; not a medium category"
+    },
+    "adoptionBoundary": "This is an original website method; neither the original IPRS96 nor the IDR-HYBT35 algorithm."
+  },
+  "publicIdentityNote": {
+    "en": "These 35 everyday scenarios and their seven descriptive averages were written for FermatMind. Research on intrapersonal problems informed the topic map only. This check-in is not the Intrapersonal Problems Rating Scales (IPRS), has no established norms or screening cutoffs, and has not inherited the research instrument’s validation. The imagined-scenarios topic deliberately covers everyday mental absorption only; it does not cover the full research domain of Fantasy Proneness or assess unusual perceptual experiences.",
+    "zh": "这35个日常情境与七项描述性均分由费马原创。个人内在困难研究只用于厘清主题地图。本观察不是个人内在问题评定量表（IPRS），没有已建立的常模或筛查阈值，也不继承研究量表的验证。“想象占用当下”有意仅涉及日常神游与想象投入，不覆盖研究中Fantasy Proneness的完整范围，也不评估异常感知体验。"
+  },
+  "researchCitation": "Boudreaux, M. J., Lengel, G. J., Oltmanns, T. F., & Ozer, D. J. (2021). Assessment of self-related problems in functioning: Intrapersonal Problems Rating Scales. Psychological Assessment, 33(6), 526–540.",
+  "researchDoi": "10.1037/pas0001007",
+  "researchUse": "topic map only; not the IPRS questionnaire, key or validation",
+  "sevenGuidesBodyFrozenSha256": "c35583178c44b8e30e8cc4935e10a3de24c8910e005fcc9d887b9e342764db3d",
+  "editorialApplication": "Root supplied seven unique titles/headlines and short SEO descriptions; frozen paragraphs and method unchanged",
+  "numericMethodSha256": "8e408ff0aba9f308526949a5c127350f7a43f2d36730aea604883dabaeabd39a"
+}

@@ -1,0 +1,101 @@
+{
+  "states": [
+    {
+      "sum": 5,
+      "display": "1.0"
+    },
+    {
+      "sum": 6,
+      "display": "1.2"
+    },
+    {
+      "sum": 7,
+      "display": "1.4"
+    },
+    {
+      "sum": 8,
+      "display": "1.6"
+    },
+    {
+      "sum": 9,
+      "display": "1.8"
+    },
+    {
+      "sum": 10,
+      "display": "2.0"
+    },
+    {
+      "sum": 11,
+      "display": "2.2"
+    },
+    {
+      "sum": 12,
+      "display": "2.4"
+    },
+    {
+      "sum": 13,
+      "display": "2.6"
+    },
+    {
+      "sum": 14,
+      "display": "2.8"
+    },
+    {
+      "sum": 15,
+      "display": "3.0"
+    },
+    {
+      "sum": 16,
+      "display": "3.2"
+    },
+    {
+      "sum": 17,
+      "display": "3.4"
+    },
+    {
+      "sum": 18,
+      "display": "3.6"
+    },
+    {
+      "sum": 19,
+      "display": "3.8"
+    },
+    {
+      "sum": 20,
+      "display": "4.0"
+    },
+    {
+      "sum": 21,
+      "display": "4.2"
+    },
+    {
+      "sum": 22,
+      "display": "4.4"
+    },
+    {
+      "sum": 23,
+      "display": "4.6"
+    },
+    {
+      "sum": 24,
+      "display": "4.8"
+    },
+    {
+      "sum": 25,
+      "display": "5.0"
+    }
+  ],
+  "worked": {
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sum": 15,
+    "display": "3.0"
+  },
+  "partialMean": "unavailable if any of five NA; never imputed",
+  "noOverall": true
+}

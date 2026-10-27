@@ -4873,5 +4873,33 @@
       "hated",
       "reassured"
     ]
+  },
+  {
+    "slug": "holding-yourself-back",
+    "code": "FM_HOLDING_BACK_ORIGINAL35",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "everyday",
+    "title": {
+      "en": "Holding Yourself Back Test",
+      "zh": "自我设限测试"
+    },
+    "description": {
+      "en": "Reflect on seven everyday difficulties with 35 original questions. Read separate frequency summaries, concrete examples and seven complete guides for free.",
+      "zh": "通过35道原创题回看七类日常困难，分别查看频率摘要，免费阅读七份完整指南、具体情境、相邻主题的区别与可选观察方法。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_holding_back_original35_fourweeks_v1",
+    "questionCount": 35,
+    "resultSlugs": [
+      "emotion-recovery-reading",
+      "self-doubt-reading",
+      "direction-attention-reading",
+      "outward-actions-reading",
+      "rigid-standards-reading",
+      "imagined-scenarios-reading",
+      "interest-engagement-reading"
+    ]
   }
 ]

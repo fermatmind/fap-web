@@ -1,0 +1,786 @@
+[
+  {
+    "id": "emotion-recovery-reading",
+    "directionIds": [
+      "emotion-recovery"
+    ],
+    "title": {
+      "en": "Emotional Recovery After Everyday Setbacks",
+      "zh": "日常受挫后的情绪恢复"
+    },
+    "headline": {
+      "en": "Notice how a feeling carries into the next activity.",
+      "zh": "留意一段感受怎样延续到下一件事。"
+    },
+    "summary": {
+      "en": "This topic concerns how stress or frustration carries into the next part of an ordinary day. It asks about the time and room needed to regain a workable response, rather than whether you ever have strong feelings. A difficult week, repeated interruptions or a demanding environment can all matter when you interpret your own answers.",
+      "zh": "这个主题关注压力或挫折怎样延续到日常生活的下一段，观察恢复到能够应对的状态需要多少时间与空间，而不是看你有没有强烈情绪。理解自己的回答时，困难的一周、反复打断和环境要求都值得考虑。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Emotional Recovery After Everyday Setbacks",
+        "zh": "日常受挫后的情绪恢复"
+      },
+      "description": {
+        "en": "Explore how stress carries into ordinary activities. Read a five-item frequency example, a delayed-appointment scenario and ways to reflect on transitions.",
+        "zh": "结合五项频率读法、预约延误实例与活动转换观察，区分强烈感受、恢复过程和之后的行动。完整指南保留具体背景与跳过规则。"
+      }
+    },
+    "sections": [
+      {
+        "id": "emotion-recovery-1",
+        "title": {
+          "en": "Feelings, recovery and action are separate",
+          "zh": "区分感受、恢复与行动"
+        },
+        "paragraphs": [
+          {
+            "en": "A strong feeling can be proportionate to an event. The situations here focus on lingering agitation, feeling overwhelmed by several demands and difficulty returning to an unrelated activity. They do not judge whether the feeling was legitimate. Having a reaction and choosing an outward action are different parts of an experience.",
+            "zh": "强烈感受可能与所经历的事情相称。这里的情境关注烦躁持续、多件事带来的情绪淹没，以及难以回到不相关活动的情况，不判断感受是否合理。有了反应与之后采取什么行动，是经历中的不同部分。"
+          }
+        ]
+      },
+      {
+        "id": "emotion-recovery-2",
+        "title": {
+          "en": "Look at the transition that was difficult",
+          "zh": "找出困难发生在哪个转换处"
+        },
+        "paragraphs": [
+          {
+            "en": "Notice whether the hardest point was the first surprise, waiting for a solution or moving on after the issue ended. Repeated demands can leave little recovery time even when each demand seems small. The same response pattern may be less visible on a quieter day; an average cannot identify which circumstance mattered.",
+            "zh": "可留意最难的是起初的意外、等待解决，还是事情结束后转入下一件事。反复的要求可能挤掉恢复时间，即使每件事看起来都很小。安静的一天也许就较少出现同样反应；均分无法分辨哪个条件起了作用。"
+          }
+        ]
+      },
+      {
+        "id": "emotion-recovery-3",
+        "title": {
+          "en": "A delayed appointment, with two different questions",
+          "zh": "一次预约延误中的两个问题"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine an appointment running late. The practical problem is rearranging the afternoon; the emotional problem may be remaining tense during a later conversation that has nothing to do with the delay. Recording these separately can reveal a transition to examine. It does not establish that the delay caused a lasting personal pattern.",
+            "zh": "例如预约迟迟没有开始。实际问题是怎样重排下午的安排；情绪层面可能是到了之后一场无关的谈话，仍处于紧绷中。分别记录这两部分，有助于找到一个值得观察的转换处，却不能据此认定延误造成了持久的个人模式。"
+          }
+        ]
+      },
+      {
+        "id": "emotion-recovery-4",
+        "title": {
+          "en": "Keep this topic distinct from the other six",
+          "zh": "与其他六个主题作区分"
+        },
+        "paragraphs": [
+          {
+            "en": "Self-doubt concerns what you conclude about yourself. Outward actions concern consequences and shared boundaries. This topic instead concerns the persistence and manageability of the emotional response. One event can involve several topics, and there is no need to choose a single explanation or treat the largest number as its cause.",
+            "zh": "自我怀疑关注你怎样评价自己；行动与共同边界关注后果及约定。本主题则关注情绪反应的持续及是否容易应对。同一件事可能涉及几个主题，无须选出唯一解释，也不能把最大的数字当成原因。"
+          }
+        ]
+      },
+      {
+        "id": "emotion-recovery-5",
+        "title": {
+          "en": "An optional observation for one ordinary transition",
+          "zh": "可选：观察一次普通转换"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one low-stakes transition and note the event, what remained unresolved and what you needed before starting the next activity. A pause, a practical update or extra time may be worth considering if available. This is a private observation prompt; it is not a requirement to suppress feelings or a treatment with a promised result.",
+            "zh": "可选一次低风险的活动转换，记下发生了什么、还有什么未解决，以及开始下一件事前自己需要什么。在条件允许时，可以考虑停一下、确认实际进展或多留一点时间。这是私下观察提示，不要求压下感受，也不是保证效果的治疗。"
+          }
+        ]
+      },
+      {
+        "id": "emotion-recovery-6",
+        "title": {
+          "en": "Read this website average in its own terms",
+          "zh": "按本网站的方法读均分"
+        },
+        "paragraphs": [
+          {
+            "en": "The five responses use frequency values 1–5 for the past four weeks. Values 2, 3, 4, 2 and 4 give 3.0; that is arithmetic, not an elevated category. Any unscored choice withholds this topic’s mean. The guide still applies as a set of questions. The research topic informed the content map, not this bank’s accuracy or your personal cause.",
+            "zh": "五个回答使用过去四周的1—5频率值。2、3、4、2、4的均分是3.0，这是算术结果，不是“升高”档。只要其中一题不计分，本主题就不给均分，仍可把本指南当作观察问题来读。研究主题帮助厘清内容地图，不能证明本题本准确，也不能说明你的个人成因。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "self-doubt-reading",
+    "directionIds": [
+      "self-doubt"
+    ],
+    "title": {
+      "en": "Self-Doubt and Harsh Self-Judgment: A Reflection Guide",
+      "zh": "自我怀疑与苛刻评价：从具体事件开始"
+    },
+    "headline": {
+      "en": "A mistake and a judgment about your whole self are different.",
+      "zh": "一件失误，与对整个人的评价，是两件事。"
+    },
+    "summary": {
+      "en": "This topic concerns discouragement, harsh private judgments and uncertainty about your own decisions in everyday situations. It leaves room for the difference between a specific mistake and a sweeping conclusion about yourself. The answers describe what you remember during four weeks; they do not tell you what other people think of you or determine your worth.",
+      "zh": "这个主题关注日常情境中的灰心、苛刻的内在评价，以及对自己判断的不确定，区分一件具体失误与对自己整个人的笼统结论。回答描述的是四周内你所记得的经历，不能说明别人怎样看你，也不能决定你的价值。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Self-Doubt and Harsh Self-Judgment: A Reflection Guide",
+        "zh": "自我怀疑与苛刻评价：从具体事件开始"
+      },
+      "description": {
+        "en": "Separate a specific mistake from a sweeping judgment about yourself. Read five-item scoring, a reminder scenario and a private event-and-inference note.",
+        "zh": "把具体失误与笼统的自我否定分开，结合五项频率均分、购物清单提醒实例和私人记录，理解日常自我怀疑及实际需要。"
+      }
+    },
+    "sections": [
+      {
+        "id": "self-doubt-1",
+        "title": {
+          "en": "From a particular event to a private conclusion",
+          "zh": "从具体事件到内在结论"
+        },
+        "paragraphs": [
+          {
+            "en": "A correction may offer information about one task. An inwardly painful response may instead spread that information into a general account of personal inadequacy. The prompts ask whether that shift appeared in daily situations. They do not decide whether criticism was fair, whether your circumstances were supportive or whether you should have felt differently.",
+            "zh": "一个纠正可能只是提供某项任务的信息；让人难受的内在反应，却可能把它扩展成对自己整体不足的解释。题目观察日常情境里是否出现这种转变，不裁定批评是否公平、环境是否支持你，也不要求你应该有另一种感受。"
+          }
+        ]
+      },
+      {
+        "id": "self-doubt-2",
+        "title": {
+          "en": "Self-doubt is not the same as introversion",
+          "zh": "自我怀疑不等于内向"
+        },
+        "paragraphs": [
+          {
+            "en": "Preferring quiet time does not answer these questions. Someone can enjoy solitude without harsh self-judgment, or enjoy company while privately doubting every choice. Also distinguish needing more information from distrusting your judgment after the necessary information is available. Neither a social preference nor a careful decision is automatically a difficulty.",
+            "zh": "喜欢安静不能替你回答这些题。有人享受独处，却不会苛责自己；也有人喜欢社交，私下却怀疑每个选择。还要区分信息不足与信息已经够用后仍不信任自己的判断。社交偏好和谨慎决定本身都不自动构成困难。"
+          }
+        ]
+      },
+      {
+        "id": "self-doubt-3",
+        "title": {
+          "en": "A revised shopping list, not a verdict on a person",
+          "zh": "改一份清单，不是给一个人下结论"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose you forget one item on a shared shopping list and receive a reminder. The practical next step may be updating the list. Privately turning the reminder into a story that you always disappoint everyone is a different process. A useful note records the actual reminder separately from the wider conclusion, without assuming either person’s intention.",
+            "zh": "例如共同购物清单中漏了一样东西，别人提醒了你。实际下一步可能是更新清单；私下把提醒扩展成“我总让所有人失望”，则是另一过程。有用的记录会把真实提醒与更大的自我结论分开，也不猜测任何一方的意图。"
+          }
+        ]
+      },
+      {
+        "id": "self-doubt-4",
+        "title": {
+          "en": "Separate low engagement from painful evaluation",
+          "zh": "区分投入少与痛苦的自我评价"
+        },
+        "paragraphs": [
+          {
+            "en": "The interest topic asks whether activities feel engaging; this one asks about inward distress and self-uncertainty. Someone may want to participate but withdraw because of a harsh view of themselves. Someone else may feel little interest without that private judgment. The check-in cannot identify a clinical explanation for either pattern.",
+            "zh": "兴趣主题询问活动有没有牵引与投入感；这里询问内在难受及自我不确定。有人很想参与，却因苛刻看待自己而退出；另一个人可能只是兴趣淡，并没有这样的评价。本观察不能为任何一种模式确定临床解释。"
+          }
+        ]
+      },
+      {
+        "id": "self-doubt-5",
+        "title": {
+          "en": "An optional event-and-inference note",
+          "zh": "可选：分开记录事件与推断"
+        },
+        "paragraphs": [
+          {
+            "en": "For one ordinary incident, write what could have been observed, the conclusion you drew and any information still missing. You can then decide whether a practical question or a smaller description would be useful. You do not have to replace a painful feeling with forced optimism or disclose the note to anyone.",
+            "zh": "对一件普通小事，可写下能够观察到的经过、自己得出的结论，以及仍缺的信息，再决定一个实际问题或更具体的描述是否有用。无须用强迫乐观替掉难受，也无须把记录交给任何人。"
+          }
+        ]
+      },
+      {
+        "id": "self-doubt-6",
+        "title": {
+          "en": "The number describes endorsement of these situations",
+          "zh": "数字描述这些情境的作答"
+        },
+        "paragraphs": [
+          {
+            "en": "Five complete numeric responses are needed for this separate 1–5 mean. A 4 means frequent endorsement in this website bank, not that you are inadequate or have a disorder. One NA leaves the mean unavailable; no zero is inserted. The full guide remains available. Neither this original bank nor its Chinese wording has inherited IPRS validation.",
+            "zh": "本项独立的1—5均分需要五题都有数值回答。4表示对本网站这些情境较频繁的认同，不表示你不够好或患有某种障碍。一题NA就暂不给均分，不补零，完整指南仍可阅读。原创题本及中文措辞都不继承IPRS验证。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "direction-attention-reading",
+    "directionIds": [
+      "direction-attention"
+    ],
+    "title": {
+      "en": "Goals and Distraction: Reading Your Next-Step Patterns",
+      "zh": "目标与分心：怎样落实具体下一步"
+    },
+    "headline": {
+      "en": "Distinguish choosing a step from returning to it.",
+      "zh": "区分选好下一步，以及中断后能否接回来。"
+    },
+    "summary": {
+      "en": "This topic separates having a chosen aim from making its next step concrete and staying with it through ordinary distractions. A person can care deeply about an activity while finding it difficult to keep the action in view. The label describes situations, not laziness, moral weakness, intelligence or a diagnosis of an attention condition.",
+      "zh": "这个主题区分已有目标、把下一步说具体，以及在普通干扰中继续推进。一个人可以很在意某件事，同时难以把实际行动保持在眼前。这里描述情境，不把它归为懒惰、道德软弱、智力问题或注意方面的诊断。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Goals and Distraction: Reading Your Next-Step Patterns",
+        "zh": "目标与分心：怎样落实具体下一步"
+      },
+      "description": {
+        "en": "Review how you choose a concrete next step and return after interruptions. See a booking example, five-item scoring and an optional practical comparison.",
+        "zh": "结合预约未完成的实例，区分目标模糊、注意转移和中断后未接回。阅读五项频率均分与具体下一步记录，保留现实条件。"
+      }
+    },
+    "sections": [
+      {
+        "id": "direction-attention-1",
+        "title": {
+          "en": "Notice two parts of the practical difficulty",
+          "zh": "留意实际困难的两个部分"
+        },
+        "paragraphs": [
+          {
+            "en": "One part is direction: choosing a manageable action instead of leaving an intention vague. Another is continuity: returning to that action after switching or interruption. These can occur separately. A clear plan with many interruptions differs from a quiet hour in which no next action was chosen, even if neither produced a finished task.",
+            "zh": "一部分是方向：选出能够做的一步，而不让意愿一直模糊；另一部分是连续性：切换或打断后回到那一步。两者可以分开出现。计划清楚却反复被打断，与安静一小时却未选定行动，即使都未完成任务，情况也不同。"
+          }
+        ]
+      },
+      {
+        "id": "direction-attention-2",
+        "title": {
+          "en": "Constraints belong in the picture",
+          "zh": "把实际约束也记进来"
+        },
+        "paragraphs": [
+          {
+            "en": "A missing tool, a caring responsibility or an unrealistic workload can prevent progress. The prompts are most informative when there was a relevant opportunity and an action actually available. If that condition did not occur or you cannot judge it, the unscored option is more honest than treating lack of opportunity as frequent personal difficulty.",
+            "zh": "缺工具、照顾责任或不现实的任务量都可能阻碍推进。确实有相关机会且有一步能做时，题目才较有信息。如果没有这种条件或无法判断，不计分选项比把机会不足当成频繁的个人困难更贴切。"
+          }
+        ]
+      },
+      {
+        "id": "direction-attention-3",
+        "title": {
+          "en": "An unfinished reservation has several possible stories",
+          "zh": "一份未完成的预约可能有几种经过"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine setting aside fifteen minutes to book a routine appointment. You might spend it comparing unrelated options, repeatedly change which appointment matters first or stop after an interruption without returning. Record which sequence happened. The final fact that nothing was booked does not distinguish these pathways and cannot establish why they occurred.",
+            "zh": "例如留出十五分钟预约一项普通事务。可能把时间花在无关比较上，可能反复换哪项预约更优先，也可能被打断后就没回来。记录实际发生的顺序。“最后没有约好”这一结果无法区分这些经过，更不能确定成因。"
+          }
+        ]
+      },
+      {
+        "id": "direction-attention-4",
+        "title": {
+          "en": "Distinguish wanting, enjoying and carrying out",
+          "zh": "区分想做、享受与落实"
+        },
+        "paragraphs": [
+          {
+            "en": "Interest and engagement concern whether an activity draws you in. This topic concerns directing and maintaining the action once something is chosen. Imagined scenarios may take over, but ordinary distractions can also be entirely external. Do not infer that a higher score in one topic explains another, or use the averages to assign a single cause.",
+            "zh": "兴趣与投入感关注活动是否吸引你；本主题关注选定以后怎样定向并维持行动。想象可能占去时间，普通干扰也可能完全来自外部。不要根据一个主题数值较大就认定它解释另一个，也不要用均分指定单一成因。"
+          }
+        ]
+      },
+      {
+        "id": "direction-attention-5",
+        "title": {
+          "en": "An optional next-action comparison",
+          "zh": "可选：比较一次具体下一步"
+        },
+        "paragraphs": [
+          {
+            "en": "For one small activity, write a visible next action and the place you will resume if interrupted. Afterwards, note whether the step was available, what interrupted it and whether returning was possible. Treat the comparison as information about this occasion. It is not a productivity target, a proof of willpower or a promised fix.",
+            "zh": "对一件小事，可以写一个看得见的下一步，以及中断后从哪里接回。之后记下这一步是否真能做、什么打断了它、是否有机会回来。把比较当成本次情境的信息，不设成效率指标，不拿来证明意志力，也不保证解决问题。"
+          }
+        ]
+      },
+      {
+        "id": "direction-attention-6",
+        "title": {
+          "en": "Read completeness before interpreting the mean",
+          "zh": "先看完整度，再理解均分"
+        },
+        "paragraphs": [
+          {
+            "en": "The website averages all five numeric responses without reversal or weighting and shows one decimal. With a single NA it shows the numeric count and no mean. An all-NA report can finish and still display this guide. These practical choices are original website rules, not the original research scale’s scoring or a correction for missing data.",
+            "zh": "网页把五个数值回答直接平均，不反向、不加权，显示一位小数。一题NA时显示已有数值条数，暂不给均分。全部NA也能结束并阅读本指南。这些实际规则属于本网站原创方法，不是原研究量表的计分，也不是缺失资料的校正。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "outward-actions-reading",
+    "directionIds": [
+      "outward-actions"
+    ],
+    "title": {
+      "en": "Actions and Shared Boundaries: A Reflection Guide",
+      "zh": "行动与共同边界：后果、许可与约定"
+    },
+    "headline": {
+      "en": "Look at the consequence, permission and agreement separately.",
+      "zh": "把后果、许可和共同约定分别看清。"
+    },
+    "summary": {
+      "en": "This topic concerns acting before checking consequences, permission or a shared agreement. It includes the practical effect on other people rather than treating every difficulty as private emotion. It is not a claim that someone is dangerous or has a fixed antisocial character. A frequency response cannot settle a disputed event or establish another person’s rights or intentions.",
+      "zh": "这个主题关注在核对后果、许可或共同约定之前先行动，包括对别人的实际影响，而不把困难都当成私下的情绪。它不声称某人危险或具有固定的反社会人格。频率回答不能裁决有争议的事件，也不能确定别人的权利或意图。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Actions and Shared Boundaries: A Reflection Guide",
+        "zh": "行动与共同边界：后果、许可与约定"
+      },
+      "description": {
+        "en": "Examine everyday decisions involving consequences, permission and agreements. Read a shared-equipment example, five-item scoring and a practical check.",
+        "zh": "通过借用器材与仓促承诺的实例，回看后果、许可和共同约定。结合五项频率读法与可选核对，理解行动而不替具体事件下结论。"
+      }
+    },
+    "sections": [
+      {
+        "id": "outward-actions-1",
+        "title": {
+          "en": "Two questions about an outward action",
+          "zh": "关于外在行动的两个问题"
+        },
+        "paragraphs": [
+          {
+            "en": "First ask whether there was time to consider the likely consequence. Then ask whether an agreed boundary or permission was ignored. A quick action can respect a boundary; a slow action can still disregard it. The scenarios bring both considerations into view, without assuming that one response captures every kind of outward difficulty.",
+            "zh": "先看行动前是否有机会考虑可能后果，再看是否忽略了约定边界或许可。很快的行动也可能尊重边界；想了很久也仍可能无视约定。题目把两方面带入观察，但不认为一种回答能代表所有外在困难。"
+          }
+        ]
+      },
+      {
+        "id": "outward-actions-2",
+        "title": {
+          "en": "Name the agreement rather than guessing it",
+          "zh": "指出具体约定，不靠猜测"
+        },
+        "paragraphs": [
+          {
+            "en": "A shared rule needs to be identifiable for an event to illustrate this topic. If expectations were unclear, that uncertainty belongs in the record. If a rule or situation was coercive or unsafe, this short check-in cannot decide how to respond. It should not turn a reasonable boundary of your own into evidence against you.",
+            "zh": "一个事件要说明本主题，首先得能指出那项共同规则。期待不清楚，就应把不清楚记下来。涉及强迫或不安全情境时，这份简短观察不能决定怎样应对，也不应把你合理维护自身边界当成针对你的证据。"
+          }
+        ]
+      },
+      {
+        "id": "outward-actions-3",
+        "title": {
+          "en": "A borrowed resource and a rushed promise",
+          "zh": "借用资源与仓促承诺"
+        },
+        "paragraphs": [
+          {
+            "en": "In a shared hobby group, someone offers equipment to another member before confirming permission from its owner. The immediate wish may be to help; the consequence can still create work for others. Separate the wish, the permission check and the actual effect. Understanding context does not remove responsibility for a repair that is needed.",
+            "zh": "例如共同兴趣小组里，有人未确认物主许可，就答应把器材给另一成员用。眼前意愿可能是帮忙，后果仍可能让别人多处理事情。把意愿、许可核对与实际影响分开看；理解背景并不取消必要的补救责任。"
+          }
+        ]
+      },
+      {
+        "id": "outward-actions-4",
+        "title": {
+          "en": "Emotion does not determine what was done",
+          "zh": "情绪不能代替行动经过"
+        },
+        "paragraphs": [
+          {
+            "en": "Someone can feel very frustrated and still pause before posting a response. Someone can feel calm and still use a resource beyond permission. Emotion recovery and outward actions therefore ask different questions. Similarly, a prompt is not evidence that a specific harmful action happened; only the actual event can supply those details.",
+            "zh": "一个人可以非常烦躁，发消息前仍停下来；也可以心情平静，却超许可使用资源。因此情绪恢复与外在行动问的是不同问题。题目本身也不能证明某个伤害行为真的发生，只有实际经过才能提供这些细节。"
+          }
+        ]
+      },
+      {
+        "id": "outward-actions-5",
+        "title": {
+          "en": "An optional consequence-and-permission check",
+          "zh": "可选：核对一次后果与许可"
+        },
+        "paragraphs": [
+          {
+            "en": "Before one low-stakes commitment involving others, identify who is affected, what permission is already available and what you can realistically promise. Afterwards, check the outcome rather than assuming a pause guaranteed success. Do not test this topic by breaking a rule, provoking conflict or taking a risk. Observing an ordinary decision is enough.",
+            "zh": "在一次涉及别人的低风险承诺前，可以确认谁受影响、已有何种许可，以及自己实际能承诺什么。之后看真实结果，不假设停顿就保证成功。不要通过破坏规则、挑起冲突或冒险来测试本主题，观察一个普通决定就足够。"
+          }
+        ]
+      },
+      {
+        "id": "outward-actions-6",
+        "title": {
+          "en": "The mean does not create a risk label",
+          "zh": "均分不生成风险标签"
+        },
+        "paragraphs": [
+          {
+            "en": "Each of the five numeric responses contributes equally to a 1–5 mean. Any NA leaves it unavailable. There are no severity bands, comparisons with a population or predictions of future conduct. These are original everyday scenarios informed by a research topic, not a reproduction of the IPRS Externalizing scale or an assessment of criminality.",
+            "zh": "五个数值回答等权形成1—5均分，一题NA就暂不给均分。不设严重度档，不与某个人群比较，也不预测未来行为。这些是参考研究主题原创的日常情境，不是IPRS Externalizing量表的复刻，也不评估犯罪倾向。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rigid-standards-reading",
+    "directionIds": [
+      "rigid-standards"
+    ],
+    "title": {
+      "en": "Overchecking and Rigid Standards: When to Stop",
+      "zh": "反复检查与僵硬标准：怎样确定停止点"
+    },
+    "headline": {
+      "en": "Ask what one more check would add to the task.",
+      "zh": "再检查一次，究竟会为任务增加什么？"
+    },
+    "summary": {
+      "en": "This topic concerns the cost of insisting on an exact method, repeated check or preferred level of polish after a task’s practical purpose is already clear. Care, accuracy and standards can be useful; these prompts focus on situations where extra control delays another needed activity. They do not say that conscientiousness or a preference for order is itself a problem.",
+      "zh": "这个主题关注任务实际用途已经清楚后，仍坚持精确做法、重复检查或特定打磨程度所产生的代价。认真、准确和标准都可能有用；题目关注额外控制耽误了另一件必要事情的情况，不把尽责或喜欢整齐本身当成问题。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Overchecking and Rigid Standards: When to Stop",
+        "zh": "反复检查与僵硬标准：怎样确定停止点"
+      },
+      "description": {
+        "en": "Explore the tradeoff between more checking and a task that already works. Read five-item scoring, a delayed-invitation example and a purpose-and-stop note.",
+        "zh": "从迟迟未发出的邀请出发，区分必要检查、继续打磨和可交付点。阅读五项频率均分、具体比较与用途记录，理解时间和实际需要。"
+      }
+    },
+    "sections": [
+      {
+        "id": "rigid-standards-1",
+        "title": {
+          "en": "Flexibility and polish are related but distinct",
+          "zh": "灵活性与打磨程度有所区别"
+        },
+        "paragraphs": [
+          {
+            "en": "One difficulty can be adapting to a harmless change in method. Another can be continuing to polish when the agreed purpose is met. Either can consume time, but the practical question differs: was an alternative acceptable, or was an adequate stopping point available? Recording that distinction is more useful than giving yourself a perfectionist identity.",
+            "zh": "一种困难是难以适应无害的做法变化，另一种是达到约定用途后仍继续打磨。两者都可能耗时，但实际问题不同：替代做法能否接受，或是否已有足够好的停止点？记下区别，比给自己贴“完美主义者”身份更有用。"
+          }
+        ]
+      },
+      {
+        "id": "rigid-standards-2",
+        "title": {
+          "en": "Necessary checking has a different context",
+          "zh": "必要检查有不同背景"
+        },
+        "paragraphs": [
+          {
+            "en": "A required safety check, a high-consequence task or new information may justify another review. Those circumstances should not be confused with the ordinary repeated checks described here. Use the unscored choice when a situation does not fit. This check-in does not authorize skipping required safeguards or lowering a standard that someone else legitimately relies on.",
+            "zh": "规定的安全检查、后果重大的任务或新信息，可能确实需要再核一次。这些情况不应混同于此处普通的重复检查。情境不合适时可以不计分。本观察不授权跳过必要保护，也不要求降低别人合理依赖的标准。"
+          }
+        ]
+      },
+      {
+        "id": "rigid-standards-3",
+        "title": {
+          "en": "A usable invitation that is never sent",
+          "zh": "一份能用却迟迟发不出的邀请"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine drafting a simple invitation whose time, place and purpose are correct. Repeatedly adjusting its spacing may postpone sending it until guests have less time to plan. The observation is the tradeoff between further polish and timely communication. It does not imply that design preferences are wrong or that the same stopping point fits every task.",
+            "zh": "例如一份简单邀请，时间、地点和目的都已写对，却因反复调间距迟迟不发，让客人更晚才能安排。观察点是继续打磨与及时沟通之间的取舍，不意味着设计偏好不对，也不意味每项任务应停在同一个标准。"
+          }
+        ]
+      },
+      {
+        "id": "rigid-standards-4",
+        "title": {
+          "en": "Keep rigidity separate from uncertainty and distraction",
+          "zh": "区分僵硬、自我不确定与分心"
+        },
+        "paragraphs": [
+          {
+            "en": "A person may delay showing work because an exact detail is not right, because they fear a global judgment about themselves or because attention keeps moving elsewhere. These check-in topics separate the possibilities without deciding which caused the delay. Several can occur together, and the averages should not be ranked into a single explanation.",
+            "zh": "迟迟不展示工作，可能因为一个细节未达精确要求，可能担心别人对自己整体的评价，也可能注意一直跑到别处。这里把可能的观察点分开，不裁定哪一个造成延误。几种情况可以同时存在，不能把均分排序后当成单一解释。"
+          }
+        ]
+      },
+      {
+        "id": "rigid-standards-5",
+        "title": {
+          "en": "An optional purpose-and-stop note",
+          "zh": "可选：写清用途与停止点"
+        },
+        "paragraphs": [
+          {
+            "en": "For one ordinary, low-consequence task, identify its recipient’s practical need and a reasonable point for sharing it. If another review seems necessary, note what new information it would provide. Afterwards, compare the time used with the need served. This is an experiment in observing a tradeoff, not a rule to stop all checking.",
+            "zh": "对一件普通、后果较小的任务，可以写明接收者的实际需要，以及一个合理的可交付点。想再检查时，记下它预计提供什么新信息；之后比较投入时间与满足的需要。这是观察取舍的尝试，不是要求停止一切检查。"
+          }
+        ]
+      },
+      {
+        "id": "rigid-standards-6",
+        "title": {
+          "en": "The original method has no perfectionism threshold",
+          "zh": "原创方法没有完美主义阈值"
+        },
+        "paragraphs": [
+          {
+            "en": "This topic needs five numeric responses for its mean, with all prompts scored directly. A larger mean indicates more frequent endorsement of these situations only. NA withholds the mean and leaves this guide visible. The research term Scrupulousness here informed rigidity and perfectionism themes; it is not being used as a religious or obsessive-compulsive diagnosis.",
+            "zh": "本主题五题都有数值才给均分，全部直接计分。较大均分只表示更频繁地认同这些情境。NA使均分暂不可用，指南仍可见。研究术语Scrupulousness在此用于厘清僵硬和完美要求主题，不被用作宗教或强迫相关诊断。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "imagined-scenarios-reading",
+    "directionIds": [
+      "imagined-scenarios"
+    ],
+    "title": {
+      "en": "Daydreaming and Action: When Imagined Scenes Take Over",
+      "zh": "想象与行动：从脑中情节回到当下"
+    },
+    "headline": {
+      "en": "Notice when imagining replaces an activity you meant to do.",
+      "zh": "留意想象何时替代了自己原本要做的事。"
+    },
+    "summary": {
+      "en": "This deliberately narrow topic concerns imagined scenes occupying time intended for an available real-world activity. Imagination can be enjoyable and useful. The situations ask about a mismatch with what you meant to do at that moment. They do not rate creativity, the content of your fantasies or unusual perceptions, and do not represent the full research construct called Fantasy Proneness.",
+      "zh": "这个有意限缩的主题关注想象情节占用了本来留给可实际进行活动的时间。想象可以有趣，也可以有用；题目问的是它是否与当时原本要做的事发生错位。不评价创造力、幻想内容或异常感知，也不代表研究中Fantasy Proneness的完整构念。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Daydreaming and Action: When Imagined Scenes Take Over",
+        "zh": "想象与行动：从脑中情节回到当下"
+      },
+      "description": {
+        "en": "Reflect on imagined scenes taking time from an activity you chose. Read an everyday example, five-item scoring and one optional bridge back to action.",
+        "zh": "结合组装架子的日常例子，观察想象是否占用了已选活动的时间。阅读五项频率均分和接回一步行动的提示，区分构思与未落实。"
+      }
+    },
+    "sections": [
+      {
+        "id": "imagined-scenarios-1",
+        "title": {
+          "en": "Available action is part of the question",
+          "zh": "是否真有一步能做，是问题的一部分"
+        },
+        "paragraphs": [
+          {
+            "en": "Mentally exploring possibilities is not the same as failing to act. It may be the chosen activity or a useful planning stage. These prompts describe a narrower situation: an action was available, you intended to do it and an imagined scene occupied that time instead. Without those conditions, the situation may not fit you.",
+            "zh": "在脑中探索可能性不等于没有行动，它可能正是选定活动，也可能是有用的计划阶段。这里描述的是更窄的情境：有一步能做，原本也打算做，却让想象占去了那段时间。缺少这些条件时，情境可能就不适合你。"
+          }
+        ]
+      },
+      {
+        "id": "imagined-scenarios-2",
+        "title": {
+          "en": "Notice the point of return",
+          "zh": "留意怎样从想象回到当下"
+        },
+        "paragraphs": [
+          {
+            "en": "You might notice the drift yourself, hear a reminder or reach the end of the available time. Record whether returning was easy, whether the next action was clear and whether the surrounding activity was still available. Those details describe this occasion better than judging a whole imaginative life from a single lost interval.",
+            "zh": "可能是自己发现神游、听到提醒，或可用时间已经结束，才注意到想象占用了时间。可记录回来是否容易、下一步是否清楚、周围活动是否仍有机会参与。这些细节比凭一段流逝时间评价整个人的想象生活更具体。"
+          }
+        ]
+      },
+      {
+        "id": "imagined-scenarios-3",
+        "title": {
+          "en": "Imagining a finished shelf while the tools wait",
+          "zh": "工具还在等，脑中已经布置好架子"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine having a short period to assemble a small shelf. You spend it picturing how the finished room might look and never open the instructions. That can illustrate a mismatch if assembling was your chosen aim. If you had deliberately reserved the period for design ideas, the same imagery would have a different role.",
+            "zh": "例如有一小段时间组装小架子，却一直想象房间完工后的样子，直到最后还没有打开说明书。如果原定目标是组装，这体现一种错位；如果本来就把时间留作设计构思，同样的想象则有不同作用。"
+          }
+        ]
+      },
+      {
+        "id": "imagined-scenarios-4",
+        "title": {
+          "en": "A clear boundary with the research source",
+          "zh": "与研究来源有明确边界"
+        },
+        "paragraphs": [
+          {
+            "en": "The source paper’s Fantasy Proneness domain includes broader experiences than these daily scenarios. This original bank excludes anomalous-experience screening and cannot stand in for that scale. The everyday topic is retained transparently as one angle for reflection; its mean must never be presented as a clinical or complete Fantasy Proneness score.",
+            "zh": "来源论文的Fantasy Proneness领域比这些日常情境更广。本原创题本不包含异常体验筛查，不能代替该量表。这里透明保留一个日常观察角度，其均分不能呈现为临床分数，也不能称为完整的Fantasy Proneness得分。"
+          }
+        ]
+      },
+      {
+        "id": "imagined-scenarios-5",
+        "title": {
+          "en": "An optional bridge from a scene to one action",
+          "zh": "可选：从情节接回一步行动"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, name the imagined outcome in a few words, then identify one small action that belongs to the real activity you selected. You may also choose to keep imagining when that is how you want to use the time. Observe the choice and its effect rather than setting a rule against daydreaming.",
+            "zh": "若有用，可用几个字记下想象的结果，再指出一个属于已选实际活动的小动作。如果自己就是想这样使用时间，也可以继续想象。观察选择及其影响即可，无须设立禁止白日梦的规则。"
+          }
+        ]
+      },
+      {
+        "id": "imagined-scenarios-6",
+        "title": {
+          "en": "Read the descriptive mean and its omissions",
+          "zh": "读出描述性均分，也读出未覆盖的内容"
+        },
+        "paragraphs": [
+          {
+            "en": "Five numeric frequency responses produce a separate 1–5 mean; one NA withholds it. All-NA completion keeps the full guide accessible. There is no imagination severity band, creativity ranking or prediction. The questions and frequency rule are FermatMind originals, have not been validated as a scale and have no established equivalence to IPRS or its language versions.",
+            "zh": "五个频率数值形成独立1—5均分，一题NA就暂不给。全部NA结束后仍可读完整指南。不设想象严重度档，不排创造力，也不作预测。题目与频率规则均为费马原创，尚未获得量表验证，也未建立与IPRS或其语言版本的等价性。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "interest-engagement-reading",
+    "directionIds": [
+      "interest-engagement"
+    ],
+    "title": {
+      "en": "Interest and Engagement: Reading Everyday Changes",
+      "zh": "兴趣与投入感：阅读日常活动中的变化"
+    },
+    "headline": {
+      "en": "Separate feeling drawn to an activity from arranging its steps.",
+      "zh": "区分被活动吸引，与能否安排好步骤。"
+    },
+    "summary": {
+      "en": "This topic concerns whether available, freely chosen activities feel engaging during the past four weeks. It separates the pull toward an activity from the ability to organize its steps. A quiet period, changing interests, limited options or exhaustion can all deserve attention. A few frequency answers cannot identify a cause or label a person as uncaring.",
+      "zh": "这个主题关注过去四周中，能够参与且自由选择的活动是否让你有兴趣、有投入感，区分被活动吸引与能否安排步骤。平静阶段、兴趣变化、可选项有限或疲惫都可能值得留意。几个频率回答不能确定原因，也不能把人定性为冷漠。"
+    },
+    "scoreReading": {
+      "en": "Five numeric answers are required for this separate 1–5 descriptive mean, shown to one decimal. Any NA withholds only this mean; the full guide remains available. No bands, overall result or ranking.",
+      "zh": "本项独立1—5描述性均分需要五个数值回答，显示一位小数。一题NA就暂不给本项均分，完整指南仍可读。不分档、不生成综合结果、不排序。"
+    },
+    "seo": {
+      "title": {
+        "en": "Interest and Engagement: Reading Everyday Changes",
+        "zh": "兴趣与投入感：阅读日常活动中的变化"
+      },
+      "description": {
+        "en": "Consider interest during activities you can freely choose. Read a familiar-game example, five-item scoring and an optional before-and-after record.",
+        "zh": "结合熟悉游戏不再吸引人的实例，区分兴趣牵引、实际参与与活动机会。阅读五项频率读法和前中后记录，保留真实处境。"
+      }
+    },
+    "sections": [
+      {
+        "id": "interest-engagement-1",
+        "title": {
+          "en": "Interest, participation and enjoyment need not match",
+          "zh": "兴趣、参与和享受不必总是一致"
+        },
+        "paragraphs": [
+          {
+            "en": "You can take part because of a routine and still feel little involvement. You can also be interested in something you cannot currently access. The prompts focus on available activities and your felt engagement, rather than simply counting outings, hobbies or achievements. Doing less is not enough by itself to establish this pattern.",
+            "zh": "可能因为惯例参加活动，心里却很少投入；也可能很感兴趣，只是目前没有条件接触。题目关注有机会参与的活动与主观投入，而不只数出门、爱好或成就的次数。做得少本身不足以确立这种模式。"
+          }
+        ]
+      },
+      {
+        "id": "interest-engagement-2",
+        "title": {
+          "en": "Keep practical access visible",
+          "zh": "把实际机会是否存在摆在眼前"
+        },
+        "paragraphs": [
+          {
+            "en": "Cost, time, accessibility and the available company can change whether an option is meaningful to you. Not being drawn to the options on offer does not prove that nothing can interest you. If there was no relevant opportunity, choose NA. A withheld mean is more informative than converting unavailable experiences into a numeric judgment.",
+            "zh": "花费、时间、可及性及同伴都会影响一个选项对你是否有意义。现有选项不吸引你，不证明没有任何事能引起兴趣。没有相关机会时可以选NA，暂不给均分比把未发生的体验变成数字判断更有信息。"
+          }
+        ]
+      },
+      {
+        "id": "interest-engagement-3",
+        "title": {
+          "en": "A familiar game feels different this month",
+          "zh": "熟悉的游戏，这个月感受不同"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine joining a familiar casual game that you usually choose yourself. You can follow the rules and complete the session, but notice little interest or involvement. It is useful to ask whether this happened only with that game or across several available activities. The check-in cannot decide whether your interests changed or something else is affecting the period.",
+            "zh": "例如参加一场平时会自己选择的熟悉休闲游戏。你能跟上规则并完成一局，却很少感到兴趣和投入。可以留意只有这个游戏如此，还是几项有机会参与的活动都如此。本观察不能决定是兴趣改变，还是这段时期受其他事情影响。"
+          }
+        ]
+      },
+      {
+        "id": "interest-engagement-4",
+        "title": {
+          "en": "Differentiate low pull from a difficult next step",
+          "zh": "区分牵引少与下一步难落实"
+        },
+        "paragraphs": [
+          {
+            "en": "Direction and attention asks about acting on a chosen aim. This topic asks whether an available activity draws you in at all. Self-doubt may also affect participation, but its private evaluative story is another question. The seven topics are offered together so you can examine distinctions, not so their means can compete for a dominant label.",
+            "zh": "方向与注意维持询问怎样落实选定目标；这里询问有机会参与的活动是否先让你产生兴趣。自我怀疑也可能影响参与，但其内在评价又是另一个问题。七主题一起呈现是为了帮助区分观察点，不让均分竞争一个主导标签。"
+          }
+        ]
+      },
+      {
+        "id": "interest-engagement-5",
+        "title": {
+          "en": "An optional record without forcing enthusiasm",
+          "zh": "可选：记录感受，不强迫热情"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want, try one accessible, low-pressure activity and note your interest before, during and after it. Choosing not to repeat it can also be useful information. You need not manufacture enthusiasm or treat this as a performance target. If persistent changes concern you or disrupt daily life, you may choose support based on the lived difficulty, not a website cutoff.",
+            "zh": "如果愿意，可选一项容易接触、压力小的活动，记录开始前、过程中及结束后的兴趣。不想重复也可以提供信息。无须制造热情，也不把它设为表现目标。若持续变化让你担心或干扰生活，可以依据真实困难选择支持，而不是等待网页阈值。"
+          }
+        ]
+      },
+      {
+        "id": "interest-engagement-6",
+        "title": {
+          "en": "No diagnostic meaning is attached to the average",
+          "zh": "均分不附带诊断含义"
+        },
+        "paragraphs": [
+          {
+            "en": "The five items use the same four-week frequency anchors as the rest of this original check-in. A numeric mean requires all five; any NA leaves it unavailable. Larger values indicate more endorsement of the written situations, not a diagnosis of depression, apathy syndrome or a lack of empathy. The research theme does not validate this website bank or explain an individual’s experience.",
+            "zh": "五题与本原创观察其他题使用相同的四周频率选项；五题都有数值才给均分，任何NA都使其暂不可用。较大值表示更认同题面情境，不是抑郁、淡漠综合征或缺少共情的诊断。研究主题不能验证本网站题本，也不能解释个人经历。"
+          }
+        ]
+      }
+    ]
+  }
+]
