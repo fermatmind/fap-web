@@ -4265,5 +4265,29 @@
       "stepping-back",
       "yielding-choice"
     ]
+  },
+  {
+    "slug": "toxic-positivity-test",
+    "code": "FM_POSITIVE_PRESSURE_REFLECTION18",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Toxic Positivity Test",
+      "zh": "有毒积极心态测试"
+    },
+    "description": {
+      "en": "Reflect on 18 habits involving pressure to stay positive. Read three separate means, clear scoring, skipped-answer rules and all complete guides free.",
+      "zh": "用18道原创题回看对自己、对话与未知结果施加积极要求的习惯。分别阅读三项均分、计分、跳题说明与全部完整免费指南。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_positive_pressure_reflection18_v1",
+    "questionCount": 18,
+    "resultSlugs": [
+      "self-pressure-reading",
+      "conversations-reading",
+      "uncertainty-reading"
+    ]
   }
 ]

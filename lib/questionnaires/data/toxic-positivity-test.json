@@ -1,0 +1,1694 @@
+{
+  "slug": "toxic-positivity-test",
+  "code": "FM_POSITIVE_PRESSURE_REFLECTION18",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "title": {
+    "en": "Toxic Positivity Test",
+    "zh": "有毒积极心态测试"
+  },
+  "seoTitle": {
+    "en": "Toxic Positivity Test: Three Habit Readings, Full Results Free",
+    "zh": "有毒积极心态测试：三项习惯读法与完整免费结果"
+  },
+  "description": {
+    "en": "Reflect on 18 habits involving pressure to stay positive. Read three separate means, clear scoring, skipped-answer rules and all complete guides free.",
+    "zh": "用18道原创题回看对自己、对话与未知结果施加积极要求的习惯。分别阅读三项均分、计分、跳题说明与全部完整免费指南。"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Think about relevant situations in the past two weeks. How often did you respond in each stated way? Choose No relevant opportunity / prefer not to answer when the situation did not occur or you do not want to rate it. A deliberate choice to keep feelings private, a pause for safety, or ordinary hope is not by itself a problem. Answer about your own actions, not someone else’s motives.",
+    "zh": "回想过去两周遇到的相关情境，你有多经常以题中方式回应？没有遇到这种情境，或不想评价时，请选“没有相关机会／暂不回答”。主动保留隐私、出于安全考虑暂停表达，以及普通的希望，本身并不等于有问题。请回答自己的做法，不推测他人的动机。"
+  },
+  "introduction": {
+    "en": "This original FermatMind self-report asks about selected habits in the past two weeks. It keeps self-pressure, positive pressure in conversations, and reassurance beyond known facts separate. These are editorial organizers, not validated factors. It does not observe conversations, identify a toxic personality, produce a total toxicity score, or judge another person. Three complete guides remain free at every value and when a part has no mean.",
+    "zh": "这份费马原创自报回看过去两周选定的习惯，分别呈现对自己的要求、对话中的积极压力，以及超出事实的积极保证。三组是编辑组织方式，尚未验证为因子。本版没有观察真实对话，不识别有毒人格、不计算整体有毒程度分，也不判定他人。任何数值及暂不给分时，三份完整指南都免费开放。"
+  },
+  "resultHeading": {
+    "en": "Your three separate habit readings",
+    "zh": "你的三项独立习惯读法"
+  },
+  "directions": [
+    {
+      "id": "self-pressure",
+      "title": {
+        "en": "Pressure on my own feelings",
+        "zh": "对自己感受的积极要求"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "others-pressure",
+      "title": {
+        "en": "Positive pressure in conversations",
+        "zh": "对话中施加的积极压力"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "uncertain-reassurance",
+      "title": {
+        "en": "Reassurance beyond what is known",
+        "zh": "超出已知事实的积极保证"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "TPOS_01",
+      "prompt": {
+        "en": "After a setback, I insisted that I should feel grateful before letting myself acknowledge disappointment.",
+        "zh": "遇到挫折后，我要求自己先感恩，才允许自己承认失望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_02",
+      "prompt": {
+        "en": "I treated feeling sad about a difficult situation as evidence that I was not trying hard enough to be positive.",
+        "zh": "面对困难而难过时，我把这看作自己还不够努力保持积极的证据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_03",
+      "prompt": {
+        "en": "I allowed myself to feel upset while still leaving room for things to improve.",
+        "zh": "我允许自己感到难受，同时保留事情可能改善的空间。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_04",
+      "prompt": {
+        "en": "Even when alone, I tried to act as though everything was fine because I thought difficult feelings should simply disappear.",
+        "zh": "即使独处，我也试着表现得一切都好，因为我觉得难受的情绪应该直接消失。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_05",
+      "prompt": {
+        "en": "I blamed my attitude for a problem even when I could name practical constraints outside my control.",
+        "zh": "即使能说出自己无法控制的现实限制，我仍把问题归咎于自己的心态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_06",
+      "prompt": {
+        "en": "When I could not see an upside, I allowed that uncertainty instead of making up a positive explanation.",
+        "zh": "看不到好的一面时，我允许自己暂时不知道，而不是编出积极的解释。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_07",
+      "prompt": {
+        "en": "Before acknowledging another person’s disappointment, I pointed out people whose situation seemed worse.",
+        "zh": "还没回应对方的失望，我就指出有些人的处境似乎更糟。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_08",
+      "prompt": {
+        "en": "I steered a conversation toward what good might come from a setback before the person asked for that perspective.",
+        "zh": "对方还没想听这种角度，我就把话题转向挫折可能带来的好处。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_09",
+      "prompt": {
+        "en": "When someone did not want a positive interpretation, I respected that preference.",
+        "zh": "对方不想听积极的解读时，我尊重了这个选择。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_10",
+      "prompt": {
+        "en": "I made staying upbeat sound like a condition for continuing a conversation about something difficult.",
+        "zh": "谈到困难时，我让“保持乐观”听起来像是继续对话的条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_11",
+      "prompt": {
+        "en": "I praised someone for being strong in a way that suggested they should not show sadness.",
+        "zh": "我称赞对方坚强，却在话里暗示对方不该表现出难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_12",
+      "prompt": {
+        "en": "Before offering a bright interpretation, I asked whether the person wanted listening, practical help, or another perspective.",
+        "zh": "给出积极的解读前，我先问对方想被倾听、获得实际帮助，还是听另一种看法。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_13",
+      "prompt": {
+        "en": "I promised that a difficult situation would end well even though I did not have information to support that promise.",
+        "zh": "没有足够信息支持时，我仍保证一件困难的事最后一定会有好结果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_14",
+      "prompt": {
+        "en": "I used encouragement to stay positive instead of checking whether a concrete problem needed attention.",
+        "zh": "我用“保持积极”的鼓励带过，没有先确认某个具体问题是否需要处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_15",
+      "prompt": {
+        "en": "I separated what I hoped would happen from what I actually knew about the situation.",
+        "zh": "谈论处境时，我分清了自己希望发生什么，以及自己实际知道什么。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_16",
+      "prompt": {
+        "en": "I described a setback as a necessary gift before its real consequences were clear.",
+        "zh": "挫折的实际后果还不清楚时，我就把它说成必不可少的礼物。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_17",
+      "prompt": {
+        "en": "I encouraged someone to ignore an ongoing problem and picture success instead.",
+        "zh": "我鼓励对方忽略仍在发生的问题，改去想象成功。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_18",
+      "prompt": {
+        "en": "I admitted that I did not know how things would turn out while offering manageable help if it was wanted.",
+        "zh": "我承认不知道事情会怎样发展，并在对方愿意时提供力所能及的帮助。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "self-pressure-reading",
+      "directionIds": [
+        "self-pressure"
+      ],
+      "title": {
+        "en": "Positive Pressure on My Own Feelings",
+        "zh": "对自己感受的积极要求"
+      },
+      "headline": {
+        "en": "Make room for disappointment alongside hope",
+        "zh": "给失望与希望都留出空间"
+      },
+      "summary": {
+        "en": "Notice when you ask yourself to feel positive before acknowledging disappointment. This guide uses a course-rejection example, six-item calculation and a short private observation to keep feelings, hope and practical choices distinct.",
+        "zh": "回看自己是否要求先积极起来，才允许承认失望。结合申请落选的例子、六题计分与一项私人观察，分清感受、希望和实际选择。"
+      },
+      "scoreReading": {
+        "en": "One separate keyed mean from six complete frequency answers; no cutoff, ranking or overall toxicity score. Any skip withholds this part only.",
+        "zh": "六题完整频率回答形成一个独立计分均分，不设切点、排名或整体有毒程度分；任一跳题仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Toxic Positivity: Self-Pressure Score Guide",
+          "zh": "有毒积极心态：怎样读对自己的积极要求"
+        },
+        "description": {
+          "en": "Read the self-pressure mean, reverse-item example and a course-rejection scenario. Try a short reflection that leaves room for disappointment and hope.",
+          "zh": "通过申请落选的例子，区分保留隐私、承认失望与强迫积极。核对六题反向计分与缺答规则，再自选两句私人观察。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What this part actually covers",
+            "zh": "这一部分具体覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items concern the rules you apply to your own difficult feelings. They ask about requiring gratitude before acknowledging disappointment, treating sadness as a failure to be positive, allowing mixed feelings, maintaining an appearance of being fine even in private, blaming your attitude despite external constraints, and tolerating an outcome with no visible upside. The past two weeks provide a memory window chosen for this reflection. This is an editorial grouping of selected habits, not a validated psychological factor or an assessment of whether you have the right emotions.",
+              "zh": "这六题关注你对自己的困难感受提出了什么要求，包括先感恩才承认失望、把难过当成不够积极、是否允许混合感受、独处时仍装作没事、面对外部限制仍责怪心态，以及看不到好处时能否保留未知。过去两周只是本次反思选定的回忆窗口。这是选定习惯的编辑分组，尚未验证为心理因子，也不评判你是否拥有“正确的情绪”。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Follow the keyed mean",
+            "zh": "核对计分后的均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Responses run from 1, never, to 5, almost always. Items 3 and 6 describe allowing difficult feelings or uncertainty, so their contributions are reversed as 6 minus your response. Add the six contributions and divide by six; 20 divided by 6 displays as 3.3. All six numerical responses are required. A no-opportunity or prefer-not-to-answer choice leaves this part without a mean; it does not contribute zero, and another complete part can still have its own mean. No three-part total is calculated.",
+              "zh": "回答从1“从未”到5“几乎总是”。本组第3与第6题描述允许难受或未知，因此贡献按6减去回答值反向计算。六项贡献相加后除以六，20除以6显示3.3。六题都需要数字回答；选没有相关机会或暂不回答时，本组不给均分，不把它计成零，其他完整部分仍可有各自均分。三部分不合成总分。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "title": {
+            "en": "More reported pressure is a prompt to look closer",
+            "zh": "较多压力信号适合进一步核对"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean means more endorsement of the selected pressure habits, or less endorsement of the two accepting responses. It does not establish that you caused harm, that you are emotionally unhealthy, or that your hope is insincere. A lower mean means fewer such endorsements within this item set. It cannot prove that you never dismiss a feeling. Two people can reach the same mean through very different answers, so a private look at one concrete moment is more useful than comparing totals with a friend.",
+              "zh": "计分后均分较高，表示对选定压力习惯的认可较多，或较少认可两项允许感受的回应；不能证明你造成伤害、情绪不健康或希望不真诚。较低只表示在这组题中较少认可，不能证明从不忽略感受。两个人可能通过很不同的回答得到相同均分，因此私下回看一个具体时刻，比与朋友比数字更有用。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A disappointment can coexist with a useful plan",
+            "zh": "失望和可行计划可以同时存在"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that a course application was unsuccessful. You notice yourself insisting that being disappointed is ungrateful because you still have other opportunities. An alternative is to identify both facts: this application mattered to you, and another route remains available. You do not have to make the rejection feel good before deciding whether to ask for feedback. Equally, you may decide not to discuss it at a family gathering. Choosing privacy in that setting does not itself demonstrate pressure to erase the feeling.",
+              "zh": "例如课程申请没有通过，你发现自己要求“还有别的机会，就不该失望”。可以同时辨认两件事：这次申请对你重要，另外的路径仍在。你不必先把落选变成好事，才能决定是否询问反馈。同样，你也可以选择不在家庭聚会上谈起；在那个场合保留隐私，本身并不代表要求自己消除感受。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one observation without scoring yourself again",
+            "zh": "尝试一项观察，不急着再评分"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, choose one ordinary disappointment this week and write two short sentences for yourself. The first describes what happened and what feeling you notice; the second names one thing within your control, if there is one. There is no requirement to find a lesson or a bright side. Stop if writing feels unhelpful, and do not turn the exercise into another obligation to process feelings perfectly. You can simply keep the observation private and decide later whether you want company or practical help.",
+              "zh": "若觉得有用，本周选一次普通失望，给自己写两句短话。第一句描述发生的事与注意到的感受；第二句只写一项能控制的事情，如果确实有。不要求找出教训或好处。写起来没有帮助就停下，也别把练习变成“必须完美处理情绪”的新任务。可以保留这条私人观察，之后再决定是否需要陪伴或实际帮助。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep the source and comparison limits visible",
+            "zh": "保留来源与比较边界"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored these items and this guide; the linked practitioner discussion and laboratory study provide background, not validation of these scores. There are no normal ranges, clinical thresholds, percentiles or established meaningful-change values for this edition. A different answer next week may reflect a different situation or memory rather than a measured improvement. If distress is persistent or makes daily life difficult, voluntary support from a qualified professional is an option regardless of your mean. You do not need a particular result to ask for help.",
+              "zh": "题目与指南由费马原创，所链接的实践文章和实验仅提供背景，不验证本版分数。本版没有正常范围、临床阈值、百分位或已确立的重要变化数值。下周回答不同，可能来自处境或回忆变化，不能自动解释为测得了进步。如果痛苦持续或影响日常生活，无论均分多少，都可以自愿寻求合格专业人员支持；不需要先达到某个结果才有资格求助。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conversations-reading",
+      "directionIds": [
+        "others-pressure"
+      ],
+      "title": {
+        "en": "Positive Pressure in Conversations",
+        "zh": "对话中施加的积极压力"
+      },
+      "headline": {
+        "en": "Ask what support is wanted before changing the perspective",
+        "zh": "换个角度之前，先确认对方想要哪种支持"
+      },
+      "summary": {
+        "en": "Review how you respond when someone describes a difficult experience. A colleague’s missed project role shows how to check whether listening, practical help or another perspective is wanted, while respecting both people’s time.",
+        "zh": "回看听到困难经历时自己的回应。通过同事未获项目角色的例子，确认对方想被倾听、需要实际帮助，还是想听另一种看法，同时尊重双方的时间。"
+      },
+      "scoreReading": {
+        "en": "One separate keyed mean from six complete frequency answers; no cutoff, ranking or overall toxicity score. Any skip withholds this part only.",
+        "zh": "六题完整频率回答形成一个独立计分均分，不设切点、排名或整体有毒程度分；任一跳题仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Toxic Positivity in Conversations: Score Meaning",
+          "zh": "对话中的积极压力：六题均分与回应例子"
+        },
+        "description": {
+          "en": "Use a colleague-disappointment example to check what support is wanted. Read the six-item mean, reverse scoring and a practical permission check.",
+          "zh": "通过同事未获项目角色的例子，区分倾听、实际帮助与对方请求的积极解读。核对六题均分与反向计分，练习一次可拒绝的询问。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Read actions, rather than another person’s motives",
+            "zh": "回看做法，不猜对方动机"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about positive pressure in your own responses to another person. The six situations include comparing their difficulty with someone worse off, introducing benefits before they ask, respecting a declined interpretation, requiring an upbeat tone, praising strength in a way that discourages sadness, and asking what support they want. The answers describe your recollection of your actions during relevant opportunities in the past two weeks. They do not record how the other person actually felt, and they cannot establish your intentions or the quality of a relationship.",
+              "zh": "这一部分问你回应他人时是否施加积极压力，六个情境分别涉及拿更糟的处境比较、对方未请求就谈好处、尊重对方拒绝一种解读、要求乐观语气、以坚强之名暗示不该难过，以及先问需要什么支持。回答描述过去两周相关机会中你记得的做法，没有记录对方实际感受，也不能确定你的动机或一段关系的质量。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Six responses produce one separate reading",
+            "zh": "六题形成一项独立读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Each frequency answer is scored 1 to 5. The third and sixth items in this part describe respecting choice or checking support, so reverse those responses as 6 minus the selected number. The keyed sum divided by six is displayed to one decimal. A sum of 25 displays as 4.2, which is an arithmetic description, not a severity category. Any skipped or no-opportunity response withholds this part’s mean. The full explanation remains available, and complete self-pressure or reassurance parts are still readable separately.",
+              "zh": "每个频率回答为1到5。本组第3与第6题描述尊重选择或询问支持，按6减去所选数字反向计分。贡献相加除以六，显示一位小数；和为25时显示4.2，这只是算术描述，不是严重程度分档。任一跳题或没有相关机会会暂不给本组均分，完整解释仍开放；对自己感受的要求、积极保证等部分若完整，仍分别可读。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "title": {
+            "en": "Timing matters, and an answer is not an impact measure",
+            "zh": "时机值得核对，回答不是影响测量"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean suggests more reported pressure across these six keyed situations. Use it to choose a moment to examine, not to conclude that someone was harmed or that you are a toxic person. A lower mean cannot certify good listening: you may have misunderstood a request, forgotten an interruption, or had few relevant conversations. Offering perspective after it is requested may be welcome. Asking someone to stop an unsafe action or respecting a time boundary is also different from demanding that they feel cheerful. The specific interaction matters.",
+              "zh": "较高均分提示在这六项计分情境中报告了较多压力，可用来选一个时刻核对，不能据此断言他人受到伤害或你是“有毒的人”。较低也不认证倾听良好：可能误解了请求、忘了打断，或最近相关对话很少。对方请求后给另一种角度，可能受欢迎；要求停止不安全行为、说明时间边界，也不同于要求对方开心。具体互动比标签重要。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Check what a disappointed colleague is asking for",
+            "zh": "确认失望的同事在寻求什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A colleague says they did not get a project role they wanted. You begin listing advantages of having less work. Before continuing, you can pause and ask whether they want to talk about the disappointment or discuss what comes next. If they want practical ideas, offer one and check whether it fits. If you have only a few minutes, state that honestly rather than promising unlimited attention. A respectful boundary can be compatible with acknowledging disappointment; you do not have to choose between rescuing someone and shutting them down.",
+              "zh": "同事说没有拿到想要的项目角色，你开始列举“工作少一点”的好处。继续之前，可以停下来问：现在更想谈失望，还是讨论下一步？想听实际建议，就先给一个，再确认是否合适。若你只有几分钟，也可以如实说明，不必承诺无限陪伴。诚实的边界可以和承认失望同时存在，并非只能在拯救对方和终止对话之间二选一。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Use one permission check, then listen to the answer",
+            "zh": "先确认一次，再听对方的回答"
+          },
+          "paragraphs": [
+            {
+              "en": "In one ordinary conversation, try checking permission before a positive reinterpretation. Use your own words and offer a real choice, including the choice to stop talking. The point is not to recite a perfect validating sentence; it is to let the other person’s answer change what you do next. If they say your response felt dismissive, you can acknowledge that specific effect without defending a good intention or demanding forgiveness. The questionnaire cannot decide whether a repair worked; that requires communication outside the score.",
+              "zh": "在一次普通对话里，试着在给出积极解读前确认对方是否想听。用自己的话，提供真实选择，也包括不继续谈。重点不是背出完美的共情句，而是让对方的回答实际改变你的下一步。若对方说感到被敷衍，可以回应那项具体影响，不急着用好意辩护或要求原谅。修复是否有效，需要题外沟通，问卷无法替你决定。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Keep this a voluntary reflection",
+            "zh": "让它保持为自愿反思"
+          },
+          "paragraphs": [
+            {
+              "en": "The items, three groupings and examples are original FermatMind material without empirical validation. Background writing on emotional invalidation does not establish this questionnaire’s accuracy. There are no comparison norms or rules for deciding who is a good friend, colleague or partner. Do not ask someone else to take the test to settle a disagreement. Similar means across parts do not reveal equal habits or justify a winning label. If an interaction involves threats or immediate danger, prioritize appropriate local assistance rather than using a conversational exercise to resolve it.",
+              "zh": "题目、三组划分和例子由费马原创，尚无实证验证。关于情绪否定的背景写作不建立本问卷的准确性；这里没有比较常模，也不判定谁是好朋友、好同事或好伴侣。不要要求他人靠答题解决争执。各组均分相近不等于习惯相同，也不选胜出标签。若互动涉及威胁或即时危险，应优先寻求适当的本地帮助，不靠对话练习解决。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uncertainty-reading",
+      "directionIds": [
+        "uncertain-reassurance"
+      ],
+      "title": {
+        "en": "Reassurance Beyond What Is Known",
+        "zh": "超出已知事实的积极保证"
+      },
+      "headline": {
+        "en": "Offer support without promising an ending",
+        "zh": "提供支持时，把结局留给未知"
+      },
+      "summary": {
+        "en": "Look at the difference between hoping for a good outcome and promising one without enough information. A course-admission waiting example helps you read the six-item mean and check one reassuring claim.",
+        "zh": "把希望有好结果，与缺少依据时仍保证结果分开。跟随等待课程录取的例子，核对六题均分，再观察一句安慰里有哪些已知、愿望和可提供的帮助。"
+      },
+      "scoreReading": {
+        "en": "One separate keyed mean from six complete frequency answers; no cutoff, ranking or overall toxicity score. Any skip withholds this part only.",
+        "zh": "六题完整频率回答形成一个独立计分均分，不设切点、排名或整体有毒程度分；任一跳题仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Toxic Positivity: Reassurance and Uncertainty",
+          "zh": "有毒积极心态：积极保证与未知如何区分"
+        },
+        "description": {
+          "en": "Use a course-admission waiting example to separate hope from certainty. Review the six-item calculation and try checking one reassuring claim.",
+          "zh": "跟随等待课程录取的例子，分清希望、事实与无依据保证。核对六题均分、反向计分与缺答规则，再选择一句安慰作具体观察。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The focus is unwarranted certainty",
+            "zh": "关注超出依据的确定性"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items ask how you handle the gap between hoping for a good outcome and knowing what will happen. They cover promising a favorable ending without evidence, using positivity instead of checking a concrete problem, separating hopes from facts, calling a setback a necessary gift too soon, encouraging someone to ignore an ongoing problem, and admitting uncertainty while offering wanted help. They are a selected set of reported habits from the past two weeks. They do not test your judgment, optimism, professional competence or ability to predict outcomes.",
+              "zh": "这六题问你怎样处理“希望有好结果”和“知道会发生什么”之间的距离，覆盖无依据保证、用积极鼓励代替核对问题、区分愿望与事实、过早把挫折称作必要礼物、鼓励忽视持续问题，以及承认未知并提供对方需要的帮助。它们只是过去两周一组选定的自报习惯，不实测判断力、乐观程度、专业能力或预测结果的本事。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "The mean keeps its own direction",
+            "zh": "保留这项均分的方向"
+          },
+          "paragraphs": [
+            {
+              "en": "For four pressure-worded items, the response contributes its selected value from 1 to 5. For this part’s third and sixth items, use 6 minus the response. Add all six contributions and divide by six, displaying one decimal. For instance, 17 divided by 6 displays as 2.8. More points mean more endorsement of the selected certainty-pressure habits after keying. They are not a probability that something will go wrong. This number is neither added to nor subtracted from the other two means.",
+              "zh": "四道压力表述题按所选1到5计入贡献，本组第3与第6题则用6减去回答值。六项贡献相加除以六，显示一位小数；例如17除以6显示2.8。分数较多，只表示反向处理后对选定“确定性压力”习惯的认可较多，不是什么事会出问题的概率。此数值不与另外两个均分相加，也不相减。"
+            }
+          ]
+        },
+        {
+          "id": "interpretation",
+          "title": {
+            "en": "A promise and an expression of hope are different",
+            "zh": "保证和表达希望有所不同"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean is an invitation to examine whether reassurance outran your information in a particular moment. It does not prove dishonesty or harm. A lower mean does not establish that every reassurance was warranted. You may have had little information, limited opportunity, or a different understanding of a sentence. Encouragement can be helpful without being certain: expressing that you hope an application succeeds does not guarantee selection. The distinction concerns the claim you make, what supports it, and whether it leaves room to address the actual difficulty.",
+              "zh": "较高计分均分适合提醒自己：某个时刻的保证是否跑在信息前面；它不证明欺骗或伤害。较低也不证明每句保证都有依据，可能只是信息少、机会少，或对句子理解不同。鼓励不需要确定性：希望申请通过，不等于保证入选。值得区分的是你作了什么主张、有什么依据，以及是否仍留出处理现实困难的空间。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Waiting for a decision without inventing its ending",
+            "zh": "等待决定时，不替未知编结局"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend is waiting for a course admission decision and feels unsettled. You want to say that acceptance is certain, although neither of you has that information. You could instead say that you hope the decision goes their way and ask whether they want company while waiting or help checking the published reply date. There may be nothing useful to do immediately. Keeping that uncertainty visible avoids turning hope into a factual promise. It also leaves the friend free to feel disappointed later without treating the outcome as a failure of positivity.",
+              "zh": "朋友等待课程录取决定，感到不安。你想说一定录取，但双方其实都不知道。可以表达希望结果如愿，再问对方是否想有人陪着等，或需要帮忙核对公布的回复时间。也可能当下没有任何可做的事。把未知保留下来，可以避免把希望变成事实保证，也让对方之后仍能失望，而不必把结果解释为不够积极。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Check one reassuring claim",
+            "zh": "核对一句安慰里的主张"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a small experiment, notice one reassuring sentence before saying it. Ask yourself what you know, what you hope, and what help is actually available. You can offer a bounded action without claiming control over the ending. Do not turn this check into constant surveillance of every casual word; ordinary warmth does not require a research citation. The useful target is a specific unsupported guarantee that might displace attention to a real problem. Whether the alternative helps can be checked with the person, not inferred from your next score.",
+              "zh": "若想尝试一个小实验，在说出一句安慰前，分清自己知道什么、希望什么、实际能提供什么帮助。可以给出有边界的行动，而不声称能控制结局。不要因此监控每句日常用语；普通温暖不必句句附研究。适合观察的是那种可能取代现实问题处理的无依据保证。替代说法有没有帮助，应与对方确认，而不是靠下次分数推断。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "Missing information stays missing",
+            "zh": "缺失的信息继续保留为缺失"
+          },
+          "paragraphs": [
+            {
+              "en": "All six numerical answers are required for this mean. No-opportunity or prefer-not-to-answer responses are not treated as never, a midpoint, or a completed rating. Other complete parts remain available. This edition has no validated cutoffs, norms or meaningful-change threshold, and its bilingual wording has no established measurement equivalence. The practitioner and experimental sources explain relevant ideas but did not develop or validate this item set. It offers no medical, employment, relationship or outcome prediction. All three public guides stay complete at every value and when a mean is withheld.",
+              "zh": "本均分要求六题完整数字回答。没有机会或暂不回答不会当作“从未”、中间值或已完成的评价，其他完整部分仍可显示。本版没有经验证的切点、常模或重要变化阈值，双语措辞也没有确立测量等值。实践与实验来源解释相关想法，并未开发或验证这些题目。本版不提供医疗、就业、关系或其他结果预测。任何数值以及暂不给分时，三份公开指南都完整开放。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_positive_pressure18",
+    "formCode": "fm_positive_pressure_reflection18_v1",
+    "itemBankVersion": "fm_positive_pressure_reflection18_v1",
+    "scoringVersion": "fm_three_separate_complete6_means_v1",
+    "resultContentVersion": "fm_positive_pressure_three_full_guides_v1",
+    "itemBankSha256": "b3cc99050bfad440413d5b28e61f79847fca968445ef21039f08df87f8c372ae",
+    "resultContentSha256": "be0c7a1de1269714c73e156913b6b9d0260facc51394dc21164a74380c0a7235",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Quintero and Long: practitioner discussion of toxic positivity",
+        "zh": "Quintero与Long：有毒积极的实践讨论"
+      },
+      "url": "https://thepsychologygroup.com/toxic-positivity/"
+    },
+    {
+      "title": {
+        "en": "Gross and Levenson (1997): acute effects of emotional expression suppression",
+        "zh": "Gross与Levenson（1997）：情绪表达抑制的短时效应"
+      },
+      "url": "https://doi.org/10.1037/0021-843X.106.1.95"
+    }
+  ],
+  "guide": [
+    {
+      "id": "method",
+      "title": {
+        "en": "Three editorial groups, no total toxicity score",
+        "zh": "三个编辑分组，不合成有毒程度分"
+      },
+      "paragraphs": [
+        {
+          "en": "There are six original items in each group, scored 1 to 5. Two items in each group are reversed as 6 minus the response. Divide the keyed sum by six and display one decimal. Higher means only mean more endorsement of the selected pressure habits after keying; there are no stages, winners, percentiles or risk probabilities. Similar means do not establish equal habits.",
+          "zh": "每组六道原创题，按1到5回答；每组两道反向题贡献为6减去回答值。计分贡献相加除以六，显示一位小数。较高只表示计分后较多认可选定压力习惯，不设阶段、胜出类型、百分位或风险概率。均分相近不证明习惯相同。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "No opportunity is not a low score",
+        "zh": "没有机会不等于低分"
+      },
+      "paragraphs": [
+        {
+          "en": "All six numerical answers are required within a group. A no-opportunity or prefer-not-to-answer response withholds only that group; other complete groups still show their means. Missing answers are not filled or prorated, and all three guides remain readable. Finishing all 18 choices, including unscored choices, finishes the attempt.",
+          "zh": "每组需要六题完整数字回答。没有相关机会或暂不回答仅暂不给所在组均分，其他完整组仍可显示。不填补缺答、不按比例放大，三份指南仍完整可读。完成18个选择，包括不计分选择，即可结束作答。"
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "title": {
+        "en": "Hope, privacy and safety still matter",
+        "zh": "希望、隐私与安全仍然重要"
+      },
+      "paragraphs": [
+        {
+          "en": "The focus is pressure to erase or rush past a difficult feeling. Ordinary hope, requested perspective, keeping feelings private, a reasonable time boundary, and pausing for safety are not automatically harmful. This self-report cannot establish how another person felt or decide who is right in an argument. Each guide offers a specific example and an optional observation.",
+          "zh": "这里关注要求消除或催促跳过困难感受的压力。普通希望、应请求提供的角度、保留私人感受、合理时间边界，以及出于安全暂停表达，都不自动等于有害。本自报不能确定他人感受，也不裁决争执谁对谁错。每份指南提供具体例子与可选观察。"
+        }
+      ]
+    },
+    {
+      "id": "provenance",
+      "title": {
+        "en": "Original items with a limited research role",
+        "zh": "原创题目与有限的研究用途"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the items, grouping, scoring and bilingual guides. The linked practitioner essay supplies conceptual background; the 1997 experiment studied short-term expressive suppression in film-viewing tasks. Neither validates this questionnaire. No empirical norms, diagnostic thresholds, selection validity or bilingual measurement equivalence have been established.",
+          "zh": "题目、分组、计分和双语指南均由费马原创。所链接实践文章提供概念背景；1997年实验研究观影任务中短时的表达抑制，两者都不验证本问卷。本版没有实证常模、诊断阈值、选拔效度或跨语言测量等值证据。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does the result identify a toxic person?",
+        "zh": "结果会识别有毒的人吗？"
+      },
+      "answer": {
+        "en": "No. It summarizes responses to selected habits, without observing interactions or measuring another person’s experience. It cannot establish harm, motives, a disorder or relationship quality.",
+        "zh": "不会。它汇总选定习惯的回答，没有观察互动或测量他人的体验，不能确定伤害、动机、疾病或关系质量。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a validated toxic positivity scale?",
+        "zh": "这是经过验证的有毒积极量表吗？"
+      },
+      "answer": {
+        "en": "No. It is an original reflection with three editorial groups. Background sources do not validate the items, scores or new bilingual wording.",
+        "zh": "不是。这是三个编辑分组的原创反思，背景来源不验证题目、分数或新的双语措辞。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are there three means and no overall result?",
+        "zh": "为什么有三个均分，没有总结果？"
+      },
+      "answer": {
+        "en": "The groups concern different reported behaviors. They are kept separate; no evidence supports a combined toxicity score, cutoff or winning type for this edition.",
+        "zh": "三组涉及不同的自报行为，分别保留。本版没有证据支持合成有毒程度分、切点或胜出类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if the situation did not occur?",
+        "zh": "没有遇到题中情境怎么办？"
+      },
+      "answer": {
+        "en": "Use the unscored no-opportunity option. It is not never or a midpoint. The affected group has no mean, while complete groups and all guides remain available.",
+        "zh": "选不计分的没有相关机会，不把它当从未或中间值。所在组暂不给均分，完整组与全部指南仍可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does being private or hopeful count as toxic positivity?",
+        "zh": "保留隐私或抱有希望算有毒积极吗？"
+      },
+      "answer": {
+        "en": "Not by itself. Context, choice, timing and what someone asked for matter. This questionnaire cannot judge a specific interaction or require anyone to disclose feelings.",
+        "zh": "本身不算。处境、选择、时机与对方的请求都重要。本问卷不能裁决一次互动，也不要求任何人披露感受。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the complete results free, and what is shared?",
+        "zh": "完整结果免费吗，分享什么？"
+      },
+      "answer": {
+        "en": "All 18 items, three complete readings and public guides are free without signup. Draft saving needs explicit opt-in and lasts up to 24 hours in the tab; completion or clearing removes it. Sharing copies only the public title and link.",
+        "zh": "18题、三项完整读法和公开指南均免费，无需注册。主动勾选才在标签页保存最长24小时草稿，完成或清空会删除。分享仅复制公开标题与链接。"
+      }
+    }
+  ]
+}

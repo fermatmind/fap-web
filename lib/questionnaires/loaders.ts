@@ -159,6 +159,7 @@ const loaders = {
   "number-series": async () => (await import("./data/number-series.json")).default as Questionnaire,
   "data-entry": async () => (await import("./data/data-entry.json")).default as Questionnaire,
   "communication-adaptability": async () => (await import("./data/communication-adaptability.json")).default as Questionnaire,
+  "toxic-positivity-test": async () => (await import("./data/toxic-positivity-test.json")).default as Questionnaire,
 };
 
 export async function loadQuestionnaire(slug: string): Promise<Questionnaire | null> {

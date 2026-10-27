@@ -1,0 +1,1372 @@
+{
+  "id": "T190",
+  "state": "external_original_candidate;notintegrated_notaccepted",
+  "form": "fm_positive_pressure_reflection18_v1",
+  "scoring": "fm_three_separate_complete6_means_v1",
+  "kind": "likert",
+  "slug": "toxic-positivity-test",
+  "code": "FM_POSITIVE_PRESSURE_REFLECTION18",
+  "provenance": "All18 bilingual items, three editorial organizers, scoring policy and future guides are newly authored by FermatMind. No JobCannon/IDRlabs item bank, style labels, tie-breaking, clinical instrument or copyrighted PDF reproduced in runtime.",
+  "construct_scope": "Self-reported frequency in18 selected situations involving demands for positivity: toward own feelings, in conversations, and reassurance beyond known facts. These three organizers are editorial groups, not empirically established factors. No total toxicity score, personality type or evaluation of another person.",
+  "instructions": {
+    "en": "Think about relevant situations in the past two weeks. How often did you respond in each stated way? Choose No relevant opportunity / prefer not to answer when the situation did not occur or you do not want to rate it. A deliberate choice to keep feelings private, a pause for safety, or ordinary hope is not by itself a problem. Answer about your own actions, not someone else’s motives.",
+    "zh": "回想过去两周遇到的相关情境，你有多经常以题中方式回应？没有遇到这种情境，或不想评价时，请选“没有相关机会／暂不回答”。主动保留隐私、出于安全考虑暂停表达，以及普通的希望，本身并不等于有问题。请回答自己的做法，不推测他人的动机。"
+  },
+  "recall": "past2weeks;editorialinstruction_notprimaryscale",
+  "parts": [
+    {
+      "id": "self-pressure",
+      "title": {
+        "en": "Pressure on my own feelings",
+        "zh": "对自己感受的积极要求"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "others-pressure",
+      "title": {
+        "en": "Positive pressure in conversations",
+        "zh": "对话中施加的积极压力"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "uncertain-reassurance",
+      "title": {
+        "en": "Reassurance beyond what is known",
+        "zh": "超出已知事实的积极保证"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "TPOS_01",
+      "prompt": {
+        "en": "After a setback, I insisted that I should feel grateful before letting myself acknowledge disappointment.",
+        "zh": "遇到挫折后，我要求自己先感恩，才允许自己承认失望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_02",
+      "prompt": {
+        "en": "I treated feeling sad about a difficult situation as evidence that I was not trying hard enough to be positive.",
+        "zh": "面对困难而难过时，我把这看作自己还不够努力保持积极的证据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_03",
+      "prompt": {
+        "en": "I allowed myself to feel upset while still leaving room for things to improve.",
+        "zh": "我允许自己感到难受，同时保留事情可能改善的空间。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_04",
+      "prompt": {
+        "en": "Even when alone, I tried to act as though everything was fine because I thought difficult feelings should simply disappear.",
+        "zh": "即使独处，我也试着表现得一切都好，因为我觉得难受的情绪应该直接消失。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_05",
+      "prompt": {
+        "en": "I blamed my attitude for a problem even when I could name practical constraints outside my control.",
+        "zh": "即使能说出自己无法控制的现实限制，我仍把问题归咎于自己的心态。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_06",
+      "prompt": {
+        "en": "When I could not see an upside, I allowed that uncertainty instead of making up a positive explanation.",
+        "zh": "看不到好的一面时，我允许自己暂时不知道，而不是编出积极的解释。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "self-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "self-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "self-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "self-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "self-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "self-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_07",
+      "prompt": {
+        "en": "Before acknowledging another person’s disappointment, I pointed out people whose situation seemed worse.",
+        "zh": "还没回应对方的失望，我就指出有些人的处境似乎更糟。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_08",
+      "prompt": {
+        "en": "I steered a conversation toward what good might come from a setback before the person asked for that perspective.",
+        "zh": "对方还没想听这种角度，我就把话题转向挫折可能带来的好处。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_09",
+      "prompt": {
+        "en": "When someone did not want a positive interpretation, I respected that preference.",
+        "zh": "对方不想听积极的解读时，我尊重了这个选择。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_10",
+      "prompt": {
+        "en": "I made staying upbeat sound like a condition for continuing a conversation about something difficult.",
+        "zh": "谈到困难时，我让“保持乐观”听起来像是继续对话的条件。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_11",
+      "prompt": {
+        "en": "I praised someone for being strong in a way that suggested they should not show sadness.",
+        "zh": "我称赞对方坚强，却在话里暗示对方不该表现出难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_12",
+      "prompt": {
+        "en": "Before offering a bright interpretation, I asked whether the person wanted listening, practical help, or another perspective.",
+        "zh": "给出积极的解读前，我先问对方想被倾听、获得实际帮助，还是听另一种看法。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "others-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "others-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "others-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "others-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "others-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "others-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_13",
+      "prompt": {
+        "en": "I promised that a difficult situation would end well even though I did not have information to support that promise.",
+        "zh": "没有足够信息支持时，我仍保证一件困难的事最后一定会有好结果。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_14",
+      "prompt": {
+        "en": "I used encouragement to stay positive instead of checking whether a concrete problem needed attention.",
+        "zh": "我用“保持积极”的鼓励带过，没有先确认某个具体问题是否需要处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_15",
+      "prompt": {
+        "en": "I separated what I hoped would happen from what I actually knew about the situation.",
+        "zh": "谈论处境时，我分清了自己希望发生什么，以及自己实际知道什么。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_16",
+      "prompt": {
+        "en": "I described a setback as a necessary gift before its real consequences were clear.",
+        "zh": "挫折的实际后果还不清楚时，我就把它说成必不可少的礼物。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_17",
+      "prompt": {
+        "en": "I encouraged someone to ignore an ongoing problem and picture success instead.",
+        "zh": "我鼓励对方忽略仍在发生的问题，改去想象成功。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TPOS_18",
+      "prompt": {
+        "en": "I admitted that I did not know how things would turn out while offering manageable help if it was wanted.",
+        "zh": "我承认不知道事情会怎样发展，并在对方愿意时提供力所能及的帮助。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Never",
+            "zh": "1 — 从未"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Rarely",
+            "zh": "2 — 很少"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Sometimes",
+            "zh": "3 — 有时"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Often",
+            "zh": "4 — 经常"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Almost always",
+            "zh": "5 — 几乎总是"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / prefer not to answer — unscored",
+            "zh": "没有相关机会／暂不回答——不计分"
+          },
+          "directionId": "uncertain-reassurance",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "reverse_item_numbers": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18
+  ],
+  "literal_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "scoring_policy": "Existinglikertengine:score1..5;reverse6-response;eachsixitempartmean independently rounded1dp. All6numericneededperpart;NAdoesnotbecomezeroor3. All18choicesincludingNAfinishattempt;completepartsremainwhenanotherpartwithheld. No sum across parts/no winner/no tie-break/no cutoffs/norms/ability/diagnosis. Higherpartmeanonlymeansmoreendorsementofthesixkeyedhabits;nothealthharmorratingaperson.",
+  "source_roles": [
+    {
+      "url": "https://thepsychologygroup.com/toxic-positivity/",
+      "role": "Practitionerdefinitionandexamples;notvalidatedscaleoritemlicense. Readsubstantive55-140;claimsaboutburiedemotions/illness/highshameprobabilitynotadopted."
+    },
+    {
+      "url": "https://doi.org/10.1037/0021-843X.106.1.95",
+      "role": "Gross&Levenson1997experimentalbackgroundonly:180femaleundergraduates;acuteexpressionsuppressionwhileviewingfilms;notinstrumentvalidation,notallprivacyharmful,notcausalillnessproof."
+    }
+  ],
+  "competitor_boundary": "CurrentJobCannon12scenariooriginal4stylemodelwithfixedtieorder;all4publicguides+About7FAQreadinEN,currentZHentrymethod+8FAQread. IDRentry10qonlyfirstitemandmethod5FAQread,notfullbankoralgorithm. No copying / no importingtheirtrait/careerconclusions.",
+  "limitations": {
+    "en": "This original reflection has not been empirically validated. It samples reported habits, not actual conversations or other people’s experience. Low scores cannot establish that communication is helpful; high scores cannot establish harm, a disorder, or a toxic personality. The new English and Chinese wording has no established language equivalence.",
+    "zh": "这份原创自省题本尚未经过实证验证。它抽取的是自报习惯，没有观察真实对话，也没有获得他人的体验。低分不能证明沟通有帮助，高分不能证明造成伤害、存在障碍或属于“有毒人格”。新的中英文题目尚无跨语言等值证据。"
+  }
+}
