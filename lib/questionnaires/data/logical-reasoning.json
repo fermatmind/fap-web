@@ -6,16 +6,16 @@
   "category": "everyday",
   "kind": "practice",
   "title": {
-    "en": "Logical Reasoning Test",
-    "zh": "逻辑推理测试"
+    "en": "Logical & Deductive Reasoning Test",
+    "zh": "逻辑与演绎推理测试"
   },
   "seoTitle": {
-    "en": "Logical Reasoning Test: 24 Questions & Worked Answers",
-    "zh": "逻辑推理测试：24道原创题、逐题解析与完整复习指南"
+    "en": "Logical & Deductive Reasoning Test: 24 Worked Questions",
+    "zh": "逻辑与演绎推理测试：24道原创题与完整解析"
   },
   "description": {
-    "en": "Try 24 original logic questions on quantifiers, conditional rules, deductions and ordering. Free answers and four full guides. Untimed practice.",
-    "zh": "24道原创逻辑题，量词、条件、多步演绎和排序各六题。免费查看所选答案、正确答案、逐题解析与四份完整复习指南。不计时，不换算智商、百分位、招聘或升学分数。"
+    "en": "Practise 24 original logical and deductive questions: quantifiers, conditions, conclusions and ordering. Get worked answers and four full guides, free.",
+    "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件、必然结论和排序；查看逐题解析与四份完整指南。无需注册，不换算智商、常模或招聘结论。"
   },
   "minutes": 12,
   "instructions": {
@@ -23,8 +23,8 @@
     "zh": "每题单选，只依给定前提。虚构规则视为真，即使它不描述现实对象。“有些”表示至少一个，或、除非、只有才、当且仅当均按题意。完成24题可看全部答案与四份完整指南。不计时，12分钟仅为粗略安排参考，不是实测表现；若练无辅助作答，可完成后再查资料和解析。"
   },
   "introduction": {
-    "en": "Work through 24 independently written fictional tasks in four groups of six: quantifiers, conditional rules, multi-step deduction and ordering constraints. Each item has one keyed answer and a worked explanation. This edition reports correct counts rather than assigning a logical personality or ability tier. Every count opens all answers and all four full guides. Selected primary logic concepts informed author review; no LSAT, Watson-Glaser or textbook exercise bank is reproduced or adapted. This fixed practice edition has no population norms, exam conversion, hiring cutoff or validated equivalence between English and Chinese scores.",
-    "zh": "24道独立编写的虚构练习，量词、条件规则、多步演绎、排序约束四组各六题，每题一个答案及完整解析。本版只报告正确数，不分逻辑人格或能力等级。任何正确数都开放全部答案和四份完整指南。作者参考选定原始逻辑概念复核，不复制或改编LSAT、Watson-Glaser或教材练习库。本固定练习无常模、考试换算、招聘线，也未验证英中分数测量等价。"
+    "en": "Deductive reasoning asks what follows necessarily from the stated premises. This logical reasoning practice includes that task across all four parts. Work through 24 independently written fictional tasks in four groups of six: quantifiers, conditional rules, multi-step deduction and ordering constraints. Each item has one keyed answer and a worked explanation. This edition reports correct counts rather than assigning a logical personality or ability tier. Every count opens all answers and all four full guides. Selected primary logic concepts informed author review; no LSAT, Watson-Glaser or textbook exercise bank is reproduced or adapted. This fixed practice edition has no population norms, exam conversion, hiring cutoff or validated equivalence between English and Chinese scores.",
+    "zh": "演绎推理问的是给定前提必然支持什么结论。本逻辑推理练习的四个部分均练习这一任务。24道独立编写的虚构练习，量词、条件规则、多步演绎、排序约束四组各六题，每题一个答案及完整解析。本版只报告正确数，不分逻辑人格或能力等级。任何正确数都开放全部答案和四份完整指南。作者参考选定原始逻辑概念复核，不复制或改编LSAT、Watson-Glaser或教材练习库。本固定练习无常模、考试换算、招聘线，也未验证英中分数测量等价。"
   },
   "resultHeading": {
     "en": "Your logic practice results and every explanation",
@@ -1681,6 +1681,16 @@
       "answer": {
         "en": "Answers stay in your browser. Optional tab drafts expire after 24 hours and clear on completion, exit-and-clear or retake. Without a draft, refresh loses progress. Sharing copies a public test link without answers, correct counts or private identifiers.",
         "zh": "答案留在浏览器。可选标签页草稿24小时失效，完成、退出并清除或重测后删除；未存草稿刷新会丢进度。分享只复制公开测试链接，不含答卷、正确数或私有标识。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this also a deductive reasoning test?",
+        "zh": "这也可以用来练习演绎推理吗？"
+      },
+      "answer": {
+        "en": "The logical and deductive names refer to this same 24-question practice. Its four parts use quantified statements, if–then conditions, multi-step conclusions and ordering constraints. Work only from the given premises and distinguish what must follow from what is merely possible. Retakes reuse these items; saved answers for this edition still resume. Every completed attempt includes the same worked answers and four full guides. No score is converted to IQ, a hiring threshold or a general-ability label.",
+        "zh": "逻辑与演绎这两个名称指同一套24题练习。四个部分使用量词陈述、如果—那么条件、多步结论和排序约束；只按给定前提判断，区分必然支持与仅仅可能。重做仍用同一题本，本版已存作答可继续恢复。每次完整作答均有逐题解析和四份完整指南，不将分数换算为智商、招聘通过线或总体能力标签。"
       }
     }
   ],

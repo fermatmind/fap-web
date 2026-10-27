@@ -3091,12 +3091,12 @@
     "updated": "2026-10-27",
     "category": "everyday",
     "title": {
-      "en": "Logical Reasoning Test",
-      "zh": "逻辑推理测试"
+      "en": "Logical & Deductive Reasoning Test",
+      "zh": "逻辑与演绎推理测试"
     },
     "description": {
-      "en": "Try 24 original logic questions on quantifiers, conditional rules, deductions and ordering. Free answers and four full guides. Untimed practice.",
-      "zh": "24道原创逻辑题，量词、条件、多步演绎和排序各六题。免费查看所选答案、正确答案、逐题解析与四份完整复习指南。不计时，不换算智商、百分位、招聘或升学分数。"
+      "en": "Practise 24 original logical and deductive questions: quantifiers, conditions, conclusions and ordering. Get worked answers and four full guides, free.",
+      "zh": "免费练习24道原创逻辑与演绎推理题，涵盖量词、条件、必然结论和排序；查看逐题解析与四份完整指南。无需注册，不换算智商、常模或招聘结论。"
     },
     "minutes": 12,
     "formCode": "fm_logical_reasoning_practice_24_v1",
