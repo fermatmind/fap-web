@@ -24,7 +24,7 @@ export type Questionnaire = {
   version: string;
   updated: string;
   category: string;
-  kind: "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
+  kind: "cbi" | "rosenberg" | "political-coordinates" | "data-entry" | "secs" | "paired-dimensions" | "typing" | "eight-values" | "ten-key" | "practice" | "compass" | "directional" | "likert" | "archetype" | "alignment" | "extraversion" | "optimism" | "affection" | "attachment";
   pairedDimensions?: PairedDimensionConfiguration[];
   typing?: TypingConfiguration;
   dataEntry?: DataEntryConfiguration;

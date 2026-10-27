@@ -4133,5 +4133,28 @@
       "attention-and-return",
       "review-and-renegotiation"
     ]
+  },
+  {
+    "slug": "burnout-risk",
+    "code": "FM_CBI_PERSONAL_WORK_13",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Burnout Test: CBI Personal and Work Modules",
+      "zh": "倦怠测试：CBI个人与工作模块"
+    },
+    "description": {
+      "en": "Answer two complete CBI modules: six personal and seven work-related items. Read separate source-key means and two full guides, without risk bands or a diagnosis.",
+      "zh": "完成CBI个人六题与工作七题两个完整模块，分别理解源键均分、有效题数与两份完整指南，不划风险档位或作诊断。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "cbi_personal_work_13_zh_working_v1",
+    "questionCount": 13,
+    "resultSlugs": [
+      "personal",
+      "work"
+    ]
   }
 ]

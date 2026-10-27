@@ -1,0 +1,1320 @@
+{
+  "slug": "burnout-risk",
+  "code": "FM_CBI_PERSONAL_WORK_13",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "cbi",
+  "title": {
+    "en": "Burnout Test: CBI Personal and Work Modules",
+    "zh": "倦怠测试：CBI个人与工作模块"
+  },
+  "seoTitle": {
+    "en": "Burnout Test: CBI Personal and Work Modules",
+    "zh": "倦怠测试：CBI个人与工作模块完整读法"
+  },
+  "description": {
+    "en": "Answer two complete CBI modules: six personal and seven work-related items. Read separate source-key means and two full guides, without risk bands or a diagnosis.",
+    "zh": "完成CBI个人六题与工作七题两个完整模块，分别理解源键均分、有效题数与两份完整指南，不划风险档位或作诊断。"
+  },
+  "minutes": 4,
+  "resultHeading": {
+    "en": "Two separate CBI module readings",
+    "zh": "两个CBI模块的独立读法"
+  },
+  "introduction": {
+    "en": "This edition administers the complete six-item personal and seven-item work-related modules from the Copenhagen Burnout Inventory (CBI). It does not administer the client-related module and is not the full nineteen-item inventory or a newly validated thirteen-item short form. Personal questions describe reported exhaustion across life; work questions describe exhaustion perceived as related to work. These are separate self-reports, with no combined burnout total, future-risk probability or clinical diagnosis. Both full guides are free and remain readable when responses are insufficient. Chinese is a FermatMind working translation, identified alongside the original English source.",
+    "zh": "本版采用哥本哈根倦怠量表（CBI）完整个人六题与工作七题两个模块，不施测服务对象相关模块，不是完整十九题或新近验证的十三题短版。个人模块描述生活中的自述耗竭，工作模块描述自觉与工作相关的耗竭；分别呈现，不合成倦怠总分、不预测未来风险或作临床诊断。两份完整指南免费，资料不足也可阅读。中文为费马工作译本，与英文原始来源一起标明。"
+  },
+  "instructions": {
+    "en": "For each item use its displayed source anchors: frequency for all personal items and the last four work items; degree for the first three work items. The source does not specify a numeric recall period. Work items refer to your own work; if they do not apply, choose NA rather than inventing an experience. NA also allows unable or unwilling responses. All thirteen displayed items need a selection, with none preselected. The source requires at least three valid personal responses and four valid work responses; average only valid item scores. Optional NA and a fixed interleaved item order are website presentation choices without established measurement equivalence. Saving in this tab is optional. You can stop at any time.",
+    "zh": "每条使用实际显示的源选项：个人六题与工作后四题选频率，工作前三题选程度。源文没有规定数字化回忆期限。工作题指你自己的工作，不适用时选NA，不必虚构经历；无法或不愿回答也可选NA。十三条均需选择，没有预选项。源规则要求个人至少三项、工作至少四项有效，分母只取有效题数。自愿NA和固定交错题序为本站呈现选择，没有建立测量等价。自愿在本标签页保存进度，任何时候都可停止。"
+  },
+  "source": {
+    "kind": "NFA-CBI-English-PUMA;two-complete-source-modules-personal6-work7;client6-not-administered;working-Chinese-and-interleaved-NA-presentation-not-locally-validated",
+    "formCode": "cbi_personal_work_13_zh_working_v1",
+    "itemBankVersion": "NFA-English-PUMA.zh-working-v1",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "a63576b9155e42e5b8de7afdc17d99144dc80163a5a228f029f59098da02784e",
+    "resultContentSha256": "ae213e82068da54cf860fd25a8e12d42b73bf931bdd6a79d0ba49bf65e555155",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "personal",
+      "title": {
+        "en": "Personal exhaustion",
+        "zh": "个人耗竭"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "work",
+      "title": {
+        "en": "Work-related exhaustion",
+        "zh": "工作相关耗竭"
+      },
+      "itemCount": 7
+    }
+  ],
+  "questions": [
+    {
+      "id": "CBI_P_01",
+      "prompt": {
+        "en": "How often do you feel tired?",
+        "zh": "你多久会感到疲倦？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_01",
+      "prompt": {
+        "en": "Is your work emotionally exhausting?",
+        "zh": "你的工作在情绪上令人耗竭吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "To a very high degree",
+            "zh": "程度非常高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "To a high degree",
+            "zh": "程度高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Somewhat",
+            "zh": "有一定程度"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "To a low degree",
+            "zh": "程度低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "To a very low degree",
+            "zh": "程度非常低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_P_02",
+      "prompt": {
+        "en": "How often are you physically exhausted?",
+        "zh": "你多久会感到身体耗竭？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_02",
+      "prompt": {
+        "en": "Do you feel burnt out because of your work?",
+        "zh": "你觉得因为工作而倦怠吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "To a very high degree",
+            "zh": "程度非常高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "To a high degree",
+            "zh": "程度高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Somewhat",
+            "zh": "有一定程度"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "To a low degree",
+            "zh": "程度低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "To a very low degree",
+            "zh": "程度非常低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_P_03",
+      "prompt": {
+        "en": "How often are you emotionally exhausted?",
+        "zh": "你多久会感到情绪耗竭？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_03",
+      "prompt": {
+        "en": "Does your work frustrate you?",
+        "zh": "你的工作让你感到挫败吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "To a very high degree",
+            "zh": "程度非常高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "To a high degree",
+            "zh": "程度高"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Somewhat",
+            "zh": "有一定程度"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "To a low degree",
+            "zh": "程度低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "To a very low degree",
+            "zh": "程度非常低"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_P_04",
+      "prompt": {
+        "en": "How often do you think: ”I can’t take it anymore”?",
+        "zh": "你多久会想：“我再也承受不了了”？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_04",
+      "prompt": {
+        "en": "Do you feel worn out at the end of the working day?",
+        "zh": "工作日结束时，你会感到疲惫不堪吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_P_05",
+      "prompt": {
+        "en": "How often do you feel worn out?",
+        "zh": "你多久会感到疲惫不堪？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_05",
+      "prompt": {
+        "en": "Are you exhausted in the morning at the thought of another day at work?",
+        "zh": "早晨想到又要工作一天时，你会感到耗竭吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_P_06",
+      "prompt": {
+        "en": "How often do you feel weak and susceptible to illness?",
+        "zh": "你多久会感到虚弱、容易生病？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "personal"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "personal"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_06",
+      "prompt": {
+        "en": "Do you feel that every working hour is tiring for you?",
+        "zh": "你觉得每一个工作小时都令人疲倦吗？"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    },
+    {
+      "id": "CBI_W_07",
+      "prompt": {
+        "en": "Do you have enough energy for family and friends during leisure time?",
+        "zh": "休闲时间，你有足够精力陪伴家人和朋友吗？"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "100",
+          "score": 100,
+          "label": {
+            "en": "Always",
+            "zh": "总是"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "75",
+          "score": 75,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "50",
+          "score": 50,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "25",
+          "score": 25,
+          "label": {
+            "en": "Seldom",
+            "zh": "很少"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "0",
+          "score": 0,
+          "label": {
+            "en": "Never/almost never",
+            "zh": "从不／几乎从不"
+          },
+          "directionId": "work"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not applicable / unable to answer / prefer not to answer",
+            "zh": "不适用／无法回答／不愿回答"
+          },
+          "directionId": "work"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "personal",
+      "directionIds": [
+        "personal"
+      ],
+      "title": {
+        "en": "Personal exhaustion: the CBI module",
+        "zh": "个人耗竭：CBI模块完整读法"
+      },
+      "headline": {
+        "en": "Read reported exhaustion without assuming its cause or treating a mean as a diagnosis.",
+        "zh": "理解自述耗竭，不假定成因，也不把均分当作诊断。"
+      },
+      "summary": {
+        "en": "The six-item CBI Personal Burnout module asks about tiredness, physical and emotional exhaustion, feeling unable to take more, being worn out, and feeling weak and susceptible to illness. It describes reported exhaustion across life rather than attributing it to a particular job.",
+        "zh": "CBI个人倦怠模块六题询问疲倦、身体及情绪耗竭、觉得无法继续承受、疲惫不堪，以及虚弱、容易生病的感受。它描述生活中的自述耗竭，不把成因指定为某份工作。"
+      },
+      "scoreReading": {
+        "en": "The five frequency anchors score 100, 75, 50, 25 and 0 from Always to Never/almost never. There are no reversed personal items. At least three of six valid responses are required by the source; average their adjusted values using the actual valid-response count.",
+        "zh": "从总是到从不／几乎从不，五档频率分别计100、75、50、25、0。个人模块没有反向题；源规则要求六条中至少三条有效，再以实际有效题数作分母取均分。"
+      },
+      "sections": [
+        {
+          "id": "module-scope",
+          "title": {
+            "en": "What the personal module can describe",
+            "zh": "个人模块可以描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The source calls this scale Personal Burnout and defines its focus as prolonged physical and psychological exhaustion. The six questions do not establish where that exhaustion came from. Paid work, caring responsibilities, sleep, health and other circumstances may be relevant, but the module cannot separate their contributions. In particular, its label should not turn every form of tiredness outside work into the WHO’s occupational burnout phenomenon. The WHO definition is specific to the work context; CBI personal exhaustion is a separate self-report scope. Keep these different meanings visible when reading your result.",
+              "zh": "源文称其个人倦怠量表，关注持续的身体和心理耗竭，但六题不能确定耗竭来自哪里。工作、照护责任、睡眠、健康及其他条件可能相关，本模块无法分清各自作用。尤其不能因名称中有倦怠，就把工作以外的所有疲倦叫作WHO职业倦怠现象；WHO定义限于职业情境，CBI个人耗竭是另一自述范围。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "When the reported mean is higher",
+            "zh": "自述均分较高时"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates more frequent endorsement of these exhaustion experiences on the source response scale. It is not a probability of becoming ill, a diagnosis or proof that your job is responsible. It also cannot tell you that one particular recovery action will work. The result can help you describe what you have been noticing and prepare a conversation about its effect on daily life. Use the actual items and valid count alongside the mean, especially if only part of the module was answerable. A number alone cannot assess severity in its clinical sense.",
+              "zh": "较高表示这些耗竭感受在源频率量尺上出现得更频繁，不是患病概率、诊断，也不证明工作就是原因，更不能保证某项恢复措施有效。可用具体条目准备说明自己注意到什么、怎样影响生活，尤其部分条目未答时，应同时看有效题数；单一数字不能评估临床意义上的严重程度。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "When the reported mean is lower",
+            "zh": "自述均分较低时"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates less frequent reporting of the six experiences that were answered. It does not certify good health, rule out a cause of fatigue or mean that you should ignore a concern. Someone can answer several items at zero while having a specific difficulty that the remaining wording does not capture. The source scale is not a medical examination. If unexplained tiredness persists or affects your daily life, an appropriately qualified health professional can assess the situation using information that this questionnaire does not collect. You do not need a high score to seek help.",
+              "zh": "较低表示对已回答耗竭感受的报告较少，不认证健康、不排除疲劳成因，也不表示应忽视担忧。有人几题为零，仍可能有其他措辞没有覆盖的具体困难。量表不是医学检查；无法解释的疲倦持续存在或影响生活时，可向合格健康专业人员说明情况，不需要先达到高分才寻求帮助。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Partial answers and valid zeroes",
+            "zh": "部分回答与有效零分"
+          },
+          "paragraphs": [
+            {
+              "en": "All thirteen items in this two-module presentation need a selection, including NA when necessary. Personal exhaustion needs at least three valid ratings among its six items. Three valid zeroes therefore produce a mean of 0.00, whereas two valid ratings and four NA responses leave the module insufficient. Missing information is not replaced by zero or fifty. A mean based on three items is also not identical evidence to a mean based on six, even when the numbers match. Notice which items were answered before comparing attempts or interpreting a difference.",
+              "zh": "本版两模块十三条都需选择，必要时可选NA。个人模块六条至少三项有效；三项有效零得到0.00，两项有效加四项NA则不足，缺失不补0或50。三题均分与六题均分即使相同，信息也不同。比较作答前应看回答了哪些条目，不能只看数字差。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Two examples with the right denominator",
+            "zh": "使用正确分母的两个算例"
+          },
+          "paragraphs": [
+            {
+              "en": "For fictional responses coded 100, 75, 50, 75, 25 and 75, the sum is four hundred. Four hundred divided by six is 66.666666…, displayed as 66.67. There is no reverse coding in this module. In a separate example, three valid responses of 0, 25 and 50, with three NA selections, sum to seventy-five and give 75 divided by 3, or 25.00. Dividing by all six would be incorrect. The displayed mean is in CBI score points from zero to one hundred, not a percentage chance of burnout.",
+              "zh": "假设编码依次100、75、50、75、25、75，总和400，400除6为66.666666…，显示66.67，本模块无反向。另一例中，三项有效为0、25、50，另外三项NA，总和75应除以3，得到25.00，不能除以6。显示单位是0—100的CBI分数点，不是倦怠发生概率百分比。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "The same mean can come from different situations",
+            "zh": "同样均分可以来自不同情况"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional people can have the same personal mean while reporting different experiences: one mainly notices physical exhaustion, while another reports emotional exhaustion and feeling worn out. They can also have different circumstances or reasons for leaving items unanswered. The questionnaire cannot establish that they have the same cause or need the same response. Nor does a personal mean higher than a work-related mean prove that the cause is outside work. The modules contain different questions and references; their difference is not an estimate of a causal share.",
+              "zh": "两位虚构作答者可能个人均分相同，一位主要报告身体耗竭，另一位更多报告情绪耗竭与疲惫，也可能处境和未答原因不同。不能由同分认定同一成因或同一种应对。个人均分高于工作均分，也不能证明原因在工作之外；两个模块问法和参照不同，差值不是因果占比。"
+            }
+          ]
+        },
+        {
+          "id": "support-and-context",
+          "title": {
+            "en": "Prepare support without blaming yourself",
+            "zh": "准备支持，不将责任全归自己"
+          },
+          "paragraphs": [
+            {
+              "en": "Write down one experience that is affecting daily life, when you notice it and what you would like help understanding. You can take that description to a health professional if tiredness is persistent, unexplained or disruptive. When work is involved, conditions such as workload, staffing, control and support may need discussion at an organizational level as well. WHO guidance emphasizes working conditions and workers’ involvement, not only individual coping. You can read the work-related guide, seek support appropriate to your situation or stop here; another personality test is not a required next step.",
+              "zh": "记录一项影响生活的感受、通常何时出现，以及希望获得什么帮助。疲倦持续、原因不明或妨碍生活时，可据此与健康专业人员交流。涉及工作时，也可能需要讨论工作量、人手、自主空间与支持等组织条件；WHO强调工作环境及劳动者参与，不只靠个人应对。可阅读工作模块、寻找合适支持或结束，不要求再做人格测试。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Source permission and this selected edition",
+            "zh": "来源许可与本版选择"
+          },
+          "paragraphs": [
+            {
+              "en": "This edition administers two complete CBI modules: six personal items and seven work-related items. It does not administer the six client-related items and is not the full nineteen-item inventory or a newly validated thirteen-item short form. NFA permits commercial and non-commercial use with clear attribution to Borritz and colleagues’ 2006 PUMA study. English questions, response formats, the work energy reversal and source minimum counts are retained. Chinese is a FermatMind working translation without established measurement equivalence. No risk bands, clinical cutoff, population rank or overall burnout score is added.",
+              "zh": "本版施测CBI两个完整模块：个人六题、工作相关七题，不施测服务对象相关六题，不称完整十九题或新验证的十三题短版。NFA允许商业与非商业使用，须明确引用Borritz等2006年PUMA研究。保留英文问题、回答格式、工作精力反向题和源最低有效数；中文为未建立测量等价的费马工作译本，不加风险档位、临床阈值、人口排名或综合倦怠分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "CBI Personal Burnout: Six-Item Score & Guide",
+          "zh": "CBI个人倦怠模块：分数与完整读法"
+        },
+        "description": {
+          "en": "Read CBI personal burnout: six items, at least three valid answers, valid zero scores and worked examples. Separate from work-related scores; no diagnosis.",
+          "zh": "阅读CBI个人倦怠模块六题的计分与完整说明：至少三题有效才计算均分，区分有效零分和资料不足，通过算例理解自述耗竭；不将分数解释为诊断或工作成因。"
+        }
+      }
+    },
+    {
+      "id": "work",
+      "directionIds": [
+        "work"
+      ],
+      "title": {
+        "en": "Work-related exhaustion: the CBI module",
+        "zh": "工作相关耗竭：CBI模块完整读法"
+      },
+      "headline": {
+        "en": "Read exhaustion you associate with work, while keeping attribution and causation separate.",
+        "zh": "理解自己与工作联系的耗竭，同时区分感受归因与因果证明。"
+      },
+      "summary": {
+        "en": "The seven-item CBI Work-related Burnout module asks about emotionally exhausting work, feeling burnt out or frustrated, fatigue across a working day and energy for family and friends. It summarizes reported work-related exhaustion rather than diagnosing its cause or assessing job performance.",
+        "zh": "CBI工作相关倦怠模块七题涉及工作中的情绪耗竭、倦怠与挫败、工作日不同时间的疲倦，以及陪伴家人朋友的精力。它汇总自述工作相关耗竭，不诊断原因，也不评价工作绩效。"
+      },
+      "scoreReading": {
+        "en": "The first three work items use degree anchors and the last four use frequency anchors. The energy-for-family-and-friends item alone is reversed as one hundred minus its response code. At least four of seven valid ratings are required; divide by the actual valid count.",
+        "zh": "工作模块前三题使用程度选项，后四题使用频率选项；只有家人朋友精力题按100减回答编码反向。七条至少四项有效才计分，均分以实际有效题数作分母。"
+      },
+      "sections": [
+        {
+          "id": "module-scope",
+          "title": {
+            "en": "Reported connection to work",
+            "zh": "自述与工作的联系"
+          },
+          "paragraphs": [
+            {
+              "en": "The source defines work-related burnout as prolonged physical and psychological exhaustion perceived as related to one’s work. Perceived is important: these questions record a connection made in self-report, not an experiment establishing a cause. The module asks about work itself, the end of the working day, mornings and energy during leisure time. It does not observe your schedule, employment conditions or performance. Its mean should not determine a hiring decision, a fitness-for-work judgment or whether an organization has caused a person’s difficulties. Those decisions need different information and appropriate authority.",
+              "zh": "源文把工作相关倦怠定义为本人感到与工作相关的持续身体和心理耗竭，“感到相关”很重要：这是自述联系，不是证明原因的实验。题目涉及工作本身、工作日结束、早晨及闲暇精力，没有观察日程、雇佣条件或绩效。均分不用于招聘、工作能力鉴定，也不能认定某组织造成困难。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "A higher mean and what remains unknown",
+            "zh": "均分较高时，哪些仍未知"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates more reported exhaustion or frustration in relation to work and less energy on the positively worded item after reversal. It does not give a probability of future illness or show that a specific intervention will be sufficient. A respondent may be facing workload, limited control, conflicting demands or another situation that these seven questions do not distinguish. The result can help name an experience for a discussion, but it should not turn uncertainty into a definitive explanation. Read the items and valid count before considering what support might be useful.",
+              "zh": "较高表示较多报告与工作相关的耗竭或挫败，并在正向精力题反向后体现较少精力，不提供未来患病概率，也不证明某项措施足够。工作量、自主空间、冲突要求或其他处境，七题不能区分。结果可帮助描述交流内容，但不能把未知变成确定解释；应先看条目和有效数，再考虑支持。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "A lower mean is not a work-health certificate",
+            "zh": "均分较低不是工作健康认证"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates less endorsement of the experiences captured by the answered work items. It does not certify safe working conditions, rule out a health problem or mean that you must continue an arrangement that concerns you. Difficulties not represented here can still matter. Likewise, reporting ample leisure-time energy does not cancel every concern about work; it contributes once to a seven-item summary after the source reversal. If tiredness is persistent, unexplained or affecting daily life, you can seek qualified health advice without waiting for a particular score or risk label.",
+              "zh": "较低表示较少报告已答工作条目的感受，不认证工作环境安全、不排除健康问题，也不要求继续让自己担忧的安排。题目未覆盖的困难仍可能重要。闲暇精力充足也不抵消一切工作问题，只在反向后计入七题一次；疲倦持续、原因不明或影响生活时，可直接寻求合格健康建议，不必等待分数或风险标签。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-and-missing",
+          "title": {
+            "en": "Applicability and the minimum of four",
+            "zh": "工作适用性与至少四项"
+          },
+          "paragraphs": [
+            {
+              "en": "If the work questions do not apply to your situation, NA lets you retain that fact rather than invent a work experience. You still make a selection for every displayed item. The source requires at least four valid work responses among seven; three are insufficient even if the program could compute an arithmetic average. Four valid zeroes yield 0.00 and are different from missing information. When a mean is available from a partial set, read which items contributed and the four-of-seven count. Different missing patterns can affect comparisons between attempts.",
+              "zh": "工作题不适用当前处境时，可选NA，不捏造工作经历；每个显示条目仍需作选择。源要求七条至少四项有效，只有三项时即使算得出算术平均也保留不足。四项有效零得到0.00，区别于缺失；部分有效形成均分时，需同时看贡献了哪些题和4／7计数，不同未答结构可能影响比较。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Degree frequency and the energy reversal",
+            "zh": "程度、频率与精力反向题"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional full work sequence in source order, take response codes of 75, 50, 25, 100, 75, 0 and 100. The last item asks about sufficient energy, so its adjusted contribution is 100 minus 100, or zero. The adjusted sum is 325 and 325 divided by 7 gives 46.428571…, displayed as 46.43. The first three codes correspond to degree anchors; the remaining codes correspond to frequency anchors. A raw zero on the energy item instead contributes one hundred. Neither outcome is missing, and the mean is not a percentage risk.",
+              "zh": "假设按工作模块源顺序选75、50、25、100、75、0、100。最后一题问精力充足，调整值为100减100即0，调整总和325，除7为46.428571…，显示46.43。前三个编码对应程度，后四个对应频率；若精力题原编码为0，反向贡献则为100。两者都不是缺失，均分也不是风险百分比。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Two domain means do not divide up the cause",
+            "zh": "两项均分不能分摊成因"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional respondent whose personal mean is higher than the work-related mean. The difference cannot show that a certain share of exhaustion comes from outside work: the modules have different item content and one explicitly asks for a perceived work connection. Another respondent may have a high work mean and several circumstances that were not measured. The questionnaire cannot assign causal percentages to either person. Nor do the two CBI modules reproduce the WHO’s three dimensions of occupational burnout. They are different frameworks with different questions and purposes.",
+              "zh": "设想某个人均分高于工作均分，差值不能表示多少耗竭来自工作之外，因为两模块内容不同，工作题还明确询问本人感到的联系。工作均分较高的人也可能有题目未测的其他条件，不能分配因果百分比。两项CBI模块也不等于WHO职业倦怠三个维度，它们是问题与目的不同的框架。"
+            }
+          ]
+        },
+        {
+          "id": "support-and-context",
+          "title": {
+            "en": "Support can involve working conditions",
+            "zh": "支持也可能涉及工作条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Write a short description of one difficulty, the work conditions around it and what change or support you would like to discuss. Where appropriate and available, a supervisor, worker representative, occupational-health service or qualified health professional may be part of that conversation. WHO guidance emphasizes organizational action on working conditions and meaningful worker participation, alongside support for individuals. That does not guarantee a particular workplace can provide every option. You can read the personal guide, seek relevant support or end the reflection. The result does not require an additional personality or career test.",
+              "zh": "简短记录一项困难、周围工作条件，以及希望讨论的改变或支持。在合适且可获得的情况下，可与主管、劳动者代表、职业健康服务或合格健康专业人员交流。WHO强调工作条件上的组织行动、有意义的劳动者参与及个人支持，不保证每个单位都有所有选项。可阅读个人指南、寻找支持或结束，不要求加做人格或职业测试。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "The source and the website presentation",
+            "zh": "来源与网站呈现"
+          },
+          "paragraphs": [
+            {
+              "en": "This page uses the complete seven-item work module with the complete six-item personal module, while the client-related CBI module is not administered. The source permits commercial and non-commercial use with a clear citation to Borritz and colleagues’ 2006 PUMA study. We preserve the two response formats, the single energy reversal and the source minimum of four valid work ratings. Optional NA, interleaved presentation and working Chinese wording are identified website choices, without established local or cross-language validation. No combined score, clinical cutoff, risk band or population comparison is added; sharing contains no private responses or means.",
+              "zh": "本页采用完整工作七题模块，并与完整个人六题一起呈现，不施测CBI服务对象相关模块。来源允许商业和非商业使用，须明确引用Borritz等2006年PUMA研究。保留两种回答格式、唯一精力反向题及至少四项有效的源规则。自愿NA、交错题序和工作中译明确为网站呈现选择，没有建立本地或跨语言验证；不加综合分、临床阈值、风险档位或人口比较，分享不带私人回答或均分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "CBI Work-related Burnout: Score & Full Guide",
+          "zh": "CBI工作相关倦怠：分数与完整读法"
+        },
+        "description": {
+          "en": "Read seven CBI work-related items: degree and frequency ratings, reverse-scored energy and at least four valid answers. See worked examples and limits.",
+          "zh": "阅读CBI工作相关倦怠七题的完整说明：保留程度与频率两种答题格式，休闲精力题反向计分，至少四题有效才计算均分；含可复算示例与使用边界，不编风险阈值。"
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "NFA: CBI source and permission",
+        "zh": "NFA：CBI来源与使用条件"
+      },
+      "url": "https://nfa.dk/vaerktoejer/spoergeskemaer/spoergeskema-til-maaling-af-udbraendthed-cbi/copenhagen-burnout-inventory-cbi"
+    },
+    {
+      "title": {
+        "en": "Original English CBI questions and scoring",
+        "zh": "英文CBI原题与计分规则"
+      },
+      "url": "https://nfa.dk/media/a4wheblj/cbi-scales.pdf"
+    },
+    {
+      "title": {
+        "en": "Borritz et al. (2006), PUMA study",
+        "zh": "Borritz等（2006），PUMA研究"
+      },
+      "url": "https://doi.org/10.1080/14034940510032275"
+    },
+    {
+      "title": {
+        "en": "WHO: occupational burnout definition",
+        "zh": "WHO：职业倦怠定义"
+      },
+      "url": "https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases"
+    },
+    {
+      "title": {
+        "en": "WHO: mental health at work",
+        "zh": "WHO：工作场所心理健康"
+      },
+      "url": "https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work"
+    },
+    {
+      "title": {
+        "en": "NHS: tiredness and fatigue",
+        "zh": "NHS：疲倦与疲劳"
+      },
+      "url": "https://www.nhs.uk/symptoms/tiredness-and-fatigue/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "source-scoring",
+      "title": {
+        "en": "Two source-key means, two answer formats",
+        "zh": "两个源键均分与两种回答格式"
+      },
+      "paragraphs": [
+        {
+          "en": "Frequency runs from Always (100) to Never/almost never (0), in steps of twenty-five. Work items one to three instead use degree anchors, also from one hundred to zero. Only work item seven, about enough energy for family and friends during leisure, reverses to one hundred minus its raw response code. Personal needs three of six valid ratings; work needs four of seven. Divide the adjusted sum by the actual valid count and display two decimals. Missing responses never become zero. A full work sum of 325 divided by seven displays 46.43.",
+          "zh": "频率从总是100到从不／几乎从不0，每档相差25；工作前三题使用程度选项，同样从100到0。只有工作第七题，即休闲时是否有足够精力陪伴亲友，按100减原编码反向。个人六题至少三项、工作七题至少四项有效，再用调整后总和除以实际有效题数，显示两位小数。缺失不补0；完整工作总和325除7显示46.43。"
+        }
+      ]
+    },
+    {
+      "id": "missing-and-context",
+      "title": {
+        "en": "Missing information and work applicability",
+        "zh": "资料不足与工作适用性"
+      },
+      "paragraphs": [
+        {
+          "en": "All thirteen displayed questions need selections, including NA. Three valid personal zeroes produce 0.00; two valid personal responses are insufficient. Four valid work zeroes produce 0.00; three valid work responses are insufficient. The displayed adjusted sum covers only the rated items and is not a separate standardized score. Read counts and item content before comparing attempts. CBI score points are not a probability, risk percentage, medical cutoff or population percentile. No causal share can be calculated from a difference between the two means.",
+          "zh": "十三条都需选择，含NA。个人三项有效零得0.00，两项有效则不足；工作四项有效零得0.00，三项有效则不足。显示的调整后总和只覆盖有效题目，不是另一标准分。比较前先看有效题数与具体内容。CBI分数点不是概率、风险百分比、医学阈值或人口百分位，两模块均分之差也不能计算成因份额。"
+        }
+      ]
+    },
+    {
+      "id": "support-and-source",
+      "title": {
+        "en": "Full guides, source attribution and support",
+        "zh": "完整指南、来源署名与支持"
+      },
+      "paragraphs": [
+        {
+          "en": "NFA permits commercial and non-commercial CBI use with a clear citation to Borritz and colleagues’ 2006 PUMA study. This website retains the two complete selected modules, source response formats, one reverse item and minimum counts, while identifying its working Chinese, additional NA and interleaving as adaptations. Those choices do not inherit source validation. The two guides explain higher, lower, mixed and insufficient readings with exact worked examples. Persistent unexplained fatigue or difficulty in daily life can be discussed with a qualified health professional. Work concerns may also require changes to conditions and organizational support. No further personality test is required.",
+          "zh": "NFA允许商业及非商业使用CBI，须明确引用Borritz等2006年PUMA研究。本站保留所选两个完整模块、源回答格式、唯一反向题和最低有效题数，并说明工作中译、新增NA与交错题序为改编，不自动继承源研究效度。两份指南含较高、较低、混合、不足及精确算例。无法解释的疲倦持续存在或影响生活，可与合格健康专业人员讨论；工作困难还可能需要条件改变和组织支持，不要求继续人格测试。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the full CBI or a new thirteen-item short form?",
+        "zh": "这是完整CBI或新十三题短版吗？"
+      },
+      "answer": {
+        "en": "It is two complete source modules: personal six and work-related seven. The client-related six are not administered. We do not call it the full nineteen-item inventory or a newly validated short form.",
+        "zh": "这是个人六题与工作七题两个完整源模块，不施测服务对象相关六题，不称完整十九题或新验证短版。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which work question is reversed?",
+        "zh": "哪条工作题反向计分？"
+      },
+      "answer": {
+        "en": "Only the final work item about enough leisure-time energy for family and friends. Its adjusted contribution is 100 minus the raw response code. All six personal items and the other six work items are direct.",
+        "zh": "只有最后一条工作题，即休闲时是否有足够精力陪伴亲友，按100减原编码调整。个人六题与其余工作六题均正向。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do the work options change?",
+        "zh": "为什么工作题的选项不同？"
+      },
+      "answer": {
+        "en": "The original source uses degree for the first three work questions and frequency for the last four. Both use five response values from one hundred to zero. This edition preserves that difference rather than giving every item a frequency anchor.",
+        "zh": "原来源的工作前三题问程度、后四题问频率，两种均有100至0五档编码。本版保留这一区别，不把每题都变成频率题。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I answer if I do not currently have work?",
+        "zh": "目前没有工作可以回答吗？"
+      },
+      "answer": {
+        "en": "Personal questions can be considered separately. If a work question does not describe an applicable work situation, choose NA. At least four valid work ratings are needed for its mean; an insufficient module still has its full public guide.",
+        "zh": "个人题可单独考虑。工作题没有适用工作情境时选NA，不必虚构；工作至少四项有效才有均分，不足仍可读完整公开指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a score tell me my burnout risk or a diagnosis?",
+        "zh": "分数能判断倦怠风险或诊断吗？"
+      },
+      "answer": {
+        "en": "No. The means summarize self-reported experiences on CBI score points, not future-risk probabilities, medical diagnoses, high/medium/low bands or causal percentages. WHO occupational burnout and the CBI personal/work modules have different scopes.",
+        "zh": "不能。均分按CBI分数点概括自述经历，不是未来风险概率、医学诊断、高中低风险档位或成因百分比。WHO职业倦怠与CBI个人／工作模块范围不同。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is Chinese validated and must I take another test?",
+        "zh": "中译经过验证吗，必须继续其他测试吗？"
+      },
+      "answer": {
+        "en": "Chinese is a FermatMind working translation without established measurement equivalence or local validation for this presentation. Both full guides are free, and you may stop here. Copied public links omit answers and means. Persistent unexplained or disruptive tiredness warrants appropriate professional advice without waiting for a high score.",
+        "zh": "中文为费马工作译本，本呈现未建立测量等价或本地效度。两份完整指南免费，可在这里结束；复制公开链接不含答案和均分。持续、无法解释或影响生活的疲倦可寻求合适专业建议，不需先等高分。"
+      }
+    }
+  ]
+}
