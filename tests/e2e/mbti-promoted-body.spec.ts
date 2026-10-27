@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { buildMbtiPromotedBodyFixture } from "../helpers/mbtiPromotedBodyFixture";
+import { buildMbtiPromotedBodyFixture } from "../fixtures/mbtiPromotedBodyFixture";
 import canonical from "../fixtures/mbti-promoted-decision-style.json";
 
 // Fixed synthetic reports only; never fetch a user's answers or report.

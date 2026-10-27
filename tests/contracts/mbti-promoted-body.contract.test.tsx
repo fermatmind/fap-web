@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { buildMbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
-import { buildMbtiPromotedBodyFixture as fixture } from "@/tests/helpers/mbtiPromotedBodyFixture";
+import { buildMbtiPromotedBodyFixture as fixture } from "@/tests/fixtures/mbtiPromotedBodyFixture";
 import canonical from "@/tests/fixtures/mbti-promoted-decision-style.json";
 
 vi.mock("@/lib/cms/personality-result-introduction", () => ({
