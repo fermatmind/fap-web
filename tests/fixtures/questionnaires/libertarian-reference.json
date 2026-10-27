@@ -1,0 +1,5293 @@
+{
+  "id": "T182",
+  "formCode": "fm_liberty_principles_original_32_v1",
+  "originalItems": [
+    {
+      "id": "LIB_001",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "In a hypothetical policy discussion, adults should decide for themselves which peaceful associations to join.",
+        "zh": "在假设的政策讨论中，成年人应自行决定加入哪些和平社团。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_002",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "Adults should normally be free to form a peaceful cooperative arrangement after its material terms have been disclosed.",
+        "zh": "重要条件已经说明后，成年人通常应能自由建立和平的合作安排。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_003",
+      "domain": "property",
+      "prompt": {
+        "en": "A claim to property should take account of whether earlier transfers involved force or deception.",
+        "zh": "主张财产权时，应考虑先前转让是否涉及强制或欺骗。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_004",
+      "domain": "coercion",
+      "prompt": {
+        "en": "When an agency imposes a binding restriction, it should identify the rights it is protecting and explain why the restriction is needed.",
+        "zh": "机构施加有约束力的限制时，应说明保护了哪些权利，以及为什么需要这种限制。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_005",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "A shared public goal can by itself justify making a peaceful adult participate despite that person’s refusal.",
+        "zh": "即使一个和平行事的成年人拒绝，单凭共同公共目标也足以要求其参加。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_006",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "A public agency should choose which peaceful cooperative association an adult must join even when that person has a willing alternative.",
+        "zh": "即使成年人已有自愿的替代选择，公共机构也应指定其必须加入哪个和平合作团体。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_007",
+      "domain": "property",
+      "prompt": {
+        "en": "An authority’s wish to achieve a preferred distribution is sufficient by itself to override an otherwise legitimate property claim.",
+        "zh": "当局希望实现偏好的分配格局，这一点本身就足以推翻一项原本正当的财产权主张。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_008",
+      "domain": "coercion",
+      "prompt": {
+        "en": "An agency’s sincere claim to pursue a good end is enough to justify its use of compulsory powers.",
+        "zh": "机构真诚地声称追求良好目的，就足以证明其使用强制权力有理。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_009",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "An institution should need a person’s agreement before using that person’s labor solely for someone else’s benefit.",
+        "zh": "机构仅为他人的利益使用某人的劳动之前，应取得本人同意。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_010",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "An agreement obtained by a threat against someone’s rights should not count as voluntary merely because it was signed.",
+        "zh": "以威胁他人权利的方式取得的约定，不应仅因签了字就算自愿。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_011",
+      "domain": "property",
+      "prompt": {
+        "en": "The person who legitimately owns a resource should normally have discretion over its peaceful use.",
+        "zh": "正当拥有某项资源的人，通常应对其和平使用方式有自主权。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_012",
+      "domain": "coercion",
+      "prompt": {
+        "en": "Official status alone should not make an otherwise unjustified use of force acceptable.",
+        "zh": "官方身份本身，不应使一项原本缺乏正当理由的强制变得可接受。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_013",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "A public authority may replace an adult’s harmless personal choice solely because officials believe another choice is better for that adult.",
+        "zh": "仅因官员认为另一选择对本人更好，公共机构就可以替换成年人的无害个人选择。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_014",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "An official preference for a standard agreement is enough to ban a disclosed alternative that willing adults accept and that infringes no third party’s rights.",
+        "zh": "只要官员偏好标准约定，就足以禁止成年人知情自愿接受、且不侵犯第三方权利的替代约定。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_015",
+      "domain": "property",
+      "prompt": {
+        "en": "A record of possession should settle a property claim even when there is credible evidence of an earlier wrongful taking.",
+        "zh": "即使存在先前不当取得的可靠证据，持有记录也应足以确定财产权归属。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_016",
+      "domain": "coercion",
+      "prompt": {
+        "en": "Public coercion needs no separate justification when the same action would require justification if carried out by a private person.",
+        "zh": "同一行为由私人实施需要理由时，公共机构以强制方式实施却无须单独说明理由。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_017",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "A public authority should need more than a claim about an adult’s own good to override that adult’s peaceful choice.",
+        "zh": "公共机构要推翻成年人的和平选择，仅声称“为本人好”还不够。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_018",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "Public rules should leave room for people to choose different forms of peaceful economic cooperation.",
+        "zh": "公共规则应给人们选择不同形式的和平经济合作留下空间。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_019",
+      "domain": "property",
+      "prompt": {
+        "en": "Correcting a wrongful taking is relevant to deciding who is entitled to an asset now.",
+        "zh": "决定现在谁有权拥有一项资产时，纠正先前的不当取得是相关因素。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_020",
+      "domain": "coercion",
+      "prompt": {
+        "en": "People subject to public coercion should have a meaningful way to challenge its stated justification.",
+        "zh": "受到公共强制的人，应有实际可用的渠道质疑其提出的理由。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_021",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "Refusing to join a civic association is enough reason to restrict a person’s otherwise harmless activities.",
+        "zh": "拒绝加入公民社团，本身就足以成为限制其其他无害活动的理由。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_022",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "A peaceful exchange should require permission beyond neutral protections against fraud, force and harm to others simply because officials dislike the bargain.",
+        "zh": "仅因官员不喜欢交易内容，一项和平交换就应在防止欺诈、强制和伤害他人的中立保护之外，另行取得许可。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_023",
+      "domain": "property",
+      "prompt": {
+        "en": "A public official may redirect a legitimately held asset solely because the official prefers another peaceful use.",
+        "zh": "仅因公共官员更偏好另一种和平用途，就可以重新指定一项正当持有资产的用途。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_024",
+      "domain": "coercion",
+      "prompt": {
+        "en": "Once a compulsory power has been approved, people affected by it should no longer be able to question its limits.",
+        "zh": "一项强制权力一旦获批，受影响的人就不应再能质疑其边界。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_025",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "Permission for one use of a person’s effort should not automatically authorize a different use.",
+        "zh": "一个人允许将自己的努力用于某项目的，不应自动视作也允许用于另一目的。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_026",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "When a peaceful arrangement is declined, the participants should normally be able to seek other willing partners.",
+        "zh": "一项和平合作被拒绝后，参与者通常应能寻找其他愿意合作的人。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_027",
+      "domain": "property",
+      "prompt": {
+        "en": "Before calling an initial resource claim legitimate, its justification and its effects on other people’s equal freedom should be examined.",
+        "zh": "在把最初的资源占有称作正当之前，应检查其理由及其对他人平等自由的影响。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_028",
+      "domain": "coercion",
+      "prompt": {
+        "en": "A proposal to expand compulsory public powers should face a presumption in favor of protecting individual freedom.",
+        "zh": "一项扩大强制性公共权力的提案，应面对优先保护个人自由的起点要求。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "LIB_029",
+      "domain": "autonomy",
+      "prompt": {
+        "en": "Peaceful adults should be required to adopt the community’s preferred personal custom even when their different custom infringes no one else’s rights.",
+        "zh": "即使不同个人习俗不侵犯他人权利，和平行事的成年人也应被要求采用共同体更偏好的习俗。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_030",
+      "domain": "cooperation",
+      "prompt": {
+        "en": "Voluntary cooperation should be displaced by the authority’s preferred arrangement even when no violation of rights has been identified.",
+        "zh": "即使没有指出任何权利侵害，也应以当局偏好的安排取代自愿合作。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_031",
+      "domain": "property",
+      "prompt": {
+        "en": "Property users should have no opportunity to challenge an official reassignment simply because the reassignment serves a popular goal.",
+        "zh": "只要官方重新分配财产服务于受欢迎的目标，使用者就不应有机会提出质疑。"
+      },
+      "reverse": true
+    },
+    {
+      "id": "LIB_032",
+      "domain": "coercion",
+      "prompt": {
+        "en": "A majority’s preference should settle a proposal for compulsory power without considering the individual rights at stake.",
+        "zh": "决定强制权力提案时，多数人的偏好应足以定论，无须考虑相关个人权利。"
+      },
+      "reverse": true
+    }
+  ],
+  "domains": [
+    {
+      "id": "autonomy",
+      "title": {
+        "en": "Autonomy and consent",
+        "zh": "自主与同意"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "cooperation",
+      "title": {
+        "en": "Voluntary cooperation and agreements",
+        "zh": "自愿合作与约定"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "property",
+      "title": {
+        "en": "Property claims and rectification",
+        "zh": "财产权主张与纠错"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "coercion",
+      "title": {
+        "en": "Limits and justification of public coercion",
+        "zh": "公共强制的限制与论证"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "LIB_001",
+      "prompt": {
+        "en": "In a hypothetical policy discussion, adults should decide for themselves which peaceful associations to join.",
+        "zh": "在假设的政策讨论中，成年人应自行决定加入哪些和平社团。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_002",
+      "prompt": {
+        "en": "Adults should normally be free to form a peaceful cooperative arrangement after its material terms have been disclosed.",
+        "zh": "重要条件已经说明后，成年人通常应能自由建立和平的合作安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_003",
+      "prompt": {
+        "en": "A claim to property should take account of whether earlier transfers involved force or deception.",
+        "zh": "主张财产权时，应考虑先前转让是否涉及强制或欺骗。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_004",
+      "prompt": {
+        "en": "When an agency imposes a binding restriction, it should identify the rights it is protecting and explain why the restriction is needed.",
+        "zh": "机构施加有约束力的限制时，应说明保护了哪些权利，以及为什么需要这种限制。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_005",
+      "prompt": {
+        "en": "A shared public goal can by itself justify making a peaceful adult participate despite that person’s refusal.",
+        "zh": "即使一个和平行事的成年人拒绝，单凭共同公共目标也足以要求其参加。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_006",
+      "prompt": {
+        "en": "A public agency should choose which peaceful cooperative association an adult must join even when that person has a willing alternative.",
+        "zh": "即使成年人已有自愿的替代选择，公共机构也应指定其必须加入哪个和平合作团体。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_007",
+      "prompt": {
+        "en": "An authority’s wish to achieve a preferred distribution is sufficient by itself to override an otherwise legitimate property claim.",
+        "zh": "当局希望实现偏好的分配格局，这一点本身就足以推翻一项原本正当的财产权主张。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_008",
+      "prompt": {
+        "en": "An agency’s sincere claim to pursue a good end is enough to justify its use of compulsory powers.",
+        "zh": "机构真诚地声称追求良好目的，就足以证明其使用强制权力有理。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_009",
+      "prompt": {
+        "en": "An institution should need a person’s agreement before using that person’s labor solely for someone else’s benefit.",
+        "zh": "机构仅为他人的利益使用某人的劳动之前，应取得本人同意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_010",
+      "prompt": {
+        "en": "An agreement obtained by a threat against someone’s rights should not count as voluntary merely because it was signed.",
+        "zh": "以威胁他人权利的方式取得的约定，不应仅因签了字就算自愿。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_011",
+      "prompt": {
+        "en": "The person who legitimately owns a resource should normally have discretion over its peaceful use.",
+        "zh": "正当拥有某项资源的人，通常应对其和平使用方式有自主权。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_012",
+      "prompt": {
+        "en": "Official status alone should not make an otherwise unjustified use of force acceptable.",
+        "zh": "官方身份本身，不应使一项原本缺乏正当理由的强制变得可接受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_013",
+      "prompt": {
+        "en": "A public authority may replace an adult’s harmless personal choice solely because officials believe another choice is better for that adult.",
+        "zh": "仅因官员认为另一选择对本人更好，公共机构就可以替换成年人的无害个人选择。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_014",
+      "prompt": {
+        "en": "An official preference for a standard agreement is enough to ban a disclosed alternative that willing adults accept and that infringes no third party’s rights.",
+        "zh": "只要官员偏好标准约定，就足以禁止成年人知情自愿接受、且不侵犯第三方权利的替代约定。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_015",
+      "prompt": {
+        "en": "A record of possession should settle a property claim even when there is credible evidence of an earlier wrongful taking.",
+        "zh": "即使存在先前不当取得的可靠证据，持有记录也应足以确定财产权归属。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_016",
+      "prompt": {
+        "en": "Public coercion needs no separate justification when the same action would require justification if carried out by a private person.",
+        "zh": "同一行为由私人实施需要理由时，公共机构以强制方式实施却无须单独说明理由。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_017",
+      "prompt": {
+        "en": "A public authority should need more than a claim about an adult’s own good to override that adult’s peaceful choice.",
+        "zh": "公共机构要推翻成年人的和平选择，仅声称“为本人好”还不够。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_018",
+      "prompt": {
+        "en": "Public rules should leave room for people to choose different forms of peaceful economic cooperation.",
+        "zh": "公共规则应给人们选择不同形式的和平经济合作留下空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_019",
+      "prompt": {
+        "en": "Correcting a wrongful taking is relevant to deciding who is entitled to an asset now.",
+        "zh": "决定现在谁有权拥有一项资产时，纠正先前的不当取得是相关因素。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_020",
+      "prompt": {
+        "en": "People subject to public coercion should have a meaningful way to challenge its stated justification.",
+        "zh": "受到公共强制的人，应有实际可用的渠道质疑其提出的理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_021",
+      "prompt": {
+        "en": "Refusing to join a civic association is enough reason to restrict a person’s otherwise harmless activities.",
+        "zh": "拒绝加入公民社团，本身就足以成为限制其其他无害活动的理由。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_022",
+      "prompt": {
+        "en": "A peaceful exchange should require permission beyond neutral protections against fraud, force and harm to others simply because officials dislike the bargain.",
+        "zh": "仅因官员不喜欢交易内容，一项和平交换就应在防止欺诈、强制和伤害他人的中立保护之外，另行取得许可。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_023",
+      "prompt": {
+        "en": "A public official may redirect a legitimately held asset solely because the official prefers another peaceful use.",
+        "zh": "仅因公共官员更偏好另一种和平用途，就可以重新指定一项正当持有资产的用途。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_024",
+      "prompt": {
+        "en": "Once a compulsory power has been approved, people affected by it should no longer be able to question its limits.",
+        "zh": "一项强制权力一旦获批，受影响的人就不应再能质疑其边界。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_025",
+      "prompt": {
+        "en": "Permission for one use of a person’s effort should not automatically authorize a different use.",
+        "zh": "一个人允许将自己的努力用于某项目的，不应自动视作也允许用于另一目的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_026",
+      "prompt": {
+        "en": "When a peaceful arrangement is declined, the participants should normally be able to seek other willing partners.",
+        "zh": "一项和平合作被拒绝后，参与者通常应能寻找其他愿意合作的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_027",
+      "prompt": {
+        "en": "Before calling an initial resource claim legitimate, its justification and its effects on other people’s equal freedom should be examined.",
+        "zh": "在把最初的资源占有称作正当之前，应检查其理由及其对他人平等自由的影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_028",
+      "prompt": {
+        "en": "A proposal to expand compulsory public powers should face a presumption in favor of protecting individual freedom.",
+        "zh": "一项扩大强制性公共权力的提案，应面对优先保护个人自由的起点要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_029",
+      "prompt": {
+        "en": "Peaceful adults should be required to adopt the community’s preferred personal custom even when their different custom infringes no one else’s rights.",
+        "zh": "即使不同个人习俗不侵犯他人权利，和平行事的成年人也应被要求采用共同体更偏好的习俗。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "autonomy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "autonomy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "autonomy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "autonomy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "autonomy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "autonomy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_030",
+      "prompt": {
+        "en": "Voluntary cooperation should be displaced by the authority’s preferred arrangement even when no violation of rights has been identified.",
+        "zh": "即使没有指出任何权利侵害，也应以当局偏好的安排取代自愿合作。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "cooperation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "cooperation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "cooperation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "cooperation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "cooperation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "cooperation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_031",
+      "prompt": {
+        "en": "Property users should have no opportunity to challenge an official reassignment simply because the reassignment serves a popular goal.",
+        "zh": "只要官方重新分配财产服务于受欢迎的目标，使用者就不应有机会提出质疑。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "property",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "property",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "property",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "property",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "property",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "property",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LIB_032",
+      "prompt": {
+        "en": "A majority’s preference should settle a proposal for compulsory power without considering the individual rights at stake.",
+        "zh": "决定强制权力提案时，多数人的偏好应足以定论，无须考虑相关个人权利。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Strongly disagree",
+            "zh": "非常不同意"
+          },
+          "directionId": "coercion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Disagree",
+            "zh": "不同意"
+          },
+          "directionId": "coercion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither agree nor disagree",
+            "zh": "既不赞同也不反对"
+          },
+          "directionId": "coercion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Agree",
+            "zh": "同意"
+          },
+          "directionId": "coercion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Strongly agree",
+            "zh": "非常同意"
+          },
+          "directionId": "coercion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not represented / prefer not to answer",
+            "zh": "信息不足／命题不能代表观点／不愿回答"
+          },
+          "directionId": "coercion",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "autonomy",
+      "directionIds": [
+        "autonomy"
+      ],
+      "title": {
+        "en": "Autonomy and consent: a full principle reading",
+        "zh": "自主与同意：完整原则读法"
+      },
+      "headline": {
+        "en": "Read your answers about who may direct a person’s peaceful choices and effort.",
+        "zh": "观察你怎样回答：谁可以决定一个人的和平选择与付出。"
+      },
+      "summary": {
+        "en": "Eight original propositions ask about peaceful association, agreement to use someone’s effort and justifications for overriding a personal choice. The summary describes agreement with these specified propositions, not a degree of libertarian identity or a moral quality.",
+        "zh": "八条原创命题询问和平结社、使用他人付出时的同意，以及推翻个人选择需要的理由。汇总描述对具体命题的同意方向，不表示自由意志主义身份程度或道德品质。"
+      },
+      "scoreReading": {
+        "en": "Four of the eight statements face the opposite direction. Reverse those responses with six minus the selected code, then add all eight values. The sum is 8–40 and the unrounded sum divided by eight gives the mean; every item must be valid. NA leaves this topic unscored.",
+        "zh": "八条中四条朝相反方向，用6减所选编码反向处理，再把八个值相加。原始和为8—40，未舍入总和除8得到均分；必须八条全部有效，NA使本组保留不足。"
+      },
+      "sections": [
+        {
+          "id": "principle-scope",
+          "title": {
+            "en": "An authored topic group, not a personality factor",
+            "zh": "自编议题分组，不是人格因子"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns the standing of a person’s agreement when an institution wants to direct a peaceful activity or use that person’s effort. The propositions distinguish joining an association, granting a particular permission and being compelled for a purported common purpose. Those are related questions in political philosophy, but placing them together here is an editorial choice. We have not established that the eight items form an empirical psychological factor. A mean therefore summarizes these responses; it does not measure the strength of a natural trait, a political identity or a person’s capacity to make decisions.",
+              "zh": "本组关注机构想决定个人和平活动、使用个人付出时，本人的同意应处在什么位置。命题分别讨论加入社团、给予特定许可，以及为了声称的共同目的而被要求参加。这些是相关的政治哲学问题，但将它们放在一组是本版编辑选择，并没有验证为经验心理因子。均分汇总的是这些回答，不测天然特质、政治身份强度或个人作决定的能力。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "More agreement with the keyed autonomy propositions",
+            "zh": "较多认同键向所表示的自主命题"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher adjusted mean indicates more agreement with the propositions that protect a person’s say over peaceful choices and more disagreement with the four propositions allowing an imposed choice. It does not show that you reject every obligation, approve every possible agreement or would act a certain way in a real dispute. The questions intentionally omit many conditions, including dependency, emergencies and disagreements over whose rights are affected. You may have answered a general principle while reserving exceptions that the response scale cannot express. Keep those qualifications beside the summary rather than treating the number as their replacement.",
+              "zh": "键向调整后的均分较高，表示更认同个人应能决定和平选择的命题，并更不认同四条允许外部指定选择的命题。这不说明你拒绝所有义务、认可任何约定，或会在真实争议中采取特定行动。题目没有展开依赖关系、紧急情况、相关权利争议等许多条件。你可能在回答一般原则，同时保留量尺无法表达的例外；这些条件应另外保留，不能由数字取代。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Reservations can have several different meanings",
+            "zh": "保留意见可能来自不同理由"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower adjusted mean means less endorsement of the particular autonomy-facing propositions in this bank, more endorsement of their opposites, or a mixture of both. A respondent might place greater weight on a shared civic purpose, believe that the scenario leaves out important duties, or interpret the word peaceful differently. The score cannot distinguish those explanations. It does not establish authoritarianism, a wish to control other people or a lack of respect for consent. To understand a low value, return to the statements and identify which stated condition or missing qualification drove the response.",
+              "zh": "均分较低，可能表示较少赞成本题的自主方向命题、较多赞成相反表述，或两者混合。有人更重视共同公民目的，有人觉得情境遗漏重要义务，也有人对“和平”的含义理解不同。分数无法区分这些解释，更不能证明威权主义、控制他人的愿望或不尊重同意。理解低值时，应回到具体陈述，找出所给条件或缺失限定怎样影响了选择。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "A middle mean can hide strong differences",
+            "zh": "中间均分也可能包含强烈分歧"
+          },
+          "paragraphs": [
+            {
+              "en": "Eight neutral responses produce an adjusted sum of twenty-four and a mean of 3.00. The same mean can result from several strong agreements and disagreements. That difference matters: uncertainty about the scope of public duties is not the same experience as holding clear but contrasting principles about different forms of participation. The result does not label either pattern moderate or inconsistent. NA has a separate role when you cannot answer the offered proposition or prefer not to do so. It prevents a personal mean for this group rather than being inserted as a neutral response.",
+              "zh": "八条都选中间选项，调整后总和是24，均分3.00；几条强烈同意加上几条强烈不同意，也可能得到相同均分。对公共义务范围不确定，与对不同参与方式持有明确但相反的原则，并不是同一种情况。结果不把两者称作温和或不一致。无法回答给定命题或不愿回答时，NA有独立作用：不生成本组个人均分，而不是补成中间选项。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate 31 divided by eight",
+            "zh": "复算31除以8"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a fictional sequence of selected codes: 4, 2, 5, 3, 4, 2, 3, 2. In this group’s displayed order, positions two, four, six and eight are reverse-facing statements. Their adjusted values are 4, 4, 5, 3, 4, 4, 3 and 4, totaling thirty-one. The mean is 31 ÷ 8 = 3.875, displayed as 3.88. This calculation uses the unrounded sum, not a previously rounded mean. Two decimal places make the arithmetic reproducible; they do not imply that psychological agreement has been measured with that precision.",
+              "zh": "假设按本组呈现顺序选择的编码为4、2、5、3、4、2、3、2，其中第二、四、六、八条反向。调整后是4、4、5、3、4、4、3、4，总和31。均分31÷8＝3.875，显示3.88；计算使用未舍入总和，不是再除一个已舍入均分。两位小数方便复算，不表示对心理同意程度达到了这样的测量精度。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Defending autonomy does not settle property debates",
+            "zh": "维护自主不能自动解决财产权争论"
+          },
+          "paragraphs": [
+            {
+              "en": "A person can strongly defend agreement over personal effort while believing that claims to natural resources require compensation to others. Another person can defend the same personal protection while accepting a different account of initial property acquisition. Both could receive a high value here and diverge elsewhere in this questionnaire. Libertarian traditions themselves contain disputes about these connections. This example is why the four topics are reported separately and never added into a purity score. It also shows why the economic-right and liberal quadrant from a different test cannot substitute for these eight answers.",
+              "zh": "一个人可以强烈维护个人付出需要本人同意，同时认为占有自然资源应向他人补偿；另一个人维护同样的个人保护，却接受不同的最初财产取得理论。两人本组都可能较高，其他组仍不同，自由意志主义传统内部也存在相关争论。因此四个议题分别报告，不相加成为纯度；另一测试的经济右向与个人自由优先组合，也不能代替这八条回答。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Make a qualification explicit without choosing a camp",
+            "zh": "写清限定条件，不急于选阵营"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one statement where your response depended on an unstated condition. Write that condition in plain language, then describe an example where the condition would not hold. Compare the two cases without trying to decide what a real political group would approve. This helps reveal the limits of the item rather than recruiting you into a position. You can read the other complete topic guides, keep uncertainty or stop. The page supplies no recommendation about a party, candidate, campaign, donation or how to tailor a political message to someone with a particular score.",
+              "zh": "挑一条回答依赖未写明条件的陈述，用普通语言写下该条件，再举一个条件不成立的例子。比较两个情境即可，不必猜真实政治团体会认可哪一边。这样能检查题目边界，不是把你吸引到某种立场。可以阅读其他完整议题指南、保留不确定，或结束；本页不建议政党、候选人、活动、捐款，也不按分数定制政治信息。"
+            }
+          ]
+        },
+        {
+          "id": "method-and-privacy",
+          "title": {
+            "en": "Original items and a limited personal summary",
+            "zh": "原创条目与有限的个人汇总"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind Editorial authored all thirty-two propositions, four topic groups, bilingual wording and result guides. Political-philosophy references explain the vocabulary and internal disagreements; they do not validate these new groups or provide population norms. The competitor’s thirty-four items and a separate sixty-four-item purity test are not reproduced. All four full guides are available with or without a personal mean. Public links contain no answers or scores. Optional drafts remain in the current browser tab for at most twenty-four hours and clear on completion or retake; sharing copies only a public title and link.",
+              "zh": "费马测试编辑部原创全部三十二条命题、四个议题分组、双语表述和结果指南。政治哲学参考解释词汇与内部争论，不验证这些新分组，也不提供人口常模。本版未复制竞品三十四题或另一套六十四题纯度测试。无论有没有个人均分，四份完整指南都开放。公开链接没有答案或分数；自愿草稿仅留在本标签页，最长二十四小时，完成或重测清除，分享只复制公开标题和链接。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Autonomy & Consent: Original Liberty-Principle Guide",
+          "zh": "自主与同意：完整原则读法｜原创自由原则反思"
+        },
+        "description": {
+          "en": "Eight original propositions ask about peaceful association, agreement to use someone’s effort and justifications for overriding a personal choice. The summary describes agreement with these specified propositions, not a degree of libertarian identity or a moral quality.",
+          "zh": "八条原创命题询问和平结社、使用他人付出时的同意，以及推翻个人选择需要的理由。汇总描述对具体命题的同意方向，不表示自由意志主义身份程度或道德品质。"
+        }
+      }
+    },
+    {
+      "id": "cooperation",
+      "directionIds": [
+        "cooperation"
+      ],
+      "title": {
+        "en": "Voluntary cooperation: a full principle reading",
+        "zh": "自愿合作与约定：完整原则读法"
+      },
+      "headline": {
+        "en": "Separate willingness to cooperate from the conditions that make an agreement voluntary.",
+        "zh": "把合作意愿与约定何以自愿的条件分开看。"
+      },
+      "summary": {
+        "en": "Eight authored statements ask about disclosed terms, alternative partners and limits on overriding a peaceful arrangement. Responses describe agreement with this limited set of propositions, not whether you are cooperative in everyday life or belong to a political tradition.",
+        "zh": "八条自编陈述询问知情条件、替代伙伴，以及推翻和平安排的边界。回答描述对这组有限命题的同意程度，不评定日常是否好合作，也不指定政治传统归属。"
+      },
+      "scoreReading": {
+        "en": "The second, fourth, sixth and eighth statements within this topic use the reverse key. Adjust them with six minus the response, add all eight values and divide the unrounded sum by eight. The displayed mean has no population rank or clinical cutoff.",
+        "zh": "本组第二、四、六、八条使用反向键，用6减回答值，八条相加，再将未舍入总和除8。显示均分不带人口排名或临床阈值。"
+      },
+      "sections": [
+        {
+          "id": "principle-scope",
+          "title": {
+            "en": "What the cooperation propositions actually ask",
+            "zh": "合作命题具体问了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about the freedom to form a peaceful arrangement, receive material information, decline a bargain and seek other willing partners. It also asks when an official preference should displace an agreement. These are claims about political and institutional rules, not questions about whether you enjoy teamwork or keep promises. Willingness, disclosure and protection against threats are distinct conditions. The eight statements do not establish that those conditions are present in any real transaction. Read the resulting mean as a summary of the offered propositions, while keeping the facts of actual agreements separate.",
+              "zh": "本组讨论建立和平安排、获得重要信息、拒绝交易以及寻找其他自愿伙伴的自由，也询问官方偏好何时可以取代约定。它们是关于政治与制度规则的命题，不是在问你是否喜欢团队合作、是否守信。意愿、知情和免受威胁是不同条件，八条陈述并不能证明真实交易已经满足这些条件。均分只汇总给出的命题，真实约定的事实仍需另外了解。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "A stronger presumption for voluntary arrangements",
+            "zh": "对自愿安排保留较强的起点支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher adjusted value indicates more support for leaving room for informed, peaceful cooperation and less agreement that an official preference alone should replace it. It does not mean every signed document is acceptable, that bargaining power is equal or that a proposed exchange has no effects on third parties. In fact, one directly keyed item rejects treating an agreement obtained through a threat as voluntary. You can endorse a general presumption for agreement while insisting on conditions that make consent meaningful. The number cannot say which conditions you would require or whether an institution actually supplies them.",
+              "zh": "调整后较高，表示更支持给知情、和平的合作留下空间，也较少认同仅凭官方偏好就取代约定。这不表示每份签字文件都可接受、议价能力相等，或交易没有第三方影响；本组一条正向命题就明确否认威胁下签字等于自愿。支持一般起点，同时要求有意义同意的条件，可以并存。数字不能说明你要求哪些条件，更不能证明真实机构已经提供它们。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less agreement does not identify the reason",
+            "zh": "较少同意，仍需了解原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower adjusted value may reflect reservations about the bank’s assumptions, more willingness to authorize official direction, or different interpretations of what counts as peaceful and informed. It cannot distinguish those possibilities. Some respondents may be concerned that a nominal alternative is unavailable in practice, while others may favor a common arrangement for a different institutional reason. Neither explanation is a conclusion from the score. Avoid turning a lower value into a description of personal trustworthiness, support for fraud or hostility to cooperation. The questions do not measure any of those attributes.",
+              "zh": "较低可能来自对题目假设的保留、较愿意允许官方指定安排，或对“和平”“知情”的不同理解。它不能区分这些可能。有人担心替代选择实际上不可得，也有人因其他制度理由偏好共同安排；这些解释都不能直接由分数推出。不要将低值变成不可信、支持欺诈或反对合作的个人描述，本题没有测量这些品质。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "An agreement can contain several unsettled questions",
+            "zh": "一项约定可能同时包含几个未决问题"
+          },
+          "paragraphs": [
+            {
+              "en": "You could agree strongly that material terms should be disclosed, disagree about the adequacy of neutral protections and remain uncertain about when authorities may intervene. Averaging those responses loses that structure. A middle value is therefore not a finding that you occupy a philosophical center, and strong differences between items need not be an error. If the offered statement leaves out a condition essential to your answer, NA is available. One NA removes this topic’s personal sum and mean while leaving the other fully answered topics intact; it is not quietly converted to neutral or disagreement.",
+              "zh": "你可能很赞成披露重要条件，却对中立保护是否足够持不同意见，也可能不确定机构何时可以介入。平均之后，这些结构会丢失。因此中间值不能定位哲学上的中心，条目之间的强烈差异也未必是错误。题目遗漏了回答必需的条件时可选NA；一项NA使本组个人总和与均分不显示，其他完整组仍可读，不会悄悄补成中立或不同意。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "A complete 26-point worked example",
+            "zh": "总和26的完整算例"
+          },
+          "paragraphs": [
+            {
+              "en": "For the eight cooperation statements in their displayed order, imagine the selected codes are 3, 3, 4, 2, 2, 4, 5 and 3. Reversing positions two, four, six and eight gives 3, 3, 4, 4, 2, 2, 5 and 3. Their sum is twenty-six, and 26 ÷ 8 gives a mean of 3.25. No response receives extra weight because its wording seems more important. If one of these eight selections becomes NA, the twenty-six-point example no longer applies and the group remains unscored instead of dividing a shortened sum by seven.",
+              "zh": "按本组呈现顺序，假设选择3、3、4、2、2、4、5、3。第二、四、六、八条反向后，得到3、3、4、4、2、2、5、3，总和26，26÷8＝3.25。不会因为某题看起来更重要而增加权重。若其中一项改为NA，这个总和26的算例就不再适用，本组保留不足，而不是将缩短后的总和除以7。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Supporting choice is not accepting every existing bargain",
+            "zh": "支持选择，不等于认可所有既有交易"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider two fictional agreements with the same printed signature. In one, material terms were disclosed and alternatives were genuinely available. In the other, a rights-violating threat produced the signature. A person could support the first arrangement and reject the second while strongly endorsing the cooperation-facing propositions here. Conversely, someone may think that formal disclosure is insufficient without additional institutional safeguards. The questionnaire cannot inspect either agreement or determine which account is correct. This example also shows why a result about contractual principles cannot be converted into a judgment about a particular employer, worker or transaction.",
+              "zh": "设想两份都有签字的虚构约定：一份披露了重要条件，也有实际可用的替代选择；另一份签字来自侵害权利的威胁。一个人可以认可前者、拒绝后者，同时较认同本组合作方向命题；也有人认为形式披露仍不足，需要更多制度保障。问卷无法检查真实约定，也不能判断哪种事实描述正确，更不能把契约原则读法换成对具体雇主、劳动者或交易的评定。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Compare the qualification, not the person",
+            "zh": "比较限定条件，而不是评判作答者"
+          },
+          "paragraphs": [
+            {
+              "en": "Take one item and identify the word doing the most work in your answer: informed, willing, peaceful, neutral or rights. Write a short example of what would satisfy that word and a counterexample that would not. Reading the neighboring property or public-coercion guide may expose a further question, but it should not determine your answer. The exercise asks for clearer reasoning rather than a more politically consistent profile. You can retain disagreement and end here. There is no instruction to join a group, endorse an actual policy or persuade another person based on the result.",
+              "zh": "挑一道题，找出最影响你回答的词，例如知情、自愿、和平、中立或权利。分别写一个满足该词条件的例子，以及一个不满足的反例。阅读财产权或公共强制指南可能带来新问题，但不应替你决定答案。这是澄清推理，不是让政治画像更整齐一致。可以保留分歧并结束，不需要加入团体、赞成某项现实政策或根据结果说服他人。"
+            }
+          ]
+        },
+        {
+          "id": "method-and-privacy",
+          "title": {
+            "en": "What the original bank can and cannot establish",
+            "zh": "原创题本能说明与不能说明的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "These are new bilingual items grouped by FermatMind Editorial for reflection on specified principles. General accounts of libertarian political philosophy provide context but do not establish reliability, validity or cultural equivalence for this bank. The four groups are not official factors, and their means are not added into a libertarianism total or compared as a personal ranking. All four full explanations remain available even with missing information. Optional saved answers stay in the current tab for a limited time and clear on completion or retake. Public explanation links contain no personal responses or means.",
+              "zh": "费马测试编辑部将新写双语条目按议题分组，用于反思具体原则。一般自由意志主义政治哲学提供背景，不建立本题信度、效度或文化等价。四组不是官方因子，均分不相加为自由意志主义总分，也不跨组给个人排名。资料不足时四份完整说明仍可读；自愿保存的答案只在当前标签页短暂保留，完成或重测清除，公开说明链接不含个人回答或均分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Voluntary Cooperation: Original Liberty-Principle Guide",
+          "zh": "自愿合作与约定：完整原则读法｜原创自由原则反思"
+        },
+        "description": {
+          "en": "Eight authored statements ask about disclosed terms, alternative partners and limits on overriding a peaceful arrangement. Responses describe agreement with this limited set of propositions, not whether you are cooperative in everyday life or belong to a political tradition.",
+          "zh": "八条自编陈述询问知情条件、替代伙伴，以及推翻和平安排的边界。回答描述对这组有限命题的同意程度，不评定日常是否好合作，也不指定政治传统归属。"
+        }
+      }
+    },
+    {
+      "id": "property",
+      "directionIds": [
+        "property"
+      ],
+      "title": {
+        "en": "Property and rectification: a full principle reading",
+        "zh": "财产权主张与纠错：完整原则读法"
+      },
+      "headline": {
+        "en": "Ask both how a claim was acquired and what would justify overriding it.",
+        "zh": "同时看权利怎样取得，以及推翻它需要什么理由。"
+      },
+      "summary": {
+        "en": "This authored group joins eight propositions about legitimate acquisition, peaceful use, wrongful takings and opportunities to challenge reassignment. It does not declare all existing holdings just or settle the disputes among libertarian accounts of natural resources.",
+        "zh": "本自编分组包含八条关于正当取得、和平使用、不当取得与质疑重新分配的命题。不宣布一切现有持有都正当，也不解决自由意志主义对自然资源的内部争论。"
+      },
+      "scoreReading": {
+        "en": "Reverse the four oppositely keyed responses with six minus the selected code. All eight adjusted values give a sum of 8–40 and an unrounded mean of 1–5. Any NA withholds this group’s personal figures; there is no property-rights purity percentage.",
+        "zh": "四条相反键向回答用6减所选编码；八个调整值形成8—40原始和与1—5均分。任一NA使本组个人数字保留不足，不生成财产权纯度百分比。"
+      },
+      "sections": [
+        {
+          "id": "principle-scope",
+          "title": {
+            "en": "The legitimacy of a claim is part of the question",
+            "zh": "权利主张是否正当，本身就是问题的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "The property group asks about the history of a claim, discretion over peaceful use and reasons an authority might give for redirecting an asset. The word legitimate is not a finding that any particular holding meets the relevant standard. Several items make the history of force, deception or wrongful taking relevant, while another asks about the effect of initial appropriation on other people’s equal freedom. These qualifications are intentional. The eight responses do not resolve competing theories of ownership and cannot be used to certify an actual title, transaction or public reassignment.",
+              "zh": "本组询问权利主张的历史、和平使用的自主空间，以及机构重新指定资产用途时提出的理由。“正当”不是在认定某个真实持有已经满足标准。几道题明确要求考虑强制、欺骗和不当取得的历史，也有题目询问最初占有对他人平等自由的影响；这些限定是有意保留的。八条回答不解决不同产权理论，也不能认证真实产权、交易或公共分配。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "More support for the particular ownership-and-remedy propositions",
+            "zh": "较多支持本组具体的产权与纠错命题"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher adjusted mean reflects more agreement with the keyed propositions protecting legitimate discretion while taking wrongful acquisition and challenge procedures seriously. It does not amount to blanket support for present distributions or a rejection of every tax. Libertarian approaches disagree about original acquisition, what is owed to people excluded from resources and what rectification requires. A person could endorse a strong claim over legitimately produced goods while supporting compensation for the use of natural resources. The summary does not identify which theory explains their responses or whether any proposed compensation is justified.",
+              "zh": "调整后较高，表示更认同保护正当自主、重视不当取得和质疑程序这些具体命题，并不等于一概支持当前分配或反对所有税收。自由意志主义对最初取得、被排除于资源之外的人应得什么、纠错需要什么，本来就有争议。有人可以维护对正当生产物的强权利，同时支持自然资源使用补偿；汇总不能确定其采用哪种理论，也不能判断某项实际补偿是否正当。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less endorsement may challenge the assumptions themselves",
+            "zh": "较少认同也可能是在质疑前提"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower value may reflect a different account of ownership, stronger support for public direction or reservations about what the offered propositions leave unspecified. For example, a respondent may believe that legitimacy depends on public institutions in ways the items do not explain. Another may find the balance between past injustice and present expectations unresolved. The numerical summary does not choose between these reasons. It should not become a claim that a person approves theft, rejects fairness or lacks respect for others. The items ask about institutional principles, not personal honesty or conduct.",
+              "zh": "较低可能来自不同产权理论、较支持公共指定，也可能是对命题遗漏条件的保留。例如，有人认为正当性依赖题目没有解释的公共制度，另有人觉得过去不公与当前预期之间的关系尚未解决。数字不替这些理由作选择，更不能变成“赞成盗窃”“反对公平”或“不尊重他人”的个人标签。题目询问制度原则，不评价个人诚实与行为。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Preserving a claim and correcting a wrong can pull differently",
+            "zh": "保护主张与纠正错误可能产生不同取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "You may strongly support an opportunity to challenge official reassignment and still disagree about how to judge the initial acquisition of a resource. Those answers can coexist without the program treating them as an error. Equal means can arise from very different combinations of item responses, so the middle of this scale is not a shared philosophical compromise. It is especially important to use NA when the word legitimate cannot be interpreted from the stated information. Uncertainty should not silently become an endorsement of the current holder or a rejection of property rights.",
+              "zh": "你可能很支持质疑官方重新分配的机会，却对最初取得应如何判断持不同意见。两种回答可以并存，程序不把它们算作错误。不同条目组合可能形成同样的均分，因此量尺中点并不是共同的哲学折中。给定信息不足以理解“正当”时，尤其适合保留NA；不确定不应悄悄变成认可现持有人，或变成否定财产权。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Check a 19-point example with reverse keys",
+            "zh": "核对反向键下总和19的算例"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine responses of 2, 4, 3, 5, 2, 3, 4 and 4 in the eight-item group’s displayed order. Positions two, four, six and eight are reversed, giving adjusted values of 2, 2, 3, 1, 2, 3, 4 and 2. The sum is nineteen and 19 ÷ 8 = 2.375, displayed as 2.38. That is arithmetic on selected response codes, not an estimate of the percentage of property claims you would uphold. Every valid response contributes once; no historical or practical importance is assigned a hidden extra weight.",
+              "zh": "假设按本组顺序回答2、4、3、5、2、3、4、4。第二、四、六、八条反向后，得到2、2、3、1、2、3、4、2，总和19。19÷8＝2.375，显示2.38。这是所选编码的算术，不是在估计你会维护百分之多少的财产权主张。每项有效回答只计一次，不以历史或现实重要性另加隐藏权重。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A shared concern for ownership can lead to disagreement",
+            "zh": "同样重视权利，仍可能产生不同结论"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional readers may both reject deception in acquiring an asset and both defend a chance to challenge an official decision. They could still disagree about whether an initial claim over a scarce natural resource requires compensation to others. That disagreement occurs within the broader family of libertarian thought and is not resolved by a high mean on this group. Conversely, someone can support public redistribution for a different conception of justice without rejecting every individual claim. The bank reports the specified responses rather than using one controversial theory as an undisclosed test of political authenticity.",
+              "zh": "两位虚构读者都可能反对以欺骗取得资产，也都支持质疑官方决定的机会，却仍对最初占有稀缺自然资源是否应向他人补偿持不同意见。这种分歧可以发生在自由意志主义家族内部，不会因本组均分较高而消失。另有人可能基于不同正义观支持公共再分配，同时并不否定所有个人主张。本题汇报具体回答，不以某个有争议的理论暗中检验政治身份是否“正宗”。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Distinguish the principle from missing facts",
+            "zh": "区分原则分歧与事实缺失"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick an item that was difficult and divide your uncertainty into two columns: a principle you disagree about and facts you would need before applying it. For instance, the history of a holding and the adequacy of an appeal process are factual questions distinct from how ownership should be justified. This exercise does not ask you to investigate a real person or act on a disputed claim. It simply makes the limits of an abstract item visible. Read the other complete guides if useful, leave a topic unscored or stop without adopting a political recommendation.",
+              "zh": "选一道难题，把不确定分成两栏：有分歧的原则，以及应用原则之前需要的事实。持有历史、申诉渠道是否实际可用，都是与产权应怎样论证不同的问题。这个练习不要求调查真实个人，也不要求对争议资产采取行动，只是展示抽象题目的边界。可以阅读其他完整指南、让某组保持未评分，或结束，无须采纳政治建议。"
+            }
+          ]
+        },
+        {
+          "id": "method-and-privacy",
+          "title": {
+            "en": "A source-bounded original reflection",
+            "zh": "有来源边界的原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "The items, equal-weight rule and four editorial topic groups are original to FermatMind. References to libertarian political philosophy explain why ownership and rectification are disputed, not why this questionnaire should be treated as a validated instrument. We have no population norm or established Chinese–English equivalence for the new wording. Means are separate and are never added into a purity score or party assignment. The full guide remains available when a personal mean is withheld. Optional drafts are temporary tab storage, while public explanation links contain neither an individual’s answers nor a claim about the ownership of any actual asset.",
+              "zh": "条目、等权规则和四个编辑议题分组均为费马原创。自由意志主义政治哲学参考解释产权与纠错为何有争议，不证明本问卷已经成为有效量表。新表述没有本站人口常模或已建立的中英文等价证据，均分分别呈现，不相加为纯度或政党归属。个人均分不足时完整指南仍开放；草稿自愿临时保存在标签页，公开链接既没有个人答案，也不判断任何真实资产的归属。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Property & Rectification: Original Liberty-Principle Guide",
+          "zh": "财产权主张与纠错：完整原则读法｜原创自由原则反思"
+        },
+        "description": {
+          "en": "This authored group joins eight propositions about legitimate acquisition, peaceful use, wrongful takings and opportunities to challenge reassignment. It does not declare all existing holdings just or settle the disputes among libertarian accounts of natural resources.",
+          "zh": "本自编分组包含八条关于正当取得、和平使用、不当取得与质疑重新分配的命题。不宣布一切现有持有都正当，也不解决自由意志主义对自然资源的内部争论。"
+        }
+      }
+    },
+    {
+      "id": "coercion",
+      "directionIds": [
+        "coercion"
+      ],
+      "title": {
+        "en": "Public coercion: a full principle reading",
+        "zh": "公共强制的限制与论证：完整原则读法"
+      },
+      "headline": {
+        "en": "Examine the reasons and limits claimed for compulsory public powers.",
+        "zh": "检查强制性公共权力提出了什么理由，又有哪些边界。"
+      },
+      "summary": {
+        "en": "Eight original propositions concern justification, official status, challenge procedures and a presumption for individual freedom. Their mean describes these responses without measuring trust in government, assigning an ideology or deciding whether a real legal action is valid.",
+        "zh": "八条原创命题讨论理由、官方身份、质疑程序与优先保护个人自由的起点。均分只描述这些回答，不测政府信任、不派意识形态，也不判断真实法律行为是否有效。"
+      },
+      "scoreReading": {
+        "en": "Reverse the second, fourth, sixth and eighth responses using six minus the selected code. All eight valid adjusted values produce an 8–40 sum; divide the unrounded sum by eight. Any NA withholds only this topic, and no combined libertarian total is generated.",
+        "zh": "第二、四、六、八条用6减所选编码反向处理。八项有效调整值形成8—40总和，再将未舍入总和除8；任一NA只使本议题不足，不生成自由意志主义综合总分。"
+      },
+      "sections": [
+        {
+          "id": "principle-scope",
+          "title": {
+            "en": "The justification of a power, not its popularity",
+            "zh": "询问权力的论证，而不是受欢迎程度"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks what reasons an agency should give for imposing a binding restriction and what opportunity affected people should have to challenge it. The propositions also contrast an official title with a substantive justification. They do not ask whether you like a particular government or whether you would comply with a current law. The scope is a hypothetical discussion of institutional principles. A response can reflect the importance you assign to limits, the assumptions you attach to rights or reservations about the wording. The summary cannot identify the facts or legal standards of an actual case.",
+              "zh": "本组询问机构施加有约束力的限制应提出哪些理由，受影响者应有怎样的质疑机会，也比较官方头衔与实质理由的区别。它不问你是否喜欢某个政府，也不问是否会遵守现行法律，范围是假设的制度原则讨论。回答可能反映对边界的重视、对权利的假定，也可能是对表述的保留；汇总不能识别真实案件的事实或法律标准。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "A higher mean favors the stated burden of justification",
+            "zh": "较高均分较支持题中所说的说明理由要求"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher adjusted value indicates more agreement with requiring an account of the rights protected, a way to challenge restrictions and a presumption in favor of individual freedom. It also indicates less agreement that good intentions or official status alone are enough. This is not a finding that you oppose every public institution or every compulsory rule. Libertarian approaches differ over whether a minimal state can be justified and how rights protection should be organized. Other political traditions can also endorse strong limits and accountability. The selected propositions do not provide a unique membership test for any one of them.",
+              "zh": "调整后较高，表示更认同说明所保护的权利、提供质疑限制的途径，以及优先保护个人自由，也较少认同良好意图或官方身份本身就足够。这不表示反对所有公共机构或强制规则。自由意志主义对最小国家能否成立、权利保护怎样组织存在分歧；其他政治传统也可能主张严格边界与问责。这组命题不能成为任何传统独有的成员资格测试。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "A lower mean leaves several interpretations open",
+            "zh": "较低均分仍有多种解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower adjusted value could reflect a stronger priority for a collectively approved purpose, a different view of authority or disagreement about how the items frame the need for justification. It does not establish indifference to rights or approval of arbitrary force. A respondent may also think that a public decision already includes safeguards that the statement fails to mention. Those qualifications are not collected by a five-point response. Before attaching a general label, identify the particular claim you endorsed or rejected and the assumption behind it. The score does not assess your character or political competence.",
+              "zh": "较低可能表示更重视集体认可的目的、采用不同权威观，也可能不赞成题目对理由要求的设定。它不能证明不在意权利或认可任意强制。有些回答者可能认为公共决定已经包含陈述没有写出的保障，而五点选项没有收集这些条件。加总之前后，都需要知道究竟同意或拒绝了哪项主张及其假设；分数不评价品格或政治能力。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Separate a demand for reasons from a decision about outcomes",
+            "zh": "把要求理由与支持某个结果分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You can strongly support an appeal process and remain uncertain about which rights a proposed restriction would protect. You can also agree that official status is insufficient while believing a particular kind of public power is justified on other grounds. Combining these answers into a mean does not settle the issue. A middle number may represent several firm judgments rather than weak engagement. If the given proposition cannot capture the condition essential to your answer, NA keeps that limitation visible. It withholds the group’s figures instead of inventing a neutral answer or borrowing information from another topic.",
+              "zh": "你可以很支持申诉程序，却不确定某项限制保护了哪些权利；也可以认同官方身份本身不足，同时认为某类公共权力有其他正当理由。均分不能解决这些问题，中间数字也可能来自几项坚定判断，而不是参与不足。给出的命题无法表达回答所必需的条件时，NA会保留边界，不显示本组数字，不捏造中立回答，也不从另一议题借分。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Reproduce 3.625 without intermediate rounding",
+            "zh": "不经中间舍入，复算3.625"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional sequence of 5, 2, 3, 2, 4, 3, 2 and 2, reverse positions two, four, six and eight. The adjusted values become 5, 4, 3, 4, 4, 3, 2 and 4. They sum to twenty-nine, so 29 ÷ 8 = 3.625, displayed as 3.63. There is no additional step that compares this value to a national average or turns it into a percentage of opposition to government. A mean of 3.63 is only a compact description of these eight coded answers; its two decimals are an arithmetic display choice.",
+              "zh": "假设回答依次是5、2、3、2、4、3、2、2，第二、四、六、八项反向后得到5、4、3、4、4、3、2、4，总和29。29÷8＝3.625，显示3.63。之后不会与国家平均比较，也不换算为“反对政府的百分比”。3.63只是八个编码回答的简短汇总，两位小数是算术呈现方式。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Different theories can require an explanation",
+            "zh": "不同理论也可能要求说明理由"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional readers who both reject an agency’s claim that its good intention is sufficient justification. One thinks institutions should be limited mainly to protecting individual rights; the other supports a broader public role but demands transparent reasons and remedies. Their responses to some items may match, while their theories of public authority remain different. This is a counterexample to treating a high topic mean as proof of a libertarian identity. Likewise, a lower mean cannot tell you which institution or party a person supports. The questionnaire has neither the items nor the evidence to make those inferences.",
+              "zh": "两位虚构读者都不接受机构以良好意图作为充分理由。一位认为机构主要应限于保护个人权利，另一位接受更广泛公共作用，但要求透明理由和救济。部分回答可能相同，公共权威理论仍不同。因此本组较高不能证明自由意志主义身份，较低也不能说明支持哪个机构或政党。本题既没有相应条目，也没有证据支持这些推断。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "State the question you would still need answered",
+            "zh": "写下仍需回答的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one proposition and write a question that would help you understand it more precisely. You might ask who can challenge a restriction, what counts as an adequate reason or what evidence would show that a claimed protection is effective. Do not turn that question into a direction to take action against a real person or institution. Its purpose is to make your interpretation explicit. The other full guides can be read as comparisons, not recommendations about where your beliefs should move. Keeping a disagreement or ending the reflection is a valid outcome.",
+              "zh": "挑一项命题，写出有助于更准确理解它的问题，例如谁能质疑限制、什么理由才充分，或哪些证据能说明声称的保护有效。这个问题不指向针对真实个人或机构的行动，只用于明确自己的理解。其他完整指南可以作为比较，不建议信念应往哪边移动。保留分歧，或直接结束反思，都是可以的结果。"
+            }
+          ]
+        },
+        {
+          "id": "method-and-privacy",
+          "title": {
+            "en": "No party score, purity claim or private public link",
+            "zh": "没有政党分数、纯度，也没有含私人回答的公开链接"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind Editorial authored this bank as a reflection on specified political principles. The four groupings are not empirical factors, and background theory does not confer validation or a population norm. No highest group wins an identity, and the means are not combined into an overall score. The new bilingual wording and NA rule have not established cultural equivalence. Every guide remains public and complete when personal figures are withheld. Optional saved answers stay in this browser tab and clear on completion or retake. Copying a link shares a public explanation without responses, sums or personal means.",
+              "zh": "费马测试编辑部原创本题本，用于反思具体政治原则。四个分组不是经验因子，背景理论不赋予效度或人口常模，不由最高组决定身份，也不合成综合分数。新双语表述和NA规则没有建立文化等价证据。个人数字不足时，每份指南仍完整公开；答案自愿保存在本标签页，完成或重测清除。复制链接只分享公开说明，不带回答、总和或个人均分。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Public Coercion: Original Liberty-Principle Guide",
+          "zh": "公共强制的限制与论证：完整原则读法｜原创自由原则反思"
+        },
+        "description": {
+          "en": "Eight original propositions concern justification, official status, challenge procedures and a presumption for individual freedom. Their mean describes these responses without measuring trust in government, assigning an ideology or deciding whether a real legal action is valid.",
+          "zh": "八条原创命题讨论理由、官方身份、质疑程序与优先保护个人自由的起点。均分只描述这些回答，不测政府信任、不派意识形态，也不判断真实法律行为是否有效。"
+        }
+      }
+    }
+  ],
+  "scoreWitnesses": {
+    "perDomainStates": [
+      {
+        "rated": 0,
+        "sum": 0,
+        "adjustedCodes": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 1,
+        "adjustedCodes": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 2,
+        "adjustedCodes": [
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 3,
+        "adjustedCodes": [
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 4,
+        "adjustedCodes": [
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 5,
+        "adjustedCodes": [
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 2,
+        "adjustedCodes": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 3,
+        "adjustedCodes": [
+          2,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 4,
+        "adjustedCodes": [
+          3,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 5,
+        "adjustedCodes": [
+          4,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 6,
+        "adjustedCodes": [
+          5,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 7,
+        "adjustedCodes": [
+          5,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 8,
+        "adjustedCodes": [
+          5,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 9,
+        "adjustedCodes": [
+          5,
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 10,
+        "adjustedCodes": [
+          5,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 3,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 4,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 5,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 6,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 7,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 8,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 9,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 10,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 11,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 4,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 5,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 6,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 7,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 8,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 9,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 10,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 11,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 16,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          1,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 17,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          2,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 18,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          3,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 19,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          4,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 20,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          null,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 5,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 6,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 7,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 8,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 9,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 10,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 11,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 16,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 17,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          1,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 18,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          2,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 19,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          3,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 20,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          4,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 21,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          1,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 22,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          2,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 23,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          3,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 24,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 25,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          null,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 6,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 7,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 8,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 9,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 10,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 11,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 16,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 17,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 18,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 19,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          2,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 20,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          3,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 21,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          4,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 22,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          1,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 23,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          2,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 24,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          3,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 25,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 26,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 27,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 28,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 29,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 30,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          null,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 7,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 8,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 9,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 10,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 11,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 16,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 17,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 18,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 19,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 20,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          2,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 21,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          3,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 22,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          4,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 23,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 24,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          2,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 25,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          3,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 26,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 27,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 28,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 29,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 30,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 31,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 32,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 33,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 34,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 7,
+        "sum": 35,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          null
+        ],
+        "fullMean": null
+      },
+      {
+        "rated": 8,
+        "sum": 8,
+        "adjustedCodes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.0
+      },
+      {
+        "rated": 8,
+        "sum": 9,
+        "adjustedCodes": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.125
+      },
+      {
+        "rated": 8,
+        "sum": 10,
+        "adjustedCodes": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.25
+      },
+      {
+        "rated": 8,
+        "sum": 11,
+        "adjustedCodes": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.375
+      },
+      {
+        "rated": 8,
+        "sum": 12,
+        "adjustedCodes": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.5
+      },
+      {
+        "rated": 8,
+        "sum": 13,
+        "adjustedCodes": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.625
+      },
+      {
+        "rated": 8,
+        "sum": 14,
+        "adjustedCodes": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.75
+      },
+      {
+        "rated": 8,
+        "sum": 15,
+        "adjustedCodes": [
+          5,
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 1.875
+      },
+      {
+        "rated": 8,
+        "sum": 16,
+        "adjustedCodes": [
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.0
+      },
+      {
+        "rated": 8,
+        "sum": 17,
+        "adjustedCodes": [
+          5,
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.125
+      },
+      {
+        "rated": 8,
+        "sum": 18,
+        "adjustedCodes": [
+          5,
+          5,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.25
+      },
+      {
+        "rated": 8,
+        "sum": 19,
+        "adjustedCodes": [
+          5,
+          5,
+          4,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.375
+      },
+      {
+        "rated": 8,
+        "sum": 20,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.5
+      },
+      {
+        "rated": 8,
+        "sum": 21,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.625
+      },
+      {
+        "rated": 8,
+        "sum": 22,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.75
+      },
+      {
+        "rated": 8,
+        "sum": 23,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 2.875
+      },
+      {
+        "rated": 8,
+        "sum": 24,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 3.0
+      },
+      {
+        "rated": 8,
+        "sum": 25,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          2,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 3.125
+      },
+      {
+        "rated": 8,
+        "sum": 26,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          3,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 3.25
+      },
+      {
+        "rated": 8,
+        "sum": 27,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          4,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 3.375
+      },
+      {
+        "rated": 8,
+        "sum": 28,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          1,
+          1
+        ],
+        "fullMean": 3.5
+      },
+      {
+        "rated": 8,
+        "sum": 29,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          1,
+          1
+        ],
+        "fullMean": 3.625
+      },
+      {
+        "rated": 8,
+        "sum": 30,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          1,
+          1
+        ],
+        "fullMean": 3.75
+      },
+      {
+        "rated": 8,
+        "sum": 31,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          1,
+          1
+        ],
+        "fullMean": 3.875
+      },
+      {
+        "rated": 8,
+        "sum": 32,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          1,
+          1
+        ],
+        "fullMean": 4.0
+      },
+      {
+        "rated": 8,
+        "sum": 33,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          2,
+          1
+        ],
+        "fullMean": 4.125
+      },
+      {
+        "rated": 8,
+        "sum": 34,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          3,
+          1
+        ],
+        "fullMean": 4.25
+      },
+      {
+        "rated": 8,
+        "sum": 35,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          1
+        ],
+        "fullMean": 4.375
+      },
+      {
+        "rated": 8,
+        "sum": 36,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "fullMean": 4.5
+      },
+      {
+        "rated": 8,
+        "sum": 37,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          2
+        ],
+        "fullMean": 4.625
+      },
+      {
+        "rated": 8,
+        "sum": 38,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          3
+        ],
+        "fullMean": 4.75
+      },
+      {
+        "rated": 8,
+        "sum": 39,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4
+        ],
+        "fullMean": 4.875
+      },
+      {
+        "rated": 8,
+        "sum": 40,
+        "adjustedCodes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "fullMean": 5.0
+      }
+    ],
+    "workedExamples": {
+      "autonomy": {
+        "responses": [
+          4,
+          2,
+          5,
+          3,
+          4,
+          2,
+          3,
+          2
+        ],
+        "sum": 31,
+        "mean": "3.88"
+      },
+      "cooperation": {
+        "responses": [
+          3,
+          3,
+          4,
+          2,
+          2,
+          4,
+          5,
+          3
+        ],
+        "sum": 26,
+        "mean": "3.25"
+      },
+      "property": {
+        "responses": [
+          2,
+          4,
+          3,
+          5,
+          2,
+          3,
+          4,
+          4
+        ],
+        "sum": 19,
+        "mean": "2.38"
+      },
+      "coercion": {
+        "responses": [
+          5,
+          2,
+          3,
+          2,
+          4,
+          3,
+          2,
+          2
+        ],
+        "sum": 29,
+        "mean": "3.63"
+      }
+    }
+  },
+  "sourceURL": "https://plato.stanford.edu/entries/libertarianism/",
+  "sourceRead": "Selectedintro/sect1selfownership/sect2acquisitionandobjections/sect4left-rightdiversity/sect5stateargumentsread;notallcitedbooks/studies",
+  "sourceRights": "All32propositions/bilingualwording/4editorialtopicgroups/guidesoriginalFermatMind. SEPgeneralconceptreferenceonly;noIDR34/Caplan64/SEPparagraphcopiedoradapted;nosourceinstrumentlicence/validationinherited.",
+  "scope": "Agreementwithspecifiedprinciples,notvalidatedlibertarianismtrait/purity/personparty. 16reverse;all8validpergroup;raw8..40/unroundedmean1..5;anyNAwithholdsonlyownfigures;nooveralltotal/rank/norm/percentages/persuasion."
+}

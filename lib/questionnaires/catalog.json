@@ -4009,5 +4009,30 @@
       "cube-turns",
       "layouts"
     ]
+  },
+  {
+    "slug": "libertarian",
+    "code": "FM_LIBERTY_PRINCIPLES_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Libertarian Test: Original Principles Reflection",
+      "zh": "自由意志主义测试：原创原则反思版"
+    },
+    "description": {
+      "en": "Reflect on 32 original political-principle statements in four authored topic groups. Read separate sums, means or uncertainty and all four full guides without a purity score.",
+      "zh": "用32条原创政治原则命题反思自主、合作、财产权纠错与公共强制；四个自编议题分别显示原始和、均分或资料不足，四份完整指南始终可读，不计算身份或纯度。"
+    },
+    "minutes": 8,
+    "collection": "explore",
+    "formCode": "fm_liberty_principles_original_32_v1",
+    "questionCount": 32,
+    "resultSlugs": [
+      "autonomy",
+      "cooperation",
+      "property",
+      "coercion"
+    ]
   }
 ]
