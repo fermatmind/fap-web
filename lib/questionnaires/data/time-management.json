@@ -1,0 +1,2246 @@
+{
+  "slug": "time-management",
+  "code": "FM_TIME_MANAGEMENT_HABITS24",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "title": {
+    "en": "Time Management Test",
+    "zh": "时间管理测试"
+  },
+  "seoTitle": {
+    "en": "Time Management Test: Four Habit Readings & Full Free Guides",
+    "zh": "时间管理测试：四项习惯读法与完整免费指南"
+  },
+  "description": {
+    "en": "Reflect on 24 time-management habits from the past two weeks. Read four separate means, examples and small actions, including skipped answers. Full results free.",
+    "zh": "回看过去两周的24项时间管理行为，分别阅读优先容量、步骤估时、专注返回和回看重订的均分、例子与小行动。跳题说明和全部结果免费。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Think about the past two weeks. When a relevant occasion occurred, how often did you do what each statement describes? Choose never, rarely, sometimes, often or almost always. If no occasion occurred, or you would rather not answer, use the unscored option. Each of four parts needs all six frequency responses for a mean; a skip withholds only that part. Six minutes is an editorial estimate, with no timer. Use your own work, study or day-to-day responsibilities; do not assume that every interruption or deadline was under your control.",
+    "zh": "回想过去两周：在有相关机会时，你有多常做出陈述中的行为？可选从不、很少、有时、经常、几乎总是。没有相关机会或暂不想回答时，选不计分选项。四部分各自需要六题完整频率回答才给均分，跳题仅暂不给所在部分的均分。约六分钟是编辑估计，不计时。可参考自己的工作、学习或日常责任，不假定每次打断或期限都由你控制。"
+  },
+  "introduction": {
+    "en": "This original FermatMind reflection separates priorities and capacity, workable steps and estimates, attention and returning after interruptions, and reviewing or renegotiating plans. It describes reported behavior rather than tested time-management skill. There is no overall productivity score, personality type, normal range, career-fit percentage or hiring recommendation. Four public guides remain complete at every mean and when information is insufficient.",
+    "zh": "这份费马原创自报反思分为优先与容量、步骤与估时、专注与返回、回看与重订四部分。描述的是报告出来的行为，不是实测时间管理技能；不设整体生产力分、人格类型、正常区间、职业适配率或录用建议。无论均分是多少或资料是否充分，四份公开指南都完整可读。"
+  },
+  "resultHeading": {
+    "en": "Your four habit readings",
+    "zh": "你的四项习惯读法"
+  },
+  "directions": [
+    {
+      "id": "priorities",
+      "title": {
+        "en": "Priorities and available capacity",
+        "zh": "优先与可用时间"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "planning",
+      "title": {
+        "en": "Workable steps and estimates",
+        "zh": "步骤与时间估计"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "focus",
+      "title": {
+        "en": "Attention and returning after interruptions",
+        "zh": "专注与打断后返回"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and renegotiating plans",
+        "zh": "回看与调整承诺"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "TMH_01",
+      "prompt": {
+        "en": "Before choosing my main task, I checked which commitment mattered most that day.",
+        "zh": "选择当天主要任务前，我核对了哪项承诺最需要优先处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_02",
+      "prompt": {
+        "en": "I checked the time left after fixed responsibilities before agreeing to another task.",
+        "zh": "接下新任务前，我先看固定责任之外实际还剩多少时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_03",
+      "prompt": {
+        "en": "I treated the newest request as first priority without checking an existing commitment.",
+        "zh": "收到新请求后，我没核对原有承诺就把它放到了最前面。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_04",
+      "prompt": {
+        "en": "When two deadlines competed, I clarified which outcome could wait.",
+        "zh": "两项截止时间冲突时，我确认了哪项成果可以推后。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_05",
+      "prompt": {
+        "en": "I included necessary rest or caring responsibilities when deciding what could fit.",
+        "zh": "判断能否安排任务时，我把必要休息或照护责任也算了进去。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_06",
+      "prompt": {
+        "en": "I accepted a new deadline despite already knowing that my available time was filled.",
+        "zh": "明知可用时间已经排满，我仍答应了新的截止时间。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_07",
+      "prompt": {
+        "en": "For a task taking more than one sitting, I identified a next step I could actually start.",
+        "zh": "一件事需要分几次完成时，我明确了当下能开始的下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_08",
+      "prompt": {
+        "en": "I included setup or checking time when estimating how long a task would take.",
+        "zh": "估计任务用时，我把准备或检查所需的时间也算在内。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_09",
+      "prompt": {
+        "en": "I kept the same time estimate after a comparable task had taken longer than expected.",
+        "zh": "类似任务已经比预期耗时，我仍沿用原来的时间估计。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_10",
+      "prompt": {
+        "en": "I checked what information or materials were needed before reserving time for a task.",
+        "zh": "为任务留时间前，我查看了需要先准备哪些信息或材料。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_11",
+      "prompt": {
+        "en": "I left some room for foreseeable interruptions when making a plan.",
+        "zh": "做计划时，我为可以预见的打断留了一些余地。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_12",
+      "prompt": {
+        "en": "I reserved a work period without deciding what a usable stopping point would be.",
+        "zh": "我留出了做事时段，却没想清楚做到哪里就算可以收尾。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_13",
+      "prompt": {
+        "en": "Before a planned work period, I reduced a distraction that I could reasonably control.",
+        "zh": "开始预留的做事时段前，我减少了一项自己能合理控制的干扰。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_14",
+      "prompt": {
+        "en": "After an interruption, I used a note or another cue to return to the task.",
+        "zh": "被打断后，我借助笔记或其他提示返回原任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_15",
+      "prompt": {
+        "en": "I moved between unrelated tasks without keeping a cue for where to resume.",
+        "zh": "我在无关任务间来回切换，却没留下从哪里接着做的提示。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_16",
+      "prompt": {
+        "en": "When uninterrupted time was unavailable, I chose a smaller step that fit the time I had.",
+        "zh": "无法获得完整时段时，我改选了现有时间里能做的小步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_17",
+      "prompt": {
+        "en": "I made clear when I needed to remain reachable and when a message could wait.",
+        "zh": "我区分了哪些时段必须保持联络，哪些消息可以稍后处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_18",
+      "prompt": {
+        "en": "I checked a non-essential notification during a task even though it could have waited.",
+        "zh": "做事时，我查看了本来可以稍后再看的非必要通知。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_19",
+      "prompt": {
+        "en": "After a plan changed, I updated the next action rather than relying on the old schedule.",
+        "zh": "计划变化后，我更新了下一步行动，而不是继续依赖旧日程。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_20",
+      "prompt": {
+        "en": "I compared an actual task duration with my estimate before making a similar plan.",
+        "zh": "再次安排类似任务前，我比较了上次实际用时和原先估计。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_21",
+      "prompt": {
+        "en": "I left an outdated deadline in my plan after learning it could no longer be met.",
+        "zh": "得知原截止时间已无法实现后，我仍把过期安排留在计划中。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_22",
+      "prompt": {
+        "en": "When a commitment was at risk, I raised the issue with the relevant person before it was due.",
+        "zh": "承诺可能无法按时完成时，我在到期前向相关的人说明了情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_23",
+      "prompt": {
+        "en": "I used a brief review to decide what to continue, change or stop.",
+        "zh": "我用一次简短回看决定哪些安排继续、调整或停止。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_24",
+      "prompt": {
+        "en": "I carried unfinished tasks into a new plan without checking whether they still mattered.",
+        "zh": "把未完成事项移到新计划时，我没核对它们是否仍有必要。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "priorities-and-capacity",
+      "directionIds": [
+        "priorities"
+      ],
+      "title": {
+        "en": "Priorities and Capacity: Read Your Time-Management Responses",
+        "zh": "优先与容量：时间管理回答读法"
+      },
+      "headline": {
+        "en": "A specific reading of six reported habits",
+        "zh": "六项自报习惯的具体读法"
+      },
+      "summary": {
+        "en": "This part asks how often you checked competing commitments against the time actually available during the past two weeks. Its six items cover choosing a priority, accounting for fixed responsibilities, checking a new request, resolving conflicting deadlines, including necessary rest or care, and avoiding an already impossible commitment. It does not measure how important your work is or how much control you have over its timing.",
+        "zh": "这一部分回看过去两周中，你有多常把相互竞争的承诺与实际可用时间放在一起核对。六题分别涉及确定优先事项、计入固定责任、核对新请求、处理截止时间冲突、算入必要休息或照护，以及避免答应已知无法容纳的安排。它不测工作重要程度，也不假定你能决定所有时间。"
+      },
+      "scoreReading": {
+        "en": "Six complete frequency responses give one keyed mean, with no ranking or cutoffs. Any skip withholds this part only.",
+        "zh": "六题频率回答完整才给一个计分后均分，不排名、不设切点；任一跳过仅暂不给这一部分的均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Priorities and Capacity: Read Your Time-Management Responses",
+          "zh": "优先与容量：时间管理回答读法"
+        },
+        "description": {
+          "en": "Explore priorities and available capacity: six reported habits, a keyed mean, a realistic example and one small action. Complete free guide; no ability or hiring prediction.",
+          "zh": "阅读优先与可用时间的六项自报行为、均分、具体情境与一个小行动。完整免费，不推断能力或录用。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What these six items describe",
+            "zh": "这六题具体描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks how often you checked competing commitments against the time actually available during the past two weeks. Its six items cover choosing a priority, accounting for fixed responsibilities, checking a new request, resolving conflicting deadlines, including necessary rest or care, and avoiding an already impossible commitment. It does not measure how important your work is or how much control you have over its timing.",
+              "zh": "这一部分回看过去两周中，你有多常把相互竞争的承诺与实际可用时间放在一起核对。六题分别涉及确定优先事项、计入固定责任、核对新请求、处理截止时间冲突、算入必要休息或照护，以及避免答应已知无法容纳的安排。它不测工作重要程度，也不假定你能决定所有时间。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read more and less frequent signals",
+            "zh": "怎样读较多与较少的信号"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean reflects more reported checking of priorities and capacity across these items. That can provide a starting point for discussing how commitments were chosen; it does not prove that the choices were correct or that deadlines were met. A lower mean points to fewer reported checks or more of the two reverse-worded behaviors, without identifying why. Work allocation, unpredictable care, unclear authority or an unusually crowded week may matter.",
+              "zh": "计分后均分较高，表示在这些题目上报告了较多优先与容量核对，可用于谈谈当时怎样选择承诺，却不能证明选择正确或按期交付。均分较低，表示报告的核对较少，或两个反向行为较多，不能确定原因。任务分配、不可预期的照护、权限不清或特别拥挤的一周，都可能影响作答。"
+            },
+            {
+              "en": "More is not an instruction to reject every request or turn rest into another performance target. Sometimes a new request properly takes priority. The relevant question is whether the trade-off was made visible and could be discussed, not whether the calendar looked efficient.",
+              "zh": "较多也不表示应拒绝每个请求，或把休息变成新的绩效任务。新请求有时确实该优先，值得回看的，是取舍有没有被看见并能否讨论，而不是日历看起来是否高效。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A deadline conflict in practice",
+            "zh": "一个截止时间冲突"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a person has a report due Friday and receives an urgent request on Thursday. One possible check is to ask which deliverable is needed first and what can be reduced, moved or reassigned. Simply accepting both may leave an invisible conflict. The questionnaire cannot tell whether the requester allowed negotiation or whether an emergency made the conflict unavoidable.",
+              "zh": "例如周五要交一份汇总，周四又收到临时需求。可以先确认哪项成果先要、哪些范围可以缩小、延期或重新分配。直接全答应可能把冲突藏起来，但问卷并不知道提出需求的人是否允许协商，也不知道当时是否发生无法回避的紧急情况。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one visible capacity check",
+            "zh": "试一次看得见的容量核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one upcoming commitment you can reasonably discuss. Write down the deadline, existing fixed responsibilities and the trade-off another task would require. If safe and useful, ask the relevant person to confirm the priority. Observe whether the plan became clearer; there is no required score increase or promise that this will reduce workload.",
+              "zh": "选一个你能合理讨论的近期承诺，写下截止时间、已有固定责任，以及再加任务需要挪动什么。在安全且有帮助的情况下，请相关的人确认优先顺序。观察计划是否更清楚即可，无需追求分数上涨，也不保证工作量会因此减少。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the keyed mean, completeness and close values",
+            "zh": "均分、完整度与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains six items rated from 1 to 5; two reverse-worded items use 6 minus the response. The six contributions are averaged and displayed to one decimal. For example, a sum of 23 gives 23/6, displayed as 3.8. This is an editorial descriptive score, without norms, cutoffs, percentiles or evidence that a small difference is meaningful. The four parts are not added, ranked or converted into a personality type.",
+              "zh": "每部分六题按1到5回答，其中两道反向题按6减去回答值计分，再求六项平均，显示一位小数。例如合计23，23/6显示为3.8。这是编辑定义的描述分，没有常模、切点、百分位，也没有证据说明微小差异具有意义；四部分不相加、不排名、不换算人格类型。"
+            },
+            {
+              "en": "All six frequency responses are required for a mean in that part. Any no-occasion or prefer-not-to-answer choice withholds that part’s mean, while other complete parts remain readable. Missing is not a low score and is not imputed. Similar means can hide different answers; read the individual situations privately rather than inventing a winner or comparing people’s competence.",
+              "zh": "每部分六题都需要频率回答才给均分；任一题选择无相关机会或暂不回答，就暂不给这一部分的均分，其他完整部分仍可读。缺答不是低分，不填补。相近均分可能来自不同回答，应私下回看具体情境，不强行选赢家，也不拿来比较个人胜任力。"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these items, groupings, examples and scoring rules for adult self-reflection. The linked university time-management resources provide practical background, not validation of this questionnaire or a licence to reproduce another test. The past-two-week window is an editorial choice. Language, workload and opportunity can change answers; keeping the arithmetic identical does not establish cross-language equivalence.",
+              "zh": "题目、分组、例子与计分规则由费马原创，供成年人自我反思。所链接大学的时间管理资料仅提供实践背景，不验证本问卷，也不授权复制其他测试；过去两周是编辑设定的回顾期。语言、负担和实践机会都可能改变回答，算式一致不代表已证明跨语言等值。"
+            },
+            {
+              "en": "You can finish here. If your separate question concerns which work activities interest you, you may choose the full RIASEC assessment; this score does not convert into interests, a career match or a qualification. Full guides are public before answering. Optional tab drafts last at most twenty-four hours, and copying shares only the public title and link, without personal scores or answers.",
+              "zh": "读到这里即可结束。若你另想知道喜欢哪些工作活动，可以自选完整RIASEC测评；本分数不换算兴趣、职业匹配或资格。全部指南作答前即可公开阅读；可选标签页草稿最多保留24小时，复制仅分享公开标题和链接，不含个人分数或答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steps-and-estimates",
+      "directionIds": [
+        "planning"
+      ],
+      "title": {
+        "en": "Steps and Estimates: Read Your Time-Management Responses",
+        "zh": "步骤与估时：时间管理回答读法"
+      },
+      "headline": {
+        "en": "A specific reading of six reported habits",
+        "zh": "六项自报习惯的具体读法"
+      },
+      "summary": {
+        "en": "This part concerns the planning behaviors you reported over the past two weeks: finding a startable step, including setup and checking time, revising estimates, identifying prerequisites, leaving room for foreseeable interruptions and defining a stopping point. It is a record of reported habits, not a timed planning task or an exam of estimation accuracy.",
+        "zh": "这一部分关注过去两周报告的计划行为：找到能开始的步骤、算入准备和检查、修正估时、辨认前提条件、为可预见打断留余地，以及明确收尾点。它记录的是自报习惯，不是限时规划任务，也没有实测估时准确率。"
+      },
+      "scoreReading": {
+        "en": "Six complete frequency responses give one keyed mean, with no ranking or cutoffs. Any skip withholds this part only.",
+        "zh": "六题频率回答完整才给一个计分后均分，不排名、不设切点；任一跳过仅暂不给这一部分的均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Steps and Estimates: Read Your Time-Management Responses",
+          "zh": "步骤与估时：时间管理回答读法"
+        },
+        "description": {
+          "en": "Explore workable steps and estimates: six reported habits, a keyed mean, a realistic example and one small action. Complete free guide; no ability or hiring prediction.",
+          "zh": "阅读步骤与时间估计的六项自报行为、均分、具体情境与一个小行动。完整免费，不推断能力或录用。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What these six items describe",
+            "zh": "这六题具体描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns the planning behaviors you reported over the past two weeks: finding a startable step, including setup and checking time, revising estimates, identifying prerequisites, leaving room for foreseeable interruptions and defining a stopping point. It is a record of reported habits, not a timed planning task or an exam of estimation accuracy.",
+              "zh": "这一部分关注过去两周报告的计划行为：找到能开始的步骤、算入准备和检查、修正估时、辨认前提条件、为可预见打断留余地，以及明确收尾点。它记录的是自报习惯，不是限时规划任务，也没有实测估时准确率。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read more and less frequent signals",
+            "zh": "怎样读较多与较少的信号"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean reflects more reported preparation and revision under this item set. A detailed plan can still be wrong, too costly to maintain or based on information that changes. A lower mean may invite a closer look at one recurring planning gap, but cannot distinguish lack of information, limited autonomy, unfamiliar work or a deliberate choice to keep a small task informal.",
+              "zh": "计分后均分较高，表示在本题组中报告了较多准备和修订；细致计划仍可能出错、维护成本过高，或建立在后来变化的信息上。均分较低，可以回看一个重复出现的计划缺口，却不能区分信息不足、权限受限、任务陌生，还是有意让小事保持简单。"
+            },
+            {
+              "en": "The aim is not to fill every gap in a calendar or produce a more elaborate system. A useful plan is proportionate to the task and can change when its assumptions fail. This questionnaire does not set a universal buffer percentage or certify a planning method.",
+              "zh": "目标不是填满日历空隙，也不是搭更复杂的系统。计划应与事情规模相称，并能在假设失效时调整。本问卷不设通用缓冲比例，也不认证任何规划方法。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A small delivery with hidden steps",
+            "zh": "交付中容易漏掉的步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a team member expects a short slide update to take one hour. Finding an approved figure, obtaining a missing answer and checking the exported file may add work that was not in that estimate. Listing those dependencies makes the estimate inspectable. It does not prove that every delay could have been prevented or that the individual controlled the approvals.",
+              "zh": "例如要更新几页汇报，最初估计一小时；寻找已批准的数据、等待一条回复、检查导出文件，都可能是原估计遗漏的工作。把这些依赖列出来，估时就有了可讨论的依据。这不表示所有延期都能预防，也不表示个人能控制审批。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Compare one estimate with what happened",
+            "zh": "比较一次估时与实际"
+          },
+          "paragraphs": [
+            {
+              "en": "For one repeatable task, note an estimate privately, then record the actual duration and one reason for the difference. Use that observation when planning the next comparable task. If the task was unusual, retain that context rather than treating one record as a permanent rule or uploading work details to the questionnaire.",
+              "zh": "选一项可重复的任务，私下记下估计用时，再记录实际用时及一个差异原因，下次相似任务可参考这条观察。若这次情况特殊，保留背景，不把一条记录变成永久规则，也无需把工作细节上传到问卷。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the keyed mean, completeness and close values",
+            "zh": "均分、完整度与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains six items rated from 1 to 5; two reverse-worded items use 6 minus the response. The six contributions are averaged and displayed to one decimal. For example, a sum of 23 gives 23/6, displayed as 3.8. This is an editorial descriptive score, without norms, cutoffs, percentiles or evidence that a small difference is meaningful. The four parts are not added, ranked or converted into a personality type.",
+              "zh": "每部分六题按1到5回答，其中两道反向题按6减去回答值计分，再求六项平均，显示一位小数。例如合计23，23/6显示为3.8。这是编辑定义的描述分，没有常模、切点、百分位，也没有证据说明微小差异具有意义；四部分不相加、不排名、不换算人格类型。"
+            },
+            {
+              "en": "All six frequency responses are required for a mean in that part. Any no-occasion or prefer-not-to-answer choice withholds that part’s mean, while other complete parts remain readable. Missing is not a low score and is not imputed. Similar means can hide different answers; read the individual situations privately rather than inventing a winner or comparing people’s competence.",
+              "zh": "每部分六题都需要频率回答才给均分；任一题选择无相关机会或暂不回答，就暂不给这一部分的均分，其他完整部分仍可读。缺答不是低分，不填补。相近均分可能来自不同回答，应私下回看具体情境，不强行选赢家，也不拿来比较个人胜任力。"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these items, groupings, examples and scoring rules for adult self-reflection. The linked university time-management resources provide practical background, not validation of this questionnaire or a licence to reproduce another test. The past-two-week window is an editorial choice. Language, workload and opportunity can change answers; keeping the arithmetic identical does not establish cross-language equivalence.",
+              "zh": "题目、分组、例子与计分规则由费马原创，供成年人自我反思。所链接大学的时间管理资料仅提供实践背景，不验证本问卷，也不授权复制其他测试；过去两周是编辑设定的回顾期。语言、负担和实践机会都可能改变回答，算式一致不代表已证明跨语言等值。"
+            },
+            {
+              "en": "You can finish here. If your separate question concerns which work activities interest you, you may choose the full RIASEC assessment; this score does not convert into interests, a career match or a qualification. Full guides are public before answering. Optional tab drafts last at most twenty-four hours, and copying shares only the public title and link, without personal scores or answers.",
+              "zh": "读到这里即可结束。若你另想知道喜欢哪些工作活动，可以自选完整RIASEC测评；本分数不换算兴趣、职业匹配或资格。全部指南作答前即可公开阅读；可选标签页草稿最多保留24小时，复制仅分享公开标题和链接，不含个人分数或答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "attention-and-return",
+      "directionIds": [
+        "focus"
+      ],
+      "title": {
+        "en": "Attention and Returning: Read Your Time-Management Responses",
+        "zh": "专注与返回：时间管理回答读法"
+      },
+      "headline": {
+        "en": "A specific reading of six reported habits",
+        "zh": "六项自报习惯的具体读法"
+      },
+      "summary": {
+        "en": "This part covers six reported behaviors around attention: reducing a controllable distraction, keeping a return cue, tracking a switch between tasks, choosing a smaller step when time is fragmented, clarifying availability and delaying a non-essential notification. It does not measure sustained-attention capacity or screen for an attention disorder.",
+        "zh": "这一部分包括六个与注意安排有关的自报行为：减少可控干扰、留下返回提示、切换任务时保留线索、时间零碎时改选小步骤、澄清联络时段，以及推迟非必要通知。它不测持续注意能力，也不筛查注意障碍。"
+      },
+      "scoreReading": {
+        "en": "Six complete frequency responses give one keyed mean, with no ranking or cutoffs. Any skip withholds this part only.",
+        "zh": "六题频率回答完整才给一个计分后均分，不排名、不设切点；任一跳过仅暂不给这一部分的均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Attention and Returning: Read Your Time-Management Responses",
+          "zh": "专注与返回：时间管理回答读法"
+        },
+        "description": {
+          "en": "Explore attention and returning after interruptions: six reported habits, a keyed mean, a realistic example and one small action. Complete free guide; no ability or hiring prediction.",
+          "zh": "阅读专注与打断后返回的六项自报行为、均分、具体情境与一个小行动。完整免费，不推断能力或录用。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What these six items describe",
+            "zh": "这六题具体描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part covers six reported behaviors around attention: reducing a controllable distraction, keeping a return cue, tracking a switch between tasks, choosing a smaller step when time is fragmented, clarifying availability and delaying a non-essential notification. It does not measure sustained-attention capacity or screen for an attention disorder.",
+              "zh": "这一部分包括六个与注意安排有关的自报行为：减少可控干扰、留下返回提示、切换任务时保留线索、时间零碎时改选小步骤、澄清联络时段，以及推迟非必要通知。它不测持续注意能力，也不筛查注意障碍。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read more and less frequent signals",
+            "zh": "怎样读较多与较少的信号"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean reflects more reported ways of arranging and returning to work, not proof of deep focus or higher output. A lower mean does not establish distractibility, laziness or a cognitive deficit. A service desk, caring role or on-call duty may require responsiveness. Consider what was controllable before interpreting an answer as an opportunity for change.",
+              "zh": "计分后均分较高，表示报告了较多安排注意和返回工作的做法，不证明深度专注或产出更多。均分较低，不等于易分心、懒惰或认知缺陷；服务台、照护或值班职责可能要求随时回应。把某条回答看作调整机会前，先考虑哪些因素确实可控。"
+            },
+            {
+              "en": "Neither uninterrupted work nor constant availability is treated as universally best. The items ask about deliberate choices and usable return cues in your circumstances. They do not establish the cause of concentration difficulties or predict how someone will perform in a different role.",
+              "zh": "不中断工作和持续在线都不是普遍最优方案。这些题关注在你的条件下是否作出明确安排、能否留下可用的返回线索，不能确定专注困难原因，也不能预测换一个岗位后的表现。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Returning after a necessary interruption",
+            "zh": "必要打断之后怎样接着做"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine an analyst is interrupted by a support request while checking a document. A short private note such as “next: verify row five against the approved table” can mark a return point. This is different from refusing the request or promising uninterrupted work. The example illustrates a possible cue; the assessment does not observe whether that cue improved accuracy.",
+              "zh": "例如核对文档时接到必须处理的支持请求，可以私下记一句“下一步：用已批准表格核对第五行”，留下返回位置。这与拒绝请求或承诺不被打断不同。例子只展示一种线索，测评没有观察它是否提高准确率。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Test one return cue",
+            "zh": "试一个返回提示"
+          },
+          "paragraphs": [
+            {
+              "en": "During one task where it is appropriate, leave a brief next-action note before a predictable pause. On return, check whether it helps you locate the task without reconstructing everything. Stop or change the method if it adds burden. Do not delay essential calls, accessibility aids or caring responsibilities to obtain a higher score.",
+              "zh": "在适合的一项任务里，预知要暂停前留一句下一步提示。回来时看看是否更容易找到原位置，无需从头重建；若增加负担，可以停止或换方法。不要为了更高分推迟必要电话、无障碍辅助或照护责任。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the keyed mean, completeness and close values",
+            "zh": "均分、完整度与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains six items rated from 1 to 5; two reverse-worded items use 6 minus the response. The six contributions are averaged and displayed to one decimal. For example, a sum of 23 gives 23/6, displayed as 3.8. This is an editorial descriptive score, without norms, cutoffs, percentiles or evidence that a small difference is meaningful. The four parts are not added, ranked or converted into a personality type.",
+              "zh": "每部分六题按1到5回答，其中两道反向题按6减去回答值计分，再求六项平均，显示一位小数。例如合计23，23/6显示为3.8。这是编辑定义的描述分，没有常模、切点、百分位，也没有证据说明微小差异具有意义；四部分不相加、不排名、不换算人格类型。"
+            },
+            {
+              "en": "All six frequency responses are required for a mean in that part. Any no-occasion or prefer-not-to-answer choice withholds that part’s mean, while other complete parts remain readable. Missing is not a low score and is not imputed. Similar means can hide different answers; read the individual situations privately rather than inventing a winner or comparing people’s competence.",
+              "zh": "每部分六题都需要频率回答才给均分；任一题选择无相关机会或暂不回答，就暂不给这一部分的均分，其他完整部分仍可读。缺答不是低分，不填补。相近均分可能来自不同回答，应私下回看具体情境，不强行选赢家，也不拿来比较个人胜任力。"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these items, groupings, examples and scoring rules for adult self-reflection. The linked university time-management resources provide practical background, not validation of this questionnaire or a licence to reproduce another test. The past-two-week window is an editorial choice. Language, workload and opportunity can change answers; keeping the arithmetic identical does not establish cross-language equivalence.",
+              "zh": "题目、分组、例子与计分规则由费马原创，供成年人自我反思。所链接大学的时间管理资料仅提供实践背景，不验证本问卷，也不授权复制其他测试；过去两周是编辑设定的回顾期。语言、负担和实践机会都可能改变回答，算式一致不代表已证明跨语言等值。"
+            },
+            {
+              "en": "You can finish here. If your separate question concerns which work activities interest you, you may choose the full RIASEC assessment; this score does not convert into interests, a career match or a qualification. Full guides are public before answering. Optional tab drafts last at most twenty-four hours, and copying shares only the public title and link, without personal scores or answers.",
+              "zh": "读到这里即可结束。若你另想知道喜欢哪些工作活动，可以自选完整RIASEC测评；本分数不换算兴趣、职业匹配或资格。全部指南作答前即可公开阅读；可选标签页草稿最多保留24小时，复制仅分享公开标题和链接，不含个人分数或答案。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-and-renegotiation",
+      "directionIds": [
+        "review"
+      ],
+      "title": {
+        "en": "Review and Renegotiation: Read Your Time-Management Responses",
+        "zh": "回看与重订：时间管理回答读法"
+      },
+      "headline": {
+        "en": "A specific reading of six reported habits",
+        "zh": "六项自报习惯的具体读法"
+      },
+      "summary": {
+        "en": "This part concerns what you reported doing after a plan met reality during the past two weeks: updating next actions, comparing actual and estimated time, revising an impossible deadline, raising a delivery risk, deciding what to continue or stop, and checking carried-over work. It does not measure a manager’s performance rating, honesty or objective reliability.",
+        "zh": "这一部分关注过去两周计划遇到现实后，你报告了哪些行为：更新下一步、比较实际与估时、修订无法兑现的期限、提出交付风险、决定继续或停止什么，以及核对结转事项。它不是管理者绩效评定，也不测诚实程度或客观可靠性。"
+      },
+      "scoreReading": {
+        "en": "Six complete frequency responses give one keyed mean, with no ranking or cutoffs. Any skip withholds this part only.",
+        "zh": "六题频率回答完整才给一个计分后均分，不排名、不设切点；任一跳过仅暂不给这一部分的均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Review and Renegotiation: Read Your Time-Management Responses",
+          "zh": "回看与重订：时间管理回答读法"
+        },
+        "description": {
+          "en": "Explore review and renegotiating plans: six reported habits, a keyed mean, a realistic example and one small action. Complete free guide; no ability or hiring prediction.",
+          "zh": "阅读回看与调整承诺的六项自报行为、均分、具体情境与一个小行动。完整免费，不推断能力或录用。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What these six items describe",
+            "zh": "这六题具体描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns what you reported doing after a plan met reality during the past two weeks: updating next actions, comparing actual and estimated time, revising an impossible deadline, raising a delivery risk, deciding what to continue or stop, and checking carried-over work. It does not measure a manager’s performance rating, honesty or objective reliability.",
+              "zh": "这一部分关注过去两周计划遇到现实后，你报告了哪些行为：更新下一步、比较实际与估时、修订无法兑现的期限、提出交付风险、决定继续或停止什么，以及核对结转事项。它不是管理者绩效评定，也不测诚实程度或客观可靠性。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Read more and less frequent signals",
+            "zh": "怎样读较多与较少的信号"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher keyed mean reflects more reported review and communication under these six items. It does not prove that a renegotiation was accepted or that the resulting plan worked. A lower mean may reflect fewer review opportunities, uncertainty about whom to contact or a setting where raising risks is difficult. It should start a specific question rather than a judgement about character.",
+              "zh": "计分后均分较高，表示在这六题上报告了较多回看和沟通，不证明重新协商得到接受，也不证明新计划有效。均分较低，可能涉及回看机会少、不清楚该找谁，或提出风险很困难的环境。它适合引出具体问题，而不是给性格下判断。"
+            },
+            {
+              "en": "Changing a plan is not automatically poor follow-through, and preserving a plan is not automatically responsible. The context includes dependencies, authority and who bears the costs of change. This questionnaire cannot allocate blame or decide whether a promise was reasonable.",
+              "zh": "调整计划不自动等于缺乏执行，坚持旧计划也不自动等于负责。还需考虑依赖、权限以及谁承担调整成本。本问卷不能分配责任或判断承诺是否合理。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An approval arrives late",
+            "zh": "审批晚到之后"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a draft depends on approval that arrives a day late. One possible response is to update the next step, identify what can still be completed and discuss a revised delivery boundary with the relevant person. Quietly moving every unfinished item into tomorrow can conceal the same conflict. Neither response alone shows why the approval was delayed.",
+              "zh": "例如一份草稿依赖的审批晚了一天，可以更新下一步，说明仍能完成的范围，再与相关的人讨论新的交付边界。把未完成事项悄悄全部挪到明天，可能让同一冲突继续隐藏。这些做法本身都不能解释审批为什么晚到。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Use a short, bounded review",
+            "zh": "做一次有边界的回看"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one current plan. Ask what changed, what still matters and who needs an update. Record one revised next action, including a decision to stop or wait if that is appropriate. Compare the clarity of the plan afterwards; do not add compulsory check-ins or disclose another person’s information just to practice reviewing.",
+              "zh": "选一份当前计划，问问哪些条件变了、什么仍重要、谁需要知道，然后记下一项更新后的行动；合适时也可以决定停止或等待。观察计划是否更清楚即可，无需为练习回看增加强制汇报，也不要公开他人信息。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Read the keyed mean, completeness and close values",
+            "zh": "均分、完整度与相近数值"
+          },
+          "paragraphs": [
+            {
+              "en": "Each part contains six items rated from 1 to 5; two reverse-worded items use 6 minus the response. The six contributions are averaged and displayed to one decimal. For example, a sum of 23 gives 23/6, displayed as 3.8. This is an editorial descriptive score, without norms, cutoffs, percentiles or evidence that a small difference is meaningful. The four parts are not added, ranked or converted into a personality type.",
+              "zh": "每部分六题按1到5回答，其中两道反向题按6减去回答值计分，再求六项平均，显示一位小数。例如合计23，23/6显示为3.8。这是编辑定义的描述分，没有常模、切点、百分位，也没有证据说明微小差异具有意义；四部分不相加、不排名、不换算人格类型。"
+            },
+            {
+              "en": "All six frequency responses are required for a mean in that part. Any no-occasion or prefer-not-to-answer choice withholds that part’s mean, while other complete parts remain readable. Missing is not a low score and is not imputed. Similar means can hide different answers; read the individual situations privately rather than inventing a winner or comparing people’s competence.",
+              "zh": "每部分六题都需要频率回答才给均分；任一题选择无相关机会或暂不回答，就暂不给这一部分的均分，其他完整部分仍可读。缺答不是低分，不填补。相近均分可能来自不同回答，应私下回看具体情境，不强行选赢家，也不拿来比较个人胜任力。"
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "title": {
+            "en": "Source and an optional next step",
+            "zh": "来源与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these items, groupings, examples and scoring rules for adult self-reflection. The linked university time-management resources provide practical background, not validation of this questionnaire or a licence to reproduce another test. The past-two-week window is an editorial choice. Language, workload and opportunity can change answers; keeping the arithmetic identical does not establish cross-language equivalence.",
+              "zh": "题目、分组、例子与计分规则由费马原创，供成年人自我反思。所链接大学的时间管理资料仅提供实践背景，不验证本问卷，也不授权复制其他测试；过去两周是编辑设定的回顾期。语言、负担和实践机会都可能改变回答，算式一致不代表已证明跨语言等值。"
+            },
+            {
+              "en": "You can finish here. If your separate question concerns which work activities interest you, you may choose the full RIASEC assessment; this score does not convert into interests, a career match or a qualification. Full guides are public before answering. Optional tab drafts last at most twenty-four hours, and copying shares only the public title and link, without personal scores or answers.",
+              "zh": "读到这里即可结束。若你另想知道喜欢哪些工作活动，可以自选完整RIASEC测评；本分数不换算兴趣、职业匹配或资格。全部指南作答前即可公开阅读；可选标签页草稿最多保留24小时，复制仅分享公开标题和链接，不含个人分数或答案。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_time_management_habits24",
+    "formCode": "fm_time_management_habits24_v1",
+    "itemBankVersion": "fm_time_management_habits24_v1",
+    "scoringVersion": "fm_time_habits24_reverse_2_per6_complete6_mean1dp_v1",
+    "resultContentVersion": "fm_time_habits4_complete_guides_v1",
+    "itemBankSha256": "2ffb94a9512bd7f702d6f4d2debac43e020c91f5d69f754f93f1c71118d08c20",
+    "resultContentSha256": "80ed88eb7c30a86b2ff1e03e9c1944a207fbb92443baf72416bdf5e578e9aedd",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "University of Washington: observing time and structuring a day",
+        "zh": "华盛顿大学：观察用时与安排一天"
+      },
+      "url": "https://www.washington.edu/drs/academic-skills/time-management-tips/structuring-your-day/"
+    },
+    {
+      "title": {
+        "en": "University of Cincinnati: scheduling, priorities and focus",
+        "zh": "辛辛那提大学：日程、优先事项与专注"
+      },
+      "url": "https://www.online.uc.edu/student-experience/learning-strategies/time-management.html"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Four independent means with visible arithmetic",
+        "zh": "四个独立均分，算式可复核"
+      },
+      "paragraphs": [
+        {
+          "en": "Each part contains six original items. Answers use 1 to 5, with two reverse-worded items per part scored as 6 minus the response. Divide the keyed sum by six and display one decimal. For example, 23/6 is shown as 3.8. The means are not summed, normalized, ranked or converted into percentages or types.",
+          "zh": "每部分六道原创题，回答为1到5；其中两道反向题按6减去回答值计分。把六项计分后贡献相加，除以六，显示一位小数；例如23/6显示3.8。均分不相加、不标准化、不排名，不转换为百分比或类型。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Completeness and similar values",
+        "zh": "完整度与相近数值"
+      },
+      "paragraphs": [
+        {
+          "en": "All six frequency responses are required within a part. A no-occasion or prefer-not-to-answer choice is not zero and is not filled or prorated. The affected part has no mean, while other complete parts still do. Near or identical means do not prove equally strong skills, and one decimal does not establish a meaningful difference; inspect the actual situations privately.",
+          "zh": "每部分六题都需要频率回答。没有相关机会或暂不回答不是零分，不填补、不按比例放大；仅所在部分暂不给均分，其他完整部分仍可给分。相近或相同均分不证明技能相当，一位小数也不代表差异具有实际意义；适合私下回看具体情境。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Choose one observation rather than a new label",
+        "zh": "选一条观察，少贴一个标签"
+      },
+      "paragraphs": [
+        {
+          "en": "Each full guide gives its six-item scope, more and less frequent signals, a concrete work example and one optional action. Higher is not universally better, and external constraints matter. No formal norms, meaningful-change threshold, employment prediction or psychometric validation has been established for this edition. You can finish here or separately choose an interest assessment if your question concerns preferred work activities.",
+          "zh": "每份完整指南包含六题范围、较多与较少信号、具体工作例子及一个可选行动。并非处处越高越好，也需考虑外部限制。本版没有正式常模、重要变化阈值、就业预测或心理测量验证。读到这里可以结束；若另想了解喜欢的工作活动，再自选兴趣测评。"
+        }
+      ]
+    },
+    {
+      "id": "time-source",
+      "title": {
+        "en": "An original reflection, with practical background",
+        "zh": "原创反思与实践背景"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote the items, four groupings, scoring, examples and Chinese wording. The linked university resources discuss practical time use in academic settings. They are background sources, not authors of this questionnaire or evidence validating its scores. This is not Carson Tate’s inventory, an established TMQ, a timed performance task or a diagnostic screening instrument.",
+          "zh": "题目、四个分组、计分、例子和中文措辞由费马原创。所链接大学资料讨论学业情境中的实际时间使用，只作为背景，不是本问卷作者，也不验证本版分数。本版不冒充Carson Tate题本、既有TMQ、计时表现任务或诊断筛查工具。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this time management test describe?",
+        "zh": "时间管理测试具体描述什么？"
+      },
+      "answer": {
+        "en": "It describes four groups of reported habits during the past two weeks. It does not observe completed work, test skill, establish personality or predict employment.",
+        "zh": "它描述过去两周四组自报习惯，没有观察实际交付，不实测技能、不确定人格，也不预测就业。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why are there four results instead of a winning type?",
+        "zh": "为什么给四项结果，不选一个类型？"
+      },
+      "answer": {
+        "en": "The groups cover different behaviors and may coexist. Their keyed means are kept separate, with the same full guides available at every value. Similar numbers do not establish equivalent ability.",
+        "zh": "四组涉及不同行为，可以同时存在，因此均分分别保留，所有数值开放相同完整指南。相近数字不等于能力相当。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when I skip an item?",
+        "zh": "跳过题目会怎样？"
+      },
+      "answer": {
+        "en": "The affected six-item part has no personal mean. Complete parts still show theirs. Skips are not zeros, and all four public guides remain readable.",
+        "zh": "所在的六题部分暂不给个人均分，其他完整部分仍显示；跳题不是零分，四份公开指南仍可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can employers use this as a hiring score?",
+        "zh": "能把结果当招聘分数吗？"
+      },
+      "answer": {
+        "en": "This original self-report has no established selection validity, norms or qualification threshold. It is offered for voluntary adult reflection rather than deciding another person’s opportunities.",
+        "zh": "本原创自报没有选拔效度、常模或资格阈值，供成年人自愿反思，不用于决定他人的机会。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can a low mean identify why I am struggling?",
+        "zh": "较低均分能找出困难原因吗？"
+      },
+      "answer": {
+        "en": "No. Opportunity, workload, autonomy, memory and language may affect answers. A concrete situation is a better place to begin a discussion; the mean does not identify a disorder or assign blame.",
+        "zh": "不能。机会、负担、自主权、记忆和语言都可能影响回答。可从具体情境开始讨论，均分不能识别疾病或分配责任。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the full results free, and what gets shared?",
+        "zh": "完整结果免费吗，会分享什么？"
+      },
+      "answer": {
+        "en": "All 24 items, four complete guides and result readings are free without signup. Explicit tab-draft opt-in lasts up to twenty-four hours. Completion or clearing removes the draft. Copying shares only the public title and link.",
+        "zh": "24题、四份完整指南和结果读法均免费，无需注册。主动勾选才保存最长24小时标签页草稿，完成或清空会删除。复制仅分享公开标题和链接。"
+      }
+    }
+  ]
+}

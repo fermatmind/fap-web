@@ -4108,5 +4108,30 @@
     "resultSlugs": [
       "score-reading"
     ]
+  },
+  {
+    "slug": "time-management",
+    "code": "FM_TIME_MANAGEMENT_HABITS24",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Time Management Test",
+      "zh": "时间管理测试"
+    },
+    "description": {
+      "en": "Reflect on 24 time-management habits from the past two weeks. Read four separate means, examples and small actions, including skipped answers. Full results free.",
+      "zh": "回看过去两周的24项时间管理行为，分别阅读优先容量、步骤估时、专注返回和回看重订的均分、例子与小行动。跳题说明和全部结果免费。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_time_management_habits24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "priorities-and-capacity",
+      "steps-and-estimates",
+      "attention-and-return",
+      "review-and-renegotiation"
+    ]
   }
 ]

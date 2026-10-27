@@ -1,0 +1,1763 @@
+{
+  "id": "T103",
+  "form": "fm_time_management_habits24_v1",
+  "kind": "original_behavior_frequency_reflection",
+  "recall": {
+    "en": "During the past two weeks, when a relevant occasion occurred",
+    "zh": "过去两周中，在有相关机会时"
+  },
+  "source_scope": "Original FermatMind statements, editorial facets and missing-data rules. Not Carson Tate inventory, TMQ, employment selection, demonstrated skill, diagnosis or validated scale.",
+  "minimum_rated_per_facet": 6,
+  "facets": [
+    {
+      "id": "priorities",
+      "title": {
+        "en": "Priorities and available capacity",
+        "zh": "优先与可用时间"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "planning",
+      "title": {
+        "en": "Workable steps and estimates",
+        "zh": "步骤与时间估计"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "focus",
+      "title": {
+        "en": "Attention and returning after interruptions",
+        "zh": "专注与打断后返回"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Review and renegotiating plans",
+        "zh": "回看与调整承诺"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "TMH_01",
+      "prompt": {
+        "en": "Before choosing my main task, I checked which commitment mattered most that day.",
+        "zh": "选择当天主要任务前，我核对了哪项承诺最需要优先处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_02",
+      "prompt": {
+        "en": "I checked the time left after fixed responsibilities before agreeing to another task.",
+        "zh": "接下新任务前，我先看固定责任之外实际还剩多少时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_03",
+      "prompt": {
+        "en": "I treated the newest request as first priority without checking an existing commitment.",
+        "zh": "收到新请求后，我没核对原有承诺就把它放到了最前面。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_04",
+      "prompt": {
+        "en": "When two deadlines competed, I clarified which outcome could wait.",
+        "zh": "两项截止时间冲突时，我确认了哪项成果可以推后。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_05",
+      "prompt": {
+        "en": "I included necessary rest or caring responsibilities when deciding what could fit.",
+        "zh": "判断能否安排任务时，我把必要休息或照护责任也算了进去。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_06",
+      "prompt": {
+        "en": "I accepted a new deadline despite already knowing that my available time was filled.",
+        "zh": "明知可用时间已经排满，我仍答应了新的截止时间。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "priorities",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "priorities",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "priorities",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "priorities",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "priorities",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "priorities",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_07",
+      "prompt": {
+        "en": "For a task taking more than one sitting, I identified a next step I could actually start.",
+        "zh": "一件事需要分几次完成时，我明确了当下能开始的下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_08",
+      "prompt": {
+        "en": "I included setup or checking time when estimating how long a task would take.",
+        "zh": "估计任务用时，我把准备或检查所需的时间也算在内。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_09",
+      "prompt": {
+        "en": "I kept the same time estimate after a comparable task had taken longer than expected.",
+        "zh": "类似任务已经比预期耗时，我仍沿用原来的时间估计。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_10",
+      "prompt": {
+        "en": "I checked what information or materials were needed before reserving time for a task.",
+        "zh": "为任务留时间前，我查看了需要先准备哪些信息或材料。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_11",
+      "prompt": {
+        "en": "I left some room for foreseeable interruptions when making a plan.",
+        "zh": "做计划时，我为可以预见的打断留了一些余地。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_12",
+      "prompt": {
+        "en": "I reserved a work period without deciding what a usable stopping point would be.",
+        "zh": "我留出了做事时段，却没想清楚做到哪里就算可以收尾。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_13",
+      "prompt": {
+        "en": "Before a planned work period, I reduced a distraction that I could reasonably control.",
+        "zh": "开始预留的做事时段前，我减少了一项自己能合理控制的干扰。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_14",
+      "prompt": {
+        "en": "After an interruption, I used a note or another cue to return to the task.",
+        "zh": "被打断后，我借助笔记或其他提示返回原任务。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_15",
+      "prompt": {
+        "en": "I moved between unrelated tasks without keeping a cue for where to resume.",
+        "zh": "我在无关任务间来回切换，却没留下从哪里接着做的提示。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_16",
+      "prompt": {
+        "en": "When uninterrupted time was unavailable, I chose a smaller step that fit the time I had.",
+        "zh": "无法获得完整时段时，我改选了现有时间里能做的小步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_17",
+      "prompt": {
+        "en": "I made clear when I needed to remain reachable and when a message could wait.",
+        "zh": "我区分了哪些时段必须保持联络，哪些消息可以稍后处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_18",
+      "prompt": {
+        "en": "I checked a non-essential notification during a task even though it could have waited.",
+        "zh": "做事时，我查看了本来可以稍后再看的非必要通知。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "focus",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "focus",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "focus",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "focus",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "focus",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "focus",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_19",
+      "prompt": {
+        "en": "After a plan changed, I updated the next action rather than relying on the old schedule.",
+        "zh": "计划变化后，我更新了下一步行动，而不是继续依赖旧日程。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_20",
+      "prompt": {
+        "en": "I compared an actual task duration with my estimate before making a similar plan.",
+        "zh": "再次安排类似任务前，我比较了上次实际用时和原先估计。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_21",
+      "prompt": {
+        "en": "I left an outdated deadline in my plan after learning it could no longer be met.",
+        "zh": "得知原截止时间已无法实现后，我仍把过期安排留在计划中。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_22",
+      "prompt": {
+        "en": "When a commitment was at risk, I raised the issue with the relevant person before it was due.",
+        "zh": "承诺可能无法按时完成时，我在到期前向相关的人说明了情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_23",
+      "prompt": {
+        "en": "I used a brief review to decide what to continue, change or stop.",
+        "zh": "我用一次简短回看决定哪些安排继续、调整或停止。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "TMH_24",
+      "prompt": {
+        "en": "I carried unfinished tasks into a new plan without checking whether they still mattered.",
+        "zh": "把未完成事项移到新计划时，我没核对它们是否仍有必要。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "review",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "review",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "review",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "review",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "review",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / prefer not to answer",
+            "zh": "没有相关机会／暂不回答"
+          },
+          "directionId": "review",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_item_contributions_for_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "refs": [
+    {
+      "url": "https://www.washington.edu/drs/academic-skills/time-management-tips/structuring-your-day/",
+      "scope": "Academic time logging and aligning available time with priorities; background, not validation or item/scoring source."
+    },
+    {
+      "url": "https://www.online.uc.edu/student-experience/learning-strategies/time-management.html",
+      "scope": "Academic planning, priorities, interruptions, and reviewing changing responsibilities; background, not validation or permission to copy proprietary items."
+    }
+  ]
+}
