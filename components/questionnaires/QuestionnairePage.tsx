@@ -1,6 +1,7 @@
 import { isPtq15ConfigurationValid } from "@/lib/questionnaires/ptq15";
 import { isInteractionPairsConfigurationValid } from "@/lib/questionnaires/interactionPairs";
 import { isSkillsEvidenceConfigurationValid } from "@/lib/questionnaires/skillsEvidence";
+import { isBirthNumberConfigurationValid } from "@/lib/questionnaires/birthNumber";
 import { isSapsConfigurationValid } from "@/lib/questionnaires/saps";
 import { QuestionnaireSapsAttribution } from "./QuestionnaireSapsAttribution";
 import { isScs26ConfigurationValid } from "@/lib/questionnaires/scs26";
@@ -32,10 +33,13 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 
+import { BirthNumberPage } from "./BirthNumberPage";
+
 type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Calculator unavailable", robots: { index: false, follow: false } };
   if (!quiz || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
   return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: quiz.description[locale], imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
 }
@@ -43,6 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "birth-number") {
+    if (!isBirthNumberConfigurationValid(quiz)) notFound();
+    return <BirthNumberPage quiz={quiz} locale={locale} />;
+  }
   if (!quiz || (quiz.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) || (quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz)) || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
   if (quiz.kind === "data-entry") return <DataEntryPage quiz={quiz} locale={locale} />;

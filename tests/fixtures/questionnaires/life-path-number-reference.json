@@ -1,0 +1,1863 @@
+{
+  "sourceContentFreezeSHA256": "eea85a110ac7dd5309099021be8425db1e503a2c78d6f77909181a4bd13b6b6b",
+  "originalArithmeticModuleSHA256": "7f954e5aad01869fcdc527c443fb8a3ffadfca045145db5c30ac763f53d3108e",
+  "responsibility": "One symbolic birthday calculator;two explicit arithmetic rules;one12guide family;no personality measure or prediction",
+  "projection": "profile.headline is a literal copy of source.title for the existing native profile shape;dedicated reader uses title once;no additional content authored by that field",
+  "publicConfiguration": {
+    "slug": "life-path-number",
+    "code": "FM_BIRTH_NUMBER_RULES",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "fantasy",
+    "kind": "birth-number",
+    "title": {
+      "en": "Life Path & Birthday Soul Number Calculator",
+      "zh": "生命灵数与生日灵数计算器"
+    },
+    "description": {
+      "en": "Compare two explicit birthday-number rules, see the actual arithmetic and read twelve original symbolic guides. Date-based reflection, with no personality or future prediction.",
+      "zh": "比较两种明确的生日数字规则，查看真实运算，阅读十二篇原创符号指南。以日期进行自愿探索，不据此测量人格或预测未来。"
+    },
+    "seoTitle": {
+      "en": "Life Path & Birthday Soul Number Calculator",
+      "zh": "生命灵数与生日灵数计算器"
+    },
+    "minutes": 2,
+    "introduction": {
+      "en": "The same date can return eleven in one method and two in another. This calculator makes the stopping rules visible: reduce the parts first, or add all date digits first. Its shared stories are optional editorial prompts, not findings about the person whose date was entered.",
+      "zh": "同一日期可能在一种方法中得到十一，在另一种方法中得到二。本计算器把停止规则展示出来：先分别化简年月日，或先合计日期的所有数字。两法共享的故事是可选编辑提示，不是对日期所属者作出的研究结论。"
+    },
+    "instructions": {
+      "en": "No signup or payment. Choose a method, enter a date and inspect the operations. You can compare the other method, edit the input or clear it.",
+      "zh": "无需注册或付费。选择方法、输入日期、查看运算；也可以比较另一种方法、修改输入或清除。"
+    },
+    "resultHeading": {
+      "en": "A symbolic result from your selected rule",
+      "zh": "按所选规则得到的符号结果"
+    },
+    "birthNumber": {
+      "methods": [
+        {
+          "id": "separate-parts",
+          "label": {
+            "en": "Reduce the parts, then combine",
+            "zh": "先分别化简，再合计"
+          },
+          "description": {
+            "en": "Reduce each of month, day and year to one digit or 11, 22, 33; combine the parts and use the same rule again.",
+            "zh": "把月、日、年分别化简到个位或11、22、33；合计后，再使用同样规则。"
+          }
+        },
+        {
+          "id": "all-date-digits",
+          "label": {
+            "en": "Add all date digits, then reduce",
+            "zh": "先合计日期各位，再化简"
+          },
+          "description": {
+            "en": "Add the eight YYYYMMDD digits first; keep reducing until one digit or 11, 22, 33. A total of 44 reduces to 8.",
+            "zh": "先合计YYYYMMDD的八个数字，再继续化简到个位或11、22、33。总和44会化简为8。"
+          }
+        }
+      ],
+      "endpoints": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        22,
+        33
+      ],
+      "minYear": 1900,
+      "maxYear": 2099,
+      "futurePolicy": "device-calendar-today",
+      "storagePolicy": "memory-only"
+    },
+    "references": [
+      {
+        "title": {
+          "en": "Numerology.com: the separate-parts rule",
+          "zh": "Numerology.com：先分别化简的规则"
+        },
+        "url": "https://www.numerology.com/articles/your-numerology-chart/life-path-number-meanings/"
+      },
+      {
+        "title": {
+          "en": "lmp.jp: the all-date-digits rule",
+          "zh": "lmp.jp：先合计日期各位的规则"
+        },
+        "url": "https://lmp.jp/numerology/soul-number/"
+      }
+    ],
+    "directions": [],
+    "questions": [],
+    "profiles": [
+      {
+        "id": "one",
+        "directionIds": [],
+        "symbol": 1,
+        "title": {
+          "en": "One: choosing a starting point",
+          "zh": "一：选择一个起点"
+        },
+        "headline": {
+          "en": "One: choosing a starting point",
+          "zh": "一：选择一个起点"
+        },
+        "summary": {
+          "en": "Use one as a story about making a first decision visible. Follow the real arithmetic, then consider an optional starting-point question without treating a birthday as evidence of leadership or personality.",
+          "zh": "把一当作“让起点决定看得见”的故事：先核对真实运算，再选择是否借用这个问题；不从生日推断领导力或人格。"
+        },
+        "scoreReading": {
+          "en": "One is a symbolic calculation outcome, not a measured trait, rank or diagnosis. Two dates can share it while the people make very different choices.",
+          "zh": "一是符号运算结果，不是测得的特质、排名或诊断；同一结果之下，人仍可能作出不同选择。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "One as a starting-point symbol",
+              "zh": "把一当作起点符号"
+            },
+            "paragraphs": [
+              {
+                "en": "In this guide, one is an editorial symbol for choosing a starting point. It gives you a question to consider: what would make the first useful action clear enough to try? A birthday calculation does not show whether you are independent, assertive, suited to leadership or more capable than another person. Those are different questions that need evidence about actual situations. You can use the starting-point image without accepting a claim about an inborn identity. If the image does not help with anything you are considering, leave it aside. Nothing in the calculation requires you to recognize yourself in the description.",
+                "zh": "本篇把“一”选作起点的编辑符号，邀请你想想：怎样才能把第一个有用的行动说明白，达到可以试一试的程度？生日运算并不能说明你是否独立、强势、适合领导，或者比别人更有能力。那些问题需要真实情境的证据。你可以借用起点这个画面，无需相信它是天生身份；如果它对眼前事情没有帮助，也可以放下。不认同这段描述，并不会让你的算式变错。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A complete fictional calculation",
+              "zh": "一个可复算的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-07, the separate-parts method reduces the year to 2, keeps month 1 and day 7, then adds 2 + 1 + 7 = 10 and reduces 1 + 0 = 1. The all-date-digits method adds 2 + 0 + 0 + 0 + 0 + 1 + 0 + 7 = 10, then also reaches 1. This agreement happens for this example; it is not a requirement for all dates. Both selected rules stop at a single digit or at 11, 22 or 33. One is a final symbolic label here, rather than a test score, a percentile or the best possible result.",
+                "zh": "以虚构日期2000-01-07为例，分部分法把年份化为2，月份保留1、日期保留7，再算2＋1＋7＝10，最后1＋0＝1。全日期数字法则算2＋0＋0＋0＋0＋1＋0＋7＝10，同样得到1。两法在这个例子一致，并不表示所有日期都必须一致。本版两法都在个位数或11、22、33处停止。“一”只是这次运算的符号标签，不是测验分数、百分位，也不是最好的结果。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Make one first step inspectable",
+              "zh": "让第一步可以被共同检查"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine a volunteer group planning a small public reading. Several people have ideas, but nobody knows which decision is needed first. Instead of announcing yourself as the leader, you might draft a short question: do we have a venue that is available on the proposed date? One person can check the booking, another can estimate attendance, and everyone can review the answer. The useful feature is the visible starting decision, not one person taking over the project. This scenario is an optional illustration of the symbol. It is not a description inferred from the birthday you entered, and it does not prove that taking initiative is always the right action.",
+                "zh": "假设一群志愿者要办小型公开朗读。大家都有点子，却不清楚先决定什么。你可以不急着宣布自己负责，而是先写出一个短问题：拟定日期有没有可用场地？有人查预订，有人估计人数，大家共同检查答案。有用的是把起点问题摆出来，而非让一个人接管整个活动。这只是借符号展开的可选例子，不是从你输入的生日推断出的行为画像，也不能证明主动出手永远正确。"
+              }
+            ]
+          },
+          {
+            "id": "conditions",
+            "title": {
+              "en": "A start depends on available conditions",
+              "zh": "开始也依赖现实条件"
+            },
+            "paragraphs": [
+              {
+                "en": "A first step can be blocked by missing information, limited money, fatigue, another person's decision or a deadline you did not choose. Treating every delay as a lack of initiative hides those differences. Before using the starting-point image, identify what you actually control and whose agreement is needed. Someone who waits for a safety check may be acting responsibly. Someone who begins quickly may have resources that another person lacks. The number supplies no way to compare their character. If a decision affects other people, making the proposal clear and inviting their response matters more than performing a story about being a natural initiator.",
+                "zh": "第一步可能被信息不足、经费、疲倦、他人的决定或无法选择的截止日期卡住。把所有延迟都解释成不主动，会遮住这些差别。使用起点这个画面前，可以先分清自己能控制什么，以及需要谁同意。等待安全检查可能是负责任的做法；开始得快也可能只是资源更多。数字无法比较两者的人格。涉及别人时，把提议说清楚、听取回应，比表演“天生开创者”的故事更重要。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A counterexample to being born to lead",
+              "zh": "反例：数字不能证明天生领导力"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people receive one under the same rule. In a meeting, the first person immediately offers a plan, while the second asks someone with relevant experience to take the lead. Both decisions could be sensible. They depend on knowledge, responsibility, relationships and the consequences of an error. Receiving the same symbol does not make the people psychologically equivalent, and choosing different actions does not invalidate either calculation. You also cannot reverse the reasoning: seeing an assertive action does not let you infer a birthday or a number. Keep observations about what happened separate from the narrative prompt you happened to encounter here.",
+                "zh": "假设两个人按同一规则都算出一。开会时，一个人马上提方案，另一个请更有经验的人牵头。两种选择都可能合理，取决于知识、责任、关系以及犯错的后果。同一符号不表示两人心理特征相同；行动不同也不意味着算错。反过来，从一个强势的举动，也推不出生日或数字。请把真实发生的行为，与这次偶然读到的叙事提示分开。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "An optional small experiment",
+              "zh": "一个可以不做的小尝试"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to try the starting-point prompt, choose a small reversible task that already matters to you. Write down the decision you need, the information missing and one action you can stop or change. For example, draft a venue question before sending an invitation. You can then ask whether the action clarified the next decision or created more work. There is no required daily practice, success target or improvement promise. You do not need to send your notes to this website. Deciding that the task should wait, be delegated or be dropped can also be a considered outcome. The point is to inspect a real choice, not to prove that your number is accurate.",
+                "zh": "如果愿意尝试，可以选一件本来就与你有关、容易撤回的小事，写下要做的决定、缺少的信息，以及一个随时能停下或改变的动作。比如发邀请前先拟好场地问题，再看看它是否帮助下一步，还是增加了额外工作。没有必须每天练习的要求，也没有成功指标或改善保证；笔记无需发给本站。决定等待、交给别人，或放弃这件事，也可能是经过考虑的结果。目的在于检查真实选择，而非证明数字说得准。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "When the other rule gives another number",
+              "zh": "换一种规则，结果可能不同"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 1980-01-01, the separate-parts rule reaches 11, while adding all eight date digits first gives 20 and then 2. You should be able to follow each operation instead of being asked to choose whichever result feels flattering. Different stopping and grouping conventions can produce different labels without revealing competing inner selves. The birthday-based Soul Number used here also differs from methods that use vowels in a person's name. Names for these practices vary between publishers. This guide does not treat a method name, a translated name or a second set of labels as evidence of a second independent psychological measure.",
+                "zh": "虚构日期1980-01-01在分部分法中得到11；先加全部八个日期数字则得到20，再化为2。你应该能逐步复算，而不是被要求挑一个更讨喜的描述。分组和停止约定不同，可以产生不同标签，却不能证明存在两种相互竞争的“内在自我”。这里按生日计算的Soul Number，也不同于按姓名元音计算的方法。不同出版者的命名并不统一；方法名、译名或另一套标签，都不能证明多了一项独立心理测量。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Sources, privacy and a useful stopping point",
+              "zh": "来源、隐私和可以结束的地方"
+            },
+            "paragraphs": [
+              {
+                "en": "The selected arithmetic conventions are documented by Numerology.com and the Japanese publisher lmp.jp. FermatMind wrote this starting-point narrative and fictional scenarios independently. A published convention explains how a number is assigned, not whether the number predicts personality, health, relationships, work or future events. Your birthday is unnecessary for reading this public guide. If you use a calculator, keep its entered date and operation trace out of public links or shared text, because a trace can reveal the date. You can compare the rules, read another symbol as a story, or finish here. No further personality test or purchase is required.",
+                "zh": "本版选定的运算约定分别参照Numerology.com和日本出版者lmp.jp。起点叙事和虚构情境由费马独立撰写。已有出版物说明的是数字如何分配，并不证明它能预测人格、健康、关系、职业或未来事件。阅读这篇公开指南不需要生日。如果使用计算器，请勿把输入日期或运算步骤放进公开链接和分享文字，因为步骤可能暴露日期。你可以比较方法，把其他符号当故事阅读，也可以在这里结束，无需继续人格测试或购买。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number One: Starting Point & Calculation Guide",
+            "zh": "数字一：开始的切口与计算读法"
+          },
+          "description": {
+            "en": "Explore one as an optional story about choosing a starting point. Follow a fictional date calculation and compare the two selected birthday rules.",
+            "zh": "把一当作寻找开始切口的可选故事。跟随虚构日期的运算，比较两种所选生日规则，并阅读具体情境、反例与自愿练习。"
+          }
+        }
+      },
+      {
+        "id": "two",
+        "directionIds": [],
+        "symbol": 2,
+        "title": {
+          "en": "Two: making room without disappearing",
+          "zh": "二：给人留空间，也保留自己"
+        },
+        "headline": {
+          "en": "Two: making room without disappearing",
+          "zh": "二：给人留空间，也保留自己"
+        },
+        "summary": {
+          "en": "Use two as a story about making room for a shared decision while keeping your own boundaries. Check the arithmetic first, then choose whether a concrete question about cooperation is useful.",
+          "zh": "把二当作在共享决定中留出空间、同时保留边界的故事。先核对运算，再选择是否借用一个关于合作的具体问题。"
+        },
+        "scoreReading": {
+          "en": "Two is a symbolic number label. It measures neither agreeableness nor relationship compatibility and does not require you to take a supporting role.",
+          "zh": "二是符号数字标签，不测量随和程度或关系匹配，也不要求你担任辅助角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Two as a symbol for making room",
+              "zh": "把二当作给彼此留出空间的符号"
+            },
+            "paragraphs": [
+              {
+                "en": "This guide uses two as an editorial image for making room for another person's contribution without giving up your own position. It offers a question rather than a personality conclusion: what needs to be heard before people can decide together? Receiving two from a birthday calculation does not show that you are agreeable, dependent, unusually sensitive or suited to a supporting role. It also creates no obligation to mediate other people's problems. You can consider the image when a shared decision matters to you, or decide that it is irrelevant. A description that does not fit your experience is not evidence that you entered the wrong birthday.",
+                "zh": "本篇把“二”选作一种编辑画面：给对方的贡献留出空间，同时保留自己的立场。它提供的问题是“共同决定之前，还有什么需要被听见”，而不是人格结论。生日算出二，不说明你随和、依赖、格外敏感或适合辅助角色，也不要求你调解别人的问题。共享决定与你有关时，可以借这个画面想一想；觉得无关，也可以放下。描述不符合经历，不是生日输入错误的证据。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "Follow a fictional calculation all the way to two",
+              "zh": "逐步算到二的虚构例子"
+            },
+            "paragraphs": [
+              {
+                "en": "Use the fictional date 2008-08-11. In the separate-parts method, the year goes from 2008 to 10 and then 1; the month stays 8; the day stays 11 because this rule preserves 11, 22 and 33. Add 1 + 8 + 11 = 20, then 2 + 0 = 2. Adding all eight date digits first also gives 2 + 0 + 0 + 8 + 0 + 8 + 1 + 1 = 20, then 2. This is an agreement between the selected rules for one example, not a measurement of social skill. Neither the intermediate 11 nor the final 2 has a higher human value.",
+                "zh": "使用虚构日期2008-08-11。分部分法把年份2008化为10，再化为1；月份保留8；日期保留11，因为本版保留11、22、33。接着算1＋8＋11＝20，最后2＋0＝2。若先加全部八个日期数字，也得到2＋0＋0＋8＋0＋8＋1＋1＝20，再化为2。这只是所选规则在一个例子上的一致，不是社交能力测量。中间的11与最后的2，都不代表更高或更低的人的价值。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "A shared plan with two different needs",
+              "zh": "把共同安排中的两种需要说清楚"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine two friends arranging a weekend walk. One wants a long route, while the other needs a short journey home before an evening commitment. A useful response could be to describe both needs before suggesting a route: enough time outside, and a reliable finishing time. They might choose a shorter shared section and leave an optional extension for one person. The cooperation lies in making the constraints visible and allowing a real choice. It does not require anyone to guess the other's thoughts, suppress disappointment or keep the peace at any cost. This invented scene illustrates a question to try; a calculated number did not reveal these friends' needs.",
+                "zh": "假设两位朋友约周末散步，一位想走长线，另一位因晚上有安排，需要较早回家。可以先说清两种需要，再提路线：既想有户外活动的时间，也需要可靠的结束时刻。比如共同走一段较短路线，愿意的人再自行延长。这里的合作，在于看见限制、保留真正的选择，不要求猜心思、压住失望，或不惜代价维持和气。这是用来尝试提问的虚构情境，并非数字揭示了朋友的需要。"
+              }
+            ]
+          },
+          {
+            "id": "boundaries",
+            "title": {
+              "en": "Cooperation needs a boundary as well as an invitation",
+              "zh": "合作既需要邀请，也需要边界"
+            },
+            "paragraphs": [
+              {
+                "en": "Making room is different from making yourself permanently available. A person can listen carefully and still say that a proposal does not work for them. Before accepting the role of coordinator or mediator, consider whether you have the time, authority and willingness to take it on. In an unequal relationship, a request to be more cooperative can conceal pressure rather than invite participation. A birthday number cannot settle that distinction, and the guide cannot assess whether an interaction is safe. You do not owe further discussion because a symbolic reading uses the language of partnership. Limits, consent and the ability to leave a conversation remain practical questions in their own right.",
+                "zh": "给人留空间，不等于让自己随时待命。认真倾听之后，仍可以说某个提议不适合自己。接下协调或调解角色前，可以考虑有没有时间、权限，以及是否愿意。在权力不对等的关系里，“更合作一点”的要求，也可能是施压而非参与邀请。生日数字无法作出这个区分，本指南也不能判断互动是否安全。符号读法提到伙伴关系，并不意味着你有义务继续讨论；界限、同意以及退出对话的选择，始终是独立的现实问题。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A quiet response does not prove harmony",
+              "zh": "安静的回应不能证明和谐"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people both receive two. One readily proposes a compromise; the other says no because the proposed arrangement would leave them doing most of the work. These are not automatically good and bad versions of the same type. A compromise may be fair, rushed or unnecessary, while a refusal may protect a realistic limit. Silence can reflect consideration, uncertainty, distraction or an unwillingness to speak in that setting. None of those possibilities is resolved by a number. If you want to understand an interaction, attend to what each person says and what happens afterward. Avoid using the symbolic label to reward compliance or criticize disagreement.",
+                "zh": "假设两个人都得到二：一个很快提折中方案，另一个拒绝，因为照原安排会让自己承担大部分工作。这并非同一类型的“好版本”和“坏版本”。折中可能公平，也可能仓促或根本没有必要；拒绝则可能保护合理限制。沉默也可能来自考虑、犹豫、分心，或不愿在那个场合发言。数字无法排除这些可能。想了解互动，可以关注双方实际说了什么、之后发生了什么，而非用符号奖励顺从或批评异议。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Try asking one clarifying question",
+              "zh": "可选尝试：先问清一个问题"
+            },
+            "paragraphs": [
+              {
+                "en": "For a small shared decision, you might ask one question that makes a constraint easier to understand: what part of the timing is fixed, or what would make this option impractical? State your own relevant constraint too. Afterward, consider whether both people had a clearer choice. You need not reach agreement for the question to have been useful. This is an optional communication exercise, not a treatment, a compatibility test or an instruction to reopen an unwanted conversation. Do not use it where asking would put someone at risk. Private notes can stay on your own paper; the website needs no account of who said what or why you were making the decision.",
+                "zh": "在一件小的共享决定中，可以选择问清一个限制：时间安排中哪一部分不能变？什么情况会让这个选项不可行？也可以同时说明自己的相关限制。之后再看，双方是否因此更清楚可选方案；不一定达成一致，问题才有价值。这只是可选的沟通练习，不是治疗、配对测试，也不是重启不想继续的对话的指令；有风险时不应使用。笔记可以留在自己的纸上，网站不需要知道谁说了什么，或你为什么在作这个决定。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Why two and eleven can both be correct calculations",
+              "zh": "为什么二与十一都可能算得对"
+            },
+            "paragraphs": [
+              {
+                "en": "The fictional date 1980-01-01 shows why the rule must accompany the label. Reducing the year separately gives 9; adding month 1 and day 1 gives 11, which the separate-parts rule preserves. Adding all eight date digits first gives 20, which reduces to 2. Neither result authorizes a claim that the person secretly has two personalities. The difference comes from the grouping and stopping conventions. Publishers also use different names for birthday-based numbers, including Soul Number and Life Path. This edition keeps birthday calculations separate from name-vowel calculations and treats the labels as conventions, rather than as proof of distinct psychological constructs.",
+                "zh": "虚构日期1980-01-01说明了为什么标签必须附带规则。先单独化简年份得到9，再加月份1、日期1，就得到分部分法保留的11；先加全部八个日期数字则得到20，最后化为2。两种结果都不能证明这个人暗藏两种人格，差异来自分组与停止约定。出版者也会对按生日得出的数字使用不同名称，包括Soul Number与Life Path。本版把生日方法与姓名元音算法分开，把名称视作约定，而非独立心理构念的证据。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Keep the story separate from decisions about people",
+              "zh": "把故事与对人的判断分开"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected arithmetic conventions. They do not supply evidence that this original making-room narrative measures your relationships or predicts how another person will behave. No number in this guide can decide whether a friendship is suitable, assign responsibility for conflict or tell you to remain in a relationship. The public explanation needs no birthday. Sharing a date or its full arithmetic trace can reveal personal information; you can share a symbolic label without disclosing those details. You can compare the two methods, use a reflection question without calculating anything, or stop here. None of those choices changes the quality of your relationships.",
+                "zh": "Numerology.com和lmp.jp提供了所选运算约定的出处，却不构成证据，证明费马原创的“留出空间”叙事测量了你的关系，或能预测他人的行为。指南中的数字无法决定一段友谊是否合适、分配冲突责任，或要求谁留在关系中。公开解释不需要生日；分享日期及完整步骤可能暴露个人信息，分享符号标签时可以省略这些细节。你可以比较方法、不做运算也使用反思问题，或在这里结束。这些选择本身都不改变关系的质量。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Two: Making Room & Calculation Guide",
+            "zh": "数字二：留出空间与计算读法"
+          },
+          "description": {
+            "en": "Explore two as an optional story about making room without disappearing. Read a fictional calculation, everyday examples and the link between two and eleven.",
+            "zh": "把二当作留出空间而不让自己消失的可选故事。阅读虚构算例、日常情境与反例，并了解二与十一的算术联系。"
+          }
+        }
+      },
+      {
+        "id": "three",
+        "directionIds": [],
+        "symbol": 3,
+        "title": {
+          "en": "Three: giving an idea a shape",
+          "zh": "三：让想法有形"
+        },
+        "headline": {
+          "en": "Three: giving an idea a shape",
+          "zh": "三：让想法有形"
+        },
+        "summary": {
+          "en": "Use three as a story about giving a thought a form someone can respond to. Try a sentence, sketch or example at your own pace, with a real choice about its audience.",
+          "zh": "把三当作让念头获得回应形式的故事。按自己的节奏尝试一句话、一幅草图或一个例子，并自行决定让谁看到。"
+        },
+        "scoreReading": {
+          "en": "Three is a symbolic label from a stated birthday rule. It does not measure creativity or decide whether an idea deserves an audience.",
+          "zh": "三是按写明的生日规则得到的符号标签，不测量创造力，也不决定一个想法是否值得被看见。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Three as a symbol for giving an idea a shape",
+              "zh": "把三当作让想法有形的符号"
+            },
+            "paragraphs": [
+              {
+                "en": "Picture an idea moving from a private thought into a form someone else can respond to: a sentence, a sketch, a short scene or a question on a page. That movement is the editorial motif chosen for three in this guide. It invites you to explore a form of expression, without deciding that you are naturally artistic or socially outgoing. Expression can be quiet, practical, unfinished and shared with only one person. You may enjoy the image even if the birthday calculation feels arbitrary. You may also decide that making anything public is unnecessary. The symbol offers a possible lens for a story; your circumstances determine whether using it is worthwhile.",
+                "zh": "想象一个念头从心里走出来，变成别人可以回应的东西：一句话、一幅草图、一个短场景，或纸上的一个问题。本篇为“三”选定的编辑主题，就是这个“让想法有形”的过程。它邀请你探索一种表达形式，不判断你是否天生有艺术感或外向。表达也可以安静、实用、尚未完成，而且只给一个人看。即使觉得生日运算很随意，你仍可以喜欢这个画面；也可以认为没必要公开什么。符号只提供故事的观察角度，是否值得使用，由现实情境决定。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "Trace the fictional date to three",
+              "zh": "把虚构日期逐步算到三"
+            },
+            "paragraphs": [
+              {
+                "en": "Take the fictional date 2000-01-09. Reducing its parts separately gives year 2, month 1 and day 9. Add 2 + 1 + 9 = 12, then 1 + 2 = 3. Adding all eight date digits first gives 2 + 0 + 0 + 0 + 0 + 1 + 0 + 9 = 12, which also reduces to 3. The two rules happen to agree here. Both preserve 11, 22 and 33 when reached at their specified stopping points; three is simply one of the possible final labels. The arithmetic says nothing about the quality of a poem, a conversation or an idea you might later choose to make.",
+                "zh": "以虚构日期2000-01-09为例，分别化简各部分得到年份2、月份1、日期9，再算2＋1＋9＝12，最后1＋2＝3。先加全部八个日期数字，则是2＋0＋0＋0＋0＋1＋0＋9＝12，同样化为3。两法在这里恰好一致；两者都会按各自停止约定保留11、22、33，三只是可能的最终标签之一。运算本身不说明你写的诗、进行的对话，或以后选择表达的想法有什么质量。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Give a shared memory a small form",
+              "zh": "给共同回忆一个小小的载体"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine friends planning a modest farewell for someone moving away. They have many memories but little time for a large production. One option is a page with three small scenes: a journey that went wrong, a meal everyone still mentions and an ordinary habit they will miss. Each person can offer a line, a drawing or nothing at all. The page makes a memory available for a response, without requiring the group to produce an impressive performance. This is one possible use of the expression motif. Its value would come from the actual people and their preferences, rather than from anyone having received three in a calculation.",
+                "zh": "假设朋友们想为一位即将搬走的人准备小型送别。回忆很多，却没时间制作大型节目。可以用一页纸放三个小场景：一次出岔子的旅行、一顿至今常被提起的饭，以及以后会想念的普通习惯。每个人可以提供一句话、一幅画，也可以不参与。纸页让回忆有机会得到回应，却不要求全组做出令人惊艳的表演。这只是表达主题的一种用法；它的价值来自真实参与者及其意愿，而非有人算出了三。"
+              }
+            ]
+          },
+          {
+            "id": "form-and-audience",
+            "title": {
+              "en": "Choose the form and the audience together",
+              "zh": "一起考虑形式与对象"
+            },
+            "paragraphs": [
+              {
+                "en": "An idea changes when its audience changes. A private note may hold an uncertain thought well, while a public announcement needs clarity about what is being proposed. Before choosing a format, consider who will encounter it, what they need to understand and whether the material is yours to share. A photo or story involving another person may need their agreement. A playful draft can stay a draft. You can also express an idea through a diagram, a demonstration or a carefully chosen example, rather than through personal disclosure. Giving something a form does not require turning your life into content for strangers.",
+                "zh": "面对的对象不同，想法适合采用的形式也会变。私人便条可以容纳尚不确定的念头，公开通知则需要把提议说清楚。选形式前，可以考虑谁会看到、对方需要理解什么，以及这些材料是否由你决定分享。涉及他人的照片或故事，可能需要征得同意；有趣的草稿也可以始终只是草稿。图示、演示或恰当的例子，同样能表达想法，无需披露私人经历。让东西有形，不等于把生活变成供陌生人观看的内容。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "An unfinished draft is not a character verdict",
+              "zh": "未完成的草稿，不是人格结论"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose someone who receives three writes an unclear invitation and then revises it after a friend asks a question. The useful observation is that the first wording needed work and the second wording helped. It would be a mistake to treat the first version as evidence that the person failed to live up to their number. Likewise, a clear drawing made by someone with another result does not belong to three more than to them. Skill, familiarity with the task, feedback, time and access to materials all matter. A symbolic motif can prompt an experiment, but it cannot allocate creativity to certain birthdays or assess a person's potential.",
+                "zh": "假设一位算出三的人写了一份不太清楚的邀请，朋友提问后又修改了。这里有用的观察是：第一版需要调整，第二版帮上了忙，而不是说第一版“辜负了自己的数字”。同样，其他结果的人画出清楚的图，也不比谁更少拥有它。技巧、任务熟悉程度、反馈、时间及材料条件都会影响表达。符号主题可以促成尝试，却无法把创造力分配给某些生日，也不能评估一个人的潜力。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Make one low-pressure version",
+              "zh": "试做一个低压力版本"
+            },
+            "paragraphs": [
+              {
+                "en": "If the motif appeals to you, choose a small idea that already interests you and give it a low-pressure form. You could turn a confusing instruction into one example, describe a place in a few lines or sketch a route for yourself. Decide whether anyone needs to see it. If you invite a response, ask a specific question, such as which part was unclear, instead of asking for a verdict on your creativity. You can revise, abandon or keep the version private. There is no required audience size, posting schedule or promise of improvement. The activity stands on its own even if you never calculate a number again.",
+                "zh": "如果喜欢这个主题，可以选一个本来就感兴趣的小想法，做成低压力的版本：把难懂的说明换成一个例子，用几句话描绘某个地方，或给自己画条路线。先决定有没有人需要看到；若邀请回应，可以问“哪一部分不清楚”这样的具体问题，而不是请对方评判你的创造力。你可以修改、放弃或保持私密。这里没有受众规模、更新频率或必然改善的要求；即使以后再也不算数字，这个活动也可以独立成立。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Keep the calculation attached to the story",
+              "zh": "把运算规则留在故事旁边"
+            },
+            "paragraphs": [
+              {
+                "en": "A symbolic story should not hide how its label was produced. In the separate-parts rule, grouping a date into month, day and year can preserve a master number before the final addition. The all-date-digits rule begins with a different grouping. The fictional date 1980-01-01 therefore reaches 11 in the first rule and 2 in the second. That change is a property of the stated arithmetic, not evidence that a hidden self has emerged. The public guide to three remains an optional narrative whichever calculation led someone here. Neither a preferred description nor a second publisher's terminology can establish a separate psychological measure.",
+                "zh": "符号故事不应遮住标签的来历。分部分法先把日期分成年、月、日，可能在最终相加前就保留主数；全日期数字法则采用另一种分组。于是虚构日期1980-01-01在前者得到11，在后者得到2。变化来自写明的运算，不证明出现了隐藏自我。不论经由哪种运算来到这里，三的公开指南都只是一种可选叙事；更喜欢某种描述，或出版者使用另一名称，也不能证明多了一项独立心理测量。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Sources and a choice about sharing",
+              "zh": "来源，以及由你决定的分享"
+            },
+            "paragraphs": [
+              {
+                "en": "The selected reduction conventions come from the documented methods of Numerology.com and lmp.jp. FermatMind independently chose this expression motif and wrote the scenes and prompts. The arithmetic sources explain a convention; they do not validate a prediction about artistic talent, communication or a future career. Reading a public guide requires no birthday or personal work sample. If you later share a calculator result, a full date or the operations used to reach it may disclose more than the symbolic label alone. You can leave those details private and decide separately whether to share anything you made. Keeping an idea to yourself is also a legitimate ending to this guide.",
+                "zh": "所选化简约定参照Numerology.com与lmp.jp写明的方法；表达这个主题、情境和提问由费马独立撰写。算法来源解释了一种约定，不验证艺术天赋、沟通能力或未来职业的预测。阅读公开指南不需要生日，也不需要上传作品。以后若分享计算结果，完整日期及其运算过程可能比单独的符号标签透露更多信息；可以保留这些细节，再独立决定是否分享自己的作品。把想法留给自己，也是阅读这篇指南的一种正当结尾。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Three: Expression & Calculation Guide",
+            "zh": "数字三：表达成形与计算读法"
+          },
+          "description": {
+            "en": "Explore three as an optional story about giving an idea a shape. See a fictional date calculation, concrete examples and the limits of birthday labels.",
+            "zh": "把三当作让想法有形可见的可选故事。查看虚构日期的运算、具体情境和反例，理解生日数字标签的适用边界。"
+          }
+        }
+      },
+      {
+        "id": "four",
+        "directionIds": [],
+        "symbol": 4,
+        "title": {
+          "en": "Four: a frame that can change",
+          "zh": "四：可以调整的框架"
+        },
+        "headline": {
+          "en": "Four: a frame that can change",
+          "zh": "四：可以调整的框架"
+        },
+        "summary": {
+          "en": "Use four as a story about an arrangement that makes things clearer and still leaves room for change. Test a small frame against what people actually need, then keep, revise or drop it.",
+          "zh": "把四当作既能澄清事情、也容许变化的安排。用真实需要检查一个小框架，再决定保留、修改或放下。"
+        },
+        "scoreReading": {
+          "en": "Four is a symbolic arithmetic outcome. It does not measure discipline, reliability or the right amount of structure for your life.",
+          "zh": "四是符号运算结果，不测量自律、可靠程度，也不决定生活该有多少结构。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Four as a symbol for a useful frame",
+              "zh": "把四当作有用框架的符号"
+            },
+            "paragraphs": [
+              {
+                "en": "Think of a frame that holds something without deciding everything about it: the edges of a page, the shelves of a small exchange or a few agreed steps in a shared routine. Four carries that editorial image in this guide. The question is what arrangement would make an activity easier to understand and revise. You can explore the image without identifying as a disciplined or conventional person. A useful frame may be simple, temporary and open to correction. Its usefulness comes from what people need it to hold, rather than from the birthday label attached to its maker. You are free to decide that an activity needs less structure, not more.",
+                "zh": "想象一种能够托住事情、却不替它决定一切的框架：纸页边缘、小型交换架，或共同日常中约定的几个步骤。本篇用“四”承载这个编辑画面，提出的问题是：怎样的安排，能让一件事更容易被理解和修改？无需先认定自己自律或守旧，才可以探索这个画面。有用的框架可能简单、临时，也容许修正。它是否有用，取决于需要托住什么，而非制作者的生日标签；你也可以判断某件事需要更少结构，而不是更多。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "The fictional date that reaches four",
+              "zh": "一个得到四的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-01, the separate-parts calculation reduces the year to 2, keeps the month as 1 and the day as 1, then adds 2 + 1 + 1 = 4. The all-date-digits version adds 2 + 0 + 0 + 0 + 0 + 1 + 0 + 1 = 4. Neither example needs another reduction step. This gives you a complete arithmetic trail to the label, rather than a hidden assignment. Other dates can reach the same number through different intermediate sums. Sharing that final label does not establish that the people prefer the same routines or should be assigned the same responsibilities.",
+                "zh": "虚构日期2000-01-01在分部分法中，把年份化为2，月份保留1、日期保留1，再算2＋1＋1＝4。全日期数字法则算2＋0＋0＋0＋0＋1＋0＋1＝4；两者都无需继续化简。这是一条完整、可见的运算路径，不是隐藏分配。其他日期也可能通过不同中间值到达四。最终标签一样，不代表人们偏好同样的日常安排，也不能据此分配相同责任。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "A small exchange that needs a few clear labels",
+              "zh": "小型交换活动中的几个清楚标签"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine neighbours setting up a shelf where people can exchange books. The first day works well, but later nobody knows which books are being lent and which are being given away. A simple frame could distinguish those two categories and provide a place for an owner to add contact details voluntarily. The organisers might test the labels before adding more rules. This scene uses structure to clarify an actual uncertainty. It does not suggest that every shared activity needs a form, or that the person who likes clear labels is a particular personality type. The useful question is whether the people using the shelf can understand what has been agreed.",
+                "zh": "假设邻居们摆了一个图书交换架。第一天很顺利，后来却分不清哪些书是借出，哪些是赠送。一个简单框架可以先区分这两类，并给书主留出自愿填写联系方式的位置。组织者也可以先试用标签，再考虑是否需要更多规则。结构在这个例子中，用来澄清真实的不确定之处，而不是说明所有共享活动都要填表，或喜欢清楚标签的人属于某种人格。真正有用的问题是，使用书架的人是否理解了共同约定。"
+              }
+            ]
+          },
+          {
+            "id": "change-and-context",
+            "title": {
+              "en": "Leave a way to change the arrangement",
+              "zh": "给安排留一条修改的路"
+            },
+            "paragraphs": [
+              {
+                "en": "A frame becomes harder to use when nobody can question it. If a rule repeatedly creates extra work, consider whose problem it originally solved and who now bears the cost. You might simplify a label, remove an unnecessary step or agree when to review the arrangement. In a shared setting, the people affected need a meaningful voice in that decision. The symbol does not give one person authority to organise everyone else. Stability can come from a clear way to handle change, rather than from keeping every detail fixed. Sometimes the most useful structure is the agreement that a particular detail can remain flexible.",
+                "zh": "如果没人能质疑，框架就可能越来越难用。某条规则反复增加工作时，可以回看它原先解决谁的问题，现在又由谁承担代价。或许可以简化标签、删掉多余步骤，或约定一个回看安排的时点。在共享场合，受影响的人需要真正参与决定；符号不会赋予谁组织其他所有人的权力。稳定也可以来自清楚的改动方式，而非把细节全部固定。有时最有用的结构，恰恰是约定某一部分允许灵活处理。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "Two sensible responses to a changed plan",
+              "zh": "计划变化后，两种都可能合理的回应"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people receive four and then face a last-minute change to a meeting. One updates a written agenda; the other removes several agenda items so there is room for an urgent discussion. Either response may help. Judging the second person as less true to their number would miss the purpose of the meeting. The same applies when someone forgets a routine or chooses an improvised approach. A calculation cannot distinguish a useful adjustment from an oversight. To understand the choice, look at the information available, the effect on other people and what the person was trying to accomplish, rather than treating consistency as a moral score.",
+                "zh": "假设两个人都算出四，随后会议临时出现变化。一个更新书面议程，另一个删去几项，为紧急讨论腾出空间。两种回应都可能有帮助。说后者不够“符合自己的数字”，反而会忽略会议的目的。有人忘了某个惯例，或选择临时发挥，也同样需要看情境。运算不能区分有用的调整和疏漏。理解选择时，可以关注当时掌握的信息、对别人的影响，以及想完成什么，而不是把始终如一当成道德分数。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Try a frame with one deliberate open space",
+              "zh": "尝试留有一处空白的框架"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want a small experiment, choose an ordinary activity that already feels confusing. Write down what must be clear for it to work, and leave one element deliberately open. For a book exchange, that might mean clearly separating gifts from loans while allowing people to choose how to introduce a book. After one use, ask which part reduced confusion and which part added friction. You can change or discard the frame. There is no need to digitise it, maintain a permanent system or prove that you are organised. The experiment is complete once it helps you understand whether that particular arrangement was useful.",
+                "zh": "如果愿意做个小尝试，可以选一件本来就显得混乱的普通事，写下要顺利进行必须清楚什么，再刻意留一处开放空间。比如图书交换中，赠送与借阅需要明确，但如何介绍一本书可以自由选择。使用一次后，可以问哪一部分减少了困惑，哪一部分反而增加阻力；随后修改或放弃都可以。无需把它数字化、长期维护一套系统，或借此证明自己有条理。当这个尝试帮助你理解安排是否有用时，就已经可以结束。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Grouping rules can change another date’s label",
+              "zh": "换一种分组，另一个日期可能得到别的标签"
+            },
+            "paragraphs": [
+              {
+                "en": "The selected rules agree on four for 2000-01-01, but that does not make them interchangeable. For the fictional date 2009-11-11, reducing the year separately gives 11, and keeping month 11 and day 11 produces 11 + 11 + 11 = 33. Adding all eight date digits at once gives 15 and then 6. The difference is visible in the grouping and the master-number stopping rule. It does not show that one person has a hidden hierarchy of identities. A transparent calculator should state which convention it used, so that you can check the result without needing to accept a story about what it supposedly proves.",
+                "zh": "两种规则对2000-01-01都得到四，却并不能互相替代。换成虚构日期2009-11-11，先单独化简年份得到11，月份和日期也都保留11，于是11＋11＋11＝33；先加全部八个日期数字则得到15，再化为6。差异明明白白地出在分组与主数停止规则中，不说明一个人存在隐藏的身份高低层级。透明的计算器应写清采用哪种约定，让人无需先相信某个身份故事，就能检查结果。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "A convention and a story serve different purposes",
+              "zh": "运算约定与故事，各有自己的作用"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp provide the selected calculation conventions; FermatMind independently wrote this frame-and-change motif. A documented reduction rule can make the arithmetic reproducible. It cannot show that four predicts reliability, professional ability or how much structure someone needs. Reading this public story requires no birth record. If you use a calculator, a date and its detailed reduction trail belong to your private input, and should not be placed into a public profile merely to share a symbol. You can use a question from the story without calculating anything, compare the two conventions or finish here. The choice does not need to become another rule to follow.",
+                "zh": "Numerology.com和lmp.jp提供所选运算约定；框架与变化这个主题由费马独立撰写。写明化简规则，可以让算术可复现，却不能证明四能预测可靠程度、职业能力，或谁需要多少结构。阅读公开故事不需要出生记录。若使用计算器，日期及详细化简过程属于私人输入，不应为了分享一个符号，就被放进公开画像。你可以不算数字，也借用故事中的一个问题；可以比较两种约定，也可以在这里结束。这个选择本身，不必再变成一条要遵守的规则。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Four: A Flexible Frame & Calculation Guide",
+            "zh": "数字四：灵活框架与计算读法"
+          },
+          "description": {
+            "en": "Explore four as an optional story about a frame that can change. Follow two date rules, everyday examples and ways to revise shared arrangements.",
+            "zh": "把四当作可以调整的框架的可选故事。跟随两种日期规则的运算，阅读图书交换情境、反例与自愿练习，思考怎样修改共同安排。"
+          }
+        }
+      },
+      {
+        "id": "five",
+        "directionIds": [],
+        "symbol": 5,
+        "title": {
+          "en": "Five: an optional change of route",
+          "zh": "五：可以选择的改道"
+        },
+        "headline": {
+          "en": "Five: an optional change of route",
+          "zh": "五：可以选择的改道"
+        },
+        "summary": {
+          "en": "Use five as a story about a small alternative with a way back. Compare the actual options, including keeping what works, without treating a number as a demand for novelty.",
+          "zh": "把五当作保留回头路的小替代方案。比较真实选项，也允许继续使用可行做法，不把数字当成必须求新的命令。"
+        },
+        "scoreReading": {
+          "en": "Five is a symbolic arithmetic label. It does not measure adventurousness or forecast changes, and the two selected methods share its digital-root endpoint.",
+          "zh": "五是符号运算标签，不测量冒险倾向或预告变化；两种选定方法共享这个数字根终点。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Five as a symbol for an optional change of route",
+              "zh": "把五当作可以选择的改道符号"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine a familiar path with a clearly marked alternative. You can look at what is different, decide whether to try it and keep a way back to what already works. That is the editorial image chosen for five here. It turns change into a question about options, rather than an instruction to seek constant novelty. Receiving five from a birthday calculation does not establish that you are adventurous, restless or unable to commit. You may value variety in one setting and predictability in another. The image is available as a story about a choice; it carries no requirement to make your life more eventful or to explain an ordinary preference through a number.",
+                "zh": "想象一条熟悉的路旁，有一条标示清楚的替代路线。你可以先看看差别，决定是否尝试，也保留回到原来可行做法的路。这是本篇为“五”选定的编辑画面，把变化看成对选项的提问，而不是不断追逐新鲜的命令。生日算出五，不证明你爱冒险、坐不住，或无法坚持；你可能在一个场合喜欢多样，在另一个场合需要可预测。这个故事只围绕选择，不要求生活更精彩，也无需用数字解释普通偏好。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A complete route through the arithmetic",
+              "zh": "顺着算式走到五"
+            },
+            "paragraphs": [
+              {
+                "en": "Use the fictional date 2000-01-02. The separate-parts method reduces the year to 2, keeps month 1 and day 2, then adds 2 + 1 + 2 = 5. The all-date-digits method adds 2 + 0 + 0 + 0 + 0 + 1 + 0 + 2 = 5. The result is visible without a hidden personality key. Five is a symbolic endpoint in the selected convention, not a score for flexibility or a forecast of changes ahead. Other birthdays can arrive at five through other sums. The arithmetic does not tell you whether a particular change would be useful, affordable or welcome to the people affected.",
+                "zh": "以虚构日期2000-01-02为例，分部分法把年份化为2，月份保留1、日期保留2，再算2＋1＋2＝5；全日期数字法则算2＋0＋0＋0＋0＋1＋0＋2＝5。结果直接可见，不依赖隐藏的人格键。五是所选约定下的符号终点，不是灵活程度分数，也不预告未来将发生变化。其他生日可以经由其他加法得到五；算术不会告诉你某项变化是否有用、负担得起，或是否受到相关人的欢迎。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Try another format without replacing the whole activity",
+              "zh": "试一种形式，无需替换整个活动"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine a small reading group that always begins with a long round of comments. Some members wonder whether a different opening would give people more room to think. They could try starting with a short written question before the usual discussion, while keeping the familiar meeting length and topic. Afterward, they can ask what the change made easier and whether anything useful was lost. The experiment is bounded: it changes one part, and the group can return to the previous format. This illustrates the optional-route image without claiming that members who like the experiment belong to a particular number or that novelty is inherently better.",
+                "zh": "假设一个小读书会一直以较长的轮流发言开场，有人想知道换个开头，能否给大家更多思考空间。可以试着先写一个短问题，再进行原有讨论，同时保留熟悉的时长和主题。结束后，再问变化让什么更容易，有没有丢掉原先有用的东西。这个尝试范围很小，只改一部分，大家也能回到旧形式。它借用了“可选路线”的画面，却不表示喜欢尝试的成员属于某个数字，也不认为新鲜一定更好。"
+              }
+            ]
+          },
+          {
+            "id": "conditions",
+            "title": {
+              "en": "Check the cost of a detour",
+              "zh": "看见改道的实际代价"
+            },
+            "paragraphs": [
+              {
+                "en": "An option can look exciting while requiring time, attention, money or agreement that is not available. Before trying a different route, consider what must remain reliable and who would absorb any extra work. A change that is easy for one person may be disruptive for another. You can ask what would make a trial reversible, and whether everyone affected has a real choice about taking part. There is no contradiction in being curious and deciding to keep an existing arrangement. The number cannot judge the trade-off. The useful comparison is between the actual options, including the option to do nothing for now.",
+                "zh": "一个选项看起来有趣，也可能需要当下没有的时间、注意力、经费或他人同意。试改路线前，可以先看看什么必须保持可靠，额外工作由谁承担。对一个人轻松的变化，可能打乱另一个人的安排。可以询问尝试怎样才容易撤回，相关人是否真正有权选择参与。感到好奇，却决定保留现状，并不矛盾；数字无法裁决取舍。有用的是比较真实选项，也包括暂时什么都不改。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "Curiosity and continuity can both make sense",
+              "zh": "好奇与延续，都可能有理由"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people both receive five. One tries a different reading format because the group has spare time; the other keeps the old format because several members are joining remotely and need predictability. Their choices may both be considerate. It would be unfair to describe the second person as resisting their true nature, just as a spontaneous choice does not prove special insight in the first. Habits, resources, access needs and the purpose of the activity can explain much more than a symbolic label. Look at the decision in its setting before turning it into a story about someone's general ability to handle change.",
+                "zh": "假设两个人都得到五。一个因小组时间充裕而试新形式，另一个因几位成员远程参加、需要可预测流程而沿用旧形式。两种选择都可能很体贴。说后者抗拒“真实天性”并不公平；前者临时作决定，也不证明有什么特殊洞察。习惯、资源、参与条件和活动目的，都比符号标签更能说明情况。可以先看决定发生的情境，再考虑是否有必要把它上升为某人应对变化的一般能力。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Compare one small alternative",
+              "zh": "比较一个小的替代选项"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to use this motif, choose a low-stakes activity you already have reason to do. Name one familiar option and one alternative, and decide what you would like to learn from comparing them. For reading, that might mean trying a page in another format to see whether it makes the argument easier to follow. Set your own limit on the time and effort you want to spend. You can stop once you have enough information, even if the familiar option wins. There is no reward for taking a larger risk, no daily novelty target and no need to report your decision to the website.",
+                "zh": "如果愿意借用这个主题，可以选一件本来就有理由做、影响较小的事，列出一个熟悉选项和一个替代选项，说明想通过比较弄清什么。比如读同一内容的另一种呈现，看看论点是否更容易理解。花多少时间和精力，由你自己设限；信息已经足够时，就可以停止，即使最后仍选择原来的做法。这里不奖励更大风险，没有每天求新的目标，也不需要把决定报告给网站。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "A shared family of arithmetic variants",
+              "zh": "同一数字化简家族中的约定差别"
+            },
+            "paragraphs": [
+              {
+                "en": "Digit-sum reduction preserves a number's remainder when divided by nine. Reducing month, day and year separately therefore preserves the same final digital root as adding all date digits first. With the selected endpoints, differences between these two rules can occur only within the pairs 2 and 11, 4 and 22, or 6 and 33. Five has no second endpoint in its digital-root group, so the two rules will agree on five when either reaches it. This is an arithmetic property of the stated rules, not evidence that they measure the same or different personalities. Keep the method visible and treat its interpretation as a separate editorial choice.",
+                "zh": "十进制各位数字相加，会保留原数除以九的余数。因此，先分别化简年月日，与先加全部日期数字，会保留同一最终数字根。在本版选定的终点集合中，两法的差异只能出现在2与11、4与22，或6与33这些配对内。五所在的数字根组没有第二个终点，所以一法得到五时，另一法也会得到五。这是所写明规则的算术性质，不证明它们测得相同或不同人格。运算应当保持可见，解释则是另一项独立的编辑选择。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Keep options separate from predictions",
+              "zh": "把选项与预测分开"
+            },
+            "paragraphs": [
+              {
+                "en": "The calculation conventions are documented by Numerology.com and lmp.jp; FermatMind independently wrote the optional-route narrative. Those sources explain how labels are produced, not whether a change of job, relationship or direction would be right for a particular person. This public guide needs no birthday, and its examples are fictional. A date or its detailed arithmetic can reveal personal information if included in a shared result, so they should be kept separate from a public symbolic story. You can compare methods, use one question without making a calculation, or finish here. Familiarity, curiosity and a decision to pause all remain available to you.",
+                "zh": "Numerology.com与lmp.jp写明了运算约定；可选路线的叙事由费马独立撰写。这些来源解释标签如何产生，不证明换工作、改变关系或转方向是否适合某个人。公开指南不需要生日，例子均为虚构；日期和详细算式若被放进分享结果，可能透露个人信息，因此应与公开符号故事分开。你可以比较方法，不做运算也借用一个问题，或在这里结束。熟悉、好奇，以及暂缓决定，始终都是可选项。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Five: Trying a Route & Calculation Guide",
+            "zh": "数字五：尝试路线与计算读法"
+          },
+          "description": {
+            "en": "Explore five as an optional story about trying a route while keeping your bearings. Read a fictional calculation, concrete examples and reflection prompts.",
+            "zh": "把五当作在保留方向感时尝试路线的可选故事。阅读虚构算例、具体情境、反例和自愿反思提示，不据数字预测变化。"
+          }
+        }
+      },
+      {
+        "id": "six",
+        "directionIds": [],
+        "symbol": 6,
+        "title": {
+          "en": "Six: care that can be shared",
+          "zh": "六：可以分担的照顾"
+        },
+        "headline": {
+          "en": "Six: care that can be shared",
+          "zh": "六：可以分担的照顾"
+        },
+        "summary": {
+          "en": "Use six as a story about care that people can share willingly. Notice needs, ask what would help and make responsibility visible without assigning yourself a permanent caring role.",
+          "zh": "把六当作人们愿意共同分担的照顾。看见需要，询问什么有帮助，让责任被看见，无需替自己分配固定照顾者角色。"
+        },
+        "scoreReading": {
+          "en": "Six is a symbolic label from a stated date rule. It measures neither kindness nor relationship suitability and does not create a duty to help.",
+          "zh": "六是按写明的日期规则得到的符号标签，不测量善良或关系适合程度，也不产生帮助他人的义务。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Six as a symbol for care that can be shared",
+              "zh": "把六当作可以分担的照顾"
+            },
+            "paragraphs": [
+              {
+                "en": "Picture the ordinary work that helps a shared space function: noticing what is needed, asking who can help and making room for rest as well as contribution. Six carries that editorial motif in this guide. It offers a question about how responsibility is shared, rather than a conclusion that you are naturally caring or meant to look after everyone. Care can include a clear request, a practical arrangement and a decision that a task needs another person. You can consider the image in a household, a group or a friendship without turning it into a permanent role. What people need and can offer matters more than any number attached to them.",
+                "zh": "想象让共同空间运转的日常劳动：看见需要什么，询问谁能帮忙，也给休息与贡献都留出位置。本篇用“六”承载这个编辑主题，提问责任怎样分担，而不是断定你天生会照顾人，或注定要照顾所有人。照顾可以是一项清楚的请求、一种实际安排，也可以是判断某件事需要换个人处理。你可以在家庭、小组或友谊中借用这个画面，无需把它变成固定角色。真实需要与实际能力，比贴在谁身上的数字更重要。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "Follow the fictional date to six",
+              "zh": "逐步得到六的虚构算例"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-03, reducing the parts separately gives year 2, month 1 and day 3; adding them gives 2 + 1 + 3 = 6. Adding all eight date digits first also gives 2 + 0 + 0 + 0 + 0 + 1 + 0 + 3 = 6. Both selected methods therefore reach the same symbolic label in this example. There is no hidden assessment of kindness or a set of caring answers behind the calculation. Another person with the same result may have very different responsibilities and preferences. The reproducible arithmetic is separate from the optional narrative that follows.",
+                "zh": "虚构日期2000-01-03在分部分法中得到年份2、月份1、日期3，再算2＋1＋3＝6；先加全部八个日期数字，也得到2＋0＋0＋0＋0＋1＋0＋3＝6。两种选定方法在这个例子中抵达同一符号标签，背后没有隐藏的善良测评，也没有一组“会照顾人”的答题选项。同一结果的人，可能承担完全不同的责任、拥有不同偏好。可复算的算术，与后面的可选叙事是分开的。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "A shared meal needs more than one kind of help",
+              "zh": "共同聚餐需要不同形式的帮忙"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine a few friends planning a simple meal together. One person enjoys cooking, another can bring ingredients, and someone arriving late can help clear the table afterward. Rather than assuming that the usual organiser will handle everything, the group can name the tasks and ask what each person wants to take on. They may also decide that a simpler meal would suit everyone's capacity better. The care in this scene comes from attending to actual circumstances and making contribution visible. It is not proof that the cook, the organiser or the person who notices the washing-up has a particular birthday number.",
+                "zh": "假设几位朋友准备一顿简单聚餐。有人喜欢做饭，有人能带食材，迟到的人也可以在饭后帮忙收拾。大家可以不再默认惯常组织者包办一切，而是把任务说出来，询问每个人愿意承担什么；也可以决定做得更简单，更符合当下余力。这个情境里的照顾，来自看见实际处境、让贡献被看见，并不证明厨师、组织者或注意到洗碗的人，拥有某种特定生日数字。"
+              }
+            ]
+          },
+          {
+            "id": "needs-and-consent",
+            "title": {
+              "en": "Ask what help would actually be welcome",
+              "zh": "先问什么帮助真正受欢迎"
+            },
+            "paragraphs": [
+              {
+                "en": "Noticing a possible need is only a starting point. Another person may want a practical task done, a chance to explain something or simply room to make their own decision. Asking can prevent an offer from becoming an assumption about what is best for them. You can also explain what kind of help you are able to offer and for how long. The conversation may reveal that a task belongs to a different person or requires knowledge you do not have. A symbolic motif gives no extra expertise or authority. An offer is more useful when the other person can decline or shape it without being made to feel ungrateful.",
+                "zh": "注意到可能的需要，只是起点。对方也许想请人做件实际小事，也许想解释一下，或只是需要自己决定的空间。先询问，可以避免把善意变成对“什么才对你好”的擅自假定；也可以说明自己能提供哪种帮助、能持续多久。交流后，可能发现事情该由别人处理，或需要自己没有的知识。符号不会带来额外专业能力或权力；对方能够拒绝或调整帮助，而不被指责不领情时，这个提议才更有用。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A limit can belong inside a caring response",
+              "zh": "有边界，也可以是一种照顾"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people receive six. One agrees to organise a gathering; the other says that they cannot organise it this time but can send the information they already have. Both responses may support the group. The second person may be protecting rest, another commitment or a realistic limit on what they can manage. Describing them as an uncaring version of six would turn the label into pressure. The reverse inference is also unsafe: someone doing a large amount of unpaid work is not automatically happy, willing or better suited to it. Listen to what people say about their capacity instead of assigning a caring identity from the outside.",
+                "zh": "假设两个人都算出六。一个答应组织聚会，另一个说这次无法组织，但能提供手头已有的信息。两种回应都可能支持小组。后者也许是在保护休息、其他承诺，或现实的能力限度；说他是“不够体贴的六”，会把标签变成压力。反过来，承担大量无偿劳动的人，也不一定开心、自愿，或更适合做这些事。可以听人怎样说明自己的余力，而不是从外面替他分配照顾者身份。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Make one ordinary responsibility visible",
+              "zh": "让一项普通责任被看见"
+            },
+            "paragraphs": [
+              {
+                "en": "If this motif is useful, choose a small shared task whose responsibility has become unclear. You might write down what needs doing, what would count as enough and who has agreed to do which part. Ask whether the task itself can be made smaller before trying to distribute it. You can then notice whether the arrangement reduces guessing or merely creates another job for the organiser. The aim is a clearer conversation, not a score for generosity. There is no required act of service, no promise that others will respond well and no need to record private details on the website. You may also decide that the task can wait.",
+                "zh": "如果这个主题有用，可以选一项责任不清的共享小任务，写下要做什么、做到什么程度算够，以及谁同意负责哪部分。分配之前，还可以先问任务能不能简化。随后看看安排是减少了猜测，还是又给组织者添一项工作。目的在于把沟通变清楚，而非给慷慨打分。没有必须完成的服务行动，也不保证别人回应良好；私人细节无需记录到网站上。你也可以决定这件事暂时不做。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Six and thirty-three are different stopping labels",
+              "zh": "六与三十三，是不同的停止标签"
+            },
+            "paragraphs": [
+              {
+                "en": "The fictional date 1990-09-23 reaches 6 under the separate-parts rule: the year reduces to 1, the month stays 9 and the day reduces to 5; 1 + 9 + 5 = 15, then 6. Adding all date digits first gives 33, which that rule preserves. These labels share a digital root but have different stopping points under the selected conventions. Neither makes a person a more advanced helper, a better partner or responsible for more people. If you read both public stories, use them as different editorial questions. The arithmetic difference is not evidence of a hierarchy of moral worth or a second independent psychological measurement.",
+                "zh": "虚构日期1990-09-23在分部分法中得到6：年份化为1，月份保留9，日期化为5；1＋9＋5＝15，最后化为6。先加全部日期数字则得到33，并按该规则保留。两种标签共享一个数字根，却停在所选约定下不同的位置；它们都不会让谁成为更高级的帮助者、更好的伴侣，或必须对更多人负责。若阅读两篇故事，可以把它们当成不同编辑问题。算式差别不证明道德价值有高低，也不构成第二项独立心理测量的证据。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Keep a symbolic story separate from a duty",
+              "zh": "把符号故事与必须履行的义务分开"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected arithmetic conventions. FermatMind independently wrote the shared-care image, the fictional scenes and the questions in this guide. The sources do not validate a prediction about family life, relationships or a person's ability to care for someone. This public explanation requires no birthday. If you use a calculator, avoid placing your date or the detailed operations into a public share, since the steps can reveal the original input. You can use a question from the guide without making a calculation, read another symbol as a story or finish here. None of those choices creates an obligation to provide care.",
+                "zh": "Numerology.com与lmp.jp写明了所选运算约定。共同照顾的画面、虚构场景及本篇问题，由费马独立撰写；来源不验证家庭生活、关系或照顾能力的预测。公开解释不需要生日。若使用计算器，应避免把日期及详细算式放入公开分享，因为步骤可能透露原始输入。你可以不做运算，也借用指南中的问题；可以把其他符号当故事阅读，或在这里结束。这些选择都不会产生必须照顾谁的义务。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Six: Shared Care & Calculation Guide",
+            "zh": "数字六：共同照料与计算读法"
+          },
+          "description": {
+            "en": "Explore six as an optional story about sharing care and responsibility. Follow a fictional calculation and understand the arithmetic link with thirty-three.",
+            "zh": "把六当作共同分担照料与责任的可选故事。跟随虚构运算，阅读情境与反例，并理解它与三十三的算术联系。"
+          }
+        }
+      },
+      {
+        "id": "seven",
+        "directionIds": [],
+        "symbol": 7,
+        "title": {
+          "en": "Seven: keeping a useful question open",
+          "zh": "七：保留一个有用的问题"
+        },
+        "headline": {
+          "en": "Seven: keeping a useful question open",
+          "zh": "七：保留一个有用的问题"
+        },
+        "summary": {
+          "en": "Use seven as a story about keeping a question clear enough to inspect. Separate what you observed from what you inferred, and choose how much checking the actual situation needs.",
+          "zh": "把七当作保留一个可检查问题的故事。分开观察与推断，再按真实情境决定需要核查到哪里。"
+        },
+        "scoreReading": {
+          "en": "Seven is a symbolic calculation label. Reproducible arithmetic does not turn it into an intelligence score or evidence about how deeply someone thinks.",
+          "zh": "七是符号运算标签。算术能够复算，不会使它变成智力分数，也不证明谁思考得更深。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Seven as a symbol for a useful question",
+              "zh": "把七当作一个有用的问题"
+            },
+            "paragraphs": [
+              {
+                "en": "Picture a question kept open long enough to become clearer: what do we actually know, what are we assuming, and what would change our understanding? Seven carries that editorial image in this guide. It invites a way of looking at a small uncertainty, rather than identifying you as a thinker, an introvert or a person with special insight. A useful question can be practical and ordinary. It may lead to an answer, a better question or a decision that you have enough information for now. You can try the image without making curiosity into a permanent identity. Its usefulness depends on the question and your circumstances, not on the birthday calculation.",
+                "zh": "想象一个问题被保留了一会儿，逐渐变得更清楚：实际知道什么，正在假设什么，又有什么会改变理解？这是本篇为“七”选定的编辑画面，邀请你看看一处小小的不确定，而非把你归为思考者、内向者或拥有特殊洞察的人。有用的问题可以很实际、很普通，可能带来答案、更好的问题，或“现在的信息已经够用”的决定。可以尝试这个画面，无需把好奇变成固定身份；它是否有用，取决于问题和处境，而非生日运算。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A fictional example with every step visible",
+              "zh": "把每一步摆出来的虚构例子"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-04, reducing the parts separately gives year 2, month 1 and day 4. Their sum is 2 + 1 + 4 = 7. The all-date-digits rule adds 2 + 0 + 0 + 0 + 0 + 1 + 0 + 4 = 7. No further reduction is needed in either calculation. This is something you can check directly. It does not supply evidence about intelligence, depth of thought or whether a particular belief is correct. The fact that a number is calculated reproducibly and the claim that it describes a person are different kinds of statement; the second does not follow from the first.",
+                "zh": "虚构日期2000-01-04在分部分法中得到年份2、月份1、日期4，再算2＋1＋4＝7；全日期数字法则算2＋0＋0＋0＋0＋1＋0＋4＝7。两种运算都无需继续化简，过程可以直接检查。但它没有提供智力、思考深度或某个观点是否正确的证据。“一个数字能够被复算”和“它描述了一个人”是不同性质的陈述，后者不能从前者直接推出。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "An old picture with an uncertain date",
+              "zh": "一张日期不确定的旧照片"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine friends looking at an old picture while preparing a small community display. One remembers a particular year, but the file on a computer has a different date. A useful question is whether the computer date records when the image was taken, copied or scanned. The group might look for a caption or ask the person who supplied the file, while leaving the year uncertain until there is enough evidence. This is an invented example of separating an observation from an explanation. It does not require anyone to distrust a friend's memory, and it does not turn the person who asks the question into the group's permanent investigator.",
+                "zh": "假设朋友们为社区小展示整理一张旧照片。有人记得某一年，电脑文件却显示另一个日期。可以先问：电脑上的日期记录的是拍摄、复制，还是扫描？大家也许能找图注，或询问提供文件的人；证据还不够时，就先保留年份的不确定。这是区分观察与解释的虚构例子，不要求怀疑朋友的记忆，也不把提问者固定成小组里永远负责调查的人。"
+              }
+            ]
+          },
+          {
+            "id": "evidence-and-context",
+            "title": {
+              "en": "Match the question to what is available",
+              "zh": "让问题与可取得的材料相配"
+            },
+            "paragraphs": [
+              {
+                "en": "Questions can grow larger than the information available to answer them. If the person who supplied the picture cannot be reached, the group may still have enough to describe the scene without assigning a precise year. You can distinguish what is visible, what someone remembers and what remains a guess. Different questions may need different sources, and a missing source is a limit on the answer rather than an invitation to invent one. A number gives no shortcut around that limit. It can be sensible to narrow the claim, leave a detail open or spend attention on another part of the activity.",
+                "zh": "问题可能比现有信息更大。如果暂时联系不上照片提供者，大家也许仍能描述场景，而不写精确年份。可以分开记录看得见的东西、别人记得的内容，以及尚属猜测的部分。不同问题可能需要不同来源；缺少来源，是答案的限制，而不是编一个答案的理由。数字也不能绕过这个限制。收窄说法、留下一处空白，或把精力放到活动的其他部分，都可能合理。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "More investigation is not always the better choice",
+              "zh": "继续查下去，并非总是更好的选择"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people both receive seven. One decides to look for a second caption; the other decides that an approximate period is enough for a casual display. Their different choices may reflect the purpose, time available and cost of getting the detail wrong. They do not reveal a deeper and a shallower version of the same type. Nor does a confident explanation necessarily contain better evidence than a hesitant one. If the question matters, consider the reasons given and the sources actually checked. If it does not matter enough to pursue, stopping can be a deliberate decision rather than a failure of curiosity.",
+                "zh": "假设两个人都得到七，一个去找另一份图注，另一个认为轻松的小展示只需写大致时期。不同选择可能来自活动目的、可用时间，以及写错细节的后果，而不是同一类型中“更深刻”和“更肤浅”的两种版本。自信的解释，也不一定比犹豫的解释拥有更好证据。如果问题重要，可以看提出的理由和实际核查的来源；如果没重要到需要继续追，停止也可能是有意识的选择，而非缺少好奇。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Separate one observation from one inference",
+              "zh": "分开写下一条观察与一条推断"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to try the question motif, choose a small uncertainty that is appropriate to explore. On your own paper, write one thing you observed and one explanation you are considering. Ask what additional information would help distinguish that explanation from another possibility. You can also name a point at which further checking would no longer be useful for the decision. No one needs to submit private documents, family information or a description of another person to this website. The exercise is optional and has no intelligence score. Its purpose is to make the shape of a question clearer, not to prove that you belong to seven.",
+                "zh": "如果愿意尝试，可以选一处适合探究的小疑问，在自己的纸上写下一件观察到的事，以及正在考虑的一种解释，再问还需要什么信息，才能把它和另一种可能分开。也可以写明，查到哪里以后，继续核查对决定已经没有帮助。无需向网站提交私人文件、家庭资料或对别人的描述。这个练习是可选的，没有智力分数；目的是看清问题的形状，而非证明自己属于七。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "What the arithmetic can genuinely establish",
+              "zh": "算术真正能够确定什么"
+            },
+            "paragraphs": [
+              {
+                "en": "Both selected reduction methods preserve the same digital root, because adding decimal digits leaves the remainder modulo nine unchanged. In the allowed endpoint set, seven has no master-number alternative with the same digital root. The two methods therefore agree on seven whenever either produces it. By contrast, the endpoint pairs 2 and 11, 4 and 22, or 6 and 33 can differ between methods. These are checkable properties of the rules. They explain a relationship between numerical labels, without establishing a relationship between those labels and someone's psychology. Keep that distinction visible when deciding what weight to give a symbolic reading.",
+                "zh": "两种选定化简方法保留同一数字根，因为十进制各位数字相加，不改变除以九的余数。在允许的终点集合中，七没有同数字根的主数替代项，所以一法得到七时，另一法也会得到七；而2与11、4与22，或6与33这些终点配对，则可能在两法之间出现差异。这些都是可以检查的规则性质，解释的是数字标签之间的关系，不能据此建立标签与心理特征的关系。决定给符号读法多少分量时，可以保留这个区别。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "A public explanation without a private record",
+              "zh": "公开解释，不需要私人记录"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected calculation conventions. FermatMind independently wrote the useful-question motif, the picture scenario and the reflection prompts. Those sources do not validate claims that a birthday reveals intelligence, hidden knowledge or a talent for research. This guide is available without entering a date. If you later share a calculated label, the original birthday and its detailed operations can remain private; a full trace can reveal more than you intended. You can compare the rules, choose a question from another story or end here. Reading carefully includes being free to decide that a symbolic explanation is not useful to you.",
+                "zh": "Numerology.com与lmp.jp提供所选运算约定；有用问题这个主题、旧照片情境及反思提问由费马独立撰写。来源不验证生日能够揭示智力、隐藏知识或研究天赋的说法。无需输入日期，也能阅读这篇指南。以后若分享一个计算标签，可以把原生日和详细运算保留为私人信息，因为完整步骤可能透露超出预期的内容。你可以比较规则、借用别的故事中的问题，或在这里结束；认真阅读，也包括自由判断某种符号解释对自己没有用。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Seven: A Useful Question & Calculation Guide",
+            "zh": "数字七：有用的问题与计算读法"
+          },
+          "description": {
+            "en": "Explore seven as an optional story about protecting a useful question. See a fictional date calculation, practical examples and space for uncertainty.",
+            "zh": "把七当作保留一个有用问题的可选故事。查看虚构日期运算、实际情境和反例，也给不确定与不同选择留出空间。"
+          }
+        }
+      },
+      {
+        "id": "eight",
+        "directionIds": [],
+        "symbol": 8,
+        "title": {
+          "en": "Eight: resources and responsibility in view",
+          "zh": "八：看见资源与责任"
+        },
+        "headline": {
+          "en": "Eight: resources and responsibility in view",
+          "zh": "八：看见资源与责任"
+        },
+        "summary": {
+          "en": "Use eight as a story about making resources, agreements and responsibility visible. Include time and unpaid work, then choose a plan that fits the actual people involved.",
+          "zh": "把八当作让资源、约定与责任被看见的故事。把时间和无偿劳动也纳入，再选择符合真实参与者的安排。"
+        },
+        "scoreReading": {
+          "en": "Eight is a symbolic arithmetic outcome. It is not a measure of wealth, ambition, managerial skill or future influence.",
+          "zh": "八是符号运算结果，不衡量财富、野心、管理技能或未来影响力。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Eight as a symbol for making resources visible",
+              "zh": "把八当作让资源被看见的符号"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine laying out what a shared activity can actually use: a room, a few hours, some equipment, a person's knowledge and the permission to make a decision. Eight carries that editorial image in this guide. It invites a question about resources and responsibility, without treating a birthday as evidence of ambition, wealth or authority. Resources include things that never appear in a budget, such as attention, access and the time needed to finish a task. You can use the image to see an arrangement more clearly. It does not tell you to accumulate more, take control or judge your life by how much you have.",
+                "zh": "想象把共同活动真正可用的东西摆出来：一间房、几小时、一些器材、某人的知识，以及作决定的权限。本篇用“八”承载这个编辑画面，提问资源与责任，而不把生日当成野心、财富或权力的证据。资源也包括预算上不一定看得见的东西，比如注意力、参与条件，以及把任务收尾所需的时间。可以借这个画面看清一种安排；它不要求你积累更多、接管局面，或用拥有多少来衡量生活。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "The fictional date that gives eight",
+              "zh": "得到八的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-05, the separate-parts rule gives year 2, month 1 and day 5, then 2 + 1 + 5 = 8. The all-date-digits rule gives 2 + 0 + 0 + 0 + 0 + 1 + 0 + 5 = 8. This is the entire calculation for the example; there is no hidden assessment of financial skill or leadership. A final eight is a symbolic label, rather than an amount, a rank or a measure of success. Other dates can reach eight as well. Nothing in the arithmetic reveals what resources someone has or what they have had to do without.",
+                "zh": "虚构日期2000-01-05在分部分法中得到年份2、月份1、日期5，再算2＋1＋5＝8；全日期数字法则算2＋0＋0＋0＋0＋1＋0＋5＝8。这就是该例子的完整计算，没有隐藏的理财或领导力评估。最后的八是符号标签，不是金额、名次或成功程度；其他日期也能得到八。算术无法揭示谁拥有哪些资源，又曾经缺少什么。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "A small display and the work behind it",
+              "zh": "一次小展示，以及背后的工作"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine a group arranging a small display of members' drawings. A room is available, someone can lend a table and another person has time to print labels. The group also needs to know who can approve the room booking, who will return the table and whether the person printing labels is comfortable covering the cost. Naming those details can prevent an apparently free activity from quietly depending on one person's money or labour. This scene uses the resource motif to make an agreement clearer. It does not imply that the person coordinating it has a special number or that a larger display would necessarily be better.",
+                "zh": "假设小组要展示成员画作。有可用房间，有人愿意借桌子，另有人有时间打印标签。同时还需要弄清，谁能批准场地预订，谁负责还桌子，以及打印者是否愿意承担费用。把细节说出来，可以避免一项看似免费的活动，悄悄依赖某个人的经费或劳动。这个情境借资源主题澄清约定，并不意味着协调者拥有特殊数字，也不认为展示规模更大就一定更好。"
+              }
+            ]
+          },
+          {
+            "id": "authority-and-context",
+            "title": {
+              "en": "Responsibility should match an actual agreement",
+              "zh": "责任需要对应真实的约定"
+            },
+            "paragraphs": [
+              {
+                "en": "Being able to do something is different from having agreed to do it. Before treating an offer as a resource, check what has been offered, for what purpose and under which conditions. The same applies to decision-making authority: organising a meeting does not automatically mean deciding how everyone else will contribute. A clear arrangement can name what each person controls and where another person's agreement is required. These are practical questions about the activity, not traits that can be inferred from eight. If the available resources do not support the original plan, reducing the plan may be a more responsible choice than asking people to stretch further.",
+                "zh": "有能力做某件事，不等于已经同意去做。把某项提议当成可用资源前，可以核对对方提供了什么、用于什么目的，以及有什么条件。作决定的权限也一样：组织会议，不自动意味着有权决定别人怎样贡献。清楚的安排可以写明各自能决定什么、哪里需要另一个人同意。这些都是活动的实际问题，不是从八推断出的特质。资源撑不起原计划时，缩小计划可能比继续要求大家加码更负责任。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A smaller plan can be the considered choice",
+              "zh": "缩小计划，也可能是经过考虑的选择"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people receive eight while planning similar events. One has access to a suitable room and chooses a larger display; the other chooses a single table because that is what the group can comfortably manage. The difference does not establish who is more ambitious, capable or likely to succeed. Their circumstances are different, and even identical circumstances could support different priorities. A polished outcome can also hide a large amount of unpaid work. Look at what was agreed, what resources were available and what the people involved wanted, rather than reading a visible result as proof of a birthday-based capacity.",
+                "zh": "假设两个人都得到八，要办相似活动。一个能借到合适房间，于是做较大展示；另一个选择一张桌子，因为小组能轻松承担到这里。差别不说明谁更有野心、更有能力，或更可能成功。他们的条件不同；即使条件相同，也可能有不同优先事项。精致成果背后，还可能藏着大量无偿劳动。可以看真实约定、可用资源和参与者的意愿，而不是把可见成果解释成生日赋予的能力。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Name one resource and its conditions",
+              "zh": "说清一项资源及其条件"
+            },
+            "paragraphs": [
+              {
+                "en": "For a low-stakes shared activity, you could choose one resource that people have been assuming is available. Write down who can offer it, what they have agreed to and what happens when it is no longer available. Include time for returning, clearing or finishing if that matters to the activity. Then ask whether the plan still makes sense. You may find that nothing needs changing, or that a smaller version would be easier. This is an optional clarification exercise, not a financial strategy or a test of managerial ability. There is no need to share amounts, account details or other people's private information with this website.",
+                "zh": "在影响较小的共享活动中，可以挑一项大家一直默认可用的资源，写清谁能提供、实际答应了什么，以及不能再提供时怎么办。如果活动需要，也把归还、清理或收尾时间算进去，再看看计划是否仍然合适。可能什么都无需改，也可能小一点的版本更轻松。这是可选的澄清练习，不是理财策略或管理能力测试；金额、账户信息及他人的私人资料，都无需分享给网站。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "A rule can explain an endpoint, not an outcome in life",
+              "zh": "规则解释数字终点，不能解释人生结果"
+            },
+            "paragraphs": [
+              {
+                "en": "Both selected rules preserve the same digital root. Decimal digit sums leave a number unchanged modulo nine, whether the date parts are reduced separately or all digits are added first. In the selected endpoint set, eight has no master-number alternative, so both rules agree on eight whenever either reaches it. Differences can occur within 2 and 11, 4 and 22, or 6 and 33. This explains a numerical relationship without suggesting that a particular number attracts resources or predicts a person's future. A transparent calculation is useful for checking what the calculator did; it is not evidence for the symbolic narrative's claims about a person.",
+                "zh": "两种选定规则保留同一数字根：无论分别化简年月日，还是先加全部数字，十进制各位相加都不改变除以九的余数。在本版终点集合中，八没有主数替代项，所以一法得到八时，两法会一致；差异可能出现在2与11、4与22，或6与33中。这说明的是数字关系，不表示某个数字能够吸引资源或预测未来。透明运算有助于检查计算器做了什么，却不能证明符号叙事对人的判断。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "Use the motif without making a prediction",
+              "zh": "借用主题，无需把它当作预测"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected arithmetic conventions. FermatMind independently wrote the resource-and-responsibility motif, scenes and questions. Neither the calculation nor this guide can assess your finances, determine a career fit or predict how much influence you will have. The public explanation needs no birth record. If you choose to share a symbolic result, the date and detailed operations can remain private because they may reveal the original input. You can use one question with an invented situation, compare methods or finish here. An ordinary resource decision remains a decision about its actual purpose, conditions and people, rather than a consequence of receiving eight.",
+                "zh": "Numerology.com与lmp.jp写明了所选运算约定；资源与责任的主题、情境及提问，由费马独立撰写。运算和指南都不能评估财务状况、决定职业适合度，或预测未来影响力。公开解释不需要出生记录；若选择分享符号结果，可以保留日期和详细步骤，因为它们可能暴露原始输入。你可以用虚构情境借用一个问题，比较方法，或在这里结束。普通资源决定，始终关乎真实目的、条件和参与者，而非得到八之后必然发生的事。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Eight: Visible Resources & Calculation Guide",
+            "zh": "数字八：看得见的资源与计算读法"
+          },
+          "description": {
+            "en": "Explore eight as an optional story about making resources and responsibilities visible. Read a fictional calculation and examples without predictions of wealth.",
+            "zh": "把八当作让资源与责任看得见的可选故事。阅读虚构算例、日常情境和反例，理解运算标签，而不以它预测财富。"
+          }
+        }
+      },
+      {
+        "id": "nine",
+        "directionIds": [],
+        "symbol": 9,
+        "title": {
+          "en": "Nine: a considered ending",
+          "zh": "九：经过考虑的收尾"
+        },
+        "headline": {
+          "en": "Nine: a considered ending",
+          "zh": "九：经过考虑的收尾"
+        },
+        "summary": {
+          "en": "Use nine as a story about a clear, considered ending. Notice what is complete, what remains open and what people want to carry forward, without demanding a particular feeling of closure.",
+          "zh": "把九当作清楚而经过考虑的收尾。看见已完成、仍开放及想留下的部分，无需要求某种指定的圆满感。"
+        },
+        "scoreReading": {
+          "en": "Nine is a symbolic arithmetic label. It does not measure maturity or predict that something in your life is about to end.",
+          "zh": "九是符号运算标签，不测量成熟程度，也不预测生活中的某件事即将结束。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Nine as a symbol for a considered ending",
+              "zh": "把九当作经过考虑的收尾"
+            },
+            "paragraphs": [
+              {
+                "en": "Picture the end of a small shared activity: noticing what has been completed, what remains open and what people want to carry forward. Nine holds that editorial image in this guide. It invites a question about an ending, rather than predicting that a chapter of your life is about to close. An ending can be modest and practical, such as finishing a playlist or deciding that a temporary arrangement has served its purpose. You can use the image without treating yourself as unusually wise, generous or responsible for a larger mission. What matters is the actual activity and the people involved, not a conclusion drawn from their birthdays.",
+                "zh": "想象一件共享小事的结束：看见什么已经完成，什么仍未解决，以及大家想保留下什么。本篇用“九”承载这个编辑画面，提问怎样收尾，而不预告人生某个篇章即将关闭。结尾也可以很小、很实际，比如完成歌单，或判断某项临时安排已发挥作用。无需把自己理解成格外有智慧、慷慨，或承担宏大使命的人，也能借用这个画面。重要的是真实活动与参与者，而不是由生日推出来的结论。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A fictional date with nine as its endpoint",
+              "zh": "以九为终点的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-06, the separate-parts method gives year 2, month 1 and day 6, then 2 + 1 + 6 = 9. The all-date-digits method gives 2 + 0 + 0 + 0 + 0 + 1 + 0 + 6 = 9. No further reduction is needed. Other dates may reach nine through 18, 27, 36 or another intermediate sum. The visible endpoint is a symbolic label, not a measure of maturity or proof that something should end. A reproducible calculation can show how the label was produced while leaving decisions about actual beginnings and endings entirely open.",
+                "zh": "虚构日期2000-01-06在分部分法中得到年份2、月份1、日期6，再算2＋1＋6＝9；全日期数字法则算2＋0＋0＋0＋0＋1＋0＋6＝9，无需继续化简。其他日期也可能经由18、27、36等中间值到达九。这个可见终点是符号标签，不是成熟度分数，也不证明什么事情应该结束。可复算的运算说明标签怎样产生，至于现实中的开始或结束，仍然是开放的决定。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Finish a shared playlist without losing the useful parts",
+              "zh": "收好共同歌单，也留下有用的部分"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine friends making a playlist for a small celebration. After the event, the collaborative list is still open and nobody knows whether it should keep changing. The group could decide to save the event version, ask whether anyone wants a separate ongoing list and make clear who will manage it if there is one. They can also remove personal notes that were only meant for the event. The ending is a practical agreement about what the list is now for. It does not require everyone to feel the same way about the celebration or to turn the finished list into a larger story about their lives.",
+                "zh": "假设朋友们为一场小庆祝共同做了歌单。活动结束后，协作列表仍开放，大家不知道还要不要继续改。可以决定保存活动版本，再问是否有人想另建持续更新的列表；若有，也说清由谁维护。原本只打算在活动中使用的私人备注，也可以清除。这样的收尾，只是在约定歌单现在有什么用途，不要求大家对庆祝产生相同感受，也不必把一个完成的列表上升为人生故事。"
+              }
+            ]
+          },
+          {
+            "id": "unfinished-and-context",
+            "title": {
+              "en": "A clear ending can include an unfinished part",
+              "zh": "清楚的结尾，也可以承认未完成"
+            },
+            "paragraphs": [
+              {
+                "en": "Something can stop without every hoped-for result being achieved. A project may run out of time, a shared plan may become unnecessary or one part may need a different owner. You can describe those facts without pretending that everything succeeded or treating the whole effort as worthless. If another person will continue the work, ask what information they actually need rather than passing along every note. If nobody will continue it, say so clearly. The symbol supplies no obligation to preserve a project forever. A considered ending can make room for the limits of the activity and for different choices by the people who took part.",
+                "zh": "一件事可以停止，而未必实现了所有期待。项目可能没有时间了，共同计划可能已不再需要，或某部分需要由别人接手。可以如实说明，不假装全部成功，也不因此认定整个过程毫无价值。若有人接续，可以先问对方真正需要什么信息，而非交出每一张笔记；若无人继续，也可以说清楚。符号不要求永久保存某个项目。经过考虑的结尾，可以容纳活动本身的限制，以及参与者各不相同的选择。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "Continuing and stopping can both be thoughtful",
+              "zh": "继续与停止，都可能是认真作出的决定"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose two people both receive nine after working on similar temporary activities. One keeps an ongoing version because people still use it; the other closes the activity because its purpose has been met. Neither choice is automatically a more complete expression of the number. They may be responding to different needs, capacities and agreements. Likewise, wanting to retain a note or a shared object does not prove that someone is unable to move on. A birthday label cannot assess readiness or tell someone how an ending should feel. Look at what is happening and what the people involved want, rather than demanding a particular emotional finish.",
+                "zh": "假设两个人都算出九，又完成了相似的临时活动。一个因大家仍在使用而保留持续版本，另一个因目的已经达到而结束。没有哪一种必然更“完整地体现这个数字”；两人可能面对不同需要、余力与约定。同样，想保留一张便条或一件共同物品，也不证明谁无法往前走。生日标签不能评估准备程度，也不能规定结束时该有什么感觉。可以看真实情况和参与者的意愿，而非要求某种指定的情绪结尾。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Name what is finished and what is still open",
+              "zh": "说清已完成什么，还有什么开放"
+            },
+            "paragraphs": [
+              {
+                "en": "If the motif is useful, choose a low-stakes activity that is already near its natural stopping point. You could write three short notes: what has been done, what remains undecided and what you want to keep. If the activity involves others, invite their views about the parts that affect them. You may discover that it needs one more small action, a pause or a clear end. This is an optional organising prompt, not an instruction to make a major life change. There is no required feeling of closure and no deadline set by the number. Your notes can remain private and need not be sent to the website.",
+                "zh": "如果主题有用，可以选择一件本来就接近自然停点、影响较小的事，写三条短记录：已经做了什么，什么还没决定，以及想留下什么。涉及他人时，可以邀请他们说明与自己有关部分的看法；也许还需要一个小动作，也许需要暂停，或明确结束。这是可选的整理提示，不是进行重大人生改变的指令。没有必须获得的“圆满感”，数字也不设置截止日期。笔记可以保持私密，无需发送给网站。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Why a positive date sum reaches nine rather than zero",
+              "zh": "正数日期总和为何得到九，而非零"
+            },
+            "paragraphs": [
+              {
+                "en": "Adding decimal digits preserves a number's remainder modulo nine. For a valid date in the selected input range, the digit sum is positive; a positive multiple of nine reduces to nine, not zero. The selected rules therefore have no zero endpoint. Nine also has no alternative master endpoint in the allowed set, so the two methods agree when either reaches it. Differences between the methods are limited to the pairs 2 and 11, 4 and 22, or 6 and 33. These are arithmetic facts about the conventions, not proof that nine signifies a completed personality, a special age or an approaching event.",
+                "zh": "十进制各位数字相加，会保留除以九的余数。在所选输入范围内，有效日期的各位总和为正；正的九的倍数会化简到九，而非零，因此本版规则没有零这个终点。九在允许的终点集合中也没有主数替代项，所以一法得到九时，两法会一致；差异只可能出现在2与11、4与22，或6与33之间。这些是关于约定的算术事实，不证明九代表完整人格、特殊年龄，或即将发生的事件。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "A story can end without becoming a prediction",
+              "zh": "故事可以结束，无需变成预测"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected calculation conventions. FermatMind independently wrote this considered-ending motif, the playlist scene and the reflection prompts. The sources do not establish that a number can predict loss, a turning point or the right time to end a relationship, job or commitment. The public guide requires no birthday. A calculator's date and detailed operations can remain private when you share a symbolic label, because the trace may reveal the original input. You can read another story, compare the rules or finish here. An ending chosen for a real activity rests on its purpose and circumstances, rather than on having received nine.",
+                "zh": "Numerology.com与lmp.jp提供所选运算约定；经过考虑的收尾主题、歌单情境和反思问题，由费马独立撰写。来源不证明数字能预测失去、转折，或结束关系、工作、承诺的正确时机。公开指南不需要生日；分享符号标签时，可以把计算器中的日期与详细步骤保留为私人信息，因为步骤可能透露原始输入。你可以阅读其他故事、比较规则，或在这里结束。真实活动的结尾，依据的是目的与处境，而非得到九这件事。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Nine: A Considered Ending & Calculation Guide",
+            "zh": "数字九：考虑过的收尾与计算读法"
+          },
+          "description": {
+            "en": "Explore nine as an optional story about a considered ending. Follow a fictional calculation and consider what is finished, still open or worth keeping.",
+            "zh": "把九当作经过考虑的收尾的可选故事。跟随虚构运算，阅读情境与反例，看看什么已完成、仍开放或值得保留。"
+          }
+        }
+      },
+      {
+        "id": "eleven",
+        "directionIds": [],
+        "symbol": 11,
+        "title": {
+          "en": "Eleven: an impression, then a check",
+          "zh": "十一：看见印象，再作核对"
+        },
+        "headline": {
+          "en": "Eleven: an impression, then a check",
+          "zh": "十一：看见印象，再作核对"
+        },
+        "summary": {
+          "en": "Use eleven as a story about noticing a first impression and checking what supports it. Keep the words, your interpretation and missing information distinguishable.",
+          "zh": "把十一当作注意第一印象、再核对依据的故事。分清原话、自己的解释，以及仍缺少的信息。"
+        },
+        "scoreReading": {
+          "en": "Eleven is a retained arithmetic endpoint, not evidence of special intuition or a higher level than two.",
+          "zh": "十一是被保留的运算终点，不证明特殊直觉，也不代表比二更高的层级。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "An impression can start a question",
+              "zh": "一个印象，可以成为问题的起点"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine reading a short message and getting a strong first impression about its tone. Eleven holds the editorial image of noticing that impression and leaving room to check it. The number does not establish unusual intuition, sensitivity or an ability to read another person's thoughts. You can acknowledge a reaction without treating it as an accurate account of what happened. A pause may help you distinguish the words on the screen, your own interpretation and the information that is still missing. The useful question is small and concrete: what could I ask or observe before deciding what this means? Receiving eleven supplies no special access to the answer.",
+                "zh": "想象读到一条短消息，立刻对语气产生强烈印象。本篇用“十一”承载这样的编辑画面：注意到印象，也留出核对空间。数字不证明特殊直觉、敏感程度，或读懂他人想法的能力。可以承认自己的反应，而不把它直接视为事情的准确经过。稍作停顿，也许能分清屏幕上的原话、自己的解释，以及仍然缺少的信息。有用的问题很具体：在决定它意味着什么之前，可以先问什么、观察什么？得到十一，不会使人获得特殊的答案通道。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A fictional date that stops at eleven",
+              "zh": "一个停在十一的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-01-08, the separate-parts method reduces the year to 2, keeps the month as 1 and the day as 8, then adds 2 + 1 + 8 = 11. The all-date-digits method also gives 2 + 0 + 0 + 0 + 0 + 1 + 0 + 8 = 11. Both selected conventions retain eleven as an endpoint, so neither continues to 1 + 1 = 2 here. That stopping rule explains the label; it does not explain a person's perception or emotional life. A different convention could choose another stopping point. The guide can describe the rule clearly without giving the resulting number authority over decisions.",
+                "zh": "虚构日期2000-01-08，在分部分法中把年份化简为2，月份保留1，日期保留8，再算2＋1＋8＝11；全日期数字法也得到2＋0＋0＋0＋0＋1＋0＋8＝11。两种所选约定都保留十一这个终点，所以这里不再继续算1＋1＝2。停止规则解释的是标签怎样产生，而不是一个人的知觉或情绪生活。换用其他约定，也可能选择不同停点。指南可以把规则说清，而无需赋予运算结果决定现实选择的权威。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Read the message before supplying its meaning",
+              "zh": "先看消息原文，再补充自己的解释"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose a friend replies, “Can we talk later?” after you suggest a weekend plan. You may read it as irritation, distraction or a simple request to choose another time. The message alone leaves those possibilities open. Instead of building an account of the friendship around the first interpretation, you could ask whether the plan needs changing and when a conversation would suit them. Their reply may resolve the practical question while leaving some feelings uncertain. This scene gives the motif something ordinary to work with: a piece of information, several possible readings and a respectful way to learn more. The same approach is available to someone with any birthday label.",
+                "zh": "假设你提议周末安排，朋友回复：“晚点聊可以吗？”你可能把它读成不耐烦、分心，或单纯想另选时间；这条消息本身仍容许多种解释。无需围绕第一种读法，立即为整段友情写出结论。可以问安排是否需要调整，以及什么时候方便聊。对方的回答也许解决了实际问题，某些感受却仍未确定。这个情境给主题一个普通落点：一条信息、几种可能读法，以及尊重对方的进一步了解方式。任何生日标签的人，都能采用同样的方法。"
+              }
+            ]
+          },
+          {
+            "id": "observation-and-context",
+            "title": {
+              "en": "Keep observations and interpretations distinguishable",
+              "zh": "让观察与解释保持可区分"
+            },
+            "paragraphs": [
+              {
+                "en": "An observation might be that a reply arrived the next morning; an interpretation might be that the sender wanted distance. Both can be written down, but they answer different questions. Someone may have been asleep, working or unsure what the plan required. You do not have to invent a reassuring explanation, either. If a pattern matters to you, you can describe the repeated behaviour and ask about expectations for future contact. The motif does not require suppressing a concern or waiting indefinitely for certainty. It offers a way to discuss what you know, what you think and what you need without presenting an impression as another person's confirmed intention.",
+                "zh": "观察可以是“回复在第二天早上到达”，解释则可能是“对方想拉开距离”。两者都能记录，却回答不同问题。对方可能在睡觉、工作，或不确定安排需要什么；同样，也无需强编一个令人放心的解释。若某种反复出现的情况对你重要，可以描述实际行为，再讨论今后联系的预期。这个主题不要求压下顾虑，也不要求无限等待确定性，而是提供一种谈法：说明知道什么、怎样理解、需要什么，不把自己的印象直接说成对方已确认的意图。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A correct guess is not proof of a special ability",
+              "zh": "猜对一次，不证明特殊能力"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine that two people receive eleven. One notices a scheduling problem before it is explained; the other misunderstands a brief message and later changes their view. Neither outcome demonstrates how well the number fits. A useful guess may come from specific experience, visible clues or chance, and a mistaken reading can happen even in a familiar situation. Remembering only the guesses that worked would make the label seem more informative than the evidence allows. You can credit a good observation without assigning yourself a permanent gift, and you can correct a misunderstanding without deciding that you have failed a symbolic identity. The relevant evidence belongs to the situation, not the calculation.",
+                "zh": "假设两个人都算出十一。一个在解释出现前注意到排期问题，另一个误解了一条短消息，后来修正看法。哪种结果都不能证明数字有多贴合。一次有用的猜测，可能来自具体经验、可见线索，也可能碰巧猜中；熟悉场景里也会有误读。只记住猜中的部分，会让标签显得比证据允许的更有信息量。可以肯定一次好观察，而不授予自己永久天赋；也可以改正误解，而不认定自己辜负了某种符号身份。有关证据属于真实情况，而非运算。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Try one low-stakes clarification",
+              "zh": "试着澄清一件小事"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to use the motif, choose a low-stakes message or plan that you can discuss comfortably. Make a private note of the exact information, your first reading and one alternative explanation. Then decide whether a simple clarification would be useful. You may ask a neutral question, look for an agreed detail or decide that no action is needed. There is no requirement to investigate every reaction, challenge another person or turn the exercise into a score. Avoid using it to override clear boundaries or to make an urgent decision wait for a symbolic sign. Any notes can remain with you; the website does not need the message or the people involved.",
+                "zh": "如果想借用这个主题，可以选一条方便讨论、影响较小的消息或安排，私下记下原始信息、第一种读法，以及一种其他解释。随后再决定，简单澄清是否有帮助：可以问一个中性问题，查看已约定的细节，也可以判断无需行动。不必调查每一次反应、质疑别人，或把练习变成分数；更不应用它越过明确边界，或让紧急决定等待某种符号。笔记可以留在自己手中，网站不需要接收消息原文或涉及的人物信息。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Why eleven and two can exchange places",
+              "zh": "为什么十一与二可能互换"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 1980-01-01, the separate-parts rule reduces the year through 18 to 9, then gives 9 + 1 + 1 = 11. The all-date-digits rule starts with a total of 20 and reduces it to 2. Reducing the year before combining it with the month and day changes the totals reached, even though both calculations use the same date and stopping rule. Adding decimal digits preserves the remainder modulo nine, which is why eleven and two share the same digital root. This relationship is arithmetic. It does not make eleven a more advanced version of two, nor does a change of method reveal a previously hidden level of a person's intuition.",
+                "zh": "虚构日期1980-01-01，在分部分法中把年份经18化简为9，再算9＋1＋1＝11；全日期数字法先得到20，再化简为2。先化简年份再与月份、日期相加，会改变实际经过的总和；即使日期和停止规则相同，终点也可能不同。十进制各位相加会保留除以九的余数，这也说明十一与二具有相同数字根。这个联系属于算术，不会使十一成为二的进阶版本；换一种方法，也不会揭露某个人此前隐藏的直觉层级。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "The motif belongs to this guide",
+              "zh": "主题属于本篇指南"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected arithmetic conventions. FermatMind wrote the impression-and-checking motif, message scene and optional prompts independently. They are editorial material rather than findings that a birthday predicts perception, empathy or unusual awareness. The public guide needs no personal date. If you use a calculator and share its symbolic label, keep the detailed trace private when you prefer not to reveal the input: even intermediate sums can disclose parts of a date. You may choose another motif or leave the story aside. An impression can be worth noticing, while its meaning remains something to examine through the available evidence and the people concerned.",
+                "zh": "Numerology.com与lmp.jp记录了所选算术约定；印象与核对的主题、消息情境及可选提示，由费马独立编写。这些是编辑内容，而不是生日能够预测知觉、共情或特殊感知的研究结论。公开指南不需要个人日期。若使用计算器并分享符号标签，而又不想透露输入，可以把详细步骤留作私人信息：即使中间总和，也可能暴露日期的部分信息。你可以选择其他主题，或把故事放在一边。一个印象值得被注意，它意味着什么，仍然可以依据现有证据及有关当事人的说明继续理解。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Eleven: Impressions & Calculation Guide",
+            "zh": "数字十一：印象核对与计算读法"
+          },
+          "description": {
+            "en": "Explore eleven as an optional story about noticing an impression, then checking it. Follow the arithmetic and compare eleven with two without a hierarchy.",
+            "zh": "把十一当作看见印象、再核对依据的可选故事。跟随运算，阅读情境与反例，并理解十一与二的关系，而不设高低层级。"
+          }
+        }
+      },
+      {
+        "id": "twenty-two",
+        "directionIds": [],
+        "symbol": 22,
+        "title": {
+          "en": "Twenty-two: a plan others can use",
+          "zh": "二十二：让别人用得上的计划"
+        },
+        "headline": {
+          "en": "Twenty-two: a plan others can use",
+          "zh": "二十二：让别人用得上的计划"
+        },
+        "summary": {
+          "en": "Use twenty-two as a story about turning a small shared plan into something people can use, question and change. Let feedback shape the next draft.",
+          "zh": "把二十二当作让共享计划变得可用、可提问、可调整的故事，让反馈参与下一稿。"
+        },
+        "scoreReading": {
+          "en": "Twenty-two is a retained arithmetic endpoint, not a measure of leadership or a requirement to build something large.",
+          "zh": "二十二是被保留的运算终点，不测领导力，也不要求完成宏大事业。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "A plan becomes useful when others can use it",
+              "zh": "别人用得上，计划才开始发挥作用"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine making a small plan and then watching someone else try to use it. Twenty-two holds that editorial image: bringing an idea into a form that other people can understand, question and change. The label does not establish exceptional leadership, practical talent or a duty to build something large. A useful plan might be a few clear instructions for a shared task. It can be unfinished, modest and revised after a first attempt. The point of this motif is the meeting between a plan and its users. Their actual needs and feedback provide information that the birthday calculation cannot supply, including whether the plan is wanted at all.",
+                "zh": "想象写好一个小计划，再看看别人怎样使用。本篇用“二十二”承载这个编辑画面：把想法变成别人能够理解、提问和修改的形式。标签不证明卓越领导力、实践天赋，也不要求建立什么宏大事业。有用的计划，可能只是几条清楚的共享任务说明；它可以尚未完善、规模很小，并在第一次尝试后调整。主题关注的是计划与使用者的相遇。他们的真实需要和反馈，提供生日运算无法给出的信息，也包括这个计划究竟有没有人需要。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A fictional date with two routes to twenty-two",
+              "zh": "一个通过两条路径得到二十二的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2000-09-29, the separate-parts rule reduces the year to 2, keeps the month as 9 and reduces the day through 2 + 9 = 11. Eleven is retained under the selected convention. The final addition is therefore 2 + 9 + 11 = 22, another retained endpoint. The all-date-digits rule gives 2 + 0 + 0 + 0 + 0 + 9 + 2 + 9 = 22 directly. Both routes stop there. The intermediate operations matter to reproducibility; they do not assess whether someone can organise a project. Twenty-two remains an arithmetic label even when the scene in this guide happens to feel familiar.",
+                "zh": "虚构日期2000-09-29，在分部分法中把年份化简为2，月份保留9，日期则经2＋9得到11；所选约定保留十一，所以最后算2＋9＋11＝22，停在另一个被保留的终点。全日期数字法直接算2＋0＋0＋0＋0＋9＋2＋9＝22，也在这里停止。中间步骤对复算很重要，却不能评估一个人是否善于组织项目。即使本篇情境恰好让人熟悉，二十二仍然只是运算标签。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Make a shared watering plan someone can follow",
+              "zh": "做一份别人能够接手的浇水安排"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose neighbours agree to look after a few shared planters. A beautiful timetable is not enough if nobody knows which plants need attention or what to do when a person is away. The group could label the planters, agree how to check the soil and keep a simple record of who last watered them. They can also choose a way to report a problem and decide who can change the schedule. Trying the arrangement for a short period may reveal that one instruction is unclear or that less watering is needed. The useful outcome is a plan people can actually follow and adjust, rather than proof that its author has a particular kind of personality.",
+                "zh": "假设邻居们同意照看几盆共用植物。漂亮的时间表并不够：大家还要知道哪些需要留意、有人外出时怎么办。可以给花盆做标记，约定怎样查看土壤，并简单记录上次由谁浇水；也可以决定怎样反馈问题、谁能调整排期。短期试行后，可能发现某条说明不清楚，或实际需要更少的浇水。有用的结果，是大家真正能执行和调整的安排，而不是证明制订者拥有某种人格。"
+              }
+            ]
+          },
+          {
+            "id": "use-and-feedback",
+            "title": {
+              "en": "Let the users change the first draft",
+              "zh": "让使用者有机会修改初稿"
+            },
+            "paragraphs": [
+              {
+                "en": "A plan written by one person can contain assumptions that are invisible to its author. Someone may not be available at the expected time, able to reach a planter or comfortable using the chosen app. Asking about those constraints before assigning tasks can prevent a tidy document from becoming an unwanted obligation. Feedback can also show that a simpler method would work better. You do not have to defend every detail to show that you took the task seriously. Equally, receiving feedback does not oblige you to keep managing the arrangement forever. Clarify which changes are possible, who agrees to them and when the group will review whether the plan remains useful.",
+                "zh": "一个人写的计划，可能包含自己没有察觉的假设：别人也许无法在预计时间出现、够不到某盆植物，或不习惯指定应用。分配任务前先了解限制，可以避免整齐的文档变成别人不愿承担的义务。反馈也可能说明，更简单的方法反而好用。无需捍卫每个细节来证明自己认真；收到反馈，也不代表必须永远管理下去。可以说明哪些部分可改、由谁同意，以及何时再看看安排是否仍然有用。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "A useful plan need not be a large achievement",
+              "zh": "有用的安排，无需成为重大成就"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine two people who both receive twenty-two. One enjoys making a written plan; the other prefers to help with a specific task after someone else organises it. Neither is a better or worse expression of the label. Skills, available time, interest and the arrangement itself may explain the difference. A plan can also fail because conditions change, even when its author has worked carefully. The number cannot distinguish those causes or promise that persistence will solve them. You can value a small contribution, abandon an unnecessary document or choose a different role without treating it as a missed destiny. The size of a project does not determine the worth of the person involved.",
+                "zh": "假设两个人都算出二十二。一个喜欢写计划，另一个更愿意在别人组织后承担具体任务。没有哪一种更好或更差地“体现标签”；技能、可用时间、兴趣及安排本身，都可能解释差异。即使制订者十分认真，条件变化也可能使计划失效。数字无法区分这些原因，也不能保证坚持就能解决。可以重视小贡献、放下不必要的文档，或选择别的角色，无需把它视为错过命定任务。项目规模也不决定参与者的价值。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Test one instruction with a willing reader",
+              "zh": "请愿意参与的人试读一条说明"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to try the motif, choose a small shared task and write one instruction that would let another willing person begin. Ask what they would need to know before acting, and invite them to point out an unclear term or missing step. You can revise the instruction together or decide that a written plan adds little. This is a voluntary design exercise, not a test of intelligence, influence or commitment. Use a task that you are authorised to arrange, avoid including private information and do not assign someone a responsibility they have not accepted. The result can stay in your own notes. There is no required output for the website to collect.",
+                "zh": "如果想试用主题，可以选一件小型共享任务，写一条让愿意参与的人能够开始的说明，再问对方行动前还需要知道什么，并邀请其指出不清楚的词或遗漏步骤。可以一起改写，也可以判断书面计划帮助不大。这是自愿的设计练习，不测智力、影响力或投入程度。应选择自己有权安排的事，避开私人信息，也不把责任交给尚未同意的人。结果可以留在自己的笔记里，网站无需收取任何指定产出。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "Twenty-two and four share a digital root",
+              "zh": "二十二与四具有相同数字根"
+            },
+            "paragraphs": [
+              {
+                "en": "If twenty-two were reduced again, 2 + 2 would give 4. The selected rules instead retain it when their stopping condition is reached. Differences in when a component or combined sum is reduced can make the two methods return twenty-two and four for the same date. They still preserve the same digital root because decimal digit sums preserve the remainder modulo nine. This connection explains why the labels can be paired in a comparison. It does not make twenty-two a superior form of four or establish that the two describe related psychological traits. Read the displayed calculation to understand the result, and use the motifs only as optional stories.",
+                "zh": "若把二十二继续化简，2＋2会得到4；所选规则则在满足停止条件时保留它。对日期组成部分或合计值何时化简的不同处理，可能使两种方法为同一日期分别得到二十二与四。两者仍保留相同数字根，因为十进制各位相加保留除以九的余数。这个联系说明标签为何可以成对比较，却不会让二十二成为四的优越形式，也不证明它们描述了相关心理特征。可以查看展示的运算来理解结果，主题则只作为可选故事使用。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "A practical story with an arithmetic boundary",
+              "zh": "实用故事，也保留算术边界"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the two selected calculation conventions. FermatMind independently wrote the shared-plan motif, planter example and reflection prompts. Those editorial choices do not establish a connection between birth dates and leadership, income, achievement or future responsibilities. No personal date is needed to read the public guide. A calculator input and its detailed operations can remain private; sharing a symbolic label does not require revealing a date or the steps that may reconstruct it. You can use an ordinary planning idea even if you reject the number's story, or enjoy the story without undertaking a project. Real agreements depend on the people who will use and maintain them.",
+                "zh": "Numerology.com与lmp.jp记录了两种所选运算约定；共享计划主题、花盆案例和反思提示，由费马独立编写。这些编辑选择，不证明出生日期与领导力、收入、成就或未来责任有关。阅读公开指南不需要个人日期；计算器输入和详细步骤可以保持私密，分享一个符号标签，不要求同时透露日期或可能反推出日期的步骤。可以拒绝数字故事，却借用一个普通的计划方法；也可以享受故事，而不承担项目。现实中的约定，取决于真正使用与维护它的人。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Twenty-two: Shared Plans & Calculation Guide",
+            "zh": "数字二十二：共享计划与计算读法"
+          },
+          "description": {
+            "en": "Explore twenty-two as an optional story about a plan others can use. Follow a fictional calculation and compare twenty-two with four without ranking people.",
+            "zh": "把二十二当作让别人用得上计划的可选故事。跟随虚构运算，阅读情境与反例，比较二十二与四，而不对人作等级判断。"
+          }
+        }
+      },
+      {
+        "id": "thirty-three",
+        "directionIds": [],
+        "symbol": 33,
+        "title": {
+          "en": "Thirty-three: share experience with clear limits",
+          "zh": "三十三：有边界地分享经验"
+        },
+        "headline": {
+          "en": "Thirty-three: share experience with clear limits",
+          "zh": "三十三：有边界地分享经验"
+        },
+        "summary": {
+          "en": "Use thirty-three as a story about sharing a requested piece of knowledge. Make room for questions, honest limits and the other person’s choice.",
+          "zh": "把三十三当作分享一份对方确实想了解的知识的故事，留出提问、诚实边界和对方选择的空间。"
+        },
+        "scoreReading": {
+          "en": "Thirty-three is a retained arithmetic endpoint, not a measure of compassion, teaching skill or a duty to serve.",
+          "zh": "三十三是被保留的运算终点，不测共情或教学能力，也不设置服务他人的义务。"
+        },
+        "sections": [
+          {
+            "id": "symbol-scope",
+            "title": {
+              "en": "Share what you know without taking over",
+              "zh": "分享所知，也给别人留下空间"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine knowing how to do a small thing that someone else wants to learn. Thirty-three holds the editorial image of sharing that experience while keeping the help wanted, limited and open to questions. The number does not appoint anyone a teacher, healer or source of wisdom. You can know one useful technique without being responsible for another person's whole experience. You can also be the learner in the next conversation. The motif begins with the other person's request and with what you can honestly offer. Whether help is useful depends on that exchange, not on a label produced from either person's birthday.",
+                "zh": "想象你会做一件小事，而另一个人正想学习。本篇用“三十三”承载这样的编辑画面：分享经验，同时让帮助建立在对方愿意、范围清楚、能够提问的基础上。数字不任命谁成为教师、疗愈者或智慧来源。会一种实用方法，不代表要对别人的全部体验负责；下一场交流中，自己也可能是学习者。主题从对方的请求，以及自己确实能提供什么开始。帮助有没有用，取决于这次交流，而非任何一人的生日标签。"
+              }
+            ]
+          },
+          {
+            "id": "worked-calculation",
+            "title": {
+              "en": "A fictional date that separates the methods",
+              "zh": "一个让两种方法分开的虚构日期"
+            },
+            "paragraphs": [
+              {
+                "en": "For the fictional date 2009-11-11, the separate-parts rule reduces the year through 2 + 0 + 0 + 9 = 11 and retains it. The month and day are also retained as 11. Adding the parts gives 11 + 11 + 11 = 33, so that method stops at thirty-three. The all-date-digits method instead totals 15 and continues to 6. Both calculations follow their selected rules. Neither result identifies a more advanced person or a truer purpose. The different endpoints arise from intermediate stopping rules, so the method should remain visible whenever a calculator presents a label. Reading the public guide itself requires no personal date.",
+                "zh": "虚构日期2009-11-11，在分部分法中把年份经2＋0＋0＋9得到11并保留，月份与日期也各自保留11；再算11＋11＋11＝33，停在三十三。全日期数字法则先得到15，再化简为6。两次运算都符合各自所选规则；任何一个结果，都不识别更高级的人或更真实的使命。终点不同来自中间停止规则，因此计算器展示标签时，也应让使用的方法保持可见。阅读公开指南本身，无需提供个人日期。"
+              }
+            ]
+          },
+          {
+            "id": "concrete-example",
+            "title": {
+              "en": "Explain one round of a game",
+              "zh": "把一轮游戏讲清楚"
+            },
+            "paragraphs": [
+              {
+                "en": "Suppose a friend asks how to play a board game you enjoy. You could ask whether they want a quick demonstration or a written explanation, show one ordinary turn and let them try the next. If a rule is unfamiliar to you, look it up rather than inventing an answer to protect the role of expert. Your friend may prefer another explanation or decide the game is not for them. Those responses give you information about the activity; they are not a verdict on your worth. The useful contribution is a clear, requested explanation of a bounded task, with room for the learner to choose what happens next.",
+                "zh": "假设朋友询问你喜欢的一款桌游怎么玩。可以先问对方想看快速演示，还是书面说明，再示范普通的一轮，让其试下一轮。遇到自己也不熟悉的规则，可以一起查，而非为了维持专家形象编出答案。朋友可能偏好另一种讲法，也可能决定不玩；这些反应说明活动是否适合，不是对你个人价值的裁决。有用的贡献，是把一个范围有限、对方确实想了解的任务讲清，并给学习者留下下一步的选择空间。"
+              }
+            ]
+          },
+          {
+            "id": "boundaries-and-context",
+            "title": {
+              "en": "Name the edge of your experience",
+              "zh": "说清自己经验的边界"
+            },
+            "paragraphs": [
+              {
+                "en": "Experience with one game does not establish expertise in every version, every group or every kind of learning. Even a familiar explanation may need adjusting when someone uses different equipment, language or accessibility support. You can ask what would help and be honest when you do not know. You can also say how much time you have, point to an appropriate source or decline a request that is outside your role. Clear limits make the offer easier to understand; they do not cancel generosity. The motif does not turn personal experience into professional advice, and it does not require someone receiving help to follow a suggestion because you meant well.",
+                "zh": "熟悉一款游戏，不等于精通每个版本、每个群体或每种学习方式。即使熟练的解释，遇到不同设备、语言或无障碍需要，也可能要调整。可以问什么会有帮助，也可以坦言不知道；还可以说明可用时间、指出合适来源，或拒绝超出角色的请求。清楚的边界让提议更易理解，不会抵消善意。主题不把个人经验变成专业建议，也不要求接受帮助的人仅因你的出发点良好就照做。"
+              }
+            ]
+          },
+          {
+            "id": "counterexample",
+            "title": {
+              "en": "Learning can be a contribution too",
+              "zh": "愿意学习，也可以是一种参与"
+            },
+            "paragraphs": [
+              {
+                "en": "Imagine two people who both receive thirty-three at a game evening. One explains a rule clearly; the other admits they are unsure and asks a question that reveals an ambiguity in the instructions. Both actions may help the group. Neither proves the meaning of the number, and neither creates a permanent teaching role. Someone who wants to play quietly, rest or leave early is also allowed to do so. A symbolic guide cannot determine how much anyone owes to a group. Notice the actual request, skill and available energy rather than using the label to praise endless service or to criticise someone for needing support themselves.",
+                "zh": "假设游戏聚会中，两个人都算出三十三。一个把规则讲清，另一个承认不确定，并提出问题，让大家发现说明书的歧义。两种行为都可能有帮助；它们既不证明数字含义，也不建立永久教学角色。想安静玩、休息或提前离开，也都可以。符号指南无法决定谁欠群体多少付出。可以留意实际请求、技能与余力，而不使用标签歌颂无止境服务，或批评一个同样需要支持的人。"
+              }
+            ]
+          },
+          {
+            "id": "optional-experiment",
+            "title": {
+              "en": "Offer one small explanation with permission",
+              "zh": "征得意愿，再分享一个小方法"
+            },
+            "paragraphs": [
+              {
+                "en": "If the motif interests you, think of one low-stakes skill that a willing person has actually asked about. Offer a short example and ask which part, if any, they want to try. Agree how long you will spend and leave space for a different preference. Afterwards, you can consider whether the explanation answered the question or needed a clearer step. You are not measuring your ability to inspire people, and the other person does not owe you enthusiasm. Keep the task within your real knowledge and role. There is no need to collect feedback as a personal score or send names, messages or private details to the website.",
+                "zh": "如果主题有吸引力，可以想到一种影响较小、而且确实有人愿意了解的小技能，提供一个简短示例，再问对方想试哪部分，或是否想试。约定花多少时间，也容许不同偏好。之后可以想想，说明有没有回答原问题，或哪一步需要更清楚。这里不测鼓舞他人的能力，对方也不欠你热烈反应。任务应在真实知识与角色范围内；无需把反馈收集成人格分数，也无需把姓名、消息或私人细节交给网站。"
+              }
+            ]
+          },
+          {
+            "id": "method-difference",
+            "title": {
+              "en": "The other method can also retain thirty-three",
+              "zh": "另一种方法，同样可能保留三十三"
+            },
+            "paragraphs": [
+              {
+                "en": "The difference does not mean that only the separate-parts method can return thirty-three. For the fictional date 1990-09-23, all eight date digits add to 33, so the all-date-digits rule retains it. The separate-parts rule reduces the year to 1, keeps the month as 9 and reduces the day to 5, giving 15 and then 6. These two examples show opposite directions of the 33 and 6 difference. They share a digital root because 3 + 3 = 6. That arithmetic relationship is not a ranking of compassion, teaching skill or responsibility, and the frequency of an endpoint supplies no evidence of an exceptional destiny.",
+                "zh": "这种差异不意味着只有分部分法能得到三十三。虚构日期1990-09-23的八个数字相加为33，所以全日期数字法保留它；分部分法则把年份化简为1，月份保留9，日期化简为5，合计15，再得到6。两个例子展示了33与6差异的相反方向。因为3＋3＝6，它们具有相同数字根；这项算术联系，不是共情、教学技能或责任感的排名，某个终点出现的频率，也不能证明特殊命运。"
+              }
+            ]
+          },
+          {
+            "id": "source-and-limits",
+            "title": {
+              "en": "An optional story about sharing experience",
+              "zh": "一个关于分享经验的可选故事"
+            },
+            "paragraphs": [
+              {
+                "en": "Numerology.com and lmp.jp document the selected calculation conventions. FermatMind independently wrote this sharing-experience motif, the game example and the optional exercise. These are editorial choices, not evidence that birthdays predict compassion, professional competence or a duty to help. You may share a symbolic label while keeping a calculator's date and operation trace private; the trace can disclose details about the input. You can also read the guide without calculating anything. A useful explanation can come from any person who has relevant knowledge and permission to offer it. Its quality is better judged by the actual question, the accuracy of the information and the recipient's choices than by the number attached to a story.",
+                "zh": "Numerology.com与lmp.jp记录了所选运算约定；分享经验主题、游戏案例和可选练习，由费马独立编写。这些是编辑选择，不是生日能预测共情、专业能力或帮助义务的证据。分享符号标签时，可以把计算器日期与运算步骤留作私人信息，因为步骤可能暴露输入细节；也可以完全不计算，只阅读指南。任何具备有关知识、并获对方同意的人，都可能提供有用解释。解释质量，更适合依据实际问题、信息准确性与接受者的选择来判断，而非故事所附的数字。"
+              }
+            ]
+          }
+        ],
+        "seo": {
+          "title": {
+            "en": "Number Thirty-three: Sharing Experience & Calculation Guide",
+            "zh": "数字三十三：经验分享与计算读法"
+          },
+          "description": {
+            "en": "Explore thirty-three as an optional story about sharing experience with clear limits. Compare worked examples for thirty-three and six under both methods.",
+            "zh": "把三十三当作有边界地分享经验的可选故事。比较两种方法得到三十三与六的完整算例，阅读情境、反例和自愿练习。"
+          }
+        }
+      }
+    ],
+    "guide": [
+      {
+        "id": "separate-parts",
+        "title": {
+          "en": "Reduce the parts, then combine",
+          "zh": "先分别化简，再合计"
+        },
+        "paragraphs": [
+          {
+            "en": "Reduce each of month, day and year to one digit or 11, 22, 33; combine the parts and use the same rule again.",
+            "zh": "把月、日、年分别化简到个位或11、22、33；合计后，再使用同样规则。"
+          }
+        ]
+      },
+      {
+        "id": "all-date-digits",
+        "title": {
+          "en": "Add all date digits, then reduce",
+          "zh": "先合计日期各位，再化简"
+        },
+        "paragraphs": [
+          {
+            "en": "Add the eight YYYYMMDD digits first; keep reducing until one digit or 11, 22, 33. A total of 44 reduces to 8.",
+            "zh": "先合计YYYYMMDD的八个数字，再继续化简到个位或11、22、33。总和44会化简为8。"
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "title": {
+          "en": "What is shared or saved?",
+          "zh": "会保存或分享什么？"
+        },
+        "paragraphs": [
+          {
+            "en": "Your date and detailed operations stay in the current page while it is open. Clearing, reloading or changing language removes them. A copy action includes only the symbolic label and method, because calculation steps may reveal parts of the date.",
+            "zh": "日期与详细运算只留在打开的当前页面中；清除、重载或切换语言会移除。复制功能只包含符号标签和方法，因为计算步骤可能透露日期的一部分。"
+          }
+        ]
+      },
+      {
+        "id": "symbolic-scope",
+        "title": {
+          "en": "Does a number describe my personality or future?",
+          "zh": "数字会描述我的人格或未来吗？"
+        },
+        "paragraphs": [
+          {
+            "en": "No. This is a transparent symbolic calculation and a collection of optional stories, not a validated personality measure or a prediction. The motifs, examples and prompts are independently written FermatMind editorial content.",
+            "zh": "不会。本页提供透明的符号运算和可选故事，不是经过验证的人格测量或预测。主题、案例和提示均为费马独立编写的编辑内容。"
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": {
+          "en": "Why can the two methods give different numbers?",
+          "zh": "两种方法为什么可能得到不同数字？"
+        },
+        "answer": {
+          "en": "The separate-parts method reduces the month, day and year before adding them. The all-date-digits method adds all eight digits first. Both retain 11, 22 and 33 at their selected stopping points. Different intermediate stopping points can produce 11 versus 2, 22 versus 4 or 33 versus 6; the methods preserve the same digital root.",
+          "zh": "分部分法先化简年月日，再合计；全日期数字法先把八个数字相加。两法都在各自指定停点保留11、22和33。不同的中间停止处理，可能产生11与2、22与4或33与6的差异；两法保留相同数字根。"
+        }
+      },
+      {
+        "question": {
+          "en": "Does a number describe my personality or future?",
+          "zh": "数字会描述我的人格或未来吗？"
+        },
+        "answer": {
+          "en": "No. This is a transparent symbolic calculation and a collection of optional stories, not a validated personality measure or a prediction. The motifs, examples and prompts are independently written FermatMind editorial content.",
+          "zh": "不会。本页提供透明的符号运算和可选故事，不是经过验证的人格测量或预测。主题、案例和提示均为费马独立编写的编辑内容。"
+        }
+      },
+      {
+        "question": {
+          "en": "Is the birthday Soul Number the same as a name-based Soul Urge?",
+          "zh": "生日灵数与按姓名元音计算的Soul Urge一样吗？"
+        },
+        "answer": {
+          "en": "Here the all-date-digits option uses only a Gregorian calendar date. It is the birthday-based method selected from a Japanese operator. It does not request a name or vowels. Names for numerology methods vary between publishers; this page labels the actual operations.",
+          "zh": "本页的一并相加选项只用公历日期，是从一家日本运营方选定的生日算法，不收集姓名或元音字母。不同发布者对数字命理方法的命名并不统一，本页以实际操作说明方法。"
+        }
+      },
+      {
+        "question": {
+          "en": "Which date should I enter?",
+          "zh": "应该输入哪种日期？"
+        },
+        "answer": {
+          "en": "Enter the Gregorian calendar date you choose to calculate, using the labelled year, month and day fields. No birth time, birthplace, gender or name is needed. Invalid calendar dates stay invalid; the calculator does not roll them into another month or infer a time zone.",
+          "zh": "使用有标签的年月日字段，输入想计算的公历日期。不需要出生时间、地点、性别或姓名。无效日期会明确报错，不会自动滚入下月，也不推测时区。"
+        }
+      },
+      {
+        "question": {
+          "en": "What is shared or saved?",
+          "zh": "会保存或分享什么？"
+        },
+        "answer": {
+          "en": "Your date and detailed operations stay in the current page while it is open. Clearing, reloading or changing language removes them. A copy action includes only the symbolic label and method, because calculation steps may reveal parts of the date.",
+          "zh": "日期与详细运算只留在打开的当前页面中；清除、重载或切换语言会移除。复制功能只包含符号标签和方法，因为计算步骤可能透露日期的一部分。"
+        }
+      },
+      {
+        "question": {
+          "en": "Why are there twelve shared guides?",
+          "zh": "为什么共用十二篇指南？"
+        },
+        "answer": {
+          "en": "The selected rules can finish at 1–9, 11, 22 or 33. Both methods use the same twelve original motifs; the arithmetic explanation changes with the selected method. A second method does not create a second personality or another twelve independent interpretations.",
+          "zh": "所选规则会停在1—9、11、22或33。两法共用十二个原创主题，运算说明随所选方法变化。第二种方法不产生第二种人格，也不另算十二篇独立解释。"
+        }
+      }
+    ]
+  }
+}

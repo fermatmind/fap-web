@@ -1,6 +1,7 @@
 import { isPtq15ConfigurationValid } from "@/lib/questionnaires/ptq15";
 import { isInteractionPairsConfigurationValid } from "@/lib/questionnaires/interactionPairs";
 import { isSkillsEvidenceConfigurationValid } from "@/lib/questionnaires/skillsEvidence";
+import { isBirthNumberConfigurationValid } from "@/lib/questionnaires/birthNumber";
 import { isSapsConfigurationValid } from "@/lib/questionnaires/saps";
 import { QuestionnaireSapsAttribution } from "./QuestionnaireSapsAttribution";
 import { isScs26ConfigurationValid } from "@/lib/questionnaires/scs26";
@@ -28,10 +29,13 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 
+import { BirthNumberGuidePage } from "./BirthNumberPage";
+
 type Props = { params: Promise<{ locale: string; slug: string; profile: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Symbolic guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) return { title: "Result guide unavailable", robots: { index: false, follow: false } };
   const profile = quiz && ((quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz))) ? undefined : quiz?.profiles.find(p => p.id === id);
   if (!quiz || !profile || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz)) || (quiz.kind === "ten-key" && !isTenKeyConfigurationValid(quiz))) return { title: "Result guide unavailable", robots: { index: false, follow: false } };
@@ -40,6 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function QuestionnaireResultGuide({ params }: Props) {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "birth-number") {
+    if (!isBirthNumberConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(item => item.id === id);
+    if (!profile) notFound();
+    return <BirthNumberGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
   if (quiz?.kind === "ptq15" && !isPtq15ConfigurationValid(quiz)) notFound();
   const profile = quiz && ((quiz.kind === "interaction-pairs" && !isInteractionPairsConfigurationValid(quiz)) || (quiz.kind === "skills-evidence" && !isSkillsEvidenceConfigurationValid(quiz))) ? undefined : quiz?.profiles.find(p => p.id === id);
   if (!quiz || !profile || (quiz.kind === "saps" && !isSapsConfigurationValid(quiz)) || (quiz.kind === "scs26" && !isScs26ConfigurationValid(quiz)) || (quiz.kind === "cbi" && !isCbiConfigurationValid(quiz)) || (quiz.kind === "rosenberg" && !isRosenbergConfigurationValid(quiz)) || (quiz.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(quiz)) || (quiz.kind === "data-entry" && !isDataEntryConfigurationValid(quiz)) || (quiz.kind === "secs" && !isSecsConfigurationValid(quiz)) || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz)) || (quiz.kind === "ten-key" && !isTenKeyConfigurationValid(quiz))) notFound();

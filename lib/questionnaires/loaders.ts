@@ -1,6 +1,7 @@
 import type { Questionnaire } from "./types";
 
 const loaders = {
+  "life-path-number": async () => (await import("./data/life-path-number.json")).default as Questionnaire,
   "overthinking-screener": async () => (await import("./data/overthinking-screener.json")).default as Questionnaire,
   "sternberg-love": async () => (await import("./data/sternberg-love.json")).default as Questionnaire,
   "jealousy-scale": async () => (await import("./data/jealousy-scale.json")).default as Questionnaire,
