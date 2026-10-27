@@ -139,6 +139,9 @@ const loaders = {
   "response-color": async () => (await import("./data/response-color.json")).default as Questionnaire,
   disc: async () => (await import("./data/disc.json")).default as Questionnaire,
   "abstract-reasoning": async () => (await import("./data/abstract-reasoning.json")).default as Questionnaire,
+  "numerical-reasoning": async () => (await import("./data/numerical-reasoning.json")).default as Questionnaire,
+  "digital-ethics-citizenship": async () => (await import("./data/digital-ethics-citizenship.json")).default as Questionnaire,
+  "number-series": async () => (await import("./data/number-series.json")).default as Questionnaire,
 };
 
 export async function loadQuestionnaire(slug: string): Promise<Questionnaire | null> {

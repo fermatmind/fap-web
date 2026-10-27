@@ -1,0 +1,627 @@
+[
+  {
+    "id": "difference",
+    "directionIds": [
+      "difference"
+    ],
+    "title": {
+      "en": "Constant differences",
+      "zh": "固定差值"
+    },
+    "headline": {
+      "en": "Keep the step and the position separate.",
+      "zh": "把公差与位置分开核对。"
+    },
+    "summary": {
+      "en": "Practise signed differences, missing middle terms and position counting. Six original answers are a local revision record, without a speed or ability band.",
+      "zh": "复习带符号公差、中间缺项和项数定位；六道原创题正确数是局部复习记录，不分速度或能力等级。"
+    },
+    "scoreReading": {
+      "en": "The six questions each contribute one correct answer. The count describes this fixed rule family and edition, without a speed adjustment, IQ conversion or comparison with other people. Every worked answer and this complete guide is available at every count.",
+      "zh": "六题各计一个正确答案，正确数只描述本版这一规则族，不校正速度、不换算IQ、不与他人比较。任何正确数都可读全部题解与完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Constant differences | Number Series",
+        "zh": "固定差值｜数列推理练习"
+      },
+      "description": {
+        "en": "Practise signed differences, missing middle terms and position counting. Six original answers are a local revision record, without a speed or ability band.",
+        "zh": "复习带符号公差、中间缺项和项数定位；六道原创题正确数是局部复习记录，不分速度或能力等级。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "The question supplies a rule family",
+          "zh": "先读题目限定哪种规则"
+        },
+        "paragraphs": [
+          {
+            "en": "These six questions explicitly require one constant additive step. Your task is to infer that step from the visible terms and apply it at the missing position. This condition matters: a finite list of numbers can be extended by many formulas when no family is specified. Here the stated family makes the exercise testable. A correct choice means that option fits the condition and all the displayed terms; it does not mean you have discovered the only mathematically imaginable continuation.",
+            "zh": "六题明确限定相邻项加同一固定数，先从可见项求公差，再补指定位置。这个条件很关键：不限定规则时，有限数字可用很多公式延续。本题族使任务可核查；选对只说明选项满足条件和全部可见项，不代表找到数学上唯一可想象的续法。"
+          }
+        ]
+      },
+      {
+        "id": "2-signed",
+        "title": {
+          "en": "A fresh signed-step example",
+          "zh": "用新例子保留公差正负号"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider 23, 14, 5, −4, ?. The consecutive differences are −9, −9 and −9, so the next value is −13. Write the subtraction in the same order each time: later term minus earlier term. Reversing that order changes the sign and suggests growth instead of decline. Crossing zero requires no new rule. If you see a positive answer among the alternatives, check whether it came from taking an absolute distance and forgetting the direction.",
+            "zh": "另看23、14、5、−4、问号，相邻差均为−9，下一项−13。每次都用后一项减前一项，颠倒会把下降看成上升。跨零不需要换规律；若选到正数，检查是否只取绝对距离而漏方向。"
+          }
+        ]
+      },
+      {
+        "id": "3-middle",
+        "title": {
+          "en": "A blank in the middle has two checks",
+          "zh": "中间缺项要两侧都成立"
+        },
+        "paragraphs": [
+          {
+            "en": "For −15, −7, ?, 9, 17, the fixed step is +8. The blank must be 1 because −7 + 8 = 1 and 1 + 8 = 9. Checking only one side can let a mistaken step survive. When the blank separates two visible terms, the difference between those visible terms spans two steps, not one. Here 9 − (−7) = 16, which must be divided by two to recover the step of 8.",
+            "zh": "−15、−7、问号、9、17中，公差+8，缺项1，左右−7+8=1、1+8=9都成立。问号两侧可见项间隔两步，9−(−7)=16须除2，不能把16当一步公差。"
+          }
+        ]
+      },
+      {
+        "id": "4-position",
+        "title": {
+          "en": "Count transitions rather than terms",
+          "zh": "数清项数和转移次数"
+        },
+        "paragraphs": [
+          {
+            "en": "If a first term is 6 and every step adds 4, the eighth term is 6 + 7 × 4 = 34. There are seven transitions between positions one and eight. Adding eight steps would produce the ninth term instead. Marking positions underneath a row helps when a question displays more terms than expected or asks for an interior term. The same indexing principle applies to descending sequences; a negative step changes the calculation, not the number of transitions.",
+            "zh": "首项6、公差4，第八项为6+7×4=34，一到八共七次转移，加八次会到第九项。可在数列下标位置，尤其题目显示项数较多或缺项在中间。下降数列同理，负公差改变数值，不改变转移次数。"
+          }
+        ]
+      },
+      {
+        "id": "5-check",
+        "title": {
+          "en": "Check the whole visible row",
+          "zh": "逐个核对可见转移"
+        },
+        "paragraphs": [
+          {
+            "en": "One adjacent pair identifies a possible step, but every other pair must agree with it. For 10, 16, 22, 29, the first two gaps are 6 while the last is 7, so the row does not meet a constant-step condition as written. Do not repair a given number silently to preserve a preferred rule. In this practice bank the checked answer fits the displayed values exactly, with no tolerance or rounding convention needed for the constant-difference items.",
+            "zh": "一对相邻项只能提出候选公差，其余也要同意。10、16、22、29的差为6、6、7，并非等差，不能暗改29来保住猜测。本题核对答案精确符合显示值，固定差值题不靠容差或舍入。"
+          }
+        ]
+      },
+      {
+        "id": "6-review",
+        "title": {
+          "en": "Separate sign, indexing and arithmetic slips",
+          "zh": "分清符号、定位和计算失误"
+        },
+        "paragraphs": [
+          {
+            "en": "After a missed question, write the step you used, the target position and one calculation from each side of the blank when possible. This distinguishes a wrong sign from an off-by-one position or an arithmetic slip. Try a fresh row using a different first term but the same step, then explain why the method still works. Merely selecting the remembered letter on a second attempt does not show that you can reconstruct the relationship independently.",
+            "zh": "错题复盘写下公差、目标位置，能核两侧时各列一次计算，分清符号错、项数偏一还是算错。另换首项保留同一公差，说明方法为何仍成立；重做记住字母不证明能独立重建关系。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Read the count narrowly",
+          "zh": "正确数只作有限解释"
+        },
+        "paragraphs": [
+          {
+            "en": "A count out of six is a record of these particular fixed-step questions. It has no established percentile, hiring threshold, speed meaning or intelligence interpretation. Paper and a calculator are permitted, and there is no countdown. Someone who misreads one minus sign may lose an item without lacking the underlying concept. Use the full rationales to locate the error, then move to ratio or changing-gap questions only when you want a different rule family rather than a higher ability label.",
+            "zh": "正确数/6只记录这组固定步长题，没有百分位、招聘线、速度或智力解释。可用纸笔计算器，无倒计时。看漏一个负号会失一道分，并不直接说明不懂概念。用题解定位错因，需要另一种规则时再看比值或变化差值，不把换题族当能力升级。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ratio",
+    "directionIds": [
+      "ratio"
+    ],
+    "title": {
+      "en": "Constant ratios",
+      "zh": "固定比值"
+    },
+    "headline": {
+      "en": "Track the multiplier, its sign and its exact value.",
+      "zh": "同时保留倍数、符号与精确值。"
+    },
+    "summary": {
+      "en": "Review multiplication factors, negative ratios and exact decimal terms. These six answers concern a stated rule family, without a norm or certification.",
+      "zh": "复习乘数、负公比和精确小数项；六题答案只针对题定规则族，不对应常模或认证。"
+    },
+    "scoreReading": {
+      "en": "The six questions each contribute one correct answer. The count describes this fixed rule family and edition, without a speed adjustment, IQ conversion or comparison with other people. Every worked answer and this complete guide is available at every count.",
+      "zh": "六题各计一个正确答案，正确数只描述本版这一规则族，不校正速度、不换算IQ、不与他人比较。任何正确数都可读全部题解与完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Constant ratios | Number Series",
+        "zh": "固定比值｜数列推理练习"
+      },
+      "description": {
+        "en": "Review multiplication factors, negative ratios and exact decimal terms. These six answers concern a stated rule family, without a norm or certification.",
+        "zh": "复习乘数、负公比和精确小数项；六题答案只针对题定规则族，不对应常模或认证。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "Multiplicative and additive models differ",
+          "zh": "先区分乘法关系与加法关系"
+        },
+        "paragraphs": [
+          {
+            "en": "These questions specify one constant multiplication factor between neighbouring terms. Look for a ratio rather than a fixed difference. A large-looking gap is not itself evidence of a particular factor: divide a later term by its predecessor and test the result across the row. The examples avoid division by zero, so those ratios are defined. This group measures neither financial growth forecasting nor a general ability; it checks six exact relationships under a supplied mathematical condition.",
+            "zh": "本组限定相邻项乘同一个固定数，找的是比值，不是固定差。差值看起来大不等于知道倍数，应后一项除以前一项，再遍核。本组避免以前项零作分母。它不测投资预测或一般能力，只核给定数学条件下六个精确关系。"
+          }
+        ]
+      },
+      {
+        "id": "2-positive",
+        "title": {
+          "en": "Verify a fresh growth factor",
+          "zh": "核对一个新增长例子"
+        },
+        "paragraphs": [
+          {
+            "en": "For 9, 36, 144, 576, ?, the ratios are all 4. Continuing gives 576 × 4 = 2304. The differences are 27, 108 and 432, so copying the last difference would not preserve the original relationship. Calculate a proposed next term only after checking the factor on the earlier transitions. When several alternatives are multiples of a displayed number, the size or familiarity of an option does not replace this consistency check.",
+            "zh": "9、36、144、576、问号的比值均为4，下一项576×4=2304。差值27、108、432不断变，复制末次差值不保持原关系。先核前面各次乘数，再算下一项，不能因为某选项熟悉或也是倍数就选它。"
+          }
+        ]
+      },
+      {
+        "id": "3-negative",
+        "title": {
+          "en": "Negative factors carry a sign rule",
+          "zh": "负公比同时规定符号"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider 8, −24, 72, −216, ?. Multiplying by −3 changes the sign and triples the magnitude at each transition, giving 648 next. A factor of +3 would fit magnitude growth but fail the displayed signs. Conversely, alternating signs alone do not establish a factor: 8, −16, 48 has unequal ratios. Keep both magnitude and sign in the same equation, and test them together instead of treating the minus sign as decoration.",
+            "zh": "8、−24、72、−216、问号每次乘−3，符号翻转且绝对值三倍，下一项648。正3只对绝对值；单看交替符号也不够，8、−16、48的比值并不相同。负号要随倍数一起验。"
+          }
+        ]
+      },
+      {
+        "id": "4-fractions",
+        "title": {
+          "en": "Shrinking rows still multiply",
+          "zh": "变小也能是乘法规律"
+        },
+        "paragraphs": [
+          {
+            "en": "In 486, 162, 54, 18, ?, every step multiplies by one third, so the blank is 6. Saying “divide by three” describes the same operation. Shrinkage does not imply subtraction, and a factor between zero and one is perfectly valid. For a fresh exact-decimal example, 20, 15, 11.25, 8.4375 uses a factor of three quarters. Do not round intermediate terms unless a prompt explicitly requires rounding; this edition asks for exact values.",
+            "zh": "486、162、54、18、问号每次乘1/3，缺项6，除3是同一操作。变小不一定是减法。另例20、15、11.25、8.4375每次乘3/4；本版求精确值，不要求时不能中途舍入。"
+          }
+        ]
+      },
+      {
+        "id": "5-middle",
+        "title": {
+          "en": "A missing middle term must reconnect the row",
+          "zh": "中间缺项要接上左右两段"
+        },
+        "paragraphs": [
+          {
+            "en": "For 12, 18, ?, 40.5, 60.75, the ratio is 1.5, giving a blank of 27. Check both 18 × 1.5 = 27 and 27 × 1.5 = 40.5. Taking an arithmetic midpoint of 18 and 40.5 would use an additive model and produce the wrong value. Although a geometric mean can sometimes recover a missing term, direct multiplication keeps the stated factor and sign easier to inspect in these questions.",
+            "zh": "12、18、问号、40.5、60.75的公比1.5，缺项27；18×1.5=27且27×1.5=40.5。把18和40.5取算术平均用错加法模型。直接乘法更易核清题定倍数及符号。"
+          }
+        ]
+      },
+      {
+        "id": "6-review",
+        "title": {
+          "en": "Explain which operation failed",
+          "zh": "复盘具体哪步运算不合"
+        },
+        "paragraphs": [
+          {
+            "en": "For a wrong answer, divide each visible neighbouring pair, including negative signs, and compare the resulting ratios. If your factor is correct, inspect multiplication or target-position counting next. A calculator can check exact arithmetic but cannot decide which model the prompt requires. Build a new short sequence with a different starting value and your factor, then verify it backwards by division. This method is more informative than repeatedly clicking a known correct option in the fixed bank.",
+            "zh": "答错先逐对相除并保留负号，比较比值。公比对了再查乘法或定位。计算器能核算，不能替你决定模型。另换首项造短列，向前乘、向后除互验，比反复点熟悉选项更有信息。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "The family does not remove all mathematical alternatives",
+          "zh": "限定题族不等于排除所有可想象公式"
+        },
+        "paragraphs": [
+          {
+            "en": "The answer key is checked against the constant-factor condition and the four displayed alternatives. Without that condition, a finite row can admit many other continuation formulas. Correctness here is therefore conditional on the stated model, not a universal proof of what must happen next in the world. The six-item count has no calibrated ability band, population percentile or certification value. All worked explanations remain available at zero, partial and perfect counts, and retakes may reflect memory after you have read them.",
+            "zh": "答案按固定乘数条件与四个显示选项核查；撤去条件，有限数列仍可有其他延续公式。所以正确性依赖题定模型，不证明现实下一步必然如此。六题数不换算能力等级、百分位或认证，任何正确数均给题解；看后重做可能靠记忆。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gaps",
+    "directionIds": [
+      "gaps"
+    ],
+    "title": {
+      "en": "Changing gaps",
+      "zh": "变化差值"
+    },
+    "headline": {
+      "en": "Make a second row before choosing the next number.",
+      "zh": "先写差值行，再补原数列。"
+    },
+    "summary": {
+      "en": "Work through additive and multiplicative gap patterns, signed changes and middle blanks. Six local counts do not imply IQ, ranking or test readiness.",
+      "zh": "复习差值相加、差值倍增、带符号变化与中间缺项；六题局部正确数不代表IQ、排名或考试准备等级。"
+    },
+    "scoreReading": {
+      "en": "The six questions each contribute one correct answer. The count describes this fixed rule family and edition, without a speed adjustment, IQ conversion or comparison with other people. Every worked answer and this complete guide is available at every count.",
+      "zh": "六题各计一个正确答案，正确数只描述本版这一规则族，不校正速度、不换算IQ、不与他人比较。任何正确数都可读全部题解与完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Changing gaps | Number Series",
+        "zh": "变化差值｜数列推理练习"
+      },
+      "description": {
+        "en": "Work through additive and multiplicative gap patterns, signed changes and middle blanks. Six local counts do not imply IQ, ranking or test readiness.",
+        "zh": "复习差值相加、差值倍增、带符号变化与中间缺项；六题局部正确数不代表IQ、排名或考试准备等级。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "The pattern may sit in the gaps",
+          "zh": "规律可能在差值而非原项里"
+        },
+        "paragraphs": [
+          {
+            "en": "These questions restrict the gaps between consecutive terms to one of two families: the gaps add a fixed nonzero amount, or they multiply by a fixed factor. Write the gap row before deciding which condition fits. Do not apply a rule to the original terms simply because it works on the differences. This extra level is the subject of the six exercises. It is still a bounded practice model, not evidence that an unrestricted finite sequence has only one possible mathematical continuation.",
+            "zh": "本组六题限定相邻差值使用两类之一：每次加固定非零数，或每次乘固定数。先写差值行，再辨认。差值上的规则不能直接套到原项。本组练的是多一层关系，仍是限定模型，不声称任意有限数列只有一种数学续法。"
+          }
+        ]
+      },
+      {
+        "id": "2-additive",
+        "title": {
+          "en": "A fresh second-difference calculation",
+          "zh": "另算一次固定二阶差"
+        },
+        "paragraphs": [
+          {
+            "en": "For 5, 12, 23, 38, ?, the gaps are 7, 11 and 15. The gaps themselves add 4, so the next gap is 19 and the next original term is 38 + 19 = 57. Returning 19 would answer “what is the next gap?” rather than the actual question. Put a label above each row and show the final addition back into the original sequence. That simple bookkeeping step prevents a frequent level-of-description error.",
+            "zh": "5、12、23、38、问号，差值7、11、15每次加4，下一差19，原项38+19=57。若答19，回答的是下一差而不是下一项。两行分别标“原项”和“差值”，最后必须加回原列。"
+          }
+        ]
+      },
+      {
+        "id": "3-signed",
+        "title": {
+          "en": "Decreasing values can have increasing gaps",
+          "zh": "原项下降，差值也可能上升"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider 70, 58, 48, 40, 34, ?. Signed gaps are −12, −10, −8 and −6. Each increases by 2, so the next is −4 and the missing value is 30. A statement that the gaps increase refers to their signed values, not their absolute sizes. Writing unsigned distances 12, 10, 8, 6 can still help, but you must restore subtraction when returning to the original row. Mixing the two conventions halfway can reverse the continuation.",
+            "zh": "70、58、48、40、34、问号，带符号差为−12、−10、−8、−6，每次加2，下一差−4，缺项30。差值上升说的是带符号值，绝对值反而缩小。若用距离12、10、8、6，回原项时必须恢复减号，不能中途混用。"
+          }
+        ]
+      },
+      {
+        "id": "4-multiply",
+        "title": {
+          "en": "A multiplier can act on the differences",
+          "zh": "倍数也可以作用在差值行"
+        },
+        "paragraphs": [
+          {
+            "en": "For 10, 13, 19, 31, 55, ?, the gaps are 3, 6, 12 and 24. Doubling gives the next gap 48, and 55 + 48 = 103. Multiplying 55 by two would give 110 and would use a rule that already failed on earlier original terms. Check which row carries the multiplier. If gap signs alternate, a negative factor may explain them, but every gap must follow it; alternating appearance alone is not a sufficient test.",
+            "zh": "10、13、19、31、55、问号的差为3、6、12、24，下一差48，原项55+48=103。直接55翻倍得110，把规则放错了行，且早先原项就不满足。差值符号交替时可能是负倍数，但每个差都须核。"
+          }
+        ]
+      },
+      {
+        "id": "5-middle",
+        "title": {
+          "en": "Reconstruct both gaps around a blank",
+          "zh": "中间缺项两侧差值一起重建"
+        },
+        "paragraphs": [
+          {
+            "en": "A blank inside a row hides two adjacent gaps. For 1, 6, ?, 28, 45, the required additive-gap pattern is 5, 9, 13, 17, yielding the missing term 15. Check 6 + 9 = 15 and 15 + 13 = 28. Looking only at the total jump from 6 to 28 loses the distinction between those two gaps. Candidate substitution is a useful alternative: insert each offered number and test the entire resulting gap row against the stated families.",
+            "zh": "中间问号同时遮住左右两个差。1、6、问号、28、45对应差5、9、13、17，缺项15，左右6+9=15、15+13=28。只看6到28的总跳跃会丢失两个不同差；也可逐项代入四个选项，核完整差值行。"
+          }
+        ]
+      },
+      {
+        "id": "6-review",
+        "title": {
+          "en": "Check a gap rule at more than one transition",
+          "zh": "候选差值规律须多次成立"
+        },
+        "paragraphs": [
+          {
+            "en": "One comparison between two gaps may suggest a rule but does not verify it. Test every available change in the gap row. If the increments are not constant and the ratios are not constant, the candidate does not meet this exercise’s stated alternatives. Do not introduce a new exception near the blank just to rescue a preferred answer. After reviewing an error, change a starting term while keeping the same gaps and recalculate; this helps separate the gap structure from memorized original values.",
+            "zh": "两个差之间一次关系只能提出猜测，必须核全行。若增量不恒定、比值也不恒定，就不符合本题两类规则。不能在问号附近临时加例外来救答案。复盘后可换首项、保持差值重算，区分结构理解和记原数。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Changing gaps are not a forecast",
+          "zh": "变化差值不是现实预测工具"
+        },
+        "paragraphs": [
+          {
+            "en": "These idealized rows are constructed examples, not measured time series. A rule that fits them should not be used to predict prices, demand, health outcomes or another person’s performance. The score is simply six checked choices under the specified gap models, with no time penalty or calibrated norm. Every explanation remains free. If arithmetic effort distracts from the structure, use paper or a calculator and record the assistance when comparing your own practice attempts. A later higher count may include learning the fixed keys.",
+            "zh": "这些是构造数列，不是实测时间序列，不能拿来预测价格、需求、健康或他人表现。正确数只核六个题定模型下选择，没有时间惩罚或常模，全部解析免费。算术影响观察时可用纸笔计算器，比较自身练习可记录辅助情况；后来答对更多也可能包含记住固定答案。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "interleave",
+    "directionIds": [
+      "interleave"
+    ],
+    "title": {
+      "en": "Interleaved sequences",
+      "zh": "交错数列"
+    },
+    "headline": {
+      "en": "Split by position before comparing values.",
+      "zh": "按位置拆支，再比较数值。"
+    },
+    "summary": {
+      "en": "Separate odd and even arithmetic branches, locate missing terms and check zero steps. Six original exercises supply worked feedback without an ability label.",
+      "zh": "拆分奇偶等差支、定位缺项并核零公差；六道原创题给完整推导，不贴能力标签。"
+    },
+    "scoreReading": {
+      "en": "The six questions each contribute one correct answer. The count describes this fixed rule family and edition, without a speed adjustment, IQ conversion or comparison with other people. Every worked answer and this complete guide is available at every count.",
+      "zh": "六题各计一个正确答案，正确数只描述本版这一规则族，不校正速度、不换算IQ、不与他人比较。任何正确数都可读全部题解与完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Interleaved sequences | Number Series",
+        "zh": "交错数列｜数列推理练习"
+      },
+      "description": {
+        "en": "Separate odd and even arithmetic branches, locate missing terms and check zero steps. Six original exercises supply worked feedback without an ability label.",
+        "zh": "拆分奇偶等差支、定位缺项并核零公差；六道原创题给完整推导，不贴能力标签。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "One displayed row can contain two branches",
+          "zh": "一行数字可以交织两支"
+        },
+        "paragraphs": [
+          {
+            "en": "Each question in this group states that odd positions and even positions independently form arithmetic sequences. The two branches can have different starting terms and different steps, including zero. Write positions one, two, three and onward before comparing values. Then collect positions one, three, five and seven together, and positions two, four, six and eight together. Branch membership depends on the position, not on whether the numerical value itself is odd, even, positive or negative.",
+            "zh": "本组明示奇数位和偶数位各成等差数列，两支起点、公差可不同，也允许零公差。先标一、二、三等位置，再把一三五七和二四六八各取出。所属支看位置，不看数值本身奇偶、正负。"
+          }
+        ]
+      },
+      {
+        "id": "2-fresh",
+        "title": {
+          "en": "Work a fresh pair of branches",
+          "zh": "另做一个双支例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider 5, 44, 12, 38, 19, 32, ?, 26. The odd-position branch is 5, 12, 19, ?, adding 7. The even-position branch is 44, 38, 32, 26, subtracting 6. The blank at position seven is 26. Although that equals the eighth term in this example, the two positions were reached by different branches. Identical values at neighbouring positions do not merge the rules or prove that the entire row has become constant.",
+            "zh": "5、44、12、38、19、32、问号、26中，奇数支5、12、19、问号每次加7，偶数支44、38、32、26每次减6，第七项26。此处与第八项相同，但来源不同；相邻数值偶然相同不意味着两支合并或整列恒定。"
+          }
+        ]
+      },
+      {
+        "id": "3-target",
+        "title": {
+          "en": "Identify which branch owns the blank",
+          "zh": "先确定问号归哪支"
+        },
+        "paragraphs": [
+          {
+            "en": "If a row ends after position seven and asks for position eight, continue the even branch rather than the most recently displayed odd value. For 2, 60, 7, 52, 12, 44, 17, ?, the even branch continues 60, 52, 44, 36, so the answer is 36. The latest visible value, 17, belongs to the other branch. A useful scratch-paper layout writes two separate lines with their original position labels so that the final merge cannot silently switch branches.",
+            "zh": "一列已到第七项、要第八项，应续偶数支，而不是刚显示的奇数项。2、60、7、52、12、44、17、问号，偶数支60、52、44、36，答案36。末个可见17属另一支，可分两行并保留原位置标签，避免最后串支。"
+          }
+        ]
+      },
+      {
+        "id": "4-interior",
+        "title": {
+          "en": "Use both sides for an interior blank",
+          "zh": "支内缺项也要核两侧"
+        },
+        "paragraphs": [
+          {
+            "en": "For 11, −10, ?, −3, 23, 4, 29, 11, the even branch adds 7 and is already complete. The odd branch is 11, ?, 23, 29, so its step is +6 and the missing third-position value is 17. Check 11 + 6 = 17 and 17 + 6 = 23. The difference between original neighbouring values, such as −10 and the blank, is irrelevant to the stated separate-branch condition.",
+            "zh": "11、−10、问号、−3、23、4、29、11中，偶数支每次加7；奇数支11、问号、23、29公差6，第三项17，11+6与17+6均成立。原列相邻的−10和问号跨支，其差不用于本题公差。"
+          }
+        ]
+      },
+      {
+        "id": "5-zero",
+        "title": {
+          "en": "A constant branch has a zero step",
+          "zh": "恒定一支允许零公差"
+        },
+        "paragraphs": [
+          {
+            "en": "A repeated branch still meets an arithmetic condition: 7, 7, 7 has difference zero. In 7, −6, 7, 3, 7, 12, 7, ?, the odd branch stays at 7 and the even branch adds 9, so the blank is 21. Do not force every branch to grow or shrink. Likewise, a negative starting term does not require a negative step. Determine each step from that branch’s own consecutive terms rather than from an expectation about how patterns usually look.",
+            "zh": "7、7、7的公差为零，仍是等差。7、−6、7、3、7、12、7、问号中，奇数支恒7，偶数支每次加9，缺项21。不能强迫两支都增减；负起点也不要求负公差，须从该支自己的连续项求。"
+          }
+        ]
+      },
+      {
+        "id": "6-review",
+        "title": {
+          "en": "Re-merge after checking the branches",
+          "zh": "核完两支再交回原位置"
+        },
+        "paragraphs": [
+          {
+            "en": "After solving the two arithmetic sequences, place each value back at its original position and read the displayed row again. This catches a correct branch calculation inserted into the wrong slot. For a missed item, label whether the error was branch assignment, step calculation, a sign, or the final merge. Try a new example with the same pair of steps but different initial values. It should still be solvable using the position-based split, even when numerical parity and signs change.",
+            "zh": "两支算完后按原位置交回整列，再读一次，能发现支内算对却填错位置。错因可分归支、公差、符号或最终合并；另换两个初值、保留两公差，数值奇偶正负变化后仍应按位置拆解。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Two branches are a supplied assumption",
+          "zh": "两支结构是题定条件"
+        },
+        "paragraphs": [
+          {
+            "en": "The prompt supplies the interleaving model; the score does not establish that you would identify an unknown real-world process without it. Other formulas could fit a finite row when no such condition is imposed. The six correct-answer count is not a percentile, clinical interpretation, hiring judgment or calibrated spatial or numerical ability score. All worked answers and this guide remain available at any result. Because the bank is fixed, a retake after reading explanations may reflect remembered positions as well as improved understanding.",
+            "zh": "交错模型由题目给定，正确数不证明能在现实未知过程自行识别它。撤去条件，有限列可有其他公式。六题数不是百分位、临床解释、招聘判断或校准后的空间、数值能力分；任何结果可读全部题解，固定题库看后重做也可能靠位置记忆。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "recurrence",
+    "directionIds": [
+      "recurrence"
+    ],
+    "title": {
+      "en": "Recurrence rules",
+      "zh": "递推规则"
+    },
+    "headline": {
+      "en": "Keep the two previous positions and the constant distinct.",
+      "zh": "分清前一项、前两项与常数。"
+    },
+    "summary": {
+      "en": "Check bounded recurrences at every transition, including equivalent rule descriptions. Six practice answers supply no norm, IQ or hiring prediction.",
+      "zh": "逐次核对有界二项递推，辨认等价规则表达；六题练习答案不提供常模、IQ或招聘预测。"
+    },
+    "scoreReading": {
+      "en": "The six questions each contribute one correct answer. The count describes this fixed rule family and edition, without a speed adjustment, IQ conversion or comparison with other people. Every worked answer and this complete guide is available at every count.",
+      "zh": "六题各计一个正确答案，正确数只描述本版这一规则族，不校正速度、不换算IQ、不与他人比较。任何正确数都可读全部题解与完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Recurrence rules | Number Series",
+        "zh": "递推规则｜数列推理练习"
+      },
+      "description": {
+        "en": "Check bounded recurrences at every transition, including equivalent rule descriptions. Six practice answers supply no norm, IQ or hiring prediction.",
+        "zh": "逐次核对有界二项递推，辨认等价规则表达；六题练习答案不提供常模、IQ或招聘预测。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "A fixed formula needs initial values",
+          "zh": "固定递推式也需要起始值"
+        },
+        "paragraphs": [
+          {
+            "en": "Each question gives the first two terms and restricts subsequent terms to p times the previous term plus q times the term before it plus a constant c. The permitted coefficients p and q are integers from −2 to 3; c is an integer from −3 to 3. One set of coefficients must fit the whole displayed row from the third term onward. These limits make the candidate family explicit instead of inviting an unlimited search for any formula that can fit a short prefix.",
+            "zh": "每题给前两项，从第三项起限定为p×前项+q×前两项+c；p、q为−2至3整数，c为−3至3整数。须整列使用同一系数，不能每次换。这些限制使候选族明确，而非无限寻找能套短前缀的任意公式。"
+          }
+        ]
+      },
+      {
+        "id": "2-fresh",
+        "title": {
+          "en": "Generate a new row one term at a time",
+          "zh": "按顺序生成一个新例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Start with 2 and 5 and use previous plus the term before it plus 2. The third term is 5 + 2 + 2 = 9, the fourth is 9 + 5 + 2 = 16, and the fifth is 16 + 9 + 2 = 27. The next is 27 + 16 + 2 = 45. After each calculation, advance the pair of previous values; keeping the original starting pair forever would not implement a recurrence.",
+            "zh": "从2和5开始，按前两项和加2，第三项5+2+2=9，第四9+5+2=16，第五16+9+2=27，下一27+16+2=45。每次计算后要前移窗口，不能一直使用最初2与5。"
+          }
+        ]
+      },
+      {
+        "id": "3-coefficients",
+        "title": {
+          "en": "Coefficient order changes the answer",
+          "zh": "系数对应位置不能交换"
+        },
+        "paragraphs": [
+          {
+            "en": "For a new example starting 3 and 8, let the rule be twice the previous term minus the term before it plus 1. This gives 14, 21, 29 and then 38. Check the first step: 2 × 8 − 3 + 1 = 14. Reversing the two positions would use 2 × 3 − 8 + 1 and produce −1 instead. Write the immediately previous value beside p and the earlier value beside q before performing the arithmetic.",
+            "zh": "另从3、8起，按前项乘2减前两项再加1，后续14、21、29、38。首步2×8−3+1=14；把位置交换会算2×3−8+1=−1。运算前把最近项放p旁、更早项放q旁。"
+          }
+        ]
+      },
+      {
+        "id": "4-fit",
+        "title": {
+          "en": "One successful transition does not verify a rule",
+          "zh": "一次吻合不足以确认规则"
+        },
+        "paragraphs": [
+          {
+            "en": "Many coefficient sets can reproduce a single transition from two starting terms to a third value. Test a proposed formula against every displayed transition before using it at the blank. A candidate that gets the third term right but misses the fourth is rejected, even if its next number appears among the choices. The answer-bank check enumerates every coefficient set in the stated bounds for each complete candidate row. This verifies an option under that finite family, not the psychometric quality of the practice.",
+            "zh": "仅从前两项到第三项的一次转移，可能很多系数组合都吻合。必须核所有可见转移，第三项对、第四项错的规则要排除，即使它预测的数也在选项里。答案核查枚举题定范围全部系数，对每个补全列验证；这核的是有限模型下选项，不是心理测量质量。"
+          }
+        ]
+      },
+      {
+        "id": "5-equivalent",
+        "title": {
+          "en": "An answer can be unique when rule descriptions are not",
+          "zh": "答案唯一不要求规则写法唯一"
+        },
+        "paragraphs": [
+          {
+            "en": "Some rows admit more than one coefficient description that behaves identically on all their terms. For 1, 3, 7, 15, 31, ?, “twice the previous plus one” yields 63. The rule “three times the previous minus twice the earlier term” also gives 7, 15, 31 and 63. Both lie inside the stated bounds. The practice checks that only one offered missing value works, while allowing such equivalent descriptions. It does not claim that every row identifies a unique triple of coefficients.",
+            "zh": "有些列的不同系数表达在整列上等价。1、3、7、15、31、问号可按前项乘2加1得63，也可按前项乘3减前两项乘2，仍得7、15、31、63，两式均在范围内。核查要求只有一个选项值成立，允许等价表达，不声称每列唯一确定系数三元组。"
+          }
+        ]
+      },
+      {
+        "id": "6-review",
+        "title": {
+          "en": "Audit a calculation before expanding the model",
+          "zh": "先查运算再扩大猜测范围"
+        },
+        "paragraphs": [
+          {
+            "en": "If a recurrence seems to fail, check coefficient order, signs, the constant and the two values you carried forward. The constant is added once per new term, not once to each earlier term. Then test the formula on an earlier transition again. If it still fails, reject it rather than inventing a one-time exception. For independent practice, change the two initial values while keeping a chosen valid formula and generate a fresh row; explain each transition without referring to the original answer letters.",
+            "zh": "递推不吻合，先查系数位置、正负、常数和窗口是否前移。常数每个新项只加一次，不是两前项各加一次；再回查较早转移，仍不合就排除，不造一次性例外。练习可换两个初值、保留合法公式造新列，逐步解释而非记字母。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "A finite-family exercise is not a general reasoning diagnosis",
+          "zh": "有限规则练习不诊断一般推理能力"
+        },
+        "paragraphs": [
+          {
+            "en": "The six-item result is a count of selected answers under these published coefficient limits. It supplies no speed estimate, intelligence score, percentile, employer pass line or certified mathematical competence. It also does not show that the same recurrence governs a real measured process. All keys, rationales and this full guide remain free at every count. Paper and a calculator may be used. Read a missed item as a specific opportunity to inspect the model or arithmetic, rather than as a fixed label about your capacity to learn.",
+            "zh": "六题结果只记这些公开系数限制下选对多少，不估速度、不换算智力、百分位、招聘线或数学认证，也不证明现实过程遵循同一递推。任何正确数均免费给答案、理由和指南，可用纸笔计算器。错题用于核模型和运算，不固定判断学习潜力。"
+          }
+        ]
+      }
+    ]
+  }
+]

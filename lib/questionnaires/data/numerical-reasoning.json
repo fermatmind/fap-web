@@ -1,0 +1,2226 @@
+{
+  "slug": "numerical-reasoning",
+  "code": "FM_NUMERICAL_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Numerical Reasoning Test",
+    "zh": "数值推理测试"
+  },
+  "seoTitle": {
+    "en": "Numerical Reasoning Test: 30 Free Questions & Answers",
+    "zh": "数值推理测试：30道免费数量练习、答案与完整解析"
+  },
+  "description": {
+    "en": "Solve 30 original arithmetic, percentage, ratio, data and rate tasks. All worked answers and five full guides free. Untimed, no signup or hiring score.",
+    "zh": "做30道原创算术、百分比、比例、数据判读和速率题，免费读全部题解与五份完整指南。不计时、无需注册，不给招聘分数或能力等级。"
+  },
+  "minutes": 18,
+  "instructions": {
+    "en": "Answer 30 original four-option questions, six in each section. Each has one checked answer under its stated quantities, units and assumptions. A correct choice adds one; another valid choice zero. There is no timer, guessing penalty, partial credit or speed adjustment. You may use paper or a calculator. Round only when a question explicitly asks, at the final step. Finish all items for every worked answer and all five full guides. Eighteen minutes is an editorial estimate, not observed completion data.",
+    "zh": "完成30道原创四选一题，每组六题，按题定数量、单位和假设有一个已核对答案。选对记一道，其余有效选择记零；不计时、不倒扣、无部分分或速度加权。可用纸笔或计算器，仅在题目要求时对最终结果舍入。全部作答后给全部题解与五份完整指南。十八分钟为编辑估计，不是实测完成数据。"
+  },
+  "introduction": {
+    "en": "Read fictional quantities, choose the operation and keep its units. This full original practice covers arithmetic setup, percentage bases, ratios, small data tables described in words, and rates or conversions. Separate exact-fraction calculations check all 30 keys and the stated final rounding; fresh guide examples are also checked. This is answer-bank verification, not psychometric validation. All 120 alternatives, 30 rationales and five complete revision guides are free. No SHL, Kenexa, Cubiks, GMAT or JobCannon question bank, licensed score or norm is used. Counts do not measure speed, intelligence, job readiness, professional competence or future test performance. No percentile, employer pass threshold, cross-language calibration or fairness study is established. Number-series puzzles are a separate topic rather than part of this edition.",
+    "zh": "读虚构数量、选恰当运算并保留单位。完整原创练习覆盖算术列式、百分比基数、比例、用文字列出的小表和速率换算。独立精确分数计算核对30个答案及题定最终舍入，指南新例子也单独核算；这是答案核对，不代表心理测量验证。120个选项、30个理由及五份完整指南全部免费。本版不使用SHL、Kenexa、Cubiks、GMAT或JobCannon题库、授权成绩或常模。正确数不测速度、智力、岗位准备、专业胜任或未来考试表现，没有建立百分位、雇主通过线、跨语言校准或公平性研究。本版不含数字序列谜题，该主题另行处理。"
+  },
+  "resultHeading": {
+    "en": "Your five practice counts and every worked answer",
+    "zh": "五组练习正确数与全部题解"
+  },
+  "directions": [
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Arithmetic and quantity setup",
+        "zh": "算术与数量列式"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "percentages",
+      "title": {
+        "en": "Percentages and changing bases",
+        "zh": "百分比与变化基数"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "ratios",
+      "title": {
+        "en": "Ratios and proportional comparisons",
+        "zh": "比例与同基比较"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "data",
+      "title": {
+        "en": "Reading data and weighted totals",
+        "zh": "数据判读与加权汇总"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "rates",
+      "title": {
+        "en": "Rates and unit conversions",
+        "zh": "速率与单位转换"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "NUM_01",
+      "prompt": {
+        "en": "Eight packets contain 24 labels each. After 17 labels are used, how many remain? All packets were full at the start.",
+        "zh": "八包标签每包24张，起初均为满包，用去17张后还剩多少张？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "175",
+            "zh": "175"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "184",
+            "zh": "184"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "192",
+            "zh": "192"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "209",
+            "zh": "209"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The starting count is 8 × 24 = 192. Subtract the 17 used labels to obtain 175. Subtracting 17 from only one packet or adding the used labels would answer a different inventory question. Every packet has the same stated size.",
+        "zh": "先算8×24=192，再减用去的17，剩175。不能只对一包算总量，也不能把已用张数加回；各包容量按题设相同。"
+      }
+    },
+    {
+      "id": "NUM_02",
+      "prompt": {
+        "en": "A container holds 4.8 litres. Each bottle takes exactly 0.3 litres, with no spillage. How many full bottles can be filled?",
+        "zh": "容器有4.8升，每瓶恰装0.3升且无损耗，可装满多少瓶？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Divide total volume by volume per bottle: 4.8 ÷ 0.3 = 16. The units cancel to a bottle count. Multiplying the two volumes does not produce a count, and no rounding down is needed because the division is exact.",
+        "zh": "总容量除以单瓶容量，4.8÷0.3=16，得到瓶数。两容量相乘不是瓶数；本题整除，无需向下取整。"
+      }
+    },
+    {
+      "id": "NUM_03",
+      "prompt": {
+        "en": "Four equal-sized batches have counts 18, 26, 31 and 25. What is their arithmetic mean count per batch?",
+        "zh": "四个同规模批次的数量分别18、26、31、25，平均每批是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "26",
+            "zh": "26"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "100",
+            "zh": "100"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Add the four counts to get 100 and divide by four batches, giving 25. The total and the mean have different meanings. Because each listed batch contributes once, no additional weighting is specified or needed.",
+        "zh": "四个数量相加为100，再除4批得25。总量不是平均量；每批各计一次，没有额外权重。"
+      }
+    },
+    {
+      "id": "NUM_04",
+      "prompt": {
+        "en": "A 90-minute session includes a 15-minute break. Work proceeds at two items per working minute, with no setup time. How many items are produced?",
+        "zh": "90分钟时段内含15分钟休息，工作时每分钟完成2件、无准备耗时，共完成多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "150",
+            "zh": "150"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "165",
+            "zh": "165"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "105",
+            "zh": "105"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Only 90 − 15 = 75 minutes are productive. At two items per productive minute, the output is 75 × 2 = 150. Counting the break at the working rate would overstate output by 30 items.",
+        "zh": "有效工作时间90−15=75分钟，乘每分钟2件，得150件。把休息也按生产速率算会多计30件。"
+      }
+    },
+    {
+      "id": "NUM_05",
+      "prompt": {
+        "en": "A delivery contains six crates of 18 parts and four crates of 12 parts. How many parts are delivered altogether?",
+        "zh": "送货包括6箱每箱18件、4箱每箱12件，共有多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "144",
+            "zh": "144"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "156",
+            "zh": "156"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "168",
+            "zh": "168"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Calculate the two crate groups separately: 6 × 18 = 108 and 4 × 12 = 48. Their sum is 156. Averaging the two crate sizes and multiplying by ten would ignore that the crate counts are unequal.",
+        "zh": "分组算6×18=108、4×12=48，合计156。两种箱数不同，不能简单平均箱容量再乘十箱。"
+      }
+    },
+    {
+      "id": "NUM_06",
+      "prompt": {
+        "en": "A store begins with 270 units, receives 85 and dispatches 132. There are no other changes. What is the closing stock count?",
+        "zh": "仓库期初270件，入库85件，出库132件，无其他变化，期末多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "487",
+            "zh": "487"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "317",
+            "zh": "317"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "223",
+            "zh": "223"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "185",
+            "zh": "185"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Closing stock equals starting stock plus receipts minus dispatches: 270 + 85 − 132 = 223. The direction of each change matters. Neither receipts nor dispatches alone can be used as the final balance.",
+        "zh": "期末=期初+入库−出库，即270+85−132=223。两种变动方向不同，单看入库或出库不能得最终余额。"
+      }
+    },
+    {
+      "id": "NUM_07",
+      "prompt": {
+        "en": "Of 150 inspected items, 36 have a blue marker. What percentage have that marker?",
+        "zh": "检查150件，其中36件有蓝色标记，占总检查数的百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18%",
+            "zh": "18%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "24%",
+            "zh": "24%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "36%",
+            "zh": "36%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Use the inspected total as the base: 36 ÷ 150 = 0.24, or 24%. Dividing by the unmarked count would describe a marked-to-unmarked ratio instead of the share of all inspected items. The marker is just a fictional category.",
+        "zh": "以检查总量为分母，36÷150=0.24，即24%。若除以未标记数，算的是两组之比，不是全部检查物的占比；标记仅是虚构类别。"
+      }
+    },
+    {
+      "id": "NUM_08",
+      "prompt": {
+        "en": "A count rises from 320 to 400. What is the percentage increase relative to the original count?",
+        "zh": "数量从320增至400，相对于原数量增长百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "80%",
+            "zh": "80%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "125%",
+            "zh": "125%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The increase is 400 − 320 = 80. Divide that increase by the original 320: 80 ÷ 320 = 0.25, or 25%. Using 400 as the denominator would give the increase as a share of the new total, which is not the question.",
+        "zh": "增量400−320=80，再除原量320，得25%。除以新量400会得到增量占新总量的比例，分母含义不同。"
+      }
+    },
+    {
+      "id": "NUM_09",
+      "prompt": {
+        "en": "A quantity falls from 480 to 360. What is the percentage decrease relative to its original value?",
+        "zh": "数量从480降至360，相对原值下降百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "33.3%",
+            "zh": "33.3%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75%",
+            "zh": "75%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "120%",
+            "zh": "120%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The decrease is 120. Relative to the original 480, 120 ÷ 480 = 25%. The remaining 360 is 75% of the original, but that is the retained share rather than the percentage lost. Keep the requested quantity explicit.",
+        "zh": "减少120，以原量480为分母，120÷480=25%。剩余360是原量的75%，但那是保留比例，不是下降比例。"
+      }
+    },
+    {
+      "id": "NUM_10",
+      "prompt": {
+        "en": "Exactly 25% of a collection is 90 units. How many units are in the whole collection?",
+        "zh": "某集合的25%恰为90件，全部有多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "22.5",
+            "zh": "22.5"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "120",
+            "zh": "120"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "270",
+            "zh": "270"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360",
+            "zh": "360"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Let the total be x. The given part satisfies 0.25x = 90, so x = 90 ÷ 0.25 = 360. Multiplying 90 by 25% finds a quarter of the already given part, not the unknown whole.",
+        "zh": "设总量x，0.25x=90，故x=90÷0.25=360。把90再乘25%会算已知部分的四分之一，不是全部。"
+      }
+    },
+    {
+      "id": "NUM_11",
+      "prompt": {
+        "en": "A fictional quantity starts at 240, rises by 15%, then falls by 20% of the new value. What is the final quantity?",
+        "zh": "虚构数量初值240，先增15%，再按增长后的值降20%，最终是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "228",
+            "zh": "228"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "220.8",
+            "zh": "220.8"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "240",
+            "zh": "240"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "276",
+            "zh": "276"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "First compute 240 × 1.15 = 276. The reduction then acts on 276, so 276 × 0.8 = 220.8. The two percentages have different bases; subtracting 20 from 15 and applying a single five-percent decrease is not equivalent.",
+        "zh": "先240×1.15=276，再按276乘0.8得220.8。两次百分比的基数不同，不能简单15减20后按原值降5%。"
+      }
+    },
+    {
+      "id": "NUM_12",
+      "prompt": {
+        "en": "A share changes from 32% to 40%. By how many percentage points does it rise? Enter the number of percentage points, not the relative percentage increase.",
+        "zh": "占比由32%升至40%，上升多少个百分点？所求是百分点数，不是相对增长百分比。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract the two stated percentage values: 40 − 32 = 8 percentage points. The relative increase is separately 8 ÷ 32 = 25%. Both calculations can be meaningful, but only the first uses the unit requested in this question.",
+        "zh": "两个百分数相减40−32=8个百分点。相对增长另算8÷32=25%；两种均有意义，本题明确要前者单位。"
+      }
+    },
+    {
+      "id": "NUM_13",
+      "prompt": {
+        "en": "Tokens are split in the ratio 3:5. The two groups total 96 tokens. How many tokens are in the smaller group?",
+        "zh": "符号按3:5分两组，共96个，较小组有多少个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "There are 3 + 5 = 8 equal ratio parts, each worth 96 ÷ 8 = 12 tokens. The smaller group gets three parts, or 36. Dividing by five alone would wrongly treat the larger group’s part count as the whole.",
+        "zh": "共3+5=8份，每份96÷8=12个，较小组3份即36个。不能只除以5，把较大组份数误作全部。"
+      }
+    },
+    {
+      "id": "NUM_14",
+      "prompt": {
+        "en": "A:B = 2:3 and B:C = 4:5, with all quantities positive. What is A:C in simplest whole-number form?",
+        "zh": "A:B=2:3，B:C=4:5，各数量为正，A:C最简整数比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2:5",
+            "zh": "2:5"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3:4",
+            "zh": "3:4"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "8:15",
+            "zh": "8:15"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10:12",
+            "zh": "10:12"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Match the shared B quantity. Scale the first ratio by four to get A:B = 8:12 and the second by three to get B:C = 12:15. Thus A:C is 8:15. Directly joining the outer numbers 2 and 5 ignores the unequal B bases.",
+        "zh": "先统一中间量B：第一比乘4成8:12，第二比乘3成12:15，因此A:C=8:15。直接取2和5忽略了两个B基数不同。"
+      }
+    },
+    {
+      "id": "NUM_15",
+      "prompt": {
+        "en": "A mixture uses water:concentrate = 5:2 by volume. The total volume is 1.4 litres, with additive volumes. How many litres are concentrate?",
+        "zh": "混合物按体积水:浓缩液=5:2，总体积1.4升，体积可直接相加，浓缩液多少升？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.2",
+            "zh": "0.2"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.4",
+            "zh": "0.4"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.7",
+            "zh": "0.7"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1.0",
+            "zh": "1.0"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The mixture has seven equal parts. Concentrate occupies two, so 1.4 × 2 ÷ 7 = 0.4 litres. The total is not the water volume alone. The additive-volume assumption is supplied for this fictional arithmetic exercise.",
+        "zh": "总共7份，浓缩液2份，1.4×2÷7=0.4升。1.4是混合总体积，不是单独的水量；体积可加是本虚构算术题的明示假设。"
+      }
+    },
+    {
+      "id": "NUM_16",
+      "prompt": {
+        "en": "Blue:red tokens = 4:7. There are 77 red tokens. How many blue tokens are there?",
+        "zh": "蓝:红符号=4:7，红色77个，蓝色多少个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "44",
+            "zh": "44"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "49",
+            "zh": "49"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "56",
+            "zh": "56"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "121",
+            "zh": "121"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Seven ratio parts correspond to 77 red tokens, so one part is 11. Blue has four parts, giving 44. The combined count would be 121, but the question asks only for blue tokens. Preserve the order of the stated ratio.",
+        "zh": "红色7份对应77，每份11，蓝色4份为44。总数虽为121，但题目只问蓝色；比例顺序不能颠倒。"
+      }
+    },
+    {
+      "id": "NUM_17",
+      "prompt": {
+        "en": "A fictional recipe uses 450 grams of flour for six equal servings. At the same flour-per-serving ratio, how many grams are needed for nine servings?",
+        "zh": "虚构配方6份用面粉450克，保持每份用量相同，9份需多少克？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "600",
+            "zh": "600"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "675",
+            "zh": "675"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "900",
+            "zh": "900"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "One serving uses 450 ÷ 6 = 75 grams. Nine servings therefore need 75 × 9 = 675 grams. This is direct proportion under the explicit constant-per-serving condition; adding only three grams would mix a serving count with a mass.",
+        "zh": "每份450÷6=75克，九份需75×9=675克。每份用量恒定才可直接比例放大，不能把多三份当多三克。"
+      }
+    },
+    {
+      "id": "NUM_18",
+      "prompt": {
+        "en": "Team A completes 40 of 60 checks; team B completes 54 of 90. By how many percentage points is A’s completion share higher? Round only the final answer to one decimal place.",
+        "zh": "A组完成60项中的40项，B组完成90项中的54项。A的完成占比高多少个百分点？只在最终结果四舍五入到一位小数。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4.0",
+            "zh": "4.0"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "6.7",
+            "zh": "6.7"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10.0",
+            "zh": "10.0"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "14.0",
+            "zh": "14.0"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A’s share is 40/60 and B’s is 54/90. Their difference is 1/15, or 6.666… percentage points after multiplying by 100; this rounds to 6.7. Subtracting the raw completed counts compares unequal group sizes instead of completion shares.",
+        "zh": "两组占比分别40/60、54/90，差1/15，乘100为6.666…个百分点，最终约6.7。直接减完成项数没有处理组规模不同。"
+      }
+    },
+    {
+      "id": "NUM_19",
+      "prompt": {
+        "en": "A fictional table lists Monday: morning 70, evening 50; Tuesday: morning 90, evening 60. What is the percentage increase in the whole-day total from Monday to Tuesday?",
+        "zh": "虚构表格：周一上午70、晚间50；周二上午90、晚间60。周二全天总量比周一增长百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "28.6%",
+            "zh": "28.6%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "30%",
+            "zh": "30%"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Read both shifts in each day: Monday totals 120 and Tuesday 150. The increase is 30 relative to Monday’s 120, hence 25%. Comparing only the morning column would answer a shift-specific question rather than the requested daily total.",
+        "zh": "先把每天两个班次加总，周一120、周二150；增加30除周一120，得25%。只比较上午列会回答班次问题，而非全天总量。"
+      }
+    },
+    {
+      "id": "NUM_20",
+      "prompt": {
+        "en": "A table is headed “units, thousands”. Its three row values are 2.4, 3.1 and 1.5. How many individual units do the rows total?",
+        "zh": "表头注明“单位：千件”，三行数值2.4、3.1、1.5，合计多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "700",
+            "zh": "700"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "7000",
+            "zh": "7000"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "70000",
+            "zh": "70000"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The displayed values sum to 7.0 thousand units. Multiplying by 1,000 yields 7,000 individual units. Carry the header’s scale through the calculation; the number 7 alone is still expressed in thousands, not in the requested base unit.",
+        "zh": "表中数相加7.0，单位仍是千件，乘1000得到7000件。必须保留表头尺度，7不是题目要的基本件数。"
+      }
+    },
+    {
+      "id": "NUM_21",
+      "prompt": {
+        "en": "A table lists group size and mean: group P has 10 records with mean 20; group Q has 30 records with mean 40. What is the mean across all 40 records?",
+        "zh": "表格记录组规模和均值：P组10条、均值20；Q组30条、均值40。全部40条的均值是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "35",
+            "zh": "35"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reconstruct totals: 10 × 20 = 200 and 30 × 40 = 1,200. Divide their combined 1,400 by 40 records to get 35. The unweighted mean of 20 and 40 would give each unequal-sized group the same influence and produce the wrong answer.",
+        "zh": "先还原总量10×20=200、30×40=1200，合计1400除40条，得35。简单平均20和40会让大小不同的组权重相同，结果不符。"
+      }
+    },
+    {
+      "id": "NUM_22",
+      "prompt": {
+        "en": "Inspection table: line A has 6 marked items among 120; line B has 8 among 200. How many percentage points lower is B’s marked share than A’s?",
+        "zh": "检查表：A线120件中6件有标记，B线200件中8件。B的标记占比比A低多少个百分点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.5",
+            "zh": "0.5"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A’s share is 6/120 = 5%, and B’s is 8/200 = 4%. B is lower by one percentage point even though its marked count is larger. Counts and rates can rank groups differently when their denominators differ.",
+        "zh": "A占比6/120=5%，B为8/200=4%，B低1个百分点。虽然B有标记件数更多，分母不同使数量排序与比例排序可能相反。"
+      }
+    },
+    {
+      "id": "NUM_23",
+      "prompt": {
+        "en": "A fictional table, all values in thousands of credits: quarter 1 receipts 140, costs 95; quarter 2 receipts 155, costs 100. By how many thousands of credits does receipts-minus-costs rise?",
+        "zh": "虚构表格均以千积分计：第一季收入140、成本95；第二季收入155、成本100。“收入减成本”增加多少千积分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "55",
+            "zh": "55"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The first difference is 140 − 95 = 45 thousand credits and the second is 155 − 100 = 55. The increase is 10 thousand. Comparing receipts alone gives 15 and misses the five-thousand cost increase. These are fictional credits, not financial accounts or advice.",
+        "zh": "先分别收入减成本，第一季45千、第二季55千，增加10千。只看收入会算15千，漏了成本也增加5千。积分为虚构，不是实际财务报表或建议。"
+      }
+    },
+    {
+      "id": "NUM_24",
+      "prompt": {
+        "en": "Two disjoint cohorts are tabulated: 80 people with 25% selecting P, and 120 with 40% selecting P. What percentage of all 200 people selected P?",
+        "zh": "两个不重叠组：80人中25%选P，120人中40%选P。全部200人中选P的占比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32.5%",
+            "zh": "32.5%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "34%",
+            "zh": "34%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "35%",
+            "zh": "35%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "65%",
+            "zh": "65%"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Convert each share to a count: 80 × 25% = 20 and 120 × 40% = 48. The combined 68 out of 200 is 34%. Averaging the two percentages without weighting would incorrectly treat the group sizes as equal.",
+        "zh": "先化人数，80×25%=20、120×40%=48，共68人除200，得34%。两个组人数不同，不能不加权直接平均百分比。"
+      }
+    },
+    {
+      "id": "NUM_25",
+      "prompt": {
+        "en": "At a constant rate, a machine makes 126 items in 18 minutes. With no downtime, how many items does it make in 35 minutes?",
+        "zh": "机器恒定速率18分钟产126件，无停机，35分钟产多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "210",
+            "zh": "210"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "245",
+            "zh": "245"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "252",
+            "zh": "252"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "280",
+            "zh": "280"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The rate is 126 ÷ 18 = 7 items per minute. Multiplying by 35 minutes gives 245 items. Proportional scaling is justified by the explicit constant-rate and no-downtime assumptions, not by a claim about any real machine.",
+        "zh": "先126÷18=7件/分钟，再乘35得245件。可比例放大来自题设恒速且无停机，不代表真实机器都会如此。"
+      }
+    },
+    {
+      "id": "NUM_26",
+      "prompt": {
+        "en": "A fictional journey covers 180 kilometres in 2.5 hours. What is the average speed in kilometres per hour?",
+        "zh": "虚构行程180千米、用时2.5小时，平均速度多少千米/小时？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45",
+            "zh": "45"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "72",
+            "zh": "72"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "75",
+            "zh": "75"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Average speed is total distance divided by total elapsed time: 180 ÷ 2.5 = 72 kilometres per hour. The stated 2.5 hours is two hours thirty minutes, not two hours five minutes. No instantaneous speed is inferred.",
+        "zh": "平均速度=总路程÷总时间，180÷2.5=72千米/小时。2.5小时是2小时30分，不是2小时5分；这不推断瞬时速度。"
+      }
+    },
+    {
+      "id": "NUM_27",
+      "prompt": {
+        "en": "Two independent printers operate together for ten minutes. A prints 12 pages per minute and B prints 18, with no setup, jams or duplicated output. How many pages total?",
+        "zh": "两台独立打印机同时工作10分钟，A每分钟12页、B每分钟18页，无准备、卡纸或重复计数，共多少页？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "240",
+            "zh": "240"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360",
+            "zh": "360"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The concurrent rates add to 12 + 18 = 30 pages per minute. Ten minutes yields 300 pages. The machines run at the same time, so adding ten minutes for each before multiplying a combined rate would double-count elapsed time.",
+        "zh": "同时速率相加为30页/分钟，乘10分钟得300页。两台同时工作，不能先把两个10分钟相加又乘合计速率，那会重复计算时间。"
+      }
+    },
+    {
+      "id": "NUM_28",
+      "prompt": {
+        "en": "Under an ideal constant-rate model, pipe P fills one empty tank in five hours and pipe Q fills it in ten hours. With both open together and no leaks, how many minutes fill one tank?",
+        "zh": "理想恒速模型：P管5小时装满空池，Q管10小时装满；两管同时开、无漏水，多少分钟装满一池？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "150",
+            "zh": "150"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "200",
+            "zh": "200"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Their rates are 1/5 and 1/10 tank per hour, totaling 3/10. One tank takes 10/3 hours, or 200 minutes. Averaging the separate fill times does not combine rates and would not match the supplied constant-flow model.",
+        "zh": "两管速率1/5和1/10池/小时，合计3/10，装一池需10/3小时，乘60得200分钟。不能平均各自装满时间来合并流速。"
+      }
+    },
+    {
+      "id": "NUM_29",
+      "prompt": {
+        "en": "A machine completes 480 units over 12 hours 30 minutes, including all elapsed time. What is its average output per hour?",
+        "zh": "机器在总计12小时30分钟内完成480件，已含所有经过时间，平均每小时多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "38.4",
+            "zh": "38.4"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "39.0",
+            "zh": "39.0"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Convert 30 minutes to 0.5 hour, giving 12.5 hours. Then 480 ÷ 12.5 = 38.4 units per hour. Writing the duration as 12.30 hours would confuse decimal hours with the clock’s sixty-minute subdivisions.",
+        "zh": "30分钟为0.5小时，总时长12.5小时，480÷12.5=38.4件/小时。不能写成12.30小时，十进制小数和六十分制分钟不同。"
+      }
+    },
+    {
+      "id": "NUM_30",
+      "prompt": {
+        "en": "Fictional units obey exactly 1 K = 1.25 M. How many K equal 320 M? No fees or rounding rules apply.",
+        "zh": "虚构单位规定1 K恰等于1.25 M，320 M等于多少K？无费用或其他舍入规则。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "256",
+            "zh": "256"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "400",
+            "zh": "400"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4000",
+            "zh": "4000"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Each K contains 1.25 M, so divide 320 M by 1.25 M per K to get 256 K. Multiplying would convert in the opposite direction. These invented units illustrate conversion only and are not a real currency exchange rate.",
+        "zh": "每K含1.25 M，因此320÷1.25=256 K。相乘是朝相反方向换算。这是虚构单位转换，不是实际货币汇率。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "arithmetic",
+      "directionIds": [
+        "arithmetic"
+      ],
+      "title": {
+        "en": "Arithmetic and quantity setup",
+        "zh": "算术与数量列式"
+      },
+      "headline": {
+        "en": "Write the requested quantity before calculating.",
+        "zh": "先写所求数量，再列算式。"
+      },
+      "summary": {
+        "en": "Review totals, balances, equal-group averages and unit-aware arithmetic with fresh examples. Six answers describe practice, without a speed or ability band.",
+        "zh": "用新例子复习总量、结余、同权平均和带单位列式；六题正确数仅是练习记录，不分速度或能力等级。"
+      },
+      "scoreReading": {
+        "en": "Each of six original items contributes one correct answer. The count describes this edition’s fictional quantities and assumptions, not a speed, ability or job-readiness band. All six worked answers and this full guide remain free at every count.",
+        "zh": "六道原创题各计一个正确答案，正确数只描述本版虚构数量和假设，不代表速度、能力或岗位准备等级；任何正确数都能免费读六题题解和完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Arithmetic and quantity setup | Numerical Reasoning",
+          "zh": "算术与数量列式｜数值推理练习"
+        },
+        "description": {
+          "en": "Review totals, balances, equal-group averages and unit-aware arithmetic with fresh examples. Six answers describe practice, without a speed or ability band.",
+          "zh": "用新例子复习总量、结余、同权平均和带单位列式；六题正确数仅是练习记录，不分速度或能力等级。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-scope",
+          "title": {
+            "en": "An easy operation can answer the wrong question",
+            "zh": "算式简单，也可能答错对象"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items combine ordinary operations with a specific quantity to find. Read whether the question asks for a total, remainder, per-batch mean or count of full containers. Before using the numbers, name the output and its unit. A plausible calculation can still target the wrong quantity: total labels are not labels left after use, and total minutes are not productive minutes when a break is included. The method begins with interpretation rather than faster multiplication.",
+              "zh": "六题把普通运算放在明确所求量中，先看要总量、剩余、每批平均还是装满容器个数。用数字前写下答案对象和单位。看似合理的算式也可能答错对象：标签总量不是用后剩量，含休息的总时长不是有效工时。关键先在读懂而非乘得快。"
+            }
+          ]
+        },
+        {
+          "id": "2-balance",
+          "title": {
+            "en": "A fresh stock balance",
+            "zh": "另算一次库存结余"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a fictional shelf begins with 184 cards, receives 56 and sends out 79. The closing count is 184 + 56 − 79 = 161. Write receipts with a plus sign and dispatches with a minus sign. Then check backwards: the closing count plus dispatches minus receipts should recover the opening 184. This reverse check can expose a sign error even when the forward arithmetic looked routine. No unlisted damage, returns or transfers are assumed.",
+              "zh": "另设书架初有184张卡，收到56、送出79，期末184+56−79=161。入加出减，再逆向核对161+79−56应回184，可抓出正负方向错。题目没列的损坏、退回或调拨不能自行补入。"
+            }
+          ]
+        },
+        {
+          "id": "3-groups",
+          "title": {
+            "en": "Keep group counts attached to sizes",
+            "zh": "组数和每组容量要配对"
+          },
+          "paragraphs": [
+            {
+              "en": "For five boxes of 16 tokens and three boxes of 20, calculate 5 × 16 + 3 × 20 = 140 tokens. The simple average box size, 18, multiplied by eight would give 144 and is wrong because the two box types are not equally frequent. Keep a pair for each type: number of groups and quantity per group. If every box were the same size, a single multiplication would suffice; the prompt tells you which situation applies.",
+              "zh": "五盒各16个、三盒各20个，应5×16+3×20=140。简单平均每盒18再乘八得144，会忽略两种盒数不等。每一类都保留“几组、每组多少”一对信息；只有所有组容量相同，才可直接单次相乘。"
+            }
+          ]
+        },
+        {
+          "id": "4-mean",
+          "title": {
+            "en": "A mean needs its denominator",
+            "zh": "平均数的分母不能丢"
+          },
+          "paragraphs": [
+            {
+              "en": "An arithmetic mean of four equally weighted counts uses their sum divided by four. If the counts are 14, 22, 26 and 34, their total is 96 and the mean is 24. The denominator is the number of observations, not the largest count or the number of different values. If a prompt gives subgroup sizes and subgroup means instead, move to a weighted calculation; the separate data guide explains that case. Do not silently exchange the two situations.",
+              "zh": "四个同权数量14、22、26、34，总和96，除四个观测得均值24。分母是观测个数，不是最大数或不同数值种类。若给的是子组规模与均值，则应加权，另见数据指南；两种情形不能暗中互换。"
+            }
+          ]
+        },
+        {
+          "id": "5-units",
+          "title": {
+            "en": "Units check the direction of division",
+            "zh": "用单位检查该乘还是该除"
+          },
+          "paragraphs": [
+            {
+              "en": "If 6.3 litres are poured into bottles holding 0.45 litres each, dividing total litres by litres per bottle gives 14 bottles. Multiplying the volumes would leave a squared-volume quantity rather than a count. In a work interval, subtract breaks before multiplying by a rate stated per working minute. Write at least one intermediate unit when a problem combines time, volume or counts. Unit consistency does not prove every assumption, but it often reveals the wrong operation early.",
+              "zh": "6.3升装入每瓶0.45升的瓶子，升除以每瓶升数得14瓶；两容量相乘则不是个数。工作时段要先扣休息，再乘每工作分钟产量。碰到时间、容量、件数混合，至少写一个中间单位；单位相符不证明全部假设，却常能尽早发现方向错。"
+            }
+          ]
+        },
+        {
+          "id": "6-review",
+          "title": {
+            "en": "Classify the error before doing more items",
+            "zh": "先分错因再加练"
+          },
+          "paragraphs": [
+            {
+              "en": "After an incorrect answer, ask whether you chose the wrong quantity, used the wrong sign, skipped a subgroup or made a numeric slip after writing a correct equation. Recalculate from the written equation before looking at the key. Then change one number in a fresh fictional example and explain why the same setup still applies. This separates understanding from memorizing an option letter. Paper and a calculator are permitted here; neither changes the one-correct-answer counting rule.",
+              "zh": "答错后分清所求对象错、正负号错、漏组，还是列式正确但计算失误。先按自己的算式复算，再看答案；换一个虚构数量，说明为何仍用同一列式。这样区分理解和记住字母。可用纸笔或计算器，计分仍是每题选对记一道。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "Use the count as a revision record",
+            "zh": "把正确数用作复习记录"
+          },
+          "paragraphs": [
+            {
+              "en": "A count out of six describes this small, fixed set of quantity setups. There is no timer, speed correction, population comparison or hiring pass mark. A correct answer does not establish reliable real-world bookkeeping or mathematics certification, and an incorrect one does not diagnose low intelligence. The stated quantities and ideal assumptions define the answer. Repeating after reading the working may reflect recall; use a new problem and a clear equation when checking whether you can apply the method independently.",
+              "zh": "正确数/6只描述这组固定列式任务，没有计时、速度校正、群体比较或招聘线。答对不等于真实记账可靠或数学认证，答错也不诊断低智力。答案由给定数量与理想假设决定；看过题解后重做可能靠记忆，应另用新题和清楚算式核对能否独立应用。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "percentages",
+      "directionIds": [
+        "percentages"
+      ],
+      "title": {
+        "en": "Percentages and changing bases",
+        "zh": "百分比与变化基数"
+      },
+      "headline": {
+        "en": "Name the denominator and the requested unit.",
+        "zh": "明确分母，以及要百分比还是百分点。"
+      },
+      "summary": {
+        "en": "Work through shares, original-value changes, reverse percentages and successive changes. Fresh examples separate percentages from percentage points.",
+        "zh": "用新例子复习占比、原值增减、反求总量和连续变化，分清百分比与百分点。"
+      },
+      "scoreReading": {
+        "en": "Each of six original items contributes one correct answer. The count describes this edition’s fictional quantities and assumptions, not a speed, ability or job-readiness band. All six worked answers and this full guide remain free at every count.",
+        "zh": "六道原创题各计一个正确答案，正确数只描述本版虚构数量和假设，不代表速度、能力或岗位准备等级；任何正确数都能免费读六题题解和完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Percentages and changing bases | Numerical Reasoning",
+          "zh": "百分比与变化基数｜数值推理练习"
+        },
+        "description": {
+          "en": "Work through shares, original-value changes, reverse percentages and successive changes. Fresh examples separate percentages from percentage points.",
+          "zh": "用新例子复习占比、原值增减、反求总量和连续变化，分清百分比与百分点。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-base",
+          "title": {
+            "en": "A percentage is relative to a chosen whole",
+            "zh": "百分比相对于哪个整体"
+          },
+          "paragraphs": [
+            {
+              "en": "A percent describes a part relative to a base. In these six items, identify whether the base is a collection total, an original value or a newly changed value. Write that base beside the denominator before calculating. The same difference can represent different percentages when divided by different quantities. Neither answer is automatically meaningful without the question. This section reports correct answers about explicit bases; it does not classify you as good or bad with numbers.",
+              "zh": "百分比是部分相对于基数的比例。六题中先辨认基数是总量、原值还是刚变过的新值，再把它写在分母旁。同一个差值除以不同量会得不同百分数，意义由题目决定。本组记录明示基数下的正确数，不给你贴擅长或不擅长数字标签。"
+            }
+          ]
+        },
+        {
+          "id": "2-share",
+          "title": {
+            "en": "Compute a fresh part-of-whole share",
+            "zh": "另算一个部分占比"
+          },
+          "paragraphs": [
+            {
+              "en": "If 42 of 175 fictional tokens have a stripe, the striped share is 42 ÷ 175 × 100 = 24%. The denominator includes striped and unstriped tokens together. Dividing by the 133 unstriped tokens instead gives a relationship between the two categories, not the share of the whole. Read phrases such as “of all” carefully. The token attribute supplies a category only; it carries no personality, quality or performance meaning in this arithmetic example.",
+              "zh": "若175个虚构符号中42个有条纹，占比42÷175×100=24%。分母包括有条纹和无条纹的全部。若除以133个无条纹者，就变成两类之比，不是整体占比。“占全部”需读准；条纹只是类别，不代表人格、质量或表现。"
+            }
+          ]
+        },
+        {
+          "id": "3-change",
+          "title": {
+            "en": "An increase uses the original value",
+            "zh": "增长率用原值作基数"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional count rising from 250 to 310 increases by 60, so its percentage increase is 60 ÷ 250 × 100 = 24%. The new count is 124% of the original, while the increase is 24%; those are different requested quantities. For a decrease, subtract new from old to obtain the amount lost, then divide by old. A base of zero requires separate handling and does not support ordinary percent-change division; none of these checked items uses it.",
+              "zh": "数量250升到310，增加60，增长率60÷250×100=24%。新量是原量的124%，增幅则24%，两者所求不同。下降时先原减新，再除原值。原值为零不能普通相除求增长率，本版核对题未使用这种情形。"
+            }
+          ]
+        },
+        {
+          "id": "4-reverse",
+          "title": {
+            "en": "Recover the whole from a known share",
+            "zh": "从已知部分反求整体"
+          },
+          "paragraphs": [
+            {
+              "en": "If 18% of a total is 63, set 0.18 × total = 63. Dividing 63 by 0.18 gives a total of 350. A useful check multiplies 350 by 18% to recover the given 63. Multiplying 63 by 18% at the start would find a part of the part. Label the unknown before deciding whether to multiply or divide, especially when all answer options look numerically plausible.",
+              "zh": "若总量18%为63，列0.18×总量=63，故63÷0.18=350，再算350×18%应回63。若起手63乘18%，求的是部分中的部分。先标未知量，再决定乘除，不能仅看选项数值似乎合理。"
+            }
+          ]
+        },
+        {
+          "id": "5-successive",
+          "title": {
+            "en": "Successive changes multiply factors",
+            "zh": "连续变化要乘因子"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fresh quantity of 500, an eight-percent increase followed by a ten-percent decrease gives 500 × 1.08 × 0.90 = 486. The second percentage acts on 540, not on 500. The net change is a decrease of 14, or 2.8% of the original. Adding the signed percentages would predict a two-percent decrease and give the wrong final quantity. Preserve each intermediate base or multiply the factors without rounding early.",
+              "zh": "另设500先增8%再降10%，500×1.08×0.90=486。第二次基数是540，不是500；净减14，为原值2.8%。直接8%减10%会误算净降2%。保留中间基数，或连乘因子，不提前舍入。"
+            }
+          ]
+        },
+        {
+          "id": "6-points",
+          "title": {
+            "en": "Percentage points and relative change answer different questions",
+            "zh": "百分点与相对变化各答不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "A share moving from 18% to 24% rises six percentage points. Its relative increase is separately 6 ÷ 18 × 100, or about 33.3%. Write “points” for the first and “percent of the original share” for the second. Both can describe the same movement, so a bare number invites confusion. For this practice, follow the requested unit exactly and round only when a prompt asks for it; the displayed correct choice reflects that stated rule.",
+              "zh": "占比18%变24%，上升6个百分点；相对增长另算6÷18×100，约33.3%。前者写百分点，后者写相对原占比增长百分之几。同一变化可有两种说法，裸数字易混；按题定单位答，只在要求时舍入。"
+            }
+          ]
+        },
+        {
+          "id": "7-review",
+          "title": {
+            "en": "Review the base, not an ability label",
+            "zh": "复查基数，不从得分推能力等级"
+          },
+          "paragraphs": [
+            {
+              "en": "For a missed item, mark its part, whole, original and new quantities, then write a one-line equation. Check a new example with the same relationship rather than repeating a memorized number. Six correct counts have no established percentile, speed interpretation, financial-advice meaning or employer threshold. All examples are fictional. A calculator may help arithmetic but cannot choose the correct base for you. Use the worked explanations to inspect that decision, and keep population-level or career conclusions outside this local practice record.",
+              "zh": "错题可标出部分、整体、原值、新值，再写一行式子，另换例子检验关系，而非重背数字。六题正确数没有百分位、速度解释、财务建议或招聘线，例子均虚构。计算器能辅助运算，不能替你选基数；用题解核这个决定，不从局部练习推出群体或职业结论。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ratios",
+      "directionIds": [
+        "ratios"
+      ],
+      "title": {
+        "en": "Ratios and proportional comparisons",
+        "zh": "比例与同基比较"
+      },
+      "headline": {
+        "en": "Match the shared quantity before scaling.",
+        "zh": "先统一共同量，再放大或比较。"
+      },
+      "summary": {
+        "en": "Review ratio parts, chained comparisons, scaling and unequal denominators with fresh calculations. Six-item counts are local practice, not a certified score.",
+        "zh": "用新计算复习比例份数、连比、放大和不同分母比较；六题正确数是局部练习，不是认证成绩。"
+      },
+      "scoreReading": {
+        "en": "Each of six original items contributes one correct answer. The count describes this edition’s fictional quantities and assumptions, not a speed, ability or job-readiness band. All six worked answers and this full guide remain free at every count.",
+        "zh": "六道原创题各计一个正确答案，正确数只描述本版虚构数量和假设，不代表速度、能力或岗位准备等级；任何正确数都能免费读六题题解和完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Ratios and proportional comparisons | Numerical Reasoning",
+          "zh": "比例与同基比较｜数值推理练习"
+        },
+        "description": {
+          "en": "Review ratio parts, chained comparisons, scaling and unequal denominators with fresh calculations. Six-item counts are local practice, not a certified score.",
+          "zh": "用新计算复习比例份数、连比、放大和不同分母比较；六题正确数是局部练习，不是认证成绩。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-parts",
+          "title": {
+            "en": "A ratio compares parts, not automatically the whole",
+            "zh": "比例中的一方未必是整体"
+          },
+          "paragraphs": [
+            {
+              "en": "A ratio such as 2:7 compares two quantities in that order. When those are the only two groups, the whole has nine equal parts. When one group’s amount is supplied instead, use its corresponding part count to find the scale. These six items distinguish those starting points. Write the labels next to the ratio before calculating; reversing water and concentrate or blue and red can produce a perfectly consistent answer to the wrong question.",
+              "zh": "2:7按顺序比较两个量。若它们是仅有两组，整体共九份；若已知某一组数量，就按该组对应份数求每份。本组六题区分这些起点，先把名称写在比例旁；水与浓缩液、蓝与红颠倒后，可能算得自洽却回答错对象。"
+            }
+          ]
+        },
+        {
+          "id": "2-sharing",
+          "title": {
+            "en": "Work a new sharing example",
+            "zh": "另做一次按份分配"
+          },
+          "paragraphs": [
+            {
+              "en": "With a 2:7 split of 81 fictional tokens, one part is 81 ÷ 9 = 9. The two groups receive 18 and 63, which add back to 81 and simplify to 2:7. Check both the total and the ratio: meeting only one is insufficient. If 81 described the larger group alone instead of the combined total, this calculation would not apply. The wording determines which quantity is available, so do not reuse a formula without its condition.",
+              "zh": "81个虚构符号按2:7分，一份81÷9=9，两组18与63，既和为81，又约成2:7。总量和比例两项都要验。若81指较大组而非全部，不能用这套计算；公式成立要有相应题设。"
+            }
+          ]
+        },
+        {
+          "id": "3-chain",
+          "title": {
+            "en": "Unify the middle term in a chain",
+            "zh": "连比先统一中间量"
+          },
+          "paragraphs": [
+            {
+              "en": "If A:B = 3:4 and B:C = 5:6, give both representations of B the same value. Scaling the first by five gives 15:20 and the second by four gives 20:24. Therefore A:C = 15:24 = 5:8. Directly joining 3 and 6 treats two different sizes of B as if they matched. Positive quantities are assumed here so the ordinary ratio divisions are defined. A shared name alone does not establish a shared numeric scale.",
+              "zh": "若A:B=3:4、B:C=5:6，把B统一为20，得到15:20和20:24，所以A:C=15:24=5:8。直接取3:6把两个不同规模的B误当相同。这里按正数量假设进行普通比例运算；名称相同还须数值尺度相同。"
+            }
+          ]
+        },
+        {
+          "id": "4-scaling",
+          "title": {
+            "en": "Direct proportion needs a fixed per-unit relationship",
+            "zh": "正比例须有固定单份关系"
+          },
+          "paragraphs": [
+            {
+              "en": "An original recipe example uses 640 grams for eight equal servings. At the same grams per serving, five servings need 640 ÷ 8 × 5 = 400 grams. This is justified by the explicit constant-per-serving assumption. A fixed setup amount or a non-additive process would need a different model. Keep the mass and serving units visible, and check that a smaller number of identical servings requires less of the ingredient under this particular model.",
+              "zh": "另设八份用640克，每份用量固定，五份需640÷8×5=400克。可如此放大来自每份恒定；若有固定准备耗料或不可直接相加的过程，须另建关系。保留克与份单位，并核同样单份下份数减少应少用料。"
+            }
+          ]
+        },
+        {
+          "id": "5-comparison",
+          "title": {
+            "en": "Compare rates after aligning denominators",
+            "zh": "分母对齐再比较"
+          },
+          "paragraphs": [
+            {
+              "en": "For two fictional groups, 18 completed out of 30 is 60%, while 42 out of 60 is 70%. The second share is higher by ten percentage points. Subtracting completed counts gives 24, a different unit and question. You can compare fractions by a common denominator, cross multiplication or decimals, provided the denominators are valid. Choose the representation that makes the requested difference clear rather than rounding each group early and amplifying a rounding error.",
+              "zh": "另设一组30项完18，占60%；另一组60项完42，占70%，后者高10个百分点。完成数直接相减24是另一单位和问题。可通分、交叉相乘或化小数，但分母须有效。选能看清所求差的表示，不提前各自舍入而放大误差。"
+            }
+          ]
+        },
+        {
+          "id": "6-check",
+          "title": {
+            "en": "Use a ratio check in reverse",
+            "zh": "用反向核对抓错位"
+          },
+          "paragraphs": [
+            {
+              "en": "After scaling, divide the computed quantities by their original ratio parts. They should recover the same one-part scale. For a chained ratio, substitute your answer into both original relationships rather than checking only the final simplified pair. If the output has a specified rounding rule, preserve exact fractions until the last step. The worked explanations show every intermediate quantity needed here. A calculator is allowed, but it cannot tell whether you attached the amount to the correct named group.",
+              "zh": "放大后分别用结果除原比例份数，应还原同一个每份数。连比要代回两条原关系，而非只核最终约分。要求舍入时保留精确分数到最后。题解给出所需中间量；可用计算器，但它不能判断数值是否配到了正确具名组。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "Keep proportional practice separate from prediction",
+            "zh": "比例练习不承担预测"
+          },
+          "paragraphs": [
+            {
+              "en": "A count out of six records answers about the stated fictional shares, scales and conditions. It supplies no population norm, intelligence estimate, hiring threshold or evidence of performance under pressure. The tool does not claim that every real recipe, production process or group comparison is proportional. Repeating familiar values after reading the keys may reward recall. To practise transfer, create a fresh labeled example, justify the denominator or scaling assumption, and verify both the result and its units independently.",
+              "zh": "正确数/6记录给定虚构份额、尺度和条件下的答案，不提供常模、智力估计、招聘线或压力表现证据。真实配方、生产或群体比较未必都成比例。读过答案后重复旧数可能靠记忆；可另设具名例子，说明分母或放大假设，再独立核结果与单位。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "directionIds": [
+        "data"
+      ],
+      "title": {
+        "en": "Reading data and weighted totals",
+        "zh": "数据判读与加权汇总"
+      },
+      "headline": {
+        "en": "Read the row, column, scale and denominator first.",
+        "zh": "先核行列、尺度和分母。"
+      },
+      "summary": {
+        "en": "Practise row selection, scaled units, weighted means and pooled percentages. Fresh tables show why counts and rates can rank groups differently.",
+        "zh": "用新数据练习选行列、尺度换算、加权平均与合并占比，理解数量和比例为何可能不同排序。"
+      },
+      "scoreReading": {
+        "en": "Each of six original items contributes one correct answer. The count describes this edition’s fictional quantities and assumptions, not a speed, ability or job-readiness band. All six worked answers and this full guide remain free at every count.",
+        "zh": "六道原创题各计一个正确答案，正确数只描述本版虚构数量和假设，不代表速度、能力或岗位准备等级；任何正确数都能免费读六题题解和完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Reading data and weighted totals | Numerical Reasoning",
+          "zh": "数据判读与加权汇总｜数值推理练习"
+        },
+        "description": {
+          "en": "Practise row selection, scaled units, weighted means and pooled percentages. Fresh tables show why counts and rates can rank groups differently.",
+          "zh": "用新数据练习选行列、尺度换算、加权平均与合并占比，理解数量和比例为何可能不同排序。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-selection",
+          "title": {
+            "en": "Write a data address before a sum",
+            "zh": "先写数据位置再计算"
+          },
+          "paragraphs": [
+            {
+              "en": "The six items provide small fictional tables in words. Locate the required row, period and measure before using a value. A whole-day total needs every included shift, while a question about a change needs two comparable periods. Copy the relevant figures with their row and column labels. This avoids accidentally combining a morning count from one day with an evening count from another, or subtracting costs from a quantity that was already a net figure.",
+              "zh": "六题用文字完整列出小型虚构表格，先定位行、时期、指标。全天总量要包含题定各班次，变化量要有可比较的两个时期。抄数时连同行列名称，避免把不同天的班次混合，或从已经是净值的指标再减一次成本。"
+            }
+          ]
+        },
+        {
+          "id": "2-scale",
+          "title": {
+            "en": "Read the scale printed in the heading",
+            "zh": "表头尺度贯穿运算"
+          },
+          "paragraphs": [
+            {
+              "en": "If a fresh table is headed “hundreds of units” and lists 4.2 and 3.8, the sum is eight hundreds, or 800 individual units. The decimal values are not themselves individual items. Mark the scale once before calculating and apply it to the final requested unit. If the question asks for a percentage between values sharing the same scale, the common factor cancels; if it asks for an absolute count, that factor must remain. These are different output requirements.",
+              "zh": "另设表头“百件”，两行4.2与3.8，相加八百，即800件；不能把表中小数直接当件数。先标尺度，再换成题目要的单位。同尺度两量求比例时公共因子可约去，求绝对件数时则必须保留，所求不同处理也不同。"
+            }
+          ]
+        },
+        {
+          "id": "3-weighted",
+          "title": {
+            "en": "Rebuild totals before averaging subgroup means",
+            "zh": "先还原总量，再平均"
+          },
+          "paragraphs": [
+            {
+              "en": "For a new example, ten records have mean 12 and thirty records have mean 20. Their reconstructed totals are 120 and 600, so the combined mean is 720 ÷ 40 = 18. Averaging 12 and 20 directly gives 16 and incorrectly gives the smaller group equal weight. This method assumes the groups are disjoint and the same measure is recorded in compatible units. If either condition is missing, do not invent a defensible overall mean from the available labels alone.",
+              "zh": "另设10条均值12、30条均值20，总量分别120和600，合并均值720÷40=18。直接平均12与20得16，会让小组权重过大。还须两组不重叠、指标和单位可比；条件缺失时，不能仅凭名称凑总体均值。"
+            }
+          ]
+        },
+        {
+          "id": "4-pooled",
+          "title": {
+            "en": "Pool numerators and denominators together",
+            "zh": "合并比例须合并分子分母"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose one fictional cohort has 120 records with 40% meeting a criterion, and another has 80 with 25%. Their matching counts are 48 and 20. Pooling gives 68 out of 200, or 34%, rather than the simple mean of the percentages. The word “disjoint” matters because overlapping records would be double-counted. Read whether the supplied percentages are exact or rounded as well; these checked examples use exact shares and do not infer hidden original counts.",
+              "zh": "另设120条中40%符合、80条中25%符合，分别48和20，合并68/200=34%，不是直接平均百分数。组不重叠很重要，否则会重复计数。还要看百分比是否精确；本版相关例子明示精确比例，不从舍入数据猜未给的原始人数。"
+            }
+          ]
+        },
+        {
+          "id": "5-rates",
+          "title": {
+            "en": "A larger count can have a lower rate",
+            "zh": "数量更多，比例仍可能更低"
+          },
+          "paragraphs": [
+            {
+              "en": "An example line has four marked items among 80, a five-percent share. Another has six among 150, a four-percent share. The second line has more marked items but a lower marked rate. Neither summary is inherently wrong; they answer different questions. Keep both numerator and denominator beside a comparison, and state the requested unit. A rate difference does not by itself explain why the groups differ or prove that one operational method caused the difference.",
+              "zh": "另设一线80件中4件有标记，占5%；另一线150件中6件，占4%。后者有标记数更多，占比却更低；两种摘要回答不同问题。比较时保留分子和分母，并写题定单位。比例差本身不解释原因，也不证明某操作造成差异。"
+            }
+          ]
+        },
+        {
+          "id": "6-checks",
+          "title": {
+            "en": "Perform a whole-table reasonableness check",
+            "zh": "用全表关系做合理性核对"
+          },
+          "paragraphs": [
+            {
+              "en": "After calculating, compare your answer with the relevant totals. A combined mean of nonempty groups with positive weights lies between the subgroup means. A part-of-whole share cannot exceed the whole under the stated exclusive-count setup. A change in receipts-minus-costs should reflect changes in both components. If a result breaks such a relationship, revisit the selected cells and units before assuming the table is wrong. The page provides all six worked answers so that you can locate the earliest misread value.",
+              "zh": "算完核相关总量：正权重非空组的合并均值应处于各组均值之间，互斥计数下部分不能大于整体，“收入减成本”的变化要看两项都变多少。若冲突，先查选错格或单位，再判断表本身。六题题解完整给出，便于定位最早误读的数。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "A table exercise does not validate a real dataset",
+            "zh": "判读练习不等于真实数据审计"
+          },
+          "paragraphs": [
+            {
+              "en": "These fictional tables are fully specified to support a single answer in this practice bank. A real report can have missing rows, different definitions, rounded shares or delayed updates, none of which this count assesses. There is no timer, analyst certification, population percentile or employer pass threshold. Treat a missed answer as a specific selection, weighting or unit error to investigate. Retaking known tables may measure memory; use fresh compatible data and explain the complete calculation before making claims about improved independent analysis.",
+              "zh": "虚构表为单一答案给足条件，真实报表可能缺行、口径不同、比例舍入或更新延迟，这些不由本正确数检验。本版没有计时、分析师认证、百分位或招聘线。把错题定位到选择、权重、单位等具体问题；重做旧表可能靠记忆，应用新可比数据完整说明计算，再谈独立应用。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "directionIds": [
+        "rates"
+      ],
+      "title": {
+        "en": "Rates and unit conversions",
+        "zh": "速率与单位转换"
+      },
+      "headline": {
+        "en": "Convert time and combine rates under stated assumptions.",
+        "zh": "统一时间单位，按题定条件合并速率。"
+      },
+      "summary": {
+        "en": "Review average output, decimal time, concurrent rates and fictional unit conversions. Fresh examples preserve assumptions and distinguish time from rate.",
+        "zh": "用新例子复习平均产出、小数时间、同时速率和虚构单位换算，分清时间与速率并保留假设。"
+      },
+      "scoreReading": {
+        "en": "Each of six original items contributes one correct answer. The count describes this edition’s fictional quantities and assumptions, not a speed, ability or job-readiness band. All six worked answers and this full guide remain free at every count.",
+        "zh": "六道原创题各计一个正确答案，正确数只描述本版虚构数量和假设，不代表速度、能力或岗位准备等级；任何正确数都能免费读六题题解和完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Rates and unit conversions | Numerical Reasoning",
+          "zh": "速率与单位转换｜数值推理练习"
+        },
+        "description": {
+          "en": "Review average output, decimal time, concurrent rates and fictional unit conversions. Fresh examples preserve assumptions and distinguish time from rate.",
+          "zh": "用新例子复习平均产出、小数时间、同时速率和虚构单位换算，分清时间与速率并保留假设。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-setup",
+          "title": {
+            "en": "A rate divides unlike quantities",
+            "zh": "速率连接两种不同的量"
+          },
+          "paragraphs": [
+            {
+              "en": "A rate connects a quantity with a unit of another quantity, such as pages per minute or distance per hour. These six items state the model needed: constant output, concurrent independent processes, total elapsed time or an exact fictional conversion. Write the required output unit first. Then arrange multiplication or division so the intermediate units cancel appropriately. A correct numeric operation without the right unit can still describe the reverse rate or a total instead of the question’s requested average.",
+              "zh": "速率把不同量连接起来，如页/分钟、距离/小时。六题分别明示恒速、独立同时过程、总经过时间或精确虚构换算。先写目标单位，再安排乘除让中间单位正确消去。算术正确但单位不对，可能求了倒数速率或总量，而非所要平均值。"
+            }
+          ]
+        },
+        {
+          "id": "2-time",
+          "title": {
+            "en": "Convert minutes with sixty, not one hundred",
+            "zh": "分钟按六十进制换算"
+          },
+          "paragraphs": [
+            {
+              "en": "A fresh journey covers 132 kilometres in two hours twelve minutes. Twelve minutes is 12/60 hour, making 2.2 hours in total; the average speed is 132 ÷ 2.2 = 60 kilometres per hour. Writing 2.12 hours would use decimal notation with the wrong time conversion. Keep the fraction until it is easy to simplify. The average does not establish the vehicle’s speed at any particular moment or provide advice about a real journey.",
+              "zh": "另设132千米用2小时12分，12分钟=12/60小时，总计2.2小时，平均132÷2.2=60千米/小时。写成2.12小时是把钟点和小数混用。可保留分数后约简；平均值不说明某一瞬间速度，也不是实际行程建议。"
+            }
+          ]
+        },
+        {
+          "id": "3-parallel",
+          "title": {
+            "en": "Add simultaneous independent rates",
+            "zh": "同时且独立时合并速率"
+          },
+          "paragraphs": [
+            {
+              "en": "Two fictional printers produce 18 and 22 pages per minute. Running together for fifteen minutes, without setup, duplication or interruptions, they produce (18 + 22) × 15 = 600 pages. The elapsed time is fifteen minutes, not thirty. Adding rates is justified by the supplied independence and shared-time assumptions. If one printer starts later or both copy the same counted pages, the model changes. State those conditions when explaining why the sum is appropriate.",
+              "zh": "另设两打印机每分钟18页、22页，同时独立运行15分钟，无准备、重复或停顿，则(18+22)×15=600页。经过时间是15，不是30分钟。合并依赖独立且同一时段；若一台晚开，或重复打印同一批被计页面，关系就不同，应说明条件。"
+            }
+          ]
+        },
+        {
+          "id": "4-fill",
+          "title": {
+            "en": "Add work per hour, not separate completion times",
+            "zh": "合并每小时工作量，不平均完成时间"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fresh ideal example, one pipe fills a tank in six hours and another in three. Their rates are 1/6 and 1/3 tank per hour, summing to 1/2. One tank therefore takes two hours, or 120 minutes. Averaging six and three would not model concurrent flow. This result assumes no leakage, capacity effects or changing pressure; the exercise supplies a simplified constant-flow model rather than predicting how real plumbing behaves.",
+              "zh": "另设一管6小时一池、另一管3小时一池，速率1/6与1/3池/小时，合计1/2，因此一池2小时，即120分钟。平均6与3不是同时流入模型。无漏水、容量效应、压力变化等条件由理想模型给出，不预测真实管路表现。"
+            }
+          ]
+        },
+        {
+          "id": "5-conversion",
+          "title": {
+            "en": "Use the conversion factor in the required direction",
+            "zh": "换算因子的方向要对"
+          },
+          "paragraphs": [
+            {
+              "en": "For invented units with exactly one R equal to 0.8 S, converting 120 S into R requires 120 ÷ 0.8 = 150 R. Multiplying would convert an amount stated in R into S instead. Write the factor as S per R so cancellation is visible. These are fictional measurement units, not a live exchange rate or financial recommendation. For real measurements, also check whether the conversion is exact, rounded or dependent on a condition that this practice does not supply.",
+              "zh": "虚构单位1 R=0.8 S，把120 S化R应120÷0.8=150 R。相乘是在把R化S。把因子写成S/R，约去单位更清楚。这不是实时汇率或金融建议；真实测量还要核因子是否精确、舍入或附条件，不能把本题设定直接套用。"
+            }
+          ]
+        },
+        {
+          "id": "6-average",
+          "title": {
+            "en": "The denominator determines an average rate",
+            "zh": "平均速率取决于总量与总时间"
+          },
+          "paragraphs": [
+            {
+              "en": "For equal distances traveled at 40 and 60 kilometres per hour, the overall average is not the arithmetic mean of the two speeds. Using 120 kilometres for each leg gives times of three and two hours, hence 240 ÷ 5 = 48 kilometres per hour overall. If the durations were equal instead, a different weighting would apply. For output questions, use the specified total elapsed or working time consistently and do not silently remove downtime that the prompt includes.",
+              "zh": "等路程分别以40、60千米/小时行进，总平均不是简单平均两速度。各取120千米，耗时3与2小时，240÷5=48千米/小时。若改成等时长，权重又不同。产出题也须一致使用题定总经过时间或有效工时，不能偷偷扣除题面已计入的停机。"
+            }
+          ]
+        },
+        {
+          "id": "7-review",
+          "title": {
+            "en": "Check the model before interpreting the six answers",
+            "zh": "解读六题前先查模型"
+          },
+          "paragraphs": [
+            {
+              "en": "When an answer differs from the key, check the time conversion, direction of the factor, shared duration and constant-rate assumption before blaming arithmetic speed. The count has no timing component, norm, technical qualification or employer threshold. A perfect result concerns these explicit fictional models and does not certify machinery, driving or real operational forecasting. To practise transfer, change one condition in a new example and explain whether rates still add or whether the denominator must change. Reading and testing that condition matters as much as calculation.",
+              "zh": "与答案不同时，先查时间换算、因子方向、共同持续时段和恒速假设，别直接归因为算得慢。正确数不含计时、常模、技术资格或招聘线；全对只针对明示虚构模型，不认证机器、驾驶或真实运营预测。换一个条件另设例子，说明速率还能否相加或分母是否要变。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_numerical_quantity_practice",
+    "formCode": "fermatmind_original_numerical_five_tasks_30_v1",
+    "itemBankVersion": "fermatmind_original_numerical_five_tasks_30_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_numerical_five_revision_guides_v1",
+    "itemBankSha256": "0dc8a148429fa7ea4691ca429c8867aba7db2ce7b6f38bc41add32b78361b71b",
+    "resultContentSha256": "6097fff3fdd841b478d8a68f405920ffc31fd17471f76029edcedfced9ffcced",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "OpenStax: percent bases and original-value changes",
+        "zh": "OpenStax：百分比基数与相对原值变化"
+      },
+      "url": "https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent"
+    },
+    {
+      "title": {
+        "en": "SHL: its own numerical practice format and limits",
+        "zh": "SHL：其自有数值练习格式与边界"
+      },
+      "url": "https://www.shlglobal.cn/en/shldirect/en/practice-tests/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Five counts, no speed or ability band",
+        "zh": "五组正确数，不分速度或能力等级"
+      },
+      "paragraphs": [
+        {
+          "en": "Five groups of six questions produce a total correct count out of 30. Every matched key adds one, without weighting, reverse scoring or timing. All choices must be valid before the report appears; missing answers are not silently treated as wrong. Every key, rationale and complete guide appears at zero, partial and perfect counts. The five public guides are revision topics, not ranked outcome types.",
+          "zh": "五组各六题，合计正确数/30，匹配答案记一道，不加权、不反向、不计时。所有选择有效才显示报告，缺答不暗中当错。零题正确、部分正确、全部正确均给所有答案、理由和完整指南；五份公开指南是复习主题，不是高低等级类型。"
+        }
+      ]
+    },
+    {
+      "id": "units",
+      "title": {
+        "en": "Read the requested quantity and unit",
+        "zh": "读准所求量与单位"
+      },
+      "paragraphs": [
+        {
+          "en": "For a fresh example, 15 boxes with 14 pieces each contain 210 pieces. If 38 are used, 172 remain. A question asking for the starting count needs 210; one asking for the remainder needs 172. In percentage and rate items, the denominator is equally important. Every scenario explicitly states ideal assumptions such as constant output, disjoint groups or additive volumes; do not extend those assumptions to real operations without evidence.",
+          "zh": "另设15盒各14件，共210件，用去38剩172。问起初总量答210，问剩余答172。百分比和速率的分母同样关键。各题明示恒定产出、组不重叠或体积可加等理想假设，不能不经证据直接延伸到真实操作。"
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "title": {
+        "en": "Keep exact values until the requested rounding",
+        "zh": "保留精确值到题定舍入时点"
+      },
+      "paragraphs": [
+        {
+          "en": "Only the comparison of 40/60 and 54/90 requests a final one-decimal rounding: their share difference is exactly 1/15, or 6.666… percentage points, giving 6.7. Other keys use the exact quantities specified. Percentage points and relative percent change are distinct units. For a share moving from 15% to 21%, the change is six percentage points, while the relative increase is 40%.",
+          "zh": "只有40/60与54/90占比之差要求最后保留一位小数：精确差1/15，即6.666…个百分点，得6.7。其余按给定精确量作答。百分点与相对增长是不同单位；占比15%变21%，增6个百分点，相对增长则40%。"
+        }
+      ]
+    },
+    {
+      "id": "authority",
+      "title": {
+        "en": "Original questions and verification scope",
+        "zh": "原创题目与核查范围"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently wrote every task, option, rationale and guide. Exact arithmetic verifies supplied fictional quantities, unique numeric options and stated rounding, without borrowing vendor items or OpenStax examples. References explain mathematics or their own product context; they do not endorse this bank or establish score equivalence. No clinical, hiring, salary, training-gain or real financial-advice conclusion follows from the count.",
+          "zh": "全部题目、选项、理由和指南由费马独立编写。精确运算核虚构量、唯一数值选项和题定舍入，不复用供应商题目或OpenStax例子。参考仅解释数学或其自有产品，不为本题背书或建立成绩等价。正确数不支持临床、招聘、薪资、训练收益或实际理财建议结论。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is the full practice and every answer free?",
+        "zh": "整套练习与全部答案都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 30 items, selected choices, checked keys, worked explanations and five complete guides are free, with no account, email, payment or certificate purchase. Public revision guides can be read before an attempt.",
+        "zh": "是。30题、所选答案、核对答案、题解和五份完整指南均免费，无需账户、邮箱、付款或购买证书；开始前可直接读公开指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a timed employer assessment or licensed score?",
+        "zh": "这是计时雇主测评或授权成绩吗？"
+      },
+      "answer": {
+        "en": "No. It is an independent untimed practice bank, not SHL, Kenexa, Cubiks, GMAT or another employer’s instrument. It supplies no norm, percentile, hiring threshold, professional qualification or prediction of another test score.",
+        "zh": "不是。这是独立不计时练习，不属于SHL、Kenexa、Cubiks、GMAT或雇主工具，不给常模、百分位、招聘线、专业资格或其他考试成绩预测。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use a calculator and paper?",
+        "zh": "可以用计算器和纸笔吗？"
+      },
+      "answer": {
+        "en": "Yes. The count checks your selected answers, without distinguishing mental calculation from assisted working. If you compare your own attempts, record what help you used. There is no speed score; eighteen minutes is an editorial estimate.",
+        "zh": "可以。计分看选择是否正确，不区分心算或辅助计算；若比较自己多次作答，可记录是否用了辅助。没有速度分，十八分钟是编辑估计。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a low count mean low numerical ability?",
+        "zh": "答对少代表数值能力低吗？"
+      },
+      "answer": {
+        "en": "No. Counts describe these fictional quantities and stated assumptions only. Inspect whether the error concerns the chosen quantity, denominator, unit, weighted total or operation. No calibrated ability category, clinical interpretation or fixed personal trait is inferred.",
+        "zh": "不代表。正确数只描述这些虚构数量与题设，宜核所求量、分母、单位、权重或运算哪里出错，不推经校准的能力类别、临床解释或固定特质。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I revise, save and retake?",
+        "zh": "可以改答、保存和重做吗？"
+      },
+      "answer": {
+        "en": "Yes. You can go back and optionally save a browser-tab draft for up to 24 hours; completion, retake or exit-and-clear removes it. Without a saved draft, refresh loses progress. Repeating familiar keys can reflect recall, not a change in general ability.",
+        "zh": "可以返回改答、自愿保存最长24小时标签页草稿，完成、重做或退出并清除时删除。未保存则刷新丢进度。重做熟悉答案可能靠记忆，不等于一般能力改变。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does sharing reveal?",
+        "zh": "分享会显示什么？"
+      },
+      "answer": {
+        "en": "Only the public test title and link, without choices, correctness counts, keys, draft data or private identifiers. Your answers do not enter the shared URL, and the tool does not create an inferred ability label for sharing.",
+        "zh": "只显示公开测试标题和链接，不含选择、正确数、答案键、草稿或私有标识；共享URL不放答卷，也不生成用于分享的能力标签。"
+      }
+    }
+  ]
+}

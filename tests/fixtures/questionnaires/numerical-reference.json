@@ -1,0 +1,1571 @@
+{
+  "id": "T149",
+  "form": "fermatmind_original_numerical_five_tasks_30_v1",
+  "questions": [
+    {
+      "id": "NUM_01",
+      "prompt": {
+        "en": "Eight packets contain 24 labels each. After 17 labels are used, how many remain? All packets were full at the start.",
+        "zh": "八包标签每包24张，起初均为满包，用去17张后还剩多少张？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "175",
+            "zh": "175"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "184",
+            "zh": "184"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "192",
+            "zh": "192"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "209",
+            "zh": "209"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The starting count is 8 × 24 = 192. Subtract the 17 used labels to obtain 175. Subtracting 17 from only one packet or adding the used labels would answer a different inventory question. Every packet has the same stated size.",
+        "zh": "先算8×24=192，再减用去的17，剩175。不能只对一包算总量，也不能把已用张数加回；各包容量按题设相同。"
+      }
+    },
+    {
+      "id": "NUM_02",
+      "prompt": {
+        "en": "A container holds 4.8 litres. Each bottle takes exactly 0.3 litres, with no spillage. How many full bottles can be filled?",
+        "zh": "容器有4.8升，每瓶恰装0.3升且无损耗，可装满多少瓶？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "18",
+            "zh": "18"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Divide total volume by volume per bottle: 4.8 ÷ 0.3 = 16. The units cancel to a bottle count. Multiplying the two volumes does not produce a count, and no rounding down is needed because the division is exact.",
+        "zh": "总容量除以单瓶容量，4.8÷0.3=16，得到瓶数。两容量相乘不是瓶数；本题整除，无需向下取整。"
+      }
+    },
+    {
+      "id": "NUM_03",
+      "prompt": {
+        "en": "Four equal-sized batches have counts 18, 26, 31 and 25. What is their arithmetic mean count per batch?",
+        "zh": "四个同规模批次的数量分别18、26、31、25，平均每批是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "26",
+            "zh": "26"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "100",
+            "zh": "100"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Add the four counts to get 100 and divide by four batches, giving 25. The total and the mean have different meanings. Because each listed batch contributes once, no additional weighting is specified or needed.",
+        "zh": "四个数量相加为100，再除4批得25。总量不是平均量；每批各计一次，没有额外权重。"
+      }
+    },
+    {
+      "id": "NUM_04",
+      "prompt": {
+        "en": "A 90-minute session includes a 15-minute break. Work proceeds at two items per working minute, with no setup time. How many items are produced?",
+        "zh": "90分钟时段内含15分钟休息，工作时每分钟完成2件、无准备耗时，共完成多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "150",
+            "zh": "150"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "165",
+            "zh": "165"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "105",
+            "zh": "105"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Only 90 − 15 = 75 minutes are productive. At two items per productive minute, the output is 75 × 2 = 150. Counting the break at the working rate would overstate output by 30 items.",
+        "zh": "有效工作时间90−15=75分钟，乘每分钟2件，得150件。把休息也按生产速率算会多计30件。"
+      }
+    },
+    {
+      "id": "NUM_05",
+      "prompt": {
+        "en": "A delivery contains six crates of 18 parts and four crates of 12 parts. How many parts are delivered altogether?",
+        "zh": "送货包括6箱每箱18件、4箱每箱12件，共有多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "144",
+            "zh": "144"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "156",
+            "zh": "156"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "168",
+            "zh": "168"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Calculate the two crate groups separately: 6 × 18 = 108 and 4 × 12 = 48. Their sum is 156. Averaging the two crate sizes and multiplying by ten would ignore that the crate counts are unequal.",
+        "zh": "分组算6×18=108、4×12=48，合计156。两种箱数不同，不能简单平均箱容量再乘十箱。"
+      }
+    },
+    {
+      "id": "NUM_06",
+      "prompt": {
+        "en": "A store begins with 270 units, receives 85 and dispatches 132. There are no other changes. What is the closing stock count?",
+        "zh": "仓库期初270件，入库85件，出库132件，无其他变化，期末多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "487",
+            "zh": "487"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "317",
+            "zh": "317"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "223",
+            "zh": "223"
+          },
+          "directionId": "arithmetic"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "185",
+            "zh": "185"
+          },
+          "directionId": "arithmetic"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Closing stock equals starting stock plus receipts minus dispatches: 270 + 85 − 132 = 223. The direction of each change matters. Neither receipts nor dispatches alone can be used as the final balance.",
+        "zh": "期末=期初+入库−出库，即270+85−132=223。两种变动方向不同，单看入库或出库不能得最终余额。"
+      }
+    },
+    {
+      "id": "NUM_07",
+      "prompt": {
+        "en": "Of 150 inspected items, 36 have a blue marker. What percentage have that marker?",
+        "zh": "检查150件，其中36件有蓝色标记，占总检查数的百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "18%",
+            "zh": "18%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "24%",
+            "zh": "24%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "36%",
+            "zh": "36%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Use the inspected total as the base: 36 ÷ 150 = 0.24, or 24%. Dividing by the unmarked count would describe a marked-to-unmarked ratio instead of the share of all inspected items. The marker is just a fictional category.",
+        "zh": "以检查总量为分母，36÷150=0.24，即24%。若除以未标记数，算的是两组之比，不是全部检查物的占比；标记仅是虚构类别。"
+      }
+    },
+    {
+      "id": "NUM_08",
+      "prompt": {
+        "en": "A count rises from 320 to 400. What is the percentage increase relative to the original count?",
+        "zh": "数量从320增至400，相对于原数量增长百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "80%",
+            "zh": "80%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "125%",
+            "zh": "125%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The increase is 400 − 320 = 80. Divide that increase by the original 320: 80 ÷ 320 = 0.25, or 25%. Using 400 as the denominator would give the increase as a share of the new total, which is not the question.",
+        "zh": "增量400−320=80，再除原量320，得25%。除以新量400会得到增量占新总量的比例，分母含义不同。"
+      }
+    },
+    {
+      "id": "NUM_09",
+      "prompt": {
+        "en": "A quantity falls from 480 to 360. What is the percentage decrease relative to its original value?",
+        "zh": "数量从480降至360，相对原值下降百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "33.3%",
+            "zh": "33.3%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75%",
+            "zh": "75%"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "120%",
+            "zh": "120%"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The decrease is 120. Relative to the original 480, 120 ÷ 480 = 25%. The remaining 360 is 75% of the original, but that is the retained share rather than the percentage lost. Keep the requested quantity explicit.",
+        "zh": "减少120，以原量480为分母，120÷480=25%。剩余360是原量的75%，但那是保留比例，不是下降比例。"
+      }
+    },
+    {
+      "id": "NUM_10",
+      "prompt": {
+        "en": "Exactly 25% of a collection is 90 units. How many units are in the whole collection?",
+        "zh": "某集合的25%恰为90件，全部有多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "22.5",
+            "zh": "22.5"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "120",
+            "zh": "120"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "270",
+            "zh": "270"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360",
+            "zh": "360"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Let the total be x. The given part satisfies 0.25x = 90, so x = 90 ÷ 0.25 = 360. Multiplying 90 by 25% finds a quarter of the already given part, not the unknown whole.",
+        "zh": "设总量x，0.25x=90，故x=90÷0.25=360。把90再乘25%会算已知部分的四分之一，不是全部。"
+      }
+    },
+    {
+      "id": "NUM_11",
+      "prompt": {
+        "en": "A fictional quantity starts at 240, rises by 15%, then falls by 20% of the new value. What is the final quantity?",
+        "zh": "虚构数量初值240，先增15%，再按增长后的值降20%，最终是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "228",
+            "zh": "228"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "220.8",
+            "zh": "220.8"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "240",
+            "zh": "240"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "276",
+            "zh": "276"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "First compute 240 × 1.15 = 276. The reduction then acts on 276, so 276 × 0.8 = 220.8. The two percentages have different bases; subtracting 20 from 15 and applying a single five-percent decrease is not equivalent.",
+        "zh": "先240×1.15=276，再按276乘0.8得220.8。两次百分比的基数不同，不能简单15减20后按原值降5%。"
+      }
+    },
+    {
+      "id": "NUM_12",
+      "prompt": {
+        "en": "A share changes from 32% to 40%. By how many percentage points does it rise? Enter the number of percentage points, not the relative percentage increase.",
+        "zh": "占比由32%升至40%，上升多少个百分点？所求是百分点数，不是相对增长百分比。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "8",
+            "zh": "8"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "percentages"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "percentages"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Subtract the two stated percentage values: 40 − 32 = 8 percentage points. The relative increase is separately 8 ÷ 32 = 25%. Both calculations can be meaningful, but only the first uses the unit requested in this question.",
+        "zh": "两个百分数相减40−32=8个百分点。相对增长另算8÷32=25%；两种均有意义，本题明确要前者单位。"
+      }
+    },
+    {
+      "id": "NUM_13",
+      "prompt": {
+        "en": "Tokens are split in the ratio 3:5. The two groups total 96 tokens. How many tokens are in the smaller group?",
+        "zh": "符号按3:5分两组，共96个，较小组有多少个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "There are 3 + 5 = 8 equal ratio parts, each worth 96 ÷ 8 = 12 tokens. The smaller group gets three parts, or 36. Dividing by five alone would wrongly treat the larger group’s part count as the whole.",
+        "zh": "共3+5=8份，每份96÷8=12个，较小组3份即36个。不能只除以5，把较大组份数误作全部。"
+      }
+    },
+    {
+      "id": "NUM_14",
+      "prompt": {
+        "en": "A:B = 2:3 and B:C = 4:5, with all quantities positive. What is A:C in simplest whole-number form?",
+        "zh": "A:B=2:3，B:C=4:5，各数量为正，A:C最简整数比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "2:5",
+            "zh": "2:5"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "3:4",
+            "zh": "3:4"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "8:15",
+            "zh": "8:15"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "10:12",
+            "zh": "10:12"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Match the shared B quantity. Scale the first ratio by four to get A:B = 8:12 and the second by three to get B:C = 12:15. Thus A:C is 8:15. Directly joining the outer numbers 2 and 5 ignores the unequal B bases.",
+        "zh": "先统一中间量B：第一比乘4成8:12，第二比乘3成12:15，因此A:C=8:15。直接取2和5忽略了两个B基数不同。"
+      }
+    },
+    {
+      "id": "NUM_15",
+      "prompt": {
+        "en": "A mixture uses water:concentrate = 5:2 by volume. The total volume is 1.4 litres, with additive volumes. How many litres are concentrate?",
+        "zh": "混合物按体积水:浓缩液=5:2，总体积1.4升，体积可直接相加，浓缩液多少升？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.2",
+            "zh": "0.2"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0.4",
+            "zh": "0.4"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "0.7",
+            "zh": "0.7"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1.0",
+            "zh": "1.0"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The mixture has seven equal parts. Concentrate occupies two, so 1.4 × 2 ÷ 7 = 0.4 litres. The total is not the water volume alone. The additive-volume assumption is supplied for this fictional arithmetic exercise.",
+        "zh": "总共7份，浓缩液2份，1.4×2÷7=0.4升。1.4是混合总体积，不是单独的水量；体积可加是本虚构算术题的明示假设。"
+      }
+    },
+    {
+      "id": "NUM_16",
+      "prompt": {
+        "en": "Blue:red tokens = 4:7. There are 77 red tokens. How many blue tokens are there?",
+        "zh": "蓝:红符号=4:7，红色77个，蓝色多少个？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "44",
+            "zh": "44"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "49",
+            "zh": "49"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "56",
+            "zh": "56"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "121",
+            "zh": "121"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Seven ratio parts correspond to 77 red tokens, so one part is 11. Blue has four parts, giving 44. The combined count would be 121, but the question asks only for blue tokens. Preserve the order of the stated ratio.",
+        "zh": "红色7份对应77，每份11，蓝色4份为44。总数虽为121，但题目只问蓝色；比例顺序不能颠倒。"
+      }
+    },
+    {
+      "id": "NUM_17",
+      "prompt": {
+        "en": "A fictional recipe uses 450 grams of flour for six equal servings. At the same flour-per-serving ratio, how many grams are needed for nine servings?",
+        "zh": "虚构配方6份用面粉450克，保持每份用量相同，9份需多少克？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "600",
+            "zh": "600"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "675",
+            "zh": "675"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "900",
+            "zh": "900"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "One serving uses 450 ÷ 6 = 75 grams. Nine servings therefore need 75 × 9 = 675 grams. This is direct proportion under the explicit constant-per-serving condition; adding only three grams would mix a serving count with a mass.",
+        "zh": "每份450÷6=75克，九份需75×9=675克。每份用量恒定才可直接比例放大，不能把多三份当多三克。"
+      }
+    },
+    {
+      "id": "NUM_18",
+      "prompt": {
+        "en": "Team A completes 40 of 60 checks; team B completes 54 of 90. By how many percentage points is A’s completion share higher? Round only the final answer to one decimal place.",
+        "zh": "A组完成60项中的40项，B组完成90项中的54项。A的完成占比高多少个百分点？只在最终结果四舍五入到一位小数。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "4.0",
+            "zh": "4.0"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "6.7",
+            "zh": "6.7"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "10.0",
+            "zh": "10.0"
+          },
+          "directionId": "ratios"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "14.0",
+            "zh": "14.0"
+          },
+          "directionId": "ratios"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A’s share is 40/60 and B’s is 54/90. Their difference is 1/15, or 6.666… percentage points after multiplying by 100; this rounds to 6.7. Subtracting the raw completed counts compares unequal group sizes instead of completion shares.",
+        "zh": "两组占比分别40/60、54/90，差1/15，乘100为6.666…个百分点，最终约6.7。直接减完成项数没有处理组规模不同。"
+      }
+    },
+    {
+      "id": "NUM_19",
+      "prompt": {
+        "en": "A fictional table lists Monday: morning 70, evening 50; Tuesday: morning 90, evening 60. What is the percentage increase in the whole-day total from Monday to Tuesday?",
+        "zh": "虚构表格：周一上午70、晚间50；周二上午90、晚间60。周二全天总量比周一增长百分之几？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "20%",
+            "zh": "20%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "25%",
+            "zh": "25%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "28.6%",
+            "zh": "28.6%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "30%",
+            "zh": "30%"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Read both shifts in each day: Monday totals 120 and Tuesday 150. The increase is 30 relative to Monday’s 120, hence 25%. Comparing only the morning column would answer a shift-specific question rather than the requested daily total.",
+        "zh": "先把每天两个班次加总，周一120、周二150；增加30除周一120，得25%。只比较上午列会回答班次问题，而非全天总量。"
+      }
+    },
+    {
+      "id": "NUM_20",
+      "prompt": {
+        "en": "A table is headed “units, thousands”. Its three row values are 2.4, 3.1 and 1.5. How many individual units do the rows total?",
+        "zh": "表头注明“单位：千件”，三行数值2.4、3.1、1.5，合计多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "700",
+            "zh": "700"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "7000",
+            "zh": "7000"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "70000",
+            "zh": "70000"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The displayed values sum to 7.0 thousand units. Multiplying by 1,000 yields 7,000 individual units. Carry the header’s scale through the calculation; the number 7 alone is still expressed in thousands, not in the requested base unit.",
+        "zh": "表中数相加7.0，单位仍是千件，乘1000得到7000件。必须保留表头尺度，7不是题目要的基本件数。"
+      }
+    },
+    {
+      "id": "NUM_21",
+      "prompt": {
+        "en": "A table lists group size and mean: group P has 10 records with mean 20; group Q has 30 records with mean 40. What is the mean across all 40 records?",
+        "zh": "表格记录组规模和均值：P组10条、均值20；Q组30条、均值40。全部40条的均值是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "35",
+            "zh": "35"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reconstruct totals: 10 × 20 = 200 and 30 × 40 = 1,200. Divide their combined 1,400 by 40 records to get 35. The unweighted mean of 20 and 40 would give each unequal-sized group the same influence and produce the wrong answer.",
+        "zh": "先还原总量10×20=200、30×40=1200，合计1400除40条，得35。简单平均20和40会让大小不同的组权重相同，结果不符。"
+      }
+    },
+    {
+      "id": "NUM_22",
+      "prompt": {
+        "en": "Inspection table: line A has 6 marked items among 120; line B has 8 among 200. How many percentage points lower is B’s marked share than A’s?",
+        "zh": "检查表：A线120件中6件有标记，B线200件中8件。B的标记占比比A低多少个百分点？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.5",
+            "zh": "0.5"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A’s share is 6/120 = 5%, and B’s is 8/200 = 4%. B is lower by one percentage point even though its marked count is larger. Counts and rates can rank groups differently when their denominators differ.",
+        "zh": "A占比6/120=5%，B为8/200=4%，B低1个百分点。虽然B有标记件数更多，分母不同使数量排序与比例排序可能相反。"
+      }
+    },
+    {
+      "id": "NUM_23",
+      "prompt": {
+        "en": "A fictional table, all values in thousands of credits: quarter 1 receipts 140, costs 95; quarter 2 receipts 155, costs 100. By how many thousands of credits does receipts-minus-costs rise?",
+        "zh": "虚构表格均以千积分计：第一季收入140、成本95；第二季收入155、成本100。“收入减成本”增加多少千积分？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "15",
+            "zh": "15"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "55",
+            "zh": "55"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The first difference is 140 − 95 = 45 thousand credits and the second is 155 − 100 = 55. The increase is 10 thousand. Comparing receipts alone gives 15 and misses the five-thousand cost increase. These are fictional credits, not financial accounts or advice.",
+        "zh": "先分别收入减成本，第一季45千、第二季55千，增加10千。只看收入会算15千，漏了成本也增加5千。积分为虚构，不是实际财务报表或建议。"
+      }
+    },
+    {
+      "id": "NUM_24",
+      "prompt": {
+        "en": "Two disjoint cohorts are tabulated: 80 people with 25% selecting P, and 120 with 40% selecting P. What percentage of all 200 people selected P?",
+        "zh": "两个不重叠组：80人中25%选P，120人中40%选P。全部200人中选P的占比是多少？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32.5%",
+            "zh": "32.5%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "34%",
+            "zh": "34%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "35%",
+            "zh": "35%"
+          },
+          "directionId": "data"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "65%",
+            "zh": "65%"
+          },
+          "directionId": "data"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Convert each share to a count: 80 × 25% = 20 and 120 × 40% = 48. The combined 68 out of 200 is 34%. Averaging the two percentages without weighting would incorrectly treat the group sizes as equal.",
+        "zh": "先化人数，80×25%=20、120×40%=48，共68人除200，得34%。两个组人数不同，不能不加权直接平均百分比。"
+      }
+    },
+    {
+      "id": "NUM_25",
+      "prompt": {
+        "en": "At a constant rate, a machine makes 126 items in 18 minutes. With no downtime, how many items does it make in 35 minutes?",
+        "zh": "机器恒定速率18分钟产126件，无停机，35分钟产多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "210",
+            "zh": "210"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "245",
+            "zh": "245"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "252",
+            "zh": "252"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "280",
+            "zh": "280"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The rate is 126 ÷ 18 = 7 items per minute. Multiplying by 35 minutes gives 245 items. Proportional scaling is justified by the explicit constant-rate and no-downtime assumptions, not by a claim about any real machine.",
+        "zh": "先126÷18=7件/分钟，再乘35得245件。可比例放大来自题设恒速且无停机，不代表真实机器都会如此。"
+      }
+    },
+    {
+      "id": "NUM_26",
+      "prompt": {
+        "en": "A fictional journey covers 180 kilometres in 2.5 hours. What is the average speed in kilometres per hour?",
+        "zh": "虚构行程180千米、用时2.5小时，平均速度多少千米/小时？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "45",
+            "zh": "45"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "72",
+            "zh": "72"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "75",
+            "zh": "75"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Average speed is total distance divided by total elapsed time: 180 ÷ 2.5 = 72 kilometres per hour. The stated 2.5 hours is two hours thirty minutes, not two hours five minutes. No instantaneous speed is inferred.",
+        "zh": "平均速度=总路程÷总时间，180÷2.5=72千米/小时。2.5小时是2小时30分，不是2小时5分；这不推断瞬时速度。"
+      }
+    },
+    {
+      "id": "NUM_27",
+      "prompt": {
+        "en": "Two independent printers operate together for ten minutes. A prints 12 pages per minute and B prints 18, with no setup, jams or duplicated output. How many pages total?",
+        "zh": "两台独立打印机同时工作10分钟，A每分钟12页、B每分钟18页，无准备、卡纸或重复计数，共多少页？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "240",
+            "zh": "240"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "360",
+            "zh": "360"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The concurrent rates add to 12 + 18 = 30 pages per minute. Ten minutes yields 300 pages. The machines run at the same time, so adding ten minutes for each before multiplying a combined rate would double-count elapsed time.",
+        "zh": "同时速率相加为30页/分钟，乘10分钟得300页。两台同时工作，不能先把两个10分钟相加又乘合计速率，那会重复计算时间。"
+      }
+    },
+    {
+      "id": "NUM_28",
+      "prompt": {
+        "en": "Under an ideal constant-rate model, pipe P fills one empty tank in five hours and pipe Q fills it in ten hours. With both open together and no leaks, how many minutes fill one tank?",
+        "zh": "理想恒速模型：P管5小时装满空池，Q管10小时装满；两管同时开、无漏水，多少分钟装满一池？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "150",
+            "zh": "150"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "180",
+            "zh": "180"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "200",
+            "zh": "200"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Their rates are 1/5 and 1/10 tank per hour, totaling 3/10. One tank takes 10/3 hours, or 200 minutes. Averaging the separate fill times does not combine rates and would not match the supplied constant-flow model.",
+        "zh": "两管速率1/5和1/10池/小时，合计3/10，装一池需10/3小时，乘60得200分钟。不能平均各自装满时间来合并流速。"
+      }
+    },
+    {
+      "id": "NUM_29",
+      "prompt": {
+        "en": "A machine completes 480 units over 12 hours 30 minutes, including all elapsed time. What is its average output per hour?",
+        "zh": "机器在总计12小时30分钟内完成480件，已含所有经过时间，平均每小时多少件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "38.4",
+            "zh": "38.4"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "39.0",
+            "zh": "39.0"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Convert 30 minutes to 0.5 hour, giving 12.5 hours. Then 480 ÷ 12.5 = 38.4 units per hour. Writing the duration as 12.30 hours would confuse decimal hours with the clock’s sixty-minute subdivisions.",
+        "zh": "30分钟为0.5小时，总时长12.5小时，480÷12.5=38.4件/小时。不能写成12.30小时，十进制小数和六十分制分钟不同。"
+      }
+    },
+    {
+      "id": "NUM_30",
+      "prompt": {
+        "en": "Fictional units obey exactly 1 K = 1.25 M. How many K equal 320 M? No fees or rounding rules apply.",
+        "zh": "虚构单位规定1 K恰等于1.25 M，320 M等于多少K？无费用或其他舍入规则。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "256",
+            "zh": "256"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "300",
+            "zh": "300"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "400",
+            "zh": "400"
+          },
+          "directionId": "rates"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "4000",
+            "zh": "4000"
+          },
+          "directionId": "rates"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Each K contains 1.25 M, so divide 320 M by 1.25 M per K to get 256 K. Multiplying would convert in the opposite direction. These invented units illustrate conversion only and are not a real currency exchange rate.",
+        "zh": "每K含1.25 M，因此320÷1.25=256 K。相乘是朝相反方向换算。这是虚构单位转换，不是实际货币汇率。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "NUM_01",
+      "expected_label": "175",
+      "exact_expression": "8*24-17",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_02",
+      "expected_label": "16",
+      "exact_expression": "4.8/0.3",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_03",
+      "expected_label": "25",
+      "exact_expression": "(18+26+31+25)/4",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_04",
+      "expected_label": "150",
+      "exact_expression": "(90-15)*2",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_05",
+      "expected_label": "156",
+      "exact_expression": "6*18+4*12",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_06",
+      "expected_label": "223",
+      "exact_expression": "270+85-132",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_07",
+      "expected_label": "24%",
+      "exact_expression": "36/150*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_08",
+      "expected_label": "25%",
+      "exact_expression": "(400-320)/320*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_09",
+      "expected_label": "25%",
+      "exact_expression": "(480-360)/480*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_10",
+      "expected_label": "360",
+      "exact_expression": "90/0.25",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_11",
+      "expected_label": "220.8",
+      "exact_expression": "240*1.15*0.8",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_12",
+      "expected_label": "8",
+      "exact_expression": "40-32",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_13",
+      "expected_label": "36",
+      "exact_expression": "96/(3+5)*3",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_14",
+      "expected_label": "8:15",
+      "exact_expression": "(2/3)*(4/5)",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_15",
+      "expected_label": "0.4",
+      "exact_expression": "1.4*2/(5+2)",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_16",
+      "expected_label": "44",
+      "exact_expression": "77/7*4",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_17",
+      "expected_label": "675",
+      "exact_expression": "450/6*9",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_18",
+      "expected_label": "6.7",
+      "exact_expression": "(40/60-54/90)*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_19",
+      "expected_label": "25%",
+      "exact_expression": "((90+60)-(70+50))/(70+50)*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_20",
+      "expected_label": "7000",
+      "exact_expression": "(2.4+3.1+1.5)*1000",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_21",
+      "expected_label": "35",
+      "exact_expression": "(10*20+30*40)/(10+30)",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_22",
+      "expected_label": "1",
+      "exact_expression": "(6/120-8/200)*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_23",
+      "expected_label": "10",
+      "exact_expression": "(155-100)-(140-95)",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_24",
+      "expected_label": "34%",
+      "exact_expression": "(80*0.25+120*0.4)/(80+120)*100",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_25",
+      "expected_label": "245",
+      "exact_expression": "126/18*35",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_26",
+      "expected_label": "72",
+      "exact_expression": "180/2.5",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_27",
+      "expected_label": "300",
+      "exact_expression": "(12+18)*10",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_28",
+      "expected_label": "200",
+      "exact_expression": "1/(1/5+1/10)*60",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_29",
+      "expected_label": "38.4",
+      "exact_expression": "480/(12+30/60)",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    },
+    {
+      "id": "NUM_30",
+      "expected_label": "256",
+      "exact_expression": "320/1.25",
+      "authority": "original fictional quantities and explicitly stated mathematical rules; separately recompute"
+    }
+  ],
+  "authorship": "all30tasks/120options/30rationalesoriginal; no competitor/vendor/OpenStax question reuse",
+  "bounds": "all quantities fictional; no norms/speed/employer thresholds/certification; rates depend on explicit assumptions",
+  "validation": "separate exact arithmetic and rounded-output checks recorded by source hash in external task evidence; not psychometric validation"
+}

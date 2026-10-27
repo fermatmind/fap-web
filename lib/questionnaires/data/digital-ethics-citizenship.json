@@ -1,0 +1,2240 @@
+{
+  "slug": "digital-ethics-citizenship",
+  "code": "FM_DIGITAL_CITIZENSHIP_PRACTICE",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "practice",
+  "title": {
+    "en": "Digital Ethics & Citizenship Test",
+    "zh": "数字伦理与公民意识测试"
+  },
+  "seoTitle": {
+    "en": "Digital Ethics & Citizenship Test: 30 Free Scenarios",
+    "zh": "数字伦理与公民意识测试：30道免费场景题与完整解析"
+  },
+  "description": {
+    "en": "Try 30 original privacy, security, information, communication and access scenarios. Every answer and five full guides free. No moral type or behaviour rating.",
+    "zh": "做30道原创隐私、安全、信息、沟通和可访问性场景题，免费读全部答案与五份完整指南。不分道德类型，不评价真实行为；无需注册、不计时。"
+  },
+  "minutes": 18,
+  "instructions": {
+    "en": "Choose the answer best supported by the stated facts, local rule or educational concept in each of 30 four-option scenarios. Five sections contain six items each. Matching the author-reviewed key adds one; another valid choice zero, with no partial credit, timer or guessing penalty. Finish every item for all rationales and five complete guides. No real password, code, private message or account action is requested. Eighteen minutes is an editorial estimate.",
+    "zh": "按30个四选一场景中的事实、局部规则或教育概念，选择最获支持的答案。五组各六题，匹配作者核对的参考答案记一道，其余有效选择记零，无部分分、不计时、不倒扣；全部作答后给所有理由和五份完整指南。不索要真实密码、验证码、私聊，也不执行账户操作。十八分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "Practise specific online decisions through original fictional scenarios: collection purpose and audiences, account verification, information and AI use, communication, and access or permission conditions. Every item has four alternatives and a rationale. The author reviewed all 30 keys against the supplied facts, explicit local policies and selected primary educational guidance; no independent expert-panel consensus, grade-level reading calibration or psychometric validation has been established. The five complete guides and every answer are free. The count describes this edition only. It does not observe your online conduct, diagnose safety, assign a moral or personality type, certify legal or accessibility compliance, or predict workplace behaviour. No vendor item bank, Arizona curriculum assessment, Council of Europe instrument or official certification is reproduced or claimed.",
+    "zh": "通过原创虚构场景练具体在线决定：收集用途与受众、账户核实、信息与AI、沟通、访问和许可条件。每题四个选项并有理由，作者按给定事实、明确局部规则及选定一手教育资料核对30个参考答案；没有建立独立专家共识、年级阅读校准或心理测量验证。五份完整指南与全部答案免费。正确数只描述本版，不观察真实网络行为，不诊断是否安全，不派道德或人格类型，不认证法律或无障碍合规，也不预测职场行为。本版不复刻或声称供应商题库、亚利桑那课程测评、欧洲委员会测评工具或官方认证。"
+  },
+  "resultHeading": {
+    "en": "Your five scenario counts and every explanation",
+    "zh": "五组场景匹配正确数与全部解析"
+  },
+  "directions": [
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Privacy and information boundaries",
+        "zh": "隐私与信息边界"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "security",
+      "title": {
+        "en": "Account and device safety",
+        "zh": "账户与设备安全"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "information",
+      "title": {
+        "en": "Checking information and AI use",
+        "zh": "信息核查与AI使用"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "communication",
+      "title": {
+        "en": "Online communication and respect",
+        "zh": "网络沟通与尊重"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "access",
+      "title": {
+        "en": "Access, permissions and choices",
+        "zh": "访问、许可与选择"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "DIG_01",
+      "prompt": {
+        "en": "An event organiser says the form is only for sending an attendance link. It requires a name, email, home address and full birth date; no purpose for the latter two is given. Which issue is directly supported by those facts?",
+        "zh": "活动表单声明只为发送参会链接，却必填姓名、邮箱、家庭地址和完整生日，未说明后两项用途。哪项问题由这些事实直接支持？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Collection extends beyond the stated need without an explained purpose.",
+            "zh": "收集内容超出已说明需要，额外用途不清。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The invitation must be false because the form has four fields.",
+            "zh": "有四个字段，所以邀请必然是假的。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Every email address is publicly searchable by default.",
+            "zh": "所有邮箱默认都可公开搜索。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A date field proves the organiser has sold the data.",
+            "zh": "有日期字段就证明主办方卖了数据。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The extra required address and birth date lack a stated connection to sending the link. That supports questioning the scope and purpose before providing them. It does not prove a scam, data sale or universal visibility; those would require additional evidence.",
+        "zh": "地址和完整生日未说明与发链接的关系，应先核范围与用途。现有事实并不能证明诈骗、售卖数据或全部邮箱公开，其他说法都需更多证据。"
+      }
+    },
+    {
+      "id": "DIG_02",
+      "prompt": {
+        "en": "A project’s written rule permits editing only by four named teammates. A draft is set to “anyone with the link can edit”. Which change follows the rule?",
+        "zh": "项目书面规则仅允许四位具名组员编辑，但草稿设置为“持链接者均可编辑”。哪项变更符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Shorten the public link while keeping its access unchanged.",
+            "zh": "缩短链接，保持原访问范围。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Restrict editing to those four named teammates and verify the setting.",
+            "zh": "仅给四位组员编辑权限，并核对设置生效。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Post the link in another public channel to make ownership clear.",
+            "zh": "把链接再发到公开频道以说明归属。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Rename the draft “private” without changing permissions.",
+            "zh": "把文件改名“私密”，不改权限。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The allowed audience is defined by named editors, so the permission setting must match it. A shorter link or private-looking filename does not alter access. Verification checks the actual setting; this question does not perform any real permission change.",
+        "zh": "规则按具名编辑者限定范围，须让实际权限匹配。短链接和“私密”文件名都不改变访问权限，还需核设置。本题不执行真实权限变更。"
+      }
+    },
+    {
+      "id": "DIG_03",
+      "prompt": {
+        "en": "A colleague agreed to their photo appearing in a closed team newsletter. A new request proposes putting the same photo in a public promotional post. No permission for that use has been obtained. What is the appropriate next step under a rule requiring approval for each new audience?",
+        "zh": "同事同意照片用于封闭团队简报，新请求要放到公开推广帖，尚未取得这项用途许可。规则要求面向新受众前获得批准，下一步应做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Assume approval transfers because the image file is unchanged.",
+            "zh": "文件相同，便视作许可自动转移。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Add more hashtags so the use is easier to discover.",
+            "zh": "多加标签，让照片更容易被找到。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ask for approval for the public use before posting.",
+            "zh": "公开发布前，征求这项公开用途的批准。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Publish first and ask only if the colleague complains.",
+            "zh": "先发布，同事投诉再问。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The audience and purpose changed, while the stated approval covers only the closed newsletter. The supplied rule therefore requires approval for the public use before publication. This is a consent-scope exercise, not a universal legal ruling about every image.",
+        "zh": "受众和用途变了，原同意只涵盖封闭简报。按题定规则，公开前需另获批准。这是在练许可范围，不是对所有图片作通用法律裁定。"
+      }
+    },
+    {
+      "id": "DIG_04",
+      "prompt": {
+        "en": "Support needs only an error banner from your screen. The proposed screenshot also shows unrelated private messages. Your sharing rule permits only the relevant error information. Which response fits?",
+        "zh": "支持人员只需错误横幅，但准备的截图还含无关私人聊天。分享规则只允许相关错误信息，哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Upload the full screenshot because support may find the messages useful.",
+            "zh": "上传全图，因为支持人员也许用得上聊天。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Lower image quality but leave all messages readable.",
+            "zh": "降低画质，却保留可读聊天。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Send it through an unapproved public image host.",
+            "zh": "通过未经批准的公开图床发送。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Capture or crop the error only, then inspect the final image before sharing.",
+            "zh": "只截错误或裁掉无关部分，分享前复查最终图。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "Limiting the image to the required error follows the supplied scope and avoids sending unrelated messages. Inspecting the final file catches an incomplete crop. Lower resolution is not equivalent to removing readable private material, and a different host does not solve over-sharing.",
+        "zh": "限定到所需错误符合范围，复查能发现裁剪不完整。降低分辨率不等于移除可读私密内容，换图床也不能解决多发了信息的问题。"
+      }
+    },
+    {
+      "id": "DIG_05",
+      "prompt": {
+        "en": "A public table removes names but retains one person’s unique job title, exact shift and small location. Those details can be linked to a public staff schedule. What does removing names fail to establish?",
+        "zh": "公开表删掉姓名，却保留某人唯一的岗位名称、精确班次和很小的位置范围，能与公开排班对应。删姓名并未证明什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "That no individual can be reidentified from the remaining details.",
+            "zh": "不能证明剩余细节无法重新对应到个人。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "That the table contains no numbers.",
+            "zh": "不能证明表里没有数字。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "That the staff schedule has been deleted.",
+            "zh": "不能证明公开排班已经删除。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "That every row describes the same person.",
+            "zh": "不能证明所有行属于同一人。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Several indirect details can identify someone in combination even without a name. The stated linkage is a concrete reason not to call the table anonymous automatically. The question does not estimate a reidentification probability or conclude that every unnamed table is unsafe.",
+        "zh": "多个间接细节组合后仍可能识别人，题中对应关系使“删姓名就匿名”不成立。本题不估重新识别概率，也不判所有无姓名表格均不安全。"
+      }
+    },
+    {
+      "id": "DIG_06",
+      "prompt": {
+        "en": "A volunteer group’s agreed rule says to remove the event contact sheet after the event and completion of its stated follow-up. Both are complete. No new purpose or retention requirement has been approved. What follows that rule?",
+        "zh": "志愿组已约定：活动及指定后续工作完成后删除联系表。两者均已完成，也无获准新用途或保留要求，哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Keep a secret copy indefinitely in case it becomes useful.",
+            "zh": "偷偷无限期留一份，以备有用。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Remove the sheet through the group’s authorised process and avoid an unapproved extra copy.",
+            "zh": "按组内授权流程移除，不另存未经批准副本。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Publish the sheet so everyone can maintain it.",
+            "zh": "公开表格，让所有人维护。"
+          },
+          "directionId": "privacy"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Add everyone to a marketing list without asking.",
+            "zh": "不询问就加入推广名单。"
+          },
+          "directionId": "privacy"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The stated purpose and retention condition have ended. Following the group’s authorised removal process respects that particular agreement; keeping an undisclosed copy defeats it. The exercise sets a fictional policy and does not prescribe a universal legal retention period.",
+        "zh": "题定用途和保留条件已结束，应按授权流程履行约定，隐瞒副本会破坏它。这里是虚构政策，不规定通用法定保存期限，也不执行实际删除。"
+      }
+    },
+    {
+      "id": "DIG_07",
+      "prompt": {
+        "en": "One long passphrase is reused for email, shopping and a forum. The forum suffers a credential leak. What additional exposure does the reuse create?",
+        "zh": "同一长口令用于邮箱、购物和论坛，论坛发生凭据泄漏。复用增加了哪项额外风险？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A long passphrase becomes public-domain text.",
+            "zh": "长口令因此变成公共领域文字。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Every device must already be infected.",
+            "zh": "所有设备一定已经感染。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The leaked credential may be tried against the other accounts.",
+            "zh": "泄漏凭据可能被尝试用于其他账户。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Changing the forum display name automatically protects email.",
+            "zh": "改论坛昵称会自动保护邮箱。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Reusing a credential lets a leak at one service threaten others through attempted reuse. Length does not remove that linkage. Unique credentials and a suitable password manager reduce the shared-secret problem, without guaranteeing that an account cannot be compromised.",
+        "zh": "复用使一个服务的泄漏可被拿去试其他账户，长度不能消除关联。独立凭据与合适密码管理器有助减少共用秘密带来的风险，但不保证绝不失陷。"
+      }
+    },
+    {
+      "id": "DIG_08",
+      "prompt": {
+        "en": "You receive a login code you did not request. A caller then asks you to read it aloud to “cancel the attack”. Which response follows ordinary account-safety guidance?",
+        "zh": "收到非自己请求的登录验证码，随后来电让你读出验证码以“取消攻击”。按一般账户安全指导应如何处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Read the code aloud because the caller knows a login happened.",
+            "zh": "对方知道有登录，便读出验证码。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Send half the code, then the other half later.",
+            "zh": "先给一半，之后再给另一半。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Post the code publicly so others can investigate.",
+            "zh": "公开验证码，让别人调查。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Do not share the code; use the service’s independently verified account-security route.",
+            "zh": "不分享验证码，通过独立核实的服务安全入口处理。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A login code is an authentication secret, and knowledge that a code arrived does not authenticate a caller. Do not disclose it. Use an independently verified service route to review the account. The practice asks for no real code and makes no account changes.",
+        "zh": "登录码属于认证秘密，知道你收到验证码不能证明来电身份，不应泄露。应走独立核实的官方入口查看账户。本练习不索要真实验证码，也不改变账户。"
+      }
+    },
+    {
+      "id": "DIG_09",
+      "prompt": {
+        "en": "An unexpected message says your account will close and supplies a login link. You want to check whether there is a real account notice. Which route avoids trusting the message’s link?",
+        "zh": "意外消息称账户将关闭，并附登录链接。要核实是否真的有账户通知，哪条路不依赖该消息链接？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Open the service through a known saved address or official app and check notices there.",
+            "zh": "从已知保存地址或官方应用进入，查看通知。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use the supplied link if its button says “secure”.",
+            "zh": "按钮写“安全”就用消息链接。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Reply with your password to prove ownership.",
+            "zh": "回复密码来证明归属。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Trust the logo because logos cannot be copied.",
+            "zh": "相信标志，因为标志无法复制。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "Opening a known legitimate route independently avoids making the suspicious message your source of login authority. A button label or copied logo is not authentication. The message might be genuine or false; verification is needed before acting on its claim.",
+        "zh": "独立进入已知可信渠道，避免把可疑消息当登录权威。“安全”文字和可复制标志不是身份认证。消息可能真也可能假，应先核实，不能仅凭外观下结论。"
+      }
+    },
+    {
+      "id": "DIG_10",
+      "prompt": {
+        "en": "A purported colleague sends an unexpected attachment and asks you to open it urgently. The project has no scheduled file delivery. What is a suitable verification step?",
+        "zh": "自称同事的人意外发来附件，催你立即打开；项目并无计划中的文件交付。哪项是合适的核实步骤？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Open it first to see whether the content looks familiar.",
+            "zh": "先打开，看内容是否熟悉。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Confirm with the colleague through a separately known channel before opening.",
+            "zh": "打开前，通过另一个已知渠道向同事确认。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Forward it to the entire team so they can try it.",
+            "zh": "转给全组，让大家试。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Assume urgency makes verification unnecessary.",
+            "zh": "情况紧急，所以无需核实。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "An independently known channel can check whether the colleague actually sent the file, without opening the unexpected attachment. Urgency is not proof. Forwarding expands exposure instead of resolving uncertainty; the scenario does not ask you to analyse or execute the file.",
+        "zh": "用独立已知渠道确认是否本人发送，无需先打开意外附件。紧迫感不是证据，群转只扩大接触。本题不要求分析、执行或下载该文件。"
+      }
+    },
+    {
+      "id": "DIG_11",
+      "prompt": {
+        "en": "Your personal device’s verified settings show an available security update. You have saved your work and can follow the vendor’s normal update process. Which option uses the trusted route?",
+        "zh": "个人设备的已核实系统设置显示安全更新，你已保存工作，可以按厂商正常流程更新。哪项使用可信路径？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Install a replacement package from an unsolicited chat message.",
+            "zh": "安装陌生聊天发来的替代包。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Disable updates permanently because all updates are attacks.",
+            "zh": "因所有更新都是攻击而永久禁用。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Use the device’s verified update process and check completion.",
+            "zh": "使用设备已核实的更新流程，并核完成。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Share your account password with an unknown updater.",
+            "zh": "把账户密码交给未知更新者。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The scenario supplies a legitimate update route and an opportunity to use it. Updating through that route follows ordinary software-safety guidance; an unsolicited installer is different. This does not instruct an operator to bypass review or rollout rules on a managed production system.",
+        "zh": "题面给出合法已核实的更新入口，按其更新符合一般软件安全指导，陌生安装包不同。这不要求在受管理生产系统绕过评审或发布流程。"
+      }
+    },
+    {
+      "id": "DIG_12",
+      "prompt": {
+        "en": "You finish using a shared computer on which you signed into your own account. The next user is waiting. What should you do with that session?",
+        "zh": "你在共用电脑登录个人账户，用完后下一位用户正在等候，应如何处理本次会话？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Leave the account open because closing a document is enough.",
+            "zh": "账户保持登录，关文档就够。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Give the next user your login code in case they need help.",
+            "zh": "把验证码给下位用户，方便求助。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Save the password in the shared browser for convenience.",
+            "zh": "在共用浏览器保存密码图方便。"
+          },
+          "directionId": "security"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Sign out through the service and check that the account is no longer accessible in that session.",
+            "zh": "通过服务退出，并核该会话不再能访问账户。"
+          },
+          "directionId": "security"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The relevant issue is an authenticated session left for someone else. Signing out and checking the session addresses that exposure. Closing a document does not necessarily sign out, and sharing credentials or saving them on a shared device adds a separate risk.",
+        "zh": "关键是给他人留下已认证会话。退出并核会话状态能处理该暴露；关文档未必退出，分享凭据或存共用浏览器又增加风险。"
+      }
+    },
+    {
+      "id": "DIG_13",
+      "prompt": {
+        "en": "Five posts repeat the same claim. All five link back to one unnamed source, and none provides independent evidence. What can you infer about corroboration?",
+        "zh": "五个帖子重复同一说法，都追溯到一个未具名来源，没有独立证据。关于互相印证，能得出什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "There are five independent confirmations.",
+            "zh": "已有五份独立确认。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Repetition alone has not supplied independent confirmation.",
+            "zh": "重复本身尚未提供独立确认。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The claim is certainly false because it is repeated.",
+            "zh": "被重复的说法必定是假的。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "An unnamed source can never report any true fact.",
+            "zh": "未具名来源不可能报告任何真事实。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The posts share one evidential origin, so their count does not establish independent corroboration. This leaves the claim unverified by the supplied material, not automatically false. Seek a relevant primary source or genuinely independent evidence before presenting it as confirmed.",
+        "zh": "这些帖子证据同源，数量不能证明独立印证。给定材料只能说明尚未获得独立核实，不自动代表虚假。作为已确认事实前，应找相关一手来源或真正独立证据。"
+      }
+    },
+    {
+      "id": "DIG_14",
+      "prompt": {
+        "en": "A notice image is being shared as today’s event cancellation, but the only visible date is from last year. You want to tell attendees what is confirmed now. What should come first?",
+        "zh": "通知图被转作今天活动取消消息，但图上唯一日期是去年。想向参与者说明当前已确认信息，应先做什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Share it as current because the design looks official.",
+            "zh": "设计像官方，就当现行通知转发。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Change the date on the image yourself.",
+            "zh": "自己把图上日期改掉。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Check the current notice at the organiser’s independently verified source.",
+            "zh": "到主办方独立核实的当前来源查通知。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Declare that every old notice is fabricated.",
+            "zh": "断言所有旧通知都是伪造。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The visible date does not support the claimed current cancellation. Check the organiser’s current source and preserve the date context. The old image may be authentic but reused misleadingly, so neither redesigning it nor declaring it fabricated resolves the present factual question.",
+        "zh": "可见日期不能支持当前取消说法，应核主办方现行来源并保留日期语境。旧图可能真实但被错用；改日期或直接判伪造都没核当前事实。"
+      }
+    },
+    {
+      "id": "DIG_15",
+      "prompt": {
+        "en": "A short audio clip sounds like a familiar person, but its origin and full context are unknown. What does a convincing voice alone establish?",
+        "zh": "一段音频听起来像熟人，但来源和完整语境未知。仅声音逼真能够证明什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "The person definitely said those words in that context.",
+            "zh": "本人一定在该语境说过这些话。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The clip is definitely AI-generated.",
+            "zh": "音频一定由AI生成。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "No further checking is useful.",
+            "zh": "再核查也没有用。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "It does not by itself establish who made the statement or the full context.",
+            "zh": "单凭声音不能确定发言身份和完整语境。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "A convincing imitation is possible, and an authentic clip can also omit context. Sound alone settles neither authenticity nor fabrication. Verify provenance and relevant independent confirmation; the practice does not claim that a detector or human ear can classify every clip reliably.",
+        "zh": "声音可能被模仿，真实片段也可能缺语境，单听不能定真或定AI。应核来源与相关独立确认，不声称检测器或人耳能可靠识别每段音频。"
+      }
+    },
+    {
+      "id": "DIG_16",
+      "prompt": {
+        "en": "An AI draft supplies a citation you cannot locate. Your report requires traceable sources for factual claims. How should you handle that citation?",
+        "zh": "AI草稿给出一条找不到的引文，报告要求事实主张有可追溯来源，应如何处理？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Verify the source and claim; if verification fails, remove or clearly qualify the unsupported claim.",
+            "zh": "核来源与主张；核不成则移除或明确限定未获支持的说法。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Keep it as verified because the title sounds academic.",
+            "zh": "标题像学术，就保留为已核实。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Invent a page number to make it traceable.",
+            "zh": "编一个页码让它可追溯。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Treat every other citation in the world as false.",
+            "zh": "认定世上其他引文也都虚假。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The report’s evidence requirement is not satisfied by a plausible generated reference. Verification checks that a source exists and supports the specific claim. If it cannot be established, do not present that claim as sourced; neither invented details nor a blanket conclusion about other sources helps.",
+        "zh": "看似合理的生成引文不满足报告证据要求，要核资料存在且支持具体说法。核不成不能作为已获来源支持的事实；编细节或泛判其他来源都无帮助。"
+      }
+    },
+    {
+      "id": "DIG_17",
+      "prompt": {
+        "en": "A course’s written policy permits AI brainstorming if the help is disclosed and the final analysis is the learner’s own verified work. You used AI to list ideas. Which submission follows that policy?",
+        "zh": "课程书面规则允许AI辅助列思路，但要披露，最终分析须由学习者自行核实完成。你用过AI列想法，哪种提交符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Hide all assistance because brainstorming leaves no record.",
+            "zh": "隐瞒辅助，因为列思路没有痕迹。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Disclose the permitted assistance and submit your own checked analysis.",
+            "zh": "披露允许的辅助，提交自己核实的分析。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Submit unverified AI output and label it personally researched.",
+            "zh": "提交未核AI输出，称亲自研究。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Claim that every course uses this exact same policy.",
+            "zh": "声称所有课程都用同一规则。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The supplied course rule allows a specific use and requires disclosure plus the learner’s own verification. Meeting all three conditions follows that local policy. Other institutions can differ; this item does not impose a universal ban or universal permission for AI use.",
+        "zh": "题定课程允许特定用途，同时要求披露和本人核实，三者都满足才符合。本题不把局部规则推广成所有机构统一禁用或统一允许AI。"
+      }
+    },
+    {
+      "id": "DIG_18",
+      "prompt": {
+        "en": "A project forbids uploading confidential interview transcripts to external AI services unless an approved data process authorises it. You have no such approval. What follows the rule?",
+        "zh": "项目规定：未经批准的数据流程授权，不得把保密访谈稿上传外部AI服务。你目前没有授权，哪项符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Upload anyway because a paid plan must permit all confidential use.",
+            "zh": "付费方案必然允许所有保密用途，照传。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Remove the filename but leave the full identifying transcript.",
+            "zh": "删文件名，仍传完整可识别访谈。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Keep the transcript out of that service and use an authorised alternative or seek approval.",
+            "zh": "不向该服务上传，采用获准替代方式或申请授权。"
+          },
+          "directionId": "information"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Publish it first so it is no longer confidential.",
+            "zh": "先公开，便不再保密。"
+          },
+          "directionId": "information"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The restriction is about the data and approved process, not merely the filename or payment tier. Without approval, keep the transcript out of the external service. The question provides a fictional policy and does not evaluate any vendor’s current retention, training or contractual terms.",
+        "zh": "限制针对数据及批准流程，不是文件名或付费档位。没有授权就不外传，可走获准替代或申请。本题用虚构政策，不评价任何供应商当前保留、训练或合同条款。"
+      }
+    },
+    {
+      "id": "DIG_19",
+      "prompt": {
+        "en": "A forum rule permits criticism of ideas but forbids publishing personal contact details. You disagree with a post. Which reply stays within that rule?",
+        "zh": "论坛允许批评观点，但禁止公布个人联系方式。你不同意一帖，哪种回复符合规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Publish the author’s phone number to make your reply persuasive.",
+            "zh": "公布作者电话以增加说服力。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Threaten the author instead of addressing the claim.",
+            "zh": "不谈主张，直接威胁作者。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ask others to contact the author’s family.",
+            "zh": "叫别人联系作者家人。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Address the claim with reasons and leave personal contact information out.",
+            "zh": "就主张给出理由，不带个人联系方式。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The rule distinguishes disagreement about ideas from exposing personal information or threatening a person. The last reply fits that distinction. It need not agree with the post; respectful participation does not require treating every claim as correct or avoiding all criticism.",
+        "zh": "规则区分观点分歧与曝光个人信息、威胁本人，末项符合。无需赞同原帖；尊重参与不代表所有说法都正确，也不禁止批评。"
+      }
+    },
+    {
+      "id": "DIG_20",
+      "prompt": {
+        "en": "A group chat repeatedly targets one member with insulting messages. Its moderation policy asks witnesses not to amplify the material and to use a private report route. What follows that policy?",
+        "zh": "群聊持续用侮辱消息针对一位成员，管理规则要求旁观者不扩散，并使用私密举报渠道。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Use the designated private report route with only the relevant evidence; avoid forwarding the insults widely.",
+            "zh": "经指定私密渠道提供必要证据，不大范围转发侮辱。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Repost the insults publicly so more people can judge the target.",
+            "zh": "公开重发，让更多人评判被针对者。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Join the insults to blend in.",
+            "zh": "跟着侮辱，以融入群体。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Publish the target’s private messages without permission.",
+            "zh": "未经许可公开当事人私聊。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The given policy calls for a bounded private report and no amplification. Relevant evidence can support moderation without widening the audience for the abuse. The question does not ask you to investigate a real person or make a promise about how a platform will respond.",
+        "zh": "题定规则要求有限度私密举报并避免扩散，必要证据可供管理处理，而不让侮辱传播更广。本题不让你调查真人，也不保证平台一定怎样回应。"
+      }
+    },
+    {
+      "id": "DIG_21",
+      "prompt": {
+        "en": "You shared a factual error in a community post. A reliable current source now corrects it. The community rule asks for visible corrections to the original audience. Which action follows?",
+        "zh": "你在社区帖分享了事实错误，现有可靠当前来源更正，社区要求向原受众作可见纠正。哪项符合？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Silently edit an unrelated post so nobody sees the correction.",
+            "zh": "悄悄改无关帖子，让人看不到纠正。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Correct the original claim visibly and link the supporting source for that audience.",
+            "zh": "向原受众清楚更正原说法，并附支持来源。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Leave the known error because deleting memory is impossible.",
+            "zh": "既然无法抹掉记忆，就保留已知错误。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Invent a source agreeing with your old claim.",
+            "zh": "编一个支持旧说法的来源。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A visible correction addresses the same claim and audience that received the error. Citing the actual supporting source makes the update checkable. The rule does not require a humiliating label or a judgment about your character; it requires an accurate, findable correction.",
+        "zh": "可见纠正针对原主张和原受众，实际来源使更新可核。规则不要求自我羞辱或判断品格，而要求准确、找得到的更正。"
+      }
+    },
+    {
+      "id": "DIG_22",
+      "prompt": {
+        "en": "A cropped conversation shows one sentence but omits the surrounding messages. Someone asks you to publicly accuse its author of a specific motive. What is the strongest evidential limitation?",
+        "zh": "裁剪对话只显示一句，前后消息缺失，却有人让你公开指认作者的具体动机。最主要证据限制是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Every screenshot must be digitally altered.",
+            "zh": "所有截图一定改过。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "A crop proves the accusation is false.",
+            "zh": "裁剪就证明指控虚假。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The excerpt alone does not establish the full context or the claimed motive.",
+            "zh": "片段本身不能确立完整语境或所指动机。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A visible sentence reveals every intention the author has.",
+            "zh": "看见一句话就能知道作者所有意图。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The missing context limits what can be inferred from the excerpt, especially about motive. That does not establish either fabrication or innocence. Obtain relevant context before presenting a strong public claim; a plausible interpretation is not the same as demonstrated intent.",
+        "zh": "缺语境限制可推断内容，尤其动机，但不等于已证伪造或无事。公开作强断言前应核相关上下文，看似合理的解释不等于意图已获证明。"
+      }
+    },
+    {
+      "id": "DIG_23",
+      "prompt": {
+        "en": "A volunteer team has agreed that routine messages sent after 20:00 can wait until the next working period. There is no urgent incident. Which message follows that boundary?",
+        "zh": "志愿团队约定20:00后常规消息可等下一工作时段处理，当前无紧急事件。哪条沟通符合边界？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Demand an instant reply and call silence dishonest.",
+            "zh": "要求立即回复，并把沉默称为不诚实。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Publish the recipient’s location to pressure a response.",
+            "zh": "公开对方位置施压。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Create an emergency label to bypass the agreement.",
+            "zh": "虚构紧急标签绕过约定。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Send the routine update with no expectation of a reply before the next agreed period.",
+            "zh": "发常规更新，并按约定等下一时段回复。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "The agreed response window applies to this routine, nonurgent message. Respecting it does not imply that every delayed reply is acceptable in every context; the scenario supplies the boundary. Fabricating urgency or attaching a character accusation does not meet that agreement.",
+        "zh": "这是常规且不紧急消息，应按约定响应时段处理，不代表所有情境都可任意拖延。虚构紧急或作人格指控不符合这项约定。"
+      }
+    },
+    {
+      "id": "DIG_24",
+      "prompt": {
+        "en": "A moderation rule applies the same no-harassment standard to all viewpoints and allows reasons-based disagreement. Two members hold opposing views; only one posts personal threats. What decision fits the stated rule?",
+        "zh": "管理规则对各立场统一禁止骚扰，并允许有理由的分歧。两人观点相反，仅一人发出个人威胁。哪种处理符合题定规则？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Address the threatening behaviour under the rule while allowing compliant disagreement.",
+            "zh": "按规则处理威胁行为，同时允许合规分歧。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Punish whichever viewpoint the moderator dislikes, regardless of behaviour.",
+            "zh": "不管行为，只处罚管理员不喜欢的观点。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ban all disagreement because different views are always harassment.",
+            "zh": "所有不同意见都是骚扰，全部禁止。"
+          },
+          "directionId": "communication"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ignore threats if the speaker is popular.",
+            "zh": "说话者受欢迎就不管威胁。"
+          },
+          "directionId": "communication"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The supplied rule distinguishes behaviour from viewpoint and applies the same conduct standard to both sides. The decision should therefore address the threat, not invent a ban on disagreement or an exception for popularity. This exercise does not adjudicate a real dispute or legal speech boundary.",
+        "zh": "题定规则区分行为与立场，两边适用同一行为标准，应处理威胁，不编出禁止分歧或人气豁免。本题不裁决真实争议或言论法律边界。"
+      }
+    },
+    {
+      "id": "DIG_25",
+      "prompt": {
+        "en": "An online notice presents its only opening times inside an image. The same times are not written anywhere else. Which change makes that essential text available without relying on seeing the image?",
+        "zh": "网上通知把唯一的开放时间放在图片里，别处没有相同文字。哪项能让关键信息不依赖看图获得？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Describe the image only as “nice poster”.",
+            "zh": "只写“漂亮海报”。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Provide the actual opening times as accessible text, with an appropriate text alternative for the image.",
+            "zh": "以可访问文本提供实际开放时间，并给图片合适文字替代。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Add unrelated keywords to the image filename.",
+            "zh": "给图片文件名加无关关键词。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Remove the times from every format.",
+            "zh": "把所有形式中的时间都删掉。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The essential content is the opening times, not the poster’s appearance. Providing that content in accessible text makes the notice usable without the image. The appropriate alternative depends on context and any nearby duplicate text; a generic compliment does not communicate the missing information.",
+        "zh": "关键信息是开放时间，不是海报好看。提供可访问文本才能不依赖图片获得。替代文字要看语境及附近是否已重复，泛泛赞美没有传达缺失信息。"
+      }
+    },
+    {
+      "id": "DIG_26",
+      "prompt": {
+        "en": "A decorative swirl sits beside a heading that already contains the complete section title. It adds no information or action. For an HTML image used only that way, what does the WAI decision tree recommend?",
+        "zh": "标题旁有装饰曲线，完整标题已是真实文字，曲线不加信息也无操作功能。作为仅此用途的HTML图片，WAI决策树建议什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "A long repeated version of the heading as its alternative.",
+            "zh": "替代文字长篇重复标题。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "An alternative claiming an action the image does not perform.",
+            "zh": "替代文字声称不存在的操作。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "An empty alt attribute for this purely decorative image.",
+            "zh": "为这张纯装饰图片设置空alt属性。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Remove the real heading and keep only the swirl.",
+            "zh": "删真实标题，只留曲线。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "For a purely decorative image, the WAI decision tree recommends an empty alt attribute. The nearby real heading still supplies the title. This is a context-specific authoring decision, not a recommendation to omit meaningful text alternatives from informative or functional images.",
+        "zh": "WAI决策树对纯装饰图建议空alt，标题仍由附近真实文字提供。这是按用途判断，不是让信息图或功能图省掉有意义的文字替代。"
+      }
+    },
+    {
+      "id": "DIG_27",
+      "prompt": {
+        "en": "An image is the only content of a link that downloads meeting notes. A person using its text alternative needs to know what activating it does. Which alternative is most informative here?",
+        "zh": "某链接唯一内容是一张图，点击会下载会议纪要。使用文字替代的人需知道操作作用，哪项最有信息？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "“Blue rectangle”.",
+            "zh": "“蓝色矩形”。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "“Image”.",
+            "zh": "“图片”。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "An unrelated slogan.",
+            "zh": "无关标语。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "“Download meeting notes”.",
+            "zh": "“下载会议纪要”。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": {
+        "en": "For an image that supplies the link’s only content, the alternative should communicate the destination or action. Naming the colour or saying “image” omits that function. The answer follows the stated link purpose and the WAI guidance for functional images.",
+        "zh": "图是链接唯一内容时，文字替代应表达去向或作用。只说颜色或“图片”遗漏功能。答案按题定下载用途及WAI功能图片指导判断。"
+      }
+    },
+    {
+      "id": "DIG_28",
+      "prompt": {
+        "en": "A creator’s written permission lets your group repost a particular drawing unchanged with their credit. You want to use exactly that permission. Which option meets its stated conditions?",
+        "zh": "作者书面许可你组转载某幅画，条件为不改图并署名。若使用这项许可，哪项满足条件？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Repost the unchanged drawing with the specified credit.",
+            "zh": "保持画作不变，并按要求署名转载。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Remove the credit because the picture was online.",
+            "zh": "图片在网上，便删除署名。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Alter the drawing and claim the permission necessarily covers every change.",
+            "zh": "改画，并声称该许可必然包括一切修改。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Claim you created it yourself.",
+            "zh": "声称自己创作。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The permission in the scenario has two explicit conditions: keep this drawing unchanged and supply the credit. The first option meets both. Being online does not remove those supplied conditions; this question does not state general copyright law, fair-use rules or a licence for other works.",
+        "zh": "题中许可明确两条：本图不改、提供署名，首项两者都满足。在网上可见不抹去题给条件。本题不概括版权法、合理使用或其他作品的许可。"
+      }
+    },
+    {
+      "id": "DIG_29",
+      "prompt": {
+        "en": "A community poll must be open to participants who use text-reading assistive tools. Its options currently exist only as unlabelled pictures. What change addresses the stated access problem?",
+        "zh": "社区投票须让使用文字阅读辅助工具的人参与，但选项目前只有无标注图片。哪项针对这个可访问性问题？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Make the pictures brighter without naming the choices.",
+            "zh": "只加亮图片，不说明选项。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Provide clear accessible text labels for the actual choices and usable controls.",
+            "zh": "为实际选项提供清晰可访问文字标签及可用控件。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Tell those participants that their votes do not count.",
+            "zh": "告诉这些参与者他们的票不算。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Replace every choice with the same label.",
+            "zh": "所有选项换成同一个标签。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Participants need to distinguish the actual choices and operate their controls. Meaningful accessible labels address the missing information; brightness alone does not. The item identifies one stated barrier, not proof that a single text change makes an entire real voting system accessible or fair.",
+        "zh": "参与者须区分真实选项并能操作控件，有意义的可访问标签针对缺失信息，单改亮度不行。这里仅处理明示障碍，不证明一次文字修改就使真实投票系统全部无障碍或公平。"
+      }
+    },
+    {
+      "id": "DIG_30",
+      "prompt": {
+        "en": "A fictional service offers a seven-day trial that then renews for 12 credits per week. The renewal and cancellation details are on a separate terms page you have not read. What information is still needed before deciding whether to start?",
+        "zh": "虚构服务提供七天试用，之后每周自动续12积分。续费与取消细则在尚未读的条款页，决定是否开始前还需核什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Which colour the signup button uses.",
+            "zh": "注册按钮是什么颜色。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Whether every online trial is permanently free.",
+            "zh": "是否所有网上试用都永久免费。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "The applicable renewal, cost and cancellation conditions for this offer.",
+            "zh": "这项试用适用的续费、费用与取消条件。"
+          },
+          "directionId": "access"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "A guarantee that any trial can always be refunded in every country.",
+            "zh": "所有国家所有试用均必可退款的保证。"
+          },
+          "directionId": "access"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The offer describes a later recurring cost, while relevant conditions remain unread. Check those specific terms before deciding. Neither a universal free-trial assumption nor a universal refund guarantee follows. These are invented credits; the practice does not sign up, accept terms or make a purchase.",
+        "zh": "题目说明后续周期费用，但相关条件未读，应核此项条款再决定。不能推所有试用免费或各地均保证退款。积分虚构，本练习不注册、不接受条款、不购买。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "privacy",
+      "directionIds": [
+        "privacy"
+      ],
+      "title": {
+        "en": "Privacy and information boundaries",
+        "zh": "隐私与信息边界"
+      },
+      "headline": {
+        "en": "Check purpose, audience and the actual access setting.",
+        "zh": "核用途、受众和实际访问范围。"
+      },
+      "summary": {
+        "en": "Review purpose, sharing audiences, screenshots, indirect identifiers and agreed retention. Original scenarios teach decisions without legal certification.",
+        "zh": "复习数据用途、分享受众、截图、间接标识和约定保留期，用原创场景练有限决策，不作法律认证。"
+      },
+      "scoreReading": {
+        "en": "Six original scenarios each contribute one match to the authored key. The count describes these supplied facts, local rules and educational concepts, not your actual conduct, character or a certified digital-citizenship level. Every explanation and this full guide is free at every count.",
+        "zh": "六个原创场景各计一次与作者参考答案的匹配。正确数只描述题定事实、局部规则与通识概念，不判断真实行为、品格或认证数字公民水平；任何正确数都能免费读全部解析及本指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Privacy and information boundaries | Digital Citizenship",
+          "zh": "隐私与信息边界｜数字公民练习"
+        },
+        "description": {
+          "en": "Review purpose, sharing audiences, screenshots, indirect identifiers and agreed retention. Original scenarios teach decisions without legal certification.",
+          "zh": "复习数据用途、分享受众、截图、间接标识和约定保留期，用原创场景练有限决策，不作法律认证。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-purpose",
+          "title": {
+            "en": "Connect each requested field to a stated purpose",
+            "zh": "逐项核字段与用途"
+          },
+          "paragraphs": [
+            {
+              "en": "Begin with the task the service says it performs, then compare that task with the information requested. In this section, an attendance link does not come with an explained need for a home address or complete birth date. The supported observation is a mismatch or missing explanation, not proof that the organiser is criminal or that data has already been sold. Ask what a field enables, whether it is required and what happens to it. Those questions keep uncertainty visible instead of turning a concern into an unsupported accusation.",
+              "zh": "先看服务声明做什么，再比较索要信息。发参会链接不自动说明为何要地址和完整生日，能指出用途不匹配或说明不足，但不能凭此证明犯罪或数据已出售。可问字段做什么、是否必填、后续如何处理，保留不确定，避免把担忧变无依据指控。"
+            }
+          ]
+        },
+        {
+          "id": "2-access",
+          "title": {
+            "en": "A filename does not set an audience",
+            "zh": "访问范围由设置决定"
+          },
+          "paragraphs": [
+            {
+              "en": "A useful fictional check is a draft called “team only” whose link still permits public editing. The title communicates an intention, but the permission setting controls access. If the stated rule names specific collaborators, verify the actual editor list and link setting against that rule. Copying a shorter link or adding a warning inside the document does not itself narrow permissions. The practice describes the decision; it never edits a real account or file. For real tools, use the authorised controls and verify the resulting state.",
+              "zh": "另设草稿名为“组内专用”，链接却允许公众编辑，名称表达意图，实际权限才决定访问。规则若指定协作者，应核编辑者列表及链接设置。短链接或文内提醒不会自行缩小权限。本练习只描述决定，不改真实账户文件；真实操作须用授权控件核结果。"
+            }
+          ]
+        },
+        {
+          "id": "3-audience",
+          "title": {
+            "en": "A new audience can require a new decision",
+            "zh": "受众改变后重新核范围"
+          },
+          "paragraphs": [
+            {
+              "en": "An image approved for one closed purpose does not automatically carry approval for every later public use under the scenario’s rule. Keep the original permission and proposed use side by side: who can see it, why it is being used and whether the person agreed to that scope. If approval for the new use is required and missing, obtain it before publication. This reasoning follows the supplied agreement. It does not settle copyright, privacy or consent law across jurisdictions or replace an organisation’s real requirements.",
+              "zh": "按题定规则，批准一次封闭用途不自动涵盖后续公开用途。把原许可和新用途并排，核谁可见、为何使用、本人是否同意该范围。若规则要求新用途批准且尚缺，就先取得。这里按给定约定推理，不替代各地版权、隐私、同意规则或机构真实要求。"
+            }
+          ]
+        },
+        {
+          "id": "4-screenshots",
+          "title": {
+            "en": "Inspect the final material you would share",
+            "zh": "复查最终将分享的内容"
+          },
+          "paragraphs": [
+            {
+              "en": "When a support request needs an error label, a full-screen capture may contain unrelated chat, names or other details. A relevant crop is a new output that still needs inspection: a notification or reflected panel can remain visible. Compare the final image with the stated support need before using an approved sharing route. Reducing resolution is not the same as removing readable unrelated content. Nor does moving the file to a different host solve a scope problem. No real screenshot or private text is requested by this test.",
+              "zh": "支持只需错误标签，全屏截图却可能含聊天、姓名等。裁剪后的新图仍须复查，通知或面板可能残留。分享前按所需信息核最终图，再走获准渠道。降画质不等于移除可读无关内容，换图床也不解决范围过大。本测试不索要真实截图或私人文字。"
+            }
+          ]
+        },
+        {
+          "id": "5-identifiers",
+          "title": {
+            "en": "Names are only one way to identify a person",
+            "zh": "姓名只是识别线索之一"
+          },
+          "paragraphs": [
+            {
+              "en": "A table can remove names and still retain an unusual combination of role, place and schedule. If those fields can be linked to a public roster, the claim that no individual is identifiable has not been established. Treat the remaining combinations as information to review rather than relying on a removed-name checkbox. The scenario supplies a concrete linkage; it does not calculate a general risk percentage or imply every unnamed dataset exposes someone. A real publication needs its own authorised assessment of purpose, necessity and audience.",
+              "zh": "表格删姓名后，罕见岗位、地点、班次组合仍可能对应公开名单，不能就此证明无法识别个人。应复查剩余组合，而非只勾“已删姓名”。本题给出具体可关联情形，不估通用风险概率，也不判所有无姓名数据都暴露人。真实公开仍须核自己的授权、必要性和受众。"
+            }
+          ]
+        },
+        {
+          "id": "6-retention",
+          "title": {
+            "en": "Follow the agreed endpoint without inventing a new purpose",
+            "zh": "保留终点按已有约定处理"
+          },
+          "paragraphs": [
+            {
+              "en": "Where a fictional agreement ends retention after an event and its defined follow-up, a secret copy kept “just in case” conflicts with that agreement. Confirm that the stated endpoint is reached and use the authorised process. A newly required legal or operational hold would be a different condition that this item does not silently invent. This guide supplies no universal number of retention days. It asks you to distinguish the actual purpose and rule from an unapproved future use that merely sounds convenient.",
+              "zh": "虚构约定在活动与指定后续结束后终止保留，偷偷“以备万一”留副本与之冲突。先核终点确已到，再按授权流程处理。若另有法定或运营保留要求，则是不同条件，题目不暗中补入。本指南不规定通用保存天数，而是分清已有用途规则与未获批准的便利性新用途。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "Use six matches to inspect specific boundaries",
+            "zh": "用六题匹配数复查具体边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The six scenarios concern explained collection, named access, audience approval, relevant sharing, indirect identification and an agreed endpoint. A high count does not establish legal compliance, privacy expertise or safe real-world behaviour. A missed key does not diagnose a character defect. The answers were reviewed by the author against the stated conditions and selected educational guidance, not by an independent legal or professional panel. For practice, write what additional fact would change the answer in a new fictional case, rather than memorising a slogan such as “always share” or “never keep anything”.",
+              "zh": "六题分别核用途、具名访问、受众许可、相关分享、间接识别和约定终点。高正确数不证明合规、专业资格或真实安全行为，错题不诊断品格缺陷。答案由作者按条件与通识资料核，未经过独立法律或专业小组。可另设情形，写什么新增事实会改变答案，不背“总分享”或“什么都不能留”的口号。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "directionIds": [
+        "security"
+      ],
+      "title": {
+        "en": "Account and device safety",
+        "zh": "账户与设备安全"
+      },
+      "headline": {
+        "en": "Verify the route before trusting the request.",
+        "zh": "先核渠道，再处理请求。"
+      },
+      "summary": {
+        "en": "Review reused credentials, MFA codes, unexpected links and attachments, trusted updates and shared sessions. Counts do not certify account security.",
+        "zh": "复习凭据复用、验证码、意外链接附件、可信更新与共用会话；正确数不认证账户安全。"
+      },
+      "scoreReading": {
+        "en": "Six original scenarios each contribute one match to the authored key. The count describes these supplied facts, local rules and educational concepts, not your actual conduct, character or a certified digital-citizenship level. Every explanation and this full guide is free at every count.",
+        "zh": "六个原创场景各计一次与作者参考答案的匹配。正确数只描述题定事实、局部规则与通识概念，不判断真实行为、品格或认证数字公民水平；任何正确数都能免费读全部解析及本指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Account and device safety | Digital Citizenship",
+          "zh": "账户与设备安全｜数字公民练习"
+        },
+        "description": {
+          "en": "Review reused credentials, MFA codes, unexpected links and attachments, trusted updates and shared sessions. Counts do not certify account security.",
+          "zh": "复习凭据复用、验证码、意外链接附件、可信更新与共用会话；正确数不认证账户安全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-exposure",
+          "title": {
+            "en": "A shared secret links separate accounts",
+            "zh": "共用秘密会连接多个账户"
+          },
+          "paragraphs": [
+            {
+              "en": "Reusing one credential means a leak from one service can be tried against another. The lesson is about the relationship between accounts, not a claim that every leak immediately compromises all of them. A longer reused phrase still creates that relationship. Independent credentials and a suitable password manager address the shared-secret pattern. For a fresh exercise, draw three fictional services and mark where one password is reused; then remove one link at a time to see which exposures remain. Use invented labels and no real passwords.",
+              "zh": "同一凭据跨服务复用，会使一处泄漏可拿去试另一处，不代表所有账户已立即失陷。口令更长也未消除关联。独立凭据和合适管理器可处理共用秘密问题。可画三项虚构服务标出复用，再逐条去掉关联看剩余风险，只用虚构标记，不写真实密码。"
+            }
+          ]
+        },
+        {
+          "id": "2-factors",
+          "title": {
+            "en": "A code request does not authenticate a caller",
+            "zh": "索要验证码的人尚未被认证"
+          },
+          "paragraphs": [
+            {
+              "en": "An unexpected caller may know that a login code was sent without being the legitimate account holder or service. A code is not a harmless explanation of an incident; it is part of authentication. The exercise’s appropriate response withholds it and uses an independently verified account-security route. Do not enter a real code into this practice or share one as evidence. This distinction concerns what the requester has established. A familiar tone, urgency or knowledge of your name does not independently prove the requester’s authority.",
+              "zh": "意外来电即使知道你收到验证码，也不证明是账户本人或正规服务。验证码是认证材料，不是无害的事故说明。应不提供，并从独立核实的安全入口处理；不要往练习填真实码或把码当证据分享。熟悉语气、紧迫感或知道姓名，都不独立证明请求者权限。"
+            }
+          ]
+        },
+        {
+          "id": "3-routes",
+          "title": {
+            "en": "Separate the claim from its supplied route",
+            "zh": "主张与附带入口分别核"
+          },
+          "paragraphs": [
+            {
+              "en": "If a message says an account is closing, there are two things to inspect: whether a real account notice exists and whether the supplied login route is legitimate. Opening a known official app or saved service address avoids using the suspicious message itself as the source of authority. A logo and button labelled “secure” can be copied. Verification can reveal that a message is genuine or false; this practice does not ask you to assume either before checking, or to visit any potentially harmful live destination.",
+              "zh": "账户关闭消息有两件事待核：实际通知是否存在、附登录入口是否合法。从已知官方应用或保存地址进入，可避免把可疑消息本身当权威。标志和“安全”按钮都可复制。核实后可能是真也可能是假，本练习不要求预断，也不让人访问潜在有害真实网址。"
+            }
+          ]
+        },
+        {
+          "id": "4-attachments",
+          "title": {
+            "en": "An independent contact can clarify an unexpected file",
+            "zh": "用独立联系核意外文件"
+          },
+          "paragraphs": [
+            {
+              "en": "An urgent unexpected attachment is not made trustworthy by the sender label alone. Confirming through a separately known contact can establish whether the person meant to send it and what the project expected. Opening first to inspect appearances reverses that order, and forwarding it widely expands exposure. A confirmed sender still does not create a guarantee that every file is safe, so real organisations may require additional approved checks. Here the question tests the stated verification step and never downloads, executes or analyses an actual attachment.",
+              "zh": "意外紧急附件不因发件名称可信就可信。通过独立已知联系，可核是否本人有意发送、项目预期什么。先打开看外观顺序反了，群转还扩大接触。即使确认发送者，也非保证文件都安全；真实机构可能另有批准检查。本题只核验证步骤，不下载、执行或分析真实附件。"
+            }
+          ]
+        },
+        {
+          "id": "5-maintenance",
+          "title": {
+            "en": "Trusted updates use the established process",
+            "zh": "更新走既有可信流程"
+          },
+          "paragraphs": [
+            {
+              "en": "The update item supplies a verified personal-device settings route, saved work and an opportunity to follow the vendor’s normal process. Those conditions distinguish it from an installer offered in an unsolicited chat. Check completion through the trusted route rather than treating a popup’s wording as proof. This is not an instruction to bypass staged testing, backups, permissions or deployment controls on a managed service. The practice describes a decision under its supplied facts; it does not change software or grant new access.",
+              "zh": "更新题明示个人设备设置入口已核、工作已保存、可走厂商正常流程，区别于陌生聊天安装包。完成也经可信入口核，弹窗文字不是证明。这不要求在受管理服务绕过分阶段测试、备份、权限或发布控制；练习只讨论题定决定，不更改软件或授予访问。"
+            }
+          ]
+        },
+        {
+          "id": "6-sessions",
+          "title": {
+            "en": "End access when the shared-device task ends",
+            "zh": "共用设备任务结束时结束访问"
+          },
+          "paragraphs": [
+            {
+              "en": "On a shared computer, closing a document may leave its account authenticated. Signing out through the service and checking the session addresses that remaining access. Saving a password for the next person or leaving a code behind introduces another exposure. Different real tools can retain cached material or manage sessions differently, so follow the authorised local procedure as well. This example concerns an account session, not a promise that one click erases every local trace or that all public devices can be made safe.",
+              "zh": "共用电脑关文档可能仍登录，须经服务退出并核会话。为下位用户存密码或留码又增加暴露。真实工具缓存和会话机制不同，还要遵守获准本地流程。本例只谈账户会话，不保证点一下抹掉所有痕迹，也不声称所有公用设备都能变安全。"
+            }
+          ]
+        },
+        {
+          "id": "7-review",
+          "title": {
+            "en": "Rehearse with fictional requests and bounded conclusions",
+            "zh": "用虚构请求练有限结论"
+          },
+          "paragraphs": [
+            {
+              "en": "After a missed key, identify the trust assumption: a reused secret, an unverified caller, a message-supplied link, an unexpected file, an untrusted installer or a session left open. Write a short alternative path using only known legitimate routes. Do not test a real suspicious link to complete this exercise. Six authored matches have no established relation to compromise probability, certification, job readiness or actual protective behaviour. The source guidance supports the concepts; it does not validate this bank or guarantee that an account following them will never be attacked.",
+              "zh": "错题后找信任假设：共用秘密、未核来电、消息链接、意外文件、未知安装包或遗留会话。只用已知可信入口另写处理路线，不需点击真实可疑链接。六题匹配没有建立与失陷概率、认证、岗位准备或现实行为的关系；参考支持概念，不为题库效度或绝不遭攻击作保证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "information",
+      "directionIds": [
+        "information"
+      ],
+      "title": {
+        "en": "Checking information and AI use",
+        "zh": "信息核查与AI使用"
+      },
+      "headline": {
+        "en": "Separate an unverified claim from a proven falsehood.",
+        "zh": "分清未核实与已证虚假。"
+      },
+      "summary": {
+        "en": "Review repeated claims, old notices, synthetic media, traceable citations and local AI-use rules. Match explicit evidence without inferring actual conduct.",
+        "zh": "复习重复说法、旧通知、合成媒体、可追溯引文与局部AI规则，按证据判断，不推现实行为。"
+      },
+      "scoreReading": {
+        "en": "Six original scenarios each contribute one match to the authored key. The count describes these supplied facts, local rules and educational concepts, not your actual conduct, character or a certified digital-citizenship level. Every explanation and this full guide is free at every count.",
+        "zh": "六个原创场景各计一次与作者参考答案的匹配。正确数只描述题定事实、局部规则与通识概念，不判断真实行为、品格或认证数字公民水平；任何正确数都能免费读全部解析及本指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Checking information and AI use | Digital Citizenship",
+          "zh": "信息核查与AI使用｜数字公民练习"
+        },
+        "description": {
+          "en": "Review repeated claims, old notices, synthetic media, traceable citations and local AI-use rules. Match explicit evidence without inferring actual conduct.",
+          "zh": "复习重复说法、旧通知、合成媒体、可追溯引文与局部AI规则，按证据判断，不推现实行为。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-origin",
+          "title": {
+            "en": "Count evidential origins, not repeated headlines",
+            "zh": "数证据来源，不只数标题"
+          },
+          "paragraphs": [
+            {
+              "en": "Five posts can have one underlying source. If they all repeat the same unnamed statement, their number does not supply five independent confirmations. Map where each claim came from before treating repetition as corroboration. A useful new exercise is three messages quoting one leaflet: adding a fourth message does not create another independent observation. This leaves the claim uncertain under the supplied evidence. It does not prove the leaflet false or imply that anonymous sources never report anything accurately.",
+              "zh": "五帖可能只有一个底层来源。若都转述同一未具名说法，数量不等于五份独立确认。先追证据去向，再判断是否互证。另设三条消息均引一张传单，加第四条也没新增独立观察；这只表示现有证据下未核实，不证明传单必假或匿名来源从不说真话。"
+            }
+          ]
+        },
+        {
+          "id": "2-date",
+          "title": {
+            "en": "Preserve the date and the question being checked",
+            "zh": "保留日期和待核问题"
+          },
+          "paragraphs": [
+            {
+              "en": "A notice can be authentic and still be irrelevant to a claim about today. Compare the visible date, organiser and event with the claim being shared, then look for the current notice through an independently verified source. Editing the old image’s date would create misleading material rather than resolve the question. Conversely, an old date alone does not establish that the original notice was fabricated. Write what has been confirmed now and which part remains uncertain instead of flattening those states into one label.",
+              "zh": "通知可能真实，却不适用于今天的主张。对比日期、主办方、活动，再走独立核实来源查现行通知。改旧图日期是在制造误导，不能解决核查；日期旧也不证明原通知伪造。应分别写当前已核和仍未知，别合成一个简单标签。"
+            }
+          ]
+        },
+        {
+          "id": "3-media",
+          "title": {
+            "en": "Convincing sound is not complete provenance",
+            "zh": "声音逼真不等于来源完整"
+          },
+          "paragraphs": [
+            {
+              "en": "A familiar voice or realistic video does not by itself establish who created a clip, when it was recorded or what was left out. Synthetic imitation is one possibility; missing context in a real recording is another. Seek provenance and relevant independent confirmation before a strong factual claim. Do not replace that process with a promise that a detector will always decide correctly. The practice uses a fictional clip and does not ask you to upload a real person’s voice, face or private recording.",
+              "zh": "熟悉声音、逼真视频不能单独说明制作者、录制时间或省略了什么。可能是合成，也可能是真录音缺语境。作强事实主张前核来源与独立确认，不用“检测器总能判断”的保证代替。本练习只设虚构片段，不索要真人声音、脸或私录。"
+            }
+          ]
+        },
+        {
+          "id": "4-citations",
+          "title": {
+            "en": "Verify that a source supports the particular claim",
+            "zh": "来源须支持这一条具体主张"
+          },
+          "paragraphs": [
+            {
+              "en": "A generated citation can look plausible while failing to identify a real supporting source. Check both existence and relevance: finding a real paper with a similar title does not establish that it says what the draft claims. If verification fails, remove the unsupported assertion or state the limitation clearly. Do not invent a page, author or quotation to make the reference appear complete. This is an evidence-handling decision, not a claim that every AI-generated reference or every human-written citation must be false.",
+              "zh": "生成引文可能看似合理，却找不到实际支持来源。要同时核存在和相关性：找到相似标题真论文，也不证明支持草稿那句话。核不成就移除未获支持断言或明确限定，不能补编作者、页码、引文。本题不认定所有AI或人工引文都假。"
+            }
+          ]
+        },
+        {
+          "id": "5-policies",
+          "title": {
+            "en": "Read the local permission and disclosure conditions",
+            "zh": "按本地允许范围及披露条件判断"
+          },
+          "paragraphs": [
+            {
+              "en": "The course example permits brainstorming with disclosure and requires the learner’s own checked analysis. All of those conditions matter. Hiding help because the final wording changed would omit the disclosure condition; pasting unverified output would omit the learner’s verification. A different course or workplace may set different rules, so locate the actual current policy before applying the example outside this practice. The reference guidance offers a human-agency context, not a universal permission slip or an official certification of this question bank.",
+              "zh": "课程例子允许辅助列思路，但须披露，并要求本人核实分析。三项都重要：改了措辞而隐瞒，仍漏披露；粘贴未核输出，仍漏本人核实。其他课程职场规则可不同，实际使用要核当前政策。参考提供人的自主性背景，不是通用许可或题库认证。"
+            }
+          ]
+        },
+        {
+          "id": "6-inputs",
+          "title": {
+            "en": "An allowed tool does not authorise every input",
+            "zh": "工具可用不代表任何输入都获准"
+          },
+          "paragraphs": [
+            {
+              "en": "A project can permit an AI service for some tasks while withholding approval for confidential transcripts. In that case, payment tier or a changed filename does not override the supplied data rule. Use an authorised alternative or seek the required approval. Do not infer a vendor’s retention, training or contract terms from whether the service costs money. This scenario checks a fictional information boundary; it neither asks for real confidential material nor performs an upload to demonstrate the lesson.",
+              "zh": "项目允许某工具做一些事，不代表批准上传保密访谈。付费档位和改文件名不能覆盖题定数据规则，应走获准替代或申请授权。不能仅凭收费与否推供应商保留、训练、合同条款。本题核虚构边界，不索取真实保密资料或实际上传示范。"
+            }
+          ]
+        },
+        {
+          "id": "7-review",
+          "title": {
+            "en": "Record what would change your conclusion",
+            "zh": "记录什么证据会改变判断"
+          },
+          "paragraphs": [
+            {
+              "en": "For each missed scenario, write the missing evidence or permission rather than a fixed label about yourself. A current original notice, a genuine independent source or explicit approval can change a conclusion; more copies of the same unsupported claim cannot supply those facts. Six matches describe this edition’s authored situations, not media-literacy certification, honesty, intelligence or observed online choices. Keys were author-reviewed against the stated facts and policies. They are revision prompts, without norming, expert-panel consensus or a guarantee that the same short method resolves every real information dispute.",
+              "zh": "错题可写缺什么证据或许可，而非给自己固定标签。现行原通知、真正独立来源、明确批准可能改结论，多复制未支持说法却不能补这些事实。六题只描述本版作者场景，不认证媒体素养、诚实、智力或现实选择。答案按事实政策作作者核，无常模、专家共识或包办所有真实争议的保证。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "directionIds": [
+        "communication"
+      ],
+      "title": {
+        "en": "Online communication and respect",
+        "zh": "网络沟通与尊重"
+      },
+      "headline": {
+        "en": "Apply the stated conduct rule to the situation.",
+        "zh": "把明示行为规则用于具体情境。"
+      },
+      "summary": {
+        "en": "Review disagreement, bounded reporting, visible corrections, context and response boundaries. Original scenarios do not assign a moral or personality type.",
+        "zh": "复习分歧、有限举报、可见纠正、语境和回复边界，原创场景不派道德或人格类型。"
+      },
+      "scoreReading": {
+        "en": "Six original scenarios each contribute one match to the authored key. The count describes these supplied facts, local rules and educational concepts, not your actual conduct, character or a certified digital-citizenship level. Every explanation and this full guide is free at every count.",
+        "zh": "六个原创场景各计一次与作者参考答案的匹配。正确数只描述题定事实、局部规则与通识概念，不判断真实行为、品格或认证数字公民水平；任何正确数都能免费读全部解析及本指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Online communication and respect | Digital Citizenship",
+          "zh": "网络沟通与尊重｜数字公民练习"
+        },
+        "description": {
+          "en": "Review disagreement, bounded reporting, visible corrections, context and response boundaries. Original scenarios do not assign a moral or personality type.",
+          "zh": "复习分歧、有限举报、可见纠正、语境和回复边界，原创场景不派道德或人格类型。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-disagreement",
+          "title": {
+            "en": "Criticise a claim without exposing a person",
+            "zh": "可以批评主张，避免曝光个人"
+          },
+          "paragraphs": [
+            {
+              "en": "The forum scenario permits reasons-based disagreement and forbids publishing personal contact details. A compliant reply can therefore challenge the claim without revealing a phone number or calling on others to contact a family. This is not a requirement to agree, avoid hard questions or call every opinion equally well supported. Identify what behaviour the local rule permits and forbids, then compare the proposed reply with that boundary. The practice does not post a comment or judge a real author’s motives.",
+              "zh": "论坛场景允许有理由的分歧，禁止公布个人联系方式，因此可反驳主张，却不发电话或动员联系家人。不必因此赞同、回避尖锐问题或把所有观点当同样有据。先核本地行为规则，再比较拟回复；本练习不发评论，也不判真人动机。"
+            }
+          ]
+        },
+        {
+          "id": "2-reporting",
+          "title": {
+            "en": "Keep evidence relevant and the reporting audience bounded",
+            "zh": "举报证据与受众均有范围"
+          },
+          "paragraphs": [
+            {
+              "en": "Where the supplied moderation policy calls for a private report, sending relevant evidence through that route differs from reposting insults to a larger audience. Preserve what the authorised process needs without turning the target’s private messages into public content. The example does not promise a platform response or ask you to investigate a person. In an actual situation, use the available support and relevant local procedures. A practice count cannot tell whether someone has experienced harassment or predict how they would respond under pressure.",
+              "zh": "题定管理政策要求私密举报时，经该渠道送必要证据，区别于把侮辱再扩给更多人。按授权流程保留需要的信息，不把被针对者私聊变公开。本例不保证平台回应，也不要求调查个人。真实情境应使用实际支持与流程，练习正确数不推断骚扰经历或压力反应。"
+            }
+          ]
+        },
+        {
+          "id": "3-correction",
+          "title": {
+            "en": "A correction should reach the audience of the error",
+            "zh": "纠正应让原受众看见"
+          },
+          "paragraphs": [
+            {
+              "en": "If a community requires visible correction, changing an unrelated hidden page does not address the post that carried the error. A useful fresh example is a public date mistake: identify the earlier incorrect date, provide the corrected one and make the supporting current source findable to that audience. Do not invent evidence to defend the old wording. The purpose is accurate communication, not a humiliating confession. The exercise follows its stated community rule rather than establishing one legal correction procedure for every platform.",
+              "zh": "社区要求可见纠正时，改无关隐蔽页面没有处理原错误帖。另设公开日期写错，可说明旧错误、给正确日期，并让原受众找到当前来源。不要为旧措辞编证据，目的是准确沟通而非羞辱性检讨。这里依题给社区规则，不规定各平台统一法律纠正程序。"
+            }
+          ]
+        },
+        {
+          "id": "4-context",
+          "title": {
+            "en": "An excerpt does not establish every intention",
+            "zh": "片段不能确立一切意图"
+          },
+          "paragraphs": [
+            {
+              "en": "A cropped sentence can omit a question, quotation or later correction that changes its meaning. Missing context limits a strong accusation about motive, without proving that the crop was altered or that the speaker did nothing wrong. Separate the visible words from the interpretation being proposed. Ask for relevant context and describe uncertainty before asserting intent as fact. This principle supports careful reasoning in the scenario; it does not require sharing an entire private conversation publicly in the name of completeness.",
+              "zh": "一句裁剪可能漏前问、引述或后续纠正，影响意思。缺语境限制对动机的强指控，却不证明图被改或说话者毫无问题。把可见话语与拟作解释分开，先核相关上下文、表明未知；也不能借求完整之名把整段私聊公开。"
+            }
+          ]
+        },
+        {
+          "id": "5-boundaries",
+          "title": {
+            "en": "Use the agreed response window",
+            "zh": "按已约定的回复时段"
+          },
+          "paragraphs": [
+            {
+              "en": "The after-hours item explicitly concerns a routine update, a known response agreement and no urgent incident. Waiting until the next agreed period fits those facts. It does not mean that every urgent situation should wait, or that a delayed reply proves dishonesty. A fresh practice case can change one condition, such as an explicitly defined urgent channel, then ask which part of the agreement applies. Do not manufacture urgency merely to bypass a boundary or treat a person’s availability as a fixed personality trait.",
+              "zh": "非工作时段题明确是常规更新、有响应约定、无紧急事，等下一约定时段符合事实。不代表紧急情况一律等，也不能从未回推不诚实。可另改一个条件，如存在明定紧急渠道，再核哪条约定适用；不能编紧急绕边界，或把可用时间当固定人格。"
+            }
+          ]
+        },
+        {
+          "id": "6-moderation",
+          "title": {
+            "en": "Apply the conduct standard consistently",
+            "zh": "一致应用行为标准"
+          },
+          "paragraphs": [
+            {
+              "en": "Under a rule that permits disagreement but prohibits personal threats, address the threatening behaviour regardless of which viewpoint the moderator prefers. Popularity is not an exception supplied by the rule. At the same time, disagreement alone has not met that scenario’s definition of a violation. Keep the documented conduct and the applicable standard separate from liking the speaker. This is a local rule-comparison task, not a determination of real speech law, political legitimacy or the best moderation policy for every community.",
+              "zh": "规则允许分歧、禁止个人威胁时，应按威胁行为处理，不看管理员偏爱哪立场，人气也非题给豁免。同时，观点不同本身未达到本题违规定义。把记录的行为与适用标准同个人喜好分开；这是局部规则比较，不裁言论法律、政治正当性或所有社区最佳政策。"
+            }
+          ]
+        },
+        {
+          "id": "7-review",
+          "title": {
+            "en": "Practise explanations, not labels about a person",
+            "zh": "练解释，不给人贴标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A missed answer can indicate that you overlooked a reporting route, audience, evidence limit or stated agreement. Write that concrete omission and test a new fictional case with a changed fact. The six matches do not diagnose empathy, morality, personality or actual online conduct. They also do not prove how you behave when stressed or what another person intended. All keys and explanations remain available at every count. Use them to discuss the supplied decision conditions, without turning a short educational practice into a verdict about yourself or someone else.",
+              "zh": "错题可能是漏看举报渠道、受众、证据边界或约定。写下具体遗漏，再换事实另设情形。六题不诊断共情、道德、人格、现实网络行为，不证明压力下表现或别人意图。任何正确数都给全部答案与解析，用来讨论题定条件，不把短练习当对自己或他人的判决。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "access",
+      "directionIds": [
+        "access"
+      ],
+      "title": {
+        "en": "Access, permissions and choices",
+        "zh": "访问、许可与选择"
+      },
+      "headline": {
+        "en": "Make the actual information and conditions available.",
+        "zh": "让实际信息与条件可被获得。"
+      },
+      "summary": {
+        "en": "Review meaningful image alternatives, functional labels, explicit creator permissions, accessible choices and trial terms. Counts are educational practice only.",
+        "zh": "复习有意义的图片替代、功能标签、明确创作许可、可访问选项和试用条件；正确数仅供通识练习。"
+      },
+      "scoreReading": {
+        "en": "Six original scenarios each contribute one match to the authored key. The count describes these supplied facts, local rules and educational concepts, not your actual conduct, character or a certified digital-citizenship level. Every explanation and this full guide is free at every count.",
+        "zh": "六个原创场景各计一次与作者参考答案的匹配。正确数只描述题定事实、局部规则与通识概念，不判断真实行为、品格或认证数字公民水平；任何正确数都能免费读全部解析及本指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Access, permissions and choices | Digital Citizenship",
+          "zh": "访问、许可与选择｜数字公民练习"
+        },
+        "description": {
+          "en": "Review meaningful image alternatives, functional labels, explicit creator permissions, accessible choices and trial terms. Counts are educational practice only.",
+          "zh": "复习有意义的图片替代、功能标签、明确创作许可、可访问选项和试用条件；正确数仅供通识练习。"
+        }
+      },
+      "sections": [
+        {
+          "id": "1-meaning",
+          "title": {
+            "en": "A text alternative depends on purpose",
+            "zh": "文字替代取决于用途"
+          },
+          "paragraphs": [
+            {
+              "en": "A poster may look attractive while withholding its actual opening times from anyone who cannot see its image. In that context, describing it as a nice poster omits the information the notice exists to convey. Provide the essential times in accessible text and choose an image alternative that fits the surrounding content. If the same complete information is already available nearby, the appropriate treatment can differ. The WAI decision tree is contextual; the practice does not say that every image needs a long visible description.",
+              "zh": "海报虽好看，若开放时间只在图里，不看图的人便拿不到核心信息。只说漂亮遗漏通知用途，应提供可访问时间文本，并按周边内容选文字替代。若附近已有完整信息，处理可能不同。WAI决策树按语境判断，不是所有图都要很长描述。"
+            }
+          ]
+        },
+        {
+          "id": "2-decorative",
+          "title": {
+            "en": "Decorative content can use an empty alternative",
+            "zh": "纯装饰图可用空替代"
+          },
+          "paragraphs": [
+            {
+              "en": "A swirl that adds no information or action beside an already complete heading is different from an informative diagram. For that purely decorative HTML image, the WAI decision tree recommends an empty alt attribute while the real heading remains available. Repeating the heading inside a long alternative would add redundant output. This choice depends on the stated role: if the image carried the only essential text or supplied a button’s function, an empty alternative would no longer address the same situation.",
+              "zh": "完整文字标题旁、不加信息也无操作的曲线，区别于信息图。对题定纯装饰HTML图，WAI建议空alt，真实标题保留；长篇重复标题会增加冗余。用途若变成承载唯一文字或按钮功能，便不能把同一空替代结论直接套过去。"
+            }
+          ]
+        },
+        {
+          "id": "3-function",
+          "title": {
+            "en": "A functional image should communicate the action",
+            "zh": "功能图片应传达操作"
+          },
+          "paragraphs": [
+            {
+              "en": "An image that is the sole content of a download link needs an alternative that explains the link’s destination or action. A fresh example is a picture button that opens a timetable: its meaningful label concerns opening the timetable, not whether the icon is round or blue. Use the purpose given in the prompt and do not invent a different action. This guide illustrates one authoring decision; it does not assess every requirement of a real accessible interface or certify a page against a complete standard.",
+              "zh": "图是下载链接唯一内容时，替代应说明去向或作用。另设图形按钮用于打开时刻表，有意义标签应说打开时刻表，而非圆形蓝色。按题给用途写，不编别的功能。本指南仅示范一项编写决定，不检查真实界面所有要求，也不作整页标准认证。"
+            }
+          ]
+        },
+        {
+          "id": "4-permission",
+          "title": {
+            "en": "Follow the permission actually supplied",
+            "zh": "按实际给出的许可使用"
+          },
+          "paragraphs": [
+            {
+              "en": "The drawing example permits a specific unchanged repost with credit. Both conditions belong to that permission. Public visibility does not remove them, and a licence for one work does not automatically cover another. A new fictional exercise might permit cropping but require a particular credit line; compare the proposed use with those exact conditions. Real licences and legal exceptions require their own accurate reading. This practice does not give a universal copyright answer, decide fair use or authorise reposting any real material.",
+              "zh": "画作例子许可特定的不改图转载并署名，两条件都须满足。网上可见不移除条件，一件作品许可不自动涵盖另一件。可另设允许裁剪但须指定署名的情形，按精确条件比较用途。真实许可及法律例外须另核；本练习不概括版权、裁合理使用或授权转载真材料。"
+            }
+          ]
+        },
+        {
+          "id": "5-participation",
+          "title": {
+            "en": "Participants need distinguishable choices and usable controls",
+            "zh": "参与者需要能区分的选项与可用控件"
+          },
+          "paragraphs": [
+            {
+              "en": "If the choices in a poll exist only as unlabelled images, someone using text-reading assistance may not know what each control means. Providing meaningful accessible labels for the actual options addresses the stated barrier. Brighter pictures or the same label on every option do not supply the missing distinctions. Check the information needed to participate rather than assuming the participant is uninterested. This one change does not establish that the complete voting process is accessible, private or fair; those are broader questions outside the six items.",
+              "zh": "投票仅有无标注图片选项，使用文字阅读辅助的人可能不知控件含义。给真实选项有意义的可访问标签，针对该障碍；更亮图片或每项同标签都没补区别。应看参与所需信息，不假定对方没兴趣。但一次修改不证明整套投票无障碍、私密或公平，后者范围更大。"
+            }
+          ]
+        },
+        {
+          "id": "6-terms",
+          "title": {
+            "en": "Read the particular offer before committing",
+            "zh": "决定前读这一项具体条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The fictional trial includes a later recurring cost and points to unread renewal and cancellation conditions. The supported next information need concerns those particular terms. Button colour does not resolve the cost, and a belief that all trials are free or universally refundable supplies no evidence. The exercise asks for recognition of the missing information, not a purchase or acceptance of an agreement. Its invented credits are not a live price. Real consumer decisions require the applicable current offer and relevant rules, without assuming this example settles them.",
+              "zh": "虚构试用有后续周期费用，续费取消细则尚未读，所缺信息就是本项具体条件。按钮颜色不能解决费用问题，所有试用免费或各地均可退款的信念不是证据。本题只识别信息缺口，不购买或接受协议，积分非实时价格；实际决定须核当时适用要约和规则。"
+            }
+          ]
+        },
+        {
+          "id": "7-limits",
+          "title": {
+            "en": "Use the count to revisit a concrete access condition",
+            "zh": "用正确数复查具体访问条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The six scenarios cover essential text, decorative and functional images, an explicit creator permission, distinguishable options and an unread offer. Author review checks those supplied conditions and the cited educational context; it is not independent legal, accessibility or consumer certification. A high count does not establish real-world compliance or citizenship quality, and a missed one does not diagnose a moral deficit. For practice, change the role of one image or a clause of the fictional permission and explain which answer would change, keeping the original and revised conditions visible.",
+              "zh": "六题涉及关键文本、装饰与功能图、作者许可、可区分选项及未读要约。作者核的是给定条件与参考通识背景，不是独立法律、无障碍或消费者认证。高正确数不证明真实合规或公民品质，错题不诊断道德缺陷。可改一张图用途或一条虚构许可，说明答案怎样变，并保留改前改后条件。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_digital_scenario_practice",
+    "formCode": "fermatmind_original_digital_citizenship_30_v1",
+    "itemBankVersion": "fermatmind_original_digital_citizenship_30_v1",
+    "scoringVersion": "practice_equal_correct_counts_v1",
+    "resultContentVersion": "fm_digital_citizenship_five_revision_guides_v1",
+    "itemBankSha256": "b5bd77d2cdbe9f7d7d005ebca73d80bcd6369bcca778438f51ccb4b6353fbf80",
+    "resultContentSha256": "6c8dfba170388714242e89590f822ea56927d082ceb6ba2adfcdcadaec566418",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Council of Europe: digital citizenship domains and context",
+        "zh": "欧洲委员会：数字公民领域与背景"
+      },
+      "url": "https://www.coe.int/en/web/education/dce-concept"
+    },
+    {
+      "title": {
+        "en": "FBI: online-safety guidance for adults",
+        "zh": "FBI：成人网络安全通识指导"
+      },
+      "url": "https://www.fbi.gov/how-we-can-help-you/online-safety/stay-safe-online-simple-tips-for-adults"
+    },
+    {
+      "title": {
+        "en": "UNESCO: human-centred guidance for generative AI",
+        "zh": "UNESCO：以人为本的生成式AI指导"
+      },
+      "url": "https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+    },
+    {
+      "title": {
+        "en": "W3C WAI: choosing image text alternatives",
+        "zh": "W3C WAI：按图片用途选择文字替代"
+      },
+      "url": "https://www.w3.org/WAI/tutorials/images/decision-tree/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "counts",
+      "title": {
+        "en": "Five local counts, every answer available",
+        "zh": "五组局部正确数，全部答案完整给出"
+      },
+      "paragraphs": [
+        {
+          "en": "Five groups of six scenarios produce a total count out of 30. All valid choices must be present before the result appears; missing answers are not silently counted as wrong. A match contributes one, without weighting, reverse scoring or speed adjustment. Every rationale and all five full guides appear at zero, partial or perfect counts. Public guides are revision topics, not ranked citizen types or moral bands.",
+          "zh": "五组各六题，合计/30；有效选择全部齐才给结果，缺答不暗中当错。匹配记一道，不加权、不反向、无速度奖励。零题正确、部分或全对都给全部理由及五份完整指南。公开指南是复习主题，不是公民高低类型或道德档。"
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "en": "Supported by the scenario, not all possible situations",
+        "zh": "答案受题定情境约束"
+      },
+      "paragraphs": [
+        {
+          "en": "A privacy concern does not prove criminal intent, an old notice does not prove fabrication, and disagreement is not automatically harassment under the supplied forum rule. Read what the facts establish and what they leave unknown. Where a course, project or creator supplies a local permission, compare the proposed action with those exact conditions. The practice does not turn a short fictional policy into universal legal advice or permission to act on a real account.",
+          "zh": "隐私疑虑不证明犯罪意图，旧通知不证明伪造，分歧在题定论坛规则下也不自动等于骚扰。应读事实支持什么、留下什么未知。课程、项目、作者给局部许可时，按精确条件比较，不把短虚构政策变通用法律建议或真实账户操作许可。"
+        }
+      ]
+    },
+    {
+      "id": "fresh-example",
+      "title": {
+        "en": "A fresh audience check",
+        "zh": "另做一次受众核对"
+      },
+      "paragraphs": [
+        {
+          "en": "Suppose a volunteer approved a quote for a closed project review, and the group’s rule requires new approval before public promotion. A public post is a new audience, even if the quote is unchanged. Ask for that approval or keep the material out of the public post. This follows the supplied agreement; it does not establish every legal condition for quotes or replace the person’s actual permission.",
+          "zh": "另设志愿者只批准引语用于封闭项目复核，组规要求公开推广前另获批准。即使引语不改，公开帖仍是新受众，应先征批准或不放该公开帖。这按给定约定推理，不概括所有引语法律条件，也不替代本人实际许可。"
+        }
+      ]
+    },
+    {
+      "id": "authority",
+      "title": {
+        "en": "Original authorship and review limits",
+        "zh": "原创与核查边界"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind independently wrote all 30 situations, 120 alternatives, rationales and guides. The author checked the keys and explanations; references support selected educational concepts and describe their own frameworks. They do not endorse the bank or establish its measurement validity. There is no independent legal, cybersecurity, accessibility or ethics panel, no observed-behaviour study and no norm sample. Examples contain no real personal credentials or private messages.",
+          "zh": "30个场景、120个选项、理由和指南均由费马独立编写，作者核答案与解释；参考只支持选定通识概念及说明其自有框架，不为题库背书或建立测量效度。没有独立法律、安全、无障碍、伦理专家小组，没有真实行为研究或常模，例子不含真人凭据私聊。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Are all scenarios, answers and guides free?",
+        "zh": "全部场景、答案和指南都免费吗？"
+      },
+      "answer": {
+        "en": "Yes. All 30 items, selected choices, authored keys, full rationales and five complete guides are free. No account, email, payment or certificate purchase is required. Public guides are available before an attempt.",
+        "zh": "是。30题、所选答案、参考答案、完整理由和五份指南均免费，无需账户、邮箱、付款或买证书。开始前也能读公开指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does the count tell whether I am ethical or safe online?",
+        "zh": "正确数能判我是否道德或网络安全吗？"
+      },
+      "answer": {
+        "en": "No. It records matches to this fixed set of fictional scenarios. It does not observe conduct, diagnose safety, measure moral character or personality, or predict real choices under pressure. Inspect the stated condition behind an answer instead.",
+        "zh": "不能。它只记录固定虚构场景中的答案匹配，不观察行为、不诊断安全、不测道德品格或人格、不预测压力下真实选择，应看每个答案背后的条件。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a school-grade or official citizenship assessment?",
+        "zh": "这是年级测评或官方数字公民考核吗？"
+      },
+      "answer": {
+        "en": "No. These are general fictional online situations without grade-level reading calibration, curriculum alignment, standardized norms or official certification. References provide context, not an endorsement or a licensed question bank.",
+        "zh": "不是。本版为一般虚构在线情境，未做年级阅读校准、课程对齐、标准化常模或官方认证。参考提供背景，不等于背书或授权题库。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do some questions supply a local rule?",
+        "zh": "为什么有些题会给局部规则？"
+      },
+      "answer": {
+        "en": "A course permission, moderation agreement or data rule can make the decision conditions explicit. The key follows those supplied conditions. Real rules and legal contexts can differ; do not treat the scenario as authority to change permissions, delete data, post content or use a real AI service.",
+        "zh": "课程许可、管理约定、数据规则可使决定条件明确，答案依这些条件判断。真实规则与法律语境可能不同，不能把情境当作改权限、删数据、发内容或用真实AI服务的授权。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I change answers, save progress and retake?",
+        "zh": "可以改答、保存和重做吗？"
+      },
+      "answer": {
+        "en": "Yes. You can go back and optionally save a browser-tab draft for up to 24 hours. Completion, retake or exit-and-clear removes it; without a draft, refresh loses progress. Repeating known keys may reflect memory rather than changed behaviour.",
+        "zh": "可以返回改答，自愿保存最长24小时标签页草稿，完成、重做或退出并清除时删除；未保存则刷新丢进度。重复已知答案可能反映记忆而非行为改变。"
+      }
+    },
+    {
+      "question": {
+        "en": "What private information or sharing is involved?",
+        "zh": "涉及什么私人信息和分享？"
+      },
+      "answer": {
+        "en": "The practice asks only for option choices, not real passwords, login codes, private messages or accounts. Sharing copies only the public title and link, excluding choices, correctness counts, keys, draft data and private identifiers. No account action or message is sent.",
+        "zh": "练习只选选项，不索要真实密码、验证码、私聊或账户；分享仅公开标题与链接，不含选择、正确数、答案键、草稿或私有标识，不发送账户操作或消息。"
+      }
+    }
+  ]
+}

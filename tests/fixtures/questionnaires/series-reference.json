@@ -1,0 +1,1819 @@
+{
+  "form": "fermatmind_original_bounded_number_series_30_v1",
+  "questions": [
+    {
+      "id": "SER_01",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 6: 11, 18, 25, 32, 39, ?.",
+        "zh": "各相邻项使用同一个固定加数。求第6项问号处的数：11, 18, 25, 32, 39, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "39",
+            "zh": "39"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "42",
+            "zh": "42"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "46",
+            "zh": "46"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "53",
+            "zh": "53"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Every step is +7: 18−11=7 and 25−18=7, continuing through 39. The missing term is 39+7=46. Continuing with the first value 11 as the step would not reproduce the given middle terms.",
+        "zh": "每步加7，18−11与25−18均为7，延续至39，下一项39+7=46。把首项11当公差不能重现中间各项。"
+      }
+    },
+    {
+      "id": "SER_02",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 6: 37, 29, 21, 13, 5, ?.",
+        "zh": "各相邻项使用同一个固定加数。求第6项问号处的数：37, 29, 21, 13, 5, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-5",
+            "zh": "-5"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "-3",
+            "zh": "-3"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The signed step is −8. From 5, subtracting 8 crosses zero to −3. Treating the step as an unsigned distance and returning +3 would lose the direction of change.",
+        "zh": "公差为−8，从5再减8跨零到−3。若只记距离8而写成正3，会丢失变化方向。"
+      }
+    },
+    {
+      "id": "SER_03",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 4: -19, -13, -7, ?, 5, 11.",
+        "zh": "各相邻项使用同一个固定加数。求第4项问号处的数：-19, -13, -7, ?, 5, 11。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-7",
+            "zh": "-7"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "-3",
+            "zh": "-3"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "-1",
+            "zh": "-1"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1",
+            "zh": "1"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The step is +6, so the term after −7 is −1. Check the other side of the blank: −1+6=5. A missing middle term must fit both adjacent transitions, not just the left one.",
+        "zh": "公差+6，−7后是−1；再核右侧−1+6=5。中间缺项须同时满足左右两次转移。"
+      }
+    },
+    {
+      "id": "SER_04",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 7: 8, 17, 26, 35, 44, 53, ?.",
+        "zh": "各相邻项使用同一个固定加数。求第7项问号处的数：8, 17, 26, 35, 44, 53, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "53",
+            "zh": "53"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "62",
+            "zh": "62"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "71",
+            "zh": "71"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Seven terms require six additions of 9 from the initial 8. Thus a7=8+6×9=62. Using seven additions would produce the eighth term, 71, rather than the requested seventh.",
+        "zh": "七项包含六次加9，故a7=8+6×9=62。加七次得到的是第八项71，不是所求第七项。"
+      }
+    },
+    {
+      "id": "SER_05",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 3: 52, 41, ?, 19, 8, -3.",
+        "zh": "各相邻项使用同一个固定加数。求第3项问号处的数：52, 41, ?, 19, 8, -3。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "19",
+            "zh": "19"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "22",
+            "zh": "22"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "33",
+            "zh": "33"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The visible final steps are −11. The blank is 41−11=30 and 30−11=19, matching both sides. Taking a simple average of all visible terms is unrelated to the fixed-step requirement.",
+        "zh": "末段可见每次−11，缺项41−11=30，且30−11=19，两侧吻合。对全部可见数求平均与固定步长条件无关。"
+      }
+    },
+    {
+      "id": "SER_06",
+      "prompt": {
+        "en": "Use one constant additive step throughout. Find the missing term at position 6: -28, -17, -6, 5, 16, ?.",
+        "zh": "各相邻项使用同一个固定加数。求第6项问号处的数：-28, -17, -6, 5, 16, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "22",
+            "zh": "22"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "difference"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "38",
+            "zh": "38"
+          },
+          "directionId": "difference"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Adding 11 moves −28→−17→−6→5→16→27. The same signed difference works before and after zero. No change of rule occurs just because the signs change.",
+        "zh": "每次加11，依次−28、−17、−6、5、16、27。跨零前后公差相同，正负号改变不代表规律改变。"
+      }
+    },
+    {
+      "id": "SER_07",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 6: 7, 21, 63, 189, 567, ?.",
+        "zh": "各相邻项使用同一个固定乘数。求第6项问号处的数：7, 21, 63, 189, 567, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1134",
+            "zh": "1134"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1701",
+            "zh": "1701"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1710",
+            "zh": "1710"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "2268",
+            "zh": "2268"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Each term is three times its predecessor. Therefore 567×3=1701. The differences grow, but adding a fixed gap would fail to reproduce 7→21→63.",
+        "zh": "每项为前项三倍，567×3=1701。差值会变大，固定相加不能重现7到21到63。"
+      }
+    },
+    {
+      "id": "SER_08",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 6: 768, 384, 192, 96, 48, ?.",
+        "zh": "各相邻项使用同一个固定乘数。求第6项问号处的数：768, 384, 192, 96, 48, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "12",
+            "zh": "12"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The ratio is 1/2, so 48×1/2=24. Division by two is multiplication by one half. Repeating the latest gap of −48 would give zero and would not match the earlier ratios.",
+        "zh": "公比1/2，48再乘1/2为24。除2就是乘二分之一；重复末次差值−48会得0，但不符合之前比值。"
+      }
+    },
+    {
+      "id": "SER_09",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 6: 6, -12, 24, -48, 96, ?.",
+        "zh": "各相邻项使用同一个固定乘数。求第6项问号处的数：6, -12, 24, -48, 96, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-192",
+            "zh": "-192"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "-96",
+            "zh": "-96"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "144",
+            "zh": "144"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "192",
+            "zh": "192"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The ratio is −2: signs alternate and magnitudes double. After 96 comes −192. Multiplying by +2 preserves magnitude growth but fails the sign pattern.",
+        "zh": "公比−2，符号交替、绝对值翻倍，96之后为−192。乘正2虽让绝对值增长，却不满足符号。"
+      }
+    },
+    {
+      "id": "SER_10",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 4: 16, 24, 36, ?, 81, 121.5.",
+        "zh": "各相邻项使用同一个固定乘数。求第4项问号处的数：16, 24, 36, ?, 81, 121.5。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "50",
+            "zh": "50"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "54",
+            "zh": "54"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The multiplier is 3/2, since 24/16=36/24=1.5. The blank is 36×1.5=54 and 54×1.5=81. Decimal values are permitted in this edition; no rounding is required.",
+        "zh": "24/16与36/24均为1.5，缺项36×1.5=54，且54×1.5=81。本版允许小数，不需舍入。"
+      }
+    },
+    {
+      "id": "SER_11",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 6: 5, -15, 45, -135, 405, ?.",
+        "zh": "各相邻项使用同一个固定乘数。求第6项问号处的数：5, -15, 45, -135, 405, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-1215",
+            "zh": "-1215"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "-810",
+            "zh": "-810"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "810",
+            "zh": "810"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1215",
+            "zh": "1215"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "A factor of −3 reproduces every transition. Thus 405×(−3)=−1215. Keep the sign and the factor together; the last positive number does not imply the next term is positive.",
+        "zh": "每次乘−3，405×(−3)=−1215。必须同时保留负号和倍数，末项为正不意味着下一项仍正。"
+      }
+    },
+    {
+      "id": "SER_12",
+      "prompt": {
+        "en": "Use one constant multiplication factor throughout. Find the missing term at position 5: 640, 160, 40, 10, ?, 0.625.",
+        "zh": "各相邻项使用同一个固定乘数。求第5项问号处的数：640, 160, 40, 10, ?, 0.625。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0.25",
+            "zh": "0.25"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "2.5",
+            "zh": "2.5"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "ratio"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "ratio"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The multiplier is 1/4. From 10, the missing term is 2.5; then 2.5/4=0.625, checking the right-hand term. Do not round the intermediate 2.5 to a whole number.",
+        "zh": "公比1/4，10之后为2.5，再除4为0.625，吻合右侧。不能把中间2.5擅自舍成整数。"
+      }
+    },
+    {
+      "id": "SER_13",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 6: 4, 9, 17, 28, 42, ?.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第6项问号处的数：4, 9, 17, 28, 42, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "56",
+            "zh": "56"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "58",
+            "zh": "58"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "59",
+            "zh": "59"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "60",
+            "zh": "60"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The gaps are 5,8,11,14, each adding 3. The next gap is 17, so 42+17=59. Repeating 14 would stop the stated gap pattern one step too soon.",
+        "zh": "差值5、8、11、14，每次加3，下一差17，故42+17=59。重复加14会提前停止差值变化。"
+      }
+    },
+    {
+      "id": "SER_14",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 6: 63, 54, 47, 42, 39, ?.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第6项问号处的数：63, 54, 47, 42, 39, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "37",
+            "zh": "37"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "38",
+            "zh": "38"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Signed gaps are −9,−7,−5,−3, increasing by 2. The next is −1, giving 39−1=38. The values decrease while the signed gaps increase; those are compatible statements.",
+        "zh": "带符号差值−9、−7、−5、−3，每次加2，下一差−1，39−1=38。原数在降、差值在增，两者不矛盾。"
+      }
+    },
+    {
+      "id": "SER_15",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 4: 2, 8, 18, ?, 50, 72.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第4项问号处的数：2, 8, 18, ?, 50, 72。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "28",
+            "zh": "28"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "30",
+            "zh": "30"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "A complete gap row is 6,10,14,18,22, adding 4 each time. Hence 18+14=32 and 32+18=50. The candidate must keep a single gap rule on both sides of the blank.",
+        "zh": "完整差值6、10、14、18、22，每次加4，故18+14=32、32+18=50。缺项两侧都须维持同一差值规律。"
+      }
+    },
+    {
+      "id": "SER_16",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 6: 3, 5, 11, 29, 83, ?.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第6项问号处的数：3, 5, 11, 29, 83, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "137",
+            "zh": "137"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "191",
+            "zh": "191"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "245",
+            "zh": "245"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "249",
+            "zh": "249"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Gaps are 2,6,18,54, each three times the last. The next gap is 162, and 83+162=245. Multiplying the terms themselves by three would already fail at 3→5.",
+        "zh": "差值2、6、18、54，每次三倍，下一差162，83+162=245。直接把原项乘3在3到5就不成立。"
+      }
+    },
+    {
+      "id": "SER_17",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 6: 140, 136, 128, 112, 80, ?.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第6项问号处的数：140, 136, 128, 112, 80, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "16",
+            "zh": "16"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "48",
+            "zh": "48"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "64",
+            "zh": "64"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": {
+        "en": "The gaps are −4,−8,−16,−32, doubling as signed values. The next gap is −64, giving 80−64=16. Doubling a negative gap makes its magnitude larger, not its value positive.",
+        "zh": "差值−4、−8、−16、−32，带符号翻倍，下一差−64，80−64=16。负差值翻倍增大绝对值，不会变成正差值。"
+      }
+    },
+    {
+      "id": "SER_18",
+      "prompt": {
+        "en": "The successive gaps either add one fixed nonzero amount or multiply by one fixed factor; use the same gap rule throughout. Find the missing term at position 6: 9, 15, 3, 27, -21, ?.",
+        "zh": "各次差值按固定非零加数递增，或按固定倍数变化；整列使用同一差值规则。求第6项问号处的数：9, 15, 3, 27, -21, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-117",
+            "zh": "-117"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "75",
+            "zh": "75"
+          },
+          "directionId": "gaps"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "123",
+            "zh": "123"
+          },
+          "directionId": "gaps"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Gaps are +6,−12,+24,−48, multiplied by −2. The next gap is +96, so −21+96=75. Alternating signs belong to the gap row, not to every original term.",
+        "zh": "差值+6、−12、+24、−48，每次乘−2，下一差+96，−21+96=75。交替符号发生在差值行，不是每个原项。"
+      }
+    },
+    {
+      "id": "SER_19",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step. Find the missing term at position 7: 4, 31, 10, 27, 16, 23, ?.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差。求第7项问号处的数：4, 31, 10, 27, 16, 23, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "19",
+            "zh": "19"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "22",
+            "zh": "22"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "23",
+            "zh": "23"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "28",
+            "zh": "28"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Odd positions are 4,10,16,22, with step +6. Even positions are 31,27,23, with step −4. Position seven belongs to the odd branch, so the answer is 22.",
+        "zh": "奇数位4、10、16、22，公差+6；偶数位31、27、23，公差−4。第七项属奇数支，故22。"
+      }
+    },
+    {
+      "id": "SER_20",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step. Find the missing term at position 8: 42, -8, 35, -3, 28, 2, 21, ?.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差。求第8项问号处的数：42, -8, 35, -3, 28, 2, 21, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "7",
+            "zh": "7"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "14",
+            "zh": "14"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "21",
+            "zh": "21"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "The odd branch falls by 7: 42,35,28,21. The even branch adds 5: −8,−3,2,7. The eighth position uses the even branch, giving 7 rather than the next odd value.",
+        "zh": "奇数支42、35、28、21每次减7，偶数支−8、−3、2、7每次加5。第八项取偶数支7，不能接奇数支。"
+      }
+    },
+    {
+      "id": "SER_21",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step. Find the missing term at position 5: -12, 7, -5, 10, ?, 13, 9, 16.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差。求第5项问号处的数：-12, 7, -5, 10, ?, 13, 9, 16。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "-2",
+            "zh": "-2"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0",
+            "zh": "0"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "5",
+            "zh": "5"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "At odd positions, −12→−5→2→9 adds 7 each time. The missing fifth term is 2. The even branch 7,10,13,16 independently adds 3 and does not supply the missing value.",
+        "zh": "奇数位−12、−5、2、9每次加7，缺的第五项为2。偶数支7、10、13、16每次加3，不用来直接补奇数项。"
+      }
+    },
+    {
+      "id": "SER_22",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step. Find the missing term at position 6: 3, 50, 8, 41, 13, ?, 18, 23.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差。求第6项问号处的数：3, 50, 8, 41, 13, ?, 18, 23。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "23",
+            "zh": "23"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "36",
+            "zh": "36"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The even branch is 50,41,32,23, using −9. The sixth position is its third term, 32. Check 41−9=32 and 32−9=23, while odd positions continue independently by +5.",
+        "zh": "偶数支50、41、32、23每次−9，第六项为该支第三项32，左右41−9与32−9均吻合；奇数支独立每次+5。"
+      }
+    },
+    {
+      "id": "SER_23",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step, including zero. Find the missing term at position 7: 0, 19, 8, 19, 16, 19, ?, 19.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差，允许公差为零。求第7项问号处的数：0, 19, 8, 19, 16, 19, ?, 19。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "19",
+            "zh": "19"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "24",
+            "zh": "24"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "27",
+            "zh": "27"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "Odd positions increase 0,8,16,24 by 8, while every even term stays at 19 with step zero. The seventh position is 24. A repeated even value does not make the whole row constant.",
+        "zh": "奇数支0、8、16、24每次加8；偶数支全为19，公差零。第七项为24，偶数位重复不代表整列恒定。"
+      }
+    },
+    {
+      "id": "SER_24",
+      "prompt": {
+        "en": "Odd positions form one arithmetic sequence and even positions another; each has its own constant step. Find the missing term at position 8: 26, -20, 22, -9, 18, 2, 14, ?.",
+        "zh": "奇数位和偶数位各成等差数列，两支可有不同公差。求第8项问号处的数：26, -20, 22, -9, 18, 2, 14, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "6",
+            "zh": "6"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "10",
+            "zh": "10"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "13",
+            "zh": "13"
+          },
+          "directionId": "interleave"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "25",
+            "zh": "25"
+          },
+          "directionId": "interleave"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Odd values fall by 4. Even values −20,−9,2,13 add 11. Position eight is the fourth even value, hence 13. Label positions before extrapolating, because the signs alone do not mark branch membership.",
+        "zh": "奇数支每次减4，偶数支−20、−9、2、13每次加11。第八项是第四个偶数项13。先标位置，不能靠数值正负分支。"
+      }
+    },
+    {
+      "id": "SER_25",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 2, 7, 9, 16, 25, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：2, 7, 9, 16, 25, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "32",
+            "zh": "32"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "34",
+            "zh": "34"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "41",
+            "zh": "41"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50",
+            "zh": "50"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The matching rule is p=1,q=1,c=0: each term is the sum of the preceding two. Check 2+7=9, 7+9=16 and 9+16=25. Therefore the next value is 16+25=41.",
+        "zh": "匹配规则p=1、q=1、c=0，即前两项相加。2+7=9、7+9=16、9+16=25，故下一项16+25=41。"
+      }
+    },
+    {
+      "id": "SER_26",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 1, 4, 9, 22, 53, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：1, 4, 9, 22, 53, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "106",
+            "zh": "106"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "119",
+            "zh": "119"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "128",
+            "zh": "128"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "150",
+            "zh": "150"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The rule is 2×previous plus the term before it: 2×4+1=9, 2×9+4=22 and 2×22+9=53. Continue with 2×53+22=128. The two previous positions have different coefficients.",
+        "zh": "规则为前项乘2再加前两项：2×4+1=9、2×9+4=22、2×22+9=53，故2×53+22=128。两个位置系数不同。"
+      }
+    },
+    {
+      "id": "SER_27",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 3, 5, 9, 15, 25, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：3, 5, 9, 15, 25, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "39",
+            "zh": "39"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "40",
+            "zh": "40"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "41",
+            "zh": "41"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "50",
+            "zh": "50"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Each new term is the sum of the preceding two plus 1: 3+5+1=9, 5+9+1=15, 9+15+1=25. The missing value is 15+25+1=41; omitting the constant would give 40.",
+        "zh": "每次前两项和加1：3+5+1=9、5+9+1=15、9+15+1=25，所求15+25+1=41；漏常数会得40。"
+      }
+    },
+    {
+      "id": "SER_28",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 2, 5, 11, 23, 47, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：2, 5, 11, 23, 47, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "94",
+            "zh": "94"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "95",
+            "zh": "95"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "96",
+            "zh": "96"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "141",
+            "zh": "141"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": {
+        "en": "A matching continuation is twice the previous term plus 1: 2×11+1=23 and 2×23+1=47, followed by 95. Within the stated candidate rules, other parameter descriptions may be equivalent on this row; all matching rules give the same missing value. The check is uniqueness of the answer, not of a rule’s written form.",
+        "zh": "可按前项乘2加1，2×11+1=23、2×23+1=47，再得95。题定候选内可能有在本列等价的参数表达，但所有匹配规则给同一缺项。核查的是答案唯一，不是规则写法唯一。"
+      }
+    },
+    {
+      "id": "SER_29",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 2, 7, 17, 42, 102, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：2, 7, 17, 42, 102, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "204",
+            "zh": "204"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "239",
+            "zh": "239"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "247",
+            "zh": "247"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "264",
+            "zh": "264"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "Use twice the previous term plus the term before it plus 1: 2×7+2+1=17, 2×17+7+1=42 and 2×42+17+1=102. The next term is 2×102+42+1=247. Check the same coefficients against every available transition.",
+        "zh": "规则为前项乘2、加前两项、再加1：2×7+2+1=17、2×17+7+1=42、2×42+17+1=102，故下一项2×102+42+1=247。所有转移都需用同一组系数核对。"
+      }
+    },
+    {
+      "id": "SER_30",
+      "prompt": {
+        "en": "From the third term onward use a fixed rule p×previous + q×term-before-previous + c, where p and q are integers from −2 to 3 and c from −3 to 3. Find the missing term at position 6: 4, 9, 14, 24, 39, ?.",
+        "zh": "从第三项起，用固定规则p×前一项+q×前两项+c，其中p、q为−2至3整数，c为−3至3整数。求第6项问号处的数：4, 9, 14, 24, 39, ?。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "59",
+            "zh": "59"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "63",
+            "zh": "63"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "64",
+            "zh": "64"
+          },
+          "directionId": "recurrence"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "78",
+            "zh": "78"
+          },
+          "directionId": "recurrence"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": {
+        "en": "The rule is previous plus the term before it plus 1. Starting from 4 and 9 gives 14,24,39 and finally 24+39+1=64. Apply the constant once per newly generated term, not once to each earlier term.",
+        "zh": "规则为前两项和加1，4与9之后得14、24、39，再得24+39+1=64。常数每生成一项只加一次，不分别加到两前项。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "SER_01",
+      "group": "difference",
+      "complete_values": [
+        11,
+        18,
+        25,
+        32,
+        39,
+        46
+      ],
+      "missing_index": 5,
+      "expected_label": "46"
+    },
+    {
+      "id": "SER_02",
+      "group": "difference",
+      "complete_values": [
+        37,
+        29,
+        21,
+        13,
+        5,
+        -3
+      ],
+      "missing_index": 5,
+      "expected_label": "-3"
+    },
+    {
+      "id": "SER_03",
+      "group": "difference",
+      "complete_values": [
+        -19,
+        -13,
+        -7,
+        -1,
+        5,
+        11
+      ],
+      "missing_index": 3,
+      "expected_label": "-1"
+    },
+    {
+      "id": "SER_04",
+      "group": "difference",
+      "complete_values": [
+        8,
+        17,
+        26,
+        35,
+        44,
+        53,
+        62
+      ],
+      "missing_index": 6,
+      "expected_label": "62"
+    },
+    {
+      "id": "SER_05",
+      "group": "difference",
+      "complete_values": [
+        52,
+        41,
+        30,
+        19,
+        8,
+        -3
+      ],
+      "missing_index": 2,
+      "expected_label": "30"
+    },
+    {
+      "id": "SER_06",
+      "group": "difference",
+      "complete_values": [
+        -28,
+        -17,
+        -6,
+        5,
+        16,
+        27
+      ],
+      "missing_index": 5,
+      "expected_label": "27"
+    },
+    {
+      "id": "SER_07",
+      "group": "ratio",
+      "complete_values": [
+        7,
+        21,
+        63,
+        189,
+        567,
+        1701
+      ],
+      "missing_index": 5,
+      "expected_label": "1701"
+    },
+    {
+      "id": "SER_08",
+      "group": "ratio",
+      "complete_values": [
+        768,
+        384,
+        192,
+        96,
+        48,
+        24
+      ],
+      "missing_index": 5,
+      "expected_label": "24"
+    },
+    {
+      "id": "SER_09",
+      "group": "ratio",
+      "complete_values": [
+        6,
+        -12,
+        24,
+        -48,
+        96,
+        -192
+      ],
+      "missing_index": 5,
+      "expected_label": "-192"
+    },
+    {
+      "id": "SER_10",
+      "group": "ratio",
+      "complete_values": [
+        16,
+        24,
+        36,
+        54,
+        81,
+        121.5
+      ],
+      "missing_index": 3,
+      "expected_label": "54"
+    },
+    {
+      "id": "SER_11",
+      "group": "ratio",
+      "complete_values": [
+        5,
+        -15,
+        45,
+        -135,
+        405,
+        -1215
+      ],
+      "missing_index": 5,
+      "expected_label": "-1215"
+    },
+    {
+      "id": "SER_12",
+      "group": "ratio",
+      "complete_values": [
+        640,
+        160,
+        40,
+        10,
+        2.5,
+        0.625
+      ],
+      "missing_index": 4,
+      "expected_label": "2.5"
+    },
+    {
+      "id": "SER_13",
+      "group": "gaps",
+      "complete_values": [
+        4,
+        9,
+        17,
+        28,
+        42,
+        59
+      ],
+      "missing_index": 5,
+      "expected_label": "59"
+    },
+    {
+      "id": "SER_14",
+      "group": "gaps",
+      "complete_values": [
+        63,
+        54,
+        47,
+        42,
+        39,
+        38
+      ],
+      "missing_index": 5,
+      "expected_label": "38"
+    },
+    {
+      "id": "SER_15",
+      "group": "gaps",
+      "complete_values": [
+        2,
+        8,
+        18,
+        32,
+        50,
+        72
+      ],
+      "missing_index": 3,
+      "expected_label": "32"
+    },
+    {
+      "id": "SER_16",
+      "group": "gaps",
+      "complete_values": [
+        3,
+        5,
+        11,
+        29,
+        83,
+        245
+      ],
+      "missing_index": 5,
+      "expected_label": "245"
+    },
+    {
+      "id": "SER_17",
+      "group": "gaps",
+      "complete_values": [
+        140,
+        136,
+        128,
+        112,
+        80,
+        16
+      ],
+      "missing_index": 5,
+      "expected_label": "16"
+    },
+    {
+      "id": "SER_18",
+      "group": "gaps",
+      "complete_values": [
+        9,
+        15,
+        3,
+        27,
+        -21,
+        75
+      ],
+      "missing_index": 5,
+      "expected_label": "75"
+    },
+    {
+      "id": "SER_19",
+      "group": "interleave",
+      "complete_values": [
+        4,
+        31,
+        10,
+        27,
+        16,
+        23,
+        22
+      ],
+      "missing_index": 6,
+      "expected_label": "22"
+    },
+    {
+      "id": "SER_20",
+      "group": "interleave",
+      "complete_values": [
+        42,
+        -8,
+        35,
+        -3,
+        28,
+        2,
+        21,
+        7
+      ],
+      "missing_index": 7,
+      "expected_label": "7"
+    },
+    {
+      "id": "SER_21",
+      "group": "interleave",
+      "complete_values": [
+        -12,
+        7,
+        -5,
+        10,
+        2,
+        13,
+        9,
+        16
+      ],
+      "missing_index": 4,
+      "expected_label": "2"
+    },
+    {
+      "id": "SER_22",
+      "group": "interleave",
+      "complete_values": [
+        3,
+        50,
+        8,
+        41,
+        13,
+        32,
+        18,
+        23
+      ],
+      "missing_index": 5,
+      "expected_label": "32"
+    },
+    {
+      "id": "SER_23",
+      "group": "interleave",
+      "complete_values": [
+        0,
+        19,
+        8,
+        19,
+        16,
+        19,
+        24,
+        19
+      ],
+      "missing_index": 6,
+      "expected_label": "24"
+    },
+    {
+      "id": "SER_24",
+      "group": "interleave",
+      "complete_values": [
+        26,
+        -20,
+        22,
+        -9,
+        18,
+        2,
+        14,
+        13
+      ],
+      "missing_index": 7,
+      "expected_label": "13"
+    },
+    {
+      "id": "SER_25",
+      "group": "recurrence",
+      "complete_values": [
+        2,
+        7,
+        9,
+        16,
+        25,
+        41
+      ],
+      "missing_index": 5,
+      "expected_label": "41"
+    },
+    {
+      "id": "SER_26",
+      "group": "recurrence",
+      "complete_values": [
+        1,
+        4,
+        9,
+        22,
+        53,
+        128
+      ],
+      "missing_index": 5,
+      "expected_label": "128"
+    },
+    {
+      "id": "SER_27",
+      "group": "recurrence",
+      "complete_values": [
+        3,
+        5,
+        9,
+        15,
+        25,
+        41
+      ],
+      "missing_index": 5,
+      "expected_label": "41"
+    },
+    {
+      "id": "SER_28",
+      "group": "recurrence",
+      "complete_values": [
+        2,
+        5,
+        11,
+        23,
+        47,
+        95
+      ],
+      "missing_index": 5,
+      "expected_label": "95"
+    },
+    {
+      "id": "SER_29",
+      "group": "recurrence",
+      "complete_values": [
+        2,
+        7,
+        17,
+        42,
+        102,
+        247
+      ],
+      "missing_index": 5,
+      "expected_label": "247"
+    },
+    {
+      "id": "SER_30",
+      "group": "recurrence",
+      "complete_values": [
+        4,
+        9,
+        14,
+        24,
+        39,
+        64
+      ],
+      "missing_index": 5,
+      "expected_label": "64"
+    }
+  ]
+}

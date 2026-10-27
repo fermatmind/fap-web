@@ -3749,5 +3749,83 @@
       "social",
       "economic"
     ]
+  },
+  {
+    "slug": "numerical-reasoning",
+    "code": "FM_NUMERICAL_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Numerical Reasoning Test",
+      "zh": "数值推理测试"
+    },
+    "description": {
+      "en": "Solve 30 original arithmetic, percentage, ratio, data and rate tasks. All worked answers and five full guides free. Untimed, no signup or hiring score.",
+      "zh": "做30道原创算术、百分比、比例、数据判读和速率题，免费读全部题解与五份完整指南。不计时、无需注册，不给招聘分数或能力等级。"
+    },
+    "minutes": 18,
+    "collection": "explore",
+    "formCode": "fermatmind_original_numerical_five_tasks_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "arithmetic",
+      "percentages",
+      "ratios",
+      "data",
+      "rates"
+    ]
+  },
+  {
+    "slug": "digital-ethics-citizenship",
+    "code": "FM_DIGITAL_CITIZENSHIP_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Digital Ethics & Citizenship Test",
+      "zh": "数字伦理与公民意识测试"
+    },
+    "description": {
+      "en": "Try 30 original privacy, security, information, communication and access scenarios. Every answer and five full guides free. No moral type or behaviour rating.",
+      "zh": "做30道原创隐私、安全、信息、沟通和可访问性场景题，免费读全部答案与五份完整指南。不分道德类型，不评价真实行为；无需注册、不计时。"
+    },
+    "minutes": 18,
+    "collection": "explore",
+    "formCode": "fermatmind_original_digital_citizenship_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "privacy",
+      "security",
+      "information",
+      "communication",
+      "access"
+    ]
+  },
+  {
+    "slug": "number-series",
+    "code": "FM_NUMBER_SERIES_PRACTICE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Number Series Test",
+      "zh": "数列推理测试"
+    },
+    "description": {
+      "en": "Solve 30 original number-series tasks with stated rule families. Get every worked answer and five free guides. Untimed, no signup, IQ or hiring score.",
+      "zh": "完成30道限定规则族的原创数列题，免费读全部推导与五份完整指南。不计时、无需注册，不换算智商或招聘分数。"
+    },
+    "minutes": 18,
+    "collection": "explore",
+    "formCode": "fermatmind_original_bounded_number_series_30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "difference",
+      "ratio",
+      "gaps",
+      "interleave",
+      "recurrence"
+    ]
   }
 ]
