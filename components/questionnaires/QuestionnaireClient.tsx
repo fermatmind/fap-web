@@ -26,6 +26,7 @@ import { QuestionnaireTypeAbReport } from "./QuestionnaireTypeAbReport";
 import { QuestionnaireChapterReport } from "./QuestionnaireChapterReport";
 import { QuestionnaireRizzReport } from "./QuestionnaireRizzReport";
 import { QuestionnaireExpressionReport } from "./QuestionnaireExpressionReport";
+import { QuestionnairePairedDimensionsReport } from "./QuestionnairePairedDimensionsReport";
 import { QuestionnaireEightValuesReport } from "./QuestionnaireEightValuesReport";
 import { QuestionnaireFacetReport } from "./QuestionnaireFacetReport";
 import { QuestionnaireHexacoReport } from "./QuestionnaireHexacoReport";
@@ -90,6 +91,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   const extraversion = result.status === "complete" && "scaleProfileIds" in result ? result : undefined;
   const affection = result.status === "complete" && "affectionFacets" in result ? result : undefined;
   const attachment = result.status === "complete" && "attachmentAxes" in result ? result : undefined;
+  const pairedDimensions = result.status === "complete" && "pairedDimensions" in result ? result : undefined;
   const eightValues = result.status === "complete" && "eightValuesAxes" in result ? result : undefined;
   const practice = result.status === "complete" && "practice" in result ? result : undefined;
   const hasCompleteResult = result.status === "complete";
@@ -154,7 +156,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
   }
   async function copy() {
     if (!hasCompleteResult) return;
-    const matchedIds = compass?.compassProfileIds ?? alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
+    const matchedIds = pairedDimensions?.pairedProfileIds ?? compass?.compassProfileIds ?? alignment?.alignmentIds ?? optimism?.outlookProfileIds ?? extraversion?.scaleProfileIds ?? archetypes?.profileIds;
     const single = profile ?? (matchedIds?.length === 1 ? quiz.profiles.find(p => p.id === matchedIds[0]) : undefined);
     const label = single?.title[locale] ?? (matchedIds?.length ? matchedIds.map(id => quiz.profiles.find(p => p.id === id)!.title[locale]).join(zh ? "、" : ", ") : (practice || extraversion || optimism) ? quiz.title[locale] : (zh ? "完整自我观察" : "Complete self-reflection"));
     const text = `${quiz.title[locale]}\n${label}\nhttps://fermatmind.com${single ? questionnaireGuidePath(locale, quiz.slug, single.id) : questionnairePath(locale, quiz.slug)}`;
@@ -202,6 +204,7 @@ export function QuestionnaireClient({ quiz, locale }: { quiz: Questionnaire; loc
       {extraversion && <QuestionnaireExtraversionReport quiz={quiz} result={extraversion} locale={locale} />}
       {affection && <QuestionnaireAffectionReport quiz={quiz} result={affection} locale={locale} />}
       {attachment && <QuestionnaireAttachmentReport quiz={quiz} result={attachment} locale={locale} />}
+      {pairedDimensions && <QuestionnairePairedDimensionsReport quiz={quiz} result={pairedDimensions} locale={locale} />}
       {eightValues && <QuestionnaireEightValuesReport quiz={quiz} result={eightValues} locale={locale} />}
       {practice && <QuestionnairePracticeReport quiz={quiz} result={practice} locale={locale} />}
       <div className="flex flex-wrap gap-3"><button className={button} onClick={copy}>{zh ? "复制结果与链接" : "Copy result and link"}</button><button className={button} onClick={() => start()}>{zh ? "重新测试" : "Retake test"}</button></div>

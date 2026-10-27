@@ -1,3 +1,4 @@
+import { isPairedDimensionsConfigurationValid } from "@/lib/questionnaires/pairedDimensions";
 import { isTypingConfigurationValid } from "@/lib/questionnaires/typing";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
@@ -30,6 +31,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const questionnaire = await loadQuestionnaire(slug);
+  if (questionnaire?.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "typing" && !isTypingConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "ten-key" && !isTenKeyConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   const quiz = questionnaire ? null : await loadFunQuiz(slug);
@@ -42,6 +44,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
   const questionnaireLabel = questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "typing" ? (result ? (zh ? "公开打字练习复习指南" : "Public typing practice revision guide") : (zh ? "原创计时打字练习" : "Original timed typing practice")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
     : questionnaire?.slug === "hexaco" ? (zh ? "preliminary IPIP240条" : "Preliminary IPIP 240 items")
+    : questionnaire?.kind === "paired-dimensions" ? (zh ? "原创关系安排偏好" : "Original relationship arrangements")
     : questionnaire?.kind === "eight-values" ? (zh ? "8values MIT许可改编" : "8values MIT adaptation")
     : questionnaire?.kind === "practice" ? (zh ? "原创练习题" : "Original practice bank")
     : questionnaire?.slug === "dark-triad" ? (zh ? "原创三组主题观察" : "Original three-theme reflection")

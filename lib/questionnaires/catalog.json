@@ -3676,5 +3676,32 @@
       "conscientiousness",
       "openness-to-experience"
     ]
+  },
+  {
+    "slug": "relationship-preferences",
+    "code": "LOVE_TYPE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Relationship Preferences Test",
+      "zh": "恋爱安排偏好测试"
+    },
+    "description": {
+      "en": "Compare contact and personal space, then certainty and flexibility in 24 paired choices. Read six complete guides, with ties kept. Free, no signup.",
+      "zh": "通过24道原创二选一题，分别回看联系与个人空间、确定与弹性的安排偏好。六份完整结果说明均公开，保留每维并列，免费作答，无需注册。"
+    },
+    "minutes": 6,
+    "formCode": "love_type_paired_choice_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "shared-participation",
+      "personal-space",
+      "certainty-planning",
+      "flexible-experience",
+      "contact-space-tie",
+      "certainty-flexibility-tie"
+    ],
+    "collection": "explore"
   }
 ]

@@ -1,0 +1,78 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import { describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import type { Questionnaire } from "@/lib/questionnaires/types";
+import { isPairedDimensionsConfigurationValid, scorePairedDimensionsQuestionnaire } from "@/lib/questionnaires/pairedDimensions";
+import { isQuestionnaireConfigurationValid, readQuestionnaireDraft, scoreQuestionnaire } from "@/lib/questionnaires/scoring";
+import { loadQuestionnaire } from "@/lib/questionnaires/loaders";
+import { questionnaireGuidePath, questionnairePath } from "@/lib/questionnaires/paths";
+import { appendFunSitemapEntries } from "@/lib/entertainment/sitemap";
+import { isMissingFunRoute } from "@/lib/entertainment/routing";
+import { MoreTests } from "@/components/entertainment/MoreTests";
+import { QuestionnairePairedDimensionsReport } from "@/components/questionnaires/QuestionnairePairedDimensionsReport";
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
+const quiz=JSON.parse(readFileSync("lib/questionnaires/data/relationship-preferences.json","utf8")) as Questionnaire;
+const fixtureBytes=readFileSync("tests/fixtures/questionnaires/relationship-preferences-reference.json");
+type OriginalPole=Record<string,unknown>&{pole_code:string};type OriginalDimension=Record<string,unknown>&{dimension_code:string};
+type Axis={dimension:string;counts:number[];leaders:string[];status:string};
+type Reference={questions:Questionnaire["questions"];profiles:Questionnaire["profiles"];source_item_bank:{test_id:string;item_bank_version:string;items:{question_id:string;prompt:string;dimension_code:string;options:{code:string;pole_code:string;text:string}[]}[]};source_scoring_spec:{scoring_version:string;status:string;dimensions:{dimension_code:string;pole_codes:string[]}[]};source_result_content:{poles:OriginalPole[];dimensions:OriginalDimension[]};source_scorer_sha256:string;source_helper_sha256:string;source_scorer_fixture_annotation:string;source_count_vectors:{option_codes:string;axes:Axis[]}[];editorial_adaptations:{dimension?:string;field:string;before?:string;after?:string}[]};
+const ref=JSON.parse(fixtureBytes.toString())as Reference;
+type SourceResult={score_availability:string;dimensions:Record<string,{status:string;top_pole_codes:string[];poles:Record<string,{wins:number}>}>};
+const original=createRequire(import.meta.url)("../fixtures/questionnaires/love-type-source/paired_dimension_scorer.js")as{create:(config:object)=>{validateConfiguration:(bank:object,spec:object)=>{ok:boolean};scoreSubmission:(submission:object,bank:object,spec:object)=>SourceResult}};
+const scorer=original.create({testId:"LOVE_TYPE",dimensions:ref.source_scoring_spec.dimensions,questionCount:24,itemsPerDimension:12,status:ref.source_scoring_spec.status});
+const signature=(v:string[])=>v.slice().sort().join("|");
+const chinese=(v:unknown):string[]=>typeof v==="string"?(/\p{Script=Han}/u.test(v)?[v]:[]):Array.isArray(v)?v.flatMap(chinese):v&&typeof v==="object"?Object.values(v).flatMap(chinese):[];
+function answers(row:Reference["source_count_vectors"][number]){return Object.fromEntries(quiz.questions.map((q,i)=>[q.id,row.option_codes[i]]));}
+
+describe("original two-dimensional relationship arrangements, without a combined love type",()=>{
+ it("preserves24sourcepairs, balancedpositions, all4poletexts and bothdimensionreadings with explicit accuracy adaptations",()=>{
+  expect(quiz.code).toBe("LOVE_TYPE");expect(quiz.kind).toBe("paired-dimensions");expect(quiz.source.formCode).toBe("love_type_paired_choice_24");expect(quiz.questions).toHaveLength(24);expect(quiz.profiles).toHaveLength(6);expect(isPairedDimensionsConfigurationValid(quiz)).toBe(true);expect(isQuestionnaireConfigurationValid(quiz)).toBe(true);expect(scorer.validateConfiguration(ref.source_item_bank,ref.source_scoring_spec).ok).toBe(true);
+  expect(quiz.questions).toEqual(ref.questions);expect(quiz.profiles).toEqual(ref.profiles);expect(quiz.source.itemBankSha256).toBe(createHash("sha256").update(fixtureBytes).digest("hex"));expect(quiz.source.resultContentSha256).toBe(createHash("sha256").update(JSON.stringify(quiz.profiles)).digest("hex"));
+  const scorerText=readFileSync("tests/fixtures/questionnaires/love-type-source/paired_dimension_scorer.js","utf8");expect(scorerText.split(ref.source_scorer_fixture_annotation).length).toBe(2);expect(createHash("sha256").update(scorerText.replace(ref.source_scorer_fixture_annotation+"\n","")).digest("hex")).toBe(ref.source_scorer_sha256);expect(createHash("sha256").update(readFileSync("tests/fixtures/questionnaires/love-type-source/scorer_helpers.js")).digest("hex")).toBe(ref.source_helper_sha256);
+  for(const[i,q]of quiz.questions.entries()){const source=ref.source_item_bank.items[i];expect(q.id).toBe(source.question_id);expect(q.prompt.zh).toBe(source.prompt);expect(q.options.map(o=>({code:o.id,pole_code:o.directionId,text:o.label.zh}))).toEqual(source.options);}
+  for(const pole of ref.source_result_content.poles){const p=quiz.profiles.find(p=>signature(p.directionIds)===pole.pole_code)!;for(const[k,v]of Object.entries(pole)){if(["code","pole_code","content_status"].includes(k))continue;for(const text of chinese(v))expect(JSON.stringify(p),pole.pole_code+":"+k).toContain(text);}}
+  const rendered=JSON.stringify(quiz);for(const d of ref.source_result_content.dimensions)for(const[k,v]of Object.entries(d)){if(["dimension_code","pole_codes"].includes(k))continue;const a=ref.editorial_adaptations.find(a=>a.dimension===d.dimension_code&&a.field===k);for(const text of chinese(a?.after??v))expect(rendered,d.dimension_code+":"+k).toContain(text);}
+  expect(ref.editorial_adaptations.filter(a=>a.dimension)).toHaveLength(4);expect(quiz.source.psychometricValidationCompleted).toBe(false);
+ });
+ it("matches the real original scorer on all169rawcountvectors, keeps every6:6tie, and reaches all9separate reading combinations",()=>{
+  expect(ref.source_count_vectors).toHaveLength(169);const states=new Set<string>(),profiles=new Set<string>();
+  for(const row of ref.source_count_vectors){
+   const source=scorer.scoreSubmission({submission_id:"synthetic-two-axis-conformance",test_id:"LOVE_TYPE",item_bank_version:ref.source_item_bank.item_bank_version,scoring_version:ref.source_scoring_spec.scoring_version,answers:answers(row)},ref.source_item_bank,ref.source_scoring_spec);assert.equal(source.score_availability,"complete");
+   const expected=row.axes.map((axis,i)=>{const d=quiz.pairedDimensions![i],actual=source.dimensions[axis.dimension];assert.deepStrictEqual(d.poleIds.map(id=>actual.poles[id].wins),axis.counts);assert.deepStrictEqual(actual.top_pole_codes,axis.leaders);assert.equal(actual.status,axis.status);const p=quiz.profiles.find(p=>signature(p.directionIds)===signature(axis.leaders));assert.ok(p);profiles.add(p.id);return{id:d.id,counts:Object.fromEntries(d.poleIds.map((id,j)=>[id,axis.counts[j]])),leaders:axis.leaders,profileId:p.id};});
+   const result=scorePairedDimensionsQuestionnaire(quiz,answers(row));assert.deepStrictEqual(result,{status:"complete",answered:24,pairedDimensions:expected,pairedProfileIds:expected.map(d=>d.profileId)});assert.deepStrictEqual(scoreQuestionnaire(quiz,answers(row)),result);assert.ok(!("profileId"in result));states.add(expected.map(d=>d.profileId).join("|"));
+  }
+  expect(states.size).toBe(9);expect([...profiles].sort()).toEqual(quiz.profiles.map(p=>p.id).sort());console.info("LOVE_TYPE:169reachable13x13rawcountvectors and9separatereadingpatterns;not2^24physicalattempts,statisticalindependenceor16combinedtypes.");
+ });
+ it("never interprets a partial dimension and rejects malformed answers, incompatible drafts and corrupted model configurations",async()=>{
+  const partial=Object.fromEntries(quiz.questions.slice(0,12).map(q=>[q.id,"A"]));expect(scoreQuestionnaire(quiz,partial)).toEqual({status:"incomplete",answered:12});for(const a of[null,[],new Date(),{unknown:"A"},{[quiz.questions[0].id]:"na"},{[quiz.questions[0].id]:2},Object.create(partial)])expect(scoreQuestionnaire(quiz,a).status).toBe("invalid");
+  const mutations=[(q:Questionnaire)=>{q.pairedDimensions=undefined;},(q:Questionnaire)=>{q.pairedDimensions![1].id=q.pairedDimensions![0].id;},(q:Questionnaire)=>{q.pairedDimensions![0].poleIds[1]=q.pairedDimensions![0].poleIds[0];},(q:Questionnaire)=>{q.directions[0].comparisons=13;},(q:Questionnaire)=>{q.questions[0].options[0].score=1;},(q:Questionnaire)=>{q.questions[0].options[0].directionId=q.pairedDimensions![1].poleIds[0];},(q:Questionnaire)=>{q.questions[0].prompt.en="";},(q:Questionnaire)=>{q.profiles.pop();},(q:Questionnaire)=>{q.source.formCode="other-form";}];
+  for(const mutate of mutations){const bad=structuredClone(quiz);mutate(bad);expect(isPairedDimensionsConfigurationValid(bad)).toBe(false);expect(scoreQuestionnaire(bad,{})).toEqual({status:"unavailable",answered:0});}
+  const saved={version:quiz.version,savedAt:100000,answers:{[quiz.questions[0].id]:"A"}};expect(readQuestionnaireDraft(quiz,JSON.stringify(saved),100001)).toEqual(saved.answers);for(const raw of["bad JSON",JSON.stringify({...saved,version:"old"}),JSON.stringify({...saved,savedAt:100002}),JSON.stringify({...saved,savedAt:100000-86400000})])expect(readQuestionnaireDraft(quiz,raw,100001)).toBeNull();expect(await loadQuestionnaire(quiz.slug)).toEqual(quiz);
+ });
+ it("renders both full matched explanations for all9patterns with unique ids, separate raw counts and no global winner",()=>{
+  const seen=new Set<string>();for(const row of ref.source_count_vectors){const result=scoreQuestionnaire(quiz,answers(row));assert.ok(result.status==="complete"&&"pairedDimensions"in result);const key=result.pairedProfileIds.join("|");if(seen.has(key))continue;seen.add(key);
+   for(const locale of["en","zh"]as const){const dom=document.createElement("div");dom.innerHTML=renderToStaticMarkup(<QuestionnairePairedDimensionsReport quiz={quiz} result={result} locale={locale}/>);expect(dom.querySelectorAll("[data-paired-dimension]")).toHaveLength(2);expect(dom.querySelectorAll("[data-paired-pole]")).toHaveLength(4);expect(dom.querySelectorAll("[data-paired-overview]")).toHaveLength(2);expect(dom.querySelectorAll("[data-paired-overview-pole]")).toHaveLength(4);const ids=[...dom.querySelectorAll("[id]")].map(n=>n.id);expect(new Set(ids).size).toBe(ids.length);
+    for(const axis of result.pairedDimensions){const node=dom.querySelector(`[data-paired-dimension="${axis.id}"]`)!;for(const[id,count]of Object.entries(axis.counts))expect(node.querySelector(`[data-paired-pole="${id}"] dd`)?.textContent).toBe(`${count} / 12`);const p=quiz.profiles.find(p=>p.id===axis.profileId)!;for(const s of p.sections)for(const t of s.paragraphs)expect(node.textContent).toContain(t[locale]);expect(node.querySelector(`a[href="${questionnaireGuidePath(locale,quiz.slug,p.id)}"]`)).not.toBeNull();}
+   }
+  }expect(seen.size).toBe(9);
+ });
+ it("protects complete bilingual units and dedicated search metadata without presenting a16type product",()=>{
+  const walk=(v:unknown):void=>{if(!v||typeof v!=="object")return;const o=v as Record<string,unknown>;if("en"in o||"zh"in o){expect(String(o.en).trim()).not.toBe("");expect(String(o.en)).not.toMatch(/\p{Script=Han}|\bTODO\b|placeholder|lorem ipsum/u);expect(String(o.zh)).toMatch(/\p{Script=Han}/u);}else Object.values(o).forEach(walk);};walk(quiz);
+  for(const locale of["en","zh"]as const){expect(new Set(quiz.profiles.map(p=>p.seo!.title[locale])).size).toBe(6);expect(new Set(quiz.profiles.map(p=>p.seo!.description[locale])).size).toBe(6);}for(const p of quiz.profiles){expect(p.sections).toHaveLength(7);expect(p.seo!.title.en.length).toBeLessThanOrEqual(60);expect(p.seo!.description.en.length).toBeLessThanOrEqual(160);}
+  expect(quiz.faq.find(f=>f.question.en.includes("LoveType16"))?.answer.en).toMatch(/^No\./);
+ });
+ it("server-renders both entries and12complete publicguides with full bodies, visible method, native metadata, schemas and discovery",async()=>{
+  vi.stubEnv("NEXT_PUBLIC_SITE_URL","https://fermatmind.com");vi.resetModules();const entry=await import("@/app/(localized)/[locale]/tests/explore/[slug]/page"),guide=await import("@/app/(localized)/[locale]/tests/explore/[slug]/results/[profile]/page"),maps=appendFunSitemapEntries([]);
+  try{for(const locale of["en","zh"]as const){const path=questionnairePath(locale,quiz.slug),props={params:Promise.resolve({locale,slug:quiz.slug})},html=renderToStaticMarkup(await entry.default(props)),meta=await entry.generateMetadata(props),dom=document.createElement("div");dom.innerHTML=html;expect(meta.title).toBe(quiz.seoTitle[locale]);expect(meta.description).toBe(quiz.description[locale]);expect(meta.alternates?.canonical).toBe("https://fermatmind.com"+path);expect(html).toContain("application/ld+json");expect(renderToStaticMarkup(<MoreTests locale={locale}/>)).toContain(`href="${path}"`);for(const id of["low-direction-explanation","raw-wins-explanation","ties-explanation"]){const s=quiz.guide.find(s=>s.id===id)!;expect(dom.textContent).toContain(s.paragraphs[0][locale]);expect([...dom.querySelectorAll("details p")].some(p=>p.textContent===s.paragraphs[0][locale])).toBe(false);}
+   for(const p of quiz.profiles){const path=questionnaireGuidePath(locale,quiz.slug,p.id),props={params:Promise.resolve({locale,slug:quiz.slug,profile:p.id})},html=renderToStaticMarkup(await guide.default(props)),meta=await guide.generateMetadata(props),dom=document.createElement("div");dom.innerHTML=html;expect(dom.querySelector("h1")?.textContent).toBe(p.title[locale]);for(const s of p.sections)for(const t of s.paragraphs)expect(dom.textContent).toContain(t[locale]);expect(meta.title).toBe(p.seo!.title[locale]);expect(meta.description).toBe(p.seo!.description[locale]);expect(meta.alternates?.canonical).toBe("https://fermatmind.com"+path);expect(meta.alternates?.languages).toMatchObject({en:"https://fermatmind.com"+questionnaireGuidePath("en",quiz.slug,p.id),"zh-CN":"https://fermatmind.com"+questionnaireGuidePath("zh",quiz.slug,p.id)});expect(maps.some(v=>v.loc==="https://fermatmind.com"+path)).toBe(true);expect(dom.querySelectorAll("[data-paired-dimension]")).toHaveLength(0);if(locale==="en")expect(dom.textContent).not.toMatch(/\p{Script=Han}/u);}
+   for(const code of["CONNECTION_PRIORITY","LOVE_TYPE","unknown"])expect(isMissingFunRoute(`${path}/results/${code}`)).toBe(true);
+  }}finally{vi.unstubAllEnvs();vi.resetModules();}
+ });
+ it("fails visibly at entry metadata, publicguide andOG boundaries when the paired source model is unavailable",async()=>{
+  const bad=structuredClone(quiz);bad.pairedDimensions!.pop();vi.resetModules();vi.doMock("@/lib/questionnaires/loaders",()=>({loadQuestionnaire:async()=>bad}));
+  try{const entry=await import("@/components/questionnaires/QuestionnairePage"),guide=await import("@/components/questionnaires/QuestionnaireGuide"),og=await import("@/app/og/fun/[slug]/route");const params={params:Promise.resolve({locale:"en",slug:quiz.slug})},gp={params:Promise.resolve({locale:"en",slug:quiz.slug,profile:quiz.profiles[0].id})};expect((await entry.generateMetadata(params)).robots).toMatchObject({index:false});await expect(entry.default(params)).rejects.toThrow();expect((await guide.generateMetadata(gp)).robots).toMatchObject({index:false});await expect(guide.default(gp)).rejects.toThrow();expect((await og.GET(new Request(`https://fermatmind.com/og/fun/${quiz.slug}?locale=en`),{params:Promise.resolve({slug:quiz.slug})})).status).toBe(404);}finally{vi.doUnmock("@/lib/questionnaires/loaders");vi.resetModules();}
+ });
+});

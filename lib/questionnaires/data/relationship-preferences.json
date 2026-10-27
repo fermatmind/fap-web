@@ -1,0 +1,2256 @@
+{
+  "slug": "relationship-preferences",
+  "code": "LOVE_TYPE",
+  "kind": "paired-dimensions",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "title": {
+    "en": "Relationship Preferences Test",
+    "zh": "恋爱安排偏好测试"
+  },
+  "seoTitle": {
+    "en": "Relationship Preferences Test: 24 Choices, Two Dimensions",
+    "zh": "恋爱安排偏好测试：24题联系空间与确定弹性解读"
+  },
+  "description": {
+    "en": "Compare contact and personal space, then certainty and flexibility in 24 paired choices. Read six complete guides, with ties kept. Free, no signup.",
+    "zh": "通过24道原创二选一题，分别回看联系与个人空间、确定与弹性的安排偏好。六份完整结果说明均公开，保留每维并列，免费作答，无需注册。"
+  },
+  "resultHeading": {
+    "en": "Relationship arrangements in these choices",
+    "zh": "本次关系安排偏好"
+  },
+  "minutes": 6,
+  "introduction": {
+    "en": "Would you rather share an update now or take time to process it? Set an arrangement in advance or leave room to adjust? This original questionnaire compares two pairs of relationship arrangements. Each dimension is counted separately, with its own full explanation and any 6:6 tie preserved. It produces no four-letter code or combined romantic type.",
+    "zh": "想先分享见闻，还是留些消化时间？先确定安排，还是保留调整空间？这份原创题本比较两组关系安排，分别计数、分别给出完整说明，每维6:6时原样保留并列，不生成四字母代码或综合恋爱类型。"
+  },
+  "instructions": {
+    "en": "Choose the arrangement closer to your current preference in each pair. Neither is a correct answer. Use circumstances you are comfortable considering, without entering a partner’s information or private messages. All 24 valid choices are required before either dimension is interpreted; if neither option fits, you can stop or read the public guides.",
+    "zh": "每题选更接近当前偏好的一种安排，两项没有正确答案。可以回看自己愿意观察的情境，无需填写伴侣资料或私人聊天。24题全部有效后才解释两个维度；两项都不适合时可以结束，或先读公开指南。"
+  },
+  "source": {
+    "kind": "original-mini-program-web-adaptation",
+    "formCode": "love_type_paired_choice_24",
+    "itemBankVersion": "0.1.1-preview+web-en.1",
+    "scoringVersion": "0.1.1-preview.web-paired-raw-count.1",
+    "resultContentVersion": "0.2.1-preview+web-en.1",
+    "itemBankSha256": "1f99469d9136f361fd24ac179f243cb477a3a2958f60e75367fcc160e5286a98",
+    "resultContentSha256": "8d3715d2608c85565c6ff688046777db902434efc6d11cf9caa60af8d950d8c6",
+    "psychometricValidationCompleted": false
+  },
+  "pairedDimensions": [
+    {
+      "id": "CONNECTION_AUTONOMY",
+      "title": {
+        "en": "Contact and Shared Participation versus Personal Space",
+        "zh": "联系参与与独立空间"
+      },
+      "poleIds": [
+        "CONNECTION_PRIORITY",
+        "AUTONOMY_PRIORITY"
+      ],
+      "comparisons": 12
+    },
+    {
+      "id": "STABILITY_EXPLORATION",
+      "title": {
+        "en": "Certainty and Continuity versus Flexibility and Experience",
+        "zh": "确定连续与弹性体验"
+      },
+      "poleIds": [
+        "STABILITY_PRIORITY",
+        "EXPLORATION_PRIORITY"
+      ],
+      "comparisons": 12
+    }
+  ],
+  "directions": [
+    {
+      "id": "CONNECTION_PRIORITY",
+      "title": {
+        "en": "Contact and Shared Participation",
+        "zh": "联系与共同参与"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "AUTONOMY_PRIORITY",
+      "title": {
+        "en": "Autonomy and Personal Space",
+        "zh": "独立与个人空间"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "STABILITY_PRIORITY",
+      "title": {
+        "en": "Certainty, Continuity and Planning",
+        "zh": "确定、连续和规划"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "EXPLORATION_PRIORITY",
+      "title": {
+        "en": "Flexibility, Change and Shared Experience",
+        "zh": "弹性、变化和共同体验"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "LOVE_TYPE_PC_001",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When something new happens in daily life, I would rather share it with my partner soon.",
+            "zh": "日常有新鲜事时，我更想尽快和伴侣分享。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When something new happens in daily life, I am also willing to take time to process it myself first.",
+            "zh": "日常有新鲜事时，我也愿意先保留自己的消化时间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_002",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When arranging a weekend, I place more importance on both people having uninterrupted personal time.",
+            "zh": "安排周末时，我更看重双方都有完整的个人时间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When arranging a weekend, I place more importance on taking part in an activity together.",
+            "zh": "安排周末时，我更看重一起参与一段活动。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_003",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When life becomes busy, I would rather maintain a regular window for contact.",
+            "zh": "生活变忙时，我更希望维持固定的联系窗口。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When life becomes busy, I would rather each person could adjust how often they make contact.",
+            "zh": "生活变忙时，我更希望联系频率可以各自调整。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_004",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "Before making a new decision, I would rather form my own thoughts first.",
+            "zh": "做一项新决定前，我更愿意先形成自己的想法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "Before making a new decision, I would rather include my partner in the discussion.",
+            "zh": "做一项新决定前，我更愿意把伴侣纳入讨论。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_005",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "Once a relationship is established, I still want to exchange details of daily life often.",
+            "zh": "关系稳定后，我仍希望经常交换日常细节。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "Once a relationship is established, I still want room not to share every detail.",
+            "zh": "关系稳定后，我仍希望保留不必逐项分享的空间。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_006",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When under pressure, I would rather recover some energy through time alone first.",
+            "zh": "遇到压力时，我更想先靠独处恢复精力。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When under pressure, I would rather ease it through spending time together.",
+            "zh": "遇到压力时，我更想通过共同陪伴来缓冲。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_007",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When developing interests, I prefer having some shared activities.",
+            "zh": "培养兴趣时，我更喜欢有一些共同项目。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When developing interests, I prefer keeping some areas different from one another.",
+            "zh": "培养兴趣时，我更喜欢保留彼此不同的领域。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_008",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When travelling or taking a holiday, I would rather leave periods for separate activities.",
+            "zh": "出行或休假时，我更愿意留出各自行动的时段。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When travelling or taking a holiday, I would rather plan the main itinerary together.",
+            "zh": "出行或休假时，我更愿意一起规划主要行程。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_009",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "At the end of a day, I look forward more to some time to talk with each other.",
+            "zh": "一天结束时，我更期待有一段彼此交流的时间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "At the end of a day, I look forward more to relaxing at my own pace first.",
+            "zh": "一天结束时，我更期待先按自己的节奏放松。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_010",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When facing an important change, I place more importance on both people being able to handle part of it independently.",
+            "zh": "面对重要变化时，我更看重双方能独立处理一部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When facing an important change, I place more importance on both people continuing to share updates.",
+            "zh": "面对重要变化时，我更看重双方持续同步进展。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_011",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "To maintain a sense of closeness, I would rather add shared experiences.",
+            "zh": "维持亲近感时，我更愿意增加共同经历。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "To maintain a sense of closeness, I would rather keep some separate experiences.",
+            "zh": "维持亲近感时，我更愿意保留各自独立经历。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_012",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "AUTONOMY_PRIORITY",
+          "label": {
+            "en": "When there is an open space in relationship arrangements, I would rather leave it as personal time.",
+            "zh": "关系安排有空白时，我更愿意让空白成为个人空间。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "CONNECTION_PRIORITY",
+          "label": {
+            "en": "When there is an open space in relationship arrangements, I would rather actively add a shared plan.",
+            "zh": "关系安排有空白时，我更愿意主动补充共同计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_013",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When discussing the future, I would rather form a fairly clear plan first.",
+            "zh": "讨论未来时，我更希望先形成一份较清楚的计划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When discussing the future, I would rather keep the possibility of adjusting as circumstances change.",
+            "zh": "讨论未来时，我更希望保留随情况调整的可能。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_014",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "Trying a new way of spending time together occasionally makes it easier for me to feel engaged.",
+            "zh": "不时尝试新的相聚方式，会让我更容易投入。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "Regular arrangements for commemorating occasions or spending time together make it easier for me to feel engaged.",
+            "zh": "固定纪念或相聚安排，会让我更容易投入。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_015",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When a relationship moves into a different stage, I would rather clarify how both people define it first.",
+            "zh": "面对关系阶段变化，我更想先确认双方的定义。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When a relationship moves into a different stage, I would rather let its definition develop through experience.",
+            "zh": "面对关系阶段变化，我更想让定义随着经历形成。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_016",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "In arrangements for living together, I place more importance on changing the rhythm according to how things are going.",
+            "zh": "共同生活安排中，我更看重根据状态改变节奏。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "In arrangements for living together, I place more importance on a continuous, predictable rhythm.",
+            "zh": "共同生活安排中，我更看重连续可预期的节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_017",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When planning a holiday, I prefer deciding the main parts in advance.",
+            "zh": "制定假期计划时，我更喜欢提前确定主要部分。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When planning a holiday, I prefer deciding together close to departure.",
+            "zh": "制定假期计划时，我更喜欢临近出发时再一起定。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_018",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "For an important commitment, I would rather experience working together first and confirm it gradually.",
+            "zh": "重要承诺上，我更愿意先体验合作再逐步确认。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "For an important commitment, I would rather discuss the timing and arrangements point by point.",
+            "zh": "重要承诺上，我更愿意逐项谈清时间和安排。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_019",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When a new opportunity arises in a relationship, I would rather assess its impact on the original plan first.",
+            "zh": "关系遇到新机会时，我更愿意先评估对原计划的影响。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When a new opportunity arises in a relationship, I would rather explore the experiences it could bring first.",
+            "zh": "关系遇到新机会时，我更愿意先探索它能带来的体验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_020",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When advancing a shared goal, I prefer continuing to try more suitable methods.",
+            "zh": "共同目标推进时，我更喜欢不断尝试更合适的方法。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When advancing a shared goal, I prefer a steady, repeated way of contributing.",
+            "zh": "共同目标推进时，我更喜欢稳定重复的投入方式。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_021",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When our rhythms differ, I would rather establish a regular agreement.",
+            "zh": "双方节奏不同，我更希望建立固定的约定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When our rhythms differ, I would rather retain flexibility to coordinate according to the circumstances.",
+            "zh": "双方节奏不同，我更希望保留按情况协调的弹性。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_022",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When an arrangement is working well, I am still willing to try a different way occasionally.",
+            "zh": "一段安排运行顺利时，我仍愿意偶尔换种方式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When an arrangement is working well, I would rather continue it.",
+            "zh": "一段安排运行顺利时，我更愿意延续它。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_023",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When practical circumstances change, I would rather re-establish a sense of certainty soon.",
+            "zh": "现实条件改变时，我更想尽快重建确定感。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When practical circumstances change, I would rather observe new possibilities first.",
+            "zh": "现实条件改变时，我更想先观察新的可能性。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LOVE_TYPE_PC_024",
+      "prompt": {
+        "en": "Which of these two relationship arrangements is closer to your current preference?",
+        "zh": "以下两种关系安排中，哪一种更接近你当前的偏好？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "EXPLORATION_PRIORITY",
+          "label": {
+            "en": "When thinking about a relationship’s growth, I place more importance on continuing to have new experiences together.",
+            "zh": "想到关系成长，我更看重双方持续拥有新体验。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "STABILITY_PRIORITY",
+          "label": {
+            "en": "When thinking about a relationship’s growth, I place more importance on commitments gradually becoming clear.",
+            "zh": "想到关系成长，我更看重承诺逐步变得清楚。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "shared-participation",
+      "directionIds": [
+        "CONNECTION_PRIORITY"
+      ],
+      "title": {
+        "en": "Contact and Shared Participation",
+        "zh": "联系与共同参与"
+      },
+      "headline": {
+        "en": "Selected more often here: shared participation, timely sharing and updates",
+        "zh": "本次更常选择：共同参与、及时分享与同步进展"
+      },
+      "summary": {
+        "en": "On the contact and autonomy dimension, you selected the side involving a partner in daily life and making arrangements together more often.",
+        "zh": "在联系与独立维度上，你更多次选中了把伴侣放进日常、把安排放在一起做的那一侧。"
+      },
+      "scoreReading": {
+        "en": "Each of the 12 paired items adds one count to the chosen side. Contact and shared participation has more counts in this pattern. Counts compare only these two sides; they are not percentiles, intensity or accuracy.",
+        "zh": "本维度 12 道二选一，选中哪侧哪侧得 1 次；本次联系与共同参与次数更多。次数只在两个方向之间比较，不是百分位、强度或准确率。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the arrangement preference concerns",
+            "zh": "这侧安排偏好观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Contact and shared participation describes an arrangement preference: keeping in touch, sharing daily life, joining activities and exchanging updates about important matters. It concerns preferred arrangements rather than the depth of love or amount of investment.",
+              "zh": "联系与共同参与是一种关系安排偏好：更希望保持联系频率、分享日常、一起参与活动，并在重要事情上同步进展。它测量的是安排偏好，不测量爱得多深或投入多少。"
+            }
+          ]
+        },
+        {
+          "id": "items-and-arrangements",
+          "title": {
+            "en": "The offered situations and arrangements",
+            "zh": "题目情境与安排例子"
+          },
+          "paragraphs": [
+            {
+              "en": "These options include wanting to share something new from daily life soon.",
+              "zh": "这一侧题目涵盖：日常有新鲜事时选择尽快分享。"
+            },
+            {
+              "en": "Weekend, travel and holiday situations include planning the main itinerary together.",
+              "zh": "周末、出行或假期的题库情境包括共同规划主要行程。"
+            },
+            {
+              "en": "Other options concern involving a partner in decisions and continuing to share updates during change.",
+              "zh": "这类选项涉及：做决定时纳入伴侣，变化时持续同步。"
+            },
+            {
+              "en": "The bank also uses company and conversation in situations involving stress or the end of a day.",
+              "zh": "题库还用共同陪伴和交流呈现压力或一天结束时的选择。"
+            },
+            {
+              "en": "Leaving a regular window for a call or meeting on weekday evenings.",
+              "zh": "工作日晚上留出固定的通话或见面时间。"
+            },
+            {
+              "en": "Making shared activities the main part of a weekend or holiday, with a smaller part for separate activities.",
+              "zh": "周末和假期以共同活动为主，各自行动只占小部分。"
+            },
+            {
+              "en": "Talking an important decision through with a partner before settling it.",
+              "zh": "重要决定先和伴侣过一遍再落定。"
+            }
+          ]
+        },
+        {
+          "id": "uses-and-tradeoffs",
+          "title": {
+            "en": "Uses to consider and tradeoffs to check",
+            "zh": "可讨论之处与需要核对的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the result to discuss how regular contact should be and which activities you would like to join together.",
+              "zh": "可以用来和伴侣讨论：联系频率稳定在什么程度、哪些事想一起参与。"
+            },
+            {
+              "en": "Check which arrangement matters most when keeping each other updated is difficult.",
+              "zh": "可以用来核对：同步困难时，你最在意的是哪一类安排。"
+            },
+            {
+              "en": "Turn “I want us to decide together” into a specific proposal rather than an unstated expectation.",
+              "zh": "可以把“我希望一起决定”变成具体提议，而不是一句期待。"
+            },
+            {
+              "en": "More coordination may leave less room for independent decisions and personal time.",
+              "zh": "同步较多时，独自决定和保留个人时间的空间可能被压缩。"
+            },
+            {
+              "en": "Check whether a regular contact window fits both people’s current time and energy.",
+              "zh": "可以核对：固定联系窗口是否符合双方当前可用的时间和精力？"
+            },
+            {
+              "en": "More shared arrangements also mean more points to negotiate when plans change.",
+              "zh": "共同安排越多，临时改动要协商的环节也越多。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-reflection",
+          "title": {
+            "en": "Check the circumstances",
+            "zh": "带回情境回看"
+          },
+          "paragraphs": [
+            {
+              "en": "Did your choices about contact frequency differ at different relationship stages?",
+              "zh": "可以回看：关系阶段不同时，你对联系频率的选择是否不同？"
+            },
+            {
+              "en": "How did you arrange shared time when busy compared with more relaxed periods?",
+              "zh": "需结合经历判断：忙碌与放松时，你如何安排共同时间？"
+            },
+            {
+              "en": "When the other person explicitly needed space, how did you actually adjust?",
+              "zh": "可以核对：对方明确需要空间时，你实际怎样调整？"
+            },
+            {
+              "en": "Was there a period with so much shared participation that your schedule felt full?",
+              "zh": "有没有一段时间共同参与很多，你反而觉得节奏被占满了？"
+            },
+            {
+              "en": "Do you want to coordinate information, time or decisions?",
+              "zh": "你希望同步的，是信息、时间，还是决定？"
+            },
+            {
+              "en": "If the other person cannot offer your preferred frequency, which kind of contact matters most?",
+              "zh": "如果对方给不出你要的频率，你最不能少的是哪一类？"
+            }
+          ]
+        },
+        {
+          "id": "words-and-actions",
+          "title": {
+            "en": "Optional words and small steps",
+            "zh": "可以选择的话与小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The following are optional possibilities when relevant and welcome. You can revise them privately, skip them or stop here; no real contact is required. A partner remains free to decline an arrangement.",
+              "zh": "以下只是适用且双方愿意时的可选做法，可以只在私人草稿上改写、跳过或在此结束，不要求联系真人，对方也可以拒绝安排。"
+            },
+            {
+              "en": "“What way of keeping in touch usually feels comfortable to you?”",
+              "zh": "“我们平时怎么保持联系，你更舒服？”"
+            },
+            {
+              "en": "“Which things would you like us to decide together, and which would you rather decide yourself?”",
+              "zh": "“哪些事你希望一起定，哪些你自己定就行？”"
+            },
+            {
+              "en": "“If we are both busy, how could we arrange seeing each other without feeling disconnected?”",
+              "zh": "“如果最近都忙，我们怎么安排见面才不觉得断掉？”"
+            },
+            {
+              "en": "Propose one specific shared arrangement for next week and notice how the other person responds.",
+              "zh": "下周主动提出一次具体共同安排，观察对方接住的方式。"
+            },
+            {
+              "en": "Rewrite “more contact” as a frequency and time window, then check it with the other person.",
+              "zh": "把“多联系”改写成具体频率和时间段，再和对方核对。"
+            },
+            {
+              "en": "Record both people’s actual feelings after a shared activity rather than assuming it was better.",
+              "zh": "记录一次共同活动后双方的实际感受，而不是默认它更好。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two fictional partners who work different shifts. One would like a regular opportunity to exchange the day’s news. A proposal might name a short window and ask whether it fits the other person’s energy and existing plans. That is more specific than asking for “more closeness”. The useful detail is the proposed arrangement and whether it is welcome; a leading contact count cannot supply either answer.",
+              "zh": "设想两位虚构伴侣工作班次不同，一人希望有个相对固定的机会交换当天见闻。提议可以写出一段短时间，再询问是否符合对方当时精力和已有安排，这比“再亲近一点”更具体。值得核对的是安排本身及对方是否愿意；联系侧次数更多不能替这些问题作答。"
+            },
+            {
+              "en": "“My count is 7 rather than 5, so you should answer within ten minutes” turns a relative count into a rule that was never measured or agreed. Shared participation also does not authorize access to someone’s messages or require every decision to be joint.",
+              "zh": "“我这侧是7而不是5，所以你应该十分钟内回复”把相对次数变成了题本没有测量、双方没有同意的规则。共同参与也不授予查看私人消息的权限，不要求每件事都共同决定。"
+            },
+            {
+              "en": "On a private page, separate one wish for shared information, one wish for shared time and one decision that needs discussion. Choose at most one to turn into a negotiable sentence, including what remains unknown. You need not send it or arrange a real conversation.",
+              "zh": "可以在私人纸页上分别写一项想共享的信息、一项共同时段，以及一项需要讨论的决定。最多挑一项改写成可协商的句子，并标出仍未知的条件。不必发出，也不用安排真实对话。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "The count’s limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish deeper love or greater investment.",
+              "zh": "不说明你爱得更深或更投入。"
+            },
+            {
+              "en": "It does not establish relationship skill or maturity.",
+              "zh": "不说明你更会经营关系或更成熟。"
+            },
+            {
+              "en": "It does not predict duration or stability.",
+              "zh": "不预测关系会不会长久或稳定。"
+            },
+            {
+              "en": "It does not establish a lack of independent ability.",
+              "zh": "不表示你缺乏独立能力。"
+            },
+            {
+              "en": "It does not establish the same preference at every relationship stage.",
+              "zh": "不表示所有关系阶段都会一直这样。"
+            },
+            {
+              "en": "This is the side selected relatively more often on one dimension within these 24 items. Actual arrangements still depend on both people’s wishes, life demands and real feedback.",
+              "zh": "这只是本次 24 题里，你在联系与独立维度上相对更常选择的一侧；具体如何安排，仍要看双方意愿、生活负荷和实际反馈。"
+            },
+            {
+              "en": "This content is for entertainment and self-exploration. It has not completed psychometric validation of reliability, validity or norms, and has no official certification. The result does not establish attachment style, a relationship diagnosis or partner compatibility.",
+              "zh": "本内容用于娱乐与自我探索，未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格；结果不构成依恋类型、关系诊断或伴侣适配判断。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Contact & Sharing: Relationship Preferences Test Result",
+          "zh": "联系与共同参与：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read contact and shared participation: counts out of 12, concrete arrangements, conversation examples and limits. More choices do not mean stronger love.",
+          "zh": "完整阅读联系与共同参与：每维12次比较、实际安排、对话例子、反例与私人练习。次数更多不代表爱得更深，不要求伴侣增加联系。"
+        }
+      }
+    },
+    {
+      "id": "personal-space",
+      "directionIds": [
+        "AUTONOMY_PRIORITY"
+      ],
+      "title": {
+        "en": "Autonomy and Personal Space",
+        "zh": "独立与个人空间"
+      },
+      "headline": {
+        "en": "Selected more often here: personal space and handling things independently",
+        "zh": "本次更常选择：保留个人空间与独立处理"
+      },
+      "summary": {
+        "en": "Across the 12 contact and autonomy items, you selected the side of keeping your own rhythm and leaving space for each person more often.",
+        "zh": "这 12 道联系与独立的题里，你更常选的是先保留节奏、让各自有空间的那一侧。"
+      },
+      "scoreReading": {
+        "en": "These 12 items compare two sides. Autonomy and personal space has more counts in this pattern. The count is not a percentile, intensity or accuracy; it is compared only with the other side.",
+        "zh": "这 12 题只比较两个方向：本次独立与个人空间拿到更多次数。它不是百分位、强度或准确率，只在两侧之间比较。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the arrangement preference concerns",
+            "zh": "这侧安排偏好观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Autonomy and personal space describes an arrangement preference: time to process things, individual interests and room to handle matters independently, with contact adjusted to current circumstances. It concerns space arrangements rather than coldness or avoidance.",
+              "zh": "独立与个人空间是一种关系安排偏好：更希望各自保留消化时间、个人兴趣和独立处理的空间，联系频率可以按状态调整。它测量的是空间安排偏好，不测量冷淡或回避。"
+            }
+          ]
+        },
+        {
+          "id": "items-and-arrangements",
+          "title": {
+            "en": "The offered situations and arrangements",
+            "zh": "题目情境与安排例子"
+          },
+          "paragraphs": [
+            {
+              "en": "These options include taking time to process daily news before sharing it.",
+              "zh": "这一侧题目涵盖：日常有新鲜事时先保留消化时间再分享。"
+            },
+            {
+              "en": "Weekend and travel items include periods for separate activities.",
+              "zh": "在周末与出行题目中，这类选项包括留出各自行动的时段。"
+            },
+            {
+              "en": "Other items describe forming your own thoughts first and recovering through time alone in decision and stress situations.",
+              "zh": "题库还用先形成自己的想法、先靠独处恢复呈现决定与压力情境。"
+            },
+            {
+              "en": "When an arrangement has an open space, an option leaves it as personal space.",
+              "zh": "关系安排出现空白时，题库包括保留为个人空间。"
+            },
+            {
+              "en": "Making separate weekday arrangements, then agreeing on time together in the evening or weekend.",
+              "zh": "工作日各自安排，晚上或周末再约定交集时段。"
+            },
+            {
+              "en": "Leaving several periods for separate activities during a holiday before meeting again.",
+              "zh": "假期里留几段各自行动的时间，再汇合。"
+            },
+            {
+              "en": "Thinking an important decision through separately before exchanging views.",
+              "zh": "重要决定前先各自想清楚，再交换意见。"
+            }
+          ]
+        },
+        {
+          "id": "uses-and-tradeoffs",
+          "title": {
+            "en": "Uses to consider and tradeoffs to check",
+            "zh": "可讨论之处与需要核对的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Explain the kind of time alone you need, its usual length and how you might reconnect.",
+              "zh": "可以用来说明：你需要哪类独处、通常多久、结束后怎么重新联系。"
+            },
+            {
+              "en": "Negotiate contact frequency rather than simply reducing contact.",
+              "zh": "可以用来协商联系频率，而不是直接减少联系。"
+            },
+            {
+              "en": "Make “I need space” more specific, then ask directly how the other person understands it.",
+              "zh": "可以把“我需要空间”说明得更具体，再直接询问对方如何理解。"
+            },
+            {
+              "en": "When there is more space, do shared participation and updates still meet both people’s needs?",
+              "zh": "可以核对：空间增加时，共同参与和变化同步是否仍符合双方需要？"
+            },
+            {
+              "en": "When needs for updates differ, should the purpose and duration of the space be explained?",
+              "zh": "可以核对：同步需求不同时，空间用途和时长是否要说明？"
+            },
+            {
+              "en": "When arrangements are left open, is there enough shared experience?",
+              "zh": "可以回看：安排空白时，共同经历是否够用？"
+            }
+          ]
+        },
+        {
+          "id": "context-and-reflection",
+          "title": {
+            "en": "Check the circumstances",
+            "zh": "带回情境回看"
+          },
+          "paragraphs": [
+            {
+              "en": "Did your choices about personal space differ under pressure and in calm circumstances?",
+              "zh": "可以回看：压力与平稳状态下，你对个人空间的选择是否不同？"
+            },
+            {
+              "en": "How did you explain a need for space to someone familiar compared with someone less familiar?",
+              "zh": "需结合经历判断：面对熟悉和不熟悉的对象时，你如何说明空间需要？"
+            },
+            {
+              "en": "This attempt cannot establish whether your share of personal time would change at another relationship stage.",
+              "zh": "本次结果不能确定关系阶段变化后，个人时间比例是否会改变。"
+            },
+            {
+              "en": "Was the time alone restoring energy or avoiding a conversation that felt difficult?",
+              "zh": "你的独处是恢复精力，还是在避开难谈的对话？"
+            },
+            {
+              "en": "If the other person needs more updates, which part of your space matters most to keep?",
+              "zh": "如果对方需要更多同步，你最不让步的是哪块空间？"
+            },
+            {
+              "en": "Was there a period with plenty of space when you instead felt there was too little contact?",
+              "zh": "有没有一段时间空间很多，你反而觉得联系太少？"
+            }
+          ]
+        },
+        {
+          "id": "words-and-actions",
+          "title": {
+            "en": "Optional words and small steps",
+            "zh": "可以选择的话与小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The following are optional possibilities when relevant and welcome. You can revise them privately, skip them or stop here; no real contact is required. A partner remains free to decline an arrangement.",
+              "zh": "以下只是适用且双方愿意时的可选做法，可以只在私人草稿上改写、跳过或在此结束，不要求联系真人，对方也可以拒绝安排。"
+            },
+            {
+              "en": "“When I spend time alone, how could I let you know I am still here and just need a pause?”",
+              "zh": "“我独处的时候，怎么让你知道我还在，只是需要缓一缓？”"
+            },
+            {
+              "en": "“Could we discuss how much personal time each of us wants?”",
+              "zh": "“我们各自想留多少个人时间，这个可以谈吗？”"
+            },
+            {
+              "en": "“Which things would you like us to do together, and which would you rather handle yourself?”",
+              "zh": "“哪些事你希望我们一起，哪些你更想自己处理？”"
+            },
+            {
+              "en": "The next time you need time alone, mention its approximate length and a time to reconnect together.",
+              "zh": "下次需要独处时，把大概时长和重新联系的时间一起说出。"
+            },
+            {
+              "en": "Describe “personal space” through one or two actual activities.",
+              "zh": "把“我要个人空间”具体到一两件实际的事。"
+            },
+            {
+              "en": "Record whether reconnecting after one period alone went smoothly for both people.",
+              "zh": "记录一次独处后，双方重新衔接顺不顺利。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional evening after a demanding shift, someone wants quiet time before talking. They could describe what they would like to do alone and ask whether a later check-in would work. The other person may have a separate need or an agreed shared task to discuss. The example concerns time and reconnection, not a claim that someone with a leading autonomy count will withdraw or recover in a particular way.",
+              "zh": "在一个虚构的繁忙工作日晚上，一人想先安静一会儿再交谈，可以说清独处想做什么，并询问稍后联系是否合适。对方也可能有另一项需要，或已有共同任务待讨论。例子观察时间与重新衔接，不说明自主侧次数更多的人一定会退开或怎样恢复。"
+            },
+            {
+              "en": "“I prefer space, so existing shared agreements no longer matter” does not follow. Neither does “needing time alone proves a lack of love”. Counts establish neither an exemption from agreements nor a judgment about affection.",
+              "zh": "“我偏好空间，所以已有共同约定不再重要”不能由结果推出；“想独处就证明不爱”也不能。次数既不豁免共同约定，也不判断爱意。"
+            },
+            {
+              "en": "Write one fictional solo activity, an approximate period you might propose and a question about reconnecting. Separately note any shared matter that would still need discussion. Keep the draft private or leave it unfinished; this is not a test of independence.",
+              "zh": "可以写一项虚构独处活动、一个可能提议的大致时段，以及一句关于重新联系的问题，另标仍需讨论的共同事项。草稿可以不完成，也可以只留在私人纸页；这不是独立能力测试。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "The count’s limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish coldness, distance or avoidance of intimacy.",
+              "zh": "不说明你冷淡、疏远或回避亲密。"
+            },
+            {
+              "en": "It does not establish selfishness or refusal of commitment.",
+              "zh": "不说明你自私或拒绝承诺。"
+            },
+            {
+              "en": "It does not establish that you do not need the relationship.",
+              "zh": "不表示你不需要这段关系。"
+            },
+            {
+              "en": "It does not predict duration or stability.",
+              "zh": "不预测关系会不会长久或稳定。"
+            },
+            {
+              "en": "It does not establish the same preference at every relationship stage.",
+              "zh": "不表示所有关系阶段都会一直这样。"
+            },
+            {
+              "en": "This is the side selected relatively more often on one dimension within these 24 items. Actual arrangements still depend on both people’s wishes, life demands and real feedback.",
+              "zh": "这只是本次 24 题里，你在联系与独立维度上相对更常选择的一侧；具体如何安排，仍要看双方意愿、生活负荷和实际反馈。"
+            },
+            {
+              "en": "This content is for entertainment and self-exploration. It has not completed psychometric validation of reliability, validity or norms, and has no official certification. The result does not establish attachment style, a relationship diagnosis or partner compatibility.",
+              "zh": "本内容用于娱乐与自我探索，未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格；结果不构成依恋类型、关系诊断或伴侣适配判断。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Personal Space: Relationship Preferences Test Result",
+          "zh": "独立与个人空间：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read autonomy and personal space: counts out of 12, reconnection, practical examples and limits. More choices do not establish avoidance or coldness.",
+          "zh": "完整阅读独立与个人空间：12题原始次数、重新衔接、具体安排、反例与私人练习。次数更多不代表冷淡、回避或不愿承诺。"
+        }
+      }
+    },
+    {
+      "id": "certainty-planning",
+      "directionIds": [
+        "STABILITY_PRIORITY"
+      ],
+      "title": {
+        "en": "Certainty, Continuity and Planning",
+        "zh": "确定、连续和规划"
+      },
+      "headline": {
+        "en": "Selected more often here: deciding first and keeping arrangements predictable",
+        "zh": "本次更常选择：先确定、连续可预期"
+      },
+      "summary": {
+        "en": "On the certainty and flexibility dimension, you selected the side of deciding plans first and continuing established arrangements more often.",
+        "zh": "在确定与弹性维度上，你更多次选中了先定计划、延续稳定安排的那一侧。"
+      },
+      "scoreReading": {
+        "en": "Each of the 12 paired items adds one count to the chosen side. Certainty, continuity and planning has more counts in this pattern. Counts compare only the two sides, rather than percentiles, intensity or accuracy.",
+        "zh": "本维度 12 道二选一，选中哪侧哪侧得 1 次；本次确定、连续和规划次数更多。它只在两侧之间比较，不是百分位、强度或准确率。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the arrangement preference concerns",
+            "zh": "这侧安排偏好观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Certainty, continuity and planning describes an arrangement preference: clear plans for important matters, explicit agreement about a relationship stage and continuing routines that work. It concerns arrangements rather than seriousness or responsibility.",
+              "zh": "确定、连续和规划是一种关系安排偏好：更希望重要安排有清楚计划，关系阶段有明确共识，稳定有效的惯例继续延续。它测量的是安排偏好，不测量认真程度或责任感。"
+            }
+          ]
+        },
+        {
+          "id": "items-and-arrangements",
+          "title": {
+            "en": "The offered situations and arrangements",
+            "zh": "题目情境与安排例子"
+          },
+          "paragraphs": [
+            {
+              "en": "These options include forming a fairly clear plan when discussing the future.",
+              "zh": "这一侧题目涵盖：讨论未来时先形成一份较清楚的计划。"
+            },
+            {
+              "en": "Items about a change of relationship stage include confirming how both people define it first.",
+              "zh": "关系阶段变化的题目中，这类选项包括先确认双方的定义。"
+            },
+            {
+              "en": "Other items concern deciding the main parts of a holiday in advance and steady contributions to a shared goal.",
+              "zh": "题库还涉及提前确定假期主要部分、对共同目标稳定投入。"
+            },
+            {
+              "en": "The bank also uses re-establishing certainty after practical circumstances change as an arrangement option.",
+              "zh": "题库用现实条件改变后尽快重建确定感，呈现另一种安排选择。"
+            },
+            {
+              "en": "Agreeing important dates and meetings in advance and following that plan.",
+              "zh": "重要日子和相聚安排提前定好，双方照计划执行。"
+            },
+            {
+              "en": "Confirming stages and commitment boundaries through explicit conversation rather than assumptions.",
+              "zh": "关系阶段、承诺边界用明确对话确认，不靠默认。"
+            },
+            {
+              "en": "Breaking a shared goal into a regular pattern of contributions and revisiting it.",
+              "zh": "共同目标分解成固定节奏的投入方式，定期回看。"
+            }
+          ]
+        },
+        {
+          "id": "uses-and-tradeoffs",
+          "title": {
+            "en": "Uses to consider and tradeoffs to check",
+            "zh": "可讨论之处与需要核对的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Check which arrangements need an advance decision and which can remain flexible.",
+              "zh": "可以用来核对：哪些安排要提前确定，哪些可留弹性。"
+            },
+            {
+              "en": "Turn “confirming the relationship” into a specific question: do we understand the current stage in the same way?",
+              "zh": "可以把“确认关系”变成具体问题：现在对阶段的理解一致吗。"
+            },
+            {
+              "en": "Use the original plan as a reference when discussing what changes and what remains.",
+              "zh": "计划变化时，用原计划做参照讨论哪里改、哪里留。"
+            },
+            {
+              "en": "New opportunities that arise after a plan is set may be squeezed out.",
+              "zh": "计划确定后，临时出现的新机会可能被挤出安排。"
+            },
+            {
+              "en": "Check whether a fixed agreement leaves both people a clear way to request changes.",
+              "zh": "可以核对：固定约定是否给双方保留了明确的调整入口？"
+            },
+            {
+              "en": "Check whether the timing for confirming a definition fits both people’s readiness.",
+              "zh": "可以核对：确认定义的时间是否符合双方准备程度？"
+            }
+          ]
+        },
+        {
+          "id": "context-and-reflection",
+          "title": {
+            "en": "Check the circumstances",
+            "zh": "带回情境回看"
+          },
+          "paragraphs": [
+            {
+              "en": "When life demands and practical changes differed, which parts did you want to settle?",
+              "zh": "可以回看：生活负荷与现实变动不同时，你会确定哪些范围？"
+            },
+            {
+              "en": "When preferences for certainty and flexibility differ, which matters need an advance decision and which can change?",
+              "zh": "可以核对：双方对确定与弹性的偏好不同时，哪些事项需要先定、哪些允许调整？"
+            },
+            {
+              "en": "Whether greater uncertainty makes you seek earlier confirmation or the opposite needs to be checked against an experience.",
+              "zh": "越不确定时你越想尽快确认，还是相反，需结合经历判断。"
+            },
+            {
+              "en": "Were you confirming a plan for predictability or because the uncertainty worried you?",
+              "zh": "你确认计划，是出于需要可预期，还是担心不确定？"
+            },
+            {
+              "en": "If the other person can offer only a general direction, which part is hardest for you to leave open?",
+              "zh": "如果对方只能给大概方向，你最接受不了的是哪一块？"
+            },
+            {
+              "en": "Was there an arrangement that became so rigid that you wanted to loosen it?",
+              "zh": "有没有安排被定得太死，反而让你想松一松的时候？"
+            }
+          ]
+        },
+        {
+          "id": "words-and-actions",
+          "title": {
+            "en": "Optional words and small steps",
+            "zh": "可以选择的话与小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The following are optional possibilities when relevant and welcome. You can revise them privately, skip them or stop here; no real contact is required. A partner remains free to decline an arrangement.",
+              "zh": "以下只是适用且双方愿意时的可选做法，可以只在私人草稿上改写、跳过或在此结束，不要求联系真人，对方也可以拒绝安排。"
+            },
+            {
+              "en": "“Which arrangements would you like us to settle for the next three months?”",
+              "zh": "“最近三个月，哪些安排你想先定下来？”"
+            },
+            {
+              "en": "“Do we need to compare how we currently understand the relationship?”",
+              "zh": "“我们现在对关系的理解，需要再对一下吗？”"
+            },
+            {
+              "en": "“When a plan changes, how would you like me to tell you in advance?”",
+              "zh": "“计划变了的时候，你希望我怎么提前告诉你？”"
+            },
+            {
+              "en": "Replace “we can discuss it later” for one matter with “let us suggest an initial time by next Friday”.",
+              "zh": "把一件事从“以后再说”改成“下周五前给个初步时间”。"
+            },
+            {
+              "en": "When a plan next changes, describe what remains before describing what changes.",
+              "zh": "下次计划变动时，先说出保留的部分，再说改动的部分。"
+            },
+            {
+              "en": "Arrange a regular review, such as discussing recent circumstances and plans once a month.",
+              "zh": "约一次固定复盘，比如每月对一次近况和安排。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional weekend visit that needs a departure time because someone has an earlier appointment. One person proposes settling the travel window while leaving the afternoon open. Naming what is settled, what can change and when to revisit it makes the arrangement inspectable. A leading certainty count cannot establish that this is your usual behavior, that the proposal will work or that the other person is ready to agree.",
+              "zh": "设想一次虚构周末见面，因为一人前面另有约定，需要明确出发时间。一项提议可以先定往返时段，把下午内容留待讨论。把已确定、可调整和何时回看分别写清，才便于核对安排。确定侧次数更多，不说明你平时一定如此、不保证提议有效，也不说明对方已准备同意。"
+            },
+            {
+              "en": "“I chose planning more often, so my plan is more reliable” adds an outcome and ability claim. A plan may be clear and still overlook someone’s availability. A preference cannot replace checking the actual constraints.",
+              "zh": "“我更多选规划，所以我的计划更可靠”额外加入了结果与能力判断。计划可以很明确，却仍漏掉某人的可用时间；偏好不能替代现实条件核对。"
+            },
+            {
+              "en": "Draw three private headings: decided, provisional and not yet discussed. Place one fictional arrangement under them and write a possible review point. No one else needs to accept this draft, and the headings do not certify planning skill.",
+              "zh": "可以在私人纸页写“已决定”“暂定”“未讨论”三栏，把一项虚构安排放进去，再写一个可能的回看时点。别人无需接受草稿，三栏也不认证规划能力。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "The count’s limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish greater seriousness, responsibility or reliability.",
+              "zh": "不说明你更认真、更负责或更可靠。"
+            },
+            {
+              "en": "It does not establish a longer relationship.",
+              "zh": "不表示关系一定更长久。"
+            },
+            {
+              "en": "It does not establish fear of change or a need to control.",
+              "zh": "不表示你害怕变化或控制欲强。"
+            },
+            {
+              "en": "It does not predict stability or continuation.",
+              "zh": "不预测关系会不会稳定或走下去。"
+            },
+            {
+              "en": "It does not establish the same preference at every relationship stage.",
+              "zh": "不表示所有关系阶段都会一直这样。"
+            },
+            {
+              "en": "This is the side selected relatively more often on one dimension within these 24 items. Actual arrangements still depend on both people’s wishes, life demands and real feedback.",
+              "zh": "这只是本次 24 题里，你在确定与弹性维度上相对更常选择的一侧；具体如何安排，仍要看双方意愿、生活负荷和实际反馈。"
+            },
+            {
+              "en": "This content is for entertainment and self-exploration. It has not completed psychometric validation of reliability, validity or norms, and has no official certification. The result does not establish attachment style, a relationship diagnosis or partner compatibility.",
+              "zh": "本内容用于娱乐与自我探索，未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格；结果不构成依恋类型、关系诊断或伴侣适配判断。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Certainty & Planning: Relationship Preferences Test Result",
+          "zh": "确定、连续和规划：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read certainty and planning: 12 paired choices, explicit arrangements, possible changes and a private exercise. Counts do not measure responsibility.",
+          "zh": "完整阅读确定、连续和规划：12题相对次数、明确安排、可调整部分与私人练习。次数不衡量认真、责任或可靠，也不预测长久。"
+        }
+      }
+    },
+    {
+      "id": "flexible-experience",
+      "directionIds": [
+        "EXPLORATION_PRIORITY"
+      ],
+      "title": {
+        "en": "Flexibility, Change and Shared Experience",
+        "zh": "弹性、变化和共同体验"
+      },
+      "headline": {
+        "en": "Selected more often here: leaving room to adjust and confirming through experience",
+        "zh": "本次更常选择：保留弹性、随经历确认"
+      },
+      "summary": {
+        "en": "Across the 12 certainty and flexibility items, you selected the side of leaving room to adjust and confirming through experience more often.",
+        "zh": "这 12 道确定与弹性的题里，你更常选的是保留调整空间、随经历确认的那一侧。"
+      },
+      "scoreReading": {
+        "en": "These 12 items compare two sides. Flexibility, change and shared experience has more counts in this pattern. The count compares only the two sides, rather than percentiles, intensity or accuracy.",
+        "zh": "这 12 题只比较两个方向：本次弹性、变化和共同体验拿到更多次数。它只在两侧之间比较，与百分位、强度或准确率无关。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the arrangement preference concerns",
+            "zh": "这侧安排偏好观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Flexibility, change and shared experience describes an arrangement preference: adjusting to current circumstances, letting definitions develop through experience and occasionally trying a new way to spend time together. It concerns arrangements rather than instability or unfaithfulness.",
+              "zh": "弹性、变化和共同体验是一种关系安排偏好：更希望安排随状态调整，定义随经历形成，不时尝试新的相聚方式。它测量的是安排偏好，不测量稳定性或不专一。"
+            }
+          ]
+        },
+        {
+          "id": "items-and-arrangements",
+          "title": {
+            "en": "The offered situations and arrangements",
+            "zh": "题目情境与安排例子"
+          },
+          "paragraphs": [
+            {
+              "en": "These options include retaining room to adjust when discussing the future.",
+              "zh": "这一侧题目涵盖：讨论未来时保留随情况调整的可能。"
+            },
+            {
+              "en": "Items about changes of relationship stage include letting a definition develop through experience.",
+              "zh": "关系阶段变化的题目中，这类选项包括让定义随着经历形成。"
+            },
+            {
+              "en": "Other items concern deciding a holiday near departure and adjusting the rhythm of living arrangements to current circumstances.",
+              "zh": "题库还涉及假期临近再定、共同生活安排根据状态调整节奏。"
+            },
+            {
+              "en": "The bank also uses exploring an experience when a new opportunity appears as a way to leave flexibility.",
+              "zh": "题库用新机会出现时先探索体验，呈现保留弹性的选择。"
+            },
+            {
+              "en": "Leaving meetings flexible and coordinating according to how that week is going.",
+              "zh": "相聚安排保留弹性，根据当周状态临时协调。"
+            },
+            {
+              "en": "Not rushing a definition of the stage or commitment, while confirming it gradually through shared experiences.",
+              "zh": "阶段和承诺先不急着下定义，通过共同经历逐步确认。"
+            },
+            {
+              "en": "Continuing to try more suitable methods while advancing a shared goal.",
+              "zh": "共同目标推进时不断尝试更合适的方法。"
+            }
+          ]
+        },
+        {
+          "id": "uses-and-tradeoffs",
+          "title": {
+            "en": "Uses to consider and tradeoffs to check",
+            "zh": "可讨论之处与需要核对的取舍"
+          },
+          "paragraphs": [
+            {
+              "en": "Explain which matters you want to try before settling, rather than treating this as no commitment.",
+              "zh": "可以用来说明：哪些地方想先试试再定，而不是不承诺。"
+            },
+            {
+              "en": "Make flexibility specific: which part can change and which part do you still want to settle?",
+              "zh": "可以把弹性具体化：哪一块可调，哪一块还是想确定。"
+            },
+            {
+              "en": "Use shared experiences as material for discussion rather than only abstract statements.",
+              "zh": "用共同体验做讨论依据，而不是停留在抽象表态。"
+            },
+            {
+              "en": "When an important arrangement remains flexible, how will both people keep track of changes?",
+              "zh": "可以核对：重要安排保留弹性时，双方如何掌握临时变化？"
+            },
+            {
+              "en": "After several changes, can both people still identify a next step?",
+              "zh": "可以核对：安排多次变化后，双方是否仍能确认下一步？"
+            },
+            {
+              "en": "If a definition develops through experience, is there a point to revisit questions about the stage?",
+              "zh": "可以核对：定义随经历形成时，阶段问题是否有回看节点？"
+            }
+          ]
+        },
+        {
+          "id": "context-and-reflection",
+          "title": {
+            "en": "Check the circumstances",
+            "zh": "带回情境回看"
+          },
+          "paragraphs": [
+            {
+              "en": "Did the room you wanted for flexibility change with available resources and risk?",
+              "zh": "可以回看：资源与风险不同时，你保留弹性的范围是否变化？"
+            },
+            {
+              "en": "Choices involving money, health or commitment need to be checked against actual experience.",
+              "zh": "涉及钱、健康或承诺时，你实际怎样选择，需结合经历判断。"
+            },
+            {
+              "en": "Whether caring more makes you want more space or more certainty needs a concrete example.",
+              "zh": "越在意时你越想留空间，还是越想要确定，需结合经历判断。"
+            },
+            {
+              "en": "Was keeping flexibility about enjoying change or not yet knowing what you wanted?",
+              "zh": "你保留弹性，是享受变化，还是还没想清楚？"
+            },
+            {
+              "en": "If the other person asks for an early decision, which part of your flexibility matters most to keep?",
+              "zh": "如果对方要求尽快定下来，你最舍不得哪块弹性？"
+            },
+            {
+              "en": "Was there a period when arrangements stayed open and that itself became tiring?",
+              "zh": "有没有一段时间安排一直没定，反而让你感到消耗？"
+            }
+          ]
+        },
+        {
+          "id": "words-and-actions",
+          "title": {
+            "en": "Optional words and small steps",
+            "zh": "可以选择的话与小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "The following are optional possibilities when relevant and welcome. You can revise them privately, skip them or stop here; no real contact is required. A partner remains free to decline an arrangement.",
+              "zh": "以下只是适用且双方愿意时的可选做法，可以只在私人草稿上改写、跳过或在此结束，不要求联系真人，对方也可以拒绝安排。"
+            },
+            {
+              "en": "“What way of spending time together would you like us to try for now?”",
+              "zh": "“这段时间，你想先试试什么样的相处方式？”"
+            },
+            {
+              "en": "“Which things would you like to leave open, and which would you like to settle first?”",
+              "zh": "“哪些事你希望先不定，哪些还是想先定下来？”"
+            },
+            {
+              "en": "“If we are both unsure, how could we agree on a time to revisit it?”",
+              "zh": "“如果我们都不确定，怎么约定一个回看的时间点？”"
+            },
+            {
+              "en": "Replace “we will see” with a time-bounded trial, such as trying it for two weeks and revisiting it.",
+              "zh": "把“再说吧”改成一个带时间点的尝试：先试两周，再回看。"
+            },
+            {
+              "en": "Agree on a review point for a flexible arrangement so it does not remain open indefinitely.",
+              "zh": "为一次弹性安排约定复盘节点，避免一直悬着。"
+            },
+            {
+              "en": "Exchange actual feelings after a new activity rather than assuming newness makes it better.",
+              "zh": "尝试新相聚方式后交流感受，而不是默认新鲜就好。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional shared afternoon, two people are considering a familiar walk or trying a new route. A flexible proposal could leave the choice until they know the weather and available time, while agreeing how to decide together. The point is an adjustable part with visible conditions. It does not mean that every arrangement should remain open, or that a leading flexibility count makes someone creative or willing to compromise.",
+              "zh": "在一个虚构共处下午，两人考虑走熟悉路线还是换条新路线。弹性提议可以等天气和可用时间清楚后再选，同时商量到时怎样共同决定。这里观察的是有明确条件的可调整部分，不是把所有安排都悬着，也不说明弹性侧次数更多的人更有创意或更愿让步。"
+            },
+            {
+              "en": "“Flexibility means I can change the shared plan without asking” replaces mutual agreement with unilateral action. Conversely, requesting a definite time does not prove that someone rejects new experiences. Neither conclusion comes from these counts.",
+              "zh": "“弹性就是我可以不问就改共同计划”把双方约定变成单方行动；反过来，要求明确时间也不证明排斥新体验。次数不能提供这些结论。"
+            },
+            {
+              "en": "Privately draft one limited fictional trial: what can change, what remains agreed and when the people could revisit it. Choose the period to fit the example, rather than treating a particular number of days as a validated rule. You need not run the trial.",
+              "zh": "可以私下写一个范围有限的虚构尝试：什么能改、什么仍按约定、何时可以回看。时长按例子条件选择，不把某个天数当成经过验证的规则，也不必真的执行。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "The count’s limits",
+            "zh": "原始次数的适用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not establish unfaithfulness or avoidance of commitment.",
+              "zh": "不说明你爱得不专一或逃避承诺。"
+            },
+            {
+              "en": "It does not establish an unstable relationship or unreliability.",
+              "zh": "不说明你关系不稳定或不可靠。"
+            },
+            {
+              "en": "It does not establish fear of responsibility.",
+              "zh": "不表示你怕负责任。"
+            },
+            {
+              "en": "It does not predict duration or stability.",
+              "zh": "不预测关系会不会长久或稳定。"
+            },
+            {
+              "en": "It does not establish the same preference at every relationship stage.",
+              "zh": "不表示所有关系阶段都会一直这样。"
+            },
+            {
+              "en": "This is the side selected relatively more often on one dimension within these 24 items. Actual arrangements still depend on both people’s wishes, life demands and real feedback.",
+              "zh": "这只是本次 24 题里，你在确定与弹性维度上相对更常选择的一侧；具体如何安排，仍要看双方意愿、生活负荷和实际反馈。"
+            },
+            {
+              "en": "This content is for entertainment and self-exploration. It has not completed psychometric validation of reliability, validity or norms, and has no official certification. The result does not establish attachment style, a relationship diagnosis or partner compatibility.",
+              "zh": "本内容用于娱乐与自我探索，未完成信度、效度、常模等心理测量学验证，也未获得任何官方的认证资格；结果不构成依恋类型、关系诊断或伴侣适配判断。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Flexibility & Experience: Relationship Preferences Result",
+          "zh": "弹性、变化和共同体验：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read flexibility and shared experience: raw counts, adjustable plans, examples and an optional exercise. A leading count does not predict commitment.",
+          "zh": "完整阅读弹性、变化和共同体验：原始次数、可调整计划、具体例子与私人练习。次数更多不代表不专一，也不证明更有创意。"
+        }
+      }
+    },
+    {
+      "id": "contact-space-tie",
+      "directionIds": [
+        "CONNECTION_PRIORITY",
+        "AUTONOMY_PRIORITY"
+      ],
+      "title": {
+        "en": "Contact and Personal Space Tied",
+        "zh": "联系与独立并列"
+      },
+      "headline": {
+        "en": "Equal choices for both sides of the contact and space dimension",
+        "zh": "本次联系与独立维度两侧各6次"
+      },
+      "summary": {
+        "en": "A 6:6 tie means the two sides were selected equally often across these 12 items. Both remain without a forced leader. The totals cannot establish why: whether circumstances changed, both needs mattered, or another explanation applies needs a separate concrete example.",
+        "zh": "6:6并列只表示两侧在这12道题里被选择的次数相同，系统保留双方，不指定领先侧。次数不能确定原因；是否随情境变化、两种需要都有分量或另有解释，需要回到具体经历核对。"
+      },
+      "scoreReading": {
+        "en": "Each side was selected six times in 12 comparisons. No side leads on this dimension; the other dimension is read separately.",
+        "zh": "本维度12次比较，两侧各选中6次，没有领先侧；另一维度另行阅读。"
+      },
+      "sections": [
+        {
+          "id": "both-sides",
+          "title": {
+            "en": "Both sides of this comparison",
+            "zh": "同时阅读两侧情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This dimension compares which arrangements you selected more often: shared participation, timely sharing and updates, or separate rhythms, personal space and handling matters independently.",
+              "zh": "这个维度比较你在关系安排里，更常把优先位放在共同参与、及时分享与同步进展上，还是放在各自节奏、个人空间与独立处理上。"
+            },
+            {
+              "en": "Contact and shared participation: wanting regular contact, making arrangements together and sharing important updates.",
+              "zh": "联系与共同参与：更希望联系频率稳定、一起做安排、重要事情同步。"
+            },
+            {
+              "en": "Autonomy and personal space: wanting time to process things, individual interests and room to handle matters independently.",
+              "zh": "独立与个人空间：更希望保留消化时间、各自兴趣和独立处理的空间。"
+            },
+            {
+              "en": "These options include wanting to share something new from daily life soon.",
+              "zh": "这一侧题目涵盖：日常有新鲜事时选择尽快分享。"
+            },
+            {
+              "en": "Weekend, travel and holiday situations include planning the main itinerary together.",
+              "zh": "周末、出行或假期的题库情境包括共同规划主要行程。"
+            },
+            {
+              "en": "Other options concern involving a partner in decisions and continuing to share updates during change.",
+              "zh": "这类选项涉及：做决定时纳入伴侣，变化时持续同步。"
+            },
+            {
+              "en": "The bank also uses company and conversation in situations involving stress or the end of a day.",
+              "zh": "题库还用共同陪伴和交流呈现压力或一天结束时的选择。"
+            },
+            {
+              "en": "These options include taking time to process daily news before sharing it.",
+              "zh": "这一侧题目涵盖：日常有新鲜事时先保留消化时间再分享。"
+            },
+            {
+              "en": "Weekend and travel items include periods for separate activities.",
+              "zh": "在周末与出行题目中，这类选项包括留出各自行动的时段。"
+            },
+            {
+              "en": "Other items describe forming your own thoughts first and recovering through time alone in decision and stress situations.",
+              "zh": "题库还用先形成自己的想法、先靠独处恢复呈现决定与压力情境。"
+            },
+            {
+              "en": "When an arrangement has an open space, an option leaves it as personal space.",
+              "zh": "关系安排出现空白时，题库包括保留为个人空间。"
+            }
+          ]
+        },
+        {
+          "id": "raw-count-and-tie",
+          "title": {
+            "en": "Why 6:6 remains a tie",
+            "zh": "6:6为什么保留并列"
+          },
+          "paragraphs": [
+            {
+              "en": "The dimension has 12 paired items. Each chosen side receives one count and the two counts always sum to 12. Compare only the two sides; the counts are not percentiles, intensity or accuracy.",
+              "zh": "这一维度有 12 道二选一题，选中哪侧哪侧得 1 次；两个方向的次数加起来恒等于 12。次数只在两侧之间比较，不换算成百分位、强度或准确率。"
+            },
+            {
+              "en": "A 6:6 tie means the two sides were selected equally often across these 12 items. Both remain without a forced leader. The totals cannot establish why: whether circumstances changed, both needs mattered, or another explanation applies needs a separate concrete example.",
+              "zh": "6:6并列只表示两侧在这12道题里被选择的次数相同，系统保留双方，不指定领先侧。次数不能确定原因；是否随情境变化、两种需要都有分量或另有解释，需要回到具体经历核对。"
+            }
+          ]
+        },
+        {
+          "id": "other-count-examples",
+          "title": {
+            "en": "What unequal counts would mean",
+            "zh": "不相等次数的公开读法"
+          },
+          "paragraphs": [
+            {
+              "en": "More left-side choices, such as 7:5, mean you selected shared participation and updates relatively more often in these 12 items. The actual arrangements still need to be checked against your experience.",
+              "zh": "左侧次数更多（例如 7:5 或更高），表示在这 12 道题里，你相对更常把共同参与和同步放在前面；具体程度仍以你的实际安排为准。"
+            },
+            {
+              "en": "More right-side choices, such as 5:7, mean you selected personal space and independent handling relatively more often in these 12 items. This does not establish coldness or avoidance.",
+              "zh": "右侧次数更多（例如 5:7 或更低），表示在这 12 道题里，你相对更常把个人空间和独立处理放在前面；这不表示冷淡或回避。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-check",
+          "title": {
+            "en": "Questions for an actual situation",
+            "zh": "带回具体情境核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Over the past week, roughly when did you initiate contact and when did you initiate space?",
+              "zh": "最近一周，你主动联系和主动留空间的时刻大概各占多少？"
+            },
+            {
+              "en": "When the other person’s circumstances changed, did your comfortable contact frequency change?",
+              "zh": "对方的状态变化时，你对联系频率的舒适区会移动吗？"
+            },
+            {
+              "en": "Which items might you answer differently in another attempt, and why?",
+              "zh": "如果重新做一次选择，哪些题你可能会选另一侧？为什么？"
+            },
+            {
+              "en": "The side selected less often is not a missing capacity, defect or an arrangement you cannot use. It was selected less often in this attempt.",
+              "zh": "次数较少的那一侧不表示缺失、缺陷或不会使用；它只说明这次题组里你更少选择那条入口。"
+            }
+          ]
+        },
+        {
+          "id": "separate-dimensions",
+          "title": {
+            "en": "Read the other dimension separately",
+            "zh": "另一维度分别阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "This dimension is counted and read separately from certainty and flexibility. Shared participation can accompany more flexible planning, or any other pattern, without forming a fixed type. Separate scoring does not establish statistical independence.",
+              "zh": "这个维度与确定和弹性维度分别计数、分别阅读：联系上更多选共同参与，规划上仍可更多选弹性，也可以有其他结果，不合成固定类型。分别计分不代表已证明统计独立。"
+            },
+            {
+              "en": "This dimension does not measure depth of love, investment or relationship quality, predict duration, or establish who is more dependent or independent.",
+              "zh": "这个维度不测量爱得多深、投入多少或关系质量；不预测关系会不会长久；不判断谁更依赖或更独立。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "A fictional weekend could include a shared meal and separate activities. Those details might be acceptable to both people, to one person or to neither; a 6:6 count cannot decide. It also cannot establish that this combination describes the answers you gave. To understand an actual preference, first ask what information, time and decisions each person would want shared in that particular weekend.",
+              "zh": "一个虚构周末可以有共同用餐，也可以有各自活动。这些细节可能双方都接受、只有一人接受，或都不接受，6:6不能决定，也不能证明这组安排就是你作答时的意思。理解实际偏好，要先核对这个周末各自希望共享哪些信息、时间和决定。"
+            },
+            {
+              "en": "“Six each means I have found the perfect balance” adds a quality judgment. “A tie means I have no preference” adds another unsupported conclusion. Different answer patterns can share the same counts, and a concrete situation can still have a clear priority.",
+              "zh": "“各6次说明找到了完美平衡”加入了优劣判断；“并列说明没有偏好”也是额外推断。不同答卷可以得到相同次数，一个具体情境中仍可能有明确优先项。"
+            },
+            {
+              "en": "Write two private fictional proposals for the same weekend, one with more joint activity and one with more separate time. Under each, note one unknown about willingness or timing. Leave the comparison open. The purpose is to compare arrangements rather than assign yourself a combined personality.",
+              "zh": "可以给同一个虚构周末写两项私人提议：一项更多共同活动，一项更多个人时间，各标一个关于意愿或时机的未知条件，暂不作结论。练习比较的是安排，不是给自己指定混合人格。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A tie does not assign a person",
+            "zh": "并列不替人定型"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an equal count within one dimension of an original 24-item bank, not perfect balance, a measure of either ability or a combined relationship type. Context and willingness need their own information. The bank has not completed psychometric validation, representative norms or cross-language equivalence testing.",
+              "zh": "这只是原创24题本其中一维的次数相等，不是完美平衡、不衡量两侧能力，也不生成综合恋爱类型。情境与双方意愿需要另行核对；本题本尚未完成心理测量学验证、代表性常模或跨语言等值验证。"
+            },
+            {
+              "en": "The result does not judge affection, maturity, attachment or partner fit, predict a relationship, or decide commitment, cohabitation, marriage or separation. You can read the guide without disclosing answers or taking any action.",
+              "zh": "结果不判断爱意、成熟、依恋或伴侣适配，不预测关系，也不替你决定承诺、同居、婚姻或分手。无需披露答卷或采取行动，也可以只读指南。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Contact & Space Tie: Relationship Preferences Test",
+          "zh": "联系与独立并列：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read a 6:6 contact–space tie: equal raw counts, both sides, concrete examples and why a tie cannot establish perfect balance or a combined love type.",
+          "zh": "完整理解联系与独立6:6并列：保留两侧次数、具体情境与私人练习；并列不能说明完美平衡、情境切换原因或固定混合类型。"
+        }
+      }
+    },
+    {
+      "id": "certainty-flexibility-tie",
+      "directionIds": [
+        "STABILITY_PRIORITY",
+        "EXPLORATION_PRIORITY"
+      ],
+      "title": {
+        "en": "Certainty and Flexibility Tied",
+        "zh": "确定与弹性并列"
+      },
+      "headline": {
+        "en": "Equal choices for both sides of the certainty and flexibility dimension",
+        "zh": "本次确定与弹性维度两侧各6次"
+      },
+      "summary": {
+        "en": "A 6:6 tie means the two sides were selected equally often across these 12 items. Both remain without a forced leader. The counts cannot establish whether you switch with circumstances or are balancing two current needs; those explanations require an actual example.",
+        "zh": "6:6并列只表示两侧在这12题里被选择的次数相同，系统保留双方，不指定领先侧。次数不能确定你是否按情境切换，或正需要兼顾确定与弹性；这些解释需要另找具体例子核对。"
+      },
+      "scoreReading": {
+        "en": "Each side was selected six times in 12 comparisons. No side leads on this dimension; the other dimension is read separately.",
+        "zh": "本维度12次比较，两侧各选中6次，没有领先侧；另一维度另行阅读。"
+      },
+      "sections": [
+        {
+          "id": "both-sides",
+          "title": {
+            "en": "Both sides of this comparison",
+            "zh": "同时阅读两侧情境"
+          },
+          "paragraphs": [
+            {
+              "en": "This dimension compares which arrangements you selected more often: clear plans, continuity, predictability and retaining what works, or flexibility, adjustments to current circumstances and exploring new shared experiences.",
+              "zh": "这个维度比较你在关系安排里，更常把优先位放在计划确定、连续可预期与延续有效安排上，还是放在保留弹性、随状态调整与共同探索新体验上。"
+            },
+            {
+              "en": "Certainty, continuity and planning: wanting clear plans for important matters, explicit agreement about stages and continued useful routines.",
+              "zh": "确定、连续和规划：更希望重要安排有清楚计划、阶段有明确共识、有效惯例延续。"
+            },
+            {
+              "en": "Flexibility, change and shared experience: wanting arrangements to adjust, definitions to develop through experience and occasional new approaches.",
+              "zh": "弹性、变化和共同体验：更希望安排随状态调整、定义随经历形成、不时尝试新方式。"
+            },
+            {
+              "en": "These options include forming a fairly clear plan when discussing the future.",
+              "zh": "这一侧题目涵盖：讨论未来时先形成一份较清楚的计划。"
+            },
+            {
+              "en": "Items about a change of relationship stage include confirming how both people define it first.",
+              "zh": "关系阶段变化的题目中，这类选项包括先确认双方的定义。"
+            },
+            {
+              "en": "Other items concern deciding the main parts of a holiday in advance and steady contributions to a shared goal.",
+              "zh": "题库还涉及提前确定假期主要部分、对共同目标稳定投入。"
+            },
+            {
+              "en": "The bank also uses re-establishing certainty after practical circumstances change as an arrangement option.",
+              "zh": "题库用现实条件改变后尽快重建确定感，呈现另一种安排选择。"
+            },
+            {
+              "en": "These options include retaining room to adjust when discussing the future.",
+              "zh": "这一侧题目涵盖：讨论未来时保留随情况调整的可能。"
+            },
+            {
+              "en": "Items about changes of relationship stage include letting a definition develop through experience.",
+              "zh": "关系阶段变化的题目中，这类选项包括让定义随着经历形成。"
+            },
+            {
+              "en": "Other items concern deciding a holiday near departure and adjusting the rhythm of living arrangements to current circumstances.",
+              "zh": "题库还涉及假期临近再定、共同生活安排根据状态调整节奏。"
+            },
+            {
+              "en": "The bank also uses exploring an experience when a new opportunity appears as a way to leave flexibility.",
+              "zh": "题库用新机会出现时先探索体验，呈现保留弹性的选择。"
+            }
+          ]
+        },
+        {
+          "id": "raw-count-and-tie",
+          "title": {
+            "en": "Why 6:6 remains a tie",
+            "zh": "6:6为什么保留并列"
+          },
+          "paragraphs": [
+            {
+              "en": "The dimension has 12 paired items. Each chosen side receives one count and the two always sum to 12. Compare only these two sides, without percentiles, intensity or accuracy claims.",
+              "zh": "本维度共 12 道二选一，每选一侧记 1 次，两侧次数相加恒为 12；次数只在两侧之间比较，与百分位、强度或准确率无关。"
+            },
+            {
+              "en": "A 6:6 tie means the two sides were selected equally often across these 12 items. Both remain without a forced leader. The counts cannot establish whether you switch with circumstances or are balancing two current needs; those explanations require an actual example.",
+              "zh": "6:6并列只表示两侧在这12题里被选择的次数相同，系统保留双方，不指定领先侧。次数不能确定你是否按情境切换，或正需要兼顾确定与弹性；这些解释需要另找具体例子核对。"
+            }
+          ]
+        },
+        {
+          "id": "other-count-examples",
+          "title": {
+            "en": "What unequal counts would mean",
+            "zh": "不相等次数的公开读法"
+          },
+          "paragraphs": [
+            {
+              "en": "More left-side choices, such as 7:5, mean you selected certainty and planning relatively more often in these 12 items. The actual arrangements still need to be checked against your experience.",
+              "zh": "左侧次数更多（例如 7:5 或更高），表示在这 12 道题里，你相对更常把确定和规划放在前面；具体程度仍以你的实际安排为准。"
+            },
+            {
+              "en": "More right-side choices, such as 5:7, mean you selected flexibility and new experiences relatively more often in these 12 items. This does not establish instability or avoidance of commitment.",
+              "zh": "右侧次数更多（例如 5:7 或更低），表示在这 12 道题里，你相对更常把弹性和新体验放在前面；这不表示不稳定或逃避承诺。"
+            }
+          ]
+        },
+        {
+          "id": "contexts-to-check",
+          "title": {
+            "en": "Questions for an actual situation",
+            "zh": "带回具体情境核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When a plan last changed, did your first response favor settling an arrangement or adjusting it?",
+              "zh": "最近一次计划变动时，你的第一反应更像确定还是调整？"
+            },
+            {
+              "en": "When money, health or commitment were involved, did the room you wanted for flexibility narrow?",
+              "zh": "涉及钱、健康或承诺的决策，你的弹性范围会不会明显收紧？"
+            },
+            {
+              "en": "Which items might you answer differently in another attempt, and what made you hesitate?",
+              "zh": "重做一遍时，你可能会换边的题是哪些？当时为什么犹豫？"
+            },
+            {
+              "en": "The side selected less often is not a missing capacity, defect or an arrangement you cannot use. It was selected less often in this attempt.",
+              "zh": "次数较少的那一侧不表示缺失、缺陷或不会使用；它只说明这次题组里你更少选择那条入口。"
+            }
+          ]
+        },
+        {
+          "id": "separate-dimensions",
+          "title": {
+            "en": "Read the other dimension separately",
+            "zh": "另一维度分别阅读"
+          },
+          "paragraphs": [
+            {
+              "en": "This dimension is counted and read separately from contact and personal space. More settled planning can accompany more personal space, or any other pattern, without forming a fixed type. Separate scoring does not establish statistical independence.",
+              "zh": "这个维度与联系和独立维度分别计数、分别阅读：规划上更多选确定，联系上仍可更多选个人空间，也可以有其他结果，不合成固定类型。分别计分不代表已证明统计独立。"
+            },
+            {
+              "en": "This dimension does not measure seriousness, responsibility or reliability, predict stability or duration, or establish who is more mature.",
+              "zh": "这个维度不测量认真程度、责任感或可靠性；不预测关系会不会稳定或长久；不判断谁更成熟。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构例子、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a fictional day trip with a fixed return time and an afternoon activity not yet chosen. This illustrates one possible arrangement containing certainty and flexibility. It is not an inference from a 6:6 result, and another situation may call for different details. The counts do not establish which part should be fixed, whether a change is welcome or how either person will react.",
+              "zh": "设想一次虚构短途出行，返回时间固定，下午活动尚未选定。这只是同时包含确定和弹性的一种安排，不是从6:6推断出的行为，换个情境可能需要不同细节。次数不说明哪部分该固定、变化是否受欢迎或任何人会怎样回应。"
+            },
+            {
+              "en": "“I am equally flexible and reliable” turns two equal raw counts into two abilities. “The tie lets either person change anything” invents permission. Both sides still need specific agreements; the other contact-and-space dimension does not resolve those unknowns.",
+              "zh": "“我既灵活又可靠”把两项同分变成了两种能力；“并列就允许任何一方改任何事”则捏造许可。安排仍需具体约定，另一组联系与空间的结果也不能替这些未知作答。"
+            },
+            {
+              "en": "Privately sort one fictional plan into fixed, adjustable and unknown. Write why each placement matters and one question that could change it. Do not rank the whole relationship or combine the two dimensions into a type. You can stop with the draft.",
+              "zh": "可以私下把一项虚构计划分成固定、可调整和未知，写明各自理由，以及一个可能改变分类的问题。不必给整段关系排序，也不合并两维成类型；可以写到草稿就结束。"
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "A tie does not assign a person",
+            "zh": "并列不替人定型"
+          },
+          "paragraphs": [
+            {
+              "en": "This is an equal count within one dimension of an original 24-item bank, not perfect balance, a measure of either ability or a combined relationship type. Context and willingness need their own information. The bank has not completed psychometric validation, representative norms or cross-language equivalence testing.",
+              "zh": "这只是原创24题本其中一维的次数相等，不是完美平衡、不衡量两侧能力，也不生成综合恋爱类型。情境与双方意愿需要另行核对；本题本尚未完成心理测量学验证、代表性常模或跨语言等值验证。"
+            },
+            {
+              "en": "The result does not judge affection, maturity, attachment or partner fit, predict a relationship, or decide commitment, cohabitation, marriage or separation. You can read the guide without disclosing answers or taking any action.",
+              "zh": "结果不判断爱意、成熟、依恋或伴侣适配，不预测关系，也不替你决定承诺、同居、婚姻或分手。无需披露答卷或采取行动，也可以只读指南。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Certainty & Flexibility Tie: Relationship Preferences Test",
+          "zh": "确定与弹性并列：恋爱安排偏好完整说明"
+        },
+        "description": {
+          "en": "Read a 6:6 certainty–flexibility tie: equal counts, settled and adjustable plans, examples and limits. It does not establish reliability or a fixed type.",
+          "zh": "完整理解确定与弹性6:6并列：12题两侧同分、固定和可调整安排、例子及反例；并列不证明灵活又可靠，不生成固定恋爱类型。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "low-direction-explanation",
+      "title": {
+        "en": "Two dimensions, separate readings",
+        "zh": "两个维度分别阅读"
+      },
+      "paragraphs": [
+        {
+          "en": "One dimension compares shared participation and personal space. The other compares certainty and flexibility. An attempt can lead on either side or tie within each dimension; these are two separate readings, not nine combined personality types. Separate scoring does not establish statistical independence.",
+          "zh": "一维比较共同参与和个人空间，另一维比较确定和弹性。每维可以一侧次数更多，也可以并列；这是两个分别阅读的结果，不是九种综合人格。分别计分不代表已证明统计独立。"
+        }
+      ]
+    },
+    {
+      "id": "raw-wins-explanation",
+      "title": {
+        "en": "One selected side, one count",
+        "zh": "每次选择怎样计数"
+      },
+      "paragraphs": [
+        {
+          "en": "Each dimension has 12 paired questions; the selected side receives one count and the two counts sum to 12. Each pole appears in 12 comparisons, six times in each position. Compare within a dimension only. The counts do not establish intensity, percentiles, accuracy or a population rank, and a smaller count is not a missing capacity.",
+          "zh": "每维12道二选一，选中哪侧就加1次，两侧总和12。每侧参与12次比较，在A、B位置各6次；只在同维度内比较，不表示强度、百分位、准确率或人群排名，较少次数也不表示缺失能力。"
+        }
+      ]
+    },
+    {
+      "id": "ties-explanation",
+      "title": {
+        "en": "Equal counts remain a full result",
+        "zh": "同分保留为完整结果"
+      },
+      "paragraphs": [
+        {
+          "en": "A 6:6 tie keeps both sides without choosing a winner by item order, letters or option position. The corresponding full tie guide presents both sets of situations. Equal totals do not identify which items were selected, why the counts are equal, or which arrangement comes first in an actual situation. All four side guides and both tie guides are public and free.",
+          "zh": "6:6时保留两侧，不按题号、字母或选项位置选赢家，对应完整并列指南会同时呈现两组情境。汇总同分不能还原具体选项、说明同分原因或决定现实中的优先安排。四份单侧指南和两份并列指南全部公开免费。"
+        }
+      ]
+    },
+    {
+      "id": "context-and-willingness",
+      "title": {
+        "en": "Check the situation and willingness",
+        "zh": "核对情境与双方意愿"
+      },
+      "paragraphs": [
+        {
+          "en": "Preferences may relate to the people involved, relationship stage, available time and resources, sense of safety or a specific event. Counts cannot predict choices after those conditions change. Use a concrete arrangement, ask what is wanted and leave room to decline. A different later result does not by itself establish a stable change, measurement error or changed personality.",
+          "zh": "偏好可能与对象、关系阶段、时间资源、安全感或具体事件有关；次数不能预测条件改变后怎样选择。可以回到一个具体安排，询问真实意愿，也留出拒绝的空间。以后结果不同，不自动表示稳定变化、测量误差或人格改变。"
+        }
+      ]
+    },
+    {
+      "id": "model-and-limits",
+      "title": {
+        "en": "The original model and its limits",
+        "zh": "原题本与适用边界"
+      },
+      "paragraphs": [
+        {
+          "en": "This is the two-dimension model from FermatMind’s own mini-program Love Type questionnaire, rather than a 16-type service. It has not completed reliability, validity, norms, accuracy or language-equivalence validation. It does not measure affection, investment, maturity, responsibility, coldness or faithfulness; generate attachment or clinical labels; match partners; predict duration; or decide commitment, cohabitation, marriage, separation or responsibility.",
+          "zh": "本模型来自费马自有小程序的恋爱类型题本，实际比较两个维度，不是16型服务；尚未完成信度、效度、常模、准确率或语言等值验证。不测爱意、投入、成熟、责任、冷淡或专一，不产生依恋或临床标签，不做伴侣配对、关系长久预测，也不替你决定承诺、同居、婚姻、分手或责任归属。"
+        }
+      ]
+    },
+    {
+      "id": "different-relationship-models",
+      "title": {
+        "en": "Different relationship questions",
+        "zh": "几份关系测试各看什么"
+      },
+      "paragraphs": [
+        {
+          "en": "Love Personality compares interaction entries such as expression, response, space and repair. Relationship Values compares rituals, cooperation, companionship and autonomy. This test compares how contact and time are arranged, and how plans are settled or left flexible. Similar wording does not make their questions, scores or explanations interchangeable.",
+          "zh": "恋爱人格观察表达、回应、空间和修复等互动入口，爱情阵营观察仪式、协作、陪伴与自主等价值，本测试观察怎样安排联系与时间、怎样确定或调整计划。措辞相似，不表示题目、分数和解释能互相替代。"
+        }
+      ]
+    },
+    {
+      "id": "private-by-choice",
+      "title": {
+        "en": "Drafts and sharing are optional",
+        "zh": "草稿与分享由你选择"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay in the page while you work. Only choosing to save creates a versioned draft in this browser tab for up to 24 hours; completion, clearing or retaking removes it. There is no persisted final-result cache. Sharing uses only a public explanation link and title, without answers or counts. No account or partner’s data is needed.",
+          "zh": "作答时答案保留在当前页面；只有主动保存，才在本浏览器标签页留下带版本草稿，最多24小时，完成、清除或重测即移除，不持久保存最终结果缓存。分享只使用公开说明链接与名称，不含答卷或次数，无需账号或伴侣资料。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this Relationship Preferences Test compare?",
+        "zh": "这份恋爱安排偏好测试比较什么？"
+      },
+      "answer": {
+        "en": "It compares contact and personal space in one dimension, and certainty and flexibility in another. Each has 12 paired items. You receive two separate readings with any 6:6 tie retained, rather than one fixed type.",
+        "zh": "分别比较联系与个人空间、确定与弹性，每维12道二选一，生成两个分别阅读的结果，保留6:6并列，不指定一个固定类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does it produce a LoveType16 code?",
+        "zh": "会产生LoveType16代码吗？"
+      },
+      "answer": {
+        "en": "No. This original mini-program model has two separately counted dimensions and produces no four-letter code or combined romantic type. It cannot be substituted for a service with four axes and 16 profiles.",
+        "zh": "不会。本原创小程序模型实际有两个分别计数的维度，不生成四字母代码或综合恋爱类型，不能替代四轴16画像的其他服务。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are ties and smaller counts interpreted?",
+        "zh": "并列和较少次数怎么读？"
+      },
+      "answer": {
+        "en": "A 6:6 tie means equal choices within that dimension. Both sides remain without an artificial winner. The totals do not explain the cause of a tie. A smaller count is not a missing ability, flaw or value judgment.",
+        "zh": "6:6只表示该维度两侧被选择次数相同，双方保留，不强选赢家；总次数不能解释同分原因。较少次数不是缺少能力、缺陷或优劣评价。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read all results without answering?",
+        "zh": "不作答也能读全部结果吗？"
+      },
+      "answer": {
+        "en": "Yes. All six complete guides are public and free: four side readings and two tie readings. They explain count patterns, not a private person’s answers. A personal attempt is interpreted only after all 24 choices.",
+        "zh": "可以。四份单侧说明与两份并列说明共六份完整指南均公开免费，解释计数结构，不是私人答卷。只有24题全部有效后，才解释个人这次作答。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can the result judge compatibility or commitment?",
+        "zh": "能判断伴侣适配或承诺吗？"
+      },
+      "answer": {
+        "en": "No. The bank has not completed psychometric validation. Counts do not establish love, maturity, attachment, partner fit, future stability or whether to stay or leave. Concrete decisions need their own information and both people’s wishes.",
+        "zh": "不能。本题本未完成心理测量学验证，次数不判断爱意、成熟、依恋、伴侣适配、未来稳定或关系去留；具体决定需要另有信息和双方真实意愿。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if neither option fits?",
+        "zh": "两项都不适合怎么办？"
+      },
+      "answer": {
+        "en": "You can stop or read the public guides. The original bank requires one of two options and has no not-applicable or substitute-zero score. Partial answers produce no interpreted result on either dimension.",
+        "zh": "可以结束或先读公开指南。原题本每题二选一，没有不适用或替补零分机制；部分作答不会生成任何一维的解释结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my answers saved or shared?",
+        "zh": "答案会被保存或分享吗？"
+      },
+      "answer": {
+        "en": "Only opting in saves a tab-local versioned draft for up to 24 hours. Completion, retake or clearing removes it. Final results are not persisted; copying uses only a public link and title without answers or counts.",
+        "zh": "只有主动选择才保存本标签页带版本草稿，最多24小时，完成、重测或清除即移除；不持久保存最终结果，复制仅含公开链接与名称，不含答案或次数。"
+      }
+    }
+  ]
+}

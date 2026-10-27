@@ -1,3 +1,4 @@
+import { isPairedDimensionsConfigurationValid } from "@/lib/questionnaires/pairedDimensions";
 import { isTypingConfigurationValid } from "@/lib/questionnaires/typing";
 import { TypingPage } from "./TypingPage";
 import type { Metadata } from "next";
@@ -21,14 +22,14 @@ type Props = { params: Promise<{ locale: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
-  if (!quiz || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
+  if (!quiz || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) return { title: "Test unavailable", robots: { index: false, follow: false } };
   return buildPageMetadata({ locale, pathname: questionnairePath(locale, slug), title: quiz.seoTitle[locale], description: quiz.description[locale], imagePath: `/og/fun/${slug}?locale=${locale}&v=${quiz.version}`, alternatesByLocale: { en: questionnairePath("en", slug), zh: questionnairePath("zh", slug), xDefault: questionnairePath("en", slug) } });
 }
 
 export default async function QuestionnairePage({ params }: Props) {
   const { locale: input, slug } = await params, locale = resolveLocale(input), zh = locale === "zh";
   const quiz = await loadQuestionnaire(slug);
-  if (!quiz || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
+  if (!quiz || (quiz.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(quiz)) || (quiz.kind === "typing" && !isTypingConfigurationValid(quiz))) notFound();
   if (!isQuestionnaireConfigurationValid(quiz)) throw new Error("QUESTIONNAIRE_CONFIGURATION_UNAVAILABLE");
   if (quiz.kind === "typing") return <TypingPage quiz={quiz} locale={locale} />;
   if (quiz.kind === "ten-key") return <TenKeyPage quiz={quiz} locale={locale} />;
