@@ -37,8 +37,8 @@
     "itemBankVersion": "OSF-English-DOCX-20261027.zh-working-v1",
     "scoringVersion": "MFQ2-six-means.complete-six-na-v1",
     "resultContentVersion": "1.0.0",
-    "itemBankSha256": "fb0d2841e6f9b1db3bcf605f99f04e6e590c64c5ecc913907e712be41d66d756",
-    "resultContentSha256": "7abd45ed185ce9418c0b04317d10cc005a11c871efea86f86aa522850de49f57",
+    "itemBankSha256": "90d2b39844645677e536b80a4eac67087e3462b31194ee68c440d8782d9ccefd",
+    "resultContentSha256": "b9eb11077f526b7ee0fb923cf85a13af472d88c330b4869774657b8cec572270",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -2531,7 +2531,7 @@
           "zh": "关怀：对他人受苦的关注｜MFQ-2完整读法"
         },
         "description": {
-          "en": "The six Care items concern compassion, emotional suffering, comfort and attention to another person’s needs. Their mean summarizes how well these statements describe you or your opinions. It does not count kind acts or certify how ethically you behave.",
+          "en": "Understand MFQ-2 Care's six items on compassion, suffering and comfort. Follow the mean calculation and distinguish self-report from actual kind acts.",
           "zh": "六条关怀题涉及同情、情感痛苦、安慰及对他人需求的注意。均分汇总这些陈述在多大程度上描述你或你的观点，不统计善行次数，也不认证行为是否有道德。"
         }
       }
@@ -2669,7 +2669,7 @@
           "zh": "平等：相同结果与资源｜MFQ-2完整读法"
         },
         "description": {
-          "en": "The six Equality items emphasize equal income, equal resources and equal sharing of a collective reward. This MFQ-2 foundation is distinct from Proportionality. Its mean describes endorsement of the offered statements rather than settling every question about fairness.",
+          "en": "Understand MFQ-2 Equality's six items on income, resources and equal sharing, with a scoring example and comparison with Proportionality.",
           "zh": "六条平等题着重相同收入、相同资源及平等分享共同回报。MFQ-2将其与比例公平分开；均分描述对所给表述的认同，不替所有公平争议定论。"
         }
       }
@@ -2807,7 +2807,7 @@
           "zh": "比例公平：功绩与贡献｜MFQ-2完整读法"
         },
         "description": {
-          "en": "These six items concern rewarding work, recognizing merit and responding to cheating. They describe a particular account of fairness based on contribution. The mean neither measures your productivity nor establishes what anyone deserves in an actual allocation.",
+          "en": "Explore MFQ-2 Proportionality's six items on work, merit and cheating. Follow a scoring example and compare contribution-based with equal rewards.",
           "zh": "六条题涉及奖励努力、认可优点及回应作弊，描述以贡献为依据的一种公平观。均分既不测你的生产力，也不决定真实分配中任何人应得什么。"
         }
       }
@@ -2941,11 +2941,11 @@
       ],
       "seo": {
         "title": {
-          "en": "Loyalty: country community and team | MFQ-2 Guide",
+          "en": "Loyalty: country, community and sports team | MFQ-2 Guide",
           "zh": "忠诚：国家、共同体与团队｜MFQ-2完整读法"
         },
         "description": {
-          "en": "The six Loyalty items refer to country, community and a sports team. Their mean describes identification with the stated loyalty concerns. It does not measure citizenship, patriotism as a whole, personal faithfulness or willingness to defend every action by an ingroup.",
+          "en": "Explore MFQ-2 Loyalty's six items on country, community and sports teams. Read a mean-scoring example and limits on interpreting group commitment.",
           "zh": "六条忠诚题涉及国家、共同体与运动队。均分描述对所列忠诚关切的认同，不测公民资格、完整爱国观、个人守信，也不表示愿意维护群体的一切行为。"
         }
       }
@@ -3083,7 +3083,7 @@
           "zh": "权威：传统与尊重｜MFQ-2完整读法"
         },
         "description": {
-          "en": "The six Authority items concern tradition, parents, elders, teaching respect and a strong leader. The mean describes how well those statements fit your opinions. It does not determine whether any real authority is legitimate or whether you should obey a particular instruction.",
+          "en": "Explore MFQ-2 Authority's six items on tradition, parents, elders and leadership. Follow the mean calculation and interpret deference in context.",
           "zh": "六条权威题涉及传统、父母、长辈、尊重教育与强有力的领导者。均分描述这些表述与观点的贴切程度，不决定任何真实权威是否正当，也不指示应否服从某项要求。"
         }
       }
@@ -3221,7 +3221,7 @@
           "zh": "纯洁：身体与精神边界｜MFQ-2完整读法"
         },
         "description": {
-          "en": "These six items refer to sacredness of the body, chastity, language, an unusual but harmless sexual preference, natural medicines and virginity before marriage. The mean describes responses to those statements. It is not a measure of hygiene, disease, treatment quality or moral worth.",
+          "en": "Explore MFQ-2 Purity's six items on bodily and spiritual concerns. Read a scoring example and why its mean does not rate health or moral worth.",
           "zh": "六条涉及身体神圣性、贞洁、语言、不常见但无害的性癖好、天然药物及婚前童贞。均分描述对这些陈述的回答，不测卫生、疾病、治疗质量或道德价值。"
         }
       }

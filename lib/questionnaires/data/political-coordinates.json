@@ -36,8 +36,8 @@
     "itemBankVersion": "1.0.0",
     "scoringVersion": "1.0.0",
     "resultContentVersion": "1.0.0",
-    "itemBankSha256": "7bff2ba084aa517aa594b889f62bf993b64d395a5fb35e3a6040684d3edda2ab",
-    "resultContentSha256": "25bac43f3ce4f26854c7c04ab4b38392ccd7aa4a999b5214ff2a3a64c3b10cde",
+    "itemBankSha256": "e169a6090feef7460aab705abc0a5ca3b22892487d7d272cdf2a8eea8b7d7a75",
+    "resultContentSha256": "a30f2c1a4adc93717870eff4b973913bf68cf2788358bbed1ce2a62e0895b3f4",
     "psychometricValidationCompleted": false
   },
   "directions": [
@@ -1503,11 +1503,11 @@
       ],
       "seo": {
         "title": {
-          "en": "Economic Left & Communitarian: Original Policy Guide",
+          "en": "Economic Left & Communitarian: Political Coordinates",
           "zh": "经济左向×共同体优先：本题本读法｜原创政治坐标"
         },
         "description": {
-          "en": "This reading describes a count pattern in two sets of hypothetical policy proposals: more economic-left choices and more communitarian choices. It does not identify a party, a moral character or a position in a real population.",
+          "en": "Read economic-left and communitarian policy choices. Follow a two-axis scoring example, distinguish ties from NA and explore the trade-offs in this guide.",
           "zh": "这份读法说明两组假设政策方案中的次数组合：经济左向方案较多，共同体优先方案也较多。它不指定政党、道德品质或真实人群中的位置。"
         }
       }
@@ -1642,11 +1642,11 @@
       ],
       "seo": {
         "title": {
-          "en": "Economic Left & Liberal: Original Policy Guide",
+          "en": "Economic Left & Liberal: Political Coordinates",
           "zh": "经济左向×个人自由优先：本题本读法｜原创政治坐标"
         },
         "description": {
-          "en": "This comparison links more economic-left selections with more liberal selections on the separate social axis. Read it as a description of the offered proposals, without converting it into a party label or a claim about all your beliefs.",
+          "en": "Read economic-left and socially liberal choices, from public financing to voluntary civic participation. Follow the coordinate example, ties and NA rules.",
           "zh": "本组合对应经济左向方案较多、社会轴个人自由优先方案也较多。它描述的是所给方案的选择，不换算成政党标签，也不概括你的全部信念。"
         }
       }
@@ -1781,11 +1781,11 @@
       ],
       "seo": {
         "title": {
-          "en": "Economic Right & Communitarian: Original Policy Guide",
+          "en": "Economic Right & Communitarian: Political Coordinates",
           "zh": "经济右向×共同体优先：本题本读法｜原创政治坐标"
         },
         "description": {
-          "en": "More private financing or owner discretion on the economic items can occur alongside more shared obligations and cultural continuity on the social items. This is one comparison of this bank’s choices, with no automatic party, national or moral identity.",
+          "en": "Read economic-right and communitarian choices: private financing alongside shared civic duties. Explore a worked point, boundary ties, NA and trade-offs.",
           "zh": "经济题中更多私人筹资或所有者自主，可以与社会题中更多共同义务、文化延续并存。这只是本题本的一个选择组合，不自动指定政党、国家或道德身份。"
         }
       }
@@ -1920,11 +1920,11 @@
       ],
       "seo": {
         "title": {
-          "en": "Economic Right & Liberal: Original Policy Guide",
+          "en": "Economic Right & Liberal: Political Coordinates",
           "zh": "经济右向×个人自由优先：本题本读法｜原创政治坐标"
         },
         "description": {
-          "en": "This comparison brings together more economic-right proposals and more liberal proposals on the separate social axis. It reports the pattern of these selections without measuring ideological purity, political knowledge or a real-world group identity.",
+          "en": "Explore economic-right and socially liberal choices, including private financing and voluntary civic participation. Read a worked point, ties and NA.",
           "zh": "本组合对应经济右向方案较多、独立社会轴上个人自由优先方案也较多。它汇报本题选择的方向，不测意识形态纯度、政治知识或真实群体身份。"
         }
       }

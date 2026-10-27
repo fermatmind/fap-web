@@ -844,7 +844,7 @@
           "zh": "跨海旅人：来世之路测试完整结果"
         },
         "description": {
-          "en": "The Sea-route Traveller imagines a life with first-hand encounters and new surroundings. Read the appeal, the practical cost and a small local experiment without treating it as a prediction.",
+          "en": "Explore the Sea-route Traveller's wish for first-hand discovery, its practical costs and a small local experiment in this original Next Life Quiz guide.",
           "zh": "跨海旅人想象的是能亲自接触陌生环境的生活。完整读法包括吸引力、现实代价和附近可做的小尝试，不把计数当来世预告。"
         }
       },
@@ -1068,7 +1068,7 @@
           "zh": "长桌主人：来世之路测试完整结果"
         },
         "description": {
-          "en": "The Long-table Host imagines everyday belonging built through shared time. Read the welcome, the work behind it, reciprocal boundaries and a small invitation you can actually sustain.",
+          "en": "Explore the Long-table Host's wish for belonging, shared practical work and reciprocal boundaries, with a small invitation from the Next Life Quiz.",
           "zh": "长桌主人想象用共同度过的时间建立归属。完整解释包含邀请背后的劳动、互相照应的边界，以及真正负担得起的小型相聚。"
         }
       },
@@ -1180,7 +1180,7 @@
           "zh": "修补工匠：来世之路测试完整结果"
         },
         "description": {
-          "en": "The Repair Workshop Maker imagines a life with tangible practice and useful improvements. Explore the appeal of making, unfinished attempts, the difference from expression, and a safe small trial.",
+          "en": "Explore the Repair Workshop Maker's wish for useful, hands-on change. Compare making with expression and try a small, low-risk task in the Next Life Quiz.",
           "zh": "修补工匠向往能亲手实践、看见实用改善的生活。这里解释动手的吸引力、做不好的时候、和表达创作的区别，以及安全的小尝试。"
         }
       },
@@ -1292,7 +1292,7 @@
           "zh": "街角记录者：来世之路测试完整结果"
         },
         "description": {
-          "en": "The Street-corner Chronicler imagines giving everyday experience a voice, image or sound. Read about making something specific, editing fairly, sharing by choice and separating expression from applause.",
+          "en": "Explore the Street-corner Chronicler's wish to express everyday life, with guidance on framing, consent, private drafts and a small creative experiment.",
           "zh": "街角记录者想给日常经历找到文字、画面或声音。完整读法包含具体创作、尊重他人的记录、自愿分享，以及表达与喝彩的区别。"
         }
       },
@@ -1404,7 +1404,7 @@
           "zh": "夜窗研究者：来世之路测试完整结果"
         },
         "description": {
-          "en": "The Night-window Investigator imagines unhurried understanding. Explore open questions, useful uncertainty, the cost of endless checking and a bounded experiment without an intelligence label.",
+          "en": "Explore the Night-window Investigator's wish for understanding: compare explanations, keep uncertainty visible and give a small inquiry a stopping point.",
           "zh": "夜窗研究者向往不被催促的理解。这里解释开放问题、有用的不确定、无尽查证的代价和有边界的小尝试，不贴智力标签。"
         }
       },
@@ -1583,8 +1583,8 @@
     "itemBankVersion": "fm_next_life_priorities_18_v1",
     "scoringVersion": "archetype_raw_choice_all_highest_v1",
     "resultContentVersion": "fm_next_life_six_full_guides_v1",
-    "itemBankSha256": "e5009846cae01e316577d3da84f29d399fe0ceddc1bd40068dda25478bca32a1",
-    "resultContentSha256": "6183bb4c17d72bad94b226e1f8034265c77072e13aa965186689f4034908c2bc",
+    "itemBankSha256": "460ca3203fc4a5501b5ee1b206db8b18d441507e03b8a22a1d1d1e14c7e489a4",
+    "resultContentSha256": "69de97f702e9e85b2b520470e4696fdb48fd238b51b15d13465bd1528832042d",
     "psychometricValidationCompleted": false
   }
 }
