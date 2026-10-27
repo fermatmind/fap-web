@@ -1015,10 +1015,10 @@
       "seo": {
         "title": {
           "en": "Phishing practice: explanations and safer checks",
-          "zh": "钓鱼识别练习：逐题解析与核实方法"
+          "zh": "钓鱼识别练习：独立核实与复习方法"
         },
         "description": {
-          "en": "Practise independent checks for delivery, bank, invoice and gift-card messages. Read answers, a separate example and revision steps without a safety guarantee.",
+          "en": "Practise independent checks for delivery, bank, invoice and gift-card messages. Follow a parcel-message example and review a trusted verification route.",
           "zh": "复习快递、银行、发票和礼品卡请求，练习独立核实渠道；标志、显示名或催促都不足以确认身份。"
         }
       },
@@ -1113,11 +1113,11 @@
       },
       "seo": {
         "title": {
-          "en": "Password and MFA practice: answers and revision",
-          "zh": "密码与MFA练习：答案与复习说明"
+          "en": "Password and MFA Practice: Examples and Review",
+          "zh": "密码与MFA练习：认证因素与复习方法"
         },
         "description": {
-          "en": "Review unique passwords, MFA factors, sign-in codes and password managers. Get answers and revision steps; this practice does not inspect account security.",
+          "en": "Review unique passwords, MFA factors, sign-in codes and password managers. Follow a password-reuse example and practise the specific checks in the guide.",
           "zh": "练习不同密码、MFA因素、验证码保密和密码管理器使用；四题答对数不构成账户安全认证。"
         }
       },
@@ -1216,7 +1216,7 @@
           "zh": "设备安全练习：更新、备份与移交"
         },
         "description": {
-          "en": "Review trusted updates, separate backups, device disposal and suspicious download prompts. Read worked answers without a diagnosis or security guarantee.",
+          "en": "Review trusted updates, independent backups, device disposal and download warnings. Follow a separate computer-transfer example and revision routine.",
           "zh": "复习更新、独立备份、旧电脑移交和突然出现的下载警告；理解每题行动依据，不把题目当设备诊断。"
         }
       },
@@ -1311,12 +1311,12 @@
       },
       "seo": {
         "title": {
-          "en": "Information sharing practice: rules and worked answers",
-          "zh": "信息分享练习：规则与完整题解"
+          "en": "Information Sharing Practice: Rules & Examples",
+          "zh": "信息分享练习：权限示例与复习方法"
         },
         "description": {
           "en": "Practise recipient restrictions, public fields, recovery answers and support forms. Read explanations using explicit fictional policies, not employer claims.",
-          "zh": "练习受限收件人、可选公开字段、找回答案及支持表单；两题明示虚构制度，不替真实雇主编造规则。"
+          "zh": "核对文件接收者、公开资料字段与账户找回问题的答案，跟随权限配置示例和题面规则复习，区分文件标签与实际访问控制。"
         }
       },
       "scoreReading": {
@@ -1384,7 +1384,7 @@
           },
           "paragraphs": [
             {
-              "en": "Public FTC guidance supplies background on protecting personal information and authentication secrets. The explicit fictional policies make context-dependent answers testable. This page cannot review a real permission configuration or substitute for an organization’s security and privacy instructions. All four revision guides remain readable even when a section count is zero.",
+              "en": "Public FTC guidance supplies background on protecting personal information and authentication secrets. The explicit fictional policies make context-dependent answers testable. This page cannot review a real permission configuration or substitute for an organization’s security and privacy instructions. All five revision guides remain readable even when a section count is zero.",
               "zh": "FTC公开建议提供个人信息和认证秘密保护的背景；题目明示虚构制度，让依赖情境的答案可核对。本页不能检查真实权限配置，也不替代组织安全和隐私说明。本组即使0题答对，完整复习说明仍可阅读。"
             }
           ]
@@ -1414,7 +1414,7 @@
           "zh": "安全响应练习：报告与账户恢复"
         },
         "description": {
-          "en": "Review exposed passwords, suspicious downloads and reporting versus recovery. Read answers and bounded next steps, without an incident diagnosis.",
+          "en": "Review exposed passwords, suspicious downloads and reporting versus recovery. Follow a separate example and examine the reasoning behind the next step.",
           "zh": "复习密码暴露、可疑下载、明示工作报告规则及报告和恢复的区别；不提供实际事件诊断。"
         }
       },
@@ -1653,8 +1653,8 @@
     "itemBankVersion": "fm_cybersecurity_daily_scenarios_20_v1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_cybersecurity_five_revision_guides_v1",
-    "itemBankSha256": "00448d96f68c47acee35f404d04b560fb6c181dea905c659f729f6197bb1c9c6",
-    "resultContentSha256": "b1c5748bd93001a7e1d75e7a25ec0c9e74db2ab9d8afe0f8f4a01e10c40766d5",
+    "itemBankSha256": "9f7c6bd8b4aaebefae9052819bdb4addcecf4f4b59e83eeb63027bc8a3810b92",
+    "resultContentSha256": "9430caf12bdf284a3dfb33c73b91424c021228f429a32cdfed803cc4065516fd",
     "psychometricValidationCompleted": false
   }
 }

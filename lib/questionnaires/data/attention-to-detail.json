@@ -1195,7 +1195,7 @@
         },
         "description": {
           "en": "Practise exact record comparisons with original examples, answers and a checking routine. Six-item accuracy is not a general attention or hiring score.",
-          "zh": "复习编号、地址、列表与时间比对，结合算例找到漏看位置。六题正确数不代表整体注意力特质，也不能预测真实工作表现。"
+          "zh": "通过编号、地址、列表和时间的比对，区分字段变化与字符换位。结合批次号示例和逐项检查顺序，理解六题答对数并找到具体遗漏。"
         }
       },
       "scoreReading": {
@@ -1294,7 +1294,7 @@
         },
         "description": {
           "en": "Review AND, OR, exceptions, order and exact file endings. See examples and a checking routine, without a personality type or compliance certificate.",
-          "zh": "复习并且、或者、例外、步骤和文件名结尾。算例帮助区分漏看条件与弄错顺序，不据此派发“遵守流程”人格。"
+          "zh": "复习“并且／或者”、例外、执行顺序和排序优先级，跟随筛选示例把条件拆成清单，再结合六题答对数查找漏读或先后顺序错误。"
         }
       },
       "scoreReading": {
@@ -1491,7 +1491,7 @@
           "zh": "格式与允许集合：细节注意力练习完整复习说明"
         },
         "description": {
-          "en": "Review character formats, symbol positions, space removal, time formats and allowed sets. Literal checks and full answers, without visual or clinical labels.",
+          "en": "Review case, spacing, symbol order and allowed values through a worked example. Use a format checklist and understand the six-item practice count.",
           "zh": "复习字符格式、符号位置、忽略空格、24小时制和允许集合，区分按原件比对与猜规律，并提供可复用的检查顺序。"
         }
       },
@@ -1670,8 +1670,8 @@
     "itemBankVersion": "fm_attention_detail_24_v1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_attention_detail_four_revision_guides_v1",
-    "itemBankSha256": "1236bc4e08d517ae5e147d393bd61a28a1beaa20099496a5f1a405f1329fdbd1",
-    "resultContentSha256": "2ab6913500597276aaa3cd506e36e77c8b00950f36e9890029dfc41c416e74d8",
+    "itemBankSha256": "337296918568523c51bb5c3e698fd8e1934e0571b0d9655beef733514af91055",
+    "resultContentSha256": "1329a567cd019fba5526f36dce6fffd2a49fc886aa3deac8bf43f08e0a485e5e",
     "psychometricValidationCompleted": false
   }
 }

@@ -822,12 +822,12 @@
       },
       "seo": {
         "title": {
-          "en": "Handover practice: records, versions and worked answers",
-          "zh": "交接协作练习：记录、版本与完整题解"
+          "en": "Handover Practice: Records, Versions & Review",
+          "zh": "交接协作练习：记录、版本与复习方法"
         },
         "description": {
           "en": "Review handover fields, common references, decision notes and approved versions with a separate worked example. Four-task counts do not certify job readiness.",
-          "zh": "结合另一个算例复习交接字段、共同参考、决定记录与批准版本。四题答对数不构成上岗认证。"
+          "zh": "通过版本批准示例核对交接字段、共同来源与决定记录，先筛批准状态再比较新旧，并结合四题答对数复习遗漏条件。"
         }
       },
       "scoreReading": {
@@ -921,8 +921,8 @@
       },
       "seo": {
         "title": {
-          "en": "Collaboration settings: practice, examples and answers",
-          "zh": "协作方式练习：场景、算例与答案"
+          "en": "Collaboration Settings: Examples & Review",
+          "zh": "协作方式练习：场景、算例与复习方法"
         },
         "description": {
           "en": "Practise choosing a collaboration setup from explicit attendance and task constraints. Read examples and explanations without a universal remote-work verdict.",
@@ -1024,8 +1024,8 @@
           "zh": "共享协作练习：权限、任务与评阅规则"
         },
         "description": {
-          "en": "Practise permission matching, task changes, filters and reviewer responsibilities with explicit fictional rules and complete worked explanations.",
-          "zh": "依据明确虚构规则练习权限匹配、任务变化、筛选和评阅责任，查看完整题解与复习步骤。"
+          "en": "Practise permission matching, task changes, filters and reviewer responsibilities. Follow a worked filtering example and review the supplied fictional rules.",
+          "zh": "依据题面虚构规则核对权限、任务变化、筛选和评阅责任，通过双条件筛选示例区分能力、状态与责任归属，整理可复用的检查步骤。"
         }
       },
       "scoreReading": {
@@ -1119,12 +1119,12 @@
       },
       "seo": {
         "title": {
-          "en": "Technology and work changes: practice with data and answers",
-          "zh": "技术与工作变化练习：资料推理与题解"
+          "en": "Technology & Work Changes: Data Examples & Review",
+          "zh": "技术与工作变化练习：资料推理与复习方法"
         },
         "description": {
-          "en": "Work through task-time changes, staffing limits, training matches and pilot error rates. Read full answers without a headcount or causal prediction.",
-          "zh": "复习任务时长变化、人数推断边界、培训匹配和试用错误率，查看完整答案，不给人数或因果预测。"
+          "en": "Compare task times, staffing evidence, training needs and pilot error rates. Follow a worked time calculation and review denominators and missing data.",
+          "zh": "复习任务时长、人数证据边界、培训匹配和试用错误率，通过前后时长算例核对新增工作，并区分错误次数、比例与资料尚不支持的结论。"
         }
       },
       "scoreReading": {
@@ -1321,8 +1321,8 @@
     "itemBankVersion": "fm_workplace_tech_tasks_16_v1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_workplace_tech_four_revision_guides_v1",
-    "itemBankSha256": "9dea5deb87f81624fcbaa6eec92c844254c21ffc816180540318aa416cdbdcf7",
-    "resultContentSha256": "6fa9fc4224fb4342065994d647635dea4fb4c3c8d928865a6ca84f96d456783e",
+    "itemBankSha256": "1e89a8decbcf03974923bc526de8c4d4344483f712261b3e9ed803e157938ee7",
+    "resultContentSha256": "102b21da9b0b6a15c53efcdbebc883c262232a74f8ac102ec66bc99ac6e3795a",
     "psychometricValidationCompleted": false
   }
 }

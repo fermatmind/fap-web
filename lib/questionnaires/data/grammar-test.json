@@ -1293,8 +1293,8 @@
           "zh": "一致关系与指代：英语语法复习指南"
         },
         "description": {
-          "en": "Practise agreement and pronoun reference with six explained choices and fresh examples. This is selected grammar review, without speaker ranking.",
-          "zh": "结合六题解析和新例子复习一致与代词指代，练选定结构，不给使用者排名。"
+          "en": "Review agreement and pronoun reference with a fresh sentence example. Identify the subject head, check sentence roles and practise singular–plural revisions.",
+          "zh": "通过卡片堆例句找准主语中心词，区分代词的句法位置与指代对象，再练习单复数改写，结合六题答对情况选择复习重点。"
         }
       },
       "scoreReading": {
@@ -1790,8 +1790,8 @@
     "itemBankVersion": "fm_english_grammar_practice_24_v1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_grammar_four_review_guides_v1",
-    "itemBankSha256": "a1700efe4649326bca180e2f3447332c51cea5b14de12ccf8e2a9bc2eae467d7",
-    "resultContentSha256": "d94dd9513c187df30aeb1bf334a71c729fd099501d4ddc984a907f9f5921f4e9",
+    "itemBankSha256": "6e3d77ab7dfc2b2f9c2d29ba14d44dbd095cad05043298e0d5b3818619fe528f",
+    "resultContentSha256": "4ad883d9a16efe7a19b2c80cebe51001aae8e951f90fddefff890da1d400e47e",
     "psychometricValidationCompleted": false
   }
 }

@@ -1392,8 +1392,8 @@
           "zh": "阅读与文本依据：西班牙语练习指南"
         },
         "description": {
-          "en": "Read six original Spanish passages with full worked answers. Follow conditions and evidence without estimating reading speed or a language level.",
-          "zh": "结合完整题解读六段原创西语，核条件与依据，不估阅读速度或语言等级。"
+          "en": "Review conditions, pronoun reference and missing information in Spanish reading tasks. Follow a worked notice example and link each claim to textual evidence.",
+          "zh": "跟随西语演示通知示例，区分开始时间与缺失时长，复习条件、指代和步骤依赖，用原文依据核对结论并理解六题答对数。"
         }
       },
       "scoreReading": {
@@ -1491,8 +1491,8 @@
           "zh": "书面消息与任务：西班牙语练习指南"
         },
         "description": {
-          "en": "Practise six original Spanish message decisions with full explanations. Preserve facts and conditions without a workplace-readiness or CEFR claim.",
-          "zh": "用完整解析练六个原创西语消息选择，保留事实条件，不给岗位准备或CEFR结论。"
+          "en": "Review how Spanish messages preserve the requested file, dates and conditions. Follow a seating-chart example and check a reply against its brief.",
+          "zh": "通过西语座位表请求示例核对文件、版本、收件人与时间条件，保留未决信息和批准分支，结合六题答对数复习消息是否完成题定任务。"
         }
       },
       "scoreReading": {
@@ -1776,8 +1776,8 @@
     "itemBankVersion": "fm_written_spanish_practice_24_v1",
     "scoringVersion": "practice_equal_correct_counts_v1",
     "resultContentVersion": "fm_spanish_four_review_guides_v1",
-    "itemBankSha256": "a7f45d63a04f04aab517b765b01365221694e3b6e9161ab8c24966b2fc46407a",
-    "resultContentSha256": "edbfc7467a8dfbf973897c303250b8d96eb793f18681c19430ff6fcb86432736",
+    "itemBankSha256": "cc4a512525a53b87530dcd0ef718dcdec4956827673640040180a9395b8a5caf",
+    "resultContentSha256": "9c2a67e1f29b3a527a471905900c0b8be6d50ac10bd66edaa606c53f81d84847",
     "psychometricValidationCompleted": false
   }
 }
