@@ -142,6 +142,18 @@ describe("one birthday calculator, two rules and twelve shared original guides",
       }
     }
   });
+  it("disables date fields and native submission in SSR until client handlers are ready", () => {
+    for (const locale of ["en", "zh"] as const) {
+      const dom = document.createElement("div"); dom.innerHTML = renderToStaticMarkup(<BirthNumberClient quiz={quiz} locale={locale} />);
+      expect(dom.querySelector("fieldset")).toBeDisabled();
+      for (const control of dom.querySelectorAll("input,select,button")) expect(control).toBeDisabled();
+      expect(dom.querySelector("[role=status]")?.textContent).toBe(locale === "zh" ? "正在准备本页计算器，请稍候。" : "Preparing this calculator. Please wait.");
+      expect([...dom.querySelectorAll("input,select")].every(node => !node.hasAttribute("name"))).toBe(true);
+    }
+    render(<BirthNumberClient quiz={quiz} locale="en" />);
+    expect(screen.getByRole("button", { name: "Calculate symbolic number" })).toBeEnabled();
+    expect(screen.getByLabelText("Year (four digits)")).toBeEnabled();
+  });
   it("clears results on field/rule edits, explicit clearing, page restoration and locale changes", () => {
     const { container, rerender } = render(<BirthNumberClient quiz={quiz} locale="en" />);
     enter("2009-11-11"); submit(); expect(container.querySelector('[data-birth-number-value="separate-parts"]')).toHaveTextContent("33");

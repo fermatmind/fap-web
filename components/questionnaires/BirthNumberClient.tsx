@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { BIRTH_NUMBER_METHODS, calculateBirthDateNumber, deviceCalendarDate, isBirthNumberConfigurationValid, joinBirthDateFields, type BirthNumberMethod, type BirthNumberQuestionnaire, type BirthNumberResult } from "@/lib/questionnaires/birthNumber";
 import { BirthNumberReport } from "./BirthNumberReport";
 
 type Complete = Extract<BirthNumberResult, { status: "complete" }>;
 const button = "min-h-12 rounded-lg border border-slate-300 px-4 py-3 font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-700 disabled:opacity-50";
+const subscribeReady = () => () => {};
 
 export function BirthNumberClient({ quiz, locale }: { quiz: unknown; locale: Locale }) {
   if (!isBirthNumberConfigurationValid(quiz)) return <p role="status">{locale === "zh" ? "计算器内容暂不可用。" : "The calculator content is unavailable."}</p>;
@@ -14,6 +15,7 @@ export function BirthNumberClient({ quiz, locale }: { quiz: unknown; locale: Loc
 }
 
 function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnaire; locale: Locale }) {
+  const ready = useSyncExternalStore(subscribeReady, () => true, () => false);
   const zh = locale === "zh", [year, setYear] = useState(""), [month, setMonth] = useState(""), [day, setDay] = useState("");
   const [method, setMethod] = useState<BirthNumberMethod>("separate-parts"), [message, setMessage] = useState("");
   const [finished, setFinished] = useState<{ date: string; results: Complete[] } | null>(null), [manual, setManual] = useState("");
@@ -66,10 +68,11 @@ function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnai
       setManual(text); setMessage(zh ? "无法自动复制，可从下方手动复制。" : "Automatic copying is unavailable. Copy the text below manually.");
     }
   }
-  return <section id="take-test" data-birth-number-client className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="birth-number-input-title">
+  return <section id="take-test" data-birth-number-client aria-busy={!ready} className="my-8 scroll-mt-24 rounded-xl border border-violet-200 bg-white p-5 sm:p-7" aria-labelledby="birth-number-input-title">
     <h2 id="birth-number-input-title" className="text-2xl font-semibold">{zh ? "选择规则，输入公历日期" : "Choose a rule and enter a Gregorian date"}</h2>
     <p id="birth-number-input-note" className="my-4 text-sm leading-7 text-slate-600">{zh ? "范围为1900年1月1日至当前设备显示的今天。无需姓名、性别、出生时间或地点。输入只在本页内存中，清除、离开、刷新或换语会移除。" : "Use January 1, 1900 through today on this device. No name, gender, birth time or place is needed. Input stays in this page’s memory; clearing, leaving, reloading or changing language removes it."}</p>
     <form onSubmit={calculate} aria-describedby="birth-number-input-note" noValidate>
+      <fieldset disabled={!ready} aria-labelledby="birth-number-input-title" className="min-w-0 p-0">
       <div className="mb-5"><label htmlFor="birth-number-rule" className="mb-2 block font-semibold">{zh ? "计算规则" : "Calculation rule"}</label><select id="birth-number-rule" value={method} className="min-h-12 w-full rounded-lg border border-slate-300 bg-white p-3" onChange={event => {
         invalidate(); if (BIRTH_NUMBER_METHODS.includes(event.target.value as BirthNumberMethod)) setMethod(event.target.value as BirthNumberMethod);
       }}>{quiz.birthNumber.methods.map(item => <option key={item.id} value={item.id}>{item.label[locale]}</option>)}</select><p className="mt-2 text-sm leading-7 text-slate-600">{quiz.birthNumber.methods.find(item => item.id === method)!.description[locale]}</p></div>
@@ -79,8 +82,9 @@ function ValidBirthNumberClient({ quiz, locale }: { quiz: BirthNumberQuestionnai
         { id: "day", label: zh ? "日" : "Day", value: day, set: setDay, length: 2, placeholder: "DD" },
       ].map(field => <div key={field.id}><label htmlFor={`birth-number-${field.id}`} className="mb-2 block min-h-12 font-semibold sm:min-h-6">{field.label}</label><input id={`birth-number-${field.id}`} type="text" inputMode="numeric" autoComplete="off" maxLength={field.length} placeholder={field.placeholder} value={field.value} className="min-h-12 w-full min-w-0 rounded-lg border border-slate-300 p-3" onChange={event => { invalidate(); field.set(event.target.value); }} /></div>)}</div>
       <div className="my-5 flex flex-wrap gap-3"><button type="submit" className={button}>{zh ? "计算符号数字" : "Calculate symbolic number"}</button><button type="button" className={button} onClick={clear}>{zh ? "清除输入与结果" : "Clear input and result"}</button></div>
+      </fieldset>
     </form>
-    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{message}</p>
+    <p role="status" aria-live="polite" className="my-4 text-sm leading-7">{ready ? message : (zh ? "正在准备本页计算器，请稍候。" : "Preparing this calculator. Please wait.")}</p>
     {finished && <section aria-labelledby="birth-number-result-title">
       <h2 id="birth-number-result-title" ref={resultHeading} tabIndex={-1} className="scroll-mt-24 text-2xl font-semibold">{quiz.resultHeading![locale]}</h2>
       <div className="my-4 flex flex-wrap gap-3">{finished.results.length === 1 && <button type="button" className={button} onClick={compare}>{zh ? "比较另一种规则" : "Compare the other rule"}</button>}<button type="button" className={button} onClick={copy}>{zh ? "复制标签与方法" : "Copy label and method"}</button></div>

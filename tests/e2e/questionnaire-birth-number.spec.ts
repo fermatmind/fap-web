@@ -104,6 +104,34 @@ test("@release birthday rules: actual mobile language switch resets DOB and trac
   await expect(page.locator("#birth-number-year")).toHaveValue(""); await expect(page.locator("[data-birth-number-result]")).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title.zh);
 });
+test("@release birthday rules: delayed JavaScript keeps native input and submit disabled, then recovers", async ({ page }) => {
+  const navigation: string[] = [];
+  page.on("request", request => { if (request.isNavigationRequest() && request.frame() === page.mainFrame()) navigation.push(request.url()); });
+  for (const locale of ["en", "zh"] as const) {
+    let unlock!: () => void;
+    const gate = new Promise<void>(resolve => { unlock = resolve; });
+    await page.route(/\/_next\/static\/.*\.js(?:\?|$)/, async route => { await gate; await route.continue(); });
+    try {
+      await page.goto(entry(locale), { waitUntil: "commit" });
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
+      for (const field of ["year", "month", "day"]) await expect(page.locator(`#birth-number-${field}`)).toBeDisabled();
+      await expect(page.locator("#birth-number-rule")).toBeDisabled();
+      await expect(page.getByRole("button", { name: calculateLabel(locale), exact: true })).toBeDisabled();
+      await expect(page.locator("[data-birth-number-client] [role=status]")).toContainText(locale === "zh" ? "正在准备" : "Preparing");
+      // Native DOM activation must respect the disabled fieldset even without React.
+      await page.locator("[data-birth-number-client] button[type=submit]").evaluate(node => (node as HTMLButtonElement).click());
+    } finally { unlock(); await page.unrouteAll({ behavior: "wait" }); }
+    await expect(page.getByRole("button", { name: calculateLabel(locale), exact: true })).toBeEnabled();
+    const decline = page.getByRole("button", { name: locale === "zh" ? "拒绝" : "Decline", exact: true });
+    if (await decline.isVisible()) await decline.click();
+    const beforeCalculation = navigation.length;
+    await calculate(page, locale, "2009-11-11");
+    await expect(page.locator('[data-birth-number-value="separate-parts"]')).toHaveText("33");
+    expect(navigation).toHaveLength(beforeCalculation);
+    expect(new URL(page.url()).search + new URL(page.url()).hash).toBe("");
+  }
+  expect(navigation).toHaveLength(2);
+});
 test("@release birthday rules: all 26 native pages, public PNGs, alternates and closed guide IDs", async ({ page, request }) => {
   test.setTimeout(180000);
   for (const locale of ["en", "zh"] as const) for (const profile of [null, ...quiz.profiles]) {
