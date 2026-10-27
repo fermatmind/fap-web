@@ -1,0 +1,830 @@
+[
+  {
+    "id": "interest-reading",
+    "directionIds": [
+      "INT"
+    ],
+    "title": {
+      "en": "Capacity to Love: Interest in a Partner's Life",
+      "zh": "爱的能力：关注伴侣人生计划的读法"
+    },
+    "headline": {
+      "en": "Read seven source statements in the relationship you chose",
+      "zh": "结合所选关系阅读七条源陈述"
+    },
+    "summary": {
+      "en": "Read CTL-I 2018 items 1–7, including the reversed boredom statement, an exact calculation, a voluntary conversation and the limits of a new working translation.",
+      "zh": "完整理解CTL-I 2018第1—7题，含无聊感反向题、准确计算、自选对话及新工作译本边界。"
+    },
+    "scoreReading": {
+      "en": "Items 1–6 retain the selected 1–4 values; item 7 uses 5 minus the selected value. The seven-item keyed sum is 7–28 and its mean is 1–4.",
+      "zh": "第1—6题保留所选1—4，第7题用5减所选值。七题计分和7—28，均值1—4。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Interest in a Partner's Life",
+        "zh": "爱的能力：关注伴侣人生计划的读法"
+      },
+      "description": {
+        "en": "Full CTL-I 2018 working-edition guide to interest in a partner’s life project: seven-item keying, examples, context and consent, without an overall love rating.",
+        "zh": "CTL-I 2018工作版关注伴侣人生计划全文：七题键向、例子、背景与同意，不评爱的总等级。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "The source domain and its seven items",
+          "zh": "源领域及七条题意"
+        },
+        "paragraphs": [
+          {
+            "en": "Kapusta and colleagues’ 2018 CTL-Inventory places these seven items under interest in the other person’s life project. They ask about knowing and sharing plans, sharing success, feeling enriched by a partner’s growth, sadness when the partner is unhappy, empathy and boredom. These topics are not identical requirements. A summary records your endorsements of these particular statements; it does not observe how much information you actually know or establish whether your partner felt understood.",
+            "zh": "Kapusta等2018年CTL题本将七题列在关注对方人生计划领域，询问了解与分享计划、分享成功、从伴侣成长中充实、对其不快的难过、体会感受及无聊感。话题并非相同要求，概括只记录这些陈述的符合程度，不观察实际了解多少，也不确认伴侣是否被理解。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Follow the reversed item in one exact example",
+          "zh": "准确算例中跟踪反向题"
+        },
+        "paragraphs": [
+          {
+            "en": "For raw choices 4, 3, 2, 4, 3, 2 and 1, items 1–6 remain 4, 3, 2, 4, 3 and 2. Item 7 is reversed to 5−1 = 4. The keyed sum is 22 and the mean is 22/7, displayed as 3.14. Calculation retains the unrounded mean. Reversing an item is a mathematical key, not a judgement that experiencing boredom is wrong. No sum or mean here becomes an overall capacity-to-love score.",
+            "zh": "原选择4、3、2、4、3、2、1时，前六项保持4、3、2、4、3、2，第7项反向为5−1=4，计分和22，22/7显示3.14，计算保留未舍入均值。反向是数学键，不是在判感到无聊错误；本和或均值不合成爱的能力总分。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Invite a story without requesting private plans",
+          "zh": "邀请分享，不索取隐私计划"
+        },
+        "paragraphs": [
+          {
+            "en": "In an ordinary conversation, you might say: “You mentioned a project you care about. Would you like to tell me what matters to you about it?” The invitation leaves room for a short answer or no answer. A counterexample is demanding a partner’s full future plan because a test supposedly requires access. Interest is not permission to inspect messages, set priorities for another person or insist that every success be shared. The other person keeps control of what they disclose.",
+            "zh": "普通交谈中可问：“你提到一个在意的计划，愿意说说什么让它重要吗？”邀请容许简答或不答。反例是声称测试要求了解，进而索取伴侣完整未来安排。关注不授权查看消息、替人定优先级或要求分享每次成功，披露仍由对方决定。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Higher and lower endorsement without a love grade",
+          "zh": "较多较少符合，不划爱的等级"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger keyed mean means greater endorsement of the positively keyed statements and less endorsement of the reversed boredom item in this attempt. A smaller value describes the opposite pattern. Neither identifies a good or bad partner, a stable amount of empathy or a population percentile. Different combinations can have the same sum. Boredom may concern a situation rather than a person, and feeling another person’s sadness is not an obligation to share every mood or abandon emotional boundaries.",
+            "zh": "较大计分均值表示本次更符合正向陈述、更少符合反向无聊感题，较小值则相反；两者不判好坏伴侣、稳定共情数量或人口百分位。不同组合可同和，无聊可能有关场景而非人的价值；感到对方难过也不要求共享每种情绪或放弃情绪边界。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Keep opportunity and the chosen relationship in view",
+          "zh": "保留机会与所选关系背景"
+        },
+        "paragraphs": [
+          {
+            "en": "Work schedules, disability, stress, separation, access to shared time and how recently a relationship ended can affect what is available to recall. The form does not isolate those influences. The source asks people to consider a current or last important relationship; that instruction does not make different relationships directly comparable. These seven items also overlap conceptually with interest and empathy discussed elsewhere on the site. Their presence does not establish a new independent trait or permit conversion to another questionnaire.",
+            "zh": "工作时间、残障、压力、分开、共同时间及关系结束多久都会影响回忆，本表无法分离。源研究要求以当前或上段重要关系为参照，并不使不同关系可直接比较。七题与站内关注、共情等概念有重叠，不因此确立新独立特质，也不支持换算其他题本。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "You can stop without filling a gap",
+          "zh": "可以停止，不必填补空白"
+        },
+        "paragraphs": [
+          {
+            "en": "This working projection has the source’s four numeric choices and no NA. It requires all forty-one valid selections before any personal domain result, not merely these seven answers. If a statement is irrelevant, unfamiliar, hard to judge or something you do not want to answer, you may stop and read all six full public guides instead. Do not choose a low value to stand for missing experience. Stopping does not generate a substitute result or a conclusion about your capacity.",
+            "zh": "本工作版保留源四数值选择，无NA；需四十一项有效后才提供任何个人领域结果，不是只答本七题。无关、没经历、难判断或不愿答时可停止，改读全部六份公开全文；不要以低值代替缺经历，停止不产生替代结果或能力结论。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "A licensed 2018 item source and new website reading",
+          "zh": "2018许可题文与网页新读法"
+        },
+        "paragraphs": [
+          {
+            "en": "The English items reproduce Table 1 of Kapusta et al. (2018), Measuring the Capacity to Love: Development of the CTL-Inventory, under CC BY 4.0 with attribution. Chinese is a new FermatMind working translation; the web instructions and explanations are adaptations. The 2018 German and Polish research does not establish validity of this English display, the new Chinese or online interpretation. Current author-site wording differs and is not substituted here. No local norms, language equivalence or meaningful-change threshold is claimed.",
+            "zh": "英文按Kapusta等（2018）《Measuring the Capacity to Love: Development of the CTL-Inventory》表一，在署名的CC BY 4.0条件下复用。中文为费马新工作译文，网页说明和解读是改编。2018德语、波兰语研究不确立本英文显示、新中译或线上解读效度；当前作者站题文不同，未替换使用。不声称本地常模、语言等价或有意义变化阈值。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep one voluntary question, or finish here",
+          "zh": "保留一个自选问题，或结束"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately note one aspect of your partner’s life you would like to understand and whether asking about it would be welcome. You can choose not to ask and the other person can decline. No result requires more disclosure, contact, affection or continuation of a relationship. A public guide link contains general information rather than your answers or mean. You may compare the other readings as topics, without ranking six domains or turning the largest number into your main love capacity.",
+            "zh": "若有用，可私下记一项想理解的伴侣生活内容，以及询问是否会受欢迎。自己可不问，对方可拒绝；结果不要求披露、联系、亲密或继续关系。公开链接仅含通用信息，没有答案或均值。可比较其他阅读话题，不排名六域或把最大值当主要爱的能力。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "trust-reading",
+    "directionIds": [
+      "BTR"
+    ],
+    "title": {
+      "en": "Capacity to Love: Basic Trust and Privacy",
+      "zh": "爱的能力：基本信任与隐私"
+    },
+    "headline": {
+      "en": "Trust does not require unlimited access",
+      "zh": "信任不要求无限制的知情权"
+    },
+    "summary": {
+      "en": "Read nine CTL-I 2018 trust statements, two reverse keys, a complete example and why disclosure and safety cannot be decided by a mean.",
+      "zh": "完整阅读CTL-I 2018九条信任陈述、两项反向、算例及均值不能裁定披露和安全的原因。"
+    },
+    "scoreReading": {
+      "en": "Items 13 and 15 are reversed with 5−x; the other seven retain their raw values. The nine-item keyed sum is 9–36 and its mean is 1–4.",
+      "zh": "第13、15题用5−x反向，其余七题保持原值，九题计分和9—36、均值1—4。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Basic Trust and Privacy",
+        "zh": "爱的能力：基本信任与隐私"
+      },
+      "description": {
+        "en": "Full working-edition guide to CTL-I basic trust: items 8–16, reverse scoring, privacy, uncertain information and a voluntary next step.",
+        "zh": "CTL-I基本信任工作版全文：第8—16题、反向计分、隐私、不确定信息及自选下一步。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Read all nine source statements",
+          "zh": "完整阅读九条源陈述"
+        },
+        "paragraphs": [
+          {
+            "en": "The 2018 basic-trust domain covers expected empathy and emotional support, openness about weaknesses, feelings and needs, honesty, secrets, a sense that relationships are limited, and comfort and safety with a partner. Some statements concern your actions and others your perceptions of the relationship. The group cannot verify either account or tell us whether trust is warranted. Its source label does not make a personal mean a test of honesty, attachment or the objective safety of another person.",
+            "zh": "2018基本信任领域涉及期待共情支持、敞开弱点感受需要、诚实、秘密、关系局限感及相处自在安全。有的题问自己行动，有的问关系感受；题组不能核实叙述或确定是否应信任。源标签不使个人均值变成诚实、依恋或他人客观安全测试。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Locate the two reverse keys",
+          "zh": "找到两项反向键"
+        },
+        "paragraphs": [
+          {
+            "en": "For items 8–16, take raw choices 3, 4, 3, 2, 4, 1, 3, 2 and 4. Item 13 is the sixth choice here and becomes 5−1 = 4; item 15 is the eighth and becomes 5−2 = 3. The keyed values sum to 30, with 30/9 displayed as 3.33. The underlying mean stays unrounded. Item 15 retains the original short statement about relationships being limited; the page does not replace it with wording from a later author-site edition.",
+            "zh": "第8—16题原选3、4、3、2、4、1、3、2、4时，第13题在本组第六位，变5−1=4；第15题在第八位，变5−2=3。计分和30，30/9显示3.33，底层均值不先舍入。第15题保留2018简短的关系局限陈述，不替换为后来的作者站版本。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Ask about support without demanding disclosure",
+          "zh": "询问支持，不要求披露"
+        },
+        "paragraphs": [
+          {
+            "en": "In a safe ordinary situation, you might say: “I have a concern, but I do not want to share every detail. Would you be willing to listen to the part I choose to explain?” That makes support a request and privacy explicit. A counterexample is demanding passwords or a full account of private conversations because a reversed secrets item allegedly proves that privacy is dishonest. The questionnaire supports no such demand. Someone may trust a partner while keeping personal information to themselves.",
+            "zh": "安全普通场景中可说：“我有件担心的事，但不想说每个细节；你愿意听我选择说明的部分吗？”它将支持保留为请求，并说清隐私。反例是借秘密反向题要求密码或完整私人交谈，声称隐私不诚实。问卷不支持这种要求；信任伴侣也可保留个人信息。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "A keyed number is not permission to inspect",
+          "zh": "计分数字不授权检查"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger keyed mean corresponds to more endorsement of the forward statements and less endorsement of keeping secrets or feeling relationships limited. It does not show how much a person ought to disclose. A lower value is not proof of deceit, poor character or an inability to love. The secrecy item can be understood differently across contexts, including safety and privacy. Reverse scoring preserves the source key; it does not resolve those interpretive differences or override anyone’s right to say no.",
+            "zh": "较大计分均值对应更多符合正向、较少符合秘密或局限感，不规定应披露多少；较小值不证明欺骗、品格差或不会爱。秘密题会随安全、隐私等背景被不同理解。反向仅保留源键，不解决理解差异，也不取消拒绝权。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Your feeling of safety is not a safety assessment",
+          "zh": "安全感不是安全鉴定"
+        },
+        "paragraphs": [
+          {
+            "en": "A self-report about comfort and safety cannot establish that a relationship is safe. Past experience, fear, dependence, practical constraints and the current interaction can affect an answer, and the form does not separate them. You do not need to disclose a concern to someone you fear or try to increase a trust mean. A change between attempts may concern a different period or understanding. No threshold here identifies a disorder, a relationship risk level or the reason another person behaves as they do.",
+            "zh": "关于自在安全的自报不能确立关系安全。过去经历、恐惧、依赖、现实限制和当前互动可影响回答，本表无法分开。无需向害怕的人披露担心或设法提高信任均值。重测变化可来自时段或理解不同，本版阈值不识别障碍、风险级别或他人行为原因。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "Unanswered is not a confession",
+          "zh": "没回答不是承认问题"
+        },
+        "paragraphs": [
+          {
+            "en": "The source form has four numeric choices and no NA, so the web requires all forty-one recognised choices for personal results. It does not average only the answered trust items or replace an answer with zero. If you do not wish to consider a statement, stop and use the six public guides without a score. You do not have to invent a middle answer or reveal anything to complete the reading. No unfinished attempt indicates secrecy, resistance or an unwillingness to face a problem.",
+            "zh": "源表四数值且无NA，网页需四十一项有效才出个人结果，不只平均已答信任题或补零。不想考虑一条时可停止，无分阅读六份全文，不必编中间答案或披露。未完成不表示保密有问题、抗拒或不敢面对。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Keep the edition and its translation limits visible",
+          "zh": "明确版本与翻译边界"
+        },
+        "paragraphs": [
+          {
+            "en": "English follows the forty-one items in Kapusta et al. (2018), Table 1, licensed CC BY 4.0; Chinese is a new FermatMind working translation with changes identified. The original study used German and Polish samples and does not validate this English display or new Chinese. The 2018 text states a four-point scale; current author-site endpoints provide a separate wording reference, not proof of a complete original English protocol. Choices 2 and 3 remain numbers, without invented intermediate official labels.",
+            "zh": "英文采用Kapusta等（2018）表一四十一题及CC BY 4.0署名许可，中文为费马新工作译文并说明改编。原德语和波兰语样本不验证本英文显示或新中译。2018仅写四点；当前作者站端点是独立措辞参考，不证明原英文完整协议。2、3保留数字，不编造官方中间锚点。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose the boundary as well as the question",
+          "zh": "问题与边界都可自选"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately separate what support you want, what you are willing to share and what you want to keep private. You can leave the note unsent. A conversation requires voluntary participation, and no partner owes access to personal records because of a result. If disclosure or contact feels unsafe, you can stop here. Do not use this domain to screen partners, certify trustworthiness or make a decision about staying; the test provides no authority over those choices.",
+            "zh": "若有用，可私下分开想要的支持、愿意分享和保留隐私，记录无须发送。交谈需自愿，伴侣不因结果而欠个人记录。不安全可停止，不用本域筛伴侣、认证可信或决定去留；测试没有支配这些选择的权威。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gratitude-reading",
+    "directionIds": [
+      "GRT"
+    ],
+    "title": {
+      "en": "Capacity to Love: Gratitude and Voluntary Care",
+      "zh": "爱的能力：感激与自愿照顾"
+    },
+    "headline": {
+      "en": "Appreciation does not create a debt",
+      "zh": "感激不形成亏欠"
+    },
+    "summary": {
+      "en": "Read seven CTL-I 2018 gratitude statements, a transparent sum and mean, a care example and boundaries around reciprocity and obligation.",
+      "zh": "完整阅读CTL-I 2018七条感激陈述、透明和均值、照顾例子及互惠义务边界。"
+    },
+    "scoreReading": {
+      "en": "All seven source items retain the selected 1–4 values. The keyed sum is 7–28; divide by seven for the separate mean, without a reciprocity or worth score.",
+      "zh": "七条源题均保留所选1—4，和7—28，除以七得独立均值，不合互惠或个人价值分。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Gratitude and Voluntary Care",
+        "zh": "爱的能力：感激与自愿照顾"
+      },
+      "description": {
+        "en": "Full CTL-I working-edition gratitude guide: items 17–23, an exact example, practical context and the difference between appreciation and owed care.",
+        "zh": "CTL-I工作版感激全文：第17—23题、准确算例、现实背景及感激与亏欠照顾的区别。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Gratitude includes several different reports",
+          "zh": "感激领域含几种不同自报"
+        },
+        "paragraphs": [
+          {
+            "en": "Items 17–23 concern gratitude for a partner’s existence and received love, a sense of connection while apart, accepting a need for the partner, offering comfort, caring when help is needed and sharing daily responsibilities. These statements combine feelings and reported inclinations. A mean does not observe actual care or tell us whether it was requested, possible or welcome. Needing someone and feeling appreciation can have different meanings in different relationships; neither is established by a group name alone.",
+            "zh": "第17—23题涉及为伴侣存在及收到爱而感激、分开仍连接、接受需要伴侣、安慰、需要时照顾与分担日常责任，包含感受和倾向。均值不观察实际照顾，也不知道是否被请求、可行或受欢迎；需要与感激在不同关系中含义不同，不能只靠组名确立。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A complete seven-item calculation",
+          "zh": "完整七题计算"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose the raw choices are 4, 4, 3, 2, 3, 4 and 3. All are forward-keyed, so they sum to 23 and the mean is 23/7, displayed as 3.29. The calculation does not round each contribution or add the mean to another domain. An equally sized sum can arise from different answers about gratitude and practical responsibilities. The number therefore cannot reveal how the work in a household is distributed or whether either person regards the arrangement as fair.",
+            "zh": "如4、4、3、2、3、4、3全正向，合计23，23/7显示3.29，不逐项舍入，也不加到另一域。同和可由感激和实际分担题的不同回答产生，因此数字不揭示家务如何分配或任何一方是否认为公平。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Offer help with room for a different preference",
+          "zh": "提供帮助，容许不同偏好"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a busy evening when your partner seems tired. You might ask: “Would taking care of dinner help, or would you prefer something else?” That offers a specific action and leaves the response open. A counterexample is doing an unwanted task and then demanding gratitude or affection in return. The source’s care statements do not make help welcome, create consent or determine what a person owes. A clear refusal can be respected even when the offer was well intended.",
+            "zh": "设想忙碌晚上伴侣似乎疲惫，可问：“我来准备晚饭有帮助吗，还是你更希望别的？”它提供具体行动并保留选择。反例是做对方不想要的事，再索取感激或亲密。源照顾陈述不使帮助自动受欢迎、不产生同意或确定亏欠，好意提议也应容许拒绝。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Read endorsement without a moral category",
+          "zh": "符合程度不划道德档"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean describes more endorsement of these seven gratitude and care-related statements in this attempt; a smaller one describes less. Neither establishes generosity, selfishness, dependence or a fixed amount of love. Feeling grateful does not require accepting a demand, forgiving harm or repaying care with intimacy. A person may appreciate a relationship while deciding to leave. The inventory does not observe another person’s wishes, verify reciprocity or decide whose account of daily responsibilities is correct.",
+            "zh": "较大均值只描述本次更符合七条感激照顾相关陈述，较小则较少；不确立慷慨、自私、依赖或固定爱量。感激不要求接受请求、原谅伤害或以亲密偿还照顾，也可感激关系同时决定离开。量表不观察对方意愿、核实互惠或裁定分担叙述。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Care depends on resources and choice",
+          "zh": "照顾依赖资源与选择"
+        },
+        "paragraphs": [
+          {
+            "en": "Illness, disability, work hours, finances, caregiving demands and access to help can affect what daily tasks someone can offer. The form cannot separate willingness from those constraints. A person may also need support without describing it as dependence, or show appreciation in ways not represented in seven statements. These possibilities are context for a reading, not explanations the score can verify. Avoid comparing this mean with a partner’s mean or with an unprovided population norm.",
+            "zh": "疾病、残障、工时、财务、照护负担和帮助可及性会影响能做哪些日常任务，本表无法分离意愿与限制。有需要也未必称依赖，感激也可用七题之外方式表达。这些只是阅读背景，不是分数核实的解释；不与伴侣均值或未提供人口常模比较。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "You may read without a gratitude score",
+          "zh": "可以不取得感激分就阅读"
+        },
+        "paragraphs": [
+          {
+            "en": "The forty-one-item form has no unscored option and requires every recognised choice before personal domain results. A missing item stops all personal scoring, rather than estimating gratitude from a subset. If a prompt does not fit your experience or you do not want to answer, you may exit and read every full guide. Reading without a score is always available. An unfinished attempt does not suggest ungratefulness, unwillingness to care or an inability to maintain a relationship.",
+            "zh": "四十一题源表无不计分，需全部有效才出个人领域结果；缺一题暂停所有个人计分，不从子集估计感激。题不适合或不愿答可退出读全文，保留无结果比强迫代答合适。未完成不暗示不感恩、不愿照顾或无法维持关系。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Source attribution is separate from validation",
+          "zh": "来源署名与验证分开"
+        },
+        "paragraphs": [
+          {
+            "en": "The English statements reproduce Kapusta et al. (2018), Table 1, in Measuring the Capacity to Love: Development of the CTL-Inventory, under CC BY 4.0. The new Chinese translation and website explanations are identified adaptations, without endorsement by the original authors. The original German and Polish research does not establish validity of these displays, local norms or language equivalence. Six separate sums and means are transparent calculations; the website does not reconstruct an unverified official overall formula or assign a love-capacity level.",
+            "zh": "英文按Kapusta等（2018）《Measuring the Capacity to Love: Development of the CTL-Inventory》表一及CC BY 4.0复用，新中译与网页解读明确为改编，无原作者背书。原德语、波兰语研究不确立本显示效度、本地常模或语言等价。六独立和均值是透明计算，不重建未核官方总公式，也不派爱的能力等级。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose one welcome action, or none",
+          "zh": "选择一个受欢迎动作，或不行动"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately note something you appreciated and one action within your time and resources. You may ask whether the action would be welcome, without requiring gratitude or a particular response. You can also keep the observation to yourself or finish here. No score asks you to overextend, surrender a boundary, provide unwanted care or remain in an unsafe relationship. Public sharing contains only a general title and link, never your choices, raw sum or mean.",
+            "zh": "若有用，可私下记一件感激的事及时间资源范围内的行动，自愿询问是否受欢迎，不索取感激或特定反应；也可只留记录或结束。分数不要求透支、放弃边界、提供不想要的照顾或留在不安全关系。公开分享只有通用标题链接，没有答案、和或均值。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shared-ideal-reading",
+    "directionIds": [
+      "CEI"
+    ],
+    "title": {
+      "en": "Capacity to Love: Reading the Common Ego Ideal",
+      "zh": "爱的能力：共同自我理想的读法"
+    },
+    "headline": {
+      "en": "Shared intentions still leave room for separate choices",
+      "zh": "共同意向仍保留各自选择"
+    },
+    "summary": {
+      "en": "Read CTL-I 2018 items 24–31 about dedication, values, connection and compromise, with an exact example and clear limits on relationship conclusions.",
+      "zh": "完整阅读CTL-I 2018第24—31题的投入、价值观、连接与折中，含准确算例和关系结论边界。"
+    },
+    "scoreReading": {
+      "en": "Eight source items retain the selected 1–4 values. Their separate sum is 8–32 and mean is 1–4; neither verifies a shared agreement or partner match.",
+      "zh": "八条源题保留所选1—4，独立和8—32、均值1—4；两者均不核实共同约定或伴侣匹配。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Reading the Common Ego Ideal",
+        "zh": "爱的能力：共同自我理想的读法"
+      },
+      "description": {
+        "en": "Full working-edition guide to the CTL-I common ego ideal: eight source statements, sum and mean, a dialogue example and boundaries around shared commitment.",
+        "zh": "CTL-I共同自我理想工作版全文：八条源陈述、和均值、对话及共同承诺的边界。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "The source term and its concrete statements",
+          "zh": "源术语与具体陈述"
+        },
+        "paragraphs": [
+          {
+            "en": "The source calls this eight-item domain common ego ideal. Its statements concern dedication, working on the relationship, respect for a partner’s personality and essential values, watching gestures and reactions, commitment to a joint life, compromise, expressing love and feeling deeply connected. The name is a theoretical organising term, not proof that two people share identical ideals. Even statements phrased as “we” remain one person’s self-report here. The form does not ask the partner or verify a joint agreement.",
+            "zh": "源文将八题称共同自我理想，陈述涉及投入、经营关系、尊重伴侣个性与核心价值、观察手势反应、承诺共同生活、折中、表达爱及深连接。名称是理论组织术语，不证明双方理想相同；“我们”措辞也仍是一个人的自报，未询问伴侣或核实共识。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "An eight-item sum with transparent rounding",
+          "zh": "透明舍入的八题和"
+        },
+        "paragraphs": [
+          {
+            "en": "For choices 4, 3, 2, 4, 3, 2, 4 and 3, all eight values remain unchanged because there are no reverse items in this domain. The sum is 25 and the mean is 25/8 = 3.125, displayed as 3.13. This is a formatting decision rather than a change threshold. Another response pattern can produce the same sum while differing about compromise or connection. The mean is not added to the other five means or converted to a relationship compatibility percentage.",
+            "zh": "例如4、3、2、4、3、2、4、3全保持原值，本域无反向题，和25，25/8=3.125显示3.13。显示是格式安排，不是变化阈值；另一组合也可同和，却在折中或连接题不同。不加到其他五均值，也不转关系匹配百分比。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check a shared intention without assuming it",
+          "zh": "核对共同意向，不预设一致"
+        },
+        "paragraphs": [
+          {
+            "en": "For an ordinary future plan, you might ask: “I would like us to leave time for this project. Is that something you also want, and what would each of us be agreeing to?” This distinguishes a wish from an agreement. A counterexample is treating your dedication mean as proof that your partner has made the same commitment. A partner may want a different plan or decline the discussion. The result does not authorise monitoring their reactions or requiring declarations of love.",
+            "zh": "普通未来计划中可问：“我想为这个项目留时间，你也想吗？各自具体同意什么？”它区分愿望与约定。反例是将自己的投入均值当伴侣已同样承诺的证明。对方可希望不同计划或拒绝讨论，结果不授权监视反应或要求爱的表态。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Shared does not mean identical or compulsory",
+          "zh": "共同不等于相同或强制"
+        },
+        "paragraphs": [
+          {
+            "en": "A larger mean describes more endorsement of these statements in the selected relationship; a smaller one describes less. Neither determines whose values are correct, how much effort is enough or whether a person ought to stay. Respect can coexist with disagreement, and compromise need not apply to safety, consent or a personal boundary. The source’s positive key does not turn every shared plan into a good plan. Distinct preferences do not by themselves show a failure to love or an unhealthy relationship.",
+            "zh": "较大均值描述所选关系中更符合这些陈述，较小则较少；不判价值观谁对、努力多少足够或是否该留下。尊重可与分歧并存，安全、同意与个人边界不必折中。源正向键不使每个共同计划变好，不同偏好本身也不证明不会爱或关系不健康。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Plans and opportunities can differ",
+          "zh": "计划与机会可以不同"
+        },
+        "paragraphs": [
+          {
+            "en": "Distance, finances, work, caregiving, culture and the stage of a relationship can affect opportunities for a joint life or explicit statements of love. The questionnaire does not calibrate these contexts or establish that everyone should use the same form of expression. This domain overlaps conceptually with commitment and closeness discussed in other frameworks. It is not a score conversion to the separate triangle reflection, the relationship-commitment form or work-arrangement preferences. Similar words do not make the underlying item sets interchangeable.",
+            "zh": "距离、财务、工作、照护、文化及关系阶段会影响共同生活和明确表达爱的机会，本表未校准背景，也不要求统一表达。本域与其他框架的承诺、亲近有概念重叠，但不是三角反思、单独承诺表或工作安排偏好的换算分；相似词不使题本可互换。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "No guessed agreement or replacement answer",
+          "zh": "不猜共识，也不代填"
+        },
+        "paragraphs": [
+          {
+            "en": "All forty-one valid responses are required before personal scoring. There is no source NA and the web does not average a partially completed domain. If a statement is irrelevant or you prefer not to answer, you can stop and read every complete public guide. You need not ask a partner to create an answer or choose a low value because you have no joint-life experience. An unfinished attempt says nothing about your commitment, courage or ability to make a relationship work.",
+            "zh": "四十一项有效前不作个人计分，源无NA，网页不平均部分完成域。题不相关或不愿答可停止读全部全文，无需请伴侣制造答案，也不以低值代替没有共同生活经历。未完成不说明承诺、勇气或经营能力。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Preserved items, new working presentation",
+          "zh": "保留题文，新工作呈现"
+        },
+        "paragraphs": [
+          {
+            "en": "English follows Table 1 of Kapusta et al. (2018), Measuring the Capacity to Love: Development of the CTL-Inventory, reused with attribution under CC BY 4.0. Chinese is a new FermatMind working translation, and the website’s readings and response presentation are adaptations. The German and Polish study does not establish validity of this English display, Chinese translation or online use. No local norms, cross-language equivalence, domain ranking or relationship-outcome prediction is claimed. The page supplies no overall love-capacity grade.",
+            "zh": "英文按Kapusta等（2018）《Measuring the Capacity to Love: Development of the CTL-Inventory》表一，在CC BY 4.0署名条件下复用。中文为费马新工作译，网页解读和选项呈现为改编。德语、波兰语研究不确立本英文显示、中译或线上使用效度；不声称本地常模、语言等价、域排名或关系预测，不提供爱的能力总等级。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Separate your wish from a joint decision",
+          "zh": "分开自己的愿望与共同决定"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately write one current wish, one existing agreement and one question that remains open. You may leave the uncertainty unresolved. A conversation is optional and a joint decision requires each person’s voluntary participation. No result obliges compromise, disclosure, intimacy, reconciliation or continuation. Safety and refusal do not need a supporting score. You may finish here or read another domain as a separate topic, without treating a difference in means as a difference in personal worth.",
+            "zh": "若有用，可私下记当前愿望、现有约定和未决问题，不确定可以保留。交谈可选，共同决定需各自自愿；结果不要求折中、披露、亲密、复合或继续。安全与拒绝无需分数支持，可结束或另读一域，不把均值差异当个人价值差异。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sexual-passion-reading",
+    "directionIds": [
+      "PSP"
+    ],
+    "title": {
+      "en": "Capacity to Love: Reading the Sexual-Passion Statements",
+      "zh": "爱的能力：性激情陈述的读法"
+    },
+    "headline": {
+      "en": "Two general statements do not measure your sexual functioning",
+      "zh": "两条一般陈述不测个人性功能"
+    },
+    "summary": {
+      "en": "Read the two CTL-I 2018 PSP statements as general claims about boredom and desire over time, with both reverse keys and explicit orientation and consent boundaries.",
+      "zh": "将CTL-I 2018 PSP两题作为性无聊和欲望随时间变化的一般陈述阅读，含双反向及取向同意边界。"
+    },
+    "scoreReading": {
+      "en": "Both items 32 and 33 use 5−x. Their keyed sum is 2–8 and mean is 1–4. This arithmetic is not a measure of personal desire, sexual functioning or love.",
+      "zh": "第32、33题均用5−x，计分和2—8、均值1—4；该计算不是个人性欲、性功能或爱的测量。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Reading the Sexual-Passion Statements",
+        "zh": "爱的能力：性激情陈述的读法"
+      },
+      "description": {
+        "en": "Full working-edition PSP guide: two general CTL-I statements, reverse calculation, interpretation limits, asexuality, desire changes and voluntary reading.",
+        "zh": "PSP工作版全文：两条CTL-I一般陈述、反向计算、解释限制、无性恋、欲望变化与自主阅读。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Notice that both prompts are general statements",
+          "zh": "注意两题都是一般陈述"
+        },
+        "paragraphs": [
+          {
+            "en": "The source labels this domain permanence of sexual passion. Item 32 says that sexual boredom arises in long-term relationships; item 33 says sexual desire diminishes over time. They are general statements, not questions about the frequency or quality of your own sexual experiences. Both are reverse-keyed. Their endorsement can reflect beliefs, expectations or how a generalisation was understood. The wording does not justify interpreting the resulting mean as a direct observation of your desire or your partner’s experience.",
+            "zh": "源领域名为性激情的持续。第32题说长期关系会出现性无聊，第33题说性欲随时间减弱，是一般陈述，不问自己性经历频率质量；两题均反向。符合程度可反映信念、预期或对概括的理解，措辞不支持将均值当自己欲望或伴侣体验的直接观察。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Two reversed responses, step by step",
+          "zh": "逐步计算两个反向回答"
+        },
+        "paragraphs": [
+          {
+            "en": "For raw choices 1 and 3, reverse each with 5 minus the choice: 5−1 = 4 and 5−3 = 2. The keyed sum is 6 and the mean is 6/2 = 3.00. A greater keyed value corresponds to less endorsement of the two general claims, not to a required level of sexual passion. The website does not combine this mean with the five other domains, assign a normal range or compare it with a person’s actual sexual frequency.",
+            "zh": "原选择1、3时，各用5减：5−1=4，5−3=2，计分和6，6/2=3.00。较大值对应较少符合两条一般说法，不是应有性激情等级。网页不合其他五域、不设正常区间，也不与实际性频率比较。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Discuss a belief without requiring an experience",
+          "zh": "讨论一个看法，不要求某种经历"
+        },
+        "paragraphs": [
+          {
+            "en": "You might privately notice that your answer reflects an expectation about long relationships rather than a recent event. If a safe, wanted conversation would be useful, a possible question is: “Do we mean the same thing by attraction, and do we even want to discuss it?” A counterexample is demanding sexual contact to raise a score. A general statement and its mathematical reversal never create consent, prescribe sex or establish an obligation to satisfy another person’s expectations.",
+            "zh": "可私下注意回答是否来自长期关系预期，而非近期事件。若安全且自愿，可问：“我们说吸引时指同一回事吗？是否愿意谈？”反例是要求性接触以提高分数。一般陈述及数学反向不产生同意、不规定性行为，也不要求满足他人期待。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "Protect the difference between a key and a judgement",
+          "zh": "区分计分键与评价"
+        },
+        "paragraphs": [
+          {
+            "en": "Asexuality, low or changing desire, disability, choosing not to have sex and a preference for less physical contact are not defects established by this form. A lower keyed mean can reflect agreement with a general observation about change; it does not establish an inability to love. A higher mean does not prove sustained desire or a satisfying sexual relationship. Preserving the original reverse keys makes the calculation traceable, but it does not resolve the gap between general beliefs and personal experiences.",
+            "zh": "无性恋、低或变化欲望、残障、不选择性行为、较少身体接触偏好，都不是本表确立的缺陷。较小计分均值可只是同意有关变化的一般观察，不证明不会爱；较大也不证明欲望持续或性生活满意。保留源反向键使计算可追踪，不解决一般信念与个人体验差距。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Context can affect beliefs and desire differently",
+          "zh": "背景可分别影响信念与欲望"
+        },
+        "paragraphs": [
+          {
+            "en": "Age, health, medication, stress, relationship stage, culture and opportunity can influence either a general expectation or an actual experience. This two-item group does not separate those influences and is not a medical assessment. Do not use it to explain a partner’s desire or infer orientation, infidelity or relationship quality. Two different raw responses may have the same keyed sum. That equality does not make their meanings identical or give the two-item domain the same precision as a longer domain.",
+            "zh": "年龄、健康、药物、压力、关系阶段、文化和机会可影响一般预期或实际体验。两题不分离这些影响，也非医疗评估；不据此解释伴侣欲望、推断取向、不忠或关系质量。不同原回答可同计分和，不表示意义一样，也不使两题精度等同较长领域。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "Read the complete guide without answering intimate topics",
+          "zh": "可以不回答亲密话题读完全文"
+        },
+        "paragraphs": [
+          {
+            "en": "The source uses four numeric choices and has no NA; all forty-one valid selections are needed before personal results. If you do not want to consider these statements, exit rather than inventing an answer or treating no experience as a low value. All six full guides remain public and free. You need not disclose sexual information, involve a partner or try any physical action. No unfinished attempt creates a conclusion about orientation, desire, love or willingness to improve a relationship.",
+            "zh": "源四数值且无NA，四十一项有效才有个人结果。不想考虑可退出，不编答案，也不以低值代表没经历。六份全文仍公开免费，无需披露性信息、让伴侣参与或尝试身体行动。未完成不产生取向、欲望、爱或改善意愿结论。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Keep the 2018 wording and adaptation distinct",
+          "zh": "分清2018题文与改编"
+        },
+        "paragraphs": [
+          {
+            "en": "The two English statements reproduce Kapusta et al. (2018), Table 1, under CC BY 4.0 with attribution; Chinese is a new working translation. This page is not the current author-site version or an independently validated online sexual assessment. The source’s German and Polish research does not establish validity of the English display, new Chinese or the interpretations here. Response endpoints from the current author site are a separately identified reference, while intermediate choices remain numeric. No norms, equivalence or cutoff is claimed.",
+            "zh": "两条英文按Kapusta等（2018）表一及CC BY 4.0署名复用，中文为新工作译，不是当前作者站版或独立验证线上性评估。源德语、波兰语研究不确立本英文显示、新中译或本解读效度。当前作者站端点另行说明为参考，中间选项仍为数字；不声称常模、等价或阈值。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose whether this topic is useful at all",
+          "zh": "自主决定此话题是否有用"
+        },
+        "paragraphs": [
+          {
+            "en": "You can simply finish here. If useful, privately distinguish a general belief, a current experience and something you do not know; there is no need to turn them into an action. A conversation is optional and every person may decline a topic or contact. The public link contains only general information, not your responses or mean. No result asks for sexual activity, a change in orientation, more disclosure or tolerating unwanted contact. Consent is separate from every number on the page.",
+            "zh": "可以直接结束。若有用，可私下分开一般信念、当前体验和不知道的事，无需转为行动。交谈可选，人人可拒绝话题或接触。公开链接只有通用信息，没有回答或均值；结果不要求性活动、改变取向、增加披露或承受不愿接触。同意与页面所有数字分开。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loss-reading",
+    "directionIds": [
+      "LOM"
+    ],
+    "title": {
+      "en": "Capacity to Love: Loss and Mourning Without a Deadline",
+      "zh": "爱的能力：丧失与哀伤不设期限"
+    },
+    "headline": {
+      "en": "A reversed statement does not set a timetable for grief",
+      "zh": "反向陈述不规定哀伤时间表"
+    },
+    "summary": {
+      "en": "Read eight CTL-I 2018 loss and mourning statements, all reverse-keyed, with an exact example and clear limits around grief, rejection, jealousy and moving forward.",
+      "zh": "完整阅读CTL-I 2018丧失哀伤八题及全部反向，含准确算例与悲伤、拒绝、嫉妒、往前走的边界。"
+    },
+    "scoreReading": {
+      "en": "All eight items use 5−x. The keyed sum is 8–32 and mean is 1–4, without a recovery deadline, diagnosis or an obligation to start another relationship.",
+      "zh": "八题全用5−x，计分和8—32、均值1—4，不规定恢复期限、不诊断，也不要求开始新关系。"
+    },
+    "seo": {
+      "title": {
+        "en": "Capacity to Love: Loss and Mourning Without a Deadline",
+        "zh": "爱的能力：丧失与哀伤不设期限"
+      },
+      "description": {
+        "en": "Full working-edition loss and mourning guide: items 34–41, reverse arithmetic, context and voluntary next steps, without a grief deadline or personal defect label.",
+        "zh": "丧失哀伤工作版全文：第34—41题、反向计算、背景与自主下一步，不设哀伤期限或缺陷标签。"
+      }
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Eight source statements, several kinds of experience",
+          "zh": "八条源陈述，几种不同体验"
+        },
+        "paragraphs": [
+          {
+            "en": "The source’s loss-and-mourning domain includes difficulty accepting unreturned love, blame after a relationship ends, wishes for revenge when rejected, unwillingness to accept an ending, jealousy, guilt, devaluation of oneself after abandonment and difficulty moving forward. These are not interchangeable experiences. Some are thoughts or feelings and others refer to a situation. The form does not observe actions, the reason a relationship ended or how long anyone has been grieving. A single group mean cannot supply those missing facts.",
+            "zh": "源丧失哀伤领域包括难接受未回应的爱、结束后责怪、拒绝时想报复、不愿接受结束、嫉妒、内疚、被抛弃后自贬及难往前走。体验不可互换，有的是想法感受，有的涉及情境。本表不观察行动、结束原因或哀伤多久，单均值不能补这些事实。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "All eight reverse keys in one example",
+          "zh": "一个算例跟踪八个反向键"
+        },
+        "paragraphs": [
+          {
+            "en": "For raw responses 4, 3, 2, 1, 4, 3, 2 and 1, applying 5−x gives 1, 2, 3, 4, 1, 2, 3 and 4. The keyed sum is 20 and the mean is 20/8 = 2.50. No item is removed and the mean is not combined with other domains. A greater keyed mean means less endorsement of these particular source statements in this attempt; it does not certify recovery, maturity, emotional health or an absence of future difficulty.",
+            "zh": "原回答4、3、2、1、4、3、2、1，用5−x得1、2、3、4、1、2、3、4，计分和20，20/8=2.50。不删项、不合其他域。较大计分均值仅表示本次较少符合这些特定源陈述，不认证恢复、成熟、心理健康或未来无困难。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Name a feeling without creating a demand",
+          "zh": "说出感受，不产生要求"
+        },
+        "paragraphs": [
+          {
+            "en": "A private note might say: “This ending still hurts. I do not know when that will change, and I can choose not to contact this person.” It keeps feeling and action separate. A counterexample is using a score to demand that a former partner provide closure, resume contact or respond to love. Another person’s refusal remains theirs. Nor does the page require you to stop feeling sadness or start a new relationship to produce a more favourable keyed number.",
+            "zh": "私人记录可写：“结束仍让我难过，不知道何时变化，也可以选择不联系对方。”它分开感受行动。反例是用分数要求前任给交代、恢复联系或回应爱。拒绝仍由对方决定；页面也不要求停止悲伤或开始新关系来得到更有利数字。"
+          }
+        ]
+      },
+      {
+        "id": "reading",
+        "title": {
+          "en": "No normal grief speed or character verdict",
+          "zh": "不设正常哀伤速度或品格判词"
+        },
+        "paragraphs": [
+          {
+            "en": "There is no grief deadline, clinical cutoff, population percentile or recovery stage assigned here. Difficulty moving forward does not specify that a person should seek a new partner, and the 2018 English item is retained without that added meaning. Jealousy, guilt and self-critical feelings may have different contexts. Endorsing a thought is not proof of acting on it, while a low endorsement does not establish safety. The form cannot diagnose a disorder, certify nonviolence or judge the reality of a loss.",
+            "zh": "本页不派哀伤期限、临床阈值、人口百分位或恢复阶段。难往前走不指应该找新伴侣，保留2018英文不加此意。嫉妒、内疚与自责可有不同背景；符合想法不证明实施，少符合也不确立安全。问卷不诊断、不认证无暴力，也不评失落是否真实。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "An ending has context the items cannot recover",
+          "zh": "关系结束有题目无法还原的背景"
+        },
+        "paragraphs": [
+          {
+            "en": "The time since a loss, whether separation was wanted, practical dependence, safety, support and past experience can affect what someone recalls. This inventory does not separate those influences. Mourning may change unevenly and need not follow the order of these statements. A comparison with a previous attempt has no established meaningful-change threshold. The eight-item domain is also not equivalent to the site’s original three-part jealousy reflection; its broad jealousy statement cannot be converted to those separate thought, discomfort and action means.",
+            "zh": "失落多久、分开是否自愿、现实依赖、安全、支持和过往经历都影响回忆，本表无法分离。哀伤可不均匀变化，也不依题序发展；重测无已建立有意义差异阈值。八题域也不同于站内原创三组嫉妒反思，一条宽泛嫉妒题不能换算其思维、不适、行动均分。"
+          }
+        ]
+      },
+      {
+        "id": "incomplete",
+        "title": {
+          "en": "Stopping does not imply an inability to accept loss",
+          "zh": "停止不表示不能接受失落"
+        },
+        "paragraphs": [
+          {
+            "en": "The source’s four numeric choices provide no NA, and all forty-one valid responses are required for any personal domain result. If an item is irrelevant, distressing, impossible to judge or something you do not want to answer, you may stop and read every full public guide. No experience should be replaced with a low response or an invented middle choice. An incomplete attempt does not create an interpretation about avoidance, courage, the depth of grief or an inability to love.",
+            "zh": "源四数值无NA，四十一项有效才出任何个人域结果。不相关、难受、不能判断或不愿答时可停止读全文；没有经历不以低值或编造中点替代。未完成不产生逃避、勇气、哀伤深度或不会爱的解释。"
+          }
+        ]
+      },
+      {
+        "id": "source",
+        "title": {
+          "en": "Licensed source wording, limited web interpretation",
+          "zh": "许可源题文与有限网页解读"
+        },
+        "paragraphs": [
+          {
+            "en": "English reproduces Kapusta et al. (2018), Table 1, under CC BY 4.0 with attribution; Chinese and the full readings are new FermatMind adaptations. The original German and Polish research does not validate this English display, Chinese translation or online conclusions. This domain does not become a clinical loss assessment because it uses source items. No local norms, language equivalence, diagnosis, relationship-outcome prediction or overall capacity-to-love grade is provided. The current author-site revised wording is not silently substituted.",
+            "zh": "英文按Kapusta等（2018）表一及CC BY 4.0署名复用，中文和全文为费马新改编。原德语、波兰语研究不验证本英文显示、中译或线上结论；采用源题不使它变临床失落评估。不提供本地常模、语言等价、诊断、关系预测或爱的能力总等级，也不悄换当前作者站修订题文。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose a small step without a deadline",
+          "zh": "自选小步骤，不设期限"
+        },
+        "paragraphs": [
+          {
+            "en": "You may finish here or privately choose one source of support or one practical task you want to consider, without promising to feel differently. No contact, forgiveness, reconciliation, disclosure or new relationship is required. If a discussion or contact would feel unsafe, you can decline it. The test does not decide what support is appropriate or replace your judgement about safety. Sharing uses only a general public title and URL, never your grief-related responses, raw sum or mean.",
+            "zh": "可结束，或私下选一项想考虑的支持或实际任务，无须保证感受改变。不要求联系、原谅、复合、披露或新关系；讨论接触不安全可拒绝。测试不决定什么支持合适，也不替代安全判断。分享只含通用公开标题地址，没有哀伤相关回答、和或均值。"
+          }
+        ]
+      }
+    ]
+  }
+]

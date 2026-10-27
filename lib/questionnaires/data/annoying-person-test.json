@@ -1,0 +1,2319 @@
+{
+  "slug": "annoying-person-test",
+  "code": "DISLIKED_REASON",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "mini-friction",
+  "title": {
+    "en": "Annoying Person Test: Interaction Reflection",
+    "zh": "烦人性格测试：互动线索自评"
+  },
+  "description": {
+    "en": "Use FermatMind’s original twenty-item interaction reflection and read five full guides free. See separate sums and means, without a dislike score, character defect or verdict about anyone else.",
+    "zh": "使用费马原创二十题回看互动线索，五篇完整指南免费。各组分别呈现原始和与均值，不算被讨厌分、不判人格缺陷或他人评价。"
+  },
+  "seoTitle": {
+    "en": "Annoying Person Test: Five Full Interaction Guides Free",
+    "zh": "烦人性格测试：互动线索自评与五篇完整读法"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Think about interactions you can recall now and rate how well each statement describes you, using the original five choices. The midpoint 3 means uncertain or depends on the situation and is a valid numeric response. There is no unscored option in this source form. All twenty valid responses are required before any personal group interpretation. You may stop, clear your attempt or read every full guide without answering. Do not use the questions to investigate someone else or obtain their messages. No result establishes who dislikes you, why, or whether a boundary should change.",
+    "zh": "回想目前能确认的互动，使用原五个选项评价陈述与自己的符合程度。中点3为“不确定或视情况”，是有效数值；此源题本没有不计分选项。二十题全部有效后才提供个人题组读法。可停止、清除本次进度，或不作答先读全部全文。不要借题目调查他人或取得其消息，结果不确定谁讨厌自己、原因或边界是否应改变。"
+  },
+  "introduction": {
+    "en": "The search title does not name a personality diagnosis. This is FermatMind’s original DISLIKED_REASON twenty-item Mini form, presented as five separate interaction readings. It asks no other person and cannot determine anyone’s real evaluation, dislike or reason for it. The source’s product-organised areas are not independently validated traits. You do not need to please people, overexplain, overpromise or lower boundaries to be liked. Every full guide is free and public before or after answering.",
+    "zh": "搜索名称不是人格诊断。这是费马原创DISLIKED_REASON二十题小程序题本，以五组独立互动读法呈现；未询问任何他人，不能确定其真实评价、讨厌与原因。源产品观察区不是独立验证特质，无需为了被喜欢而讨好、过度解释、过度承诺或降低边界，全部全文在作答前后公开免费。"
+  },
+  "directions": [
+    {
+      "id": "DIRECTNESS_IMPACT",
+      "title": {
+        "en": "Direct expression and contextual information",
+        "zh": "直接表达与情境信息"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "WITHDRAWAL_DISTANCE",
+      "title": {
+        "en": "Pausing contact and explaining your situation",
+        "zh": "暂停联系与说明方式"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "EXPECTATION_MISMATCH",
+      "title": {
+        "en": "Expressing expectations and checking shared understanding",
+        "zh": "期待表达与共同确认"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "FOLLOW_THROUGH_GAPS",
+      "title": {
+        "en": "Changing plans and updating information",
+        "zh": "计划变化与信息更新"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "BOUNDARY_STYLE_MISMATCH",
+      "title": {
+        "en": "Expressing boundaries and differences in understanding",
+        "zh": "边界表达与理解差异"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "DISLIKED_LK_001",
+      "prompt": {
+        "en": "When expressing a different opinion, I sometimes give the conclusion first and provide less background.",
+        "zh": "表达不同意见时，我有时先说结论，较少交代背景。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_002",
+      "prompt": {
+        "en": "When time is short, my tone may be more clipped than I originally intended.",
+        "zh": "时间紧时，我的语气可能比原本打算的更简短。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_003",
+      "prompt": {
+        "en": "When pointing out a problem, I sometimes have not first checked whether this is a suitable time for the other person to receive it.",
+        "zh": "指出问题时，我有时没有先确认对方是否适合现在接收。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_004",
+      "prompt": {
+        "en": "When discussing a disagreement, I may focus more on the accuracy of the content and pay less attention to the impact of its delivery.",
+        "zh": "讨论分歧时，我可能更关注内容准确，较少留意表达带来的冲击。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_005",
+      "prompt": {
+        "en": "When I need space, I sometimes reduce contact first and explain the reason later.",
+        "zh": "需要空间时，我有时会先减少联系，之后才说明原因。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_006",
+      "prompt": {
+        "en": "When a conversation tires me, I may leave for a while without agreeing when I will return.",
+        "zh": "对话让我疲惫时，我可能暂时离开却没有约定何时回来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_007",
+      "prompt": {
+        "en": "When I have not worked out how to respond, I sometimes leave a message for quite a while without explaining.",
+        "zh": "没有想好怎样回应时，我有时会让消息停留较久而不说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_008",
+      "prompt": {
+        "en": "When resuming contact after a disagreement, I sometimes do not explain the earlier pause.",
+        "zh": "分歧后恢复联系时，我有时没有解释之前的暂停。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_009",
+      "prompt": {
+        "en": "For important arrangements, I sometimes assume the other person knows the standards that matter to me.",
+        "zh": "对重要安排，我有时假设对方知道我在意的标准。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_010",
+      "prompt": {
+        "en": "When disappointed, I sometimes have not checked whether we originally understood the same thing.",
+        "zh": "感到失望时，我有时还没有确认双方原先是否理解一致。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_011",
+      "prompt": {
+        "en": "Before starting a joint task, I sometimes do not confirm each part for which each person is responsible.",
+        "zh": "合作开始前，我有时没有逐项确认各自负责的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_012",
+      "prompt": {
+        "en": "I sometimes use hints rather than directly explaining my expectations of contact or support in a relationship.",
+        "zh": "关系中的联系或支持期待，我有时用暗示代替直接说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_013",
+      "prompt": {
+        "en": "When a plan needs to change, I sometimes notify the people involved quite late.",
+        "zh": "计划需要变化时，我有时到了较晚才通知相关的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_014",
+      "prompt": {
+        "en": "After agreeing to do something, I sometimes discover that I lack the time or resources.",
+        "zh": "答应一件事后，我有时才发现时间或资源不够。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_015",
+      "prompt": {
+        "en": "When a task has not progressed as planned, I sometimes do not proactively update others on its progress.",
+        "zh": "任务没有按原计划推进时，我有时没有主动更新进度。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_016",
+      "prompt": {
+        "en": "When my response rhythm changes noticeably, I sometimes do not explain the new arrangement.",
+        "zh": "回复节奏明显变化时，我有时没有说明新的安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_017",
+      "prompt": {
+        "en": "When refusing a request, I sometimes speak briefly without explaining the range I would accept.",
+        "zh": "拒绝一项请求时，我有时说得很简短，未说明可接受的范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_018",
+      "prompt": {
+        "en": "When I want someone to stop doing something, I sometimes begin with hints rather than a clear statement.",
+        "zh": "希望别人停下某种做法时，我有时先用暗示而不是清楚表达。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_019",
+      "prompt": {
+        "en": "When my boundaries differ between relationships, I sometimes do not explain the difference promptly.",
+        "zh": "不同关系中的边界不一样时，我有时没有及时说明差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_020",
+      "prompt": {
+        "en": "When I need closeness or distance, my way of expressing it sometimes differs from what the other person is used to.",
+        "zh": "需要靠近或保持距离时，我的表达方式有时与对方习惯不同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "directness-reading",
+      "directionIds": [
+        "DIRECTNESS_IMPACT"
+      ],
+      "title": {
+        "en": "Annoying Person Test: Direct expression and contextual information",
+        "zh": "烦人性格测试：直接表达与情境信息"
+      },
+      "headline": {
+        "en": "Review the relationship between direct expression and context",
+        "zh": "回看直接表达与情境信息的关系"
+      },
+      "summary": {
+        "en": "These four items concern your reports of conclusions first, background, tone and timing, and conditions for receiving feedback.",
+        "zh": "这四道题观察先说结论、背景说明、语气时机和反馈接收条件的自评。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Annoying Person Test: Direct expression and contextual information",
+          "zh": "烦人性格测试：直接表达与情境信息"
+        },
+        "description": {
+          "en": "Read the full direct expression and contextual information guide: original four-item endorsement, exact arithmetic, an example, boundaries and a voluntary next step. No dislike verdict.",
+          "zh": "完整阅读直接表达与情境信息：原四题符合程度、准确算例、对话、边界及可选下一步，不判谁讨厌你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The source group and its present reading",
+            "zh": "原题组与当前读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Original source group: Impact that direct expression might have. The public reading uses Direct expression and contextual information. The earlier name is source history, not proof of an effect on another person.",
+              "zh": "原题组名为“直接表达可能造成的冲击”，当前公开读法采用“直接表达与情境信息”。原名称是来源记录，不证明对他人的实际影响。"
+            },
+            {
+              "en": "Self-reported clues about the tone, timing and background surrounding direct expression.",
+              "zh": "观察直接表达在语气、时机和背景信息上的自评线索。"
+            },
+            {
+              "en": "The items cover conclusions with less background, a more clipped tone under time pressure, pointing out a problem without checking timing, and focusing on accuracy with less attention to delivery.",
+              "zh": "题目覆盖：先说结论较少交代背景、时间紧时语气更简短、指出问题时未先确认接收时机、更关注内容准确较少留意表达冲击。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-item example, without a category",
+            "zh": "四题算例，不划等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            },
+            {
+              "en": "For example, responses of 4, 3, 2 and 4 sum to 13. The raw sum is 13 within 4–20, and 13/4 = 3.25 on 1–5. No items are reversed. The source midpoint 3 means uncertain or situation-dependent and is a valid numeric answer, not missing data. This arithmetic describes endorsement of the four statements, not a percentage of people who dislike you.",
+              "zh": "例如4、3、2、4合计13，原始和13处于4—20范围；13/4为3.25，均值范围1—5。无反向题，原版中点3“不确定或视情况”是有效数值，不是缺失。这只概括四陈述的符合程度，不是讨厌自己的人占比。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "What the summary cannot establish",
+            "zh": "概括不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that someone was affected or disliked you because of it.",
+              "zh": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认别人是否被冲击或因此不喜欢你。"
+            },
+            {
+              "en": "This cannot show that you are rude, lack empathy, communicate poorly, hurt someone or are disliked because of it.",
+              "zh": "它不能说明你粗鲁、缺乏共情、沟通能力差、别人被你伤害或别人因此讨厌你。"
+            },
+            {
+              "en": "Direct expression does not mean rudeness.",
+              "zh": "直接表达不等于粗鲁"
+            },
+            {
+              "en": "Tact is not inherently better.",
+              "zh": "委婉也不天然更好"
+            },
+            {
+              "en": "The form cannot confirm that another person was affected.",
+              "zh": "不能确认他人是否被冲击"
+            }
+          ]
+        },
+        {
+          "id": "facts",
+          "title": {
+            "en": "Questions to check against a real occasion",
+            "zh": "结合真实场景核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You may review when you tend to begin with a conclusion and whether the other person received enough background.",
+              "zh": "可以回看：你通常在什么情况下先说结论；对方是否收到足够的背景信息。"
+            },
+            {
+              "en": "Recall a recent occasion when someone asked for background after your conclusion, including whether the setting was unsafe or unsuitable for discussion.",
+              "zh": "最近一次你说结论后对方追问背景的情境；那次是否涉及安全或不适合沟通的场合。"
+            },
+            {
+              "en": "Was your direct expression habitual, or did you need to finish quickly? Only you can check that reason.",
+              "zh": "你直接表达是因为习惯，还是因为当时需要快速收尾？这个原因只能由你自己确认。"
+            },
+            {
+              "en": "The group sum does not recover an individual answer. Two different patterns can produce the same sum. A remembered occasion is a voluntary way to add context, not a requirement to prove a result. No other person was interviewed, and your report cannot tell us whether anyone noticed, agreed or was affected.",
+              "zh": "题组总和不能反推出某一道答案，不同组合可同和。自愿回想场景只是补充背景，不是证明结果的要求；本表未询问他人，自报不告知他人是否注意、同意或受到影响。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One possible conversation and a counterexample",
+            "zh": "一个可能对话及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose someone asks why you rejected a proposed plan. You might say: “My conclusion came first; the constraint I was considering was the available time. Would more context be useful now?” A counterexample is insisting that a test has proved the other person too sensitive. Your account of delivery does not establish how they felt, and a brief, firm refusal can remain appropriate.",
+              "zh": "假设有人问为何否决一项计划，可说：“我先说了结论，当时考虑的限制是可用时间；现在补一点背景有用吗？”反例是用测试断言对方太敏感。自己的表达自报不证明他人感受，简短坚定的拒绝仍可合适。"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "title": {
+            "en": "Boundaries and safety remain yours",
+            "zh": "边界与安全由自己把握"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear refusal or safety boundary need not be packaged to be likeable. Directly ending an unsafe conversation can be necessary protection.",
+              "zh": "明确拒绝和安全边界无需包装成讨喜表达；在不安全情境中，直接停止沟通可能是必要保护。"
+            },
+            {
+              "en": "Directness is not inherently a problem and tact is not inherently better. You do not need to soften every expression to be liked.",
+              "zh": "直接不等于有问题，委婉也不天然更好；不需要为了被喜欢而软化所有表达。"
+            },
+            {
+              "en": "An action suggestion can be declined. You need not make a new disclosure, restart contact, negotiate with an unsafe person or seek approval before protecting yourself. A clear no remains a complete boundary. These ordinary-interaction prompts do not turn coercion or harassment into a shared communication task.",
+              "zh": "行动建议都可不做。无需新增披露、恢复联系、与不安全对象协商或取得批准才保护自己。清楚说不仍可构成完整边界，本普通互动题本不把胁迫骚扰改写成双方沟通任务。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "A small optional action, with no promised outcome",
+            "zh": "可自选小行动，不保证结果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, next time you point out a problem you could first check whether this is a suitable time. You may also choose not to; every sentence does not need a full explanation.",
+              "zh": "如果愿意，下次指出问题时可以先确认对方现在是否适合接收；也可以不做，不需要为每句话附上完整解释。"
+            },
+            {
+              "en": "You may instead keep one private note or end here. Changing how you express something does not guarantee agreement, trust or liking, and you are not solely responsible for another person’s interpretation. The public link shares a general reading only. Neither an explanation nor a repeated attempt is required to complete this reflection.",
+              "zh": "也可只留一条私人记录或结束。改变表达不保证同意、信任或喜欢，自己不单独承担他人理解责任。公开链接只分享通用读法，完成反思不要求解释或重测。"
+            }
+          ]
+        },
+        {
+          "id": "science",
+          "title": {
+            "en": "Five separate readings and their limits",
+            "zh": "五组分别读及其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-organised area for self-observation, without independent psychometric validation.",
+              "zh": "这是用于自我观察的产品化因素，未经独立心理测量验证。"
+            },
+            {
+              "en": "Read all five groups separately: there is no total, ranking, leading cause, threshold, severity band or social-value score. Equal sums do not mean equal consequences because their items differ. This original source edition has no completed reliability, validity, norms, fairness, percentile or accuracy verification. Self-presentation and understanding can affect the answers. A later difference may reflect the situation or your interpretation and does not certify a change in interaction style.",
+              "zh": "五组分别阅读，不合总分、不排名、不选主要原因、不设阈值、严重度或社交价值。同和不等于同等影响，因为题目不同。本原创源版本尚未完成信度、效度、常模、公平性、百分位或准确率验证；自我呈现与理解可影响回答。以后差异可能来自情境或理解，不认证互动方式改变。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pause-reading",
+      "directionIds": [
+        "WITHDRAWAL_DISTANCE"
+      ],
+      "title": {
+        "en": "Annoying Person Test: Pausing contact and explaining your situation",
+        "zh": "烦人性格测试：暂停联系与说明方式"
+      },
+      "headline": {
+        "en": "Review how you describe a pause in contact",
+        "zh": "回看暂停联系时的说明方式"
+      },
+      "summary": {
+        "en": "These four items concern reports of pausing when you need space, explaining your situation and changes in contact rhythm.",
+        "zh": "这四道题观察需要空间时怎样暂停、是否说明状态和联系节奏变化的自评。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Annoying Person Test: Pausing contact and explaining your situation",
+          "zh": "烦人性格测试：暂停联系与说明方式"
+        },
+        "description": {
+          "en": "Read the full pausing contact and explaining your situation guide: original four-item endorsement, exact arithmetic, an example, boundaries and a voluntary next step. No dislike verdict.",
+          "zh": "完整阅读暂停联系与说明方式：原四题符合程度、准确算例、对话、边界及可选下一步，不判谁讨厌你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The source group and its present reading",
+            "zh": "原题组与当前读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Original source group: Distance that stepping away might create. The public reading uses Pausing contact and explaining your situation. The earlier name is source history, not proof of an effect on another person.",
+              "zh": "原题组名为“暂时退开可能形成的距离感”，当前公开读法采用“暂停联系与说明方式”。原名称是来源记录，不证明对他人的实际影响。"
+            },
+            {
+              "en": "Self-reported clues about pausing contact and explaining your situation when you need space.",
+              "zh": "观察需要空间时暂停联系与说明方式的自评线索。"
+            },
+            {
+              "en": "The items cover reducing contact before explaining, leaving when tired without a return arrangement, leaving messages without explanation, and resuming contact without explaining a pause.",
+              "zh": "题目覆盖：需要空间时先减少联系后说明、疲惫时离开未约定回来、消息停留较久不说明、分歧后恢复联系未解释暂停。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-item example, without a category",
+            "zh": "四题算例，不划等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            },
+            {
+              "en": "For example, responses of 2, 5, 3 and 4 sum to 14. The raw sum is 14 within 4–20, and 14/4 = 3.50 on 1–5. No items are reversed. The source midpoint 3 means uncertain or situation-dependent and is a valid numeric answer, not missing data. This arithmetic describes endorsement of the four statements, not a percentage of people who dislike you.",
+              "zh": "例如2、5、3、4合计14，原始和14处于4—20范围；14/4为3.50，均值范围1—5。无反向题，原版中点3“不确定或视情况”是有效数值，不是缺失。这只概括四陈述的符合程度，不是讨厌自己的人占比。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "What the summary cannot establish",
+            "zh": "概括不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that you are cold or that distance was created.",
+              "zh": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认你冷漠或形成距离感。"
+            },
+            {
+              "en": "This cannot show coldness, an avoidant personality, deliberate disappearance, punishment, lack of care or an inevitable creation of distance.",
+              "zh": "它不能说明你冷漠、回避型人格、故意消失、惩罚对方、不在意关系或一定造成距离感。"
+            },
+            {
+              "en": "Pausing contact does not mean coldness.",
+              "zh": "暂停联系不等于冷漠"
+            },
+            {
+              "en": "Self-protection is not a defect to repair.",
+              "zh": "自我保护不是需要修复的缺点"
+            },
+            {
+              "en": "You need not promise when contact will resume.",
+              "zh": "无需承诺何时恢复联系"
+            }
+          ]
+        },
+        {
+          "id": "facts",
+          "title": {
+            "en": "Questions to check against a real occasion",
+            "zh": "结合真实场景核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You may review how you usually pause when you need space and whether protection or safety mattered.",
+              "zh": "可以回看：你需要空间时通常怎样暂停；是否有安全或保护自己的考虑。"
+            },
+            {
+              "en": "Recall a recent pause in contact and whether it was for protection or safety.",
+              "zh": "最近一次你暂停联系的情境；那次是否出于自我保护或安全需要。"
+            },
+            {
+              "en": "Was the lack of explanation habitual, or was explaining itself unsafe? Only you can check that distinction.",
+              "zh": "你没有说明暂停，是因为不习惯，还是因为说明本身不安全？这个区别只能由你自己确认。"
+            },
+            {
+              "en": "The group sum does not recover an individual answer. Two different patterns can produce the same sum. A remembered occasion is a voluntary way to add context, not a requirement to prove a result. No other person was interviewed, and your report cannot tell us whether anyone noticed, agreed or was affected.",
+              "zh": "题组总和不能反推出某一道答案，不同组合可同和。自愿回想场景只是补充背景，不是证明结果的要求；本表未询问他人，自报不告知他人是否注意、同意或受到影响。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One possible conversation and a counterexample",
+            "zh": "一个可能对话及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose you want quiet after an ordinary, safe conversation. You might say: “I do not have energy to continue now. I am taking some space.” You can add availability only if you freely want to. A counterexample is promising a return time you do not intend to keep merely to improve a result. An explanation is optional, and stopping unsafe contact needs neither negotiation nor a promised return.",
+              "zh": "假设安全的普通交谈后想安静，可说：“我现在没有精力继续，需要留些空间。”仅在自愿时补充有空情况。反例是为了改善结果而保证自己并不打算履行的返回时间。说明可选，不安全联系的停止无需协商或承诺回来。"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "title": {
+            "en": "Boundaries and safety remain yours",
+            "zh": "边界与安全由自己把握"
+          },
+          "paragraphs": [
+            {
+              "en": "You may stop contact with an unsafe person without promising to return. A pause need not include a promise to resume, and protection is not a defect that needs repair.",
+              "zh": "你可以停止与不安全对象的联系，无需承诺回来；暂停联系无需承诺恢复，自我保护不是需要修复的缺点。"
+            },
+            {
+              "en": "You do not need to maintain contact to avoid being disliked. Stepping away does not establish coldness or punishment.",
+              "zh": "你不需要为了避免被讨厌而保持联系；暂时退开不等于冷漠或惩罚。"
+            },
+            {
+              "en": "An action suggestion can be declined. You need not make a new disclosure, restart contact, negotiate with an unsafe person or seek approval before protecting yourself. A clear no remains a complete boundary. These ordinary-interaction prompts do not turn coercion or harassment into a shared communication task.",
+              "zh": "行动建议都可不做。无需新增披露、恢复联系、与不安全对象协商或取得批准才保护自己。清楚说不仍可构成完整边界，本普通互动题本不把胁迫骚扰改写成双方沟通任务。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "A small optional action, with no promised outcome",
+            "zh": "可自选小行动，不保证结果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish and it is safe, you could briefly state your situation when pausing. You may also choose not to; directly pausing is valid when safety does not allow an explanation.",
+              "zh": "如果愿意且安全允许，想暂停时可以说一句当前状态；也可以不做，安全不允许时直接暂停同样成立。"
+            },
+            {
+              "en": "You may instead keep one private note or end here. Changing how you express something does not guarantee agreement, trust or liking, and you are not solely responsible for another person’s interpretation. The public link shares a general reading only. Neither an explanation nor a repeated attempt is required to complete this reflection.",
+              "zh": "也可只留一条私人记录或结束。改变表达不保证同意、信任或喜欢，自己不单独承担他人理解责任。公开链接只分享通用读法，完成反思不要求解释或重测。"
+            }
+          ]
+        },
+        {
+          "id": "science",
+          "title": {
+            "en": "Five separate readings and their limits",
+            "zh": "五组分别读及其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-organised area for self-observation, without independent psychometric validation.",
+              "zh": "这是用于自我观察的产品化因素，未经独立心理测量验证。"
+            },
+            {
+              "en": "Read all five groups separately: there is no total, ranking, leading cause, threshold, severity band or social-value score. Equal sums do not mean equal consequences because their items differ. This original source edition has no completed reliability, validity, norms, fairness, percentile or accuracy verification. Self-presentation and understanding can affect the answers. A later difference may reflect the situation or your interpretation and does not certify a change in interaction style.",
+              "zh": "五组分别阅读，不合总分、不排名、不选主要原因、不设阈值、严重度或社交价值。同和不等于同等影响，因为题目不同。本原创源版本尚未完成信度、效度、常模、公平性、百分位或准确率验证；自我呈现与理解可影响回答。以后差异可能来自情境或理解，不认证互动方式改变。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expectations-reading",
+      "directionIds": [
+        "EXPECTATION_MISMATCH"
+      ],
+      "title": {
+        "en": "Annoying Person Test: Expressing expectations and checking shared understanding",
+        "zh": "烦人性格测试：期待表达与共同确认"
+      },
+      "headline": {
+        "en": "Review how expectations were expressed and checked",
+        "zh": "回看期待是怎样表达与确认的"
+      },
+      "summary": {
+        "en": "These four items concern reports of explicitly discussing expectations of contact, task allocation and support.",
+        "zh": "这四道题观察联系、分工和支持期待是否被明确讨论的自评。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Annoying Person Test: Expressing expectations and checking shared understanding",
+          "zh": "烦人性格测试：期待表达与共同确认"
+        },
+        "description": {
+          "en": "Read the full expressing expectations and checking shared understanding guide: original four-item endorsement, exact arithmetic, an example, boundaries and a voluntary next step. No dislike verdict.",
+          "zh": "完整阅读期待表达与共同确认：原四题符合程度、准确算例、对话、边界及可选下一步，不判谁讨厌你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The source group and its present reading",
+            "zh": "原题组与当前读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Original source group: A gap from unspoken expectations. The public reading uses Expressing expectations and checking shared understanding. The earlier name is source history, not proof of an effect on another person.",
+              "zh": "原题组名为“期待没有说清造成的落差”，当前公开读法采用“期待表达与共同确认”。原名称是来源记录，不证明对他人的实际影响。"
+            },
+            {
+              "en": "Self-reported clues about directly stating expectations and jointly checking understanding.",
+              "zh": "观察期待是否被直接说明、双方是否共同确认的自评线索。"
+            },
+            {
+              "en": "The items cover assuming standards are known, feeling disappointed before checking shared understanding, not confirming responsibilities before a joint task, and hinting rather than explaining.",
+              "zh": "题目覆盖：假设对方知道标准、失望时未确认理解一致、合作前未逐项确认分工、用暗示代替直接说明。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-item example, without a category",
+            "zh": "四题算例，不划等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            },
+            {
+              "en": "For example, responses of 3, 4, 2 and 3 sum to 12. The raw sum is 12 within 4–20, and 12/4 = 3.00 on 1–5. No items are reversed. The source midpoint 3 means uncertain or situation-dependent and is a valid numeric answer, not missing data. This arithmetic describes endorsement of the four statements, not a percentage of people who dislike you.",
+              "zh": "例如3、4、2、3合计12，原始和12处于4—20范围；12/4为3.00，均值范围1—5。无反向题，原版中点3“不确定或视情况”是有效数值，不是缺失。这只概括四陈述的符合程度，不是讨厌自己的人占比。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "What the summary cannot establish",
+            "zh": "概括不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that a gap exists or that you caused it.",
+              "zh": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认落差一定存在或由你造成。"
+            },
+            {
+              "en": "This cannot show selfishness, excessive demands, poor communication, incompatibility or that you caused a gap.",
+              "zh": "它不能说明你自私、要求太多、不会沟通、双方不适合或你造成落差。"
+            },
+            {
+              "en": "Unspoken expectations do not mean selfishness.",
+              "zh": "期待没说明不等于自私"
+            },
+            {
+              "en": "A gap involves more than one person, not solely you.",
+              "zh": "落差涉及多方，不单独归因于你"
+            },
+            {
+              "en": "The form cannot confirm that another person felt a gap.",
+              "zh": "不能确认他人一定感到落差"
+            }
+          ]
+        },
+        {
+          "id": "facts",
+          "title": {
+            "en": "Questions to check against a real occasion",
+            "zh": "结合真实场景核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You may review whether you state expectations directly or assume they are known, and whether responsibilities were clear to both people.",
+              "zh": "可以回看：你更常直接说明期待，还是更常假设对方知道；分工是否双方都清楚。"
+            },
+            {
+              "en": "Recall a recent expectation gap, including whether both people took part in explaining.",
+              "zh": "最近一次期待落差出现的情境；那次是否双方都参与了说明。"
+            },
+            {
+              "en": "Was not stating an expectation habitual, or were you afraid of refusal? Only you can distinguish that reason.",
+              "zh": "你没有直接说明期待，是因为不习惯，还是怕被拒绝？这个原因只能由你自己分辨。"
+            },
+            {
+              "en": "The group sum does not recover an individual answer. Two different patterns can produce the same sum. A remembered occasion is a voluntary way to add context, not a requirement to prove a result. No other person was interviewed, and your report cannot tell us whether anyone noticed, agreed or was affected.",
+              "zh": "题组总和不能反推出某一道答案，不同组合可同和。自愿回想场景只是补充背景，不是证明结果的要求；本表未询问他人，自报不告知他人是否注意、同意或受到影响。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One possible conversation and a counterexample",
+            "zh": "一个可能对话及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose two people expected different amounts of help on a shared task. You might ask: “I had assumed you would review the final version. Had we actually agreed to that?” A counterexample is treating your expectation as an agreement just because it felt obvious. Checking can reveal different understandings, but either person may decline a new request. You are not required to accept responsibility for every expectation held by someone else.",
+              "zh": "设想合作任务中双方期待的帮助不同，可问：“我原先以为你会看终稿，我们实际约定过吗？”反例是因为自己觉得显然，就把期待当共识。核对可发现理解不同，但新请求仍可被拒绝，也不要求承担他人所有期待。"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "title": {
+            "en": "Boundaries and safety remain yours",
+            "zh": "边界与安全由自己把握"
+          },
+          "paragraphs": [
+            {
+              "en": "If differing expectations involve threats or control, safety takes priority over communication coordination.",
+              "zh": "如果期待差异伴随着威胁或控制，那已经不是沟通协调问题，安全优先。"
+            },
+            {
+              "en": "Expectations and agreement involve more than one person. Responsibility cannot be assigned solely to you, and expressing an expectation need not involve pleasing others.",
+              "zh": "期待和共识涉及多方，不能把责任单独归给你；表达期待不需要讨好。"
+            },
+            {
+              "en": "An action suggestion can be declined. You need not make a new disclosure, restart contact, negotiate with an unsafe person or seek approval before protecting yourself. A clear no remains a complete boundary. These ordinary-interaction prompts do not turn coercion or harassment into a shared communication task.",
+              "zh": "行动建议都可不做。无需新增披露、恢复联系、与不安全对象协商或取得批准才保护自己。清楚说不仍可构成完整边界，本普通互动题本不把胁迫骚扰改写成双方沟通任务。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "A small optional action, with no promised outcome",
+            "zh": "可自选小行动，不保证结果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, next time you could write expectations as specific points that can be checked before starting. You may also choose not to and are not responsible for every expectation.",
+              "zh": "如果愿意，下次开始前可以把期待写成可核对的具体事项；也可以不做，不需要为所有期待负责。"
+            },
+            {
+              "en": "You may instead keep one private note or end here. Changing how you express something does not guarantee agreement, trust or liking, and you are not solely responsible for another person’s interpretation. The public link shares a general reading only. Neither an explanation nor a repeated attempt is required to complete this reflection.",
+              "zh": "也可只留一条私人记录或结束。改变表达不保证同意、信任或喜欢，自己不单独承担他人理解责任。公开链接只分享通用读法，完成反思不要求解释或重测。"
+            }
+          ]
+        },
+        {
+          "id": "science",
+          "title": {
+            "en": "Five separate readings and their limits",
+            "zh": "五组分别读及其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-organised area for self-observation, without independent psychometric validation.",
+              "zh": "这是用于自我观察的产品化因素，未经独立心理测量验证。"
+            },
+            {
+              "en": "Read all five groups separately: there is no total, ranking, leading cause, threshold, severity band or social-value score. Equal sums do not mean equal consequences because their items differ. This original source edition has no completed reliability, validity, norms, fairness, percentile or accuracy verification. Self-presentation and understanding can affect the answers. A later difference may reflect the situation or your interpretation and does not certify a change in interaction style.",
+              "zh": "五组分别阅读，不合总分、不排名、不选主要原因、不设阈值、严重度或社交价值。同和不等于同等影响，因为题目不同。本原创源版本尚未完成信度、效度、常模、公平性、百分位或准确率验证；自我呈现与理解可影响回答。以后差异可能来自情境或理解，不认证互动方式改变。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "updates-reading",
+      "directionIds": [
+        "FOLLOW_THROUGH_GAPS"
+      ],
+      "title": {
+        "en": "Annoying Person Test: Changing plans and updating information",
+        "zh": "烦人性格测试：计划变化与信息更新"
+      },
+      "headline": {
+        "en": "Review information updates when plans change",
+        "zh": "回看计划变化时的信息更新方式"
+      },
+      "summary": {
+        "en": "These four items concern reports of time, resources, progress and notifications of change.",
+        "zh": "这四道题观察时间、资源、进度和变化通知的自评。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Annoying Person Test: Changing plans and updating information",
+          "zh": "烦人性格测试：计划变化与信息更新"
+        },
+        "description": {
+          "en": "Read the full changing plans and updating information guide: original four-item endorsement, exact arithmetic, an example, boundaries and a voluntary next step. No dislike verdict.",
+          "zh": "完整阅读计划变化与信息更新：原四题符合程度、准确算例、对话、边界及可选下一步，不判谁讨厌你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The source group and its present reading",
+            "zh": "原题组与当前读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Original source group: Uncertainty from responses or changing plans. The public reading uses Changing plans and updating information. The earlier name is source history, not proof of an effect on another person.",
+              "zh": "原题组名为“回应或计划变化造成的不确定”，当前公开读法采用“计划变化与信息更新”。原名称是来源记录，不证明对他人的实际影响。"
+            },
+            {
+              "en": "Self-reported clues about changing plans, resource limits and progress updates.",
+              "zh": "观察计划变化、资源不足和进度更新方式的自评线索。"
+            },
+            {
+              "en": "The items cover late notice of changes, discovering resource or time limits after agreeing, not updating a stalled task and not explaining a changed response rhythm.",
+              "zh": "题目覆盖：计划变化时较晚通知、答应后发现时间资源不够、任务未推进时未更新进度、回复节奏变化时未说明新安排。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-item example, without a category",
+            "zh": "四题算例，不划等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            },
+            {
+              "en": "For example, responses of 5, 2, 4 and 3 sum to 14. The raw sum is 14 within 4–20, and 14/4 = 3.50 on 1–5. No items are reversed. The source midpoint 3 means uncertain or situation-dependent and is a valid numeric answer, not missing data. This arithmetic describes endorsement of the four statements, not a percentage of people who dislike you.",
+              "zh": "例如5、2、4、3合计14，原始和14处于4—20范围；14/4为3.50，均值范围1—5。无反向题，原版中点3“不确定或视情况”是有效数值，不是缺失。这只概括四陈述的符合程度，不是讨厌自己的人占比。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "What the summary cannot establish",
+            "zh": "概括不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that another person was disappointed or disliked you.",
+              "zh": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认别人一定失望或讨厌你。"
+            },
+            {
+              "en": "This cannot show unreliability, irresponsibility, untrustworthiness, poor work performance or that others must be disappointed or dislike you.",
+              "zh": "它不能说明你不可靠、缺乏责任感、不值得信任、职业表现差或别人一定失望讨厌你。"
+            },
+            {
+              "en": "A changed plan does not mean unreliability.",
+              "zh": "计划变化不等于不可靠"
+            },
+            {
+              "en": "Do not promise beyond what you can manage.",
+              "zh": "不承诺超出能力范围"
+            },
+            {
+              "en": "The form cannot confirm another person’s disappointment.",
+              "zh": "不能确认他人一定失望"
+            }
+          ]
+        },
+        {
+          "id": "facts",
+          "title": {
+            "en": "Questions to check against a real occasion",
+            "zh": "结合真实场景核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You may review when you notify others of changes and how you handle resource limits.",
+              "zh": "可以回看：计划变化时你通常何时通知；资源不足时怎样处理。"
+            },
+            {
+              "en": "Recall a recent change of plans and whether practical conditions affected the timing of the notice.",
+              "zh": "最近一次计划变化的情境；那次通知时间是否受现实条件影响。"
+            },
+            {
+              "en": "Did you not update promptly because you forgot or because you feared a response? Only you can judge the reason.",
+              "zh": "你没有及时更新，是因为忘记，还是因为担心对方反应？这个原因只能由你自己判断。"
+            },
+            {
+              "en": "The group sum does not recover an individual answer. Two different patterns can produce the same sum. A remembered occasion is a voluntary way to add context, not a requirement to prove a result. No other person was interviewed, and your report cannot tell us whether anyone noticed, agreed or was affected.",
+              "zh": "题组总和不能反推出某一道答案，不同组合可同和。自愿回想场景只是补充背景，不是证明结果的要求；本表未询问他人，自报不告知他人是否注意、同意或受到影响。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One possible conversation and a counterexample",
+            "zh": "一个可能对话及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a shared deadline has become unrealistic. You might say: “I can finish the first part, but the full plan needs a different date. Would you want to discuss the options?” A counterexample is promising an impossible completion time to seem dependable. The form cannot determine reliability or what trust requires. An update may help an ordinary coordination problem, but it must not reveal private arrangements to someone who presents a safety risk.",
+              "zh": "设想共同截止时间已不现实，可说：“第一部分能完成，全部计划需要改日期；你愿意讨论有哪些选项吗？”反例是为了显得可靠而承诺不可能的完成时间。本表不判可靠性或信任所需条件，普通协调中更新可能有用，但不要求向有安全风险的人披露安排。"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "title": {
+            "en": "Boundaries and safety remain yours",
+            "zh": "边界与安全由自己把握"
+          },
+          "paragraphs": [
+            {
+              "en": "If an update could create a safety risk, protect yourself first. You do not need to update an unsafe person on your arrangements.",
+              "zh": "如果通知或更新可能带来安全风险，优先保护自己；不需要向不安全的人更新安排。"
+            },
+            {
+              "en": "An action suggestion must not demand excessive commitments or promise that trust will follow. Plans commonly change.",
+              "zh": "行动建议不能要求过度承诺，也不能承诺获得信任；计划变化是常见情况。"
+            },
+            {
+              "en": "An action suggestion can be declined. You need not make a new disclosure, restart contact, negotiate with an unsafe person or seek approval before protecting yourself. A clear no remains a complete boundary. These ordinary-interaction prompts do not turn coercion or harassment into a shared communication task.",
+              "zh": "行动建议都可不做。无需新增披露、恢复联系、与不安全对象协商或取得批准才保护自己。清楚说不仍可构成完整边界，本普通互动题本不把胁迫骚扰改写成双方沟通任务。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "A small optional action, with no promised outcome",
+            "zh": "可自选小行动，不保证结果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, next time plans change you could explain earlier. You may also choose not to, and need not promise more than you can manage.",
+              "zh": "如果愿意，下次计划变化时可以尽早说明；也可以不做，不需要承诺超出能力的范围。"
+            },
+            {
+              "en": "You may instead keep one private note or end here. Changing how you express something does not guarantee agreement, trust or liking, and you are not solely responsible for another person’s interpretation. The public link shares a general reading only. Neither an explanation nor a repeated attempt is required to complete this reflection.",
+              "zh": "也可只留一条私人记录或结束。改变表达不保证同意、信任或喜欢，自己不单独承担他人理解责任。公开链接只分享通用读法，完成反思不要求解释或重测。"
+            }
+          ]
+        },
+        {
+          "id": "science",
+          "title": {
+            "en": "Five separate readings and their limits",
+            "zh": "五组分别读及其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-organised area for self-observation, without independent psychometric validation.",
+              "zh": "这是用于自我观察的产品化因素，未经独立心理测量验证。"
+            },
+            {
+              "en": "Read all five groups separately: there is no total, ranking, leading cause, threshold, severity band or social-value score. Equal sums do not mean equal consequences because their items differ. This original source edition has no completed reliability, validity, norms, fairness, percentile or accuracy verification. Self-presentation and understanding can affect the answers. A later difference may reflect the situation or your interpretation and does not certify a change in interaction style.",
+              "zh": "五组分别阅读，不合总分、不排名、不选主要原因、不设阈值、严重度或社交价值。同和不等于同等影响，因为题目不同。本原创源版本尚未完成信度、效度、常模、公平性、百分位或准确率验证；自我呈现与理解可影响回答。以后差异可能来自情境或理解，不认证互动方式改变。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boundaries-reading",
+      "directionIds": [
+        "BOUNDARY_STYLE_MISMATCH"
+      ],
+      "title": {
+        "en": "Annoying Person Test: Expressing boundaries and differences in understanding",
+        "zh": "烦人性格测试：边界表达与理解差异"
+      },
+      "headline": {
+        "en": "Review boundary expression and differences in understanding",
+        "zh": "回看边界表达方式与理解差异"
+      },
+      "summary": {
+        "en": "These four items concern reports of refusal, closeness, distance and ways of expressing boundaries.",
+        "zh": "这四道题观察拒绝、靠近、距离和边界表达方式的自评。"
+      },
+      "scoreReading": {
+        "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+        "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+      },
+      "seo": {
+        "title": {
+          "en": "Annoying Person Test: Expressing boundaries and differences in understanding",
+          "zh": "烦人性格测试：边界表达与理解差异"
+        },
+        "description": {
+          "en": "Read the full expressing boundaries and differences in understanding guide: original four-item endorsement, exact arithmetic, an example, boundaries and a voluntary next step. No dislike verdict.",
+          "zh": "完整阅读边界表达与理解差异：原四题符合程度、准确算例、对话、边界及可选下一步，不判谁讨厌你。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "The source group and its present reading",
+            "zh": "原题组与当前读法"
+          },
+          "paragraphs": [
+            {
+              "en": "Original source group: Misreading of boundary-expression styles. The public reading uses Expressing boundaries and differences in understanding. The earlier name is source history, not proof of an effect on another person.",
+              "zh": "原题组名为“边界表达方式产生的误读”，当前公开读法采用“边界表达与理解差异”。原名称是来源记录，不证明对他人的实际影响。"
+            },
+            {
+              "en": "Self-reported clues about expressing boundaries and possible differences in understanding.",
+              "zh": "观察边界表达方式与对方理解差异的自评线索。"
+            },
+            {
+              "en": "The items cover brief refusals without describing a range, hints when wanting something to stop, not promptly explaining different boundaries, and unfamiliar expressions of closeness or distance.",
+              "zh": "题目覆盖：拒绝时说得简短未说明范围、希望停下时用暗示、边界差异未及时说明、靠近或距离的表达与对方习惯不同。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-item example, without a category",
+            "zh": "四题算例，不划等级"
+          },
+          "paragraphs": [
+            {
+              "en": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+              "zh": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。"
+            },
+            {
+              "en": "For example, responses of 2, 3, 4 and 2 sum to 11. The raw sum is 11 within 4–20, and 11/4 = 2.75 on 1–5. No items are reversed. The source midpoint 3 means uncertain or situation-dependent and is a valid numeric answer, not missing data. This arithmetic describes endorsement of the four statements, not a percentage of people who dislike you.",
+              "zh": "例如2、3、4、2合计11，原始和11处于4—20范围；11/4为2.75，均值范围1—5。无反向题，原版中点3“不确定或视情况”是有效数值，不是缺失。这只概括四陈述的符合程度，不是讨厌自己的人占比。"
+            }
+          ]
+        },
+        {
+          "id": "boundary",
+          "title": {
+            "en": "What the summary cannot establish",
+            "zh": "概括不能确立什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that misunderstanding occurred or that you were responsible.",
+              "zh": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认误读一定发生或由你负责。"
+            },
+            {
+              "en": "This cannot show that your boundaries are wrong, that you must explain a refusal or provide an alternative, that you should lower a boundary, or that misunderstanding is necessarily your responsibility.",
+              "zh": "它不能说明你边界有问题、必须解释拒绝、必须提供可接受替代方案、应该降低边界或他人误读一定是你的责任。"
+            },
+            {
+              "en": "A brief refusal does not mean a faulty boundary.",
+              "zh": "拒绝简短不表示边界有问题"
+            },
+            {
+              "en": "A clear no can itself be a complete boundary.",
+              "zh": "清楚地说“不”本身就可以构成完整边界"
+            },
+            {
+              "en": "You need not offer an alternative.",
+              "zh": "无需提供替代方案"
+            }
+          ]
+        },
+        {
+          "id": "facts",
+          "title": {
+            "en": "Questions to check against a real occasion",
+            "zh": "结合真实场景核对"
+          },
+          "paragraphs": [
+            {
+              "en": "You may review whether you state boundaries directly or use hints, and whether differences between relationships were explained.",
+              "zh": "可以回看：你更常直接说清边界，还是更常用暗示；不同关系中的边界是否被说明。"
+            },
+            {
+              "en": "Recall a recent occasion after expressing a boundary, including whether your choice was respected.",
+              "zh": "最近一次边界表达后的情境；那次对方是否尊重你的选择。"
+            },
+            {
+              "en": "Were hints habitual, or did direct expression seem risky? Only you can judge that distinction.",
+              "zh": "你更常用暗示而非直接说明，是习惯还是担心直接表达有风险？这个区别只能由你自己判断。"
+            },
+            {
+              "en": "The group sum does not recover an individual answer. Two different patterns can produce the same sum. A remembered occasion is a voluntary way to add context, not a requirement to prove a result. No other person was interviewed, and your report cannot tell us whether anyone noticed, agreed or was affected.",
+              "zh": "题组总和不能反推出某一道答案，不同组合可同和。自愿回想场景只是补充背景，不是证明结果的要求；本表未询问他人，自报不告知他人是否注意、同意或受到影响。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One possible conversation and a counterexample",
+            "zh": "一个可能对话及反例"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a request exceeds the time you want to offer. You might say simply: “No, I will not take that on.” If you wish, you can describe an alternative, but it is not required for the refusal to be valid. A counterexample is concluding that a boundary must be lowered because a test might suggest misunderstanding. Another person’s disappointment does not cancel your choice, and the questionnaire does not decide whose interpretation is correct.",
+              "zh": "设想请求超出自己愿意投入的时间，可以只说：“不，这件事我不接。”自愿时可给替代，但拒绝成立并不依赖替代方案。反例是因为测试似乎提示误解，就认为必须降低边界。他人失望不取消自己的选择，问卷也不裁定谁的理解正确。"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "title": {
+            "en": "Boundaries and safety remain yours",
+            "zh": "边界与安全由自己把握"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear no can be a complete boundary without an alternative. Explaining a boundary to an unsafe person is not an obligation.",
+              "zh": "清楚地说“不”本身就可以构成完整边界，无需提供替代方案；向不安全的人解释边界不是义务。"
+            },
+            {
+              "en": "Different expression must not make you solely responsible for another person’s understanding. You need not lower boundaries to be liked.",
+              "zh": "不同表达方式不能变成要求你为他人理解承担全部责任；不需要为了被喜欢而降低边界。"
+            },
+            {
+              "en": "An action suggestion can be declined. You need not make a new disclosure, restart contact, negotiate with an unsafe person or seek approval before protecting yourself. A clear no remains a complete boundary. These ordinary-interaction prompts do not turn coercion or harassment into a shared communication task.",
+              "zh": "行动建议都可不做。无需新增披露、恢复联系、与不安全对象协商或取得批准才保护自己。清楚说不仍可构成完整边界，本普通互动题本不把胁迫骚扰改写成双方沟通任务。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "A small optional action, with no promised outcome",
+            "zh": "可自选小行动，不保证结果"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish and it is safe, you could state a boundary directly. You may also choose not to; different expression does not require a lower boundary.",
+              "zh": "如果愿意且安全允许，想表达边界时可以直接说明；也可以不做，表达方式不同不等于需要降低边界。"
+            },
+            {
+              "en": "You may instead keep one private note or end here. Changing how you express something does not guarantee agreement, trust or liking, and you are not solely responsible for another person’s interpretation. The public link shares a general reading only. Neither an explanation nor a repeated attempt is required to complete this reflection.",
+              "zh": "也可只留一条私人记录或结束。改变表达不保证同意、信任或喜欢，自己不单独承担他人理解责任。公开链接只分享通用读法，完成反思不要求解释或重测。"
+            }
+          ]
+        },
+        {
+          "id": "science",
+          "title": {
+            "en": "Five separate readings and their limits",
+            "zh": "五组分别读及其边界"
+          },
+          "paragraphs": [
+            {
+              "en": "This is a product-organised area for self-observation, without independent psychometric validation.",
+              "zh": "这是用于自我观察的产品化因素，未经独立心理测量验证。"
+            },
+            {
+              "en": "Read all five groups separately: there is no total, ranking, leading cause, threshold, severity band or social-value score. Equal sums do not mean equal consequences because their items differ. This original source edition has no completed reliability, validity, norms, fairness, percentile or accuracy verification. Self-presentation and understanding can affect the answers. A later difference may reflect the situation or your interpretation and does not certify a change in interaction style.",
+              "zh": "五组分别阅读，不合总分、不排名、不选主要原因、不设阈值、严重度或社交价值。同和不等于同等影响，因为题目不同。本原创源版本尚未完成信度、效度、常模、公平性、百分位或准确率验证；自我呈现与理解可影响回答。以后差异可能来自情境或理解，不认证互动方式改变。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "friction-scoring",
+      "title": {
+        "en": "Original five-choice sums and means",
+        "zh": "原五选项的和与均值"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group has four forward-scored statements. Raw sums range from 4 to 20 and the mean is the sum divided by four, shown to two decimals without changing the exact calculation. Midpoint 3 is a valid uncertain/situation-dependent response. There is no NA, total, ranking, threshold or most serious flaw.",
+          "zh": "每组四条直接计分陈述，原始和4—20，除以四得到均值；显示两位小数，不改变准确计算。中点3是有效的不确定／视情况回答。无NA、总分、排名、阈值或最严重缺点。"
+        }
+      ]
+    },
+    {
+      "id": "friction-complete",
+      "title": {
+        "en": "All twenty before personal interpretation",
+        "zh": "二十题完整才作个人读法"
+      },
+      "paragraphs": [
+        {
+          "en": "Missing answers suppress every personal group score and interpretation; do not guess a missing choice or use an answered subset. You may continue, exit and clear, or read all five public guides. Equal sums stay equal without a leading cause or an implication that several flaws are equally serious. The web form rejects unknown answer keys rather than ignoring them.",
+          "zh": "缺答暂停全部个人题组分和解释，不猜未答、不按已答子集解释；可继续、退出清除或读五篇公开全文。同和保留，不选主因，也不表示多个缺点同样严重。网页严格拒绝未知答案键，而非忽略。"
+        }
+      ]
+    },
+    {
+      "id": "friction-source",
+      "title": {
+        "en": "Original source and product limits",
+        "zh": "原创来源与产品边界"
+      },
+      "paragraphs": [
+        {
+          "en": "This projects the original DISLIKED_REASON form disliked_reason_likert_20, source bank/scoring 0.1.0-preview and result content 0.2.0-editorial-candidate. Twenty Chinese items, five choices, five groups and forward keys are preserved; English is a new working translation and examples are identified as editorial reading. No psychometric validation, local norms or Chinese–English equivalence is established. This is not the separate seven-group difficult-person form or a competitor’s quiz.",
+          "zh": "本页接入原创DISLIKED_REASON的disliked_reason_likert_20题本，源题库／计分0.1.0-preview、结果正文0.2.0-editorial-candidate，保留二十中文题、五选项、五组及正向键；英文是新工作译文，算例是编辑读法。未建立心理测量验证、本地常模或中英等价，不是单独七组难相处题本或竞品题库。"
+        }
+      ]
+    },
+    {
+      "id": "boundaries",
+      "title": {
+        "en": "Self-report, shared context and safety",
+        "zh": "自报、共同背景与安全"
+      },
+      "paragraphs": [
+        {
+          "en": "Only self-reports are collected: no peer or partner reports, observations, conflict records or exclusion data. A group sum cannot recover a particular item response or show that a behaviour actually occurred. There is no social-value, popularity, character-defect or negative-personality label. A clear no needs neither reasons, an alternative nor approval. You need not keep contact, explain an unsafe boundary or promise to resume. With violence, coercion, control, stalking, harassment or threats, safety takes priority; reduce or block contact if needed and seek support you consider appropriate. Do not negotiate with an unsafe person to satisfy this exercise or recast protection as a defect.",
+          "zh": "只有自报，没有同伴／伴侣报告、观察、冲突记录或排斥资料；题组和不能还原单题，也不证明行为确实发生。不派社交价值、人缘、人格缺陷或负面人格标签。清楚说不无需理由、替代或批准；无需保持联系、向不安全对象解释或承诺恢复。暴力、胁迫、控制、跟踪、骚扰或威胁中安全优先，可按需减少或阻止联系、选择合适支持；不为完成练习而与不安全对象协商，也不把自保写成缺陷。"
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": {
+        "en": "Optional use and repeat attempts",
+        "zh": "可自选用途与重测"
+      },
+      "paragraphs": [
+        {
+          "en": "Every action is optional. This is entertainment and self-exploration without completed reliability, validity, norms, fairness, percentile or accuracy verification. It is not diagnosis, an assessment of social worth or an evidence base for advice about a particular person. Do not use it for medical, judicial, hiring, school, admissions, security, partner-selection or relationship decisions, or for managing substances, gambling, self-harm, eating disorders, dangerous behaviour or withdrawal. Later differences may reflect context or understanding rather than a verified change.",
+          "zh": "所有行动可选。本版为娱乐与自我探索，尚未完成信度、效度、常模、公平性、百分位或准确率验证，不是诊断、社交价值评估或针对个人建议的证据。勿用于医疗、司法、招聘、学校／升学、安保、伴侣筛选或关系去留，也不用于物质使用、赌博、自伤、进食障碍、危险行为或戒断管理。以后差异可能反映背景或理解，而非已验证改变。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Web privacy and recovery differ from Mini caches",
+        "zh": "网页隐私与恢复不同于小程序缓存"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers are processed in this page. Unlike the Mini form’s saved final result cache, the web uses only an opt-in tab draft, expiring after twenty-four hours and clearing on completion, reset or exit-and-clear. There is no saved final-score cache in this web flow. Incomplete answers never produce a final result. Copying includes only a public title and URL, never answers, raw sums or means; no disclosure is required.",
+          "zh": "答案在本页处理。与小程序保存最终结果缓存不同，网页仅用主动选择的标签页草稿，二十四小时失效，完成、重测或退出清除即删；本网页流程不保存最终分数缓存，缺答不生成最终结果。复制只有公开标题和地址，没有答案、原始和或均值，不要求披露。"
+        }
+      ]
+    },
+    {
+      "id": "states",
+      "title": {
+        "en": "Incomplete, unavailable and equal-score states",
+        "zh": "缺答、不可用与同分状态"
+      },
+      "paragraphs": [
+        {
+          "en": "Incomplete: not all twenty responses were valid, so no personal group scores or interpretations are provided. Continue only if you wish, or exit and clear. A web draft exists only if you opted in and expires after twenty-four hours; there is no final-result cache. Missing choices are not guessed, and an unfinished attempt says nothing about avoidance, courage or another person’s evaluation. Stopping for safety needs no explanation.",
+          "zh": "缺答：二十题未全部有效，因此不给个人题组分或解释。可以自愿继续，或退出清除。网页仅主动选择时有草稿，二十四小时失效，无最终结果缓存。不猜未答，未完成不说明逃避、勇气或他人评价；因安全停止无需解释。"
+        },
+        {
+          "en": "Unavailable: a source, scoring or content configuration mismatch stops interpretation. This is a version issue rather than a problem with your answers. Do not show an old result or a partial explanation, and do not require repeated attempts; look again only after a corrected version is available. This state has no interpersonal meaning and does not affect real safety choices.",
+          "zh": "不可用：题库、计分或正文配置不匹配时停止解释。这是版本问题，不是作答问题；不显示旧结果、不作部分解释、不要求反复重做，可在修正版本可用后再看。该状态没有人际含义，也不影响现实安全选择。"
+        },
+        {
+          "en": "Equal scores: two or more raw sums can be equal. Read every group separately without breaking the tie or naming a main cause. This does not mean equally serious flaws, many problems, a negative personality or a failed test. Different items can have equal sums without equal effects. No dislike conclusion or change in a safety boundary follows.",
+          "zh": "同分：两个或更多原始和可以相同，分别读全部组，不打破并列或指定主因。不表示同等严重缺点、问题很多、负面人格或测试失效；不同题目可同和但不同影响，不产生讨厌结论或改变安全边界。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will this tell me why someone dislikes me?",
+        "zh": "会告诉我别人为什么讨厌自己吗？"
+      },
+      "answer": {
+        "en": "No one else is asked. Your endorsements cannot reveal another person’s thoughts, a real reason for dislike, social value or a character defect. The title is a search entry to an interaction self-reflection.",
+        "zh": "未询问任何他人。自己的符合程度不能读取他人想法、真实讨厌原因、社交价值或人格缺陷；标题是互动反思的搜索入口。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is midpoint 3 missing information?",
+        "zh": "中点3是缺失资料吗？"
+      },
+      "answer": {
+        "en": "No. The original choice means uncertain or depends on the situation and counts as numeric 3. This source form has five valid numeric choices and no NA. You may stop or read every guide without answering.",
+        "zh": "不是。原选项为不确定或视情况，计有效数值3。源表仅五个数值选择、无NA；可以停止或不答先读全文。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens with a missing answer?",
+        "zh": "缺一道会怎样？"
+      },
+      "answer": {
+        "en": "Every personal group score and interpretation stays suppressed until all twenty responses are valid. There is no partial judgement or imputation. General public guides remain readable.",
+        "zh": "二十项全部有效前暂停所有个人题组分与解释，不部分下判断、不补值，通用公开全文仍可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Which group is my main problem?",
+        "zh": "哪一组是自己的主要问题？"
+      },
+      "answer": {
+        "en": "None is selected. Five sums and means remain separate without ranking, severity categories or a total. Ties do not mean several equally serious flaws or a negative personality type.",
+        "zh": "不选主要问题。五和与均值分别保留，不排名、不划严重度、不合总分；同分不表示多个同样严重缺点或负面人格。"
+      }
+    },
+    {
+      "question": {
+        "en": "Must I explain a refusal or resume contact?",
+        "zh": "必须解释拒绝或恢复联系吗？"
+      },
+      "answer": {
+        "en": "No. A clear no can be a complete boundary without reasons, alternatives or approval. Safety and the choice to stop contact take priority over an optional interaction exercise.",
+        "zh": "不必。清楚说不可以是完整边界，无需理由、替代或批准，安全和停止联系选择优先于可选练习。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are full results free, and are answers saved?",
+        "zh": "完整结果免费吗，会保存答案吗？"
+      },
+      "answer": {
+        "en": "All twenty items and five full guides are free without signup. Optional tab drafts clear on completion and expire after twenty-four hours. Unlike the Mini source, this web flow has no final-result cache. Copying uses only the public title and link.",
+        "zh": "全部二十题、五篇全文免费，无需注册；可选草稿完成清除，二十四小时失效。本网页不同于源小程序，无最终结果缓存；复制只有公开标题和链接。"
+      }
+    }
+  ],
+  "references": [],
+  "source": {
+    "kind": "fermatmind_original_mini_reuse",
+    "formCode": "disliked_reason_likert_20",
+    "itemBankVersion": "0.1.0-preview",
+    "scoringVersion": "0.1.0-preview",
+    "resultContentVersion": "0.2.0-editorial-candidate",
+    "itemBankSha256": "04beb7167239a3318b78d174137d88f2ac3cf6d30dd9cc7292fa5bdf9433aea7",
+    "resultContentSha256": "faa97514a8a4c8c647f914a7b9f9967cfb7b0702218be7d1ad2989e6ba3a7a31",
+    "psychometricValidationCompleted": false
+  }
+}

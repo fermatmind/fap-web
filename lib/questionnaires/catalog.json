@@ -4648,5 +4648,83 @@
       "recognition",
       "exploration"
     ]
+  },
+  {
+    "slug": "annoying-person-test",
+    "code": "DISLIKED_REASON",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Annoying Person Test: Interaction Reflection",
+      "zh": "烦人性格测试：互动线索自评"
+    },
+    "description": {
+      "en": "Use FermatMind’s original twenty-item interaction reflection and read five full guides free. See separate sums and means, without a dislike score, character defect or verdict about anyone else.",
+      "zh": "使用费马原创二十题回看互动线索，五篇完整指南免费。各组分别呈现原始和与均值，不算被讨厌分、不判人格缺陷或他人评价。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "disliked_reason_likert_20",
+    "questionCount": 20,
+    "resultSlugs": [
+      "directness-reading",
+      "pause-reading",
+      "expectations-reading",
+      "updates-reading",
+      "boundaries-reading"
+    ]
+  },
+  {
+    "slug": "love-fight-style",
+    "code": "FM_LOVE_CONFLICT_PROCESS20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Love Fight Style Test: Original Process Reflection",
+      "zh": "爱情吵架风格测试：原创过程反思"
+    },
+    "description": {
+      "en": "Reflect on escalation, pauses, returning to an issue and repair through twenty original prompts. Four full guides are free, with separate means and no assigned fight type.",
+      "zh": "用二十条原创提示回看升温、暂停、再谈与修复，四篇完整指南免费，分别呈现均分，不派吵架类型。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_love_conflict_original20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "verbal-escalation-reading",
+      "pause-reading",
+      "return-reading",
+      "repair-reading"
+    ]
+  },
+  {
+    "slug": "capacity-to-love-test",
+    "code": "CTL_I_2018_WORKING41",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Capacity to Love Test: CTL-I 2018 Working Edition",
+      "zh": "爱的能力测试：CTL-I 2018工作译版"
+    },
+    "description": {
+      "en": "Read all 41 published 2018 CTL-I English statements with a new Chinese working translation. Six complete guides are free; domain sums and means stay separate without an overall love grade.",
+      "zh": "阅读2018年已发表CTL-I完整41条英文及费马新工作中译，六篇完整指南免费。领域和与均值分别呈现，不划爱的总等级。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "ctl2018_41_working_v1",
+    "questionCount": 41,
+    "resultSlugs": [
+      "interest-reading",
+      "trust-reading",
+      "gratitude-reading",
+      "shared-ideal-reading",
+      "sexual-passion-reading",
+      "loss-reading"
+    ]
   }
 ]

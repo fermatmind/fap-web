@@ -1,0 +1,554 @@
+[
+  {
+    "id": "verbal-escalation-reading",
+    "directionIds": [
+      "verbal-escalation"
+    ],
+    "title": {
+      "en": "Love Fight Style: Reading Verbal Escalation",
+      "zh": "爱情吵架风格：言语升温的完整读法"
+    },
+    "headline": {
+      "en": "Notice the words and timing around one disagreement",
+      "zh": "观察一次分歧中的措辞与时机"
+    },
+    "summary": {
+      "en": "Read five original frequency prompts about pace, generalisations, repeated points, countercriticism and interruptions, with an exact example and a voluntary next step.",
+      "zh": "完整理解语速、概括、重复观点、反向批评与打断五项频率，含准确算例和可自选下一步。"
+    },
+    "seo": {
+      "title": {
+        "en": "Love Fight Style: Reading Verbal Escalation",
+        "zh": "爱情吵架风格：言语升温的完整读法"
+      },
+      "description": {
+        "en": "A full guide to the verbal-escalation group in FermatMind’s original love fight reflection: scoring, conversation, context and limits, without a partner verdict.",
+        "zh": "费马原创吵架过程反思的言语升温全文：计分、对话、背景与边界，不替伴侣下结论。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five numeric frequency ratings produce a separate mean; a larger value describes more reported occurrences, not worse character or a validated danger level.",
+      "zh": "五项数值频率产生独立均分；较大值只表示报告出现较多，不是人格好坏或经验证危险等级。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "What counts as a reported occurrence",
+          "zh": "这里统计自己报告的出现频率"
+        },
+        "paragraphs": [
+          {
+            "en": "This group asks whether your voice became louder or faster, whether you generalised, repeated a point, answered criticism with criticism or began before the other person finished. An occurrence is not an explanation of why it happened. You might have been rushed, misunderstood, excited or distressed; the form cannot distinguish those possibilities. It also cannot observe whether either person felt heard. Read the particular prompts alongside their summary rather than treating the group name as an identity.",
+            "zh": "本组询问音量或语速增加、概括、重复观点、以批评回应批评及抢先回应。出现频率不解释原因：赶时间、误解、兴奋或难受都可能有关，问卷无法区分，也不观察双方是否感到被听见。阅读时保留具体题意，不把题组名称当身份。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "An exact mean, with no reverse coding",
+          "zh": "准确均分，不反向编码"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose the five responses are 4, 3, 2, 4 and 2. They sum to 15 and the mean is 15/5 = 3.0. All five items are forward descriptions of frequency. This group is not reversed into a healthy-relationship score or subtracted from repair attempts. The same mean can arise when different behaviours occurred, so it cannot tell you whether interruptions or broad claims were most relevant. Inspect the individual statements privately if you want that distinction.",
+            "zh": "如五项为4、3、2、4、2，合计15，15/5为3.0。五题均直接描述频率，不反向变成健康关系分，也不从修复动作里扣除。同均分可能来自不同回答，不能据此确定打断或概括哪项更相关；想区分时可自行回看具体陈述。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Replace one broad claim with an observable event",
+          "zh": "把一个宽泛指责换成可观察事件"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine an ordinary disagreement about a changed plan. A possible sentence is: “When the plan changed this afternoon, I started repeating myself. I want to explain what I had understood before we decide what to do.” It identifies your action and the event. A counterexample is saying “You always make me shout” and presenting this test as proof. The form cannot assign responsibility for another person’s actions or establish that your account is the only accurate one.",
+            "zh": "设想因计划变化产生普通分歧，可以说：“今天下午计划变动时，我开始反复说同一点；决定下一步之前，我想说明自己原先理解的安排。”它指出自己的行为和具体事件。反例是说“都是你让我大喊”，再拿测试当证明；问卷不能转移个人行为责任，也不能确认某方叙述唯一正确。"
+          }
+        ]
+      },
+      {
+        "id": "opportunity",
+        "title": {
+          "en": "Frequency depends on what had an opportunity to happen",
+          "zh": "频率依赖实际机会"
+        },
+        "paragraphs": [
+          {
+            "en": "A quiet month with one brief disagreement is different from a month containing many complicated conversations. The answer scale refers to relevant occasions, but the form does not count their number, duration, stakes or accessibility. A never response means the described action did not occur when you could judge it; no relevant opportunity belongs in the unscored option. Neither choice establishes better communication. Differences in memory, language and conversational expectations can also affect a report.",
+            "zh": "一个月只有一次简短分歧，与多次复杂交谈不同。选项指相关机会中的频率，但本表不记录次数、时长、利害或可参与程度。有机会且能判断而未出现可选从未；没有机会则选不计分，两者都不证明沟通更好。记忆、语言与交谈习惯也可能影响回答。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Four observation areas are not a sequence or ranking",
+          "zh": "四区不是固定流程或排名"
+        },
+        "paragraphs": [
+          {
+            "en": "The other groups describe expressing a pause, returning to a specific issue and checking a repair. These are editorial areas for reading, not verified independent factors or stages everyone passes through. Similar means do not prove the same underlying process, and a higher repair mean does not erase a harmful statement. The form makes no largest-group fight type. The separate conflict-styles questionnaire concerns approaches to competing concerns and solutions; its five-strategy scores cannot be converted into these four means.",
+            "zh": "其他三组描述表达暂停、再谈具体问题及核对修复，是编辑观察区，不是已验证独立因子或人人经过的阶段。相近均分不证明同一过程，较多修复也不抵销伤害；本版不按最大组派吵架类型。站内冲突风格问卷关注双方关注和方案的处理，五策略分不能转换成本版四均分。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "Leave unavailable information unscored",
+          "zh": "无法取得的信息保留不计分"
+        },
+        "paragraphs": [
+          {
+            "en": "Any unscored item leaves this group without a mean because all five numeric responses are required. Missing is not zero, an assumed middle value or evidence of avoidance. Other complete groups retain their own summaries. All twenty recognised unscored choices can finish the reflection and every full guide remains available. You do not need to reproduce an argument, ask a partner for a rating or recall a distressing event to make the numbers complete.",
+            "zh": "任一不计分会使本组暂不给均分，因本组需五项数值齐全。不补零、不代入中值，也不视为逃避；其他完整组仍保留。二十项全选不计分也能完成并读全部全文，无须重演争吵、请伴侣打分或回忆痛苦事件来补齐。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Research background does not validate these prompts",
+          "zh": "研究背景不验证这些新题"
+        },
+        "paragraphs": [
+          {
+            "en": "Research on conflict recovery has used observed couple interactions, including a discussion followed by a cooling-down task. These new self-report items do not reproduce that procedure or inherit its associations. FermatMind has not established reliability, norms, language equivalence, diagnostic cutoffs or breakup predictions for this edition. A four-week window helps organise recall and is an editorial choice. The form cannot determine who is right, identify abuse from a mean or decide whether a relationship should continue.",
+            "zh": "冲突恢复研究曾观察伴侣讨论及随后冷却任务。本新自评不复现实验程序，也不继承研究关联。费马尚未建立本版信度、常模、语言等价、诊断阈值或分手预测；四周仅是帮助回忆的编辑窗口。均分不能判谁对、识别虐待或决定关系是否继续。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose one manageable observation",
+          "zh": "自选一个可处理观察"
+        },
+        "paragraphs": [
+          {
+            "en": "If you want to reflect further, privately choose one ordinary occasion and separate the event, your words and what you wished to communicate. You may decide to slow one response or ask whether another conversation is welcome. A discussion is optional and a refusal needs no test-based justification. If speaking would feel unsafe, stop the exercise. No result requires contact, an apology, forgiveness, reconciliation or remaining near a person who threatens you.",
+            "zh": "愿意继续时，可私下选一次普通场景，分开事件、自己的话与原想表达的内容；也可尝试放慢一次回应，或询问是否愿意再谈。交谈可选，拒绝无须测试理由。表达不安全时停止；结果不要求联系、道歉、原谅、复合或留在威胁身边。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pause-reading",
+    "directionIds": [
+      "expressing-a-pause"
+    ],
+    "title": {
+      "en": "Love Fight Style: Expressing a Pause",
+      "zh": "爱情吵架风格：表达暂停怎么读"
+    },
+    "headline": {
+      "en": "A pause can name a limit without promising a return",
+      "zh": "暂停可以说明限度，不必承诺返回"
+    },
+    "summary": {
+      "en": "Read five original prompts about requesting space, realistic availability and voluntary readiness, without treating silence or refusal as a defect.",
+      "zh": "完整理解空间请求、实际可用时间与自愿准备，不把沉默或拒绝当缺陷。"
+    },
+    "seo": {
+      "title": {
+        "en": "Love Fight Style: Expressing a Pause",
+        "zh": "爱情吵架风格：表达暂停怎么读"
+      },
+      "description": {
+        "en": "Full pause-expression guide for the original love fight reflection: five-item mean, dialogue, missing information, privacy and safety boundaries.",
+        "zh": "原创吵架过程反思的暂停表达全文，含五题均分、对话、资料不足、隐私与安全边界。"
+      }
+    },
+    "scoreReading": {
+      "en": "The mean describes reported ways of expressing a pause on relevant occasions. It cannot determine whether a pause was welcome, safe or owed.",
+      "zh": "均分描述相关机会中报告的暂停表达，不能确定暂停是否受欢迎、安全或有义务提供。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Distinguish space from a demand for cooperation",
+          "zh": "区分所需空间与要求配合"
+        },
+        "paragraphs": [
+          {
+            "en": "The five prompts concern saying you need time, describing what you can manage, discussing a voluntary readiness check, leaving another person’s feelings their own and giving realistic availability. They do not measure how long a pause should last. A person may need silence without being able to explain it immediately, and a clear explanation does not ensure agreement. The group concerns your reported expressions, not the other person’s duty to accept a schedule or continue the relationship.",
+            "zh": "五题涉及说出所需时间、说明当下承受范围、自愿准备核对、不规定对方感受及如实说明空闲，不测暂停应多久。有人需要安静却暂时无法解释；解释清楚也不保证同意。本组关注自己的表达，不要求对方接受时间表或继续关系。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A separate five-item example",
+          "zh": "独立的五题算例"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 3, 4, 2, 5 and 4 sum to 18, giving 18/5 = 3.6. A larger mean describes more reported occurrences of these particular expressions, not a greater ability to regulate emotions. No item is reversed. If the voluntary-return prompt was irrelevant because you did not want another conversation, use unscored; four numeric responses do not create a mean. The form does not turn a decision to end contact into a low pause score.",
+            "zh": "如3、4、2、5、4合计18，18/5为3.6。较大值只描述这些表达出现较多，不是情绪调节能力更强，无反向题。若自己不想再谈，自愿返回题无关则不计分；四数值不求均分，不把结束联系变成低暂停分。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Offer realistic information when you freely choose to",
+          "zh": "自愿时提供真实信息"
+        },
+        "paragraphs": [
+          {
+            "en": "For an ordinary disagreement, you might say: “I cannot continue this conversation now. I may have time tomorrow, but I would like us to check whether we both want to return to it.” This states a present limit without manufacturing certainty. A counterexample is promising an exact return to improve a questionnaire result when you cannot or do not want to keep that promise. Another person can want an answer, but that wish does not remove your right to pause or refuse.",
+            "zh": "普通分歧中可说：“我现在没法继续，明天可能有时间，但希望到时先确认双方是否还想谈。”它说明当前限度，不制造确定。反例是为了提高结果而承诺自己无法或不愿履行的返回时间。对方可以希望得到答复，但希望不取消自己暂停或拒绝的权利。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Availability is not the same as willingness",
+          "zh": "有空与愿意是两回事"
+        },
+        "paragraphs": [
+          {
+            "en": "Work, caregiving, fatigue, disability, access to privacy and the subject of the disagreement can affect whether an explanation is possible. Being available does not mean consenting to discuss a topic, and needing time does not prove that someone is punishing a partner. This form has no observer data about either situation. It also does not tell you how another person interpreted your words. If useful, keep availability, willingness and safety as separate questions rather than trying to answer all three with one mean.",
+            "zh": "工作、照护、疲劳、残障、隐私条件及话题会影响能否解释。有空不等于同意谈，需要时间也不证明在惩罚伴侣。本表没有观察数据，也不知道对方如何理解。若有用，可把有空、愿意和安全分别考虑，不试图用一个均分回答三者。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "More explanation is not always the appropriate goal",
+          "zh": "更多解释未必是合适目标"
+        },
+        "paragraphs": [
+          {
+            "en": "A higher frequency of explanations can coexist with repeated arguments, while a clear single boundary may require no further discussion. The group is therefore not a communication-quality scale. Pausing does not guarantee a later resolution, and returning does not make a pause legitimate. These four editorial areas can occur in another order, recur or be absent. Equal means across them remain equal numerical descriptions, not evidence of a balanced process or a fixed fight style.",
+            "zh": "经常解释也可能伴随反复争执，一次清楚界限则未必需要再谈，因此本组不是沟通质量量表。暂停不保证解决，返回也不是暂停正当性的条件。四观察区可以换顺序、重复或缺席；同均分只是数字相同，不证明过程平衡或固定风格。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "No opportunity is different from never",
+          "zh": "没有机会与从未出现不同"
+        },
+        "paragraphs": [
+          {
+            "en": "If you had relevant occasions and the statement did not occur, never is a numeric answer. If there was no occasion, you cannot judge or you prefer not to answer, choose unscored. All five numeric answers are needed for this group. An all-unscored completion remains a valid way to finish without a personal mean. Full public guides can also be read before starting. Nothing requires you to contact someone to obtain an opportunity that the questionnaire asks about.",
+            "zh": "有相关机会而行为未出现可选数值“从未”；无机会、无法判断或不愿答选不计分。本组需五数值齐全，全部不计分仍可完成而无个人均分，公开全文也可作答前阅读，不要求为创造机会去联系任何人。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "A self-report is not an observed cooling-down task",
+          "zh": "自报不是被观察的冷却任务"
+        },
+        "paragraphs": [
+          {
+            "en": "The research background distinguishes recovery after conflict from resolving the issue itself. It does not validate these five statements, the response anchors or the four-week recall window. This original edition has no established norms, reliability, language equivalence or outcome prediction. Neither a pause mean nor its change certifies progress. The test cannot diagnose withdrawal, an attachment pattern or coercion, and it cannot infer the reasons for another person’s silence from your answers.",
+            "zh": "研究背景区分冲突后恢复与问题解决，不验证本五题、选项锚点或四周窗口。本原创版没有已建立常模、信度、语言等价或结果预测；暂停均分及变化不认证进步，也不诊断退缩、依恋或胁迫，更不能从自己答案推断他人沉默原因。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep the option to end here",
+          "zh": "保留到此为止的选择"
+        },
+        "paragraphs": [
+          {
+            "en": "You might privately prepare one short sentence about what you can manage now, with no obligation to send it. If an ordinary later conversation is something you want, you may suggest a voluntary check-in rather than an unconditional promise. You may instead decide that no further contact is wanted. In unsafe situations you need not explain, negotiate, offer a return time or gain agreement before protecting yourself. A general result link does not change any of those choices.",
+            "zh": "可私下准备一句说明当下承受范围的话，无须发送。若确实想再谈普通问题，可建议自愿核对，而非无条件保证；也可决定不再联系。不安全时保护自己无需解释、协商、返回时间或取得同意，通用结果链接不改变这些选择。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "return-reading",
+    "directionIds": [
+      "returning-to-the-issue"
+    ],
+    "title": {
+      "en": "Love Fight Style: Returning to a Specific Issue",
+      "zh": "爱情吵架风格：再谈具体问题"
+    },
+    "headline": {
+      "en": "A return to the topic is not proof of resolution",
+      "zh": "回到话题不等于已解决"
+    },
+    "summary": {
+      "en": "Read an original five-item reflection on revisiting an unresolved issue, checking willingness, describing events and separating feelings from practical decisions.",
+      "zh": "完整阅读重谈未决问题、确认意愿、描述事件及区分感受与决定五项原创反思。"
+    },
+    "seo": {
+      "title": {
+        "en": "Love Fight Style: Returning to a Specific Issue",
+        "zh": "爱情吵架风格：再谈具体问题"
+      },
+      "description": {
+        "en": "Full guide to returning to an ordinary disagreement: exact scoring, a dialogue example, opportunity limits and the distinction between recovery and resolution.",
+        "zh": "重谈普通分歧的完整指南，含准确计分、对话、机会边界及恢复与解决的区别。"
+      }
+    },
+    "scoreReading": {
+      "en": "Five complete frequency ratings give a descriptive mean. Returning more often does not prove that the issue was solved or that continuing was appropriate.",
+      "zh": "五项完整频率产生描述均分，再谈较多不证明问题解决或继续讨论更合适。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "Notice what you returned to",
+          "zh": "注意回到哪个具体问题"
+        },
+        "paragraphs": [
+          {
+            "en": "This group asks about returning to an unresolved issue when both people choose to talk, distinguishing a new complaint, checking willingness, describing observable events and separating a practical decision from a feeling. These are related reading topics rather than a validated factor. Returning may create an opportunity to understand something; it does not guarantee agreement. A person can understand a partner’s point and still disagree. The form records neither the other person’s consent nor the accuracy of your description.",
+            "zh": "本组询问双方自愿时回到未决问题、区分新不满、确认意愿、描述事件及区分实际决定与感受。这是相关阅读主题，不是验证因子。再谈可能提供理解机会，不保证同意；理解后仍可不同意，问卷也不记录他人同意或叙述准确性。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Follow one example through the calculation",
+          "zh": "完整走一次计算"
+        },
+        "paragraphs": [
+          {
+            "en": "If your responses are 4, 4, 3, 2 and 4, the sum is 17 and the mean is 17/5 = 3.4. Five numeric answers are required and there are no reverse items. The display rounds to one decimal, but rounding does not supply a meaningful difference threshold. Two attempts showing 3.4 can describe different individual responses. A value of 3.4 versus another group’s 3.6 does not show that returning was weaker or less important than that other topic.",
+            "zh": "如4、4、3、2、4合17，17/5为3.4。需五数值且无反向题，显示一位小数并不产生有意义差异阈值。两次3.4可来自不同回答；与另一组3.6相比，也不证明再谈更弱或更不重要。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Separate a practical question from a feeling",
+          "zh": "分开实际问题与感受"
+        },
+        "paragraphs": [
+          {
+            "en": "For a disagreement about weekend plans, you might say: “I still need to decide whether I can make that journey. I also felt left out when the time changed. Would you want to discuss either part now?” This distinguishes a decision, a feeling and a request. A counterexample is treating your account of the change as proof that the other person intended exclusion. No questionnaire gives access to someone else’s motives, and a refusal to talk now does not confirm your interpretation.",
+            "zh": "周末安排分歧中可说：“我还要决定能否出行；时间变动时我也觉得被落下。你现在愿意谈其中哪部分吗？”它分开决定、感受与请求。反例是把计划变化当对方故意排除自己的证明；问卷不能读取动机，暂不愿谈也不确认这种解释。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Some issues remain unresolved without a failed conversation",
+          "zh": "有些问题未决，并不表示交谈失败"
+        },
+        "paragraphs": [
+          {
+            "en": "Information may be missing, a decision may belong to one person, or the available options may conflict with important needs. Even a careful discussion can leave a genuine disagreement. The questionnaire does not judge whether agreement is possible or desirable. A calm moment after an argument can also occur without resolving its subject. Research distinguishing conflict recovery from resolution is useful background for this distinction, but it does not establish that the present items measure either process accurately.",
+            "zh": "可能资料未齐、决定属于个人，或可用方案与重要需要冲突。认真讨论仍可留下真实分歧，本表不判同意是否可能或可取。争论后平静也不代表解决；恢复与解决的研究区分可作背景，但不证明本题能准确测任何过程。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Keep this purpose separate from conflict strategies",
+          "zh": "与冲突策略题本分清用途"
+        },
+        "paragraphs": [
+          {
+            "en": "The site’s five-strategy conflict reflection asks how you approach competing preferences and possible solutions. This group instead asks what you reported doing when revisiting a particular topic. It is not its collaboration or compromise score in romantic wording. The items, completeness rules and interpretive purposes differ. None of the four means can be converted to those five strategies, and no cross-group ranking identifies your best or worst way of handling disagreement. The title invites reflection rather than a fixed type.",
+            "zh": "站内五策略询问竞争偏好和方案的处理；本组询问重谈具体话题时自己报告做了什么，不是合作或妥协分换成恋爱措辞。题目、完整度和解释职责不同，四均分不能转换为五策略，也不靠跨组排名认定最好最差处理方式。题目供反思，不派固定类型。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "A voluntary non-return has no invented score",
+          "zh": "不再谈的选择不被编造分数"
+        },
+        "paragraphs": [
+          {
+            "en": "If no mutually wanted return occurred, the relevant prompts may be unscored. That is different from assuming you never used each behaviour in a situation that actually existed. One unscored item withholds this group’s mean while other complete groups remain readable. All-unscored can finish and every guide stays public. You may also stop without finishing. Neither option implies unwillingness to improve, and no data needs to be obtained from a former or current partner.",
+            "zh": "没有双方愿意的再谈时，相关题可不计分，不等于假设在真实机会中从未使用每项行为。一个不计分仅暂不给本组均分；全不计分可完成且所有全文公开，也可不完成就停止。两者不表示不愿改善，无须从前任或伴侣取得资料。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "No verdict about relationship quality",
+          "zh": "不据此判关系质量"
+        },
+        "paragraphs": [
+          {
+            "en": "FermatMind authored this group and its prose; it is not a published conflict-recovery scale or the observation protocol used in research. There are no established local norms, reliability estimates, language-equivalence findings or predictions of separation. The four-week recall period is editorial. A single attempt cannot identify emotional intelligence, attachment, honesty or a stable ability to resolve problems. A difference on a repeat attempt has no validated threshold and may reflect different occasions or memories.",
+            "zh": "本题组及正文为费马原创，不是发表的恢复量表或研究观察方案，无已建立本地常模、信度、语言等价或分离预测。四周为编辑窗口，一次回答不能识别情商、依恋、诚实或稳定解决能力，重测差异也无验证阈值，可能只是场景与记忆不同。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose a question without requiring another discussion",
+          "zh": "选一个问题，无须启动新讨论"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately write the smallest practical question still open and a separate sentence about your feeling. You can then decide whether a conversation would be wanted and safe, or whether your next step is an independent decision. You do not have to pursue agreement, keep explaining or expose private details. A repair, apology or reconciliation is not required. Where discussion involves threats or pressure, this ordinary-disagreement exercise does not take priority over your safety or wish to end contact.",
+            "zh": "若有用，可私下记最小未决实际问题，再另写一句感受，然后决定是否愿意且安全地讨论，或下一步是自己的决定。无需追求一致、反复解释或披露隐私，也不要求修复、道歉或复合；有威胁压力时，练习不优先于安全和结束联系意愿。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "repair-reading",
+    "directionIds": [
+      "checking-repair"
+    ],
+    "title": {
+      "en": "Love Fight Style: Offering and Checking Repair",
+      "zh": "爱情吵架风格：修复动作与核对"
+    },
+    "headline": {
+      "en": "An offer needs room to be declined",
+      "zh": "提出修复，也容许拒绝"
+    },
+    "summary": {
+      "en": "Read five original prompts about acknowledging an action, listening without demanding forgiveness, proposing a small change and checking whether it is welcome.",
+      "zh": "完整阅读承认行为、不催原谅地倾听、小改变及确认是否受欢迎五项原创提示。"
+    },
+    "seo": {
+      "title": {
+        "en": "Love Fight Style: Offering and Checking Repair",
+        "zh": "爱情吵架风格：修复动作与核对"
+      },
+      "description": {
+        "en": "A full repair-offer guide with a five-item mean, concrete dialogue, counterexamples, consent and the limit that repair never cancels harm.",
+        "zh": "修复提议完整指南，含五题均分、具体对话、反例、同意及修复不抵销伤害的边界。"
+      }
+    },
+    "scoreReading": {
+      "en": "A complete five-item mean describes your reported repair-related actions. It does not establish that an offer was accepted, effective or sufficient.",
+      "zh": "五题完整均分描述自己报告的修复相关行为，不证明提议被接受、有效或已经足够。"
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "title": {
+          "en": "An attempted repair and its reception are different",
+          "zh": "尝试修复与被接受不同"
+        },
+        "paragraphs": [
+          {
+            "en": "This group asks about naming your own specific action, listening without asking for immediate forgiveness, offering a small alternative, checking whether a gesture is welcome and reviewing an agreed change when that check is welcome. These are reports about your actions, not evidence of their impact. You may sincerely offer something that the other person does not want. Acknowledging one act also does not settle every consequence. Keep intention, action, reception and outcome separate when reading the mean.",
+            "zh": "本组询问明确自己的行为、不要求立刻原谅地听、提供小替代、确认动作是否受欢迎及自愿核对约定变化。报告的是自己行为，不是影响证据；真诚提出也可能不受欢迎，承认一件事也不解决全部后果。意图、行动、接受与结果应分别看。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A worked example without compensation",
+          "zh": "准确算例，不做抵销"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 5, 3, 4, 2 and 4 give a sum of 18 and a mean of 18/5 = 3.6. No item is reverse-scored and there is no total across the four groups. In particular, this 3.6 is not added to or subtracted from a verbal-escalation mean. A later repair offer does not cancel an earlier harmful act. Two identical means can also conceal different answers about listening and consent, so the summary is not a certificate of a successful apology.",
+            "zh": "如5、3、4、2、4合18，18/5为3.6，无反向题，也不跨四组合总分。尤其不会把3.6加减言语升温均分；后来的修复不抵销先前伤害。同均分还可能来自倾听与同意题的不同回答，不是成功道歉证书。"
+          }
+        ]
+      },
+      {
+        "id": "conversation",
+        "title": {
+          "en": "Offer a specific alternative without a condition",
+          "zh": "提出具体替代，不附交换条件"
+        },
+        "paragraphs": [
+          {
+            "en": "For an ordinary interrupted conversation, you might say: “I interrupted you twice. Next time I want to wait until you finish. Would you like to say anything now, or would you prefer space?” The other person can choose either option or neither. A counterexample is offering a gift on condition that the disagreement be forgotten. Gifts, humour, touch and apologies are not automatically welcome, and the test does not authorise using any of them to obtain forgiveness or contact.",
+            "zh": "普通交谈被打断后可说：“我刚才打断了两次，下次想等你说完。你现在想说什么，还是更想留些空间？”对方可选其中一种或都不选。反例是送礼并要求忘掉分歧；礼物、幽默、触碰和道歉并非自动受欢迎，测试不授权用它们交换原谅或联系。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "A change can need time without creating a debt",
+          "zh": "变化可能需时间，不形成亏欠"
+        },
+        "paragraphs": [
+          {
+            "en": "Practical follow-through, a changed agreement or a decision to keep distance may matter more than an immediate gesture. The questionnaire cannot determine what would be adequate for a particular situation. A check-in should itself be welcome; repeated requests for confirmation can become unwanted contact. The person affected does not owe reassurance because a repair was offered. Nor does a low reported frequency prove that nothing was done, because the relevant opportunities and another person’s preferences are not observed here.",
+            "zh": "实际履行、修改约定或保持距离可能比立即示好重要，本表不能确定具体情境怎样才足够。核对本身也应受欢迎，反复索要确认可能成为不想要的联系；受到影响的人不因修复提议而欠安慰。低频也不证明毫无行动，因为机会与他人偏好没有被观察。"
+          }
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": {
+          "en": "Repair is not a relationship-quality score",
+          "zh": "修复不是关系质量分"
+        },
+        "paragraphs": [
+          {
+            "en": "These prompts share topics with apology and accountability, but they are not the site’s apology-language preference form. That form asks what a person values when receiving an apology; this one asks about reported actions during ordinary disagreements. Neither result can stand in for the other. The four process areas are not independent validated factors or a required order, and higher or equal means do not show a healthy balance. No single group becomes your assigned love fight style.",
+            "zh": "题目涉及道歉与责任，但不同于站内接收道歉偏好：后者问重视什么，本组问普通分歧中报告做过什么，不能互代。四过程区不是独立验证因子或必经顺序，较高或相同均分不证明健康平衡，也没有单一组变成派发风格。"
+          }
+        ]
+      },
+      {
+        "id": "missing",
+        "title": {
+          "en": "Unscored never means an unsuccessful person",
+          "zh": "不计分不表示个人失败"
+        },
+        "paragraphs": [
+          {
+            "en": "A missing relevant occasion, uncertainty or a choice not to answer can be unscored. All five numeric answers are necessary for this group’s mean, without zero replacement, middle-value imputation or averaging only the answered items. Other complete groups keep their own means. All twenty unscored choices can complete the exercise and every guide remains free. You do not need to apologise, create a repair attempt or seek another person’s evaluation to fill a gap in the questionnaire.",
+            "zh": "没有机会、不确定或不愿答可不计分；需五数值完整，不补零、不填中值、不只平均已答。其他完整组仍保留，全二十项不计分也能完成且全文免费，无须道歉、制造修复行动或索取他人评价来填空。"
+          }
+        ]
+      },
+      {
+        "id": "limits",
+        "title": {
+          "en": "Original reading, without inherited validity",
+          "zh": "原创读法，不继承效度"
+        },
+        "paragraphs": [
+          {
+            "en": "The research used as background distinguishes recovery after a conflict from resolving its subject. It did not test these new questions or establish their relation to forgiveness, satisfaction or future separation. This edition has no established reliability, local norms, cross-language equivalence or meaningful-change threshold. Self-reports can be affected by memory and expectations. They cannot certify sincerity, diagnose another person, prove that harm was repaired or determine whether a relationship should continue. The four-week window remains an editorial recall aid.",
+            "zh": "背景研究区分冲突后恢复与问题解决，没有检验本新题与原谅、满意或分离的关系。本版无已建立信度、本地常模、跨语言等价或有意义变化阈值，自报受记忆期待影响，不能认证真诚、诊断他人、证明伤害修好或决定关系继续；四周仍是编辑回忆帮助。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Choose accountability without demanding a response",
+          "zh": "选择承担，不索取回应"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, privately name one action you can change within your control and how you would recognise whether you followed through. Decide separately whether telling the other person is wanted, appropriate and safe. They may decline a gesture or a discussion, and you can respect that without asking them to validate your result. No score requires forgiveness, reconciliation, physical closeness or renewed contact. If threats or coercion are present, you may stop here and prioritise protection rather than a repair exercise.",
+            "zh": "若有用，可私下写一项自己能控制的变化及如何辨认是否履行，再另行决定告知对方是否合适、自愿且安全。对方可拒绝示好或讨论，无须请其确认结果；分数不要求原谅、复合、身体亲近或重新联系。有威胁胁迫可停止，优先保护自己。"
+          }
+        ]
+      }
+    ]
+  }
+]

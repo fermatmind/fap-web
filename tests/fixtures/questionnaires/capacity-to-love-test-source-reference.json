@@ -1,0 +1,2681 @@
+{
+  "id": "T096",
+  "slug": "capacity-to-love-test",
+  "code": "CTL_I_2018_WORKING41",
+  "kind": "ctl41",
+  "questions": [
+    {
+      "id": "CTL2018_01",
+      "prompt": {
+        "en": "It is important to me to know the life plan of my partner.",
+        "zh": "了解伴侣的人生计划对我很重要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_02",
+      "prompt": {
+        "en": "I share my life plans with my partner.",
+        "zh": "我与伴侣分享自己的人生计划。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_03",
+      "prompt": {
+        "en": "I am joyful to share my partner’s success.",
+        "zh": "分享伴侣的成功会让我感到快乐。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_04",
+      "prompt": {
+        "en": "I feel enriched to see the personal growth and life experience of my partner.",
+        "zh": "看到伴侣的个人成长和人生经历，我感到自己也更加充实。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_05",
+      "prompt": {
+        "en": "When my partner is unhappy, I also feel sad.",
+        "zh": "伴侣不快乐时，我也会感到难过。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_06",
+      "prompt": {
+        "en": "I can be empathic with my partner and try to understand her/him.",
+        "zh": "我能够体会伴侣的感受，并努力理解对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_07",
+      "prompt": {
+        "en": "I am often bored with my partner.",
+        "zh": "和伴侣在一起时，我经常觉得无聊。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "INT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "INT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "INT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "INT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_08",
+      "prompt": {
+        "en": "I trust that my partner is empathic with me when necessary.",
+        "zh": "我相信在需要时，伴侣会体会我的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_09",
+      "prompt": {
+        "en": "My weaknesses, inner conflicts and problems are open to the other.",
+        "zh": "我会向对方敞开自己的弱点、内心矛盾和问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_10",
+      "prompt": {
+        "en": "I can express my feelings and needs to my partner openly.",
+        "zh": "我能够坦诚地向伴侣表达自己的感受和需要。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_11",
+      "prompt": {
+        "en": "I can trust my partner that in situations of uncertainty and ambivalence she/he can be emotionally supportive.",
+        "zh": "我相信，在不确定和矛盾的情境中，伴侣能在情感上支持我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_12",
+      "prompt": {
+        "en": "I feel being honest to my partner.",
+        "zh": "我觉得自己对伴侣是诚实的。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_13",
+      "prompt": {
+        "en": "I keep secrets from my partner.",
+        "zh": "我有些事情瞒着伴侣。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_14",
+      "prompt": {
+        "en": "I can confess my weaknesses to my partner.",
+        "zh": "我能够向伴侣承认自己的弱点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_15",
+      "prompt": {
+        "en": "I sometimes feel that my relationships are limited.",
+        "zh": "我有时感到自己的关系受到局限。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_16",
+      "prompt": {
+        "en": "I am comfortable with my partner and I usually feel safe in his/her company.",
+        "zh": "和伴侣在一起，我感到自在，并且通常觉得安全。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "BTR",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "BTR",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "BTR",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "BTR",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_17",
+      "prompt": {
+        "en": "I feel gratitude for the existence of my partner.",
+        "zh": "我为伴侣的存在感到感激。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_18",
+      "prompt": {
+        "en": "I feel gratitude for the love received.",
+        "zh": "我为自己收到的爱感到感激。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_19",
+      "prompt": {
+        "en": "When separated I still feel connected with the partner.",
+        "zh": "分开时，我仍感到与伴侣有连接。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_20",
+      "prompt": {
+        "en": "I accept that I need my partner.",
+        "zh": "我接受自己需要伴侣这一点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_21",
+      "prompt": {
+        "en": "I like to convey comfort to my partner.",
+        "zh": "我喜欢给伴侣安慰。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_22",
+      "prompt": {
+        "en": "I like to take care of the other, when he/she needs my help.",
+        "zh": "在对方需要我的帮助时，我喜欢照顾对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_23",
+      "prompt": {
+        "en": "I like to share responsibilities in our daily life in order to take pressure off my partner.",
+        "zh": "我喜欢分担日常生活中的责任，以减轻伴侣的压力。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "GRT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "GRT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "GRT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "GRT",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_24",
+      "prompt": {
+        "en": "I am dedicated to my relationships.",
+        "zh": "我对自己的关系很投入。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_25",
+      "prompt": {
+        "en": "We always try to work on our relationship.",
+        "zh": "我们总是努力经营这段关系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_26",
+      "prompt": {
+        "en": "I respect the personality and essential values of my partner.",
+        "zh": "我尊重伴侣的个性和核心价值观。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_27",
+      "prompt": {
+        "en": "I love to watch my partner’s gestures and reactions.",
+        "zh": "我喜欢观察伴侣的手势和反应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_28",
+      "prompt": {
+        "en": "I feel committed to our joint life.",
+        "zh": "我觉得自己对共同生活有承诺。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_29",
+      "prompt": {
+        "en": "I search for compromise solutions when conflicts and competing agendas arise.",
+        "zh": "出现冲突、各方打算相抵触时，我会寻找折中方案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_30",
+      "prompt": {
+        "en": "I often tell my partner that I love him.",
+        "zh": "我经常告诉伴侣，我爱对方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_31",
+      "prompt": {
+        "en": "I feel deeply connected with my partner.",
+        "zh": "我感到与伴侣有很深的连接。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "CEI",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "CEI",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "CEI",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "CEI",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_32",
+      "prompt": {
+        "en": "Sexual boredom arises in long-term relationships.",
+        "zh": "长期关系中会出现性方面的无聊感。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "PSP",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "PSP",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "PSP",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "PSP",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_33",
+      "prompt": {
+        "en": "The sexual desire diminishes throughout time.",
+        "zh": "性欲会随着时间减弱。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "PSP",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "PSP",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "PSP",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "PSP",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_34",
+      "prompt": {
+        "en": "It is hard for me to accept when a loved person is not able to respond to my love.",
+        "zh": "当一个我爱的人无法回应我的爱时，我很难接受。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_35",
+      "prompt": {
+        "en": "When a relationship is over, I often blame my ex-partner.",
+        "zh": "关系结束后，我常常责怪前伴侣。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_36",
+      "prompt": {
+        "en": "I sometimes have wishes for revenge when my partner dismisses me.",
+        "zh": "当伴侣拒绝我时，我有时想报复。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_37",
+      "prompt": {
+        "en": "I am often unwilling to accept the end of my relationships.",
+        "zh": "我常常不愿接受自己的关系结束。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_38",
+      "prompt": {
+        "en": "I am often jealous.",
+        "zh": "我经常嫉妒。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_39",
+      "prompt": {
+        "en": "I have feelings of guilt after a separation.",
+        "zh": "分开后，我会感到内疚。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_40",
+      "prompt": {
+        "en": "I sometimes devaluate myself if my partner abandoned me.",
+        "zh": "如果伴侣抛弃我，我有时会贬低自己。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    },
+    {
+      "id": "CTL2018_41",
+      "prompt": {
+        "en": "It is hard for me to move on after a relationship.",
+        "zh": "一段关系结束后，我很难继续往前走。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not apply at all",
+            "zh": "1 · 完全不适用"
+          },
+          "directionId": "LOM",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "LOM",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "LOM",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Fully applies",
+            "zh": "4 · 完全适用"
+          },
+          "directionId": "LOM",
+          "score": 4
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "INT",
+      "title": {
+        "en": "Interest in a partner’s life project",
+        "zh": "关注伴侣的人生计划"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "BTR",
+      "title": {
+        "en": "Basic trust",
+        "zh": "基本信任"
+      },
+      "itemCount": 9
+    },
+    {
+      "id": "GRT",
+      "title": {
+        "en": "Gratitude",
+        "zh": "感激"
+      },
+      "itemCount": 7
+    },
+    {
+      "id": "CEI",
+      "title": {
+        "en": "Common ego ideal",
+        "zh": "共同自我理想"
+      },
+      "itemCount": 8
+    },
+    {
+      "id": "PSP",
+      "title": {
+        "en": "Permanence of sexual passion",
+        "zh": "关于性激情持续的陈述"
+      },
+      "itemCount": 2
+    },
+    {
+      "id": "LOM",
+      "title": {
+        "en": "Loss and mourning",
+        "zh": "丧失与哀伤"
+      },
+      "itemCount": 8
+    }
+  ],
+  "original2018reference": {
+    "sourceURL": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01115/full",
+    "table": 1,
+    "license": "CC BY as published in primaryarticle",
+    "items": [
+      {
+        "number": 1,
+        "english": "It is important to me to know the life plan of my partner.",
+        "reverse": false
+      },
+      {
+        "number": 2,
+        "english": "I share my life plans with my partner.",
+        "reverse": false
+      },
+      {
+        "number": 3,
+        "english": "I am joyful to share my partner’s success.",
+        "reverse": false
+      },
+      {
+        "number": 4,
+        "english": "I feel enriched to see the personal growth and life experience of my partner.",
+        "reverse": false
+      },
+      {
+        "number": 5,
+        "english": "When my partner is unhappy, I also feel sad.",
+        "reverse": false
+      },
+      {
+        "number": 6,
+        "english": "I can be empathic with my partner and try to understand her/him.",
+        "reverse": false
+      },
+      {
+        "number": 7,
+        "english": "I am often bored with my partner.",
+        "reverse": true
+      },
+      {
+        "number": 8,
+        "english": "I trust that my partner is empathic with me when necessary.",
+        "reverse": false
+      },
+      {
+        "number": 9,
+        "english": "My weaknesses, inner conflicts and problems are open to the other.",
+        "reverse": false
+      },
+      {
+        "number": 10,
+        "english": "I can express my feelings and needs to my partner openly.",
+        "reverse": false
+      },
+      {
+        "number": 11,
+        "english": "I can trust my partner that in situations of uncertainty and ambivalence she/he can be emotionally supportive.",
+        "reverse": false
+      },
+      {
+        "number": 12,
+        "english": "I feel being honest to my partner.",
+        "reverse": false
+      },
+      {
+        "number": 13,
+        "english": "I keep secrets from my partner.",
+        "reverse": true
+      },
+      {
+        "number": 14,
+        "english": "I can confess my weaknesses to my partner.",
+        "reverse": false
+      },
+      {
+        "number": 15,
+        "english": "I sometimes feel that my relationships are limited.",
+        "reverse": true
+      },
+      {
+        "number": 16,
+        "english": "I am comfortable with my partner and I usually feel safe in his/her company.",
+        "reverse": false
+      },
+      {
+        "number": 17,
+        "english": "I feel gratitude for the existence of my partner.",
+        "reverse": false
+      },
+      {
+        "number": 18,
+        "english": "I feel gratitude for the love received.",
+        "reverse": false
+      },
+      {
+        "number": 19,
+        "english": "When separated I still feel connected with the partner.",
+        "reverse": false
+      },
+      {
+        "number": 20,
+        "english": "I accept that I need my partner.",
+        "reverse": false
+      },
+      {
+        "number": 21,
+        "english": "I like to convey comfort to my partner.",
+        "reverse": false
+      },
+      {
+        "number": 22,
+        "english": "I like to take care of the other, when he/she needs my help.",
+        "reverse": false
+      },
+      {
+        "number": 23,
+        "english": "I like to share responsibilities in our daily life in order to take pressure off my partner.",
+        "reverse": false
+      },
+      {
+        "number": 24,
+        "english": "I am dedicated to my relationships.",
+        "reverse": false
+      },
+      {
+        "number": 25,
+        "english": "We always try to work on our relationship.",
+        "reverse": false
+      },
+      {
+        "number": 26,
+        "english": "I respect the personality and essential values of my partner.",
+        "reverse": false
+      },
+      {
+        "number": 27,
+        "english": "I love to watch my partner’s gestures and reactions.",
+        "reverse": false
+      },
+      {
+        "number": 28,
+        "english": "I feel committed to our joint life.",
+        "reverse": false
+      },
+      {
+        "number": 29,
+        "english": "I search for compromise solutions when conflicts and competing agendas arise.",
+        "reverse": false
+      },
+      {
+        "number": 30,
+        "english": "I often tell my partner that I love him.",
+        "reverse": false
+      },
+      {
+        "number": 31,
+        "english": "I feel deeply connected with my partner.",
+        "reverse": false
+      },
+      {
+        "number": 32,
+        "english": "Sexual boredom arises in long-term relationships.",
+        "reverse": true
+      },
+      {
+        "number": 33,
+        "english": "The sexual desire diminishes throughout time.",
+        "reverse": true
+      },
+      {
+        "number": 34,
+        "english": "It is hard for me to accept when a loved person is not able to respond to my love.",
+        "reverse": true
+      },
+      {
+        "number": 35,
+        "english": "When a relationship is over, I often blame my ex-partner.",
+        "reverse": true
+      },
+      {
+        "number": 36,
+        "english": "I sometimes have wishes for revenge when my partner dismisses me.",
+        "reverse": true
+      },
+      {
+        "number": 37,
+        "english": "I am often unwilling to accept the end of my relationships.",
+        "reverse": true
+      },
+      {
+        "number": 38,
+        "english": "I am often jealous.",
+        "reverse": true
+      },
+      {
+        "number": 39,
+        "english": "I have feelings of guilt after a separation.",
+        "reverse": true
+      },
+      {
+        "number": 40,
+        "english": "I sometimes devaluate myself if my partner abandoned me.",
+        "reverse": true
+      },
+      {
+        "number": 41,
+        "english": "It is hard for me to move on after a relationship.",
+        "reverse": true
+      }
+    ]
+  },
+  "workingTranslation": {
+    "id": "T096",
+    "state": "C working translation candidate only; no runtime/adoption/publication/validation",
+    "edition": "2018publishedTable1English exact; new FermatMindChinese translation; notauthorcurrentwebsiteChinese",
+    "original_english_reference_sha256": "a210c7c978751a3892ae5691484794dccce40804357c9ea71b6dd17e3bcb4590",
+    "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01115/full",
+    "license": "Original2018article CC BY; attribution toKapusta etal2018 andprimarypublication required; Chinese adaptation explicitlynew and freelyavailable",
+    "translation_choices": {
+      "7": "boredwithpartner rendered situation rather than boring-person label",
+      "9": "opentotheother retains disclosure theme; notcurrentauthorrevised knowing-only sentence",
+      "13": "keeps secrets doesnotadd many (currentauthorrevision)",
+      "15": "limited retains short2018ambiguity; doesnotadd unsuccessful efforts (currentrevision)",
+      "32_33": "general statements aboutsexualboredom/desire, not personalsexualfunction",
+      "36": "dismissesme rendered 拒绝我; not currentauthorafterbreakup-onlyrevision",
+      "39": "doesnotadd often (currentrevision)",
+      "41": "moveon retains broadmovingforward; notcurrentauthorstartnewrelationship revision"
+    },
+    "items": [
+      {
+        "number": 1,
+        "id": "CTL2018_01",
+        "domain": "INT",
+        "prompt": {
+          "en": "It is important to me to know the life plan of my partner.",
+          "zh": "了解伴侣的人生计划对我很重要。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 2,
+        "id": "CTL2018_02",
+        "domain": "INT",
+        "prompt": {
+          "en": "I share my life plans with my partner.",
+          "zh": "我与伴侣分享自己的人生计划。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 3,
+        "id": "CTL2018_03",
+        "domain": "INT",
+        "prompt": {
+          "en": "I am joyful to share my partner’s success.",
+          "zh": "分享伴侣的成功会让我感到快乐。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 4,
+        "id": "CTL2018_04",
+        "domain": "INT",
+        "prompt": {
+          "en": "I feel enriched to see the personal growth and life experience of my partner.",
+          "zh": "看到伴侣的个人成长和人生经历，我感到自己也更加充实。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 5,
+        "id": "CTL2018_05",
+        "domain": "INT",
+        "prompt": {
+          "en": "When my partner is unhappy, I also feel sad.",
+          "zh": "伴侣不快乐时，我也会感到难过。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 6,
+        "id": "CTL2018_06",
+        "domain": "INT",
+        "prompt": {
+          "en": "I can be empathic with my partner and try to understand her/him.",
+          "zh": "我能够体会伴侣的感受，并努力理解对方。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 7,
+        "id": "CTL2018_07",
+        "domain": "INT",
+        "prompt": {
+          "en": "I am often bored with my partner.",
+          "zh": "和伴侣在一起时，我经常觉得无聊。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 8,
+        "id": "CTL2018_08",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I trust that my partner is empathic with me when necessary.",
+          "zh": "我相信在需要时，伴侣会体会我的感受。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 9,
+        "id": "CTL2018_09",
+        "domain": "BTR",
+        "prompt": {
+          "en": "My weaknesses, inner conflicts and problems are open to the other.",
+          "zh": "我会向对方敞开自己的弱点、内心矛盾和问题。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 10,
+        "id": "CTL2018_10",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I can express my feelings and needs to my partner openly.",
+          "zh": "我能够坦诚地向伴侣表达自己的感受和需要。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 11,
+        "id": "CTL2018_11",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I can trust my partner that in situations of uncertainty and ambivalence she/he can be emotionally supportive.",
+          "zh": "我相信，在不确定和矛盾的情境中，伴侣能在情感上支持我。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 12,
+        "id": "CTL2018_12",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I feel being honest to my partner.",
+          "zh": "我觉得自己对伴侣是诚实的。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 13,
+        "id": "CTL2018_13",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I keep secrets from my partner.",
+          "zh": "我有些事情瞒着伴侣。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 14,
+        "id": "CTL2018_14",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I can confess my weaknesses to my partner.",
+          "zh": "我能够向伴侣承认自己的弱点。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 15,
+        "id": "CTL2018_15",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I sometimes feel that my relationships are limited.",
+          "zh": "我有时感到自己的关系受到局限。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 16,
+        "id": "CTL2018_16",
+        "domain": "BTR",
+        "prompt": {
+          "en": "I am comfortable with my partner and I usually feel safe in his/her company.",
+          "zh": "和伴侣在一起，我感到自在，并且通常觉得安全。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 17,
+        "id": "CTL2018_17",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I feel gratitude for the existence of my partner.",
+          "zh": "我为伴侣的存在感到感激。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 18,
+        "id": "CTL2018_18",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I feel gratitude for the love received.",
+          "zh": "我为自己收到的爱感到感激。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 19,
+        "id": "CTL2018_19",
+        "domain": "GRT",
+        "prompt": {
+          "en": "When separated I still feel connected with the partner.",
+          "zh": "分开时，我仍感到与伴侣有连接。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 20,
+        "id": "CTL2018_20",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I accept that I need my partner.",
+          "zh": "我接受自己需要伴侣这一点。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 21,
+        "id": "CTL2018_21",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I like to convey comfort to my partner.",
+          "zh": "我喜欢给伴侣安慰。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 22,
+        "id": "CTL2018_22",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I like to take care of the other, when he/she needs my help.",
+          "zh": "在对方需要我的帮助时，我喜欢照顾对方。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 23,
+        "id": "CTL2018_23",
+        "domain": "GRT",
+        "prompt": {
+          "en": "I like to share responsibilities in our daily life in order to take pressure off my partner.",
+          "zh": "我喜欢分担日常生活中的责任，以减轻伴侣的压力。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 24,
+        "id": "CTL2018_24",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I am dedicated to my relationships.",
+          "zh": "我对自己的关系很投入。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 25,
+        "id": "CTL2018_25",
+        "domain": "CEI",
+        "prompt": {
+          "en": "We always try to work on our relationship.",
+          "zh": "我们总是努力经营这段关系。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 26,
+        "id": "CTL2018_26",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I respect the personality and essential values of my partner.",
+          "zh": "我尊重伴侣的个性和核心价值观。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 27,
+        "id": "CTL2018_27",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I love to watch my partner’s gestures and reactions.",
+          "zh": "我喜欢观察伴侣的手势和反应。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 28,
+        "id": "CTL2018_28",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I feel committed to our joint life.",
+          "zh": "我觉得自己对共同生活有承诺。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 29,
+        "id": "CTL2018_29",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I search for compromise solutions when conflicts and competing agendas arise.",
+          "zh": "出现冲突、各方打算相抵触时，我会寻找折中方案。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 30,
+        "id": "CTL2018_30",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I often tell my partner that I love him.",
+          "zh": "我经常告诉伴侣，我爱对方。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 31,
+        "id": "CTL2018_31",
+        "domain": "CEI",
+        "prompt": {
+          "en": "I feel deeply connected with my partner.",
+          "zh": "我感到与伴侣有很深的连接。"
+        },
+        "reverse": false
+      },
+      {
+        "number": 32,
+        "id": "CTL2018_32",
+        "domain": "PSP",
+        "prompt": {
+          "en": "Sexual boredom arises in long-term relationships.",
+          "zh": "长期关系中会出现性方面的无聊感。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 33,
+        "id": "CTL2018_33",
+        "domain": "PSP",
+        "prompt": {
+          "en": "The sexual desire diminishes throughout time.",
+          "zh": "性欲会随着时间减弱。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 34,
+        "id": "CTL2018_34",
+        "domain": "LOM",
+        "prompt": {
+          "en": "It is hard for me to accept when a loved person is not able to respond to my love.",
+          "zh": "当一个我爱的人无法回应我的爱时，我很难接受。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 35,
+        "id": "CTL2018_35",
+        "domain": "LOM",
+        "prompt": {
+          "en": "When a relationship is over, I often blame my ex-partner.",
+          "zh": "关系结束后，我常常责怪前伴侣。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 36,
+        "id": "CTL2018_36",
+        "domain": "LOM",
+        "prompt": {
+          "en": "I sometimes have wishes for revenge when my partner dismisses me.",
+          "zh": "当伴侣拒绝我时，我有时想报复。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 37,
+        "id": "CTL2018_37",
+        "domain": "LOM",
+        "prompt": {
+          "en": "I am often unwilling to accept the end of my relationships.",
+          "zh": "我常常不愿接受自己的关系结束。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 38,
+        "id": "CTL2018_38",
+        "domain": "LOM",
+        "prompt": {
+          "en": "I am often jealous.",
+          "zh": "我经常嫉妒。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 39,
+        "id": "CTL2018_39",
+        "domain": "LOM",
+        "prompt": {
+          "en": "I have feelings of guilt after a separation.",
+          "zh": "分开后，我会感到内疚。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 40,
+        "id": "CTL2018_40",
+        "domain": "LOM",
+        "prompt": {
+          "en": "I sometimes devaluate myself if my partner abandoned me.",
+          "zh": "如果伴侣抛弃我，我有时会贬低自己。"
+        },
+        "reverse": true
+      },
+      {
+        "number": 41,
+        "id": "CTL2018_41",
+        "domain": "LOM",
+        "prompt": {
+          "en": "It is hard for me to move on after a relationship.",
+          "zh": "一段关系结束后，我很难继续往前走。"
+        },
+        "reverse": true
+      }
+    ],
+    "domains": [
+      {
+        "id": "INT",
+        "item_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "id": "BTR",
+        "item_numbers": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      {
+        "id": "GRT",
+        "item_numbers": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "id": "CEI",
+        "item_numbers": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ]
+      },
+      {
+        "id": "PSP",
+        "item_numbers": [
+          32,
+          33
+        ]
+      },
+      {
+        "id": "LOM",
+        "item_numbers": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41
+        ]
+      }
+    ]
+  },
+  "primaryHTMLSHA256": "93f68d3bd2c778769f57d0607465e4f468a555a870db0a7f21399649e58c52e8",
+  "reverseNumbers": [
+    7,
+    13,
+    15,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+  ],
+  "all41Required": true,
+  "noNA": true,
+  "scoring": "raw1to4;reverse5-x;separate6sumsandunroundedmeans;nooverall/rank/bands",
+  "responseAnchors": "2018fourpoints documented; separately currentauthorendpoints;2/3numeric;not verified originalENprotocol",
+  "licence": "CC BY4.0 as originally published, attribution and adaptation notice in each public guide and entry; no author endorsement",
+  "sourceValidation": "German and Polish 2018 study doesnot validateEnglishdisplay/newChinese/web;notcurrentauthordownloadversion"
+}

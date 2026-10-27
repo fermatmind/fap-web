@@ -1,0 +1,2042 @@
+{
+  "id": "T094",
+  "slug": "annoying-person-test",
+  "code": "DISLIKED_REASON",
+  "kind": "mini-friction",
+  "questions": [
+    {
+      "id": "DISLIKED_LK_001",
+      "prompt": {
+        "en": "When expressing a different opinion, I sometimes give the conclusion first and provide less background.",
+        "zh": "表达不同意见时，我有时先说结论，较少交代背景。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_002",
+      "prompt": {
+        "en": "When time is short, my tone may be more clipped than I originally intended.",
+        "zh": "时间紧时，我的语气可能比原本打算的更简短。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_003",
+      "prompt": {
+        "en": "When pointing out a problem, I sometimes have not first checked whether this is a suitable time for the other person to receive it.",
+        "zh": "指出问题时，我有时没有先确认对方是否适合现在接收。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_004",
+      "prompt": {
+        "en": "When discussing a disagreement, I may focus more on the accuracy of the content and pay less attention to the impact of its delivery.",
+        "zh": "讨论分歧时，我可能更关注内容准确，较少留意表达带来的冲击。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "DIRECTNESS_IMPACT",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_005",
+      "prompt": {
+        "en": "When I need space, I sometimes reduce contact first and explain the reason later.",
+        "zh": "需要空间时，我有时会先减少联系，之后才说明原因。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_006",
+      "prompt": {
+        "en": "When a conversation tires me, I may leave for a while without agreeing when I will return.",
+        "zh": "对话让我疲惫时，我可能暂时离开却没有约定何时回来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_007",
+      "prompt": {
+        "en": "When I have not worked out how to respond, I sometimes leave a message for quite a while without explaining.",
+        "zh": "没有想好怎样回应时，我有时会让消息停留较久而不说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_008",
+      "prompt": {
+        "en": "When resuming contact after a disagreement, I sometimes do not explain the earlier pause.",
+        "zh": "分歧后恢复联系时，我有时没有解释之前的暂停。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "WITHDRAWAL_DISTANCE",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_009",
+      "prompt": {
+        "en": "For important arrangements, I sometimes assume the other person knows the standards that matter to me.",
+        "zh": "对重要安排，我有时假设对方知道我在意的标准。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_010",
+      "prompt": {
+        "en": "When disappointed, I sometimes have not checked whether we originally understood the same thing.",
+        "zh": "感到失望时，我有时还没有确认双方原先是否理解一致。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_011",
+      "prompt": {
+        "en": "Before starting a joint task, I sometimes do not confirm each part for which each person is responsible.",
+        "zh": "合作开始前，我有时没有逐项确认各自负责的部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_012",
+      "prompt": {
+        "en": "I sometimes use hints rather than directly explaining my expectations of contact or support in a relationship.",
+        "zh": "关系中的联系或支持期待，我有时用暗示代替直接说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "EXPECTATION_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_013",
+      "prompt": {
+        "en": "When a plan needs to change, I sometimes notify the people involved quite late.",
+        "zh": "计划需要变化时，我有时到了较晚才通知相关的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_014",
+      "prompt": {
+        "en": "After agreeing to do something, I sometimes discover that I lack the time or resources.",
+        "zh": "答应一件事后，我有时才发现时间或资源不够。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_015",
+      "prompt": {
+        "en": "When a task has not progressed as planned, I sometimes do not proactively update others on its progress.",
+        "zh": "任务没有按原计划推进时，我有时没有主动更新进度。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_016",
+      "prompt": {
+        "en": "When my response rhythm changes noticeably, I sometimes do not explain the new arrangement.",
+        "zh": "回复节奏明显变化时，我有时没有说明新的安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "FOLLOW_THROUGH_GAPS",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_017",
+      "prompt": {
+        "en": "When refusing a request, I sometimes speak briefly without explaining the range I would accept.",
+        "zh": "拒绝一项请求时，我有时说得很简短，未说明可接受的范围。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_018",
+      "prompt": {
+        "en": "When I want someone to stop doing something, I sometimes begin with hints rather than a clear statement.",
+        "zh": "希望别人停下某种做法时，我有时先用暗示而不是清楚表达。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_019",
+      "prompt": {
+        "en": "When my boundaries differ between relationships, I sometimes do not explain the difference promptly.",
+        "zh": "不同关系中的边界不一样时，我有时没有及时说明差别。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": "DISLIKED_LK_020",
+      "prompt": {
+        "en": "When I need closeness or distance, my way of expressing it sometimes differs from what the other person is used to.",
+        "zh": "需要靠近或保持距离时，我的表达方式有时与对方习惯不同。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Does not describe me at all",
+            "zh": "1 · 完全不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Mostly does not describe me",
+            "zh": "2 · 比较不符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Uncertain or depends on the situation",
+            "zh": "3 · 不确定或视情况"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Mostly describes me",
+            "zh": "4 · 比较符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Describes me very well",
+            "zh": "5 · 非常符合"
+          },
+          "directionId": "BOUNDARY_STYLE_MISMATCH",
+          "score": 5
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "DIRECTNESS_IMPACT",
+      "title": {
+        "en": "Direct expression and contextual information",
+        "zh": "直接表达与情境信息"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "WITHDRAWAL_DISTANCE",
+      "title": {
+        "en": "Pausing contact and explaining your situation",
+        "zh": "暂停联系与说明方式"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "EXPECTATION_MISMATCH",
+      "title": {
+        "en": "Expressing expectations and checking shared understanding",
+        "zh": "期待表达与共同确认"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "FOLLOW_THROUGH_GAPS",
+      "title": {
+        "en": "Changing plans and updating information",
+        "zh": "计划变化与信息更新"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "BOUNDARY_STYLE_MISMATCH",
+      "title": {
+        "en": "Expressing boundaries and differences in understanding",
+        "zh": "边界表达与理解差异"
+      },
+      "itemCount": 4
+    }
+  ],
+  "original_item_bank": {
+    "test_id": "DISLIKED_REASON",
+    "form_code": "disliked_reason_likert_20",
+    "renderer": "likert",
+    "construct_version": "0.1.0-preview",
+    "item_bank_version": "0.1.0-preview",
+    "status": "content_reviewed_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "copyright_origin": "original",
+    "review_provenance": "role_based_model_review",
+    "items": [
+      {
+        "question_id": "DISLIKED_LK_001",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "DIRECTNESS_IMPACT",
+        "prompt": "表达不同意见时，我有时先说结论，较少交代背景。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_002",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "DIRECTNESS_IMPACT",
+        "prompt": "时间紧时，我的语气可能比原本打算的更简短。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_003",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "DIRECTNESS_IMPACT",
+        "prompt": "指出问题时，我有时没有先确认对方是否适合现在接收。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_004",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "DIRECTNESS_IMPACT",
+        "prompt": "讨论分歧时，我可能更关注内容准确，较少留意表达带来的冲击。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_005",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "prompt": "需要空间时，我有时会先减少联系，之后才说明原因。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_006",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "prompt": "对话让我疲惫时，我可能暂时离开却没有约定何时回来。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_007",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "prompt": "没有想好怎样回应时，我有时会让消息停留较久而不说明。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_008",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "prompt": "分歧后恢复联系时，我有时没有解释之前的暂停。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_009",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "EXPECTATION_MISMATCH",
+        "prompt": "对重要安排，我有时假设对方知道我在意的标准。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_010",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "EXPECTATION_MISMATCH",
+        "prompt": "感到失望时，我有时还没有确认双方原先是否理解一致。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_011",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "EXPECTATION_MISMATCH",
+        "prompt": "合作开始前，我有时没有逐项确认各自负责的部分。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_012",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "EXPECTATION_MISMATCH",
+        "prompt": "关系中的联系或支持期待，我有时用暗示代替直接说明。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_013",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "prompt": "计划需要变化时，我有时到了较晚才通知相关的人。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_014",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "prompt": "答应一件事后，我有时才发现时间或资源不够。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_015",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "prompt": "任务没有按原计划推进时，我有时没有主动更新进度。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_016",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "prompt": "回复节奏明显变化时，我有时没有说明新的安排。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_017",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "prompt": "拒绝一项请求时，我有时说得很简短，未说明可接受的范围。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_018",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "prompt": "希望别人停下某种做法时，我有时先用暗示而不是清楚表达。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_019",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "prompt": "不同关系中的边界不一样时，我有时没有及时说明差别。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      },
+      {
+        "question_id": "DISLIKED_LK_020",
+        "test_id": "DISLIKED_REASON",
+        "form_code": "disliked_reason_likert_20",
+        "renderer": "likert",
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "prompt": "需要靠近或保持距离时，我的表达方式有时与对方习惯不同。",
+        "copyright_origin": "original",
+        "reverse_scored": false,
+        "response_scale": {
+          "type": "likert",
+          "min": 1,
+          "max": 5,
+          "integer_only": true,
+          "labels": {
+            "1": "完全不符合",
+            "2": "比较不符合",
+            "3": "不确定或视情况",
+            "4": "比较符合",
+            "5": "非常符合"
+          }
+        }
+      }
+    ]
+  },
+  "original_scoring_spec": {
+    "test_id": "DISLIKED_REASON",
+    "scoring_version": "0.1.0-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_form_code": "disliked_reason_likert_20",
+    "status": "product_construct_candidate_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "factors": [
+      {
+        "factor_code": "DIRECTNESS_IMPACT",
+        "display_name": "直接表达可能造成的冲击",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "display_name": "暂时退开可能形成的距离感",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "EXPECTATION_MISMATCH",
+        "display_name": "期待没有说清造成的落差",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "display_name": "回应或计划变化造成的不确定",
+        "scheduled_items": 4
+      },
+      {
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "display_name": "边界表达方式产生的误读",
+        "scheduled_items": 4
+      }
+    ],
+    "scoring_model": {
+      "name": "independent_factor_likert_raw_mean",
+      "formula": "raw_sum = Σ(valid integer responses); mean_1_to_5 = raw_sum / valid_answer_count",
+      "response_min": 1,
+      "response_max": 5,
+      "integer_only": true,
+      "items_per_factor": 4,
+      "total_score_enabled": false,
+      "ranking_enabled": false,
+      "thresholds_enabled": false,
+      "norming_enabled": false,
+      "interpretation_requires_complete": true
+    }
+  },
+  "original_result_content": {
+    "schema_version": "2.0",
+    "assembled_version": "0.2.0-editorial-candidate",
+    "test_id": "DISLIKED_REASON",
+    "form_code": "disliked_reason_likert_20",
+    "construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_scoring_version": "0.1.0-preview",
+    "result_content_version": "0.2.0-editorial-candidate",
+    "content_status": "editorially_reviewed_candidate_not_psychometrically_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "runtime_integration": true,
+    "presenter_mode": "factor_profile",
+    "factors": [
+      {
+        "factor_code": "DIRECTNESS_IMPACT",
+        "source_display_name": "直接表达可能造成的冲击",
+        "editorial_display_name": "直接表达与情境信息",
+        "result_headline": "回看直接表达与情境信息的关系",
+        "one_sentence_summary": "这四道题观察先说结论、背景说明、语气时机和反馈接收条件的自评。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察直接表达在语气、时机和背景信息上的自评线索。",
+        "item_scope": "题目覆盖：先说结论较少交代背景、时间紧时语气更简短、指出问题时未先确认接收时机、更关注内容准确较少留意表达冲击。",
+        "behavior_outcome_boundary": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认别人是否被冲击或因此不喜欢你。",
+        "review_angles": "可以回看：你通常在什么情况下先说结论；对方是否收到足够的背景信息。",
+        "facts_to_check": "最近一次你说结论后对方追问背景的情境；那次是否涉及安全或不适合沟通的场合。",
+        "safety_exception": "明确拒绝和安全边界无需包装成讨喜表达；在不安全情境中，直接停止沟通可能是必要保护。",
+        "context_questions": "你直接表达是因为习惯，还是因为当时需要快速收尾？这个原因只能由你自己确认。",
+        "low_risk_actions": "如果愿意，下次指出问题时可以先确认对方现在是否适合接收；也可以不做，不需要为每句话附上完整解释。",
+        "no_people_pleasing_boundary": "直接不等于有问题，委婉也不天然更好；不需要为了被喜欢而软化所有表达。",
+        "what_this_score_cannot_support": "它不能说明你粗鲁、缺乏共情、沟通能力差、别人被你伤害或别人因此讨厌你。",
+        "does_not_mean": [
+          "直接表达不等于粗鲁",
+          "委婉也不天然更好",
+          "不能确认他人是否被冲击"
+        ],
+        "science_boundary": "这是用于自我观察的产品化因素，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "WITHDRAWAL_DISTANCE",
+        "source_display_name": "暂时退开可能形成的距离感",
+        "editorial_display_name": "暂停联系与说明方式",
+        "result_headline": "回看暂停联系时的说明方式",
+        "one_sentence_summary": "这四道题观察需要空间时怎样暂停、是否说明状态和联系节奏变化的自评。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察需要空间时暂停联系与说明方式的自评线索。",
+        "item_scope": "题目覆盖：需要空间时先减少联系后说明、疲惫时离开未约定回来、消息停留较久不说明、分歧后恢复联系未解释暂停。",
+        "behavior_outcome_boundary": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认你冷漠或形成距离感。",
+        "review_angles": "可以回看：你需要空间时通常怎样暂停；是否有安全或保护自己的考虑。",
+        "facts_to_check": "最近一次你暂停联系的情境；那次是否出于自我保护或安全需要。",
+        "safety_exception": "你可以停止与不安全对象的联系，无需承诺回来；暂停联系无需承诺恢复，自我保护不是需要修复的缺点。",
+        "context_questions": "你没有说明暂停，是因为不习惯，还是因为说明本身不安全？这个区别只能由你自己确认。",
+        "low_risk_actions": "如果愿意且安全允许，想暂停时可以说一句当前状态；也可以不做，安全不允许时直接暂停同样成立。",
+        "no_people_pleasing_boundary": "你不需要为了避免被讨厌而保持联系；暂时退开不等于冷漠或惩罚。",
+        "what_this_score_cannot_support": "它不能说明你冷漠、回避型人格、故意消失、惩罚对方、不在意关系或一定造成距离感。",
+        "does_not_mean": [
+          "暂停联系不等于冷漠",
+          "自我保护不是需要修复的缺点",
+          "无需承诺何时恢复联系"
+        ],
+        "science_boundary": "这是用于自我观察的产品化因素，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "EXPECTATION_MISMATCH",
+        "source_display_name": "期待没有说清造成的落差",
+        "editorial_display_name": "期待表达与共同确认",
+        "result_headline": "回看期待是怎样表达与确认的",
+        "one_sentence_summary": "这四道题观察联系、分工和支持期待是否被明确讨论的自评。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察期待是否被直接说明、双方是否共同确认的自评线索。",
+        "item_scope": "题目覆盖：假设对方知道标准、失望时未确认理解一致、合作前未逐项确认分工、用暗示代替直接说明。",
+        "behavior_outcome_boundary": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认落差一定存在或由你造成。",
+        "review_angles": "可以回看：你更常直接说明期待，还是更常假设对方知道；分工是否双方都清楚。",
+        "facts_to_check": "最近一次期待落差出现的情境；那次是否双方都参与了说明。",
+        "safety_exception": "如果期待差异伴随着威胁或控制，那已经不是沟通协调问题，安全优先。",
+        "context_questions": "你没有直接说明期待，是因为不习惯，还是怕被拒绝？这个原因只能由你自己分辨。",
+        "low_risk_actions": "如果愿意，下次开始前可以把期待写成可核对的具体事项；也可以不做，不需要为所有期待负责。",
+        "no_people_pleasing_boundary": "期待和共识涉及多方，不能把责任单独归给你；表达期待不需要讨好。",
+        "what_this_score_cannot_support": "它不能说明你自私、要求太多、不会沟通、双方不适合或你造成落差。",
+        "does_not_mean": [
+          "期待没说明不等于自私",
+          "落差涉及多方，不单独归因于你",
+          "不能确认他人一定感到落差"
+        ],
+        "science_boundary": "这是用于自我观察的产品化因素，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "FOLLOW_THROUGH_GAPS",
+        "source_display_name": "回应或计划变化造成的不确定",
+        "editorial_display_name": "计划变化与信息更新",
+        "result_headline": "回看计划变化时的信息更新方式",
+        "one_sentence_summary": "这四道题观察时间、资源、进度和变化通知的自评。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察计划变化、资源不足和进度更新方式的自评线索。",
+        "item_scope": "题目覆盖：计划变化时较晚通知、答应后发现时间资源不够、任务未推进时未更新进度、回复节奏变化时未说明新安排。",
+        "behavior_outcome_boundary": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认别人一定失望或讨厌你。",
+        "review_angles": "可以回看：计划变化时你通常何时通知；资源不足时怎样处理。",
+        "facts_to_check": "最近一次计划变化的情境；那次通知时间是否受现实条件影响。",
+        "safety_exception": "如果通知或更新可能带来安全风险，优先保护自己；不需要向不安全的人更新安排。",
+        "context_questions": "你没有及时更新，是因为忘记，还是因为担心对方反应？这个原因只能由你自己判断。",
+        "low_risk_actions": "如果愿意，下次计划变化时可以尽早说明；也可以不做，不需要承诺超出能力的范围。",
+        "no_people_pleasing_boundary": "行动建议不能要求过度承诺，也不能承诺获得信任；计划变化是常见情况。",
+        "what_this_score_cannot_support": "它不能说明你不可靠、缺乏责任感、不值得信任、职业表现差或别人一定失望讨厌你。",
+        "does_not_mean": [
+          "计划变化不等于不可靠",
+          "不承诺超出能力范围",
+          "不能确认他人一定失望"
+        ],
+        "science_boundary": "这是用于自我观察的产品化因素，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      },
+      {
+        "factor_code": "BOUNDARY_STYLE_MISMATCH",
+        "source_display_name": "边界表达方式产生的误读",
+        "editorial_display_name": "边界表达与理解差异",
+        "result_headline": "回看边界表达方式与理解差异",
+        "one_sentence_summary": "这四道题观察拒绝、靠近、距离和边界表达方式的自评。",
+        "score_reading": "平均值表示你对这四道陈述的整体符合程度，不分高低好坏。",
+        "construct_definition": "观察边界表达方式与对方理解差异的自评线索。",
+        "item_scope": "题目覆盖：拒绝时说得简短未说明范围、希望停下时用暗示、边界差异未及时说明、靠近或距离的表达与对方习惯不同。",
+        "behavior_outcome_boundary": "这些题目只描述你的自我报告行为，不包含他人感受或评价；结果不能确认误读一定发生或由你负责。",
+        "review_angles": "可以回看：你更常直接说清边界，还是更常用暗示；不同关系中的边界是否被说明。",
+        "facts_to_check": "最近一次边界表达后的情境；那次对方是否尊重你的选择。",
+        "safety_exception": "清楚地说“不”本身就可以构成完整边界，无需提供替代方案；向不安全的人解释边界不是义务。",
+        "context_questions": "你更常用暗示而非直接说明，是习惯还是担心直接表达有风险？这个区别只能由你自己判断。",
+        "low_risk_actions": "如果愿意且安全允许，想表达边界时可以直接说明；也可以不做，表达方式不同不等于需要降低边界。",
+        "no_people_pleasing_boundary": "不同表达方式不能变成要求你为他人理解承担全部责任；不需要为了被喜欢而降低边界。",
+        "what_this_score_cannot_support": "它不能说明你边界有问题、必须解释拒绝、必须提供可接受替代方案、应该降低边界或他人误读一定是你的责任。",
+        "does_not_mean": [
+          "拒绝简短不表示边界有问题",
+          "清楚地说“不”本身就可以构成完整边界",
+          "无需提供替代方案"
+        ],
+        "science_boundary": "这是用于自我观察的产品化因素，未经独立心理测量验证。",
+        "content_status": "editorially_reviewed_candidate_not_psychometrically_validated"
+      }
+    ],
+    "states": [
+      {
+        "state_code": "INSUFFICIENT_DATA",
+        "title": "这次没有足够的作答",
+        "summary": "未完整作答时不提供任何因素解释。",
+        "what_happened": "本次提交缺少部分题目的答案，因此不计算因素分数。",
+        "what_user_can_do": "可以继续作答补全，也可以直接退出。退出前，当前设备上已有的逐题选择仍会保存在本地草稿中并支持恢复；未完整提交不会生成最终结果缓存。",
+        "interpretation_suppression": "不猜测未回答的题目，不推测未答选项，也不根据已有答案先给判断。",
+        "no_dislike_inference": "没有结果不产生任何他人评价或讨厌原因结论；未完成作答不暗示你逃避缺点或不敢面对自己。",
+        "safety_boundary": "如果你因为安全原因选择不继续，这完全成立；不继续作答不需要向任何人解释。",
+        "science_boundary": "没有结果不构成任何人际或社交结论。"
+      },
+      {
+        "state_code": "RESULT_UNAVAILABLE",
+        "title": "结果暂不可用",
+        "summary": "题库、评分或内容版本不匹配时停止解释。",
+        "what_happened": "本题库、评分或内容版本之间存在不匹配，无法按当前规则生成结果。",
+        "what_user_can_do": "这是版本层面的问题，不是你的作答问题。无需重做或反复尝试，可以在版本更新后重新查看。",
+        "interpretation_suppression": "不显示旧版本结果，不做部分解释，不把工程错误解释成用户问题。",
+        "no_dislike_inference": "该状态不涉及任何他人评价或社交判断。",
+        "safety_boundary": "该状态不影响现实安全判断；如有安全顾虑，仍按现实情况处理。",
+        "science_boundary": "该状态不构成任何人际结论。"
+      },
+      {
+        "state_code": "EQUAL_FACTOR_SCORES",
+        "title": "有几个因素分数相同",
+        "summary": "因素均值相同只表示本次回答中的数值相同，不表示多个缺点同样严重，也不产生负面人格类型。",
+        "what_happened": "本次计算后，两个或更多因素的原始总和相同。",
+        "what_user_can_do": "可以按原样分别阅读每个因素，不需要为它们排出先后。",
+        "interpretation_suppression": "不打破并列，不指定主要原因，不生成负面人格，不表示多个缺点同样严重，不表示你的问题很多，也不表示测试失效；因素题目不同，数值相同不表示影响相同。",
+        "no_dislike_inference": "并列不产生任何讨厌原因或他人评价结论。",
+        "safety_boundary": "并列不代表你需要改变任何边界；安全边界不受分数影响。",
+        "science_boundary": "相同数值不构成任何人际结论。"
+      }
+    ],
+    "common": {
+      "result_title": "本次互动摩擦线索",
+      "first_screen_boundary": "请先了解六件事：互动摩擦线索测试只记录自我报告，本测试没有询问任何其他人；结果只反映你本次对五组自我描述的符合程度；结果不能证明谁讨厌你，也不能确定任何人的真实评价；结果不判断人格缺陷、社交价值或主要问题；你不需要为了获得喜欢而迎合、过度解释或降低边界；在不安全关系中，安全优先，可以停止联系。",
+      "product_name_boundary": "互动摩擦线索测试记录本次对五组互动情境陈述的整体符合程度。正式结果使用本次互动摩擦线索、自我报告的互动回顾、值得结合事实继续核对的沟通情境等表述。",
+      "measurement_theme": "本次结果记录五组互动情境陈述的自评符合程度：直接表达与情境信息、暂停联系与说明方式、期待表达与共同确认、计划变化与信息更新、边界表达与理解差异。",
+      "how_to_read_raw_sum": "原始总和是四道题回答数值之和，范围 4–20；它只在本次回答内有意义，不代表任何等级。",
+      "how_to_read_mean": "平均值是把总和除以四，范围 1–5。平均值越接近 5，只表示总体上更同意这四个陈述；越接近 1，只表示总体上较少同意。",
+      "independent_factor_boundary": "五个因素各自独立阅读，不合并、不加减、不比较谁更严重。",
+      "no_total_score": "本测试不计算总分，也不计算讨厌指数或社交缺陷分。",
+      "no_ranking": "五个因素不能互相排名，不识别主要负面原因，不产生最严重缺点。",
+      "no_threshold": "本测试没有高、中、低标签，不划分严重或轻微，不设置人际风险等级。",
+      "aggregate_not_item_level_boundary": "分数只表示你对每组四道陈述的整体符合程度，不能确认你在任一道具体题目中的回答；具体情况仍需结合事实、安全和关系情境核对。",
+      "self_report_only_boundary": "本测试只有用户自评，没有他人反馈、同伴报告、伴侣报告、行为观察、真实冲突记录或社交排斥数据。",
+      "no_observer_data": "结果最多只能说明用户本次对若干互动情境陈述的整体符合程度；不能说明这些行为真实发生过或他人观察到了这些行为。",
+      "no_real_dislike_reason": "本测试没有询问任何其他人，不能确定谁讨厌用户，也不能确定任何人讨厌用户的真实原因。",
+      "no_character_defect": "结果不判断人格缺陷、社交价值或主要问题，不产生被讨厌人格或负面人格类型。",
+      "no_social_value": "不计算人缘分数、受欢迎程度或社交价值。",
+      "no_third_party_mind_reading": "结果不能读取他人心理，不能确定别人觉得你冷漠、不可靠或有距离感。",
+      "no_people_pleasing": "不建议为了获得喜欢而迎合、过度解释、过度承诺或降低边界。",
+      "boundary_does_not_require_approval": "清楚地说“不”本身就可以构成完整边界，无需提供理由、替代方案或获得他人批准；你不需要为了避免被讨厌而降低边界。",
+      "safety_exception": "用户没有义务为了避免被讨厌而保持联系；没有义务向不安全的人解释边界；暂停联系无需承诺恢复；清楚地说“不”本身就可以构成完整边界，拒绝无需提供替代方案。在暴力、胁迫、控制、跟踪、骚扰或安全威胁情境中，安全优先：可以暂停联系，向可信的人、当地紧急服务或合适的专业支持求助。不将减少联系、阻止联系或不回复自动解释为沟通问题；不要求与施害者共同协商；不为伤害行为寻找双向原因；不把自我保护写成回避、冷漠或需要修复的缺点。",
+      "no_diagnosis": "本测试不是医疗、心理或关系诊断，也没有完成心理测量学验证。",
+      "no_high_stakes_use": "所有页面行动建议都可选择不做。不要把结果用于医疗、司法、招聘、学校或升学、安保、伴侣或关系筛选、关系去留等高风险事项；行动建议也不用于酒精、药物、赌博、自伤、进食障碍、危险行为或戒断管理。",
+      "privacy_boundary": "答题过程中，包含逐题选择的本地草稿会保存在当前设备并支持恢复。完成后的最终结果缓存保存各因素原始总和与平均值等结果；最终结果缓存不包含原始逐题答案。本地测评流程不会上传这些内容；可以在结果页清除本次草稿和最终结果缓存。不需要向任何人公开结果。",
+      "public_preview_notice": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模、公平性、百分位或准确率验证。",
+      "psychometric_boundary": "全部为负向自陈题，分数容易受自我呈现和理解差异影响；本测试未完成心理测量验证，不能当作诊断、评估或社交建议依据。",
+      "retest_boundary": "如果以后重新作答，应按当时能确认的状态选择；两次结果不同可能与对象、情境或自我理解变化有关，不能自动解释为你的互动方式已经改变。"
+    }
+  },
+  "english_factor_translation": [
+    {
+      "factor_code": "DIRECTNESS_IMPACT",
+      "source_display_name": "Impact that direct expression might have",
+      "editorial_display_name": "Direct expression and contextual information",
+      "result_headline": "Review the relationship between direct expression and context",
+      "one_sentence_summary": "These four items concern your reports of conclusions first, background, tone and timing, and conditions for receiving feedback.",
+      "score_reading": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+      "construct_definition": "Self-reported clues about the tone, timing and background surrounding direct expression.",
+      "item_scope": "The items cover conclusions with less background, a more clipped tone under time pressure, pointing out a problem without checking timing, and focusing on accuracy with less attention to delivery.",
+      "behavior_outcome_boundary": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that someone was affected or disliked you because of it.",
+      "review_angles": "You may review when you tend to begin with a conclusion and whether the other person received enough background.",
+      "facts_to_check": "Recall a recent occasion when someone asked for background after your conclusion, including whether the setting was unsafe or unsuitable for discussion.",
+      "safety_exception": "A clear refusal or safety boundary need not be packaged to be likeable. Directly ending an unsafe conversation can be necessary protection.",
+      "context_questions": "Was your direct expression habitual, or did you need to finish quickly? Only you can check that reason.",
+      "low_risk_actions": "If you wish, next time you point out a problem you could first check whether this is a suitable time. You may also choose not to; every sentence does not need a full explanation.",
+      "no_people_pleasing_boundary": "Directness is not inherently a problem and tact is not inherently better. You do not need to soften every expression to be liked.",
+      "what_this_score_cannot_support": "This cannot show that you are rude, lack empathy, communicate poorly, hurt someone or are disliked because of it.",
+      "does_not_mean": [
+        "Direct expression does not mean rudeness.",
+        "Tact is not inherently better.",
+        "The form cannot confirm that another person was affected."
+      ],
+      "science_boundary": "This is a product-organised area for self-observation, without independent psychometric validation."
+    },
+    {
+      "factor_code": "WITHDRAWAL_DISTANCE",
+      "source_display_name": "Distance that stepping away might create",
+      "editorial_display_name": "Pausing contact and explaining your situation",
+      "result_headline": "Review how you describe a pause in contact",
+      "one_sentence_summary": "These four items concern reports of pausing when you need space, explaining your situation and changes in contact rhythm.",
+      "score_reading": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+      "construct_definition": "Self-reported clues about pausing contact and explaining your situation when you need space.",
+      "item_scope": "The items cover reducing contact before explaining, leaving when tired without a return arrangement, leaving messages without explanation, and resuming contact without explaining a pause.",
+      "behavior_outcome_boundary": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that you are cold or that distance was created.",
+      "review_angles": "You may review how you usually pause when you need space and whether protection or safety mattered.",
+      "facts_to_check": "Recall a recent pause in contact and whether it was for protection or safety.",
+      "safety_exception": "You may stop contact with an unsafe person without promising to return. A pause need not include a promise to resume, and protection is not a defect that needs repair.",
+      "context_questions": "Was the lack of explanation habitual, or was explaining itself unsafe? Only you can check that distinction.",
+      "low_risk_actions": "If you wish and it is safe, you could briefly state your situation when pausing. You may also choose not to; directly pausing is valid when safety does not allow an explanation.",
+      "no_people_pleasing_boundary": "You do not need to maintain contact to avoid being disliked. Stepping away does not establish coldness or punishment.",
+      "what_this_score_cannot_support": "This cannot show coldness, an avoidant personality, deliberate disappearance, punishment, lack of care or an inevitable creation of distance.",
+      "does_not_mean": [
+        "Pausing contact does not mean coldness.",
+        "Self-protection is not a defect to repair.",
+        "You need not promise when contact will resume."
+      ],
+      "science_boundary": "This is a product-organised area for self-observation, without independent psychometric validation."
+    },
+    {
+      "factor_code": "EXPECTATION_MISMATCH",
+      "source_display_name": "A gap from unspoken expectations",
+      "editorial_display_name": "Expressing expectations and checking shared understanding",
+      "result_headline": "Review how expectations were expressed and checked",
+      "one_sentence_summary": "These four items concern reports of explicitly discussing expectations of contact, task allocation and support.",
+      "score_reading": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+      "construct_definition": "Self-reported clues about directly stating expectations and jointly checking understanding.",
+      "item_scope": "The items cover assuming standards are known, feeling disappointed before checking shared understanding, not confirming responsibilities before a joint task, and hinting rather than explaining.",
+      "behavior_outcome_boundary": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that a gap exists or that you caused it.",
+      "review_angles": "You may review whether you state expectations directly or assume they are known, and whether responsibilities were clear to both people.",
+      "facts_to_check": "Recall a recent expectation gap, including whether both people took part in explaining.",
+      "safety_exception": "If differing expectations involve threats or control, safety takes priority over communication coordination.",
+      "context_questions": "Was not stating an expectation habitual, or were you afraid of refusal? Only you can distinguish that reason.",
+      "low_risk_actions": "If you wish, next time you could write expectations as specific points that can be checked before starting. You may also choose not to and are not responsible for every expectation.",
+      "no_people_pleasing_boundary": "Expectations and agreement involve more than one person. Responsibility cannot be assigned solely to you, and expressing an expectation need not involve pleasing others.",
+      "what_this_score_cannot_support": "This cannot show selfishness, excessive demands, poor communication, incompatibility or that you caused a gap.",
+      "does_not_mean": [
+        "Unspoken expectations do not mean selfishness.",
+        "A gap involves more than one person, not solely you.",
+        "The form cannot confirm that another person felt a gap."
+      ],
+      "science_boundary": "This is a product-organised area for self-observation, without independent psychometric validation."
+    },
+    {
+      "factor_code": "FOLLOW_THROUGH_GAPS",
+      "source_display_name": "Uncertainty from responses or changing plans",
+      "editorial_display_name": "Changing plans and updating information",
+      "result_headline": "Review information updates when plans change",
+      "one_sentence_summary": "These four items concern reports of time, resources, progress and notifications of change.",
+      "score_reading": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+      "construct_definition": "Self-reported clues about changing plans, resource limits and progress updates.",
+      "item_scope": "The items cover late notice of changes, discovering resource or time limits after agreeing, not updating a stalled task and not explaining a changed response rhythm.",
+      "behavior_outcome_boundary": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that another person was disappointed or disliked you.",
+      "review_angles": "You may review when you notify others of changes and how you handle resource limits.",
+      "facts_to_check": "Recall a recent change of plans and whether practical conditions affected the timing of the notice.",
+      "safety_exception": "If an update could create a safety risk, protect yourself first. You do not need to update an unsafe person on your arrangements.",
+      "context_questions": "Did you not update promptly because you forgot or because you feared a response? Only you can judge the reason.",
+      "low_risk_actions": "If you wish, next time plans change you could explain earlier. You may also choose not to, and need not promise more than you can manage.",
+      "no_people_pleasing_boundary": "An action suggestion must not demand excessive commitments or promise that trust will follow. Plans commonly change.",
+      "what_this_score_cannot_support": "This cannot show unreliability, irresponsibility, untrustworthiness, poor work performance or that others must be disappointed or dislike you.",
+      "does_not_mean": [
+        "A changed plan does not mean unreliability.",
+        "Do not promise beyond what you can manage.",
+        "The form cannot confirm another person’s disappointment."
+      ],
+      "science_boundary": "This is a product-organised area for self-observation, without independent psychometric validation."
+    },
+    {
+      "factor_code": "BOUNDARY_STYLE_MISMATCH",
+      "source_display_name": "Misreading of boundary-expression styles",
+      "editorial_display_name": "Expressing boundaries and differences in understanding",
+      "result_headline": "Review boundary expression and differences in understanding",
+      "one_sentence_summary": "These four items concern reports of refusal, closeness, distance and ways of expressing boundaries.",
+      "score_reading": "The mean describes overall endorsement of these four statements, without a good/bad or high/low category.",
+      "construct_definition": "Self-reported clues about expressing boundaries and possible differences in understanding.",
+      "item_scope": "The items cover brief refusals without describing a range, hints when wanting something to stop, not promptly explaining different boundaries, and unfamiliar expressions of closeness or distance.",
+      "behavior_outcome_boundary": "The items describe only your self-report, without other people’s feelings or evaluations. They cannot confirm that misunderstanding occurred or that you were responsible.",
+      "review_angles": "You may review whether you state boundaries directly or use hints, and whether differences between relationships were explained.",
+      "facts_to_check": "Recall a recent occasion after expressing a boundary, including whether your choice was respected.",
+      "safety_exception": "A clear no can be a complete boundary without an alternative. Explaining a boundary to an unsafe person is not an obligation.",
+      "context_questions": "Were hints habitual, or did direct expression seem risky? Only you can judge that distinction.",
+      "low_risk_actions": "If you wish and it is safe, you could state a boundary directly. You may also choose not to; different expression does not require a lower boundary.",
+      "no_people_pleasing_boundary": "Different expression must not make you solely responsible for another person’s understanding. You need not lower boundaries to be liked.",
+      "what_this_score_cannot_support": "This cannot show that your boundaries are wrong, that you must explain a refusal or provide an alternative, that you should lower a boundary, or that misunderstanding is necessarily your responsibility.",
+      "does_not_mean": [
+        "A brief refusal does not mean a faulty boundary.",
+        "A clear no can itself be a complete boundary.",
+        "You need not offer an alternative."
+      ],
+      "science_boundary": "This is a product-organised area for self-observation, without independent psychometric validation."
+    }
+  ],
+  "source_binding": {
+    "id": "T094",
+    "files": [
+      {
+        "module": "disliked_reason/item_bank.js",
+        "sha256": "9707190b396126adf428ec64a88f6ffc2f6236cd5efee63795930fcebd397402"
+      },
+      {
+        "module": "disliked_reason/scoring_spec.js",
+        "sha256": "8b3d3e949eb4e93492e36c3e01e2e744955404a5f4041d7e6ba787b701ece526"
+      },
+      {
+        "module": "disliked_reason/result_content.js",
+        "sha256": "34577a16a05fe7fceeb5ab23f96bcf2e68230c80a904abe2c289ac6901bdbf70"
+      },
+      {
+        "module": "disliked_reason/product.js",
+        "sha256": "7f71541aae0c8528b9c371d733cf607f9e8b90ddb09c7893e5ff23c80a239f80"
+      },
+      {
+        "module": "local/independent_factor_likert_scorer.js",
+        "sha256": "9e71ef2a416e6f4a4312a38757a62b2b6cdd3d3c4bf00e0778a1ce877de9b8cf"
+      },
+      {
+        "module": "local/scorer_helpers.js",
+        "sha256": "4fbf9a4bc5f6d66bcec588880a2f34ee239b887264b72396e1cd8118f174e0fb"
+      },
+      {
+        "module": "local/result_presenter.js",
+        "sha256": "eb1e9cea47a24bc653a822c1a2be0dbb18ccfb705ef8903d8d74f4754608227a"
+      }
+    ]
+  },
+  "web_adaptation": [
+    "new working English",
+    "preserved source20Chinese/5numericchoices/midpoint3/5by4/allforward",
+    "strict unknown-key rejection vs source flag only",
+    "opt-in24h tabdraft and no final cache vs Mini cache",
+    "new optional examples and native metadata"
+  ],
+  "all_personal_interpretation_requires_complete20": true
+}

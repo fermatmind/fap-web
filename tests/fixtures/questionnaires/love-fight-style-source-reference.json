@@ -1,0 +1,1359 @@
+{
+  "id": "T095",
+  "slug": "love-fight-style",
+  "code": "FM_LOVE_CONFLICT_PROCESS20",
+  "kind": "likert",
+  "form": "fm_love_conflict_original20_v1",
+  "scoring": "fm_love_conflict_four_complete5_frequency_means1dp_v1",
+  "minimumRatedItems": 5,
+  "instructions": {
+    "en": "Choose one current romantic relationship or your most recent significant one. Recall ordinary disagreements during the past four weeks, or its final four weeks if it ended; this window is editorial. Keep the same relationship in mind. Rate how often each described action occurred on relevant occasions, from 1 to 5. If there was no relevant opportunity, you cannot judge or prefer not to answer, choose unscored. All twenty recognised choices, including unscored, can finish. Each five-item group needs five numeric answers for its separate mean. No total, best group or fight type is assigned. You do not need to contact anyone, re-enter an unsafe discussion, apologise or forgive.",
+    "zh": "选择一段当前恋爱关系，或最近一段重要关系，始终以同一段为参照。回想过去四周的普通分歧；已结束时回想最后四周，四周是编辑窗口。按1—5评价所述行为在相关机会中出现的频率；无机会、无法判断或不愿答时不计分。二十项包括不计分的有效选择均可完成；每组五项数值齐才给独立均分，不合总分、不选最好组或派吵架类型。无需联系任何人、重入不安全讨论、道歉或原谅。"
+  },
+  "parts": [
+    {
+      "id": "verbal-escalation",
+      "title": {
+        "en": "Verbal escalation",
+        "zh": "言语升温"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "expressing-a-pause",
+      "title": {
+        "en": "Expressing a pause",
+        "zh": "表达暂停"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "returning-to-the-issue",
+      "title": {
+        "en": "Returning to the specific issue",
+        "zh": "重新讨论具体问题"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "id": "checking-repair",
+      "title": {
+        "en": "Offering and checking a repair",
+        "zh": "提出与核对修复动作"
+      },
+      "itemCount": 5,
+      "item_numbers": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "LCP_01",
+      "prompt": {
+        "en": "During a disagreement, I spoke louder or faster than I had intended.",
+        "zh": "发生分歧时，我说话的音量或速度超过了自己原本的打算。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "verbal-escalation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "verbal-escalation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "verbal-escalation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "verbal-escalation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "verbal-escalation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "verbal-escalation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_02",
+      "prompt": {
+        "en": "I used generalisations such as “always” or “never” while describing the disagreement.",
+        "zh": "描述分歧时，我用了“总是”或“从来不”这类概括。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "verbal-escalation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "verbal-escalation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "verbal-escalation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "verbal-escalation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "verbal-escalation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "verbal-escalation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_03",
+      "prompt": {
+        "en": "I repeated my point before checking whether the other person had understood it.",
+        "zh": "尚未确认对方是否理解时，我又重复了自己的观点。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "verbal-escalation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "verbal-escalation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "verbal-escalation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "verbal-escalation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "verbal-escalation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "verbal-escalation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_04",
+      "prompt": {
+        "en": "I answered a criticism by bringing up a criticism of the other person.",
+        "zh": "面对对自己的批评时，我转而提出对对方的批评。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "verbal-escalation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "verbal-escalation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "verbal-escalation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "verbal-escalation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "verbal-escalation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "verbal-escalation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_05",
+      "prompt": {
+        "en": "I began responding before the other person had finished speaking.",
+        "zh": "对方还没有说完，我就开始回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "verbal-escalation",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "verbal-escalation",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "verbal-escalation",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "verbal-escalation",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "verbal-escalation",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "verbal-escalation",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_06",
+      "prompt": {
+        "en": "When I wanted a pause, I said that I needed some time away from the discussion.",
+        "zh": "自己想暂停时，我说出了需要暂时离开讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "expressing-a-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_07",
+      "prompt": {
+        "en": "I explained what I could manage at that moment, rather than promising more discussion than I could offer.",
+        "zh": "我说明了当时自己能应对什么，没有承诺超出自己能承受的讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "expressing-a-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_08",
+      "prompt": {
+        "en": "Where I freely wanted to return to an ordinary discussion, I said how we might check whether we were ready.",
+        "zh": "自己自愿想再谈一次普通分歧时，我说明了可以怎样确认双方是否准备好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "expressing-a-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_09",
+      "prompt": {
+        "en": "I described my need for space without telling the other person what they were allowed to feel.",
+        "zh": "表达自己需要空间时，我没有规定对方可以有什么感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "expressing-a-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_10",
+      "prompt": {
+        "en": "I gave realistic information about my availability when discussing a possible later conversation.",
+        "zh": "谈到可能之后再聊时，我如实说明了自己有空的情况。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "expressing-a-pause",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "expressing-a-pause",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_11",
+      "prompt": {
+        "en": "When we both chose to talk again, I returned to the specific issue we had left unresolved.",
+        "zh": "双方选择再谈时，我回到了之前没有谈完的具体问题。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_12",
+      "prompt": {
+        "en": "I distinguished the earlier issue from a new complaint that came to mind.",
+        "zh": "我区分了先前的问题与后来想到的新不满。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_13",
+      "prompt": {
+        "en": "Before continuing a difficult topic, I asked whether the other person wanted to discuss it then.",
+        "zh": "继续一个困难话题前，我询问了对方是否愿意当时讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_14",
+      "prompt": {
+        "en": "I described an observable event rather than asserting that I knew the other person’s motive.",
+        "zh": "我描述了能观察到的事情，而没有断言自己知道对方的动机。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_15",
+      "prompt": {
+        "en": "I distinguished a practical decision we needed to consider from a feeling I wanted to express.",
+        "zh": "我区分了需要考虑的实际决定与自己想表达的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "returning-to-the-issue",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_16",
+      "prompt": {
+        "en": "I named a specific action of my own that I wanted to acknowledge.",
+        "zh": "我明确说出了自己想承认的一项具体行为。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "checking-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "checking-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "checking-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "checking-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "checking-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "checking-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_17",
+      "prompt": {
+        "en": "I listened to a response without asking the other person to forgive me immediately.",
+        "zh": "听对方回应时，我没有要求对方立刻原谅。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "checking-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "checking-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "checking-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "checking-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "checking-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "checking-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_18",
+      "prompt": {
+        "en": "I offered a small, specific alternative to an action that had caused difficulty.",
+        "zh": "针对造成困扰的一项行为，我提出了一个小而具体的替代做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "checking-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "checking-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "checking-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "checking-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "checking-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "checking-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_19",
+      "prompt": {
+        "en": "Before trying a gesture of repair, I checked whether the other person would welcome it.",
+        "zh": "尝试一个修复动作前，我确认了对方是否愿意接受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "checking-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "checking-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "checking-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "checking-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "checking-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "checking-repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "LCP_20",
+      "prompt": {
+        "en": "Where a later check-in was welcome, I asked how an agreed change had worked without requiring the issue to be declared resolved.",
+        "zh": "对方愿意稍后核对时，我询问了约定变化的实际情况，没有要求宣布问题已经解决。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 · Never on relevant occasions",
+            "zh": "1 · 相关机会中从未"
+          },
+          "directionId": "checking-repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 · Rarely",
+            "zh": "2 · 很少"
+          },
+          "directionId": "checking-repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 · Sometimes",
+            "zh": "3 · 有时"
+          },
+          "directionId": "checking-repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 · Often",
+            "zh": "4 · 经常"
+          },
+          "directionId": "checking-repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 · Almost every relevant occasion",
+            "zh": "5 · 相关机会中几乎每次"
+          },
+          "directionId": "checking-repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant opportunity / cannot judge / prefer not to answer",
+            "zh": "无相关机会／无法判断／暂不回答"
+          },
+          "directionId": "checking-repair",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "provenance": "FermatMind original20 bilingual statements and full prose; four editorial observation areas, not validated independent factors or fixed sequence; no published scale or competitor items",
+  "overlap": "T089 asks five approaches to competing concerns/solutions. This original form asks escalation/pause/return/repair actions; no numeric conversion or claim of factor independence."
+}
