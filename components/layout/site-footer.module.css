@@ -118,6 +118,162 @@
   font-size: inherit;
 }
 
+.platforms {
+  border-top: 1px solid var(--fm-border-subtle);
+  padding: 24px 0 28px;
+}
+
+.platformHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.platformHeading h2 {
+  margin: 0;
+  color: var(--fm-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.platformPause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--fm-text-secondary);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.platformViewport {
+  overflow: hidden;
+  padding: 6px 4px;
+}
+
+.platformTrack {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: platform-scroll 40s linear infinite;
+}
+
+.platformGroup {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  gap: 56px;
+  margin: 0;
+  padding: 0 28px;
+  list-style: none;
+}
+
+.platformLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--fm-text-main);
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.platformLink svg {
+  color: var(--fm-text-secondary);
+}
+
+.productHuntMark {
+  width: 140px;
+  height: auto;
+}
+
+.saashubMark {
+  width: 150px;
+  height: auto;
+}
+
+.platformLink:hover,
+.platformPause:hover {
+  color: var(--fm-text-secondary);
+}
+
+.platformLink:focus-visible,
+.platformPause:focus-visible {
+  outline: 2px solid var(--fm-text-secondary);
+  outline-offset: 4px;
+}
+
+.platforms:hover .platformTrack {
+  animation-play-state: paused;
+}
+
+/* Keyboard navigation and explicit pause expose every destination in place. */
+.platforms[data-paused="true"] .platformTrack,
+.platforms:has(.platformLink:focus-visible) .platformTrack {
+  width: 100%;
+  min-width: 0;
+  animation: none;
+}
+
+.platforms[data-paused="true"] .platformGroup,
+.platforms:has(.platformLink:focus-visible) .platformGroup {
+  flex: 1 1 0;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px 32px;
+  padding: 0;
+}
+
+.platforms[data-paused="true"] .platformGroup[aria-hidden="true"],
+.platforms:has(.platformLink:focus-visible) .platformGroup[aria-hidden="true"] {
+  display: none;
+}
+
+@keyframes platform-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platformTrack {
+    width: 100%;
+    min-width: 0;
+    animation: none;
+  }
+
+  .platformGroup {
+    flex: 1 1 0;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 32px;
+    padding: 0;
+  }
+
+  .platformGroup[aria-hidden="true"],
+  .platformPause {
+    display: none;
+  }
+
+  .platformLink {
+    transition: none;
+  }
+}
+
 @media (min-width: 640px) {
   .footer :global(.fm-footer-navigation) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
