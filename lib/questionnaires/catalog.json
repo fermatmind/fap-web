@@ -4034,5 +4034,30 @@
       "property",
       "coercion"
     ]
+  },
+  {
+    "slug": "trust-issues-test",
+    "code": "FM_EVERYDAY_TRUST_ORIGINAL",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "zh": "信任问题测试：日常相处自我观察",
+      "en": "Trust Issues Test: Everyday Trust Reflection"
+    },
+    "description": {
+      "zh": "免费完成24题，分别回顾初次开放、逐步建立、约定核对与保护性距离。看原始和与频率均分与四份完整说明，包含对话例子、反例和私人练习，不诊断你或给别人判型。",
+      "en": "Take 24 free questions about everyday trust actions. Read four separate frequency means and full guides with examples, tradeoffs and private reflection."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fm_original_everyday_trust_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "initial-opening",
+      "gradual-building",
+      "agreement-clarity",
+      "protective-distance"
+    ]
   }
 ]

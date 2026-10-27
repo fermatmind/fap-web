@@ -1,0 +1,2413 @@
+{
+  "slug": "trust-issues-test",
+  "code": "FM_EVERYDAY_TRUST_ORIGINAL",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "title": {
+    "zh": "信任问题测试：日常相处自我观察",
+    "en": "Trust Issues Test: Everyday Trust Reflection"
+  },
+  "resultHeading": {
+    "zh": "四组日常信任自我观察",
+    "en": "Four everyday trust reflections"
+  },
+  "description": {
+    "zh": "免费完成24题，分别回顾初次开放、逐步建立、约定核对与保护性距离。看原始和与频率均分与四份完整说明，包含对话例子、反例和私人练习，不诊断你或给别人判型。",
+    "en": "Take 24 free questions about everyday trust actions. Read four separate frequency means and full guides with examples, tradeoffs and private reflection."
+  },
+  "seoTitle": {
+    "zh": "信任问题测试：24题日常相处反思与完整结果",
+    "en": "Trust Issues Test: Free 24-Question Trust Reflection"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "信任问题是日常说法，不是本问卷能诊断的状况。回顾过去四周普通、低风险相处中的行动，分别看先给入口、分步调整、核对约定与保留距离。四组可以同时出现，结果不判断别人是否可信。",
+    "en": "“Trust issues” is an everyday phrase, not a condition this questionnaire diagnoses. Reflect on ordinary, low-risk actions during the past four weeks: offering an opening, building in stages, clarifying agreements and keeping distance. The four can coexist; the result does not judge anyone else’s trustworthiness."
+  },
+  "instructions": {
+    "zh": "回顾过去四周，在普通、低风险、你有权拒绝的相处中，有机会时你这样做的频率。只报自己的行动，不替别人作答。没有经历或无法判断请选NA；不要为了完成题目测试别人、交出私人信息或进入不安全关系。",
+    "en": "Recall the past four weeks in ordinary, low-risk interactions where you were free to decline. Rate how often you acted this way when the opportunity arose. Describe your own actions, not someone else’s. Choose NA when not experienced or not judgeable; do not test another person, disclose private information, or enter an unsafe situation to answer."
+  },
+  "source": {
+    "kind": "FermatMind-original-everyday-behavior-reflection-not-published-scale",
+    "formCode": "fm_original_everyday_trust_24_v1",
+    "itemBankVersion": "1.0.0-original-not-validated",
+    "scoringVersion": "1.0.0-four-descriptive-frequency-means",
+    "resultContentVersion": "1.0.0-original-full-guides",
+    "itemBankSha256": "4c0968513ebcee82ae015b64c8f807633366c3126b4380b43996c048247dadfb",
+    "resultContentSha256": "fc964bd0e3b53c7cf8f042b091b082ec2fb0cedaa8d4364bc2654887883c456f",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "initial-opening",
+      "title": {
+        "zh": "初次开放",
+        "en": "Offering an opening"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "gradual-building",
+      "title": {
+        "zh": "逐步建立",
+        "en": "Building in stages"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "agreement-clarity",
+      "title": {
+        "zh": "约定核对",
+        "en": "Clarifying agreements"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "protective-distance",
+      "title": {
+        "zh": "保护性距离",
+        "en": "Keeping protective distance"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "TRUST_01",
+      "prompt": {
+        "zh": "在新加入的兴趣小组里，我先分享一个普通爱好，再慢慢认识其他人。",
+        "en": "In a new interest group, I shared an ordinary hobby before getting to know the other members well."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_02",
+      "prompt": {
+        "zh": "在承担更大的共同承诺前，我先约定了一个较小、可以回顾的合作步骤。",
+        "en": "Before taking on a larger shared commitment, I agreed on a smaller step that we could review."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_03",
+      "prompt": {
+        "zh": "共同计划说得含糊时，我问清了各自负责哪一部分。",
+        "en": "When a shared plan was vague, I clarified which part each person was responsible for."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_04",
+      "prompt": {
+        "zh": "即使一项低风险帮助的范围已经说清，我仍选择了全部自己处理。",
+        "en": "Even when the scope of a low-risk offer of help was clear, I chose to handle the whole task myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_05",
+      "prompt": {
+        "zh": "面对刚认识的合作者，我让对方先尝试一个范围明确的小任务，没有先要求长期表现记录。",
+        "en": "I let a new collaborator try a small, clearly bounded task without first requiring a long record of follow-through."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_06",
+      "prompt": {
+        "zh": "对方兑现了具体约定后，我才增加与那件事相关的一点信任或责任。",
+        "en": "After someone followed through on a specific agreement, I extended a little more trust or responsibility in that same area."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_07",
+      "prompt": {
+        "zh": "一起修改资料前，我先确认哪些内容可以改、哪些需要再次征得同意。",
+        "en": "Before editing shared material, I checked what could be changed and what required renewed agreement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_08",
+      "prompt": {
+        "zh": "有可以开口商量的人时，我仍把一件普通烦恼完全留给自己处理。",
+        "en": "Even with someone available to talk, I kept an ordinary concern entirely to myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_09",
+      "prompt": {
+        "zh": "遇到不紧急的小问题，我向还不太熟悉的人征求了一点实际意见。",
+        "en": "For a small, non-urgent problem, I asked someone I did not know well for a little practical input."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_10",
+      "prompt": {
+        "zh": "我告诉对方，看到什么具体的后续行动，我才愿意进入下一步合作。",
+        "en": "I explained what specific follow-through would make me willing to take the next step together."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_11",
+      "prompt": {
+        "zh": "转发一段普通信息前，我确认了原来约定的接收范围。",
+        "en": "Before forwarding an ordinary message, I checked the agreed audience."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_12",
+      "prompt": {
+        "zh": "对一次小合作心存疑问时，我先避开了共同活动，没有把疑问问出来。",
+        "en": "When unsure about a small collaboration, I stepped away from the shared activity without asking about the uncertainty."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_13",
+      "prompt": {
+        "zh": "在没有明显危险的日常小事上，我接受了一点帮助，没有先逐一核查对方的本领。",
+        "en": "For an ordinary, low-risk task, I accepted a little help without first checking the person’s abilities in detail."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_14",
+      "prompt": {
+        "zh": "一段小合作进行顺利后，我主动减少了一个原先安排的检查步骤。",
+        "en": "After a small collaboration went well, I deliberately removed one check that I had initially arranged."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_15",
+      "prompt": {
+        "zh": "对同一件事出现不同解释时，我先请对方提供一个具体例子再作判断。",
+        "en": "When explanations of the same event differed, I asked for one concrete example before deciding what to make of it."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_16",
+      "prompt": {
+        "zh": "一件影响很小的分工已经说清后，我仍为对方负责的部分另做了备用安排。",
+        "en": "After a low-stakes division of work was clear, I still made a separate backup for the other person’s part."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_17",
+      "prompt": {
+        "zh": "一次轻微误会说清后，我按原来约好的有限范围继续了合作。",
+        "en": "After a minor misunderstanding was clarified, I continued cooperating within the limited scope already agreed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_18",
+      "prompt": {
+        "zh": "我和对方公开商量了先尝试多久、何时一起回顾，而不是暗中观察对方是否过关。",
+        "en": "We openly agreed on a trial period and a review point instead of my privately testing whether the other person passed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_19",
+      "prompt": {
+        "zh": "接受一项合作提议前，我问清了自己仍然可以拒绝或调整哪些部分。",
+        "en": "Before accepting a cooperative proposal, I clarified which parts I could still decline or change."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_20",
+      "prompt": {
+        "zh": "一次小失约已经谈清后，我仍减少了其他不相关事情上的分享或依赖。",
+        "en": "After a minor missed commitment had been discussed, I still reduced sharing or reliance in other, unrelated areas."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_21",
+      "prompt": {
+        "zh": "安排一件影响很小的共同活动时，我把其中一个小决定交给了新认识的人。",
+        "en": "When planning a low-stakes shared activity, I left one small decision to someone I had recently met."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "initial-opening"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "initial-opening"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_22",
+      "prompt": {
+        "zh": "恢复一段暂停的合作时，我先重启一件小事，再考虑更大的安排。",
+        "en": "When resuming a paused collaboration, I restarted with one small task before considering a larger arrangement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "gradual-building"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "gradual-building"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_23",
+      "prompt": {
+        "zh": "共同安排的细节较多时，即使彼此友好，我也把约定简要写了下来。",
+        "en": "When a shared arrangement had several details, I wrote down a brief agreement even when we were on friendly terms."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "agreement-clarity"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "agreement-clarity"
+        }
+      ]
+    },
+    {
+      "id": "TRUST_24",
+      "prompt": {
+        "zh": "对方提出几种可自行选择的小合作方式时，我选择了保持独立，不参与其中任何一种。",
+        "en": "When someone offered several optional, small ways to cooperate, I chose to remain independent rather than join any of them."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "zh": "几乎没有",
+            "en": "Almost never"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "zh": "较少",
+            "en": "Rarely"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "zh": "有时",
+            "en": "Sometimes"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "zh": "经常",
+            "en": "Often"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "zh": "几乎每次",
+            "en": "Almost every time"
+          },
+          "directionId": "protective-distance"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "protective-distance"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "initial-opening",
+      "directionIds": [
+        "initial-opening"
+      ],
+      "title": {
+        "zh": "初次开放：给一点交流空间",
+        "en": "Offering an Opening: A Small First Opportunity"
+      },
+      "summary": {
+        "zh": "回顾低风险相处中是否先给一点交流或合作空间，结合范围、反例和私人观察阅读。",
+        "en": "Reflect on small openings in low-risk interactions, with scope, counterexamples and a private observation exercise."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "初次开放记录了什么",
+            "en": "What offering an opening records"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组回顾的是：在普通、低风险、可以拒绝的相处中，你是否先给一点交流或合作的空间。它可以是一句普通兴趣、一个小任务，或接受一点不涉及重要财物的帮助。这里记录你报告的行动频率，不是判断别人值不值得相信，也不是把你放在“信任别人”到“怀疑别人”的唯一刻度上。",
+              "en": "This part looks at whether you offered a small opening in ordinary, low-risk interactions where declining remained possible. The opening might be an everyday interest, a bounded task or a little practical help. The six statements describe actions you report taking; they do not establish how trustworthy another person was. They also do not place you on a single line running from trust to distrust. Giving one small opportunity and keeping another area private can occur together without contradiction."
+            },
+            {
+              "zh": "先给机会也不等于无条件交付。题目里的范围、风险和可退出性都是含义的一部分：让刚认识的人选一次活动地点，不等于交出账号、钥匙或重要决定。如果你回想的事件不符合这些条件，选“未经历／无法判断”比拿一个高风险事件勉强作答更合适。",
+              "en": "The size and reversibility of the opening matter. Letting a new acquaintance choose one part of a casual activity is different from giving them an account password or control over an important decision. The bank concerns the former kind of interaction. If the event you recall did not fit that scope, use “not experienced / cannot judge” rather than forcing a high-stakes event into a low-stakes statement. You do not need to create a new encounter to complete the reflection."
+            }
+          ]
+        },
+        {
+          "id": "continuum",
+          "title": {
+            "zh": "较高、较低和混合怎样读",
+            "en": "Reading higher, lower and mixed responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高，只表示你在这六条具体行动上报得较频繁。它不证明你更温暖、更善良、更勇敢或更容易交到朋友。较低也可能来自近期接触新人较少、偏好慢一点开始、已经有足够支持，或对某个环境有充分顾虑。这份题本没有把这些原因区分开的证据。",
+              "en": "A higher mean says only that you selected more frequent response categories for these six actions. It does not establish warmth, kindness, courage or success at making friends. A lower mean can accompany fewer opportunities, a preference for a slower start, sufficient existing support or sensible concern about a particular setting. This bank does not identify which explanation applies. Start by checking what actually happened, rather than turning the number into a description of your character."
+            },
+            {
+              "zh": "答案高低混合时，具体题目往往比均分更有用：你可能愿意讨论普通爱好，却不愿接受别人代办事情。两种行动涉及的控制感不同。这里不设“正常”“有问题”或安全及格线，也不把四组均分最高的一项派成你的固定信任类型。",
+              "en": "Mixed answers are useful information. You might readily discuss an ordinary hobby while rarely accepting practical help, because the two actions involve different kinds of control. Read those differences before looking for one overall story. No mean in this edition marks normality, a problem or a safe passing score. The highest of the four topic means is not assigned as a fixed trust type, and a small difference between means has no established psychological significance."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "把原始答案算一遍",
+            "en": "Recalculate a worked example"
+          },
+          "paragraphs": [
+            {
+              "zh": "若六题回答为4、3、5、2、4、3，原始和是21，均分为21÷6＝3.5。六条都为有效频率答案时，才显示这组的个人原始和与均分。3.5不是“信任度70%”，也不是在别人中排名的百分位；分母6是题目数，不是发生过的六次互动。",
+              "en": "Suppose the six responses are 4, 3, 5, 2, 4 and 3. Their raw sum is 21, and 21 divided by six is 3.5. This part has no reverse-keyed statements. The sum and mean become available only when all six entries are valid frequency responses. A mean of 3.5 is not 70 percent trust, a percentile or an estimate of how often you acted across a counted set of encounters. The denominator is six statements, not six observed interactions."
+            },
+            {
+              "zh": "若其中一题改为NA，有效题数变为5／6，本组原始和与均分保留为资料不足，不用0、3或其他人的答案补齐。另三组只要各自六条有效，仍可分别显示。四份完整指南始终可读，下面的通用例子不会因为缺答变成你的个人情况。",
+              "en": "If one response becomes NA, the valid-item count becomes five out of six and this part’s personal sum and mean are withheld. NA is not replaced with zero, a midpoint or someone else’s answer. The other three parts can remain available if each has six valid responses. All four complete guides remain readable. A general example on this page is not evidence about you, even when your own score is unavailable."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "把范围说清的小合作",
+            "en": "A small collaboration with an explicit scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你加入一个周末写作小组，愿意先分享一个不涉及私事的选题，并请一位新成员反馈标题是否清楚。你只分享这一段，保留是否继续交流的决定。这是给一个小入口；它和请对方修改全部私人日记、替你发布作品，是范围完全不同的事情。",
+              "en": "Imagine joining a weekend writing group. You share a non-sensitive topic and ask a new member whether its title is clear. You share only that small piece and retain the decision about further contact. That is an opening with a visible boundary. It differs from handing over a private journal or authorizing publication. The relevant observation is what you chose to share and what remained under your control, not whether the other person later praised you."
+            },
+            {
+              "zh": "可以这样表达：“这次我先讨论标题，正文暂时不分享。你愿意说说第一眼理解成什么吗？”对方可以拒绝，你也可以结束。随后觉得不合适，不代表最初开放就一定错误；对方表现良好，也不能由一次经历推出以后所有事情都可靠。",
+              "en": "A practical sentence is: “For now I would like feedback on the title; I am keeping the draft private. Would you tell me what the title suggests?” Either person can decline. If the exchange does not fit, you can stop without deciding that the original opening was necessarily a mistake. If it goes well, the one interaction still does not establish reliability in every other area. Keep the conclusion as small as the observation."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "与逐步建立、核对和距离比较",
+            "en": "Compare stages, clarification and distance"
+          },
+          "paragraphs": [
+            {
+              "zh": "初次开放问的是是否先给一点空间；逐步建立问的是后续是否按观察到的行动调整范围。你可能两组都较频繁：先试一小步，再根据具体反馈决定要不要继续。约定核对则关心责任、信息接收范围和可调整部分是否说清，它不必和开放互相排斥。",
+              "en": "Offering an opening concerns the first small opportunity. Building in stages concerns how you adjust scope after observing follow-through. You can report both frequently: begin with a bounded step, then decide what comes next using what happened. Clarifying agreements asks whether responsibilities, audiences and opportunities to change the arrangement were explicit. Clarification can support an opening; the two are not opposing personalities, and asking a clear question does not cancel every act of trust."
+            },
+            {
+              "zh": "保护性距离记录的是另外一些保留、独自处理和备用安排。即使本组较高，你仍可能在不同主题上选择距离。请分别找各组适用的事件，不把一个人概括成四者之一，也不把“核对较多”自动解释成疑心，或把“距离较多”解释成病态。",
+              "en": "Protective distance records separate actions such as withholding ordinary concerns, working alone or making a backup. You might report an opening in one setting and distance in another. Look for a relevant event for each part instead of choosing one label to represent the person. Neither frequent clarification nor frequent distance establishes suspiciousness or a disorder. These are authored topic groupings, without evidence that they are independent psychological factors or a complete map of trust."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "一个不该照搬开放建议的反例",
+            "en": "A counterexample to opening further"
+          },
+          "paragraphs": [
+            {
+              "zh": "有人要求你用共享密码证明信任，或在拒绝后继续施压，这并不是题目约定的低风险、可拒绝相处。你保留密码、停止交流或寻求可信支持，都不能由本组低分判成“需要更开放”。私人信息、财物、身体界限和独立决定，不是为了让测验结果更好看而交换的东西。",
+              "en": "Someone asks you to prove trust by sharing a password and continues pressing after you decline. That is not the low-risk, freely chosen interaction described by this part. Keeping the password private or ending the exchange cannot be judged as a failure to open up. Privacy, important resources, bodily boundaries and independent decisions are not materials to trade for a more flattering result. The questionnaire supplies no evidence that taking such a risk would improve any relationship."
+            },
+            {
+              "zh": "反过来，一次友好交流没有带来持续友谊，也不能证明开放无用。时间、兴趣是否相合、双方资源与沟通方式，都可能影响后续。只回顾你当时能观察到的范围和选择，不用最终结局倒推你或对方的一整套人格。",
+              "en": "Conversely, a friendly exchange that does not become a lasting friendship does not prove that the opening was pointless. Timing, shared interests, available energy and communication can all affect what follows. Review the scope and choices you could observe at the time. Avoid using the eventual outcome to infer a whole personality for either person. This reflection does not determine whether to remain in a relationship or repair one; those decisions require information outside these statements."
+            }
+          ]
+        },
+        {
+          "id": "private-practice",
+          "title": {
+            "zh": "一次完全私人的观察练习",
+            "en": "A private observation exercise"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你愿意，未来一周只回顾一个已经发生的普通小交流，写下四点：我先给了什么小空间、我保留了什么、对方是否知道范围、我是否能自由结束。不要写姓名、账号、聊天原文或第三方秘密。这个记录可以只留在纸上，也可以不记录、不尝试新互动。",
+              "en": "If useful, choose one ordinary exchange that has already happened and privately note four things: the small opening you offered, what you retained, whether the scope was understood and whether you remained free to stop. Do not record names, account details, message transcripts or another person’s secrets. A paper note is enough; recording nothing is also acceptable. The exercise does not require contacting anyone, disclosing something new or testing how another person responds."
+            },
+            {
+              "zh": "下次再遇到相近的小事时，可以先想一句同时包含邀请和范围的话，再决定是否使用。观察这句话是否帮你把选择说清，而不是统计对方有没有“通过”。本网站不需要你提交练习笔记；测验也不会根据这些私人记录给别人判定可靠性。",
+              "en": "For a similar future situation, you may privately draft a sentence containing both an invitation and a limit, then decide whether to use it. Observe whether the sentence helps make your choice clearer, rather than scoring whether another person passed. There is no need to send these notes to the site. They do not become inputs to a judgment of someone else’s reliability, and completing this exercise is not required to access any guide."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "版本边界与复测",
+            "en": "Edition limits and retaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组是费马原创日常行为反思，六条题目与计分没有心理测量、临床诊断或跨语言等值验证。研究中的伴侣可预测性、可依赖性和对未来的信念，与这里四组日常行动不是同一个工具。引用研究背景，不代表原量表的信效度可以转移到本版。",
+              "en": "This is an original FermatMind reflection on everyday actions. These six statements, their grouping and the scoring have not established psychometric validity, clinical utility or cross-language equivalence. Research measures concerning a partner’s predictability, dependability and faith in a relationship address a different instrument and context. Citing that background does not transfer a published scale’s reliability or validity to this edition. No population reference, diagnostic cutoff or prediction of relationship success is supplied."
+            },
+            {
+              "zh": "如要复测，先确认回顾时段和可想到的机会是否相近；环境变了、事件变了、记忆变了，都可能影响回答。均分变化不是已经证明的成长、退步或测量显著变化。可以在这里结束，也可以另读其他三组完整说明；任何其他人格测评都需要独立完整作答，不由本结果换算。",
+              "en": "If you retake the reflection, first check whether the recall period and opportunities are comparable. Changes in circumstances, events or memory can alter responses. A numerical change is not established growth, decline or a statistically meaningful change in a measured trait. You can stop here or read the other three full guides. Another personality framework would require its own complete attempt; this result is never converted into another test’s type or score."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "先给一个有限入口",
+        "en": "Offer a bounded opening"
+      },
+      "scoreReading": {
+        "zh": "本组六条全部有效才显示6至30原始和与1至5均分；较高只表示这些行动报得较频繁，不是能力、类型或他人可靠性。",
+        "en": "All six valid responses are required for the 6–30 raw sum and 1–5 mean. Higher means these actions were reported more often, not ability, a type or another person’s reliability."
+      },
+      "seo": {
+        "title": {
+          "zh": "信任问题：初次开放的频率、场景与边界",
+          "en": "Trust Issues: Offering an Opening, Context and Limits"
+        },
+        "description": {
+          "zh": "了解初次开放这组原始和与均分，结合低风险相处中的具体表达、与其他行动的比较、反例和私人观察练习。较高不等于更善良，较低也不诊断信任问题。",
+          "en": "Read the offering-an-opening trust guide: raw mean, a bounded conversation example, tradeoffs and private reflection. No trust percentage or fixed type."
+        }
+      }
+    },
+    {
+      "id": "gradual-building",
+      "directionIds": [
+        "gradual-building"
+      ],
+      "title": {
+        "zh": "逐步建立：根据经历调整范围",
+        "en": "Building in Stages: Adjusting Scope After Experience"
+      },
+      "summary": {
+        "zh": "回顾小步骤、公开回顾点和后续调整，区分自愿合作与暗中考验。",
+        "en": "Review small steps, agreed review points and later adjustments, while separating voluntary cooperation from covert testing."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "逐步建立是调整范围",
+            "en": "Building in stages means adjusting scope"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组回顾你是否把合作拆成小步骤，再根据具体后续调整范围。它包含开始前商量回顾点、一次小合作顺利后减少一个检查，以及暂停后先恢复有限事项。重点是你的范围怎样改变，不是你认为某个人整体有多可靠。一次按时完成，也不自动覆盖所有领域。",
+              "en": "This part concerns how the scope of cooperation changes over time. Its six statements include agreeing on a small step, setting a review point, removing a check after follow-through and restarting narrowly after a pause. The observation is about your decisions, rather than a global rating of the other person. Finishing one task on time does not establish reliability with money, privacy or every future commitment. Keep each conclusion connected to the area in which you observed it."
+            },
+            {
+              "zh": "“逐步”也可以包括不继续或缩小范围。题本没有要求每一阶段都升级，更不规定先相处多久才合适。双方愿意、范围可说清、可以退出，是本版讨论的小合作条件；若不能自由拒绝，不能用本组结果替代对现实权力差或安全情况的判断。",
+              "en": "A stage can end without an increase in commitment. It can also lead to a smaller arrangement or a decision not to continue. This edition prescribes neither a required number of stages nor a waiting period. The ordinary collaborations considered here allow both people to discuss scope and decline. Where refusal is constrained, this score cannot evaluate the surrounding power difference or safety. A staged plan is not a requirement to keep participating."
+            }
+          ]
+        },
+        {
+          "id": "continuum",
+          "title": {
+            "zh": "频繁分阶段不等于更会信任",
+            "en": "Frequent staging is not greater trust skill"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高，表示你报告较频繁地按步骤观察、回顾或调整。它不保证友谊更长久、判断更准确或更不容易受伤。较低可能因为近期只有一次性任务、已有稳定约定、没有新合作机会，或你采用直接而清楚的安排。原因需要另外了解，不能由六个频率答案决定。",
+              "en": "A higher mean indicates more frequent reports of these particular staging actions. It does not guarantee durable friendships, accurate judgments or protection from disappointment. A lower mean may accompany one-off tasks, established arrangements, fewer new collaborations or a direct way of agreeing on a limited role. The six frequency responses cannot tell those explanations apart. Before interpreting the number, ask whether the recent situations gave you an opportunity to use a staged approach at all."
+            },
+            {
+              "zh": "答案混合也很常见：你可能擅长安排第一步，却较少在顺利后减少检查；也可能愿意重新开始一件小事，却从未公开讨论回顾日期。把这些差别留在具体行动上，比把自己叫“慢热型”或把别人叫“不合格”更接近本组能支持的读法。",
+              "en": "Mixed responses can identify a more specific question. You may often arrange a first step but rarely remove an initial check when it goes well. Or you may restart a small task without setting an explicit review date. Keep those differences at the action level. The bank does not establish a slow-to-trust personality, an optimal speed or a rule for deciding that another person has failed. The four topic means remain separate, with no highest-score assignment."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：20除以6",
+            "en": "Worked example: twenty divided by six"
+          },
+          "paragraphs": [
+            {
+              "zh": "六个有效回答若为2、4、3、5、4、2，原始和为20，未舍入均分是20÷6＝3.333…，页面显示一位小数3.3。这六条都按原方向计分。3.3描述本组题目的回答，不是信任建立完成了66%，也不是你比某个比例的人更谨慎。",
+              "en": "With valid responses of 2, 4, 3, 5, 4 and 2, the raw sum is 20. The unrounded mean is twenty divided by six, or 3.333…, displayed as 3.3 to one decimal place. All six statements keep their direct scoring direction. This describes responses to the statements, not 66 percent completion of trust building. It is also not a comparison with a proportion of other people, because this edition has no population reference."
+            },
+            {
+              "zh": "若一条没有相关经历而选NA，页面保留5／6有效题数，本组原始和及均分不生成。不会把NA补成中间频率，其他完整组仍可独立阅读。即使四组都不足，四份完整说明也照常提供；它们不会因为你没有均分而减少内容或改成收费。",
+              "en": "If one statement has no relevant experience and you choose NA, the page shows five out of six valid responses and withholds this part’s sum and mean. It does not impute a middle frequency. Other complete parts remain readable independently. If every part is incomplete, all four full guides are still available. Their examples are general explanations rather than substituted personal results, and no score is required to access the complete content."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "志愿活动里的有限步骤",
+            "en": "A bounded step in a volunteer activity"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你和一位新志愿者一起准备一次读书活动。双方先商量：这次各整理两条公开书目，周三互相看一遍；先不涉及收款、成员联系方式或管理权限。完成后，你们决定是否继续共同整理下一次内容。观察的是这个具体分工，没有给对方做总体可靠性鉴定。",
+              "en": "Consider preparing a reading event with a new volunteer. You agree to collect two publicly available book suggestions each and review them together on Wednesday. The task excludes payments, contact lists and account permissions. Afterward, you decide whether to prepare another small part together. The observation concerns this particular division of work; it does not certify the person as reliable in general. Either person can prefer a one-off contribution without that being a negative verdict."
+            },
+            {
+              "zh": "可以说：“这次先做这两条，周三看看是否需要调整。之后要不要继续，我们再分别决定。”若对方没有完成，先确认实际发生了什么；若如期完成，也可以只保留当前范围。逐步建立的读法应允许双方参与和拒绝，而不是把一个人放在另一个人的长期试用期里。",
+              "en": "One sentence is: “Let us start with these two suggestions and review on Wednesday. We can each decide afterward whether to continue.” If the work is unfinished, clarify what happened before drawing conclusions. If it is completed, you may still retain the current scope. An openly staged arrangement allows participation and refusal on both sides. It does not place one person in another person’s indefinite probation period or make access to friendship conditional on repeated tests."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "它与核对约定有什么不同",
+            "en": "How staging differs from clarification"
+          },
+          "paragraphs": [
+            {
+              "zh": "约定核对主要问“这次说清了吗”；逐步建立主要问“之后怎样根据经历调整”。你可能先问清两条书目的格式，这属于核对；完成一轮后决定下一轮是否减少检查，才涉及范围随经历改变。两组都频繁并不矛盾，也不能据此推导出更成熟的信任阶段。",
+              "en": "Clarification mainly asks whether the present agreement is clear. Staging asks what you change after an experience. Checking the format of two book suggestions concerns clarification; deciding after one round whether to remove a check concerns adjustment over time. You can report both frequently. Their coexistence does not establish a more mature stage of trust. They are authored groupings of actions, without evidence that they correspond to distinct developmental levels or independent psychological factors."
+            },
+            {
+              "zh": "初次开放也可以和逐步建立并存：先给一个小入口，再决定后续；保护性距离则可能出现在其他主题。不要跨组按高低给自己排一个“最佳风格”，也不把同一人不同事件中的选择拼成另一套人格测评的类型。",
+              "en": "An initial opening can coexist with staging: offer a small opportunity, then consider what follows. Protective distance may occur in another area of the same relationship. Do not rank the four means as competing styles or convert the highest one into a personality label. Differences in opportunities and statement wording can contribute to differences between means. None of these results is converted into an attachment style, MBTI type or judgment of the other person."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "暗中考验不是本组的目标",
+            "en": "Covert testing is not the goal"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个反例是故意放出假消息，看朋友会不会泄露，再决定对方能否“升级”。这不是双方明白范围的小合作，也可能损害别人和关系。另一种情况是对方已经完成约定，你不断增加未提前说明的新条件；高频检查并不能由本组高均分变成正当或有效。",
+              "en": "A counterexample is planting false information to see whether a friend repeats it, then deciding whether that person can be promoted to a higher level of trust. That is not a small arrangement with a mutually understood scope, and it can harm people. Repeatedly adding undisclosed conditions after someone meets an agreement is another different process. Frequent checks do not become justified or effective because a reflection produces a high mean."
+            },
+            {
+              "zh": "如果存在威胁、操控或不安全情况，不需要为了“再观察一步”继续接触。过去几次小事履约，也不意味着你欠对方更大权限、更多隐私或亲密关系。题本记录不了这些现实条件，结果不能替你决定留下、离开或原谅。",
+              "en": "Where threats, coercion or an unsafe situation are present, you do not need to continue contact to observe one more step. Several completed small agreements do not create a debt of greater access, more private information or intimacy. The questionnaire does not capture the surrounding conditions well enough to decide whether to stay, leave or forgive. Those choices are not outcomes of its arithmetic, and a guide is not evidence that another attempt would be safe."
+            }
+          ]
+        },
+        {
+          "id": "private-practice",
+          "title": {
+            "zh": "回顾一次已经发生的调整",
+            "en": "Review one adjustment that already happened"
+          },
+          "paragraphs": [
+            {
+              "zh": "如有帮助，私下回顾一个已经发生的低风险合作：最初范围是什么、双方是否知道回顾点、实际发生了什么、后来有什么调整。只写自己的选择，省去姓名和具体私人资料。若没有适合的经历，可以跳过；不需要临时安排一个考验来给练习补材料。",
+              "en": "If useful, privately review one low-risk collaboration that has already happened. Note its initial scope, whether both people knew the review point, what occurred and what changed afterward. Focus on your own choices and leave out names or private details. If no suitable experience comes to mind, skip the exercise. You do not need to manufacture a test or arrange contact merely to supply material for a questionnaire."
+            },
+            {
+              "zh": "接着问一句：“如果不继续，我是否也能把界限说清？”允许结束，有助于区分自愿分步与无限拖延，但这个问题只是观察提示，不保证改善结果。笔记不需要上传，也不生成对方的分数。可以选择什么都不改变，先看其他三份说明。",
+              "en": "Then consider: “If I choose not to continue, can I make that boundary clear too?” Allowing an ending can help you examine the difference between a voluntary sequence and indefinite delay, but this is a reflection prompt, not a promised intervention. No notes need to be uploaded and nobody else receives a score. You can choose to change nothing and simply compare the other three full guides before deciding what is relevant."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "研究背景不等于本版验证",
+            "en": "Research context is not validation of this edition"
+          },
+          "paragraphs": [
+            {
+              "zh": "信任研究会讨论关系经验、对他人的预期及不同构念之间的区别。本版没有使用已发表伴侣信任量表的17条或26条题目，也没有继承其计分或效度。这里是六条原创日常行为与透明算术，没有常模、诊断阈值、最佳阶段或合作成功概率。",
+              "en": "Trust research examines experiences within relationships, expectations about another person and distinctions between constructs. This edition does not use the published seventeen- or twenty-six-item partner-trust bank or inherit its scoring and validation. It offers six original statements and transparent arithmetic. There is no norm, diagnostic threshold, optimal stage or probability of successful cooperation. The four editorial topic groupings should not be mistaken for a research instrument’s confirmed factor structure."
+            },
+            {
+              "zh": "复测时请先比较回顾时段、任务性质和可想到的机会。均分变化可能来自环境或记忆变化，不代表已证实的信任成长。保留或清除草稿由你决定，分享只应包含公开说明链接；不要在公开评论里上传自己或别人的经历来证明结果。",
+              "en": "When retaking, compare the recall period, task context and opportunities first. A different mean may reflect circumstances or memory rather than established growth in trust. Saving or clearing a temporary draft is your choice. A public explanation link is sufficient for sharing; there is no need to post your own or another person’s experiences to prove the result. You may end the reflection here without taking another test or completing an exercise."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "回顾步骤怎样改变",
+        "en": "Review how the steps changed"
+      },
+      "scoreReading": {
+        "zh": "本组六条全部有效才显示6至30原始和与1至5均分；较高只表示这些行动报得较频繁，不是能力、类型或他人可靠性。",
+        "en": "All six valid responses are required for the 6–30 raw sum and 1–5 mean. Higher means these actions were reported more often, not ability, a type or another person’s reliability."
+      },
+      "seo": {
+        "title": {
+          "zh": "信任问题：逐步建立、回顾节点与自主选择",
+          "en": "Trust Issues: Building Trust in Stages and Reviewing Scope"
+        },
+        "description": {
+          "zh": "理解逐步建立这组的六题频率、20除以6算例、公开约定的回顾点与暗中考验的区别。完整说明始终可读，结果不要求升级关系或继续接触。",
+          "en": "Read the staged-trust guide: separate frequency means, a worked example, agreed review points and counterexamples. Full guidance without covert tests."
+        }
+      }
+    },
+    {
+      "id": "agreement-clarity",
+      "directionIds": [
+        "agreement-clarity"
+      ],
+      "title": {
+        "zh": "约定核对：把共同范围说清",
+        "en": "Clarifying Agreements: Make the Shared Scope Explicit"
+      },
+      "summary": {
+        "zh": "回顾分工、修改权限和信息范围，区分有限澄清与控制或审问。",
+        "en": "Review responsibilities, editing permissions and audiences while distinguishing bounded clarification from control or interrogation."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "核对的是共同约定",
+            "en": "Clarify the shared agreement"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组回顾你是否问清共同计划的责任、可修改范围、信息接收人及可以调整的部分。它关注可以说出来、由相关人共同确认的安排，而不是发现别人的秘密。对具体任务问得清楚，不等于对某个人总体不信任，更不证明你有一项识破谎言的能力。",
+              "en": "This part concerns whether you clarified responsibilities, editing permissions, audiences and the parts of an arrangement that could be changed. The relevant information belongs to a shared task and can be discussed by those involved. It is not a search for another person’s secrets. Asking a clear question does not establish global distrust, and this mean does not measure an ability to detect lies. It records your reported frequency of six particular clarification actions."
+            },
+            {
+              "zh": "题目没有把“确认得越多越好”作为结论。一次约定可能一句话就足够；某些正式工作则本来就需要留下记录。频率还会受任务复杂度、沟通渠道和已有规则影响。回顾的是过去四周实际有机会发生的行动，不需要为了完成问卷再向别人追问。",
+              "en": "More confirmation is not automatically better. One sentence can be enough for a small arrangement, while some formal tasks routinely require a record. Task complexity, communication channels and existing procedures can all affect how often clarification occurs. Recall opportunities during the past four weeks rather than creating new requests to complete the bank. If a statement has no relevant example, NA is a valid response and is preferable to an invented middle-frequency answer."
+            }
+          ]
+        },
+        {
+          "id": "continuum",
+          "title": {
+            "zh": "高低都先回到具体任务",
+            "en": "Read the task before the mean"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分只表示这些核对行动报得较频繁，不表示更理性、更聪明或更难被骗。较低也不证明轻信：你可能在流程已清楚的环境里工作，或最近很少参与共同安排。若觉得某个回答特别高，先看看是只有一个复杂任务反复需要核对，还是多个场景都如此。",
+              "en": "A higher mean indicates more frequent responses to these clarification statements; it does not establish rationality, intelligence or resistance to deception. A lower mean does not establish gullibility. You may work within a clear procedure or have had few shared arrangements recently. If one answer is especially high, ask whether a single complicated task created repeated questions or whether several settings contributed. The score cannot distinguish those situations without information outside the bank."
+            },
+            {
+              "zh": "混合答案可以保留原样：你可能会写清分工，却较少确认转发范围；也可能经常询问例子，却没有处理共享资料的经历。不要用平均数抹去这些差别。本版不设怀疑程度档位，不从最高均分派型，也不把核对与开放当成互相抵消的两个端点。",
+              "en": "Mixed responses can remain mixed. You may write down responsibilities but rarely clarify forwarding permissions, or ask for examples without having edited shared material. Do not use the average to erase those differences. This edition has no suspicion bands and assigns no type from the highest mean. Clarification and offering an opening are not treated as opposite endpoints that cancel one another. They describe different actions, which can occur within the same exchange."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：23除以6",
+            "en": "Worked example: twenty-three divided by six"
+          },
+          "paragraphs": [
+            {
+              "zh": "回答为5、4、4、3、5、2时，原始和为23，未舍入均分是23÷6＝3.833…，页面显示3.8。六条均为正向频率记录，不做反向转换。3.8不是“核对正确率76%”，因为题目没有外部正确答案，也没有记录你问过的全部问题或对方实际是否履约。",
+              "en": "For responses of 5, 4, 4, 3, 5 and 2, the sum is 23. Twenty-three divided by six is 3.833…, displayed as 3.8. Every statement uses its direct frequency score, without a reverse transformation. A mean of 3.8 is not 76 percent accuracy. There is no externally correct answer to each statement, and the bank does not count every question you asked or verify whether another person ultimately followed through."
+            },
+            {
+              "zh": "若其中一条是NA，保留有效题数5／6，所属组原始和与均分不显示。另一组的六条完整答案不能替这一条补齐，也不能把本组余下五题的均分当六题结果。其他完整组和所有四份通用指南仍正常提供。",
+              "en": "If one response is NA, the valid-item count is five out of six and this part’s sum and mean are withheld. Complete responses in another part do not fill the gap. The average of the remaining five entries is not presented as a six-item result either. Other complete parts and all four full guides remain available. General examples on this public page are explanations of the rule, not replacements for an unavailable personal score."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "共同海报中的修改权限",
+            "en": "Editing permissions in a shared poster"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你和社区活动伙伴一起做一张公开海报。开始前问清：“我可以直接修改日期和排版，还是要先发给你确认？这版会给哪些人看？”这里核对的是你们共同负责的资料。问题具体且有限，对方也可以说明自己希望保留的决定。",
+              "en": "Imagine preparing a public poster with a community-event partner. Before editing, you ask: “May I change the date and layout directly, or should I send you a draft first? Who will see this version?” The questions concern material for which you share responsibility. They are specific and bounded, and the other person can state which decisions they wish to retain. No personal history or unrelated private information is needed to clarify this arrangement."
+            },
+            {
+              "zh": "如果格式已经写在共同说明里，可以先使用现有约定，而不是每次重新要求证明。若后来出现两个版本，先指明是哪一处不同，再请对方解释实际安排。这样得到的是任务信息；它仍不能证明这个人以后对所有事情都会诚实或负责。",
+              "en": "If a shared note already answers the question, you can refer to that agreement rather than repeatedly demanding reassurance. If two versions later differ, identify the specific difference before asking which arrangement applies. The resulting information concerns the task. It does not certify honesty or responsibility in every future situation. Even a perfectly clear agreement cannot eliminate every uncertainty, and a misunderstanding alone does not reveal someone’s entire character or intentions."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "澄清与控制怎样区分",
+            "en": "Separate clarification from control"
+          },
+          "paragraphs": [
+            {
+              "zh": "澄清让相关人知道范围，也允许对方拒绝或提出替代；控制则可能要求别人交出不相关的私人信息，或不允许对方说不。题本中的核对不是要求读聊天记录、定位行踪或索取密码。一个人把这些行为叫“我只是确认一下”，也不使它们自动符合这组的范围。",
+              "en": "Clarification makes the shared scope understandable while leaving room for refusal or an alternative. Control may demand unrelated private information or remove the other person’s ability to decline. The clarification described here does not require reading messages, tracking movements or obtaining passwords. Calling such a demand “just checking” does not make it part of this bank’s scope. The label used for an action is less informative than what is requested and whether refusal is possible."
+            },
+            {
+              "zh": "与逐步建立相比，这组主要处理当前约定是否清楚，后者关注经历发生后如何调整范围。与初次开放相比，这组不决定你是否先给机会；与保护性距离相比，问清一个问题也不等于选择完全不合作。四组可以在同一时期同时出现，不需要选边。",
+              "en": "Compared with building in stages, this part mainly concerns the current agreement rather than how scope changes after an experience. Compared with offering an opening, it does not decide whether you gave an initial opportunity. Compared with protective distance, asking a question does not necessarily mean declining cooperation. All four kinds of actions can occur during the same period. They are editorial topic groups rather than confirmed factors or competing identities, so there is no need to choose a side."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "无法核实的感受不必被审问",
+            "en": "A feeling need not become an interrogation"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个反例是朋友说今天没有精力参加活动，你反复要求对方交出证明疲惫的证据。这里没有一个共同任务细节需要核对；对方的感受也不一定能用文件证明。反复追问不能由“核对约定”高均分解释成合理，更不能据没有证明就断定对方在撒谎。",
+              "en": "A friend says they lack the energy to join an optional activity. Repeatedly demanding proof of their tiredness is not clarification of a shared task detail, and the feeling may not be documentable. A high clarification mean does not justify an interrogation or establish dishonesty when proof is unavailable. The questionnaire does not determine which emotional statement is true. It should not be used to grade another person’s feelings or make participation a condition of being believed."
+            },
+            {
+              "zh": "另一个反例是用不断新增的问题拖延一个已经可以自由拒绝的小合作。你可以直接选择不参加，不必通过让对方回答无穷问题来取得拒绝资格。是否合适、是否安全、你是否愿意，是超出六条频率题目的实际判断，不由均分替代。",
+              "en": "Another counterexample is continually adding questions to postpone a small collaboration you were already free to decline. You can choose not to participate without making someone answer an endless list first. Appropriateness, safety and willingness require information beyond six frequency responses. The mean neither substitutes for those judgments nor creates an obligation to cooperate once questions are answered. Clarity can include a straightforward limit or a respectful decision to stop."
+            }
+          ]
+        },
+        {
+          "id": "private-practice",
+          "title": {
+            "zh": "把一个模糊点写成有限问题",
+            "en": "Turn one uncertainty into a bounded question"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，私下选一次已经发生的普通共同安排，只写：哪一个约定不清楚、谁与它有关、一个足够有限的问题是什么。比如“这版材料只在小组内部看吗？”不要把练习变成对方的可靠性清单，不写真实姓名、消息原文或第三方隐私，也不需要上传记录。",
+              "en": "If useful, privately choose an ordinary shared arrangement that has already happened. Note one unclear agreement, who was involved in that agreement and one sufficiently bounded question. For example: “Is this draft for the group only?” Do not turn the exercise into another person’s reliability checklist. Leave out names, message transcripts and third-party private information. No record needs to be uploaded, and no new interaction is required to complete the reflection."
+            },
+            {
+              "zh": "再问自己：如果答案是不知道或不愿意回答，我有哪些不涉及施压的选择？可能是缩小任务、改用公开材料，或不参与。这个练习只是帮助你分清问题的范围，不承诺提高信任、消除误会或改变别人。可以只想一遍，然后结束。",
+              "en": "Then ask yourself what non-pressuring choices remain if the answer is unknown or the other person declines to answer. You might narrow the task, use public material or not participate. This is a way to examine the scope of a question, not a promised method for increasing trust, eliminating misunderstandings or changing someone else. Thinking through the example once is sufficient; you may stop without making a plan or taking another test."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "频率自述的证据边界",
+            "en": "The evidence boundary of reported frequency"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版的六条原创题与四组分法没有心理测量、诊断或跨语言等值验证。它不同于研究中的伴侣信任量表，不提供防骗能力、关系质量或人格定论。较高与较低都没有人口常模依据；均分不是百分位，也没有“健康核对”的统一分界。",
+              "en": "The six original statements and four-part grouping have not established psychometric validity, diagnostic usefulness or cross-language equivalence. This is not the published partner-trust scale and supplies no deception-detection score, relationship-quality verdict or fixed personality conclusion. Higher and lower readings have no population norm in this edition. A mean is not a percentile, and there is no universal boundary separating healthy from unhealthy clarification. Use the specific action descriptions as the limit of interpretation."
+            },
+            {
+              "zh": "复测时，换了任务、渠道、合作对象或回顾时段，都可能改变频率答案。页面不会把一点变化当成已证实的改善。所有完整说明始终免费可读，个人答卷不应放进公开链接；若分享，分享一般说明即可。其他框架需要另行完整作答，不能从本均分换算。",
+              "en": "A new task, communication channel, collaborator or recall period can change frequency responses on a retake. A small numerical difference is not established improvement. Every full guide remains freely readable, and personal answers do not belong in a public link. Sharing the general explanation is enough. Another framework requires its own full attempt rather than a conversion from this mean. Ending here is a valid next step, with no need to justify your result to anyone."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "把共同约定说清",
+        "en": "Make the shared agreement clear"
+      },
+      "scoreReading": {
+        "zh": "本组六条全部有效才显示6至30原始和与1至5均分；较高只表示这些行动报得较频繁，不是能力、类型或他人可靠性。",
+        "en": "All six valid responses are required for the 6–30 raw sum and 1–5 mean. Higher means these actions were reported more often, not ability, a type or another person’s reliability."
+      },
+      "seo": {
+        "title": {
+          "zh": "信任问题：约定核对、澄清问题与控制的区别",
+          "en": "Trust Issues: Clarifying Agreements Without Interrogation"
+        },
+        "description": {
+          "zh": "阅读约定核对这组的计算与场景，区分共同分工、信息接收范围的澄清与索取隐私或审问。含23除以6算例、反例与有限提问练习，不生成防骗能力分。",
+          "en": "Read the agreement-clarity guide: raw mean, permissions, a shared-task example and counterexamples. Separate a bounded question from an interrogation."
+        }
+      }
+    },
+    {
+      "id": "protective-distance",
+      "directionIds": [
+        "protective-distance"
+      ],
+      "title": {
+        "zh": "保护性距离：保留什么、承担什么",
+        "en": "Protective Distance: What You Retain and Carry"
+      },
+      "summary": {
+        "zh": "回顾独自处理、保留信息与备用安排，关注自己的选择和具体成本，不把距离当成缺陷。",
+        "en": "Reflect on working alone, keeping information private and retaining backups, without treating distance as a defect."
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "zh": "距离是一组行动，不是缺陷名称",
+            "en": "Distance is a set of actions, not a defect label"
+          },
+          "paragraphs": [
+            {
+              "zh": "这一组回顾普通相处中独自处理、保留小烦恼、避开不确定合作和另做备用安排的频率。它不是“你有没有问题”的判断，也不能从这些行动追溯童年经历或推断心理疾病。同样的行动可能出于隐私、精力、便利、过去经验或对当前环境的判断，题目不能替你确定原因。",
+              "en": "This part records reported frequency of handling a task alone, keeping an ordinary concern private, stepping away from uncertain cooperation and making a backup. It does not decide whether something is wrong with you or trace these actions to childhood or a mental-health condition. Similar actions can reflect privacy, energy, convenience, experience or a judgment about the present setting. The statements cannot determine which reason applies. Begin with the action and its context rather than a story about what caused your personality."
+            },
+            {
+              "zh": "题目使用的是普通、低风险、可以拒绝的情境。明确说不、保留自己的决定和不分享隐私，本身并不需要这份测试批准。这里也没有把“愿意让别人接近”当成所有人的目标；你可以只想理解自己的选择，而不改变它。",
+              "en": "The bank concerns ordinary, low-risk situations where refusal remains possible. Saying no, retaining independent decisions and keeping information private do not require permission from a questionnaire. Letting someone closer is not prescribed as everyone’s goal. You may want to understand a choice without changing it. The guide therefore focuses on what you retained, what you handled yourself and whether that arrangement matched your needs, rather than treating greater openness as an automatic improvement."
+            }
+          ]
+        },
+        {
+          "id": "continuum",
+          "title": {
+            "zh": "分别理解较频繁、较少和混合",
+            "en": "Read frequent, infrequent and mixed responses separately"
+          },
+          "paragraphs": [
+            {
+              "zh": "均分较高只表示这六类行动报得较频繁，不等于你难以相处、孤独或不懂信任。较低也不证明你毫无防备：你可能通过明确约定处理风险，或只在有合适支持的场景里寻求帮助。频率题没有收集你的完整社会支持、实际安全程度或与他人相处的结果。",
+              "en": "A higher mean says only that these six kinds of actions were reported more frequently. It does not establish that you are difficult, lonely or unable to trust. A lower mean does not establish an absence of boundaries; you may manage uncertainty through explicit agreements or seek help only in suitable settings. The bank does not collect a complete account of social support, actual safety or relationship outcomes. Those matters cannot be inferred from the arithmetic."
+            },
+            {
+              "zh": "答案混合时，保留题目之间的区别：你可能喜欢自己完成小任务，却愿意谈普通烦恼；也可能愿意合作，但一直留着备用方案。不要把这些不同选择简化成“高墙型”，也不把四组均分中最大的一个当成你的固定身份。本版没有正常、防备过度或必须开放的数值阈值。",
+              "en": "Mixed answers can preserve a useful distinction. You may prefer doing small tasks yourself while readily discussing an ordinary concern, or join a collaboration while retaining a backup. Neither pattern needs to be compressed into a walls-up identity. The largest of the four topic means is not assigned as a type. There is no numerical threshold for normality, excessive guardedness or an obligation to become more open, and differences between means have no established clinical meaning."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：16除以6",
+            "en": "Worked example: sixteen divided by six"
+          },
+          "paragraphs": [
+            {
+              "zh": "若六题回答为4、2、3、4、1、2，原始和是16，未舍入均分16÷6＝2.666…，页面显示2.7。所有题目都保留原方向；较高只是相应行动报得较频繁，不把保护性距离反向算成“不健康”或与其他三组相减。2.7也不是“防备心54%”。",
+              "en": "For six responses of 4, 2, 3, 4, 1 and 2, the raw sum is 16. Sixteen divided by six is 2.666…, displayed as 2.7. Every statement keeps its direct direction. More frequent distance-related actions are not reverse-scored as poor health or subtracted from the other parts. The mean is not 54 percent guardedness. It averages six response categories without counting all the occasions on which an action could have occurred."
+            },
+            {
+              "zh": "若其中一题选NA，页面显示5／6有效题数，但本组原始和与均分保留不足。NA不是低频、零分或平均频率，也不从其他回答推测。其他完整组仍独立提供个人结果；四份完整公开指南则始终可读，不因缺答锁定、缩短或收费。",
+              "en": "If one item is NA, the page shows five out of six valid responses and withholds this part’s sum and mean. NA is neither infrequency, zero nor an average response, and it is not predicted from the remaining entries. Other complete parts can still show their own results. All four full public guides remain readable without score-based unlocking, shortened explanations or payment. The general examples do not become personal findings when a score is unavailable."
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "zh": "一个备用方案是否仍有用",
+            "en": "Whether a backup still serves its purpose"
+          },
+          "paragraphs": [
+            {
+              "zh": "例如，你与活动伙伴共同整理公开播放清单，分工已经清楚，你仍另做了一份对方负责部分的备用清单。它可能让你在活动前安心，也可能占用本来要休息的时间。先看这份备用实际需要多少精力、是否与对方约定冲突，以及你自己是否仍想保留它，不必先给行为贴好坏标签。",
+              "en": "Imagine preparing a public playlist with an event partner. The roles are clear, but you make a backup of the part assigned to them. The backup may feel reassuring, while also using time you had planned for rest. Examine the actual effort, whether the backup conflicts with the agreement and whether you still want it. There is no need to decide first that the action was either wise or defective. The questionnaire cannot estimate the backup’s practical value for that event."
+            },
+            {
+              "zh": "可以只对自己说明：“我保留备用是为了什么？如果今天不用它，我能接受的后果是什么？”如果想与对方商量，可以谈具体分工，而不用“因为我不信任你”概括整个人。你也可以不讨论、不撤掉备用，或选择独立完成适合自己的小任务。",
+              "en": "You can privately ask: “What purpose does this backup serve, and what outcome could I accept if I did not use it today?” If you choose to discuss it, keep the conversation about the specific division of work rather than a global statement about the person. You may also retain the backup, decline a discussion or choose an appropriately independent task. These are options for understanding the arrangement, not steps required to produce a better score."
+            }
+          ]
+        },
+        {
+          "id": "tradeoffs",
+          "title": {
+            "zh": "看保留下来的资源和付出的成本",
+            "en": "Notice retained resources and actual costs"
+          },
+          "paragraphs": [
+            {
+              "zh": "距离可以让某些信息和决定继续由你掌握，独自完成也可能正好符合当时精力与节奏。与此同时，一份实际存在的额外工作量、一次没有说出的普通需要，可能是值得留意的成本。两者要看具体情况，不是只要均分高就一定“难被伤害”，或一定错过了好关系。",
+              "en": "Distance can leave information and decisions under your control, and working independently may suit your energy or pace. At the same time, an actual extra workload or an ordinary need left unspoken can be a cost worth noticing. These possibilities depend on the situation. A high mean does not establish that you are hard to hurt or that you have missed a good relationship. Look for a concrete resource retained and a concrete cost incurred rather than accepting either broad claim."
+            },
+            {
+              "zh": "也可以问：这个成本是否真让我困扰，还是只是别人希望我更方便配合？如果你没有感到需要改变，不必为了符合一种“开放的人”形象而增加接触。若有困扰，先把它缩成一个自己可以选择的小问题，而不是要求自己一次性信任所有人。",
+              "en": "You might ask whether a cost actually troubles you or merely inconveniences someone who wants more access. If you do not want a change, there is no need to increase contact to fit an image of an open person. If something does trouble you, identify a small question over which you retain choice. That is different from requiring yourself to trust everyone. This reflection supplies neither a treatment plan nor evidence that greater contact would help."
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "zh": "距离与界限、核对、逐步建立",
+            "en": "Distance, boundaries, clarification and staging"
+          },
+          "paragraphs": [
+            {
+              "zh": "清楚界限不一定伴随很少合作：你可以接受一个有限小任务，同时拒绝额外事项。约定核对可能让范围更清楚，逐步建立可能让你只承担当前一小步，初次开放可能仅是一句普通意见。它们都不要求放弃独立决定，也不必与保护性距离互相排斥。",
+              "en": "A clear boundary can coexist with substantial cooperation: accept one limited task while declining additional work. Clarification can make that scope explicit; staging can limit commitment to the present step; an opening can be a single ordinary opinion. None requires surrendering independent decisions. These actions also need not exclude protective distance in another area. Read the four parts as separate descriptions of what you reported, rather than a competition in which one must replace the others."
+            },
+            {
+              "zh": "本组的独自处理也不等于他人不可靠。别人尚未了解你的需要，不代表已经拒绝帮助；而一个人主动提供帮助，也不能证明帮助一定合适。问卷没有观察对方的行动，不应被拿去给朋友、同事或伴侣判型，更不能用来证明谁欠谁一次靠近。",
+              "en": "Handling something alone does not establish that others are unreliable. A person who does not know your need has not necessarily refused to help, while an unsolicited offer does not prove that the help is suitable. This questionnaire has not observed another person’s actions. It should not be used to assign a type to a friend, colleague or partner or to establish that anyone owes someone else greater closeness. Its evidence is limited to your own responses."
+            }
+          ]
+        },
+        {
+          "id": "private-practice",
+          "title": {
+            "zh": "一次不要求接触任何人的回顾",
+            "en": "A review that requires no new contact"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果有帮助，选一件已经发生的普通小事，私下写：我保留了什么、自己承担了什么、我是否满意这个安排。可以只想一遍，不记录姓名、私人消息或第三方秘密。最后一项可以直接是“满意，不想改变”；练习不要求你联系别人、交出信息或接受帮助。",
+              "en": "If useful, choose one ordinary event that has already happened. Privately note what you retained, what you handled yourself and whether you were satisfied with the arrangement. Thinking through it without a written record is enough. Omit names, private messages and other people’s secrets. “Satisfied, with no change wanted” is a legitimate conclusion. The exercise does not require contacting anyone, disclosing information or accepting help, and completing it is not a condition for reading the report."
+            },
+            {
+              "zh": "若你希望少承担一点，可以先在脑中列出一个有明确范围、可随时拒绝的选项，再决定是否适合。没有适合的人或环境时，保留原状即可。涉及威胁、控制或无法自由拒绝的情境，不要把本问卷当成继续接触的理由，也不需要用低频答案证明自己进步。",
+              "en": "If you want to carry a little less, you can privately consider one option with a clear scope and an available refusal, then decide whether it fits. Where no suitable person or setting is available, leaving things unchanged is reasonable. Threats, control or an inability to refuse fall outside the ordinary interactions described here. The questionnaire is not a reason to continue contact, and infrequent responses are not proof of progress that you need to demonstrate."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "zh": "把结论留在本版能支持的范围",
+            "en": "Keep the conclusion within this edition’s evidence"
+          },
+          "paragraphs": [
+            {
+              "zh": "这四组是费马原创的议题分组，不是已经验证的心理因子，也没有诊断、人口常模或跨文化等价证据。信任研究中的量表与这里的24条日常行动不是同一工具。引用一般研究背景，不意味着本组能够测出创伤、依恋类型、关系命运或他人可信程度。",
+              "en": "The four parts are original FermatMind topic groupings, not established psychological factors. They have no diagnostic validation, population reference or demonstrated cultural equivalence. Published trust measures and these twenty-four everyday-action statements are different instruments. General research context does not establish that this part can measure trauma, attachment type, relationship destiny or another person’s trustworthiness. The transparent formula is a way to summarize responses; arithmetic correctness is not evidence of those broader measurement claims."
+            },
+            {
+              "zh": "复测前可以先比较时段和机会，而不是追求更低的距离均分。生活环境、任务性质和记忆变化都可能改变答案，不能据一点差异宣布好转或退步。公开说明不包含你的答案，分享链接不会公开本次均分；也可以清除进度，在这里结束。",
+              "en": "Before retaking, compare the time period and opportunities rather than aiming for a lower distance mean. Circumstances, task demands and memory can change responses, so a small difference does not establish improvement or decline. Public guides contain no personal answers, and a general explanation link does not publish your mean. You can clear progress and finish here. Another assessment requires a separate full attempt and does not become necessary because of the pattern shown in this reflection."
+            }
+          ]
+        }
+      ],
+      "headline": {
+        "zh": "看保留什么、承担什么",
+        "en": "Notice what you retain and carry"
+      },
+      "scoreReading": {
+        "zh": "本组六条全部有效才显示6至30原始和与1至5均分；较高只表示这些行动报得较频繁，不是能力、类型或他人可靠性。",
+        "en": "All six valid responses are required for the 6–30 raw sum and 1–5 mean. Higher means these actions were reported more often, not ability, a type or another person’s reliability."
+      },
+      "seo": {
+        "title": {
+          "zh": "信任问题：保护性距离、独立安排与具体成本",
+          "en": "Trust Issues: Protective Distance, Choices and Costs"
+        },
+        "description": {
+          "zh": "理解独自处理、保留信息与备用安排的频率，结合16除以6算例、具体场景和不要求接触他人的私人练习。距离不是缺陷标签，不从答案推断创伤或他人可靠性。",
+          "en": "Read the protective-distance trust guide: separate frequency means, everyday choices, costs and private reflection. No defect label or pressure to open up."
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "24题怎样分别计算？",
+        "en": "How are the 24 questions scored?"
+      },
+      "paragraphs": [
+        {
+          "zh": "四组各六条，1至5表示有机会时的行动频率，全部正向，无反向转换。每组六条全有效才显示6至30原始和与1至5均分；任一NA只使所属组不足，不补零或中间值。全部24题作出选择后再显示结果。",
+          "en": "Four groups contain six statements each. Ratings 1–5 describe frequency when an opportunity arose, with no reverse keys. Each group requires all six valid ratings for its 6–30 sum and 1–5 mean; any NA withholds only its own group, without zero or midpoint imputation. Results follow all 24 selections."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "为什么不生成一个信任类型？",
+        "en": "Why is there no single trust type?"
+      },
+      "paragraphs": [
+        {
+          "zh": "四组记录不同的自述行动，分别阅读，不相加、不相减、不跨组排名或按最高项派型。均分不是百分比、人口排名或好坏评级。同一人可以在不同事件里开放、核对、分步建立并保留距离，四份完整指南始终提供。",
+          "en": "The four groups describe different reported actions, read separately without a total, subtraction, cross-group ranking or highest-mean type. Means are not percentages, population ranks or grades. One person can open, clarify, build gradually and retain distance across situations. All four full guides remain available."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "先区分行动，再理解场景",
+        "en": "Separate the actions and their settings"
+      },
+      "paragraphs": [
+        {
+          "zh": "初次开放关注一个小入口，逐步建立关注经历之后的范围调整，约定核对关注当前共同安排是否清楚，保护性距离关注保留和独自承担。它们是原创议题分组，不是已证实的心理因子。题目没有收集对方的真实行为，不给朋友或伴侣判型。",
+          "en": "An opening concerns a small first opportunity; staging concerns later changes of scope; clarification concerns the present agreement; distance concerns what you retain or handle alone. These are original topic groups, not established psychological factors. The bank does not observe another person and assigns no type to friends or partners."
+        }
+      ]
+    },
+    {
+      "id": "original-edition-and-theory",
+      "title": {
+        "zh": "研究背景与本版原创边界",
+        "en": "Research context and this original edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "信任研究会区分伴侣可预测性、可依赖性与对未来的信念，也讨论信任和不信任是否适合放在同一条刻度。本版24条、四组分法与频率均分为费马原创，不是Rempel或JobCannon题本的翻译，没有继承其信效度，不诊断、不预测关系成功。",
+          "en": "Research distinguishes a partner’s predictability, dependability and faith in a relationship, and examines whether trust and distrust belong on one continuum. These 24 statements, four topic groups and frequency means are original to FermatMind, not translations of Rempel or JobCannon banks. No validity is inherited, and no diagnosis or prediction of relationship success is made."
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Camanto与Campbell（2025）：亲密关系信任的测量研究，仅作概念边界背景",
+        "en": "Camanto & Campbell (2025): measurement research on close-relationship trust; conceptual context only"
+      },
+      "url": "https://journals.sagepub.com/doi/10.1177/02654075251346105"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这能判断我有没有信任问题吗？",
+        "en": "Can this decide whether I have trust issues?"
+      },
+      "answer": {
+        "zh": "不能。它只汇总24条日常行动的自述频率，不诊断心理状况、创伤或依恋类型。可以用完整例子理解选择，不需要把自己归为有问题或没问题。",
+        "en": "No. It summarizes reported frequency of 24 everyday actions without diagnosing a condition, trauma or attachment style. Use the examples to understand choices without deciding that you are a problem or problem-free."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么没有一个总分或最高类型？",
+        "en": "Why is there no total or highest type?"
+      },
+      "answer": {
+        "zh": "开放、分步、核对与距离可以并存，均分也受不同机会影响。本版没有建立合成总分或按最高项派型的依据，因此四组分别报告，所有完整读法同时提供。",
+        "en": "The four actions can coexist and reflect different opportunities. This edition has no basis for a combined total or a highest-mean type, so each group is reported separately with every full guide available."
+      }
+    },
+    {
+      "question": {
+        "zh": "没经历过的事情怎样答？",
+        "en": "How should I answer when I have no relevant experience?"
+      },
+      "answer": {
+        "zh": "选择未经历／无法判断。它只使所属组保留不足，不当低频或中间分。另一完整组仍可显示个人读数；四份通用说明无需分数就可完整阅读。",
+        "en": "Choose not experienced / cannot judge. It withholds only its own group rather than becoming a low or middle score. Other complete groups remain available, and all four general guides stay fully readable without a score."
+      }
+    },
+    {
+      "question": {
+        "zh": "可以替朋友或伴侣作答吗？",
+        "en": "Can I answer for a friend or partner?"
+      },
+      "answer": {
+        "zh": "请只回顾自己的行动。这份问卷没有观察别人，不判断别人是否诚实、可靠或适合你。不要为了完成问卷测试别人、索取隐私或进入不安全的相处。",
+        "en": "Reflect only on your own actions. This bank does not observe others or judge honesty, reliability or compatibility. Do not test another person, request private information or enter an unsafe interaction to complete it."
+      }
+    },
+    {
+      "question": {
+        "zh": "结果和进度会被分享出去吗？",
+        "en": "Will my result or progress be shared?"
+      },
+      "answer": {
+        "zh": "公开指南没有个人答案或均分。可选进度只保存在当前标签页，最长24小时，完成、清除或重测时删除；分享一般说明链接不会公开本次答卷。",
+        "en": "Public guides contain no personal answers or means. Optional progress stays in this browser tab for up to 24 hours and clears on completion, clearing or retake. Sharing a general guide link does not publish the attempt."
+      }
+    }
+  ]
+}
