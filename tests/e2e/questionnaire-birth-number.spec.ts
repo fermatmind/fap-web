@@ -11,6 +11,7 @@ async function open(page: Page, locale: Locale, hub = false) {
     await page.goto(`/${locale}/tests`);
     await page.locator("#more-tests").getByRole("link", { name: quiz.title[locale], exact: true }).click();
   } else await page.goto(entry(locale));
+  await page.waitForLoadState("load");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(quiz.title[locale]);
   await expect(page.getByRole("button", { name: calculateLabel(locale), exact: true })).toBeEnabled();
   const decline = page.getByRole("button", { name: locale === "zh" ? "拒绝" : "Decline", exact: true });
@@ -121,6 +122,7 @@ test("@release birthday rules: delayed JavaScript keeps native input and submit 
       // Native DOM activation must respect the disabled fieldset even without React.
       await page.locator("[data-birth-number-client] button[type=submit]").evaluate(node => (node as HTMLButtonElement).click());
     } finally { unlock(); await page.unrouteAll({ behavior: "wait" }); }
+    await page.waitForLoadState("load");
     await expect(page.getByRole("button", { name: calculateLabel(locale), exact: true })).toBeEnabled();
     const decline = page.getByRole("button", { name: locale === "zh" ? "拒绝" : "Decline", exact: true });
     if (await decline.isVisible()) await decline.click();
