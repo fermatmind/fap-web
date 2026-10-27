@@ -4239,5 +4239,31 @@
       "understanding-review",
       "communication-modes-review"
     ]
+  },
+  {
+    "slug": "conflict-styles",
+    "code": "FM_CONFLICT_HANDLING_ORIGINAL20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Conflict Style Test",
+      "zh": "冲突风格测试"
+    },
+    "description": {
+      "en": "Reflect on 20 original conflict-handling items. Read five separate means, worked examples and full free guides, without a fixed type or a best-style verdict.",
+      "zh": "用20道原创题回顾自己处理分歧的行动，分别阅读五组均分、完整算例与对话建议；不派固定类型，不评选最佳风格。"
+    },
+    "minutes": 4,
+    "collection": "explore",
+    "formCode": "fm_original_conflict_handling_20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "pressing-own-plan",
+      "joint-problem-solving",
+      "trading-concessions",
+      "stepping-back",
+      "yielding-choice"
+    ]
   }
 ]

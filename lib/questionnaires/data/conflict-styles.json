@@ -1,0 +1,2365 @@
+{
+  "slug": "conflict-styles",
+  "code": "FM_CONFLICT_HANDLING_ORIGINAL20",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Conflict Style Test",
+    "zh": "冲突风格测试"
+  },
+  "seoTitle": {
+    "en": "Conflict Style Test: Five Patterns & Full Free Guides",
+    "zh": "冲突风格测试：五种分歧处理方式与完整读法"
+  },
+  "description": {
+    "en": "Reflect on 20 original conflict-handling items. Read five separate means, worked examples and full free guides, without a fixed type or a best-style verdict.",
+    "zh": "用20道原创题回顾自己处理分歧的行动，分别阅读五组均分、完整算例与对话建议；不派固定类型，不评选最佳风格。"
+  },
+  "minutes": 4,
+  "instructions": {
+    "en": "Choose one ordinary work, study or shared-task setting. Recall disagreements you encountered during the past four weeks. Report how often you yourself used each action when there was an opportunity; do not answer for another person. If a situation did not occur or cannot be judged, choose the separate unscored option. No names or event details are requested. Do not enter unsafe situations or negotiate away safety to obtain a score. Choose a frequency from almost never to almost every time. There is no timer; four minutes is an editorial estimate for the questions. Every group needs all four numeric ratings for a mean. The original statements and the language versions have not been psychometrically validated.",
+    "zh": "选定一个普通工作、学习或共同办事场景，回顾过去四周遇到的分歧。只报告有机会时自己采用各项行动的频率，不替别人作答；未经历或无法判断时选独立的不计分选项。不填写姓名或事件细节，不为获得分数进入不安全情境，也不需要让渡安全界限。 按几乎没有到几乎每次的频率选择。不计时，约四分钟为编辑对答题时间的估计。每组全四题数值有效才给均分，本原创题及双语版本尚未经过心理测量验证。"
+  },
+  "introduction": {
+    "en": "Explore five ways you reported handling ordinary disagreements during the past four weeks: pressing your own plan, joint problem-solving, trading concessions, stepping back and yielding a choice. Twenty original items produce five separate means, with every complete guide available free before and after answering. There is no single winning style, overall conflict competence score or prediction of how another person will behave.",
+    "zh": "回顾过去四周自己处理普通分歧的五种行动：推动自己的方案、一起寻找新方案、交换有限让步、暂不继续，以及让对方选择优先。二十道原创题提供五个独立均分，全部完整指南在答题前后均免费可读。不选单一获胜风格，不产生冲突处理能力总分，也不预测他人会怎样行动。"
+  },
+  "resultHeading": {
+    "en": "Your five conflict-handling readings",
+    "zh": "你的五组分歧处理读数"
+  },
+  "directions": [
+    {
+      "id": "pressing-own-plan",
+      "title": {
+        "zh": "推动自己的方案",
+        "en": "Pressing Your Own Plan"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "joint-problem-solving",
+      "title": {
+        "zh": "一起寻找新方案",
+        "en": "Joint Problem-Solving"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "trading-concessions",
+      "title": {
+        "zh": "交换有限让步",
+        "en": "Trading Concessions"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "stepping-back",
+      "title": {
+        "zh": "暂不继续这场分歧",
+        "en": "Stepping Back From a Disagreement"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "yielding-choice",
+      "title": {
+        "zh": "让对方的选择优先",
+        "en": "Yielding to the Other Person’s Choice"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "CONFLICT_01",
+      "prompt": {
+        "zh": "分配共同资源有分歧时，我优先争取按自己提出的分配办法执行。",
+        "en": "When we disagreed over shared resources, I focused on getting my proposed allocation adopted."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "pressing-own-plan"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_09",
+      "prompt": {
+        "zh": "为了让安排继续推进，我提出自己退让一部分，同时请对方也调整一部分。",
+        "en": "To move an arrangement forward, I offered to give up part of my preference and asked the other person to adjust something too."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "trading-concessions"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_17",
+      "prompt": {
+        "zh": "对方想要的安排与我不同时，我按对方的选择做了，即使自己原本更想选另一种。",
+        "en": "When we wanted different arrangements, I went with the other person’s choice even though I had preferred another option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "yielding-choice"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_05",
+      "prompt": {
+        "zh": "意见不同时，我先请对方说明最需要保留的条件，再说自己的条件。",
+        "en": "When our views differed, I asked which conditions mattered most to the other person before explaining mine."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "joint-problem-solving"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_13",
+      "prompt": {
+        "zh": "分歧还没谈清时，我结束了当时的讨论，把问题留到以后再处理。",
+        "en": "Before a disagreement was resolved, I ended the discussion and left the issue for later."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "stepping-back"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_02",
+      "prompt": {
+        "zh": "对方提出另一种做法后，我继续为保留原先的方案提供理由。",
+        "en": "After someone proposed a different approach, I kept making the case for retaining my original option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "pressing-own-plan"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_10",
+      "prompt": {
+        "zh": "几种安排难以一致时，我接受了双方各保留一些、也各放弃一些的方案。",
+        "en": "When we could not agree on an arrangement, I accepted an option in which each of us kept something and gave something up."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "trading-concessions"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_18",
+      "prompt": {
+        "zh": "对一项请求有分歧时，我撤回了自己的要求，而没有要求对方作对应让步。",
+        "en": "When we disagreed about a request, I withdrew what I had asked for without asking for a concession in return."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "yielding-choice"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_06",
+      "prompt": {
+        "zh": "两种原方案无法兼顾时，我和对方一起另想了可供选择的办法。",
+        "en": "When our original options could not meet both sets of concerns, we worked together to develop another option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "joint-problem-solving"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_14",
+      "prompt": {
+        "zh": "想到某个话题可能引起争论时，我没有把这个分歧提出来。",
+        "en": "When I expected a topic to lead to an argument, I left that disagreement unmentioned."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "stepping-back"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_03",
+      "prompt": {
+        "zh": "在由我负责定案的事项上，我按自己的判断作了决定，即使对方仍有不同偏好。",
+        "en": "On matters I was responsible for deciding, I chose the option I judged best even when the other person still preferred something else."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "pressing-own-plan"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_11",
+      "prompt": {
+        "zh": "对时间或数量有分歧时，我和对方谈了一个各自都能接受的折中范围。",
+        "en": "When we disagreed about time or quantity, I negotiated a middle range that each of us could accept."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "trading-concessions"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_19",
+      "prompt": {
+        "zh": "双方的需要难以同时满足时，我优先满足了对方说出的需要。",
+        "en": "When our needs could not both be met, I gave priority to the need the other person had expressed."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "yielding-choice"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_07",
+      "prompt": {
+        "zh": "讨论出一个办法后，我逐项核对它能否回应双方说过的具体需要。",
+        "en": "After discussing an option, I checked how it addressed the specific needs each of us had named."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "joint-problem-solving"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_15",
+      "prompt": {
+        "zh": "共同安排的争议再次被提起时，我把谈话转向了别的事情。",
+        "en": "When a disputed arrangement came up again, I moved the conversation to another subject."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "stepping-back"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_04",
+      "prompt": {
+        "zh": "讨论谁来承担一项任务时，我着重争取自己希望的分工，而没有先寻找双方都满意的办法。",
+        "en": "When discussing who would take a task, I pressed for my preferred division before looking for an arrangement that satisfied us both."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "pressing-own-plan"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "pressing-own-plan"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_12",
+      "prompt": {
+        "zh": "如果继续讨论会耽误眼前事项，我愿意先达成双方都有所让步的临时约定。",
+        "en": "If further discussion would delay the immediate task, I was willing to make a temporary agreement involving concessions from both sides."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "trading-concessions"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "trading-concessions"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_20",
+      "prompt": {
+        "zh": "对方不接受我的安排时，我改用了对方的办法，没有继续争取原先的方案。",
+        "en": "When the other person did not accept my arrangement, I switched to their approach rather than continuing to press for mine."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "yielding-choice"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "yielding-choice"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_08",
+      "prompt": {
+        "zh": "对安排仍有分歧时，我邀请对方一起试行一个小方案，再根据实际情况调整。",
+        "en": "When we still disagreed about an arrangement, I invited the other person to try a limited option together and review what happened."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "joint-problem-solving"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "joint-problem-solving"
+        }
+      ]
+    },
+    {
+      "id": "CONFLICT_16",
+      "prompt": {
+        "zh": "对于还存在不同意见的事项，我推迟了回应，而没有继续争取任何一方的办法。",
+        "en": "On a matter where our views still differed, I postponed responding rather than continuing to pursue either person’s option."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "stepping-back"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "stepping-back"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "pressing-own-plan",
+      "directionIds": [
+        "pressing-own-plan"
+      ],
+      "title": {
+        "en": "Pressing Your Own Plan: Conflict Style Reading",
+        "zh": "推动自己的方案：分歧中的理由、边界与取舍"
+      },
+      "headline": {
+        "en": "Separate the outcome you want from the method you proposed",
+        "zh": "把想要的结果与最初提出的办法分开"
+      },
+      "summary": {
+        "en": "Read how four original items describe pushing for your preferred arrangement. Explore relevant reasons, real decision limits, alternative responses and situations where safety should take priority, without a fixed personality label.",
+        "zh": "四道原创题回顾推动自己安排的行动，完整解释有关理由、实际决定边界、其他回应及安全优先的处境，不派固定人格标签。"
+      },
+      "scoreReading": {
+        "en": "All four numeric ratings are required. Forward-scored sum 4–20, mean 1–5; a skip withholds only this group.",
+        "zh": "四题数值全有效才给读数，全部正向：评分和4—20、均分1—5；跳过只使本组不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Competing Conflict Style: Choices, Limits & Examples",
+          "zh": "竞争式冲突风格：推动自己方案的完整读法"
+        },
+        "description": {
+          "en": "Read an original competing-style reflection: four-item scoring, a worked mean, practical trade-offs and boundaries, without a fixed personality label.",
+          "zh": "阅读推动自己方案的完整冲突风格指南：四题计分、可复算例子、实际界限、取舍与一个自选核对，不判人格或职业适配。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What pushing for your own plan describes",
+            "zh": "推动自己的方案描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading concerns four actions in a disagreement: arguing for your preferred resource allocation, defending an existing option, deciding within your assigned responsibility despite a different preference, and pressing for a particular division of work. Their common thread is pursuing your proposed outcome rather than first developing an option that addresses both sets of concerns. They do not establish whether your proposal was sound, whether you had the right authority, or whether anyone followed it.",
+              "zh": "这一组回顾分歧中的四项行动：争取自己的资源分配办法、为原方案提供理由、在负责定案时按自己的判断决定，以及推动特定任务分工。共同点是先争取自己提出的结果，而非先寻找兼顾双方的办法。回答不能确定方案是否可靠、是否具有相应权限，或别人最终有没有照做。"
+            },
+            {
+              "en": "A person can use this approach in one setting and another approach elsewhere. Speaking clearly about a need is not automatically the same as insisting on a particular solution. You could state a firm requirement and still explore several ways of meeting it together. This guide helps you distinguish the actions you reported; it does not give you a permanent competing personality or turn the other person into an opponent.",
+              "zh": "一个人可以在某种场景推动自己的方案，在别处采取其他方式。清楚表达需要，不自动等于坚持某个具体办法：你可以明确一项要求，同时与对方讨论多种实现路径。本指南帮助分清自己报告的行动，不把你定为永久的竞争型人格，也不把另一个人变成对手。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read frequency without judging effectiveness",
+            "zh": "读行动频率，不据此判定效果"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean means you reported these four actions more frequently when the relevant opportunities occurred. A smaller mean means you reported them less frequently. Neither proves confidence, leadership, aggression or weakness. Your role, available authority, time, resources and what was at stake can affect the responses. The questionnaire does not observe those conditions or adjust a score to make two people comparable.",
+              "zh": "均分较大，表示在相应机会中报告这些行动较频繁；较小表示较少。它们都不证明自信、领导力、攻击性或软弱。角色、决定权限、时间、资源及事项的重要性都可能影响回答；问卷没有观察这些条件，也不会据此校正分数，使两个人可以直接比较。"
+            },
+            {
+              "en": "Look at the four actions separately before attaching meaning to the mean. You might advocate strongly over task allocation but rarely have authority to make a final decision. You might also remember one unusually difficult meeting more readily than several routine discussions. An unexperienced or unjudgeable situation can be left unscored. Do not create a disagreement or guess an answer to fill a gap.",
+              "zh": "解释均分前，先分开回看四项行动。你可能常争取任务分配，却很少负责最终定案；也可能更容易记住一次困难会议，而漏掉多次普通讨论。未经历或无法判断的情境可以不计分，不需要制造分歧或猜答来填满空缺。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A four-action example you can check",
+            "zh": "可复算的四项行动算例"
+          },
+          "paragraphs": [
+            {
+              "en": "In the example order of resource allocation, defending an existing option, making a responsible decision, and task division, suppose the responses are 4, 3, 5 and 2. All four items are forward-scored: 4+3+5+2=14, and 14/4=3.5. The report displays 3.5 out of 5, a sum of 14 and four valid ratings. This is not 70 percent effective, a population percentile or a cutoff for a high-conflict person.",
+              "zh": "按资源分配、为原方案提供理由、负责定案、任务分工这四项行动的算例顺序，假设回答为4、3、5、2。四题均正向计分：4+3+5+2=14，14/4=3.5。报告显示3.5／5、评分和14、四题有效；不是70%的处理效果、人口百分位，也不是高冲突人格的分界线。"
+            },
+            {
+              "en": "Responses of 5, 5, 2 and 2 also sum to 14. The same mean can therefore hide different actions. If any one response is unscored, this group shows insufficient information instead of a personal sum or mean; the other complete groups keep their values. This all-four rule is an editorial completeness policy, not an empirically established missing-data threshold. A selection is not silently replaced with zero or a midpoint.",
+              "zh": "5、5、2、2同样合计14，相同均分可以包含不同的行动组合。任一题不计分时，本组显示资料不足，不给个人评分和或均分；其他完整组保留读数。全四题有效是本版编辑完整度规则，不是经过实证确定的缺失数据阈值，也不会把缺答悄悄补成零或中间值。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A shared-room decision with a real constraint",
+            "zh": "共同用房安排中的实际限制"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two colleagues want the same room. You proposed reserving it for a task that needs equipment already installed there. Continuing to explain that constraint could make an otherwise hidden requirement visible. Simply repeating that your team deserves the room would provide different information. The score cannot distinguish a relevant reason from a convenient justification; the content of the reason and the actual allocation process still matter.",
+              "zh": "例如两位同事都需要同一间房，你提出留给必须使用室内现有设备的任务。继续说明这一限制，可能让原本不明显的要求被看见；反复说“我们组更应该用”提供的则是另一种信息。分数无法区分有关理由和方便的借口，仍要核对理由本身及实际分配流程。"
+            },
+            {
+              "en": "If deciding is part of your role and there is an immediate deadline, you might explain a temporary arrangement and its limits while recording unresolved concerns. That is not proof the decision is fair or universally appropriate. The other person may know a condition you have missed. A responsible next step could be checking that condition or asking the proper decision-maker to clarify, rather than using a conflict label to close discussion.",
+              "zh": "如果定案属于你的职责，而且确有眼前时限，可以说明临时安排和边界，记下尚未解决的顾虑；但这不证明决定公平或放之四海皆准。对方可能知道你遗漏的条件。下一步可以核对那个条件，或请相应负责人澄清，而不是拿冲突标签结束讨论。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Firm boundaries are not a score to give away",
+            "zh": "清楚界限不是需要拿来退让的分数"
+          },
+          "paragraphs": [
+            {
+              "en": "Refusing an unsafe request, protecting privacy or following a clear safety requirement should not be treated as evidence that you need to become more accommodating. This questionnaire is not a test of how much you should concede. It also cannot decide whether a dispute involves intimidation, discrimination or an abuse of authority. Those situations may need appropriate support or established reporting procedures, rather than a longer negotiation with the person causing harm.",
+              "zh": "拒绝不安全要求、保护隐私或遵守明确安全规定，不应被解释为你需要更加迁就。本问卷不测试你应该退让多少，也不能裁定是否存在威胁、歧视或滥用权力。这类处境可能需要合适的支持或既有反映渠道，不必继续与造成伤害的人长时间协商。"
+            },
+            {
+              "en": "The reverse mistake is calling every preference a non-negotiable principle. If several arrangements meet the real requirement, insisting that only your first suggestion is acceptable can hide room for choice. Compare the requirement with the proposed method. You can keep a necessary limit while changing a method, and you can change your view when new evidence appears without treating that change as a loss of personal value.",
+              "zh": "另一种误读是把每项偏好都称为不能讨论的原则。若多种安排都能满足真正要求，只认最初建议就可能遮住选择空间。把必须满足的条件与具体做法分开：你可以保留必要限制、调整实现办法，也可以因新证据改变判断，不把改变看作个人价值的损失。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "How this differs from the other four readings",
+            "zh": "它与其他四份读法怎样区分"
+          },
+          "paragraphs": [
+            {
+              "en": "Joint problem-solving looks for an option that addresses the concerns on both sides. Trading concessions involves each person giving up something. Yielding means allowing the other person’s choice without requiring a matching concession. Stepping back leaves the issue unpursued for the time being. These descriptions help name actions; they do not establish a ladder from immature to mature or a rule that one response must always come first.",
+              "zh": "一起寻找新方案，关注能回应双方需要的办法；交换有限让步，是双方各放弃一部分；让对方选择优先，不要求对方作对应退让；暂不继续这场分歧，则是当下不再追求解决事项。这些名称用来区分行动，不是从不成熟到成熟的阶梯，也不规定每次必须先用某一种。"
+            },
+            {
+              "en": "All five means can be similar, or you may report more than one approach frequently across different events. This edition shows every reading rather than selecting a winning style. It does not derive assertiveness and cooperativeness coordinates from the five means, add them into a conflict competence score, or identify a suitable profession. Close decimal values are not evidence that one approach is meaningfully more typical than another.",
+              "zh": "五个均分可以相近，也可能在不同事件中频繁采用不止一种方式。本版提供全部读法，不选赢家；不会从五个均分推导坚定性和合作性的坐标，不相加成冲突处理能力分，也不据此匹配职业。小数接近或略有差别，不证明某种方式在统计意义上更典型。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "One optional check before pushing a plan",
+            "zh": "推动方案前的一个自选核对"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ordinary, manageable disagreement, privately write three short lines: the outcome you want, the reason it matters, and one condition the other person has actually stated. Ask whether your preferred method is the only way to meet the essential requirement. If it is useful and safe, you can ask a clarifying question before proposing a next step. No personal details need to be entered on this website.",
+              "zh": "选一个普通、可承受的分歧，私下写三行：自己想要什么结果、为什么重要、对方实际说过的一项条件。再问实现必要要求是否只有原先的方法。如果适合且安全，可以先澄清一个问题，再提下一步；不需要把个人细节填写到网站上。"
+            },
+            {
+              "en": "A counterexample would be using the exercise to rehearse a more forceful argument while ignoring information that could change the plan. Another would be demanding that the other person justify a safety boundary before you respect it. You can stop the exercise, leave a dangerous interaction or seek suitable help. There is no requirement to retake the test, reduce this mean or make any other number rise.",
+              "zh": "反例是只借练习准备更强硬的说辞，却忽略可能改变方案的信息；另一个反例是要求对方先证明安全界限合理，才愿意尊重。可以停止观察、离开危险互动或寻找合适支持，无需重测、降低这一组均分，也不必提高其他数字。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original reflection, with a separate source framework",
+            "zh": "原创观察题与来源框架的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these 20 frequency statements and the five complete guides. The broad five-mode idea is discussed in Thomas and Kilmann’s work and in the Kilmann Diagnostics overview linked from the test’s entry page. This edition does not reproduce the TKI’s thirty paired choices, scoring key, report or comparison norms. It is not the TKI, a validated short form, or an instrument endorsed by its authors. The five editorial groups are descriptive self-reports.",
+              "zh": "这20道频率陈述和五份完整指南由费马原创。五种方式的宽泛概念可在Thomas与Kilmann的工作及测试入口所列的Kilmann Diagnostics概述中了解。本版不复制TKI的三十组成对选项、计分键、报告或参照常模，不是TKI、经验证的简版，也不声称得到原作者认可；五个编辑分组只描述本次自报。"
+            },
+            {
+              "en": "Reliability, meaningful-change thresholds and equivalence between the two language versions have not been established for these original items. Memory, social desirability and which opportunities occurred can affect responses. The complete public guides are available before answering and when a group has insufficient information. Sharing copies only a public title and link, not personal answers or means. You may read another guide, return to all tests or finish here.",
+              "zh": "本原创题本尚未建立信度、有意义变化阈值或双语等值，回忆、希望展示怎样的自己及实际机会都可能影响作答。完整公开指南在答题前和资料不足时都能阅读；分享仅复制公开标题与链接，不含个人回答或均分。可以读另一份指南、返回全部测试，或在这里结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joint-problem-solving",
+      "directionIds": [
+        "joint-problem-solving"
+      ],
+      "title": {
+        "en": "Joint Problem-Solving: Conflict Style Reading",
+        "zh": "一起寻找新方案：分歧中的需要、选项与现实限制"
+      },
+      "headline": {
+        "en": "Explore what could meet the concerns, within the real limits",
+        "zh": "在真实限制内探索能回应双方需要的办法"
+      },
+      "summary": {
+        "en": "Four original items describe asking about needs, developing options, checking concerns and trying a limited arrangement together. Read a full worked example and practical limits without assuming that every disagreement has a win-win answer.",
+        "zh": "四道原创题回顾询问需要、共同另想办法、核对条件和试行安排；完整算例与实际限制一起读，不假设每场分歧都有双赢答案。"
+      },
+      "scoreReading": {
+        "en": "Four valid forward-scored ratings produce a 4–20 sum and a 1–5 mean. One unscored item withholds this group only.",
+        "zh": "四题有效且全部正向，评分和4—20、均分1—5；一题不计分只使本组不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Collaborating Conflict Style: Scoring & Examples",
+          "zh": "合作式冲突风格：一起寻找新方案的完整读法"
+        },
+        "description": {
+          "en": "Read an original collaborating-style guide: four-item scoring, a worked mean, participation limits and the difference from trading concessions.",
+          "zh": "阅读合作寻找新方案的完整冲突风格指南：四题计分、具体算例、参与范围与交换让步的区别，不保证双赢或判定能力。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Look for the concerns beneath the proposed solution",
+            "zh": "先看方案背后的具体需要"
+          },
+          "paragraphs": [
+            {
+              "en": "This group concerns asking which conditions matter to the other person, developing another option together, checking both sets of named needs, and trying a limited arrangement jointly. The emphasis is on investigating the problem with the other person. Merely speaking politely, asking a question to win an argument, or producing a solution alone does not automatically describe these same four actions.",
+              "zh": "这一组包括询问对方最在意的条件、一起另想办法、核对双方已说出的需要，以及共同试行有限安排。重点在于与对方一起探索问题。语气客气、为了赢辩论而提问，或独自替大家想好一个答案，都不自动等于这四项行动。"
+            },
+            {
+              "en": "People sometimes call this collaboration, but a frequency mean cannot tell whether a discussion was genuinely shared. A participant may agree publicly while lacking a safe way to disagree. The items report your own recollection; they do not independently observe the other person’s experience. Keep the difference between inviting participation and obtaining meaningful participation visible when reflecting on the result.",
+              "zh": "这种方式常被称为合作解决，但频率均分无法判断讨论是否真正共同参与。一个人可能公开赞同，却缺少安全表达异议的办法。题目读取的是你的回忆，没有独立观察对方的体验；回看结果时，应保留邀请参与和实际能够参与之间的区别。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Higher frequency does not certify a better outcome",
+            "zh": "频率较高不证明结果更好"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean indicates more frequent reports of these actions, and a smaller mean indicates fewer. It does not measure empathy, negotiation skill, trustworthiness or the quality of an agreement. You may have had more time or more receptive partners in one setting. Someone else may work under a deadline or an authority structure that leaves less room for joint exploration.",
+              "zh": "均分较大，表示较常报告这些行动，较小表示较少；不测同理心、谈判技能、可信度或协议质量。你在某个场景中可能有更多时间，或对方更愿意参与；另一个人可能面对时限或较少讨论空间的权责安排。"
+            },
+            {
+              "en": "A mixed set of answers can be informative. You might routinely ask about needs but rarely have a chance to test a small option together. Consider the actual opportunity behind each answer. If an action could not be judged, the unscored option is available. You do not need to arrange an extra discussion, keep a disagreement going or persuade an unwilling person to participate merely to complete this group.",
+              "zh": "回答不一致也值得看：可能常询问需要，却很少有机会一起试行小方案。分开考虑每个回答背后的实际机会；无法判断时可以不计分，无需额外安排讨论、延长分歧，或说服不愿参与的人来配合完成这一组。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Work through four reports before interpreting the mean",
+            "zh": "先复算四项回答，再解释均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the example order of asking about needs, developing another option, checking both sets of concerns, and trying a limited arrangement. Responses of 5, 4, 3 and 4 sum to 16. All are forward-scored, so 16/4=4.0. The report shows a mean of 4.0 out of 5, a sum of 16 and four valid ratings. There is no conversion into an 80 percent collaboration level or a population rank.",
+              "zh": "按询问需要、另想办法、核对双方条件、试行小安排的算例顺序，5、4、3、4合计16。全部正向计分，16/4=4.0；报告显示4.0／5、评分和16、四题有效，不再换算成80%的合作水平或人群排名。"
+            },
+            {
+              "en": "Four responses of 4 also produce 4.0. The same displayed mean therefore does not reveal which action occurred less often. One unscored response withholds this group’s personal sum and mean; other complete groups remain available. The all-four rule is a website completeness choice, not a validated missing-data threshold. All five complete guides can still be read, including this one.",
+              "zh": "四题都选4，同样得到4.0。相同均分不能告诉你哪项行动较少发生。一题不计分会暂不给本组个人评分和及均分，其他完整组保留；全四题有效是网站完整度选择，并非经验证的缺失阈值，全部五份完整指南仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A shift arrangement with more than two possible answers",
+            "zh": "排班分歧不一定只有两个原方案"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people request the same time off. One proposed alternating weeks and the other proposed splitting days. Asking about the conditions may reveal that one needs a fixed appointment and the other needs predictable notice. A third arrangement might address those particular constraints. It might also turn out that the available staffing cannot satisfy both, even after careful exploration.",
+              "zh": "例如两个人想在同一时间休息，一人提议按周轮换，另一人提议拆分日期。询问条件后，可能发现一人需要固定预约时间，另一人需要提前知道安排；第三个办法也许能回应这些限制，也可能仔细讨论后仍发现人员条件无法同时满足。"
+            },
+            {
+              "en": "The useful step is making the conditions explicit and checking possible options, not promising a win for everyone. If a third person must authorize the arrangement, their responsibility remains. A conversation cannot create unavailable staff, resources or permission. An honest explanation of the remaining constraint may be more useful than describing a partial agreement as an ideal shared solution.",
+              "zh": "有用的步骤是把条件说清、核对可能办法，而非保证人人获益。若安排需要第三方确认，相应职责仍然存在；谈话不能凭空增加人员、资源或权限。诚实说明还剩什么限制，可能比把部分共识描述成理想双赢更有帮助。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Participation needs limits and a way to decline",
+            "zh": "共同参与也需要范围与拒绝空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Inviting repeated conversations can become pressure when the other person has already declined, lacks time or feels unsafe. Joint problem-solving does not require unrestricted disclosure of personal reasons. A person can state a scheduling limit without explaining a private health or family matter. Respect the information actually offered, and use a suitable decision process when the issue cannot be solved by voluntary discussion.",
+              "zh": "对方已经拒绝、没有时间或感到不安全时，反复邀请谈话也可能变成压力。一起解决问题不要求无限披露个人理由；一个人可以说明时间限制，而不解释私人的健康或家庭情况。尊重实际愿意提供的信息，无法靠自愿讨论解决时，使用适当的决定流程。"
+            },
+            {
+              "en": "Another counterexample is involving everyone in a lengthy exercise when a small reversible decision needs to be made promptly. Time spent is not proof of care. State what can be explored, how long is available and who will decide what remains. Where there is intimidation or immediate danger, prioritize appropriate safety support rather than trying to improve a joint-problem-solving score.",
+              "zh": "另一个反例，是把需要及时决定的小型可逆事项变成长时间全员讨论。花时间本身不证明重视。先说明能讨论什么、可用多久、余下事项由谁决定；存在威胁或眼前危险时，应优先寻找合适的安全支持，不必设法提高合作解决的分数。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "New options and exchanged concessions are different",
+            "zh": "另想办法与交换让步有所不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Trading concessions accepts that each side gives up something in the current arrangement. Joint problem-solving asks whether another arrangement could address the needs differently. They can occur in the same discussion, and neither guarantees success. You might explore several options and then accept a temporary compromise because time or resources remain limited. A score cannot judge which sequence was appropriate.",
+              "zh": "交换让步，是双方在当前安排中各放弃一部分；一起寻找新方案，则询问能否用另一种安排回应需要。两者可以出现在同一场讨论，都不保证成功。可能先探索多个办法，再因时间或资源限制接受临时折中；分数无法判断哪个顺序适合当时处境。"
+            },
+            {
+              "en": "Pressing your own plan pursues your proposed outcome. Yielding allows the other person’s choice, while stepping back leaves the issue unpursued for now. This edition presents five separate descriptions without choosing a winner or calculating two-axis coordinates. Similar means do not establish equal effectiveness, and a difference of one displayed decimal does not establish a meaningful psychological difference.",
+              "zh": "推动自己的方案，是争取提出的结果；让对方选择优先，是采用对方办法；暂不继续，则是当下不再追求解决事项。本版并列提供五份描述，不选赢家、不计算两轴坐标。均分相近不证明效果相同，一位小数的差别也不证明有意义的心理差异。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one bounded question, if useful",
+            "zh": "适合时先问一个有范围的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "For a manageable shared task, privately note your essential condition and one thing you do not yet understand about the other person’s condition. If they are willing, ask one focused question such as “Which part of this timing is fixed?” Then check whether any option actually changes what is possible. Agree on a limit for the discussion rather than assuming it must continue until everyone is satisfied.",
+              "zh": "针对一项可承受的共同任务，私下记下自己的必要条件，以及还不了解的对方条件。如果对方愿意，可以问一个聚焦问题，例如“这个时间安排中哪一部分不能调整？”再核对有没有办法实际改变可选空间。给讨论约定范围，不假设必须一直谈到人人满意。"
+            },
+            {
+              "en": "Notice whether the answer changes your understanding. A counterexample is asking only to prepare a rebuttal or inviting suggestions after the decision has already been fixed. You can be clear when consultation has a limited role. The exercise needs no upload, public disclosure or retest, and it makes no promise of improved relationships or a higher future score.",
+              "zh": "观察答案有没有改变你的理解。反例是只为准备反驳而提问，或决定已经固定后才假装征求建议；可以直接说明征询意见的实际范围。这个观察不需要上传、公开披露或重测，也不承诺改善关系或提高下次分数。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original reflection, with a separate source framework",
+            "zh": "原创观察题与来源框架的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these 20 frequency statements and the five complete guides. The broad five-mode idea is discussed in Thomas and Kilmann’s work and in the Kilmann Diagnostics overview linked from the test’s entry page. This edition does not reproduce the TKI’s thirty paired choices, scoring key, report or comparison norms. It is not the TKI, a validated short form, or an instrument endorsed by its authors. The five editorial groups are descriptive self-reports.",
+              "zh": "这20道频率陈述和五份完整指南由费马原创。五种方式的宽泛概念可在Thomas与Kilmann的工作及测试入口所列的Kilmann Diagnostics概述中了解。本版不复制TKI的三十组成对选项、计分键、报告或参照常模，不是TKI、经验证的简版，也不声称得到原作者认可；五个编辑分组只描述本次自报。"
+            },
+            {
+              "en": "Reliability, meaningful-change thresholds and equivalence between the two language versions have not been established for these original items. Memory, social desirability and which opportunities occurred can affect responses. The complete public guides are available before answering and when a group has insufficient information. Sharing copies only a public title and link, not personal answers or means. You may read another guide, return to all tests or finish here.",
+              "zh": "本原创题本尚未建立信度、有意义变化阈值或双语等值，回忆、希望展示怎样的自己及实际机会都可能影响作答。完整公开指南在答题前和资料不足时都能阅读；分享仅复制公开标题与链接，不含个人回答或均分。可以读另一份指南、返回全部测试，或在这里结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-concessions",
+      "directionIds": [
+        "trading-concessions"
+      ],
+      "title": {
+        "en": "Trading Concessions: Conflict Style Reading",
+        "zh": "交换有限让步：折中范围、实际代价与完整读法"
+      },
+      "headline": {
+        "en": "Make the exchange clear, and keep essential conditions protected",
+        "zh": "说清交换什么，保留必要条件"
+      },
+      "summary": {
+        "en": "Read four original self-reports about mutual concessions, middle ranges and temporary agreements. Work through the mean and compare an explicit compromise with yielding, a new option or an unsafe bargain.",
+        "zh": "四道原创自报题回顾对应让步、折中范围和临时约定，完整复算均分，并区分清楚折中、单方退让、另想办法与不安全交换。"
+      },
+      "scoreReading": {
+        "en": "All four numeric ratings are required. Sum 4–20, mean 1–5; all items are forward-scored and no overall score is made.",
+        "zh": "四题数值全有效才给评分和4—20及均分1—5；全部正向，不产生综合分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Compromising Conflict Style: Scoring & Examples",
+          "zh": "交换有限让步：妥协式冲突风格的完整读法"
+        },
+        "description": {
+          "en": "Read an original reflection on compromising: four-item scoring, a worked mean, mutual concessions, unequal costs and boundaries that are not bargaining chips.",
+          "zh": "阅读交换让步的原创冲突风格指南：四题计分、完整均分算例、双方实际代价与不宜拿来交换的界限，不把折中当公平证明。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What a compromise exchanges",
+            "zh": "一次折中交换了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading concerns offering a concession in return for an adjustment, accepting that each person keeps and gives up something, agreeing on a middle range, and making a temporary agreement under time pressure. The broad conflict-handling idea is often called compromising. The four original items describe your reported use of these particular actions; they do not determine whether a settlement was fair or measure your capacity to negotiate.",
+              "zh": "这一组回顾提出对应让步、接受双方各有保留也各有放弃、商谈折中范围，以及在时间压力下达成临时约定。这种宽泛方式常被称为妥协或折中。四道原创题只描述你报告过的这些行动，不能判定约定公平，也不测谈判能力。"
+            },
+            {
+              "en": "A compromise need not be an equal numerical split. Someone may adjust a date while the other person changes the task scope. What matters here is that both make a concession rather than one simply withdrawing their preference. You can also agree temporarily without believing the underlying disagreement has disappeared. Making those terms explicit is more useful than treating every agreement as a finished resolution.",
+              "zh": "折中不一定是数字上的各分一半：可能一方调整日期，另一方调整任务范围。这里关注双方都有让步，而非一方单纯撤回偏好。也可以作临时约定，同时承认底层分歧仍在；把条款说明白，比把任何同意都视为问题彻底解决更有用。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read a frequency, not a fairness rating",
+            "zh": "读采用频率，不把均分当公平评分"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean indicates more frequent reports of exchanging concessions in the selected setting. A smaller one indicates fewer such reports. Neither proves fairness, maturity, generosity or a lack of conviction. The available options may make trade-offs easy, difficult or inappropriate. The questionnaire does not know the value of what each person gave up or whether both could freely decline.",
+              "zh": "均分较大表示在选定场景中较常报告交换让步，较小表示较少；都不证明公平、成熟、慷慨或缺少主见。实际选项可能让交换容易、困难，或根本不合适。问卷不知道双方放弃之物各有多少价值，也不知道双方是否能够自由拒绝。"
+            },
+            {
+              "en": "Look at which actions occurred. You might accept a middle range often but rarely need a temporary agreement. You might also decline a trade because an essential requirement would be lost. An unexperienced or unjudgeable situation can remain unscored. A small mean does not create a duty to offer more concessions, and a large one does not make the next proposed compromise acceptable.",
+              "zh": "分开看实际发生过什么：可能常接受折中范围，却很少需要临时约定；也可能因交换会失去必要条件而拒绝。未经历或无法判断可以不计分。均分较小不产生多让步的义务，较大也不使下一项折中要求自动合理。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Reproduce a mean of 2.8",
+            "zh": "复算2.8这个均分"
+          },
+          "paragraphs": [
+            {
+              "en": "In the example order of offering an exchange, accepting mutual concessions, finding a middle range, and making a temporary agreement, consider responses of 2, 4, 3 and 2. They are all forward-scored. The sum is 11 and 11/4=2.75, displayed as 2.8. The original sum remains 11; the display does not imply that two people each received 28 percent of what they wanted.",
+              "zh": "按提出交换、接受双方让步、寻找折中范围、达成临时约定的算例顺序，假设回答为2、4、3、2。全部正向计分，评分和为11，11/4=2.75，显示2.8。原始和仍为11，不表示双方各获得了想要结果的28%。"
+            },
+            {
+              "en": "Responses of 1, 5, 4 and 1 have the same sum and displayed mean but describe a different pattern. Any one unscored item withholds this group’s personal sum and mean, rather than dividing the other three answers by three. Other complete groups stay available. Requiring all four numeric ratings is the website’s completeness policy, not a validated missing-data threshold or a reason to guess an answer.",
+              "zh": "1、5、4、1得到相同的和与显示均分，却呈现不同组合。一题不计分会暂不给本组评分和及均分，不改用剩下三题除以三；其他完整组照常显示。全四题有效是网站完整度规则，不是经验证的缺失阈值，也不是要求猜答的理由。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An agreement on scope and timing",
+            "zh": "围绕范围与时间达成有限约定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine one teammate wants a detailed review today while another needs more preparation time. They could agree to review the essential points today and the remaining points later. One gives up immediate detail; the other gives up some uninterrupted preparation. The exchange can be described clearly without assuming it is the only possible or best arrangement. There may be another option neither has yet considered.",
+              "zh": "例如一位成员希望今天详细评审，另一位需要更多准备时间。可以约定今天先看必要部分，余下部分另约时间：一方放弃立即讨论全部细节，另一方放弃一段连续准备时间。这个交换可以说清楚，但不能因此断定它是唯一或最好的安排，也许还有尚未想到的办法。"
+            },
+            {
+              "en": "A useful temporary agreement states what is included, what remains unresolved and when the arrangement will be reviewed. “We will discuss it later” leaves different expectations possible. “We review two essential points today and confirm the remaining date tomorrow” is more specific. This example illustrates explicit terms, not evidence that a person with a particular mean will keep an agreement or produce better work.",
+              "zh": "有用的临时约定说明包含什么、还剩什么，以及何时回看。“以后再说”可能留下不同期待；“今天先看两个必要点，明天确认余下评审时间”更具体。例子说明怎样把条款说清，不证明某个均分的人会履约或工作更好。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Some matters should not be split down the middle",
+            "zh": "有些事项不适合各退一半"
+          },
+          "paragraphs": [
+            {
+              "en": "Safety requirements, consent, privacy and basic protection from harm are not quotas to bargain away for a better compromise score. A middle point between an acceptable and an unsafe proposal may still be unsafe. The questionnaire cannot decide the rules of an actual workplace, a legal entitlement or the right response to coercion. Use the appropriate standards, responsible channels or support rather than treating this reflection as authority.",
+              "zh": "安全规定、同意、隐私和免受伤害的基本保护，不是为了获得更好的折中分数而拿来交换的配额。可接受方案与不安全方案之间的中点，仍可能不安全。问卷不能裁定真实单位的规定、法律权利或遭受胁迫时的正确回应，应使用相应标准、负责渠道或支持，而非把观察题当权威。"
+            },
+            {
+              "en": "Nor does equal wording prove equal cost. Agreeing that each person works “one extra hour” can affect them differently because of duties, access needs or existing workload. You do not need private details to acknowledge that costs may differ. Ask which conditions can actually change and whether a proposed exchange leaves essential needs unmet. A person should be able to decline a trade without being diagnosed as inflexible.",
+              "zh": "措辞相同也不证明代价相同。双方都“多做一小时”，可能因照护责任、实际需要或原有负荷产生不同影响；承认代价可能不同，不必要求披露私人细节。先核对什么条件真正可调、必要需要是否仍未满足；拒绝交换的人不应被据此诊断为僵化。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "A settlement and a newly developed option",
+            "zh": "在原选项中折中，或共同另想办法"
+          },
+          "paragraphs": [
+            {
+              "en": "Joint problem-solving explores whether another option could meet both sets of concerns differently. Trading concessions accepts some loss on both sides in the current arrangement. A discussion can include both, and time may limit the amount of exploration. Calling an arrangement collaborative does not show that no one lost anything; naming the actual concessions gives a clearer account.",
+              "zh": "共同寻找新方案，探索有没有另一种回应双方需要的办法；交换有限让步，则是在当前安排中接受双方各有损失。同一场讨论可以包含两者，探索时间也可能有限。称安排“很合作”，并不能证明无人放弃任何东西；说出实际让步，更能说明发生了什么。"
+            },
+            {
+              "en": "Yielding gives priority to the other person’s choice without requiring a matching concession. Pressing your own plan pursues your proposal, and stepping back leaves the issue for now. The five means do not form a ladder or an overall score. All guides remain available, including when values tie or a group lacks enough information. Small differences between means do not establish which behavior is psychologically dominant.",
+              "zh": "让对方选择优先，不要求对应交换；推动自己的方案，是争取原提议；暂不继续，则是当下搁置事项。五个均分不构成阶梯或综合分。数值相同、某组资料不足时，所有指南仍可阅读；小差异不能确定哪种行为在心理意义上占主导。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Write the proposed exchange in plain terms",
+            "zh": "把拟议交换写成清楚的话"
+          },
+          "paragraphs": [
+            {
+              "en": "For a manageable shared task, you can privately write what you are offering to change, what adjustment you are asking for, and what must remain protected. If it is useful and safe to discuss, check whether the other person understands the same terms and can decline. Set a review point for a temporary arrangement. You can keep the note private; the website requests no event details.",
+              "zh": "针对可承受的共同任务，可以私下写下愿意改变什么、希望对方调整什么，以及哪些条件需要保护。适合且安全时，再核对对方是否理解同一套条款、是否能够拒绝。临时安排可以约定回看时间；笔记可保留私人，网站不索取事件细节。"
+            },
+            {
+              "en": "A counterexample is listing someone’s past favors as a debt that forces them to accept the next trade. Another is agreeing vaguely to stop the discomfort while knowing an essential term remains unclear. Pause when the conditions cannot be stated honestly. This exercise neither guarantees agreement nor asks you to retake the test, increase concessions or earn a more balanced-looking set of scores.",
+              "zh": "反例是把过去的帮助记成债务，迫使对方接受下一次交换；另一个反例是为了尽快摆脱不适而含糊答应，明知必要条款仍不清楚。无法诚实说明条件时，可以暂停。本观察不保证达成约定，也不要求重测、增加退让，或得到看上去更平衡的分数组合。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original reflection, with a separate source framework",
+            "zh": "原创观察题与来源框架的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these 20 frequency statements and the five complete guides. The broad five-mode idea is discussed in Thomas and Kilmann’s work and in the Kilmann Diagnostics overview linked from the test’s entry page. This edition does not reproduce the TKI’s thirty paired choices, scoring key, report or comparison norms. It is not the TKI, a validated short form, or an instrument endorsed by its authors. The five editorial groups are descriptive self-reports.",
+              "zh": "这20道频率陈述和五份完整指南由费马原创。五种方式的宽泛概念可在Thomas与Kilmann的工作及测试入口所列的Kilmann Diagnostics概述中了解。本版不复制TKI的三十组成对选项、计分键、报告或参照常模，不是TKI、经验证的简版，也不声称得到原作者认可；五个编辑分组只描述本次自报。"
+            },
+            {
+              "en": "Reliability, meaningful-change thresholds and equivalence between the two language versions have not been established for these original items. Memory, social desirability and which opportunities occurred can affect responses. The complete public guides are available before answering and when a group has insufficient information. Sharing copies only a public title and link, not personal answers or means. You may read another guide, return to all tests or finish here.",
+              "zh": "本原创题本尚未建立信度、有意义变化阈值或双语等值，回忆、希望展示怎样的自己及实际机会都可能影响作答。完整公开指南在答题前和资料不足时都能阅读；分享仅复制公开标题与链接，不含个人回答或均分。可以读另一份指南、返回全部测试，或在这里结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stepping-back",
+      "directionIds": [
+        "stepping-back"
+      ],
+      "title": {
+        "en": "Stepping Back: Conflict Style Reading",
+        "zh": "暂不继续这场分歧：暂停、搁置与实际界限"
+      },
+      "headline": {
+        "en": "Keep the reason for a pause and the pending issue separate",
+        "zh": "分开看暂停的原因与仍待处理的事项"
+      },
+      "summary": {
+        "en": "Four original self-reports cover ending, not raising, redirecting and postponing a disagreement. Read the arithmetic and concrete examples without inferring a personality disorder, childhood cause or obligation to confront an unsafe person.",
+        "zh": "四道原创自报题涵盖结束讨论、不提分歧、转移话题与推迟回应；算式和例子一起读，不推断人格障碍、童年原因，也不要求直面不安全的人。"
+      },
+      "scoreReading": {
+        "en": "Four numeric ratings produce a forward-scored sum of 4–20 and mean of 1–5. A skip withholds this group, while every guide stays available.",
+        "zh": "四题数值有效才显示正向评分和4—20及均分1—5；跳过使本组不足，所有指南仍可阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Avoiding Conflict Style: Pauses, Limits & Examples",
+          "zh": "暂不继续分歧：回避式冲突风格的完整读法"
+        },
+        "description": {
+          "en": "Read an original guide to stepping back from conflict: four-item scoring, a worked mean, planned pauses, pending issues and essential safety boundaries.",
+          "zh": "阅读暂不继续分歧的原创指南：四题计分、完整均分算例、有安排的暂停、待处理事项与必要安全界限，不推断人格或童年原因。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What leaving an issue for now describes",
+            "zh": "把问题留在当下之外，描述了什么"
+          },
+          "paragraphs": [
+            {
+              "en": "The four items ask about ending an unresolved discussion, leaving a possible disagreement unmentioned, changing the subject when a disputed arrangement returns, and postponing a response without pursuing either option. These actions can occur for different reasons. The group records how often you recall them in the selected setting; it cannot distinguish a deliberate pause from an unwanted delay simply by averaging the answers.",
+              "zh": "四题询问结束尚未解决的讨论、不提出可能引发争论的分歧、争议再次出现时转移话题，以及推迟回应而未继续争取任一办法。这些行动可以出于不同原因。分组记录你在选定场景中回忆到的采用频率，不能仅凭平均回答区分有意暂停与不想发生的拖延。"
+            },
+            {
+              "en": "In five-mode discussions this is broadly associated with avoiding. That word does not diagnose an avoidant personality or explain someone’s childhood, anxiety or motives. A person may step back from one issue while being direct about another. The fact that a conversation stopped tells you less than knowing what remained unresolved, whether there was a safe option to continue, and what happened afterwards.",
+              "zh": "在五种方式的讨论中，这类行动通常与回避相关。这个词不诊断回避型人格，也不解释童年、焦虑或动机。同一个人可能搁置某件事，却直接处理另一件事。只知道谈话停了，远不如了解还剩什么问题、当时能否安全继续、后来发生了什么。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more or less frequent, without a health label",
+            "zh": "只读较频繁或较少，不贴健康标签"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean indicates more frequent reports of these four actions; a smaller mean indicates fewer. Neither shows whether you care about the other person or whether the pause helped. A setting with repeated interruptions can produce different answers from one with protected discussion time. A lower value could also coexist with insisting on your own plan. The mean does not identify which alternative you used.",
+              "zh": "均分较大表示较常报告四项行动，较小表示较少；都不能说明是否在意对方，或暂停有没有帮助。经常被打断的场景，与有完整讨论时间的场景，可能产生不同回答。较低数值也可以与坚持己见并存，均分不能识别你实际上改用了哪种方式。"
+            },
+            {
+              "en": "Look for differences among the items. You might stop an unproductive conversation but return at an agreed time, or leave a recurring topic unmentioned because there is no useful route for discussing it. The questions do not record that full history. If a situation did not occur, use the unscored option rather than imagining what you would probably do. A missing mean leaves the general guide available.",
+              "zh": "可以留意题目之间的不同：你也许会停止无效谈话，再按约定时间回来；也可能因找不到有用的讨论途径，而不提反复出现的话题。问卷没有记录完整过程。未发生的情境可以不计分，不必想象自己大概会怎样；缺少个人均分时，通用指南仍可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A mean of 1.8 is not a probability",
+            "zh": "1.8不是一种概率"
+          },
+          "paragraphs": [
+            {
+              "en": "Take the example order of ending a discussion, not raising a topic, changing the subject, and postponing a response. Ratings of 1, 2, 3 and 1 sum to 7. All four are forward-scored, so 7/4=1.75, displayed as 1.8 out of 5. The report retains the sum of 7 and four valid ratings. It does not estimate an 18 percent chance of avoiding the next disagreement.",
+              "zh": "按结束讨论、不提话题、转移话题、推迟回应的算例顺序，1、2、3、1合计7。四题全部正向，7/4=1.75，显示1.8／5，并保留评分和7、四题有效；不估计下次分歧中有18%的回避概率。"
+            },
+            {
+              "en": "Ratings of 2, 1, 1 and 3 also sum to 7 but emphasize different actions. If one item is unscored, this group shows insufficient information instead of a personal sum or mean. The other complete groups keep their results. Requiring all four numeric ratings is an editorial completeness rule, not a validated missing-data threshold. You can finish all twenty selections with unscored answers and still read every full guide.",
+              "zh": "2、1、1、3同样合计7，但较频繁的行动不同。一题不计分时，本组显示资料不足，不给个人评分和或均分；其他完整组保留结果。全四题有效是编辑完整度规则，并非经验证的缺失阈值。二十项都选了选项，其中可以有不计分回答，仍能结束并阅读全部完整指南。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Pausing a discussion and losing the issue are different",
+            "zh": "谈话暂停后，事项仍然需要被看见"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a shared project discussion has become repetitive and a needed document is missing. Ending the meeting until the document is available may create room for a better-informed decision. It may also leave the issue neglected if nobody knows who will obtain the document or when a decision is needed. The questionnaire records a reported action, not whether the pause was well planned or successful.",
+              "zh": "例如共同项目的讨论开始重复，关键文件又不在手边。等文件齐全后再谈，可能让决定有更充分的依据；但若没人知道由谁取得文件、何时需要决定，也可能使事项被遗忘。问卷记录的是自报行动，不知道暂停是否安排妥当或是否有效。"
+            },
+            {
+              "en": "If a return is useful and safe, naming the pending question, the responsible person and the next review point can reduce ambiguity. If the task is no longer needed, that can be stated too. “We are not deciding this today” is different from pretending it has been resolved. There is no requirement to hold a new meeting when the issue is minor, already settled elsewhere or inappropriate for joint discussion.",
+              "zh": "适合且安全时，可以说明待回答的问题、相应负责人和下一次回看节点，减少含糊。如果任务已不需要，也可以说清。“今天不决定这件事”与假装已经解决不同；事项很小、已由其他途径处理，或不宜共同讨论时，不必再开一次会。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Leaving an unsafe exchange is not a defect to correct",
+            "zh": "离开不安全互动，不是需要纠正的缺陷"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may leave, decline to answer or avoid raising a topic because continuing would expose them to threats, humiliation or unwanted disclosure. This mean cannot establish whether such conditions exist. It must not be used to demand that a person stay in a dangerous interaction or prove willingness to cooperate. Appropriate support, protection and responsible channels may take priority over direct discussion with the person involved.",
+              "zh": "有人可能因为继续会面临威胁、羞辱或不愿披露的信息，而离开、暂不回答或不提话题。均分无法确定这些处境是否存在，更不能用来要求一个人留在危险互动中，证明自己愿意合作。合适的支持、保护和负责渠道，可以优先于与当事人直接讨论。"
+            },
+            {
+              "en": "Another counterexample is calling repeated silence a strategic pause when a manageable shared responsibility remains unclear and safe ways to address it are available. You can acknowledge that an issue has been left pending without calling yourself uncaring. Distinguishing practical constraints, chosen boundaries and a task that needs attention gives more useful information than attaching a healthy or unhealthy label to every instance of stepping back.",
+              "zh": "另一个反例是，共同责任仍不清楚、也有安全可行的处理办法，却把反复沉默都称为策略性暂停。可以承认事项被搁置，而不把自己说成不在意他人。分清实际限制、主动保留的界限和需要处理的任务，比给每次暂退贴上健康或不健康标签更有用。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Postponing is different from conceding",
+            "zh": "推迟处理与让出选择不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Yielding follows the other person’s preference; stepping back can leave both preferences unpursued for the time being. Trading concessions still seeks an agreement involving changes on both sides. Joint problem-solving develops options together, while pressing your own plan continues to pursue your proposal. A person can use these at different moments in the same event. The test does not reconstruct that sequence or prescribe a universal order.",
+              "zh": "让对方选择优先，是采用对方偏好；暂不继续，可以是当下双方的办法都未推进。交换让步仍在寻求双方有所调整的约定；一起寻找新方案，是共同开发选项；推动自己的方案，则继续争取原提议。同一事件中可以先后采用多种方式，问卷没有重建这个顺序，也不规定普遍适用的先后。"
+            },
+            {
+              "en": "All five means are shown separately and every full reading remains accessible. No total, winning style, assertiveness coordinate or career suitability is calculated. Similar values do not prove that the actions served the same purpose, and a slightly larger mean does not establish a dominant personality. Read the behaviors and their context before making a decision about what, if anything, you want to change.",
+              "zh": "五个均分分开显示，全部完整读法始终可用；不计算总分、获胜风格、坚定性坐标或职业适配。数值相近不证明行动目的相同，略高也不能确定主导人格。先看行为与场景，再决定自己是否有想调整的事情。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "One optional note about what remains pending",
+            "zh": "针对待办问题写一份自选小记录"
+          },
+          "paragraphs": [
+            {
+              "en": "For one manageable situation, privately note the unresolved issue, the information or condition needed to address it, and a safe next route if one is available. That route might be a short clarification, a request to the responsible person or a decision that the issue no longer needs attention. You do not have to share the note or contact someone directly. The website asks for no names or event details.",
+              "zh": "选一件可承受的事，私下记下未解决的问题、需要什么信息或条件，以及现有的安全下一步。可能是一次简短澄清、向相应负责人提出请求，也可能是确认事项已不再需要处理。不必分享笔记或直接联系某人，网站不询问姓名或事件细节。"
+            },
+            {
+              "en": "A counterexample is setting a return time that nobody can keep, or promising to reopen a discussion solely to make a score look better. Choose a step that fits the actual circumstances and stop if it would create risk or unnecessary pressure. No retest is required, and the aim is not to eliminate every pause. A temporary boundary can remain a deliberate, reasonable choice.",
+              "zh": "反例是约一个谁都做不到的重谈时间，或只为让分数好看而承诺重新讨论。按实际条件选择一步，会带来风险或不必要压力时可以停止。无需重测，目标也不是消除所有暂停；暂时保留界限可以是一项有意、合理的选择。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original reflection, with a separate source framework",
+            "zh": "原创观察题与来源框架的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these 20 frequency statements and the five complete guides. The broad five-mode idea is discussed in Thomas and Kilmann’s work and in the Kilmann Diagnostics overview linked from the test’s entry page. This edition does not reproduce the TKI’s thirty paired choices, scoring key, report or comparison norms. It is not the TKI, a validated short form, or an instrument endorsed by its authors. The five editorial groups are descriptive self-reports.",
+              "zh": "这20道频率陈述和五份完整指南由费马原创。五种方式的宽泛概念可在Thomas与Kilmann的工作及测试入口所列的Kilmann Diagnostics概述中了解。本版不复制TKI的三十组成对选项、计分键、报告或参照常模，不是TKI、经验证的简版，也不声称得到原作者认可；五个编辑分组只描述本次自报。"
+            },
+            {
+              "en": "Reliability, meaningful-change thresholds and equivalence between the two language versions have not been established for these original items. Memory, social desirability and which opportunities occurred can affect responses. The complete public guides are available before answering and when a group has insufficient information. Sharing copies only a public title and link, not personal answers or means. You may read another guide, return to all tests or finish here.",
+              "zh": "本原创题本尚未建立信度、有意义变化阈值或双语等值，回忆、希望展示怎样的自己及实际机会都可能影响作答。完整公开指南在答题前和资料不足时都能阅读；分享仅复制公开标题与链接，不含个人回答或均分。可以读另一份指南、返回全部测试，或在这里结束。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yielding-choice",
+      "directionIds": [
+        "yielding-choice"
+      ],
+      "title": {
+        "en": "Yielding a Choice: Conflict Style Reading",
+        "zh": "让对方的选择优先：自愿范围、界限与完整读法"
+      },
+      "headline": {
+        "en": "Understand the choice and its limits before attaching a label",
+        "zh": "先看选择与范围，再解释数字"
+      },
+      "summary": {
+        "en": "Four original items describe following another preference, withdrawing a request and prioritizing another person’s stated need. Read a worked mean, a bounded example and the difference between voluntary yielding and an unsafe demand.",
+        "zh": "四道原创题回顾采用对方偏好、撤回请求及优先回应对方需要；完整均分算例、有限同意的例子与安全界限一起读，不从数字推断动机。"
+      },
+      "scoreReading": {
+        "en": "All four numeric ratings are needed for a forward-scored 4–20 sum and 1–5 mean. A skip withholds only this group.",
+        "zh": "四题数值全有效才显示正向评分和4—20及均分1—5；跳过只使本组不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Accommodating Conflict Style: Choices & Boundaries",
+          "zh": "让对方选择优先：迁就式冲突风格的完整读法"
+        },
+        "description": {
+          "en": "Read an original accommodating conflict guide: four-item scoring, a worked mean, voluntary choices and boundaries, without judging self-worth or motives.",
+          "zh": "阅读让对方选择优先的原创冲突风格指南：四题计分、完整均分算例、自愿范围与实际界限，不评价自我价值或推断动机。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What giving priority to another choice describes",
+            "zh": "让对方的选择优先，具体描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks about following another person’s preferred arrangement, withdrawing your request without a matching concession, giving priority to their stated need, and switching from your proposal to theirs. In five-mode discussions, accommodating broadly describes giving way to the other person’s concerns. The original items record reported actions rather than explaining whether each choice came from agreement, courtesy, pressure or a practical constraint.",
+              "zh": "这一组询问采用对方偏好的安排、不要求对应让步而撤回请求、优先回应对方说出的需要，以及从自己方案改用对方办法。在五种方式的讨论中，迁就或退让大致描述让对方的需要优先。本原创题记录自报行动，不解释每次选择来自赞同、礼让、压力还是实际限制。"
+            },
+            {
+              "en": "Giving way is not the same as caring about another person. You can care while keeping a limit, and you can follow a preference without feeling close to the person. Nor does the action show that your own needs are less important. The useful question is what happened in the particular setting and whether you had a genuine choice. A mean cannot supply that missing context.",
+              "zh": "退让与关心别人并不相同：可以保留界限同时关心，也可以采用对方偏好而并无亲近感。行动本身更不证明自己的需要较不重要。有用的问题是具体场景发生了什么、是否确有选择空间；均分无法替你补上这些背景。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the reported frequency without inferring a cause",
+            "zh": "读自报频率，不从数字推断原因"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean indicates more frequent reports of these four actions, and a smaller mean indicates fewer. It does not measure kindness, self-worth, dependence, relationship quality or the ability to set boundaries. A person may yield frequently when another person has information they lack, when a choice matters less to them, or when the available options are constrained. The questionnaire does not determine which explanation applies.",
+              "zh": "均分较大表示较常报告四项行动，较小表示较少；不测善良、自我价值、依赖、关系质量或设立界限的能力。一个人可能因为对方掌握更多信息、自己对事项在意较少，或可选空间有限而常退让；问卷无法确定适用哪种解释。"
+            },
+            {
+              "en": "A mixed pattern also deserves attention. You might often try another person’s approach but rarely withdraw an explicit request. Remembering the events behind those different answers can be more useful than calling yourself an accommodating type. If an action did not occur or cannot be judged, choose the unscored response. Neither a high nor a low mean creates a requirement to keep yielding or to start refusing ordinary requests.",
+              "zh": "不同回答也值得留意：可能常试用对方办法，却很少撤回已明确提出的请求。回看这些回答对应的事件，比把自己叫作迁就型更有用。未经历或无法判断时可以不计分；均分高低都不要求你继续退让，或开始拒绝普通请求。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Recalculate a mean of 3.3",
+            "zh": "复算3.3这个均分"
+          },
+          "paragraphs": [
+            {
+              "en": "In the example order of following a different choice, withdrawing a request, prioritizing a stated need, and switching approaches, suppose the ratings are 4, 2, 3 and 4. All four are forward-scored: 4+2+3+4=13 and 13/4=3.25, displayed as 3.3. The sum remains 13, with four valid ratings. It is not 33 percent self-sacrifice or a percentile among people who accommodate.",
+              "zh": "按采用另一种选择、撤回请求、优先回应需要、改用对方办法的算例顺序，假设回答为4、2、3、4。四题全部正向：4+2+3+4=13，13/4=3.25，显示3.3；评分和仍为13，四题有效。不是33%的自我牺牲，也不是迁就人群中的百分位。"
+            },
+            {
+              "en": "Responses of 5, 1, 5 and 2 also sum to 13, despite quite different reports across the actions. One unscored response withholds this group’s personal sum and mean, while other complete groups remain available. This all-four rule is an editorial completeness policy rather than a validated missing-data threshold. Missing is never inserted as zero, and every full guide can be read without obtaining a personal mean.",
+              "zh": "5、1、5、2同样合计13，但各项行动的报告很不相同。一题不计分时，暂不给本组个人评分和及均分，其他完整组保留。全四题有效是编辑完整度规则，不是经验证的缺失阈值；缺答不补零，没有个人均分也能阅读全部完整指南。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A different order for a shared task",
+            "zh": "共同任务中采用另一种顺序"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine you prefer checking a draft from beginning to end, while a colleague wants to check the uncertain sections first. You decide to use their order for this review without asking for a concession in return. That is a specific example of yielding a choice. It does not show that the colleague’s method was objectively better or that your usual method should be abandoned for every task.",
+              "zh": "例如你喜欢从头到尾检查稿件，同事想先检查不确定的部分。你决定这次按对方顺序做，不要求对应交换。这是让出一项选择的具体例子，不证明对方办法客观上更好，也不说明每项任务都应放弃自己的惯常顺序。"
+            },
+            {
+              "en": "You can still state what the review needs to accomplish and notice whether the method works for the present purpose. Agreeing once need not become an indefinite promise. If responsibility for an essential check is unclear, clarify it rather than assuming goodwill will fill the gap. The questionnaire cannot observe the completed work, the actual decision process or whether either person felt free to disagree.",
+              "zh": "仍可以说明评审需要完成什么，并观察这次方法是否适合当前目的。答应一次不必成为无限承诺。必要核查的责任不清时，可以澄清，而不是假设好意会填补空缺。问卷没有观察完成结果、实际决定过程或双方能否自由提出异议。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A choice requires room to say no",
+            "zh": "一种选择应当保留说不的空间"
+          },
+          "paragraphs": [
+            {
+              "en": "Consent, safety and privacy should not be offered as concessions to improve an accommodating score. Giving way under threat is different from freely choosing another person’s preference, and this mean cannot diagnose or verify either situation. You do not need to demonstrate kindness by staying in a harmful exchange, disclosing private reasons or accepting a request you cannot safely meet. Appropriate support can take priority.",
+              "zh": "同意、安全与隐私，不应作为提高迁就分数的交换。受到威胁而退让，与自由选择对方偏好不同，均分不能诊断或核实哪种情况存在。无需靠留在有害互动、披露私人理由或接受无法安全满足的要求来证明善良，可以优先寻找合适支持。"
+            },
+            {
+              "en": "The opposite error is treating every accommodation as exploitation or every difference as a boundary violation. Someone may make a voluntary, limited choice that suits their own priorities. Ask what was actually agreed, what its limits were and whether the person could change their mind. The score is not authority to label another person a manipulator, or to replace the evidence of how a real arrangement is working.",
+              "zh": "相反的误读，是把每次退让都称为被利用，把每项分歧都称为越界。一个人也可能自愿作出有限、符合自身优先次序的选择。核对实际同意了什么、范围是什么、能否改变主意；分数不能授权给别人贴操控者标签，也不能代替安排实际怎样运行的证据。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Yielding and exchanging concessions are different",
+            "zh": "让出选择与交换让步不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Trading concessions asks for an adjustment from each side. Yielding does not require a matching concession. Joint problem-solving looks for another option, pressing your own plan pursues your proposal, and stepping back can leave both options unpursued. These actions can coexist in different parts of an event. One person might accept a meeting time but continue discussing its scope. A single mean does not reconstruct the whole sequence.",
+              "zh": "交换让步要求双方各调整一部分，让出选择不要求对应交换；一起寻找新方案，是开发另一选项；推动自己方案，是争取原提议；暂不继续，可以使双方办法都未推进。同一事件中可以并存多种行动，例如接受见面时间，同时继续讨论事项范围。一个均分不能重建整个顺序。"
+            },
+            {
+              "en": "All five means stay separate and all five full readings remain available. No overall conflict score, winning type, two-axis coordinate or career match is produced. Similar values do not prove equal needs or equal outcomes, and close decimals do not establish a meaningful difference in temperament. Use the guides to name actions and ask a concrete question about context, rather than to allocate blame between people.",
+              "zh": "五个均分各自保留，全部五份完整读法始终可用；不产生综合冲突分、获胜类型、两轴坐标或职业匹配。数值相似不证明需要或结果相同，相近小数也不能确定气质存在有意义差异。指南用于说清行动、追问具体背景，不替双方分配责任。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Check the scope of one voluntary yes",
+            "zh": "核对一次自愿答应的实际范围"
+          },
+          "paragraphs": [
+            {
+              "en": "For a manageable request, privately note what you are agreeing to, what you are not deciding yet, and whether the time or effort fits your capacity. If useful and safe, state that scope plainly: “I can use this order for today’s review; we can reassess it next time.” You can choose a different example or keep the observation private. The website asks for no personal account of an interaction.",
+              "zh": "针对一个可承受的请求，私下记下同意什么、哪些事情还没决定，以及时间或精力是否符合自己的容量。适合且安全时，可以说清范围，例如“今天的评审按这个顺序，下次可以再看是否适用”。可以换一个例子，或只作私人观察；网站不索取个人互动经过。"
+            },
+            {
+              "en": "A counterexample is saying yes while silently expecting an unspecified debt to be repaid later. Another is making a refusal solely to prove that you can resist. The useful step is an accurate choice within real limits, not achieving a more desirable score. You may stop here, read another guide or seek support suited to the situation without retaking the test or changing someone else’s behavior.",
+              "zh": "反例是嘴上答应，却暗中期待日后偿还一笔没有说明的债；另一个反例是仅为证明自己会反抗而拒绝。有用的步骤是在真实限制内作准确选择，不是得到更理想的分数。可以在这里结束、阅读另一指南，或寻找合适支持，无需重测或改变别人的行为。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original reflection, with a separate source framework",
+            "zh": "原创观察题与来源框架的区别"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these 20 frequency statements and the five complete guides. The broad five-mode idea is discussed in Thomas and Kilmann’s work and in the Kilmann Diagnostics overview linked from the test’s entry page. This edition does not reproduce the TKI’s thirty paired choices, scoring key, report or comparison norms. It is not the TKI, a validated short form, or an instrument endorsed by its authors. The five editorial groups are descriptive self-reports.",
+              "zh": "这20道频率陈述和五份完整指南由费马原创。五种方式的宽泛概念可在Thomas与Kilmann的工作及测试入口所列的Kilmann Diagnostics概述中了解。本版不复制TKI的三十组成对选项、计分键、报告或参照常模，不是TKI、经验证的简版，也不声称得到原作者认可；五个编辑分组只描述本次自报。"
+            },
+            {
+              "en": "Reliability, meaningful-change thresholds and equivalence between the two language versions have not been established for these original items. Memory, social desirability and which opportunities occurred can affect responses. The complete public guides are available before answering and when a group has insufficient information. Sharing copies only a public title and link, not personal answers or means. You may read another guide, return to all tests or finish here.",
+              "zh": "本原创题本尚未建立信度、有意义变化阈值或双语等值，回忆、希望展示怎样的自己及实际机会都可能影响作答。完整公开指南在答题前和资料不足时都能阅读；分享仅复制公开标题与链接，不含个人回答或均分。可以读另一份指南、返回全部测试，或在这里结束。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "FermatMind-original-conflict-handling-reflection-not-TKI",
+    "formCode": "fm_original_conflict_handling_20_v1",
+    "itemBankVersion": "1.0.0-original-not-validated",
+    "scoringVersion": "1.0.0-five-separate-forward-means",
+    "resultContentVersion": "1.0.0-five-full-original-guides",
+    "itemBankSha256": "4cbd3aceb02c47f11af55973e851425591bd4559d952a29ca35313492ef42b38",
+    "resultContentSha256": "e794e21546e5517ad40286a61eb0f40d30169e8b4bcf8fb8cc7cab1bedc529a5",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Kilmann Diagnostics: five-mode conceptual overview, not this edition’s items or validation",
+        "zh": "Kilmann Diagnostics：五种方式的概念概述，不提供本版题目或验证"
+      },
+      "url": "https://kilmanndiagnostics.com/a-brief-overview-tki/"
+    },
+    {
+      "title": {
+        "en": "TKI author FAQ: thirty paired choices and limits of single-style labels",
+        "zh": "TKI作者问答：三十组成对选择与单一风格标签的边界"
+      },
+      "url": "https://kilmanndiagnostics.com/assessments/tki-faqs/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Five separate means",
+        "zh": "五组分别求均分"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group has four original frequency items, all forward-scored from 1 to 5. Add four valid ratings for a sum of 4–20, divide by four and display one decimal. For example, 2+4+3+2=11 and 11/4=2.75, displayed as 2.8. Any unscored answer withholds only its own group’s personal sum and mean. All twenty questions need a selection, including the separate unscored option, before the attempt finishes.",
+          "zh": "每组四道原创频率题，全部按1—5正向计分。四题数值全有效时，相加得4—20的评分和，除以四，显示一位小数。例如2+4+3+2=11，11/4=2.75，显示2.8。任一不计分回答只使所属组暂不给个人评分和与均分。二十题都需选择一个选项，其中可以有独立的不计分选项，之后本次作答结束。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Frequency is not effectiveness",
+        "zh": "频率不等于效果"
+      },
+      "paragraphs": [
+        {
+          "en": "The means describe these reported actions in your chosen setting. They do not establish whether an agreement was fair, safe or effective, or explain motives and childhood. There is no total, winner, personality stage, clinical label, population ranking or career match. The five-mode conceptual background does not validate this original questionnaire or its language equivalence.",
+          "zh": "均分描述选定场景中的自报行动，不能确定约定是否公平、安全、有效，也不能解释动机或童年。不产生总分、赢家、人格阶段、临床标签、人群排名或职业匹配。五种方式的概念背景，不等于验证了本原创题本或双语等值。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Keep all five readings available",
+        "zh": "五份完整读法同时保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Every complete guide remains available at any mean and when information is insufficient. Similar values are not a tie to break or proof of meaningful equivalence. Different answers can produce the same mean. Read the specific actions, examples and constraints instead of choosing a fixed identity from the largest decimal. The five means are not converted into two-axis coordinates.",
+          "zh": "任意均分及资料不足时，全部完整指南都可读。数值相近不需要分出胜负，也不证明存在有意义的等同；不同回答可以有相同均分。应结合具体行动、例子和限制理解，不按最大的小数选固定身份。五个均分也不换算为两轴坐标。"
+        }
+      ]
+    },
+    {
+      "id": "original-source",
+      "title": {
+        "en": "An original reflection with a separate source framework",
+        "zh": "原创观察题与来源框架"
+      },
+      "paragraphs": [
+        {
+          "en": "Thomas and Kilmann discuss five conflict-handling modes through concern for one’s own and the other person’s concerns. Their TKI uses thirty paired A/B choices. FermatMind authored these twenty frequency items, the all-four completeness rule and all five explanatory texts. We do not reproduce the TKI bank, key, report or comparison norms, and this is neither the TKI nor a validated or endorsed short form.",
+          "zh": "Thomas与Kilmann通过对自己及对方需要的关注讨论五种冲突处理方式；其TKI采用三十组成对A/B选择。这里的二十道频率题、全四题完整度规则与五份说明由费马原创，不复制TKI题库、计分键、报告或参照常模，也不是TKI、经验证或获其认可的简版。"
+        }
+      ]
+    },
+    {
+      "id": "safe-context",
+      "title": {
+        "en": "Choose a manageable setting",
+        "zh": "选择可承受的场景"
+      },
+      "paragraphs": [
+        {
+          "en": "Do not create a disagreement, disclose private details or continue an unsafe interaction for a score. Safety, consent and privacy are not concessions to bargain away. Different roles and opportunities affect what you can report, and the questionnaire does not adjust for them. You may choose unscored answers, stop, seek suitable support or simply read the public guides.",
+          "zh": "不为获得分数制造分歧、披露私人细节或继续不安全互动。安全、同意与隐私不是应拿来交换的退让。角色和实际机会会影响可报告的行动，问卷未作校正。可以不计分、停止、寻找合适支持，或只读公开指南。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is this the Thomas-Kilmann Instrument?",
+        "zh": "这是Thomas-Kilmann正式测评吗？"
+      },
+      "answer": {
+        "en": "This is a FermatMind original twenty-item frequency reflection, not the TKI or a validated short form. The five-mode idea is background; no TKI items, paired choices, norms or report are reproduced.",
+        "zh": "这是费马原创的二十题频率观察，不是TKI或经验证的简版。五种方式的概念仅作背景，不复制TKI题目、成对选择、常模或报告。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the five values calculated?",
+        "zh": "五个数值怎样计算？"
+      },
+      "answer": {
+        "en": "Each four-item group needs four numeric ratings. Add them and divide by four, with one decimal displayed. All items are forward-scored. The groups stay separate without an overall total or winning type.",
+        "zh": "每组四题数值全有效时相加再除以四，显示一位小数。全部正向计分，各组分开，不合成总分或选获胜类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I did not experience a situation?",
+        "zh": "没有经历某种情况怎么办？"
+      },
+      "answer": {
+        "en": "Choose Not experienced / cannot judge. One such answer withholds its own group’s sum and mean; other complete groups retain theirs. This all-four rule is an editorial policy, not a validated missing-data threshold. All full guides remain available.",
+        "zh": "选择未经历／无法判断。一项不计分只使所属组暂不给评分和及均分，其他完整组保留。全四题规则是编辑政策，并非经验证的缺失阈值，全部完整指南仍可阅读。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens when several means are the same?",
+        "zh": "几个均分一样时怎样看？"
+      },
+      "answer": {
+        "en": "Every guide is shown. There is no hidden tiebreak, rank or fixed identity. The same mean can contain different item responses, and a close decimal difference has no established meaningful-change threshold here.",
+        "zh": "所有指南都显示，不暗中打破并列、不排名或派固定身份。同一均分可以包含不同单题回答，本版也没有建立相近小数差异的有意义变化阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use it to explain another person’s motives?",
+        "zh": "能用它解释另一个人的动机吗？"
+      },
+      "answer": {
+        "en": "Answer only about your own actions. These self-reports do not diagnose someone else, establish a childhood cause, predict a relationship or certify conflict competence. Actual safety and behavior need their own evidence.",
+        "zh": "只回答自己的行动。自报不能诊断他人、确定童年原因、预测关系或证明冲突处理能力；实际安全与行为需要各自的证据。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are the complete results free, and what is saved?",
+        "zh": "完整结果免费吗，会保存什么？"
+      },
+      "answer": {
+        "en": "All twenty items and five full public guides are free without signup. Progress is saved in this tab for up to 24 hours only if you opt in; completion, reset or exit-and-clear deletes it. Copying shares only a public title and link, not answers or means.",
+        "zh": "二十题与五份完整公开指南免费，无需注册。主动选择后才在本标签页保存最多24小时进度，完成、重置或退出并清除会删除；复制仅分享公开标题与链接，不含回答或均分。"
+      }
+    }
+  ]
+}
