@@ -4849,5 +4849,29 @@
       "permissive",
       "uninvolved"
     ]
+  },
+  {
+    "slug": "inner-critic-voice-test",
+    "code": "FSCRS22_HALAMOVA_2019",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "framework",
+    "title": {
+      "en": "Inner Critic Voice Test",
+      "zh": "内心批评家声音测试"
+    },
+    "description": {
+      "en": "Explore 22 FSCRS statements about self-criticism and self-reassurance. Read three full explanations, skip any item and keep answers private in this web edition.",
+      "zh": "阅读完整 22 条 FSCRS 来源陈述，任何题目都可跳过；分别理解自我批评、厌恶自我与自我支持的读数和完整解释。网页工作版，不作诊断或风险分类。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "fscrs22_2019_1to5_fm_zh_working_v1",
+    "questionCount": 22,
+    "resultSlugs": [
+      "inadequate",
+      "hated",
+      "reassured"
+    ]
   }
 ]

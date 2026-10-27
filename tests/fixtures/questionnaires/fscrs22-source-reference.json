@@ -1,0 +1,375 @@
+{
+  "source": {
+    "article": "https://link.springer.com/article/10.1007/s10942-019-00319-1",
+    "table": "https://link.springer.com/article/10.1007/s10942-019-00319-1/tables/1",
+    "copyright": "© The Author(s) 2019",
+    "license": "CC BY 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "sourcePDFSHA256": "38a71e92512ad5f6d37a23725ac7aa399c182d98cbcc37cd9194672d63f7415f",
+    "tableHTMLSHA256": "2d44334d1c728f28d04d12647b9e0a77272a99117230df1d07a2f14060b9fa24"
+  },
+  "questions": [
+    {
+      "id": "fscrs-01",
+      "sourceNumber": 1,
+      "text": {
+        "en": "I am easily disappointed with myself.",
+        "zh": "我很容易对自己失望。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-02",
+      "sourceNumber": 2,
+      "text": {
+        "en": "There is a part of me that puts me down.",
+        "zh": "我内心有一部分在贬低自己。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-03",
+      "sourceNumber": 3,
+      "text": {
+        "en": "I am able to remind myself of positive things about myself.",
+        "zh": "我能够提醒自己，自己也有积极的一面。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-04",
+      "sourceNumber": 4,
+      "text": {
+        "en": "I find it difficult to control my anger and frustration at myself.",
+        "zh": "我很难控制对自己产生的愤怒和挫败感。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-05",
+      "sourceNumber": 5,
+      "text": {
+        "en": "I find it easy to forgive myself.",
+        "zh": "我觉得原谅自己并不难。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-06",
+      "sourceNumber": 6,
+      "text": {
+        "en": "There is a part of me that feels I am not good enough.",
+        "zh": "我内心有一部分觉得自己不够好。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-07",
+      "sourceNumber": 7,
+      "text": {
+        "en": "I feel beaten down by my own self-critical thoughts.",
+        "zh": "自我批评的想法让我感到备受打击。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-08",
+      "sourceNumber": 8,
+      "text": {
+        "en": "I still like being me.",
+        "zh": "我仍然喜欢自己。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-09",
+      "sourceNumber": 9,
+      "text": {
+        "en": "I have become so angry with myself that I want to hurt or injure myself.",
+        "zh": "我对自己愤怒到了想伤害自己的地步。"
+      },
+      "part": "hated",
+      "sensitive": true
+    },
+    {
+      "id": "fscrs-10",
+      "sourceNumber": 10,
+      "text": {
+        "en": "I have a sense of disgust with myself.",
+        "zh": "我对自己有一种厌恶感。"
+      },
+      "part": "hated",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-11",
+      "sourceNumber": 11,
+      "text": {
+        "en": "I can still feel lovable and acceptable.",
+        "zh": "我仍能觉得自己是能被爱、能被接纳的人。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-12",
+      "sourceNumber": 12,
+      "text": {
+        "en": "I stop caring about myself.",
+        "zh": "我不再关心自己。"
+      },
+      "part": "hated",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-13",
+      "sourceNumber": 13,
+      "text": {
+        "en": "I find it easy to like myself.",
+        "zh": "我觉得喜欢自己并不难。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-14",
+      "sourceNumber": 14,
+      "text": {
+        "en": "I remember and dwell on my failings.",
+        "zh": "我会回想自己的不足，并反复纠结于此。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-15",
+      "sourceNumber": 15,
+      "text": {
+        "en": "I call myself names.",
+        "zh": "我会用贬损的话称呼自己。"
+      },
+      "part": "hated",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-16",
+      "sourceNumber": 16,
+      "text": {
+        "en": "I am gentle and supportive with myself.",
+        "zh": "我会温和地对待自己，并支持自己。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-17",
+      "sourceNumber": 17,
+      "text": {
+        "en": "I can’t accept failures and setbacks without feeling inadequate.",
+        "zh": "在接受失败或挫折时，我很难不觉得自己不够好。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-18",
+      "sourceNumber": 18,
+      "text": {
+        "en": "I think I deserve my self-criticism.",
+        "zh": "我觉得自己理应受到自己的批评。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-19",
+      "sourceNumber": 19,
+      "text": {
+        "en": "I am able to care and look after myself.",
+        "zh": "我能够关心并照顾自己。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-20",
+      "sourceNumber": 20,
+      "text": {
+        "en": "There is a part of me that wants to get rid of the bits I don’t like.",
+        "zh": "我内心的一部分想摆脱自己身上那些我不喜欢的方面。"
+      },
+      "part": "inadequate",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-21",
+      "sourceNumber": 21,
+      "text": {
+        "en": "I encourage myself for the future.",
+        "zh": "我会鼓励自己面对未来。"
+      },
+      "part": "reassured",
+      "sensitive": false
+    },
+    {
+      "id": "fscrs-22",
+      "sourceNumber": 22,
+      "text": {
+        "en": "I do not like being me.",
+        "zh": "我不喜欢自己。"
+      },
+      "part": "hated",
+      "sensitive": false
+    }
+  ],
+  "responses": [
+    {
+      "id": "1",
+      "value": 1,
+      "label": {
+        "en": "Not at all like me",
+        "zh": "完全不符合我"
+      }
+    },
+    {
+      "id": "2",
+      "value": 2,
+      "label": {
+        "en": "2",
+        "zh": "2"
+      }
+    },
+    {
+      "id": "3",
+      "value": 3,
+      "label": {
+        "en": "3",
+        "zh": "3"
+      }
+    },
+    {
+      "id": "4",
+      "value": 4,
+      "label": {
+        "en": "4",
+        "zh": "4"
+      }
+    },
+    {
+      "id": "5",
+      "value": 5,
+      "label": {
+        "en": "Extremely like me",
+        "zh": "非常符合我"
+      }
+    },
+    {
+      "id": "na",
+      "value": "na",
+      "sourceScore": null,
+      "label": {
+        "en": "Skip this statement",
+        "zh": "跳过此项"
+      },
+      "provenance": "Explicit web sentinel;not a numeric source response or imputed score"
+    }
+  ],
+  "method": {
+    "key": {
+      "inadequate": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        14,
+        17,
+        18,
+        20
+      ],
+      "hated": [
+        9,
+        10,
+        12,
+        15,
+        22
+      ],
+      "reassured": [
+        3,
+        5,
+        8,
+        11,
+        13,
+        16,
+        19,
+        21
+      ]
+    },
+    "numericResponses": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explicitSkipSentinel": "na",
+    "reverseItems": [],
+    "fixedNumericRecallPeriod": null,
+    "strictNumericCounts": {
+      "inadequate": 9,
+      "hated": 5,
+      "reassured": 8
+    },
+    "sumRanges": {
+      "inadequate": [
+        9,
+        45
+      ],
+      "hated": [
+        5,
+        25
+      ],
+      "reassured": [
+        8,
+        40
+      ]
+    },
+    "meanRange": [
+      1,
+      5
+    ],
+    "meanDisplayDecimals": 2,
+    "missing": "Any na in a part =>both sum and mean null. Never impute, prorate, countskipas1/0, or calculatefromremainingresponses.",
+    "completion": "All22 explicit choices required to finish, each integer1..5 orna. Allna is a valid finished response with3unscoredparts and3readableFULLguides. Blank/unanswered remains distinct fromna.",
+    "badData": "Reject missing/extra/duplicate IDs, sparse arrays, unknownskipmarkers, noninteger, outofrange, boolean/stringcoercion, NaN/Infinity;not silentNA.",
+    "noOutputs": [
+      "overall total",
+      "winner",
+      "dominant voice",
+      "six voice types",
+      "percentile",
+      "severity band",
+      "diagnosis",
+      "risk category",
+      "risk alert from an item or score",
+      "reliable change claim",
+      "reverse-coded reassurance"
+    ],
+    "higherMeaning": {
+      "inadequate": "Greater endorsement of the specified inadequate/selfcritical responses",
+      "hated": "Greater endorsement of specified selfhating/selfattacking responses",
+      "reassured": "Greater endorsement of specified selfreassuring responses"
+    }
+  },
+  "adoptedCandidateSHA256": "f82dd8073db6f6080b4ce696a1ac39d47501c90b3d5797400b7f00ee565ae44f",
+  "profilesSHA256": "da9cbbaea661adb34ccbc109be00e2da98e1b2c802cef858e5ff59219a56dff0",
+  "questionsSHA256": "9c85495b6ba565ce3054876daf2b40e5456ec9c253e7d101762ea0ffaa65d23b"
+}

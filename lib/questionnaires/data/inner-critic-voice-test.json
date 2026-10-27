@@ -1,0 +1,2171 @@
+{
+  "slug": "inner-critic-voice-test",
+  "code": "FSCRS22_HALAMOVA_2019",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "framework",
+  "kind": "fscrs22",
+  "title": {
+    "en": "Inner Critic Voice Test",
+    "zh": "内心批评家声音测试"
+  },
+  "seoTitle": {
+    "en": "Inner Critic Voice Test: FSCRS 22 & Three Readouts",
+    "zh": "内心批评家声音测试：FSCRS 22 题与三部分读数"
+  },
+  "description": {
+    "en": "Explore 22 FSCRS statements about self-criticism and self-reassurance. Read three full explanations, skip any item and keep answers private in this web edition.",
+    "zh": "阅读完整 22 条 FSCRS 来源陈述，任何题目都可跳过；分别理解自我批评、厌恶自我与自我支持的读数和完整解释。网页工作版，不作诊断或风险分类。"
+  },
+  "minutes": 6,
+  "resultHeading": {
+    "en": "Your three separate FSCRS readouts",
+    "zh": "本次 FSCRS 三部分独立读数"
+  },
+  "introduction": {
+    "en": "Explore self-critical and self-reassuring responses with all 22 English-source statements, a Chinese working translation and three complete explanations. Skip any statement. No total, winning type or diagnostic cutoff.\n\nFSCRS 22 working web edition: three separate parts\n\nWhen something goes wrong or you face a setback, how do you tend to respond to yourself? Read each statement and choose how much it is like you. The source specifies no fixed number of days or weeks to recall, and this edition does not add one.\n\nResponses and calculated values stay only in the current page memory. No response storage, answer uploads, answer URLs or private-result sharing. Clear, reload or language change removes the responses. Public explanations contain no personal result.",
+    "zh": "通过完整 22 条来源陈述、中文工作译文与三份完整解释，观察自我批评和自我支持的反应。任何题目都可跳过；不合成总分，不选主类型，不设置诊断分界。\n\nFSCRS 22 题网页工作版：分别呈现三个部分\n\n事情不顺或遇到挫折时，你通常怎样回应自己？请阅读每条陈述，选择它与你的相符程度。来源没有指定回顾过去几天或几周，本版也不额外添加期限。\n\n答案和计算值只留在当前页面内存，不保存答案、不上传答卷、不放入网址，也不提供私人成绩分享。清除、刷新或换语言会移除答案；公开解释页不含个人结果。"
+  },
+  "instructions": {
+    "en": "When something goes wrong or you face a setback, how do you tend to respond to yourself? Read each statement and choose how much it is like you. The source specifies no fixed number of days or weeks to recall, and this edition does not add one.\n\nThere are 22 statements and three separate parts. This is self-paced and has no timed score. You may skip any statement, finish with skips, or read all explanations without answering. The skip option and these web instructions are FermatMind adaptations.",
+    "zh": "事情不顺或遇到挫折时，你通常怎样回应自己？请阅读每条陈述，选择它与你的相符程度。来源没有指定回顾过去几天或几周，本版也不额外添加期限。\n\n共 22 条陈述，分别属于三个部分，按自己的节奏作答，不计算限时成绩。可以跳过任何题目，带着跳过项完成，也可以不答题直接阅读全部解释。跳过选项与这里的网页说明是费马的改编。"
+  },
+  "directions": [
+    {
+      "id": "inadequate",
+      "title": {
+        "en": "Feeling inadequate and self-critical",
+        "zh": "不足感与自我批评"
+      },
+      "itemCount": 9
+    },
+    {
+      "id": "hated",
+      "title": {
+        "en": "Self-hatred and self-directed attack",
+        "zh": "对自己的厌恶与攻击"
+      },
+      "itemCount": 5
+    },
+    {
+      "id": "reassured",
+      "title": {
+        "en": "Self-reassurance and support",
+        "zh": "自我安慰与支持"
+      },
+      "itemCount": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "fscrs-01",
+      "prompt": {
+        "en": "I am easily disappointed with myself.",
+        "zh": "我很容易对自己失望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-02",
+      "prompt": {
+        "en": "There is a part of me that puts me down.",
+        "zh": "我内心有一部分在贬低自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-03",
+      "prompt": {
+        "en": "I am able to remind myself of positive things about myself.",
+        "zh": "我能够提醒自己，自己也有积极的一面。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-04",
+      "prompt": {
+        "en": "I find it difficult to control my anger and frustration at myself.",
+        "zh": "我很难控制对自己产生的愤怒和挫败感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-05",
+      "prompt": {
+        "en": "I find it easy to forgive myself.",
+        "zh": "我觉得原谅自己并不难。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-06",
+      "prompt": {
+        "en": "There is a part of me that feels I am not good enough.",
+        "zh": "我内心有一部分觉得自己不够好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-07",
+      "prompt": {
+        "en": "I feel beaten down by my own self-critical thoughts.",
+        "zh": "自我批评的想法让我感到备受打击。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-08",
+      "prompt": {
+        "en": "I still like being me.",
+        "zh": "我仍然喜欢自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-09",
+      "prompt": {
+        "en": "I have become so angry with myself that I want to hurt or injure myself.",
+        "zh": "我对自己愤怒到了想伤害自己的地步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "hated",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "hated",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "hated",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "hated",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "hated",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "hated",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-10",
+      "prompt": {
+        "en": "I have a sense of disgust with myself.",
+        "zh": "我对自己有一种厌恶感。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "hated",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "hated",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "hated",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "hated",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "hated",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "hated",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-11",
+      "prompt": {
+        "en": "I can still feel lovable and acceptable.",
+        "zh": "我仍能觉得自己是能被爱、能被接纳的人。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-12",
+      "prompt": {
+        "en": "I stop caring about myself.",
+        "zh": "我不再关心自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "hated",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "hated",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "hated",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "hated",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "hated",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "hated",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-13",
+      "prompt": {
+        "en": "I find it easy to like myself.",
+        "zh": "我觉得喜欢自己并不难。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-14",
+      "prompt": {
+        "en": "I remember and dwell on my failings.",
+        "zh": "我会回想自己的不足，并反复纠结于此。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-15",
+      "prompt": {
+        "en": "I call myself names.",
+        "zh": "我会用贬损的话称呼自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "hated",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "hated",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "hated",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "hated",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "hated",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "hated",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-16",
+      "prompt": {
+        "en": "I am gentle and supportive with myself.",
+        "zh": "我会温和地对待自己，并支持自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-17",
+      "prompt": {
+        "en": "I can’t accept failures and setbacks without feeling inadequate.",
+        "zh": "在接受失败或挫折时，我很难不觉得自己不够好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-18",
+      "prompt": {
+        "en": "I think I deserve my self-criticism.",
+        "zh": "我觉得自己理应受到自己的批评。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-19",
+      "prompt": {
+        "en": "I am able to care and look after myself.",
+        "zh": "我能够关心并照顾自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-20",
+      "prompt": {
+        "en": "There is a part of me that wants to get rid of the bits I don’t like.",
+        "zh": "我内心的一部分想摆脱自己身上那些我不喜欢的方面。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "inadequate",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "inadequate",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "inadequate",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "inadequate",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "inadequate",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "inadequate",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-21",
+      "prompt": {
+        "en": "I encourage myself for the future.",
+        "zh": "我会鼓励自己面对未来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "reassured",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "reassured",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "reassured",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "reassured",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "reassured",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "reassured",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "fscrs-22",
+      "prompt": {
+        "en": "I do not like being me.",
+        "zh": "我不喜欢自己。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Not at all like me",
+            "zh": "完全不符合我"
+          },
+          "directionId": "hated",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2",
+            "zh": "2"
+          },
+          "directionId": "hated",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3",
+            "zh": "3"
+          },
+          "directionId": "hated",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4",
+            "zh": "4"
+          },
+          "directionId": "hated",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Extremely like me",
+            "zh": "非常符合我"
+          },
+          "directionId": "hated",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Skip this statement",
+            "zh": "跳过此项"
+          },
+          "directionId": "hated",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "inadequate",
+      "directionIds": [
+        "inadequate"
+      ],
+      "title": {
+        "en": "Feeling inadequate and self-critical",
+        "zh": "不足感与自我批评"
+      },
+      "headline": {
+        "en": "Feeling inadequate and self-critical",
+        "zh": "不足感与自我批评"
+      },
+      "summary": {
+        "en": "This part concerns feeling disappointed, not good enough or defeated by your own criticism when things go wrong. It describes endorsed responses, not your competence or worth.",
+        "zh": "这一部分关注事情不顺时，对自己失望、觉得不够好，以及被自我批评打击的反应。它呈现你对这些陈述的认可程度，不评价你的能力或价值。"
+      },
+      "scoreReading": {
+        "en": "With all nine statements scored from 1 to 5, the sum is 9–45 and the mean is 1–5. A larger value means greater endorsement of these nine responses. If any statement is skipped, this part has no sum or mean.",
+        "zh": "九条陈述都以 1–5 作答时，原始和为 9–45，平均值为 1–5。数值较大表示更认可这九条反应。任一条选择跳过，这一部分就不计算原始和与平均值。"
+      },
+      "seo": {
+        "title": {
+          "en": "Feeling Inadequate: Reading This FSCRS Part",
+          "zh": "不足感与自我批评：怎样读这一部分"
+        },
+        "description": {
+          "en": "Understand the nine-item FSCRS Inadequate Self readout, a worked score example, everyday context, missing responses and practical next steps.",
+          "zh": "理解 FSCRS 九题不足式自我反应的读数、算例、具体处境与跳过规则，并找到与实际需要相称的下一步。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A response to a setback, rather than a verdict on you",
+            "zh": "描述挫折后的反应，不给整个人下结论"
+          },
+          "paragraphs": [
+            {
+              "en": "A specific mistake and a judgement about your whole self can arrive almost together. You might notice an incorrect figure in a document, then move from “that figure needs correcting” to a broader feeling of not being good enough. The Inadequate Self part asks about that self-critical response: disappointment, being put down by a part of yourself, dwelling on failings and feeling defeated by your own thoughts.",
+              "zh": "一个具体失误，和对整个人的否定，有时会接连出现。例如，你先发现文档里有个数字写错了，随后便从“这个数字需要改”跳到“我就是不够好”。不足感与自我批评这一部分关注后者：对自己失望，内心有部分在贬低自己，反复纠结不足，或被自己的批评想法打击。"
+            },
+            {
+              "en": "These nine statements do not check whether your work was actually good, whether someone treated you fairly or whether you met an objective standard. A person can make a serious mistake and respond without attacking their whole identity; a person can also feel inadequate after an ordinary, repairable error. Keep the event and your way of responding to it as two things you can examine separately.",
+              "zh": "这九条陈述不核查你的工作究竟做得怎样，也不判断别人是否公平、你是否达到某个客观标准。一个人可能犯了较大的错误，却没有因此否定整个人；也可能面对一个普通、可修正的失误，就强烈觉得自己不够好。可以把“发生了什么”和“我怎样回应自己”分开观察。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "What the sum and mean actually say",
+            "zh": "原始和与平均值具体表示什么"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional example, nine responses of 1, 2, 3, 4, 5, 1, 2, 3 and 4 add to 25. The exact mean is 25 ÷ 9, displayed as 2.78 when rounded to two decimal places. This is an average of the selected response values. It is not 25 percent self-critical, a population percentile or a level called mild, moderate or severe.",
+              "zh": "用一组虚构答案演示：九条依次选 1、2、3、4、5、1、2、3、4，原始和是 25；精确平均值为 25 ÷ 9，保留两位小数显示 2.78。它只是所选数值的平均，不是“25% 的自我批评”、人群百分位，也不对应轻度、中度或重度。"
+            },
+            {
+              "en": "The smallest possible sum is nine because this edition follows the 2019 paper’s 1–5 coding. The bottom value does not represent nine episodes or nine symptoms. This web edition supplies no cutoff and no reference population for turning a sum into a judgement. Also avoid comparing its raw sum with the five-item or eight-item parts: they contain different numbers of statements.",
+              "zh": "这一版沿用 2019 年论文的 1–5 编码，所以原始和最低为 9。这个起点不代表发生过九次，也不代表九项症状。本网页工作版不提供用于下结论的分界值或参照人群。也不要把它的原始和直接与另外五题、八题部分比较；题数本来就不同。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "One missed detail at work",
+            "zh": "工作里漏掉一个细节时"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Lina sends a draft before noticing an outdated date. Her colleague asks for a correction. One possible response is to change the date, tell the colleague what was corrected and check the remaining dates. Another layer may appear at the same time: she repeatedly reviews past mistakes and feels that the request proves she is inadequate. This example illustrates a response pattern; it does not tell us Lina’s score.",
+              "zh": "设想小林发出一份初稿，后来才发现其中一个日期没有更新，同事请她修正。她可以改好日期，说明改了哪里，再检查其余日期。与此同时，也可能多出另一层反应：不断翻出从前的失误，觉得这次修改要求证明了自己不够好。这个情境只帮助理解一种反应，不足以推算小林的分数。"
+            },
+            {
+              "en": "If this scene feels familiar, a concrete distinction is available: “the date was wrong” describes an event; “I cannot do anything well” reaches far beyond it. You do not have to deny the mistake or force yourself to feel confident. An optional next step is simply to name the repairable part of the problem, then notice whether a broader self-judgement is making that repair harder.",
+              "zh": "如果你对这个情境有共鸣，可以先分清两句话：“日期写错了”说的是一件事，“我什么都做不好”则把结论扩大了许多。你不必否认失误，也不必强迫自己马上自信起来。一个可选的小步骤，是先指出问题中能修正的部分，再留意：对整个人的批判，是否让修正变得更困难。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "Do not erase the situation around the response",
+            "zh": "别把处境从解释里删掉"
+          },
+          "paragraphs": [
+            {
+              "en": "Criticism does not occur in a vacuum. An unclear brief, exclusion, exhausting conditions or repeated unfair feedback can be part of what happened. This questionnaire does not investigate those circumstances. A response about feeling inadequate cannot establish that the problem is entirely inside you, and it should not be used to excuse someone else’s harmful behaviour.",
+              "zh": "自我批评并非总在真空里发生。要求不清、被排斥、令人疲惫的条件，或持续不公平的反馈，都可能是事件的一部分。问卷没有调查这些处境。仅凭你觉得自己不足，不能断言问题全在你身上，更不能替别人的伤害性行为开脱。"
+            },
+            {
+              "en": "The reverse inference is also unsafe. Less endorsement of these statements does not prove that you are more capable, more resilient or free of distress. Someone may describe a setback in practical terms while struggling in another way. Use the readout to understand the wording you endorsed, and use the actual situation to decide what needs attention.",
+              "zh": "反过来也不能推得太远。较少认可这些陈述，不证明你能力更强、韧性更好，或没有困扰。有的人谈失误时很务实，却可能在其他方面难受。读数用来理解你认可了哪些表述；具体需要处理什么，仍要回到真实处境。"
+            }
+          ]
+        },
+        {
+          "id": "observation",
+          "title": {
+            "en": "A short note with three separate lines",
+            "zh": "用三行短记录拆开观察"
+          },
+          "paragraphs": [
+            {
+              "en": "If you want a practical reflection, write three short lines after a setback: what happened in observable terms; what you said to yourself; and one proportionate action that the situation calls for. For Lina, those might be “one date was outdated”, “I started listing my old mistakes”, and “correct this draft and check the dates”. You can keep the note private and stop if writing feels unhelpful.",
+              "zh": "如果想做一点具体观察，可以在一次挫折后分三行写：能直接观察到的事情、当时怎样对自己说话、以及与这件事相称的一个行动。小林的记录可能是“有一个日期过期了”“我开始翻旧账批评自己”“修正初稿并检查日期”。记录可以只留给自己；若写下来反而不舒服，也可以停止。"
+            },
+            {
+              "en": "This is an optional writing prompt, not an extra part of FSCRS scoring or a proven treatment supplied by the test. Its purpose here is to make the distinction visible. A request for clearer instructions, a realistic workload discussion or help from another person may be more relevant than another attempt at the questionnaire.",
+              "zh": "这只是一个可选的记录提示，不是 FSCRS 的新增计分题，也不冒称本测试提供了经过验证的治疗。它在这里的作用，是把几件容易混在一起的事分清。比起再测一次，向对方确认要求、讨论现实工作量，或请人协助，有时更切合当前需要。"
+            }
+          ]
+        },
+        {
+          "id": "missing-change",
+          "title": {
+            "en": "Skipped statements and a later attempt",
+            "zh": "跳过题目与以后再测"
+          },
+          "paragraphs": [
+            {
+              "en": "A skipped statement is not a low response. With eight numeric answers and one skip, this part remains unscored, even if the eight values could be added. The page can show that eight of nine required numeric responses are available, while leaving both the sum and mean blank. Its full explanation stays readable, so you do not have to answer an uncomfortable statement to access it.",
+              "zh": "跳过不等于选了低分。即使已有八条数字答案，只要还跳过一条，这部分就不计分，不会把八条相加后当成完整结果。页面可以提示九条所需数字答案中已有八条，但原始和与平均值都留空。完整解释仍然可读，不必为了解锁正文而回答不舒服的题目。"
+            },
+            {
+              "en": "The source does not specify a fixed number of days or weeks to remember. This edition does not add one. If you choose to answer again, note for yourself what you had in mind and whether you understood the statements in the same way. A changed number alone does not demonstrate recovery, deterioration or a meaningful treatment effect.",
+              "zh": "来源没有指定回顾过去几天或几周，本版也不额外添加一个期限。如果以后再答，可以自己留意当时想到的情境，以及对陈述的理解是否相同。数字变化本身，不能证明好转、恶化，或具有意义的治疗效果。"
+            }
+          ]
+        },
+        {
+          "id": "three-parts",
+          "title": {
+            "en": "Keep self-criticism and support visible together",
+            "zh": "把批评和支持分别看清"
+          },
+          "paragraphs": [
+            {
+              "en": "Inadequate Self, Hated Self and Reassured Self are three different parts of the questionnaire. Feeling disappointed in yourself is not the same statement as wanting to hurt yourself; being able to offer yourself support is not simply a reverse-scored version of either. This edition preserves the three keys instead of subtracting support from criticism or choosing the largest mean as a winning voice.",
+              "zh": "不足式自我反应、厌恶自我式反应和自我安慰，是问卷中的三个不同部分。对自己失望，与想伤害自己不是同一条陈述；能支持自己，也不只是把前两者倒过来打分。本版保留三组原始归属，不用“批评减支持”造总分，也不把最高平均值封为主声音。"
+            },
+            {
+              "en": "It is possible to recognise both harsh criticism and moments of self-support in your answers. Rather than treating that as a contradiction, look at the actual statements and contexts you were considering. A useful question is what happens after a particular setback, including what makes repair, support or help-seeking easier. The three readouts cannot answer that question for you.",
+              "zh": "你可能既觉得一些自我批评陈述符合自己，也觉得一些自我支持陈述符合自己。这不必立刻被判成“前后矛盾”；可以看看作答时想到的具体内容与处境。更有用的问题可能是：某次挫折之后发生了什么，什么让修正、得到支持或求助更容易。三个读数不能替你回答这些具体问题。"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "title": {
+            "en": "Choose help from the situation, not a cutoff",
+            "zh": "根据真实需要求助，不等分数过线"
+          },
+          "paragraphs": [
+            {
+              "en": "If self-critical thoughts are repeatedly distressing or interfering with daily life, you can describe them to a qualified mental health professional or someone you trust. You do not need a particular result to ask for support. An example of what to bring is the situation, the words or feelings that followed, and how they affected what you could do next.",
+              "zh": "如果自我批评反复让你痛苦，或妨碍日常生活，可以把这些反应告诉合格的心理健康专业人员，或一位你信任的人。求助不需要某个特定结果。可以具体说明发生了什么、随后出现哪些想法或感受，以及它们怎样影响接下来的生活与行动。"
+            },
+            {
+              "en": "If you might harm yourself now, stop the test and contact local emergency services or an emergency department. If possible, ask a trusted person to stay with you while you seek help. Neither a small value nor an unscored part establishes safety. This questionnaire does not make a crisis assessment, and support does not depend on finishing it.",
+              "zh": "如果你担心自己现在会伤害自己，请先停止测试，联系所在地急救服务或就近急诊；如果可以，请一位可信任的人陪你一起求助。较小的数值、或没有算出这一部分，都不能证明安全。问卷不作危机评估，获得支持也不以完成问卷为条件。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hated",
+      "directionIds": [
+        "hated"
+      ],
+      "title": {
+        "en": "Self-hatred and self-directed attack",
+        "zh": "对自己的厌恶与攻击"
+      },
+      "headline": {
+        "en": "Self-hatred and self-directed attack",
+        "zh": "对自己的厌恶与攻击"
+      },
+      "summary": {
+        "en": "This part concerns harsh rejection of yourself, including disgust, name-calling, withdrawing care and thoughts of self-injury. It is a set of reported responses, not a label for the kind of person you are.",
+        "zh": "这一部分关注对自己的严厉否定，包括厌恶、贬损称呼、不再关心自己，以及伤害自己的想法。它呈现一组自述反应，不给你贴人格标签。"
+      },
+      "scoreReading": {
+        "en": "Five numeric responses produce a sum of 5–25 and a mean of 1–5. A larger value reflects greater average endorsement of these five statements. No value is used to determine immediate danger, a diagnosis or a risk category. A skip leaves this part unscored.",
+        "zh": "五条数字答案可得到 5–25 的原始和与 1–5 的平均值。数值较大表示，对这五条陈述的平均认可程度较高。本版不用任何数值判定当前危险、诊断或风险类别；跳过任一条，则这一部分不计分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Self-Hatred and Attack: Reading This FSCRS Part",
+          "zh": "对自己的厌恶与攻击：怎样读这一部分"
+        },
+        "description": {
+          "en": "Read the five-item FSCRS Hated Self part carefully: what its sum means, why it is not a risk screen, how skipping works and when to seek real-time support.",
+          "zh": "谨慎理解 FSCRS 五题厌恶自我部分：原始和表示什么、为什么不能筛查风险、怎样跳过，以及何时应直接寻求支持。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What changes when criticism turns into rejection",
+            "zh": "当批评变成对自己的否定"
+          },
+          "paragraphs": [
+            {
+              "en": "Being frustrated with a mistake and turning against yourself are related experiences, but they are not interchangeable descriptions. The five Hated Self statements ask about being so angry with yourself that you want to hurt yourself, disgust with yourself, stopping caring about yourself, calling yourself names and not liking being you. The full wording matters; this part is not simply a measure of being demanding.",
+              "zh": "为失误感到挫败，与把矛头转向自己，有联系，却不是可以互换的描述。厌恶自我部分的五条陈述，涉及对自己愤怒到想伤害自己、厌恶自己、不再关心自己、用贬损的话称呼自己，以及不喜欢自己。需要保留这些具体内容；它并不只是测量“对自己要求高”。"
+            },
+            {
+              "en": "The source name is a name for this part of a questionnaire. It should not become a label such as a bad personality or an identity you have to accept. You may recognise some statements and not others. A response also cannot tell the page why a thought appeared, whether it is present now, or what practical help is needed.",
+              "zh": "来源中的名称，是问卷某一部分的名称，不应变成“人格不好”之类的标签，也不是你必须认领的身份。你可能对某些陈述有共鸣，对另一些没有。一个答案也无法告诉页面：想法为何出现、现在是否仍在，或者你具体需要什么帮助。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "A score example without a severity label",
+            "zh": "用算例读数，不附加严重程度标签"
+          },
+          "paragraphs": [
+            {
+              "en": "In a fictional set of five responses, 1, 2, 3, 4 and 5 add to 15 and average to 3.00. That arithmetic describes the selected values. It does not establish a moderate level of danger, a probability of self-harm or a clinical category. The 2019 source endpoints are retained, while the middle choices remain the numbers 2, 3 and 4 rather than invented frequency labels.",
+              "zh": "用一组虚构的五条答案演示：1、2、3、4、5 相加为 15，平均值为 3.00。这是对所选数值的计算，不表示“中等危险”、自伤概率或临床类别。本版保留 2019 年来源的两端锚点，中间选项只写数字 2、3、4，不编造频率标签。"
+            },
+            {
+              "en": "A sum from five statements cannot be ranked against the raw sum from nine or eight statements as though the biggest total identifies the loudest critic. Even the part mean is not a risk screen. If there is an immediate concern about your safety, use the support instructions now; you do not need to calculate a result or decide which label fits.",
+              "zh": "五条陈述的原始和，不能和九条、八条的原始和放在一起排名，再用最高值判断“哪个批评家声音最大”。这一部分的平均值也不是风险筛查。如果你现在担心自己的安全，应直接按支持说明求助，不必先算出结果，或挑选一个符合自己的标签。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "After an upsetting conversation",
+            "zh": "一次令人难受的谈话之后"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a fictional person, Wei, after receiving criticism about a shared project. He may want to understand the complaint and repair a mistake. He may also notice a different response: using a harsh name for himself, feeling disgust rather than describing a specific action, or thinking that he no longer deserves ordinary care. These experiences illustrate why the statements name different responses, not one generic feeling of stress.",
+              "zh": "设想一个虚构情境：小伟因为共同项目里的问题受到批评。他可能想弄清对方的不满，并修正失误；也可能留意到另一类反应：用贬损的称呼说自己，不再描述具体行为而是厌恶整个人，或觉得自己不值得被照顾。这些情境用于帮助理解：陈述说的是不同反应，不是一个笼统的“压力感”。"
+            },
+            {
+              "en": "The example does not establish his score and cannot settle whether the criticism was fair. It also does not mean every person who has a self-rejecting thought will act on it. Conversely, a questionnaire response cannot rule out a current safety concern. Where safety is uncertain, getting real-time help takes priority over interpreting this example or finishing the remaining statements.",
+              "zh": "情境不能推算小伟的分数，也不能判定对方的批评是否公平。出现否定自己的想法，不等于每个人都会据此行动；反过来，一个问卷答案也排除不了当前的安全问题。若安全状况让你担心，实时求助应优先于解读这个例子或做完剩余题目。"
+            }
+          ]
+        },
+        {
+          "id": "skip",
+          "title": {
+            "en": "Skipping is a valid way to use this page",
+            "zh": "跳过也是正常的使用方式"
+          },
+          "paragraphs": [
+            {
+              "en": "One statement explicitly mentions wanting to hurt or injure yourself. You can skip it, any other statement, or the whole questionnaire. The skip choice is a web adaptation and is not assigned a response value. With four numeric answers and one skip, this part shows four of five numeric responses available and has no sum or mean. It does not estimate the missing answer.",
+              "zh": "其中一条明确提到想伤害自己。你可以跳过这一条、任何其他题目，或整个问卷。跳过是网页工作版添加的选项，没有对应分值。若五条中有四条数字答案、一条跳过，页面只显示已有四条所需数字答案，不给原始和或平均值，也不估算缺少的答案。"
+            },
+            {
+              "en": "You can still read all three full explanations after choosing skips, including when every statement is skipped. Reading the method and support information is not a reward for disclosure. If you do not want to answer a sensitive statement, you do not owe the page an explanation, and a skipped result must not be displayed as zero concern.",
+              "zh": "即使有跳过，甚至所有题都选择跳过，三份完整解释仍然可以阅读。方法和支持信息不应成为透露私人感受之后才能得到的奖励。若不想回答某条敏感陈述，你不必向页面解释原因；跳过的结果更不能被显示成“没有问题”。"
+            }
+          ]
+        },
+        {
+          "id": "risk",
+          "title": {
+            "en": "Five answers cannot assess a crisis",
+            "zh": "五条答案无法完成危机评估"
+          },
+          "paragraphs": [
+            {
+              "en": "These statements do not establish current intent, plans, access to means, injuries or the other information a professional may need in an urgent assessment. This edition therefore does not attach a risk colour, alert level or crisis prediction to an item or part score. Choosing the smallest response is not proof of safety, and choosing a larger response is not a diagnosis.",
+              "zh": "这些陈述没有确认当前意图、计划、是否容易接触到可致伤物品、是否已经受伤，以及专业人员在紧急评估中可能需要了解的其他情况。因此，本版不会给单题或部分分数加上风险颜色、警报等级或危机预测。选择最小数值不能证明安全，选择较大数值也不等于诊断。"
+            },
+            {
+              "en": "If you may harm yourself now or need urgent medical care, stop the questionnaire and contact local emergency services or an emergency department. If possible, involve a trusted person who can stay with you while you seek help. The support message is available regardless of your answers. Do not wait for a total, a threshold or a completed result before acting on an immediate need.",
+              "zh": "如果你担心自己现在会伤害自己，或需要紧急医疗帮助，请停止问卷，联系所在地急救服务或就近急诊；如果可以，请可信任的人陪同求助。无论怎么作答，支持说明都可以直接查看。真实而紧急的需要，不必等待总分、分界值或完整结果来许可。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "A practical step does not have to be self-punishment",
+            "zh": "处理问题，不必以惩罚自己为前提"
+          },
+          "paragraphs": [
+            {
+              "en": "When there is no immediate danger and reflection feels manageable, you might identify one ordinary need that has been pushed aside: food, rest, a conversation or help with the situation. Asking someone to help you organise the next step can be more usable than demanding that you suddenly like yourself. These are optional ways to notice a need, not a treatment plan derived from your score.",
+              "zh": "在没有眼前危险、且回顾感受仍可承受时，可以留意一个被搁置的普通需要：吃饭、休息、找人说话，或请人协助处理眼前的事。比起要求自己立刻喜欢自己，请别人帮忙梳理下一步，可能更容易做到。这些只是留意需要的可选方式，不是根据分数开出的治疗方案。"
+            },
+            {
+              "en": "Accountability and care can occur together. You can acknowledge harm, apologise or correct work without deciding that you should be deprived of basic care. A difficult relationship, exclusion or an unsafe environment may also require practical protection or outside support. The questionnaire cannot determine which of those circumstances applies to you.",
+              "zh": "承担责任与照顾自己可以同时发生。你可以承认造成的影响、道歉或修正工作，而不因此认定自己应被剥夺基本照顾。艰难的关系、排斥或不安全的环境，也可能需要现实保护与外部支持。问卷无法判断你具体处在哪一种情形中。"
+            }
+          ]
+        },
+        {
+          "id": "coexist",
+          "title": {
+            "en": "Support does not cancel a painful response",
+            "zh": "有自我支持，也不必忽略痛苦"
+          },
+          "paragraphs": [
+            {
+              "en": "You might endorse some self-reassuring statements as well as some self-rejecting ones. This edition does not subtract one part from the other to produce a reassuring net result. Those responses may concern different occasions or different aspects of what happened. Seeing them side by side can invite a more specific conversation, rather than forcing one story about your personality.",
+              "zh": "你可能既认可一些自我安慰的陈述，也认可一些否定自己的陈述。本版不会用两部分相减，算出一个看似可以放心的“净结果”。它们可能对应不同情境，也可能描述同一件事的不同方面。并排呈现，是为了让讨论更具体，而不是强迫你接受一个关于自己人格的单一故事。"
+            },
+            {
+              "en": "Nor does a later decrease establish that an earlier difficulty has been resolved. Context, interpretation and what you felt able to report can all differ between attempts. If you are already receiving care, the most useful information to bring may be the actual experience and what has changed in daily life, not a target number you think you ought to reach.",
+              "zh": "以后数值降低，也不能单凭这一点断言从前的困扰已经解决。处境、对题目的理解，以及愿意或能够表达的程度，都可能变化。如果正在接受支持或治疗，更值得带去讨论的，往往是真实经历与生活中发生的变化，而不是觉得自己应当达到的某个数字。"
+            }
+          ]
+        },
+        {
+          "id": "talk",
+          "title": {
+            "en": "A conversation can start without a result",
+            "zh": "没有结果，也能开始求助"
+          },
+          "paragraphs": [
+            {
+              "en": "If these thoughts are recurring, frightening or difficult to manage, consider speaking with a qualified mental health professional. You can say what happens after a setback, whether the thoughts feel current, and what makes daily life harder. You do not have to use the term Hated Self, and this page cannot decide what care you need.",
+              "zh": "如果这些想法反复出现、让你害怕，或很难应对，可以向合格的心理健康专业人员求助。可以说说挫折之后通常发生什么、这些想法现在是否仍在，以及哪些日常事情变得困难。你不必使用“厌恶自我”这个术语，本页也不能替你决定需要怎样的照护。"
+            },
+            {
+              "en": "A trusted person can also help you take the first practical step, such as staying with you or helping you contact a service. If the need is urgent, use emergency care rather than waiting for an appointment or another test. Asking for support is available to people with any response pattern, including no calculated result at all.",
+              "zh": "可信任的人也可以帮助迈出实际的第一步，例如陪着你，或协助联系服务。如果需要紧急帮助，应使用急救或急诊，而不是等候预约、或再做一遍测试。无论答案是什么、甚至完全没有算出结果，都可以获得支持。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reassured",
+      "directionIds": [
+        "reassured"
+      ],
+      "title": {
+        "en": "Self-reassurance and support",
+        "zh": "自我安慰与支持"
+      },
+      "headline": {
+        "en": "Self-reassurance and support",
+        "zh": "自我安慰与支持"
+      },
+      "summary": {
+        "en": "This part concerns being able to remember positive things about yourself, forgive yourself, offer care and encouragement, and still feel acceptable when things go wrong. Support can include taking responsibility and asking another person for help.",
+        "zh": "这一部分关注事情不顺时，能否想起自己积极的一面、原谅自己、给予照顾与鼓励，并仍感到自己可以被接纳。支持自己可以包含承担责任，也可以包含向别人求助。"
+      },
+      "scoreReading": {
+        "en": "Eight numeric responses produce a sum of 8–40 and a mean of 1–5. A larger value means greater endorsement of these supportive responses. A smaller value does not diagnose a deficiency, and a larger one does not establish safety or remove other difficulties.",
+        "zh": "八条数字答案可得到 8–40 的原始和与 1–5 的平均值。数值较大表示更认可这些支持自己的反应；数值较小不诊断某种缺陷，较大也不证明安全或排除其他困扰。"
+      },
+      "seo": {
+        "title": {
+          "en": "Self-Reassurance: Reading This FSCRS Part",
+          "zh": "自我安慰与支持：怎样读这一部分"
+        },
+        "description": {
+          "en": "Understand the eight-item FSCRS Reassured Self readout with a complete score example, realistic self-support, interpretation limits and support options.",
+          "zh": "通过完整算例理解 FSCRS 八题自我安慰部分，区分现实的自我支持、分数解释范围与可以寻求的帮助。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Support that can make room for what went wrong",
+            "zh": "能容纳失误的支持，而非强行积极"
+          },
+          "paragraphs": [
+            {
+              "en": "Self-reassurance in these statements includes reminding yourself of positive things, finding it possible to forgive or like yourself, feeling lovable and acceptable, offering gentleness and care, and encouraging yourself for the future. It is more specific than a claim that you always feel happy or that a difficult event has a positive side.",
+              "zh": "这些陈述中的自我安慰，包括提醒自己积极的一面、能够原谅或喜欢自己、仍觉得自己能被爱与接纳、温和地照顾自己，以及面向未来给予鼓励。它比“总是开心”或“凡事都能看到好处”更具体，也不要求把艰难经历改写成好事。"
+            },
+            {
+              "en": "A supportive response can acknowledge a mistake, disappointment or real harm. It might sound like recognising what needs repair while remembering that you remain a person who can receive care. These statements do not measure whether the repair succeeds, whether you are morally good or whether other people give you the support you need.",
+              "zh": "支持自己的回应，可以承认失误、失望或真实造成的影响。它可能意味着一边看清需要修正什么，一边仍承认自己是可以被照顾的人。这些陈述不测量修正是否成功，不评判道德好坏，也不核查别人是否给了你所需的支持。"
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": {
+            "en": "Why an average of 3.38 is not a grade",
+            "zh": "为什么 3.38 不是一份成绩"
+          },
+          "paragraphs": [
+            {
+              "en": "For a fictional example, responses of 5, 4, 3, 2, 1, 5, 4 and 3 add to 27. Dividing by eight gives 3.375, displayed as 3.38 to two decimal places. The display rounds the arithmetic; it does not make the questionnaire more precise as a measurement. This result is not 67.5 percent self-reassurance, a pass mark or a position among other people.",
+              "zh": "用一组虚构答案演示：5、4、3、2、1、5、4、3 相加是 27，除以八得到 3.375，保留两位小数显示 3.38。显示精度只是算术上的取舍，不会让心理测量因此更精确。它不是“67.5% 的自我安慰”、及格分，也不是在人群中的排名。"
+            },
+            {
+              "en": "The possible sum is 8–40 because this edition retains the 2019 source’s 1–5 values. There is no target that everyone ought to reach. If any of the eight statements is skipped, both numbers are withheld rather than calculated from the remainder. You can still read this full explanation and the two other parts.",
+              "zh": "本版沿用 2019 年来源的 1–5 数值，因此原始和范围为 8–40。这里没有人人都应达到的目标分。八条中任一条跳过，两个数值都不计算，不会用剩余答案代替完整部分；这份正文与另外两部分仍然可以阅读。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "An exam result and the next conversation",
+            "zh": "成绩不如预期，下一句话怎样说"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine Mei receives a lower exam result than she expected. She may feel disappointed and still be able to remember other things she has managed, recognise that one result is not her whole identity and ask a teacher which mistakes to review. That combination illustrates self-support alongside a concrete response to an unwelcome event. It does not imply that the disappointment has disappeared.",
+              "zh": "设想小梅的考试成绩比预期低。她可能很失望，同时仍能想起自己完成过的其他事情，知道一次成绩不是整个人的全部，并向老师询问值得复习的错误。这是在不喜欢的事件面前，兼顾自我支持与具体行动的一个例子，不代表失望已经消失。"
+            },
+            {
+              "en": "A different person might find supportive words difficult to believe or might need someone else’s help before they can plan a next step. That does not make the person a failure at self-reassurance. Use the example to understand the kind of response being asked about, rather than as a script you are supposed to perform or a promise of a better future result.",
+              "zh": "另一个人可能暂时难以相信安慰自己的话，或需要别人帮忙，才能安排下一步。这不等于“连自我安慰也失败了”。例子的作用是帮助理解陈述在问哪类反应，不是要求你照着表演，更不保证下一次成绩会提高。"
+            }
+          ]
+        },
+        {
+          "id": "responsibility",
+          "title": {
+            "en": "Being kind does not require dismissing feedback",
+            "zh": "温和对待自己，不等于拒绝反馈"
+          },
+          "paragraphs": [
+            {
+              "en": "Forgiving yourself need not mean deciding that nothing mattered. You can apologise, revise a decision or learn a missing skill while avoiding a judgement that you no longer deserve ordinary care. Likewise, a gentle response need not sound cheerful. It can be a calm, credible acknowledgement of what happened and what you need next.",
+              "zh": "原谅自己，不必等于认定“这件事不重要”。你可以道歉、修正决定或补学技能，同时不把结论扩大成“我不配得到基本照顾”。温和的回应也不一定听起来很乐观；它可以是平静、可信地承认发生的事与下一步需要。"
+            },
+            {
+              "en": "Real constraints still matter. Financial strain, discrimination, an unsafe relationship or demands that cannot reasonably be met are not solved by selecting a larger number. Self-support may involve asking for practical assistance, setting a boundary or involving another person. The questionnaire does not determine which action is appropriate for your circumstances.",
+              "zh": "现实限制仍然重要。经济困难、歧视、不安全的关系，或根本难以合理完成的要求，不会因为选了更大的数字就得到解决。支持自己也可能包括请求实际协助、表达边界，或请别人介入。问卷无法替你判断哪种行动适合当前处境。"
+            }
+          ]
+        },
+        {
+          "id": "credible-response",
+          "title": {
+            "en": "Try one believable response, if it helps",
+            "zh": "如果愿意，试一句可信的话"
+          },
+          "paragraphs": [
+            {
+              "en": "An optional reflection is to choose one response that feels believable rather than impressive. After a missed deadline, that might be naming the missed commitment, deciding whom to update and acknowledging that you can ask for help with the remaining work. The point is not to replace one harsh slogan with an equally absolute positive slogan.",
+              "zh": "一个可选的观察方式，是找一句自己能够相信的话，而不是一句听起来很漂亮的话。例如错过期限后，可以承认没有兑现的承诺，决定需要通知谁，也承认剩余工作可以寻求协助。这里不是把一句严厉口号，替换成另一句同样绝对的积极口号。"
+            },
+            {
+              "en": "You can also notice whether support is easier through an action than through words: taking a necessary break, asking someone to sit with you or arranging time to discuss a problem. These are examples of possible needs, not additional scored tasks or a treatment recommendation generated from your result. Leave aside any suggestion that is unhelpful or unsafe in your situation.",
+              "zh": "也可以留意，行动是否比语言更容易带来支持：安排必要的休息、请人陪一会儿，或约时间讨论问题。这些只是可能的需要示例，不是额外计分任务，也不是按结果生成的治疗建议。不适合当前处境、没有帮助或不安全的做法，都可以不采用。"
+            }
+          ]
+        },
+        {
+          "id": "translation-change",
+          "title": {
+            "en": "Read a later result with the same care",
+            "zh": "以后再读结果，也保留这些条件"
+          },
+          "paragraphs": [
+            {
+              "en": "The English statements and key in this edition come from the 2019 article’s Table 1. The Chinese is FermatMind’s working translation, not a claim to reproduce an existing validated Chinese version. A statement may feel more natural or carry a different nuance in one language. Do not assume that a small difference between languages is a real change in your underlying response.",
+              "zh": "本版英文陈述和归属键来自 2019 年论文的表 1；中文是费马新写的工作译文，不冒称复用了已有的验证版中文。有些表达在一种语言里可能更自然，也可能带有不同意味。两种语言之间的小数值差异，不应直接当成你真实反应发生了变化。"
+            },
+            {
+              "en": "There is also no fixed numeric recall period in the selected source. If you answer again, consider whether the same kinds of situations were in mind and whether you understood the statements similarly. This web edition has no reliable-change threshold or treatment target. A number can support a conversation, but it cannot certify that you are doing self-support correctly.",
+              "zh": "选定来源也没有固定的数字回忆期。如果再次作答，可以留意想到的是不是类似处境，对陈述的理解是否相近。本网页工作版不提供可靠变化界值或治疗目标。数字可以成为讨论的辅助，却不能认证你是否“正确地支持了自己”。"
+            }
+          ]
+        },
+        {
+          "id": "separate-parts",
+          "title": {
+            "en": "A resource, not a subtraction from criticism",
+            "zh": "一类支持反应，不是批评分的抵扣项"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may recognise self-support and strong self-criticism in different moments, or even around the same setback. The Reassured Self answers are therefore not reversed and added to the other two parts to produce a general badness score. Nor are they subtracted to produce a net wellness score. This page reports the original three groups separately.",
+              "zh": "一个人可能在不同时刻，甚至围绕同一次挫折，既能支持自己，也会强烈批评自己。因此，本版不会将自我安慰答案反向计分，再与另外两部分合成“总体糟糕程度”；也不会用它抵扣批评，算一个“净健康分”。页面分别报告原来的三组。"
+            },
+            {
+              "en": "This matters especially when painful or frightening thoughts are also present. Being able to name something positive about yourself does not make another concern disappear. The more useful next step may be to describe both experiences clearly and seek appropriate support, rather than deciding which part has won.",
+              "zh": "当痛苦或令人害怕的想法也存在时，这一点尤其值得保留。能说出自己积极的一面，不会让另一项困扰自动消失。接下来更有用的事，可能是把两种经历都说清楚，并寻求适当支持，而不是决定哪一部分“赢了”。"
+            }
+          ]
+        },
+        {
+          "id": "support",
+          "title": {
+            "en": "You can receive support before it feels internal",
+            "zh": "还做不到自我安慰，也可以先得到支持"
+          },
+          "paragraphs": [
+            {
+              "en": "Finding these statements difficult to endorse is not a personal failure. You can ask a trusted person or qualified mental health professional for support without first learning to reassure yourself. If distress is persistent or disrupts daily life, describe what is hard and what help would make the next step possible. The page cannot decide the cause or the care you need.",
+              "zh": "暂时难以认可这些陈述，不是个人失败。你可以先向可信任的人或合格的心理健康专业人员求助，不必先学会安慰自己。若困扰持续或妨碍生活，可以具体描述哪里困难，以及怎样的帮助能让下一步成为可能。本页不能判断原因，也不能决定你需要怎样的照护。"
+            },
+            {
+              "en": "If you may harm yourself now or need urgent medical care, stop the test and contact local emergency services or an emergency department; involve a trusted person if possible. A large self-reassurance value is not proof of safety, and an unscored result is not a reason to delay help. The full support information remains available without answering any statement.",
+              "zh": "如果你担心自己现在会伤害自己，或需要紧急医疗帮助，请停止测试，联系所在地急救服务或就近急诊；如有可能，请可信任的人陪同。自我安慰数值较大不证明安全，没有计出结果也不是延后求助的理由。即使不回答任何陈述，完整支持信息也可以直接查看。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fscrs22": {
+    "subtitle": {
+      "en": "FSCRS 22 working web edition: three separate parts",
+      "zh": "FSCRS 22 题网页工作版：分别呈现三个部分"
+    },
+    "intro": [
+      {
+        "en": "When something goes wrong or you face a setback, how do you tend to respond to yourself? Read each statement and choose how much it is like you. The source specifies no fixed number of days or weeks to recall, and this edition does not add one.",
+        "zh": "事情不顺或遇到挫折时，你通常怎样回应自己？请阅读每条陈述，选择它与你的相符程度。来源没有指定回顾过去几天或几周，本版也不额外添加期限。"
+      },
+      {
+        "en": "There are 22 statements and three separate parts. This is self-paced and has no timed score. You may skip any statement, finish with skips, or read all explanations without answering. The skip option and these web instructions are FermatMind adaptations.",
+        "zh": "共 22 条陈述，分别属于三个部分，按自己的节奏作答，不计算限时成绩。可以跳过任何题目，带着跳过项完成，也可以不答题直接阅读全部解释。跳过选项与这里的网页说明是费马的改编。"
+      }
+    ],
+    "sensitiveNotice": {
+      "en": "Some statements concern strong self-rejection, and statement 9 mentions wanting to hurt yourself. You can skip it or stop. Support information is available before, during and after the questionnaire, without a score.",
+      "zh": "部分陈述涉及强烈的自我否定，第 9 条提到想伤害自己。你可以跳过或停止；作答前、中、后都可以直接查看支持说明，不需要先得到分数。"
+    },
+    "support": {
+      "urgent": {
+        "en": "If you may harm yourself now or need urgent medical care, stop the test and contact local emergency services or an emergency department. If possible, ask a trusted person to stay with you while you seek help. Do not wait for a questionnaire result.",
+        "zh": "如果你担心自己现在会伤害自己，或需要紧急医疗帮助，请停止测试，联系所在地急救服务或就近急诊；如果可以，请可信任的人陪你一起求助。不必等待问卷结果。"
+      },
+      "nonUrgent": {
+        "en": "If self-critical or self-harming thoughts recur, distress you or disrupt daily life, consider speaking with a qualified mental health professional or a trusted person. You can describe what is happening without using a score or a questionnaire label.",
+        "zh": "如果自我批评或伤害自己的想法反复出现、让你痛苦，或妨碍日常生活，可以向合格的心理健康专业人员或可信任的人求助。可以直接说明正在发生什么，不需要先拿分数或量表标签来证明。"
+      }
+    },
+    "privacy": {
+      "en": "Responses and calculated values stay only in the current page memory. No response storage, answer uploads, answer URLs or private-result sharing. Clear, reload or language change removes the responses. Public explanations contain no personal result.",
+      "zh": "答案和计算值只留在当前页面内存，不保存答案、不上传答卷、不放入网址，也不提供私人成绩分享。清除、刷新或换语言会移除答案；公开解释页不含个人结果。"
+    },
+    "attribution": {
+      "en": "English statements and the three-part key are reproduced from Table 1 of Halamová et al. (2019), citing Gilbert et al. (2004), under CC BY 4.0, © The Author(s) 2019. FermatMind adds original web instructions, a Chinese working translation, optional skips, the mean display and explanatory text. The 2019 1–5 coding is retained. This is not an author- or institution-endorsed edition.",
+      "zh": "英文陈述和三部分归属键取自 Halamová 等（2019）论文表 1，按表中注明的 Gilbert 等（2004）保留原始来源归属；使用 CC BY 4.0 许可，© The Author(s) 2019。费马另写网页说明、中文工作译文与解释正文，并添加可跳过选项和平均值显示，保留 2019 年来源的 1–5 编码。本版不声称获得作者或机构背书。"
+    }
+  },
+  "guide": [
+    {
+      "id": "three-parts",
+      "title": {
+        "en": "Read each part separately",
+        "zh": "分别阅读三个部分"
+      },
+      "paragraphs": [
+        {
+          "en": "With all nine statements scored from 1 to 5, the sum is 9–45 and the mean is 1–5. A larger value means greater endorsement of these nine responses. If any statement is skipped, this part has no sum or mean.",
+          "zh": "九条陈述都以 1–5 作答时，原始和为 9–45，平均值为 1–5。数值较大表示更认可这九条反应。任一条选择跳过，这一部分就不计算原始和与平均值。"
+        },
+        {
+          "en": "Five numeric responses produce a sum of 5–25 and a mean of 1–5. A larger value reflects greater average endorsement of these five statements. No value is used to determine immediate danger, a diagnosis or a risk category. A skip leaves this part unscored.",
+          "zh": "五条数字答案可得到 5–25 的原始和与 1–5 的平均值。数值较大表示，对这五条陈述的平均认可程度较高。本版不用任何数值判定当前危险、诊断或风险类别；跳过任一条，则这一部分不计分。"
+        },
+        {
+          "en": "Eight numeric responses produce a sum of 8–40 and a mean of 1–5. A larger value means greater endorsement of these supportive responses. A smaller value does not diagnose a deficiency, and a larger one does not establish safety or remove other difficulties.",
+          "zh": "八条数字答案可得到 8–40 的原始和与 1–5 的平均值。数值较大表示更认可这些支持自己的反应；数值较小不诊断某种缺陷，较大也不证明安全或排除其他困扰。"
+        }
+      ]
+    },
+    {
+      "id": "web-edition",
+      "title": {
+        "en": "Source coding and this web edition",
+        "zh": "来源编码与网页工作版"
+      },
+      "paragraphs": [
+        {
+          "en": "The selected 2019 paper describes values 1–5 with the endpoints Not at all like me and Extremely like me. This edition keeps those values; the middle choices are numbers only. Other forms use 0–4, so their raw sums cannot be compared directly with this edition. No published norm or cutoff is imported.",
+          "zh": "选定的 2019 年论文采用 1–5，两端为 Not at all like me 与 Extremely like me。本版保留数值，中间选项只用数字。另一些表单采用 0–4，不能把其原始和与本版直接比较；这里也不迁入其他版本的常模或分界值。"
+        },
+        {
+          "en": "The Chinese is a new FermatMind working translation of the selected English table. It is not presented as an existing validated Chinese version, and no FermatMind norms, validation sample or clinical cutoff are claimed. Source research does not validate this web edition by itself.",
+          "zh": "中文是费马根据选定英文题表新写的工作译文，不冒称已有的验证版中文。本版不声称具有费马常模、验证样本或临床分界值；来源研究本身也不能自动验证这个网页版本。"
+        },
+        {
+          "en": "There are 22 statements and three separate parts. This is self-paced and has no timed score. You may skip any statement, finish with skips, or read all explanations without answering. The skip option and these web instructions are FermatMind adaptations.",
+          "zh": "共 22 条陈述，分别属于三个部分，按自己的节奏作答，不计算限时成绩。可以跳过任何题目，带着跳过项完成，也可以不答题直接阅读全部解释。跳过选项与这里的网页说明是费马的改编。"
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Answers stay in page memory",
+        "zh": "答案只留在本页内存"
+      },
+      "paragraphs": [
+        {
+          "en": "Responses and calculated values stay only in the current page memory. No response storage, answer uploads, answer URLs or private-result sharing. Clear, reload or language change removes the responses. Public explanations contain no personal result.",
+          "zh": "答案和计算值只留在当前页面内存，不保存答案、不上传答卷、不放入网址，也不提供私人成绩分享。清除、刷新或换语言会移除答案；公开解释页不含个人结果。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which of the six critic voices will I get?",
+        "zh": "结果会给出六种声音中的哪一种？"
+      },
+      "answer": {
+        "en": "This edition does not assign six types or a winning voice. It uses all 22 English-source statements and the original three groups: Inadequate Self, Hated Self and Reassured Self. Each available part has its own readout and complete explanation.",
+        "zh": "本版不分六种类型，也不选主声音。它使用完整 22 条英文来源陈述和原来的三组：不足式自我反应、厌恶自我式反应与自我安慰。可以计分的部分各有独立读数，三份解释都完整开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why do the responses start at 1?",
+        "zh": "为什么选项从 1 开始？"
+      },
+      "answer": {
+        "en": "The selected 2019 paper describes values 1–5 with the endpoints Not at all like me and Extremely like me. This edition keeps those values; the middle choices are numbers only. Other forms use 0–4, so their raw sums cannot be compared directly with this edition. No published norm or cutoff is imported.",
+        "zh": "选定的 2019 年论文采用 1–5，两端为 Not at all like me 与 Extremely like me。本版保留数值，中间选项只用数字。另一些表单采用 0–4，不能把其原始和与本版直接比较；这里也不迁入其他版本的常模或分界值。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I skip a statement?",
+        "zh": "跳过题目后怎样显示？"
+      },
+      "answer": {
+        "en": "Skip is an explicit web option with no score. A part needs all of its 9, 5 or 8 numeric responses before a sum or mean is shown. You can finish with every statement skipped and still read all three full explanations and support information.",
+        "zh": "跳过是本网页额外提供的选项，不对应分值。每部分分别需要全部 9、5、8 条数字答案，才显示原始和与平均值。所有题都选跳过也能完成，三份完整解释与支持说明仍然可读。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this test assess danger or diagnose a condition?",
+        "zh": "这个测试能判断危险或作诊断吗？"
+      },
+      "answer": {
+        "en": "No. Neither an item nor a part score is used as a risk classifier or diagnosis. If you may harm yourself now or need urgent care, stop the test and contact local emergency services or an emergency department; you do not need to complete the questionnaire first.",
+        "zh": "不能。本版不把单题或部分分数用作风险分类或诊断。如果你担心自己现在会伤害自己，或需要紧急照护，请先停止测试，联系所在地急救服务或就近急诊，不必先答完问卷。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a validated Chinese version?",
+        "zh": "这是已经验证的中文量表吗？"
+      },
+      "answer": {
+        "en": "The Chinese is a new FermatMind working translation of the selected English table. It is not presented as an existing validated Chinese version, and no FermatMind norms, validation sample or clinical cutoff are claimed. Source research does not validate this web edition by itself.",
+        "zh": "中文是费马根据选定英文题表新写的工作译文，不冒称已有的验证版中文。本版不声称具有费马常模、验证样本或临床分界值；来源研究本身也不能自动验证这个网页版本。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read the explanations without disclosing answers?",
+        "zh": "不透露答案也能看完整解释吗？"
+      },
+      "answer": {
+        "en": "Yes. All three full explanations and support information are available without a scored result. This edition keeps answers in memory and clears them on reload or language change. The public guide URLs do not contain answers or personal scores.",
+        "zh": "可以。三份完整解释及支持说明不要求先有计分结果。答案只留在内存，刷新或换语言会清除；公开解释网址不包含答案或个人分数。"
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "2019 source article and CC BY 4.0 notice",
+        "zh": "2019 年来源论文与 CC BY 4.0 许可"
+      },
+      "url": "https://link.springer.com/article/10.1007/s10942-019-00319-1"
+    },
+    {
+      "title": {
+        "en": "Table 1: all 22 English items and three-part key",
+        "zh": "表 1：完整 22 条英文陈述与三部分归属键"
+      },
+      "url": "https://link.springer.com/article/10.1007/s10942-019-00319-1/tables/1"
+    },
+    {
+      "title": {
+        "en": "Creative Commons Attribution 4.0",
+        "zh": "知识共享署名 4.0 许可"
+      },
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "source": {
+    "kind": "fscrs22_2019_ccby_working_zh",
+    "formCode": "fscrs22_2019_1to5_fm_zh_working_v1",
+    "itemBankVersion": "fscrs22_2019_1to5_fm_zh_working_v1",
+    "scoringVersion": "fscrs22_three9_5_8_complete_parts_rawsum_mean_optional_na_v1",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "9c85495b6ba565ce3054876daf2b40e5456ec9c253e7d101762ea0ffaa65d23b",
+    "resultContentSha256": "da9cbbaea661adb34ccbc109be00e2da98e1b2c802cef858e5ff59219a56dff0",
+    "psychometricValidationCompleted": false
+  }
+}
