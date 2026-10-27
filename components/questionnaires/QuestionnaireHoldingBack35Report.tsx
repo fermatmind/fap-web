@@ -10,7 +10,7 @@ export function QuestionnaireHoldingBack35Report({ quiz, result, locale }: {
   locale: Locale;
 }) {
   const zh = locale === "zh";
-  return <div data-holding-back35-result className="mt-6 space-y-9">
+  return <div data-holding-back35-result className="mt-6 space-y-8">
     <p className="leading-8 text-slate-700">{zh
       ? "以下七项按固定主题顺序分别呈现，回看过去四周的具体情境。每项五题数值齐全才给1—5均分，显示一位小数。数值只概括本网站原创情境的频率，不分档、不比较谁更严重，也不生成总分或主导类型。"
       : "The seven topics appear separately in a fixed order, reflecting situations from the past four weeks. Each requires five numeric responses for a 1–5 mean shown to one decimal. The numbers summarize frequency in these original website scenarios, without bands, severity comparisons, an overall score or a dominant type."}</p>
