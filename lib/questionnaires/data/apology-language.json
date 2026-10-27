@@ -1,0 +1,2069 @@
+{
+  "slug": "apology-language",
+  "code": "FM_APOLOGY_RECEIVING_PREF20",
+  "kind": "likert",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Apology Language Test",
+    "zh": "道歉语言测试"
+  },
+  "seoTitle": {
+    "en": "Apology Language Test: Five Preferences & Full Free Guides",
+    "zh": "道歉语言测试：五组接收偏好与完整免费指南"
+  },
+  "description": {
+    "en": "Explore what matters to you when receiving an apology with 20 original items. Read five separate means, equal values, examples and complete guides free.",
+    "zh": "用20道原创题看看接收道歉时看重什么，分别阅读五组重视程度、相同均分、缺答、具体对话与反例。完整结果免费，不替他人判型。"
+  },
+  "minutes": 5,
+  "instructions": {
+    "en": "For each ordinary-mistake scenario, rate how important that element would be to you when receiving an apology. Use your own current preference; no recent incident or fixed recall period is required. You may use an imagined ordinary example, or choose Cannot rate / prefer not to answer. The questions do not require contact, reconciliation or forgiveness. Do not use these scenarios to replace safety, professional advice or a formal process for serious harm.",
+    "zh": "对每个日常失误情境，评价自己接收道歉时有多看重题中这一部分。按目前自己的偏好作答，不要求最近发生过，也不设固定回忆期限。可以想到一个普通的假设例子；无法评价或不想回答时选不计分选项。题目不要求联系对方、恢复关系或给予原谅。严重伤害涉及安全、专业支持或正式处理时，不用这些情境代替。"
+  },
+  "introduction": {
+    "en": "This original FermatMind reflection organizes receiving preferences around five ideas in Gary Chapman and Jennifer Thomas’s popular apology framework: regret, responsibility, repair, planned change and requesting forgiveness. It is not their official quiz or a validated personality instrument. Five means stay separate, with equal values retained and no primary type assigned. It does not infer how you apologize, determine another person’s sincerity, or predict forgiveness, reconciliation or career fit. All five complete guides are free.",
+    "zh": "本费马原创反思参考Gary Chapman与Jennifer Thomas流行道歉框架的五个想法，分别整理对歉意、责任、补救、改变计划和请求原谅的接收偏好。本版不是其官方题本，也不是经验证的人格工具。五个均分分别保留，相同值不打破并列，不分主要类型；不推断你如何道歉，不鉴定他人真诚，也不预测原谅、复合或职业适配。五份完整指南均免费。"
+  },
+  "resultHeading": {
+    "en": "Your five receiving-preference readings",
+    "zh": "你的五组接收偏好读法"
+  },
+  "directions": [
+    {
+      "id": "regret",
+      "title": {
+        "en": "Acknowledging regret",
+        "zh": "表达歉意"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "responsibility",
+      "title": {
+        "en": "Owning responsibility",
+        "zh": "承担责任"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "repair",
+      "title": {
+        "en": "Offering repair",
+        "zh": "提出补救"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "change",
+      "title": {
+        "en": "Planning change",
+        "zh": "计划改变"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "forgiveness-choice",
+      "title": {
+        "en": "Requesting forgiveness without pressure",
+        "zh": "尊重选择地请求原谅"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "APREF_01",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person acknowledges the disappointment their action caused me.",
+        "zh": "对方没有告知就改变约定后，在道歉中承认这件事让我失望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_02",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person expresses regret without asking me to comfort them.",
+        "zh": "对方说了关于我的不实话后，表达歉意，而不要求我反过来安慰他们。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_03",
+      "prompt": {
+        "en": "After damaging something I lent them, the person expresses regret for the inconvenience I experienced.",
+        "zh": "对方损坏借走的物品后，对给我带来的不便表达歉意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_04",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person acknowledges how that affected my day.",
+        "zh": "对方没有履行帮助我的约定后，承认这件事对我当天安排的影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_05",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person clearly owns their choice rather than calling it my misunderstanding.",
+        "zh": "对方没有告知就改变约定后，明确承认是自己的选择，而不说成是我误会了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_06",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person admits which claim they made without adequate grounds.",
+        "zh": "对方说了关于我的不实话后，承认自己哪项说法没有充分依据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_07",
+      "prompt": {
+        "en": "After carelessly damaging something I lent them, the person acknowledges their own handling of it.",
+        "zh": "对方因粗心损坏借走的物品后，承认是自己使用时没有照顾好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_08",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person identifies their part in the missed promise without transferring it to me.",
+        "zh": "对方没有履行帮助我的约定后，说明自己在失约中的责任，而不转嫁给我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_09",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person offers a feasible alternative and checks whether it works for me.",
+        "zh": "对方没有告知就改变约定后，提出可行的替代安排，并确认是否适合我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_10",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person offers an appropriate correction to the people who heard it, while checking my privacy wishes.",
+        "zh": "对方说了关于我的不实话后，提出向听到的人作适当更正，并先确认我的隐私意愿。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_11",
+      "prompt": {
+        "en": "After damaging something I lent them, the person discusses a workable repair or replacement with me.",
+        "zh": "对方损坏借走的物品后，与我商量实际可行的维修或替换。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_12",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person offers practical help with a remaining consequence of the missed promise.",
+        "zh": "对方没有履行帮助我的约定后，为失约留下的实际影响提出补救帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_13",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person explains a specific way they will notify me about future changes.",
+        "zh": "对方没有告知就改变约定后，说明以后发生变化时将怎样具体通知我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_14",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person describes how they will check information before repeating a similar claim.",
+        "zh": "对方说了关于我的不实话后，说明今后怎样核实信息，避免再作类似说法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_15",
+      "prompt": {
+        "en": "After damaging something I lent them, the person agrees on a specific precaution for any future borrowing.",
+        "zh": "对方损坏借走的物品后，与我约定今后借用时的一项具体注意办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_16",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person proposes a realistic plan for noticing and communicating a future conflict.",
+        "zh": "对方没有履行帮助我的约定后，提出切实可行的办法，提前发现并说明以后的安排冲突。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_17",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person asks whether I am willing to consider forgiveness and accepts that I may not be ready.",
+        "zh": "对方没有告知就改变约定后，问我是否愿意考虑原谅，也接受我可能还没准备好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_18",
+      "prompt": {
+        "en": "After correcting an inaccurate statement about me, the person asks about forgiveness without treating the correction as entitlement to it.",
+        "zh": "对方更正关于我的不实话后，请求原谅，但不认为更正后就有权要求我原谅。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_19",
+      "prompt": {
+        "en": "After arranging repair for something they damaged, the person leaves the choice about forgiveness with me.",
+        "zh": "对方安排修复损坏的物品后，仍把是否原谅的选择留给我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_20",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person asks about forgiveness instead of announcing that everything is settled between us.",
+        "zh": "对方没有履行帮助我的约定后，询问我是否愿意原谅，而不是宣布我们之间已经没事了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "regret-reading",
+      "directionIds": [
+        "regret"
+      ],
+      "title": {
+        "en": "Expressing Regret: What I Value in an Apology",
+        "zh": "表达歉意：我接收道歉时看重什么"
+      },
+      "headline": {
+        "en": "What I value when receiving an apology",
+        "zh": "我在接收道歉时看重什么"
+      },
+      "summary": {
+        "en": "This group asks how much you value an expression of regret when receiving an apology. Its four ordinary situations concern a changed plan, an inaccurate statement about you, damage to a borrowed item, and a missed promise of help. The emphasis is on acknowledging disappointment or inconvenience, rather than asking you to reassure the person apologizing. A high mean does not show that you apologize emotionally yourself. Receiving preferences and giving behavior are different questions, and this reflection measures neither another person’s feelings nor the sincerity of their words.",
+        "zh": "这一组问接收道歉时，你有多看重歉意的表达。四个普通情境分别是约定被改、不实说法、借出物品损坏，以及帮助的承诺落空；重点是承认失望或不便，而不是要求你安慰道歉者。均分较高不表示你自己道歉时情绪化。接收偏好与做出道歉是不同问题，本反思既没有测他人感受，也无法鉴定言辞真诚。"
+      },
+      "scoreReading": {
+        "en": "A separate importance mean from four complete answers, without a primary type or tie-break. A skip withholds this group only.",
+        "zh": "四题完整回答形成独立的重视程度均分，不选主要类型、不打破并列；一题跳过仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Apology Language: Expressing Regret Preferences",
+          "zh": "道歉语言：表达歉意的偏好怎样读"
+        },
+        "description": {
+          "en": "Read four self-reported preferences for an apology that acknowledges hurt, with clear scoring, an original dialogue and limits on what the mean can tell you.",
+          "zh": "阅读四项对表达歉意的自报偏好、独立均分、原创对话与反例。保留并列和缺答，不推断你怎样道歉或对方是否真诚。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Recognition of an impact matters to you here",
+            "zh": "这里关注对影响的承认"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks how much you value an expression of regret when receiving an apology. Its four ordinary situations concern a changed plan, an inaccurate statement about you, damage to a borrowed item, and a missed promise of help. The emphasis is on acknowledging disappointment or inconvenience, rather than asking you to reassure the person apologizing. A high mean does not show that you apologize emotionally yourself. Receiving preferences and giving behavior are different questions, and this reflection measures neither another person’s feelings nor the sincerity of their words.",
+              "zh": "这一组问接收道歉时，你有多看重歉意的表达。四个普通情境分别是约定被改、不实说法、借出物品损坏，以及帮助的承诺落空；重点是承认失望或不便，而不是要求你安慰道歉者。均分较高不表示你自己道歉时情绪化。接收偏好与做出道歉是不同问题，本反思既没有测他人感受，也无法鉴定言辞真诚。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "More or less emphasis is not a moral ranking",
+            "zh": "较多与较少重视，不是道德排名"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger mean reflects greater stated importance of these four elements. A smaller mean reflects less stated importance in these examples; you may place more emphasis on repair, facts or a change in behavior. Neither pattern makes someone more caring or more forgiving. You can value all five groups strongly at once. Equal means remain equal, without a primary label selected by position. Differences of a few tenths are not validated preference gaps, and two identical means can come from different answers.",
+              "zh": "均分较大表示更重视这四项内容，较小表示在这些例子中重视较少，也许更关心补救、事实或行为改变。两种模式都不说明谁更关心别人或更宽容。五组可以同时都很重要；相同均分保持相同，不按位置选一个主要标签。零点几的差别不是经验证的偏好差距，相同均分也可能来自不同回答。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A changed plan can have a specific impact",
+            "zh": "改了约定，影响可以说具体"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose someone changes a shared weekend plan without telling you, leaving you waiting. You might want them to recognize that your time was affected, rather than immediately pointing out that a different outing is available. That preference does not mean a new plan is unwelcome or that recognition alone will settle the issue. You may also want an explanation and a practical correction. The guide cannot decide which account of the event is accurate; it simply helps make a possible receiving preference more specific.",
+              "zh": "例如共同周末安排被对方改了却没通知，导致你一直等。你可能希望对方先承认你的时间受到了影响，而不是立刻说还有其他去处。这不代表不欢迎新安排，也不代表只要承认就能解决；你仍可能需要解释与实际修正。指南无法决定双方对事件的说法谁准确，只帮助把一种接收偏好说得具体。"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "en": "An example and a counterexample",
+            "zh": "一句例子与一句反例"
+          },
+          "paragraphs": [
+            {
+              "en": "You could describe your preference this way: “I would like you to acknowledge that I waited without knowing the plan had changed.” A possible apology is: “I changed the arrangement and did not tell you. I am sorry that left you waiting.” A counterexample is demanding tears, visible shame or repeated self-condemnation as proof of regret. People express emotion differently, and a display is not a sincerity test. You can ask for a clear acknowledgment without requiring the other person to perform distress.",
+              "zh": "可以这样描述偏好：“我希望你承认，安排变了我却不知道，所以一直在等。”一种可能的道歉是：“我改了安排却没告诉你，对让你空等这件事很抱歉。”反例是要求眼泪、明显羞耻或反复自责，才认定有歉意。每个人表达情绪不同，表现本身不是鉴真工具。可以请求明确承认影响，不必要求对方表演痛苦。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Name one need without turning it into a test",
+            "zh": "说出一项需要，不把它变成考验"
+          },
+          "paragraphs": [
+            {
+              "en": "If appropriate, choose one small event and finish the sentence “What I wanted acknowledged was…” Keep the description about that event, not a claim that the person never cares. You may decide not to start a conversation, especially if contact is unwanted or unsafe. If you do speak, the other person can explain what they understood, and you can decide whether to continue. A questionnaire mean cannot require acceptance, renewed trust or forgiveness, even after an apology includes the words you hoped to hear.",
+              "zh": "如果适合，选一件小事，补完“我希望被承认的具体影响是……”。围绕那次事件描述，不变成“你从不在乎”的总判断。也可以不发起对话，尤其当联系不被欢迎或不安全。若交流，对方可以说明自己的理解，你再决定是否继续。即使道歉说出了你想听的话，问卷均分也不能要求你接受、重新信任或原谅。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and source limits",
+            "zh": "算式、缺答与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four importance ratings run from 1 to 5, with no reverse items. Their sum divided by four is displayed to one decimal: 15 divided by 4 displays as 3.8. Any unscored answer withholds this group’s mean, while complete groups remain available. All five full guides stay free. FermatMind wrote this item set and scoring policy; Chapman and Thomas supply the popular five-theme background, not a license for an official quiz or validation of this edition. No norms, clinical thresholds, relationship predictions or established meaningful-change values are applied.",
+              "zh": "四题重视程度均按1到5计入，没有反向题。合计除以四，显示一位小数；15除以4显示3.8。任一不计分回答会暂不给本组均分，其他完整组仍可显示。五份完整指南始终免费。题本和计分由费马原创，Chapman与Thomas提供流行五主题背景，不是官方题本许可，也不验证本版。这里不套用常模、临床阈值、关系预测或已确立的重要变化数值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsibility-reading",
+      "directionIds": [
+        "responsibility"
+      ],
+      "title": {
+        "en": "Responsibility: What I Value in an Apology",
+        "zh": "承担责任：我接收道歉时看重什么"
+      },
+      "headline": {
+        "en": "What I value when receiving an apology",
+        "zh": "我在接收道歉时看重什么"
+      },
+      "summary": {
+        "en": "These four items ask how important it is to you that a person identifies their own contribution to an ordinary mistake. The situations include changing an arrangement, making an unsupported statement, careless handling of a borrowed object, and missing promised help. The group concerns what you want to hear while receiving an apology. It does not determine who was legally or morally responsible, whether someone is honest, or whether you habitually take responsibility yourself. Those conclusions require information that this preference questionnaire does not collect.",
+        "zh": "四题问你有多看重对方指出自己在普通失误中的责任，情境包括改变安排、作没有依据的说法、粗心使用借来的物品，以及约好帮忙却失约。这组只关注接收道歉时想听见什么，不确定法律或道德责任，不鉴定诚信，也不判断你自己是否习惯承担责任。这些结论需要本偏好问卷没有收集的信息。"
+      },
+      "scoreReading": {
+        "en": "A separate importance mean from four complete answers, without a primary type or tie-break. A skip withholds this group only.",
+        "zh": "四题完整回答形成独立的重视程度均分，不选主要类型、不打破并列；一题跳过仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Apology Language: Responsibility Score Meaning",
+          "zh": "道歉语言：承担责任的重视程度与具体例子"
+        },
+        "description": {
+          "en": "Understand four preferences for clear ownership in an apology, including shared responsibility, a worked mean and an original example without blame guessing.",
+          "zh": "理解四项对明确承担责任的偏好，区分具体责任与全盘背责，核对均分、缺答，并阅读原创对话和反例。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Owning a specific action, rather than all blame",
+            "zh": "承认具体行为，不是承担全部责任"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items ask how important it is to you that a person identifies their own contribution to an ordinary mistake. The situations include changing an arrangement, making an unsupported statement, careless handling of a borrowed object, and missing promised help. The group concerns what you want to hear while receiving an apology. It does not determine who was legally or morally responsible, whether someone is honest, or whether you habitually take responsibility yourself. Those conclusions require information that this preference questionnaire does not collect.",
+              "zh": "四题问你有多看重对方指出自己在普通失误中的责任，情境包括改变安排、作没有依据的说法、粗心使用借来的物品，以及约好帮忙却失约。这组只关注接收道歉时想听见什么，不确定法律或道德责任，不鉴定诚信，也不判断你自己是否习惯承担责任。这些结论需要本偏好问卷没有收集的信息。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Keep the reading about your stated preference",
+            "zh": "把读法留在自报偏好范围内"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates more stated importance of the four responsibility elements; it does not establish that you have higher standards of integrity. A lower mean does not mean you excuse harmful conduct. You may expect responsibility to be understood already or want an action more urgently in a particular situation. All five groups remain visible. Similar or tied values do not need a winning language, and a small difference does not show that one need will outweigh another during a real disagreement.",
+              "zh": "较高表示更重视四项承担责任内容，不证明你对诚信的标准更高。较低也不表示纵容伤害，可能觉得责任已经清楚，或在具体处境中更急需行动。五组始终同时呈现；相近或并列不必选胜出语言，小差距也不能证明真实争执时某种需要必然压过另一种。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "Correcting a statement about you",
+            "zh": "更正一句关于你的不实说法"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that a colleague repeats an unverified account of something you did. You may want them to specify which statement was unsupported, rather than saying that everyone misunderstood each other. That does not require them to accept facts they genuinely dispute. The next step might be clarifying what can be checked and, if needed, using an appropriate workplace process. A preference for responsibility cannot settle a factual disagreement or authorize a public correction that exposes private information. Context and the people affected still matter.",
+              "zh": "例如同事转述了未经核实、涉及你的事情，你可能希望其指出具体哪项说法没有依据，而不只说“大家互相误会”。这不要求对方承认确实有争议的事实。下一步可能是核对能查证的内容，必要时通过合适的工作处理流程。重视责任不能解决事实争议，也不授权为了公开更正而暴露隐私；仍要考虑处境与受到影响的人。"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "en": "Precision can coexist with acknowledgment",
+            "zh": "明确责任可以和承认影响并存"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is: “Please name the statement you made and what you had checked before sharing it.” An ordinary apology might say: “I passed on that claim without checking it. That was my part, and I will correct it with the people who heard it.” A counterexample is insisting that someone take total blame for a shared problem. Clear ownership is more useful when it is accurate and limited to the person’s actual contribution, rather than inflated into a declaration that they are a bad person.",
+              "zh": "可以请求：“请说清你转述的是哪项说法，传播前核实过什么。”一种普通道歉可以是：“我没有核对就转述了，这是我的责任，我会向听到的人更正。”反例是要求对方为共同造成的问题承担全部责任。明确责任更适合准确地限定到真实行为，而不是扩张为“我是个坏人”的人格判决。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Separate an action, an impact and an unresolved fact",
+            "zh": "分开行为、影响与未确认事实"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write three private notes: the action you believe occurred, its effect on you, and anything still uncertain. This can help you ask for a specific acknowledgment while leaving room to correct a mistaken assumption. You do not have to investigate the other person or prove their motives. Stop the exercise if it pulls you into an unsafe exchange. Even an accurate admission does not oblige you to restore contact, and this score is not a tool for deciding whether someone else deserves another chance.",
+              "zh": "若觉得有用，私下写三项：你认为发生的行为、对你的影响，以及还不确定的事实。这可以让请求更具体，也为修正误会留空间。不必调查对方或证明其动机；若练习把你拉进不安全交流就停下。即使责任承认准确，也不迫使你恢复联系，分数不用于决定他人是否应该再获得机会。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and source limits",
+            "zh": "算式、缺答与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four importance ratings run from 1 to 5, with no reverse items. Their sum divided by four is displayed to one decimal: 15 divided by 4 displays as 3.8. Any unscored answer withholds this group’s mean, while complete groups remain available. All five full guides stay free. FermatMind wrote this item set and scoring policy; Chapman and Thomas supply the popular five-theme background, not a license for an official quiz or validation of this edition. No norms, clinical thresholds, relationship predictions or established meaningful-change values are applied.",
+              "zh": "四题重视程度均按1到5计入，没有反向题。合计除以四，显示一位小数；15除以4显示3.8。任一不计分回答会暂不给本组均分，其他完整组仍可显示。五份完整指南始终免费。题本和计分由费马原创，Chapman与Thomas提供流行五主题背景，不是官方题本许可，也不验证本版。这里不套用常模、临床阈值、关系预测或已确立的重要变化数值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repair-reading",
+      "directionIds": [
+        "repair"
+      ],
+      "title": {
+        "en": "Repair: What I Value in an Apology",
+        "zh": "提出补救：我接收道歉时看重什么"
+      },
+      "headline": {
+        "en": "What I value when receiving an apology",
+        "zh": "我在接收道歉时看重什么"
+      },
+      "summary": {
+        "en": "This group asks how much you value a feasible effort to address what an ordinary mistake left behind. Its four examples concern replacing a disrupted plan, correcting an inaccurate statement, repairing a damaged item, and helping with a missed commitment’s remaining effects. It is about what you value when receiving an apology, not whether you solve other people’s problems. Repair can involve time, information or a practical action; it is not necessarily a gift, payment or proof that a relationship has returned to its earlier state.",
+        "zh": "这组问你有多看重对方为普通失误留下的影响作可行补救。四个例子分别是替代被打乱的安排、更正不实说法、修复损坏物品，以及处理失约后的剩余影响。它问接收偏好，不判断你是否擅长解决他人问题。补救可以是时间、信息或具体行动，不一定是礼物或付款，也不证明关系恢复到了从前。"
+      },
+      "scoreReading": {
+        "en": "A separate importance mean from four complete answers, without a primary type or tie-break. A skip withholds this group only.",
+        "zh": "四题完整回答形成独立的重视程度均分，不选主要类型、不打破并列；一题跳过仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Apology Language: Repair Preferences Explained",
+          "zh": "道歉语言：补救偏好、均分与可行行动"
+        },
+        "description": {
+          "en": "Read four preferences for practical repair after everyday mistakes, with a concrete example, consent boundaries, scoring and skipped-answer rules.",
+          "zh": "阅读四项对日常失误后实际补救的偏好，了解可行行动、同意边界、均分与缺答。补救不等于购买原谅。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "An action directed at the remaining consequence",
+            "zh": "把行动对准仍然存在的影响"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks how much you value a feasible effort to address what an ordinary mistake left behind. Its four examples concern replacing a disrupted plan, correcting an inaccurate statement, repairing a damaged item, and helping with a missed commitment’s remaining effects. It is about what you value when receiving an apology, not whether you solve other people’s problems. Repair can involve time, information or a practical action; it is not necessarily a gift, payment or proof that a relationship has returned to its earlier state.",
+              "zh": "这组问你有多看重对方为普通失误留下的影响作可行补救。四个例子分别是替代被打乱的安排、更正不实说法、修复损坏物品，以及处理失约后的剩余影响。它问接收偏好，不判断你是否擅长解决他人问题。补救可以是时间、信息或具体行动，不一定是礼物或付款，也不证明关系恢复到了从前。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Wanting repair is not a transactional personality",
+            "zh": "重视补救不等于交易型人格"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean describes greater stated importance of these four practical responses. It does not show that you are materialistic, demanding or good at following through. A lower mean does not establish that practical consequences do not matter; the example may not fit, or an immediate action may be impossible. Other apology elements can matter just as much. All five readings remain available when values tie, and there is no percentage of sincerity, compensation formula or threshold at which an apology must be accepted.",
+              "zh": "较高只表示更看重这四项实际回应，不说明物质、苛求或善于落实。较低也不证明现实影响无所谓，可能例子不适合，或当下无法行动。其他道歉部分仍可以同样重要。并列时保留所有五份读法，不计算真诚百分比、赔偿公式，也不设达到某分就必须接受道歉的门槛。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A borrowed object has been damaged",
+            "zh": "借出的物品被损坏之后"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose a friend carelessly damages a lamp you lent them. You may want to discuss a repair that is actually possible rather than receive an expensive surprise replacement that you cannot use. You could prefer to choose the repair shop yourself or decide that you no longer want to lend the item. The questionnaire cannot set the object’s value or resolve a disagreement about responsibility. It also cannot tell the friend that buying a replacement earns forgiveness or removes your right to set a different borrowing boundary.",
+              "zh": "例如朋友因粗心损坏了借走的灯，你可能希望商量实际可行的维修，而不是收到一件昂贵却用不上的惊喜替代品。你可以想自己选维修店，也可以决定以后不再出借。问卷不能定物品价值或解决责任争议，也不能告诉朋友“买一件就换来原谅”，或取消你重新设借用边界的权利。"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "en": "Offer a repair without deciding the recipient’s answer",
+            "zh": "提出补救，不替接收者决定"
+          },
+          "paragraphs": [
+            {
+              "en": "An ordinary exchange could be: “I would like us to discuss what can be repaired before you replace it.” A possible response is: “I damaged the lamp. I can arrange a repair, but I want to check what would work for you first.” A counterexample is arriving with a gift and declaring the matter closed. Another is promising a repair that is clearly impossible. A useful proposal makes its limits visible, and it gives the affected person room to decline or suggest another option.",
+              "zh": "一种普通交流可以是：“在你买替代品之前，我想先商量哪些地方能修。”对方可以回应：“灯是我损坏的，我能安排维修，但想先确认怎样适合你。”反例是带着礼物出现后就宣布事情结束，或答应明显做不到的补救。可行提议会说明限制，也让受到影响的人可以拒绝或提出别的办法。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Choose one feasible remaining issue",
+            "zh": "只选一项仍能处理的影响"
+          },
+          "paragraphs": [
+            {
+              "en": "If appropriate, identify one remaining consequence and one bounded action that could address it. Include who would need to agree before that action happens. You can also acknowledge that some effects cannot be undone, and decide not to pursue a conversation. Do not turn this exercise into a demand to calculate every hurt as a debt. Serious disputes may need an appropriate formal process. A preference score does not provide legal advice, settle compensation or require you to continue a relationship after practical repair has been offered.",
+              "zh": "如果适合，只找一项仍然存在的影响，再找一个有边界的可行行动，并说明行动前需要谁同意。也可以承认有些影响无法逆转，决定不继续对话。不要把练习变成把所有伤害计算成债务的要求。严重争议可能需要合适的正式处理；偏好分数不提供法律意见、不决定赔偿，也不要求你在对方提出补救后继续关系。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and source limits",
+            "zh": "算式、缺答与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four importance ratings run from 1 to 5, with no reverse items. Their sum divided by four is displayed to one decimal: 15 divided by 4 displays as 3.8. Any unscored answer withholds this group’s mean, while complete groups remain available. All five full guides stay free. FermatMind wrote this item set and scoring policy; Chapman and Thomas supply the popular five-theme background, not a license for an official quiz or validation of this edition. No norms, clinical thresholds, relationship predictions or established meaningful-change values are applied.",
+              "zh": "四题重视程度均按1到5计入，没有反向题。合计除以四，显示一位小数；15除以4显示3.8。任一不计分回答会暂不给本组均分，其他完整组仍可显示。五份完整指南始终免费。题本和计分由费马原创，Chapman与Thomas提供流行五主题背景，不是官方题本许可，也不验证本版。这里不套用常模、临床阈值、关系预测或已确立的重要变化数值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "change-reading",
+      "directionIds": [
+        "change"
+      ],
+      "title": {
+        "en": "Planned Change: What I Value in an Apology",
+        "zh": "计划改变：我接收道歉时看重什么"
+      },
+      "headline": {
+        "en": "What I value when receiving an apology",
+        "zh": "我在接收道歉时看重什么"
+      },
+      "summary": {
+        "en": "These four items ask how much you value a specific plan to avoid repeating an ordinary mistake. They concern notification when plans change, checking information before repeating a claim, precautions when borrowing, and anticipating a clash with a promise to help. The group follows the planned-change theme in the popular Chapman and Thomas framework. It records what you want when receiving an apology, not whether the person has already changed. A statement about future action and evidence of that action remain different kinds of information.",
+        "zh": "四题问接收道歉时，你有多看重避免重复日常失误的具体计划，涉及安排变化时通知、转述前核实信息、借用物品的注意办法，以及提前发现帮助承诺的时间冲突。分组参考Chapman与Thomas流行框架中的计划改变主题，只记录你想获得什么，不确定对方已经改变。未来行动的说法与行动已经发生的证据，是不同的信息。"
+      },
+      "scoreReading": {
+        "en": "A separate importance mean from four complete answers, without a primary type or tie-break. A skip withholds this group only.",
+        "zh": "四题完整回答形成独立的重视程度均分，不选主要类型、不打破并列；一题跳过仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Apology Language: Planned Change Preferences",
+          "zh": "道歉语言：计划改变的偏好与观察边界"
+        },
+        "description": {
+          "en": "Understand four preferences for a specific change after an apology, with an original example, realistic commitments, separate means and missing answers.",
+          "zh": "理解道歉后具体改变的四项偏好，阅读现实承诺、原创对话、独立均分与缺答；不把承诺当作已发生的改变。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A plan for the next relevant occasion",
+            "zh": "为下一次相关情境作计划"
+          },
+          "paragraphs": [
+            {
+              "en": "These four items ask how much you value a specific plan to avoid repeating an ordinary mistake. They concern notification when plans change, checking information before repeating a claim, precautions when borrowing, and anticipating a clash with a promise to help. The group follows the planned-change theme in the popular Chapman and Thomas framework. It records what you want when receiving an apology, not whether the person has already changed. A statement about future action and evidence of that action remain different kinds of information.",
+              "zh": "四题问接收道歉时，你有多看重避免重复日常失误的具体计划，涉及安排变化时通知、转述前核实信息、借用物品的注意办法，以及提前发现帮助承诺的时间冲突。分组参考Chapman与Thomas流行框架中的计划改变主题，只记录你想获得什么，不确定对方已经改变。未来行动的说法与行动已经发生的证据，是不同的信息。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "Importance does not predict follow-through",
+            "zh": "重视程度不预测能否落实"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean means you place more stated importance on the four planning elements. It does not show that you are better at change, less forgiving, or able to recognize a sincere promise. A lower mean does not mean you accept repeated harm; you may need an immediate repair before discussing the future. You can value responsibility and planned change together. Equal values stay visible without a preferred winner, and no numerical gap is treated as proof that one form of apology will work while another will fail.",
+              "zh": "较高只表示更重视这四项计划内容，不说明自己更善于改变、更不宽容，或能识别真诚承诺。较低不等于接受反复伤害，可能更需要先补救当下，再讨论以后。承担责任和计划改变可以同时重要。相同数值都保留，不选赢家，也不把分数差距当作某种道歉必然有效、另一种必然失败的证据。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A missed promise needs a usable next arrangement",
+            "zh": "承诺落空之后，需要能用的下一次安排"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose someone has twice agreed to help with a community activity but later discovers a scheduling conflict. You may want them to check their calendar before agreeing and tell you early if circumstances change. This is more specific than a promise that they will never let you down again. It still cannot guarantee an outcome, because schedules and responsibilities can change. You can decide that future help needs a backup arrangement, or that you do not want another commitment from that person. The score does not choose for you.",
+              "zh": "例如对方两次答应帮社区活动，后来才发现时间冲突。你可能希望对方答应前先查日程，有变化就提前说明。这比“以后绝不会让你失望”具体，但仍不保证结果，因为责任和安排会变。你可以决定以后需要备用安排，也可以不再接受此人的帮忙承诺，分数不会替你选。"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "en": "Ask about an action, rather than a transformed personality",
+            "zh": "询问具体行动，不要求人格蜕变"
+          },
+          "paragraphs": [
+            {
+              "en": "A possible request is: “Before agreeing next time, could you check the date and tell me when you can confirm?” A possible apology is: “I agreed before checking. Next time I will confirm the date first, and I will tell you if I cannot commit.” A counterexample is requiring continuous access to someone’s calendar or private messages as proof that they changed. Another is accepting a dramatic promise as evidence that the change has already happened. The relevant discussion can stay specific and respect privacy on both sides.",
+              "zh": "可以请求：“下次答应前，能先核对日期，并说清什么时候能确认吗？”对方可以回应：“上次没查好就答应了，下次先核对，不能承诺时会直接说明。”反例是要求持续查看对方日程或私人消息，才相信已经改变；另一个反例是把激烈承诺当作改变已发生的证据。讨论可以落在具体事项上，同时尊重双方隐私。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Separate a plan, a limit and a review point",
+            "zh": "分开计划、限制与回看时点"
+          },
+          "paragraphs": [
+            {
+              "en": "If a conversation is wanted, you could identify one action, a foreseeable obstacle, and a reasonable occasion to revisit the arrangement. Neither person has to promise perfection. You may also decide that the proposed change does not address what you need and keep your boundary. Do not use this guide to pressure someone to monitor another adult or remain in an unsafe situation while waiting for improvement. Repeated questionnaire scores are not evidence that behavior changed, and you do not owe continued access in exchange for a promise.",
+              "zh": "如果双方愿意谈，可以只确认一个行动、一项可预见障碍，以及一次合理的回看机会。不必承诺完美。你也可以认为提议没有回应需要，继续保留边界。不要借指南要求监控另一个成年人，或留在不安全处境等改善。反复答题得分不能作为行为改变的证据，也不因对方承诺改变就必须允许继续接近。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and source limits",
+            "zh": "算式、缺答与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four importance ratings run from 1 to 5, with no reverse items. Their sum divided by four is displayed to one decimal: 15 divided by 4 displays as 3.8. Any unscored answer withholds this group’s mean, while complete groups remain available. All five full guides stay free. FermatMind wrote this item set and scoring policy; Chapman and Thomas supply the popular five-theme background, not a license for an official quiz or validation of this edition. No norms, clinical thresholds, relationship predictions or established meaningful-change values are applied.",
+              "zh": "四题重视程度均按1到5计入，没有反向题。合计除以四，显示一位小数；15除以4显示3.8。任一不计分回答会暂不给本组均分，其他完整组仍可显示。五份完整指南始终免费。题本和计分由费马原创，Chapman与Thomas提供流行五主题背景，不是官方题本许可，也不验证本版。这里不套用常模、临床阈值、关系预测或已确立的重要变化数值。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forgiveness-choice-reading",
+      "directionIds": [
+        "forgiveness-choice"
+      ],
+      "title": {
+        "en": "Requesting Forgiveness: A Choice That Remains Yours",
+        "zh": "请求原谅：选择仍留在接收者手中"
+      },
+      "headline": {
+        "en": "What I value when receiving an apology",
+        "zh": "我在接收道歉时看重什么"
+      },
+      "summary": {
+        "en": "This group asks how much you value a request for forgiveness that leaves the decision with you. Its four examples follow a changed plan, correction of an inaccurate claim, repair of a damaged object, and a missed commitment. They include accepting that you may not be ready and avoiding the assumption that repair earns forgiveness. The mean concerns your receiving preference. It does not say that you owe a response, that you apologize by asking repeatedly, or that explicit forgiveness is necessary for every ordinary disagreement to end.",
+        "zh": "这组问你有多看重把决定留给自己的原谅请求。四个例子对应改了安排、更正不实话、修复损坏物品，以及失约，包含接受你可能还没准备好，也不假定补救换得原谅。均分只问接收偏好，不表示你欠对方回答，不表示你自己会反复请求，也不规定每次普通分歧都必须明确说原谅才能结束。"
+      },
+      "scoreReading": {
+        "en": "A separate importance mean from four complete answers, without a primary type or tie-break. A skip withholds this group only.",
+        "zh": "四题完整回答形成独立的重视程度均分，不选主要类型、不打破并列；一题跳过仅暂不给本组均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Apology Language: Forgiveness Requests and Choice",
+          "zh": "道歉语言：请求原谅与接收者的选择"
+        },
+        "description": {
+          "en": "Read four preferences for a respectful request for forgiveness, with an original dialogue, clear choice boundaries, scoring and complete free guidance.",
+          "zh": "阅读四项对尊重选择地请求原谅的偏好，理解均分、缺答、原创对话及反例。道歉不要求立即原谅或恢复关系。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "A request leaves room for an answer",
+            "zh": "请求应为回答留出空间"
+          },
+          "paragraphs": [
+            {
+              "en": "This group asks how much you value a request for forgiveness that leaves the decision with you. Its four examples follow a changed plan, correction of an inaccurate claim, repair of a damaged object, and a missed commitment. They include accepting that you may not be ready and avoiding the assumption that repair earns forgiveness. The mean concerns your receiving preference. It does not say that you owe a response, that you apologize by asking repeatedly, or that explicit forgiveness is necessary for every ordinary disagreement to end.",
+              "zh": "这组问你有多看重把决定留给自己的原谅请求。四个例子对应改了安排、更正不实话、修复损坏物品，以及失约，包含接受你可能还没准备好，也不假定补救换得原谅。均分只问接收偏好，不表示你欠对方回答，不表示你自己会反复请求，也不规定每次普通分歧都必须明确说原谅才能结束。"
+            }
+          ]
+        },
+        {
+          "id": "patterns",
+          "title": {
+            "en": "A preference is not a forgiveness obligation",
+            "zh": "偏好不构成原谅义务"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates greater stated importance of these respectful-choice elements. It does not establish greater generosity, emotional dependence or readiness to reconcile. A lower mean may mean you prefer not to discuss forgiveness explicitly, or that another element matters more in the example. It cannot show that you hold grudges. All five groups may be equally important or equally unimportant in the scenarios you considered. There is no tie-break, preferred personality label or threshold requiring you to move on after receiving a particular kind of apology.",
+              "zh": "较高表示更看重这些尊重选择的内容，不说明更慷慨、情感依赖或已经愿意复合。较低可能是你不想明确谈原谅，或例子中更看重其他部分，不能据此说记仇。你想到的情境中，五组可以都同样重要，也可以都不重要；不打破并列、不选偏好人格，更不设某种道歉达到分数后就要求翻篇。"
+            }
+          ]
+        },
+        {
+          "id": "scene",
+          "title": {
+            "en": "A practical correction does not decide the relationship",
+            "zh": "实际更正不替关系作决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine that someone has corrected an inaccurate statement they shared about you. You appreciate that action but are not ready to say that trust is restored. A respectful request can acknowledge that the correction was their responsibility and ask whether you want to discuss anything further. You may say not now, decline, or choose a limited conversation. The questionnaire cannot determine whether forgiveness occurred or what that word means to you. Continuing contact, reconciliation and a personal sense of forgiveness need not be treated as the same decision.",
+              "zh": "例如对方更正了之前传播的关于你的不实话，你认可这个行动，却还没准备好说信任恢复了。尊重选择的请求可以承认更正本来就是其责任，再问你是否愿意继续讨论。你可以说暂时不、拒绝，或只谈有限事项。问卷不能确定原谅是否发生，也不规定这个词对你意味着什么；继续联系、恢复关系和个人的原谅体验，不必当成同一决定。"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "title": {
+            "en": "The recipient can decline without failing the conversation",
+            "zh": "接收者拒绝，不等于对话失败"
+          },
+          "paragraphs": [
+            {
+              "en": "You might say: “I appreciate the correction. I do not want to discuss forgiveness right now.” A possible response is: “I understand. I will not keep asking, and the correction does not depend on your forgiving me.” A counterexample is framing forgiveness as proof that you are kind, mature or committed to the relationship. Another is repeating the question until you give the answer the other person wants. These examples concern consent and choice; they are not a rule that you must deliver a carefully worded explanation for declining.",
+              "zh": "你可以说：“我认可这次更正，但现在不想讨论原谅。”对方可能回应：“明白，我不会一直追问，更正也不以你原谅我为条件。”反例是把原谅说成善良、成熟或重视关系的证明，或反复询问直到你给出其想要的答案。这些例子强调同意与选择，不要求你必须精心解释拒绝的理由。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Choose whether there is anything you want to say",
+            "zh": "先决定自己是否想说什么"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, privately choose among a few options: no response, a request for time, a practical boundary, or a conversation about what remains unresolved. You do not have to send a message or reveal the reason for your choice. A person offering an apology can take responsibility and pursue appropriate repair without receiving reassurance from you. This reflection cannot decide what to do after serious harm or create a duty to meet. Safety and any appropriate professional or formal support matter more than completing an apology exercise.",
+              "zh": "若有帮助，私下想想自己更愿意不回应、请求一些时间、说明实际边界，还是讨论尚未解决的事。不必发送消息，也不必披露选择原因。道歉者可以承担责任、进行合适补救，而不先从你这里获得安慰。本反思不能替严重伤害后的决定负责，也不制造见面义务；安全及适当专业或正式支持，比完成道歉练习重要。"
+            }
+          ]
+        },
+        {
+          "id": "scoring",
+          "title": {
+            "en": "Arithmetic, missing answers and source limits",
+            "zh": "算式、缺答与来源边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The four importance ratings run from 1 to 5, with no reverse items. Their sum divided by four is displayed to one decimal: 15 divided by 4 displays as 3.8. Any unscored answer withholds this group’s mean, while complete groups remain available. All five full guides stay free. FermatMind wrote this item set and scoring policy; Chapman and Thomas supply the popular five-theme background, not a license for an official quiz or validation of this edition. No norms, clinical thresholds, relationship predictions or established meaningful-change values are applied.",
+              "zh": "四题重视程度均按1到5计入，没有反向题。合计除以四，显示一位小数；15除以4显示3.8。任一不计分回答会暂不给本组均分，其他完整组仍可显示。五份完整指南始终免费。题本和计分由费马原创，Chapman与Thomas提供流行五主题背景，不是官方题本许可，也不验证本版。这里不套用常模、临床阈值、关系预测或已确立的重要变化数值。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_apology_receiving_pref20",
+    "formCode": "fm_apology_receiving_importance20_v1",
+    "itemBankVersion": "fm_apology_receiving_importance20_v1",
+    "scoringVersion": "fm_apology_five_complete4_importance_means1dp_no_ranking_v1",
+    "resultContentVersion": "fm_apology_receiving_five_full_guides_v1",
+    "itemBankSha256": "b115a18be7bee4be28c28769bada3ca93adaca50b22b04ebd7c7fb2e2735ab7b",
+    "resultContentSha256": "5b042ce26061071d7e2295b7f1dd51ab36709cf41c29e4a94b77fd298006ba90",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Chapman, G., and Thomas, J. (2022). The 5 Apology Languages. Northfield Publishing: framework and attribution.",
+        "zh": "Chapman与Thomas（2022）The 5 Apology Languages，Northfield Publishing：框架与署名来源。"
+      },
+      "url": "https://www.moodypublishers.com/the-5-apology-languages?variationCode=978-0-8024-7503-9"
+    },
+    {
+      "title": {
+        "en": "Lewicki, Polin and Lount (2016): research on six apology components, not five personality types",
+        "zh": "Lewicki、Polin与Lount（2016）：六种道歉成分研究，不是五种人格类型"
+      },
+      "url": "https://ncmr.lps.library.cmu.edu/article/id/264/"
+    },
+    {
+      "title": {
+        "en": "Ohio State University: the study’s scenario and comparison limits",
+        "zh": "俄亥俄州立大学：原研究的情境与比较边界"
+      },
+      "url": "https://news.osu.edu/the-6-elements-of-an-effective-apology-according-to-science/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "version",
+      "title": {
+        "en": "An original receiving-preference reflection",
+        "zh": "原创的接收偏好反思"
+      },
+      "paragraphs": [
+        {
+          "en": "The 20 statements, bilingual wording, scoring policy and guides were written by FermatMind. The popular five-theme framework is credited to Chapman and Thomas; no official paired-choice item bank or JobCannon bank is administered. This is not a measure of observed apology skill, moral worth or another person’s motives.",
+          "zh": "20条陈述、双语措辞、计分规则与指南由费马原创，流行五主题框架归属Chapman与Thomas。不施测官方二选一题本或JobCannon题库，不测实际道歉能力、道德价值或他人动机。"
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Five separate means, with no forced primary language",
+        "zh": "五个独立均分，不强派主要语言"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group has four importance ratings from 1 to 5, without reverse items. Add the four values and divide by four, displaying one decimal. For example, 15/4 displays as 3.8. All five means can be large, small or equal. They are not percentages, ranks, a combined total or a rule for deciding which apology will work.",
+          "zh": "每组四题重视程度从1到5，没有反向题。相加后除以四，显示一位小数，例如15/4显示3.8。五组可以同时较大、较小或相同，不转为百分比、排名、总分，也不据此决定哪种道歉有效。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Keep missing information and equal values visible",
+        "zh": "保留资料不足与相同数值"
+      },
+      "paragraphs": [
+        {
+          "en": "An unscored choice withholds only its four-item group’s mean. It is not a low rating and is not filled or prorated. Complete groups still have their own means, and all five guides remain readable. Similar means do not establish that two needs are equally strong or that a small difference is meaningful.",
+          "zh": "一个不计分选择仅暂不给所在四题组的均分，不当成低评分、不填补、不按比例放大。其他完整组仍有各自均分，五份指南都可读。相近均分不证明需要同样强，也不证明小差异具有意义。"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "A preference does not require forgiveness",
+        "zh": "偏好不要求原谅"
+      },
+      "paragraphs": [
+        {
+          "en": "The framework is a conversation aid, not an empirically validated five-type classification. The linked 2016 research tested six apology components in written trust-violation scenarios; it does not validate this item set, determine a recipient’s obligation, or guarantee that matched language restores trust. Contact, repair, forgiveness and reconciliation remain separate choices.",
+          "zh": "该框架可辅助对话，不是经实证验证的五类型分类。所链接2016年研究在书面信任受损情境中检验六种道歉成分，不验证本题本，不确定接收者义务，也不保证匹配语言恢复信任。联系、补救、原谅和恢复关系仍是不同选择。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this tell me how I apologize?",
+        "zh": "结果会告诉我自己怎样道歉吗？"
+      },
+      "answer": {
+        "en": "No. The questions ask what you value when receiving an apology. They do not observe your behavior, establish a partner’s preferences or assess anyone’s sincerity.",
+        "zh": "不会。题目问接收道歉时看重什么，没有观察你的行为、不确定伴侣偏好，也不鉴定任何人的真诚。"
+      }
+    },
+    {
+      "question": {
+        "en": "Why is there no primary apology language?",
+        "zh": "为什么不选主要道歉语言？"
+      },
+      "answer": {
+        "en": "The five groups can coexist and tie. All means and complete guides are retained without ranking or a tie-break; small differences have no established meaningful-gap threshold.",
+        "zh": "五组可以并存或并列，因此全部均分与完整指南都保留，不排名、不打破并列，也没有已确立的重要差距阈值。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the official Chapman and Thomas quiz?",
+        "zh": "这是Chapman与Thomas官方题本吗？"
+      },
+      "answer": {
+        "en": "No. Their popular framework is credited, while these 20 statements, bilingual guides and scoring are original to FermatMind and have not been empirically validated.",
+        "zh": "不是。注明其流行框架归属，但20条陈述、双语指南和计分由费马原创，尚无实证验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if I cannot rate a statement?",
+        "zh": "无法评价某条怎么办？"
+      },
+      "answer": {
+        "en": "Choose the unscored option. That group has no personal mean, while other complete groups remain available. Missing is not zero, and every guide stays complete.",
+        "zh": "选不计分选项，所在组暂不给个人均分，其他完整组仍可读。缺答不是零，全部指南保持完整。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does an apology mean I should forgive or reconnect?",
+        "zh": "收到道歉就应该原谅或恢复联系吗？"
+      },
+      "answer": {
+        "en": "This score cannot require either. The recipient may decline, ask for time, keep a boundary or choose no contact. Repair does not buy forgiveness, and a promise does not establish change.",
+        "zh": "分数不能要求任何一种选择。接收者可以拒绝、要时间、保留边界或不再联系；补救买不来原谅，承诺也不证明改变。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all results free, and what is shared?",
+        "zh": "所有结果免费吗，会分享什么？"
+      },
+      "answer": {
+        "en": "All 20 items and five complete guides are free without signup. Drafts require explicit opt-in, stay in this tab for at most 24 hours, and clear on completion or reset. Sharing copies only the public title and link.",
+        "zh": "20题和五份完整指南免费，无需注册。主动勾选才在标签页保存最多24小时草稿，完成或重置即清除。分享仅复制公开标题与链接。"
+      }
+    }
+  ]
+}

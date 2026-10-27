@@ -4338,5 +4338,31 @@
       "standards-reading",
       "discrepancy-reading"
     ]
+  },
+  {
+    "slug": "apology-language",
+    "code": "FM_APOLOGY_RECEIVING_PREF20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Apology Language Test",
+      "zh": "道歉语言测试"
+    },
+    "description": {
+      "en": "Explore what matters to you when receiving an apology with 20 original items. Read five separate means, equal values, examples and complete guides free.",
+      "zh": "用20道原创题看看接收道歉时看重什么，分别阅读五组重视程度、相同均分、缺答、具体对话与反例。完整结果免费，不替他人判型。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_apology_receiving_importance20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "regret-reading",
+      "responsibility-reading",
+      "repair-reading",
+      "change-reading",
+      "forgiveness-choice-reading"
+    ]
   }
 ]

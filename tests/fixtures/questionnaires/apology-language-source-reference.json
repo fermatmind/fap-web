@@ -1,0 +1,1552 @@
+{
+  "id": "T098",
+  "state": "externaloriginalsourcecandidate;noresultpackage/runtime/acceptance",
+  "slug": "apology-language",
+  "code": "FM_APOLOGY_RECEIVING_PREF20",
+  "form": "fm_apology_receiving_importance20_v1",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "scoring": "fm_apology_five_complete4_importance_means1dp_no_ranking_v1",
+  "scope": "Own stated importance when RECEIVING an apology for ordinary mistakes;fiveeditorialgroupsinformedbyChapman/Thomaspopularframework;notofficialquiz/notvalidatedscale/notobservedgivingbehavior/notpartnerassignment.",
+  "instructions": {
+    "en": "For each ordinary-mistake scenario, rate how important that element would be to you when receiving an apology. Use your own current preference; no recent incident or fixed recall period is required. You may use an imagined ordinary example, or choose Cannot rate / prefer not to answer. The questions do not require contact, reconciliation or forgiveness. Do not use these scenarios to replace safety, professional advice or a formal process for serious harm.",
+    "zh": "对每个日常失误情境，评价自己接收道歉时有多看重题中这一部分。按目前自己的偏好作答，不要求最近发生过，也不设固定回忆期限。可以想到一个普通的假设例子；无法评价或不想回答时选不计分选项。题目不要求联系对方、恢复关系或给予原谅。严重伤害涉及安全、专业支持或正式处理时，不用这些情境代替。"
+  },
+  "parts": [
+    {
+      "id": "regret",
+      "title": {
+        "en": "Acknowledging regret",
+        "zh": "表达歉意"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "responsibility",
+      "title": {
+        "en": "Owning responsibility",
+        "zh": "承担责任"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "repair",
+      "title": {
+        "en": "Offering repair",
+        "zh": "提出补救"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "change",
+      "title": {
+        "en": "Planning change",
+        "zh": "计划改变"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": "forgiveness-choice",
+      "title": {
+        "en": "Requesting forgiveness without pressure",
+        "zh": "尊重选择地请求原谅"
+      },
+      "itemCount": 4,
+      "item_numbers": [
+        17,
+        18,
+        19,
+        20
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "APREF_01",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person acknowledges the disappointment their action caused me.",
+        "zh": "对方没有告知就改变约定后，在道歉中承认这件事让我失望。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_02",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person expresses regret without asking me to comfort them.",
+        "zh": "对方说了关于我的不实话后，表达歉意，而不要求我反过来安慰他们。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_03",
+      "prompt": {
+        "en": "After damaging something I lent them, the person expresses regret for the inconvenience I experienced.",
+        "zh": "对方损坏借走的物品后，对给我带来的不便表达歉意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_04",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person acknowledges how that affected my day.",
+        "zh": "对方没有履行帮助我的约定后，承认这件事对我当天安排的影响。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "regret",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "regret",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "regret",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "regret",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "regret",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "regret",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_05",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person clearly owns their choice rather than calling it my misunderstanding.",
+        "zh": "对方没有告知就改变约定后，明确承认是自己的选择，而不说成是我误会了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_06",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person admits which claim they made without adequate grounds.",
+        "zh": "对方说了关于我的不实话后，承认自己哪项说法没有充分依据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_07",
+      "prompt": {
+        "en": "After carelessly damaging something I lent them, the person acknowledges their own handling of it.",
+        "zh": "对方因粗心损坏借走的物品后，承认是自己使用时没有照顾好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_08",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person identifies their part in the missed promise without transferring it to me.",
+        "zh": "对方没有履行帮助我的约定后，说明自己在失约中的责任，而不转嫁给我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "responsibility",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "responsibility",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "responsibility",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "responsibility",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "responsibility",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "responsibility",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_09",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person offers a feasible alternative and checks whether it works for me.",
+        "zh": "对方没有告知就改变约定后，提出可行的替代安排，并确认是否适合我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_10",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person offers an appropriate correction to the people who heard it, while checking my privacy wishes.",
+        "zh": "对方说了关于我的不实话后，提出向听到的人作适当更正，并先确认我的隐私意愿。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_11",
+      "prompt": {
+        "en": "After damaging something I lent them, the person discusses a workable repair or replacement with me.",
+        "zh": "对方损坏借走的物品后，与我商量实际可行的维修或替换。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_12",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person offers practical help with a remaining consequence of the missed promise.",
+        "zh": "对方没有履行帮助我的约定后，为失约留下的实际影响提出补救帮助。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "repair",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "repair",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "repair",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "repair",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "repair",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "repair",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_13",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person explains a specific way they will notify me about future changes.",
+        "zh": "对方没有告知就改变约定后，说明以后发生变化时将怎样具体通知我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_14",
+      "prompt": {
+        "en": "After making an inaccurate statement about me, the person describes how they will check information before repeating a similar claim.",
+        "zh": "对方说了关于我的不实话后，说明今后怎样核实信息，避免再作类似说法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_15",
+      "prompt": {
+        "en": "After damaging something I lent them, the person agrees on a specific precaution for any future borrowing.",
+        "zh": "对方损坏借走的物品后，与我约定今后借用时的一项具体注意办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_16",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person proposes a realistic plan for noticing and communicating a future conflict.",
+        "zh": "对方没有履行帮助我的约定后，提出切实可行的办法，提前发现并说明以后的安排冲突。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_17",
+      "prompt": {
+        "en": "After changing an agreed plan without telling me, the person asks whether I am willing to consider forgiveness and accepts that I may not be ready.",
+        "zh": "对方没有告知就改变约定后，问我是否愿意考虑原谅，也接受我可能还没准备好。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_18",
+      "prompt": {
+        "en": "After correcting an inaccurate statement about me, the person asks about forgiveness without treating the correction as entitlement to it.",
+        "zh": "对方更正关于我的不实话后，请求原谅，但不认为更正后就有权要求我原谅。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_19",
+      "prompt": {
+        "en": "After arranging repair for something they damaged, the person leaves the choice about forgiveness with me.",
+        "zh": "对方安排修复损坏的物品后，仍把是否原谅的选择留给我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "APREF_20",
+      "prompt": {
+        "en": "After missing a commitment to help me, the person asks about forgiveness instead of announcing that everything is settled between us.",
+        "zh": "对方没有履行帮助我的约定后，询问我是否愿意原谅，而不是宣布我们之间已经没事了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "1 — Not important to me",
+            "zh": "1 — 对我不重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "2 — Slightly important to me",
+            "zh": "2 — 对我稍微重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "3 — Moderately important to me",
+            "zh": "3 — 对我中等重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "4 — Very important to me",
+            "zh": "4 — 对我很重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "5 — Extremely important to me",
+            "zh": "5 — 对我极其重要"
+          },
+          "directionId": "forgiveness-choice",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot rate / prefer not to answer — unscored",
+            "zh": "无法评价／暂不回答——不计分"
+          },
+          "directionId": "forgiveness-choice",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_item_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "scoring_policy": "All20choicesincludingNAfinish;fourvalidratingswithinpartneeded;sum4responses/4round1dp;all20positivekeyedbecauseimportancepreferencesnotfrequencyortrait. Missingnotzero/notprorated;othercompletepartsremain. Fiveindependentmeansallvisibleatanyvalue/equalmeansretainallfive;no primarytype/tie-break/percentage/overallworthiness/cutoff/riskprediction.",
+  "provenance": "All20English/Chinesestatements and prospectivefiveguides/scorepolicy are FermatMindoriginal. FivebroadideascreditedtoChapmanandThomas,2022publisherpage. Noofficial20/25questionpairbank,JobCannon15bank,copyrightedbookchapterorLewicki2016scenariotextcopied. Noitemlicenseclaimed/requiredforanotherpersonbankbecauseitisnotused.",
+  "primary": [
+    {
+      "url": "https://www.moodypublishers.com/the-5-apology-languages?variationCode=978-0-8024-7503-9",
+      "read": "Actualpublisherpage47-151;authors,2022-01-03,ISBN9780802475039,fiveideasandcontents",
+      "role": "popularconceptframeworkandattributiononly;notitembankgrant/psychometricvalidationorproofallrelationshipsheal"
+    },
+    {
+      "url": "https://5lovelanguages.com/quizzes/apology-language",
+      "read": "actualpublicintroduction+displayedpairs124-154;officialquizcopyrightnotcopied;didnotcompleteorsavepersonalresult",
+      "role": "identityofficialquizdifferent;notpermissiontoreproducebank"
+    },
+    {
+      "url": "https://ncmr.lps.library.cmu.edu/article/id/264/",
+      "read": "actualabstract/citation/licensefullpage;notfull20pagepaper",
+      "role": "LewickiPolinLount2016sixcomponentresearchNOTfivepersonalitytypes;CCBYNCnotadoptedasanitemgrant"
+    },
+    {
+      "url": "https://news.osu.edu/the-6-elements-of-an-effective-apology-according-to-science/",
+      "read": "actualcomplete31-75;twostudies755333adult422studentsreadingworkplacetrustviolations;notrealrelationshipoutcomes",
+      "role": "primaryuniversityresearchreportbackground;notvalidationofthispreferencesbankorruleforwhatrecipientmustvalue"
+    }
+  ],
+  "not_inferred": [
+    "receivingpreferencepredictswhatthepersondoeswhengivingapologies",
+    "5typesarevalidatedexclusiveclasses",
+    "72percentconflictsstatisticfromcompetitorAbout",
+    "matchedlanguagesguaranteetrust/forgiveness/careerfit",
+    "restitutionbuysforgiveness",
+    "apologyrequiresimmediateforgivenessorreconciliation",
+    "sadness/shameasnecessaryproofofsincerity"
+  ],
+  "language_equivalence": "Newbilingualoriginalwording;notvalidatedtranslationoforiginalinstrument;noempiricalmeasurementinvariance",
+  "future_profiles": [
+    "regret-reading",
+    "responsibility-reading",
+    "repair-reading",
+    "change-reading",
+    "forgiveness-choice-reading"
+  ]
+}
