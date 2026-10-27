@@ -1,0 +1,1949 @@
+{
+  "slug": "adult-age-preferences",
+  "code": "AGE_PREFERENCE",
+  "kind": "directional",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "title": {
+    "en": "Adult Age Preference Test",
+    "zh": "年上年下情境偏好测试"
+  },
+  "seoTitle": {
+    "en": "Adult Age Preference Test: 18 Choices & Full Results",
+    "zh": "年上年下情境偏好测试：18题、3方向与完整并列说明"
+  },
+  "description": {
+    "en": "Compare older, similar-age and younger adult situations in 18 choices. Read all seven complete results, including ties. Free, no signup or partner data.",
+    "zh": "通过18道原创二选一，回看年长、相近年龄与较年轻成年伴侣情境的相对选择。七份完整结果含全部并列，免费，无需注册或伴侣资料。"
+  },
+  "resultHeading": {
+    "en": "Adult age-context choice record",
+    "zh": "成年人年龄情境选择记录"
+  },
+  "minutes": 5,
+  "introduction": {
+    "en": "Please start with four limits: the test concerns adult relationships only and does not involve minors; it records relative counts across 18 paired choices; the items combine age, life stage, experience and interaction, so they cannot isolate a preference for age itself; the result is not a fixed identity, partner match, relationship-quality assessment or legal judgment.",
+    "zh": "请先了解四件事：本测试只讨论成年人之间的关系情境，不涉及未成年人；结果是 18 道二选一中的相对选择次数；题目混合了年龄、生活阶段、经验和互动安排，不能隔离确定纯年龄偏好；结果不是固定身份、伴侣匹配、关系质量或法律判断。"
+  },
+  "instructions": {
+    "en": "Consider only situations between adults. For each pair, choose the option closer to your current preference. Neither is correct. All 18 choices are required before counts are interpreted. If neither option fits, you can stop or read the public guides without disclosing private details.",
+    "zh": "只考虑成年人之间的情境。每题在两个选项中选择当前相对更接近自己的一项，没有正确答案；18题全部有效后才解释次数。两项都不贴切时，可以结束或先读公开指南，无需披露私人经历。"
+  },
+  "source": {
+    "kind": "original-mini-program-web-adaptation",
+    "formCode": "age_preference_forced_choice_18",
+    "itemBankVersion": "0.1.0-preview+web-en.1",
+    "scoringVersion": "0.1.0-preview.web-raw-count.1",
+    "resultContentVersion": "0.2.0-editorial-candidate+web-en.1",
+    "psychometricValidationCompleted": false,
+    "itemBankSha256": "21c3d938313fcd6769e9c5a421a3d99949189f3299ce41fb09bed2e1bce96c77",
+    "resultContentSha256": "9b14d47b9dcf78e7b98d20ae797381c50617cc62509eed33b91931ec88a1a7fa"
+  },
+  "directions": [
+    {
+      "id": "OLDER_PARTNER_CONTEXT",
+      "title": {
+        "en": "Older adult partner situations",
+        "zh": "年长伴侣情境"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "SIMILAR_AGE_CONTEXT",
+      "title": {
+        "en": "Similar age and life-stage situations",
+        "zh": "相近年龄阶段情境"
+      },
+      "comparisons": 12
+    },
+    {
+      "id": "YOUNGER_PARTNER_CONTEXT",
+      "title": {
+        "en": "Younger adult partner situations",
+        "zh": "较年轻成年伴侣情境"
+      },
+      "comparisons": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "AGE_FC_001",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "I find it easier to imagine negotiating shared arrangements with an adult who has considerably more life experience than I do.",
+            "zh": "我更容易想象与生活经验明显多于我的成年人共同协商。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "I find it easier to imagine negotiating shared arrangements with an adult at a similar life stage.",
+            "zh": "我更容易想象与生活阶段相近的成年人共同协商。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_002",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "When facing an unfamiliar choice, I place more value on exploring it together from similar starting points.",
+            "zh": "面对陌生选择，我较看重双方从相近起点一起摸索。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When facing an unfamiliar choice, I am more comfortable with a partner bringing more prior experience.",
+            "zh": "面对陌生选择，我较能接受伴侣带来更多既有经验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_003",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When planning a shared future, I feel comfortable with a partner who has already been through the relevant life stages.",
+            "zh": "规划长期生活时，我对伴侣比我更早经历相关阶段感到自在。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "When planning a shared future, I feel comfortable when we are at similar life stages.",
+            "zh": "规划长期生活时，我对双方处在相近阶段感到自在。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_004",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "When deciding how to care for each other, I am more used to both of us having roughly similar experience.",
+            "zh": "分配照顾角色时，我更习惯双方经验大致相近。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When deciding how to care for each other, I can accept an older adult partner having more practical experience.",
+            "zh": "分配照顾角色时，我能接受年长伴侣拥有更多实践经验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_005",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "While keeping our own space, I can adapt to the daily rhythms an older adult partner has already established.",
+            "zh": "各自保留空间时，我能适应年长伴侣已经形成的生活节奏。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "While keeping our own space, I prefer our daily rhythms to be at similar stages.",
+            "zh": "各自保留空间时，我更偏好双方节奏处于相近阶段。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_006",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "For important decisions, I am willing to develop ways of negotiating together with a partner at a similar life stage.",
+            "zh": "重要决定中，我愿意和同阶段伴侣一起建立协商方式。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "For important decisions, I am willing to keep checking that both I and an older adult partner have a say.",
+            "zh": "重要决定中，我愿意和年长伴侣持续核对彼此话语权。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_007",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "I more readily feel interested in spending time with an adult partner who is older than I am.",
+            "zh": "我较容易对年长于我的成年伴侣产生相处兴趣。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "I more readily feel interested in spending time with an adult partner who is younger than I am.",
+            "zh": "我较容易对年轻于我的成年伴侣产生相处兴趣。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_008",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When there is a difference in experience, I am more comfortable being the person with more experience.",
+            "zh": "经验差异出现时，我较能适应自己经验较多的一侧。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When there is a difference in experience, I am more comfortable being the person with less experience.",
+            "zh": "经验差异出现时，我较能适应自己经验较少的一侧。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_009",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When our life plans are at different stages, I am more willing to understand arrangements shaped by stages the other person has already experienced.",
+            "zh": "生活计划不同步时，我较愿意理解较早阶段已经历过的安排。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When our life plans are at different stages, I am more willing to understand arrangements the other person is still developing.",
+            "zh": "生活计划不同步时，我较愿意理解较晚阶段正在形成的安排。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_010",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When discussing support, I feel more comfortable sharing more of my experience.",
+            "zh": "讨论支持方式时，我对提供更多经验分享比较自在。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When discussing support, I feel more comfortable receiving more of the other person's experience.",
+            "zh": "讨论支持方式时，我对接收更多经验分享比较自在。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_011",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When both of us have an equal say, I can accept a partner who is considerably older than I am.",
+            "zh": "双方平等协商时，我能接受伴侣年龄明显高于我。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When both of us have an equal say, I can accept a partner who is considerably younger than I am and is an adult.",
+            "zh": "双方平等协商时，我能接受伴侣年龄明显低于我但已成年。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_012",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When the pace of a relationship changes, I am more comfortable adapting to routines a younger adult partner is still developing.",
+            "zh": "关系节奏变化时，我较能适应较年轻成年伴侣正在形成的惯例。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "OLDER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When the pace of a relationship changes, I am more comfortable adapting to routines an older adult partner has already established.",
+            "zh": "关系节奏变化时，我较能适应年长伴侣已有的惯例。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_013",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "I find it easier to imagine building everyday life with an adult at a similar life stage.",
+            "zh": "我更容易想象与生活阶段相近的成年人建立日常。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "I find it easier to imagine building everyday life with a younger adult.",
+            "zh": "我更容易想象与较年轻的成年人建立日常。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_014",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When handling practical pressures, I can accept being the person with more experience of that life stage.",
+            "zh": "处理现实压力时，我能接受自己拥有更多阶段经验。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "When handling practical pressures, I place more value on both of us having similar experience of that life stage.",
+            "zh": "处理现实压力时，我较看重双方有相近的阶段经验。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_015",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "When discussing the future, I prefer both of us to begin planning from similar positions.",
+            "zh": "讨论未来时，我更偏好双方从相近位置开始规划。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "When discussing the future, I can accept that a younger adult partner is still developing some of their plans.",
+            "zh": "讨论未来时，我能接受较年轻成年伴侣仍在形成部分计划。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_016",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "In caring for and being cared for by each other, I can adapt to more often being the person who offers experience.",
+            "zh": "照顾与被照顾之间，我能适应自己较常提供经验支持。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "In caring for and being cared for by each other, I am more used to both of us having roughly similar experience.",
+            "zh": "照顾与被照顾之间，我更习惯双方经验大致对等。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_017",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "While keeping our own space, I prefer both of us to have similar independence in everyday life.",
+            "zh": "保留个人空间时，我更偏好双方拥有相近的生活自主度。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "While keeping our own space, I am willing to understand the different pace at which a younger adult partner is growing.",
+            "zh": "保留个人空间时，我愿意理解较年轻成年伴侣不同的成长节奏。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGE_FC_018",
+      "prompt": {
+        "zh": "以下两种情境中，哪一种更接近你当前更自然的选择？",
+        "en": "Which of these two situations is closer to the choice that currently feels more natural to you?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "directionId": "YOUNGER_PARTNER_CONTEXT",
+          "label": {
+            "en": "For important decisions, I can negotiate as equals with a younger adult partner without deciding for them.",
+            "zh": "重要决定中，我能和较年轻成年伴侣平等协商而不替对方决定。"
+          }
+        },
+        {
+          "id": "B",
+          "directionId": "SIMILAR_AGE_CONTEXT",
+          "label": {
+            "en": "For important decisions, I like to build experience together with a partner at a similar life stage.",
+            "zh": "重要决定中，我喜欢和同阶段伴侣一起积累经验。"
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "older-adult-context",
+      "directionIds": [
+        "OLDER_PARTNER_CONTEXT"
+      ],
+      "title": {
+        "en": "Older adult partner situations chosen more often",
+        "zh": "年长成年伴侣情境相对更多"
+      },
+      "headline": {
+        "en": "Older adult partner situations were chosen more often in this question set",
+        "zh": "本次题组中，年长成年伴侣情境的选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, you more often selected situations involving an adult partner with more life experience or experience of an earlier life stage than your own.",
+        "zh": "在 18 道二选一里，涉及伴侣生活经验或生活阶段早于自己的成年人情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count records relative choices in this set. It does not indicate intensity, probability or your rank among other people.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示强度、概率或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the situations describe",
+            "zh": "这组情境观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These items describe situations with an older adult partner, often involving more experience of life stages and daily rhythms or arrangements that are already established.",
+              "zh": "本方向题目描述与年长成年伴侣相处的情境，常涉及对方已有更多阶段经验、更早形成的生活节奏与安排。"
+            },
+            {
+              "en": "The items include negotiating with a more experienced adult, accepting a partner’s prior experience, adapting to arrangements from stages they have already experienced, receiving experience and checking that both people have a say.",
+              "zh": "题目覆盖这类情境：与生活经验较多的成年人协商、接受伴侣带来更多既有经验、适应较早阶段的安排、接收经验分享、核对经验差异中的话语权。"
+            }
+          ]
+        },
+        {
+          "id": "age-and-experience",
+          "title": {
+            "en": "Separate age from stage and experience",
+            "zh": "把年龄、阶段与经验分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The choices place age alongside life stage, experience and negotiation. The result cannot isolate whether age itself, experience of a stage or a particular interaction matters more to you.",
+              "zh": "题目把年龄放进生活阶段、经验与协商情境中比较，因此结果不能区分你更在意年龄本身、阶段经验还是具体互动安排。"
+            },
+            {
+              "en": "Being older does not mean being mature, safe, stable, wealthy or more suitable. More experience does not establish the quality of a relationship.",
+              "zh": "年长不等于成熟、安全、稳定、富有或更适合；经验多少不能直接推出关系质量。"
+            }
+          ]
+        },
+        {
+          "id": "questions-to-revisit",
+          "title": {
+            "en": "Revisit the actual conditions",
+            "zh": "回看真实选择条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether what matters is a partner’s existing experience, whether you are cared for or relied upon, or the pace at which both of you negotiate shared arrangements.",
+              "zh": "可以回看：你在意的是一段关系中对方已有的经验，还是自己是否被照顾或依赖，还是双方共同协商的节奏。"
+            },
+            {
+              "en": "Would your choice change if the person had more experience but was a similar age? Would it still hold if sharing experience were removed from the option?",
+              "zh": "把年长换成经验更多但年龄相近的人，你的选择会不会变化；把选项中的经验分享去掉后，选择是否还成立。"
+            },
+            {
+              "en": "Would you choose the same way if the person were a similar age but considerably more experienced? Is it having been through a stage earlier, or having a more established daily rhythm, that matters?",
+              "zh": "如果对方年龄相近但经验明显更多，你的选择会一样吗？你在意的是更早经历过，还是生活节奏更固定？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Whatever the ages involved, each person needs their own freedom to decide, decline and change their mind. Being older does not confer more decision-making authority or mean that you should obey.",
+              "zh": "无论年龄如何，决定权、拒绝权和改变主意的自由都需要双方各自拥有；年龄较大不等于拥有更多决定权，也不默认需要你来服从。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, rewrite the preference as three specific expectations that could be negotiated. This result alone does not require you to change any existing arrangement.",
+              "zh": "如果愿意，可以把偏好改写成三项可协商的具体期待；不需要仅因本结果改变任何既有安排。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：阿宁和一位年长的成年伴侣讨论共同生活。对方经历过搬家和长期租住，能提前说明看房、通勤与日常分工可能遇到的取舍。阿宁喜欢听这些经验，但仍想保留否决某处住所、重新讨论预算和独处安排的权利。这可以对应“更愿意接收既有经验”的选择；仅凭这个场景，仍不知道年龄本身是不是决定因素。",
+              "en": "Fictional situation: Anning discusses living together with an older adult partner. The partner has moved and rented long term before, and can describe tradeoffs around housing, commuting and everyday responsibilities. Anning appreciates that experience while keeping the right to reject a home or reopen a discussion about spending and personal space. This could fit choosing prior experience more often. The situation alone still does not establish that age itself drives the choice."
+            },
+            {
+              "zh": "反例：一位年龄相近的人同样有搬家经验，而年长者没有。若你这时改选同龄者，先前吸引你的可能是经验或协商方式；这不推翻本次次数，也不能证明你只偏好某个年龄。",
+              "en": "Counterexample: A similar-age person has that moving experience and an older person does not. Choosing the former may point toward experience or negotiation rather than age. It does not invalidate the counts or prove an exclusive age preference."
+            },
+            {
+              "zh": "小练习：私下写下“希望对方带来的经验”“自己仍要决定的事情”“去掉年龄后是否仍在意”三列，各放一个具体例子。不必把记录或结果发给任何人，也不必因此调整关系。",
+              "en": "Optional exercise: Privately make three columns: experience you would welcome, decisions you still want to own, and whether the condition matters without age. Add one concrete example to each. You do not need to share the record or change a relationship because of it."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not define a fixed identity.",
+              "zh": "不定义固定身份"
+            },
+            {
+              "en": "It does not show that you like being cared for or instructed.",
+              "zh": "不说明你喜欢被照顾或被指导"
+            },
+            {
+              "en": "It does not determine whether a relationship is lawful or healthy.",
+              "zh": "不判断任何关系是否合法或健康"
+            },
+            {
+              "en": "The leading direction records relative choices in this set. It is not a fixed identity as someone who prefers older partners, and it does not produce an age-orientation label.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是年上控式固定身份，也不产生年龄取向标签。"
+            },
+            {
+              "en": "The result cannot determine what age of partner suits you or predict dating or marriage outcomes.",
+              "zh": "结果不能判断你适合与什么年龄的伴侣在一起，也不能预测恋爱或婚姻结果。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Older Partner Situations: Adult Age Preference Test",
+          "zh": "年长成年伴侣情境相对更多：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Read an older adult context result: counts out of 12, age versus experience, a concrete example and optional exercise. No partner-matching claim.",
+          "zh": "完整理解年长成年伴侣情境相对更多：每方向12次比较，区分年龄、生活阶段和经验，含具体例子、反例与私人练习，不做伴侣匹配。"
+        }
+      }
+    },
+    {
+      "id": "similar-age-context",
+      "directionIds": [
+        "SIMILAR_AGE_CONTEXT"
+      ],
+      "title": {
+        "en": "Similar life-stage situations chosen more often",
+        "zh": "相近年龄阶段情境相对更多"
+      },
+      "headline": {
+        "en": "Similar age and life-stage situations were chosen more often in this question set",
+        "zh": "本次题组中，相近年龄阶段情境的选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, you more often selected adult situations in which both people have roughly similar life stages or experience.",
+        "zh": "在 18 道二选一里，涉及双方生活阶段或经验大致相近的成年人情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count records relative choices in this set. It does not indicate compatibility, relationship quality or your rank among other people.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示合拍程度、关系质量或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the situations describe",
+            "zh": "这组情境观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These items describe relationships where life stage, starting position and experience are roughly similar, often involving planning and exploring together from comparable positions.",
+              "zh": "本方向题目描述双方生活阶段、起点和经验大致相近的关系情境，常涉及从相近位置共同规划与摸索。"
+            },
+            {
+              "en": "The items include exploring from similar starting points, being at similar stages, having roughly comparable experience, developing ways of negotiating together and having similar everyday independence.",
+              "zh": "题目覆盖这类情境：从相近起点一起摸索、双方处在相近阶段、经验大致对等、共同建立协商方式、相近生活自主度。"
+            }
+          ]
+        },
+        {
+          "id": "age-and-experience",
+          "title": {
+            "en": "Separate age from stage and experience",
+            "zh": "把年龄、阶段与经验分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The choices place age alongside life stage, experience and negotiation. The result cannot isolate whether similar age itself, being at the same stage or having comparable experience matters more.",
+              "zh": "题目把年龄放进生活阶段、经验与协商情境中比较，因此结果不能区分你更在意年龄相近本身，还是阶段同步与经验对等。"
+            },
+            {
+              "en": "Similar age does not guarantee equality, better communication, shared values or stability. Similar life stages do not establish that a relationship is healthier.",
+              "zh": "相近年龄不保证平等、沟通更好、价值观一致或更稳定；阶段相近不等于关系更健康。"
+            }
+          ]
+        },
+        {
+          "id": "questions-to-revisit",
+          "title": {
+            "en": "Revisit the actual conditions",
+            "zh": "回看真实选择条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether what matters is being close in age, learning together from the beginning, having comparable experience or arranging things so both people can participate in decisions.",
+              "zh": "可以回看：你在意的是年龄接近，还是一起从头摸索、经验大致对等、双方都能参与决定的安排方式。"
+            },
+            {
+              "en": "Would your choice change if someone shared your values but was a different age? Would it still hold if exploring together were removed from the option?",
+              "zh": "把相近阶段换成相近价值观但年龄不同的人，你的选择会不会变化；把共同摸索去掉后，选择是否还成立。"
+            },
+            {
+              "en": "Would you choose the same way if both people were the same age but had very different life plans? Is being at the same stage important, or the feeling of making decisions together?",
+              "zh": "如果双方年龄相同但生活计划差异很大，你的选择会一样吗？你在意的是阶段同步，还是更容易一起决定的感觉？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Similar age does not guarantee equal power. Both people still need to be able to express themselves freely, decline and change their mind.",
+              "zh": "年龄相近不保证权力平等；仍需要确认双方都能自由表达、拒绝和改变主意。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, list conditions other than age that actually affect your comfort. You can also keep the current choices without making another record.",
+              "zh": "如果愿意，可以列出年龄之外真正影响舒适度的条件；也可以只保留当前选择，不再记录。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：小夏喜欢与生活阶段相近的成年伴侣一起讨论第一次异地工作。两人都还在学习如何安排见面、家务和个人时间，谁也不把“我更懂”当作默认优势。小夏更喜欢一起摸索的过程。这能帮助理解“相近起点”的选项，但不能据此认定两人年龄相同，或认为共同起步一定更合拍。",
+              "en": "Fictional situation: Xia likes discussing a first period of working in different cities with an adult partner at a similar life stage. Both are learning how to arrange visits, responsibilities and personal time; neither treats greater knowledge as an automatic advantage. Xia values exploring together. This illustrates a similar-starting-point option, without establishing that the partners are the same age or that starting together guarantees compatibility."
+            },
+            {
+              "zh": "反例：同龄伴侣已经完成另一项人生安排，你们的时间表差异很大；另一位不同年龄的成年人却正面对相似选择。你更愿意与后者讨论，不等于先前结果失效，而是值得区分年龄相近与阶段相近。",
+              "en": "Counterexample: A same-age partner has already made a major life arrangement and follows a very different timetable, while an adult of another age faces a similar choice. Preferring the latter conversation makes it useful to distinguish similar age from similar stage, rather than declaring the result invalid."
+            },
+            {
+              "zh": "小练习：列出两个你希望“双方差不多”的具体条件，例如可支配时间或共同决策机会，再写一个即使年龄不同也可以协商的条件。用具体安排替代“同龄就懂我”的推断，记录也可以不保存。",
+              "en": "Optional exercise: Name two specific conditions you want to be roughly comparable, such as available time or opportunities to decide together. Add one condition that could still be negotiated across an age difference. Replace an assumption of automatic understanding with concrete arrangements; keeping a record is optional."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not define a fixed identity.",
+              "zh": "不定义固定身份"
+            },
+            {
+              "en": "It does not promise easier compatibility or marriage.",
+              "zh": "不承诺更容易合拍或结婚"
+            },
+            {
+              "en": "It does not predict whether a relationship will last.",
+              "zh": "不预测关系是否长久"
+            },
+            {
+              "en": "The leading direction records relative choices in this set. It is not a fixed identity as someone who prefers same-age partners, and it does not produce an age-orientation label.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是同龄控式固定身份，也不产生年龄取向标签。"
+            },
+            {
+              "en": "The result cannot determine whether a partner of a similar age suits you better or predict dating or marriage outcomes.",
+              "zh": "结果不能判断相近年龄是否更适合你，也不能预测恋爱或婚姻结果。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Similar Age Situations: Adult Age Preference Test",
+          "zh": "相近年龄阶段情境相对更多：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Read a similar-age context result: 18 choices, shared starting points, examples and limits. Similar age does not establish relationship quality.",
+          "zh": "完整理解相近年龄阶段情境相对更多：18道二选一、共同起点、具体情境与反例。年龄相近不保证平等、合拍或关系质量。"
+        }
+      }
+    },
+    {
+      "id": "younger-adult-context",
+      "directionIds": [
+        "YOUNGER_PARTNER_CONTEXT"
+      ],
+      "title": {
+        "en": "Younger adult partner situations chosen more often",
+        "zh": "较年轻成年伴侣情境相对更多"
+      },
+      "headline": {
+        "en": "Younger adult partner situations were chosen more often in this question set",
+        "zh": "本次题组中，较年轻成年伴侣情境的选项被选择较多"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, you more often selected situations involving a partner who is a younger adult.",
+        "zh": "在 18 道二选一里，涉及对方是较年轻成年人的情境，你相对更常选择。"
+      },
+      "scoreReading": {
+        "en": "This count records relative choices in this set. It does not indicate willingness to provide care, a tendency to control or your rank among other people.",
+        "zh": "这个次数只表示本次题组中的相对选择，不表示照顾意愿、控制倾向或人群排名。"
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "What the situations describe",
+            "zh": "这组情境观察什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These items describe situations with a younger adult partner, often involving your having more life-stage experience, offering experience or understanding arrangements the other person is still developing.",
+              "zh": "本方向题目描述与较年轻成年伴侣相处的情境，常涉及自己拥有较多阶段经验、提供经验支持、理解对方仍在形成的安排。"
+            },
+            {
+              "en": "The items include being comfortable as the more experienced person, sharing more experience, understanding plans and routines that are still developing and negotiating as equals without deciding for someone else.",
+              "zh": "题目覆盖这类情境：适应自己经验较多的一侧、提供更多经验分享、理解正在形成的计划与惯例、平等协商而不替对方决定。"
+            }
+          ]
+        },
+        {
+          "id": "age-and-experience",
+          "title": {
+            "en": "Separate age from stage and experience",
+            "zh": "把年龄、阶段与经验分开"
+          },
+          "paragraphs": [
+            {
+              "en": "The choices place age alongside life stage, experience and negotiation. The result cannot isolate whether age itself, offering experience or a particular interaction matters more to you.",
+              "zh": "题目把年龄放进生活阶段、经验与协商情境中比较，因此结果不能区分你更在意年龄本身、经验提供还是互动安排。"
+            },
+            {
+              "en": "A younger adult is not necessarily dependent, immature or inexperienced. Having more experience yourself does not mean you need to instruct them or decide for them.",
+              "zh": "较年轻成年人不等于依赖、幼稚或缺乏经验；自己经验较多也不等于需要指导或替对方决定。"
+            }
+          ]
+        },
+        {
+          "id": "questions-to-revisit",
+          "title": {
+            "en": "Revisit the actual conditions",
+            "zh": "回看真实选择条件"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether what matters is the other person being younger, your position as the more experienced person or a way of negotiating that still preserves equality.",
+              "zh": "可以回看：你在意的是对方较年轻，还是自己拥有较多经验的位置，还是仍然平等的协商方式。"
+            },
+            {
+              "en": "Would your choice change if someone had less experience but was a similar age? Would it still hold if offering experience were removed from the option?",
+              "zh": "把较年轻换成经验较少但年龄相近的人，你的选择会不会变化；把提供经验支持去掉后，选择是否还成立。"
+            },
+            {
+              "en": "Would you choose the same way if the person had less experience but was a similar age? Can you accept the other person changing their mind at any time?",
+              "zh": "如果对方经验较少但年龄相近，你的选择会一样吗？你能接受对方随时改变主意吗？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "The younger adult still has their own freedom to express themselves, decline and change their mind. More experience does not confer more decision-making authority; offering support does not mean directing someone’s life.",
+              "zh": "较年轻的一方仍拥有独立表达、拒绝和改变主意的自由；经验较多不等于更有决定权，提供支持不等于支配。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "In an actual relationship, you can choose to check whether both people can freely express themselves, decline and change their mind. This result alone does not require you to change any arrangement.",
+              "zh": "在具体关系中，可以按自己的意愿核对双方能否自由表达、拒绝和改变主意；不需要仅因本结果改变安排。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：明川和一位较年轻的成年伴侣规划假期。明川熟悉交通安排，愿意提供经验；对方有自己的目的地偏好，也能拒绝明川推荐的行程。两人各自决定什么可以接受，再共同调整。这个场景可以说明“分享经验但不替对方决定”，却不能从较年轻推断对方依赖、幼稚或需要被带领。",
+              "en": "Fictional situation: Mingchuan plans a holiday with a younger adult partner. Mingchuan knows more about transport arrangements and is willing to share experience. The partner has their own destination preferences and can reject a suggested itinerary. Both decide what they can accept before revising the plan together. This illustrates offering experience without deciding for someone else; younger age does not establish dependence, immaturity or a need for guidance."
+            },
+            {
+              "zh": "反例：较年轻的成年人恰好比你更熟悉目的地。若你愿意接收对方建议，也不需要把自己重新归为另一种年龄类型；某一领域的经验顺序可以与年龄顺序不同。",
+              "en": "Counterexample: The younger adult happens to know the destination better. Being willing to receive their advice does not require assigning yourself a different age type. The order of experience in one area can differ from the order of ages."
+            },
+            {
+              "zh": "小练习：回想一项自己经验较多的安排，分别写下“我能提供什么”“对方可以拒绝什么”“哪些由对方自己决定”。若没有合适例子，可以跳过；这不是要求找一位较年轻的人验证结果。",
+              "en": "Optional exercise: Recall one arrangement where you had more experience. Separately note what you could offer, what the other adult could decline and what they would decide for themselves. Skip the exercise if no example fits. There is no need to find a younger person to validate a result."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not define a fixed identity.",
+              "zh": "不定义固定身份"
+            },
+            {
+              "en": "It does not involve minors.",
+              "zh": "不涉及未成年人"
+            },
+            {
+              "en": "It does not show that you like caring for, instructing or shaping a partner.",
+              "zh": "不说明你喜欢照顾、指导或养成对方"
+            },
+            {
+              "en": "The leading direction records relative choices in this set. It is not a fixed identity as someone who prefers younger partners, and it does not produce an age-orientation label.",
+              "zh": "顶部方向只表示本次题组的相对选择次数，不是年下控式固定身份，也不产生年龄取向标签。"
+            },
+            {
+              "en": "The result cannot determine whether a younger partner suits you or predict dating or marriage outcomes.",
+              "zh": "结果不能判断较年轻伴侣是否适合你，也不能预测恋爱或婚姻结果。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Younger Adult Situations: Age Preference Test",
+          "zh": "较年轻成年伴侣情境相对更多：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Read a younger adult context result: raw choices, experience-sharing, examples and equal say. Younger always means an adult, without a fixed type.",
+          "zh": "完整理解较年轻成年伴侣情境相对更多：原始次数、分享经验与平等协商，含例子及可选练习；较年轻始终指成年人，不定义固定类型。"
+        }
+      }
+    },
+    {
+      "id": "older-similar-tie",
+      "directionIds": [
+        "OLDER_PARTNER_CONTEXT",
+        "SIMILAR_AGE_CONTEXT"
+      ],
+      "title": {
+        "en": "Older and Similar-Age Situations Tied",
+        "zh": "年长与相近年龄情境的选项次数相同"
+      },
+      "headline": {
+        "en": "Older and similar-age situations have the same count",
+        "zh": "年长与相近年龄情境的选项次数相同"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, older adult partner situations and similar age or life-stage situations were selected the same number of times. This is equality of the highest raw counts; it does not create a mixed age personality.",
+        "zh": "在 18 道二选一里，年长成年伴侣情境与相近年龄阶段情境的选项被选择的次数相同。这只是顶部原始次数相等，不形成混合年龄人格。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not mean that you do not care about age differences or that you are more open, accepting or mature.",
+        "zh": "两个方向次数相同，不代表你不在意年龄差，也不代表你更开放、更包容或更成熟。"
+      },
+      "sections": [
+        {
+          "id": "both-contexts",
+          "title": {
+            "en": "Read every tied context",
+            "zh": "分别阅读并列的情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Older adult partner situations involve more existing experience of life stages and daily rhythms established earlier.",
+              "zh": "年长伴侣情境：涉及对方已有较多阶段经验、更早形成的生活节奏。"
+            },
+            {
+              "en": "Similar age and life-stage situations involve roughly comparable stages and experience, with planning from similar starting points.",
+              "zh": "相近年龄阶段情境：涉及双方阶段与经验大致相近、从相近起点规划。"
+            },
+            {
+              "en": "The items include negotiating with older adults, receiving prior experience and adapting to arrangements from stages they have already experienced, alongside exploring together from similar starting points with roughly comparable experience.",
+              "zh": "题目覆盖与年长成年人协商、接收既有经验、适应较早阶段安排，以及从相近起点共同摸索、经验大致对等的各种情境。"
+            }
+          ]
+        },
+        {
+          "id": "raw-wins",
+          "title": {
+            "en": "Reading the shared highest count",
+            "zh": "怎样读共同最高次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each direction appears in 12 comparisons. One selection adds one raw count; all three counts sum to 18. A tie concerns the shared highest count, not equal preference intensity. A reachable example, in older / similar / younger order, is 9 / 9 / 0. These are illustrative counts from the original item bank, not a private person’s answers or a population benchmark. Only the three-way tie has to be 6 / 6 / 6.",
+              "zh": "各方向参与12次比较，每次选择加1次，三个次数总和18。并列指共同最高次数，不表示偏好强度相等。按年长／相近／较年轻顺序，原题本中的一个可达例子是9 / 9 / 0。这是原题本可复算的示例次数，不是私人答卷或人群基准；只有三方向全部并列时才必为6／6／6。"
+            }
+          ]
+        },
+        {
+          "id": "conditions-to-revisit",
+          "title": {
+            "en": "Revisit why you chose",
+            "zh": "回看选择依据"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider which items you chose toward older situations and which toward similar life stages. Do the two groups correspond to different kinds of situation?",
+              "zh": "可以回看：哪些题选向了年长情境，哪些选向了相近阶段；两类选择是否分别对应不同的情境类型。"
+            },
+            {
+              "en": "Are your choices more affected by life stage, amount of experience or age in years? Would they change if age were removed?",
+              "zh": "你的选择更常被生活阶段、经验多少还是年龄数字影响？把年龄去掉后，选择会不会变化？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Whether ages are similar or a partner is older, both people need their own freedom to express themselves, decline and change their mind. The result cannot determine whether a particular relationship is equal.",
+              "zh": "无论年龄相近或年长，双方都需要拥有独立表达、拒绝和改变主意的自由；结果也不能判断具体关系是否平等。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, record what the choices have in common within each situation group. You can also leave the result exactly as it is.",
+              "zh": "如果愿意，可以按情境分别记录两类选择的共同点；也可以按原样保留本次结果。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：可可面对陌生事务时，愿意听一位已有经验的成年伴侣介绍做法；谈到共同生活节奏时，又更想双方从相近起点一起协商。两类选项在本题组中可能各自累积到相同的顶部次数。这个例子只展示两种选择依据可以同时出现，不说明可可拥有两种固定年龄人格，也不能给出实际择偶概率。",
+              "en": "Fictional situation: Faced with an unfamiliar task, Keke welcomes an adult partner’s prior experience. When discussing a shared daily rhythm, Keke prefers negotiating together from similar starting points. The two sets of options might accumulate equal highest counts in this question set. This only illustrates that two reasons for choosing can appear together. It does not establish two fixed age personalities or probabilities for a future partner."
+            },
+            {
+              "zh": "反例：同一个人可以在某件事上经验更多、在另一件事上与你一起学习。把不同题目中的选择都理解成对象年龄，会漏掉具体任务与协商方式的区别。",
+              "en": "Counterexample: One person can have more experience in one task and learn alongside you in another. Reading every choice as a statement about a partner’s age misses differences between tasks and ways of negotiating."
+            },
+            {
+              "zh": "小练习：选一项你愿意接收经验的情境，再选一项你想共同探索的情境。分别问“换成年龄相近或不同的人，安排本身是否仍然重要”。可以只想一想，不需要为了打破并列重新作答。",
+              "en": "Optional exercise: Choose one situation where you would welcome experience and one where you would prefer exploring together. For each, ask whether the arrangement would still matter with a partner of a similar or different age. Thinking it through is enough; retaking the test to break the tie is unnecessary."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not mean you are indifferent to age differences.",
+              "zh": "不表示你对年龄差无所谓"
+            },
+            {
+              "en": "It does not mean the two preferences have exactly equal intensity.",
+              "zh": "不表示这两个方向强度完全相同"
+            },
+            {
+              "en": "It does not predict the age of a partner you will actually be with.",
+              "zh": "不预测你实际会与什么年龄的伴侣在一起"
+            },
+            {
+              "en": "The tie is kept as recorded, without breaking it or assigning a single leading direction.",
+              "zh": "并列被原样保留，不强行打破，也不指定唯一方向。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Older & Similar Age Tie: Adult Age Preference Test",
+          "zh": "年长与相近年龄情境的选项次数相同：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Understand an older–similar age tie: equal highest counts, both contexts, examples and a private exercise. No forced winner or mixed personality.",
+          "zh": "完整理解年长与相近年龄情境顶部并列：保留两侧相同次数，区分经验与阶段，含情境、反例和练习，不强选赢家或生成混合人格。"
+        }
+      }
+    },
+    {
+      "id": "older-younger-tie",
+      "directionIds": [
+        "OLDER_PARTNER_CONTEXT",
+        "YOUNGER_PARTNER_CONTEXT"
+      ],
+      "title": {
+        "en": "Older and Younger Adult Situations Tied",
+        "zh": "年长与较年轻成年伴侣情境的选项次数相同"
+      },
+      "headline": {
+        "en": "Older and younger adult partner situations have the same count",
+        "zh": "年长与较年轻成年伴侣情境的选项次数相同"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, older adult partner situations and younger adult partner situations were selected the same number of times. Equality of the highest raw counts does not create a mixed age personality.",
+        "zh": "在 18 道二选一里，年长成年伴侣情境与较年轻成年伴侣情境的选项被选择的次数相同。顶部原始次数相等，不代表形成混合年龄人格。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not mean age is irrelevant to you or that you are more accepting of every kind of relationship.",
+        "zh": "两个方向次数相同，不代表你年龄无所谓，也不代表你更能接受各种关系。"
+      },
+      "sections": [
+        {
+          "id": "both-contexts",
+          "title": {
+            "en": "Read every tied context",
+            "zh": "分别阅读并列的情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Older adult partner situations involve receiving prior experience and adapting to arrangements from stages they have already experienced.",
+              "zh": "年长伴侣情境：涉及接收既有经验、适应较早阶段的安排。"
+            },
+            {
+              "en": "Younger adult partner situations involve sharing experience and understanding plans that are still developing.",
+              "zh": "较年轻成年伴侣情境：涉及提供经验分享、理解仍在形成的计划。"
+            },
+            {
+              "en": "The items include negotiating with older adults and receiving experience, alongside spending time with younger adults and offering experience.",
+              "zh": "题目覆盖与年长成年人协商和接收经验，以及与较年轻成年人相处、提供经验支持的各类情境。"
+            }
+          ]
+        },
+        {
+          "id": "raw-wins",
+          "title": {
+            "en": "Reading the shared highest count",
+            "zh": "怎样读共同最高次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each direction appears in 12 comparisons. One selection adds one raw count; all three counts sum to 18. A tie concerns the shared highest count, not equal preference intensity. A reachable example, in older / similar / younger order, is 9 / 0 / 9. These are illustrative counts from the original item bank, not a private person’s answers or a population benchmark. Only the three-way tie has to be 6 / 6 / 6.",
+              "zh": "各方向参与12次比较，每次选择加1次，三个次数总和18。并列指共同最高次数，不表示偏好强度相等。按年长／相近／较年轻顺序，原题本中的一个可达例子是9 / 0 / 9。这是原题本可复算的示例次数，不是私人答卷或人群基准；只有三方向全部并列时才必为6／6／6。"
+            }
+          ]
+        },
+        {
+          "id": "conditions-to-revisit",
+          "title": {
+            "en": "Revisit why you chose",
+            "zh": "回看选择依据"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider the situations in which you chose the older and younger adult options. Do your choices change with what the situation describes?",
+              "zh": "可以回看：年长与较年轻两类选项分别出现在哪些情境里；你的选择是否随情境内容而变化。"
+            },
+            {
+              "en": "Is it the amount of experience, or age in years, that matters more? Would the choices still diverge if differences in experience were removed?",
+              "zh": "你在意的更接近经验多少，还是年龄数字？如果把经验差异去掉，选择还会分开吗？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Both directions concern adult relationships only. Whether a partner is older or younger, both people need their own freedom to express themselves, decline and change their mind.",
+              "zh": "两个方向都只涉及成年人关系；无论年龄较长或较年轻，双方都需要拥有独立表达、拒绝和改变主意的自由。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, write down one specific condition that matters in each situation. You can also keep the result without taking any action.",
+              "zh": "如果愿意，可以写下两种情境里各自在意的一项具体条件；也可以保持原样，不采取行动。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：若晨在生活规划上喜欢接收伴侣已有的经验，在自己熟悉的事务上又愿意分享做法，并接受对方另作选择。较年长和较年轻成年伴侣的情境选项，可能因此在不同题目中被同样多地选中。此处只是解释一种可能的情境分布，不从并列次数认定若晨对年龄无所谓或更能接受各种关系。",
+              "en": "Fictional situation: Ruochen welcomes a partner’s prior experience in life planning, while offering experience in familiar tasks and accepting that the other person may choose differently. Older and younger adult partner options could be chosen equally often in different items. This describes one possible distribution across situations. Equal counts do not establish that age is irrelevant to Ruochen or that every kind of relationship is acceptable."
+            },
+            {
+              "zh": "反例：你可能不喜欢任何一题的完整设定，只是在两项中选择相对接近的一项。最高次数并列不会把这些有限选择变成对所有年龄差的接受声明。",
+              "en": "Counterexample: You might dislike both complete situations in an item and choose whichever is relatively closer. A highest-count tie does not turn these limited choices into a statement accepting every age difference."
+            },
+            {
+              "zh": "小练习：写下一个你愿意提供经验的具体领域和一个愿意接收经验的领域，再分别划掉年龄描述。看看哪些条件仍然重要；若无法分辨，保留不确定比补出一个固定类型更合适。",
+              "en": "Optional exercise: Write down one area where you would offer experience and one where you would receive it. Remove the age description from each. Notice which conditions still matter. If you cannot distinguish them, keep that uncertainty rather than inventing a fixed type."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not mean age is irrelevant.",
+              "zh": "不代表年龄无关紧要"
+            },
+            {
+              "en": "It does not mean both preferences have exactly equal intensity.",
+              "zh": "不代表两侧强度完全相同"
+            },
+            {
+              "en": "It does not predict the age of a partner you will actually be with.",
+              "zh": "不预测你实际会与什么年龄的伴侣在一起"
+            },
+            {
+              "en": "The highest-count tie is kept as recorded, without breaking it or assigning a single leading direction.",
+              "zh": "顶部并列原样保留，不强行打破，不指定唯一方向。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Older & Younger Adult Tie: Age Preference Test",
+          "zh": "年长与较年轻成年伴侣情境的选项次数相同：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Understand an older–younger adult tie: raw equal counts, experience and age, examples and limits. It does not establish indifference to age.",
+          "zh": "完整理解年长与较年轻成年伴侣情境并列：回看年龄和经验，含具体例子与私人练习；次数相同不表示对年龄无所谓。"
+        }
+      }
+    },
+    {
+      "id": "similar-younger-tie",
+      "directionIds": [
+        "SIMILAR_AGE_CONTEXT",
+        "YOUNGER_PARTNER_CONTEXT"
+      ],
+      "title": {
+        "en": "Similar-Age and Younger Adult Situations Tied",
+        "zh": "相近年龄与较年轻成年伴侣情境的选项次数相同"
+      },
+      "headline": {
+        "en": "Similar-age and younger adult partner situations have the same count",
+        "zh": "相近年龄与较年轻成年伴侣情境的选项次数相同"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, similar age or life-stage situations and younger adult partner situations were selected the same number of times. Equality of the highest raw counts does not create a mixed age personality.",
+        "zh": "在 18 道二选一里，相近年龄阶段情境与较年轻成年伴侣情境的选项被选择的次数相同。仅顶部原始次数相同，不构成混合年龄人格。"
+      },
+      "scoreReading": {
+        "en": "Equal counts do not mean you are more sociable or accepting, and they do not establish which kind of relationship you prefer.",
+        "zh": "两个方向次数相同，不代表你更合群或更包容，也不代表你更倾向哪一种关系。"
+      },
+      "sections": [
+        {
+          "id": "both-contexts",
+          "title": {
+            "en": "Read every tied context",
+            "zh": "分别阅读并列的情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Similar age and life-stage situations involve planning from comparable starting points with roughly equal experience.",
+              "zh": "相近年龄阶段情境：涉及双方从相近起点规划、经验大致对等。"
+            },
+            {
+              "en": "Younger adult partner situations involve your having more experience, offering experience and understanding arrangements that are still developing.",
+              "zh": "较年轻成年伴侣情境：涉及自己经验较多、提供经验支持、理解仍在形成的安排。"
+            },
+            {
+              "en": "The items include planning together from similar starting points with comparable experience, alongside offering your experience and understanding the different pace of a younger adult.",
+              "zh": "题目覆盖从相近起点共同规划、经验对等的安排，以及自己提供经验支持、理解较年轻成年人不同节奏的各类情境。"
+            }
+          ]
+        },
+        {
+          "id": "raw-wins",
+          "title": {
+            "en": "Reading the shared highest count",
+            "zh": "怎样读共同最高次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each direction appears in 12 comparisons. One selection adds one raw count; all three counts sum to 18. A tie concerns the shared highest count, not equal preference intensity. A reachable example, in older / similar / younger order, is 0 / 9 / 9. These are illustrative counts from the original item bank, not a private person’s answers or a population benchmark. Only the three-way tie has to be 6 / 6 / 6.",
+              "zh": "各方向参与12次比较，每次选择加1次，三个次数总和18。并列指共同最高次数，不表示偏好强度相等。按年长／相近／较年轻顺序，原题本中的一个可达例子是0 / 9 / 9。这是原题本可复算的示例次数，不是私人答卷或人群基准；只有三方向全部并列时才必为6／6／6。"
+            }
+          ]
+        },
+        {
+          "id": "conditions-to-revisit",
+          "title": {
+            "en": "Revisit why you chose",
+            "zh": "回看选择依据"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider the situations in which you chose the similar-stage and younger adult options. Are your choices more affected by the situation or by the other person’s age?",
+              "zh": "可以回看：相近阶段与较年轻两类选项分别出现在哪些情境里；你的选择更受情境还是对象年龄影响。"
+            },
+            {
+              "en": "Is it having similar starting points, or being the more experienced person, that matters? Would the choices change if differences in experience were removed?",
+              "zh": "你在意的是双方起点接近，还是自己拥有较多经验的位置？把经验差异去掉后，选择会不会变化？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "Similar age does not guarantee equal power. A younger adult also has their own freedom to express themselves, decline and change their mind. The test cannot establish equality in a particular relationship.",
+              "zh": "年龄相近不保证权力平等；较年轻的一方也拥有独立表达、拒绝和改变主意的自由；测试无法确认具体关系是否平等。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, list specific arrangements that feel more comfortable in each situation group. Decide whether to change existing arrangements using your actual circumstances.",
+              "zh": "如果愿意，可以分别列出两类情境中让你更自在的具体安排；是否调整既有安排由你结合现实情境自行决定。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：言禾喜欢与成年伴侣一起积累新经验，也愿意在自己熟悉的事情上提供支持。当一些题目强调相近起点，另一些题目强调理解对方尚在形成的安排时，言禾可能分别选择两侧，最后出现顶部并列。这不说明言禾更合群，也不表示较年轻的成年人一定经验较少。",
+              "en": "Fictional situation: Yanhe likes gaining new experience together with an adult partner and is also willing to offer support in familiar areas. Some items emphasize similar starting points; others emphasize understanding arrangements the other person is still developing. Choosing across these situations could produce a tie. It does not show that Yanhe is more sociable, or that a younger adult necessarily has less experience."
+            },
+            {
+              "zh": "反例：两人年龄相近，但资源与可支配时间差异很大；年龄不同的两人也可能拥有相近的自主度。年龄不能替代对实际安排的核对。",
+              "en": "Counterexample: People of similar ages may have very different resources and available time, while adults of different ages may have comparable independence. Age cannot replace checking actual arrangements."
+            },
+            {
+              "zh": "小练习：分别列一个“我想一起开始”的安排与一个“我愿意提供经验”的安排。再标明双方各自可以决定和拒绝什么。无需把两个安排排序，也无需借结果筛选某个年龄的伴侣。",
+              "en": "Optional exercise: Name one arrangement you want to begin together and one where you would offer experience. Mark what each adult could decide or decline. There is no need to rank the arrangements or use the result to screen partners by age."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not mean age itself is irrelevant.",
+              "zh": "不说明年龄本身无所谓"
+            },
+            {
+              "en": "It does not mean the two preferences have equal intensity.",
+              "zh": "不说明两个方向强度相等"
+            },
+            {
+              "en": "It does not predict the age of a partner you will actually be with.",
+              "zh": "不预测你实际会与什么年龄的伴侣在一起"
+            },
+            {
+              "en": "The tie stays as recorded, without breaking it or assigning a single leading direction.",
+              "zh": "并列保留原状，不强行打破，也不指定唯一方向。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Similar & Younger Adult Tie: Age Preference Test",
+          "zh": "相近年龄与较年轻成年伴侣情境的选项次数相同：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Understand a similar–younger adult tie: equal choices, life stages and experience, examples and optional reflection. No partner-fit prediction.",
+          "zh": "完整理解相近年龄与较年轻成年情境并列：相同次数、共同起点与经验分享，含情境和练习，不预测伴侣适配。"
+        }
+      }
+    },
+    {
+      "id": "all-three-tied",
+      "directionIds": [
+        "OLDER_PARTNER_CONTEXT",
+        "SIMILAR_AGE_CONTEXT",
+        "YOUNGER_PARTNER_CONTEXT"
+      ],
+      "title": {
+        "en": "All Three Adult Age Contexts Tied",
+        "zh": "三个方向的选项次数全部相同"
+      },
+      "headline": {
+        "en": "All three directions have the same count",
+        "zh": "三个方向的选项次数全部相同"
+      },
+      "summary": {
+        "en": "Across these 18 paired choices, each of the three directions was selected six times. The result does not identify a single leading direction.",
+        "zh": "在 18 道二选一里，三个方向的选项被选择的次数相同，都是 6 次。结果没有识别出唯一顶部方向。"
+      },
+      "scoreReading": {
+        "en": "Equal counts in all three directions do not mean you are attracted to every age, have no standards or are perfectly balanced. They do not mean the test has stopped working.",
+        "zh": "三方向次数相同，不等于全龄通吃、没有标准或完美平衡，也不表示测试失效。"
+      },
+      "sections": [
+        {
+          "id": "both-contexts",
+          "title": {
+            "en": "Read every tied context",
+            "zh": "分别阅读并列的情境"
+          },
+          "paragraphs": [
+            {
+              "en": "Older adult partner situations involve receiving prior experience and adapting to arrangements from stages already experienced.",
+              "zh": "年长伴侣情境：涉及接收既有经验、适应较早阶段安排。"
+            },
+            {
+              "en": "Similar age and life-stage situations involve comparable starting points and roughly equal experience.",
+              "zh": "相近年龄阶段情境：涉及双方起点相近、经验大致对等。"
+            },
+            {
+              "en": "Younger adult partner situations involve sharing experience and understanding arrangements that are still developing.",
+              "zh": "较年轻成年伴侣情境：涉及提供经验分享、理解仍在形成的安排。"
+            },
+            {
+              "en": "The items place adult age relationships alongside life stage, experience and negotiation. The three directions’ options cover these different situations.",
+              "zh": "题目把成年人年龄关系放进生活阶段、经验和协商情境中，三个方向各自的选项覆盖这些不同情境。"
+            }
+          ]
+        },
+        {
+          "id": "raw-wins",
+          "title": {
+            "en": "Reading the shared highest count",
+            "zh": "怎样读共同最高次数"
+          },
+          "paragraphs": [
+            {
+              "en": "Each direction appears in 12 comparisons. One selection adds one raw count; all three counts sum to 18. A tie concerns the shared highest count, not equal preference intensity. A reachable example, in older / similar / younger order, is 6 / 6 / 6. These are illustrative counts from the original item bank, not a private person’s answers or a population benchmark. Only the three-way tie has to be 6 / 6 / 6.",
+              "zh": "各方向参与12次比较，每次选择加1次，三个次数总和18。并列指共同最高次数，不表示偏好强度相等。按年长／相近／较年轻顺序，原题本中的一个可达例子是6 / 6 / 6。这是原题本可复算的示例次数，不是私人答卷或人群基准；只有三方向全部并列时才必为6／6／6。"
+            }
+          ]
+        },
+        {
+          "id": "conditions-to-revisit",
+          "title": {
+            "en": "Revisit why you chose",
+            "zh": "回看选择依据"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider whether age, life stage, amount of experience or a particular interaction affects your choices more. Would they change if age in years were removed?",
+              "zh": "可以回看：你的选择更常被年龄、生活阶段、经验多少还是具体互动安排影响；把年龄数字去掉后，选择会不会变化。"
+            },
+            {
+              "en": "Would the result be the same if you chose only by age in years? Would it differ if you chose only by amount of experience or the way decisions are negotiated?",
+              "zh": "如果只按年龄数字选择，结果会一样吗？如果只按经验多少或协商方式选择，结果会不一样吗？"
+            }
+          ]
+        },
+        {
+          "id": "equal-say",
+          "title": {
+            "en": "Keep both adults’ choices visible",
+            "zh": "保留双方自己的决定"
+          },
+          "paragraphs": [
+            {
+              "en": "All three directions concern adult relationships only. No direction automatically confers more decision-making authority. Both people need to be able to express themselves freely, decline and change their mind.",
+              "zh": "三个方向都只涉及成年人关系；任何方向都不默认更有决定权，双方都需要能自由表达、拒绝和改变主意。"
+            }
+          ]
+        },
+        {
+          "id": "optional-step",
+          "title": {
+            "en": "An optional next step",
+            "zh": "可以选择的小步骤"
+          },
+          "paragraphs": [
+            {
+              "en": "If you wish, group the 18 items again according to the reasons for your choices that you can actually identify. You can also make no record and take no action.",
+              "zh": "如果愿意，可以把 18 道题按自己能确认的选择依据重新分类一次；也可以不做任何记录或行动。"
+            }
+          ]
+        },
+        {
+          "id": "fictional-example",
+          "title": {
+            "en": "A fictional example, counterexample and private exercise",
+            "zh": "虚构情境、反例与私人练习"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构情境：予安在不同题目中分别看重接收经验、共同起步与分享经验，最终三方向各选中6次。另一个人也可能得到同样的6／6／6，却依据完全不同的场景细节作答。总次数不能还原这些原因，因此系统保留三方并列，不把它命名为“全龄通吃”或“完美平衡型”。",
+              "en": "Fictional situation: Yuanan values receiving experience, starting together and sharing experience in different items, ending with six choices in each direction. Another person could obtain the same 6/6/6 counts for entirely different details. Totals cannot reconstruct those reasons. The result therefore retains the three-way tie, without labeling it attraction to every age or a perfectly balanced type."
+            },
+            {
+              "zh": "反例：6／6／6也可能来自你觉得所有选项都不太贴切、但仍选了相对接近的一项。这个计数形状并不能证明你没有标准，更不要求你同时接受三类现实关系。",
+              "en": "Counterexample: A 6/6/6 pattern could also arise when every item feels imperfect and you still choose the relatively closer option. The shape does not show that you lack standards or require you to accept three kinds of actual relationship."
+            },
+            {
+              "zh": "小练习：如果愿意，挑三道记得的题，分别写下当时真正影响选择的条件，再注明哪些还不确定。不计算新的类型，不必重测来制造唯一方向；也可以直接保留并列、结束本次探索。",
+              "en": "Optional exercise: If you wish, choose three items you remember and note the conditions that actually affected your choice, including what remains uncertain. Do not calculate a new type or retake the test to manufacture a sole leader. You can simply keep the tie and end the reflection."
+            }
+          ]
+        },
+        {
+          "id": "limits",
+          "title": {
+            "en": "What these counts cannot establish",
+            "zh": "次数不能说明什么"
+          },
+          "paragraphs": [
+            {
+              "en": "It does not mean attraction to every age.",
+              "zh": "不等于全龄通吃"
+            },
+            {
+              "en": "It does not mean having no standards.",
+              "zh": "不等于没有标准"
+            },
+            {
+              "en": "It does not mean perfect balance.",
+              "zh": "不等于完美平衡"
+            },
+            {
+              "en": "It does not mean all three preferences have exactly equal intensity.",
+              "zh": "不表示三个方向强度完全相同"
+            },
+            {
+              "en": "It does not predict the age of a partner you will actually be with.",
+              "zh": "不预测你实际会与什么年龄的伴侣在一起"
+            },
+            {
+              "en": "The tie is kept as recorded, without breaking it, assigning a single leading direction or creating a combined type.",
+              "zh": "并列被原样保留，不强行打破，不指定唯一方向，也不生成综合类型。"
+            },
+            {
+              "en": "This describes only relative choices among adult relationship situations in this attempt. Psychometric validation has not been completed.",
+              "zh": "只表示本次成年人情境选择中的相对倾向，未完成心理测量验证。"
+            },
+            {
+              "en": "This original bank has not established reliability, validity, norms or cross-language equivalence. Read the exact situations rather than treating a leading count as a trait.",
+              "zh": "本原创题本未完成信度、效度、常模或跨语言等值验证。请回到具体情境阅读，不把最高次数当成人格特征。"
+            }
+          ]
+        }
+      ],
+      "seo": {
+        "title": {
+          "en": "Three-Way Age Preference Tie: Full Result Explained",
+          "zh": "三个方向的选项次数全部相同：年上年下情境偏好完整说明"
+        },
+        "description": {
+          "en": "Read the 6/6/6 result from 18 adult-context choices: all three directions, examples and a private exercise. A tie does not mean perfect balance.",
+          "zh": "完整理解18题三方向各6次的并列结果：三种成年人情境、具体例子、反例与私人练习；并列不代表全龄通吃或完美平衡。"
+        }
+      }
+    }
+  ],
+  "guide": [
+    {
+      "id": "raw-wins-explanation",
+      "title": {
+        "en": "How the 18 raw choices are counted",
+        "zh": "18次选择怎样计数"
+      },
+      "paragraphs": [
+        {
+          "en": "This result records relative choices between adult age-related relationship situations in three directions: older adult partners, similar age and life stages, and younger adult partners. Choose one of the two options in each item. Its direction receives one raw count. The counts across all three directions always sum to 18. Each choice compares two directions within one situation. The counts are related to each other and describe relative choices, not absolute intensity. A larger count means only that a direction was selected more often in this set. Because the total is fixed, an increase in one direction necessarily accompanies a decrease in another.",
+          "zh": "本次结果记录你在成年人年龄关系情境二选一中的相对选择，由三个方向构成：年长伴侣情境、相近年龄阶段情境、较年轻成年伴侣情境。每题选择两个选项之一，被选择的选项对应方向记 1 次原始次数；三个方向的次数总和固定为 18。每次选择都在同一情境的两个方向之间进行，次数彼此相关，只表示相对选择，不是绝对强度。一个方向次数高，只表示在本次题组中该方向更常被选中；由于总和固定，一个方向增多必然伴随另一个方向减少。"
+        }
+      ]
+    },
+    {
+      "id": "ties-explanation",
+      "title": {
+        "en": "Every highest-count tie stays",
+        "zh": "全部最高并列都保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Ties for the highest count remain as recorded. They are not broken, assigned a single leading direction or turned into a mixed age type.",
+          "zh": "顶部并列会被原样保留，不强行打破，不指定唯一方向，也不生成混合年龄类型。"
+        }
+      ]
+    },
+    {
+      "id": "age-stage-experience",
+      "title": {
+        "en": "Age, stage and experience remain mixed",
+        "zh": "年龄、阶段与经验不能被本题本分离"
+      },
+      "paragraphs": [
+        {
+          "en": "The items place adult age relationships alongside life stage, experience and negotiation. This result cannot separate a response to age itself from a response to experience of a stage or a particular interaction.",
+          "zh": "题目把成年人年龄关系放进生活阶段、经验和协商情境中，本次结果不能区分用户究竟是对年龄本身、阶段经验还是具体互动安排作出选择。"
+        }
+      ]
+    },
+    {
+      "id": "adults-and-consent",
+      "title": {
+        "en": "Adults, freedom to decline and equal say",
+        "zh": "只讨论成年人，保留自由拒绝与决定"
+      },
+      "paragraphs": [
+        {
+          "en": "The test concerns adult relationships only. It does not involve minors, specify ages or determine whether a particular age difference is lawful. All items and explanations concern adults only. Younger always means a person who is already an adult. Consent needs to be clear, voluntary, specific and withdrawable at any time. A preference in any direction cannot replace consent in an actual situation. Age, resources, position, financial dependence, care relationships and social authority can affect freedom to express oneself and decline. Being older does not confer more decision-making authority; being younger does not mean needing instruction or someone else to decide; similar age does not guarantee equal power.",
+          "zh": "本测试只讨论成年人之间的关系情境，不涉及未成年人，不给具体年龄数字，也不判断具体年龄差是否合法。所有题目与说明均不涉及未成年人；较年轻成年伴侣情境中的较年轻始终指已成年的人。同意必须明确、自愿、具体并可以随时撤回；任何方向的偏好都不能代替现实中的同意。年龄、资源、职位、经济依赖、照顾关系和社会权威可能影响自由表达与拒绝；年龄较大不等于更有决定权，年龄较小不等于需要被指导或代替决定，年龄相近不保证权力平等。"
+        }
+      ]
+    },
+    {
+      "id": "no-identity-or-match",
+      "title": {
+        "en": "A count is not a partner match",
+        "zh": "次数不生成身份或伴侣配对"
+      },
+      "paragraphs": [
+        {
+          "en": "The leading direction records relative choices in this set. It is not a fixed identity and does not create an older-partner, younger-partner, same-age-partner or age-orientation label. The result is not a sexual-orientation label and cannot be used to determine anyone’s sexual orientation. The result cannot determine partner suitability, screen partners or predict the age of someone you will be with. The result does not predict dating success, marriage stability or how long a relationship will last.",
+          "zh": "顶部方向只表示本次题组的相对选择次数，不是固定身份；不产生年上型、年下型、同龄型或年龄取向标签。结果不是性取向标签，也不能用于判断任何人的性取向。结果不能判断伴侣适配，不筛选伴侣，不预测你会与什么年龄的人在一起。结果不预测恋爱成功率、婚姻稳定或关系是否长久。"
+        }
+      ]
+    },
+    {
+      "id": "method-limits",
+      "title": {
+        "en": "The model’s limits",
+        "zh": "原题本的适用边界"
+      },
+      "paragraphs": [
+        {
+          "en": "Specific legal requirements vary by place and situation. This test offers no legal judgment. Being adults also does not mean differences in power are absent. This is not a medical, psychological or relationship diagnosis. Psychometric validation has not been completed. This test is for entertainment and self-exploration. Reliability, validity, norms and percentiles have not been established. Psychometric validation has not been completed. The test is not a basis for diagnosis, assessment or legal judgment; the existence of these items is not evidence of validity.",
+          "zh": "具体法律要求因地区和情境而异，本测试不提供法律判断；把成年人等同于不存在权力差异也是不成立的。本测试不是医疗、心理或关系诊断，也没有完成心理测量学验证。本测试仅供娱乐与自我探索；尚未完成信度、效度、常模或百分位验证。本测试未完成心理测量验证，不能当作诊断、评估或法律依据；现有题目本身不能作为效度证据。"
+        }
+      ]
+    },
+    {
+      "id": "retest-boundary",
+      "title": {
+        "en": "Reading a later attempt",
+        "zh": "怎样看后来的一次作答"
+      },
+      "paragraphs": [
+        {
+          "en": "If you answer again later, choose according to what you can identify at that time. Different results may reflect situations, experience or understanding; a difference does not automatically establish that your preference has changed.",
+          "zh": "如果以后重新作答，应按当时能确认的感受选择；两次结果不同可能与情境、经验或理解变化有关，不能自动解释为你的偏好已经改变。"
+        }
+      ]
+    },
+    {
+      "id": "low-direction-explanation",
+      "title": {
+        "en": "A smaller count is not a missing quality",
+        "zh": "较少次数不表示缺少某种品质"
+      },
+      "paragraphs": [
+        {
+          "en": "A smaller count means fewer selections for that direction among its 12 comparisons. It does not establish the strength of an age preference, a missing capacity, less affection or an unwanted age group. Because only one option is selected each time, the three counts share a fixed total of 18; they are not three independent preference-intensity scales.",
+          "zh": "较少次数只表示该方向在参与的12次比较中被选择较少，不表示年龄偏好强弱、能力缺失、爱意较少或排斥某个年龄群体。每题只选一项，三个次数共享固定总和18，不是三条独立的偏好强度量表。"
+        }
+      ]
+    },
+    {
+      "id": "private-by-choice",
+      "title": {
+        "en": "Drafts and sharing are optional",
+        "zh": "草稿与分享由你选择"
+      },
+      "paragraphs": [
+        {
+          "en": "Answers stay in the page while you work. Only opting in saves a versioned draft in this browser tab for up to 24 hours. Completion, clearing or retaking removes it; there is no persisted final-result cache. Sharing uses only a public result title and link, without choices or counts. No account or partner’s data is required.",
+          "zh": "作答时答案保留在当前页面。只有主动选择保存，才在本浏览器标签页留下带版本草稿，最多24小时，完成、清除或重测即移除；不持久保存最终结果缓存。分享仅含公开结果名称与链接，不含答卷或次数，无需账号或伴侣资料。"
+        }
+      ]
+    },
+    {
+      "id": "state-tied-top",
+      "title": {
+        "en": "A tie for the highest count",
+        "zh": "顶部方向并列"
+      },
+      "paragraphs": [
+        {
+          "en": "The tie remains as recorded, without creating a combined type or assigning a single leading direction. After this attempt, two or three directions have equal raw choice counts and share the highest count. You can read each direction’s explanation as it stands. There is no need to put them in order. The tie is not broken, given a single leading direction or turned into a mixed age type. It does not mean the test has stopped working. All tie explanations concern adult relationships only and do not involve minors. A tie does not establish that any relationship is safer or more suitable. Safety, equality and consent still need to be considered in the actual situation.",
+          "zh": "并列会被原样保留，不产生综合类型，不指定唯一方向。本次作答后，两个或三个方向的原始选择次数相同，都处于顶部。可以按原样分别阅读每个方向的说明，不需要为它们排出先后。不强行打破并列，不指定唯一方向，不生成混合年龄类型，也不表示测试失效。所有并列说明只讨论成年人之间的关系情境，不涉及未成年人。并列不代表某种关系更安全或更合适；任何具体关系的安全、平等与同意仍需在现实中核对。"
+        }
+      ]
+    },
+    {
+      "id": "state-insufficient-data",
+      "title": {
+        "en": "Not enough answers in this attempt",
+        "zh": "这次没有足够的作答"
+      },
+      "paragraphs": [
+        {
+          "en": "A direction ranking is not generated before all items are answered. Some answers are missing from the submission, so direction counts are not calculated. You can finish the remaining items or leave. Only opting in keeps a versioned draft in this browser tab for up to 24 hours. Exiting and clearing removes it. An incomplete attempt produces no interpretation or final-result cache. Missing answers are not guessed and unselected options are not inferred. Answers already entered are not used to give an early interpretation. Having no result makes no judgment about age. The test concerns adult relationships only. Having no result does not indicate a problem. Choosing not to continue for safety reasons is also a valid choice.",
+          "zh": "未完整作答时不生成方向排名。本次提交缺少部分题目的答案，因此不计算方向选择次数。可以继续补全，也可以直接退出。只有主动选择保存才保留本标签页带版本草稿，最多24小时；退出并清除会移除草稿，未完整作答不产生解释或最终结果缓存。不猜测未回答的题目，不推测未答选项，也不根据已有答案先给判断。没有结果不涉及任何年龄判断；本测试只讨论成年人之间的关系情境。没有结果不说明任何问题；如果你因为安全原因选择不继续，这也完全成立。"
+        }
+      ]
+    },
+    {
+      "id": "state-result-unavailable",
+      "title": {
+        "en": "The result is currently unavailable",
+        "zh": "结果暂不可用"
+      },
+      "paragraphs": [
+        {
+          "en": "Interpretation stops when item-bank, scoring or content versions do not match. The current item-bank, scoring or content versions do not match, so a result cannot be generated using the current rules. This is a version issue, not an issue with your answers. You do not need to redo the test or keep trying; you can check again after the version is updated. An old result or partial interpretation is not shown. An engineering error is not interpreted as a problem with the person answering. This state draws no conclusion about age. The test concerns adult relationships only. This state does not change judgments about actual safety. If you have safety concerns, seek support according to your circumstances.",
+          "zh": "题库、评分或内容版本不匹配时停止解释。本题库、评分或内容版本之间存在不匹配，无法按当前规则生成结果。这是版本层面的问题，不是你的作答问题。无需重做或反复尝试，可以在版本更新后重新查看。不显示旧版本结果，不做部分解释，不把工程错误解释成用户问题。该状态不涉及任何年龄结论；本测试只讨论成年人之间的关系情境。该状态不影响现实安全判断；如有安全顾虑，仍按现实情况寻求支持。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this adult age preference test record?",
+        "zh": "这份年上年下情境偏好测试记录什么？"
+      },
+      "answer": {
+        "en": "It records relative choices among older adult, similar age or life-stage, and younger adult situations. Age, experience and negotiation are mixed in the items, so the result cannot isolate a preference for age itself.",
+        "zh": "记录年长、相近年龄阶段和较年轻成年伴侣情境的相对选择。题目混合年龄、经验与协商安排，不能隔离确定你对年龄本身的偏好。"
+      }
+    },
+    {
+      "question": {
+        "en": "How do the counts and ties work?",
+        "zh": "次数和并列怎样计算？"
+      },
+      "answer": {
+        "en": "Each of 18 choices adds one raw count to a direction. Every direction appears in 12 comparisons; the three totals sum to 18. Every direction sharing the highest count remains tied. Counts are not percentages or population ranks.",
+        "zh": "18次选择每次给一个方向加1次，各方向参与12次比较，三个次数总和18；共同最高全部保留并列，不是百分比或人群排名。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I read every full explanation for free?",
+        "zh": "可以免费读全部完整说明吗？"
+      },
+      "answer": {
+        "en": "Yes. All seven public guides are free: three single-direction readings, three pairwise ties and the 6/6/6 three-way tie. They explain count patterns, without exposing a private person’s answers.",
+        "zh": "可以。三份单项、三份两项并列和三方向6／6／6并列共七份完整指南均公开免费，解释计数结构，不暴露私人答卷。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a younger partner situation involve minors?",
+        "zh": "较年轻伴侣情境涉及未成年人吗？"
+      },
+      "answer": {
+        "en": "No. Younger always means an adult. The test gives no ages or legal judgment and cannot determine whether an actual relationship is safe, equal or suitable.",
+        "zh": "不涉及。较年轻始终指已经成年的对象。本测试不给年龄数字或法律判断，也不能确定具体关系是否安全、平等或适合。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can this result select a partner or define my orientation?",
+        "zh": "能用结果筛选伴侣或判断取向吗？"
+      },
+      "answer": {
+        "en": "No. It produces no fixed age or sexual-orientation label, partner match, quality rating or relationship prediction. Psychometric validation and cross-language equivalence have not been established.",
+        "zh": "不能。不生成固定年龄或性取向标签，不做伴侣配对、质量评分或关系预测，尚未完成心理测量验证与跨语言等值验证。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if neither option fits?",
+        "zh": "两项都不贴切怎么办？"
+      },
+      "answer": {
+        "en": "You can stop or read the guides. This original bank uses two choices without a not-applicable option. Missing answers are not replaced with zeros, and partial answers produce no interpreted result.",
+        "zh": "可以结束或先读公开指南。原题本每题二选一，没有不适用选项；不拿零分补答，部分作答不产生解释结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are answers saved or shared?",
+        "zh": "答案会保存或分享吗？"
+      },
+      "answer": {
+        "en": "Only opting in saves a tab-local versioned draft for up to 24 hours. Completion, clearing or retaking removes it. Final results are not persisted. Sharing uses only a public title and link, without answers or counts.",
+        "zh": "只有主动选择才保存本标签页带版本草稿，最多24小时，完成、清除或重测即移除；不持久保存最终结果，分享仅有公开名称与链接，不含答案或次数。"
+      }
+    }
+  ]
+}

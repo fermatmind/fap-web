@@ -3827,5 +3827,33 @@
       "interleave",
       "recurrence"
     ]
+  },
+  {
+    "slug": "adult-age-preferences",
+    "code": "AGE_PREFERENCE",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Adult Age Preference Test",
+      "zh": "年上年下情境偏好测试"
+    },
+    "description": {
+      "en": "Compare older, similar-age and younger adult situations in 18 choices. Read all seven complete results, including ties. Free, no signup or partner data.",
+      "zh": "通过18道原创二选一，回看年长、相近年龄与较年轻成年伴侣情境的相对选择。七份完整结果含全部并列，免费，无需注册或伴侣资料。"
+    },
+    "minutes": 5,
+    "formCode": "age_preference_forced_choice_18",
+    "questionCount": 18,
+    "resultSlugs": [
+      "older-adult-context",
+      "similar-age-context",
+      "younger-adult-context",
+      "older-similar-tie",
+      "older-younger-tie",
+      "similar-younger-tie",
+      "all-three-tied"
+    ],
+    "collection": "explore"
   }
 ]
