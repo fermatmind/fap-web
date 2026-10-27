@@ -3907,5 +3907,30 @@
       "expressive",
       "private"
     ]
+  },
+  {
+    "slug": "relationship-commitment",
+    "code": "FM_RELATIONSHIP_COMMITMENT_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "zh": "亲密关系承诺度测试",
+      "en": "Relationship Commitment Test"
+    },
+    "description": {
+      "zh": "用24条原创自述分别看继续意愿、近期满意度、关系外选择与既有投入。四份完整结果免费，无需注册，不预测分手或替伴侣评分。",
+      "en": "Explore intention, satisfaction, outside options and investment with 24 original statements. Four full guides, free without signup. No breakup prediction."
+    },
+    "minutes": 7,
+    "formCode": "fm_relationship_commitment_reflection_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "continuing-intention",
+      "current-satisfaction",
+      "outside-options",
+      "relationship-linked-investment"
+    ],
+    "collection": "explore"
   }
 ]

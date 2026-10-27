@@ -1,0 +1,2469 @@
+{
+  "slug": "relationship-commitment",
+  "code": "FM_RELATIONSHIP_COMMITMENT_REFLECTION",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "zh": "只回想最近一个月的一段当前成年伴侣关系，按目前符合自己的程度作答。1完全不符合，2较不符合，3部分符合，4较符合，5很符合；未经历或无法判断选NA。没有当前伴侣关系时，可以阅读全部指南而不作答。",
+    "en": "Consider one current adult partnership over the past month and rate how well each statement describes your own view now. Use 1 not at all, 2 slightly, 3 partly, 4 mostly or 5 very much; choose NA when not experienced or unclear. Without a current partnership, read all guides without answering."
+  },
+  "title": {
+    "zh": "亲密关系承诺度测试",
+    "en": "Relationship Commitment Test"
+  },
+  "description": {
+    "zh": "用24条原创自述分别看继续意愿、近期满意度、关系外选择与既有投入。四份完整结果免费，无需注册，不预测分手或替伴侣评分。",
+    "en": "Explore intention, satisfaction, outside options and investment with 24 original statements. Four full guides, free without signup. No breakup prediction."
+  },
+  "resultHeading": {
+    "zh": "四部分关系自我观察结果",
+    "en": "Your four-part relationship reflection"
+  },
+  "seoTitle": {
+    "zh": "亲密关系承诺度测试：四部分完整结果免费",
+    "en": "Relationship Commitment Test: Free Four-Part Reflection"
+  },
+  "minutes": 7,
+  "introduction": {
+    "zh": "这套原创反思面向自己的当前成年伴侣关系。先把想不想继续、最近体验如何、其他生活选择怎样，以及哪些资源与关系相连分别说清楚，不用一个总数替自己或对方作决定。",
+    "en": "This original reflection concerns your own current adult partnership. Distinguish wanting to continue, recent experience, other possible arrangements and resources linked to the relationship, without letting a total decide for either person."
+  },
+  "source": {
+    "kind": "FermatMind-original-theory-informed-reflection-not-published-scale",
+    "formCode": "fm_relationship_commitment_reflection_24_v1",
+    "itemBankVersion": "1.0.0-original-not-validated",
+    "scoringVersion": "1.0.0-descriptive-four-parts",
+    "resultContentVersion": "1.0.0-original-full-guides",
+    "itemBankSha256": "7feb6a7f8dbfc894f7d63b22b76beb2954ac1904ebb995a8483074acb494b223",
+    "resultContentSha256": "6721ba3fae8704e04dda6af4cbf1995cdb649fd2a23d6d51d573f1d33549a804",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "continuing-intention",
+      "title": {
+        "zh": "继续意愿",
+        "en": "Continuing intention"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "current-satisfaction",
+      "title": {
+        "zh": "近期满意度",
+        "en": "Recent satisfaction"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "outside-options",
+      "title": {
+        "zh": "关系外选择",
+        "en": "Outside options"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "relationship-linked-investment",
+      "title": {
+        "zh": "关系关联投入",
+        "en": "Relationship-linked investment"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "RC_01",
+      "prompt": {
+        "zh": "在考虑接下来几个月的安排时，我愿意把这段关系作为自己主动选择的一部分。",
+        "en": "When considering the coming months, I want this relationship to be part of the life I actively choose."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_02",
+      "prompt": {
+        "zh": "回想最近一个月，我在这段关系中感受到的陪伴符合自己当下的需要。",
+        "en": "Over the past month, the companionship I experienced here has suited my current needs."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_03",
+      "prompt": {
+        "zh": "如果不再是伴侣，我能想到在关系之外获得陪伴和支持的可行途径。",
+        "en": "If we were no longer partners, I can imagine feasible ways to find companionship and support outside this relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_04",
+      "prompt": {
+        "zh": "我们已经形成了一些共同安排，如果不再是伴侣，就需要重新协调。",
+        "en": "We have established shared arrangements that would need reorganising if we were no longer partners."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_05",
+      "prompt": {
+        "zh": "如果彼此都愿意，我愿意为这段关系约定一个能实际做到的小计划。",
+        "en": "If we both want to, I am willing to agree on a small, realistic plan for this relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_06",
+      "prompt": {
+        "zh": "最近的相处方式与我想要的日常伴侣关系有明显距离。",
+        "en": "Our recent way of relating has felt far from the everyday partnership I want."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_07",
+      "prompt": {
+        "zh": "我觉得不以这段关系为中心的生活，也可能适合自己。",
+        "en": "I think a life that is not centred on this relationship could also suit me."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_08",
+      "prompt": {
+        "zh": "我珍视的一些共同经历，只在我们这段关系的延续中才有原来的意义。",
+        "en": "Some shared experiences I value have their existing meaning specifically within the continuation of this relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_09",
+      "prompt": {
+        "zh": "目前我更倾向于结束这段关系，而不是继续作为伴侣相处。",
+        "en": "At present, I lean toward ending this relationship rather than continuing as partners."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_10",
+      "prompt": {
+        "zh": "最近一些普通的共同活动，让我觉得这段关系对当下的生活有价值。",
+        "en": "Some ordinary activities together recently have made this relationship feel worthwhile in my present life."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_11",
+      "prompt": {
+        "zh": "一旦没有这段关系，我很难想象其他生活安排能满足自己的重要需要。",
+        "en": "Without this relationship, I find it hard to imagine another way of living that could meet my important needs."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_12",
+      "prompt": {
+        "zh": "如果我们不再是伴侣，我看重的大部分日常资源仍能照原样保留。",
+        "en": "If we were no longer partners, most everyday resources I value could remain available much as they are."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_13",
+      "prompt": {
+        "zh": "想到继续与这个人建立共同经历，我自己是愿意的。",
+        "en": "I personally want to continue creating shared experiences with this person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_14",
+      "prompt": {
+        "zh": "在最近的互动中，我通常能感到自己的需要也有被认真对待。",
+        "en": "In recent interactions, I have usually felt that my needs are taken seriously too."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_15",
+      "prompt": {
+        "zh": "除了伴侣关系，我也能看见独处、朋友或家人所提供的吸引力。",
+        "en": "Beyond partnership, I can see appealing aspects of time on my own, friendships or family connections."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_16",
+      "prompt": {
+        "zh": "有些我投入到共同生活的精力，不能直接转移到另一种生活安排里。",
+        "en": "Some effort I have put into our shared life would not transfer directly to a different living arrangement."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_17",
+      "prompt": {
+        "zh": "即使没有人在催我决定，我目前仍不愿继续投入到这段关系中。",
+        "en": "Even without anyone pressing me to decide, I do not currently want to keep engaging in this relationship."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_18",
+      "prompt": {
+        "zh": "最近即使没有争吵，我对我们日常相处仍多有不满。",
+        "en": "Recently, even without arguments, I have often been dissatisfied with our everyday interactions."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_19",
+      "prompt": {
+        "zh": "对我来说，这段关系之外的可行选择目前大多缺乏吸引力。",
+        "en": "For me, the feasible options outside this relationship currently seem mostly unappealing."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_20",
+      "prompt": {
+        "zh": "我们目前彼此独立，结束伴侣身份需要重新安排的事情很少。",
+        "en": "We are currently quite independent, so ending the partnership would require little reorganisation."
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_21",
+      "prompt": {
+        "zh": "在对方也自愿的前提下，我希望接下来仍以伴侣身份一起生活或相处。",
+        "en": "Provided my partner also freely wants it, I hope we will continue relating to each other as partners."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "continuing-intention",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "continuing-intention",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "continuing-intention",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "continuing-intention",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_22",
+      "prompt": {
+        "zh": "单看最近的相处体验，我对这段伴侣关系总体感到满意。",
+        "en": "Considering only our recent experience together, I feel satisfied overall with this partnership."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "current-satisfaction",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "current-satisfaction",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_23",
+      "prompt": {
+        "zh": "即使不考虑另找伴侣，我也能想到自己愿意过的其他生活方式。",
+        "en": "Even without considering another partner, I can imagine other ways of living that I would want for myself."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "outside-options",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "outside-options",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "outside-options",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "outside-options",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "outside-options",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "outside-options",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "RC_24",
+      "prompt": {
+        "zh": "若不再以伴侣身份相处，我会失去一些自己确实重视的关系内资源。",
+        "en": "If we no longer related as partners, I would lose some resources within this relationship that I genuinely value."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Not at all true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "较不符合",
+            "en": "Slightly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "部分符合",
+            "en": "Partly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "较符合",
+            "en": "Mostly true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "很符合",
+            "en": "Very true"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "未经历／无法判断",
+            "en": "Not experienced / cannot judge"
+          },
+          "directionId": "relationship-linked-investment",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "continuing-intention",
+      "directionIds": [
+        "continuing-intention"
+      ],
+      "title": {
+        "zh": "继续这段关系的个人意愿",
+        "en": "Your intention to continue this relationship"
+      },
+      "headline": {
+        "zh": "先分清自己愿意什么，再看满意度和现实牵连。",
+        "en": "Start with what you want, then consider experience and practical ties."
+      },
+      "summary": {
+        "zh": "完整解释六条继续意愿自述、反向计分、与满意度不同步的情况，以及一段可以自主修改的对话。不是对方的承诺或关系走向预测。",
+        "en": "Read all six intention statements, reverse scoring, differences from satisfaction and a conversation you can adapt. This is not your partner’s commitment or a forecast."
+      },
+      "scoreReading": {
+        "zh": "六条均有效才显示本组均分，反向题按6减原评分。较高只表示本次更赞同继续意愿相关自述，不能证明未来一定继续。",
+        "en": "A mean requires all six ratings, after reversing the keyed statements with 6 minus the response. A higher value means stronger endorsement of these intention statements now, without establishing future persistence."
+      },
+      "seo": {
+        "title": {
+          "zh": "亲密关系承诺度结果：怎样读继续意愿",
+          "en": "Relationship Commitment Results: Continuing Intention"
+        },
+        "description": {
+          "zh": "阅读继续意愿的完整解释：六条自述怎样计分、意愿与满意度为何不同、具体对话和反例。四部分分别呈现，无分手预测。",
+          "en": "Read six intention ratings, reverse scoring, differences from satisfaction, worked examples and a private conversation exercise. No breakup prediction."
+        }
+      },
+      "sections": [
+        {
+          "id": "what-this-part-describes",
+          "title": {
+            "zh": "这部分在问自己的什么意愿？",
+            "en": "What part of your own intention is being described?"
+          },
+          "paragraphs": [
+            {
+              "zh": "这组题只问：在最近一个月的一段当前成年伴侣关系里，你现在是否愿意继续以伴侣身份相处、为双方自愿的小安排付出行动。它没有问对方会不会留下，也没有授权替对方承诺。你可以愿意继续，同时对某些相处方式不满意。",
+              "en": "These six statements concern your present willingness to continue one current adult partnership and participate in small arrangements that both people freely choose. They do not ask whether your partner will stay or authorise you to speak for them. Wanting a relationship to continue can coexist with dissatisfaction about how it currently works. Keep the person, relationship and recent month in view; an imagined ideal partner is a different subject."
+            },
+            {
+              "zh": "投资模型把继续承诺与满意度、关系外选择、关系关联投入分开讨论。本版借此组织四个问题领域，题目和解释为费马原创；不是原投资模型量表的译本，也没有继承原量表的验证结论。",
+              "en": "The investment-model literature distinguishes commitment from satisfaction, outside alternatives and relationship-linked investments. FermatMind uses those distinctions to organise four questions for reflection. Its items and explanations are original, rather than a translation of the published Investment Model Scale. Research about that original instrument does not validate this edition’s means, response wording or interpretation."
+            }
+          ]
+        },
+        {
+          "id": "scoring-and-missing",
+          "title": {
+            "zh": "六条怎样得到本次读数？",
+            "en": "How do six statements produce this reading?"
+          },
+          "paragraphs": [
+            {
+              "zh": "每条按1至5表示目前的符合程度。两条以“不愿继续”或“倾向结束”表述，计分时用6减原评分；其余四条保留原评分。六条计分后相加得到6至30的总数，再除以6得到1至5均分。界面保留一位小数，不能把4.3读成86%会留下。",
+              "en": "Each item uses a 1–5 rating of how well it describes your current view. Two statements express not wanting to continue or leaning toward ending; their scored values are 6 minus the response. The other four keep their response values. Adding all six gives a sum from 6 to 30, then dividing by six gives a mean from 1 to 5. Displaying 4.3 does not mean an 86% chance of staying."
+            },
+            {
+              "zh": "本版需要本组六条全部有效。任一条选NA时，本组只显示有效题数和资料不足，不用中间分、零分或其他组的回答补齐。四份完整说明始终可以阅读，资料不足不把你放到“低承诺”一类。",
+              "en": "This edition requires six valid ratings in this part. Any NA leaves its mean unavailable and retains the rated count. No midpoint, zero or answer from another part fills the gap. All four complete guides remain readable. Insufficient information does not place someone in a low-commitment category."
+            }
+          ]
+        },
+        {
+          "id": "higher-lower-mixed",
+          "title": {
+            "zh": "较高、较低和犹豫分别怎样读？",
+            "en": "Reading higher, lower and mixed responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高的均分表示你在这次作答中较多认可继续意愿相关表述。它可以成为说清楚自己愿意做什么的起点，不能代替另一人的自愿、现实条件或关系安全。较低的均分也不是“不配得到爱”，而是提醒你核对目前是否真的想继续这一段关系。",
+              "en": "A higher mean reflects greater endorsement of these intention-related statements in this attempt. It may help you describe what you are willing to do, but cannot replace another person’s consent, practical circumstances or relationship safety. A lower mean is not a verdict about deserving love. It invites checking whether you currently want this particular partnership to continue, rather than judging your character or capacity for relationships."
+            },
+            {
+              "zh": "如果你对共同经历很有期待，却对继续投入犹豫，先看具体条目和当时想到的条件。均分会把这些不同理由压在一起。本页不设高、中、低分界线，也不把任何一档包装成正式人格或承诺等级。",
+              "en": "If shared experiences sound welcome while further engagement feels difficult, inspect the specific statements and conditions you had in mind. The mean compresses different reasons. This page provides no high, middle or low cutoffs, and assigns no official personality, commitment tier or relationship stage."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：想继续，不等于当下很满意",
+            "en": "Worked example: wanting to continue is not satisfaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构的林按本组题目出现顺序回答5、4、2、4、1、4。第三、第五条反向后，计分为5、4、4、4、5、4，总数26，均分26÷6=4.3。这个算例只演示规则，不是你的结果，也不是推荐答案。",
+              "en": "In a fictional attempt, Lin answers 5, 4, 2, 4, 1 and 4 in this part’s item order. Reversing the third and fifth statements gives 5, 4, 4, 4, 5 and 4: a sum of 26 and a displayed mean of 26 ÷ 6 = 4.3. This illustrates the calculation; it is neither your result nor an answer pattern to aim for."
+            },
+            {
+              "zh": "林同时觉得日常安排总由自己承担，于是对满意度题的认可较少。可以表达：“我想继续和你相处，但现在的安排让我不满意。我愿意讨论一件双方都能改变的小事。”这句话保留两个不同信息，没有用继续意愿掩盖不满，也没有要求对方给出同一个答案。",
+              "en": "Lin also feels that everyday coordination falls mainly on them, so satisfaction statements receive lower endorsements. One possible sentence is: “I want to continue being with you, and our current arrangements are not working for me. I am willing to discuss one small change we can both choose.” It preserves two different facts without hiding dissatisfaction or requiring the other person to give the same answer."
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "zh": "反例：愿意留下与不得不留下",
+            "en": "Counterexample: willingness and feeling compelled"
+          },
+          "paragraphs": [
+            {
+              "zh": "另一位虚构的周说“我肯定不会离开”，理由却主要是担心住房、经济或他人的反应。这句话并不足以确定其自主意愿。即使本组均分较高，也要把题目中的“自己愿意”“双方自愿”与“目前没有条件改变”分开。测试不能替你判断处境是否安全。",
+              "en": "Another fictional person, Zhou, says they will certainly stay, mainly because of worries about housing, money or other people’s reactions. That sentence alone does not establish freely chosen intention. Even with a higher mean, distinguish “I want this” and “we both freely choose it” from “I currently lack workable options.” The test cannot determine whether a situation is safe."
+            },
+            {
+              "zh": "反过来，最近想暂停伴侣身份的人也可能仍然关心对方，并愿意妥善处理共同事务。较少认可继续意愿题，不说明冷漠、背叛或缺乏爱的能力。不要用任何本组数字要求自己或别人证明忠诚。",
+              "en": "Conversely, someone considering a pause in the partnership may still care about the other person and handle shared responsibilities thoughtfully. Lower endorsement of continuation statements does not establish coldness, betrayal or an inability to love. Do not use a number here to demand proof of loyalty from yourself or someone else."
+            }
+          ]
+        },
+        {
+          "id": "compare-four-parts",
+          "title": {
+            "zh": "和另外三部分放在一起看",
+            "en": "Compare the other three parts without a total"
+          },
+          "paragraphs": [
+            {
+              "zh": "继续意愿问现在想不想维持伴侣身份；满意度问最近的相处体验；关系外选择问其他生活安排看起来是否可行、有吸引力；关系关联投入问哪些珍视的资源会因关系结束而改变。它们不是四个彼此竞争的人格类型。",
+              "en": "Continuing intention concerns wanting the partnership to persist. Satisfaction concerns recent experience. Outside options concern the perceived feasibility and appeal of other ways of living. Relationship-linked investment concerns valued resources that would change if the partnership ended. These are not four competing personality types."
+            },
+            {
+              "zh": "例如，关系较新时可以很想继续、体验不错，而共同投入还不多；关系较长时也可以牵连很多，却不再想继续。本版不把三项基础相加推算你的意愿，更不根据最高一项选出单一类型。每份结果都保留全文。",
+              "en": "For example, a newer partnership may involve strong willingness and rewarding experience alongside little shared investment. A longer relationship may involve many practical ties while willingness has changed. This edition does not add the three bases together to estimate intention, or select one type from the highest mean. Every guide retains its full text."
+            }
+          ]
+        },
+        {
+          "id": "private-conversation",
+          "title": {
+            "zh": "一个不上传的小练习",
+            "en": "A private conversation exercise"
+          },
+          "paragraphs": [
+            {
+              "zh": "在自己选择的纸上或私人笔记里写三句：我目前愿意继续的是什么；我不愿继续照旧的是什么；我希望先了解对方的哪个具体想法。把“永远”“一定”“你必须”换成一件可以讨论的安排。你也可以选择暂不谈，先把自己的意思想清楚。",
+              "en": "On paper or in private notes of your choice, write three sentences: what you currently want to continue; what you do not want to keep doing unchanged; and one specific view you would like to understand from your partner. Replace “forever,” “certainly” or “you must” with a discussable arrangement. You can also choose not to talk yet and first clarify what you mean."
+            },
+            {
+              "zh": "这不是在页面里提交的作业，也不要求把评分发给对方。若讨论，允许对方有不同意愿或暂时不回答；一次对话不能证明双方已经达成承诺。需要处理现实限制时，把具体事务单列，不用总分压过它们。",
+              "en": "This is not an assignment submitted on the page, and it does not require sending ratings to your partner. If you discuss it, allow a different intention or no immediate answer. One conversation does not prove a shared commitment. List practical constraints separately when they need attention, rather than allowing a total score to override them."
+            }
+          ]
+        },
+        {
+          "id": "limits-and-revisit",
+          "title": {
+            "zh": "版本边界与何时再看",
+            "en": "Edition limits and revisiting your reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "这套原创题没有本站常模、信效度或中英文等价验证，不能预测分手、判定关系质量或给出留下与离开的指令。最近的冲突、共同决定、身体疲劳与作答时想到的时间范围，都可能改变这次回答。没有当前伴侣关系时，保留公开阅读即可。",
+              "en": "These original items have no FermatMind population norms, established reliability or validity, or demonstrated Chinese–English equivalence. They cannot predict breakup, determine relationship quality or instruct someone to stay or leave. A recent disagreement, shared decision, tiredness or a different time frame may change an answer. Without a current partnership, use the public reading without creating an imagined attempt."
+            },
+            {
+              "zh": "如果以后重看，记录自己选择的时间范围和最近发生的事情，再比较哪些具体回答改变了。不要把一位小数的变化当作关系进步或退步的证据；也不要把这里的继续意愿与其他版本的分数直接换算。",
+              "en": "If you revisit the reflection, note your chosen time frame and recent events, then compare which specific responses changed. A change in one decimal place is not evidence that the relationship has improved or worsened. Do not convert this intention mean into scores from another edition or instrument."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "current-satisfaction",
+      "directionIds": [
+        "current-satisfaction"
+      ],
+      "title": {
+        "zh": "最近相处体验的满意度",
+        "en": "Satisfaction with your recent experience"
+      },
+      "headline": {
+        "zh": "把日常体验讲具体，不让关系长短替你回答。",
+        "en": "Describe daily experience without letting relationship length answer for you."
+      },
+      "summary": {
+        "zh": "从陪伴、日常活动与需要被对待的体验，阅读六条满意度自述。包括反向算例、工作繁忙的反例与可讨论的小改变，不作关系健康判定。",
+        "en": "Read six satisfaction statements about companionship, activities and how needs are treated. Includes reverse scoring, a busy-period counterexample and a small discussable change."
+      },
+      "scoreReading": {
+        "zh": "均分只描述本版六条计分后的自报体验。六条全有效才显示；没有人群排名、满意百分比或高低档位。",
+        "en": "The mean describes your scored self-reports across these six statements only. It requires six valid ratings and gives no population rank, satisfaction percentage or assigned band."
+      },
+      "seo": {
+        "title": {
+          "zh": "关系满意度怎样读：完整结果与具体例子",
+          "en": "Relationship Satisfaction: Read Your Ratings in Context"
+        },
+        "description": {
+          "zh": "完整阅读关系满意度的六条自述、反向计分、忙碌期反例和日常对话练习。区分体验与继续意愿，不诊断伴侣或判断关系命运。",
+          "en": "Read satisfaction ratings, reverse scoring, a busy-period counterexample and an everyday conversation exercise. Keep experience separate from intention."
+        }
+      },
+      "sections": [
+        {
+          "id": "experience-not-duration",
+          "title": {
+            "zh": "先回到最近一个月的具体相处",
+            "en": "Start with specific experiences from the past month"
+          },
+          "paragraphs": [
+            {
+              "zh": "满意度在这里指自己最近对这段伴侣关系的体验：陪伴是否适合当下需要，普通共同活动是否有价值，自己的需要是否也被认真对待。它不是共同生活年数、照片里的亲密程度或别人对你们的评价。作答时尽量想到具体互动，而不只想到一段最甜蜜或最难受的回忆。",
+              "en": "Satisfaction here concerns your recent experience of this partnership: whether companionship suits your current needs, ordinary shared activities feel worthwhile, and your needs are taken seriously too. It is not the number of years together, apparent closeness in photographs or other people’s evaluation. Try to recall concrete interactions rather than answering only from the sweetest or most difficult memory."
+            },
+            {
+              "zh": "同一段关系可以让人在某些方面满意，在另一些方面不满意。本组均分只是把六条回答压缩成一个描述性数字，不能证明关系整体健康，也不能说明对方的人格好坏。本版是原创自我反思，不是标准关系满意度量表。",
+              "en": "One relationship can feel rewarding in some respects and disappointing in others. This mean compresses six answers into one descriptive number; it cannot establish overall relationship health or the quality of a partner’s character. This is an original self-reflection edition rather than a standard relationship-satisfaction instrument."
+            }
+          ]
+        },
+        {
+          "id": "six-ratings-and-reversals",
+          "title": {
+            "zh": "计分与资料不足怎样处理？",
+            "en": "Scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条按1至5表示当前符合程度，其中第二、第五条描述距离或不满，计分时反向为6减原评分。其余四条不反向。本组总数范围6至30，均分为总数除以6，显示到一位小数；这不是对方给你的分数，也没有换算成百分制。",
+              "en": "The six statements use 1–5 ratings of current fit. The second and fifth describe distance or dissatisfaction and are scored as 6 minus the response. The other four retain their values. The sum ranges from 6 to 30, and the mean is that sum divided by six, displayed to one decimal place. It is not a score awarded by your partner or a conversion to a hundred-point scale."
+            },
+            {
+              "zh": "任一条选未经历或无法判断，本组均分就保留资料不足，明确显示有效题数。即使其他三部分都有均分，也不能据此补出满意度。下方解释会继续完整呈现，供你理解问题，不冒充针对本次状态的个性结论。",
+              "en": "Selecting NA for any statement withholds the mean and retains the number rated. Even if all three other parts have means, they cannot fill in satisfaction. The complete explanation remains available so you can understand the questions; it does not become a personalised conclusion about this attempt when information is insufficient."
+            }
+          ]
+        },
+        {
+          "id": "higher-lower-and-context",
+          "title": {
+            "zh": "较高或较低，不是一句关系结论",
+            "en": "Higher or lower is not a relationship verdict"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高的均分表示这次较认可这些近期满意体验，可以帮助你点名哪些安排值得继续。例如，一次普通的共同吃饭，可能因为彼此有时间听完对方说话而令人满意；不一定需要昂贵活动。保留这个具体条件，比要求自己维持一个高分更有用。",
+              "en": "A higher mean means greater endorsement of these recent satisfaction experiences. It can help identify arrangements worth continuing. An ordinary meal together, for example, may feel rewarding because both people have time to finish speaking and be heard, without requiring an expensive activity. Preserving that specific condition is more useful than trying to maintain a high score."
+            },
+            {
+              "zh": "较低的均分提示这些条目所问的体验近期较少符合自己。它没有指出原因，可能涉及需要没有说清、安排不合、近期冲突或其他条件。先分清“我不满意的是什么”，不要从一个均分跳到“对方就是某种人”。中间回答也可能包含差异很大的具体经历。",
+              "en": "A lower mean indicates that these experiences fit less well recently. It does not identify a cause. Unclear needs, unsuitable arrangements, recent conflict or other conditions may be involved. Clarify what feels unsatisfactory before jumping from a mean to a claim about what kind of person your partner is. Middle responses can also conceal very different experiences."
+            }
+          ]
+        },
+        {
+          "id": "worked-reversal-example",
+          "title": {
+            "zh": "算例：相同均分也可能来自不同体验",
+            "en": "Worked example: the same mean can hide different experiences"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构的秦按本组顺序回答2、4、2、3、4、2。第二、第五条反向后是2、2、2、3、2、2，总数13，均分13÷6=2.2。另一份计分后为1、1、1、4、3、3的回答也得到13；数字一样，不代表两个人的不满对象或原因一样。",
+              "en": "In a fictional attempt, Qin answers 2, 4, 2, 3, 4 and 2 in this part’s order. Reversing the second and fifth yields 2, 2, 2, 3, 2 and 2: a sum of 13 and a displayed mean of 13 ÷ 6 = 2.2. A different scored pattern of 1, 1, 1, 4, 3 and 3 also totals 13. Equal numbers do not establish the same concerns or causes."
+            },
+            {
+              "zh": "秦最近不满意的是临时改约后没有再安排共同时间，可以说：“过去三周，两次改约后我们没有补上见面。我想知道能否一起约一个双方都可行的时间。”这比“你让我得分很低”更清楚，也允许对方解释自己的处境。",
+              "en": "Qin’s recent concern is that cancelled plans have not been rearranged. One possible sentence is: “Over the past three weeks, two changed plans were not replaced with time together. Could we discuss a time that works for both of us?” This is clearer than saying the other person caused a low score, and leaves room to understand their circumstances."
+            }
+          ]
+        },
+        {
+          "id": "counterexample-busy-period",
+          "title": {
+            "zh": "反例：少见面不自动等于不满意",
+            "en": "Counterexample: limited time together is not automatically dissatisfaction"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构的安正在完成一段密集工作，两人见面不多，但对近期约定和联系方式都感到满意。另一对伴侣每天见面，却总觉得自己的需要没有被听见。见面时长本身不能替他们回答这六条题，社交媒体上的共同活动数量也不能作为校准分数的标准。",
+              "en": "In a fictional example, An is finishing an intensive work period. The partners meet less often but feel satisfied with their recent agreements and contact. Another pair meet every day while one person repeatedly feels unheard. Hours together cannot answer these six statements for them, and the number of activities posted online is not a standard against which to calibrate ratings."
+            },
+            {
+              "zh": "同样，一次争吵后的即时感受，可能让你忘记其他近期体验；一次特别开心的活动也可能遮住持续的不满。把本次想到的时间范围记清楚，而不是强迫自己选一个看起来“客观”的中间答案。无法判断时可以选NA。",
+              "en": "Likewise, feelings immediately after an argument may overshadow other recent experiences, while one enjoyable event may obscure ongoing dissatisfaction. Make your time frame clear rather than forcing yourself to choose a supposedly objective midpoint. NA is available when you cannot judge."
+            }
+          ]
+        },
+        {
+          "id": "separate-from-other-parts",
+          "title": {
+            "zh": "体验、意愿、选择与投入分开说",
+            "en": "Keep experience, intention, options and investment separate"
+          },
+          "paragraphs": [
+            {
+              "zh": "满意度回答相处起来怎样，继续意愿回答现在想不想继续；两者相关的理论背景，不表示本版能用一个数字预测另一个。你可以仍想继续，同时希望某个不合适的安排改变；也可以相处体验不错，却不愿维持现有伴侣身份。",
+              "en": "Satisfaction describes how recent relating has felt; intention concerns wanting to continue now. A theoretical relationship between them does not mean this edition can use one number to predict the other. You may want to continue while wishing an unsuitable arrangement would change, or value recent experiences while not wanting the partnership to remain in its present form."
+            },
+            {
+              "zh": "关系外选择与共同投入也不抵消不满意的具体体验。不要因为已经付出很多，就把不满意题改成较好看的答案；也不要因为可以独立生活，就认为自己“不应该”满意。四部分分别保留，不合成关系命运分。",
+              "en": "Outside options and shared investment do not cancel a specific unsatisfactory experience. Do not improve an answer because much has already been invested, or assume that being able to live independently means you should not feel satisfied. All four parts remain separate, without a relationship-destiny score."
+            }
+          ]
+        },
+        {
+          "id": "small-experience-experiment",
+          "title": {
+            "zh": "把一件体验变成可讨论的安排",
+            "en": "Turn one experience into a discussable arrangement"
+          },
+          "paragraphs": [
+            {
+              "zh": "在自己的纸上写下一次具体互动：发生了什么、自己需要什么、哪一部分有被满足或没有被满足。再写一个小到双方可以讨论的改变，例如临时改约时一并说明何时再协调，而不是承诺从此“让彼此完全满意”。这份笔记不用提交。",
+              "en": "In your own notes, describe one interaction: what happened, what you needed, and which part was or was not met. Then write one change small enough for both people to discuss, such as explaining when to revisit arrangements after a cancellation. This is different from promising to make each other completely satisfied from now on. No note needs to be submitted."
+            },
+            {
+              "zh": "如果愿意讨论，先询问对方是否方便，再听对方怎样理解同一件事。对方不需要接受你的分数或给出一样的评分。是否尝试一个安排，由双方自愿决定；这个练习不是关系干预，也没有承诺提升分数或改善关系的效果。",
+              "en": "If you want a conversation, first check whether it is a suitable time and hear how your partner understood the same event. They need not accept your score or rate the experience identically. Trying an arrangement is a voluntary decision for both people. This exercise is not a relationship intervention and promises no improvement in scores or outcomes."
+            }
+          ]
+        },
+        {
+          "id": "edition-and-revisit",
+          "title": {
+            "zh": "什么时候适合再读一次？",
+            "en": "When might revisiting the reading help?"
+          },
+          "paragraphs": [
+            {
+              "zh": "当你更能分清满意和不满意的具体对象时，可以重新读解释，不一定要重测。若重新作答，先核对仍是同一段关系、相近的回想范围和同一版本。条目回答变化只能说明这次自报不同，不能证明一次对话已经造成改善。",
+              "en": "You can reread the explanation when you can identify more clearly what feels rewarding or disappointing, without retaking the test. If you do answer again, check that the relationship, recall period and edition are comparable. Changed responses describe a different self-report; they do not prove that one conversation caused an improvement."
+            },
+            {
+              "zh": "本版没有人群常模、效度或中英文等价验证，不诊断关系健康、伴侣特征或心理问题。满意度高也不构成安全证明，满意度低也不是自动的去留指令。遇到超出本页范围的现实问题，需要另行处理，而不是增加题数来寻找确定答案。",
+              "en": "This edition has no population norms, established validity or demonstrated Chinese–English equivalence. It does not diagnose relationship health, partner traits or psychological problems. Higher satisfaction is not evidence of safety, and lower satisfaction is not an automatic instruction to stay or leave. Practical problems outside this page’s scope need attention in their own right, rather than more questions in search of certainty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outside-options",
+      "directionIds": [
+        "outside-options"
+      ],
+      "title": {
+        "zh": "关系之外的生活选择",
+        "en": "Options outside the relationship"
+      },
+      "headline": {
+        "zh": "看见其他生活方式，不等于决定离开。",
+        "en": "Seeing another possible life is not deciding to leave."
+      },
+      "summary": {
+        "zh": "完整解释独处、朋友、家庭和其他生活安排的主观吸引力，包含反向算例与反例。它不测不忠、不评价可替代性，也不预测下一段关系。",
+        "en": "Explore the perceived appeal of time alone, friends, family and other living arrangements. Includes reverse scoring and counterexamples, without judging loyalty or replaceability."
+      },
+      "scoreReading": {
+        "zh": "六条全有效才显示本组1至5均分。较高指本次更认可关系外生活选择的吸引力和可行性自述，不代表更可能离开。",
+        "en": "A 1–5 mean requires six valid ratings. A higher value reflects greater endorsement of perceived outside options, without estimating the likelihood of leaving."
+      },
+      "seo": {
+        "title": {
+          "zh": "关系外选择怎样理解：支持、独处与反例",
+          "en": "Alternatives in Relationships: Options and Independence"
+        },
+        "description": {
+          "zh": "完整阅读关系外选择：为何不限于另找伴侣，怎样反向计分、理解较高和较低回答，并做不上传的支持资源练习。",
+          "en": "Read why alternatives include independent life, friends and family. Explore scoring, different ratings, counterexamples and a private support exercise."
+        }
+      },
+      "sections": [
+        {
+          "id": "what-an-option-means",
+          "title": {
+            "zh": "“选择”不只指另一个伴侣",
+            "en": "An alternative is not only another partner"
+          },
+          "paragraphs": [
+            {
+              "zh": "这部分关注你目前怎样看待关系之外的生活：独处、朋友或家人提供的陪伴与支持，其他可想象的日常安排，以及不以当前伴侣关系为中心的生活是否有吸引力。题目记录的是自己的看法，不是在替你寻找对象，也不评估你在他人眼中的吸引力。",
+              "en": "This part concerns how you currently view life outside the partnership: companionship and support from friends or family, time on your own, other imaginable daily arrangements, and whether a life not centred on this relationship seems appealing. It records your view. It does not search for another partner or assess how desirable you are to other people."
+            },
+            {
+              "zh": "投资模型所说的替代选择包括关系外多种满足需要的途径，并不只指另找伴侣。本版据此提出原创问题，但不是原量表译本，也没有证据表明这六条能准确测出客观可行性、未来约会机会或离开意愿。",
+              "en": "In the investment-model background, alternatives include several ways of meeting needs outside a relationship, rather than only finding another partner. This edition asks original questions informed by that distinction. It is not a translation of the original scale, and these six statements have not been shown to measure objective feasibility, future dating opportunities or an intention to leave."
+            }
+          ]
+        },
+        {
+          "id": "score-and-direction",
+          "title": {
+            "zh": "均分的方向与反向题",
+            "en": "Direction of the mean and reverse keys"
+          },
+          "paragraphs": [
+            {
+              "zh": "1至5表示当前符合程度。第三、第五条描述难以想象或缺乏吸引力，按6减原评分反向；其余四条保留原评分。六条计分后总数6至30，除以6显示均分。这个方向只是让较高数值一致表示更认可关系外选择，不表示“较好”或“较坏”。",
+              "en": "Ratings from 1 to 5 describe current fit. The third and fifth statements concern difficulty imagining alternatives or finding them unappealing; they are reversed using 6 minus the response. The other four retain their values. Six scored values sum to 6–30 and are divided by six for the mean. This direction makes higher values consistently reflect greater endorsement of outside options, without making higher better or worse."
+            },
+            {
+              "zh": "本组任一条NA，均分就暂不提供，保留有效题数。不能因为其他五条都较高，就把缺失的一条也看成较高；也不能把NA理解成没有支持。四份公开指南仍然全部可读。",
+              "en": "Any NA withholds this part’s mean and retains the rated count. Five higher ratings do not establish that the missing response would also be higher. NA does not mean a lack of support. All four complete public guides remain available regardless of whether this mean can be calculated."
+            }
+          ]
+        },
+        {
+          "id": "read-both-directions",
+          "title": {
+            "zh": "较高和较低各自可能包含什么？",
+            "en": "What can higher and lower responses include?"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高的均分可能表示你能想象适合自己的独立生活，也能看见关系之外的陪伴。你仍可能非常想继续当前关系；有其他可能性，与选择当前伴侣可以同时存在。不要把数字当成不忠、冷漠或“随时能换人”的证据。",
+              "en": "A higher mean may reflect being able to imagine an independent life that suits you and recognising companionship outside the partnership. You may still strongly want this relationship to continue. Having other possibilities and choosing your present partner can coexist. Do not treat the number as evidence of infidelity, coldness or being able to replace someone at any moment."
+            },
+            {
+              "zh": "较低的均分可能表示你确实偏爱当前安排，也可能表示目前看不清其他选择，或觉得一些现实条件不容易改变。均分无法分清这些原因。它不是更忠诚的奖章，更不是要求减少其他支持、使关系更难离开的建议。",
+              "en": "A lower mean may reflect genuinely preferring current arrangements, finding other options hard to imagine, or facing practical conditions that seem difficult to change. The mean cannot distinguish those reasons. It is not a badge of greater loyalty, and never a recommendation to reduce outside support or make leaving more difficult."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：有吸引力的独立生活与继续意愿",
+            "en": "Worked example: an appealing independent life and intention"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构的许按本组顺序回答4、3、2、5、3、4。第三、第五条反向后为4、3、4、5、3、4，总数23，均分23÷6=3.8。许想到的是朋友之间稳定的联系、适合自己的独处时间和可以想象的生活安排，不是某个准备交往的人。",
+              "en": "In a fictional attempt, Xu answers 4, 3, 2, 5, 3 and 4 in this part’s order. Reversing the third and fifth gives 4, 3, 4, 5, 3 and 4: a sum of 23 and a displayed mean of 23 ÷ 6 = 3.8. Xu is thinking about dependable friendships, enjoyable time alone and imaginable living arrangements, rather than a person they plan to date."
+            },
+            {
+              "zh": "许也愿意继续与伴侣相处。这两个信息不互相取消，可以表达为：“我重视我们，也希望保留自己的朋友和独处时间。”这不是对方必须同意的结论，而是许可以自行决定是否提出的具体话题。算例不规定你的选择。",
+              "en": "Xu also wants the partnership to continue. The two observations do not cancel each other out. One possible sentence is: “I value us, and I also want to keep my friendships and time on my own.” This is not a conclusion the partner must accept, but a topic Xu can choose whether to raise. The example prescribes no choice for you."
+            }
+          ]
+        },
+        {
+          "id": "counterexample-isolation-and-appeal",
+          "title": {
+            "zh": "反例：很少选择不证明关系更牢固",
+            "en": "Counterexample: few perceived options do not prove durability"
+          },
+          "paragraphs": [
+            {
+              "zh": "另一位虚构的夏最近搬到陌生城市，尚未建立熟悉的支持，觉得自己几乎没有别的生活选择。这样的回答可能与支持资源和迁移阶段有关，不能据此判断夏比许更爱伴侣。反过来，认识的人很多，也不保证那些联系在需要时能提供帮助。",
+              "en": "Another fictional person, Xia, has recently moved to an unfamiliar city and has not established familiar support. Other ways of living feel difficult to imagine. That response may concern available support and the transition, without establishing that Xia loves a partner more than Xu does. Conversely, knowing many people does not guarantee that those connections can provide help when needed."
+            },
+            {
+              "zh": "因此，本页既不把较低数值美化成专一，也不把较高数值写成关系风险等级。主观上觉得可行，与具体安排是否真的可行，是两个需要分别核对的问题。不要用本组数字向伴侣证明其“没有别的选择”。",
+              "en": "Accordingly, this page does not romanticise lower values as devotion or convert higher values into a relationship-risk band. Perceived feasibility and whether a specific arrangement would actually work are separate questions to check. Never use this number to tell a partner that they have no other options."
+            }
+          ]
+        },
+        {
+          "id": "compare-four-parts",
+          "title": {
+            "zh": "它与满意度、意愿和投入有什么不同？",
+            "en": "How is this different from satisfaction, intention and investment?"
+          },
+          "paragraphs": [
+            {
+              "zh": "满意度关乎当前关系的近期体验；本组关乎关系外可能生活的主观看法。对两者都较认可，并不在数学上矛盾。继续意愿另问自己现在是否想维持伴侣身份，不由本组分数反推。关系关联投入则另问哪些珍视的资源会随伴侣关系结束而改变。",
+              "en": "Satisfaction concerns recent experience within the relationship; this part concerns your view of possible life outside it. Greater endorsement of both is not a mathematical contradiction. Continuing intention separately asks whether you want to remain partners now and is not inferred from these ratings. Relationship-linked investment separately concerns valued resources that would change if the partnership ended."
+            },
+            {
+              "zh": "不要把本组均分从5里扣掉，再加到满意度和投入上推算一个总承诺分。本版没有验证这种计算，也没有给出五档关系类型。四份完整指南同时出现，就是为了保留这些容易被单一总分盖住的区别。",
+              "en": "Do not subtract this mean from five and add it to satisfaction and investment to estimate total commitment. This edition has not validated that calculation and supplies no five-tier relationship classification. Presenting four complete guides together preserves distinctions that a single total can hide."
+            }
+          ]
+        },
+        {
+          "id": "private-support-map",
+          "title": {
+            "zh": "一个不上传的支持资源练习",
+            "en": "A private support-map exercise"
+          },
+          "paragraphs": [
+            {
+              "zh": "在私人纸张上分开列三栏：我已经能使用的支持；我希望了解、但尚未确认的安排；我暂时不知道的事情。可以只写类别，例如朋友联系、独处空间、日常事务帮助，不必写任何人的姓名。尚未确认的想法，不要当成已经拥有的资源。",
+              "en": "On private paper, make three columns: support you can already access; arrangements you would like to understand but have not confirmed; and things you do not yet know. Categories such as friendship contact, space alone or help with daily tasks are enough; no names are needed. Do not count an unconfirmed possibility as a resource you already have."
+            },
+            {
+              "zh": "从中选一件你愿意了解的小事，不需要决定是否维持关系，也不需要证明自己可以独自解决一切。这份资源图不用上传、分享或交给伴侣评分；保持或寻求支持与任何测试均分无关。",
+              "en": "Choose one small thing you want to understand, without deciding whether to continue the partnership or proving you can manage everything alone. The map need not be uploaded, shared or graded by a partner. Keeping or seeking support does not depend on a test mean."
+            }
+          ]
+        },
+        {
+          "id": "edition-and-change",
+          "title": {
+            "zh": "版本边界：想象会随处境改变",
+            "en": "Edition limits: circumstances can change what seems possible"
+          },
+          "paragraphs": [
+            {
+              "zh": "新城市、家庭安排、工作时间和最近的社交经历，都可能影响你怎样想象关系外生活。重新作答时，先记清仍在考虑同一段关系与最近一个月。均分变化不是已经找到新伴侣、支持变得可靠或离开更可能的证据。",
+              "en": "A new city, family arrangements, work schedules and recent social experiences can change how life outside the relationship appears. If you answer again, clarify that you are considering the same partnership and recent month. A changed mean does not establish that a new partner has been found, support has become dependable or leaving is more likely."
+            },
+            {
+              "zh": "这套原创自述没有效度、人群常模或中英文等价验证，不判断不忠、依赖程度、伴侣价值或关系命运。没有当前成年伴侣关系时，阅读指南即可，不需要用虚构关系作答来得到一个数字。",
+              "en": "These original self-reports have no established validity, population norms or demonstrated Chinese–English equivalence. They do not judge infidelity, dependency, a partner’s worth or the relationship’s future. Without a current adult partnership, the public guide is sufficient; an imagined relationship is not needed to obtain a number."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relationship-linked-investment",
+      "directionIds": [
+        "relationship-linked-investment"
+      ],
+      "title": {
+        "zh": "与关系相连的既有投入",
+        "en": "Investment linked to the relationship"
+      },
+      "headline": {
+        "zh": "分清哪些东西需要重新安排，哪些理由由自己选择。",
+        "en": "Separate what needs reorganising from what you freely choose."
+      },
+      "summary": {
+        "zh": "完整解释共同安排、珍视的经历与不能直接转移的资源，含反向算例、长期关系反例和三栏私人清单。不把已经付出当成必须继续的理由。",
+        "en": "Read about shared arrangements, valued experiences and resources that do not transfer directly, with scoring and a private inventory. Past investment never becomes an obligation to continue."
+      },
+      "scoreReading": {
+        "zh": "六条全有效才显示均分，较高只表示本次较认可存在关系关联投入的自述，不代表关系更好、更值得维持或损失金额。",
+        "en": "A mean requires six valid ratings. A higher value reflects greater endorsement of relationship-linked investment statements, without establishing relationship quality, reasons to stay or monetary loss."
+      },
+      "seo": {
+        "title": {
+          "zh": "关系投入结果：共同资源、沉没成本与自主选择",
+          "en": "Relationship Investment: Meaning, Costs and Choice"
+        },
+        "description": {
+          "zh": "完整理解关系关联投入：六条怎样计分、为何长期不一定高分、共同安排与沉没成本的区别，以及不上传的三栏清单练习。",
+          "en": "Read scoring, why duration need not mean higher investment, shared arrangements versus sunk-cost pressure, and a private three-column exercise."
+        }
+      },
+      "sections": [
+        {
+          "id": "what-is-linked",
+          "title": {
+            "zh": "问的是关系关联，不是付出了多少爱",
+            "en": "The question is what is linked, not how much you love"
+          },
+          "paragraphs": [
+            {
+              "zh": "这部分关注你珍视、又与当前伴侣关系的延续相连的资源，例如需要共同协调的生活安排、只在这段关系中保有原来意义的经历，以及不能直接转移到另一种生活安排里的精力。它不把所有过去的时间加在一起，也不替共同经历标价。",
+              "en": "This part concerns valued resources connected to the continuation of the present partnership: arrangements requiring joint coordination, experiences whose existing meaning belongs within this relationship, and effort that would not transfer directly to another way of living. It does not simply add up all past time or put a price on shared experiences."
+            },
+            {
+              "zh": "投资模型背景把这类投入与满意度、其他选择和继续意愿分开。费马用原创六条自述帮助区分这些问题，不复用原量表题目，也不把“投入”写成提高承诺度的操作建议。共同安排多，可以与满意或不满意同时存在。",
+              "en": "The investment-model background distinguishes such investment from satisfaction, alternatives and intention to continue. FermatMind uses six original statements to help separate those questions, without reusing the published scale’s items. Investment is not presented as a lever you should increase to raise commitment. Many shared arrangements can coexist with either satisfaction or dissatisfaction."
+            }
+          ]
+        },
+        {
+          "id": "scoring-and-missing",
+          "title": {
+            "zh": "反向计分与资料不足",
+            "en": "Reverse scoring and insufficient information"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条均按1至5表示当前符合程度。第三条描述重要资源仍可照常保留，第五条描述很少需要重组，因此按6减原评分反向；另外四条不反向。计分后总数6至30，除以6得到1至5均分。数值只组织这六条回答，不测投资回报率或实际损失。",
+              "en": "All six statements use 1–5 ratings of current fit. The third describes valued resources remaining available, and the fifth describes little need for reorganisation, so both use 6 minus the response. The other four retain their ratings. The scored sum ranges from 6 to 30 and is divided by six for a mean from 1 to 5. This organises six responses; it measures neither return on investment nor actual loss."
+            },
+            {
+              "zh": "任一条选NA，本组不提供个人均分，只保留有效题数和资料不足。共享事务较少的人可以照实回答，不需要为得到结果而夸大牵连；不确定某件事能否保留的人也不必猜。完整指南不会因NA而锁住。",
+              "en": "Any NA withholds the personal mean and retains the rated count. Someone with few shared arrangements can answer accordingly without exaggerating ties to obtain a result. Someone unsure whether a resource would remain available need not guess. NA never locks the complete guide."
+            }
+          ]
+        },
+        {
+          "id": "higher-lower-and-duration",
+          "title": {
+            "zh": "较高、较低与关系长短",
+            "en": "Higher, lower and relationship duration"
+          },
+          "paragraphs": [
+            {
+              "zh": "较高均分表示你这次较认可存在需要重组或不能直接转移的关系关联资源。它能提示哪些具体事务值得说清楚，不能证明这段关系更珍贵、对方更爱你，或继续相处一定更合适。重要的资源是什么，仍要回到具体回答。",
+              "en": "A higher mean means greater endorsement of relationship-linked resources that may need reorganising or do not transfer directly. It can highlight specific matters worth clarifying, without establishing that the relationship is more valuable, that a partner loves you more, or that continuing is necessarily more suitable. The specific responses still matter in identifying which resources are important."
+            },
+            {
+              "zh": "较低均分可以出现在关系较新、安排独立，或大部分重视的资源仍能保留的情况下。它不说明投入不认真或感情肤浅。关系年数本身不是本组计分键，花了多少钱、发过多少照片，也不是替代答案。",
+              "en": "A lower mean may occur in a newer partnership, one with independent arrangements, or one where most valued resources could remain available. It does not establish insincerity or shallow feelings. Years together are not this part’s scoring key, and spending or photographs cannot substitute for responses."
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "zh": "算例：数值较高，仍要另问自己想不想继续",
+            "en": "Worked example: investment does not answer intention"
+          },
+          "paragraphs": [
+            {
+              "zh": "虚构的岑按本组顺序回答5、4、2、4、2、3。第三、第五条反向后为5、4、4、4、4、3，总数24，均分24÷6=4.0。岑想到的是共同的居住安排、长期形成的生活协作与珍视的共同经历，不是把一位伴侣折算成某个价格。",
+              "en": "In a fictional attempt, Cen answers 5, 4, 2, 4, 2 and 3 in this part’s order. Reversing the third and fifth gives 5, 4, 4, 4, 4 and 3: a sum of 24 and a mean of 24 ÷ 6 = 4.0. Cen is thinking about shared living arrangements, established everyday cooperation and valued experiences, rather than assigning a price to a partner."
+            },
+            {
+              "zh": "这个4.0没有回答岑是否满意，也没有回答岑希望怎样继续。岑可以分别写下：“这些事务需要认真安排”和“我现在想要的伴侣关系是什么”。把两个问题拆开，比用“已经投入很多”结束讨论更有信息。",
+              "en": "That 4.0 answers neither whether Cen feels satisfied nor how Cen wants the relationship to continue. Cen can separately write: “These matters need thoughtful arrangements” and “What kind of partnership do I want now?” Keeping the questions separate provides more information than ending the discussion with how much has already been invested."
+            }
+          ]
+        },
+        {
+          "id": "counterexample-transferability",
+          "title": {
+            "zh": "反例：在一起多年，也可能保持独立安排",
+            "en": "Counterexample: years together can include independent arrangements"
+          },
+          "paragraphs": [
+            {
+              "zh": "另一对虚构伴侣在一起多年，仍保留各自稳定的居所、朋友和生活安排；一些重要资源不因伴侣身份变化而消失。本组可能得到较低读数。另一段较新的关系，因为已经共同搬迁或建立复杂协作，可能需要更多重组。不能单凭关系长短替任何人选答案。",
+              "en": "Another fictional pair have been together for years while keeping stable separate homes, friendships and daily arrangements. Some valued resources would not disappear with a change in partnership status, so their reading may be lower. A newer relationship involving a shared move or complex coordination may require more reorganisation. Duration alone cannot answer the statements for either pair."
+            },
+            {
+              "zh": "还要区分“过去已经发生、不能追回的时间”和“现在仍然有价值、会因关系变化而改变的资源”。本组不能精确核定这两者，也不能把损失感转换成必须继续的义务。珍惜过去，不等于放弃对现在安排的自主选择。",
+              "en": "Also distinguish time that has already passed from resources that still have value and would change with the relationship. This part cannot determine their exact boundaries or turn a feeling of loss into an obligation to continue. Valuing the past does not require giving up your own choice about present arrangements."
+            }
+          ]
+        },
+        {
+          "id": "compare-parts-without-pressure",
+          "title": {
+            "zh": "和另外三部分放在一起，不作加减裁决",
+            "en": "Compare the other parts without a stay-or-leave calculation"
+          },
+          "paragraphs": [
+            {
+              "zh": "满意度问最近的体验，继续意愿问现在自己的愿望，关系外选择问其他生活安排的主观吸引力。这三组都不能从投入均分反推出。你可以珍视很多共同经历，同时希望某种相处方式停止；也可以共享事务不多，却很愿意继续。",
+              "en": "Satisfaction concerns recent experience, intention concerns what you want now, and outside options concern the perceived appeal of other arrangements. None can be inferred from this investment mean. You may value many shared experiences while wanting a particular way of relating to stop, or have few shared arrangements while strongly wanting the partnership to continue."
+            },
+            {
+              "zh": "本版不把投入加到满意度上，再扣掉关系外选择来算总承诺或分手风险。也不把四组中的最高项当成你的关系类型。四份完整说明都呈现，是为了让现实事务、体验和自主意愿可以分别被看见。",
+              "en": "This edition does not add investment to satisfaction and subtract outside options to calculate total commitment or breakup risk. The highest of four means is not assigned as a relationship type. All four complete guides are presented so practical matters, experience and freely chosen intention can remain visible separately."
+            }
+          ]
+        },
+        {
+          "id": "private-three-columns",
+          "title": {
+            "zh": "三栏清单：保留、协调、尚不清楚",
+            "en": "A private inventory: retained, coordinated and unknown"
+          },
+          "paragraphs": [
+            {
+              "zh": "在自己的纸上，把想到的资源分为三栏：即使关系改变仍能保留的；确实需要双方协调的；目前尚不清楚的。可以写“日常分工”或“共同安排”等类别，不必录入金额、地址、姓名或其他私人信息。这份清单不用交给网站。",
+              "en": "On your own paper, sort the resources you have in mind into three columns: what would remain available if the relationship changed; what genuinely requires coordination; and what is not yet clear. Categories such as daily responsibilities or shared arrangements are enough. No amounts, addresses, names or other private information need to be entered. Nothing needs to be submitted to the website."
+            },
+            {
+              "zh": "从“尚不清楚”里挑一件你愿意先了解的事，不必马上做关系决定。若需要双方讨论，允许对方有不同看法，不用本组均分要求其作出承诺或增加投入。事务需要妥善处理，与是否自愿继续，是两项不同的工作。",
+              "en": "Choose one uncertainty you would like to understand without making an immediate relationship decision. If a discussion is needed, allow the other person a different view. Do not use the mean to demand a promise or more investment. Handling shared matters thoughtfully and freely choosing whether to continue are separate tasks."
+            }
+          ]
+        },
+        {
+          "id": "limits-and-revisit",
+          "title": {
+            "zh": "限制与重新阅读",
+            "en": "Limits and revisiting the reading"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版没有验证过的分界线、人群常模、损失估计或中英文等价证据。它不评判伴侣价值、财产权益、离开难度或关系安全，不提供招聘、临床或法律用途。当前没有成年伴侣关系时，可以只读解释，不用把过去多段关系混成一份作答。",
+              "en": "This edition has no validated cutoffs, population norms, loss estimates or demonstrated Chinese–English equivalence. It does not determine a partner’s worth, ownership rights, difficulty leaving or relationship safety, and has no hiring, clinical or legal use. Without a current adult partnership, read the explanation without combining several past relationships into one attempt."
+            },
+            {
+              "zh": "重新阅读时，可以先检查清单中哪些事项已经更清楚，哪些只是自己的假设。若重新作答，说明仍在考虑哪段关系与哪个时间范围。读数变动不证明更爱、更被困或关系更值得维持，也不意味着应该增加投入来换一个较高数字。",
+              "en": "When revisiting the guide, first check which matters have become clearer and which remain assumptions. If you answer again, clarify the relationship and time frame. A changed reading does not prove greater love, greater entrapment or stronger reasons to continue, and never means you should increase investment to obtain a higher number."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "zh": "四部分怎样分别计分？",
+        "en": "How are the four parts scored separately?"
+      },
+      "paragraphs": [
+        {
+          "zh": "每部分六条，1至5为目前符合程度，NA不当零分。八道反向题按6减原评分；每组六条全有效才显示6至30总数与1至5均分，任何NA只使所属部分保留资料不足。全部24题均作选择后才显示结果，不在中途解释不完整答案。",
+          "en": "Each part has six statements rated 1–5 for current fit; NA is not zero. Eight reverse-keyed statements use 6 minus the response. Each part requires six valid ratings for its 6–30 sum and 1–5 mean. Any NA withholds only that part’s mean. Results appear after all 24 selections, without interpreting partial answers."
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "zh": "怎样理解四项读数？",
+        "en": "How should you read the four means?"
+      },
+      "paragraphs": [
+        {
+          "zh": "继续意愿、近期满意度、关系外选择与关系关联投入分别阅读，不相加、不相减，也不按最高项派型。较高只指较认可本组表述，不是四部分都越高越好；关系外选择不等于不忠，已有投入不等于应该留下。每次结果同时给出四份完整说明。",
+          "en": "Read intention, satisfaction, outside options and relationship-linked investment separately. They are not added, subtracted or assigned as types by the highest mean. Higher means greater endorsement of that part’s statements, not that higher is better across all four. Outside options are not infidelity, and investment is not a reason you must stay. Every result includes all four complete guides."
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "zh": "为什么这四部分可以不同步？",
+        "en": "Why can the four parts differ?"
+      },
+      "paragraphs": [
+        {
+          "zh": "你可以愿意继续，同时对近期安排不满意；也可以觉得独立生活有吸引力，仍自愿选择当前关系。较新的关系可能共同事务较少，长期关系也可能保持独立安排。均分不能判定伴侣的感受、关系质量或未来结局。",
+          "en": "You can want to continue while feeling dissatisfied with recent arrangements, or see appeal in independent life while freely choosing this partnership. Newer relationships may involve few shared arrangements, and longer ones can retain independence. Means cannot establish a partner’s feelings, relationship quality or the future."
+        }
+      ]
+    },
+    {
+      "id": "original-edition-and-theory",
+      "title": {
+        "zh": "理论背景与本版原创内容",
+        "en": "Theory background and this original edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "1998年的投资模型量表研究区分承诺与满意度、替代选择、投入规模；2011年作者综述继续讨论三项基础与持续行为的关系。本版只借此组织问题领域，24题、中文英文与结果正文为费马原创，不是原量表或JobCannon题本的翻译，未继承它们的计分或验证结论。",
+          "en": "The 1998 Investment Model Scale research distinguishes commitment from satisfaction, alternatives and investment size; the authors’ 2011 review discusses those bases and persistence. This edition uses that distinction to organise reflection. Its 24 items, bilingual wording and explanations are original to FermatMind, rather than translations of the published scale or JobCannon’s bank. Their scoring and validation do not transfer to it."
+        }
+      ]
+    },
+    {
+      "id": "adult-own-report-scope",
+      "title": {
+        "zh": "只回答自己的当前成年伴侣关系",
+        "en": "Consider only your own current adult partnership"
+      },
+      "paragraphs": [
+        {
+          "zh": "按最近一个月、同一段当前成年伴侣关系作答，不替伴侣评分，不把多段过去关系混在一起，也不从一个人的意愿推断双方已经同意。没有当前关系时，可以先读全部指南，不需要想象一个伴侣来完成题目。",
+          "en": "Consider the past month and one current adult partnership. Do not rate your partner, combine several past relationships, or infer mutual agreement from one person’s intention. Without a current partnership, read every guide without imagining a partner to complete the questions."
+        }
+      ]
+    },
+    {
+      "id": "evidence-and-change",
+      "title": {
+        "zh": "证据与重新作答的边界",
+        "en": "Evidence and the limits of repeating the reflection"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版尚无信效度、人群常模、固定分界线或中英文等价验证，不计算满意百分比、分手概率、关系健康、爱的能力或人格类型。重新作答的变化只是自报变化，不能证明一个行动造成改善，也不能与其他版本直接换算。",
+          "en": "This edition has no established reliability, validity, population norms, cutoffs or Chinese–English equivalence. It calculates no satisfaction percentage, breakup probability, relationship-health rating, capacity to love or personality type. Changed answers are changed self-reports, not proof that an action caused improvement, and cannot be converted directly to another edition."
+        }
+      ]
+    },
+    {
+      "id": "draft-and-sharing",
+      "title": {
+        "zh": "草稿与分享的范围",
+        "en": "Drafts and sharing"
+      },
+      "paragraphs": [
+        {
+          "zh": "只有主动勾选，当前标签页才暂存可恢复的选择，24小时到期；完成、重测或退出清除时删除。最终答卷不作草稿保存，网站不要求输入伴侣姓名或私人经历。分享只带公开测试入口，不带四项均分、答案、对方信息或私人笔记。",
+          "en": "Only explicit opt-in saves resumable choices in this tab, expiring after 24 hours. Completion, retake or exit-and-clear removes them. The final attempt is not saved as a draft, and no partner’s name or private account is requested. Sharing uses the public entry link without the four means, answers, another person’s information or private notes."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这是经过验证的投资模型量表吗？",
+        "en": "Is this the validated Investment Model Scale?"
+      },
+      "answer": {
+        "zh": "不是。这是费马原创四部分反思版，理论概念有来源，24条自述和本版计分没有继承原量表的信效度。",
+        "en": "No. It is FermatMind’s original four-part reflection. Theory has cited sources, but these 24 statements and this scoring have not inherited validation from the published scale."
+      }
+    },
+    {
+      "question": {
+        "zh": "能预测是否分手或该不该继续吗？",
+        "en": "Can it predict breakup or tell me whether to continue?"
+      },
+      "answer": {
+        "zh": "不能。四部分只分别描述自己的当前自报，不判关系质量、伴侣想法或未来结局，也不给去留指令。",
+        "en": "No. Four separate parts describe your current self-reports without judging relationship quality, a partner’s views or the future, or prescribing whether to stay."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么不把四个数字合成一个承诺分？",
+        "en": "Why are there no combined commitment score or tiers?"
+      },
+      "answer": {
+        "zh": "本版没有验证过的合成公式或档位。体验、意愿、其他选择与现实投入可能不同步，合并会掩盖需要分别理解的信息。",
+        "en": "This edition has no validated composite formula or tiers. Experience, intention, other options and investment can differ; combining them can hide distinctions worth understanding separately."
+      }
+    },
+    {
+      "question": {
+        "zh": "关系外选择较高，是不是不忠？",
+        "en": "Does a higher outside-options mean indicate infidelity?"
+      },
+      "answer": {
+        "zh": "不是。这里包括独处、朋友、家人和其他生活安排的主观吸引力，不问不忠行为，也不评价能否替代伴侣。",
+        "en": "No. It includes perceived appeal of time alone, friends, family and other arrangements. It neither asks about infidelity nor evaluates replacing a partner."
+      }
+    },
+    {
+      "question": {
+        "zh": "一部分资料不足，为什么还可以读全部说明？",
+        "en": "Why can I read every guide when a mean is unavailable?"
+      },
+      "answer": {
+        "zh": "公开指南解释规则和例子，不是针对你的个人判断。任何NA使所属部分保留不足，不用中间分或其他部分补齐，也不锁住全文。",
+        "en": "Public guides explain rules and examples rather than personal judgments. Any NA withholds its own part’s mean without midpoint imputation, borrowing another part or locking the full text."
+      }
+    },
+    {
+      "question": {
+        "zh": "没有伴侣也可以使用吗？",
+        "en": "Can I use it without a current partner?"
+      },
+      "answer": {
+        "zh": "可以阅读全部公开说明；本版题目只适用于一段当前成年伴侣关系，不建议用想象对象或多段关系混合生成分数。",
+        "en": "You can read every public guide. The questions concern one current adult partnership; do not generate a score from an imagined partner or a mixture of relationships."
+      }
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "zh": "Rusbult、Martz与Agnew（1998）：投资模型量表原研究，仅作理论背景",
+        "en": "Rusbult, Martz & Agnew (1998): original Investment Model Scale research; theory background only"
+      },
+      "url": "https://doi.org/10.1111/j.1475-6811.1998.tb00177.x"
+    },
+    {
+      "title": {
+        "zh": "Rusbult、Agnew与Arriaga（2011）：承诺过程投资模型作者综述",
+        "en": "Rusbult, Agnew & Arriaga (2011): authors’ review of investment-model commitment processes"
+      },
+      "url": "https://docs.lib.purdue.edu/psychpubs/26/"
+    }
+  ]
+}
