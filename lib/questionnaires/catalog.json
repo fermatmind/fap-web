@@ -4563,5 +4563,30 @@
       "passion-reading",
       "commitment-reading"
     ]
+  },
+  {
+    "slug": "overthinking-screener",
+    "code": "PTQ15_EHRING2011_CC_BY",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Overthinking Check-In: The 15-Item PTQ",
+      "zh": "过度思考检查：15项PTQ"
+    },
+    "description": {
+      "en": "Complete the 15-item PTQ free and read the total plus three subscales. Original English, a new Chinese working translation, explicit scoring and no diagnostic bands.",
+      "zh": "免费完成15项PTQ并阅读总分与三个分量表。保留原英文，提供新的中文工作译文与可复算方法，不划诊断档次。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "ptq15_ehring2011_appendix_fmzh_working_v1",
+    "questionCount": 15,
+    "resultSlugs": [
+      "total-reading",
+      "core-reading",
+      "unproductive-reading",
+      "mental-capacity-reading"
+    ]
   }
 ]

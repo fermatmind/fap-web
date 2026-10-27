@@ -1,0 +1,1637 @@
+{
+  "slug": "overthinking-screener",
+  "code": "PTQ15_EHRING2011_CC_BY",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "everyday",
+  "kind": "ptq15",
+  "title": {
+    "en": "Overthinking Check-In: The 15-Item PTQ",
+    "zh": "过度思考检查：15项PTQ"
+  },
+  "seoTitle": {
+    "en": "Overthinking Check-In: PTQ 15 Items, Scoring & Full Readings",
+    "zh": "过度思考检查：PTQ十五项、计分与完整免费读法"
+  },
+  "description": {
+    "en": "Complete the 15-item PTQ free and read the total plus three subscales. Original English, a new Chinese working translation, explicit scoring and no diagnostic bands.",
+    "zh": "免费完成15项PTQ并阅读总分与三个分量表。保留原英文，提供新的中文工作译文与可复算方法，不划诊断档次。"
+  },
+  "minutes": 5,
+  "instructions": {
+    "en": "In this questionnaire, you will be asked to describe how you typically think about negative experiences or problems. Please read the following statements and rate the extent to which they apply to you when you think about negative experiences or problems.\n\nThe original instructions specify your typical thinking, without a fixed recent time window. Keep that reference when answering. The unscored choice is a FermatMind addition for uncertainty or a choice not to answer, not an original response. One unscored answer withholds its subscale and the overall total; other complete subscales remain available. All-unscored can finish. No score produces a diagnosis, severity band, percentile or career recommendation.",
+    "zh": "这份问卷请你描述，自己通常怎样思考负面经历或问题。请阅读以下陈述，评价当你思考负面经历或问题时，这些陈述在多大程度上符合你的情况。\n\n原指示询问通常的思考方式，没有指定近期时间窗，作答时保留这一参照。不计分是费马为无法判断或不愿回答增加的选项，不属于原选项。任一不计分使所在分量表与总分暂缺，其他完整分量表保留；全部不计分也能完成。分数不产生诊断、严重程度档、人群百分位或职业建议。"
+  },
+  "introduction": {
+    "en": "This edition uses the published 15-item Perseverative Thinking Questionnaire (PTQ). It asks how you typically think about negative experiences or problems, without a fixed recent time window. The original English items, order and five response anchors are retained. FermatMind supplies a new Simplified Chinese working translation, web presentation and explicitly unscored choice; these adaptations have not been psychometrically validated. Read a 0–60 total and three raw subscale sums, with four complete explanations available to everyone. The form does not diagnose a condition, assign a severity level or compare you with a population.",
+    "zh": "本版采用已发表的15项重复思维问卷PTQ。它询问面对负面经历或问题时通常的思考方式，没有指定近期时间窗。原英文题目、题序与五级选项保留；费马提供新的简体中文工作译文、网页呈现及明确不计分选项，这些改编未经过心理测量验证。可读0—60总分与三个原始和，四篇完整解释对所有人开放。问卷不诊断、不分严重程度，也不与人群比较。"
+  },
+  "resultHeading": {
+    "en": "PTQ total, three subscale sums and full readings",
+    "zh": "PTQ总分、三个分量表原始和与完整读法"
+  },
+  "directions": [
+    {
+      "id": "core",
+      "title": {
+        "en": "Core characteristics of repetitive negative thinking",
+        "zh": "重复消极思维的核心特征"
+      },
+      "itemCount": 9
+    },
+    {
+      "id": "unproductive",
+      "title": {
+        "en": "Perceived unproductiveness",
+        "zh": "自觉思考没有带来帮助"
+      },
+      "itemCount": 3
+    },
+    {
+      "id": "mental-capacity",
+      "title": {
+        "en": "Attention occupied by thinking",
+        "zh": "思考占用注意力"
+      },
+      "itemCount": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": "PTQ_01",
+      "prompt": {
+        "en": "The same thoughts keep going through my mind again and again.",
+        "zh": "同样的想法在我脑中一遍又一遍地出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_02",
+      "prompt": {
+        "en": "Thoughts intrude into my mind.",
+        "zh": "想法闯入我的脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_03",
+      "prompt": {
+        "en": "I can’t stop dwelling on them.",
+        "zh": "我无法停止反复想着它们。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_04",
+      "prompt": {
+        "en": "I think about many problems without solving any of them.",
+        "zh": "我想着许多问题，却一个也没有解决。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_05",
+      "prompt": {
+        "en": "I can’t do anything else while thinking about my problems.",
+        "zh": "想着自己的问题时，我无法做其他事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_06",
+      "prompt": {
+        "en": "My thoughts repeat themselves.",
+        "zh": "我的想法不断重复。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_07",
+      "prompt": {
+        "en": "Thoughts come to my mind without me wanting them to.",
+        "zh": "即使我不想，这些想法也会进入脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_08",
+      "prompt": {
+        "en": "I get stuck on certain issues and can’t move on.",
+        "zh": "我卡在某些问题上，无法转向其他事情。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_09",
+      "prompt": {
+        "en": "I keep asking myself questions without finding an answer.",
+        "zh": "我不断向自己提问，却找不到答案。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_10",
+      "prompt": {
+        "en": "My thoughts prevent me from focusing on other things.",
+        "zh": "这些想法使我无法专注于其他事情。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_11",
+      "prompt": {
+        "en": "I keep thinking about the same issue all the time.",
+        "zh": "我总是不停地想同一个问题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_12",
+      "prompt": {
+        "en": "Thoughts just pop into my mind.",
+        "zh": "想法会突然出现在我脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_13",
+      "prompt": {
+        "en": "I feel driven to continue dwelling on the same issue.",
+        "zh": "我感觉自己被推动着，继续反复想同一个问题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_14",
+      "prompt": {
+        "en": "My thoughts are not much help to me.",
+        "zh": "我的这些想法对我没有多大帮助。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_15",
+      "prompt": {
+        "en": "My thoughts take up all my attention.",
+        "zh": "我的这些想法占据了全部注意力。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "total-reading",
+      "directionIds": [
+        "core",
+        "unproductive",
+        "mental-capacity"
+      ],
+      "title": {
+        "en": "PTQ Total Score: Reading Repetitive Negative Thinking",
+        "zh": "PTQ总分：阅读重复消极思维"
+      },
+      "headline": {
+        "en": "Read the total without turning it into a diagnosis",
+        "zh": "读懂总分，不把它变成诊断"
+      },
+      "summary": {
+        "en": "The original 15-item PTQ combines recalled repetition, intrusiveness, difficulty disengaging, perceived lack of usefulness and occupied attention. The total has no severity band in this edition.",
+        "zh": "原15项PTQ结合重复、侵入、难以脱离、自觉无益及注意力占用的自报体验，本版不为总分划严重程度档。"
+      },
+      "seo": {
+        "title": {
+          "en": "PTQ Total Score: Reading Repetitive Negative Thinking",
+          "zh": "PTQ总分：阅读重复消极思维"
+        },
+        "description": {
+          "en": "Calculate the original PTQ 0–60 total and see how three subscales contribute. Read missing answers, language limits and a fictional example without diagnostic cutoffs.",
+          "zh": "复算原PTQ 0—60总分与三个分量表贡献，理解缺答、语言限制及虚构例子，不设诊断阈值。"
+        }
+      },
+      "scoreReading": {
+        "en": "Add all 15 selected 0–4 values without reversal. The possible total is 0–60. All fifteen must be numeric; one unscored answer withholds the total. No prorating or conversion to a percentage is used.",
+        "zh": "15项所选0—4值直接相加，不反向，总范围0—60。十五项必须都有数值，任一不计分则总分暂缺；不按比例补分或转百分比。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Use the published PTQ reference period",
+            "zh": "保留原PTQ的作答参照"
+          },
+          "paragraphs": [
+            {
+              "en": "PTQ asks about the way you typically think when considering negative experiences or problems. It does not specify the past week, month or a single event. This edition retains that reference and the original English item order. The new Simplified Chinese wording is a working translation, with no claim that it has the original English or German version’s measurement evidence.",
+              "zh": "PTQ询问思考负面经历或问题时通常的思考方式，没有指定过去一周、一月或单次事件。本版保留这一参照及原英文题序。简体中文为新的工作译文，不声称已经具备原英文或德文版的测量证据。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Follow a total back to its component sums",
+            "zh": "把总分追溯到组成它的和"
+          },
+          "paragraphs": [
+            {
+              "en": "The fictional fifteen-answer example in the method note gives core characteristics 18, perceived unproductiveness 6 and occupied attention 5. Their sum is 29 out of the possible 60. This is an illustrative calculation, not a typical score, a clinical cutoff or a 29-percent chance of anything. The three parts have different item counts, so do not rank them by raw sums.",
+              "zh": "方法说明中的虚构十五项回答得到核心特征18、自觉无益6、注意力占用5，合计29，可取范围为0—60。这是复算示例，不是典型分、临床阈值或任何事情的29%概率。三个部分题量不同，不能按原始和给它们排高低。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A repeated question can differ from a useful review",
+            "zh": "重复提问可以不同于有用回顾"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine revisiting an awkward conversation. One review identifies a misunderstanding and a question to clarify later; another repeats the same unresolved why without new information. These fictional descriptions illustrate the questionnaire’s process focus. The form does not know whether a real event was dangerous, whether reflection was necessary or whether someone else’s conduct needs addressing.",
+              "zh": "假设回想一次尴尬谈话，一种回顾找到误解并形成之后要澄清的问题，另一种则没有新信息地重复同一个为什么。虚构描述说明问卷关注思考过程；问卷不知道真实事件是否危险、是否有必要反思，或是否需要处理他人的行为。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Withhold a total instead of estimating it",
+            "zh": "暂不给总分，不估算缺失回答"
+          },
+          "paragraphs": [
+            {
+              "en": "The unscored option is an added web choice for uncertainty or declining an answer, not part of the original five choices. One such answer withholds its subscale and the overall total. Other complete subscales remain visible, and all-unscored can finish and open every full reading. This strict completeness policy is editorial; it is not a published missing-data norm.",
+              "zh": "不计分是网页为无法判断或不愿答增加的选项，不属于原五级。一项不计分使所在分量表与总分暂缺，其他完整分量表保留；全部不计分也能完成并读全部全文。严格完整度是本版编辑规则，不是原研究的缺失数据常模。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Bring context to a conversation about support",
+            "zh": "讨论支持时把情境带上"
+          },
+          "paragraphs": [
+            {
+              "en": "If repetitive thinking is distressing or interfering with everyday life, you can discuss the experience with a qualified mental-health professional without waiting for a particular score. You may note when it happens and what you need help with, without submitting private thought content here. A low total does not rule out other difficulties, and a high total does not identify a disorder or prescribe treatment.",
+              "zh": "反复思考令人困扰或影响日常时，可以向合格心理健康专业人士说明体验，不必等某个分数。可记录何时发生、希望获得什么帮助，无需在这里提交私密想法。较小总分不能排除其他困难，较大总分也不识别疾病或规定治疗。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Separate the original study from this web edition",
+            "zh": "区分原研究与本网页版本"
+          },
+          "paragraphs": [
+            {
+              "en": "The cited 2011 development paper examined German and English versions; those findings do not validate this Chinese translation, new web presentation or individual diagnostic decisions. Its group comparisons are not personal thresholds. The original English material is credited and linked under the PDF’s CC BY 3.0 notice. Translation, unscored handling and explanations are identified as FermatMind adaptations, without author endorsement.",
+              "zh": "所引2011年开发论文研究德文与英文版，不能据此验证本中文译文、新网页呈现或个人诊断决定；研究的组间比较不是个人阈值。原英文材料按PDF所标CC BY 3.0署名并链接，翻译、不计分处理与解释注明为费马改编，不暗示原作者背书。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core-reading",
+      "directionIds": [
+        "core"
+      ],
+      "title": {
+        "en": "PTQ Core Characteristics: Repetition and Disengagement",
+        "zh": "PTQ核心特征：重复与难以脱离"
+      },
+      "headline": {
+        "en": "Notice the process without judging the thought’s meaning",
+        "zh": "观察思考过程，不裁定想法的意义"
+      },
+      "summary": {
+        "en": "Nine original items concern repetition, unwanted appearance and difficulty disengaging. Their raw sum describes selected responses, without measuring the truth or danger of a thought.",
+        "zh": "九项原题涉及重复、不由自主出现与难以脱离，原始和描述所选回答，不测想法的真假或危险性。"
+      },
+      "seo": {
+        "title": {
+          "en": "PTQ Core Characteristics: Repetition and Disengagement",
+          "zh": "PTQ核心特征：重复与难以脱离"
+        },
+        "description": {
+          "en": "Read the nine-item PTQ core sum, its 0–36 range and missing-answer rule. Compare a looping draft-message example without inferring a diagnosis or personal weakness.",
+          "zh": "阅读九项PTQ核心特征原始和、0—36范围与缺答规则，用反复改消息的例子理解，不推断诊断或意志薄弱。"
+        }
+      },
+      "scoreReading": {
+        "en": "Add items 1, 2, 3, 6, 7, 8, 11, 12 and 13, each scored 0–4 with no reversal. All nine are required; the possible sum is 0–36. No separate three-item subtype scores are issued.",
+        "zh": "第1、2、3、6、7、8、11、12、13项各0—4直接相加，不反向；九项完整才给和，范围0—36。不另派三个三题子类型分。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Three related features remain in one published subscale",
+            "zh": "三个相关特征保留在一个原分量表中"
+          },
+          "paragraphs": [
+            {
+              "en": "The core subscale combines repetition, thoughts appearing without invitation and difficulty shifting away from them. It is not a test of the content’s truth, intent or importance. An unwanted thought is not the same as an intention to act. The form asks about typical experiences with negative events or problems rather than requiring you to describe a private thought.",
+              "zh": "核心分量表结合重复、想法不请自来及难以转开，不检验内容真假、意图或重要性。不想要的想法不同于行动意图。问卷询问面对负面经历或问题时的通常体验，不要求描述某个私密想法。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Keep the original interleaved item key",
+            "zh": "保留原来交错排列的题号"
+          },
+          "paragraphs": [
+            {
+              "en": "In the fictional worked pattern, the nine core responses are 2, 1, 3, 2, 3, 1, 3, 2 and 1. They total 18 out of 36. The questions appear among other subscale items in the original order; simply taking the first nine would use the wrong key. Eighteen is an example, without a middle-severity label or comparison with a population.",
+              "zh": "虚构算例的九项核心回答为2、1、3、2、3、1、3、2、1，合计18，可取范围0—36。题目按原序与其他分量表交错出现，不能直接取前九题。18仅为示例，不贴中等严重标签，也不与人群比较。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Reopening a message can serve different purposes",
+            "zh": "重新打开消息可能有不同目的"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine repeatedly reopening an unsent message. Checking a new factual detail can add useful information; rereading the same sentence while feeling unable to move on may feel different. This example does not tell you which a real situation is. The score cannot distinguish every useful review from a distressing loop, and it cannot establish why the pattern occurred.",
+              "zh": "假设反复打开一条未发出的消息，核对新事实可能带来有用信息；无法转开地重读同一句可能是另一种体验。例子不能替你裁定真实情境。分数无法区分所有有用复核与困扰循环，也不能确定模式的成因。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "Uncertainty is not absence of the experience",
+            "zh": "不确定不等于没有体验"
+          },
+          "paragraphs": [
+            {
+              "en": "Zero means you selected Never for that statement, while unscored means there is not a numeric answer. One unscored response withholds the nine-item sum and the total, without changing complete sums from other parts. A larger core sum is not proof of weak will, and a smaller sum is not a guarantee of wellbeing. Do not infer severity from the midpoint.",
+              "zh": "0表示该项选择从不；不计分表示没有数值回答。一项不计分使九项和与总分暂缺，不改变其他完整部分。较大核心和不证明意志薄弱，较小和也不保证健康，不能用范围中点推断严重程度。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Choose whether an observation would be useful",
+            "zh": "自行决定观察是否有用"
+          },
+          "paragraphs": [
+            {
+              "en": "You can note the situation, whether new information appeared and whether the thinking felt hard to leave, without recording the thought’s private content. Stop the exercise if it increases distress. If the experience is persistent, upsetting or disruptive, professional support can be appropriate regardless of the score. This page does not ask you to force thoughts away or promise that a particular technique will resolve them.",
+              "zh": "可以只记情境、是否有新信息、是否感觉难以转开，不记录私密内容。若练习加重困扰，可停止。体验持续、令人难受或妨碍生活时，无论分数多少都可以考虑专业支持。页面不要求强行赶走想法，也不保证某种技巧能解决。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Keep the subscale tied to its actual evidence",
+            "zh": "把分量表与真实证据绑定"
+          },
+          "paragraphs": [
+            {
+              "en": "The item grouping comes from the original paper’s factor table and should not be expanded into new personality types. Its evidence belongs to the studied versions and samples, not automatically to a new translation. The English items retain their published wording under the credited CC BY 3.0 source; FermatMind’s Chinese wording and strict unscored policy are disclosed adaptations. No hiring or career-fit interpretation follows from this sum.",
+              "zh": "题号分组来自原论文因子表，不扩成新的人格类型。证据属于研究过的版本与样本，不自动覆盖新译文。英文保留所署名CC BY 3.0来源的原措辞；费马中文与严格不计分规则注明为改编。本和不产生招聘或职业适配解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unproductive-reading",
+      "directionIds": [
+        "unproductive"
+      ],
+      "title": {
+        "en": "PTQ Perceived Unproductiveness: When Thinking Feels Unhelpful",
+        "zh": "PTQ自觉无益：当思考似乎没有带来帮助"
+      },
+      "headline": {
+        "en": "Ask what the thinking gave you, without grading productivity",
+        "zh": "回看思考带来了什么，不评生产率"
+      },
+      "summary": {
+        "en": "Three items concern perceived lack of resolution or help from repeated thinking. The sum is about your reported experience, not a measure of work output or problem-solving ability.",
+        "zh": "三项涉及自觉反复思考未带来解决或帮助，和描述自报体验，不测工作产出或解决问题能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "PTQ Perceived Unproductiveness: When Thinking Feels Unhelpful",
+          "zh": "PTQ自觉无益：当思考似乎没有带来帮助"
+        },
+        "description": {
+          "en": "Calculate PTQ items 4, 9 and 14 and read a fictional unanswered-question loop. Keep perceived usefulness distinct from achievement, intelligence and diagnostic thresholds.",
+          "zh": "复算PTQ第4、9、14项，用虚构的无答案提问循环理解，区分自觉有用与成就、智力和诊断阈值。"
+        }
+      },
+      "scoreReading": {
+        "en": "Add the selected 0–4 values for items 4, 9 and 14 without reversal. The sum ranges from 0 to 12 and requires all three numeric answers; one unscored response withholds it.",
+        "zh": "第4、9、14项所选0—4值直接相加，不反向，范围0—12；三项数值完整才给和，任一不计分则暂缺。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "Unproductive here concerns the experienced thinking process",
+            "zh": "这里的无益指体验到的思考过程"
+          },
+          "paragraphs": [
+            {
+              "en": "The subscale asks whether thinking about problems seems to resolve little, leaves questions unanswered or provides little help. It does not measure employment productivity, motivation, creativity or objective problem difficulty. Some problems cannot be solved through thought alone because information, resources or another person’s decision are missing. The scale cannot determine which barrier applies to you.",
+              "zh": "本分量表询问思考问题是否似乎没有解决什么、提问没有答案或帮助不多，不测工作生产率、动机、创造力或客观难度。有的问题缺少信息、资源或他人决定，不能只靠思考解决；量表不知道你面对哪种障碍。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Three original items give one raw sum",
+            "zh": "三项原题产生一个原始和"
+          },
+          "paragraphs": [
+            {
+              "en": "The fictional example selects 2, 2 and 2 for items 4, 9 and 14, giving 6 out of the possible 12. There is no conversion to percent unproductive and no clinical category at six. Do not compare the raw sum directly with the nine-item core sum: the different numbers of questions produce different possible ranges.",
+              "zh": "虚构例子在第4、9、14项均选2，合计6，范围0—12。不转成无益百分比，也不在6处划临床类别。不能直接与九项核心和比较高低，题量不同导致可取范围不同。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "An unanswered question may need information, not more replay",
+            "zh": "没有答案的问题可能需要信息，而非更多重放"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine wondering repeatedly why a delayed application has no reply. Replaying the same possibilities may not reveal the actual status; a permitted status check might supply different information. This fictional example does not say that every delay can be resolved by contacting someone or that uncertainty is your fault. The questionnaire cannot know whether further action is possible or appropriate.",
+              "zh": "假设反复想一份申请为什么迟迟没有回复，重复同样的可能原因未必能知道真实状态，获准的进度查询可能提供不同信息。虚构例子不表示所有延误都能靠联系解决，也不把不确定归咎于你；问卷不知道是否可以或适合继续行动。"
+            }
+          ]
+        },
+        {
+          "id": "context",
+          "title": {
+            "en": "A small sum is not proof that every thought is useful",
+            "zh": "较小和不证明每个想法都有用"
+          },
+          "paragraphs": [
+            {
+              "en": "People can interpret usefulness differently, and the form does not inspect the outcomes of their thoughts. A larger sum cannot establish laziness, poor intelligence or a failure to try. If you cannot judge an item, the added unscored option leaves it missing rather than low. This withholds this part and the total while preserving any other complete subscale.",
+              "zh": "人们对有用的理解可能不同，问卷没有查看思考成果。较大和不证明懒惰、智力低或没有努力。无法判断时，新增不计分选项保留缺失而非低值，使本组与总分暂缺，其余完整分量表保留。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Separate a question you can check from one still open",
+            "zh": "区分可核对的问题与仍开放的问题"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, write a short question and note whether there is new information you can safely obtain. It is also acceptable to leave a question unresolved rather than keep producing explanations. You need not submit the question here. If repeated thinking is causing distress or disrupting life, consider qualified support; a specific numerical threshold is not required before asking for help.",
+              "zh": "有用时可写一个简短问题，再看能否安全获得新信息。也可以暂时保留未解决，而不继续生成解释，无需把问题提交这里。反复思考令人困扰或影响生活时可以考虑合格支持，求助前不必跨过某个数值阈值。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Read the three-item evidence with its limits",
+            "zh": "带着限制阅读三题证据"
+          },
+          "paragraphs": [
+            {
+              "en": "The original authors identified this as a three-item subscale and discussed the limits of brief subscales. Their findings are not a personal improvement target or a validated minimum change for this website. English wording is retained with the original article’s CC BY 3.0 attribution; the new Chinese translation and unscored handling are marked adaptations. This reading does not prescribe a treatment or infer occupational competence.",
+              "zh": "原作者将其列为三题分量表，也讨论了简短分量表的限制。研究结果不是个人改善目标，也不是本网站已验证的最小变化量。英文按原论文CC BY 3.0署名保留，中文与不计分处理标明为改编；本读法不规定治疗或推断职业胜任力。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mental-capacity-reading",
+      "directionIds": [
+        "mental-capacity"
+      ],
+      "title": {
+        "en": "PTQ Occupied Attention: Thinking and Other Activities",
+        "zh": "PTQ注意力占用：思考与其他活动"
+      },
+      "headline": {
+        "en": "Describe attention being occupied without diagnosing its cause",
+        "zh": "描述注意力被占用，不诊断原因"
+      },
+      "summary": {
+        "en": "Three items ask how thinking about problems occupies attention or competes with other activities. Their sum is self-report rather than an attention test, sleep scale or neurological assessment.",
+        "zh": "三项询问思考问题如何占据注意或妨碍其他活动，和属于自报，不是注意力任务、睡眠量表或神经评估。"
+      },
+      "seo": {
+        "title": {
+          "en": "PTQ Occupied Attention: Thinking and Other Activities",
+          "zh": "PTQ注意力占用：思考与其他活动"
+        },
+        "description": {
+          "en": "Read PTQ items 5, 10 and 15, a 0–12 worked sum and a fictional interrupted-reading example. Keep attention experiences separate from diagnosis and career predictions.",
+          "zh": "阅读PTQ第5、10、15项、0—12算例与虚构阅读中断情境，区分注意体验、诊断与职业预测。"
+        }
+      },
+      "scoreReading": {
+        "en": "Add items 5, 10 and 15, each scored 0–4 with no reversal. All three numeric responses are required for the 0–12 sum. Do not turn the result into a percentage of mental capacity lost.",
+        "zh": "第5、10、15项各0—4直接相加，不反向；三项数值完整才给0—12和，不转成损失多少心理容量的百分比。"
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "The questionnaire records an experience of occupied attention",
+            "zh": "问卷记录注意被占用的体验"
+          },
+          "paragraphs": [
+            {
+              "en": "This subscale concerns the extent to which thinking about problems feels incompatible with other activity or takes up attention. It does not test reaction time, memory, sleep or neurological functioning. Many circumstances can affect concentration, and the questionnaire cannot determine their causes. It should not be used to infer ADHD, another diagnosis or a fixed capacity to concentrate.",
+              "zh": "本分量表关注思考问题在多大程度上似乎与其他活动冲突或占据注意，不测试反应速度、记忆、睡眠或神经功能。许多情境会影响专注，问卷无法确定原因，不能据此推断ADHD、其他诊断或固定专注能力。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Follow three answers without estimating lost capacity",
+            "zh": "沿着三项回答复算，不估计容量损失"
+          },
+          "paragraphs": [
+            {
+              "en": "The fictional example answers 1, 1 and 3 for items 5, 10 and 15, totaling 5 out of 12. Five is not five percent of attention lost, an impairment grade or a cutoff. The three-item sum is kept separate from the nine-item core sum; their possible maxima differ and do not support a strongest-domain label.",
+              "zh": "虚构算例在第5、10、15项选择1、1、3，合计5，范围0—12。5不是损失5%注意力、损害等级或阈值。三题和与九题核心和分别保留，最大值不同，不支持最突出领域标签。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A page can remain open while attention is elsewhere",
+            "zh": "页面仍打开，注意却可能在别处"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine trying to read a short notice while the same concern keeps taking your attention. You may reach the bottom without remembering what you read. This fictional example describes one possible experience; it does not prove that repeated thinking caused any real concentration difficulty. The form does not observe your reading or know whether the notice, environment or another factor was involved.",
+              "zh": "假设阅读简短通知时，同一担忧不断带走注意，到末尾才发现记不住读了什么。虚构例子描述一种可能体验，不证明真实专注困难由反复思考造成。问卷没有观察阅读，也不知道通知、环境或其他因素是否参与。"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "title": {
+            "en": "A missing response remains different from Never",
+            "zh": "缺失回答不同于从不"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose zero when Never is the answer you intend, and unscored when you cannot judge or prefer not to answer. One unscored choice withholds this subscale and the total without lowering other complete sums. A low sum does not establish that concentration is always easy, and a high sum does not establish a disorder or dictate a work restriction.",
+              "zh": "想表达从不时选0；无法判断或不愿答时选不计分。一项不计分使本组与总分暂缺，不拉低其他完整和。较小和不证明专注始终容易，较大和也不证明疾病或决定工作限制。"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "title": {
+            "en": "Describe what interferes and what support is needed",
+            "zh": "说明受到什么干扰、需要什么支持"
+          },
+          "paragraphs": [
+            {
+              "en": "If useful, note the activity, the interruption you noticed and whether a different setting or a pause changed the experience. Keep the private thought content out of any public record. If concentration difficulties are persistent, distressing or affecting everyday life, a qualified professional can consider the wider situation. This page does not tell you to suppress thoughts, change medication or use a score as a self-treatment plan.",
+              "zh": "有用时记下活动、注意到的干扰，以及换环境或暂停后体验是否不同，不把私密想法写进公开记录。专注困难持续、令人困扰或影响生活时，合格专业人士可以结合更广情境了解情况。页面不要求压制想法、改药或把分数当自我治疗计划。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Keep an attention report distinct from an objective test",
+            "zh": "区分注意自报与客观测试"
+          },
+          "paragraphs": [
+            {
+              "en": "The original paper’s evidence included self-report measures and noted the need for further behavioral research. It does not turn this sum into an observed attention score. The new Chinese translation and web changes do not inherit validation automatically. The published English material is credited under CC BY 3.0, with FermatMind adaptations identified and no author endorsement, diagnosis or career-match claim.",
+              "zh": "原论文证据包含自报测量，并指出需要更多行为研究，不会把本和变成观察到的注意分。新中文与网页改动不会自动继承验证。原英文按CC BY 3.0署名，注明费马改编，不暗示作者背书、诊断或职业匹配。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "ptq15_published_appendix_fmzh_working",
+    "formCode": "ptq15_ehring2011_appendix_fmzh_working_v1",
+    "itemBankVersion": "ptq15_ehring2011_appendix_fmzh_working_v1",
+    "scoringVersion": "ptq15_unreversed_three_complete_sums_and_strict15_total_no_bands_v1",
+    "resultContentVersion": "ptq15_four_full_readings_fm_v1",
+    "itemBankSha256": "5f71f843253eeeec84ab0cb8a0749beaf7f3916c5ab139924073a6683e157f33",
+    "resultContentSha256": "4010c41d2c6132e1a439d64ab73f040c418400e73ee1fa4bdd661de386c891c3",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "Ehring et al. (2011): PTQ published version and original appendix",
+        "zh": "Ehring等（2011）：PTQ正式版本与原附录"
+      },
+      "url": "https://epub.ub.uni-muenchen.de/123624/1/1-s2.0-S000579161000114X-main.pdf"
+    },
+    {
+      "title": {
+        "en": "Author institution record: published version and attribution notice",
+        "zh": "作者机构记录：正式版本与署名许可说明"
+      },
+      "url": "https://epub.ub.uni-muenchen.de/123624/"
+    },
+    {
+      "title": {
+        "en": "CC BY 3.0: the license linked by the source PDF",
+        "zh": "CC BY 3.0：原PDF所链接的许可"
+      },
+      "url": "https://creativecommons.org/licenses/by/3.0/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "scope",
+      "title": {
+        "en": "Use the actual PTQ, not an invented severity scale",
+        "zh": "采用真实PTQ，不编严重程度量尺"
+      },
+      "paragraphs": [
+        {
+          "en": "The English questions and anchors come from the original 15-item PTQ appendix. The three subscales cover core repetitive-thinking characteristics, perceived unproductiveness and attention occupied by thinking. This content-independent process measure does not inspect private thought content or determine a disorder. The new Chinese wording is a working translation and is not presented as an official validated Chinese version.",
+          "zh": "英文题目与选项来自原15项PTQ附录，三个分量表涉及重复思考核心特征、自觉无益及思考占用注意。该过程测量不检查私密内容，也不决定疾病。新中文是工作译文，不作为官方已验证中文版呈现。"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "title": {
+        "en": "Keep the original typical-thinking reference",
+        "zh": "保留原来通常思考方式的参照"
+      },
+      "paragraphs": [
+        {
+          "en": "The published instruction asks how you typically think about negative experiences or problems. It specifies no past-week or past-month window, and this edition does not add one. Think about the same reference throughout. Repeating the form under different circumstances does not by itself establish a meaningful improvement, deterioration or treatment effect.",
+          "zh": "原指示询问面对负面经历或问题时通常怎样思考，不指定过去一周或一月，本版不增加时间窗。作答时保持同一参照；不同情境下重做，不单独证明有意义的改善、恶化或治疗效果。"
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "title": {
+        "en": "Add original values using the actual subscale key",
+        "zh": "按真实分量表题号直接加总"
+      },
+      "paragraphs": [
+        {
+          "en": "Every numeric choice contributes its displayed 0–4 value without reversal. Core items 1,2,3,6,7,8,11,12,13 sum to 0–36; items 4,9,14 sum to 0–12; items 5,10,15 sum to 0–12. The complete total is the sum of all fifteen, 0–60. Different subscale sizes mean their raw sums should not be ranked. No norm, percentile, four-band result or illness probability is supplied. A fictional example in the original fifteen-item order is 2, 1, 3, 2, 1, 2, 3, 1, 2, 1, 3, 2, 1, 2, 3. The three subscale sums are 18, 6 and 5, giving 18 + 6 + 5 = 29 overall.",
+          "zh": "每个数值选项按所示0—4贡献，不反向。核心第1、2、3、6、7、8、11、12、13项合计0—36；第4、9、14项合计0—12；第5、10、15项合计0—12。完整总分为十五项之和0—60。分量表题量不同，原始和不能排名；不提供常模、百分位、四档结果或患病概率。 按原十五项题序，一个虚构作答例子为2、1、3、2、1、2、3、1、2、1、3、2、1、2、3；三个分量表分别合计18、6和5，因此总分为18 + 6 + 5 = 29。"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Separate an unscored answer from a zero",
+        "zh": "区分不计分与零"
+      },
+      "paragraphs": [
+        {
+          "en": "The added unscored choice is available when you cannot judge or prefer not to answer. One unscored item withholds its subscale and the total, while other complete subscales remain. All-unscored can finish and open all four full guides. This editorial completeness rule does not impute a low value, prorate missing items or diagnose missingness.",
+          "zh": "无法判断或不愿答时可选新增不计分。一项不计分使所在分量表与总分暂缺，其他完整部分保留；全部不计分也能完成并读全部四篇。本版完整度规则不补低值、不按缺题比例估算，也不诊断缺失。"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "title": {
+        "en": "Read the number alongside actual experience",
+        "zh": "把数值与实际体验一起理解"
+      },
+      "paragraphs": [
+        {
+          "en": "The full readings include worked calculations, fictional examples and optional observations. They do not prescribe thought suppression or treatment. If thinking is distressing or interfering with life, qualified professional support can be considered without waiting for a particular score. The questionnaire cannot rule out difficulties or replace an individual assessment; no answers or private thoughts are needed in a public link.",
+          "zh": "完整读法提供复算、虚构例子与可选观察，不规定压制思考或治疗。思考令人困扰或妨碍生活时，不必等某个分数才考虑合格专业支持。问卷不能排除困难或替代个人评估；公开链接无需回答或私密想法。"
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "title": {
+        "en": "Original source, license and disclosed changes",
+        "zh": "原始来源、许可与改动说明"
+      },
+      "paragraphs": [
+        {
+          "en": "PTQ by Thomas Ehring, Ulrike Zetsche, Kathrin Weidacker, Karina Wahl, Sabine Schönfeld and Anke Ehlers (2011), The Perseverative Thinking Questionnaire (PTQ): Validation of a content-independent measure of repetitive negative thinking, Journal of Behavior Therapy and Experimental Psychiatry, 42(2), 225–232, doi:10.1016/j.jbtep.2010.12.003. © 2010 Elsevier Ltd. Original published version under CC BY 3.0. FermatMind supplies a new Simplified Chinese working translation, web presentation, unscored option and explanatory content. No author endorsement is implied. The licensed material is provided without warranties.",
+          "zh": "PTQ作者：Thomas Ehring、Ulrike Zetsche、Kathrin Weidacker、Karina Wahl、Sabine Schönfeld与Anke Ehlers（2011）。论文The Perseverative Thinking Questionnaire (PTQ): Validation of a content-independent measure of repetitive negative thinking，Journal of Behavior Therapy and Experimental Psychiatry，42(2)，225—232，doi:10.1016/j.jbtep.2010.12.003。©2010 Elsevier Ltd. 原正式版本采用CC BY 3.0。费马提供简体中文工作译文、网页呈现、不计分选项与解释内容，不暗示原作者背书；许可材料不附保证。"
+        },
+        {
+          "en": "The PDF itself links CC BY 3.0; the institution’s record separately links CC BY 4.0. This edition cites the PDF’s 3.0 notice for the reused appendix. A separate Oxford-hosted copy bears an all-rights-reserved notice; no change date or cause is inferred. Original-study psychometrics do not establish this online edition’s reliability, Chinese-language equivalence, cutoffs or treatment sensitivity.",
+          "zh": "原PDF自身链接CC BY 3.0，机构记录另链接4.0；本版复用附录时引用PDF的3.0。另存的Oxford副本标注保留所有权利，不推断变化日期或原因。原研究测量结果不建立本网页版的信度、中文等价性、阈值或治疗敏感度。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which questionnaire is used for this overthinking reflection?",
+        "zh": "这里用的是哪份过度思考问卷？"
+      },
+      "answer": {
+        "en": "This edition uses the published 15-item Perseverative Thinking Questionnaire (PTQ). Its three subscales describe core repetitive-thinking characteristics, perceived unproductiveness and attention occupied by thinking. All fifteen numeric responses give a 0–60 raw total. There are no severity bands or diagnostic cutoffs.",
+        "zh": "本版使用已发表的15项重复思维问卷PTQ。三个分量表分别描述重复思考核心特征、自觉无益，以及思考占用的注意。十五项数值回答齐全时生成0—60原始总分，不分严重程度档位，也没有诊断判定线。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can a PTQ score diagnose anxiety or depression?",
+        "zh": "PTQ分数能诊断焦虑或抑郁吗？"
+      },
+      "answer": {
+        "en": "No. This page reports selected responses, without diagnostic thresholds or illness probabilities. A low score does not rule out other difficulties, and support can be sought regardless of the number.",
+        "zh": "不能。本页仅呈现所选回答，不设诊断阈值或患病概率。较小分数不排除其他困难，也可以无论分数多少寻求支持。"
+      }
+    },
+    {
+      "question": {
+        "en": "Should I answer about the past two weeks?",
+        "zh": "应该按过去两周回答吗？"
+      },
+      "answer": {
+        "en": "The original instruction asks about typical thinking when considering negative experiences or problems, not a fixed two-week period. This edition keeps that reference.",
+        "zh": "原指示询问面对负面经历或问题时通常的思考方式，不是固定两周，本版保留这一参照。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese translation validated?",
+        "zh": "中文译文经过验证了吗？"
+      },
+      "answer": {
+        "en": "No. This is a new FermatMind Simplified Chinese working translation. It does not automatically inherit the original German and English study findings, and author endorsement is not claimed.",
+        "zh": "没有。这是费马新的简体中文工作译文，不自动继承原德文、英文研究结论，也不声称原作者背书。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if I cannot judge a statement?",
+        "zh": "无法判断陈述怎么办？"
+      },
+      "answer": {
+        "en": "Choose unscored. The affected subscale and total stay missing; other complete subscales remain. All-unscored can finish and read all four full guides free without signup.",
+        "zh": "选不计分，所在分量表与总分暂缺，其余完整部分保留。全部不计分也可完成，四篇全文免费，无需注册。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are my thoughts or scores placed in a shared link?",
+        "zh": "想法或分数会放进分享链接吗？"
+      },
+      "answer": {
+        "en": "No. Public links contain only the questionnaire or guide identity. Optional drafts remain in this tab for up to twenty-four hours and clear on completion or reset. No private thought content is requested.",
+        "zh": "不会。公开链接只有问卷或指南身份。可选草稿最多在本标签页保留24小时，完成或重置时清除，不索取私密想法内容。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1216 @@
+{
+  "id": "T195",
+  "state": "external source/method candidate; not adopted/integrated/accepted",
+  "slug": "overthinking-screener",
+  "code": "PTQ15_EHRING2011_CC_BY",
+  "kind": "ptq15",
+  "form": "ptq15_ehring2011_appendix_fmzh_working_v1",
+  "scoring": "ptq15_unreversed_three_complete_sums_and_strict15_total_no_bands_v1",
+  "instructions": {
+    "en": "In this questionnaire, you will be asked to describe how you typically think about negative experiences or problems. Please read the following statements and rate the extent to which they apply to you when you think about negative experiences or problems.",
+    "zh": "这份问卷请你描述，自己通常怎样思考负面经历或问题。请阅读以下陈述，评价当你思考负面经历或问题时，这些陈述在多大程度上符合你的情况。"
+  },
+  "editorial_addition": {
+    "en": "The original instructions specify your typical thinking, without a fixed recent time window. Keep that reference when answering. The unscored choice is a FermatMind addition for uncertainty or a choice not to answer, not an original response. One unscored answer withholds its subscale and the overall total; other complete subscales remain available. All-unscored can finish. No score produces a diagnosis, severity band, percentile or career recommendation.",
+    "zh": "原指示询问通常的思考方式，没有指定近期时间窗，作答时保留这一参照。不计分是费马为无法判断或不愿回答增加的选项，不属于原选项。任一不计分使所在分量表与总分暂缺，其他完整分量表保留；全部不计分也能完成。分数不产生诊断、严重程度档、人群百分位或职业建议。"
+  },
+  "parts": [
+    {
+      "id": "core",
+      "title": {
+        "en": "Core characteristics of repetitive negative thinking",
+        "zh": "重复消极思维的核心特征"
+      },
+      "item_numbers": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+      ],
+      "itemCount": 9,
+      "minimum": 0,
+      "maximum": 36,
+      "reverse_numbers": []
+    },
+    {
+      "id": "unproductive",
+      "title": {
+        "en": "Perceived unproductiveness",
+        "zh": "自觉思考没有带来帮助"
+      },
+      "item_numbers": [
+        4,
+        9,
+        14
+      ],
+      "itemCount": 3,
+      "minimum": 0,
+      "maximum": 12,
+      "reverse_numbers": []
+    },
+    {
+      "id": "mental-capacity",
+      "title": {
+        "en": "Attention occupied by thinking",
+        "zh": "思考占用注意力"
+      },
+      "item_numbers": [
+        5,
+        10,
+        15
+      ],
+      "itemCount": 3,
+      "minimum": 0,
+      "maximum": 12,
+      "reverse_numbers": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "PTQ_01",
+      "prompt": {
+        "en": "The same thoughts keep going through my mind again and again.",
+        "zh": "同样的想法在我脑中一遍又一遍地出现。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_02",
+      "prompt": {
+        "en": "Thoughts intrude into my mind.",
+        "zh": "想法闯入我的脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_03",
+      "prompt": {
+        "en": "I can’t stop dwelling on them.",
+        "zh": "我无法停止反复想着它们。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_04",
+      "prompt": {
+        "en": "I think about many problems without solving any of them.",
+        "zh": "我想着许多问题，却一个也没有解决。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_05",
+      "prompt": {
+        "en": "I can’t do anything else while thinking about my problems.",
+        "zh": "想着自己的问题时，我无法做其他事。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_06",
+      "prompt": {
+        "en": "My thoughts repeat themselves.",
+        "zh": "我的想法不断重复。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_07",
+      "prompt": {
+        "en": "Thoughts come to my mind without me wanting them to.",
+        "zh": "即使我不想，这些想法也会进入脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_08",
+      "prompt": {
+        "en": "I get stuck on certain issues and can’t move on.",
+        "zh": "我卡在某些问题上，无法转向其他事情。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_09",
+      "prompt": {
+        "en": "I keep asking myself questions without finding an answer.",
+        "zh": "我不断向自己提问，却找不到答案。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_10",
+      "prompt": {
+        "en": "My thoughts prevent me from focusing on other things.",
+        "zh": "这些想法使我无法专注于其他事情。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_11",
+      "prompt": {
+        "en": "I keep thinking about the same issue all the time.",
+        "zh": "我总是不停地想同一个问题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_12",
+      "prompt": {
+        "en": "Thoughts just pop into my mind.",
+        "zh": "想法会突然出现在我脑中。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_13",
+      "prompt": {
+        "en": "I feel driven to continue dwelling on the same issue.",
+        "zh": "我感觉自己被推动着，继续反复想同一个问题。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "core",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "core",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "core",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "core",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "core",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "core",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_14",
+      "prompt": {
+        "en": "My thoughts are not much help to me.",
+        "zh": "我的这些想法对我没有多大帮助。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "unproductive",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "unproductive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "unproductive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "unproductive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "unproductive",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "unproductive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "PTQ_15",
+      "prompt": {
+        "en": "My thoughts take up all my attention.",
+        "zh": "我的这些想法占据了全部注意力。"
+      },
+      "options": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "mental-capacity",
+          "score": 0
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "mental-capacity",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "mental-capacity",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "mental-capacity",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎总是"
+          },
+          "directionId": "mental-capacity",
+          "score": 4
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Cannot judge / prefer not to answer — unscored",
+            "zh": "无法判断／暂不回答——不计分"
+          },
+          "directionId": "mental-capacity",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_contributions_0_to_4": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  ],
+  "overall": {
+    "id": "total",
+    "minimum": 0,
+    "maximum": 60,
+    "required_numeric_items": 15,
+    "method": "strictsumall15;notmeanofsubscales;noimputationorprorating"
+  },
+  "worked_example": {
+    "raw_in_original_order": [
+      2,
+      1,
+      3,
+      2,
+      1,
+      2,
+      3,
+      1,
+      2,
+      1,
+      3,
+      2,
+      1,
+      2,
+      3
+    ],
+    "part_sums": {
+      "core": 18,
+      "unproductive": 6,
+      "mental-capacity": 5
+    },
+    "total": 29,
+    "inference": "inventedworkedresponsesonly;notnorm/cutoff/probabilityorchangecriterion"
+  },
+  "rights_and_provenance": {
+    "authors": [
+      "Thomas Ehring",
+      "Ulrike Zetsche",
+      "Kathrin Weidacker",
+      "Karina Wahl",
+      "Sabine Schönfeld",
+      "Anke Ehlers"
+    ],
+    "year": 2011,
+    "title": "The Perseverative Thinking Questionnaire (PTQ): Validation of a content-independent measure of repetitive negative thinking",
+    "journal": "Journal of Behavior Therapy and Experimental Psychiatry",
+    "volume": 42,
+    "issue": 2,
+    "pages": "225–232",
+    "doi": "10.1016/j.jbtep.2010.12.003",
+    "copyright": "© 2010 Elsevier Ltd.",
+    "original_pdf": "https://epub.ub.uni-muenchen.de/123624/1/1-s2.0-S000579161000114X-main.pdf",
+    "original_pdf_sha256": "38f319a4c17ffee22c7d182a8c675eb4beb055d7e587f252758ac55cb8b0e46f",
+    "institution_record": "https://epub.ub.uni-muenchen.de/123624/",
+    "article_license": "CC BY 3.0 Unported",
+    "article_license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "actual_pdf_annotation": "http://creativecommons.org/licenses/by/3.0/",
+    "record_license_link": "http://creativecommons.org/licenses/by/4.0/",
+    "record_and_pdf_version_discrepancy": "BothBY;useactualPDF3.0forcopiedappendix;doNOTinferchangehistoryorrelabetherarticle4.0.",
+    "separate_oxford_copy": "https://oxcadatresources.com/wp-content/uploads/2020/09/EhringetalRuminationQuestionnaire.2011.pdf",
+    "separate_copy_sha256": "4286572acd7b918c19930910c04969474ddc668cb0b7aefca2ef53c5e5872f13",
+    "separate_copy_notice": "©2010ElsevierLtdAllrightsreserved;notthesourceoftheBYgrant;actualchronologyunverified;rawfilenameoxford-olderisnotchronologicalevidence",
+    "adopted_material": "OriginalEnglish15items/order/0–4anchorsandtypicalthinkinginstructionfromAppendixp231;originalPTQdevelopmentinthisarticle,notRRS/PSWQdescriptionsorotherthirdpartyquestionnaires.",
+    "changes": "FermatMind new Simplified Chinese working translation; mobile presentation; explicit unscored response and strict completeness policy; original explanatory guides planned. English punctuation uses typographic apostrophes without changing wording.",
+    "not_claimed": "OfficialauthorendorsementorvalidatedChineseversion;German/Englishstudyevidenceisnotthisonlineeditionvalidation;noadditionalrightsguaranteedbeyondlicensorrights.",
+    "public_attribution_required": {
+      "en": "PTQ by Thomas Ehring, Ulrike Zetsche, Kathrin Weidacker, Karina Wahl, Sabine Schönfeld and Anke Ehlers (2011), The Perseverative Thinking Questionnaire (PTQ): Validation of a content-independent measure of repetitive negative thinking, Journal of Behavior Therapy and Experimental Psychiatry, 42(2), 225–232, doi:10.1016/j.jbtep.2010.12.003. © 2010 Elsevier Ltd. Original published version under CC BY 3.0. FermatMind supplies a new Simplified Chinese working translation, web presentation, unscored option and explanatory content. No author endorsement is implied. The licensed material is provided without warranties.",
+      "zh": "PTQ作者：Thomas Ehring、Ulrike Zetsche、Kathrin Weidacker、Karina Wahl、Sabine Schönfeld与Anke Ehlers（2011）。论文The Perseverative Thinking Questionnaire (PTQ): Validation of a content-independent measure of repetitive negative thinking，Journal of Behavior Therapy and Experimental Psychiatry，42(2)，225—232，doi:10.1016/j.jbtep.2010.12.003。©2010 Elsevier Ltd. 原正式版本采用CC BY 3.0。费马提供简体中文工作译文、网页呈现、不计分选项与解释内容，不暗示原作者背书；许可材料不附保证。"
+    }
+  },
+  "actual_primary_read": {
+    "pdf": "web0–205,275–527,566–730;notclaimingwhole816lines/allreferencesread;actualrenderedp1/p5/p7wholeimagesviewed",
+    "key": "Table3p229directF1items1,2,3,6,7,8,11,12,13;F2=4,9,14;F3=5,10,15;discussion582–584total15sumwithoptionalthreepartsum;Appendix658–70315items/anchors/instruction",
+    "license": "LMUrecord26–40actualread;rawhref4.0;PDFp1twolinkannotations3.0actualread;CCBY3deed36–83/legalcode68–159actualread",
+    "limitations": "Generaldiscussion620–647selfreportonly,noclinicalstructuredinterviewandlimiteddiagnosticgroups;doesnotestablishdiagnosticthresholds"
+  },
+  "competitor_read": "ENZHwholeentry/6FAQeach,Aboutwhole6FAQ;minimal/mild/highENwhole88weblinebodies+5FAQeach;moderatetwofailingwebopenspreservedthennormalTLS200whole175savedlinesread. Private24bank/notallZHresultbodiesnotread. No4bands/treatmentresponse/careerfitadopted.",
+  "future_profiles": [
+    "total-reading",
+    "core-reading",
+    "unproductive-reading",
+    "mental-capacity-reading"
+  ],
+  "pending": [
+    "Root rawlicence/method/fullcontentreview",
+    "newclosedptq15module/report/package/fullguides/tests/font/numericQA",
+    "currentbaseRootsharedhandoff/exactSHApublicacceptance"
+  ],
+  "language_equivalence": "Englishoriginalstudyversion;SimplifiedChinesenewworkingtranslationnotvalidated/notbacktranslatedorclaimedofficial;currentonlineeditionnotequivalentbyassumption.",
+  "at": "2026-10-27T13:16:12.754291+00:00"
+}
