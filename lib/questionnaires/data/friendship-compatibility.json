@@ -1,0 +1,2365 @@
+{
+  "slug": "friendship-compatibility",
+  "code": "FM_FRIENDSHIP_FIT_ORIGINAL20",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "relationships",
+  "kind": "likert",
+  "minimumRatedItems": 4,
+  "title": {
+    "en": "Friendship Compatibility Test",
+    "zh": "友谊契合度测试"
+  },
+  "seoTitle": {
+    "en": "Friendship Compatibility Test: 20 Questions & Full Guides",
+    "zh": "友谊契合度测试：20道原创题与五份完整说明"
+  },
+  "description": {
+    "en": "Reflect on one friendship with 20 free questions. Read five separate means, worked examples and full guides on plans, conversation, effort, privacy and differences.",
+    "zh": "用20道免费原创题回顾一段友谊，分别查看约定、表达、投入、隐私与差异的五组均分和完整指南；含算例、反例及可尝试的沟通建议。"
+  },
+  "minutes": 5,
+  "instructions": {
+    "en": "Choose one adult friendship you want to reflect on. Recall interactions you experienced during the past four weeks, using the same friendship throughout. Rate how often each statement applied when a relevant occasion occurred. Do not answer for the friend or enter names, messages or other private details. If an occasion did not occur, you cannot judge it or you prefer not to answer, select the separate unscored option. Each group needs all four numerical responses for a personal mean; other complete groups retain their readings. Select one option for all twenty questions to finish. There is no timer; five minutes is an editorial estimate for answering. These original items and language versions have not been psychometrically validated.",
+    "zh": "选定一段想回顾的成人友谊，全程以同一位朋友为参照，回想过去四周自己经历的互动。有相关机会时，评价每句话符合的频率。不替朋友作答，不填写姓名、消息或其他私人细节。没有发生相关机会、无法判断或不愿回答时，选独立的不计分选项。每组四题数值全有效才给个人均分，其他完整组保留读数。二十题各选一项后完成作答。不计时，约五分钟是编辑对答题时间的估计。本原创题与双语版本尚未经过心理测量验证。"
+  },
+  "introduction": {
+    "en": "Explore one friendship through five kinds of recent interaction: agreements and priorities, room to speak, shared effort, space and privacy, and handling different interests. Twenty original questions provide five separate readings. Every complete bilingual guide is free before and after answering. No compatibility percentage, winning friendship type or prediction about your friend is produced.",
+    "zh": "从近期五类互动回顾一段友谊：约定与在意的事、表达与被听见、共同投入、空间与隐私，以及面对不同兴趣。二十道原创题提供五个独立读数，全部完整双语指南在答题前后免费可读。不产生契合百分比、获胜的友谊类型，也不预测朋友会怎样行动。"
+  },
+  "resultHeading": {
+    "en": "Your five friendship interaction readings",
+    "zh": "你的五组友谊互动读数"
+  },
+  "directions": [
+    {
+      "id": "agreements-and-priorities",
+      "title": {
+        "en": "Agreements and priorities",
+        "zh": "约定与在意的事"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "room-to-speak",
+      "title": {
+        "en": "Room to speak and be heard",
+        "zh": "表达与被听见"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "shared-effort",
+      "title": {
+        "en": "Shared effort within capacity",
+        "zh": "共同投入与实际余力"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "space-and-privacy",
+      "title": {
+        "en": "Space and privacy",
+        "zh": "空间与隐私"
+      },
+      "itemCount": 4
+    },
+    {
+      "id": "different-strengths",
+      "title": {
+        "en": "Different strengths and interests",
+        "zh": "差异与各自所长"
+      },
+      "itemCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "id": "FRIENDFIT_01",
+      "prompt": {
+        "en": "When we planned time together, we checked which parts mattered to each of us.",
+        "zh": "一起安排活动时，我们会确认各自最在意哪些部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "agreements-and-priorities"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_09",
+      "prompt": {
+        "en": "When we arranged contact, my friend suggested a time or activity instead of leaving that choice entirely to me.",
+        "zh": "商量见面或联系时，朋友会提出时间或活动，而不把这一选择全部留给我。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "shared-effort"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_17",
+      "prompt": {
+        "en": "We found ways to spend time together that did not require identical interests.",
+        "zh": "兴趣不完全相同时，我们仍能找到一起相处的方式。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "different-strengths"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_05",
+      "prompt": {
+        "en": "I could finish explaining a concern before we moved straight to solutions.",
+        "zh": "我说明一件困扰时，能先讲完，再进入解决办法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "room-to-speak"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_13",
+      "prompt": {
+        "en": "I could turn down an invitation without having to give up my own decision to end the conversation.",
+        "zh": "拒绝一次邀约后，我不必改变决定才能结束这次讨论。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "space-and-privacy"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_02",
+      "prompt": {
+        "en": "When our spending limits differed, we looked for an arrangement each of us could accept.",
+        "zh": "可用预算不同时，我们会找各自能接受的安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "agreements-and-priorities"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_10",
+      "prompt": {
+        "en": "Before asking for help, we left room for the other person to say what they could manage.",
+        "zh": "请求帮忙前，我们会给对方说明实际能承担多少的空间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "shared-effort"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_18",
+      "prompt": {
+        "en": "When choosing a shared activity, each of us had an opportunity to suggest something.",
+        "zh": "选择共同活动时，我们各自都有提出建议的机会。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "different-strengths"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_06",
+      "prompt": {
+        "en": "When I disagreed, I could explain my own reason in our conversation.",
+        "zh": "意见不同时，我能在谈话中说明自己的理由。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "room-to-speak"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_14",
+      "prompt": {
+        "en": "Before sharing something personal from our conversation with others, we checked permission.",
+        "zh": "把谈话中的私人内容告诉其他人之前，我们会确认是否得到同意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "space-and-privacy"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_03",
+      "prompt": {
+        "en": "When a plan needed to change, we explained the change before treating it as settled.",
+        "zh": "约定需要变动时，我们会先说明，再把新安排当作定案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "agreements-and-priorities"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_11",
+      "prompt": {
+        "en": "When one of us had less time, we adjusted an arrangement rather than silently keeping the same demand.",
+        "zh": "一方可用时间变少时，我们会调整安排，而非默默维持原来的要求。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "shared-effort"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_19",
+      "prompt": {
+        "en": "In a shared task, we discussed who wanted to handle which part.",
+        "zh": "一起办事时，我们会讨论各自愿意负责哪一部分。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "different-strengths"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_07",
+      "prompt": {
+        "en": "When a message was unclear, we asked what it meant before arguing about it.",
+        "zh": "消息意思不清楚时，我们会先问明白，再讨论分歧。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "room-to-speak"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_15",
+      "prompt": {
+        "en": "Making time for other friends was treated as an ordinary choice in this friendship.",
+        "zh": "给其他朋友留时间，在这段友谊中会被当作普通选择。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "space-and-privacy"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_04",
+      "prompt": {
+        "en": "When we valued different things, the conversation left room for both views.",
+        "zh": "在意的事情不同时，谈话中仍能容纳各自的看法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreements-and-priorities"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "agreements-and-priorities"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_12",
+      "prompt": {
+        "en": "When a promised contribution could not be made, we discussed what would happen next.",
+        "zh": "答应投入的事做不到时，我们会讨论接下来怎样处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-effort"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "shared-effort"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_20",
+      "prompt": {
+        "en": "When one of us did something differently, we could discuss its practical effect without making it a judgment of that person.",
+        "zh": "一方做法不同时，我们能讨论实际影响，而不把它扩大为对这个人的评价。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "different-strengths"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "different-strengths"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_08",
+      "prompt": {
+        "en": "When one of us wanted listening rather than advice, we could say so directly.",
+        "zh": "只想被听见、暂时不想要建议时，我们能直接说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "room-to-speak"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "room-to-speak"
+        }
+      ]
+    },
+    {
+      "id": "FRIENDFIT_16",
+      "prompt": {
+        "en": "When one of us asked for some quiet time, we discussed a contact arrangement that respected it.",
+        "zh": "一方提出需要安静一段时间时，我们会商量尊重这一需要的联系安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "score": 1,
+          "label": {
+            "en": "Almost never",
+            "zh": "几乎没有"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "2",
+          "score": 2,
+          "label": {
+            "en": "Rarely",
+            "zh": "较少"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "3",
+          "score": 3,
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "4",
+          "score": 4,
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "5",
+          "score": 5,
+          "label": {
+            "en": "Almost every time",
+            "zh": "几乎每次"
+          },
+          "directionId": "space-and-privacy"
+        },
+        {
+          "id": "na",
+          "score": null,
+          "label": {
+            "en": "Not experienced / cannot judge",
+            "zh": "未经历／无法判断"
+          },
+          "directionId": "space-and-privacy"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "agreements-and-priorities",
+      "directionIds": [
+        "agreements-and-priorities"
+      ],
+      "title": {
+        "en": "Friendship Agreements: Priorities, Changes and Examples",
+        "zh": "友谊中的约定：在意的事、变更与具体例子"
+      },
+      "headline": {
+        "en": "Find out what each arrangement actually asks of both people",
+        "zh": "先看一项安排分别要求双方付出什么"
+      },
+      "summary": {
+        "en": "Four observations concern discussing priorities, spending limits, changes and different views. Read them within one friendship and one recent period, then choose a concrete arrangement to discuss.",
+        "zh": "四项观察涉及在意的事、预算限制、约定变更和不同看法。把它们放回同一段友谊与近期经历，再选择一件具体安排来讨论。"
+      },
+      "scoreReading": {
+        "en": "Four valid frequency ratings produce a sum of 4–20 and a one-decimal mean of 1–5. These are your observations of recent interactions. All five guides remain available; an unscored item withholds only this part’s personal sum and mean.",
+        "zh": "四项频率全有效时，显示4—20评分和与1—5的一位小数均分，记录的是你对近期互动的观察。五份指南始终可读；一项不计分只使本部分暂不给个人评分和与均分。"
+      },
+      "seo": {
+        "title": {
+          "en": "Friendship Agreements: Priorities, Changes & Examples",
+          "zh": "友谊约定怎么看：在意的事、预算与变更示例"
+        },
+        "description": {
+          "en": "Use a friendship plan-and-budget example to discuss priorities and changes. Read the four-item frequency calculation and try a clear, optional request.",
+          "zh": "通过朋友出行与预算示例，区分共同决定、默默迁就和实际限制。查看四项频率的均分算例，再用一件小安排练习说明需要与协商变更。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Agreements need room for two sets of priorities",
+            "zh": "约定需要容纳两个人在意的事"
+          },
+          "paragraphs": [
+            {
+              "en": "Think about one friendship during the past four weeks. The first part asks whether recent arrangements gave both people room to explain priorities, spending limits, changes and differing views. It does not require identical interests or beliefs. You may enjoy the same activity for different reasons, or choose separate activities while continuing to care about each other.",
+              "zh": "回想过去四周与同一位朋友的相处。本部分看近期安排是否给双方说明在意的事、预算限制、约定变更和不同看法的空间，不要求兴趣或信念完全一致。你们可以因不同理由喜欢同一项活动，也可以各做不同的事，同时继续在意对方。"
+            },
+            {
+              "en": "A workable agreement has a specific subject: where to meet, what each person can spend, who needs to confirm, and what happens if circumstances change. A general feeling of being close cannot settle these details. Your answers describe the interactions you experienced, rather than revealing your friend’s private motives or proving that every choice was voluntary.",
+              "zh": "可执行的约定要落到具体事情：在哪里见面、各自能花多少、由谁确认、条件变了怎样处理。笼统的亲近感不能替这些细节作决定。回答描述的是你经历的互动，不会揭示朋友未说出的动机，也不能证明每一次选择都出于自愿。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read the four observations separately",
+            "zh": "把四项观察分别读清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "A conversation about priorities differs from getting your preferred plan. You might state that a quiet setting matters, hear that your friend needs an accessible venue, and jointly choose a place that meets both conditions. Neither person has to win the entire arrangement. Consider whether each priority could be stated and considered, not just whether the final plan suited you.",
+              "zh": "讨论在意的事，不等于最终必须照你的方案办。你可以说明希望安静，朋友也可能需要无障碍场地，再一起寻找同时满足条件的地点。双方都不必赢下整项安排。要看需要是否能被提出和考虑，而不仅是结果是否正合你的意。"
+            },
+            {
+              "en": "Budget and schedule limits are practical information. Agreeing to spend more than you can manage does not by itself show a better fit. For the change item, look for an explanation and a chance to confirm the revised arrangement. Merely receiving a message after a change has already been imposed gives less information about whether a new agreement was reached.",
+              "zh": "预算与时间限制是现实信息。答应超过余力的花费，本身并不表示更合拍。变更这一项要看是否得到说明，以及能否确认新安排。事情已被单方改完后才收到通知，对有没有重新达成约定所提供的信息更少。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A frequency mean, with a clear missing-data rule",
+            "zh": "频率均分与资料不足的规则"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the four observed frequencies receive 4, 3, 4 and 2. Their sum is 13 out of the possible 4–20. Divide 13 by four to get 3.25, displayed as 3.3 on the 1–5 scale. Keep the original four responses available in your own recollection: the mean is a compact summary, not a new observation about what happened.",
+              "zh": "例如四项频率选择4、3、4、2，评分和为13，所属可能范围是4—20。13除以四得3.25，在1—5量尺上显示3.3。仍应结合自己记得的四项经历；均分只是简短汇总，不会产生一条关于实际发生过什么的新事实。"
+            },
+            {
+              "en": "Choose the separate unscored option when you did not experience the relevant occasion or cannot judge it. One unscored item means this part has insufficient information for a personal sum and mean; other complete parts still display their own values. A frequency of one describes an observed pattern that almost never occurred when relevant, rather than filling an unknown with a low score.",
+              "zh": "没有经历相应机会、或无法判断时，选择独立的不计分选项。一项不计分会使本部分资料不足，暂不给个人评分和与均分，其他完整部分仍正常显示。频率1描述的是在有机会观察时几乎未出现该行动，不能用低分填补未知。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One plan can reveal more than a general label",
+            "zh": "用一次安排看见具体协商"
+          },
+          "paragraphs": [
+            {
+              "en": "You suggest a paid exhibition and dinner. Your friend says the full plan costs more than they can manage this month. You explain that seeing each other matters more to you than the venue, and offer a free walk with an optional snack. Your friend proposes a time that allows them to leave for work. Both people can accept, revise or decline the invitation.",
+              "zh": "你提议看收费展览后一起吃饭，朋友说明本月承担整套花费有困难。你说清更在意见面、而非必须去哪家场馆，提出免费散步、按意愿买小吃的替代安排。朋友再提出一个方便之后上班的时间，双方都可以接受、修改或拒绝这次邀请。"
+            },
+            {
+              "en": "If the work shift later changes, the next step is to explain the new limit and ask whether another time works. The useful evidence is the exchange: a limit was named, a reason was heard and a revised arrangement was checked. This invented example illustrates the kind of interaction to recall. It does not supply answers for your friendship or show that a particular activity is always preferable.",
+              "zh": "之后若班次改变，可以说明新限制，再问另一个时间是否合适。有用的依据是这段交流：限制被说出、理由得到听取、新安排经过确认。这是帮助回想互动的虚构例子，不提供你这段友谊的标准答案，也不表示某一种活动总是更好。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Agreement can be apparent rather than shared",
+            "zh": "表面答应未必等于共同认可"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone says “anything is fine” while expecting the other person to guess a strict preference. The plan then becomes a source of resentment. This does not establish which person is wrong; it shows that the decision may contain an unstated condition. A follow-up question about one concrete constraint can provide more information than another broad promise to be considerate.",
+              "zh": "一个人说“都可以”，心里却有明确偏好，希望对方能猜到，安排之后又积累不满。这不足以判定谁对谁错，而是提示决定中可能存在未说出的条件。追问一项具体限制，往往比再作一次笼统的体贴承诺更能补充信息。"
+            },
+            {
+              "en": "Conversely, a friend can listen carefully and still be unable to meet a request because of money, access, care responsibilities or their own choice. Refusal is not automatically a lack of concern. Pressure, threats or repeated disregard for a stated boundary require attention to the actual conduct; a favourable frequency mean cannot cancel those events or make you responsible for resolving them alone.",
+              "zh": "反过来，朋友也可能认真听取，却因为金钱、通行条件、照护责任或个人选择而无法答应。拒绝不自动等于不在意。若存在逼迫、威胁或反复无视明确界限，应关注这些实际行为；较好的频率均分不能抵消这些事，也不能要求你独自解决。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "Similar means can describe different conversations",
+            "zh": "相同均分也可能来自不同互动"
+          },
+          "paragraphs": [
+            {
+              "en": "The responses 2, 4, 3 and 4 also sum to 13 and display 3.3. In that example, discussing what matters was less frequent, while handling different views was more frequent. The earlier 4, 3, 4 and 2 pattern reverses that emphasis. Choose a conversation from the actual item you want to understand instead of treating either summary as a friendship category.",
+              "zh": "2、4、3、4同样合计13，显示3.3，但这个例子中，讨论在意的事较少出现，容纳不同看法较多。前面的4、3、4、2则有不同侧重。应从真正想了解的那一项经历选择谈话主题，不把任一汇总当作友谊类型。"
+            },
+            {
+              "en": "This part is also distinct from shared effort and room to speak. Two friends may hear each other well yet have difficulty settling affordable plans. They may agree on a budget while one person does all the organising. Read the other complete guides to examine these separate questions. No overall average, ranking of friends or lifespan prediction is created from the five parts.",
+              "zh": "本部分也不同于共同投入、表达与被听见。两位朋友可能很愿意互相倾听，却难以落实负担得起的计划；也可能预算一致，但组织工作总落在一人身上。可以阅读其他完整指南分别观察这些问题，五部分不会合成总均分、朋友排名或关系寿命预测。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one clear, optional request",
+            "zh": "尝试一次清楚且可拒绝的请求"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary upcoming arrangement. State the activity you are proposing, one condition that matters to you and one realistic alternative. Ask your friend which condition matters to them. Leave time for an answer and an uncomplicated way to decline. A small request should not become an examination of loyalty or a demand to reveal private circumstances.",
+              "zh": "选择近期一件普通安排，说清想做什么、自己在意的一项条件，以及一个现实替代方案，再问朋友更看重什么。给对方回答的时间，也保留直接拒绝的方式。一个小请求不应变成忠诚考验，或要求对方交代私人处境。"
+            },
+            {
+              "en": "Afterward, notice what actually changed: was the budget clearer, was a change confirmed, or did an assumption remain unresolved? You can adjust a future invitation or decide that less frequent contact suits this friendship. Keep your notes private if you make any. Taking the test again can support recollection, but changed ratings alone do not establish why a conversation went differently.",
+              "zh": "之后看实际变化：预算是否更清楚、变更有没有确认、是否仍留着未解决的假设。你可以调整下次邀请，也可以判断较低频的联系更适合这段友谊。若写下观察，请自行保护隐私。重测能辅助回想，但读数变化本身不能证明谈话为何不同。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Original prompts and the limits of one viewpoint",
+            "zh": "原创题文与单一视角的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote these items and this guide for an original friendship reflection. The APA description of friendship discusses voluntary relationships, mutual needs and shared experiences. CDC’s overview describes social connection through networks, functions and relationship qualities. These sources offer background; neither validates these twenty items, the five-part structure, a threshold or a personal conclusion.",
+              "zh": "这些题目与本指南由费马原创，用于友谊观察。APA对友谊的介绍涉及自愿关系、彼此需要和共同经历，CDC则从网络、功能及关系品质说明社会联系。两者提供背景，不验证本题本的二十题、五部分结构、任何阈值或个人结论。"
+            },
+            {
+              "en": "You are reporting your experience with one friend, rather than comparing two completed profiles. A friend who wishes to reflect can answer independently and decide what to discuss. Agreement between the two accounts does not prove accuracy, and disagreement does not prove deception. The result cannot assess health, establish relationship safety or decide whether you should remain friends.",
+              "zh": "这里记录的是你与一位朋友相处的经验，不是比较两份已完成的答卷。朋友若愿意，也可以独立回顾，再自行决定讨论什么。双方说法相同不能证明一定准确，不同也不能证明有人欺骗。结果不能评估健康、确证关系安全，或替你决定是否继续来往。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room-to-speak",
+      "directionIds": [
+        "room-to-speak"
+      ],
+      "title": {
+        "en": "Talking With a Friend: Being Heard, Disagreement and Questions",
+        "zh": "和朋友说话：被听见、不同意见与澄清问题"
+      },
+      "headline": {
+        "en": "A conversation can include both people’s needs",
+        "zh": "让双方的需要都有进入谈话的机会"
+      },
+      "summary": {
+        "en": "Notice whether you could finish a concern, explain a different view, clarify a message and ask for the kind of support you wanted. A changed-plan example helps turn the four observations into one clear conversation.",
+        "zh": "观察自己能否讲完困扰、说明不同看法、澄清消息，以及说出想要哪种支持。通过约定变更的例子，把四项观察落到一次清楚的对话。"
+      },
+      "scoreReading": {
+        "en": "Four complete frequency answers give a separate 4–20 sum and 1–5 mean. One unscored answer withholds this part’s personal numbers. All five guides remain available, and the mean does not measure either person’s communication ability.",
+        "zh": "四项完整频率回答形成独立的4—20评分和与1—5均分。一项不计分会使本部分暂不给个人读数，五份指南仍可读；均分不测任何一方的沟通能力。"
+      },
+      "seo": {
+        "title": {
+          "en": "Friendship Communication: Being Heard & Clear Requests",
+          "zh": "朋友沟通怎么看：被听见、分歧与清楚请求"
+        },
+        "description": {
+          "en": "Follow a changed-plan example to clarify a message and ask for listening or advice. Read the four-item frequency mean and try one specific request.",
+          "zh": "跟随朋友临时改约的例子，区分消息事实、自己的感受和未核实的推断。核对四项频率均分，练习提出倾听、建议或暂停的具体请求。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Look at this friendship, rather than a communication label",
+            "zh": "观察这段友谊，而非给人贴沟通标签"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns the room you experienced in conversations with one chosen friend during the past four weeks. Could you finish explaining a concern, give a different reason, clarify an unclear message and state whether you wanted listening or advice? These are separate observations about recent exchanges. They do not identify an assertive style, an empathy level or a permanent feature of either person.",
+              "zh": "本部分看过去四周与同一位朋友谈话时，你实际感受到的表达空间：能否讲完一件困扰、说明不同理由、问清含糊消息，以及说出更想被倾听还是听建议。这是近期交流中的几项独立观察，不识别果断型沟通风格、共情水平或任何一方的固定特征。"
+            },
+            {
+              "en": "Having room to speak does not require immediate replies, equal speaking time in every exchange or agreement on every topic. A friend may have a limited break, need time to understand or decline a subject. Useful evidence includes whether limits can be named and whether an unfinished matter can be returned to by agreement. It is not the number of messages alone.",
+              "zh": "有表达空间，不要求对方即时回复、每次严格平分说话时长，或对任何话题都同意。朋友可能只有短暂休息，需要时间理解，也可以不谈某个主题。有用的依据包括能否说明限制、能否协商之后再回到未谈完的事，而不仅是消息数量。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Separate facts, feelings and interpretations",
+            "zh": "把事实、感受和推断分开"
+          },
+          "paragraphs": [
+            {
+              "en": "You may know that a plan changed and that you felt disappointed. You may not know why the message was brief. Treat the first two as information you can discuss, while keeping the reason open to a question. This allows a feeling to be expressed without presenting a guess about the friend’s motives as an established fact. The friend can then contribute information you did not have.",
+              "zh": "你可能知道约定变了，也知道自己感到失望，却不知道对方为什么只发了一句短消息。可以把前两项作为可讨论的信息，同时把原因留给一个问题。这样既能表达感受，也不把对朋友动机的猜测说成已确定的事实，让对方有机会补充你不知道的信息。"
+            },
+            {
+              "en": "Checking what support is wanted can change the next step. Listening, brainstorming and practical help are different requests. Someone can appreciate one and decline another. A useful permission check offers a genuine choice and follows the answer; repeating a question until the friend accepts advice does not provide the same kind of room. You can also explain how much time or attention you have available.",
+              "zh": "确认想要哪种支持，会改变下一步。倾听、一起想办法和实际帮忙是不同请求，对方可以欢迎其中一种、拒绝另一种。有用的询问要提供真实选择，并根据回答行动；反复询问直到朋友接受建议，并没有提供同样的空间。你也可以说明当下能给多少时间和注意。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Four frequencies form a small summary",
+            "zh": "用四项频率作简短汇总"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, ratings of 3, 5, 4 and 2 sum to 14 within the possible 4–20 range. Dividing by four gives a displayed mean of 3.5 on the 1–5 scale. All four items are forward-scored in this original reflection. The number summarises the four selections; it is not a percentage of compatibility, a score for the friend’s kindness or a comparison with other friendships.",
+              "zh": "例如四项选择3、5、4、2，评分和为14，所属可能范围是4—20。除以四，得到1—5量尺上的均分3.5。本原创观察的四项均按原数值正向计分。数字汇总的是四次选择，不是契合百分比、朋友善良程度的分数，或与其他友谊的比较。"
+            },
+            {
+              "en": "Use the unscored option if there was no relevant occasion, you cannot judge or you do not wish to rate it. This part then has insufficient information for a personal sum and mean. Other complete parts retain their readings, and all guides remain open. Do not choose a low frequency merely to finish a question about a conversation you did not have.",
+              "zh": "没有相关机会、无法判断或不想评价时，可以选不计分。本部分便暂时缺少计算个人评分和及均分所需的信息，其他完整部分保留读数，全部指南继续开放。不要为了答完一道题，给从未发生过的对话填上低频率。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Clarify a changed plan before deciding what it means",
+            "zh": "先澄清改约，再判断它意味着什么"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend cancels a meeting with a short message. You feel disappointed because you kept the afternoon free. You could explain that impact and ask whether they can discuss another time. If they are dealing with an urgent responsibility, they may only be able to answer later. Agreeing when to return to the question can be more useful than demanding an immediate account of everything happening in their life.",
+              "zh": "朋友用一条短消息取消见面，你因为专门留出下午而失望。可以说明这项影响，再问是否方便商量另一个时间。若对方正处理紧急责任，可能只能稍后回复。约好什么时候再谈，往往比要求对方马上交代生活中的所有事更有用。"
+            },
+            {
+              "en": "Later, you may want listening before working out a replacement plan. Saying so lets the friend decide whether they can offer that now. Their willingness, available time and follow-through are observations you can use. The example supplies a way to distinguish these pieces, not a script that will guarantee an apology or prove the cause of a cancellation.",
+              "zh": "之后你可能想先被听见，再处理补约。把这一点说清，也让朋友判断当下能否回应。对方的意愿、可用时间和后续行动，都是可观察的信息。这个例子帮助区分这些部分，不是一套保证得到道歉的话术，也不能证明取消见面的原因。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Silence and agreement can be ambiguous",
+            "zh": "沉默与同意都可能需要澄清"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend says little while you talk. That might mean attentive listening, uncertainty, distraction or an unavailable moment. The amount of silence alone does not settle the interpretation. You can ask whether now is a workable time and what they understood. Equally, your own decision to keep something private is a choice; being close does not create an obligation to disclose every difficult feeling.",
+              "zh": "你说话时朋友回应很少，可能是在认真听，也可能拿不准、分心或当下不方便。沉默多少不能单独决定它是什么意思。可以问现在是否适合谈，以及对方听懂了什么。同样，你决定把某件事保留为隐私也是一种选择，亲近不产生披露所有困难感受的义务。"
+            },
+            {
+              "en": "Repeated insults, pressure to agree or punishment for stating a boundary require attention to the conduct itself. A friendly tone elsewhere or a high mean does not cancel those experiences. You do not need to demonstrate perfect communication before deciding what contact feels manageable. Where safety is at issue, appropriate outside support may matter more than trying another conversational exercise.",
+              "zh": "反复侮辱、逼迫同意，或因表达界限受到惩罚，都应回到这些行为本身判断。其他时候语气友好、或均分较高，不能抵消这些经历。决定怎样的联系可以承受，并不以证明自己沟通完美为前提。涉及安全时，适当的外部支持可能比继续尝试谈话练习更重要。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "A similar mean can point to another task",
+            "zh": "相近均分可能提示不同问题"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 5, 2, 3 and 4 also sum to 14 and display 3.5. That pattern could involve more room to finish a concern but less room to disagree than the earlier example. The mean does not reveal which exchange mattered most to you. Look back at a specific item and an actual occasion before choosing what to discuss. No lowest-part rule tells you where you must begin.",
+              "zh": "5、2、3、4也合计14、显示3.5，却可能表示讲完困扰的空间更多、提出不同意见的空间更少，与前一组有所区别。均分不会说明哪次交流对你最重要。选择讨论什么之前，可以回到一项具体题意与真实经历；这里没有规定必须从最低分部分开始。"
+            },
+            {
+              "en": "This reading also differs from agreements, shared effort and privacy. You might explain a budget limit clearly but still find no affordable shared plan. You may talk easily while taking on all the organising. Read those other parts as separate questions. A clear conversation can reveal a practical mismatch without requiring either person to accept a personality label or a verdict on the friendship.",
+              "zh": "这项读法也不同于约定、共同投入与隐私。你可能能清楚说明预算，却仍找不到双方负担得起的计划；也可能谈得很轻松，组织事务却总由你承担。可以把其他部分当作不同问题分别阅读。一次清楚的谈话可以发现现实条件不一致，并不要求双方接受人格标签或友谊判决。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Choose one small request and a workable time",
+            "zh": "选一个小请求，再确认适合的时间"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an ordinary subject you are comfortable discussing. Describe one event, your own response to it and one request. Ask whether the friend can listen now, would prefer a later time or does not want to discuss it. If you mainly want company, say that; if you want ideas, state the particular decision. Keep the request small enough for the other person to understand and freely answer.",
+              "zh": "选择一个自己愿意谈的普通话题，说清一件事、自己的感受，以及一项请求，再问朋友现在能否听、是否想换个时间，或不想谈。主要需要陪伴就直说，想听建议就说明具体在考虑哪个决定。请求不宜过大，让对方能理解，也能自由回应。"
+            },
+            {
+              "en": "Afterward, notice whether the answer changed your next step and whether the agreed timing was respected. You might find that a written note, a shorter call or a walk suits both people better. This is an optional experiment with communication, not a treatment or a test of loyalty. Stop if it is unhelpful, and do not use the questionnaire as evidence that the friend owes a particular response.",
+              "zh": "之后观察回答是否实际改变了下一步，约好的时间有没有得到尊重。你们可能发现文字说明、较短的电话或散步更方便双方。这是可选的交流尝试，不是治疗或忠诚考验。没有帮助就可以停止，也不要把问卷当作朋友必须按某种方式回应的证据。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "One person’s account needs its own limits",
+            "zh": "保留单人陈述的范围"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind authored this guide and the four conversation items as part of an original twenty-item friendship reflection. APA’s account of friendship provides background about voluntary relationships and mutual needs; CDC discusses the functions and qualities of social connection. Neither source developed or validated this item set, the five-part grouping or a score threshold.",
+              "zh": "本指南与四项交流题由费马原创，是二十题友谊观察的一部分。APA关于友谊的介绍提供自愿关系、彼此需要的背景，CDC讨论社会联系的功能与品质。两者均未开发或验证这些题目、五部分分组或任何分数阈值。"
+            },
+            {
+              "en": "Memory, recent mood, available opportunities and the way you understand an item can affect the answers. Your friend may recall another part of the same exchange. That difference can invite a question, rather than deciding whose account is correct. The questionnaire does not observe the conversation, assess communication competence or predict whether an attempt to repair a disagreement will succeed.",
+              "zh": "回忆、近期心情、可观察的机会以及对题意的理解，都可能影响回答。朋友也可能记得同一次交流中的另一部分。差异可以引出一个问题，而不是直接决定谁说得对。问卷没有观察谈话，不评估沟通胜任力，也不预测修复分歧的尝试是否成功。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-effort",
+      "directionIds": [
+        "shared-effort"
+      ],
+      "title": {
+        "en": "Effort in a Friendship: Initiative, Capacity and Follow-Through",
+        "zh": "友谊中的投入：主动、余力与后续交代"
+      },
+      "headline": {
+        "en": "Discuss what each person can actually offer",
+        "zh": "讨论各自真实能投入什么"
+      },
+      "summary": {
+        "en": "Look at suggesting contact, checking capacity, adjusting plans and discussing an unmet commitment. A small shared-activity example helps distinguish participation from a demand for equal time, money or availability.",
+        "zh": "回看提出安排、确认余力、调整计划，以及答应的事无法做到时有没有交代。通过一次共同活动，区分双方参与和要求时间、金钱、在线程度严格相等。"
+      },
+      "scoreReading": {
+        "en": "Four valid ratings form a separate sum of 4–20 and a one-decimal mean of 1–5. They describe selected interactions, not how much either person cares. An unscored item withholds this part’s personal numbers while all five guides stay open.",
+        "zh": "四项有效评价形成独立的4—20评分和与1—5一位小数均分，描述选定互动，不衡量任何一方在意多少。一项不计分会使本部分暂不给个人读数，五份指南继续开放。"
+      },
+      "seo": {
+        "title": {
+          "en": "Friendship Effort: Initiative, Capacity & Follow-Through",
+          "zh": "朋友投入怎么看：主动安排、余力与承诺交代"
+        },
+        "description": {
+          "en": "Use a shared-activity example to discuss effort without keeping a debt ledger. Read the four-item mean, capacity limits and a practical follow-through request.",
+          "zh": "通过朋友共同安排活动的例子，核对主动提出方案、可用余力和承诺变更。查看四项均分算例，尝试一项清楚的分工请求，不把友谊变成还债表。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Participation has more than one form",
+            "zh": "参与可以有不同形式"
+          },
+          "paragraphs": [
+            {
+              "en": "This part looks at four interactions in one friendship during the past four weeks: a friend suggesting a time or activity, checking capacity before asking for help, adjusting plans when time changes, and discussing a contribution that cannot be made. These observations concern how participation is arranged. They do not count the value of gifts, the total hours spent together or the number of favours anyone owes.",
+              "zh": "本部分看过去四周与同一位朋友的四类互动：朋友是否提出时间或活动、求助前能否确认余力、可用时间变了能否调整，以及答应投入的事做不到时能否交代。这些观察关注参与怎样被安排，不统计礼物价值、相处总时长或谁还欠多少人情。"
+            },
+            {
+              "en": "People can contribute differently because their resources, health, work and caring responsibilities differ. A friendship may involve little contact during a demanding period and still matter to both people. The relevant question is whether arrangements leave room to state what is possible and revise expectations. A low frequency in this small item set cannot decide that one person cares less.",
+              "zh": "资源、健康、工作和照护责任不同，人们能投入的方式也不同。忙碌时期联系不多，仍可能对双方都很重要。更值得问的是，安排中能否说明什么做得到，并重新商量期待。这一小组题中的低频率，不能决定某个人在意得更少。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Distinguish an invitation, a request and a commitment",
+            "zh": "区分邀请、请求与已经答应的事"
+          },
+          "paragraphs": [
+            {
+              "en": "An invitation gives someone a choice. A request for help also needs room for an answer about time, money or ability. A commitment is something the person has actually agreed to do. Moving silently from the first two to the third can create a disagreement that neither person understood in the same way. Ask what was clearly accepted before judging whether an obligation was missed.",
+              "zh": "邀请应当让人有选择，求助也需要给对方回答时间、金钱或能力限制的空间。承诺则是对方确实答应去做的事。若默默把前两种当成第三种，双方可能从一开始就理解不同。判断有没有失约之前，应先问清到底明确答应了什么。"
+            },
+            {
+              "en": "For the first item, recall an actual occasion when you arranged contact and the friend suggested a time or activity. That contribution may follow your initial invitation; it does not require strict alternation in who starts a message. For the remaining items, consider whether capacity, changed circumstances and missed contributions could be discussed. These are behaviours to recall, not conclusions about motivation.",
+              "zh": "第一项可以回想一次确实商量联系的机会：朋友是否提出时间或活动。这种参与可以发生在你先发起邀请之后，不要求消息必须严格轮流由谁开头。其余项目关注余力、条件变化和无法履行的投入能否拿出来讨论，是供回想的行为，不是对动机的结论。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Read the sum and mean within their small range",
+            "zh": "在有限范围内阅读评分和与均分"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the four ratings are 2, 3, 2 and 4. Their sum is 11 within a possible 4–20. Dividing by four gives 2.75, displayed as 2.8 on the 1–5 scale. All items are forward-scored in this edition. This calculation does not transform different kinds of participation into equal units of effort or produce a percentage of mutual care.",
+              "zh": "例如四项评价为2、3、2、4，评分和为11，所属可能范围是4—20。除以四得2.75，在1—5量尺上显示2.8。本版四项都按原数值正向计分，这项计算不会把不同形式的参与换成等量劳动，也不产生彼此在意的百分比。"
+            },
+            {
+              "en": "If no relevant occasion occurred or you cannot judge it, select the separate unscored option. All four numerical answers are required for this part’s personal sum and mean. A missing rating is neither no contribution nor a low-frequency answer. Other complete parts still show their readings, and every guide remains available without requiring a guessed answer.",
+              "zh": "没有发生相关机会，或无法判断时，选择独立的不计分选项。本部分需要四个数字回答才能计算个人评分和及均分。没有评价不等于没有贡献，也不等于低频率。其他完整部分仍显示读数，全部指南也继续开放，不要求猜答。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A small plan can include unequal but agreed contributions",
+            "zh": "小安排可以容纳不一样的投入"
+          },
+          "paragraphs": [
+            {
+              "en": "You suggest an afternoon walk. Your friend proposes a nearby route and a time that fits their shift. You can bring water; they can check whether the path is open. When the shift changes, the friend tells you early and asks about another date. The arrangement contains contributions from both people without assigning the same task or cost to each.",
+              "zh": "你提议下午散步，朋友提出附近一条路线和适合班次的时间。你可以带水，对方可以查路是否开放。班次变动后，朋友提前说明，再问能否改一天。双方都有参与，却没有被分配完全一样的任务或花费。"
+            },
+            {
+              "en": "If checking the route cannot be done, a useful next exchange explains that limit and decides whether anyone will take it over or whether the plan should change. You are looking for what was communicated and agreed. The example does not establish that planning is always the most valuable contribution, nor that the same division would suit a different friendship.",
+              "zh": "若来不及查路线，有用的下一步是说明限制，再决定是否有人接手，或干脆修改计划。这里看的是沟通过什么、共同认可了什么，不是证明做计划永远最有价值，也不表示这种分工适用于另一段友谊。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "An equal ledger can miss what matters",
+            "zh": "严格对账可能漏看实际需要"
+          },
+          "paragraphs": [
+            {
+              "en": "You may compare every message, purchase and minute, then conclude that the lower total shows less care. Those counts can leave out access needs, financial limits, quieter forms of help and a contribution you did not observe. This questionnaire supplies no exchange rate between them. A discussion of one actual arrangement can be more informative than building a general debt ledger.",
+              "zh": "逐条比较消息、每笔花费和每分钟，再认定少的一方更不在意，可能漏掉通行需要、经济限制、较安静的帮助，或你没有看见的投入。本问卷不提供这些事之间的兑换率。谈清一项实际安排，通常比建立总的人情账更能补充信息。"
+            },
+            {
+              "en": "The opposite concern also deserves attention: repeated requests can remain one-sided even after a clear limit is stated. Compassion for someone’s circumstances does not require unlimited money, time or access to you. Consider the ongoing behaviour and what you can manage. A generous past contribution or a favourable mean cannot create consent for every future request.",
+              "zh": "另一种情况也值得认真对待：已经明确说明限制，请求仍可能持续单向增加。理解别人的处境，不要求无限提供金钱、时间或接近自己的机会。应结合持续行为与个人余力判断。过去一次慷慨的投入，或较好的均分，都不能代替对未来每次请求的同意。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "The same summary can hide a different difficulty",
+            "zh": "同样的汇总也可能包含不同困难"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 4, 2, 3 and 2 also sum to 11 and display 2.8. That pattern could include more suggestions from the friend but less capacity checking or less discussion when a commitment cannot be met. The earlier example gives a different emphasis. The mean cannot choose the most important conversation for you; look at the actual item and occasion that matter.",
+              "zh": "4、2、3、2也合计11、显示2.8，却可能包含朋友较多提出建议、较少确认余力，或承诺无法履行时较少讨论的情况，和前一组侧重不同。均分不能替你选择最重要的谈话，应回到真正重要的一项题意与经历。"
+            },
+            {
+              "en": "This part differs from having similar interests or feeling heard. Two people may enjoy different activities while taking care with shared arrangements. They may have many common interests but leave all coordination unspoken. Reading the other parts can help separate these observations. No combined score ranks friends or determines how close you ought to become.",
+              "zh": "本部分也不同于兴趣相似、或觉得被听见。两个人可以兴趣不同，却认真处理共同安排；也可以共同爱好很多，协调事务却始终没有说清。阅读其他部分有助于分开这些观察，不会形成一个总分来给朋友排名，或决定应当亲近到什么程度。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Make one contribution explicit",
+            "zh": "把一项投入说清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary activity, ask what each person would like and realistically be able to handle. Choose a specific task, a reasonable time and a way to say if circumstances change. Accept that the answer may be no. If no workable arrangement is available, postponing or keeping the activity smaller can be an ordinary decision rather than a failure of friendship.",
+              "zh": "为一项普通活动，询问各自愿意且现实中能承担什么，再说清具体任务、合理时间，以及条件变化时怎样告知。回答可以是不行。若暂时找不到可执行的安排，推迟或缩小活动，也可以是普通决定，不必解释为友谊失败。"
+            },
+            {
+              "en": "After the activity, notice whether the task was understood, whether changes were communicated and whether you still want the same arrangement next time. You can thank a contribution without making it a permanent role. This optional observation does not require recording names or publishing anyone’s behaviour. Changing a rating later may reflect new circumstances, rather than a measured gain in friendship quality.",
+              "zh": "活动之后，看看任务是否理解一致、变更有没有交代，以及下次是否还愿意采用同样安排。可以感谢一次投入，却不把它固定成对方的长期角色。这个可选观察不要求记录姓名或公开他人行为。之后评价改变，可能来自新处境，而不是测得了友谊品质提升。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Background ideas do not validate the score",
+            "zh": "背景想法不验证本版分数"
+          },
+          "paragraphs": [
+            {
+              "en": "The items and examples are original FermatMind writing. APA’s description of friendship includes voluntary relationships and concern for mutual needs; CDC describes social connection through its network, functions and qualities. These are background ideas. Neither source establishes that the four items measure reciprocity, that the five groups are distinct factors or that a particular mean has a validated interpretation.",
+              "zh": "题目与例子由费马原创。APA对友谊的介绍涉及自愿关系、对彼此需要的关心，CDC从网络、功能和品质说明社会联系。这些属于背景想法，两者都不建立四题能够测量互惠、五组属于不同因子，或某个均分具有经验证的解释。"
+            },
+            {
+              "en": "This is your account of one friendship in a recent period. It cannot observe effort you did not see, assess another person’s intentions, establish fairness or predict what they will do next. A friend who wishes to reflect can answer independently and choose what to share. Neither matching scores nor disagreement settles whose account is complete.",
+              "zh": "这是你对近期一段友谊的陈述，无法观察你没看见的投入、评估对方意图、确证是否公平，或预测下一步会怎样。朋友若愿意，也可以独立回顾，再决定分享什么。分数相同或不同，都不能决定谁的陈述更完整。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space-and-privacy",
+      "directionIds": [
+        "space-and-privacy"
+      ],
+      "title": {
+        "en": "Space in a Friendship: Invitations, Privacy and Other Relationships",
+        "zh": "友谊中的空间：邀约、隐私与其他关系"
+      },
+      "headline": {
+        "en": "Make closeness compatible with a real choice",
+        "zh": "让亲近也容得下真实选择"
+      },
+      "summary": {
+        "en": "Consider what happens after a declined invitation, before sharing a private conversation and when someone needs quiet time. A weekend example shows how to make contact arrangements without treating access as proof of care.",
+        "zh": "回看拒绝邀约之后、转述私人谈话之前，以及需要安静一段时间时发生的互动。通过一个周末安排，讨论怎样联系，不把随时可接近当成在意的证明。"
+      },
+      "scoreReading": {
+        "en": "Four numerical responses produce a separate 4–20 sum and a one-decimal mean on the 1–5 response scale. They summarize recalled occasions, not safety or entitlement to someone’s time. Any unscored item withholds this part’s numbers; every guide stays open.",
+        "zh": "四个数字回答形成独立的4—20评分和与1—5一位小数均分，汇总回想的机会，不判断安全程度，也不赋予使用对方时间的资格。一项不计分会使本部分暂不给数字，全部指南继续开放。"
+      },
+      "seo": {
+        "title": {
+          "en": "Friendship Boundaries: Space, Privacy & Contact Arrangements",
+          "zh": "朋友之间的边界：个人空间、隐私与联系安排"
+        },
+        "description": {
+          "en": "Read a four-item friendship boundary example with a worked mean, a privacy counterexample and a clear contact request. Scores do not replace consent or assess safety.",
+          "zh": "用四项均分算例理解友谊中的个人空间，区分隐私同意、拒绝邀约与联系安排，尝试一个清楚的请求；分数不代替同意，也不判断关系是否安全。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Space is part of an arrangement between people",
+            "zh": "空间也是相处安排的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "This part asks about four kinds of interaction over the past four weeks with one chosen friend: declining an invitation without having to reverse the decision, permission before passing on personal information, making time for other friends, and discussing contact when quiet time is requested. It records your observations of those occasions. It does not measure a general personality trait or establish what every friendship should look like.",
+              "zh": "本部分询问过去四周与同一位朋友的四类互动：拒绝邀约后不必改变决定、转述私人内容前确认同意、给其他朋友留时间，以及需要安静时商量联系方式。它记录你对这些机会的观察，不测量一般人格特征，也不规定所有友谊该是什么样。"
+            },
+            {
+              "en": "Some friends enjoy daily messages; others are comfortable meeting occasionally. Neither rhythm receives a preferred score here. The items concern what happens when a choice or request is expressed. A busy month with no relevant discussion offers limited information, so the unscored option is a reasonable response. More contact by itself does not demonstrate that space and privacy are being respected.",
+              "zh": "有的朋友喜欢每天发消息，有的习惯偶尔见面，本问卷不预先偏好哪种节奏。题目关注表达选择或请求后，互动怎样发生。忙碌的一个月若没有相关讨论，能提供的信息有限，选择不计分也合理。联系更多本身不能证明个人空间和隐私得到尊重。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Separate a request for information from a demand for access",
+            "zh": "区分询问信息与要求随时可接近"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend may ask when you are available or how you would like to be contacted. That question can help coordinate a plan. An expectation that you disclose every detail of your day, share private messages or abandon other friendships is a different matter. Read the item in relation to the actual exchange rather than deciding from a label such as close friend.",
+              "zh": "朋友可以询问何时有空、希望怎样联系，这类问题有助于协调安排。但期待你交代一天的所有细节、提供私人消息，或放弃其他友谊，是不同的情况。应结合实际交流读题，不要只凭“亲密朋友”这个称呼判断。"
+            },
+            {
+              "en": "For privacy, permission should concern the information and the proposed audience. Being comfortable telling one friend does not automatically mean agreeing to a group chat, a screenshot or a public post. You can describe the occasion to yourself without recording the private detail in a test answer. This questionnaire needs no friend’s name, contact details or account access.",
+              "zh": "隐私同意应对应具体信息及准备告诉谁。愿意告诉一位朋友，不自动等于同意发到群聊、转发截图或公开发布。回想经历即可，不需要把私人细节写进回答。本问卷也不需要朋友姓名、联系方式或账号权限。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "A mean summarizes four responses, not a right of access",
+            "zh": "均分汇总四项回答，不产生接近的权利"
+          },
+          "paragraphs": [
+            {
+              "en": "With ratings of 5, 4, 5 and 3, the sum is 17 out of the possible 4–20. Dividing 17 by four gives 4.25, displayed as 4.3 on the 1–5 scale. All four items use their original values; there are no reverse-scored items in this edition. The display is not 85% compatible, a safety rating or a guarantee about a future interaction.",
+              "zh": "例如评价为5、4、5、3，评分和为17，可能范围是4—20。17除以四为4.25，在1—5量尺上显示4.3。本版四项都使用原数值，没有反向题。这个显示不是85%的契合度、关系安全评级，也不保证下一次互动。"
+            },
+            {
+              "en": "All four numerical ratings are needed to display this part’s personal sum and mean. If an occasion did not occur, you cannot judge it, or you prefer not to answer, the separate unscored option withholds these numbers. It is not changed into zero, one or an assumed answer. Other complete parts still display their own readings, and all five guides remain available.",
+              "zh": "显示本部分个人评分和与均分，需要四个数字评价。没有发生相关机会、无法判断或不愿回答时，独立的不计分选项会使这些数字暂不显示，不会被换成零、一或假定回答。其他完整部分仍显示自己的读数，五份指南也继续开放。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A quiet weekend can include a clear contact plan",
+            "zh": "安静的周末也可以有清楚的联系安排"
+          },
+          "paragraphs": [
+            {
+              "en": "After a demanding week, you decline a Saturday outing and say that you need a quiet weekend. Your friend can feel disappointed and still accept the answer. You agree to discuss another date on Monday, without promising that you will be continuously available in between. This is one possible arrangement, not a required script or evidence that nobody felt hurt.",
+              "zh": "忙碌一周后，你拒绝周六外出，说明周末想安静休息。朋友可以失望，也可以接受这个回答。你们约好周一再商量其他日期，不承诺这期间随时在线。这是一种可选安排，不是必须遵守的话术，也不表示双方都没有难过。"
+            },
+            {
+              "en": "Separately, the friend asks whether a story from your conversation can be shared with a mutual acquaintance. You can agree to a limited version, ask for identifying details to be removed, or decline. Discussing the request before sharing leaves room to decide. It does not mean that a person must always offer an edited version or explain every reason for keeping something private.",
+              "zh": "另一次，朋友询问能否把谈话中的一件事告诉共同认识的人。你可以同意有限版本、要求去掉能识别身份的细节，或不同意。分享前讨论，为决定留下了空间，不代表每个人都必须提供删改版，也不要求解释保密的全部原因。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "One troubling incident can matter more than a summary",
+            "zh": "一次重要的越界也可能值得单独处理"
+          },
+          "paragraphs": [
+            {
+              "en": "A favourable mean can coexist with an incident you take seriously, such as a private message being shared after an explicit refusal. Three frequent positive responses do not cancel that event. Look at what happened, what you need now and what choices are available. A score is not a reason to dismiss your concern or to establish that the other person is generally safe.",
+              "zh": "较好的均分仍可能与一次你很在意的事件并存，例如已经明确不同意，私人消息仍被转发。其他三项经常发生的积极互动不能抵消这件事。应看实际发生了什么、现在需要什么、有哪些可选办法。分数不能成为忽略担忧的理由，也不能据此确认对方总体安全。"
+            },
+            {
+              "en": "At the other extreme, describing every disagreement as a boundary violation can close a conversation prematurely. Someone can express disappointment, ask a practical question or propose another time while still accepting a no. Consider the behaviour after the answer. This guide cannot adjudicate an incident, and it does not require a conversation if engaging would create a risk for you.",
+              "zh": "另一端，把所有分歧都叫作越界，也可能过早结束讨论。对方可以表达失望、询问实际问题或提出其他时间，同时接受拒绝。应观察回答之后的行为。本指南不能裁决一件事，也不要求在交谈会造成风险时仍继续沟通。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "The same mean can reflect different occasions",
+            "zh": "同一个均分可能涉及不同机会"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 4, 5, 3 and 5 also sum to 17 and display 4.3. They put the lower response on time for other friends rather than on the quiet-time contact arrangement. The summary alone cannot tell you which occasion matters most or why it happened. Return to the relevant item and concrete example before choosing something to discuss.",
+              "zh": "4、5、3、5也合计17、显示4.3，但较低的回答涉及给其他朋友留时间，而非安静时的联系安排。只看汇总不能知道哪次经历最重要，也不能解释原因。决定谈什么之前，应回到相关题意和具体例子。"
+            },
+            {
+              "en": "Space is also separate from agreement and shared effort. Two friends may readily share tasks yet leave permission about personal information unclear. They may allow considerable privacy while still struggling to coordinate an outing. The five parts keep those observations separate. There is no combined number that settles whether the friendship should continue or how close it ought to be.",
+              "zh": "空间也不同于达成约定和共同投入。两位朋友可以很愿意分担事务，却没说清私人信息能否转述；也可以很尊重隐私，但仍不擅长安排见面。五个部分分开呈现这些观察，不形成一个总数来决定友谊应否继续或应当多亲近。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "State one specific permission or contact preference",
+            "zh": "说清一项具体的同意范围或联系偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one ordinary, manageable situation. For example: “Please ask me before sharing a screenshot of our conversation,” or “I can talk on Sunday afternoon; during the working day I may not reply.” Be specific about the action and the setting. Allow a discussion about practical needs without turning your request into a demand to control the friend’s other relationships.",
+              "zh": "选一件普通且能处理的事。例如：“转发我们谈话的截图前，请先问我”，或“周日下午可以聊，工作日白天可能没法回复”。说明具体行为和场景，也容许讨论实际需要，不把自己的请求变成控制朋友其他关系的要求。"
+            },
+            {
+              "en": "Notice what happens after the request: was it understood, was there agreement, and what behaviour followed? If it is not accepted, consider a smaller arrangement or the amount of contact you can realistically manage. Repeated pressure, threats or monitoring need attention on their own terms; this questionnaire cannot assess them or make continued access a condition of being a good friend.",
+              "zh": "观察请求之后：对方是否理解、有没有达成共识、后续行为怎样。若无法接受，可以考虑缩小安排，或重新决定自己能承担的联系程度。持续施压、威胁或监视需要结合实际情况单独处理，本问卷不能评估这些事，也不能把持续允许接近设为“好朋友”的条件。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "Background concepts do not validate these four items",
+            "zh": "背景概念不等于四题已经获得验证"
+          },
+          "paragraphs": [
+            {
+              "en": "APA’s friendship overview describes a voluntary relationship involving mutual needs and shared experiences. CDC’s social-connection overview distinguishes the functions and qualities of relationships. These sources support a broad discussion of interaction, not this questionnaire’s item selection, the five editorial groups or any interpretation of a particular mean. This is an original reflection tool without established norms or cutoffs.",
+              "zh": "APA的友谊概述涉及自愿关系、相互需要和共同经历，CDC的社会联系概述区分关系的功能和质量。这些来源支持对互动的宽泛讨论，不验证本问卷的选题、五个编辑分组，或某个均分的解释。本工具是原创回顾问卷，没有已建立的常模或分界值。"
+            },
+            {
+              "en": "Your answers describe one perspective on a recent period. They cannot inspect someone else’s intentions, determine legal permission, establish a complete account of an incident or predict a friend’s future response. A friend may choose to answer independently and decide what to share. Agreement between scores does not replace an explicit conversation about privacy or contact.",
+              "zh": "你的回答描述近期经历的一个视角，不能检查他人意图、确定法律上的许可、还原一件事的全部事实，或预测朋友未来的反应。朋友可以自愿独立作答，再决定分享什么。分数一致也不能代替对隐私或联系安排的明确沟通。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "different-strengths",
+      "directionIds": [
+        "different-strengths"
+      ],
+      "title": {
+        "en": "Different Interests in a Friendship: Activities, Roles and Practical Choices",
+        "zh": "友谊中的不同兴趣：活动、分工与实际选择"
+      },
+      "headline": {
+        "en": "Find a workable arrangement without needing to be alike",
+        "zh": "不必变得一样，也可以商量相处方式"
+      },
+      "summary": {
+        "en": "Explore shared activities when interests differ, chances to suggest a plan, chosen task roles and discussing a different approach. A small-event example separates practical cooperation from personality matching.",
+        "zh": "从兴趣不同的共同活动、提出建议的机会、自愿承担的部分，以及讨论不同做法四个角度回顾互动。通过筹备小活动的例子，区分实际协作与人格匹配。"
+      },
+      "scoreReading": {
+        "en": "Four valid ratings yield a separate sum of 4–20 and a one-decimal mean of 1–5. This reflects recalled ways of handling differences, not complementary personality types or proven skills. An unscored item withholds this part’s personal numbers while every guide remains available.",
+        "zh": "四项有效评价产生独立的4—20评分和与1—5一位小数均分，反映回想中怎样处理差异，不证明人格互补或技能水平。一项不计分会使本部分暂不给个人数字，全部指南仍可阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Different Interests in Friendship: Activities & Shared Roles",
+          "zh": "朋友兴趣不同怎么办：共同活动、建议机会与分工"
+        },
+        "description": {
+          "en": "Use a worked four-item mean and a small-event example to discuss different interests, chosen roles and practical effects without turning friends into personality matches.",
+          "zh": "通过四项均分算例和筹备小活动的场景，讨论不同兴趣、提出建议的机会、自愿分工及做法的实际影响，不用人格匹配标签决定友谊。"
+        }
+      },
+      "sections": [
+        {
+          "id": "meaning",
+          "title": {
+            "en": "Differences become visible in what people arrange together",
+            "zh": "差异会出现在共同安排中"
+          },
+          "paragraphs": [
+            {
+              "en": "This part concerns four interactions in one friendship during the past four weeks: finding ways to spend time together without identical interests, giving each person a chance to suggest an activity, discussing who wants to handle which part of a shared task, and talking about the practical effect of a different approach without judging the whole person. It asks about those occasions rather than testing anyone’s abilities.",
+              "zh": "本部分关注过去四周同一段友谊中的四类互动：兴趣不完全相同仍找得到相处方式、各自有机会提出活动建议、一起办事时讨论愿意承担哪一部分，以及讨论不同做法的实际影响而不评价整个人。它询问这些机会，不测试任何人的能力。"
+            },
+            {
+              "en": "A friendship can involve overlapping interests, separate interests or both. Similarity does not guarantee workable arrangements, and difference does not guarantee that people complement each other. The phrase different strengths is an invitation to discuss preferences and possible contributions, not a finding that the two friends possess a scientifically matched pair of traits. No other person’s test profile is required.",
+              "zh": "一段友谊可以有共同兴趣、各自的兴趣，也可以两者都有。相似不保证安排顺利，不同也不保证一定互补。“各自所长”是邀请讨论偏好与可能的参与方式，不是证明两个人拥有科学配对的人格特征。这里也不需要输入另一个人的测试画像。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Look for choice in both the activity and the role",
+            "zh": "既看活动选择，也看分工是否出于意愿"
+          },
+          "paragraphs": [
+            {
+              "en": "When recalling an activity, ask whether both people could suggest something and whether a shared option was actually found. One person need not enjoy every interest of the other. An acceptable arrangement might be a short shared activity followed by separate plans, or a decision not to do that activity together. Consider what happened rather than how many hobbies appear on a shared list.",
+              "zh": "回想一项活动时，可以问双方是否都有机会建议、是否实际找到了共同选择。不需要喜欢对方的每一种兴趣。能接受的安排可以是短时间一起活动后各做各的，也可以决定这项活动不一起做。应看发生了什么，而非共同爱好列表有多长。"
+            },
+            {
+              "en": "For a shared task, distinguish a discussed role from an assumed obligation. Being organised does not automatically make someone the permanent planner; being sociable does not require someone to speak for the group. The item concerns whether willingness was discussed. It does not award competence points, establish a person’s best role or excuse one person from a contribution they explicitly accepted.",
+              "zh": "一起办事时，要区分讨论后的分工与想当然的义务。有条理不自动意味着永远负责计划，善于社交也不意味着必须替大家讲话。题目关注是否讨论了意愿，不分配能力分数、不确定最适合的岗位，也不免除已经明确答应的参与。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Keep the four-item mean in its response scale",
+            "zh": "让四项均分留在原来的评价尺度上"
+          },
+          "paragraphs": [
+            {
+              "en": "For example, ratings of 3, 4, 3 and 2 sum to 12 within the possible 4–20. Dividing by four gives 3.0 on the 1–5 response scale. The items are all forward-scored. This result does not mean 60% compatible or identify the amount of personality difference a friendship should have. The arithmetic only summarises the four selected numerical responses.",
+              "zh": "例如3、4、3、2合计12，可能范围是4—20。除以四得到1—5量尺上的3.0。本版题目全部正向计分。这个结果不是60%的契合度，也不确定一段友谊应该存在多少人格差异，算式只汇总四个所选数字回答。"
+            },
+            {
+              "en": "All four numerical answers are needed for this part’s personal sum and mean. Choose the separate unscored option if the situation did not occur, cannot be judged or you prefer not to answer. A missing response is not evidence that someone rejects difference. The other complete parts keep their readings, and this guide and the other four remain open before and after completion.",
+              "zh": "本部分个人评分和及均分需要四个数字回答。情况没有发生、无法判断或不愿回答时，可以选择独立的不计分选项。没有评价不证明某个人排斥差异。其他完整部分保留读数，本指南及另外四份在完成作答前后都能阅读。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A small event can leave room for different preferences",
+            "zh": "筹备小活动可以容纳不同偏好"
+          },
+          "paragraphs": [
+            {
+              "en": "You and a friend arrange a simple gathering. One enjoys finding music; the other prefers checking the route and the timing. Before dividing anything, you ask what each would like to handle and how much time is available. A friend can prefer the music this time and a different role next time. The arrangement works through discussion rather than a permanent planner-versus-creative label.",
+              "zh": "你和朋友筹备一次简单聚会。一人喜欢找音乐，另一人更愿意查路线和时间。分工前先问各自想负责什么、有多少时间。这次选音乐的人，下次也可以换个角色。安排依靠讨论，不需要给谁永久贴上“计划型”或“创意型”标签。"
+            },
+            {
+              "en": "If one proposed activity does not appeal to both people, you might choose a short walk before the gathering or keep the activity optional. Afterwards, discuss what helped and what was difficult. The example shows possible questions to ask; it does not show that the pair is objectively complementary or that successful cooperation requires unequal talents.",
+              "zh": "某项提议并非双方都喜欢时，可以改成聚会前短暂散步，或把那项活动设为自由参加。之后再谈哪些地方有帮助、哪些比较困难。例子展示可问的问题，不证明两人客观互补，也不表示协作顺利必须拥有不同的天赋。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A difference is not automatically a benefit or a defect",
+            "zh": "不同不自动等于优势或缺点"
+          },
+          "paragraphs": [
+            {
+              "en": "Saying “we balance each other out” can hide an arrangement one friend never wanted. Perhaps the same person always coordinates because a personality label says they are good at it. Check whether the person agreed and can revisit the role. Enjoying a task on some occasions is not blanket consent to carry it indefinitely. A favourable mean cannot supply that consent.",
+              "zh": "“我们刚好互补”有时会掩盖一项朋友并不愿意的安排。例如始终让同一人协调，只因某个人格标签说对方擅长。应确认是否同意、以后能否重新商量。偶尔喜欢一项任务，不等于无限期承担的概括同意，较好的均分也不能补上这份同意。"
+            },
+            {
+              "en": "The opposite shortcut is to treat a different preference as evidence that the friendship cannot work. A friend declining a noisy event may still enjoy a quiet conversation or another activity. Look for a realistic option without pressuring anyone to participate. Some practical needs may remain incompatible, and deciding to keep a particular activity separate does not settle the value of the entire friendship.",
+              "zh": "另一种捷径，是把偏好不同当成友谊无法继续的证据。朋友不想参加吵闹活动，仍可能愿意安静聊天或做其他事情。可以寻找现实可行的选择，不施压要求参加。有些实际需要可能仍无法兼顾，把某项活动分开进行，也不决定整段友谊的价值。"
+            }
+          ]
+        },
+        {
+          "id": "comparison",
+          "title": {
+            "en": "A shared number does not reveal the source of friction",
+            "zh": "相同数字不能揭示摩擦来自哪里"
+          },
+          "paragraphs": [
+            {
+              "en": "Ratings of 2, 3, 4 and 3 also sum to 12 and display 3.0. That pattern could involve fewer shared options but more discussion of task roles than the first example. The mean cannot determine which issue has a larger effect in your circumstances. Compare the item meanings and actual occasions; do not rank the two patterns as more or less compatible.",
+              "zh": "2、3、4、3也合计12、显示3.0，可能表示较少找到共同活动，却较多讨论任务分工，和前一组侧重不同。均分不能确定在你的处境中哪件事影响更大。应比较题意及实际经历，不把两组回答排成更契合或更不契合。"
+            },
+            {
+              "en": "This part also differs from shared effort. The effort questions concern capacity, changes and following up on a commitment; these questions concern options, willingness and handling a different approach. A friendship may do well with one and struggle with another. They are editorial groupings for reflection, not validated independent factors, and no total score combines them into a friendship verdict.",
+              "zh": "本部分也不同于共同投入。投入题关注余力、变化与承诺的后续交代，这里的题关注选择、意愿和不同做法。一段友谊可以在某方面顺利，在另一方面遇到困难。这些是帮助回顾的编辑分组，不是已验证的独立因子，也没有一个总分把它们合成友谊结论。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Try one optional arrangement with explicit roles",
+            "zh": "尝试一项可以选择的安排，并说清角色"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a small upcoming activity and each offer one option. Ask what would make the option workable, what each person would like to handle and what either would rather decline. Keep the cost and duration within what both can manage. You may find a shared version, decide to do part of it separately, or postpone. An honest no gives useful planning information.",
+              "zh": "选一项近期小活动，各自提供一个选项。问问怎样才可行、各自愿意负责什么、哪些部分更想拒绝。把花费和时长放在双方能承担的范围。最后可以找到共同版本、部分分开进行，或推迟。诚实的拒绝也提供安排所需的信息。"
+            },
+            {
+              "en": "If approaches differ, describe the practical effect rather than the person: “When the time changed without a message, I could not arrange the journey,” for example. Ask what could change for the next occasion. You do not have to suppress a real concern in order to celebrate difference, and you do not have to make a test score part of the conversation.",
+              "zh": "做法不同时，可以描述实际影响，而不是评价整个人。例如：“时间变了却没有消息，我就没法安排路程。”再问下次可以怎样调整。不需要为了欣赏差异而压下真实困扰，也不必在谈话中拿出测试分数。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "A reflection on differences is not a matching algorithm",
+            "zh": "对差异的回顾不等于配对算法"
+          },
+          "paragraphs": [
+            {
+              "en": "APA’s friendship overview offers background on voluntary relationships, mutual needs and shared experiences. CDC discusses the functions and qualities of social connections. Neither source validates these four original items, establishes the five groups as a model of compatibility or identifies an ideal pairing of personalities. This questionnaire has no established norms, cutoffs or predictive accuracy for friendship outcomes.",
+              "zh": "APA的友谊概述提供自愿关系、相互需要和共同经历的背景，CDC讨论社会联系的功能与质量。两者都不验证这四项原创题，不把五组建立为契合度模型，也不确定理想的人格配对。本问卷没有已建立的常模、分界值或预测友谊结果的准确率。"
+            },
+            {
+              "en": "Your answers are a recent, one-person account. They cannot measure a friend’s talents, reveal an unspoken preference or decide what role someone should accept. If a friend independently wishes to answer, each can choose what to share and what to keep private. Similar or different scores are possible conversation prompts; neither is proof that the relationship will succeed or fail.",
+              "zh": "你的回答是近期一个人的陈述，不能测量朋友天赋、揭示未说出口的偏好，或决定某个人该接受什么角色。朋友若自愿独立作答，各自可以决定分享什么、保留什么隐私。分数相似或不同，都只是可选的谈话起点，不证明关系一定成功或失败。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "FermatMind-original-one-friendship-interaction-reflection",
+    "formCode": "fm_original_friendship_fit_20_v1",
+    "itemBankVersion": "1.0.0-original-not-validated",
+    "scoringVersion": "1.0.0-five-separate-forward-means",
+    "resultContentVersion": "1.0.0-five-full-original-guides",
+    "itemBankSha256": "fbb8a4a8f5b2e01ed03de9d53478a6378eb7eb609de0fe23196d55da7a1dd708",
+    "resultContentSha256": "19491e79626f267fd9dddbf497f5352ed11fc406b7a79396a0e903bcea1e01e2",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "APA friendship overview: background definition, not questionnaire validation",
+        "zh": "APA友谊概述：背景定义，不验证本问卷"
+      },
+      "url": "https://www.apa.org/topics/friendship"
+    },
+    {
+      "title": {
+        "en": "CDC social connection overview: relationship functions and qualities, not a score interpretation",
+        "zh": "CDC社会联系概述：关系功能与质量，不解释本问卷分数"
+      },
+      "url": "https://www.cdc.gov/social-connectedness/about/"
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Calculate each group separately",
+        "zh": "每组单独计算"
+      },
+      "paragraphs": [
+        {
+          "en": "Each group contains four original frequency items scored directly from 1 to 5. With four numerical answers, add them for a sum of 4–20 and divide by four for a one-decimal mean. For example, 4+3+4+2=13; 13/4=3.25 displays as 3.3. One unscored answer withholds only its own group’s personal sum and mean. All twenty questions require a selection, including the separate unscored option, for the attempt to finish.",
+          "zh": "每组四道原创频率题，按1—5直接计分。四题数值有效时相加得4—20的评分和，再除以四，均分显示一位小数。例如4+3+4+2=13，13/4=3.25，显示3.3。一项不计分只使所属组暂不给个人评分和与均分。二十题都需选择，其中可以有独立的不计分选项，之后本次作答结束。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "Read one perspective on recent interactions",
+        "zh": "阅读近期互动的一个视角"
+      },
+      "paragraphs": [
+        {
+          "en": "The values summarize how you recalled selected interactions in one friendship during the past four weeks. They do not reveal the friend’s intentions or feelings, establish fairness or safety, or predict how long a friendship will last. Different opportunities and circumstances affect what you can report. The five editorial groups are not validated independent factors.",
+          "zh": "这些数值汇总你对过去四周同一段友谊中部分互动的回想，不揭示朋友的意图或感受、不确定公平或安全，也不预测友谊能持续多久。实际机会及处境会影响能报告什么。五个编辑分组不是已验证的独立因子。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Keep all five complete readings available",
+        "zh": "五份完整读法同时保留"
+      },
+      "paragraphs": [
+        {
+          "en": "Every full guide remains available before and after answering, including when information is insufficient. The groups are not combined into a total, ranked or converted into a matching percentage. The same mean can contain different answers. A small decimal difference has no established meaningful-change threshold here. Read the concrete occasion before choosing a conversation to have.",
+          "zh": "所有完整指南在答题前后均可读，资料不足时也保留。不把各组合成总分、不排名、不换成匹配百分比。同一均分可能包含不同回答，本版也没有建立小数差异的有意义变化阈值。应先看具体经历，再选择想讨论的事。"
+        }
+      ]
+    },
+    {
+      "id": "original-source",
+      "title": {
+        "en": "Original questions with a limited background framework",
+        "zh": "原创题目与有限的背景依据"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind authored these twenty statements, the all-four completeness rule and the five guides. APA describes friendship through voluntary relationships, mutual needs and shared experiences; CDC discusses functions and qualities of social connection. These sources do not validate this questionnaire, its translation equivalence or an ideal friendship match. No competitor bank, scoring bands or type labels are reproduced.",
+          "zh": "二十条陈述、全四题完整度规则及五份指南由费马原创。APA通过自愿关系、相互需要与共同经历讨论友谊；CDC讨论社会联系的功能及质量。两者都不验证本问卷、双语等值或理想友谊配对，不复制竞品题库、评分档位或类型标签。"
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-choice",
+      "title": {
+        "en": "Participation and sharing are optional",
+        "zh": "参与和分享都由本人选择"
+      },
+      "paragraphs": [
+        {
+          "en": "No friend’s name, birthday, contact information or account is required. A friend may independently take the test if they wish and decide what to share; there is no paired account or hidden comparison. You can stop, decline an item or read only the guides. Privacy, consent and safety are not traded for a score, and this test cannot decide how much contact you should accept.",
+          "zh": "不需要朋友姓名、生日、联系方式或账号。朋友可以自愿独立作答，再决定分享什么；不配对账号，也不暗中比较。可以停止、对某题不计分，或只阅读指南。不拿隐私、同意或安全换分数，本测试也不能决定你应接受多少联系。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does this calculate how compatible two friends are?",
+        "zh": "这能算出两位朋友有多匹配吗？"
+      },
+      "answer": {
+        "en": "It offers five separate readings of your reported interactions, not a percentage or a two-person match. The friend does not need to submit a profile. Your answers cannot reveal what the friend thinks or predict the friendship’s future.",
+        "zh": "它提供你自报互动的五个独立读数，不产生百分比或两人配对。朋友不需要提交画像，你的回答也不能揭示对方想法或预测友谊未来。"
+      }
+    },
+    {
+      "question": {
+        "en": "Who should I think about while answering?",
+        "zh": "作答时应该想到谁？"
+      },
+      "answer": {
+        "en": "Choose one adult friendship and keep that person in mind for all twenty questions about the past four weeks. No identifying information is requested. Changing friends midway would mix different contexts and make the readings harder to interpret.",
+        "zh": "选定一段成人友谊，二十题都回顾过去四周与同一位朋友的互动，不要求身份信息。中途换人会混合不同情境，使读数更难解释。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the five means calculated?",
+        "zh": "五个均分怎样计算？"
+      },
+      "answer": {
+        "en": "Each group needs four numerical answers from 1 to 5, all forward-scored. Add them and divide by four, displaying one decimal. The five sums and means stay separate, without a combined total or winning type.",
+        "zh": "每组需要四个1—5数字回答，全部正向计分。相加再除以四，显示一位小数。五个评分和及均分分别保留，不合总分，也不派获胜类型。"
+      }
+    },
+    {
+      "question": {
+        "en": "What if a situation did not happen?",
+        "zh": "没有发生题目中的情况怎么办？"
+      },
+      "answer": {
+        "en": "Choose Not experienced / cannot judge. One unscored response withholds only its own group’s personal numbers; other complete groups retain theirs. The all-four rule is an editorial policy rather than a validated missing-data threshold. All guides remain open.",
+        "zh": "选择未经历／无法判断。一项不计分只使所属组暂不给个人数字，其他完整组保留。全四题规则是编辑政策，不是已验证的缺失阈值；全部指南继续开放。"
+      }
+    },
+    {
+      "question": {
+        "en": "Should my friend take it too, and must we share?",
+        "zh": "朋友也要做吗，必须交换结果吗？"
+      },
+      "answer": {
+        "en": "Participation and sharing are optional. A friend who chooses to answer can do so independently and decide what to disclose. Similar or different readings do not establish whose account is correct, and you do not need to negotiate with a score.",
+        "zh": "参与和分享都可自由选择。朋友若愿意，可以独立作答，再决定透露什么。读数相似或不同都不能确定谁的陈述正确，也不需要拿分数谈判。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all results free, and what is saved?",
+        "zh": "所有结果免费吗，会保存什么？"
+      },
+      "answer": {
+        "en": "All twenty questions and five full public guides are free without signup. Only an explicit opt-in saves progress in this tab for up to 24 hours; completion, reset or exit-and-clear removes it. Copying shares a public title and link, without answers, means or a friend identifier.",
+        "zh": "二十题与五份完整公开指南免费，无需注册。主动选择后才在本标签页保存最多24小时进度；完成、重置或退出并清除会移除。复制仅分享公开标题及链接，不含回答、均分或朋友身份。"
+      }
+    }
+  ]
+}

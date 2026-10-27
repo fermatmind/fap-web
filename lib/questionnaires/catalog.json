@@ -4289,5 +4289,31 @@
       "conversations-reading",
       "uncertainty-reading"
     ]
+  },
+  {
+    "slug": "friendship-compatibility",
+    "code": "FM_FRIENDSHIP_FIT_ORIGINAL20",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "relationships",
+    "title": {
+      "en": "Friendship Compatibility Test",
+      "zh": "友谊契合度测试"
+    },
+    "description": {
+      "en": "Reflect on one friendship with 20 free questions. Read five separate means, worked examples and full guides on plans, conversation, effort, privacy and differences.",
+      "zh": "用20道免费原创题回顾一段友谊，分别查看约定、表达、投入、隐私与差异的五组均分和完整指南；含算例、反例及可尝试的沟通建议。"
+    },
+    "minutes": 5,
+    "collection": "explore",
+    "formCode": "fm_original_friendship_fit_20_v1",
+    "questionCount": 20,
+    "resultSlugs": [
+      "agreements-and-priorities",
+      "room-to-speak",
+      "shared-effort",
+      "space-and-privacy",
+      "different-strengths"
+    ]
   }
 ]
