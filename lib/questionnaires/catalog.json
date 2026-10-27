@@ -4956,5 +4956,38 @@
       "nine-purple-fire"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "natal-chart",
+    "code": "FM_NATAL_CHART_CORE",
+    "version": "2026-10-28.1",
+    "updated": "2026-10-28",
+    "category": "fantasy",
+    "title": {
+      "en": "Birth chart calculator: Sun, Moon, rising and ten body placements",
+      "zh": "出生星盘计算：太阳、月亮、上升与十天体落点"
+    },
+    "description": {
+      "en": "Calculate Sun, Moon, rising and ten tropical placements from a known time, zone and coordinates. Read whole-sign houses and twelve free zodiac symbol guides.",
+      "zh": "用已知出生时间、时区与坐标计算太阳、月亮、上升和十天体落点。查看整宫制宫位、元素与性质计数，阅读十二星座符号和不同日月升角色的完整解释，免费探索文化意象。"
+    },
+    "minutes": 3,
+    "formCode": "fm_natal_known_time_core_v1",
+    "questionCount": 0,
+    "resultSlugs": [
+      "aries",
+      "taurus",
+      "gemini",
+      "cancer",
+      "leo",
+      "virgo",
+      "libra",
+      "scorpio",
+      "sagittarius",
+      "capricorn",
+      "aquarius",
+      "pisces"
+    ],
+    "collection": "explore"
   }
 ]

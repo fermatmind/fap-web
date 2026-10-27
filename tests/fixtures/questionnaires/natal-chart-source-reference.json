@@ -1,0 +1,2366 @@
+{
+  "sourceContentFreezeSHA256": "10c562fa053f5198f47d7031b12f15aaa97bf0eaa281a22d39ddcca1547076e8",
+  "sourceSEOSHA256": "a3315f240414e1bedb8754b7132e5654fd247b729db1712cb6c3590bb7928146",
+  "sourceReferencePointsSHA256": "b879218e716a3e475373b97d786792dba0e4f6bb937fb44816dddf9f62fa0e07",
+  "adoptedChanges": [
+    "Root2026-10-28: sector before0.1degree downward truncation, never roundingto30",
+    "Root: memory-only and copying fixed publicURLs only, no personal text/numbers",
+    "Root: local>=1900 andUTC>=1899-12-31T00,currentinstant inclusive",
+    "Root: firstcore omits aspects,Rx,MC/IC/DSC and4sensitivepoints; retained finalcomparison work",
+    "Explicit working-version wording instead of proposed-publication wording",
+    "UI unknown-time help removes the first-person known-time checkbox phrase; implements Root unknown=nochart/nonoonsubstitution, without changing72signsections."
+  ],
+  "publicConfiguration": {
+    "slug": "natal-chart",
+    "code": "FM_NATAL_CHART_CORE",
+    "version": "2026-10-28.1",
+    "updated": "2026-10-28",
+    "category": "fantasy",
+    "kind": "natal-chart",
+    "title": {
+      "en": "Birth chart calculator: Sun, Moon, rising and ten body placements",
+      "zh": "出生星盘计算：太阳、月亮、上升与十天体落点"
+    },
+    "description": {
+      "en": "Calculate Sun, Moon, rising and ten tropical placements from a known time, zone and coordinates. Read whole-sign houses and twelve free zodiac symbol guides.",
+      "zh": "用已知出生时间、时区与坐标计算太阳、月亮、上升和十天体落点。查看整宫制宫位、元素与性质计数，阅读十二星座符号和不同日月升角色的完整解释，免费探索文化意象。"
+    },
+    "seoTitle": {
+      "en": "Birth Chart Calculator: Sun, Moon, Rising and Ten Bodies",
+      "zh": "出生星盘计算：太阳、月亮、上升与十天体"
+    },
+    "minutes": 3,
+    "introduction": {
+      "en": "A chart starts with a time and a place. This calculator uses them to locate ten celestial bodies and the eastern-horizon point, then connects the displayed placements to a clearly labeled symbolic reading. You can explore the reading without treating it as a personality score or a prediction.",
+      "zh": "星盘从时间与地点开始。计算器据此确定十个天体和东方地平交点的位置，再把显示的落点接到明确标注的符号解释上。可以探索这些解释，无需把它们当成人格分数或预测。"
+    },
+    "instructions": {
+      "en": "Known local birth time, explicit coordinates and IANA zone are required. Use a Gregorian date from1900 through the current instant. Choose a labeled approximate reference point or enter the location yourself; no location search or device-zone guess is used.",
+      "zh": "需要已知的当地出生时间、明确坐标与IANA时区。使用1900年至当前时刻之间的公历日期。可以选择标注的近似参考点，也可以自己填写地点；不搜索出生地，也不猜设备时区。"
+    },
+    "resultHeading": {
+      "en": "Your calculated chart and symbolic reading",
+      "zh": "本次计算星盘与符号读法"
+    },
+    "natalChart": {
+      "version": "fm_natal_known_time_core_v1",
+      "engine": "astronomy-engine@2.1.19",
+      "timeResolver": "@js-temporal/polyfill@0.5.1",
+      "zodiac": "apparent-geocentric-tropical-of-date",
+      "houses": "whole-sign",
+      "display": "unrounded-sector-then-truncate-tenth",
+      "storage": "memory-only",
+      "copy": "public-links-only",
+      "minLocalDate": "1900-01-01",
+      "minUTC": "1899-12-31T00:00:00Z",
+      "privacy": {
+        "en": "Entered birth information stays in this page's memory. Clearing, leaving, reloading or changing language removes it. Birth inputs and calculated placements are excluded from public links, images and analytics. Copying includes only the public calculator and guide URLs, never personal numbers.",
+        "zh": "输入的出生信息只保留在本页内存中；清除、离开、刷新或切换语言会移除。公开链接、图片和分析事件不包含出生输入或计算落点。复制内容仅有公开计算器和指南网址，不含个人数值。"
+      },
+      "knownTimeNotice": {
+        "en": "This version requires a known local birth time. No chart is calculated without it, and it will not substitute noon. All public sign and method readings remain available.",
+        "zh": "本版本需要已知的当地出生时间。时间未知时不计算星盘，也不代填中午；全部公开星座与方法解释仍可阅读。"
+      },
+      "inputNotice": {
+        "en": "Use a known local birth date and time, the location's coordinates and its IANA time zone. You may choose an explicitly labeled reference point or enter coordinates yourself. A reference point is an approximation of the location, not a search for your exact birth site. Check the displayed coordinates and zone before calculating.",
+        "zh": "使用已知的当地出生日期、时间、地点坐标与 IANA 时区。可以选明确标注的参考点，也可以自行输入坐标。参考点是地点近似，不是对准确出生地点的搜索；计算前请核对显示的坐标和时区。"
+      },
+      "readingOrder": [
+        {
+          "en": "Start with the numeric placement table. A body name, sign and degree describe a calculated position. The Ascendant is a point, while the Sun is a star, the Moon a satellite and Pluto a dwarf planet. The ten-body grouping follows astrological usage and does not reclassify them astronomically.",
+          "zh": "先看数字落点表。天体名称、星座和度数描述计算的位置。上升点是一个点，太阳是恒星，月亮是卫星，冥王星是矮行星。十天体分组沿用占星习惯，不改变它们的天文学分类。"
+        },
+        {
+          "en": "Read the Sun, Moon and rising cards next. They answer different symbolic questions: chosen expression, comfort and response, and an approach to a new situation. Their signs may be different. None of the three is a hidden or more authentic version of you.",
+          "zh": "接着读太阳、月亮与上升卡片。三者的符号问题不同：主动表达、安顿感受与反应、进入新情境的方式。它们可以位于不同星座，没有哪个代表隐藏或更真实的你。"
+        },
+        {
+          "en": "For another body, combine its topic with the sign's image and the house's context. These three modules remain visible so you can see how the reading was assembled. They are not a secret assessment or a set of independently tested body-by-sign personality profiles.",
+          "zh": "其他天体可以把天体主题、星座意象与宫位情境合起来读。三个模块分别呈现，让你看清解释怎样组成；它不是隐藏的测评，也不是一套逐天体、逐星座独立验证的人格档案。"
+        },
+        {
+          "en": "Finally, compare any reflection with experience. A fitting example may be interesting; a mismatch is also information. The chart does not decide your health, ability, relationships, work, finances or future. For a consequential decision, use evidence about that decision rather than a symbolic placement.",
+          "zh": "最后把反思与体验比较。吻合的例子可能有趣，不吻合同样是信息。星盘不决定健康、能力、关系、工作、财务或未来。有实际后果的决定，应依据相关事实，而不是符号落点。"
+        }
+      ],
+      "boundaries": {
+        "calculationVsMeaning": {
+          "en": "A reproducible astronomical calculation can support the displayed positions. It does not validate a symbolic interpretation of personality or events. Publisher references explain how a tradition uses the symbols; they are not empirical evidence that a placement causes the described theme.",
+          "zh": "可复现的天文计算可以支持显示的位置，但不会验证有关人格或事件的符号解释。出版方资料说明传统怎样使用符号，不是落点导致某种主题的实证证据。"
+        },
+        "rounding": {
+          "en": "Signs are assigned from unrounded longitude. Degrees within the sign are then truncated downward to one decimal place: 29.99° displays as 29.9° in the same sign. Near a boundary, input or model differences may change the sign. Display resolution is not a guarantee of physical accuracy or of a birth record.",
+          "zh": "先按未舍入黄经确定星座，再把星座内度数向下截取到一位小数：29.99°显示为同一星座的29.9°。靠近边界时，输入或模型差异可能改变星座。显示分辨率不保证物理精度或出生记录准确。"
+        },
+        "timezone": {
+          "en": "A local clock reading needs the correct location-specific time zone for that date. Where a clock repeats, choose the intended occurrence using the displayed UTC offset and instant. A nonexistent clock time must be corrected. Historical civil-time records and installed time-zone data may be incomplete or differ, particularly before 1970.",
+          "zh": "当地钟表时间需要该地点、该日期适用的时区。钟表时间重复时，应依据显示的 UTC 偏移与时刻选择所指的一次；不存在的钟表时间需要修正。历史民用时间记录与安装的时区数据可能不完整或存在差异，尤其是1970年以前。"
+        },
+        "referenceLocation": {
+          "en": "A labeled reference point can make an example convenient, but it is not your exact birthplace. Changing coordinates can affect the horizon point and its dependent houses. Keep the method and inputs aligned before comparing two calculators.",
+          "zh": "标注的参考点可以方便演示，却不是准确出生地点。改变坐标可能影响地平交点和依赖它的宫位。比较两个计算器之前，应先对齐方法与输入。"
+        },
+        "limits": {
+          "en": "Use a known birth date and time from January 1, 1900, through the present. If a unique rising point cannot be determined, the computable body positions remain available while the rising point and dependent houses are marked unavailable. Finite reference comparisons do not establish accuracy for every date, place or boundary.",
+          "zh": "使用1900年1月1日至当前之间、时间已知的出生记录。如果无法确定唯一上升点，保留可计算的天体位置，并把上升点及依赖它的宫位标为不可用。有限参考点比较不能证明所有日期、地点或边界的精度。"
+        }
+      },
+      "bodyRoles": [
+        {
+          "id": "sun",
+          "name": {
+            "en": "Sun",
+            "zh": "太阳"
+          },
+          "topic": {
+            "en": "Identity and chosen expression",
+            "zh": "认同与主动表达"
+          },
+          "paragraphs": [
+            {
+              "en": "In the adopted symbolic vocabulary, the Sun concerns identity and what is deliberately expressed. Its sign adds an image for exploring that theme; its house adds a separate topic context. A Sun placement is not a personality test result. For example, a question about what you want a hobby to express is different from a claim about what you are naturally good at.",
+              "zh": "在所选符号语言中，太阳涉及认同与主动表达的内容。星座增加探索主题的意象，宫位另给一个情境。太阳落点不是人格测验结果。例如，问希望爱好表达什么，与断言自己天生擅长什么，是不同的事。"
+            },
+            {
+              "en": "Use the Sun card to distinguish a chosen interest from a label you feel expected to accept. If the associated image does not help, leave it aside. The astronomical position remains the same; accepting its symbolic story is optional.",
+              "zh": "可以用太阳卡片区分主动选择的兴趣，与觉得自己理应接受的标签。如果相关意象没有帮助，就把它放在一边。天文位置不变，是否接受符号故事由自己选择。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/sun"
+        },
+        {
+          "id": "moon",
+          "name": {
+            "en": "Moon",
+            "zh": "月亮"
+          },
+          "topic": {
+            "en": "Comfort and emotional response",
+            "zh": "安顿感受与情绪反应"
+          },
+          "paragraphs": [
+            {
+              "en": "The Moon's conventional role concerns comfort, familiarity and emotional response. In this reading, it supplies a question rather than a diagnosis: what actually helped you settle in a specific situation? The sign offers an image to explore, not a measured need. The house gives a topic for the example, not evidence that something occurred in that part of your life.",
+              "zh": "月亮的传统角色涉及舒适、熟悉与情绪反应。这里提供的是问题，而不是诊断：在一个具体情境中，究竟什么帮助自己安顿下来？星座提供可探索的意象，不是测得的需要；宫位给例子一个主题，不证明那方面发生过什么。"
+            },
+            {
+              "en": "A close-to-boundary Moon placement deserves particular care when the input time is uncertain. An exact-looking degree does not repair an uncertain birth record. Do not use a Moon sign to infer childhood experiences, attachment or mental health.",
+              "zh": "当输入时间不确定时，靠近星座交界的月亮落点尤其需要留意。看起来精确的度数，不能修补不确定的出生记录。不要用月亮星座推断童年经历、依恋或心理健康。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/moon"
+        },
+        {
+          "id": "mercury",
+          "name": {
+            "en": "Mercury",
+            "zh": "水星"
+          },
+          "topic": {
+            "en": "Communication and making sense of information",
+            "zh": "沟通与理解信息"
+          },
+          "paragraphs": [
+            {
+              "en": "Mercury supplies the symbolic topic of communication, learning and handling information. Combine it with the sign to frame a question about a message: what needs saying, who needs to understand it, and which wording helps? The placement does not measure intelligence, memory, language skill or educational potential.",
+              "zh": "水星提供沟通、学习与处理信息的符号主题。结合星座，可以问一条消息：需要说什么、谁需要理解、什么措辞有帮助？这个落点不测量智力、记忆、语言能力或教育潜力。"
+            },
+            {
+              "en": "Try comparing a first draft with a version revised for a specific reader. The reader's feedback is evidence about that message. Agreement with the sign's image is only a reflection and cannot establish that Mercury caused the communication style.",
+              "zh": "可以比较初稿与为具体读者修改的版本。读者的反馈是关于这条信息的证据；与星座意象吻合，只是一次反思，不能证明水星造成了某种沟通风格。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/mercury"
+        },
+        {
+          "id": "venus",
+          "name": {
+            "en": "Venus",
+            "zh": "金星"
+          },
+          "topic": {
+            "en": "Appreciation, enjoyment and relating",
+            "zh": "欣赏、享受与相处"
+          },
+          "paragraphs": [
+            {
+              "en": "Venus conventionally concerns appreciation, beauty, pleasure and relating. Here it can frame a small question about what you enjoy in an object, activity or exchange. Keep the description concrete: a texture, a kind gesture or an arrangement you like. None of these is evidence about a destined partner or relationship compatibility.",
+              "zh": "金星传统上涉及欣赏、美感、愉悦与相处。这里可以用它提出一个小问题：喜欢一件物品、活动或交流中的什么？尽量具体到质地、善意举动或喜爱的安排。这些都不能证明命定伴侣或关系匹配。"
+            },
+            {
+              "en": "If another person is involved, ask what they enjoy instead of assigning preferences from their chart. The symbolic module can start a conversation, but it cannot provide consent, mutual attraction, financial advice or a judgment about anyone's appearance.",
+              "zh": "涉及别人时，应询问对方喜欢什么，而不是从星盘替其分配偏好。符号模块可以成为谈话起点，但不能提供同意、相互吸引、财务建议或外貌评价。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/venus"
+        },
+        {
+          "id": "mars",
+          "name": {
+            "en": "Mars",
+            "zh": "火星"
+          },
+          "topic": {
+            "en": "Action and assertion",
+            "zh": "行动与表达主张"
+          },
+          "paragraphs": [
+            {
+              "en": "Mars supplies a conventional topic of action, effort and assertion. The sign offers an image for considering how a task starts or how a preference is stated. An ordinary example is asking for a turn in a shared activity. The chart cannot measure courage, aggression, stamina or the ability to handle conflict.",
+              "zh": "火星提供行动、投入与表达主张的传统主题。星座增加一个意象，用来考虑任务怎样开始、偏好怎样说出。日常例子可以是在共同活动中提出轮到自己。星盘不能测量勇气、攻击性、耐力或处理冲突的能力。"
+            },
+            {
+              "en": "Ask what action is proportionate to the actual situation and what information is missing. A pause can be a deliberate action too. Nothing in the Mars placement authorizes pressure, unsafe behavior or a claim about another person's intentions.",
+              "zh": "可以问什么行动与实际情境相称，还缺什么信息。暂停也可以是主动行动。火星落点不构成施压、不安全行为或判断他人意图的依据。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/mars"
+        },
+        {
+          "id": "jupiter",
+          "name": {
+            "en": "Jupiter",
+            "zh": "木星"
+          },
+          "topic": {
+            "en": "Meaning and expansion",
+            "zh": "意义与扩展"
+          },
+          "paragraphs": [
+            {
+              "en": "Jupiter's symbolic topic concerns meaning, learning and widening a frame of reference. A useful question is what a larger view adds to the matter you are considering. For example, an account from another place may challenge an assumption. This module does not identify luck, wealth, moral worth or a favorable time to take a risk.",
+              "zh": "木星的符号主题涉及意义、学习与扩大参照范围。一个有用问题是，更宽的视角为正在考虑的事情增加了什么。例如，来自另一个地方的叙述可能挑战原有假设。这个模块不识别好运、财富、道德价值或适合冒险的时机。"
+            },
+            {
+              "en": "Separate the appealing idea from the evidence supporting it. Growth can mean a more precise understanding rather than more activity. The sign and house give an optional reading context, not a forecast of opportunities or success.",
+              "zh": "把吸引人的想法与支持它的证据分开。扩展可以是理解更准确，而不一定是活动更多。星座和宫位提供可选阅读情境，不预告机会或成功。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/jupiter"
+        },
+        {
+          "id": "saturn",
+          "name": {
+            "en": "Saturn",
+            "zh": "土星"
+          },
+          "topic": {
+            "en": "Limits, structure and responsibility",
+            "zh": "限制、结构与责任"
+          },
+          "paragraphs": [
+            {
+              "en": "Saturn conventionally concerns limits, time, structure and responsibility. Read the module as a way to ask what makes an arrangement sustainable. A deadline, an agreed scope or a clear stopping point can serve as an example. A Saturn placement does not prove hardship, deficiency, maturity or a debt that must be repaid.",
+              "zh": "土星传统上涉及限制、时间、结构与责任。可以把模块用来问，一项安排靠什么持续。期限、约定范围或清楚的停止点，都可以作例子。土星落点不能证明艰难、缺陷、成熟，或必须偿还的债务。"
+            },
+            {
+              "en": "Distinguish a limit you can negotiate from a condition you cannot change today. Rest and withdrawing from an unsuitable commitment can belong in a workable structure. The chart assigns no obligation to endure difficulty or earn support through effort.",
+              "zh": "区分能够协商的限制，与今天无法改变的条件。休息、退出不合适的投入，都可以属于可行结构。星盘没有要求忍受困难，也没有规定支持必须靠努力换取。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/saturn"
+        },
+        {
+          "id": "uranus",
+          "name": {
+            "en": "Uranus",
+            "zh": "天王星"
+          },
+          "topic": {
+            "en": "Experiment and departure from a pattern",
+            "zh": "试验与偏离惯常模式"
+          },
+          "paragraphs": [
+            {
+              "en": "In modern astrological symbolism, Uranus concerns departure from convention and experimentation. Try reading its sign as a shared cultural image of change rather than an individual trait. The outer bodies move slowly enough that many people share the same sign placement. Sharing it does not imply a shared personality or an identical life course.",
+              "zh": "在现代占星符号中，天王星涉及离开惯例与试验。可以把星座读作共享的变化意象，而不是个人特质。外侧天体移动较慢，许多人会拥有同一星座落点；共用落点不表示性格相同，也不表示人生轨迹一样。"
+            },
+            {
+              "en": "A low-stakes example is testing a different order for a familiar task and comparing the result. Keep what works, reverse what does not. The module does not predict disruption, inventiveness, accidents or social change.",
+              "zh": "一个低影响例子是给熟悉的任务换个顺序，再比较结果：好用的留下，不好用的改回去。模块不预测动荡、创造发明、意外或社会变化。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/uranus"
+        },
+        {
+          "id": "neptune",
+          "name": {
+            "en": "Neptune",
+            "zh": "海王星"
+          },
+          "topic": {
+            "en": "Imagination, ideals and ambiguity",
+            "zh": "想象、理想与模糊"
+          },
+          "paragraphs": [
+            {
+              "en": "Modern astrology associates Neptune with imagination, ideals and ambiguity. This module asks how an impression differs from an observation. A film, picture or story can make that distinction interesting to explore. The position does not establish intuition, spirituality, deception, mental health or substance use. Its slow movement also makes the sign placement widely shared.",
+              "zh": "现代占星把海王星与想象、理想和模糊联系。这个模块问的是，印象与观察事实有什么差别；电影、图片或故事可以让这种比较变得有趣。位置不判断直觉、灵性、欺骗、心理健康或物质使用情况；缓慢移动也让星座落点被许多人共享。"
+            },
+            {
+              "en": "Write a plain account of what was visible, then a separate description of the atmosphere you imagined. Both can be meaningful for different purposes. Neither should silently replace the other when accuracy matters.",
+              "zh": "先朴素地写出可见内容，再单独描述自己想象的氛围。两者可以分别服务不同目的；需要准确时，不应让其中一个悄悄替代另一个。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/neptune"
+        },
+        {
+          "id": "pluto",
+          "name": {
+            "en": "Pluto",
+            "zh": "冥王星"
+          },
+          "topic": {
+            "en": "Change, power and letting go",
+            "zh": "变化、力量与放下"
+          },
+          "paragraphs": [
+            {
+              "en": "Pluto is a dwarf planet. Its modern astrological role conventionally concerns deep change and power. Here those themes are prompts for discussing an arrangement, not predictions of crisis or transformation. Many people share its sign because it moves slowly. A placement cannot reveal trauma, danger, coercion or a hidden truth about your life.",
+              "zh": "冥王星是矮行星。它在现代占星中的传统角色涉及深层变化与力量。这里把这些主题用作讨论一项安排的提示，不预测危机或蜕变。由于移动缓慢，许多人拥有相同星座落点；落点不能揭示创伤、危险、胁迫或人生中隐秘的真相。"
+            },
+            {
+              "en": "For an ordinary example, consider whether a rule in a hobby group is still useful and who can change it. Describe the actual decision process rather than assigning power from the chart. You do not need a dramatic event to make this symbol fit.",
+              "zh": "日常例子可以是，一项兴趣小组的规则是否仍有用、谁能修改。描述真实的决定过程，不要从星盘分配权力。也无需寻找剧烈事件来迎合这个符号。"
+            }
+          ],
+          "sourceURL": "https://www.astrology.com/planets/pluto"
+        }
+      ],
+      "houseContexts": [
+        {
+          "number": 1,
+          "topic": {
+            "en": "Self-presentation and beginnings",
+            "zh": "自我呈现与开始"
+          },
+          "reading": {
+            "en": "Use this house as a topic about how an activity or introduction begins. A body here brings its symbolic question into that topic. It does not assess the body, appearance, health or how others actually perceive you. Compare a specific introduction with what you intended to communicate.",
+            "zh": "把这一宫用作活动或介绍怎样开始的主题。位于此处的天体，把自身符号问题带入这个主题。它不评估身体、外貌、健康或别人实际怎样看你。可以比较一次具体介绍与原本想传达的内容。"
+          }
+        },
+        {
+          "number": 2,
+          "topic": {
+            "en": "Resources and what is valued",
+            "zh": "资源与珍视之物"
+          },
+          "reading": {
+            "en": "This context concerns resources, possessions and what you choose to value. An ordinary example is deciding which materials a hobby needs. It is not a wealth score, an income forecast or advice about saving and investing. Use real resources and constraints when a practical choice is involved.",
+            "zh": "这个情境涉及资源、物品与选择珍视什么。日常例子可以是决定一项爱好需要哪些材料。它不是财富分数、收入预告或储蓄投资建议。涉及实际选择时，应依据真实资源与限制。"
+          }
+        },
+        {
+          "number": 3,
+          "topic": {
+            "en": "Everyday exchange and learning",
+            "zh": "日常交流与学习"
+          },
+          "reading": {
+            "en": "Read this house through ordinary messages, nearby activities and learning. A body supplies the question you bring to that context. You might compare two ways to explain a route. The placement does not establish language ability, intelligence, a sibling relationship or a future journey.",
+            "zh": "可以通过日常消息、附近活动和学习理解这一宫，天体提供带入情境的问题。比如比较两种说明路线的方法。落点不证明语言能力、智力、手足关系或未来行程。"
+          }
+        },
+        {
+          "number": 4,
+          "topic": {
+            "en": "Home, roots and a private base",
+            "zh": "居所、根源与私人空间"
+          },
+          "reading": {
+            "en": "This is a symbolic context for home, remembered roots or a private base. Home can have different meanings and need not imply a particular family structure. A small example is choosing a corner that feels your own. The chart does not disclose family history, childhood conditions or housing prospects.",
+            "zh": "这是关于居所、记忆中的根源或私人空间的符号情境。家有不同含义，不必对应某种家庭结构。小例子可以是选择一个属于自己的角落。星盘不披露家庭历史、童年条件或住房前景。"
+          }
+        },
+        {
+          "number": 5,
+          "topic": {
+            "en": "Making, play and enjoyment",
+            "zh": "创作、游戏与乐趣"
+          },
+          "reading": {
+            "en": "Use this house as a context for making something, playing or enjoying an activity. It can support a concrete reflection about an experiment in a hobby. Traditional associations with romance or children are not predictions about relationships or fertility, and no creative ability is measured by a body occupying this house.",
+            "zh": "把这一宫用作制作、游戏或享受活动的情境，可以围绕爱好中的一次小尝试作具体反思。传统上与恋爱或子女的联系，不是对关系或生育的预测；天体位于此宫，也不测量创造能力。"
+          }
+        },
+        {
+          "number": 6,
+          "topic": {
+            "en": "Routine tasks and everyday maintenance",
+            "zh": "例行任务与日常维护"
+          },
+          "reading": {
+            "en": "This context concerns ordinary tasks and the arrangements that keep an activity going. Consider a manageable routine and who agreed to do it. Although historical astrology includes health in this house, this tool makes no health assessment, diagnosis or treatment suggestion from its placements.",
+            "zh": "这个情境涉及普通任务，以及让活动持续的安排。可以考虑一个可承受的习惯，以及谁同意承担它。虽然历史占星把健康列入这一宫，本工具不会从落点作健康评估、诊断或治疗建议。"
+          }
+        },
+        {
+          "number": 7,
+          "topic": {
+            "en": "One-to-one exchange and agreements",
+            "zh": "一对一交流与约定"
+          },
+          "reading": {
+            "en": "Read this house through a specific exchange or agreement between participants. Ask what each person actually said and accepted. A placement does not identify a partner, predict marriage or measure compatibility. Mutual preferences and consent must come from the people involved, not the chart.",
+            "zh": "通过参与者之间一次具体交流或约定理解这一宫。可以问各人实际说了什么、同意什么。落点不识别伴侣、预测婚姻或测量匹配度。相互偏好与同意来自当事人，不来自星盘。"
+          }
+        },
+        {
+          "number": 8,
+          "topic": {
+            "en": "Shared resources and boundaries",
+            "zh": "共用资源与边界"
+          },
+          "reading": {
+            "en": "This context can frame questions about what is shared and how access or responsibility is agreed. A low-stakes example is lending an item and clarifying its return. It is not a forecast of debt, inheritance, loss, death or danger. Use actual agreements and appropriate professional advice for consequential matters.",
+            "zh": "这个情境可以提出共用什么、怎样约定使用权或责任的问题。低影响例子是借出一件物品，并说清归还安排。它不预告债务、遗产、损失、死亡或危险。有实际后果的事项应依据真实约定与适当专业意见。"
+          }
+        },
+        {
+          "number": 9,
+          "topic": {
+            "en": "Study, beliefs and wider perspectives",
+            "zh": "学习、信念与更宽视角"
+          },
+          "reading": {
+            "en": "Use this house for a topic about a broader account, a course of study or a belief you are considering. A body adds a symbolic question, not an endorsement of the belief. Comparing two sources can make the reflection concrete. The placement does not forecast travel, qualifications or spiritual achievement.",
+            "zh": "把这一宫用于更广的叙述、一项学习或正在考虑的信念。天体增加符号问题，不替信念背书。比较两个来源，可以让反思具体。落点不预告旅行、资格获得或灵性成就。"
+          }
+        },
+        {
+          "number": 10,
+          "topic": {
+            "en": "Public roles and visible responsibilities",
+            "zh": "公开角色与可见责任"
+          },
+          "reading": {
+            "en": "This is a context for what becomes visible to a group and the responsibilities attached to a role. A small example is presenting a shared project's progress. It does not rank status, choose a career or predict recognition. Your actual responsibilities, skills and circumstances remain the relevant evidence.",
+            "zh": "这个情境涉及群体能看见什么，以及某个角色所附的责任。小例子可以是介绍共同项目的进展。它不排列地位、选择职业或预测认可。真实责任、技能和处境才是相关证据。"
+          }
+        },
+        {
+          "number": 11,
+          "topic": {
+            "en": "Groups, friendships and shared hopes",
+            "zh": "群体、友谊与共同期待"
+          },
+          "reading": {
+            "en": "Read this house through participation in a group or a shared hope. You might examine how an activity includes its members or how a common aim is described. A placement does not measure popularity, social support or a friend's intentions, and it does not guarantee that a hope will be fulfilled.",
+            "zh": "通过群体参与或共同期待理解这一宫。可以观察活动怎样包含成员，或大家怎样描述共同目标。落点不测量人气、社会支持或朋友的意图，也不保证愿望实现。"
+          }
+        },
+        {
+          "number": 12,
+          "topic": {
+            "en": "Retreat and what stays out of view",
+            "zh": "退隐与不公开的部分"
+          },
+          "reading": {
+            "en": "This context can concern time away from an audience, unfinished thoughts or an activity kept private. A simple example is deciding which notes are only for yourself. The house does not expose hidden enemies, unconscious motives, mental illness or a karmic debt. Privacy need not conceal a problem to be valuable.",
+            "zh": "这个情境可以涉及离开观众的时间、尚未成形的想法，或只给自己保留的活动。简单例子是决定哪些笔记仅供自己看。这一宫不揭露暗中敌人、无意识动机、精神疾病或业力债务。隐私不必藏着问题，也可以有价值。"
+          }
+        }
+      ],
+      "ascendantRole": {
+        "topic": {
+          "en": "The eastern-horizon point and a symbolic opening",
+          "zh": "东方地平交点与符号性的开场"
+        },
+        "paragraphs": [
+          {
+            "en": "The Ascendant is the eastern intersection of the horizon and ecliptic for the chosen time and coordinates. In this reading its sign provides an image for entering a situation. It is not a celestial body, a personality score or evidence about appearance. If the time is unknown or the geometry cannot identify a unique rising point, this card and the dependent houses remain unavailable.",
+            "zh": "上升点是给定时间与坐标下，地平与黄道的东方交点。这里用它的星座提供进入情境的意象。它不是天体、人格分数或外貌证据。时间未知或几何条件无法确定唯一上升点时，这张卡片及依赖它的宫位保持不可用。"
+          },
+          {
+            "en": "Whole-sign houses begin at the start of the Ascendant's sign. An Ascendant at 8 degrees Leo therefore lies within a first house spanning Leo; it does not move the house boundary to 8 degrees. Other house systems use different conventions, so comparisons need matching methods.",
+            "zh": "整宫制从上升星座的起点开始第一宫。因此上升狮子座8度，位于涵盖狮子座的第一宫内，并不会把宫界移到8度。其他宫制使用不同约定，比较之前要先对齐方法。"
+          }
+        ]
+      },
+      "inventoryReading": {
+        "definition": {
+          "en": "Each of the ten bodies contributes one count to the element and modality of its calculated sign. The Ascendant and houses do not add counts. The four element counts and the three modality counts each total ten. These are an inventory of placements, not percentages of personality or a hierarchy of elements.",
+          "zh": "十个天体各按计算出的星座，为所属元素与性质贡献一个计数。上升点和宫位不加入计数。四种元素之和、三种性质之和分别为十。这是落点清单，不是人格百分比，也不是元素的高低排名。"
+        },
+        "zero": {
+          "en": "Zero means none of these ten bodies occupies a sign in that group in this chart. It does not indicate a missing quality, inability or a problem that needs to be balanced.",
+          "zh": "零表示这张盘的十个天体，没有落在该组的星座内；不表示缺少某种品质、没有能力，或存在需要补平的问题。"
+        }
+      },
+      "referencePoints": [
+        {
+          "id": "america-argentina-buenos-aires",
+          "name": {
+            "en": "Buenos Aires",
+            "zh": "布宜诺斯艾利斯"
+          },
+          "zone": "America/Argentina/Buenos_Aires",
+          "latitude": -34.6,
+          "longitude": -58.45
+        },
+        {
+          "id": "australia-sydney",
+          "name": {
+            "en": "Sydney",
+            "zh": "悉尼"
+          },
+          "zone": "Australia/Sydney",
+          "latitude": -33.86666666666667,
+          "longitude": 151.21666666666667
+        },
+        {
+          "id": "asia-shanghai",
+          "name": {
+            "en": "Shanghai",
+            "zh": "上海"
+          },
+          "zone": "Asia/Shanghai",
+          "latitude": 31.233333333333334,
+          "longitude": 121.46666666666667
+        },
+        {
+          "id": "europe-paris",
+          "name": {
+            "en": "Paris",
+            "zh": "巴黎"
+          },
+          "zone": "Europe/Paris",
+          "latitude": 48.86666666666667,
+          "longitude": 2.3333333333333335
+        },
+        {
+          "id": "europe-london",
+          "name": {
+            "en": "London",
+            "zh": "伦敦"
+          },
+          "zone": "Europe/London",
+          "latitude": 51.50833333333333,
+          "longitude": -0.12527777777777777
+        },
+        {
+          "id": "asia-kolkata",
+          "name": {
+            "en": "Kolkata",
+            "zh": "加尔各答"
+          },
+          "zone": "Asia/Kolkata",
+          "latitude": 22.533333333333335,
+          "longitude": 88.36666666666666
+        },
+        {
+          "id": "asia-tokyo",
+          "name": {
+            "en": "Tokyo",
+            "zh": "东京"
+          },
+          "zone": "Asia/Tokyo",
+          "latitude": 35.654444444444444,
+          "longitude": 139.7447222222222
+        },
+        {
+          "id": "asia-seoul",
+          "name": {
+            "en": "Seoul",
+            "zh": "首尔"
+          },
+          "zone": "Asia/Seoul",
+          "latitude": 37.55,
+          "longitude": 126.96666666666667
+        },
+        {
+          "id": "asia-singapore",
+          "name": {
+            "en": "Singapore",
+            "zh": "新加坡"
+          },
+          "zone": "Asia/Singapore",
+          "latitude": 1.2833333333333332,
+          "longitude": 103.85
+        },
+        {
+          "id": "asia-taipei",
+          "name": {
+            "en": "Taipei",
+            "zh": "台北"
+          },
+          "zone": "Asia/Taipei",
+          "latitude": 25.05,
+          "longitude": 121.5
+        },
+        {
+          "id": "america-new-york",
+          "name": {
+            "en": "New York",
+            "zh": "纽约"
+          },
+          "zone": "America/New_York",
+          "latitude": 40.71416666666667,
+          "longitude": -74.00638888888889
+        },
+        {
+          "id": "america-los-angeles",
+          "name": {
+            "en": "Los Angeles",
+            "zh": "洛杉矶"
+          },
+          "zone": "America/Los_Angeles",
+          "latitude": 34.05222222222222,
+          "longitude": -118.24277777777777
+        }
+      ]
+    },
+    "directions": [],
+    "questions": [],
+    "profiles": [
+      {
+        "id": "aries",
+        "directionIds": [],
+        "signName": {
+          "en": "Aries",
+          "zh": "白羊座"
+        },
+        "glyph": "♈",
+        "element": "fire",
+        "modality": "cardinal",
+        "title": {
+          "en": "Aries placements: giving a beginning a direction",
+          "zh": "白羊座落点：让开始有个方向"
+        },
+        "headline": {
+          "en": "Aries · Fire · Cardinal",
+          "zh": "白羊座 · 火元素 · 基本性质"
+        },
+        "summary": {
+          "en": "Explore the Aries ram symbol through initiative and beginnings. Read distinct Sun, Moon and rising contexts, body-role examples and a practical reflection.",
+          "zh": "从主动与开始的意象理解白羊座公羊符号，分别阅读太阳的主动表达、月亮的感受反应和上升的开场角色，结合其他天体例子与日常反思，读清落点而非套用性格标签。"
+        },
+        "seo": {
+          "title": {
+            "en": "Aries in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的白羊座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Explore the Aries ram symbol through initiative and beginnings. Read distinct Sun, Moon and rising contexts, body-role examples and a practical reflection.",
+            "zh": "从主动与开始的意象理解白羊座公羊符号，分别阅读太阳的主动表达、月亮的感受反应和上升的开场角色，结合其他天体例子与日常反思，读清落点而非套用性格标签。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "What the ram represents",
+              "zh": "公羊符号在说什么"
+            },
+            "paragraphs": [
+              {
+                "en": "In the astrological tradition used here, the ram represents initiative, directness and the impulse to begin. Aries combines the fire element with the cardinal mode: an image of setting something in motion. This is a symbolic vocabulary. A calculated placement in Aries identifies a sector of the chart; it does not demonstrate courage, impatience or leadership in the person whose date was entered.",
+                "zh": "在这里采用的占星传统中，公羊代表主动、直接和开始的冲力。白羊座把火元素与基本性质放在一起，可以读作让事情动起来的意象。这是一套符号语言。计算出的白羊座落点标记星盘中的一个区段，不能证明输入出生日期的人勇敢、急躁或具有领导力。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Aries: the theme of choosing a start",
+              "zh": "太阳白羊：选择怎样开始"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun supplies the theme of identity and deliberate expression; Aries supplies the image of initiative. Read their combination as a question about what you choose to set in motion. For an ordinary example, imagine wanting to start a small drawing project. Defining the first page and opening the sketchbook makes the theme concrete. Declaring that you were born to lead does not. A useful second question is whether the chosen start belongs to you or merely responds to pressure to be first.",
+                "zh": "太阳提供自我认同与主动表达的主题，白羊提供发起的意象。把两者合起来，可以问自己愿意推动什么。举个日常例子：想做一个小型绘画计划，先确定第一页画什么，再打开本子，主题就具体了；宣称自己天生就该领导别人则没有这种依据。还可以追问：这个开始出于自己的选择，还是只因被催着抢先？"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Aries: movement as a reflection prompt",
+              "zh": "月亮白羊：用行动主题观察感受"
+            },
+            "paragraphs": [
+              {
+                "en": "The Moon changes the question from chosen direction to comfort and emotional response. Aries symbolism invites you to compare acting immediately with allowing a feeling to become clearer. After an irritating interruption, one possible response is to name the next small task; another is to take a pause before replying. Neither response is prescribed by this placement. Notice which actually helps in the situation instead of treating a fast reaction as proof of an Aries Moon.",
+                "zh": "月亮把问题从主动选择的方向，转向安顿感受与情绪反应。白羊的符号可以用来比较立即行动和先把感受弄清楚。遇到令人烦躁的打断时，可以先说清下一件小事，也可以等一会儿再回复。这个落点不规定哪种反应才正确；观察当时什么真正有帮助，不要把反应快当作月亮白羊的证明。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Aries rising: an opening move",
+              "zh": "白羊上升：怎样走出开场的一步"
+            },
+            "paragraphs": [
+              {
+                "en": "The Ascendant is a calculated eastern-horizon point. Its symbolic role concerns an approach to entering a situation, rather than a second Sun sign. With Aries rising, use the idea of an opening move: introducing yourself with a clear question, proposing a first step, or deciding to listen before acting. These are possible examples, not observations about how strangers see you. The calculation cannot establish your appearance, assertiveness or effect on a room.",
+                "zh": "上升点是计算出的东方地平交点。它的符号角色侧重进入情境的方式，并不是第二个太阳星座。白羊上升可以用开场动作来理解：用明确的问题介绍自己、提出第一步，或决定先听再做。这些只是可供比较的例子，不是对陌生人怎样看你的观察。计算不能判定外貌、强势程度或你走进房间时的影响。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Keep the planet's question",
+              "zh": "换了天体，也要保留它的问题"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Aries would attach this initiating image to communication; Saturn in Aries would attach it to limits and sustained effort. Do not turn every Aries placement into the same personality statement. The body identifies the topic, the sign supplies the symbolic style, and the whole-sign house supplies a separate topic context. Read all three labels before deciding what the example is about.",
+                "zh": "水星白羊把发起意象接到沟通主题，土星白羊则把它接到限制与持续投入。不要把所有白羊落点都读成同一句性格描述。天体确定问题主题，星座提供符号风格，整宫制宫位另给一个情境主题。先看清三个标签，再判断例子讨论的是什么。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "One start, with a stopping point",
+              "zh": "试一个有停止点的开始"
+            },
+            "paragraphs": [
+              {
+                "en": "If the symbol interests you, choose a harmless task you already wanted to try. Write its first action and its stopping point, then compare expectation with experience. A cautious or reluctant response is an equally valid observation. No result needs to be made to fit the ram, and no important decision needs to follow from the chart.",
+                "zh": "如果这个符号让你感兴趣，选一件本来就想尝试的小事，写下第一步和停止的位置，再对照预期与实际体验。谨慎或不愿开始同样是有效观察。无需让任何结果迎合公羊，也无需依星盘作重要决定。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "taurus",
+        "directionIds": [],
+        "signName": {
+          "en": "Taurus",
+          "zh": "金牛座"
+        },
+        "glyph": "♉",
+        "element": "earth",
+        "modality": "fixed",
+        "title": {
+          "en": "Taurus placements: what makes continuity worthwhile",
+          "zh": "金牛座落点：什么值得持续下去"
+        },
+        "headline": {
+          "en": "Taurus · Earth · Fixed",
+          "zh": "金牛座 · 土元素 · 固定性质"
+        },
+        "summary": {
+          "en": "Read the Taurus bull symbol through continuity and experience. Compare Sun, Moon and rising roles, familiar comforts and an exercise in flexible routine.",
+          "zh": "从持续与具体体验理解金牛座公牛符号，区分太阳选择培育什么、月亮怎样观察熟悉的舒适感，以及上升进入情境的节奏，再用保留与调整一个习惯的小练习探索意象。"
+        },
+        "seo": {
+          "title": {
+            "en": "Taurus in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的金牛座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Read the Taurus bull symbol through continuity and experience. Compare Sun, Moon and rising roles, familiar comforts and an exercise in flexible routine.",
+            "zh": "从持续与具体体验理解金牛座公牛符号，区分太阳选择培育什么、月亮怎样观察熟悉的舒适感，以及上升进入情境的节奏，再用保留与调整一个习惯的小练习探索意象。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The bull and tangible continuity",
+              "zh": "公牛与具体的持续"
+            },
+            "paragraphs": [
+              {
+                "en": "Taurus is a fixed earth sign in this convention. Its bull symbol is associated with steadiness, material experience and the enjoyment of what can be maintained. Here, material means the ordinary world of objects, surroundings and practical resources. It does not mean that people with Taurus placements have money, excellent taste or a predictable attitude toward possessions.",
+                "zh": "在这套传统中，金牛座是固定土象，公牛符号联系着稳定、具体体验和可以维持的享受。这里的物质指物品、周围环境与实际资源构成的日常世界，并不表示金牛座落点的人有钱、品位好，或对财物有某种固定态度。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Taurus: choosing what to cultivate",
+              "zh": "太阳金牛：选择想持续培育的事"
+            },
+            "paragraphs": [
+              {
+                "en": "With the Sun as a symbol of deliberate expression, Taurus adds a question about what deserves repeated care. Consider someone who likes making pottery. Returning to the same basic shape to learn its texture offers one way to explore this combination. Switching materials can be just as deliberate. The point is to notice what you value in the activity, rather than conclude that your Sun requires you to preserve every routine.",
+                "zh": "把太阳看作主动表达的符号，金牛为它增加了什么值得反复照料的问题。例如一个喜欢陶艺的人，重复练同一种器形、观察材料质地，是探索这个组合的一种方式；有意识地更换材料也同样成立。重点是看清自己珍视活动中的什么，而不是认定太阳要求自己保留所有习惯。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Taurus: noticing familiar comforts",
+              "zh": "月亮金牛：观察熟悉的舒适感"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Moon role, the same sign becomes a prompt about comfort and familiarity. You might compare a quiet meal at a familiar table with the pleasure of trying somewhere new. Which felt restful on that particular day, and why? The chart cannot answer that question for you. A preference for novelty does not invalidate the placement, and a preference for routine does not validate astrology.",
+                "zh": "进入月亮角色，同一个星座就成为关于舒适与熟悉感的提示。可以比较在熟悉的桌前安静吃饭和尝试新地方的乐趣：那一天哪种更让你放松，为什么？星盘不能替你回答。喜欢新鲜不否定这个落点，喜欢规律也不能验证占星。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Taurus rising: finding a workable pace",
+              "zh": "金牛上升：找到可行的进入节奏"
+            },
+            "paragraphs": [
+              {
+                "en": "Taurus rising combines the horizon point's introductory role with an image of taking stock. At the start of a group activity, the example might be checking available materials before volunteering an idea. It could also be noticing that the group needs a quicker start. This is a way of reading a symbol, not a prediction that others will find you calm, slow or dependable. Actual first impressions depend on behavior and context.",
+                "zh": "金牛上升把地平交点的开场角色，与先看清现有条件的意象结合。开始集体活动时，例子可以是先确认材料再提建议，也可以是发现大家需要更快启动。这是读符号的方法，并不预测别人会觉得你平静、迟缓或可靠。真实的第一印象取决于行为和情境。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Stability is a theme, not a verdict",
+              "zh": "稳定是主题，不是判词"
+            },
+            "paragraphs": [
+              {
+                "en": "Venus in Taurus places appreciation and enjoyment beside the bull symbol. Mars in Taurus instead puts action and assertion beside it. Asking what makes an activity enjoyable differs from asking what keeps it moving. Neither combination measures loyalty, effort or relationship quality. Keep that distinction when several bodies occupy Taurus in the same chart.",
+                "zh": "金星金牛把欣赏与享受放在公牛符号旁边；火星金牛则把行动与主张放在旁边。问一项活动为什么令人愉快，与问什么让它继续推进，是两件事。两种组合都不测量忠诚、努力或关系质量。同一张盘有多个金牛落点时，也要保留这个区别。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Keep one thing, adjust another",
+              "zh": "保留一件事，调整另一件事"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose a low-stakes routine. Identify the part you would keep and one part you would willingly change. Try that small adjustment and note the difference. This makes continuity and flexibility observable without turning either into a moral quality. Your experience may fit the symbolic story, partly fit it, or contradict it completely.",
+                "zh": "选一个无关紧要的日常习惯，指出想保留的部分和愿意调整的一处，试着做这个小调整，记录差别。这样可以观察持续与灵活，而不用把它们变成道德品质。体验可以吻合符号故事、部分吻合，也可以完全相反。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gemini",
+        "directionIds": [],
+        "signName": {
+          "en": "Gemini",
+          "zh": "双子座"
+        },
+        "glyph": "♊",
+        "element": "air",
+        "modality": "mutable",
+        "title": {
+          "en": "Gemini placements: following a question without losing the thread",
+          "zh": "双子座落点：追问下去，也留住线索"
+        },
+        "headline": {
+          "en": "Gemini · Air · Mutable",
+          "zh": "双子座 · 风元素 · 变动性质"
+        },
+        "summary": {
+          "en": "Read the Gemini twins as an image of curiosity and exchange. Read Sun, Moon and rising separately, compare words with feelings and follow one clear question.",
+          "zh": "通过好奇与交流理解双子座的双子符号，分别阅读太阳选择的探索、月亮对想法与感受的区分，以及上升用问题打开情境的角色，最后把一个问题收回到可核对的信息。"
+        },
+        "seo": {
+          "title": {
+            "en": "Gemini in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的双子座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Read the Gemini twins as an image of curiosity and exchange. Read Sun, Moon and rising separately, compare words with feelings and follow one clear question.",
+            "zh": "通过好奇与交流理解双子座的双子符号，分别阅读太阳选择的探索、月亮对想法与感受的区分，以及上升用问题打开情境的角色，最后把一个问题收回到可核对的信息。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The twins and multiple perspectives",
+              "zh": "双子符号与多种视角"
+            },
+            "paragraphs": [
+              {
+                "en": "The twins belong to mutable air in this symbolic system. Their conventional themes include curiosity, exchange and changing perspectives. The symbol offers a way to discuss how ideas meet and diverge. It does not imply that a person is two-faced, unusually intelligent, sociable or unable to concentrate. Those are claims about people that a chart position cannot establish.",
+                "zh": "在这套符号系统中，双子属于变动风象，传统主题包括好奇、交流和视角变化。这个符号可以帮助讨论想法怎样相遇、怎样分岔，但不表示一个人两面派、特别聪明、爱社交或无法专注。星盘位置不能确立这些关于人的判断。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Gemini: what you choose to explore",
+              "zh": "太阳双子：选择探索什么"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role connects the twins to deliberate expression and chosen interests. Imagine preparing a short explanation of a favorite topic. Collecting two contrasting accounts and deciding what you actually want to say makes the combination useful as a reflection. The interesting question is not how many tabs are open, but which question makes the exploration meaningful to you. Finishing one clear explanation can matter as much as discovering something new.",
+                "zh": "太阳角色把双子接到主动表达和选择的兴趣上。想象要简短介绍一个喜欢的话题：收集两种不同说法，再决定自己究竟想表达什么，就能把组合变成具体反思。值得问的不是开了多少网页，而是哪个问题让探索有意义。完成一个清楚的说明，与发现新东西同样可以重要。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Gemini: words and feelings are different",
+              "zh": "月亮双子：说出想法与感受并不相同"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Moon role, Gemini symbolism turns toward the relationship between understanding and comfort. After a confusing day, compare describing what happened with naming how it felt. A conversation may help; silence may help more. The placement supplies neither an emotional assessment nor a requirement to talk. Keep room for the possibility that an elegant explanation still leaves the feeling unresolved.",
+                "zh": "在月亮角色中，双子的意象转向理解与安顿感受之间的关系。混乱的一天过后，可以比较描述发生了什么与说清自己的感受。谈话可能有帮助，安静也可能更有帮助。这个落点不提供情绪评估，也不要求一定要说话；讲得很有条理，仍可能没有安顿那份感受。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Gemini rising: opening with a question",
+              "zh": "双子上升：用一个问题打开情境"
+            },
+            "paragraphs": [
+              {
+                "en": "As an Ascendant symbol, Gemini suggests an opening built around inquiry or exchange. Entering a workshop with a practical question is one example; listening to understand its vocabulary is another. Neither establishes how you always behave. A person can ask many questions in one setting and remain quiet in another. The horizon calculation describes the placement, while that variation belongs to lived context.",
+                "zh": "作为上升符号，双子可以表示以提问或交流打开情境。带着实际问题参加工作坊是一种例子，先听懂大家使用的词汇是另一种。两者都不说明你总会怎样行动。一个人可以在某个场合提很多问题，在另一个场合安静；地平计算描述落点，行为差异则属于真实情境。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "A message differs from a principle",
+              "zh": "信息与原则是不同的问题"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Gemini pairs communication with exchange. Jupiter in Gemini pairs broader meaning with the same sign. A useful contrast is checking the wording of a message versus asking which larger belief it supports. Reusing the sign symbol should not erase those different body roles. Several Gemini placements also do not amount to several measurements of the same trait.",
+                "zh": "水星双子把沟通与交流放在一起，木星双子则把更宽广的意义与同一星座放在一起。可以对比核对一条消息的措辞，与追问它支持哪个更大的信念。共用星座符号，不应抹平天体角色的区别；多个双子落点也不是对同一种特质做了多次测量。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Finish the question you began",
+              "zh": "把开始追问的问题收回来"
+            },
+            "paragraphs": [
+              {
+                "en": "Write one question, two possible answers and the piece of information that would distinguish them. You may discover that you need evidence rather than another interpretation. You may also decide the question is not important. Either outcome is useful; neither needs to prove a Gemini identity.",
+                "zh": "写下一个问题、两个可能答案，以及能区分它们的一条信息。你可能发现需要的是证据，而不是另一种解释；也可能决定这个问题并不重要。两种结果都有用，都无需证明某个双子身份。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cancer",
+        "directionIds": [],
+        "signName": {
+          "en": "Cancer",
+          "zh": "巨蟹座"
+        },
+        "glyph": "♋",
+        "element": "water",
+        "modality": "cardinal",
+        "title": {
+          "en": "Cancer placements: care with a clear boundary",
+          "zh": "巨蟹座落点：照料也有清楚的边界"
+        },
+        "headline": {
+          "en": "Cancer · Water · Cardinal",
+          "zh": "巨蟹座 · 水元素 · 基本性质"
+        },
+        "summary": {
+          "en": "Explore the Cancer crab through care, belonging and boundaries. Compare its Sun, Moon and rising contexts with examples and a voluntary act-of-care prompt.",
+          "zh": "从照料、归属与边界理解巨蟹座螃蟹符号，区分太阳主动珍视什么、月亮怎样定义归属感，以及上升进入新情境的方式，用具体例子探索照料与自愿之间的关系。"
+        },
+        "seo": {
+          "title": {
+            "en": "Cancer in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的巨蟹座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Explore the Cancer crab through care, belonging and boundaries. Compare its Sun, Moon and rising contexts with examples and a voluntary act-of-care prompt.",
+            "zh": "从照料、归属与边界理解巨蟹座螃蟹符号，区分太阳主动珍视什么、月亮怎样定义归属感，以及上升进入新情境的方式，用具体例子探索照料与自愿之间的关系。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The crab's shelter",
+              "zh": "螃蟹与庇护的意象"
+            },
+            "paragraphs": [
+              {
+                "en": "Cancer combines cardinal water with the crab symbol. The conventional imagery concerns care, memory, belonging and protection. A shell is a useful metaphor for the boundary around something valued. It does not show that a person is nurturing, moody, family-oriented or unusually sensitive. No family history or emotional capacity can be inferred from this chart sector.",
+                "zh": "巨蟹座把基本水象与螃蟹符号结合，传统意象涉及照料、记忆、归属与保护。蟹壳可以比喻珍视之物周围的边界，但不能说明一个人善于照顾人、情绪化、重家庭或特别敏感。这个星盘区段推不出家庭经历或情感能力。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Cancer: what you choose to care for",
+              "zh": "太阳巨蟹：主动照料什么"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role makes this a question about chosen expression through care or preservation. Imagine keeping notes about a place you enjoy so that its small details are not forgotten. The act can express something meaningful without becoming a duty to preserve everything. Ask what you freely choose to look after, and what you would prefer someone else to handle. Neither answer is dictated by the Sun's position.",
+                "zh": "太阳角色把它变成通过照料或保存来主动表达的问题。比如为喜欢的地方做笔记，留下容易被忘记的细节：这可以表达珍视，却不必变成什么都要保存的责任。可以问哪些事愿意主动照料，哪些更希望交给别人；太阳的位置并不规定答案。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Cancer: defining belonging for yourself",
+              "zh": "月亮巨蟹：自己定义归属感"
+            },
+            "paragraphs": [
+              {
+                "en": "With the Moon, the symbolic focus moves to familiarity and feeling supported. Belonging might mean a quiet corner, a chosen community or permission to spend time alone. Do not assume it must mean a particular family structure. Compare one moment of ease with one moment when an expectation felt too close. The difference may clarify a real preference, but it does not reveal a childhood story from the chart.",
+                "zh": "换成月亮，符号重点移到熟悉感和得到支持。归属可以是安静的一角、自己选择的群体，也可以是独处的空间，不必预设某种家庭结构。比较一个自在的时刻与一个期待让人不舒服的时刻，或许能厘清真实偏好，但不能从星盘反推出童年故事。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Cancer rising: making an entrance feel workable",
+              "zh": "巨蟹上升：让进入情境变得可行"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Ascendant, Cancer offers an image of noticing the boundary of a new situation. At a gathering, that might mean finding where to sit, checking whether a conversation is welcome or simply taking time to settle. These examples are options for reflection, not a diagnosis of social confidence. A direct or outgoing entrance can coexist with this placement without needing to be explained away.",
+                "zh": "在上升角色中，巨蟹提供了留意新情境边界的意象。聚会时可以是找一个座位、确认对方愿不愿意交谈，或给自己一点适应时间。这些只是反思选项，不是对社交自信的诊断。直接、外向地进入场合，也可以与这个落点并存，无需额外解释。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Care is not every planet's job",
+              "zh": "并非每个天体都在讨论照料"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Cancer asks about communication beside memory and belonging. Mars in Cancer instead brings the topic of action or assertion to the same imagery. One example might involve describing a remembered event; the other might involve stating a boundary around an activity. These are different questions, and neither licenses claims about someone's family role or relationships.",
+                "zh": "水星巨蟹把沟通放在记忆与归属旁边；火星巨蟹则把行动或主张带入同一意象。前者的例子可以是描述一段记忆，后者可以是对某项活动说清边界。问题不同，也都不能据此判定一个人的家庭角色或关系状况。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Make the offer specific",
+              "zh": "把愿意提供的帮助说具体"
+            },
+            "paragraphs": [
+              {
+                "en": "If you wish, write one small act of care you would enjoy offering and one limit that keeps it voluntary. Then ask whether the offer is actually wanted. The other person's answer matters more than the symbolic story. Declining to offer help is also a valid choice; this placement creates no obligation to care for others.",
+                "zh": "如果愿意，写下一件乐意做的小帮助，以及让它保持自愿的一条限制，再确认对方是否真的需要。对方的答案比符号故事更重要。选择不帮忙同样可以成立；这个落点没有制造照顾别人的义务。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "leo",
+        "directionIds": [],
+        "signName": {
+          "en": "Leo",
+          "zh": "狮子座"
+        },
+        "glyph": "♌",
+        "element": "fire",
+        "modality": "fixed",
+        "title": {
+          "en": "Leo placements: expression beyond applause",
+          "zh": "狮子座落点：掌声之外的表达"
+        },
+        "headline": {
+          "en": "Leo · Fire · Fixed",
+          "zh": "狮子座 · 火元素 · 固定性质"
+        },
+        "summary": {
+          "en": "Read the Leo lion as a symbol of expression and recognition. Separate Sun, Moon and rising roles, examine feedback and explore what matters beyond applause.",
+          "zh": "从表达与被看见理解狮子座的狮子符号，分别阅读太阳愿意认领的表达、月亮面对不同认可的感受，以及上升怎样呈现开场，把作品本身的价值与外部反馈分开观察。"
+        },
+        "seo": {
+          "title": {
+            "en": "Leo in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的狮子座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Read the Leo lion as a symbol of expression and recognition. Separate Sun, Moon and rising roles, examine feedback and explore what matters beyond applause.",
+            "zh": "从表达与被看见理解狮子座的狮子符号，分别阅读太阳愿意认领的表达、月亮面对不同认可的感受，以及上升怎样呈现开场，把作品本身的价值与外部反馈分开观察。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The lion as an expressive image",
+              "zh": "狮子作为表达的意象"
+            },
+            "paragraphs": [
+              {
+                "en": "Leo is fixed fire in this tradition. Its lion symbol is associated with expression, creativity and being seen. The symbol can frame a discussion about offering something with care and attention. It cannot establish charisma, talent or a need for admiration. The theatrical image does not mean that everyone with a Leo placement enjoys an audience.",
+                "zh": "在这套传统中，狮子座是固定火象，狮子符号联系着表达、创造和被看见。它可以帮助讨论怎样认真呈现某件事，却不能判定魅力、才华或对赞赏的需要。带有舞台感的意象，不表示所有狮子落点的人都喜欢观众。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Leo: deciding what to put your name to",
+              "zh": "太阳狮子：决定为怎样的表达署名"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun's identity theme makes this combination a prompt about expression you willingly claim. Imagine selecting one photograph for a small personal album. Explaining why it matters may reveal more than counting reactions to it. You can enjoy presenting it, keep it private or decide it no longer represents your intention. The placement does not rank your creative ability or require public recognition.",
+                "zh": "太阳的认同主题，让这个组合成为愿意认领何种表达的提示。比如为私人相册挑一张照片，说明它为何重要，可能比数点赞更有意义。可以乐于展示，也可以只留给自己，或发现它已不符合原意。落点不会给创造能力排名，也不要求公开获得认可。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Leo: what kind of recognition feels comfortable",
+              "zh": "月亮狮子：什么样的认可让人自在"
+            },
+            "paragraphs": [
+              {
+                "en": "The Moon role turns attention toward comfort rather than performance. Consider the difference between a private thank-you and public praise. One may feel welcome in a particular situation while the other feels exposing. Notice the actual difference without assuming a Leo Moon always wants attention. The chart does not identify what support you need; that comes from your experience and, when relevant, a conversation.",
+                "zh": "月亮角色把注意力转向自在感，而不是表演。可以比较私下的一句感谢与公开表扬：在特定场合，一种可能让人舒服，另一种却让人暴露。观察真实差别，不要预设月亮狮子总想得到关注。星盘不能确定你需要怎样的支持，那来自体验，以及必要时的沟通。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Leo rising: choosing how to introduce an offering",
+              "zh": "狮子上升：怎样呈现一个开场"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Ascendant, the lion can stand for an intentional introduction. At a shared activity, this could be showing something you made or helping another participant introduce theirs. It need not mean taking center stage. This symbolic reading makes no claim about your body, popularity or the impression strangers actually form. Those require observation, not a longitude.",
+                "zh": "在上升角色中，狮子可以表示有意识地做一个介绍。共同活动中，可以是展示自己的作品，也可以是帮助另一位参与者介绍作品，并不必然意味着站到中央。这种符号阅读不判断身形、人气或陌生人形成的真实印象；这些需要观察，不能由一个黄经位置决定。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Expression meets different topics",
+              "zh": "同一个表达主题，遇到不同的问题"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Leo places expression beside communication: how might a message be presented? Venus in Leo places it beside appreciation: what makes an offering enjoyable? The distinction helps prevent every placement from becoming a claim about being a performer. Read the actual body label and house context before applying the lion image.",
+                "zh": "水星狮子把表达放在沟通旁边：一条信息可以怎样呈现？金星狮子则把它放在欣赏旁边：什么让一份呈现令人愉快？保留区别，就不会把每个落点都说成表演者。先读实际天体标签和宫位情境，再使用狮子意象。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Name the value before the audience",
+              "zh": "先说价值，再考虑观众"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose a small piece of work and write what you like about it before showing it to anyone. If you want feedback, ask a specific question. Compare your own intention with the response without treating either as a verdict on your worth. Keeping the work private remains a complete and valid outcome.",
+                "zh": "选一件小作品，在给任何人看之前，先写下自己喜欢它什么。如果想要反馈，就问一个具体问题，再比较原意与回应，不把任何一方当作个人价值的判词。最后只留给自己，也完全成立。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "virgo",
+        "directionIds": [],
+        "signName": {
+          "en": "Virgo",
+          "zh": "处女座"
+        },
+        "glyph": "♍",
+        "element": "earth",
+        "modality": "mutable",
+        "title": {
+          "en": "Virgo placements: making a detail useful",
+          "zh": "处女座落点：让细节变得有用"
+        },
+        "headline": {
+          "en": "Virgo · Earth · Mutable",
+          "zh": "处女座 · 土元素 · 变动性质"
+        },
+        "summary": {
+          "en": "Understand Virgo through discernment and useful detail. Compare Sun, Moon and rising contexts, standards and one improvement with a clear finish condition.",
+          "zh": "通过辨别与有用的细节理解处女座符号，区分太阳选择的标准、月亮面对秩序的体验，以及上升怎样理解实际需要。用一处改进和清楚的完成条件探索这个文化意象。"
+        },
+        "seo": {
+          "title": {
+            "en": "Virgo in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的处女座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Understand Virgo through discernment and useful detail. Compare Sun, Moon and rising contexts, standards and one improvement with a clear finish condition.",
+            "zh": "通过辨别与有用的细节理解处女座符号，区分太阳选择的标准、月亮面对秩序的体验，以及上升怎样理解实际需要。用一处改进和清楚的完成条件探索这个文化意象。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "A symbol of discernment",
+              "zh": "辨别与整理的符号"
+            },
+            "paragraphs": [
+              {
+                "en": "Virgo combines mutable earth with the maiden symbol, often shown with grain. Its conventional themes include discernment, practical refinement and attention to detail. The historical name is not a statement about sexuality, gender or moral purity. Nor does this placement establish perfectionism, cleanliness, health or analytical ability in a person.",
+                "zh": "处女座把变动土象与常携谷穗的少女符号结合，传统主题包括辨别、实际改进和留意细节。历史名称不是对性、性别或道德纯洁的判断。这个落点也不能证明一个人完美主义、爱干净、健康或分析能力强。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Virgo: choosing a useful standard",
+              "zh": "太阳处女：选择有用的标准"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Sun role, the symbol invites reflection on what kind of care you want your work to express. Imagine editing instructions for a board game. Correcting an ambiguous step may help a player more than polishing every sentence. Ask whose need the revision serves and when the work is sufficiently clear. This makes a chosen standard visible without defining you as a perfectionist.",
+                "zh": "在太阳角色中，这个符号邀请你思考，希望作品体现怎样的用心。比如修改桌游说明，修正一个歧义步骤，可能比润色每句话更能帮助玩家。可以问修改服务谁的需要，清楚到什么程度就够了。这样能看见自己选择的标准，而不必把自己定义成完美主义者。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Virgo: useful order or another demand",
+              "zh": "月亮处女：有用的秩序，还是又一个要求"
+            },
+            "paragraphs": [
+              {
+                "en": "The Moon changes the focus to what feels manageable. Before a busy day, a short list might offer relief; a detailed list might create more pressure. Compare the effects rather than assume order is always comforting. A Virgo Moon is not a clinical explanation of worry, and the chart cannot identify an effective coping method. Your response to the actual situation is the relevant information.",
+                "zh": "月亮把重点转向什么让事情更可承受。忙碌的一天开始前，短清单可能让人轻松，过细的清单也可能增添压力。比较实际效果，而不是预设秩序总能安慰人。月亮处女不是焦虑的临床解释，星盘也不能选出有效的应对方法；真正相关的是当下反应。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Virgo rising: understanding what is needed first",
+              "zh": "处女上升：先理解情境需要什么"
+            },
+            "paragraphs": [
+              {
+                "en": "As an introductory symbol, Virgo can suggest noticing a practical detail before participating. In a new class, you might check which materials are needed, ask for an example or begin before everything is organized. These choices can all be sensible. The Ascendant does not establish whether other people see you as efficient, reserved or critical, and it is not an assessment of competence.",
+                "zh": "作为开场符号，处女座可以表示先留意一个实际细节，再参与进去。上新课时，可以确认材料、请对方举例，也可以在尚未全部整理好时先开始。这些选择都可能合理。上升点不能确立别人是否觉得你高效、内敛或挑剔，也不评估胜任能力。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Refining a message differs from setting a limit",
+              "zh": "改进信息与设定限度并不一样"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Virgo joins discernment to communication; Saturn in Virgo joins it to limits and responsibility. An example of the first is clarifying a term. An example of the second is deciding how much revision a task warrants. Neither predicts your job, health or success. Keep the symbolic topic separate from a recommendation about what you ought to do.",
+                "zh": "水星处女把辨别接到沟通，土星处女把它接到限制与责任。前者的例子是说明一个术语，后者是决定一项任务值得修改多少次。两者都不预测职业、健康或成功，也要把符号主题与应该怎样做的建议分开。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Choose one improvement and a finish condition",
+              "zh": "选一处改进，也定一个完成条件"
+            },
+            "paragraphs": [
+              {
+                "en": "Pick a minor task and identify one change that would make it easier to use. Decide in advance what counts as finished. Afterward, check whether the change helped its intended user. Leaving a harmless imperfection alone can be as deliberate as correcting it; neither response has to match a Virgo stereotype.",
+                "zh": "选一项小任务，找出一个能让它更好用的改动，并事先确定怎样才算完成。做完后核对是否帮助了实际使用者。保留一个无伤大雅的不完美，可以与纠正它同样出于主动选择；两种反应都无需迎合处女座刻板印象。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "libra",
+        "directionIds": [],
+        "signName": {
+          "en": "Libra",
+          "zh": "天秤座"
+        },
+        "glyph": "♎",
+        "element": "air",
+        "modality": "cardinal",
+        "title": {
+          "en": "Libra placements: balance that includes your own view",
+          "zh": "天秤座落点：平衡也包括自己的看法"
+        },
+        "headline": {
+          "en": "Libra · Air · Cardinal",
+          "zh": "天秤座 · 风元素 · 基本性质"
+        },
+        "summary": {
+          "en": "Explore Libra's scales through balance and negotiation. Read Sun, Moon and rising roles, include your own view and compare criteria for a shared choice.",
+          "zh": "通过平衡与协商理解天秤座的天平符号，分别阅读太阳选择立场、月亮区分自在与一致，以及上升打开交流条件的角色，把自己的标准也放进一次具体的共同选择。"
+        },
+        "seo": {
+          "title": {
+            "en": "Libra in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的天秤座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Explore Libra's scales through balance and negotiation. Read Sun, Moon and rising roles, include your own view and compare criteria for a shared choice.",
+            "zh": "通过平衡与协商理解天秤座的天平符号，分别阅读太阳选择立场、月亮区分自在与一致，以及上升打开交流条件的角色，把自己的标准也放进一次具体的共同选择。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The scales and comparison",
+              "zh": "天平与比较的意象"
+            },
+            "paragraphs": [
+              {
+                "en": "Libra is cardinal air. The scales conventionally represent balance, fairness, aesthetic proportion and negotiation. Scales require something to be compared; they do not demand that every difference disappear. A Libra placement is not evidence that someone is diplomatic, indecisive, attractive or fair. Actual fairness depends on actions and conditions, not a sign label.",
+                "zh": "天秤座是基本风象，天平传统上代表平衡、公平、审美比例与协商。天平需要比较的对象，却不要求抹去所有差别。天秤落点不能证明一个人圆融、犹豫、好看或公正。真实的公平取决于行为与条件，不取决于星座标签。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Libra: choosing a position among perspectives",
+              "zh": "太阳天秤：在多种视角中选择立场"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role brings deliberate expression to the scales. Imagine two people suggesting different layouts for a shared notice. Naming the purpose of the notice may help you choose a layout without pretending both options are identical. The reflection concerns what you are willing to stand behind after considering alternatives. It does not require endless compromise or prove a talent for mediation.",
+                "zh": "太阳角色把主动表达带到天平旁。比如两个人为共同的通知提出不同排版，先说明通知要达到什么目的，有助于作出选择，而不用假装两个方案完全相同。反思的是考虑其他视角后，愿意支持什么；它不要求无休止妥协，也不证明调解天赋。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Libra: comfort and agreement are different",
+              "zh": "月亮天秤：自在与意见一致不是一回事"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Moon, Libra offers a question about ease during exchange. Compare a polite conversation in which you hid your view with a respectful disagreement in which you could speak honestly. Which felt more comfortable afterward? There is no predetermined answer. The chart cannot assess your attachment, conflict style or emotional needs, and disagreement is not a failure to embody the symbol.",
+                "zh": "在月亮角色中，天秤提供了交流时怎样自在的问题。可以比较一次隐藏自己看法的客气谈话，与一次能诚实表达的尊重式分歧：事后哪种更舒服？答案没有预设。星盘不能评估依恋、冲突风格或情绪需要，存在分歧也不表示没有活出这个符号。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Libra rising: setting terms for an exchange",
+              "zh": "天秤上升：为交流打开清楚的条件"
+            },
+            "paragraphs": [
+              {
+                "en": "The Ascendant's opening role can be read through the scales as noticing how participation is arranged. In a new discussion, an example might be asking what the group hopes to decide or ensuring a quieter person has an invitation to contribute. It might also mean stating your own preference early. These examples do not predict charm, popularity or how a relationship will develop.",
+                "zh": "上升点的开场角色，可以借天平理解为留意参与是怎样安排的。新讨论中，例子可以是问清大家希望决定什么，或邀请安静的人参与，也可以是及早说出自己的偏好。这些例子不预测魅力、人气或关系将怎样发展。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Different bodies compare different things",
+              "zh": "不同天体在比较不同的事"
+            },
+            "paragraphs": [
+              {
+                "en": "Venus in Libra puts appreciation beside balance; Mars in Libra puts assertion beside it. Choosing a visual arrangement and stating a disagreement are different topics even when both use the scales. Neither tells you whether two people are compatible. A real agreement needs the participants' expressed preferences and consent, which no chart can supply.",
+                "zh": "金星天秤把欣赏放在平衡旁，火星天秤把主张放在平衡旁。选择视觉布局与表达异议，即使用同一副天平，也在讨论不同主题。两者都不判断两个人是否合适。真实的约定需要参与者表达偏好并同意，星盘无法提供这些。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "State the criteria before choosing",
+              "zh": "选择之前，先说标准"
+            },
+            "paragraphs": [
+              {
+                "en": "For a small shared choice, write the two criteria that matter most to you and invite the other person to name theirs. Notice where the criteria differ. You can agree, compromise or leave the choice unresolved. The value lies in making the exchange clearer, not in proving you are a balanced person.",
+                "zh": "面对一个小型共同选择，写出自己最在意的两个标准，也请对方说出其标准，观察差别在哪里。可以同意、折中，或暂时不作决定。有用的是让交流更清楚，而不是证明自己是个平衡的人。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "scorpio",
+        "directionIds": [],
+        "signName": {
+          "en": "Scorpio",
+          "zh": "天蝎座"
+        },
+        "glyph": "♏",
+        "element": "water",
+        "modality": "fixed",
+        "title": {
+          "en": "Scorpio placements: depth without invented secrets",
+          "zh": "天蝎座落点：深入，但不编造秘密"
+        },
+        "headline": {
+          "en": "Scorpio · Water · Fixed",
+          "zh": "天蝎座 · 水元素 · 固定性质"
+        },
+        "summary": {
+          "en": "Read Scorpio's scorpion through depth and privacy. Compare Sun, Moon and rising contexts, distinguish inquiry from speculation and define a voluntary boundary.",
+          "zh": "从深入与隐私理解天蝎座蝎子符号，区分太阳选择的焦点、月亮面对披露的感受，以及上升在开场时的边界。用已知、假设与无需了解的部分，把追问和猜测分开。"
+        },
+        "seo": {
+          "title": {
+            "en": "Scorpio in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的天蝎座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Read Scorpio's scorpion through depth and privacy. Compare Sun, Moon and rising contexts, distinguish inquiry from speculation and define a voluntary boundary.",
+            "zh": "从深入与隐私理解天蝎座蝎子符号，区分太阳选择的焦点、月亮面对披露的感受，以及上升在开场时的边界。用已知、假设与无需了解的部分，把追问和猜测分开。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The scorpion and sustained attention",
+              "zh": "蝎子与持续关注的意象"
+            },
+            "paragraphs": [
+              {
+                "en": "Scorpio is fixed water in the chosen convention. The scorpion image is linked with depth, privacy, intensity and sustained inquiry. These themes can be used to explore how much to reveal or investigate. They do not establish jealousy, sexual behavior, hidden trauma or an ability to detect deception. A birth chart cannot expose a person's secrets.",
+                "zh": "在所选传统中，天蝎座是固定水象，蝎子意象联系着深入、隐私、强度和持续追问。这些主题可以帮助讨论愿意透露或调查到什么程度，却不能判断嫉妒、性行为、隐秘创伤或识破欺骗的能力。出生星盘不能揭露一个人的秘密。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Scorpio: choosing what deserves depth",
+              "zh": "太阳天蝎：选择什么值得深入"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Sun role, Scorpio becomes a prompt about sustained, chosen involvement. Imagine researching the history of an object you own. Deciding which question to pursue and where to stop can express your interest more clearly than collecting every possible detail. The example is about a chosen focus. It is not evidence that you are mysterious, resilient or destined to undergo dramatic transformation.",
+                "zh": "在太阳角色中，天蝎成为关于主动、持续投入的提示。比如研究一件自有物品的来历，决定追问哪个问题、查到哪里为止，可能比收集所有细节更能表达兴趣。例子讨论的是选择的焦点，不是证明自己神秘、有韧性，或注定经历剧烈转变。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Scorpio: privacy is yours to define",
+              "zh": "月亮天蝎：隐私由自己定义"
+            },
+            "paragraphs": [
+              {
+                "en": "With the Moon, the focus moves to comfort around emotional depth and disclosure. Think of a minor disappointment you could discuss openly, keep private or describe only partly. What would make that choice feel voluntary? The placement does not prescribe intense feelings or disclose an attachment pattern. Declining to explore a feeling is allowed; there is no requirement to uncover something hidden.",
+                "zh": "换成月亮，重点移到面对较深感受和自我披露时是否自在。想一件小失落：可以公开谈、自己留着，或只说一部分。什么能让这个选择保持自愿？落点不规定感受必须强烈，也不揭示依恋模式。不继续探索同样可以，不存在必须挖出隐藏之物的要求。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Scorpio rising: choosing a boundary at the beginning",
+              "zh": "天蝎上升：在开场时选择边界"
+            },
+            "paragraphs": [
+              {
+                "en": "As an Ascendant image, Scorpio can represent deciding what to share when entering a new setting. You might introduce a specific interest while leaving unrelated personal details aside. Or you may prefer a broad, open introduction. Both choices can be appropriate. A calculated rising sign cannot show that others find you intimidating, alluring or difficult to read.",
+                "zh": "作为上升意象，天蝎可以表示进入新场合时决定分享什么。可以介绍一项具体兴趣，把无关的个人细节留在一边，也可以选择宽泛、开放的介绍；两种方式都可能适合。计算出的上升星座不能说明别人觉得你有压迫感、吸引力或难以看懂。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Inquiry differs from control",
+              "zh": "追问与控制是不同的事"
+            },
+            "paragraphs": [
+              {
+                "en": "Mercury in Scorpio applies the depth image to information and communication. Pluto in Scorpio puts a modern symbolic topic of change and power beside it. Neither grants insight into another person's intentions. An unanswered question remains unanswered until evidence or the person supplies an answer. Do not treat a repeated Scorpio label as permission to investigate someone else's private life.",
+                "zh": "水星天蝎把深入的意象用于信息与沟通；冥王星天蝎则把现代占星中变化与力量的主题放在旁边。两者都不赋予看穿他人意图的能力。没有回答的问题，在证据或当事人回答之前仍然没有答案。重复的天蝎标签，不是调查他人私生活的许可。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Choose a question you are entitled to ask",
+              "zh": "选一个有权了解的问题"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose a small subject concerning your own activity or property. Write what you know, what you are assuming and what you do not need to know. This separates depth from speculation. You may decide that the available answer is sufficient; stopping is not a failure of the symbol.",
+                "zh": "选一个关于自己活动或物品的小问题，写出已知内容、正在作的假设，以及无需了解的部分。这样可以把深入与猜测分开。也可能发现已有答案已经足够；停下来不是没有符合这个符号。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sagittarius",
+        "directionIds": [],
+        "signName": {
+          "en": "Sagittarius",
+          "zh": "射手座"
+        },
+        "glyph": "♐",
+        "element": "fire",
+        "modality": "mutable",
+        "title": {
+          "en": "Sagittarius placements: exploring an idea and its limits",
+          "zh": "射手座落点：探索想法，也看见边界"
+        },
+        "headline": {
+          "en": "Sagittarius · Fire · Mutable",
+          "zh": "射手座 · 火元素 · 变动性质"
+        },
+        "summary": {
+          "en": "Explore Sagittarius through the archer, learning and perspective. Compare Sun, Moon and rising roles, question a larger story and try an unfamiliar explanation.",
+          "zh": "通过弓箭手、学习与拓宽视角理解射手座，分别阅读太阳为探索选择方向、月亮给另一种看法留空间，以及上升带着兴趣进入情境的角色，再比较一种不熟悉的解释。"
+        },
+        "seo": {
+          "title": {
+            "en": "Sagittarius in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的射手座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Explore Sagittarius through the archer, learning and perspective. Compare Sun, Moon and rising roles, question a larger story and try an unfamiliar explanation.",
+            "zh": "通过弓箭手、学习与拓宽视角理解射手座，分别阅读太阳为探索选择方向、月亮给另一种看法留空间，以及上升带着兴趣进入情境的角色，再比较一种不熟悉的解释。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The archer's direction",
+              "zh": "弓箭手的方向"
+            },
+            "paragraphs": [
+              {
+                "en": "Sagittarius combines mutable fire with the archer symbol. Its traditional themes include exploration, meaning, learning and an expanding horizon. An arrow offers an image of directing attention beyond what is already familiar. The symbol does not establish optimism, honesty, travel habits or good fortune. No opportunity becomes safer or more likely because this sign appears in a chart.",
+                "zh": "射手座把变动火象与弓箭手符号结合，传统主题包括探索、意义、学习和拓宽眼界。箭可以表示把注意力投向熟悉范围之外，却不能证明乐观、诚实、旅行习惯或好运。机会不会因为星盘出现射手座而更安全、更可能发生。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Sagittarius: deciding why the question matters",
+              "zh": "太阳射手：决定问题为何重要"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Sun role, exploration becomes a question about chosen direction and meaning. Imagine reading about a place you have never visited. You might be interested in its food, history or the assumptions in the account itself. Naming that interest gives the exploration a direction without promising a life purpose. Remaining close to home can be as exploratory as traveling; the example is about a question, not a passport.",
+                "zh": "在太阳角色中，探索变成关于选择的方向与意义的问题。比如阅读一个从未去过的地方，感兴趣的可以是食物、历史，或叙述本身的假设。说清兴趣，就给探索一个方向，却不必承诺找到了人生使命。留在熟悉的地方同样可以探索；这里讨论问题，不讨论护照。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Sagittarius: room for another view",
+              "zh": "月亮射手：给另一种看法留出空间"
+            },
+            "paragraphs": [
+              {
+                "en": "The Moon role turns the horizon image toward comfort. When a plan changes, it may help to imagine another possibility; it may instead help to acknowledge the disappointment first. Compare those responses in one ordinary situation. The placement cannot measure emotional resilience or prescribe positive thinking. You do not need to find a larger lesson in something that simply felt frustrating.",
+                "zh": "月亮角色把地平线意象转向安顿感受。计划变动时，想想另一种可能或许有帮助，也可能需要先承认失望。可以在一件日常小事中比较两种反应。这个落点不测量情绪韧性，也不要求积极思考；令人沮丧的事，不一定要从中提炼更大的人生道理。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Sagittarius rising: entering with a direction to explore",
+              "zh": "射手上升：带着想探索的方向进入"
+            },
+            "paragraphs": [
+              {
+                "en": "As an Ascendant image, the archer can frame an introduction around an interest or a possibility. At a new club, you could say what you hope to learn and then ask what is actually offered. This keeps enthusiasm beside practical information. The calculation does not show that strangers see you as adventurous, blunt or inspiring, and it does not endorse taking a risk.",
+                "zh": "作为上升意象，弓箭手可以让介绍围绕一项兴趣或可能性展开。加入新社团时，可以说出希望学什么，再确认这里实际提供什么，让热情与具体信息放在一起。计算不说明陌生人觉得你爱冒险、直率或鼓舞人心，也不为冒险背书。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "A larger picture still needs evidence",
+              "zh": "更大的图景仍需要证据"
+            },
+            "paragraphs": [
+              {
+                "en": "Jupiter in Sagittarius brings meaning and expansion to an already exploratory sign. Mercury in Sagittarius instead asks about communicating an account or idea. The repeated theme can be read as symbolism without becoming stronger evidence. Check whether a broad conclusion is supported by its examples; a chart does not turn an appealing story into a reliable fact.",
+                "zh": "木星射手把意义与扩展放进本来就重探索的符号；水星射手则讨论怎样表达一种叙述或想法。主题重复可以作为符号阅读，却不会变成更强的证据。宽泛结论是否得到例子支持，仍需核对；星盘不能把动人的故事变成可靠事实。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Explore one unfamiliar explanation",
+              "zh": "探索一种不熟悉的解释"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose a harmless topic and read an account that differs from the one you know. Write one thing it clarifies and one question it leaves open. You can change your mind, retain your view or suspend judgment. That concrete comparison is more useful than deciding whether you are a born explorer.",
+                "zh": "选一个无关紧要的话题，读一种不同于已知说法的解释，写下它说明了什么、还留下哪个问题。可以改变想法、保留原看法，或暂缓判断。具体比较，比决定自己是不是天生探索者更有用。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "capricorn",
+        "directionIds": [],
+        "signName": {
+          "en": "Capricorn",
+          "zh": "摩羯座"
+        },
+        "glyph": "♑",
+        "element": "earth",
+        "modality": "cardinal",
+        "title": {
+          "en": "Capricorn placements: structure with a purpose",
+          "zh": "摩羯座落点：让结构服务目的"
+        },
+        "headline": {
+          "en": "Capricorn · Earth · Cardinal",
+          "zh": "摩羯座 · 土元素 · 基本性质"
+        },
+        "summary": {
+          "en": "Understand Capricorn's sea-goat through time and structure. Read Sun, Moon and rising contexts, distinguish commitment from obligation and set a workable scope.",
+          "zh": "从时间与结构理解摩羯座海山羊符号，区分太阳选择投入、月亮寻找可承受的安排，以及上升说清条件的角色，再为一项小投入确定范围、休息与重新考虑的时点。"
+        },
+        "seo": {
+          "title": {
+            "en": "Capricorn in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的摩羯座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Understand Capricorn's sea-goat through time and structure. Read Sun, Moon and rising contexts, distinguish commitment from obligation and set a workable scope.",
+            "zh": "从时间与结构理解摩羯座海山羊符号，区分太阳选择投入、月亮寻找可承受的安排，以及上升说清条件的角色，再为一项小投入确定范围、休息与重新考虑的时点。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The sea-goat and a considered route",
+              "zh": "海山羊与经过考虑的路径"
+            },
+            "paragraphs": [
+              {
+                "en": "Capricorn is cardinal earth, represented by the sea-goat. Its conventional imagery concerns structure, time, responsibility and sustained aims. A route can make a distant goal manageable, but the symbol does not prove ambition, discipline, status or eventual achievement. A chart also cannot determine how much responsibility a person can or should carry.",
+                "zh": "摩羯座是基本土象，以海山羊为符号，传统意象涉及结构、时间、责任与持续的目标。路径可以让远处的目标更可着手，但符号不能证明野心、自律、地位或最终成就。星盘也不能决定一个人能承担或应该承担多少责任。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Capricorn: choosing a commitment",
+              "zh": "太阳摩羯：选择一项投入"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role connects structure with deliberate expression. Imagine deciding to repair an old shelf over several weekends. Choosing the scope, learning what is needed and deciding whether the project is still worthwhile makes the theme concrete. Abandoning it for a good reason can be as deliberate as finishing it. The placement does not make output a measure of personal worth.",
+                "zh": "太阳角色把结构接到主动表达。比如决定用几个周末修一只旧书架：确定范围、了解需要什么，再判断是否仍值得做，就把主题落到了具体事情上。有充分理由放弃，可以与完成同样出于主动选择。这个落点不会把产出变成个人价值的衡量。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Capricorn: support does not need to be earned",
+              "zh": "月亮摩羯：支持不必靠完成任务换取"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Moon, the structure image becomes a question about what feels steady or manageable. A small plan may reduce uncertainty; it can also make a day feel overfilled. Notice which is true before adding more obligations. This symbolic combination does not establish emotional reserve or explain a family history. It creates no rule that rest, care or support must wait until the work is done.",
+                "zh": "对月亮来说，结构意象变成什么让人感到稳妥、可承受的问题。一个小计划可能减少不确定，也可能让一天显得过满。增加义务之前，先观察实际是哪种。这个符号组合不证明情感克制，也不解释家庭经历；它没有规定休息、照料或支持必须等任务完成后才配得到。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Capricorn rising: clarifying the arrangement",
+              "zh": "摩羯上升：先说清安排"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Ascendant role, Capricorn can be read as noticing the terms of a new undertaking. At a volunteer activity, an opening question might concern the time available or the task you are agreeing to do. You may also prefer to begin informally. These examples do not predict a serious appearance, maturity or how others judge your reliability.",
+                "zh": "在上升角色中，摩羯可以读作留意新活动的条件。参加志愿活动时，开场问题可以是有多少时间、自己同意做哪项任务，也可以更随意地先参与。这些例子不预测严肃的外表、成熟程度，或别人怎样评价你的可靠性。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Responsibility is not a forecast",
+              "zh": "责任主题不是成就预告"
+            },
+            "paragraphs": [
+              {
+                "en": "Saturn in Capricorn puts limits beside structure; Venus in Capricorn puts appreciation beside it. The first might prompt a question about a workable boundary, the second about what is valued in an enduring object. Neither predicts career progress, wealth or commitment in a relationship. Those outcomes depend on conditions beyond a symbolic chart.",
+                "zh": "土星摩羯把限制放在结构旁；金星摩羯把欣赏放在结构旁。前者可以引出怎样的边界可行，后者可以引出一件耐用物品的何种特性值得珍惜。两者都不预测职业进展、财富或关系承诺；这些结果取决于符号星盘之外的条件。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Set scope and an exit condition",
+              "zh": "定范围，也定退出条件"
+            },
+            "paragraphs": [
+              {
+                "en": "For one minor commitment, write what you will do, what you are not taking on and when you will reconsider. A useful structure can contain rest and revision as well as effort. Compare the arrangement with your actual capacity instead of treating perseverance as an obligation imposed by your sign.",
+                "zh": "为一项小投入写明准备做什么、不承担什么，以及何时重新考虑。有用的结构可以包含休息和调整，也包含努力。把安排与真实精力比较，而不要把坚持当成星座强加的义务。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aquarius",
+        "directionIds": [],
+        "signName": {
+          "en": "Aquarius",
+          "zh": "水瓶座"
+        },
+        "glyph": "♒",
+        "element": "air",
+        "modality": "fixed",
+        "title": {
+          "en": "Aquarius placements: looking at the system and its participants",
+          "zh": "水瓶座落点：看见系统，也看见参与其中的人"
+        },
+        "headline": {
+          "en": "Aquarius · Air · Fixed",
+          "zh": "水瓶座 · 风元素 · 固定性质"
+        },
+        "summary": {
+          "en": "Read Aquarius, an air sign, through systems and perspectives. Compare Sun, Moon and rising roles and ask how a shared rule works for its participants.",
+          "zh": "理解水瓶座为何属于风象，借系统与独立视角的意象，分别阅读太阳检视原则、月亮比较视角与感受，以及上升问清参与方式的角色，并核对一条规则对参与者是否好用。"
+        },
+        "seo": {
+          "title": {
+            "en": "Aquarius in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的水瓶座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Read Aquarius, an air sign, through systems and perspectives. Compare Sun, Moon and rising roles and ask how a shared rule works for its participants.",
+            "zh": "理解水瓶座为何属于风象，借系统与独立视角的意象，分别阅读太阳检视原则、月亮比较视角与感受，以及上升问清参与方式的角色，并核对一条规则对参与者是否好用。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "The water bearer is an air sign",
+              "zh": "水瓶的符号属于风象"
+            },
+            "paragraphs": [
+              {
+                "en": "Despite the water-bearing image, Aquarius is fixed air in this convention. Its themes include systems, principles, independent perspectives and collective arrangements. The symbol can help frame a question about how a whole is organized. It does not establish intelligence, originality, political values or emotional distance, and it does not place anyone above people with other signs.",
+                "zh": "虽然符号是持水者，水瓶座在这套传统中属于固定风象，主题包括系统、原则、独立视角与群体安排。它可以帮助提出整体怎样组织的问题，却不能证明智力、原创性、政治价值观或情感疏离，也不会把谁放在其他星座的人之上。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Aquarius: choosing a principle to examine",
+              "zh": "太阳水瓶：选择想检视的原则"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role brings deliberate expression to a systems image. Imagine helping to design a shared equipment list. You might value equal access, clear ownership or fewer unused objects. Making that principle explicit lets others question the proposal. The reflection is about the idea you choose to support, not proof that your chart makes you a reformer or gives you the best solution.",
+                "zh": "太阳角色把主动表达带到系统意象中。比如协助设计共用器材清单，珍视的可以是平等使用、责任清楚，或减少闲置。把原则说出来，别人才能讨论方案。反思的是选择支持什么想法，不是证明星盘让自己成为改革者，或一定拿得出最佳答案。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Aquarius: perspective is one option",
+              "zh": "月亮水瓶：拉开距离只是一个选项"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Moon, the symbolic question concerns comfort while making sense of an experience. Looking at a situation from a little distance may help you describe it; it may also leave out what you felt. Compare a factual account with a sentence naming the feeling. Neither is more correct in every case. The placement does not diagnose detachment, and it does not require you to process emotions intellectually.",
+                "zh": "对月亮来说，符号问题关乎理解经历时怎样自在。稍微拉开距离，可能更容易描述情境，也可能漏掉感受。可以比较一份事实叙述与一句对感受的命名，没有哪种在所有情况下都更正确。这个落点不诊断疏离，也不要求用智性方式处理情绪。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Aquarius rising: asking how participation works",
+              "zh": "水瓶上升：问清参与怎样运作"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Ascendant role, Aquarius can suggest noticing the pattern of a new group or activity. An opening question might be how decisions are made or whether a rule is flexible. You could also decide that observing first is more useful. These are situational examples, not predictions that others will see you as unusual, aloof or innovative.",
+                "zh": "在上升角色中，水瓶可以表示留意一个新群体或活动的组织方式。开场问题可以是大家怎样作决定、某条规则能否调整，也可以先观察。这些是情境例子，不预测别人会觉得你另类、冷淡或有创新能力。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "Different traditions still need clear labels",
+              "zh": "采用什么传统，都要说清标签"
+            },
+            "paragraphs": [
+              {
+                "en": "Uranus in Aquarius pairs a modern theme of disruption with the system image. Saturn in Aquarius pairs limits and continuity with it. Those roles should remain distinct even though astrological schools differ about rulership. This tool does not need to settle that debate to explain its displayed body and sign. Neither placement predicts technological talent or social influence.",
+                "zh": "天王星水瓶把现代占星中的打破常规主题与系统意象结合，土星水瓶则把限制与持续放在旁边。即使不同流派对守护星有分歧，也应保留角色差别。工具无需裁决这场争论，就可以说明显示的天体和星座；两种落点都不预测技术才华或社会影响力。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Describe a rule and ask who it serves",
+              "zh": "描述一条规则，问它服务谁"
+            },
+            "paragraphs": [
+              {
+                "en": "Choose a low-stakes shared routine. Describe its rule without judging it, then ask one participant whether it works for them. Their answer may differ from your model. Adjusting the model to that information is a useful result; there is no need to prove independence by rejecting an arrangement that works.",
+                "zh": "选一个无关紧要的共同习惯，先不评价地描述规则，再问一位参与者它是否好用。对方的答案可能与自己的模型不同。用这条信息修正理解就是有用结果；无需为了证明独立，而拒绝一个实际有效的安排。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pisces",
+        "directionIds": [],
+        "signName": {
+          "en": "Pisces",
+          "zh": "双鱼座"
+        },
+        "glyph": "♓",
+        "element": "water",
+        "modality": "mutable",
+        "title": {
+          "en": "Pisces placements: imagination with a place to land",
+          "zh": "双鱼座落点：给想象一个落脚点"
+        },
+        "headline": {
+          "en": "Pisces · Water · Mutable",
+          "zh": "双鱼座 · 水元素 · 变动性质"
+        },
+        "summary": {
+          "en": "Explore Pisces through the two fish and imagination. Compare Sun, Moon and rising roles, distinguish impressions from observations and give an image a form.",
+          "zh": "通过两条鱼与想象理解双鱼座，分别阅读太阳选择表达形式、月亮区分印象与需要，以及上升先观察整体的角色，再把实际观察与想象描述并列，给意象一个具体落脚点。"
+        },
+        "seo": {
+          "title": {
+            "en": "Pisces in a Birth Chart: Sun, Moon and Rising",
+            "zh": "星盘中的双鱼座：太阳、月亮与上升读法"
+          },
+          "description": {
+            "en": "Explore Pisces through the two fish and imagination. Compare Sun, Moon and rising roles, distinguish impressions from observations and give an image a form.",
+            "zh": "通过两条鱼与想象理解双鱼座，分别阅读太阳选择表达形式、月亮区分印象与需要，以及上升先观察整体的角色，再把实际观察与想象描述并列，给意象一个具体落脚点。"
+          }
+        },
+        "scoreReading": {
+          "en": "This complete public reading explains a cultural symbol and its different chart roles. It contains no birth data, personal score, diagnosis or prediction. Select the matching role when reading a calculated placement.",
+          "zh": "这份完整公开解释说明一个文化符号及其不同星盘角色，不含出生数据、个人分数、诊断或预测。阅读计算出的落点时，请选择对应的角色。"
+        },
+        "sections": [
+          {
+            "id": "symbol",
+            "title": {
+              "en": "Two fish and a changing current",
+              "zh": "两条鱼与变化的水流"
+            },
+            "paragraphs": [
+              {
+                "en": "Pisces is mutable water, represented by two fish. Its conventional themes include imagination, receptivity, compassion and permeable boundaries. These are cultural images rather than measured abilities. A Pisces placement does not show that someone is empathic, artistic, gullible or spiritually gifted. It cannot establish how well you understand another person's feelings.",
+                "zh": "双鱼座是变动水象，以两条鱼为符号，传统主题包括想象、接纳、关怀与可渗透的边界。这些是文化意象，不是测得的能力。双鱼落点不能说明一个人有共情力、艺术性、轻信或灵性天赋，也不能确立你对他人感受理解得多好。"
+              }
+            ]
+          },
+          {
+            "id": "sun",
+            "title": {
+              "en": "Sun in Pisces: choosing a form for an impression",
+              "zh": "太阳双鱼：给印象选择一种形式"
+            },
+            "paragraphs": [
+              {
+                "en": "The Sun role brings chosen expression to this imaginative image. Consider hearing a piece of music and deciding to describe it with colors, a few words or a sketch. Choosing a form can make a vague impression shareable without claiming a special gift. You can also prefer a literal description. The combination is a prompt for expression, not a judgment about creativity or a calling to help everyone.",
+                "zh": "太阳角色把主动表达带到想象意象中。听完一段音乐，可以选择用颜色、几个词或速写描述它。选择形式，就能让模糊印象变得可交流，却不必宣称特殊天赋；也可以偏好直白描述。这个组合是表达提示，不是创造力评价，也不是帮助所有人的召唤。"
+              }
+            ]
+          },
+          {
+            "id": "moon",
+            "title": {
+              "en": "Moon in Pisces: distinguish an impression from a need",
+              "zh": "月亮双鱼：分清印象与需要"
+            },
+            "paragraphs": [
+              {
+                "en": "For the Moon, the fish image turns toward comfort amid impressions and feelings. After a moving story, you might want quiet, conversation or a return to an ordinary task. Notice which choice fits rather than assume you have absorbed someone else's emotions. The chart cannot detect that process or identify a mental-health condition. A strong response to art is an experience, not proof of a Pisces Moon.",
+                "zh": "对月亮来说，鱼的意象转向怎样在印象与感受中安顿自己。听完动人的故事，可能想安静、交谈，或回到普通任务。观察哪种合适，不要先认定自己吸收了别人的情绪。星盘不能探测这一过程或识别心理健康状况；被艺术打动是一种体验，不是月亮双鱼的证明。"
+              }
+            ]
+          },
+          {
+            "id": "ascendant",
+            "title": {
+              "en": "Pisces rising: entering with room to observe",
+              "zh": "双鱼上升：给观察留出空间"
+            },
+            "paragraphs": [
+              {
+                "en": "In the Ascendant role, Pisces can provide an image of entering a situation through an overall impression. In an unfamiliar room, you might first notice its sound or atmosphere, then ask a practical question about what happens next. Or you may prefer instructions immediately. The rising-point calculation cannot tell whether you appear dreamy, kind or elusive to other people.",
+                "zh": "在上升角色中，双鱼可以提供先通过整体印象进入情境的意象。走进不熟悉的房间，可以先留意声音或氛围，再问下一步做什么，也可以一开始就要具体说明。上升点计算不能判断别人觉得你梦幻、友善或难以捉摸。"
+              }
+            ]
+          },
+          {
+            "id": "otherPlacements",
+            "title": {
+              "en": "An image is not an observation",
+              "zh": "意象不是观察事实"
+            },
+            "paragraphs": [
+              {
+                "en": "Neptune in Pisces puts imagination and ambiguity beside the fish image; Mercury in Pisces puts communication beside it. A metaphor can help describe an impression, but it does not supply evidence about what happened. Keep imaginative language separate from factual claims, especially when discussing another person's intentions or making a decision with consequences.",
+                "zh": "海王星双鱼把想象与模糊放在鱼的意象旁，水星双鱼则把沟通放在旁边。隐喻可以帮助描述印象，却不能提供事情如何发生的证据。尤其讨论他人意图或作有后果的决定时，要把想象语言与事实主张分开。"
+              }
+            ]
+          },
+          {
+            "id": "reflection",
+            "title": {
+              "en": "Give an impression a small container",
+              "zh": "给印象一个小容器"
+            },
+            "paragraphs": [
+              {
+                "en": "If you want to explore this symbol, spend a few minutes describing one ordinary impression in a form you enjoy. Then add one plain sentence about what you actually observed. Compare the two without requiring them to agree. You can keep the imaginative version, revise it or set it aside; no chart interpretation has priority over the event itself.",
+                "zh": "如果想探索这个符号，花几分钟用喜欢的形式描述一个日常印象，再补一句朴素的话，说明实际观察到了什么。比较两者，不要求它们一致。可以保留想象版本、修改它，或放在一边；任何星盘解释都不能优先于事情本身。"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "guide": [
+      {
+        "id": "reading-order",
+        "title": {
+          "en": "How to read the chart",
+          "zh": "怎样读这张星盘"
+        },
+        "paragraphs": [
+          {
+            "en": "Start with the calculated table, then compare the Sun, Moon and rising cards. For another body, read its role, the sign image and the house context as separate visible modules. Finally compare an optional reflection with experience. Repeated symbols are not repeated measurements of personality.",
+            "zh": "先看计算表，再比较太阳、月亮与上升卡片。其他天体把角色、星座意象和宫位情境作为三个清楚呈现的模块来读，最后把可选反思与体验比较。符号重复不是对人格的多次测量。"
+          }
+        ]
+      },
+      {
+        "id": "calculation-vs-meaning",
+        "title": {
+          "en": "Positions and symbols have different evidence",
+          "zh": "位置与符号的证据不同"
+        },
+        "paragraphs": [
+          {
+            "en": "A reproducible astronomical calculation can support the displayed positions. It does not validate a symbolic interpretation of personality or events. Publisher references explain how a tradition uses the symbols; they are not empirical evidence that a placement causes the described theme.",
+            "zh": "可复现的天文计算可以支持显示的位置，但不会验证有关人格或事件的符号解释。出版方资料说明传统怎样使用符号，不是落点导致某种主题的实证证据。"
+          }
+        ]
+      },
+      {
+        "id": "display",
+        "title": {
+          "en": "Unrounded sectors and truncated display",
+          "zh": "原始区段与截取显示"
+        },
+        "paragraphs": [
+          {
+            "en": "Signs are assigned from unrounded longitude. Degrees within the sign are then truncated downward to one decimal place: 29.99° displays as 29.9° in the same sign. Near a boundary, input or model differences may change the sign. Display resolution is not a guarantee of physical accuracy or of a birth record.",
+            "zh": "先按未舍入黄经确定星座，再把星座内度数向下截取到一位小数：29.99°显示为同一星座的29.9°。靠近边界时，输入或模型差异可能改变星座。显示分辨率不保证物理精度或出生记录准确。"
+          }
+        ]
+      },
+      {
+        "id": "timezone",
+        "title": {
+          "en": "Local clock time and historical zones",
+          "zh": "当地钟表时间与历史时区"
+        },
+        "paragraphs": [
+          {
+            "en": "A local clock reading needs the correct location-specific time zone for that date. Where a clock repeats, choose the intended occurrence using the displayed UTC offset and instant. A nonexistent clock time must be corrected. Historical civil-time records and installed time-zone data may be incomplete or differ, particularly before 1970.",
+            "zh": "当地钟表时间需要该地点、该日期适用的时区。钟表时间重复时，应依据显示的 UTC 偏移与时刻选择所指的一次；不存在的钟表时间需要修正。历史民用时间记录与安装的时区数据可能不完整或存在差异，尤其是1970年以前。"
+          }
+        ]
+      },
+      {
+        "id": "reference-points",
+        "title": {
+          "en": "Reference points are approximate places",
+          "zh": "参考点是地点近似"
+        },
+        "paragraphs": [
+          {
+            "en": "A labeled reference point can make an example convenient, but it is not your exact birthplace. Changing coordinates can affect the horizon point and its dependent houses. Keep the method and inputs aligned before comparing two calculators.",
+            "zh": "标注的参考点可以方便演示，却不是准确出生地点。改变坐标可能影响地平交点和依赖它的宫位。比较两个计算器之前，应先对齐方法与输入。"
+          }
+        ]
+      },
+      {
+        "id": "range",
+        "title": {
+          "en": "Supported input and unavailable angles",
+          "zh": "输入范围与不可用角点"
+        },
+        "paragraphs": [
+          {
+            "en": "Use a known birth date and time from January 1, 1900, through the present. If a unique rising point cannot be determined, the computable body positions remain available while the rising point and dependent houses are marked unavailable. Finite reference comparisons do not establish accuracy for every date, place or boundary.",
+            "zh": "使用1900年1月1日至当前之间、时间已知的出生记录。如果无法确定唯一上升点，保留可计算的天体位置，并把上升点及依赖它的宫位标为不可用。有限参考点比较不能证明所有日期、地点或边界的精度。"
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "title": {
+          "en": "Memory-only input and public links",
+          "zh": "内存输入与公开链接"
+        },
+        "paragraphs": [
+          {
+            "en": "Entered birth information stays in this page's memory. Clearing, leaving, reloading or changing language removes it. Birth inputs and calculated placements are excluded from public links, images and analytics. Copying includes only the public calculator and guide URLs, never personal numbers.",
+            "zh": "输入的出生信息只保留在本页内存中；清除、离开、刷新或切换语言会移除。公开链接、图片和分析事件不包含出生输入或计算落点。复制内容仅有公开计算器和指南网址，不含个人数值。"
+          }
+        ]
+      },
+      {
+        "id": "core-scope",
+        "title": {
+          "en": "What this version calculates",
+          "zh": "本版本计算哪些内容"
+        },
+        "paragraphs": [
+          {
+            "en": "This version calculates ten body placements, the Ascendant and whole-sign houses, with ten-body element and modality counts. It does not yet calculate other angles, aspects, retrograde flags or sensitive points. There is no partner input, compatibility score or paid forecast. All twelve sign readings are free.",
+            "zh": "本版本计算十天体落点、上升点和整宫制宫位，并统计十天体的元素与性质。其他角点、相位、视逆行标记与敏感点尚未计算。不包含第二人输入、匹配分数或付费预测，十二份星座解释均免费。"
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": {
+          "en": "Why are my Sun, Moon and rising signs different?",
+          "zh": "为什么太阳、月亮和上升不是同一个星座？"
+        },
+        "answer": {
+          "en": "They describe different calculated positions. The Sun and Moon occupy their own longitudes, while the Ascendant depends on the horizon at the time and coordinates. The symbols also have different reading roles. Different signs do not indicate conflicting personalities or a hidden true sign.",
+          "zh": "它们描述不同的计算位置：太阳和月亮各有黄经，上升点取决于该时间、坐标的地平条件，符号角色也不同。星座不同不表示人格冲突，也不表示存在隐藏的真星座。"
+        }
+      },
+      {
+        "question": {
+          "en": "Can I calculate this without a birth time?",
+          "zh": "不知道出生时间，可以计算吗？"
+        },
+        "answer": {
+          "en": "This edition requires a known time and does not substitute noon. Without it, the rising point and houses cannot be shown responsibly, and a Moon near a sign boundary may also be uncertain. All public sign and method readings remain available without submitting birth information.",
+          "zh": "本版本要求已知时间，不代填中午。没有时间，就不能可靠显示上升点与宫位，靠近交界的月亮星座也可能不确定。无需提交出生信息，仍可阅读全部公开星座与方法解释。"
+        }
+      },
+      {
+        "question": {
+          "en": "Why does another calculator show a different result?",
+          "zh": "为什么另一个计算器显示不同？"
+        },
+        "answer": {
+          "en": "First compare the local time, historical zone and UTC instant, then coordinates, tropical versus sidereal zodiac, house system, astronomical model and rounding. A mismatch does not identify which input or model is responsible by itself. Do not change the birth data merely to obtain a preferred sign.",
+          "zh": "先比较当地时间、历史时区和 UTC 时刻，再比较坐标、回归或恒星黄道、宫制、天文模型与舍入。差异本身不能确定由哪个输入或模型造成；不要为了得到喜欢的星座而修改出生数据。"
+        }
+      },
+      {
+        "question": {
+          "en": "Does an empty house mean that part of life is missing?",
+          "zh": "空宫表示那方面的人生缺失吗？"
+        },
+        "answer": {
+          "en": "No. It means none of the ten displayed bodies is assigned to that whole-sign house. It does not forecast a missing relationship, career, home or experience. The house remains a topic in the chart's symbolic organization.",
+          "zh": "不是。它只表示显示的十个天体没有分配到那个整宫制宫位，不预告关系、事业、居所或某种经历缺失。那个宫位仍然是星盘符号组织中的一个主题。"
+        }
+      },
+      {
+        "question": {
+          "en": "Are there really ten planets in this table?",
+          "zh": "表里真的有十颗行星吗？"
+        },
+        "answer": {
+          "en": "The table follows the astrological grouping of ten bodies. Astronomically the Sun is a star, the Moon a natural satellite and Pluto a dwarf planet. The Ascendant is a point rather than a body. The labels explain the grouping instead of changing those classifications.",
+          "zh": "表格沿用占星的十天体分组。天文学上，太阳是恒星，月亮是天然卫星，冥王星是矮行星，上升点则是点而非天体。标签只是说明分组，不改变这些分类。"
+        }
+      },
+      {
+        "question": {
+          "en": "What does a repeated sign mean?",
+          "zh": "多个天体同星座，意味着什么？"
+        },
+        "answer": {
+          "en": "It means several calculated longitudes fall within the same 30-degree sign sector. You may read the same symbol alongside different body roles. It does not multiply evidence of a personality trait, and the ten-body counts are not independent observations about you.",
+          "zh": "它表示多个计算黄经落在同一个30度星座区段，可以把同一符号与不同天体角色并读。它不会成倍增强某种人格特质的证据，十天体计数也不是对你的多次独立观察。"
+        }
+      },
+      {
+        "question": {
+          "en": "What is free to read?",
+          "zh": "哪些内容免费可读？"
+        },
+        "answer": {
+          "en": "The calculated table, contextual Sun/Moon/rising cards, ten body-role explanations, house contexts and all twelve sign readings are free. You can open every sign reading without entering birth information. No purchase or account is required to reveal an interpretation.",
+          "zh": "计算表、对应落点的日月升卡片、十天体角色解释、宫位情境和全部十二星座解释均免费。无需输入出生信息，也能打开每份星座解释；不需要购买或注册账号来解锁正文。"
+        }
+      },
+      {
+        "question": {
+          "en": "Can I use this to choose work, treatment or a partner?",
+          "zh": "可以据此选择工作、治疗或伴侣吗？"
+        },
+        "answer": {
+          "en": "No such decision is supported by this chart. The symbols can supply optional conversation or reflection prompts. Decisions with consequences need relevant evidence, the preferences and consent of the people involved, and qualified advice where appropriate.",
+          "zh": "这张星盘不支持这些决定。符号可以提供可选的谈话或反思提示。有实际后果的决定需要相关证据、当事人的偏好和同意，以及适当的专业意见。"
+        }
+      }
+    ],
+    "references": [
+      {
+        "title": {
+          "en": "Astronomy Engine: computation and MIT licence",
+          "zh": "Astronomy Engine：计算与MIT许可"
+        },
+        "url": "https://github.com/cosinekitty/astronomy"
+      },
+      {
+        "title": {
+          "en": "Temporal polyfill: civil-time resolution and ISC licence",
+          "zh": "Temporal polyfill：民用时间解析与ISC许可"
+        },
+        "url": "https://github.com/js-temporal/temporal-polyfill"
+      },
+      {
+        "title": {
+          "en": "IANA reference coordinates; public-domain zone1970.tab",
+          "zh": "IANA参考坐标；公有领域zone1970.tab"
+        },
+        "url": "https://data.iana.org/time-zones/tzdb/zone1970.tab"
+      },
+      {
+        "title": {
+          "en": "IANA historical-time limitations",
+          "zh": "IANA历史时间限制"
+        },
+        "url": "https://data.iana.org/time-zones/tzdb/theory.html"
+      },
+      {
+        "title": {
+          "en": "CHANI: whole-sign house convention",
+          "zh": "CHANI：整宫制约定"
+        },
+        "url": "https://www.chani.com/astro-education/what-whole-sign-houses-are-and-why-we-use-them"
+      },
+      {
+        "title": {
+          "en": "CHANI: Aries symbol and roles",
+          "zh": "CHANI：白羊座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-aries-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Taurus symbol and roles",
+          "zh": "CHANI：金牛座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-taurus-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Gemini symbol and roles",
+          "zh": "CHANI：双子座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-gemini-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Cancer symbol and roles",
+          "zh": "CHANI：巨蟹座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-cancer-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Leo symbol and roles",
+          "zh": "CHANI：狮子座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-leo-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Virgo symbol and roles",
+          "zh": "CHANI：处女座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-virgo-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Libra symbol and roles",
+          "zh": "CHANI：天秤座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-libra-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Scorpio symbol and roles",
+          "zh": "CHANI：天蝎座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-scorpio-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Sagittarius symbol and roles",
+          "zh": "CHANI：射手座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-sagittarius-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Capricorn symbol and roles",
+          "zh": "CHANI：摩羯座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-capricorn-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Aquarius symbol and roles",
+          "zh": "CHANI：水瓶座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-aquarius-placements"
+      },
+      {
+        "title": {
+          "en": "CHANI: Pisces symbol and roles",
+          "zh": "CHANI：双鱼座符号与角色"
+        },
+        "url": "https://www.chani.com/astro-education/what-it-means-to-have-pisces-placements"
+      },
+      {
+        "title": {
+          "en": "Astrology.com: conventional body roles",
+          "zh": "Astrology.com：天体传统角色"
+        },
+        "url": "https://www.astrology.com/planets"
+      },
+      {
+        "title": {
+          "en": "Astrology.com: conventional house topics",
+          "zh": "Astrology.com：宫位传统主题"
+        },
+        "url": "https://www.astrology.com/amp/article/birth-chart-astrology-houses-planets-signs-aspects/"
+      },
+      {
+        "title": {
+          "en": "NASA: Sun classification",
+          "zh": "NASA：太阳分类"
+        },
+        "url": "https://science.nasa.gov/sun/facts/"
+      },
+      {
+        "title": {
+          "en": "NASA: Moon classification",
+          "zh": "NASA：月亮分类"
+        },
+        "url": "https://science.nasa.gov/moon/facts/"
+      },
+      {
+        "title": {
+          "en": "NASA: Pluto classification",
+          "zh": "NASA：冥王星分类"
+        },
+        "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/"
+      }
+    ]
+  }
+}

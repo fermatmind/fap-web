@@ -1,3 +1,5 @@
+import { isNatalChartConfigurationValid } from "@/lib/questionnaires/natalChart";
+import { NatalChartGuidePage } from "./NatalChartPage";
 import { isNineStarYearConfigurationValid } from "@/lib/questionnaires/nineStarYear";
 import { NineStarYearGuidePage } from "./NineStarYearPage";
 import { isMiniBreakupConfigurationValid } from "@/lib/questionnaires/miniBreakup";
@@ -47,6 +49,7 @@ type Props = { params: Promise<{ locale: string; slug: string; profile: string }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: input, slug, profile: id } = await params, locale = resolveLocale(input);
   const quiz = await loadQuestionnaire(slug);
+  if (quiz?.kind === "natal-chart" && !isNatalChartConfigurationValid(quiz)) return { title: "Chart guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "nine-star-year" && !isNineStarYearConfigurationValid(quiz)) return { title: "Cultural guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "birth-number" && !isBirthNumberConfigurationValid(quiz)) return { title: "Symbolic guide unavailable", robots: { index: false, follow: false } };
   if (quiz?.kind === "mini-breakup" && !isMiniBreakupConfigurationValid(quiz)) return { title: "Guide unavailable", robots: { index: false, follow: false } };
@@ -68,6 +71,12 @@ export default async function QuestionnaireResultGuide({ params }: Props) {
     const profile = quiz.profiles.find(item => item.id === id);
     if (!profile) notFound();
     return <NineStarYearGuidePage quiz={quiz} profile={profile} locale={locale} />;
+  }
+  if (quiz?.kind === "natal-chart") {
+    if (!isNatalChartConfigurationValid(quiz)) notFound();
+    const profile = quiz.profiles.find(item => item.id === id);
+    if (!profile) notFound();
+    return <NatalChartGuidePage quiz={quiz} profile={profile} locale={locale} />;
   }
   if (quiz?.kind === "birth-number") {
     if (!isBirthNumberConfigurationValid(quiz)) notFound();

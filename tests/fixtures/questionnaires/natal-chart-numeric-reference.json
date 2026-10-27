@@ -1,0 +1,2887 @@
+{
+  "scope": "Existing finite reference evidence only; no new precision grid, global accuracy guarantee or revised2099result",
+  "rawEvidence": [
+    {
+      "name": "T199-local-minimum-comparison.research.json",
+      "sha256": "095e4d672c3e4d38fffa1d1900a76613d7589168db74fbd5331540c0c053b9b2"
+    },
+    {
+      "name": "T199-JPL-30positions-comparison.research.json",
+      "sha256": "3007f3c62ce4e95836b99147e652c2cb11d320d2fa660b0cceff67a611528bf9"
+    },
+    {
+      "name": "T199-ascendant-independent-swiss-comparison.research.json",
+      "sha256": "6394ad742e4f3f0b3a80e4d5bf47cda7a7c80dc1d8b1c0c3321dcd8709097219"
+    },
+    {
+      "name": "T199-ascendant-singularity.research.json",
+      "sha256": "f8022cefe677ade477165e68dd32d1bb4e50e9a593b8cfc0acc1d7aa306c68b0"
+    }
+  ],
+  "planetPositions": [
+    {
+      "body": "sun",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 279.1334615
+    },
+    {
+      "body": "sun",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 279.7708523
+    },
+    {
+      "body": "moon",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 258.2676413
+    },
+    {
+      "body": "moon",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 267.0686879
+    },
+    {
+      "body": "mercury",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 257.7349962
+    },
+    {
+      "body": "mercury",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 258.5208853
+    },
+    {
+      "body": "venus",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 305.1307083
+    },
+    {
+      "body": "venus",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 305.9080346
+    },
+    {
+      "body": "mars",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 283.0975805
+    },
+    {
+      "body": "mars",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 283.5788122
+    },
+    {
+      "body": "jupiter",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 240.9397001
+    },
+    {
+      "body": "jupiter",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 241.0624477
+    },
+    {
+      "body": "saturn",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 267.6002539
+    },
+    {
+      "body": "saturn",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 267.6730866
+    },
+    {
+      "body": "uranus",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 250.0836048
+    },
+    {
+      "body": "uranus",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 250.1183716
+    },
+    {
+      "body": "neptune",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 85.2459411
+    },
+    {
+      "body": "neptune",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 85.2288716
+    },
+    {
+      "body": "pluto",
+      "utc": "1899-12-31T00:00:00Z",
+      "longitude": 75.2687347
+    },
+    {
+      "body": "pluto",
+      "utc": "1899-12-31T15:00:00Z",
+      "longitude": 75.2578776
+    },
+    {
+      "body": "sun",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 280.6632209
+    },
+    {
+      "body": "sun",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 280.3689092
+    },
+    {
+      "body": "sun",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 213.5843488
+    },
+    {
+      "body": "moon",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 279.6163189
+    },
+    {
+      "body": "moon",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 223.323786
+    },
+    {
+      "body": "moon",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 44.714903
+    },
+    {
+      "body": "mercury",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 259.6392831
+    },
+    {
+      "body": "mercury",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 271.8892699
+    },
+    {
+      "body": "mercury",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 230.4696917
+    },
+    {
+      "body": "venus",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 306.9960853
+    },
+    {
+      "body": "venus",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 241.5657794
+    },
+    {
+      "body": "venus",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 209.0203205
+    },
+    {
+      "body": "mars",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 284.2529683
+    },
+    {
+      "body": "mars",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 327.9632921
+    },
+    {
+      "body": "mars",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 136.0642582
+    },
+    {
+      "body": "jupiter",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 241.2335461
+    },
+    {
+      "body": "jupiter",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 25.2530685
+    },
+    {
+      "body": "jupiter",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 143.6870799
+    },
+    {
+      "body": "saturn",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 267.7748827
+    },
+    {
+      "body": "saturn",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 40.3956366
+    },
+    {
+      "body": "saturn",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 9.6139293
+    },
+    {
+      "body": "uranus",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 250.1667884
+    },
+    {
+      "body": "uranus",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 314.809168
+    },
+    {
+      "body": "uranus",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 64.8517571
+    },
+    {
+      "body": "neptune",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 85.2050798
+    },
+    {
+      "body": "neptune",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 303.1930007
+    },
+    {
+      "body": "neptune",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 2.1929435
+    },
+    {
+      "body": "pluto",
+      "utc": "1900-01-01T12:00:00Z",
+      "longitude": 75.2427825
+    },
+    {
+      "body": "pluto",
+      "utc": "2000-01-01T12:00:00Z",
+      "longitude": 251.4547644
+    },
+    {
+      "body": "pluto",
+      "utc": "2026-10-27T00:00:00Z",
+      "longitude": 303.0965384
+    }
+  ],
+  "ascendants": [
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "swissLongitude": 157.33956936441655,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "swissLongitude": 3.358276995476573,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "swissLongitude": 204.56537937923548,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "swissLongitude": 253.31459075588927,
+      "wholeSignCusps": [
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "swissLongitude": 7.531716714743564,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "swissLongitude": 97.33966193095607,
+      "wholeSignCusps": [
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "swissLongitude": 223.13590835754192,
+      "wholeSignCusps": [
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "swissLongitude": 11.617781015184763,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "swissLongitude": 128.25790098780593,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "swissLongitude": 208.5908513539511,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "swissLongitude": 24.796819024565433,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "swissLongitude": 145.37654123645777,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "swissLongitude": 192.44900107071027,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "swissLongitude": 352.2141489659441,
+      "wholeSignCusps": [
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0
+      ]
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "swissLongitude": 165.12467739436377,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "swissLongitude": 157.3845568666644,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "swissLongitude": 3.2893096900124097,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "swissLongitude": 204.61977864705136,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "swissLongitude": 253.02505924308826,
+      "wholeSignCusps": [
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "swissLongitude": 7.374775116543133,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "swissLongitude": 97.13894511446705,
+      "wholeSignCusps": [
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "swissLongitude": 222.90664785357365,
+      "wholeSignCusps": [
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "swissLongitude": 11.373899604604901,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "swissLongitude": 128.04052166600195,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "swissLongitude": 208.43838982813963,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "swissLongitude": 24.287305086198064,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "swissLongitude": 145.2147756544211,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "swissLongitude": 192.38939722473847,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "swissLongitude": 352.36246024774016,
+      "wholeSignCusps": [
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0
+      ]
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "swissLongitude": 165.05735039102493,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "swissLongitude": 352.3186419794797,
+      "wholeSignCusps": [
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "swissLongitude": 205.30454119494078,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "swissLongitude": 154.1164201086906,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "swissLongitude": 342.6523356990896,
+      "wholeSignCusps": [
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "swissLongitude": 92.18165440138601,
+      "wholeSignCusps": [
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "swissLongitude": 277.37735888549525,
+      "wholeSignCusps": [
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "swissLongitude": 333.45019240550107,
+      "wholeSignCusps": [
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "swissLongitude": 123.077689729041,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "swissLongitude": 247.18763890552128,
+      "wholeSignCusps": [
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "swissLongitude": 308.70916530737605,
+      "wholeSignCusps": [
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "swissLongitude": 141.66385619056226,
+      "wholeSignCusps": [
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "swissLongitude": 225.85162682687442,
+      "wholeSignCusps": [
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "swissLongitude": 16.336494347673124,
+      "wholeSignCusps": [
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "swissLongitude": 163.691073607065,
+      "wholeSignCusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ]
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "swissLongitude": 199.01251148730313,
+      "wholeSignCusps": [
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0,
+        150.0
+      ]
+    }
+  ],
+  "singularities": [
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54844111164385,
+      "longitude": 169.31875064306698,
+      "status": "computed",
+      "analyticLongitude": 201.70124311994178,
+      "numericalAgreementBoundDegrees": 5.323489833717561e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54844111164385,
+      "longitude": 169.31885063306697,
+      "status": "computed",
+      "analyticLongitude": 180.00228022930744,
+      "numericalAgreementBoundDegrees": 5.729577946166228e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54844111164385,
+      "longitude": 169.31885064306698,
+      "status": "computed",
+      "analyticLongitude": 180.00000000399993,
+      "numericalAgreementBoundDegrees": 5.729577950703577e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54844111164385,
+      "longitude": 169.318850653067,
+      "status": "computed",
+      "analyticLongitude": 179.99771977869239,
+      "numericalAgreementBoundDegrees": 5.729577946166237e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54844111164385,
+      "longitude": 169.31895064306698,
+      "status": "computed",
+      "analyticLongitude": 158.29875688696427,
+      "numericalAgreementBoundDegrees": 5.323489833790273e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834112164384,
+      "longitude": 169.31875064306698,
+      "status": "computed",
+      "analyticLongitude": 269.985557304632,
+      "numericalAgreementBoundDegrees": 1.4396821393479275e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834112164384,
+      "longitude": 169.31885063306697,
+      "status": "computed",
+      "analyticLongitude": 201.7014006761617,
+      "numericalAgreementBoundDegrees": 0.00532348704630679
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834112164384,
+      "longitude": 169.31885064306698,
+      "status": "computed",
+      "analyticLongitude": 180.00003999927142,
+      "numericalAgreementBoundDegrees": 0.005729575523185875
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834112164384,
+      "longitude": 169.318850653067,
+      "status": "computed",
+      "analyticLongitude": 158.29866838425664,
+      "numericalAgreementBoundDegrees": 0.0053234877734376785
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834112164384,
+      "longitude": 169.31895064306698,
+      "status": "computed",
+      "analyticLongitude": 90.01444269537308,
+      "numericalAgreementBoundDegrees": 1.4396821395204844e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834111164385,
+      "longitude": 169.31875064306698,
+      "status": "computed",
+      "analyticLongitude": 89.99995411396213,
+      "numericalAgreementBoundDegrees": 1.4396821845113073e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834111164385,
+      "longitude": 169.31885063306697,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 269.9998626308803,
+      "numericalAgreementBoundDegrees": 0.014396805272555616
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834111164385,
+      "longitude": 169.31885064306698,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 216.19119388912995,
+      "numericalAgreementBoundDegrees": 3925.2272642193598
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834111164385,
+      "longitude": 169.318850653067,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90.0001373696017,
+      "numericalAgreementBoundDegrees": 0.014396816778250218
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834111164385,
+      "longitude": 169.31895064306698,
+      "status": "computed",
+      "analyticLongitude": 270.0000458860379,
+      "numericalAgreementBoundDegrees": 1.4396821846551289e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834110164386,
+      "longitude": 169.31875064306698,
+      "status": "computed",
+      "analyticLongitude": 90.01435092786551,
+      "numericalAgreementBoundDegrees": 1.4396821387479896e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834110164386,
+      "longitude": 169.31885063306697,
+      "status": "computed",
+      "analyticLongitude": 158.29856800394634,
+      "numericalAgreementBoundDegrees": 0.005323492892951226
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834110164386,
+      "longitude": 169.31885064306698,
+      "status": "computed",
+      "analyticLongitude": 179.99996000066494,
+      "numericalAgreementBoundDegrees": 0.005729588279468646
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834110164386,
+      "longitude": 169.318850653067,
+      "status": "computed",
+      "analyticLongitude": 201.7013629355556,
+      "numericalAgreementBoundDegrees": 0.005323496543412362
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54834110164386,
+      "longitude": 169.31895064306698,
+      "status": "computed",
+      "analyticLongitude": 269.9856490721295,
+      "numericalAgreementBoundDegrees": 1.4396821389205465e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54824111164385,
+      "longitude": 169.31875064306698,
+      "status": "computed",
+      "analyticLongitude": 158.29858594231837,
+      "numericalAgreementBoundDegrees": 5.323486905743404e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54824111164385,
+      "longitude": 169.31885063306697,
+      "status": "computed",
+      "analyticLongitude": 179.99771975234444,
+      "numericalAgreementBoundDegrees": 5.72957794653062e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54824111164385,
+      "longitude": 169.31885064306698,
+      "status": "computed",
+      "analyticLongitude": 179.99999999600004,
+      "numericalAgreementBoundDegrees": 5.729577951068041e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54824111164385,
+      "longitude": 169.318850653067,
+      "status": "computed",
+      "analyticLongitude": 180.00228023965565,
+      "numericalAgreementBoundDegrees": 5.729577946530628e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -66.54824111164385,
+      "longitude": 169.31895064306698,
+      "status": "computed",
+      "analyticLongitude": 201.7014140507755,
+      "numericalAgreementBoundDegrees": 5.323486905816118e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54824111164385,
+      "longitude": -10.68124935693302,
+      "status": "computed",
+      "analyticLongitude": 338.29858594369966,
+      "numericalAgreementBoundDegrees": 5.32348690577249e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54824111164385,
+      "longitude": -10.68114936693302,
+      "status": "computed",
+      "analyticLongitude": 359.99771975394447,
+      "numericalAgreementBoundDegrees": 5.729577946712861e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54824111164385,
+      "longitude": -10.68114935693302,
+      "status": "computed",
+      "analyticLongitude": 359.99999999760007,
+      "numericalAgreementBoundDegrees": 5.729577951068041e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54824111164385,
+      "longitude": -10.681149346933019,
+      "status": "computed",
+      "analyticLongitude": 0.002280241255675719,
+      "numericalAgreementBoundDegrees": 5.72957794653063e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54824111164385,
+      "longitude": -10.68104935693302,
+      "status": "computed",
+      "analyticLongitude": 21.701414052156736,
+      "numericalAgreementBoundDegrees": 5.323486905801574e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834110164386,
+      "longitude": -10.68124935693302,
+      "status": "computed",
+      "analyticLongitude": 270.01435092786653,
+      "numericalAgreementBoundDegrees": 1.4396821387767537e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834110164386,
+      "longitude": -10.68114936693302,
+      "status": "computed",
+      "analyticLongitude": 338.2985818160407,
+      "numericalAgreementBoundDegrees": 0.005323494936321324
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834110164386,
+      "longitude": -10.68114935693302,
+      "status": "computed",
+      "analyticLongitude": 359.999976000399,
+      "numericalAgreementBoundDegrees": 0.005729588279470095
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834110164386,
+      "longitude": -10.681149346933019,
+      "status": "computed",
+      "analyticLongitude": 21.701376747660447,
+      "numericalAgreementBoundDegrees": 0.0053234953726015
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834110164386,
+      "longitude": -10.68104935693302,
+      "status": "computed",
+      "analyticLongitude": 89.98564907213046,
+      "numericalAgreementBoundDegrees": 1.4396821388917823e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834111164385,
+      "longitude": -10.68124935693302,
+      "status": "computed",
+      "analyticLongitude": 269.9999541139621,
+      "numericalAgreementBoundDegrees": 1.439682184568836e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834111164385,
+      "longitude": -10.68114936693302,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 89.99986263078392,
+      "numericalAgreementBoundDegrees": 0.014396816778250218
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834111164385,
+      "longitude": -10.68114935693302,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 23.70109087182732,
+      "numericalAgreementBoundDegrees": 4468.822275815661
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834111164385,
+      "longitude": -10.681149346933019,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 270.0001373695053,
+      "numericalAgreementBoundDegrees": 0.014396822531127403
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834111164385,
+      "longitude": -10.68104935693302,
+      "status": "computed",
+      "analyticLongitude": 90.00004588603787,
+      "numericalAgreementBoundDegrees": 1.4396821846263645e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834112164384,
+      "longitude": -10.68124935693302,
+      "status": "computed",
+      "analyticLongitude": 89.98555730463096,
+      "numericalAgreementBoundDegrees": 1.439682139405456e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834112164384,
+      "longitude": -10.68114936693302,
+      "status": "computed",
+      "analyticLongitude": 21.70138686408336,
+      "numericalAgreementBoundDegrees": 0.005323487628011535
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834112164384,
+      "longitude": -10.68114935693302,
+      "status": "computed",
+      "analyticLongitude": 2.3999562870358204e-05,
+      "numericalAgreementBoundDegrees": 0.005729575523187269
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834112164384,
+      "longitude": -10.681149346933019,
+      "status": "computed",
+      "analyticLongitude": 338.2986545721676,
+      "numericalAgreementBoundDegrees": 0.005323488064289913
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54834112164384,
+      "longitude": -10.68104935693302,
+      "status": "computed",
+      "analyticLongitude": 270.01444269537205,
+      "numericalAgreementBoundDegrees": 1.43968213949172e-06
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54844111164385,
+      "longitude": -10.68124935693302,
+      "status": "computed",
+      "analyticLongitude": 21.70124311856057,
+      "numericalAgreementBoundDegrees": 5.32348983360048e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54844111164385,
+      "longitude": -10.68114936693302,
+      "status": "computed",
+      "analyticLongitude": 0.002280227707501581,
+      "numericalAgreementBoundDegrees": 5.729577946166235e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54844111164385,
+      "longitude": -10.68114935693302,
+      "status": "computed",
+      "analyticLongitude": 2.3999291443033144e-09,
+      "numericalAgreementBoundDegrees": 5.729577950703577e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54844111164385,
+      "longitude": -10.681149346933019,
+      "status": "computed",
+      "analyticLongitude": 359.9977197770924,
+      "numericalAgreementBoundDegrees": 5.72957794616624e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 66.54844111164385,
+      "longitude": -10.68104935693302,
+      "status": "computed",
+      "analyticLongitude": 338.29875688558303,
+      "numericalAgreementBoundDegrees": 5.323489833775732e-07
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 157.33957235989965,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 3.358278684584434,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 204.56537353973837,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 253.31460611820012,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 7.531721011708839,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 97.33966147722879,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 223.13591572666837,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 11.617788361505688,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 128.25790655571308,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 208.59085473965092,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 24.79683875806876,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 145.37654721577906,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 192.44900159794838,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 352.21414658129953,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "1900-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 165.12468081128213,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56242012703852,
+      "longitude": 169.54285544831774,
+      "status": "computed",
+      "analyticLongitude": 201.69017082309387,
+      "numericalAgreementBoundDegrees": 5.32389915242663e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56242012703852,
+      "longitude": 169.54295543831773,
+      "status": "computed",
+      "analyticLongitude": 180.00227894680447,
+      "numericalAgreementBoundDegrees": 5.729577946718007e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56242012703852,
+      "longitude": 169.54295544831774,
+      "status": "computed",
+      "analyticLongitude": 180.00000000399766,
+      "numericalAgreementBoundDegrees": 5.729577951068041e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56242012703852,
+      "longitude": 169.54295545831775,
+      "status": "computed",
+      "analyticLongitude": 179.99772106119087,
+      "numericalAgreementBoundDegrees": 5.729577946900291e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56242012703852,
+      "longitude": 169.54305544831774,
+      "status": "computed",
+      "analyticLongitude": 158.30982918380937,
+      "numericalAgreementBoundDegrees": 5.323899152731101e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232013703851,
+      "longitude": 169.54285544831774,
+      "status": "computed",
+      "analyticLongitude": 269.98554920895134,
+      "numericalAgreementBoundDegrees": 1.4404923325017856e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232013703851,
+      "longitude": 169.54295543831773,
+      "status": "computed",
+      "analyticLongitude": 201.69034713695126,
+      "numericalAgreementBoundDegrees": 0.005323898703892346
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232013703851,
+      "longitude": 169.54295544831774,
+      "status": "computed",
+      "analyticLongitude": 180.0000399768123,
+      "numericalAgreementBoundDegrees": 0.00572958099015725
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232013703851,
+      "longitude": 169.54295545831775,
+      "status": "computed",
+      "analyticLongitude": 158.30972189528688,
+      "numericalAgreementBoundDegrees": 0.005323903210619353
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232013703851,
+      "longitude": 169.54305544831774,
+      "status": "computed",
+      "analyticLongitude": 90.01445079105372,
+      "numericalAgreementBoundDegrees": 1.4404923333656858e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232012703852,
+      "longitude": 169.54285544831774,
+      "status": "computed",
+      "analyticLongitude": 89.9999541202103,
+      "numericalAgreementBoundDegrees": 1.4404923777415782e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232012703852,
+      "longitude": 169.54295543831773,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90,
+      "numericalAgreementBoundDegrees": 0.014404872399460476
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232012703852,
+      "longitude": 169.54295544831774,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90,
+      "numericalAgreementBoundDegrees": 9007.199254740992
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232012703852,
+      "longitude": 169.54295545831775,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 270,
+      "numericalAgreementBoundDegrees": 0.01440495590967314
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232012703852,
+      "longitude": 169.54305544831774,
+      "status": "computed",
+      "analyticLongitude": 270.0000458797897,
+      "numericalAgreementBoundDegrees": 1.440492378605478e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232011703852,
+      "longitude": 169.54285544831774,
+      "status": "computed",
+      "analyticLongitude": 90.01435904062657,
+      "numericalAgreementBoundDegrees": 1.4404923319298324e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232011703852,
+      "longitude": 169.54295543831773,
+      "status": "computed",
+      "analyticLongitude": 158.30965910545683,
+      "numericalAgreementBoundDegrees": 0.005323897387273799
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232011703852,
+      "longitude": 169.54295544831774,
+      "status": "computed",
+      "analyticLongitude": 179.9999600232004,
+      "numericalAgreementBoundDegrees": 0.005729580990157558
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232011703852,
+      "longitude": 169.54295545831775,
+      "status": "computed",
+      "analyticLongitude": 201.69027186232097,
+      "numericalAgreementBoundDegrees": 0.005323900286618713
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56232011703852,
+      "longitude": 169.54305544831774,
+      "status": "computed",
+      "analyticLongitude": 269.9856409593683,
+      "numericalAgreementBoundDegrees": 1.4404923328225289e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56222012703851,
+      "longitude": 169.54285544831774,
+      "status": "computed",
+      "analyticLongitude": 158.30965821381267,
+      "numericalAgreementBoundDegrees": 5.323896223683549e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56222012703851,
+      "longitude": 169.54295543831773,
+      "status": "computed",
+      "analyticLongitude": 179.99772103484588,
+      "numericalAgreementBoundDegrees": 5.729577945989002e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56222012703851,
+      "longitude": 169.54295544831774,
+      "status": "computed",
+      "analyticLongitude": 179.99999999600232,
+      "numericalAgreementBoundDegrees": 5.729577950339112e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56222012703851,
+      "longitude": 169.54295545831775,
+      "status": "computed",
+      "analyticLongitude": 180.00227895715875,
+      "numericalAgreementBoundDegrees": 5.729577945989056e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -66.56222012703851,
+      "longitude": 169.54305544831774,
+      "status": "computed",
+      "analyticLongitude": 201.69034177928415,
+      "numericalAgreementBoundDegrees": 5.323896224412083e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56222012703851,
+      "longitude": -10.457144551682202,
+      "status": "computed",
+      "analyticLongitude": 338.3096582252065,
+      "numericalAgreementBoundDegrees": 5.323896224324035e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56222012703851,
+      "longitude": -10.457044561682203,
+      "status": "computed",
+      "analyticLongitude": 359.9977210480423,
+      "numericalAgreementBoundDegrees": 5.729577946171302e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56222012703851,
+      "longitude": -10.457044551682202,
+      "status": "computed",
+      "analyticLongitude": 9.198743100569118e-09,
+      "numericalAgreementBoundDegrees": 5.729577950521345e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56222012703851,
+      "longitude": -10.457044541682201,
+      "status": "computed",
+      "analyticLongitude": 0.002278970355121146,
+      "numericalAgreementBoundDegrees": 5.729577945806773e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56222012703851,
+      "longitude": -10.456944551682202,
+      "status": "computed",
+      "analyticLongitude": 21.690341790677905,
+      "numericalAgreementBoundDegrees": 5.323896223786135e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232011703852,
+      "longitude": -10.457144551682202,
+      "status": "computed",
+      "analyticLongitude": 270.0143590406349,
+      "numericalAgreementBoundDegrees": 1.44049233290889e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232011703852,
+      "longitude": -10.457044561682203,
+      "status": "computed",
+      "analyticLongitude": 338.3097730435504,
+      "numericalAgreementBoundDegrees": 0.005323902766263577
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232011703852,
+      "longitude": -10.457044551682202,
+      "status": "computed",
+      "analyticLongitude": 9.198705055268874e-05,
+      "numericalAgreementBoundDegrees": 0.005729580990152848
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232011703852,
+      "longitude": -10.457044541682201,
+      "status": "computed",
+      "analyticLongitude": 21.690385800343506,
+      "numericalAgreementBoundDegrees": 0.005323897532652209
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232011703852,
+      "longitude": -10.456944551682202,
+      "status": "computed",
+      "analyticLongitude": 89.98564095937667,
+      "numericalAgreementBoundDegrees": 1.440492331872239e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232012703852,
+      "longitude": -10.457144551682202,
+      "status": "computed",
+      "analyticLongitude": 269.9999541202103,
+      "numericalAgreementBoundDegrees": 1.4404923787494614e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232012703852,
+      "longitude": -10.457044561682203,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 270,
+      "numericalAgreementBoundDegrees": 0.014404976067451144
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232012703852,
+      "longitude": -10.457044551682202,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90,
+      "numericalAgreementBoundDegrees": 3711.154902761938
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232012703852,
+      "longitude": -10.457044541682201,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90,
+      "numericalAgreementBoundDegrees": 0.014404872399460476
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232012703852,
+      "longitude": -10.456944551682202,
+      "status": "computed",
+      "analyticLongitude": 90.0000458797897,
+      "numericalAgreementBoundDegrees": 1.4404923776551878e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232013703851,
+      "longitude": -10.457144551682202,
+      "status": "computed",
+      "analyticLongitude": 89.98554920894298,
+      "numericalAgreementBoundDegrees": 1.4404923335096979e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232013703851,
+      "longitude": -10.457044561682203,
+      "status": "computed",
+      "analyticLongitude": 21.690233198831436,
+      "numericalAgreementBoundDegrees": 0.005323904373643
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232013703851,
+      "longitude": -10.457044551682202,
+      "status": "computed",
+      "analyticLongitude": 359.99990801292023,
+      "numericalAgreementBoundDegrees": 0.005729582812478289
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232013703851,
+      "longitude": -10.457044541682201,
+      "status": "computed",
+      "analyticLongitude": 338.3096079572381,
+      "numericalAgreementBoundDegrees": 0.005323898849270894
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56232013703851,
+      "longitude": -10.456944551682202,
+      "status": "computed",
+      "analyticLongitude": 270.0144507910453,
+      "numericalAgreementBoundDegrees": 1.4404923324441923e-06
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56242012703852,
+      "longitude": -10.457144551682202,
+      "status": "computed",
+      "analyticLongitude": 21.690170811700057,
+      "numericalAgreementBoundDegrees": 5.323899152935452e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56242012703852,
+      "longitude": -10.457044561682203,
+      "status": "computed",
+      "analyticLongitude": 0.0022789336081814326,
+      "numericalAgreementBoundDegrees": 5.729577946718072e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56242012703852,
+      "longitude": -10.457044551682202,
+      "status": "computed",
+      "analyticLongitude": 359.9999999908013,
+      "numericalAgreementBoundDegrees": 5.729577951250274e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56242012703852,
+      "longitude": -10.457044541682201,
+      "status": "computed",
+      "analyticLongitude": 359.9977210479945,
+      "numericalAgreementBoundDegrees": 5.729577946718004e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 66.56242012703852,
+      "longitude": -10.456944551682202,
+      "status": "computed",
+      "analyticLongitude": 338.30982917241556,
+      "numericalAgreementBoundDegrees": 5.323899152251356e-07
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 157.38456865223304,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 3.2893006751270377,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 204.61977928054148,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 253.02503318767253,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 7.37475524283434,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 97.13891122563263,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 222.906620370714,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 11.373869662157631,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 128.04049359035366,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 208.43836939396067,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 24.287248656695738,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 145.21475739345158,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 192.3893880967596,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 352.3624814176267,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2000-01-01T12:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 165.0573441294349,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56214055386619,
+      "longitude": 54.628520001262785,
+      "status": "computed",
+      "analyticLongitude": 201.6903922838885,
+      "numericalAgreementBoundDegrees": 5.323890967693684e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56214055386619,
+      "longitude": 54.62861999126279,
+      "status": "computed",
+      "analyticLongitude": 180.00227895186103,
+      "numericalAgreementBoundDegrees": 5.729577947082437e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56214055386619,
+      "longitude": 54.62862000126279,
+      "status": "computed",
+      "analyticLongitude": 179.99999998920214,
+      "numericalAgreementBoundDegrees": 5.729577951614739e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56214055386619,
+      "longitude": 54.62862001126279,
+      "status": "computed",
+      "analyticLongitude": 179.99772102944257,
+      "numericalAgreementBoundDegrees": 5.729577947082365e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56214055386619,
+      "longitude": 54.62872000126279,
+      "status": "computed",
+      "analyticLongitude": 158.30960769996898,
+      "numericalAgreementBoundDegrees": 5.323890967083095e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204056386618,
+      "longitude": 54.628520001262785,
+      "status": "computed",
+      "analyticLongitude": 269.9855493715943,
+      "numericalAgreementBoundDegrees": 1.4404761203082285e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204056386618,
+      "longitude": 54.62861999126279,
+      "status": "computed",
+      "analyticLongitude": 201.6903907939579,
+      "numericalAgreementBoundDegrees": 0.005323896232454411
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204056386618,
+      "longitude": 54.62862000126279,
+      "status": "computed",
+      "analyticLongitude": 179.99989202098004,
+      "numericalAgreementBoundDegrees": 0.005729582812478959
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204056386618,
+      "longitude": 54.62862001126279,
+      "status": "computed",
+      "analyticLongitude": 158.30944778066464,
+      "numericalAgreementBoundDegrees": 0.005323890417286769
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204056386618,
+      "longitude": 54.62872000126279,
+      "status": "computed",
+      "analyticLongitude": 90.01445062839389,
+      "numericalAgreementBoundDegrees": 1.4404761190412038e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204055386618,
+      "longitude": 54.628520001262785,
+      "status": "computed",
+      "analyticLongitude": 89.9999541253082,
+      "numericalAgreementBoundDegrees": 1.4404761655464579e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204055386618,
+      "longitude": 54.62861999126279,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 90.00004581537348,
+      "numericalAgreementBoundDegrees": 0.014404817686379455
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204055386618,
+      "longitude": 54.62862000126279,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 260.42065264343955,
+      "numericalAgreementBoundDegrees": 3907.8717159896432
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204055386618,
+      "longitude": 54.62862001126279,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 269.9999541850025,
+      "numericalAgreementBoundDegrees": 0.01440470826150112
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204055386618,
+      "longitude": 54.62872000126279,
+      "status": "computed",
+      "analyticLongitude": 270.00004587469175,
+      "numericalAgreementBoundDegrees": 1.4404761643370253e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204054386619,
+      "longitude": 54.628520001262785,
+      "status": "computed",
+      "analyticLongitude": 90.01435887901636,
+      "numericalAgreementBoundDegrees": 1.4404761197362526e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204054386619,
+      "longitude": 54.62861999126279,
+      "status": "computed",
+      "analyticLongitude": 158.30962170671853,
+      "numericalAgreementBoundDegrees": 0.005323892726950697
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204054386619,
+      "longitude": 54.62862000126279,
+      "status": "computed",
+      "analyticLongitude": 180.0001079789514,
+      "numericalAgreementBoundDegrees": 0.005729577345504106
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204054386619,
+      "longitude": 54.62862001126279,
+      "status": "computed",
+      "analyticLongitude": 201.69053971858432,
+      "numericalAgreementBoundDegrees": 0.005323887493307208
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56204054386619,
+      "longitude": 54.62872000126279,
+      "status": "computed",
+      "analyticLongitude": 269.9856411209954,
+      "numericalAgreementBoundDegrees": 1.4404761184692279e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56194055386618,
+      "longitude": 54.628520001262785,
+      "status": "computed",
+      "analyticLongitude": 158.3094367531121,
+      "numericalAgreementBoundDegrees": 5.323888039029868e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56194055386618,
+      "longitude": 54.62861999126279,
+      "status": "computed",
+      "analyticLongitude": 179.99772102978955,
+      "numericalAgreementBoundDegrees": 5.729577945988967e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56194055386618,
+      "longitude": 54.62862000126279,
+      "status": "computed",
+      "analyticLongitude": 180.00000001079798,
+      "numericalAgreementBoundDegrees": 5.729577950521345e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56194055386618,
+      "longitude": 54.62862001126279,
+      "status": "computed",
+      "analyticLongitude": 180.00227898890694,
+      "numericalAgreementBoundDegrees": 5.729577945988898e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -66.56194055386618,
+      "longitude": 54.62872000126279,
+      "status": "computed",
+      "analyticLongitude": 201.69056326303053,
+      "numericalAgreementBoundDegrees": 5.323888038565474e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56194055386618,
+      "longitude": -125.37147999873727,
+      "status": "computed",
+      "analyticLongitude": 338.3094367444794,
+      "numericalAgreementBoundDegrees": 5.323888038769005e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56194055386618,
+      "longitude": -125.37138000873726,
+      "status": "computed",
+      "analyticLongitude": 359.9977210168919,
+      "numericalAgreementBoundDegrees": 5.729577945988929e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56194055386618,
+      "longitude": -125.37137999873727,
+      "status": "computed",
+      "analyticLongitude": 359.9999999979002,
+      "numericalAgreementBoundDegrees": 5.729577950521345e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56194055386618,
+      "longitude": -125.37137998873727,
+      "status": "computed",
+      "analyticLongitude": 0.0022789789085209122,
+      "numericalAgreementBoundDegrees": 5.729577945988949e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56194055386618,
+      "longitude": -125.37127999873726,
+      "status": "computed",
+      "analyticLongitude": 21.69056325189456,
+      "numericalAgreementBoundDegrees": 5.323888038914385e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204054386619,
+      "longitude": -125.37147999873727,
+      "status": "computed",
+      "analyticLongitude": 270.01435887901005,
+      "numericalAgreementBoundDegrees": 1.44047611881478e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204054386619,
+      "longitude": -125.37138000873726,
+      "status": "computed",
+      "analyticLongitude": 338.3095103476253,
+      "numericalAgreementBoundDegrees": 0.005323888648140904
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204054386619,
+      "longitude": -125.37137999873727,
+      "status": "computed",
+      "analyticLongitude": 359.9999790018477,
+      "numericalAgreementBoundDegrees": 0.005729577345509684
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204054386619,
+      "longitude": -125.37137998873727,
+      "status": "computed",
+      "analyticLongitude": 21.690453392698885,
+      "numericalAgreementBoundDegrees": 0.005323891563920732
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204054386619,
+      "longitude": -125.37127999873726,
+      "status": "computed",
+      "analyticLongitude": 89.98564112098728,
+      "numericalAgreementBoundDegrees": 1.4404761191027401e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204055386618,
+      "longitude": -125.37147999873727,
+      "status": "computed",
+      "analyticLongitude": 269.99995412530825,
+      "numericalAgreementBoundDegrees": 1.4404761645673934e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204055386618,
+      "longitude": -125.37138000873726,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 270.00004581511416,
+      "numericalAgreementBoundDegrees": 0.014404754334949895
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204055386618,
+      "longitude": -125.37137999873727,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 310.9530684895635,
+      "numericalAgreementBoundDegrees": 7205.759403792794
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204055386618,
+      "longitude": -125.37137998873727,
+      "status": "near_coincident_planes",
+      "analyticLongitude": 89.99995418480137,
+      "numericalAgreementBoundDegrees": 0.014404783130993535
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204055386618,
+      "longitude": -125.37127999873726,
+      "status": "computed",
+      "analyticLongitude": 90.00004587469175,
+      "numericalAgreementBoundDegrees": 1.4404761649705375e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204056386618,
+      "longitude": -125.37147999873727,
+      "status": "computed",
+      "analyticLongitude": 89.9855493716006,
+      "numericalAgreementBoundDegrees": 1.440476119329164e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204056386618,
+      "longitude": -125.37138000873726,
+      "status": "computed",
+      "analyticLongitude": 21.690502153102614,
+      "numericalAgreementBoundDegrees": 0.00532389332487402
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204056386618,
+      "longitude": -125.37137999873727,
+      "status": "computed",
+      "analyticLongitude": 2.0998165666696877e-05,
+      "numericalAgreementBoundDegrees": 0.0057295828124845375
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204056386618,
+      "longitude": -125.37137998873727,
+      "status": "computed",
+      "analyticLongitude": 338.3095341065899,
+      "numericalAgreementBoundDegrees": 0.005323894197148858
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56204056386618,
+      "longitude": -125.37127999873726,
+      "status": "computed",
+      "analyticLongitude": 270.0144506284021,
+      "numericalAgreementBoundDegrees": 1.4404761197899003e-06
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56214055386619,
+      "longitude": -125.37147999873727,
+      "status": "computed",
+      "analyticLongitude": 21.69039229252104,
+      "numericalAgreementBoundDegrees": 5.323890967228474e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56214055386619,
+      "longitude": -125.37138000873726,
+      "status": "computed",
+      "analyticLongitude": 0.002278964758716029,
+      "numericalAgreementBoundDegrees": 5.729577946900167e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56214055386619,
+      "longitude": -125.37137999873727,
+      "status": "computed",
+      "analyticLongitude": 2.099795892718248e-09,
+      "numericalAgreementBoundDegrees": 5.729577951432507e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56214055386619,
+      "longitude": -125.37137998873727,
+      "status": "computed",
+      "analyticLongitude": 359.99772103944093,
+      "numericalAgreementBoundDegrees": 5.729577947082412e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 66.56214055386619,
+      "longitude": -125.37127999873726,
+      "status": "computed",
+      "analyticLongitude": 338.3096077111049,
+      "numericalAgreementBoundDegrees": 5.323890967432003e-07
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 90,
+      "longitude": -150,
+      "status": "pole",
+      "analyticLongitude": 0,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 90,
+      "longitude": 0,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 90,
+      "longitude": 120,
+      "status": "pole",
+      "analyticLongitude": 180,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 352.31864641450284,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 205.30454998358923,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 154.11640983677103,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 342.6523486875303,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 92.18168919219312,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": -51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 277.3773634367193,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 333.45021578107423,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 123.07771153969202,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 0,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 247.1876570009731,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 308.7092188376737,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 141.66386668853892,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 51.5,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 225.8516463741995,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": -150,
+      "status": "computed",
+      "analyticLongitude": 16.336493221561796,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": 0,
+      "status": "computed",
+      "analyticLongitude": 163.691074712802,
+      "numericalAgreementBoundDegrees": 1e-08
+    },
+    {
+      "utc": "2026-10-27T00:00:00Z",
+      "latitude": 80,
+      "longitude": 120,
+      "status": "computed",
+      "analyticLongitude": 199.0125217281851,
+      "numericalAgreementBoundDegrees": 1e-08
+    }
+  ],
+  "limits": [
+    "JPL pre1962UT1 versus post1962UTC and frame conventions differ from library default; selected60arcsec checks only",
+    "SwissAGPL used offline for numbers; no Swiss code or runtime dependency",
+    "Analytic singularity expansion shares AE sidereal time and obliquity, not independent ephemeris",
+    "Original2099Moon78.5999985arcsec failure remains unmodified and outside this core input range"
+  ]
+}
