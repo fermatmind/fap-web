@@ -1,0 +1,2188 @@
+{
+  "slug": "communication-adaptability",
+  "code": "FM_COMM_ADAPT_CONTEXT30",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "practice",
+  "title": {
+    "en": "Communication Adaptability Test",
+    "zh": "沟通适应性测试"
+  },
+  "seoTitle": {
+    "en": "Communication Adaptability Test: 30 Cases & Full Free Review",
+    "zh": "沟通适应性测试：30道原创情境与完整解析"
+  },
+  "description": {
+    "en": "Try 30 original communication situations. Review five section counts, every answer explanation and complete free guides, without ability grades or hiring claims.",
+    "zh": "完成30道原创沟通情境题，阅读五部分计数、每题解析与完整免费指南。根据明确条件选择，不换算能力等级、职业适配或录用结论。"
+  },
+  "minutes": 10,
+  "instructions": {
+    "en": "Choose the option that best fits the explicit information in each case. These are original context-choice practice items, not a report of how often you behave this way. Each case has one editorial key and a full explanation. Complete all 30 to see counts; unanswered is not treated as wrong. You may leave without completing the practice. There is no timer, and ten minutes is an editorial estimate.",
+    "zh": "每题根据明确给出的条件，选择最符合情境的选项。这是原创情境选择练习，不是询问你平时多常这样做。每题有一个编辑答案键和完整理由，完成30题后才显示计数，不把没答算错；也可以不完成就退出。不计时，约十分钟为编辑估计。"
+  },
+  "introduction": {
+    "en": "Practise adapting a message to its audience and purpose, choosing a usable channel and record, respecting stated context and access needs, checking shared understanding and distinguishing communication modes. The report checks choices against the reasoning for these cases. It does not observe real conversations, measure overall adaptability or certify language, personality, professional readiness or employment suitability. All explanations and five full guides are free.",
+    "zh": "练习根据受众与目的调整消息、选择可用渠道及记录、尊重已表达的背景和接收需要、核对共同理解，以及区分沟通方式。报告只把选项与这些情境的理由核对，没有观察真实对话，不测整体适应能力，也不认证语言、人格、职业准备或就业适合程度。全部逐题解析与五份完整指南免费。"
+  },
+  "resultHeading": {
+    "en": "Your context-choice counts and complete review",
+    "zh": "你的情境选择计数与完整复习"
+  },
+  "directions": [
+    {
+      "id": "audience-purpose",
+      "title": {
+        "en": "Audience and purpose",
+        "zh": "受众与目的"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "channel-record",
+      "title": {
+        "en": "Channel and usable record",
+        "zh": "渠道与可用记录"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "context-access",
+      "title": {
+        "en": "Context and access needs",
+        "zh": "背景与接收需要"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "check-understanding",
+      "title": {
+        "en": "Checking shared understanding",
+        "zh": "核对共同理解"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "communication-modes",
+      "title": {
+        "en": "Communication modes",
+        "zh": "沟通方式"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMMA_01",
+      "prompt": {
+        "en": "A new volunteer does not know the project abbreviations and asks what to do first. Which opening fits that reader?",
+        "zh": "新志愿者不认识项目缩写，想知道第一步做什么。哪种开头更适合？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "List all abbreviations without explaining them.",
+            "zh": "把全部缩写列出来，不作解释。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Send the entire archive without an introduction.",
+            "zh": "发完整历史资料，不加说明。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Define the task in plain words and give the first action.",
+            "zh": "用日常说法说明任务，再给第一步行动。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Say that experienced people already understand it.",
+            "zh": "说有经验的人都懂。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The stated need is a first action for someone without the shared vocabulary. Plain wording and a concrete starting point answer it. An archive may be useful later, but it does not replace the opening requested here.",
+        "zh": "题目明确说对方缺少共同词汇，想知道第一步。日常措辞加具体行动能回应这一需要；历史资料以后可能有用，但不能代替此处要求的开头。"
+      }
+    },
+    {
+      "id": "COMMA_02",
+      "prompt": {
+        "en": "A manager requests a short note to choose between two dates. Which note best supports that purpose?",
+        "zh": "负责人要一段简短说明，在两个日期中做选择。哪种内容更符合目的？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "The two dates, their main trade-offs and the decision needed.",
+            "zh": "列两个日期、主要取舍，以及需要确认的决定。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A friendly greeting with no decision information.",
+            "zh": "友好问候，但不提供决策信息。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A promise that either date has no trade-offs.",
+            "zh": "保证任何日期都没有取舍。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A complete history with neither date identified.",
+            "zh": "写全部经过，不列两个日期。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "This reader is making a bounded decision. Naming the alternatives and their consequences supports that decision without claiming certainty. A courteous tone can help, but friendliness alone does not supply the missing information.",
+        "zh": "读者要做的是一个范围明确的决定。列出方案与后果有助于选择，也不用假装没有不确定性。礼貌可以保留，但友好本身不能补上决策资料。"
+      }
+    },
+    {
+      "id": "COMMA_03",
+      "prompt": {
+        "en": "A customer asks whether an appointment is confirmed. You only have a request awaiting approval. Which reply preserves the actual status?",
+        "zh": "客户问预约是否确认。你目前只有待批准的申请。哪种回复保留了真实状态？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Describe the company history instead.",
+            "zh": "改讲公司的历史。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Say it is confirmed because the customer wants certainty.",
+            "zh": "因为客户希望确定，就说已确认。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Avoid mentioning the appointment.",
+            "zh": "回避预约问题。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Say approval is pending and explain when or how confirmation will follow.",
+            "zh": "说明仍待批准，再告知何时或怎样收到确认。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "Adapting to the purpose does not mean changing the facts. A pending request remains pending. The useful next detail is the confirmation process or an honest update time, not an unsupported guarantee.",
+        "zh": "适应沟通目的并不意味着改变事实。待批准仍是待批准；有用的下一条信息是确认方式或诚实的更新时间，不是缺少依据的保证。"
+      }
+    },
+    {
+      "id": "COMMA_04",
+      "prompt": {
+        "en": "You are inviting people to a meeting whose only goal is to decide who owns a task. What should the invitation make clear?",
+        "zh": "你要邀请大家开会，唯一目标是确定任务负责人。邀请中应先说清什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Every topic the team has ever discussed.",
+            "zh": "团队过去讨论过的全部话题。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "The ownership decision, relevant information and who needs to participate.",
+            "zh": "要确定负责人的决定、相关资料和需要参加的人。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "That no preparation or decision is involved.",
+            "zh": "说不涉及准备或决定。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "That attendance automatically assigns responsibility.",
+            "zh": "说出席就自动承担责任。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "A useful invitation tells the intended participants why the meeting exists. Attending a meeting is not the same as agreeing to own the task. Keep the decision and needed participation visible.",
+        "zh": "有用的邀请会告诉相关参与者会议为何存在。出席不等于答应负责；应把要做的决定与所需参与说清。"
+      }
+    },
+    {
+      "id": "COMMA_05",
+      "prompt": {
+        "en": "A support colleague asks you to explain a failed upload. Which message gives information they can act on without exposing private file content?",
+        "zh": "支持同事请你说明上传失败。哪条消息既便于处理，又不暴露文件私密内容？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Write only “it is broken”.",
+            "zh": "只写“坏了”。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Give the failed step, a non-sensitive error message and the help needed.",
+            "zh": "说明失败步骤、非敏感错误提示和需要的帮助。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Guess that a colleague caused it.",
+            "zh": "猜测是某位同事造成的。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Send every private file to the whole team.",
+            "zh": "把所有私密文件发给全组。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "The purpose is to help investigate a specific failure. Observable steps and a non-sensitive error are relevant. Unnecessary private content and an accusation do not clarify the request. Follow the existing approved support process for any additional detail.",
+        "zh": "目的是协助调查一个具体失败，已观察到的步骤与非敏感提示有关。无必要的私密内容和指责不会让请求更清楚；若还需细节，应按已有批准的支持流程处理。"
+      }
+    },
+    {
+      "id": "COMMA_06",
+      "prompt": {
+        "en": "A colleague replies “Thanks, I have seen it” to a proposal. Approval has not been stated. Which interpretation is supported?",
+        "zh": "同事对提案回复“谢谢，看到了”，没有明确批准。哪种理解有依据？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "The colleague has rejected the proposal.",
+            "zh": "对方已经拒绝。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "The proposal has been approved.",
+            "zh": "提案已批准。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Every action in the proposal is now assigned.",
+            "zh": "所有行动都已分配。"
+          },
+          "directionId": "audience-purpose"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Receipt was acknowledged; ask separately if approval is required.",
+            "zh": "已确认收到；若需要批准，应另行确认。"
+          },
+          "directionId": "audience-purpose"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "Acknowledging receipt, approving a proposal and accepting responsibility are different acts. The message states only the first. A follow-up can clarify the decision without inventing either agreement or rejection.",
+        "zh": "确认收到、批准提案和接受责任是不同动作。消息只说了第一种，可以追问决定，不凭空推定同意或拒绝。"
+      }
+    },
+    {
+      "id": "COMMA_07",
+      "prompt": {
+        "en": "A recipient explicitly asks for a short written summary because they cannot play audio at work. Which response follows that stated need?",
+        "zh": "对方明确说工作时无法播放语音，希望收到简短文字摘要。哪种回复符合这个需要？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Send a longer voice message.",
+            "zh": "发更长的语音。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Assume the request reflects their age.",
+            "zh": "把这个请求归因为年龄。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Send a concise text summary with the needed action.",
+            "zh": "发简明文字摘要和需要采取的行动。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Tell them to find headphones before responding.",
+            "zh": "让对方先找耳机才能回复。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The recipient has supplied the relevant access constraint. Written content fits it. There is no need to infer a demographic reason or ask the recipient to change circumstances just to receive an ordinary summary.",
+        "zh": "对方已经说出了相关接收限制，文字符合这个条件。不必猜测人口背景，也不必要求对方为接收普通摘要而改变处境。"
+      }
+    },
+    {
+      "id": "COMMA_08",
+      "prompt": {
+        "en": "A document is restricted to three named team members under an existing access policy. Which sharing choice keeps the intended audience?",
+        "zh": "一份文件按现有权限规则只供三位指定成员查看。哪种分享方式保留了预定受众范围？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Use the approved restricted channel for those three members.",
+            "zh": "通过批准的受限渠道，发给这三位成员。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Paste the whole file in a public comment.",
+            "zh": "把全文贴到公开评论。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Invite anyone who might be interested.",
+            "zh": "邀请所有可能感兴趣的人。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Post a public link so it is easy to find.",
+            "zh": "发公开链接，方便找到。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "Convenience does not expand the authorised audience. The stated policy is part of the communication context. Use the existing restricted route; this exercise does not create or grant any real access.",
+        "zh": "便利性不会扩大授权受众。题目给出的权限规则也是沟通背景，应使用已有受限渠道；本练习不创建或授予任何真实权限。"
+      }
+    },
+    {
+      "id": "COMMA_09",
+      "prompt": {
+        "en": "An agreed urgent-contact procedure says to call the on-duty contact for a time-critical closure. Which first action follows it?",
+        "zh": "约定的紧急联络流程规定：遇到时间紧迫的关闭事件，先电话联系值班人。哪项第一步符合规定？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Assume a social-media post reaches the right person.",
+            "zh": "假设发社交媒体就能找到负责人。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Leave an unlabelled message in a rarely checked group.",
+            "zh": "在很少查看的群里留一条无标注消息。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Wait for the next routine newsletter.",
+            "zh": "等下次例行简报。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Use that agreed call route, then document the update as required.",
+            "zh": "先按约定电话联系，再按要求记录更新。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "The key follows the explicit local procedure and urgency in this case. It does not establish that calls are always best or replace a real workplace emergency process.",
+        "zh": "答案依据本题明确的本地流程与紧迫性，不代表电话永远最合适，也不代替真实工作场所的应急流程。"
+      }
+    },
+    {
+      "id": "COMMA_10",
+      "prompt": {
+        "en": "A call ends with an agreed change that absent teammates must use tomorrow. What communication adds a usable record?",
+        "zh": "电话中商定了一项变更，未参会同事明天也要使用。怎样补充才有可用记录？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Send the agreed change, owner and effective time to the approved team location.",
+            "zh": "在批准的团队位置记录变更、负责人和生效时间。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Assume everyone heard the call.",
+            "zh": "假设所有人都听到了。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Send only “we talked”.",
+            "zh": "只发“聊过了”。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Record a different decision because it reads more neatly.",
+            "zh": "为了好看，记录另一个决定。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "A short written record helps people who were not present retrieve the same decision. It should preserve what was agreed and the details needed to act, rather than silently changing it.",
+        "zh": "简短书面记录让缺席者找到同一个决定，应保留已商定内容和行动所需细节，而不是悄悄改写。"
+      }
+    },
+    {
+      "id": "COMMA_11",
+      "prompt": {
+        "en": "A reader says the colour-only chart is difficult to use and requests labelled values. Which change addresses the request?",
+        "zh": "读者说只靠颜色的图难以使用，希望有标注的数值。哪项修改回应了这个请求？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Tell the reader the chart is obvious.",
+            "zh": "告诉读者图很明显。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Add readable labels and the values in text or a table.",
+            "zh": "添加可读标签，并用文字或表格列数值。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Delete the information entirely.",
+            "zh": "把资料全部删除。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Make the same colours brighter without labels.",
+            "zh": "只把原颜色调亮，不加标注。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "The stated barrier is reliance on colour without labelled values. Labels and a text alternative respond directly. This choice is an adaptation to the supplied need, not a formal accessibility-compliance certification.",
+        "zh": "明确的障碍是只靠颜色而缺少数值标注，标签与文字替代直接回应这一点。这是针对题中需要的调整，不是正式无障碍合规认证。"
+      }
+    },
+    {
+      "id": "COMMA_12",
+      "prompt": {
+        "en": "A team needs to review a long proposal before discussing it. They use an approved shared document space. Which message supports that workflow?",
+        "zh": "团队需要先读长提案再讨论，且已有批准的共享文档空间。哪条消息更支持这一流程？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Demand an immediate decision before anyone reads it.",
+            "zh": "要求大家阅读前立刻做决定。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Paste many fragments into an unrelated public thread.",
+            "zh": "把很多片段贴到无关公开讨论中。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Link the approved document, state the review question and give a clear response time.",
+            "zh": "链接批准空间中的文档，说明审阅问题与明确回复时间。"
+          },
+          "directionId": "channel-record"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Send only the title with no way to read it.",
+            "zh": "只发标题，不给阅读途径。"
+          },
+          "directionId": "channel-record"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The task requires access to a stable full proposal and a defined review request. A short introduction and clear response time make the longer document usable without exposing it to an unintended audience.",
+        "zh": "任务需要稳定的完整提案和明确审阅请求。简短引导与回复时间有助于使用长文档，也不用扩大到非预定受众。"
+      }
+    },
+    {
+      "id": "COMMA_13",
+      "prompt": {
+        "en": "Colleagues in different time zones must join one call. Which invitation removes the most direct timing ambiguity?",
+        "zh": "不同时区的同事要参加同一通电话。哪种邀请最直接减少时间歧义？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Give the date, time and time zone, with a calendar invitation if available.",
+            "zh": "列日期、时间与时区，有条件时附日历邀请。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Write only “tomorrow morning”.",
+            "zh": "只写“明天早上”。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Assume everyone uses your local clock.",
+            "zh": "假设大家都用你的本地时间。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Send the invitation after the call.",
+            "zh": "通话结束后再发邀请。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "Date, time and time zone specify the intended instant. A relative phrase such as tomorrow morning can refer to different times for different readers. A calendar can help but should still reflect the correct details.",
+        "zh": "日期、时间与时区共同指向预定时刻。“明天早上”对不同读者可能不是同一时间；日历有帮助，但也应填写正确内容。"
+      }
+    },
+    {
+      "id": "COMMA_14",
+      "prompt": {
+        "en": "A mixed-location team sees “10/11” as a due date and uses different date conventions. What is the clearest correction?",
+        "zh": "跨地区团队把“10/11”作为期限，不同成员使用不同日期习惯。怎样修正更清楚？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Assume the most senior person’s convention is universal.",
+            "zh": "假设最资深者的习惯全球通用。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Tell readers to guess from context.",
+            "zh": "让读者根据上下文猜。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Write the full intended date with an unambiguous month and year.",
+            "zh": "写出明确的月份、日期和年份。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Repeat “10/11” in a larger font.",
+            "zh": "把“10/11”字号放大。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "Changing the visual emphasis does not resolve the date convention. Spell out the intended date in a mutually clear format and confirm it if necessary; do not assign an interpretation based on status or nationality.",
+        "zh": "加重视觉强调不能解决日期习惯差异，应使用双方明确的格式写出预定日期，必要时确认，而不是依据地位或国籍指定理解。"
+      }
+    },
+    {
+      "id": "COMMA_15",
+      "prompt": {
+        "en": "You do not know whether a new teammate prefers a call or written notes. Which approach avoids guessing from age or background?",
+        "zh": "你不知道新同事更喜欢通话还是文字记录。哪种做法避免按年龄或背景猜测？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Use a stereotype because it is faster.",
+            "zh": "为省时间直接套用刻板印象。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Assume older people cannot use messages.",
+            "zh": "假设年长者不会用消息。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Ask about their preference and the task’s needs.",
+            "zh": "询问对方偏好，并考虑任务需要。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Assume everyone from one country wants the same channel.",
+            "zh": "假设同一国家的人都喜欢同一渠道。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The relevant evidence is the person’s expressed preference and what the task requires. A demographic category does not determine an individual’s communication needs.",
+        "zh": "相关证据是当事人表达的偏好和任务要求，人口类别不能决定某个人的沟通需要。"
+      }
+    },
+    {
+      "id": "COMMA_16",
+      "prompt": {
+        "en": "A reader understands everyday English but says an internal technical phrase is unfamiliar. Which revision fits that known context?",
+        "zh": "读者能理解日常英文，但说某个内部技术用语陌生。哪种改写符合已知背景？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Replace it with several more unexplained abbreviations.",
+            "zh": "换成更多不解释的缩写。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Define the phrase in plain language and use a relevant example.",
+            "zh": "用日常说法定义，并给一个相关例子。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Repeat it unchanged and louder.",
+            "zh": "原话不变，再大声说一遍。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Question the reader’s intelligence.",
+            "zh": "质疑对方智力。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "Defining a term addresses a shared-vocabulary gap. More jargon, volume or a personal judgement does not explain it. A familiar example can connect the term to the reader’s existing knowledge.",
+        "zh": "定义词语是在弥补共同词汇缺口。增加术语、音量或个人评价都不是解释；熟悉的例子可把新词连接到已有知识。"
+      }
+    },
+    {
+      "id": "COMMA_17",
+      "prompt": {
+        "en": "A participant has requested live captions and a written recap for a video meeting. Which plan responds to those stated needs?",
+        "zh": "参会者要求视频会议提供实时字幕和书面回顾。哪项安排回应了这些明确需要？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Assume asking for captions means the person cannot contribute.",
+            "zh": "假设要求字幕就无法参与。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Cancel their invitation without asking.",
+            "zh": "不询问就取消邀请。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Turn up the speaker volume as the only change.",
+            "zh": "唯一改变是调大音量。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Arrange captions and a usable written recap through available approved tools.",
+            "zh": "使用可用且批准的工具安排字幕和可读书面回顾。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "The case supplies the participant’s request. Captions and a recap address it; volume alone does not substitute for written access. Do not infer participation ability from an access need.",
+        "zh": "题目已经给出参与者的请求，字幕与回顾能回应；仅增加音量不能代替文字接收，也不能根据接收需要推断参与能力。"
+      }
+    },
+    {
+      "id": "COMMA_18",
+      "prompt": {
+        "en": "During a remote meeting, one person turns their camera off. You need to know whether they received the instructions. What should you do?",
+        "zh": "远程会议中，有人关闭摄像头。你需要知道对方是否收到指示，应该怎样做？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Ask for a suitable acknowledgement or check understanding in an agreed channel.",
+            "zh": "通过约定渠道请对方适当确认，或核对理解。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Assign new work without telling them.",
+            "zh": "不告知就分派新工作。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Treat camera status as proof of agreement.",
+            "zh": "把摄像头状态当作同意的证明。"
+          },
+          "directionId": "context-access"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Assume the person is disrespectful.",
+            "zh": "假设对方不尊重人。"
+          },
+          "directionId": "context-access"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "Camera status alone does not establish attention, comprehension or intent. A direct, suitable check answers the practical question without requiring a personal interpretation of the camera choice.",
+        "zh": "摄像头状态本身不能确定注意、理解或意图。直接而合适的核对能回答实际问题，不必给关闭摄像头作个人解释。"
+      }
+    },
+    {
+      "id": "COMMA_19",
+      "prompt": {
+        "en": "A request says “send it by the end of the week”, but two teams use different working weeks. What clarification is most useful?",
+        "zh": "请求写着“本周结束前发来”，但两团队工作周不同。哪项确认最有用？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Ask whether everyone likes the project name.",
+            "zh": "问大家是否喜欢项目名称。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Confirm the exact date, time and time zone.",
+            "zh": "确认具体日期、时间和时区。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Assume the earlier deadline without telling anyone.",
+            "zh": "不告知就假定较早期限。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Remove the deadline entirely.",
+            "zh": "把期限全部删除。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "The ambiguity concerns when the task is due. Exact timing resolves that specific gap. This does not require a universal rule about which working week is correct.",
+        "zh": "歧义是任务何时到期，明确时刻能解决具体缺口，不需要判断哪种工作周习惯普遍正确。"
+      }
+    },
+    {
+      "id": "COMMA_20",
+      "prompt": {
+        "en": "Two requests have conflicting priorities and you cannot complete both in the stated time. What response makes the conflict discussable?",
+        "zh": "两个请求优先级冲突，你无法在给定时间都完成。怎样回复才便于讨论冲突？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Ignore whichever person wrote less formally.",
+            "zh": "忽略措辞不那么正式的人。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Choose based only on who sent more emojis.",
+            "zh": "只看谁发表情更多。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Promise both without mentioning the conflict.",
+            "zh": "不提冲突，保证都完成。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "State the conflict and ask the responsible people to confirm the trade-off.",
+            "zh": "说明冲突，请相关负责人确认取舍。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "Clear communication makes a capacity constraint visible. The key is to clarify a decision with the appropriate people, not to treat tone or message length as an automatic priority rule.",
+        "zh": "清楚沟通会让容量限制可见。关键是与适当的人明确决定，而不是把语气或消息长度当自动优先规则。"
+      }
+    },
+    {
+      "id": "COMMA_21",
+      "prompt": {
+        "en": "After a complicated instruction, which reply best checks your understanding before action?",
+        "zh": "收到复杂指示后，哪种回复最能在行动前核对理解？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Briefly restate the intended action and ask whether it is correct.",
+            "zh": "简短复述要做的行动，并询问是否理解正确。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Assume silence counts as a correction.",
+            "zh": "假设沉默就代表已纠正。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Say “yes” despite not understanding.",
+            "zh": "没懂也说“是”。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Change the instruction without checking.",
+            "zh": "不核对就改写指示。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "A concise restatement gives the sender something specific to confirm or correct. It checks meaning, rather than merely signalling that a message arrived.",
+        "zh": "简短复述给发送者一个可以具体确认或修正的对象，是在核对意思，而不只表示消息已到。"
+      }
+    },
+    {
+      "id": "COMMA_22",
+      "prompt": {
+        "en": "You need approval by a stated deadline. No reply has arrived, and no policy treats silence as approval. What is supported?",
+        "zh": "你需要在明确期限前获得批准，但一直没回复，也没有“沉默即批准”的规则。哪种做法有依据？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Proceed as though approval was given.",
+            "zh": "当作已批准而继续。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Announce that the recipient agreed publicly.",
+            "zh": "公开宣布对方已同意。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Follow up through the agreed route and keep the approval status pending.",
+            "zh": "通过约定渠道跟进，状态仍保留待批准。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Invent a reply on the recipient’s behalf.",
+            "zh": "替对方编一个回复。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "Without an explicit rule or response, lack of reply is not evidence of approval. A follow-up can state the decision needed and timing without fabricating consent.",
+        "zh": "没有明确规则或回复时，未回复不能证明批准。跟进可以说明所需决定与期限，不凭空制造同意。"
+      }
+    },
+    {
+      "id": "COMMA_23",
+      "prompt": {
+        "en": "A teammate says your handover is unclear. Which follow-up seeks information you can use?",
+        "zh": "同事说你的交接不清楚。哪种追问更便于得到可用信息？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Ask them to stop being negative.",
+            "zh": "让对方别那么消极。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Replace the handover with praise for the team.",
+            "zh": "用赞美团队替换交接。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Tell them all other readers understood.",
+            "zh": "说其他人都懂。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Ask which step or missing detail prevented them from continuing.",
+            "zh": "询问哪一步或缺少什么细节，让对方无法继续。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "A specific question can identify the gap in the handover. Defending the message or changing the subject does not explain the step the recipient needs.",
+        "zh": "具体追问可以定位交接缺口；为原文辩护或转移话题，不能说明对方需要的步骤。"
+      }
+    },
+    {
+      "id": "COMMA_24",
+      "prompt": {
+        "en": "A discussion ends with “someone will update it soon.” What detail would make the next action clearer?",
+        "zh": "讨论最后说“之后会有人更新”。补充哪项能让下一步更清楚？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A claim that everyone has already done it.",
+            "zh": "声称大家已经做了。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "The agreed owner, specific update and due time.",
+            "zh": "商定的负责人、具体更新内容和期限。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "More decorative formatting.",
+            "zh": "更多装饰性排版。"
+          },
+          "directionId": "check-understanding"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "An unrelated inspirational quote.",
+            "zh": "一句无关励志名言。"
+          },
+          "directionId": "check-understanding"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "An action needs a defined task, an agreed owner and a usable time. The wording should reflect an actual agreement rather than assign responsibility by implication.",
+        "zh": "行动需要明确任务、已商定的负责人和可使用的时间。措辞应反映实际约定，而不是通过暗示分配责任。"
+      }
+    },
+    {
+      "id": "COMMA_25",
+      "prompt": {
+        "en": "A colleague explains a process aloud during a call. Which mode is directly described?",
+        "zh": "同事在通话中用话语讲解流程。直接描述的是哪种方式？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A written report only.",
+            "zh": "仅书面报告。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A silent diagram only.",
+            "zh": "仅无声图示。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Spoken verbal communication.",
+            "zh": "口头语言沟通。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A database permission change.",
+            "zh": "数据库权限变更。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The information is conveyed in spoken words. A call may also include other modes, but none is specified here. This item checks a basic distinction, not speaking ability.",
+        "zh": "信息通过说出口的话传递。通话也可能有其他方式，但此题未给出；这里只核对基本区分，不测说话能力。"
+      }
+    },
+    {
+      "id": "COMMA_26",
+      "prompt": {
+        "en": "A presenter points to an exit without speaking. Which part of communication is being described?",
+        "zh": "讲解者没有说话，指向出口。这里描述的是沟通的哪个部分？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "A spoken explanation.",
+            "zh": "口头讲解。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A nonverbal gesture.",
+            "zh": "非语言手势。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "An email subject line.",
+            "zh": "邮件主题行。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "A written sentence.",
+            "zh": "书面句子。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "Pointing is a nonverbal gesture. The question identifies the mode, not the gesture’s universal meaning; interpretation can still depend on context and access.",
+        "zh": "指向是非语言手势。题目只区分方式，不声称手势含义全球通用；理解仍可能取决于背景和接收条件。"
+      }
+    },
+    {
+      "id": "COMMA_27",
+      "prompt": {
+        "en": "Instructions are sent as sentences in an email. Which mode carries those sentences?",
+        "zh": "指示以邮件中的文字句子发出。这些句子使用什么方式？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Written communication.",
+            "zh": "书面沟通。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "No communication.",
+            "zh": "没有沟通。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Only facial expression.",
+            "zh": "仅面部表情。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Only sound.",
+            "zh": "仅声音。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": {
+        "en": "Typed sentences are written communication. Receiving an email does not itself prove that its content was read, understood or approved; those are separate questions.",
+        "zh": "打出的句子属于书面沟通。收到邮件本身不能证明内容已被阅读、理解或批准，这些是另外的问题。"
+      }
+    },
+    {
+      "id": "COMMA_28",
+      "prompt": {
+        "en": "A route is shown primarily as a map with marked locations. Which mode is central to that representation?",
+        "zh": "路线主要通过标出位置的地图呈现。核心是什么方式？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "An unspoken feeling alone.",
+            "zh": "只有未表达的感受。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "A phone call with no map.",
+            "zh": "没有地图的电话。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "A greeting only.",
+            "zh": "只有问候。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Visual communication.",
+            "zh": "视觉沟通。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": {
+        "en": "A map represents spatial information visually. A usable message may add written directions or another alternative for a recipient who cannot use the map; the mode alone does not guarantee access.",
+        "zh": "地图以视觉方式表达空间信息。对无法使用地图的接收者，可以另补文字路线或其他替代；方式本身不保证人人能接收。"
+      }
+    },
+    {
+      "id": "COMMA_29",
+      "prompt": {
+        "en": "A presenter speaks while showing a labelled chart. Which description keeps both supplied modes visible?",
+        "zh": "讲解者一边说话，一边展示有标签的图表。哪种描述保留了题目给出的两种方式？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Only a private thought.",
+            "zh": "只有私下的想法。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Spoken and visual communication used together.",
+            "zh": "口头与视觉沟通同时使用。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "No message because there are two modes.",
+            "zh": "因为有两种方式，所以没有消息。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Only silence.",
+            "zh": "只有沉默。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": {
+        "en": "Communication modes can coexist. Naming both the spoken explanation and the chart avoids forcing a combined message into a false either/or category.",
+        "zh": "沟通方式可以并存。说出话语与图表两个部分，能避免把组合消息强塞进二选一分类。"
+      }
+    },
+    {
+      "id": "COMMA_30",
+      "prompt": {
+        "en": "A listener repeats the delivery address to confirm they heard it correctly. What is the immediate function of this reply?",
+        "zh": "听者复述收货地址，确认自己听得准确。这条回复的直接作用是什么？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "en": "Proving friendship quality.",
+            "zh": "证明友谊质量。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "b",
+          "label": {
+            "en": "Granting every requested permission.",
+            "zh": "授予所有请求的权限。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "c",
+          "label": {
+            "en": "Checking the accuracy of received information.",
+            "zh": "核对收到的信息是否准确。"
+          },
+          "directionId": "communication-modes"
+        },
+        {
+          "id": "d",
+          "label": {
+            "en": "Measuring the speaker’s personality.",
+            "zh": "测量说话者的人格。"
+          },
+          "directionId": "communication-modes"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": {
+        "en": "The restatement is a listening check on a specific piece of information. It does not establish approval, personality or relationship quality. More than one useful social function can exist, but this one is explicitly stated.",
+        "zh": "复述是在核对一项具体听到的信息，不确定批准、人格或关系质量。它可能还有其他社交作用，但题目明确给出的直接作用是准确性核对。"
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "audience-purpose-review",
+      "directionIds": [
+        "audience-purpose"
+      ],
+      "title": {
+        "en": "Communication Adaptability: Audience & Purpose",
+        "zh": "沟通适应性：受众与目的复习"
+      },
+      "headline": {
+        "en": "Six context choices with reasons you can inspect",
+        "zh": "六道情境选择，理由可以逐一复核"
+      },
+      "summary": {
+        "en": "These six cases ask whether the message supplies what a specified reader needs: a first step, a bounded decision, an accurate status, a meeting purpose, an actionable support request or a distinction between receipt and approval. The key depends on the stated situation. It does not reward formality for its own sake or require pretending to know what the reader has not told you.",
+        "zh": "六题分别核对：给指定读者第一步、支持一个范围明确的决定、准确说明状态、讲明会议目的、提出可行动的求助，以及区分收到和批准。答案取决于题目给出的条件，不因为形式更正式就加分，也不要求假装知道读者没有表达过的需要。"
+      },
+      "scoreReading": {
+        "en": "Read the 0-to-6 count as matches within six cases, then review their explanations. All guides stay complete at every count.",
+        "zh": "把0到6计数读作六题中与答案键一致的题数，再回看逐题理由。任何计数都能读完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Communication Adaptability: Audience & Purpose",
+          "zh": "沟通适应性：受众与目的完整读法"
+        },
+        "description": {
+          "en": "Distinguish information, requests and approval, then choose detail for the reader. Review a delivery-date decision note and the reasons behind six case answers.",
+          "zh": "区分告知、请求与审批，结合收件人已有背景调整必要细节；通过交付日期决策说明与六道逐题解析，核对一条消息究竟要对方做什么。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six cases cover",
+            "zh": "这六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six cases ask whether the message supplies what a specified reader needs: a first step, a bounded decision, an accurate status, a meeting purpose, an actionable support request or a distinction between receipt and approval. The key depends on the stated situation. It does not reward formality for its own sake or require pretending to know what the reader has not told you.",
+              "zh": "六题分别核对：给指定读者第一步、支持一个范围明确的决定、准确说明状态、讲明会议目的、提出可行动的求助，以及区分收到和批准。答案取决于题目给出的条件，不因为形式更正式就加分，也不要求假装知道读者没有表达过的需要。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more and fewer matches",
+            "zh": "怎样读一致题数多少"
+          },
+          "paragraphs": [
+            {
+              "en": "More keyed choices in this part mean more of the six stated needs were recognised in this bank. Fewer may point to a case worth rereading, not to low intelligence, lack of care or inability to work with people. Real communication also depends on power, time, language and access to facts. Those conditions are not tested by choosing an option.",
+              "zh": "计数较多，只表示在这六题中更多识别了题设需要；较少提示某道题值得回读，不表示智力低、缺少关心或不能与人共事。现实沟通还受权限、时间、语言和可获得事实影响，选择选项没有实测这些条件。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A decision note with a clear request",
+            "zh": "一段目的清楚的决策说明"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two delivery dates are available. A useful decision note names the dates, the main constraint and the decision required. A long project history may be accurate yet leave the reader unsure what to decide. In a Chinese workplace group, “大家看一下” can leave the requested action open; in an English email, “For your information” does not necessarily request approval. The point is the explicit action, not a universal rule about either language.",
+              "zh": "例如交付有两个可选日期，决策说明可以列出日期、主要限制和待决定事项。长篇项目经过可能准确，却没让读者知道要决定什么。中文工作群里的“大家看一下”可能没有明确行动；英文邮件的“For your information”也不必然要求批准。这里关注明确动作，不是给某种语言制定普遍礼仪。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Make one request inspectable",
+            "zh": "把一个请求写得可核对"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose a routine message you can safely revise. Write down who needs it, what they already know and the one thing you want them to understand or decide. Put that request near the start and keep the necessary facts. A counterexample is hiding uncertainty because the recipient wants a confident answer. “Pending” should remain pending; adapting the message changes its presentation, not the underlying status.",
+              "zh": "选一条能安全修改的普通消息，写下谁需要、对方已知道什么，以及希望其理解或决定的一件事。把请求放在靠前位置，保留必要事实。反例是因为对方想听确定答案，就把未知藏起来。待确认仍应写待确认；调整表达方式不能改变真实状态。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Counts, incomplete attempts and close results",
+            "zh": "计数、未完成与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains six original cases, each with four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+              "zh": "这一部分有六道原创情境题，每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+            },
+            {
+              "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+              "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "An original practice and an optional next step",
+            "zh": "原创练习与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+              "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+            },
+            {
+              "en": "You may finish here. If your separate question is which work activities interest you, you may choose the full RIASEC assessment. These counts do not become an interest score, career match or professional qualification. All guides are public before answering; optional drafts remain in this tab for at most 24 hours. Copying shares only the public title and link, without your choices or counts.",
+              "zh": "读到这里可以结束。若另想了解喜欢哪些工作活动，可以自选完整RIASEC测评。本计数不换算兴趣、职业匹配或专业资格。所有指南作答前即公开；可选草稿最多在标签页保留24小时，复制只分享公开标题和链接，不含你的选项或计数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "channel-record-review",
+      "directionIds": [
+        "channel-record"
+      ],
+      "title": {
+        "en": "Communication Adaptability: Channel & Usable Records",
+        "zh": "沟通适应性：渠道与可用记录复习"
+      },
+      "headline": {
+        "en": "Six context choices with reasons you can inspect",
+        "zh": "六道情境选择，理由可以逐一复核"
+      },
+      "summary": {
+        "en": "These six cases concern choosing a channel under an explicit access need, keeping a restricted audience restricted, following a stated urgent-contact procedure, recording an agreed change, adding labelled values and giving reviewers a stable document. No channel is declared best for every message. What matters in each case is whether it supports the task and the supplied constraints.",
+        "zh": "六题涉及按明确接收需要选渠道、保留受限受众、遵循题设紧急联络流程、记录已同意的变更、补充标注数值，以及给审阅者稳定文档。没有哪种渠道对所有消息都最好；每题看的是能否支持任务并满足给出的限制。"
+      },
+      "scoreReading": {
+        "en": "Read the 0-to-6 count as matches within six cases, then review their explanations. All guides stay complete at every count.",
+        "zh": "把0到6计数读作六题中与答案键一致的题数，再回看逐题理由。任何计数都能读完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Communication Adaptability: Channel & Usable Records",
+          "zh": "沟通适应性：渠道与可用记录完整读法"
+        },
+        "description": {
+          "en": "Compare a quick conversation with a usable decision record and check who may access it. Follow a handover-time example through six communication cases.",
+          "zh": "比较即时谈话与可回查的决定记录，核对授权接收范围；用交接时间变更的例子与六道情境解析，检查记录是否让合适的人找到并执行。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six cases cover",
+            "zh": "这六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six cases concern choosing a channel under an explicit access need, keeping a restricted audience restricted, following a stated urgent-contact procedure, recording an agreed change, adding labelled values and giving reviewers a stable document. No channel is declared best for every message. What matters in each case is whether it supports the task and the supplied constraints.",
+              "zh": "六题涉及按明确接收需要选渠道、保留受限受众、遵循题设紧急联络流程、记录已同意的变更、补充标注数值，以及给审阅者稳定文档。没有哪种渠道对所有消息都最好；每题看的是能否支持任务并满足给出的限制。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more and fewer matches",
+            "zh": "怎样读一致题数多少"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger count means more matches to these six channel and record decisions. It does not prove that you use workplace systems safely or can manage an incident. A smaller count does not establish carelessness. Some real settings lack usable tools or allow little choice; the practice cases simplify those constraints by stating them in advance.",
+              "zh": "计数较大表示与这六项渠道及记录选择更一致，不证明现实中安全使用系统或处理事件的能力；较小也不能确定粗心。有些场所缺少好用工具或选择空间，练习只是提前把条件写清，简化了现实限制。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A call that absent colleagues must act on",
+            "zh": "缺席同事也要照做的一通电话"
+          },
+          "paragraphs": [
+            {
+              "en": "A small group agrees by phone to change a handover time. A brief record in the approved team location can state what changed, who owns it and when it takes effect. “We talked” confirms a conversation but not the decision. Publishing the record to everyone might make it easier to find while violating the intended audience. Availability and an appropriate audience are separate needs, and both can matter.",
+              "zh": "小组电话商定修改交接时间，可以在批准的团队位置简短记录改了什么、谁负责、何时生效。“聊过了”只证明有过通话，没有留下决定。若为方便而发给所有人，也可能超出预定范围。容易找到与受众适当是不同需要，两者都可能重要。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Check the route and the record",
+            "zh": "核对渠道，也核对记录"
+          },
+          "paragraphs": [
+            {
+              "en": "Before a routine update, ask whether the recipient can use the chosen format, whether the audience is authorised and whether anyone will need to retrieve the decision later. Keep to existing procedures for urgent or restricted matters. A counterexample is creating a public link or a new access permission just to make a message convenient. This practice supplies no authority to change access, and its count is not a compliance certificate.",
+              "zh": "发一条普通更新前，可核对接收者能否使用该格式、受众是否适当，以及以后是否需要找回决定。紧急或受限事项沿用已有流程。反例是为了发消息方便而建立公开链接或扩大权限。本练习不授权改变权限，计数也不是合规证书。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Counts, incomplete attempts and close results",
+            "zh": "计数、未完成与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains six original cases, each with four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+              "zh": "这一部分有六道原创情境题，每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+            },
+            {
+              "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+              "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "An original practice and an optional next step",
+            "zh": "原创练习与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+              "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+            },
+            {
+              "en": "You may finish here. If your separate question is which work activities interest you, you may choose the full RIASEC assessment. These counts do not become an interest score, career match or professional qualification. All guides are public before answering; optional drafts remain in this tab for at most 24 hours. Copying shares only the public title and link, without your choices or counts.",
+              "zh": "读到这里可以结束。若另想了解喜欢哪些工作活动，可以自选完整RIASEC测评。本计数不换算兴趣、职业匹配或专业资格。所有指南作答前即公开；可选草稿最多在标签页保留24小时，复制只分享公开标题和链接，不含你的选项或计数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "context-access-review",
+      "directionIds": [
+        "context-access"
+      ],
+      "title": {
+        "en": "Communication Adaptability: Context & Access Needs",
+        "zh": "沟通适应性：背景与接收需要复习"
+      },
+      "headline": {
+        "en": "Six context choices with reasons you can inspect",
+        "zh": "六道情境选择，理由可以逐一复核"
+      },
+      "summary": {
+        "en": "These cases ask you to clarify time zones, remove ambiguous dates, ask about individual channel preferences, explain an unfamiliar term, respond to a caption request and check understanding without interpreting camera status. Adaptation uses relevant evidence about this person and this task. It does not assign a preferred style, ability or attitude from age, nationality, disability or another group identity.",
+        "zh": "六题分别涉及明确时区、消除日期歧义、询问个人渠道偏好、解释陌生用语、回应字幕请求，以及不凭摄像头状态判断理解。调整依据是这个人与这项任务的相关事实，不按年龄、国籍、残障或其他群体身份分配偏好、能力或态度。"
+      },
+      "scoreReading": {
+        "en": "Read the 0-to-6 count as matches within six cases, then review their explanations. All guides stay complete at every count.",
+        "zh": "把0到6计数读作六题中与答案键一致的题数，再回看逐题理由。任何计数都能读完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Communication Adaptability: Context & Access Needs",
+          "zh": "沟通适应性：背景与接收需要完整读法"
+        },
+        "description": {
+          "en": "Clarify ambiguous dates and time zones, and ask about captions or preferred formats. Review a cross-location deadline without guessing what a reader needs.",
+          "zh": "澄清日期写法与时区，直接询问字幕或接收格式偏好；结合跨地区截止时间的例子，练习用明确问题替换对读者背景和需要的猜测。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six cases cover",
+            "zh": "这六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These cases ask you to clarify time zones, remove ambiguous dates, ask about individual channel preferences, explain an unfamiliar term, respond to a caption request and check understanding without interpreting camera status. Adaptation uses relevant evidence about this person and this task. It does not assign a preferred style, ability or attitude from age, nationality, disability or another group identity.",
+              "zh": "六题分别涉及明确时区、消除日期歧义、询问个人渠道偏好、解释陌生用语、回应字幕请求，以及不凭摄像头状态判断理解。调整依据是这个人与这项任务的相关事实，不按年龄、国籍、残障或其他群体身份分配偏好、能力或态度。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more and fewer matches",
+            "zh": "怎样读一致题数多少"
+          },
+          "paragraphs": [
+            {
+              "en": "More matching answers indicate recognition of these stated context and access constraints. They do not establish cultural competence, accessibility expertise or the ability to interpret nonverbal intent. Fewer matches may reflect an unfamiliar convention or a reading error. In real life, ask rather than infer; a question bank cannot speak for the person receiving your message.",
+              "zh": "更多一致答案表示识别了题中这些背景与接收条件，不确定跨文化胜任、无障碍专长或解读非语言意图的能力。较少一致可能与不熟悉习惯或读题失误有关。现实中可以询问而非猜测，题库不能替实际接收者表达需要。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "One date, different reading conventions",
+            "zh": "一个日期，不同阅读习惯"
+          },
+          "paragraphs": [
+            {
+              "en": "A team writes “10/11” without a year. Some readers may see October 11 and others November 10. Restating the full intended date resolves the concrete ambiguity; telling people to use “the normal format” does not identify a shared normal. Similarly, “tomorrow morning” can point to different moments across time zones. These are details to clarify, not evidence that one reader is less professional.",
+              "zh": "团队只写“10/11”，没有年份，有人可能读成10月11日，有人读成11月10日。写出预定的完整日期可以解决具体歧义；让大家“用正常格式”却没有说明共同标准。跨时区的“明天早上”也可能不是同一时刻。这些都值得澄清，不证明哪个读者不专业。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Replace one assumption with a question",
+            "zh": "用一个问题替换一次猜测"
+          },
+          "paragraphs": [
+            {
+              "en": "For a message that permits discussion, check one relevant need directly: “Would a written summary help?” or “Which time zone should the deadline use?” Use the answer rather than a stereotype. A counterexample is demanding disclosure of a health condition to accept a straightforward format request. This bank does not establish legal accommodation rules or require someone to explain private details before receiving clear information.",
+              "zh": "在可以讨论的消息中，直接核对一个相关需要，例如“文字摘要会更方便吗”或“期限按哪个时区”。依回答调整，而不套刻板印象。反例是必须披露健康状况，才肯接受普通格式请求。本题本不制定法律上的便利安排规则，也不要求先交代私密细节才配得到清楚信息。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Counts, incomplete attempts and close results",
+            "zh": "计数、未完成与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains six original cases, each with four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+              "zh": "这一部分有六道原创情境题，每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+            },
+            {
+              "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+              "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "An original practice and an optional next step",
+            "zh": "原创练习与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+              "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+            },
+            {
+              "en": "You may finish here. If your separate question is which work activities interest you, you may choose the full RIASEC assessment. These counts do not become an interest score, career match or professional qualification. All guides are public before answering; optional drafts remain in this tab for at most 24 hours. Copying shares only the public title and link, without your choices or counts.",
+              "zh": "读到这里可以结束。若另想了解喜欢哪些工作活动，可以自选完整RIASEC测评。本计数不换算兴趣、职业匹配或专业资格。所有指南作答前即公开；可选草稿最多在标签页保留24小时，复制只分享公开标题和链接，不含你的选项或计数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "understanding-review",
+      "directionIds": [
+        "check-understanding"
+      ],
+      "title": {
+        "en": "Communication Adaptability: Shared Understanding",
+        "zh": "沟通适应性：共同理解复习"
+      },
+      "headline": {
+        "en": "Six context choices with reasons you can inspect",
+        "zh": "六道情境选择，理由可以逐一复核"
+      },
+      "summary": {
+        "en": "These six cases concern exact timing, conflicting priorities, restating an instruction, a missing approval, a vague handover complaint and an action without an owner. Checking understanding makes a specific uncertainty available for correction. It differs from simply receiving a message, being agreeable or repeatedly asking for reassurance without naming the unresolved point.",
+        "zh": "六题涉及准确期限、优先冲突、复述指示、缺少批准、模糊的交接意见，以及没有负责人的行动。核对理解会把具体未知放到可以纠正的位置；它不同于收到消息、态度随和，也不同于不说清疑点而反复寻求保证。"
+      },
+      "scoreReading": {
+        "en": "Read the 0-to-6 count as matches within six cases, then review their explanations. All guides stay complete at every count.",
+        "zh": "把0到6计数读作六题中与答案键一致的题数，再回看逐题理由。任何计数都能读完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Communication Adaptability: Shared Understanding",
+          "zh": "沟通适应性：共同理解完整读法"
+        },
+        "description": {
+          "en": "Check an instruction’s deadline, owner and intended action through a short restatement. Explore why acknowledging receipt is different from accepting a task.",
+          "zh": "通过简短复述核对指示中的截止时间、负责人和具体行动，区分收到、同意与接受任务；阅读六道解析，并为一处含糊步骤提出可回答的问题。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six cases cover",
+            "zh": "这六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six cases concern exact timing, conflicting priorities, restating an instruction, a missing approval, a vague handover complaint and an action without an owner. Checking understanding makes a specific uncertainty available for correction. It differs from simply receiving a message, being agreeable or repeatedly asking for reassurance without naming the unresolved point.",
+              "zh": "六题涉及准确期限、优先冲突、复述指示、缺少批准、模糊的交接意见，以及没有负责人的行动。核对理解会把具体未知放到可以纠正的位置；它不同于收到消息、态度随和，也不同于不说清疑点而反复寻求保证。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more and fewer matches",
+            "zh": "怎样读一致题数多少"
+          },
+          "paragraphs": [
+            {
+              "en": "More matches mean that you selected more of the keyed clarification actions in these six cases. They do not prove a better relationship or better listening in real conversations. Fewer matches do not determine whether you are passive, assertive or a people-pleaser. Those labels ask different questions and are not inferred from this count.",
+              "zh": "一致较多，只说明在六个情境中更多选了答案键中的澄清动作，不证明关系更好或现实倾听更好。一致较少也不能确定被动、主张型或讨好型；这些标签属于不同问题，不能由本计数推出。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "Acknowledgement is not the same as agreement",
+            "zh": "收到与同意不是一回事"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone replies “seen” to a request. That may acknowledge receipt, but it does not necessarily approve a change or accept an assignment. A useful follow-up might state “Please confirm whether you approve this change by the stated deadline.” If no rule treats silence as approval, do not invent one. The practice does not decide who has approval authority; the case must supply that context.",
+              "zh": "对方回复“收到”，可能只是确认消息到了，不必然批准变更或接受分工。可以补充“请在约定期限前确认是否批准这项变更”。若没有沉默即批准的规则，就不能自己编一个。本练习不决定谁拥有审批权，这需要真实背景或题设说明。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Use a short check on one unclear step",
+            "zh": "对一个不清楚的步骤做简短核对"
+          },
+          "paragraphs": [
+            {
+              "en": "When a routine instruction is ambiguous, restate the action you understood and ask for correction of the uncertain part. Keep the question bounded, such as the due date, owner or required format. A counterexample is asking someone to reconfirm every harmless sentence after the decision is already clear. The aim is usable shared meaning, not unlimited messages or shifting all responsibility to the sender.",
+              "zh": "普通指示有歧义时，简短复述自己理解的行动，并请对方纠正未知部分。问题可以限定在期限、负责人或格式。反例是决定已经明确后，仍要求每句无风险的话都反复确认。目标是形成可用的共同理解，不是无限发消息，也不是把所有责任都推给发送者。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Counts, incomplete attempts and close results",
+            "zh": "计数、未完成与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains six original cases, each with four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+              "zh": "这一部分有六道原创情境题，每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+            },
+            {
+              "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+              "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "An original practice and an optional next step",
+            "zh": "原创练习与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+              "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+            },
+            {
+              "en": "You may finish here. If your separate question is which work activities interest you, you may choose the full RIASEC assessment. These counts do not become an interest score, career match or professional qualification. All guides are public before answering; optional drafts remain in this tab for at most 24 hours. Copying shares only the public title and link, without your choices or counts.",
+              "zh": "读到这里可以结束。若另想了解喜欢哪些工作活动，可以自选完整RIASEC测评。本计数不换算兴趣、职业匹配或专业资格。所有指南作答前即公开；可选草稿最多在标签页保留24小时，复制只分享公开标题和链接，不含你的选项或计数。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "communication-modes-review",
+      "directionIds": [
+        "communication-modes"
+      ],
+      "title": {
+        "en": "Communication Adaptability: Communication Modes",
+        "zh": "沟通适应性：沟通方式复习"
+      },
+      "headline": {
+        "en": "Six context choices with reasons you can inspect",
+        "zh": "六道情境选择，理由可以逐一复核"
+      },
+      "summary": {
+        "en": "These six items distinguish spoken words, a gesture, written sentences, a visual map, a combined spoken-and-visual presentation and a listening accuracy check. A single message can use several modes, and recognising its mode does not establish whether its content is correct. These are basic distinctions for reviewing a message, without a test of writing, hearing, vision or speaking performance.",
+        "zh": "这六题区分口头话语、手势、书面句子、视觉地图、口头加视觉的组合呈现，以及倾听准确性核对。一条消息可以包含多种方式，辨认方式也不能确定内容是否正确。这是复习消息表达的基本区分，没有实测写作、听觉、视觉或口头表现。"
+      },
+      "scoreReading": {
+        "en": "Read the 0-to-6 count as matches within six cases, then review their explanations. All guides stay complete at every count.",
+        "zh": "把0到6计数读作六题中与答案键一致的题数，再回看逐题理由。任何计数都能读完整指南。"
+      },
+      "seo": {
+        "title": {
+          "en": "Communication Adaptability: Communication Modes",
+          "zh": "沟通适应性：沟通方式完整读法"
+        },
+        "description": {
+          "en": "Identify spoken, written and visual messages, gestures and combinations. Use a spoken chart example to separate naming a mode from checking understanding.",
+          "zh": "辨认口头、书面、视觉、手势与组合表达；以边讲解边展示图表为例，区分表达方式的名称与信息是否清楚、可用及被理解。"
+        }
+      },
+      "sections": [
+        {
+          "id": "scope",
+          "title": {
+            "en": "What these six cases cover",
+            "zh": "这六题覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "en": "These six items distinguish spoken words, a gesture, written sentences, a visual map, a combined spoken-and-visual presentation and a listening accuracy check. A single message can use several modes, and recognising its mode does not establish whether its content is correct. These are basic distinctions for reviewing a message, without a test of writing, hearing, vision or speaking performance.",
+              "zh": "这六题区分口头话语、手势、书面句子、视觉地图、口头加视觉的组合呈现，以及倾听准确性核对。一条消息可以包含多种方式，辨认方式也不能确定内容是否正确。这是复习消息表达的基本区分，没有实测写作、听觉、视觉或口头表现。"
+            }
+          ]
+        },
+        {
+          "id": "reading",
+          "title": {
+            "en": "Read more and fewer matches",
+            "zh": "怎样读一致题数多少"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger count reflects more matches to six basic distinctions in this bank. It is not an IQ score, a language-proficiency level or evidence of expertise in designing accessible materials. A smaller count gives specific terms to review. The selected cases do not cover every communication mode or every practical condition in which people exchange information.",
+              "zh": "较大计数表示与本题本六项基本区分更一致，不是IQ、语言等级或设计无障碍材料的专业证明。较小计数提供了一些可复习的术语。本套情境也没有覆盖所有沟通方式或现实交换信息的所有条件。"
+            }
+          ]
+        },
+        {
+          "id": "example",
+          "title": {
+            "en": "A chart and an explanation can coexist",
+            "zh": "图表与讲解可以并存"
+          },
+          "paragraphs": [
+            {
+              "en": "A presenter describes a labelled chart aloud. Calling it only spoken or only visual leaves out part of the supplied message. Naming both does not guarantee that every attendee can use it; a person may need labels, captions, text or another format. Likewise, a pointing gesture is nonverbal, but its meaning should not be assumed universal. The case asks about the mode, not hidden intentions.",
+              "zh": "讲解者边展示有标签的图，边用话语说明。只说口头或只说视觉，都会漏掉一部分题设信息。辨认出两种方式也不保证每位参与者都能接收，有人可能需要标签、字幕、文字或其他格式。同样，指向是非语言手势，但不能假定含义全球通用。题目问方式，不问隐藏意图。"
+            }
+          ]
+        },
+        {
+          "id": "action",
+          "title": {
+            "en": "Inspect what carries one important instruction",
+            "zh": "看清一条重要指示靠什么传递"
+          },
+          "paragraphs": [
+            {
+              "en": "Take a routine instruction and identify what carries the essential information: words heard aloud, text, an image, a gesture or a combination. Check whether removing one mode would remove a necessary detail, then consider an appropriate alternative if needed. A counterexample is treating recognition of the label “visual” as proof that the information is accessible, understood or accepted. Those require separate checks.",
+              "zh": "选一条普通指示，看看关键信息由什么承载：听到的话语、文字、图像、手势，还是组合。若去掉一种方式，必要细节是否会丢失？有需要时再考虑合适替代。反例是只因识别出“视觉”标签，就认为资料可接收、已理解或已接受；这些需要分别核对。"
+            }
+          ]
+        },
+        {
+          "id": "arithmetic",
+          "title": {
+            "en": "Counts, incomplete attempts and close results",
+            "zh": "计数、未完成与相近结果"
+          },
+          "paragraphs": [
+            {
+              "en": "This part contains six original cases, each with four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+              "zh": "这一部分有六道原创情境题，每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+            },
+            {
+              "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+              "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "title": {
+            "en": "An original practice and an optional next step",
+            "zh": "原创练习与自选下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+              "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+            },
+            {
+              "en": "You may finish here. If your separate question is which work activities interest you, you may choose the full RIASEC assessment. These counts do not become an interest score, career match or professional qualification. All guides are public before answering; optional drafts remain in this tab for at most 24 hours. Copying shares only the public title and link, without your choices or counts.",
+              "zh": "读到这里可以结束。若另想了解喜欢哪些工作活动，可以自选完整RIASEC测评。本计数不换算兴趣、职业匹配或专业资格。所有指南作答前即公开；可选草稿最多在标签页保留24小时，复制只分享公开标题和链接，不含你的选项或计数。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_communication_context_practice30",
+    "formCode": "fm_comm_adapt_context30_v1",
+    "itemBankVersion": "fm_comm_adapt_context30_v1",
+    "scoringVersion": "comm_adapt_context30_keymatch_counts_v1",
+    "resultContentVersion": "comm_adapt_five_full_revision_guides_v1",
+    "itemBankSha256": "5c74be672872a30308cf941aa7472d652f99f052fa546efe6c558f01d127f7f7",
+    "resultContentSha256": "d525c57bf5cd9fd2bf8c2f017ef3803c2f662999b326cb94c7308ec784ec9c2f",
+    "psychometricValidationCompleted": false
+  },
+  "references": [
+    {
+      "title": {
+        "en": "University of Pittsburgh: audience, occasion and purpose",
+        "zh": "匹兹堡大学：受众、场合与目的"
+      },
+      "url": "https://www.comm.pitt.edu/approaching-speaking-situation-audience-occasion-purpose"
+    },
+    {
+      "title": {
+        "en": "U.S. CMS: clear, reader-focused writing",
+        "zh": "美国CMS：清楚、以读者为中心的写作"
+      },
+      "url": "https://www.cms.gov/training-education/learn/find-tools-to-help-you-help-others/guidelines-for-effective-writing"
+    }
+  ],
+  "guide": [
+    {
+      "id": "practice-key",
+      "title": {
+        "en": "A visible key for each stated context",
+        "zh": "每个明确情境都有可复核答案键"
+      },
+      "paragraphs": [
+        {
+          "en": "This practice contains 30 original cases in five parts of six cases each. Every case has four options and one editorial answer key that fits the conditions stated in that case. Each matching choice adds one; the part count ranges from 0 to 6. The whole bank count ranges from 0 to 30. All 30 responses are required before a report is shown; unanswered is not silently scored as wrong. There is no time limit, population norm, ability grade, pass mark, employment prediction or conversion into a career-match percentage.",
+          "zh": "整套练习包含30道原创情境题，分为五部分，每部分六题。每题四选一，编辑答案键根据本题已说明的条件确定。每次与答案键一致计一题，分项为0到6，整套为0到30。完成30题后才出报告，不把没答悄悄算错。不计时，不设人群常模、能力等级、及格线、就业预测或职业适配率。"
+        }
+      ]
+    },
+    {
+      "id": "practice-close",
+      "title": {
+        "en": "Close counts and all explanations",
+        "zh": "相近计数与全部解析"
+      },
+      "paragraphs": [
+        {
+          "en": "Equal or nearby counts do not prove equal communication ability. Two people can have the same count after choosing different answers, and a six-item part is a small sample of cases. A single extra matching answer is one item in this bank, without evidence of a meaningful real-world difference. Review the relevant explanations instead of selecting a winning trait or comparing people’s suitability for a role.",
+          "zh": "相同或接近的计数不证明沟通能力相当，两人可能选了不同答案却得到同样计数；六题也只是很少的情境。多一致一题只表示本题本中的一道，不代表现实差异具有意义。适合回看相关解析，不选获胜特质，也不据此比较人员是否胜任岗位。"
+        }
+      ]
+    },
+    {
+      "id": "practice-source",
+      "title": {
+        "en": "Original cases with practical background",
+        "zh": "原创情境与实践背景"
+      },
+      "paragraphs": [
+        {
+          "en": "FermatMind wrote all situations, bilingual options, keys and explanations for this edition. The linked University of Pittsburgh and U.S. CMS resources discuss audience, purpose and clear writing; they provide practical background, not validation or endorsement of this bank. This is not Duran’s Communicative Adaptability Scale.",
+          "zh": "本版情境、双语选项、答案键与解析由费马原创。所链接的匹兹堡大学和美国CMS资料讨论受众、目的与清楚写作，只提供实践背景，不验证或背书本题本。本版不是Duran沟通适应性量表。"
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What kind of communication adaptability test is this?",
+        "zh": "这是哪一种沟通适应性测试？"
+      },
+      "answer": {
+        "en": "An original 30-case context-choice practice. It checks choices against explicit case conditions, rather than measuring real communication performance or self-reported frequency.",
+        "zh": "这是30道原创情境选择练习，依据明确条件核对选项，不实测现实沟通表现，也不统计自报行为频率。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is there one correct answer in real life?",
+        "zh": "现实中也只有一个正确答案吗？"
+      },
+      "answer": {
+        "en": "Real situations can support several useful responses. Each practice case supplies conditions that make one option fit the editorial key; its explanation shows that reasoning. The key is not a universal rule for every context.",
+        "zh": "现实可能有多种有用回应。每题给出使一个选项更符合编辑答案键的条件，并解释理由；答案键不是所有场合的普遍规则。"
+      }
+    },
+    {
+      "question": {
+        "en": "What do the five counts mean?",
+        "zh": "五部分计数是什么意思？"
+      },
+      "answer": {
+        "en": "Each is the number of keyed matches in six cases, from 0 to 6. The whole bank count is 0 to 30. There are no norms, pass marks, ability levels or hiring thresholds. Equal counts can contain different mistakes.",
+        "zh": "各部分是在六题中与答案键一致的题数，范围0到6；整套0到30。不设常模、及格线、能力等级或招聘阈值，相同计数也可能错在不同题。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I skip or stop?",
+        "zh": "可以不答或退出吗？"
+      },
+      "answer": {
+        "en": "You can leave without completing the practice. A report requires all 30 choices; missing answers are not silently treated as wrong. If you opt into a tab draft, exit-and-clear removes it.",
+        "zh": "可以不完成就退出。报告需要30题都有选择，不把没答悄悄算错；若已主动保存标签页草稿，退出并清除会删除。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does this replace a communication-style test or RIASEC?",
+        "zh": "这能代替沟通风格或RIASEC吗？"
+      },
+      "answer": {
+        "en": "No. The bank concerns adapting messages under stated conditions, not assigning a communication style or measuring interests. Counts do not convert into either result.",
+        "zh": "不能。本题本关注明确条件下如何调整消息，不分配沟通风格、不测兴趣，计数不能换算这两种结果。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the complete review free?",
+        "zh": "完整复习免费吗？"
+      },
+      "answer": {
+        "en": "All 30 explanations and five complete public guides are free, without signup. Optional progress stays in this tab for at most 24 hours. Copying shares only a public title and link, never your answers or counts.",
+        "zh": "30题解析与五份完整公开指南均免费，无需注册。可选进度最多保留在标签页24小时，复制仅分享公开标题和链接，不含答案或计数。"
+      }
+    }
+  ]
+}

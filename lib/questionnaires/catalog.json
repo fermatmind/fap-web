@@ -4213,5 +4213,31 @@
       "mindfulness-reading",
       "over-identification-reading"
     ]
+  },
+  {
+    "slug": "communication-adaptability",
+    "code": "FM_COMM_ADAPT_CONTEXT30",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Communication Adaptability Test",
+      "zh": "沟通适应性测试"
+    },
+    "description": {
+      "en": "Try 30 original communication situations. Review five section counts, every answer explanation and complete free guides, without ability grades or hiring claims.",
+      "zh": "完成30道原创沟通情境题，阅读五部分计数、每题解析与完整免费指南。根据明确条件选择，不换算能力等级、职业适配或录用结论。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_comm_adapt_context30_v1",
+    "questionCount": 30,
+    "resultSlugs": [
+      "audience-purpose-review",
+      "channel-record-review",
+      "context-access-review",
+      "understanding-review",
+      "communication-modes-review"
+    ]
   }
 ]
