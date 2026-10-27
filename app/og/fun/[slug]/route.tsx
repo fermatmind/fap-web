@@ -71,7 +71,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     : questionnaire?.slug === "grit-test" ? (zh ? "原创长期目标回顾" : "Original long-term-goal reflection")
     : questionnaire?.slug === "toxic-trait" ? (zh ? "原创互动习惯自我观察" : "Original interaction-habits reflection")
     : questionnaire?.slug === "intelligence-type-test" ? (zh ? "原创思考入口趣味版" : "Original thinking-approach quiz")
-    : questionnaire?.slug === "locus-of-control" ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
+    : ["locus-of-control", "empathy"].includes(questionnaire?.slug ?? "") ? (zh ? "IPIP公有领域条目" : "Public-domain IPIP items")
     : questionnaire?.slug === "growth-mindset-fixed-mindset" ? (zh ? "原创学习信念自评" : "Original learning-belief reflection")
     : questionnaire?.slug === "maturity-test" ? (zh ? "原创成熟度自我观察" : "Original maturity self-reflection")
     : questionnaire?.kind === "compass" ? (zh ? "原创四向罗盘反思" : "Original four-direction compass reflection")

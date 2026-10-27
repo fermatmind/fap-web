@@ -1,0 +1,1102 @@
+{
+  "slug": "empathy",
+  "code": "IPIP_BFAS_COMPASSION10",
+  "version": "1.0.0",
+  "updated": "2026-10-27",
+  "category": "framework",
+  "kind": "likert",
+  "minimumRatedItems": 10,
+  "title": {
+    "en": "Empathy Test: IPIP Compassion-10",
+    "zh": "同理心测试：IPIP关怀倾向十题"
+  },
+  "resultHeading": {
+    "en": "Your Compassion self-description: raw total and complete reading",
+    "zh": "你的关怀倾向自我描述：原始总分与完整读法"
+  },
+  "description": {
+    "en": "Take ten public-domain IPIP Compassion items. See the transparent raw score, concrete examples, helpful actions and boundaries. Full bilingual results are free.",
+    "zh": "通过十道IPIP公有领域题目回看关怀倾向，理解透明原始计分、具体沟通例子、可选行动和边界。中英文完整结果免费，无需注册。"
+  },
+  "seoTitle": {
+    "en": "Empathy Test: IPIP Compassion-10 & Full Results",
+    "zh": "同理心测试：IPIP关怀倾向十题与完整结果"
+  },
+  "minutes": 3,
+  "introduction": {
+    "en": "How do you describe your interest in other people and responsiveness to their feelings? This test uses the ten-item Compassion aspect from the Big Five Aspects Scales. It provides one transparent continuous value and a complete guide with twelve sections, rather than assigning four empathy types. All ten English source items, a working Chinese translation and the full reading are free before and after answering.",
+    "zh": "你怎样描述自己对他人的关注，以及对他人感受的回应？本测试采用大五方面量表中的关怀倾向十题，提供一个透明的连续读数，以及含十二节内容的完整指南，不派分为四种同理心类型。十道英文原条目、中文工作译文和完整读法，作答前后均可免费查看。"
+  },
+  "instructions": {
+    "en": "Rate how accurately each sentence describes you as you generally are now, not your ideal future self: 1 Very inaccurate, 2 Moderately inaccurate, 3 Neither inaccurate nor accurate, 4 Moderately accurate, 5 Very accurate. English comes from IPIP; Chinese is a new working translation. Choose the separate unscored response if the statement is unclear, inapplicable or you prefer not to answer. Ten selections finish the questionnaire; all ten must be numeric for a personal total. Do not enter private experiences or identify another person.",
+    "zh": "按题句与你现在通常的样子是否符合来回答，不按理想中的自己选择：1非常不符合、2较不符合、3介于符合与不符合之间、4较符合、5非常符合。英文来自IPIP，中文是新工作译文。题意不清、不适用或不愿回答时，可选独立不计分项。十题都选择后可结束；十题均为数字回答才显示个人总分。不需要输入私密经历或他人身份。"
+  },
+  "source": {
+    "kind": "Public-domain official IPIP BFAS Compassion ten English items, five positive/five negative keys; interleaved presentation; FermatMind working Chinese and full continuous-score guide. Not the Empathy Quotient or two empathy subscales.",
+    "formCode": "ipip_bfas_compassion10_en_fm_zh_working_v1",
+    "itemBankVersion": "1.0.0",
+    "scoringVersion": "1.0.0",
+    "resultContentVersion": "1.0.0",
+    "itemBankSha256": "5a76bdf2766480072200865e66d2ad06b776e19eb2f9b626ceefdd754531c0c4",
+    "resultContentSha256": "1a3fadd0ff9c4bc653de4ac61eb1b2363fd2c04ac7f27d790acd2870b36d9136",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "compassion",
+      "title": {
+        "en": "IPIP Compassion self-description",
+        "zh": "IPIP关怀倾向自我描述"
+      },
+      "itemCount": 10
+    }
+  ],
+  "questions": [
+    {
+      "id": "COMP10_01",
+      "prompt": {
+        "en": "Feel others’ emotions.",
+        "zh": "能感受到他人的情绪。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_02",
+      "prompt": {
+        "en": "Am not interested in other people’s problems.",
+        "zh": "对他人的难题不感兴趣。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_03",
+      "prompt": {
+        "en": "Inquire about others’ well-being.",
+        "zh": "会询问他人过得怎么样。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_04",
+      "prompt": {
+        "en": "Can’t be bothered with other’s needs.",
+        "zh": "懒得理会他人的需要。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_05",
+      "prompt": {
+        "en": "Sympathize with others’ feelings.",
+        "zh": "会体谅他人的感受。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_06",
+      "prompt": {
+        "en": "Am indifferent to the feelings of others.",
+        "zh": "对他人的感受无动于衷。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_07",
+      "prompt": {
+        "en": "Take an interest in other people’s lives.",
+        "zh": "会关心他人的生活。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_08",
+      "prompt": {
+        "en": "Take no time for others.",
+        "zh": "不会为他人留出时间。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_09",
+      "prompt": {
+        "en": "Like to do things for others.",
+        "zh": "喜欢为别人做些事情。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "COMP10_10",
+      "prompt": {
+        "en": "Don’t have a soft side.",
+        "zh": "没有柔软的一面。"
+      },
+      "reverse": true,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Very inaccurate",
+            "zh": "非常不符合"
+          },
+          "directionId": "compassion",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Moderately inaccurate",
+            "zh": "较不符合"
+          },
+          "directionId": "compassion",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Neither inaccurate nor accurate",
+            "zh": "介于符合与不符合之间"
+          },
+          "directionId": "compassion",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Moderately accurate",
+            "zh": "较符合"
+          },
+          "directionId": "compassion",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very accurate",
+            "zh": "非常符合"
+          },
+          "directionId": "compassion",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "compassion",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "compassion-reading",
+      "directionIds": [
+        "compassion"
+      ],
+      "title": {
+        "en": "IPIP Compassion: complete score reading",
+        "zh": "IPIP关怀倾向：完整分数读法"
+      },
+      "headline": {
+        "en": "Understand the ten-item value, check an example and choose a practical next step.",
+        "zh": "理解十题读数，核实具体例子，再选择可行的下一步。"
+      },
+      "summary": {
+        "en": "One continuous self-description of Compassion, with transparent reverse scoring and examples for listening, helping and boundaries. All sections remain available without a personal score.",
+        "zh": "围绕一个连续的关怀倾向自我描述，解释反向计分，并提供倾听、帮助和边界的具体例子。没有个人分数也可阅读全部内容。"
+      },
+      "scoreReading": {
+        "en": "All ten numeric answers produce a raw total 10–50 and mean 1–5. No type, percentile or two-subscale breakdown is assigned; an unscored answer withholds the personal total while preserving the full guide.",
+        "zh": "十题数字回答产生10—50的原始总分和1—5的均分，不分派类型、百分位或两个分量表。任一不计分回答会使个人总分缺省，完整指南仍保留。"
+      },
+      "seo": {
+        "title": {
+          "en": "Empathy Test Results: IPIP Compassion Score Guide",
+          "zh": "同理心测试结果怎么看：IPIP关怀倾向算例与行动"
+        },
+        "description": {
+          "en": "Understand your empathy-test result from IPIP Compassion-10: raw score, reverse items, worked examples, helpful actions and limits. Full bilingual guide.",
+          "zh": "完整理解IPIP关怀倾向十题：反向计分、10—50原始总分、不计分回答，以及倾听、实际帮助和边界的具体例子。中英文全文免费阅读。"
+        }
+      },
+      "sections": [
+        {
+          "id": "what-the-number-describes",
+          "title": {
+            "en": "What this ten-item reading describes",
+            "zh": "这十题描述什么"
+          },
+          "paragraphs": [
+            {
+              "en": "This reading concerns the Compassion aspect of Agreeableness in the Big Five Aspects Scales: how you describe your interest in other people, responsiveness to their feelings and willingness to do things for them. Ten short statements bring those descriptions together. A result is an account of your answers, not a demonstration that you understood another person correctly or delivered the help they wanted.",
+              "zh": "这份读法围绕大五方面量表中的关怀倾向：你怎样描述自己对他人生活的关注、对他人感受的回应，以及为别人做事的意愿。十个短句把这些自我描述放在一起。结果呈现的是你的回答，并没有通过实际任务证明你读懂了谁，或提供了对方需要的帮助。"
+            },
+            {
+              "en": "For example, you might agree that you feel others’ emotions but be less certain that you make time for them. That is useful material for reflection, but this questionnaire does not turn those two answers into separate emotional-resonance and caring-action scores. Read the individual statements alongside the combined value. Their everyday meanings can help you choose a situation to examine without creating two unvalidated scales.",
+              "zh": "例如，你可能觉得自己能感受到别人的情绪，却不确定是否经常为别人留出时间。这种差别值得回看，但本问卷不会据此产生“情绪共鸣分”和“关怀行动分”。可以把具体题句与合并读数一起理解，用日常含义选择一件事来观察，而不是把两道题当成两个已经验证的分量表。"
+            }
+          ]
+        },
+        {
+          "id": "recalculate-the-score",
+          "title": {
+            "en": "Recalculate the raw total",
+            "zh": "亲手复算原始总分"
+          },
+          "paragraphs": [
+            {
+              "en": "The five accuracy responses run from 1, Very inaccurate, to 5, Very accurate. Keep the number for each positive statement. For each negative statement, replace the answer with six minus that number: 1 becomes 5, 2 becomes 4, 3 stays 3, 4 becomes 2 and 5 becomes 1. Add all ten keyed values. The possible raw total is 10–50; dividing it by ten gives the displayed mean on the original 1–5 response range.",
+              "zh": "五个符合程度选项从1“非常不符合”到5“非常符合”。正向句保留原值；反向句用6减去原值：1变5、2变4、3不变、4变2、5变1。十个键向处理后的值相加，原始总分范围是10—50；再除以10，得到原选项范围1—5上的均分。"
+            },
+            {
+              "en": "The website alternates positive and negative statements. If your ten displayed answers are 4, 2, 3, 1, 5, 2, 4, 3, 4, 2, their keyed values are 4, 4, 3, 5, 5, 4, 4, 3, 4, 4. They add to 40, giving a mean of 4.0. The number 40 is not 80 percent empathy or an 80th percentile. Turning it into either would add an interpretation that these arithmetic steps do not supply.",
+              "zh": "网页把正向句和反向句交替排列。若按显示顺序回答4、2、3、1、5、2、4、3、4、2，键向处理后为4、4、3、5、5、4、4、3、4、4，合计40，均分4.0。40不表示“80%的同理心”，也不是第80百分位；这样的换算会加入上述算术本身没有提供的解释。"
+            }
+          ]
+        },
+        {
+          "id": "read-without-bands",
+          "title": {
+            "en": "Read a continuous value without assigning a type",
+            "zh": "沿连续读数理解，不分派人格类型"
+          },
+          "paragraphs": [
+            {
+              "en": "A larger total means your answers, after reverse scoring, describe more of the Compassion content in these ten statements. A smaller total means they describe less of that content. This edition supplies no population reference sample or validated cutoff for naming a person guarded, considerate, warm or deeply empathetic. A one-point total difference is one point in the keyed answer sum, not a known difference in relationship quality.",
+              "zh": "较大的总分表示，处理反向题以后，你的回答更符合这十句所涵盖的关怀内容；较小的总分表示符合程度较少。本版没有提供人群参照样本，也没有用经过验证的界值把人命名为疏离、体贴、温暖或高度共情。总分相差一分，指的是题目计分和相差一分，并不是已经知道两人的关系质量相差多少。"
+            },
+            {
+              "en": "Different answer patterns can produce the same total. Someone who readily feels with others but rarely makes time may share a total with someone who reports less emotional resonance and more practical availability. Neither pattern can be reconstructed from the total alone. If a result surprises you, revisit the particular statement that feels inaccurate and an example from your life; do not search for a hidden personality label that the calculator has withheld.",
+              "zh": "不同的回答组合可以得到相同总分。一个容易与他人产生情绪共鸣、却很少留出时间的人，可能与另一个共鸣较少、实际可提供时间较多的人同分。单凭总分无法还原这些差别。若结果让你意外，可以回看哪一句不贴切，以及生活中的具体例子；不必寻找计算器似乎藏起来、实际上并未设置的人格标签。"
+            }
+          ]
+        },
+        {
+          "id": "notice-and-check",
+          "title": {
+            "en": "Notice a possible feeling, then check it",
+            "zh": "注意到可能的感受，再向对方核实"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine a colleague becomes quiet after a meeting. You might feel concerned and interpret the silence as disappointment. It could also reflect concentration, tiredness, a private matter or a wish not to discuss the meeting. Endorsing an item about feeling others’ emotions does not tell you which explanation is correct. A practical use of the result is to notice the difference between an observed event, your interpretation and what the person actually tells you.",
+              "zh": "设想同事开完会后变得沉默。你可能很在意，猜测对方感到失望；也可能只是专注、疲倦、有私事，或不想谈这次会议。同意“能感受到他人的情绪”并不能告诉你哪种解释才对。可以借结果练习区分三件事：你看见了什么、你怎样解释，以及对方实际说了什么。"
+            },
+            {
+              "en": "If the setting permits, try a low-pressure question such as, “Would you like to talk about that meeting, or would you rather leave it for now?” Accept either answer. This is an optional conversation experiment, not an exercise that promises to raise a score. It makes the next step depend on the other person’s consent and account rather than treating your impression as access to their mind.",
+              "zh": "在场合合适时，可以轻声询问：“你想聊聊刚才的会，还是先放一放？”两种回答都可以接受。这是一种可选的沟通尝试，并不是承诺提分的训练。它让下一步建立在对方愿意与否以及亲口表达之上，而不是把自己的直觉当成读取他人内心的通道。"
+            }
+          ]
+        },
+        {
+          "id": "care-that-fits",
+          "title": {
+            "en": "Ask what kind of care would fit",
+            "zh": "先问哪一种帮助合适"
+          },
+          "paragraphs": [
+            {
+              "en": "A friend describing a difficult day may want listening, a concrete task, information, company or privacy. Being interested in their life does not settle which response would be welcome. Offering an elaborate solution before checking can miss the need; listening carefully when someone has asked for a small practical favour can miss it too. Keep the questionnaire’s general willingness separate from the fit of a particular action.",
+              "zh": "朋友讲起难熬的一天，可能想要倾听、具体协助、信息、陪伴，也可能需要独处。关心对方的生活，并不能直接确定哪一种回应合适。没有核实就给出整套解决方案可能没接住需要；对方已经提出一个小请求时，只顾倾听也可能没帮上忙。问卷中的一般意愿，与某个行动是否合适，应分开理解。"
+            },
+            {
+              "en": "You could ask, “Would listening help, or is there one thing you want a hand with?” If they name a task, check its scope before agreeing. For instance, reviewing one paragraph is different from rewriting an entire application. The useful evidence afterward is what was requested, what you agreed to and whether that agreement was followed, rather than a favourable self-description alone. No single interaction proves a stable trait.",
+              "zh": "可以问：“你希望我先听你说，还是有一件具体的事需要搭把手？”如果对方提出任务，先问清范围再答应。例如，帮忙看一段文字，与重写整份申请，投入明显不同。事后值得记录的是对方提出了什么、双方怎样约定、约定是否完成，而不只是对自己的好评。一场互动也不能证明一个稳定特质。"
+            }
+          ]
+        },
+        {
+          "id": "availability-and-boundaries",
+          "title": {
+            "en": "Make availability and boundaries explicit",
+            "zh": "把可提供的帮助和边界说清楚"
+          },
+          "paragraphs": [
+            {
+              "en": "A willingness to help is not unlimited time, money, access or responsibility. You may care about a person while being unable to answer immediately, lend money or hold confidential information beyond your role. The item about making time asks for a general self-description; it does not require agreeing to every request. A high total should not be used by you or somebody else as a reason to waive a boundary.",
+              "zh": "愿意帮助别人，不等于拥有无限的时间、金钱、接触权限或责任范围。你可以在意某个人，同时无法立刻回复、借钱，或承担超出职责的保密责任。“为他人留出时间”是在询问一般自我描述，不要求你答应每一个请求。较高总分不应成为自己或别人要求你放弃边界的理由。"
+            },
+            {
+              "en": "One option is to state a concrete limit and an honest offer: “I can read one page on Saturday; I cannot review the whole document.” If you have no availability, it is also acceptable to say so without promising an alternative. Review whether the wording was clear and the commitment realistic. This guide does not infer that a lower score caused your limit, or that a higher one predicts exhaustion or a particular health outcome.",
+              "zh": "一种做法是给出具体限制和真实可行的提议：“周六我能看一页，但没法核完整份文件。”如果确实没有余力，也可以如实说明，不必强行承诺替代安排。回看时关注表达是否清楚、承诺是否现实。本指南不会把边界归因于低分，也不会用高分预测疲惫或某种健康结局。"
+            }
+          ]
+        },
+        {
+          "id": "context-and-opportunity",
+          "title": {
+            "en": "Consider context and opportunities to respond",
+            "zh": "结合处境和回应机会理解"
+          },
+          "paragraphs": [
+            {
+              "en": "The same sentence may be answered differently across relationships and settings. Asking about somebody’s well-being can be welcome among friends and intrusive in a professional interaction. A person working alone may have fewer obvious opportunities to do things for others than someone in a busy household. The ten-item total cannot separate opportunity, role expectations, privacy preferences and a general disposition. These are questions to consider, not adjustments secretly built into the score.",
+              "zh": "同一句话在不同关系和场景下可能得到不同回答。问候近况，在朋友之间可能受欢迎，在某些工作互动中却可能冒昧。独自工作的人，为他人做事的显眼机会，也可能少于生活在繁忙家庭中的人。十题总分无法拆开机会、角色期待、隐私偏好与一般倾向；这些是理解时可考虑的问题，并没有被系统暗中校正。"
+            },
+            {
+              "en": "Choose one familiar setting and one that differs from it. Write down a specific interaction in each: what happened, what you noticed, what you asked and what you did. You need not enter these notes on this website or identify anyone. If your examples differ sharply, keep both. A mixed picture can be more informative for a personal decision than trying to make every example support the same label.",
+              "zh": "可以选一个熟悉场合，再选一个不同场合，各回忆一次具体互动：发生了什么、你注意到什么、问了什么、做了什么。不需要把这些记录输入网站，也不必写下任何人的身份。如果两个例子差异很大，就同时保留。对实际决定而言，这种有差别的图景，可能比勉强让所有例子支持同一个标签更有参考价值。"
+            }
+          ]
+        },
+        {
+          "id": "when-a-statement-misfits",
+          "title": {
+            "en": "When a statement feels unclear or does not fit",
+            "zh": "题句不清楚或不适用时怎样处理"
+          },
+          "paragraphs": [
+            {
+              "en": "Short personality statements leave room for interpretation. “Don’t have a soft side” uses an English idiom for lacking a tender or caring side; it does not ask about physical softness or require being easily persuaded. The Chinese wording is a FermatMind working translation. If an expression remains unclear, an unscored response is available. Guessing a preferred answer would produce a number without resolving the uncertainty in what you meant.",
+              "zh": "短人格题句不可避免地留有解释空间。“没有柔软的一面”对应英文中缺少温柔关怀一面的惯用表达，不是在问身体是否柔软，也不要求容易被说服。中文是费马测试工作译文。如果某种表达仍然不清楚，可以选择不计分回答。猜一个看起来合适的选项，会产生数字，却没有解决你究竟如何理解题句的问题。"
+            },
+            {
+              "en": "This website requires ten numeric responses to calculate a personal raw total and mean. If any statement is marked insufficient information, not applicable or prefer not to answer, the questionnaire may be finished but the personal total is withheld. Nothing is replaced by zero, a midpoint or another person’s average. You can still read this entire public guide and decide later whether answering every statement makes sense for you.",
+              "zh": "网站只有在十题都有数字回答时，才计算个人原始总分和均分。只要有一句选择“资料不足／不适用／不愿回答”，问卷可以结束，但不生成个人总分；系统不会用零分、中间值或别人的平均值填补。你仍然可以阅读全文，再决定以后是否有必要为每一句作答。"
+            }
+          ]
+        },
+        {
+          "id": "same-total-different-patterns",
+          "title": {
+            "en": "Compare patterns rather than ranking people",
+            "zh": "比较回答含义，不给别人排座次"
+          },
+          "paragraphs": [
+            {
+              "en": "The worked total of 40 can arise from many combinations. Another set of ten keyed responses, 5, 5, 5, 5, 5, 3, 3, 3, 3, 3, also sums to 40. Those patterns are not interchangeable stories about daily behaviour. If you are reflecting with someone else, discuss an example each person chooses to share instead of treating equal totals as proof that you feel or behave alike. Do not require another person to take the test.",
+              "zh": "前面的40分算例，可以由许多不同组合产生。另一组键向处理后的数值5、5、5、5、5、3、3、3、3、3，相加也是40；但它们并不是可以互换的日常行为故事。如果与别人一起反思，可以各自选择愿意分享的例子，而不是把同分当成感受和行为相同的证据，也不必要求对方参加测试。"
+            },
+            {
+              "en": "Likewise, a difference between partners or colleagues is not a verdict about who is kinder, more mature or better suited to a job. A difficult event needs its own account of actions, expectations and effects. The result cannot determine who was right in an argument, whether a relationship is safe, or whether somebody intended harm. Keep personal answers private unless you actively choose to discuss them; a general guide can be shared without a score.",
+              "zh": "同样，伴侣或同事之间的分数差，不是判断谁更善良、更成熟或更适合某份工作的裁决。一件困难的事，需要单独了解行动、期待和影响。结果不能决定争论中谁对谁错、关系是否安全，或谁有意伤害别人。除非主动选择讨论，否则可以保留个人答案；分享这篇通用指南也不需要附上分数。"
+            }
+          ]
+        },
+        {
+          "id": "one-small-observation",
+          "title": {
+            "en": "Try one small, observable conversation step",
+            "zh": "选择一个看得见的小尝试"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick a low-stakes situation in which you want your response to be clearer. Before offering help, distinguish what you know from what you are guessing and ask one relevant question. Then agree to a small action only if it is wanted and feasible. For example: “You said the handover was confusing. Would checking the task list together for ten minutes help?” This names an observable issue without announcing how the other person must feel.",
+              "zh": "选择一个压力不大的场景，尝试让自己的回应更清楚。先区分已经知道的事与猜测，问一个相关问题，再在对方愿意且自己做得到时约定一项小行动。例如：“你刚才说交接有点乱，一起花十分钟核一下任务清单，会有帮助吗？”这句话指出了可观察的问题，没有先宣布对方一定是什么感受。"
+            },
+            {
+              "en": "Afterward, note whether you asked permission, understood the request, kept the agreed limit and completed the action. If it did not help, ask what was missed rather than assigning a trait explanation. This is a practical reflection prompt authored for this guide. It is not a validated intervention, a prescribed number of weekly exercises or a promise of a higher score. Choosing not to use the exercise does not make your result incomplete.",
+              "zh": "事后可以回看：是否征求了意见、是否听懂请求、是否守住约定范围、是否完成行动。如果没有帮上忙，先问遗漏了什么，不急着用人格解释。这是为本指南编写的实际反思提示，不是经过验证的干预方案，也没有规定每周练习次数或保证提分。不采用这个练习，并不会使你的测试结果缺少什么。"
+            }
+          ]
+        },
+        {
+          "id": "retake-and-change",
+          "title": {
+            "en": "Read a retake as another answer occasion",
+            "zh": "重测反映另一次作答"
+          },
+          "paragraphs": [
+            {
+              "en": "Retaking can be useful when you want to reconsider misunderstood wording or a change in what you meant by a general statement. Save the date and the interpretation you used if you want to compare privately. A different raw total does not by itself establish a reliable personality change. This edition has not established a smallest meaningful change, a test–retest threshold or a norm-based target that you should try to reach.",
+              "zh": "当你想重新理解某句题意，或发现自己对一般描述的理解发生变化时，可以重测。如果想私下比较，可以记下日期以及当时怎样理解题句。原始总分改变，本身不能证明人格已经可靠地改变。本版没有建立最小有意义变化、重测界值或应该努力达到的常模目标。"
+            },
+            {
+              "en": "Answering as your ideal future self or remembering which options produce a higher total changes what the responses represent. It may be more useful to compare a concrete interaction you handled differently than to repeat the questionnaire until the number rises. Neither a stable total nor a changed total tells you what another person experienced. Their voluntary feedback, the context and the action itself remain separate information.",
+              "zh": "按理想中的自己作答，或记住哪些选项能产生高分，会改变回答所代表的含义。与其反复做题直到数字上升，有时不如回看一场自己处理方式不同的具体互动。无论总分稳定还是变化，都不能告诉你别人经历了什么；对方自愿提供的反馈、当时环境和实际行动，仍然是另外的信息。"
+            }
+          ]
+        },
+        {
+          "id": "sources-and-limits",
+          "title": {
+            "en": "Sources, working translation and limits",
+            "zh": "来源、工作译文与使用边界"
+          },
+          "paragraphs": [
+            {
+              "en": "The English statements and key directions come from the official IPIP Big Five Aspects Scales Compassion key, which cites DeYoung, Quilty and Peterson (2007). Official IPIP scoring instructions provide the five accuracy responses, reverse scoring and summation. IPIP administration guidance permits public-domain reuse, translation and changes of item order. This website interleaves the original positive and negative sentences and adds an explicitly unscored response, while keeping the original numeric five-point key.",
+              "zh": "英文条目与键向来自IPIP官方大五方面量表Compassion计分键，该页引用DeYoung、Quilty与Peterson（2007）。IPIP官方计分说明提供五级符合程度选项、反向处理与求和方法；管理说明允许公有领域条目的复用、翻译和排序调整。本站交替呈现原始正反向句，并增加明确不计分的回答，保留原五级数字键向。"
+            },
+            {
+              "en": "The Chinese wording, standalone presentation and explanatory examples are FermatMind editorial work, without established Chinese validation, language equivalence, original-author review or population norms. This is not the Empathy Quotient, a complete empathy ability assessment or a screen for any condition. It cannot establish accurate emotion recognition, physical absorption of another person’s state, job performance or future fatigue. Use it as a transparent self-description and a starting point for specific conversations.",
+              "zh": "中文措辞、独立网页呈现和解释例子属于费马测试编辑工作，尚无已建立的中文验证、语言等值、原作者审阅或人口常模。本版不是Empathy Quotient，不是完整的同理心能力测评，也不筛查任何状况；它不能确定情绪识别是否准确、是否在身体上吸收他人的状态、工作表现或未来疲劳。可以把它用于透明的自我描述，以及具体沟通的起点。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "facet-scoring",
+      "title": {
+        "en": "Ten ratings and five reverse keys",
+        "zh": "十个评分与五道反向题"
+      },
+      "paragraphs": [
+        {
+          "en": "In displayed order, odd items keep their 1–5 rating and even items COMP 10_02,04,06,08,10 use six minus the rating. Add all ten keyed values: raw total 10–50, mean=total/10 on the original 1–5 response range, shown to one decimal. For displayed answers 4,2,3,1,5,2,4,3,4,2, the keyed values total 40 and the mean is 4.0. The total is not a percentage or percentile.",
+          "zh": "按显示顺序，奇数题保留1—5原值；偶数COMP10_02、04、06、08、10以6减原值反向。十个处理后的值相加，原始总分10—50，均分为总分除以10，显示一位小数。若依次回答4、2、3、1、5、2、4、3、4、2，处理后总分40、均分4.0；总分不是百分比或百分位。"
+        }
+      ]
+    },
+    {
+      "id": "facet-reading",
+      "title": {
+        "en": "One continuous reading, fully available",
+        "zh": "一个连续读数，全文保持可读"
+      },
+      "paragraphs": [
+        {
+          "en": "This edition has one Compassion value, no high/middle/low cutoff, four-type assignment, separate Emotional Resonance/Caring Action score, norm rank or pass line. Every numeric total uses the same full guide. Any unscored response withholds the personal sum and mean without replacing it with zero or a midpoint; the entire twelve-section general guide remains available.",
+          "zh": "本版只有一个关怀倾向读数，不设置高／中／低界值、四种类型、情绪共鸣／关怀行动分量表、人群排名或通过线。任何有效总分都可阅读同一份全文。任一不计分回答使个人总分与均分缺省，不补零或中间值；十二节完整通用指南仍可阅读。"
+        }
+      ]
+    },
+    {
+      "id": "facet-comparison",
+      "title": {
+        "en": "Compassion is narrower than empathy ability",
+        "zh": "关怀倾向不等于完整同理心能力"
+      },
+      "paragraphs": [
+        {
+          "en": "Compassion is one aspect of Agreeableness, not the whole Big Five, the Empathy Quotient or an objective emotion-recognition task. One source sentence also appears in our preliminary IPIP HEXACO bank; sharing a public-domain item does not make totals interchangeable. We do not convert this ten-item total into a Big Five domain score, HEXACO score or result from another test.",
+          "zh": "关怀倾向是宜人性的一个方面，不是整个大五、Empathy Quotient或客观情绪识别任务。本站preliminary IPIP HEXACO题本也采用其中一句公有领域条目；共享一句不代表总分可以互换。本十题总分不会换算为大五域分、HEXACO分数或其他测评结果。"
+        }
+      ]
+    },
+    {
+      "id": "source-and-translation",
+      "title": {
+        "en": "Source and working translation",
+        "zh": "来源与工作译文"
+      },
+      "paragraphs": [
+        {
+          "en": "Official IPIP pages supply the English items, keys, accuracy anchors and public-domain permission for commercial or non-commercial reuse and translation. Chinese and the standalone website presentation have no established validation, language equivalence, original-author review or local norms. The twelve-section explanatory guide is FermatMind editorial work, not an official IPIP interpretation manual.",
+          "zh": "IPIP官方页面提供英文条目、键向、符合程度选项，以及商业或非商业复用与翻译的公有领域许可。中文和独立网页呈现尚无已建立的验证、语言等值、原作者审阅或本地常模。十二节解释指南为费马测试编辑内容，不是IPIP官方个人解释手册。"
+        }
+      ]
+    },
+    {
+      "id": "privacy-and-use",
+      "title": {
+        "en": "Free reading, optional drafts and public sharing",
+        "zh": "免费阅读、可选草稿与公开分享"
+      },
+      "paragraphs": [
+        {
+          "en": "No email, account, second test or private story is required to read all ten items and the complete guide. Answers are scored in the browser. Draft saving is opt-in for this tab for 24hours and clears on completion, retake or exit-and-clear. The public share uses the test name and entry link, without answers or scores. Optional next steps are not an unlock condition.",
+          "zh": "十题和完整指南不要求邮箱、账户、另做一份测试或填写私密经历。答案在浏览器计分。草稿需主动开启，仅本标签页保留24小时，完成、重测或退出并清除时删除。公开分享只包含测试名和入口链接，不带答案或分数。可选下一步不构成解锁条件。"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "title": {
+        "en": "IPIP BFAS Compassion: ten English items and keys",
+        "zh": "IPIP BFAS关怀倾向：十条英文与计分键"
+      },
+      "url": "https://ipip.ori.org/BFASKeys.htm"
+    },
+    {
+      "title": {
+        "en": "IPIP scoring: five accuracy anchors, reverse keys and sums",
+        "zh": "IPIP官方计分：五级符合程度、反向键与求和"
+      },
+      "url": "https://ipip.ori.org/newScoringInstructions.htm"
+    },
+    {
+      "title": {
+        "en": "IPIP public-domain permission for commercial and non-commercial use",
+        "zh": "IPIP公有领域商业及非商业使用许可"
+      },
+      "url": "https://ipip.ori.org/newPermission.htm"
+    },
+    {
+      "title": {
+        "en": "IPIP administration suggestions and permitted adaptations",
+        "zh": "IPIP施测建议与允许的改编"
+      },
+      "url": "https://ipip.ori.org/new_ipip-50-item-scale.htm"
+    },
+    {
+      "title": {
+        "en": "IPIP individual score interpretation and continuous values",
+        "zh": "IPIP个人分数解释与连续读数"
+      },
+      "url": "https://ipip.ori.org/InterpretingIndividualIPIPScaleScores.htm"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What does this empathy test measure?",
+        "zh": "这份同理心测试测什么？"
+      },
+      "answer": {
+        "en": "It uses the ten-item Compassion aspect of Agreeableness from the Big Five Aspects Scales, with the official public-domain IPIP English statements. It measures self-description rather than objectively tested empathy skills, correct mind-reading or another person’s experience.",
+        "zh": "它采用大五方面量表宜人性中的关怀倾向十题，英文为IPIP官方公有领域条目。测的是自我描述，不是经过客观任务检验的同理心技能、读心是否准确或他人的实际体验。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this the Empathy Quotient or two separate subscales?",
+        "zh": "这是Empathy Quotient或两个分量表吗？"
+      },
+      "answer": {
+        "en": "No. The single ten-item Compassion key gives one raw total. This edition does not administer the Empathy Quotient and does not create separate Emotional Resonance and Caring Action scores from these items.",
+        "zh": "不是。本十题关怀倾向键产生一个原始总分，不采用Empathy Quotient题本，也不把这些条目拆成“情绪共鸣”和“关怀行动”两个分数。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the total and missing answers handled?",
+        "zh": "总分和不计分回答怎样处理？"
+      },
+      "answer": {
+        "en": "Odd displayed items keep the 1–5 response; even items use 6 minus the response. Ten numeric answers yield a raw total 10–50 and mean 1–5. Any unscored response withholds personal numbers without imputation. The full guide stays readable, including when every response is unscored.",
+        "zh": "显示顺序中，奇数题保留1—5原值，偶数题用6减原值。十题数字回答产生10—50原始总分与1—5均分。任一不计分回答使个人数字缺省，不填补；完整指南仍可读，包括全部选择不计分时。"
+      }
+    },
+    {
+      "question": {
+        "en": "Does a higher score prove better relationships or work performance?",
+        "zh": "高分能证明关系更好或工作表现更好吗？"
+      },
+      "answer": {
+        "en": "No. A higher value means more endorsement of the keyed Compassion content in your answers. It establishes neither relationship quality, job performance, accurate emotion recognition nor future fatigue. No clinical threshold, diagnosis or population percentile is supplied.",
+        "zh": "不能。较高读数表示你的回答更符合键向处理后的关怀内容，并不确定关系质量、工作表现、情绪识别准确性或未来疲劳。本版不提供临床界值、诊断或人口百分位。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is the Chinese version validated or reviewed by the original authors?",
+        "zh": "中文版经过验证或原作者审阅吗？"
+      },
+      "answer": {
+        "en": "Chinese is a new FermatMind editorial working translation. It has no established independent validation, language equivalence or original-author review. The source item “soft side” refers to a tender or caring side, not physical softness or a requirement to agree to every request.",
+        "zh": "中文为费马测试编辑部新工作译文，尚无已建立的独立验证、语言等值或原作者审阅。原句“soft side”指温柔关怀的一面，不是身体柔软，也不要求答应每一个请求。"
+      }
+    },
+    {
+      "question": {
+        "en": "Are all results free, and what gets shared?",
+        "zh": "完整结果免费吗？分享会带上什么？"
+      },
+      "answer": {
+        "en": "All ten questions and the twelve-section bilingual reading are free without signup or email. Every score and an insufficient-information result can access the whole guide. Public sharing includes only the test name and entry link; answers and personal scores are excluded.",
+        "zh": "十题与十二节双语完整读法均免费，无需注册或邮箱。任何分数以及资料不足结果，都可阅读全文。公开分享只有测试名和入口链接，不包含答案与个人分数。"
+      }
+    }
+  ]
+}
