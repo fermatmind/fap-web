@@ -4775,5 +4775,32 @@
       "emotional-response-reading",
       "small-changes-reading"
     ]
+  },
+  {
+    "slug": "competency-test",
+    "code": "FM_WORK_BEHAVIOR_REFLECTION36",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Competency Check-In: 36 Recent Work Behaviors",
+      "zh": "职业胜任力反思：36项近期工作行为"
+    },
+    "description": {
+      "en": "Reflect on 36 original work-behavior questions. Read six free guides on shared understanding, problems, agreed action, outputs, change and coordination, without ability or hiring grades.",
+      "zh": "用36道原创工作行为问题，免费阅读共同理解、问题界定、行动约定、成果条件、变化与协同的六份完整指南，不评能力或录用等级。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_work_behaviors_six_themes36_v1",
+    "questionCount": 36,
+    "resultSlugs": [
+      "message-checking-reading",
+      "problem-framing-reading",
+      "agreed-action-reading",
+      "work-planning-reading",
+      "response-to-change-reading",
+      "shared-delivery-reading"
+    ]
   }
 ]

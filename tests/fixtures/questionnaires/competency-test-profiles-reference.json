@@ -1,0 +1,674 @@
+[
+  {
+    "id": "message-checking-reading",
+    "directionIds": [
+      "message-checking"
+    ],
+    "title": {
+      "en": "Competency Reflection: Checking Shared Understanding",
+      "zh": "工作行为反思：核对共同理解"
+    },
+    "headline": {
+      "en": "Check what the other person can use",
+      "zh": "核对对方实际能使用什么"
+    },
+    "summary": {
+      "en": "Six recalled behaviors concern requests, terms, decisions, examples and measurement units. They describe attempts to establish shared meaning, rather than certifying that a message was understood.",
+      "zh": "六项回顾请求、用词、决定、例子与计量单位中的行为，记录如何尝试建立共同理解，不认证对方已经理解。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Checking Shared Understanding",
+        "zh": "工作行为反思：核对共同理解"
+      },
+      "description": {
+        "en": "Read six communication-frequency answers, a worked mean and a fictional reporting-unit mix-up. Check shared meaning without treating repetition as communication ability.",
+        "zh": "阅读六项沟通频率回答、均分算例与虚构的统计单位混淆情境，核对共同含义，不把重复沟通当作能力。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 1–6 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第1—6项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Meaning needs a checkable referent",
+          "zh": "共同含义需要可核对的对象"
+        },
+        "paragraphs": [
+          {
+            "en": "A request can sound clear while leaving its action, terminology or unit open to different interpretations. This group asks whether you noticed and checked such gaps during the past four weeks. It covers things you recall doing, not whether your explanation was correct, accessible to every reader or persuasive. Different roles offer different opportunities to check meaning.",
+            "zh": "请求听起来清楚，仍可能在行动、术语或单位上存在不同理解。本组询问过去四周是否注意并核对这些差异，涵盖记得做过的行为，不判断解释是否正确、是否适合每位读者，或是否有说服力。不同角色获得的核对机会也不同。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A mean summarises frequency choices",
+          "zh": "均分概括的是频率选项"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine answers of 4, 3, 4, 5, 3 and 5. Their sum is 24 and the displayed mean is 4.0. No reversal, percentage or competence band is applied. Six fives would mean that you selected Almost always for all six behaviors; it would not establish flawless communication. A similar mean in another group does not prove equal skill.",
+            "zh": "假设选择4、3、4、5、3、5，合计24，显示4.0。不反向、不转百分比，也不划胜任等级。六个5只表示六项都选几乎每次，不证明沟通毫无缺陷；另一组均分相近，也不能证明两类能力相等。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "The same total can conceal different units",
+          "zh": "同一个总数可能藏着不同单位"
+        },
+        "paragraphs": [
+          {
+            "en": "In a fictional project, one person reports twelve orders while another reports twelve items. Before combining the numbers, a useful question is what each count includes and which period it covers. Simply repeating twelve more loudly leaves the ambiguity intact. Checking units can resolve this specific misunderstanding; it does not establish that either person generally communicates better.",
+            "zh": "虚构项目中，一人报告十二笔订单，另一人报告十二件商品。合并数字前，可以询问各自统计对象和时间范围。把十二重复得更大声不会消除歧义。核对单位能处理这一次误解，却不能证明谁通常更会沟通。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Frequency and usefulness can move separately",
+          "zh": "次数与是否有用可以分开变化"
+        },
+        "paragraphs": [
+          {
+            "en": "Frequent checks may reflect a complex task, unfamiliar terminology or unclear instructions rather than stronger competence. Fewer checks may be sufficient when people share a well-tested routine. If a relevant situation occurred but you did not check, Never can describe it. If the situation did not occur or cannot be judged, choose unscored; the group mean remains missing rather than becoming zero.",
+            "zh": "核对频繁可能源于任务复杂、术语陌生或指示不清，不一定表示更胜任。大家使用熟悉且经过检验的流程时，较少核对也可能足够。有相关情境却未核对，可选从未；没有情境或无法判断时选不计分，本组均分缺失，不补零。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Try one question that resolves an ambiguity",
+          "zh": "试一句能澄清歧义的问题"
+        },
+        "paragraphs": [
+          {
+            "en": "For one ordinary task, identify a word, unit or requested action that could mean two things. Ask a short question through an agreed communication channel and note whether the answer changes the next action. Do not collect private messages for this form. A useful outcome is a clearer shared referent, not a longer exchange or a higher mean.",
+            "zh": "选一个普通任务，找出一个可能有两种理解的词、单位或行动请求。通过约定渠道简短询问，记下回答是否改变下一步，不必为问卷收集私密消息。有用的成果是共同对象更清楚，不是谈话更长或均分更高。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Compare a recalled attempt with its actual effect",
+          "zh": "把记得的尝试与实际效果对照"
+        },
+        "paragraphs": [
+          {
+            "en": "If appropriate, ask the recipient whether the clarification helped them act. Their account can differ from your intention without making either account a total judgment of the person. This original bilingual reflection has no established reliability, norms or language equivalence. It cannot certify communication competence or support hiring. All six readings remain available whether or not you have a numerical mean.",
+            "zh": "合适时可询问接收方：这次澄清是否帮助其行动。对方感受可能不同于你的意图，但两者都不构成对整个人的评价。本原创双语反思尚无已建立的信度、常模或语言等价性，不能认证沟通胜任力或用于录用；有没有均分都能阅读全部六篇。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "problem-framing-reading",
+    "directionIds": [
+      "problem-framing"
+    ],
+    "title": {
+      "en": "Competency Reflection: Defining a Problem and Testing an Explanation",
+      "zh": "工作行为反思：界定问题与检验解释"
+    },
+    "headline": {
+      "en": "Make the question precise enough to investigate",
+      "zh": "先把问题写到可以查明的程度"
+    },
+    "summary": {
+      "en": "These six behaviors concern the gap to explain, competing causes, reversible checks and disconfirming observations. The mean cannot show how difficult a problem you can solve.",
+      "zh": "六项涉及待解释的差别、竞争解释、可撤回的验证与反证观察，均分不能说明能解决多难的问题。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Defining a Problem and Testing an Explanation",
+        "zh": "工作行为反思：界定问题与检验解释"
+      },
+      "description": {
+        "en": "Trace six problem-framing responses and a fictional duplicate-record problem. Use a small test to distinguish explanations without turning self-report into reasoning ability.",
+        "zh": "复算六项问题界定回答，用虚构的重复记录问题比较解释，通过小验证获取信息，不把自报行为当推理能力。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 7–12 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第7—12项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Separate a complaint from an investigable difference",
+          "zh": "区分抱怨与可以查明的差别"
+        },
+        "paragraphs": [
+          {
+            "en": "Something is wrong can describe frustration without identifying what needs explanation. This group asks whether you specified an expected and observed difference, considered alternatives and looked for information before acting. It does not score the correctness of your diagnosis or the difficulty of your work. These editorial themes are not established independent factors of occupational competence.",
+            "zh": "哪里不对可以表达困扰，却没有指出需要解释什么。本组询问是否界定预期与实际差别、考虑不同解释，并在行动前寻找信息，不为判断正确性或工作难度计分。这些编辑整理的主题也不是已经验证的独立职业胜任因子。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Follow the six selected numbers",
+          "zh": "沿着六个所选数字复算"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 3, 4, 3, 2, 4 and 3 total 19. Dividing by six gives 3.166… and the display rounds to 3.2. This is a frequency summary, not a reasoning score or a probability of choosing the right explanation. No strongest problem solver label is selected, and the other five means stay separate.",
+            "zh": "选择3、4、3、2、4、3，合计19，除以六为3.166…，显示3.2。这是频率摘要，不是推理分，也不是选对解释的概率。不产生最强问题解决者标签，其余五组分别保留。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Distinguish two causes before changing the process",
+          "zh": "改流程前先区分两个原因"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a shared list appears to contain duplicate records. Two possibilities are a repeated import and two legitimate entries with similar names. A small reversible check could compare dates and source identifiers in a permitted sample. Deleting every similar name would act before distinguishing the explanations. The example illustrates a reasoning process, not a rule for handling real personal data.",
+            "zh": "假设共同清单似乎有重复记录，可能是重复导入，也可能是名称相近的两条正常记录。可以在获准样本内小范围比较日期与来源标识。把相似名称都删掉，是尚未区分解释就行动。例子说明思考过程，不是处理真实个人数据的操作规则。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "More checking is not always better",
+          "zh": "核对更多不一定更好"
+        },
+        "paragraphs": [
+          {
+            "en": "An urgent, well-understood problem may need a bounded response rather than an extended investigation. Access restrictions, missing evidence and your authority can limit what you can test. A lower mean does not establish low intelligence or passivity. One unscored response withholds this group alone; it does not reduce the complete means from other groups or create a failing profile.",
+            "zh": "紧急且已充分理解的问题可能需要有限应对，不必延长调查。权限、证据缺失及职责会限制可做的验证。较小均分不能证明智力低或被动。一项不计分只使本组暂不给值，不降低其他完整均分，也不生成不及格档案。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Write what would change your explanation",
+          "zh": "写出什么会让你改变解释"
+        },
+        "paragraphs": [
+          {
+            "en": "For a low-stakes issue, write the observed difference, two plausible explanations and one observation that could distinguish them. If checking requires permission, obtain it through the existing route or leave the check undone. Record what remains unknown. The aim is a better-defined next question, not proving that your first explanation was right.",
+            "zh": "选一个低影响问题，写下实际差别、两个可能解释，以及一个能区分它们的观察。需要权限时通过既有渠道获得，或暂不验证，并记下未知之处。目的是形成更清楚的下个问题，不是证明第一种解释正确。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Keep an example with its limits",
+          "zh": "保留实例及它的限制"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful note records the evidence you had, the test you could perform and what it did not settle. A favorable outcome alone does not prove that the method was good, and an unfavorable outcome does not erase information learned. This original form is not an ability examination, validated problem-solving scale or hiring assessment. Use work samples and appropriate job criteria when actual performance must be evaluated.",
+            "zh": "有用的记录包含当时证据、能做的验证，以及没有解决什么。结果顺利不单独证明方法好，结果不顺也不抹去获得的信息。本原创问卷不是能力考试、验证过的问题解决量表或招聘评估；实际评价表现需使用工作样本与合适岗位标准。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agreed-action-reading",
+    "directionIds": [
+      "agreed-action"
+    ],
+    "title": {
+      "en": "Competency Reflection: Agreeing Action Without Assuming Authority",
+      "zh": "工作行为反思：协商行动而不预设权限"
+    },
+    "headline": {
+      "en": "Make ownership something people can agree to",
+      "zh": "让责任成为可以商定的事"
+    },
+    "summary": {
+      "en": "Six items revisit purpose, authority, ownership and space for others to act. They describe coordination attempts without rating leadership potential or management readiness.",
+      "zh": "六项回顾目的、权限、责任及让他人推进的空间，描述协调尝试，不评领导潜力或管理准备度。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Agreeing Action Without Assuming Authority",
+        "zh": "工作行为反思：协商行动而不预设权限"
+      },
+      "description": {
+        "en": "Read six initiative-and-coordination answers, an explicit mean and a fictional club project. Distinguish proposing a next step from assuming consent or control.",
+        "zh": "阅读六项发起与协调回答、明确算例及虚构社团项目，区分提出下一步与默认同意或控制权。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 13–18 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第13—18项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Starting a discussion is different from assigning a role",
+          "zh": "发起讨论与分派角色并不相同"
+        },
+        "paragraphs": [
+          {
+            "en": "A shared initiative needs a purpose, someone allowed to decide and people willing and able to do the work. The six questions concern how you checked these conditions in recent projects. They do not assume you are a manager, want to lead or should take charge. Coordinating an agreed step can be useful without becoming the owner of every outcome.",
+            "zh": "共同事项需要目的、获准决定的人，以及愿意且能够执行的人。六项询问近期项目中如何核对这些条件，不假设你是管理者、想领导，或应当接管。协调一个已商定步骤可以有用，不必成为所有成果的负责人。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "A frequency mean is not a leadership grade",
+          "zh": "频率均分不是领导等级"
+        },
+        "paragraphs": [
+          {
+            "en": "The invented pattern 2, 3, 4, 2, 3 and 4 adds to 18, so the mean is 3.0. It contains no reversal or threshold. Three does not mean average leadership, and five would not certify management readiness. Every theme remains visible; the software does not turn the largest value into a dominant leadership type.",
+            "zh": "虚构回答2、3、4、2、3、4合计18，均分3.0，不含反向或阈值。3不表示领导力平均，5也不认证管理准备度。每个主题分别呈现，不把最大值转成主导领导类型。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "A proposal leaves room for a real answer",
+          "zh": "提案要留出真实回应的空间"
+        },
+        "paragraphs": [
+          {
+            "en": "In a fictional student club, a member suggests a display for an open day. They can ask whether the group wants it, who can approve use of the room and who wants to prepare which part. Announcing everyone’s duties before that discussion skips agreement. Neither taking the lead nor declining it establishes a stable personal quality; the situation and permissions matter.",
+            "zh": "虚构学生社团里，有人提议开放日做展板。可以先问大家是否需要、谁能批准使用教室，以及谁愿意准备哪一块。讨论前直接宣布每个人的任务，会跳过协商。主动牵头或婉拒都不证明稳定个人品质，情境和权限同样重要。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "A role may leave little room for initiative",
+          "zh": "有些角色留给发起行动的空间很少"
+        },
+        "paragraphs": [
+          {
+            "en": "Established procedures, safety responsibilities or an unequal working relationship may appropriately restrict initiative. A smaller mean can reflect those constraints or fewer group situations, not lack of ambition. Use unscored when no relevant occasion arose or the situation cannot be judged. This suppresses only the six-item mean and never turns lack of opportunity into low potential.",
+            "zh": "既有流程、安全责任或不对等关系可能合理限制自主发起。较小均分可能反映限制或较少的小组情境，不表示缺乏志向。没有相关机会或无法判断时选不计分，只使这六项均分暂缺，不把机会不足转成潜力低。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Clarify one decision boundary",
+          "zh": "澄清一个决定边界"
+        },
+        "paragraphs": [
+          {
+            "en": "For one permitted low-stakes shared task, ask what is already agreed, what remains open and who can decide it. If someone else has a useful proposal, ask how they want to carry it forward. A clear boundary can be a better result than additional activity. You do not need to seek a leadership role to try this exercise.",
+            "zh": "选一个获准的低影响共同任务，询问什么已商定、什么尚未确定、由谁决定。别人已有有用提议时，可以问对方想如何继续推进。边界清楚可能比增加活动更有用，做这个练习不需要争取领导角色。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Describe an agreement rather than a leadership identity",
+          "zh": "描述一次约定，不定义领导身份"
+        },
+        "paragraphs": [
+          {
+            "en": "If useful, record what was proposed, who agreed, the actual responsibility and what remained outside your control. The account should not imply authority you did not hold. This original bilingual reflection has no performance-validation study or management cutoff. It cannot decide promotion, hiring or who should lead a team. Other people’s consent and experience remain relevant beyond any self-rating.",
+            "zh": "有用时记下提出了什么、谁同意、实际责任及控制范围外的部分，不暗示自己拥有并不存在的权限。本原创双语反思没有绩效效度研究或管理阈值，不能决定晋升、录用或谁应领导团队；他人的同意与体验仍独立于自评分。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "work-planning-reading",
+    "directionIds": [
+      "work-planning"
+    ],
+    "title": {
+      "en": "Competency Reflection: Outputs, Inputs and Shared Resources",
+      "zh": "工作行为反思：成果、输入与共享资源"
+    },
+    "headline": {
+      "en": "Plan what must connect, not just when to start",
+      "zh": "规划哪些条件要衔接，而不只安排开始时间"
+    },
+    "summary": {
+      "en": "Six items ask about the user of an output, required features, compatible inputs, dependencies, resource access and operating conditions. The scope is task specification rather than personal time management.",
+      "zh": "六项询问成果使用者、必需要求、兼容输入、依赖、资源使用与运行条件，范围是任务规格，不是个人时间管理。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Outputs, Inputs and Shared Resources",
+        "zh": "工作行为反思：成果、输入与共享资源"
+      },
+      "description": {
+        "en": "Check six output-and-dependency answers with a worked mean and a fictional event display. Separate a usable task specification from time estimates and competence levels.",
+        "zh": "核对六项成果与依赖回答、均分算例及虚构活动展板，区分可用任务规格、时间估计与胜任等级。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 19–24 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第19—24项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "A schedule does not specify the output",
+          "zh": "排程本身没有说明成果是什么"
+        },
+        "paragraphs": [
+          {
+            "en": "Two people may finish on time and still produce pieces that cannot be used together. This group concerns what the output is for, which features are required and which inputs or resources must connect. It deliberately does not ask about distraction control, calendar priorities or estimating personal work time. Frequency of specification is also different from whether the specification was technically correct.",
+            "zh": "两个人都按时完成，仍可能交出无法组合使用的部分。本组关注成果用途、必需要求，以及输入和资源如何衔接，刻意不询问干扰控制、日程优先顺序或个人工时估计。说明规格的频率也不同于规格技术上是否正确。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Compute a mean without creating a planning tier",
+          "zh": "计算均分，不生成规划档次"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose the six answers are 5, 4, 4, 3, 4 and 3. They sum to 23; 23 divided by six rounds to 3.8. This describes the selected frequencies on this form. It is not a percentage of planning competence, a project-complexity limit or evidence that you can manage a particular occupation’s work.",
+            "zh": "假设六项选择5、4、4、3、4、3，合计23，除以六显示3.8，描述本问卷所选频率，不是规划胜任百分比、可处理项目复杂度的上限，也不证明能够管理某职业的工作。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Check whether the pieces can actually connect",
+          "zh": "核对各部分能否真正衔接"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine preparing a display for a community event. A text file, printed backing and available stand all depend on dimensions and mounting conditions. Asking only when each part will arrive misses whether they fit. A small specification can name the reader, essential information, file format and stand size. The example shows a dependency question, not a universal event-planning standard.",
+            "zh": "假设社区活动要准备展板，文字文件、印刷底板与现有支架都涉及尺寸和安装条件。只问何时到货，会漏掉能否装在一起。简短规格可写清读者、必要信息、文件格式与支架尺寸。例子展示依赖问题，不是通用活动规划标准。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Established routines may already carry the specification",
+          "zh": "成熟流程可能已经承载规格"
+        },
+        "paragraphs": [
+          {
+            "en": "In routine work, a template or existing agreement may supply conditions that you do not need to restate each time. In unfamiliar work, more clarification may be necessary. Neither frequency alone establishes efficiency. If you had no relevant occasion to coordinate an output, choose unscored rather than Never. A missing mean remains visible, and the complete means in other themes are retained.",
+            "zh": "常规工作中，模板或已有约定可能提供了不必每次重述的条件；陌生工作可能需要更多澄清。单凭次数都不能判断效率。没有协调成果的相关机会时选不计分，而不是从未；缺失状态可见，其余完整题组均分保留。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Write a short dependency note",
+          "zh": "写一份简短依赖说明"
+        },
+        "paragraphs": [
+          {
+            "en": "Choose one ordinary output already within your role. Write who will use it, one required feature, one input it depends on and one condition that would stop the pieces from working together. Check the note with the appropriate person if useful. Avoid adding speculative requirements. The exercise is complete when the next decision is clearer, not when the document becomes longer.",
+            "zh": "选一项本就在职责内的普通成果，写下谁使用、一个必需要求、一项依赖输入，以及一个会使各部分无法共同使用的条件。合适时与相关的人核对，不增加推测性要求。下个决定更清楚即可，不以文档更长为完成条件。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Use concrete conditions when discussing development",
+          "zh": "讨论发展时使用具体条件"
+        },
+        "paragraphs": [
+          {
+            "en": "A useful development conversation can examine whether the intended user and input conditions were known, how a conflict was found and what remained unresolved. It does not need a strong or early-stage label. This original self-report has no norms or established language equivalence and cannot certify project-management competence. For actual evaluation, use the role’s requirements and observed work rather than this mean alone.",
+            "zh": "有用的发展讨论可以查看是否知道使用者与输入条件、如何发现冲突、还有什么未解决，不必贴强或起步阶段标签。本原创自报无常模或已建立的语言等价性，不能认证项目管理胜任力；实际评价需结合岗位要求与观察到的工作，不能只看均分。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "response-to-change-reading",
+    "directionIds": [
+      "response-to-change"
+    ],
+    "title": {
+      "en": "Competency Reflection: Changing an Approach for a Reason",
+      "zh": "工作行为反思：有依据地改变做法"
+    },
+    "headline": {
+      "en": "Name the reason for a revision before following it",
+      "zh": "跟随修订前先说清原因"
+    },
+    "summary": {
+      "en": "These six behaviors concern affected requirements, learning trials, concrete feedback and consequences of a change. They describe recalled responses, not adaptability as a stable capacity.",
+      "zh": "六项涉及受影响的要求、学习试用、具体反馈及变化后果，描述记得的应对行为，不把适应力当作已测出的稳定能力。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Changing an Approach for a Reason",
+        "zh": "工作行为反思：有依据地改变做法"
+      },
+      "description": {
+        "en": "Read six change-response frequencies, a worked mean and a fictional new-tool trial. Compare the reason for revising without treating every change as something to accept.",
+        "zh": "阅读六项变化应对频率、均分算例与虚构新工具试用，核对修订原因，不把所有变化都当作必须接受的事。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 25–30 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第25—30项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "Change is not a single demand to agree",
+          "zh": "变化不是一律同意的要求"
+        },
+        "paragraphs": [
+          {
+            "en": "A revised requirement, an unfamiliar tool and critical feedback can call for different responses. This group asks what you recalled checking or trying before and during a revision. It does not measure emotional calmness, willingness to obey or tolerance of unsafe conditions. More frequent revision can reflect unstable requirements, while keeping an appropriate method can also be a reasoned choice.",
+            "zh": "要求修订、不熟悉的工具与批评性反馈可能需要不同回应。本组询问修订前后记得核对或尝试了什么，不测情绪平静、服从意愿或忍受不安全条件的程度。修订频繁可能反映要求不稳定，保留合适方法也可能是有依据的选择。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Read the selected frequency before the story",
+          "zh": "先读所选频率，再看解释"
+        },
+        "paragraphs": [
+          {
+            "en": "An invented answer sequence of 3, 3, 4, 3, 2 and 3 totals 18 and produces 3.0. The value cannot tell whether a change was necessary, whether the new tool worked or how quickly you learned it. There is no adaptability grade or prediction about coping with a new job. No reverse keys are used in this group.",
+            "zh": "虚构序列3、3、4、3、2、3合计18，得到3.0。数值不能说明变化是否必要、新工具是否有用，或学习有多快；没有适应等级，也不预测能否应付新工作。本组没有反向题。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Test the relevant task before broad adoption",
+          "zh": "扩大使用前先试相关任务"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine a study group is considering a new reference tool. A small trial could test whether it exports the needed citation format before moving all shared work. If the format is missing, reporting that limit is a response to change rather than resistance by definition. This fictional example concerns a checkable requirement, not a claim that experimentation always saves time.",
+            "zh": "假设学习小组考虑更换文献工具，可先试它能否导出需要的引用格式，再迁移共同工作。若缺少该格式，说明限制也是应对变化，不能定义为抗拒。虚构例子关注可核对要求，不声称试验总能节省时间。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Permission, access and support affect what you can try",
+          "zh": "权限、可用条件与支持影响能尝试什么"
+        },
+        "paragraphs": [
+          {
+            "en": "A person may lack access to a tool, permission to run a trial or time protected for learning. A smaller mean should not turn those constraints into a personal deficit. Never applies when an occasion existed but the behavior did not occur. No occasion or uncertainty can be unscored; one such answer withholds only this mean and does not imply inability to adapt.",
+            "zh": "一个人可能没有工具权限、试验许可或受保护的学习时间。较小均分不应把这些限制转成人的缺陷。有机会却没做时可选从未；没有机会或不确定时可不计分，任一项只使本组均分暂缺，不暗示无法适应。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Separate what changes from what still matters",
+          "zh": "区分要改的部分与仍要保留的条件"
+        },
+        "paragraphs": [
+          {
+            "en": "For a permitted low-stakes revision, write the reason for changing, one affected requirement and one requirement that should remain. Choose a small relevant check if it is useful and allowed. Ask what result would justify continuing, revising or stopping. You can decline an unsafe change or seek clarification rather than treating compliance as the goal.",
+            "zh": "对一个获准的低影响修订，写出改变原因、一个受影响要求及一个应保留的要求。合适且获准时做小范围相关核对，并问什么结果支持继续、再改或停止。可以拒绝不安全变化或寻求澄清，不把配合本身当目标。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Describe a change with the constraints attached",
+          "zh": "描述变化时附上当时限制"
+        },
+        "paragraphs": [
+          {
+            "en": "A concrete record can say what changed, the information available, what you tried and what remained unresolved. Another person’s experience may add a different view of the same revision. This original bilingual bank has no validated adaptability scale or occupational predictions. It cannot determine hiring, promotion or a person’s fit for a fast-changing workplace. Use the record to choose a relevant learning question instead.",
+            "zh": "具体记录可以写改变了什么、当时有什么信息、尝试了什么，以及未解决部分。他人的体验可能补充同一修订的另一面。本原创双语题本没有验证过的适应力量表或职业预测，不能决定录用、晋升或是否适合快速变化环境，可用记录选择相关学习问题。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shared-delivery-reading",
+    "directionIds": [
+      "shared-delivery"
+    ],
+    "title": {
+      "en": "Competency Reflection: Connecting Contributions in Shared Work",
+      "zh": "工作行为反思：衔接共同工作中的贡献"
+    },
+    "headline": {
+      "en": "Check the shared output, not only your own piece",
+      "zh": "既看自己的部分，也核对共同成果"
+    },
+    "summary": {
+      "en": "Six behaviors revisit integration, other people’s constraints, disagreements, wanted help and joint checkpoints. They describe actions you recall without evaluating whether others enjoy working with you.",
+      "zh": "六项回顾整合、他人限制、分歧、是否需要帮助与共同检查点，描述记得的行动，不评价别人是否喜欢与你共事。"
+    },
+    "seo": {
+      "title": {
+        "en": "Competency Reflection: Connecting Contributions in Shared Work",
+        "zh": "工作行为反思：衔接共同工作中的贡献"
+      },
+      "description": {
+        "en": "Follow six shared-work answers and a fictional group presentation. Read integration and consent together without turning helpfulness or a high mean into team-fit evidence.",
+        "zh": "复算六项共同工作回答，用虚构小组展示把整合与同意放在一起理解，不把热心或高均分当作团队适配证据。"
+      }
+    },
+    "scoreReading": {
+      "en": "Items 31–36 keep their selected values from 1 to 5. Add all six and divide by six, rounded to one decimal. There are no reversed items. One unscored answer withholds this group alone.",
+      "zh": "第31—36项保留所选1—5值，六项相加除以六，保留一位小数，没有反向题。任一不计分只使本组暂不给均分。"
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": {
+          "en": "A shared result can differ from a collection of finished parts",
+          "zh": "共同成果不同于已完成部分的堆积"
+        },
+        "paragraphs": [
+          {
+            "en": "People can complete their individual pieces while leaving contradictions or gaps between them. This group asks whether you considered integration, constraints and the group’s purpose in recent shared work. It does not measure friendliness, popularity or preference for group work. Someone can prefer solitary tasks and still coordinate well when a shared task actually requires it.",
+            "zh": "各自的部分都完成，彼此之间仍可能存在冲突或空缺。本组询问近期共同工作中是否考虑整合、限制与共同目的，不测友善、受欢迎程度或是否喜欢集体工作。一个人可以偏好独立任务，同时在确需合作时认真协调。"
+          }
+        ]
+      },
+      {
+        "id": "arithmetic",
+        "title": {
+          "en": "Keep all six answers in the calculation",
+          "zh": "计算时保留六项各自的回答"
+        },
+        "paragraphs": [
+          {
+            "en": "Responses of 4, 5, 3, 4, 4 and 4 add to 24, yielding 4.0. The mean summarises self-reported frequency without giving a teamwork level. It does not show whether help was useful or conflict was resolved fairly. Equal means in this and another theme do not imply equal competence; the behaviors and opportunities differ.",
+            "zh": "选择4、5、3、4、4、4，合计24，均分4.0，只概括自报频率，不给团队合作等级，也不知道帮助是否有用、分歧是否公平解决。这里与另一主题同分，不表示能力相同，行为内容与机会并不一样。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": {
+          "en": "Resolve a mismatch at the point of integration",
+          "zh": "在整合时处理不一致"
+        },
+        "paragraphs": [
+          {
+            "en": "Imagine two classmates prepare different sections of a presentation using incompatible definitions. A joint review can compare those definitions with the agreed question before changing either person’s section. Silently replacing a teammate’s work might remove the visible conflict while creating an ownership problem. The example concerns a shared output and an agreed purpose, not a requirement to avoid all disagreement.",
+            "zh": "假设两位同学准备展示的不同部分，却使用不兼容定义。共同复核可先把定义与商定问题对照，再改任何一人的部分。默默替换队友内容可能消除表面冲突，却制造责任问题。例子关注共同成果与约定目的，不要求避免所有分歧。"
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "title": {
+          "en": "Helping needs room for the other person’s answer",
+          "zh": "帮助需要给对方留下回应空间"
+        },
+        "paragraphs": [
+          {
+            "en": "Taking over more work is not automatically better teamwork. The other person may not want the help, the task may require particular permission, or the workload may already be unfair. A larger mean cannot settle those questions. If you had no shared-work situation or cannot judge a behavior, select unscored; missing information is not proof that you are difficult to work with.",
+            "zh": "接下更多工作不自动等于更会合作。对方可能不需要帮助，任务可能要求特定权限，或分工本已不公平；较大均分不能解决这些问题。没有共同工作情境或无法判断行为时选不计分，信息缺失不是难以共事的证据。"
+          }
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": {
+          "en": "Ask one integration question",
+          "zh": "提出一个整合问题"
+        },
+        "paragraphs": [
+          {
+            "en": "At an agreed checkpoint, ask what the combined output still needs and which difference should be discussed before merging the pieces. If offering help, check whether it is wanted and how ownership will be handled. A useful result can be a clarified boundary or a smaller shared next step. There is no need to volunteer for extra unpaid work or disclose private disagreements.",
+            "zh": "在约定检查点，询问组合后的成果还缺什么、哪些差异应在合并前讨论。提供帮助时确认对方是否需要，以及责任如何安排。有用的结果可以是边界更清楚或共同下一步更小，不必主动增加无偿工作，也无需披露私密分歧。"
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "title": {
+          "en": "Invite an example, not a verdict about team fit",
+          "zh": "邀请补充实例，而非评判团队适配"
+        },
+        "paragraphs": [
+          {
+            "en": "If safe and appropriate, ask someone involved for one example of what helped the shared work and one remaining difficulty. They do not need to agree with your self-rating. This original reflection has no norms, validated team-fit model or cross-language equivalence study. It cannot rank colleagues, decide hiring or infer future team performance. Keep the discussion attached to the particular task and its constraints.",
+            "zh": "安全且合适时，请相关的人补充一个帮助共同工作的例子和一个仍存在的困难，不要求对方认可你的自评分。本原创反思没有常模、验证过的团队适配模型或跨语言等价研究，不能给同事排名、决定录用或推断未来团队表现，讨论应围绕具体任务及其限制。"
+          }
+        ]
+      }
+    ]
+  }
+]

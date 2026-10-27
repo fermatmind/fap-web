@@ -1,0 +1,2741 @@
+{
+  "id": "T107",
+  "state": "external original full-content candidate; parent method adoption pending; not runtime/accepted",
+  "slug": "competency-test",
+  "code": "FM_WORK_BEHAVIOR_REFLECTION36",
+  "kind": "likert",
+  "form": "fm_work_behaviors_six_themes36_v1",
+  "scoring": "fm_work_six_complete6_frequency_means1dp_no_levels_v1",
+  "minimumRatedItems": 6,
+  "instructions": {
+    "en": "Think of the past four weeks in work, study, volunteering or shared projects. For each behavior, rate how often you did it when a relevant occasion arose. Report what you recall, not what you think an employer wants. If there was no relevant occasion, you cannot judge, or you prefer not to answer, choose unscored. A high frequency does not prove that the behavior was appropriate or effective. The six means describe your answers only: this is an original reflection, not a work sample, competency certification or hiring test.",
+    "zh": "回想过去四周的工作、学习、志愿活动或共同项目。有相关机会时，你多常做出题述行为？按记得的实际情况回答，不猜雇主希望看到什么。没有相关机会、无法判断或不愿回答时选不计分。频繁做某件事不证明当时做得合适或有效。六个均分只概括本次回答：这是原创反思，不是工作样本、胜任力认证或招聘测试。"
+  },
+  "parts": [
+    {
+      "id": "message-checking",
+      "title": {
+        "en": "Checking shared understanding",
+        "zh": "核对共同理解"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "problem-framing",
+      "title": {
+        "en": "Framing a problem before acting",
+        "zh": "行动前界定问题"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "agreed-action",
+      "title": {
+        "en": "Negotiating action and responsibility",
+        "zh": "协商行动与责任"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "work-planning",
+      "title": {
+        "en": "Specifying an output and its dependencies",
+        "zh": "明确成果与依赖条件"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "response-to-change",
+      "title": {
+        "en": "Revising an approach after change",
+        "zh": "变化后修订做法"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "reverse_numbers": []
+    },
+    {
+      "id": "shared-delivery",
+      "title": {
+        "en": "Coordinating a shared outcome",
+        "zh": "协同完成共同成果"
+      },
+      "itemCount": 6,
+      "item_numbers": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "reverse_numbers": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "WBEH_01",
+      "prompt": {
+        "en": "Before sending a request, I made the action I needed from the recipient explicit.",
+        "zh": "发出请求前，我明确写出或说出需要对方采取什么行动。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_02",
+      "prompt": {
+        "en": "When someone used an unfamiliar term, I asked what it meant in that task.",
+        "zh": "对方使用我不熟悉的术语时，我询问它在当前任务中的具体含义。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_03",
+      "prompt": {
+        "en": "When two instructions used the same word differently, I asked the people involved to agree what it meant.",
+        "zh": "两份指示对同一个词用法不同时，我请相关的人商定它的含义。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_04",
+      "prompt": {
+        "en": "When a conversation produced a decision, I checked that the people involved understood the same next step.",
+        "zh": "谈话形成决定后，我核对相关的人是否理解同一个下一步。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_05",
+      "prompt": {
+        "en": "When my explanation was misunderstood, I tried a different example or format.",
+        "zh": "自己的说明被误解时，我换一个例子或呈现方式再解释。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_06",
+      "prompt": {
+        "en": "When people interpreted a measure differently, I checked what was being counted and in which unit.",
+        "zh": "大家对一项指标理解不同时，我核对统计对象和使用单位。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "message-checking",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "message-checking",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "message-checking",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "message-checking",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "message-checking",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "message-checking",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_07",
+      "prompt": {
+        "en": "Before proposing a fix, I described the specific difference between the expected and observed outcome.",
+        "zh": "提出修复办法前，我描述了预期成果和实际情况的具体差别。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_08",
+      "prompt": {
+        "en": "When several explanations seemed possible, I looked for information that could distinguish them.",
+        "zh": "几种解释都有可能时，我寻找能区分它们的信息。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_09",
+      "prompt": {
+        "en": "For a recurring difficulty, I checked what had changed before its latest occurrence.",
+        "zh": "遇到反复出现的困难时，我核对最近一次发生前有什么变化。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_10",
+      "prompt": {
+        "en": "Before trying an unfamiliar solution, I identified a small reversible way to check it.",
+        "zh": "尝试不熟悉的解决办法前，我找了一个可以撤回的小范围验证方式。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_11",
+      "prompt": {
+        "en": "When comparing possible actions, I wrote down a relevant trade-off rather than relying only on my first preference.",
+        "zh": "比较可选行动时，我记下一个相关取舍，而不是只凭第一反应。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_12",
+      "prompt": {
+        "en": "When an explanation relied on an assumption, I identified what observation could show that assumption was wrong.",
+        "zh": "一种解释依赖某个假设时，我明确了什么观察能说明这个假设有误。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "problem-framing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "problem-framing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "problem-framing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "problem-framing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "problem-framing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "problem-framing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_13",
+      "prompt": {
+        "en": "Before starting a shared initiative, I checked that the people affected agreed on its purpose.",
+        "zh": "启动共同事项前，我核对受影响的人是否同意它的目的。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_14",
+      "prompt": {
+        "en": "When an action needed an owner, I clarified who could decide and who would do the work.",
+        "zh": "一项行动需要负责人时，我澄清谁可以决定、谁负责执行。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_15",
+      "prompt": {
+        "en": "Before offering to coordinate something, I checked what authority or agreement the role actually required.",
+        "zh": "提出协调某件事前，我核对这个角色实际需要哪些权限或约定。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_16",
+      "prompt": {
+        "en": "When another person proposed a useful step, I made room for them to carry it forward.",
+        "zh": "别人提出有用的下一步时，我给对方留出继续推进的空间。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_17",
+      "prompt": {
+        "en": "When a group was waiting for direction, I proposed a next step for discussion rather than assuming everyone had agreed.",
+        "zh": "小组等待方向时，我提出下一步供讨论，而不是假设大家已经同意。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_18",
+      "prompt": {
+        "en": "After a decision, I checked that responsibilities were understood by the people expected to act.",
+        "zh": "作出决定后，我核对需要行动的人是否理解各自的责任。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "agreed-action",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "agreed-action",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "agreed-action",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "agreed-action",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "agreed-action",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "agreed-action",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_19",
+      "prompt": {
+        "en": "Before coordinating an output, I checked who would use it and what decision or action it needed to support.",
+        "zh": "协调一项成果前，我核对谁会使用它，以及它需要支持什么决定或行动。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_20",
+      "prompt": {
+        "en": "When a project had several requested features, I clarified which were required and which were optional.",
+        "zh": "项目有多项功能要求时，我澄清哪些必须具备、哪些可选。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_21",
+      "prompt": {
+        "en": "Before combining inputs, I checked that their formats and units could be used together.",
+        "zh": "合并多项输入前，我核对格式与单位能否一起使用。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_22",
+      "prompt": {
+        "en": "When one stage depended on another, I identified the actual input needed rather than only naming the stage.",
+        "zh": "某阶段依赖另一阶段时，我明确实际需要的输入，而不只写出阶段名称。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_23",
+      "prompt": {
+        "en": "When resources were shared, I checked which task needed exclusive access and which could proceed together.",
+        "zh": "资源由多人共用时，我核对哪些任务需要独占、哪些能够同时进行。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_24",
+      "prompt": {
+        "en": "When defining a deliverable, I included any operating condition that would change how it could be used.",
+        "zh": "界定交付物时，我写入会改变其使用方式的运行条件。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "work-planning",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "work-planning",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "work-planning",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "work-planning",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "work-planning",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "work-planning",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_25",
+      "prompt": {
+        "en": "When a requirement changed, I checked which parts of the current plan were actually affected.",
+        "zh": "要求发生变化时，我核对当前计划中哪些部分确实受到影响。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_26",
+      "prompt": {
+        "en": "Before changing a working method, I clarified what the new approach needed to achieve.",
+        "zh": "改变工作方法前，我澄清新做法需要实现什么。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_27",
+      "prompt": {
+        "en": "When feedback contradicted my expectation, I examined a concrete example before deciding how to respond.",
+        "zh": "反馈与预期不一致时，我先查看具体例子，再决定怎么回应。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_28",
+      "prompt": {
+        "en": "While learning an unfamiliar tool, I tried a small relevant task before using it for a larger commitment.",
+        "zh": "学习不熟悉的工具时，我先试一个相关小任务，再用于较大的承诺事项。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_29",
+      "prompt": {
+        "en": "When a change created a new limit, I explained the consequence to the people who needed to decide.",
+        "zh": "变化带来新限制时，我向需要作决定的人说明了后果。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_30",
+      "prompt": {
+        "en": "After revising an approach, I checked whether the change addressed the reason for revising it.",
+        "zh": "修订做法后，我核对这次变化是否回应了原本的修订原因。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "response-to-change",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "response-to-change",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "response-to-change",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "response-to-change",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "response-to-change",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "response-to-change",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_31",
+      "prompt": {
+        "en": "When combining contributions, I checked that the pieces worked together as one shared output.",
+        "zh": "合并大家的贡献时，我核对这些部分能否作为一个共同成果一起使用。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_32",
+      "prompt": {
+        "en": "When my task depended on another person, I checked their current constraints before setting a shared next step.",
+        "zh": "自己的任务依赖别人时，我先核对对方当前的限制，再商定共同下一步。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_33",
+      "prompt": {
+        "en": "During a disagreement about shared work, I separated the task issue from assumptions about the other person.",
+        "zh": "共同工作出现分歧时，我把任务问题与对他人的猜测分开。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_34",
+      "prompt": {
+        "en": "Before taking over someone else’s unfinished work, I checked whether that help was wanted and how it would affect ownership.",
+        "zh": "接手别人未完成的工作前，我先确认对方是否需要帮助，以及责任如何安排。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_35",
+      "prompt": {
+        "en": "When shared work reached a checkpoint, I checked what was still needed from each person.",
+        "zh": "共同工作到检查点时，我核对还需要每个人提供什么。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "WBEH_36",
+      "prompt": {
+        "en": "When two contributions conflicted, I brought the difference back to the group’s agreed purpose.",
+        "zh": "两份贡献相互冲突时，我把差异带回小组已商定的共同目的来讨论。"
+      },
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从未"
+          },
+          "directionId": "shared-delivery",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "shared-delivery",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "shared-delivery",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "shared-delivery",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Almost always",
+            "zh": "几乎每次"
+          },
+          "directionId": "shared-delivery",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "No relevant occasion / cannot judge / prefer not to answer — unscored",
+            "zh": "没有相关机会／无法判断／暂不回答——不计分"
+          },
+          "directionId": "shared-delivery",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "literal_contributions_1_to_5": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "worked_example": {
+    "raw_by_part": [
+      [
+        4,
+        3,
+        4,
+        5,
+        3,
+        5
+      ],
+      [
+        3,
+        4,
+        3,
+        2,
+        4,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        2,
+        3,
+        4
+      ],
+      [
+        5,
+        4,
+        4,
+        3,
+        4,
+        3
+      ],
+      [
+        3,
+        3,
+        4,
+        3,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        3,
+        4,
+        4,
+        4
+      ]
+    ],
+    "sums": [
+      24,
+      19,
+      18,
+      23,
+      18,
+      24
+    ],
+    "means": [
+      4.0,
+      3.2,
+      3.0,
+      3.8,
+      3.0,
+      4.0
+    ],
+    "meaning": "inventedanswerpatternonly;notlevelsorcross-partstrengthranking"
+  },
+  "method": "36originalENZHbehaviorfrequencyitems,6x6,past4weekswork/study/voluntary/sharedprojects. Allpositive1..5NevertoAlmostalways+explicitNA. Acompletepartrequiresall6numeric;mean=sum/6rounded1dp1..5. NAonlyownpartnull;othercompletepartsretained;allNAfinished. Nooverall/reversals/bands/percentages/strongest/weakest/ranking/norms/competenceorperformance/hiringprediction. Sixeditorialthemesnotvalidatedindependentfactors;frequenciesarerecalledbehavior,notquality,opportunityorjobstandards. EachgroupalwayshasaFULL6readingincludinglow/high/NA/context andworkexample.",
+  "source_scope": [
+    {
+      "url": "https://www.opm.gov/policy-data-oversight/assessment-and-selection/competencies/",
+      "actual_read": "currentwebmain449–486includingdefinition452andMOSAICoccupationalmethod462–465;notlinkedPDFs/workbook",
+      "supports": "competenciesincludejob-relevantknowledge/skills/abilities/behaviorsandothercharacteristics;thisfrequencyselfreportdoesnotmeasurethatfullconstructorvalidatejobperformance"
+    },
+    {
+      "url": "https://www.onetonline.org/find/descriptor/browse/2.B",
+      "actual_read": "wholewebmain50–169;notindividualoccupationratings",
+      "supports": "conceptualdistinctionofproblem-solving/resource/social/systemskills;nosix-factorvalidationorpersonalnormstransferred"
+    }
+  ],
+  "copyright": "All36items,frequencyinstructions,ENZHwording,groupingandfutureguidesareFermatMindoriginal. NoJobCannon30/MOSAICquestionbankorproprietarycompetencyinstrumentcopied. Primarysourcesprovideconceptualbackgroundonly;noitemgrantneededfortheoriginalbankandnoofficialendorsementclaimed.",
+  "competitor_scope": "ENentry107lineswholemain+6FAQ/About54lineswholemain+6FAQ/all7ENresultpages81–83lineswholebody+5FAQeachactuallyread;ZHwebInternalErrorthennormalTLStextdownloadpendingactualread. Private30itembank/notallZHresultsnotread. NotadoptingStrong/Developing/Earlystagebands,percentages,sevenwinner/lowprofiles,selfratingasabilityorfake-detectionclaims.",
+  "native_scope": "CurrentW4fcatalog/loader/entertainmentsearchnoexactcompetency-test. ExistingSJTjudgeschoicesinfictionalconstraints,T104communicationadaptabilitypractice,T102task-exampleinventory,T101commitment/quality/honesty/repairfrequency,T103timehabits,T106arrangementpreferencesdifferintheirconstructandoutput. Mini21noexactproduct. NoMini/core6/sharedwrites.",
+  "future_profiles": [
+    "message-checking-reading",
+    "problem-framing-reading",
+    "agreed-action-reading",
+    "work-planning-reading",
+    "response-to-change-reading",
+    "shared-delivery-reading"
+  ],
+  "languageEquivalence": "Neworiginalbilingualwording;noformalreliability/norms/validation/crosslanguagemeasurementequivalence.",
+  "pending": [
+    "parent method/full-content/source review",
+    "Root formal Client patch and current-base integration window",
+    "repository QA/public exactSHA delivery"
+  ]
+}
