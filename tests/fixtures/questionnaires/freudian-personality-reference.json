@@ -1,0 +1,5360 @@
+{
+  "id": "T180",
+  "edition": "fm_freudian_historical_themes_48_v1",
+  "originalItems": [
+    {
+      "id": "FRE_001",
+      "domain": "support",
+      "prompt": {
+        "en": "When a task was unclear, I waited for someone to show me a first step.",
+        "zh": "任务不清楚时，我等别人先示范一个起步步骤。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_002",
+      "domain": "guarded",
+      "prompt": {
+        "en": "When someone offered help, I first checked what they might expect in return.",
+        "zh": "有人提出帮助时，我先确认对方是否期待某种回报。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_003",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "I started a new activity while an earlier activity was still unfinished.",
+        "zh": "先前的事情还没完成，我就开始了另一项新活动。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_004",
+      "domain": "structure",
+      "prompt": {
+        "en": "I checked small details again before calling an ordinary task finished.",
+        "zh": "把一项普通任务算作完成之前，我又核对了一遍细节。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_005",
+      "domain": "overt",
+      "prompt": {
+        "en": "In a group, I put myself forward to lead without waiting to be invited.",
+        "zh": "在小组里，我不等别人邀请就先提出由自己带头。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_006",
+      "domain": "argument",
+      "prompt": {
+        "en": "Before accepting a group decision, I asked people to explain the reasoning.",
+        "zh": "接受小组的决定前，我请大家说明推理过程。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_007",
+      "domain": "expressive",
+      "prompt": {
+        "en": "I told an everyday story with noticeable changes in voice or gesture.",
+        "zh": "讲述一件日常小事时，我明显改变了语气或手势。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_008",
+      "domain": "private",
+      "prompt": {
+        "en": "After spending time with people, I chose a quiet activity on my own.",
+        "zh": "和别人相处一段时间后，我选择独自做一件安静的事。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_009",
+      "domain": "support",
+      "prompt": {
+        "en": "I asked a familiar person to help me choose between everyday options.",
+        "zh": "面对日常的几个选项，我请熟悉的人帮我拿主意。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_010",
+      "domain": "guarded",
+      "prompt": {
+        "en": "I handled an ordinary difficulty alone even when asking for help was an option.",
+        "zh": "遇到普通困难时，即使可以求助，我也选择自己处理。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_011",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "I changed an everyday plan because a more exciting option appeared.",
+        "zh": "出现更让我感兴趣的选择后，我改变了原来的日常安排。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_012",
+      "domain": "structure",
+      "prompt": {
+        "en": "I put shared materials into a particular order that I wanted others to follow.",
+        "zh": "我把共用材料按特定顺序放好，也希望别人按这个顺序使用。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_013",
+      "domain": "overt",
+      "prompt": {
+        "en": "I reminded others of my contribution when the group discussed a successful outcome.",
+        "zh": "大家谈到一次成功结果时，我提醒别人其中有自己的贡献。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_014",
+      "domain": "argument",
+      "prompt": {
+        "en": "I pointed out when similar cases appeared to be judged by different standards.",
+        "zh": "我指出了看起来相近的情况却被不同标准对待的地方。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_015",
+      "domain": "expressive",
+      "prompt": {
+        "en": "In a conversation, I checked people’s reactions and adjusted my delivery to keep their attention.",
+        "zh": "交谈时，我留意别人的反应，调整说法来保持对方的注意。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_016",
+      "domain": "private",
+      "prompt": {
+        "en": "I developed an idea privately before deciding whether to share it.",
+        "zh": "我先在私下把一个想法展开，再决定是否分享。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_017",
+      "domain": "support",
+      "prompt": {
+        "en": "I accepted another person’s plan instead of proposing a plan of my own.",
+        "zh": "我采用别人的安排，而没有提出自己的方案。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_018",
+      "domain": "guarded",
+      "prompt": {
+        "en": "I used a dry or cutting remark when an offer of advice irritated me.",
+        "zh": "别人的建议让我烦躁时，我用了冷淡或带刺的话回应。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_019",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "I left materials where I had been using them instead of putting them back.",
+        "zh": "用过的材料留在原地，我没有马上放回去。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_020",
+      "domain": "structure",
+      "prompt": {
+        "en": "When a routine changed, I first tried to restore the familiar procedure.",
+        "zh": "日常流程改变时，我先尝试恢复自己熟悉的做法。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_021",
+      "domain": "overt",
+      "prompt": {
+        "en": "I openly argued that my preferred approach should take priority.",
+        "zh": "我公开提出，自己更看好的做法应该优先采用。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_022",
+      "domain": "argument",
+      "prompt": {
+        "en": "During a disagreement, I looked for a counterexample to test the other person’s claim.",
+        "zh": "意见不一致时，我寻找反例来检验对方的主张。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_023",
+      "domain": "expressive",
+      "prompt": {
+        "en": "I volunteered a lively example when a group conversation became quiet.",
+        "zh": "一群人的聊天安静下来时，我主动讲了一个生动的例子。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_024",
+      "domain": "private",
+      "prompt": {
+        "en": "When a conversation moved quickly, I stayed back to form my own interpretation.",
+        "zh": "谈话进行得很快时，我先退后一点，形成自己的理解。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_025",
+      "domain": "support",
+      "prompt": {
+        "en": "Before sending an ordinary message, I asked someone whether it sounded all right.",
+        "zh": "发送普通消息前，我先请别人看看这样说是否合适。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_026",
+      "domain": "guarded",
+      "prompt": {
+        "en": "Before relying on someone’s promise, I pointed out where it might fall through.",
+        "zh": "依赖别人的承诺前，我先指出它可能落空的地方。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_027",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "I agreed to several activities before checking how they would fit together.",
+        "zh": "还没核对几件事怎样排得开，我就先答应参加了。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_028",
+      "domain": "structure",
+      "prompt": {
+        "en": "I wrote out exact steps before beginning a manageable task.",
+        "zh": "开始一项自己能应对的任务前，我把具体步骤写了出来。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_029",
+      "domain": "overt",
+      "prompt": {
+        "en": "When someone challenged my proposal, I quickly restated why it deserved attention.",
+        "zh": "有人质疑我的提议时，我很快重申它为什么值得重视。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_030",
+      "domain": "argument",
+      "prompt": {
+        "en": "I used a written explanation to influence a decision rather than taking charge directly.",
+        "zh": "我用书面解释影响一项决定，而不是直接接管。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_031",
+      "domain": "expressive",
+      "prompt": {
+        "en": "I used humor or an animated reaction to make contact with people around me.",
+        "zh": "我用幽默或比较鲜明的反应，与身边的人建立联系。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_032",
+      "domain": "private",
+      "prompt": {
+        "en": "I kept a strong feeling private instead of expressing it immediately in the group.",
+        "zh": "有比较强烈的感受时，我没有马上在一群人面前表达出来。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_033",
+      "domain": "support",
+      "prompt": {
+        "en": "I left a shared decision open until someone else offered a direction.",
+        "zh": "共同决定还没定下来时，我等其他人先提出方向。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_034",
+      "domain": "guarded",
+      "prompt": {
+        "en": "I kept a request for support to myself because I wanted to appear self-sufficient.",
+        "zh": "因为想显得能独立应对，我没有说出自己需要的支持。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_035",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "I used part of a discretionary budget for an appealing idea I had not planned for.",
+        "zh": "在可自由支配的预算里，我为一个临时喜欢的点子花了钱。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_036",
+      "domain": "structure",
+      "prompt": {
+        "en": "I delayed moving on because an arrangement was not yet as precise as I wanted.",
+        "zh": "某个安排还没达到我想要的精确程度时，我推迟了下一步。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_037",
+      "domain": "overt",
+      "prompt": {
+        "en": "I described an achievement of my own to establish credibility in a discussion.",
+        "zh": "讨论中，我讲到自己的一项成绩，以说明自己的意见有依据。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_038",
+      "domain": "argument",
+      "prompt": {
+        "en": "I stayed with the exact meaning of a term when others wanted to move the discussion on.",
+        "zh": "别人想继续往下谈时，我仍在核对某个词的准确含义。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_039",
+      "domain": "expressive",
+      "prompt": {
+        "en": "I made an ordinary presentation more visually or verbally expressive.",
+        "zh": "做普通介绍时，我让画面或表达方式更鲜明。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_040",
+      "domain": "private",
+      "prompt": {
+        "en": "I preferred working alone on an imaginative project when a group option was also available.",
+        "zh": "做一项需要想象的任务时，即使可以组队，我也更愿意独自进行。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_041",
+      "domain": "support",
+      "prompt": {
+        "en": "I looked for reassurance before trying a routine task on my own.",
+        "zh": "独自尝试一项日常任务前，我先找人确认自己可以这样做。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_042",
+      "domain": "guarded",
+      "prompt": {
+        "en": "When people asked what I needed, I gave a brief reply instead of explaining.",
+        "zh": "别人问我需要什么时，我只简短回答，没有详细说明。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_043",
+      "domain": "spontaneous",
+      "prompt": {
+        "en": "While exploring one idea, I followed a fresh possibility and left the first aside.",
+        "zh": "探索一个想法时，我跟着新出现的可能性走，把原来的先放到一边。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_044",
+      "domain": "structure",
+      "prompt": {
+        "en": "I kept an item for later use even after noticing it was taking up space.",
+        "zh": "即使注意到一件东西占地方，我仍把它留着，准备以后再用。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_045",
+      "domain": "overt",
+      "prompt": {
+        "en": "I asked for a visible role rather than working only behind the scenes.",
+        "zh": "我主动争取一个能被看见的角色，而不只在幕后做事。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_046",
+      "domain": "argument",
+      "prompt": {
+        "en": "I questioned a respected person’s proposal when its premises seemed inconsistent.",
+        "zh": "受尊重的人提出建议时，如果前提看起来不一致，我也会提出质疑。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_047",
+      "domain": "expressive",
+      "prompt": {
+        "en": "I openly showed enthusiasm so that others could share the moment with me.",
+        "zh": "我明显表达自己的兴奋，希望别人也能一起感受这个时刻。"
+      },
+      "reverse": false
+    },
+    {
+      "id": "FRE_048",
+      "domain": "private",
+      "prompt": {
+        "en": "Before joining another social plan, I protected some unstructured time to myself.",
+        "zh": "加入另一个社交安排前，我先留出一段不作具体安排的独处时间。"
+      },
+      "reverse": false
+    }
+  ],
+  "domains": [
+    {
+      "id": "support",
+      "title": {
+        "en": "Seeking support",
+        "zh": "寻求支持"
+      },
+      "historicalTerm": "oral-receptive",
+      "itemCount": 6
+    },
+    {
+      "id": "guarded",
+      "title": {
+        "en": "Guarded self-reliance",
+        "zh": "谨慎的自立姿态"
+      },
+      "historicalTerm": "oral-aggressive",
+      "itemCount": 6
+    },
+    {
+      "id": "spontaneous",
+      "title": {
+        "en": "Spontaneous branching",
+        "zh": "自发展开新方向"
+      },
+      "historicalTerm": "anal-expulsive",
+      "itemCount": 6
+    },
+    {
+      "id": "structure",
+      "title": {
+        "en": "Tight structure",
+        "zh": "细致维持结构"
+      },
+      "historicalTerm": "anal-retentive",
+      "itemCount": 6
+    },
+    {
+      "id": "overt",
+      "title": {
+        "en": "Overt assertion",
+        "zh": "直接主张自己的位置"
+      },
+      "historicalTerm": "phallic-aggressive",
+      "itemCount": 6
+    },
+    {
+      "id": "argument",
+      "title": {
+        "en": "Argument-led assertion",
+        "zh": "用论证表达主张"
+      },
+      "historicalTerm": "phallic-compensative",
+      "itemCount": 6
+    },
+    {
+      "id": "expressive",
+      "title": {
+        "en": "Expressive connection",
+        "zh": "外显地建立连接"
+      },
+      "historicalTerm": "classic hysteric",
+      "itemCount": 6
+    },
+    {
+      "id": "private",
+      "title": {
+        "en": "Private imaginative distance",
+        "zh": "保留私人的想象空间"
+      },
+      "historicalTerm": "retentive hysteric",
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "FRE_001",
+      "prompt": {
+        "en": "When a task was unclear, I waited for someone to show me a first step.",
+        "zh": "任务不清楚时，我等别人先示范一个起步步骤。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_002",
+      "prompt": {
+        "en": "When someone offered help, I first checked what they might expect in return.",
+        "zh": "有人提出帮助时，我先确认对方是否期待某种回报。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_003",
+      "prompt": {
+        "en": "I started a new activity while an earlier activity was still unfinished.",
+        "zh": "先前的事情还没完成，我就开始了另一项新活动。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_004",
+      "prompt": {
+        "en": "I checked small details again before calling an ordinary task finished.",
+        "zh": "把一项普通任务算作完成之前，我又核对了一遍细节。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_005",
+      "prompt": {
+        "en": "In a group, I put myself forward to lead without waiting to be invited.",
+        "zh": "在小组里，我不等别人邀请就先提出由自己带头。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_006",
+      "prompt": {
+        "en": "Before accepting a group decision, I asked people to explain the reasoning.",
+        "zh": "接受小组的决定前，我请大家说明推理过程。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_007",
+      "prompt": {
+        "en": "I told an everyday story with noticeable changes in voice or gesture.",
+        "zh": "讲述一件日常小事时，我明显改变了语气或手势。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_008",
+      "prompt": {
+        "en": "After spending time with people, I chose a quiet activity on my own.",
+        "zh": "和别人相处一段时间后，我选择独自做一件安静的事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_009",
+      "prompt": {
+        "en": "I asked a familiar person to help me choose between everyday options.",
+        "zh": "面对日常的几个选项，我请熟悉的人帮我拿主意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_010",
+      "prompt": {
+        "en": "I handled an ordinary difficulty alone even when asking for help was an option.",
+        "zh": "遇到普通困难时，即使可以求助，我也选择自己处理。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_011",
+      "prompt": {
+        "en": "I changed an everyday plan because a more exciting option appeared.",
+        "zh": "出现更让我感兴趣的选择后，我改变了原来的日常安排。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_012",
+      "prompt": {
+        "en": "I put shared materials into a particular order that I wanted others to follow.",
+        "zh": "我把共用材料按特定顺序放好，也希望别人按这个顺序使用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_013",
+      "prompt": {
+        "en": "I reminded others of my contribution when the group discussed a successful outcome.",
+        "zh": "大家谈到一次成功结果时，我提醒别人其中有自己的贡献。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_014",
+      "prompt": {
+        "en": "I pointed out when similar cases appeared to be judged by different standards.",
+        "zh": "我指出了看起来相近的情况却被不同标准对待的地方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_015",
+      "prompt": {
+        "en": "In a conversation, I checked people’s reactions and adjusted my delivery to keep their attention.",
+        "zh": "交谈时，我留意别人的反应，调整说法来保持对方的注意。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_016",
+      "prompt": {
+        "en": "I developed an idea privately before deciding whether to share it.",
+        "zh": "我先在私下把一个想法展开，再决定是否分享。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_017",
+      "prompt": {
+        "en": "I accepted another person’s plan instead of proposing a plan of my own.",
+        "zh": "我采用别人的安排，而没有提出自己的方案。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_018",
+      "prompt": {
+        "en": "I used a dry or cutting remark when an offer of advice irritated me.",
+        "zh": "别人的建议让我烦躁时，我用了冷淡或带刺的话回应。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_019",
+      "prompt": {
+        "en": "I left materials where I had been using them instead of putting them back.",
+        "zh": "用过的材料留在原地，我没有马上放回去。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_020",
+      "prompt": {
+        "en": "When a routine changed, I first tried to restore the familiar procedure.",
+        "zh": "日常流程改变时，我先尝试恢复自己熟悉的做法。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_021",
+      "prompt": {
+        "en": "I openly argued that my preferred approach should take priority.",
+        "zh": "我公开提出，自己更看好的做法应该优先采用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_022",
+      "prompt": {
+        "en": "During a disagreement, I looked for a counterexample to test the other person’s claim.",
+        "zh": "意见不一致时，我寻找反例来检验对方的主张。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_023",
+      "prompt": {
+        "en": "I volunteered a lively example when a group conversation became quiet.",
+        "zh": "一群人的聊天安静下来时，我主动讲了一个生动的例子。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_024",
+      "prompt": {
+        "en": "When a conversation moved quickly, I stayed back to form my own interpretation.",
+        "zh": "谈话进行得很快时，我先退后一点，形成自己的理解。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_025",
+      "prompt": {
+        "en": "Before sending an ordinary message, I asked someone whether it sounded all right.",
+        "zh": "发送普通消息前，我先请别人看看这样说是否合适。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_026",
+      "prompt": {
+        "en": "Before relying on someone’s promise, I pointed out where it might fall through.",
+        "zh": "依赖别人的承诺前，我先指出它可能落空的地方。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_027",
+      "prompt": {
+        "en": "I agreed to several activities before checking how they would fit together.",
+        "zh": "还没核对几件事怎样排得开，我就先答应参加了。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_028",
+      "prompt": {
+        "en": "I wrote out exact steps before beginning a manageable task.",
+        "zh": "开始一项自己能应对的任务前，我把具体步骤写了出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_029",
+      "prompt": {
+        "en": "When someone challenged my proposal, I quickly restated why it deserved attention.",
+        "zh": "有人质疑我的提议时，我很快重申它为什么值得重视。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_030",
+      "prompt": {
+        "en": "I used a written explanation to influence a decision rather than taking charge directly.",
+        "zh": "我用书面解释影响一项决定，而不是直接接管。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_031",
+      "prompt": {
+        "en": "I used humor or an animated reaction to make contact with people around me.",
+        "zh": "我用幽默或比较鲜明的反应，与身边的人建立联系。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_032",
+      "prompt": {
+        "en": "I kept a strong feeling private instead of expressing it immediately in the group.",
+        "zh": "有比较强烈的感受时，我没有马上在一群人面前表达出来。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_033",
+      "prompt": {
+        "en": "I left a shared decision open until someone else offered a direction.",
+        "zh": "共同决定还没定下来时，我等其他人先提出方向。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_034",
+      "prompt": {
+        "en": "I kept a request for support to myself because I wanted to appear self-sufficient.",
+        "zh": "因为想显得能独立应对，我没有说出自己需要的支持。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_035",
+      "prompt": {
+        "en": "I used part of a discretionary budget for an appealing idea I had not planned for.",
+        "zh": "在可自由支配的预算里，我为一个临时喜欢的点子花了钱。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_036",
+      "prompt": {
+        "en": "I delayed moving on because an arrangement was not yet as precise as I wanted.",
+        "zh": "某个安排还没达到我想要的精确程度时，我推迟了下一步。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_037",
+      "prompt": {
+        "en": "I described an achievement of my own to establish credibility in a discussion.",
+        "zh": "讨论中，我讲到自己的一项成绩，以说明自己的意见有依据。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_038",
+      "prompt": {
+        "en": "I stayed with the exact meaning of a term when others wanted to move the discussion on.",
+        "zh": "别人想继续往下谈时，我仍在核对某个词的准确含义。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_039",
+      "prompt": {
+        "en": "I made an ordinary presentation more visually or verbally expressive.",
+        "zh": "做普通介绍时，我让画面或表达方式更鲜明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_040",
+      "prompt": {
+        "en": "I preferred working alone on an imaginative project when a group option was also available.",
+        "zh": "做一项需要想象的任务时，即使可以组队，我也更愿意独自进行。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_041",
+      "prompt": {
+        "en": "I looked for reassurance before trying a routine task on my own.",
+        "zh": "独自尝试一项日常任务前，我先找人确认自己可以这样做。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "support",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "support",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "support",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "support",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "support",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "support",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_042",
+      "prompt": {
+        "en": "When people asked what I needed, I gave a brief reply instead of explaining.",
+        "zh": "别人问我需要什么时，我只简短回答，没有详细说明。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "guarded",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "guarded",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "guarded",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "guarded",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "guarded",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "guarded",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_043",
+      "prompt": {
+        "en": "While exploring one idea, I followed a fresh possibility and left the first aside.",
+        "zh": "探索一个想法时，我跟着新出现的可能性走，把原来的先放到一边。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "spontaneous",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "spontaneous",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "spontaneous",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "spontaneous",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "spontaneous",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "spontaneous",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_044",
+      "prompt": {
+        "en": "I kept an item for later use even after noticing it was taking up space.",
+        "zh": "即使注意到一件东西占地方，我仍把它留着，准备以后再用。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "structure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "structure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "structure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "structure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "structure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "structure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_045",
+      "prompt": {
+        "en": "I asked for a visible role rather than working only behind the scenes.",
+        "zh": "我主动争取一个能被看见的角色，而不只在幕后做事。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "overt",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "overt",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "overt",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "overt",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "overt",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "overt",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_046",
+      "prompt": {
+        "en": "I questioned a respected person’s proposal when its premises seemed inconsistent.",
+        "zh": "受尊重的人提出建议时，如果前提看起来不一致，我也会提出质疑。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "argument",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "argument",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "argument",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "argument",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "argument",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "argument",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_047",
+      "prompt": {
+        "en": "I openly showed enthusiasm so that others could share the moment with me.",
+        "zh": "我明显表达自己的兴奋，希望别人也能一起感受这个时刻。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "expressive",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "expressive",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "expressive",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "expressive",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "expressive",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "expressive",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "FRE_048",
+      "prompt": {
+        "en": "Before joining another social plan, I protected some unstructured time to myself.",
+        "zh": "加入另一个社交安排前，我先留出一段不作具体安排的独处时间。"
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "en": "Never",
+            "zh": "从不"
+          },
+          "directionId": "private",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Rarely",
+            "zh": "很少"
+          },
+          "directionId": "private",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "en": "Sometimes",
+            "zh": "有时"
+          },
+          "directionId": "private",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "en": "Often",
+            "zh": "经常"
+          },
+          "directionId": "private",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "en": "Very often",
+            "zh": "非常经常"
+          },
+          "directionId": "private",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "en": "Insufficient information / not applicable / prefer not to answer",
+            "zh": "资料不足／不适用／不愿回答"
+          },
+          "directionId": "private",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "support",
+      "directionIds": [
+        "support"
+      ],
+      "title": {
+        "en": "Seeking Support",
+        "zh": "寻求支持"
+      },
+      "headline": {
+        "en": "Notice how you invite another person into an ordinary decision.",
+        "zh": "观察你怎样让别人参与一个日常决定。"
+      },
+      "summary": {
+        "en": "Read six recent-choice observations about reassurance and shared direction, with an exact example, mixed responses and practical context.",
+        "zh": "阅读六条关于确认与共同方向的近期选择观察，包含可复算例子、混合回答与具体情境。"
+      },
+      "scoreReading": {
+        "en": "All six valid frequency ratings are required. The raw sum ranges from six to thirty; its unrounded value divided by six gives the displayed mean. Higher describes more frequent selection of these six behaviours during the past four weeks. Lower describes less frequent selection. The historical quotation supplies a reference label, rather than a personal type.",
+        "zh": "六条频率回答都有效才评分。原始和为6—30，未舍入总和除6得到显示均分。较高表示近四周较常出现这六种行为，较低表示较少出现；历史引述只提供出处标签，不给你派人格。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Seeking Support Guide",
+          "zh": "弗洛伊德历史词汇反思：寻求支持完整指南"
+        },
+        "description": {
+          "en": "Read six recent-choice observations about reassurance and shared direction, with an exact example, mixed responses and practical context.",
+          "zh": "阅读六条关于确认与共同方向的近期选择观察，包含可复算例子、混合回答与具体情境。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A historical term, a narrow present-day observation",
+            "zh": "历史词语与有限的当下观察"
+          },
+          "paragraphs": [
+            {
+              "en": "Smith’s 2014 interpretation uses the quoted term “oral-receptive” within eight historical styles. Our original edition uses Seeking Support as the everyday heading and asks only about recent choices: requesting reassurance, accepting a plan and waiting for another person’s direction. These are observable responses in specific situations. Their frequency cannot explain where a habit came from. Read the six items themselves before reading anything into the historical vocabulary; the same action can serve several reasonable purposes.",
+              "zh": "Smith在2014年的八风格解释中使用了历史引述“oral-receptive”。本站原创版本把日常标题写为“寻求支持”，只问近期选择：请求确认、采用一个安排，以及等待别人提出方向。这些是具体场景中可观察的反应，出现频率无法解释习惯从何而来。先回看六条实际问了什么，再理解历史词语；同一种动作可以有多种合理用途。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Reading more frequent support-seeking",
+            "zh": "怎样读较常寻求支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says that you more often selected these particular ways of involving other people. Perhaps you were learning a task, coordinating a joint plan or checking an important detail with someone who knew it better. You may also notice occasions when waiting for reassurance postponed a small decision. The result does not decide which explanation fits. Look for the setting, the available information and what happened next. Receiving help and taking responsibility can occur in the same episode.",
+              "zh": "较高均分表示你较常选择这些让他人参与的做法。可能在学习任务、协调共同安排，或向更了解情况的人核实细节；也可能有等待确认而推迟小决定的时刻。结果不能替你确定是哪种解释。可回看场景、当时可得的信息及后续发生了什么。接受帮助与承担责任完全可以出现在同一件事里。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Reading less frequent support-seeking",
+            "zh": "怎样读较少寻求支持"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates that these six behaviours were reported less often in the stated period. It does not reveal whether you acted confidently, avoided asking, already had enough information or simply faced fewer shared decisions. Those possibilities would require different questions. Nor does a lower score demonstrate a better form of independence. If you completed a task alone, privately consider whether that was a workable choice for that task. There is no preferred end of this response scale.",
+              "zh": "较低均分说明在指定时段较少报告这六种行为。它不能区分你是有把握、没有开口、已有足够信息，还是较少遇到共同决定；这些可能性需要另问。低分也不证明更好的独立性。若曾独自完成任务，可私下回看那对当时的任务是否合适。这个回答标尺没有一个必须追求的方向。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Similar means can describe different decisions",
+            "zh": "均分相近，决定过程可以不同"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose reassurance was common for unfamiliar work but uncommon for choosing a weekend activity. Another person might show the reverse pattern and obtain the same sum. The average compresses that contrast. Even six middle responses and three lowest plus three highest responses both give a mean of three. Keep the examples separated when they matter. The other seven themes use different observations, so a numerical comparison cannot identify which theme is your strongest personality or explain why two means differ.",
+              "zh": "例如，陌生工作中常寻求确认，选择周末活动时却很少；另一人可能恰好相反，但总和一样。均分把差异压缩了。六条都选中间项，与三条选最低、三条选最高，均分也都是3。需要时应把场景分开看。其他七个主题观察的内容不同，不能用数值比较选出最强人格，也不能解释两个均分为何不同。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Recalculate a six-item example",
+            "zh": "复算一个六条回答的例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine the six choices are one, two, three, four, four and five. They add to nineteen. Nineteen divided by six is 3.1666…, displayed as 3.17 on the one-to-five response scale. That number is a descriptive summary of ordered choices, with no population comparison implied by the decimal places. If one choice becomes NA, the personal sum and mean are withheld for this theme. The other fully rated themes and all eight complete guides remain available.",
+              "zh": "假设六条依次选择1、2、3、4、4、5，相加为19；19除6为3.1666…，在1—5回答标尺上显示3.17。它是有序选择的描述性汇总，小数位不表示人口比较。若其中一条改选NA，本主题不显示个人总和与均分；其他完整有效主题和八份完整指南仍可阅读。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Help can be part of a sound handover",
+            "zh": "帮助也可能是合理交接的一部分"
+          },
+          "paragraphs": [
+            {
+              "en": "Mina asks a colleague to confirm the first step of a shared task because the colleague owns a detail that Mina cannot see. Later Mina completes the task and explains the outcome. That sequence could raise a support-seeking response while reflecting sensible coordination. Contrast it with waiting for approval about an entirely private, reversible choice. The surface action may look similar, but its role differs. A checklist cannot recover those missing facts or classify either person from the frequency alone.",
+              "zh": "米娜请同事确认共同任务的第一步，因为有一个细节只有同事掌握。后来她完成任务并说明结果。这可能提高某条寻求支持的回答，却反映合理协作。再比较一件完全私人、可以撤回的小选择中反复等批准的情况：表面动作相似，作用不同。仅凭频率，清单无法补回缺失事实或给任何一方分类。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Examine one choice without proving independence",
+            "zh": "看清一次选择，不必证明独立"
+          },
+          "paragraphs": [
+            {
+              "en": "Pick one ordinary decision and privately write down what information you had, what you asked for and what you did afterward. If useful, separate a request for missing information from a request for reassurance; both can be understandable. You could try naming your own proposed first step before asking a focused question. Observe whether that made the next action clearer, without treating a different score as success. You can also decide that the original approach suited the situation and stop.",
+              "zh": "选一个普通决定，私下写下已有信息、向别人请求了什么，以及之后做了什么。若有帮助，可区分补足信息与寻求确认，两者都可能有道理。也可先写出自己拟定的第一步，再问一个具体问题，观察下一步是否更清楚；不用分数变化衡量成功。你也可以认为原做法适合当时情况，就在这里结束。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the edition and arithmetic visible",
+            "zh": "把版本与算法放在明处"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical label is attributed to Ryan Smith’s published 2014 interpretation. The six prompts, Chinese wording, four-week frame, frequency choices and guide here are our original reflection materials. This is one part of a forty-eight-item edition, with six direct items in each of eight themes. Codes one to five are added only when all six ratings are valid; an NA preserves insufficient information. The mean uses the unrounded sum, displayed to two decimals. Neither the historical account nor rewriting the prompts validates this edition or supplies norms.",
+              "zh": "历史词语注明来自Ryan Smith于2014年发表的个人解释。这里的六条提问、中文表述、近四周时段、频率选项及指南均为本站原创反思材料，属于48条、八主题各六条的版本。六个有效1—5编码才相加，NA保留资料不足；均分用未舍入总和计算并显示两位小数。历史论述或重写题目都不能为本版本提供效度或常模。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guarded",
+      "directionIds": [
+        "guarded"
+      ],
+      "title": {
+        "en": "Guarded Self-Reliance",
+        "zh": "谨慎的自立姿态"
+      },
+      "headline": {
+        "en": "Look at when self-reliance becomes a brief reply, a check or a sharp remark.",
+        "zh": "看看自立姿态何时表现为简短回答、核对或带刺的话。"
+      },
+      "summary": {
+        "en": "Read six observations about handling things alone and checking offers of help, with a worked mean and alternatives to a fixed personality label.",
+        "zh": "阅读六条关于独自应对和核对帮助的观察，含均分算例，以及固定人格标签之外的不同解释。"
+      },
+      "scoreReading": {
+        "en": "This guide reads six direct frequency ratings about recent choices. A complete raw sum can range from six to thirty, with the descriptive mean shown on one to five. A higher mean describes more frequent reports of these actions, rather than hidden motives. Any NA keeps this theme unscored while other complete themes remain visible.",
+        "zh": "本指南阅读六条近期选择的正向频率评分。完整原始和为6—30，描述性均分显示在1—5标尺。较高表示较常报告这些动作，不代表隐藏动机；任一NA使本主题保留未评分，其他完整主题仍显示。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Guarded Self-Reliance Guide",
+          "zh": "弗洛伊德历史词汇反思：谨慎的自立姿态完整指南"
+        },
+        "description": {
+          "en": "Read six observations about handling things alone and checking offers of help, with a worked mean and alternatives to a fixed personality label.",
+          "zh": "阅读六条关于独自应对和核对帮助的观察，含均分算例，以及固定人格标签之外的不同解释。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "Quote the label, observe the actions",
+            "zh": "引述词语，观察具体动作"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical quotation for this guide is “oral-aggressive,” a label in Smith’s 2014 personal interpretation. Guarded Self-Reliance is the everyday heading used for our six original observations. They concern checking an offer, managing a difficulty alone, withholding a request and sometimes using a dry reply. Each action is available to many people in many circumstances. The questionnaire asks whether it occurred recently. It supplies no evidence about childhood care, a concealed need or an enduring explanation of someone’s relationships.",
+              "zh": "本页引述的历史标签是Smith于2014年个人解释中的“oral-aggressive”。本站把六条原创观察的日常标题写为“谨慎的自立姿态”，内容涉及核对帮助、独自处理困难、没有提出请求，以及有时冷淡回应。许多人在不同情境都可能采取这些动作。本问卷只问近期是否出现，无法证明童年照料、隐藏需要或关系的长期原因。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read the six behaviours separately",
+            "zh": "分别看六种行为"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean can combine useful checking with a less useful way of responding. For example, confirming what an offer involves may clarify responsibilities, whereas a cutting remark may leave a practical question unanswered. The result cannot weigh those consequences for you. It also cannot tell whether doing something alone was chosen freely or required by the situation. Read the individual prompts before grouping the answers together. The theme is a convenient heading for this checklist, not an explanation of everything underneath it.",
+              "zh": "较高均分可能同时包含有用的核对和效果较差的回应。例如确认帮助具体涉及什么，可以澄清责任；带刺的话却可能没有解决实际问题。结果不能替你权衡后果，也不能区分独自做事是主动选择还是情境所迫。先分别看提问，再看汇总。主题只是这份清单的方便标题，不能解释下面所有行为。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "A lower mean leaves several possibilities open",
+            "zh": "较低均分仍留下多种可能"
+          },
+          "paragraphs": [
+            {
+              "en": "Reporting these behaviours less often may reflect ready access to dependable help, clearer expectations, fewer occasions to ask or another way of communicating. It does not establish that you trust everyone, reveal every need or avoid conflict well. The six items do not ask enough to decide that. A low mean can be read simply as a low frequency for the listed actions during four weeks. You can retain that narrow statement without constructing a more flattering or more critical personality story.",
+              "zh": "较少报告这些行为，可能因为有可靠帮助、期待清楚、求助机会少，或沟通方式不同；并不能证明你信任所有人、愿意说出全部需要，或很会避免冲突。六条没有问到足够内容来决定这些。低均分可以只理解为近四周清单所列动作出现较少，无需进一步构造更讨好或更苛刻的人格故事。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Being careful is different from sounding dismissive",
+            "zh": "谨慎核对和显得不耐烦并不相同"
+          },
+          "paragraphs": [
+            {
+              "en": "A person may often check the conditions of an offer while rarely making a sharp remark. Another may ask few questions but respond tersely when already overloaded. The average can conceal that difference. Write down the setting when a distinction matters: who knew the task, what was offered and whether there was enough time to explain. Several other themes may also fit an episode. Their means are kept separate because the item sets are different, rather than being ranked as competing styles.",
+              "zh": "一个人可能常核对帮助的条件，却很少说带刺的话；另一个人可能很少提问，但事情多时回答简短。均分会掩盖差别。需要区分时，可记下谁了解任务、对方提出了什么，以及有没有解释时间。同一件事也可能涉及其他主题；不同题集的均分分别保留，不把它们排成相互竞争的风格。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate without assigning a motive",
+            "zh": "计算时不替人认定动机"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the six ratings are four, four, three, two, two and five. Their sum is twenty; twenty divided by six gives 3.3333…, displayed as 3.33. The display summarises the ordered frequency choices and does not estimate a probability or identify what you secretly wanted. All six valid ratings are necessary in this edition. If you cannot judge one prompt and select NA, the personal sum and mean are withheld, instead of being estimated from the remaining five responses.",
+              "zh": "假设六条评分为4、4、3、2、2、5，总和20；20除6为3.3333…，显示3.33。显示值汇总有序频率选择，不估算概率，也不认定你暗中想要什么。本版需要六条都有效；若一条无法判断而选NA，就保留个人总和与均分不足，不根据其余五条估算。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A short reply may have a practical reason",
+            "zh": "简短回答可能有实际原因"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider Ren, who is preparing a shared draft and declines an offer of help because the agreed handover is later that afternoon. The reply is brief, but the arrangement is clear to everyone involved. A similar reply in another setting might leave a willing collaborator confused. Neither version proves an inner conflict or a lack of care. The observable question is what was communicated and how the arrangement worked. A score cannot supply that missing conversation or decide which relationship interpretation is correct.",
+              "zh": "例如，小任正在准备共同草稿，因为约好下午才交接，便简短谢绝了一次帮助。回答虽短，参与者却都清楚安排。另一个场景中，相似回答可能让愿意协作的人困惑。两种情况都不能证明内心冲突或不关心别人。可观察的问题是传达了什么、安排实际如何运转；分数不能补出那段对话或决定哪种关系解释正确。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Clarify one response in your own notes",
+            "zh": "在自己的记录里澄清一次回应"
+          },
+          "paragraphs": [
+            {
+              "en": "Recall one recent offer of help and privately separate the offer’s practical details from your response to its tone. Was there a question you wanted answered, a boundary you wanted to keep or simply a task you preferred doing alone? If you want an experiment, draft a clearer response for a future ordinary situation, without sending anything or having to accept help. Check whether it states the actual condition more precisely. The aim is a usable description, not a lower score or a forced display of trust.",
+              "zh": "回想近期一次帮助，私下分开记下帮助的具体内容，以及自己对语气的反应：想问清什么、想保留什么边界，还是只是偏好独自做？若想做个小练习，可为以后普通场景拟一句更清楚的回应，无需发送，也无需接受帮助。核对它是否更准确地说明条件。目标是获得可用描述，不是降分或强迫自己表现信任。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Use the original reflection within its limits",
+            "zh": "按原创反思版本的范围使用"
+          },
+          "paragraphs": [
+            {
+              "en": "Smith’s 2014 article provides the quoted historical vocabulary, with its author’s own interpretation. The present six prompts and full guide are newly written, as part of our forty-eight-item bilingual edition. They describe frequency during the past four weeks and carry direct codes from one to five. Six valid ratings produce a raw sum and its unrounded mean; any NA withholds that theme. Two decimals are a display choice, not evidence of interval precision. Neither the historical theory nor a new item set supplies independent validation or a population norm.",
+              "zh": "Smith于2014年的文章提供历史引述词汇，并属于该作者的个人解释。这里的六条提问和完整指南为新写内容，属于本站48条双语版本；描述近四周频率，编码为正向1—5。六条有效才生成原始和及未舍入均分，任一NA保留该主题不足。两位小数只是显示选择，不证明等距精度。历史理论或新题集本身都不提供独立效度或人口常模。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spontaneous",
+      "directionIds": [
+        "spontaneous"
+      ],
+      "title": {
+        "en": "Spontaneous Branching",
+        "zh": "自发展开新方向"
+      },
+      "headline": {
+        "en": "Follow what happens when a fresh possibility changes an existing plan.",
+        "zh": "看看新可能出现后，原来的安排发生了什么。"
+      },
+      "summary": {
+        "en": "Read six recent observations about new activities, changing plans and unfinished threads, with an exact mean and a practical counterexample.",
+        "zh": "阅读关于新活动、计划变化和未完线索的六条近期观察，含准确均分和具体反例。"
+      },
+      "scoreReading": {
+        "en": "The six items are direct frequency observations over four weeks. All six valid ratings give a raw sum from six to thirty and a mean from one to five. The number describes the listed actions, without turning activity or disorder into a fixed personality. Any NA withholds this theme while its full guide remains readable.",
+        "zh": "六条都是近四周的正向频率观察。六条都有效才有6—30的原始和与1—5的均分；它描述所列动作，不把活跃或无序变成固定人格。任一NA保留本主题未评分，完整指南仍可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Spontaneous Branching Guide",
+          "zh": "弗洛伊德历史词汇反思：自发展开新方向完整指南"
+        },
+        "description": {
+          "en": "Read six recent observations about new activities, changing plans and unfinished threads, with an exact mean and a practical counterexample.",
+          "zh": "阅读关于新活动、计划变化和未完线索的六条近期观察，含准确均分和具体反例。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A quoted theme about spontaneity",
+            "zh": "引述一个关于自发性的历史主题"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted historical term associated with this guide is “anal-expulsive,” as used in Smith’s 2014 interpretation. Our everyday heading is Spontaneous Branching. The original questions concern starting activities, following a fresh possibility, changing arrangements and leaving materials where they were used. Reading these recent actions requires no story about bodily development. Their practical meaning depends on the task: exploring ideas can benefit from branching, while a shared commitment may require a different kind of follow-through. The checklist does not settle that distinction.",
+              "zh": "本指南关联的历史引述是Smith在2014年解释中使用的“anal-expulsive”，本站日常标题为“自发展开新方向”。原创问题涉及开始活动、跟进新可能、调整安排，以及用过材料后留在原地。理解这些近期动作不需要身体发育的故事；其作用取决于任务。探索想法可能需要展开分支，共同承诺则可能需要另一种跟进，清单不能替你决定差别。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read frequent branching alongside its consequences",
+            "zh": "把较常展开分支放回实际后果"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean describes more frequent reports of these six actions. You might have had an exploratory period with several promising options, or noticed that new interests repeatedly displaced unfinished plans. The score does not tell which activities were worth pursuing. Ask what became clearer, what was completed and whether anyone else depended on the original arrangement. A change can be a thoughtful revision rather than a failure of consistency. Conversely, an exciting start does not by itself show that the eventual outcome worked.",
+              "zh": "较高均分表示较常报告这六种动作。可能正处于有多种可行选择的探索期，也可能发现新兴趣反复挤掉未完成安排；分数不能决定哪些值得继续。可回看澄清了什么、完成了什么，以及是否有人依赖原安排。改变可以是经过考虑的修订，不一定缺少一致性；同样，开头令人兴奋也不能证明最终效果合适。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less branching leaves the reason undecided",
+            "zh": "较少展开分支，原因仍需具体了解"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean says that you reported fewer of these particular changes and starts. You may have preferred a stable plan, had limited options, worked within a fixed schedule or simply not encountered many new possibilities. The questionnaire does not distinguish those explanations. It also cannot infer a lack of imagination or a superior ability to finish. Those would require other observations. Keep the interpretation at the level of the six actions and the stated period, rather than treating one end of the scale as a recommended lifestyle.",
+              "zh": "较低均分只说明较少报告这些改变与启动。可能偏好稳定安排、可选机会有限、按固定日程做事，或近期没遇到很多新可能，问卷无法区分。它也不能推断缺少想象力或更善于完成事情，这些需要其他观察。解释应停留在六种动作和指定时段，不把标尺的一端当成推荐生活方式。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "An idea session and a shared commitment differ",
+            "zh": "想法讨论和共同承诺并不一样"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine frequently changing direction while sketching ideas, but rarely changing a time that another person relies on. Someone else might keep an orderly workspace yet agree to too many activities. A similar average can hide these different patterns. Look at which items moved together and which did not, without trying to discover a hidden style behind them. The other themes are not competing for a winning position. For example, branching and careful checking can both occur in different phases of a single project.",
+              "zh": "设想画草稿时经常换方向，却很少改变别人依赖的约定时间；另一人可能桌面整齐，却答应过多活动。相似均分会隐藏这些差异。可看哪些条目一起变化、哪些没有，不必寻找背后的隐藏风格。其他主题也不竞争胜出位置，例如展开分支和仔细核对可以出现在同一项目的不同阶段。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate a mean without measuring excitement",
+            "zh": "计算均分，而不是测量兴奋程度"
+          },
+          "paragraphs": [
+            {
+              "en": "Six responses of two, three, four, three, two and three add to seventeen. Dividing seventeen by six gives 2.8333…, displayed as 2.83. The result is a summary of ordered frequency choices; it is not a percentage of spontaneity or a measure of how exciting your life is. All six items must have valid ratings for this display. An NA about discretionary spending, for example, withholds the whole theme’s personal sum and mean instead of estimating that answer from the other items.",
+              "zh": "六条回答2、3、4、3、2、3，相加17；17除6为2.8333…，显示2.83。它汇总有序频率选择，不是自发程度百分比，也不衡量生活有多精彩。需要六条都有效才显示；例如可自由支配预算一条选择NA，就保留本主题个人总和与均分不足，不根据其他条目估计。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Changing direction can be the agreed task",
+            "zh": "改变方向也可能正是约好的任务"
+          },
+          "paragraphs": [
+            {
+              "en": "Jules joins a workshop whose purpose is to generate several possible approaches. Starting a fresh sketch before finishing an earlier one is part of the agreed process. Later, when the group chooses an option, Jules records the decision and completes an assigned piece. The earlier branching does not demonstrate an inability to commit. Compare a different case where an unannounced change leaves someone waiting. The checklist may register similar actions, but the consequences and agreements are what distinguish them. Those details remain outside the mean.",
+              "zh": "朱尔参加一次工作坊，任务就是提出多种可能做法。前一张草图没完成就开始下一张，本来属于约定流程。之后小组选定方案，他记录决定并完成分工；此前展开分支不能证明无法承诺。再比较未说明的变更让别人一直等待的情况：清单可能记录相似动作，真正不同的是后果和约定，而这些细节不在均分里。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Keep one promising branch visible",
+            "zh": "让一个值得继续的分支清楚可见"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose an unfinished thread that still matters to you and privately note its next small action. If another possibility appears, you could record it separately before deciding whether it replaces the current thread. The purpose is to make the choice explicit, not to eliminate spontaneity. You might also discover that the first activity no longer matters and can be deliberately left aside. Review what happened to the task and any shared arrangement, rather than expecting a new score to certify that you have become more organized.",
+              "zh": "选一个仍重要的未完线索，私下写下下一小步。新可能出现时，可以先单独记下，再决定是否替换当前线索；目的在于把选择说清，不是消除自发性。也可能发现原活动已不重要，可以有意识地放下。可复盘任务与共同安排后来怎样，而不用新分数证明自己变得更有条理。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the historical reference separate from the items",
+            "zh": "区分历史出处与实际题目"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted vocabulary comes from Smith’s eight-theme historical interpretation published in 2014. This guide and the forty-eight bilingual prompts are newly authored materials about recent everyday choices. There are six direct frequency items per theme, covering the past four weeks. Six valid codes from one to five produce a raw sum; the unrounded sum divided by six is displayed to two decimals. NA preserves insufficient information. These choices supply neither a population norm nor independent validation, and the historical label does not establish a developmental cause for the responses.",
+              "zh": "引述词汇来自Smith于2014年发表的八主题历史解释。本指南与48条双语提问都是新写的近期日常选择材料；每主题六条正向频率题，时段为近四周。六个有效1—5编码形成原始和，再用未舍入总和除6，显示两位小数；NA保留资料不足。这些规则不提供人口常模或独立效度，历史标签也不能为回答建立发育原因。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "structure",
+      "directionIds": [
+        "structure"
+      ],
+      "title": {
+        "en": "Tight Structure",
+        "zh": "细致维持结构"
+      },
+      "headline": {
+        "en": "Notice which details and routines you keep in place before moving on.",
+        "zh": "观察继续下一步前，你会维持哪些细节和惯常做法。"
+      },
+      "summary": {
+        "en": "Read six observations about checking, order and familiar procedures, with a worked sum and context for both helpful routines and delayed progress.",
+        "zh": "阅读六条关于核对、秩序和熟悉流程的观察，含原始和算例，以及习惯有用或推迟进展的具体情境。"
+      },
+      "scoreReading": {
+        "en": "Every item uses a direct frequency code for the past four weeks. A complete sum of six to thirty is divided by six for the displayed mean. It summarises these listed actions without measuring the quality of your work or assigning a clinical label. Any NA withholds this theme’s personal values while the complete guide stays available.",
+        "zh": "每条采用近四周的正向频率编码，完整总和6—30除6得到显示均分。它汇总所列动作，不衡量工作质量，也不派临床标签；任一NA保留本主题个人数值不足，完整指南仍可阅读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Tight Structure Guide",
+          "zh": "弗洛伊德历史词汇反思：细致维持结构完整指南"
+        },
+        "description": {
+          "en": "Read six observations about checking, order and familiar procedures, with a worked sum and context for both helpful routines and delayed progress.",
+          "zh": "阅读六条关于核对、秩序和熟悉流程的观察，含原始和算例，以及习惯有用或推迟进展的具体情境。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A quoted term about order and restraint",
+            "zh": "引述关于秩序与约束的历史词语"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical quotation “anal-retentive” appears in Smith’s 2014 interpretation. Tight Structure is the ordinary heading used here. Our questions ask about checking details, arranging materials, following exact steps, restoring a familiar routine and delaying a transition until an arrangement feels precise enough. These observations can be understood in the present, without treating them as evidence about early life. The same routines can serve different purposes, and a brief frequency checklist does not determine which purpose applied to a particular person or task.",
+              "zh": "历史引述“anal-retentive”见于Smith在2014年的解释，本站日常标题为“细致维持结构”。问题涉及核对细节、整理材料、遵循具体步骤、恢复熟悉流程，以及安排足够精确前推迟下一步。这些观察可以在当下理解，不用当作早年经历的证据。同一种习惯可以服务不同目的，简短频率清单无法确定某个人或任务当时属于哪一种。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read frequent checking with the task in view",
+            "zh": "结合任务看较常核对"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates more frequent reports of the six listed actions. They may have helped you keep a shared space understandable, remember a sequence or catch a small omission. You may also recognize occasions when an extra check or a preferred arrangement delayed something that was already workable. The result cannot compare those costs and benefits. Look at what the task required and whether the routine helped its next step. A frequent action is not automatically a problem, an achievement or a stable explanation of your personality.",
+              "zh": "较高均分表示较常报告这六种动作。它们可能帮助共用空间更清楚、记住步骤或发现小遗漏，也可能让已经能用的安排因为再次核对或追求特定摆法而推迟。结果不能替你比较成本与收益。可回看任务需要什么、习惯是否帮助了下一步；常出现的动作不自动等于问题、成绩或稳定人格的原因。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less checking is not a judgement of care",
+            "zh": "较少核对不代表是否用心"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean records less frequent use of these particular checking and ordering responses. Your tasks may have needed fewer exact steps, someone else may have maintained the system, or your routines may look different from the examples. The questionnaire does not measure carelessness, skill or the value of flexibility. Those would require more specific evidence. If a routine was unnecessary in a situation, not using it can be an ordinary response. Keep that context available instead of deciding that a low mean tells the whole story.",
+              "zh": "较低均分记录较少使用这些特定的核对与整理反应。可能任务不需要很多精确步骤、系统由别人维护，或你的习惯与例子不同。问卷不测量粗心、技能或灵活性的价值，这些需要具体证据。某种习惯在场景里不必要时，没有采用也是普通反应。应保留这种情境，不把低均分当作全部故事。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Different routines may have different roles",
+            "zh": "不同习惯可能各有用途"
+          },
+          "paragraphs": [
+            {
+              "en": "You might check written instructions repeatedly but leave personal belongings wherever they are convenient. Another person could maintain an exact arrangement of materials while moving quickly through other tasks. Similar averages can conceal that difference. Item-by-item context is more informative than a competition between themes. For example, someone may use both tight structure for a shared schedule and spontaneous branching for a private sketch. The two means describe separate selected observations; they are not opposite ends of a single validated personality ruler.",
+              "zh": "你可能反复核对书面说明，却把私人物品放在方便的位置；另一人可能严格摆放材料，处理其他任务时却很快。相似均分会遮住差别。逐条情境比主题竞争更有帮助。例如，同一个人可对共同日程维持结构，对私人草图自由展开；两个均分描述不同的所选观察，不是同一把经验证人格尺的两端。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Compare a uniform pattern with a mixed pattern",
+            "zh": "比较一致回答与混合回答"
+          },
+          "paragraphs": [
+            {
+              "en": "Six ratings of four give a sum of twenty-four and a displayed mean of 4.00. Ratings of five, five, four, four, three and three also total twenty-four. The same mean therefore does not prove that every routine occurred equally often. Two decimals are used for reproducible arithmetic, not a claim that frequency categories are equal psychological distances. All six ratings are required. If one item is unclear or inapplicable and receives NA, neither the personal sum nor the mean is displayed for this theme.",
+              "zh": "六条都评4，总和24，均分显示4.00；5、5、4、4、3、3也总和24。均分相同，不证明每种习惯出现得一样频繁。保留两位小数是为复算，不是声称频率类别之间心理距离相等。六条都须有效；若一条含糊或不适用而选NA，本主题不显示个人总和与均分。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A precise arrangement can belong to the job",
+            "zh": "精确安排可能来自任务要求"
+          },
+          "paragraphs": [
+            {
+              "en": "A volunteer prepares materials for a group activity and checks that each participant has the same set. Repeating the check might prevent an avoidable interruption. In another moment, rearranging an already usable pile could simply delay opening the activity. Those examples may involve a similar outward action, but its role is different. The checklist does not know the agreement, the available time or what the check discovered. It cannot use the frequency to infer a disorder or reconstruct the person’s childhood.",
+              "zh": "一位志愿者为集体活动准备材料，核对每个人是否拿到同一套。再查一次可能避免不必要的中断；另一个时刻，重新摆放已经能用的材料堆，可能只推迟开场。表面动作相近，作用却不同。清单不知道约定、可用时间或核对发现了什么，不能用频率推断障碍或重建童年经历。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Define what finished means for one small task",
+            "zh": "为一件小事写清“完成”意味着什么"
+          },
+          "paragraphs": [
+            {
+              "en": "For one ordinary task, privately list the few details that genuinely matter to its purpose. You could then decide in advance what a sufficient final check would cover. Afterward, note whether another round changed anything useful. This is an observation exercise, not a rule that you must rush or give up a helpful routine. You may find that the existing structure works well. The useful outcome is a clearer description of when the routine serves the task, rather than a particular movement in the mean.",
+              "zh": "对一件普通任务，私下列出真正影响目的的几个细节，再提前想好一次足够的最后核对要覆盖什么。之后记下再查一轮是否带来有用变化。这是观察练习，不要求赶快或放弃有帮助的习惯；也可能发现原有结构很好。可用的收获是更清楚习惯何时服务任务，而不是均分朝某个方向移动。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Use a clearly identified original edition",
+            "zh": "使用版本清楚的原创材料"
+          },
+          "paragraphs": [
+            {
+              "en": "The historical reference is Smith’s published eight-theme interpretation from 2014. The present prompts and guide are our original bilingual work, rather than the competitor’s questionnaire or scoring key. Each of the eight themes contains six direct items about the past four weeks. A raw sum is available only with six valid ratings; its unrounded value is divided by six and shown to two decimals. NA preserves insufficient information. These rules do not inherit psychometric validity from a historical account, and no norm, cut-off or clinical classification is generated.",
+              "zh": "历史出处为Smith于2014年发表的八主题个人解释；当前提问与指南是本站原创双语内容，没有采用竞品问卷或计分键。八主题各六条正向题，回看近四周；六条有效才有原始和，未舍入总和除6并显示两位小数，NA保留资料不足。这些规则不继承历史论述的心理测量效度，不生成人口常模、阈值或临床分类。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overt",
+      "directionIds": [
+        "overt"
+      ],
+      "title": {
+        "en": "Overt Assertion",
+        "zh": "直接主张自己的位置"
+      },
+      "headline": {
+        "en": "Notice how you ask for a role, recognition or attention to a proposal.",
+        "zh": "观察你怎样争取角色、认可或对提议的重视。"
+      },
+      "summary": {
+        "en": "Read six recent-choice observations about visible roles and direct advocacy, with a worked mean and context that keeps recognition separate from a fixed type.",
+        "zh": "阅读关于可见角色和直接表达主张的六条近期观察，含均分算例，并把争取认可放回具体情境。"
+      },
+      "scoreReading": {
+        "en": "The result summarises six direct frequency ratings over four weeks. All six valid responses produce a sum of six to thirty and a descriptive mean of one to five. A higher value concerns how often the listed actions were reported, rather than the value of a person or the quality of their leadership. NA withholds this theme.",
+        "zh": "结果汇总近四周六条正向频率评分。六条都有效才有6—30的总和与1—5的描述性均分；较高只涉及较常报告所列动作，不衡量人的价值或领导质量。NA保留本主题不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Overt Assertion Guide",
+          "zh": "弗洛伊德历史词汇反思：直接主张自己的位置完整指南"
+        },
+        "description": {
+          "en": "Read six recent-choice observations about visible roles and direct advocacy, with a worked mean and context that keeps recognition separate from a fixed type.",
+          "zh": "阅读关于可见角色和直接表达主张的六条近期观察，含均分算例，并把争取认可放回具体情境。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A quoted label for a limited set of actions",
+            "zh": "引述标签只对应一组有限动作"
+          },
+          "paragraphs": [
+            {
+              "en": "Smith’s 2014 interpretation includes the quoted term “phallic-aggressive.” Our original reflection uses Overt Assertion as its everyday heading. The six prompts concern volunteering to lead, explaining a contribution, advocating a preferred approach and asking for a visible role. They describe things a person might do in an ordinary group. Frequency does not reveal a hidden developmental explanation. The historical quotation identifies the vocabulary being discussed; it is not the name of a personality assigned to someone who completes these items.",
+              "zh": "Smith在2014年的解释中包含历史引述“phallic-aggressive”，本站原创反思把日常标题写为“直接主张自己的位置”。六条涉及主动带头、说明贡献、争取偏好的做法和可见角色，都是普通小组里可能发生的动作。频率不能揭示隐藏的发育原因；历史引述只是标明讨论的词汇，不是为完成这些条目的人派发人格名称。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read direct advocacy in its actual role",
+            "zh": "结合实际角色看直接主张"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that you more frequently reported these forms of putting yourself or your proposal forward. Perhaps a task needed someone to start, you had relevant experience or your contribution had not yet been described clearly. You may also notice moments when restating your position left little room for a different view. The score cannot decide which account fits. Ask what the group needed, what you communicated and how other contributions were handled. Visibility alone does not establish either good leadership or an interpersonal problem.",
+              "zh": "较高均分表示较常报告这些让自己或提议被看见的方式。可能任务需要有人起头、你有相关经验，或贡献尚未说清；也可能有反复重申立场而较少留出其他意见空间的时候。分数不能决定哪种解释合适。可回看小组需要什么、自己传达了什么，以及怎样对待其他贡献；可见度本身不证明领导好坏或人际问题。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less visible advocacy is not less contribution",
+            "zh": "较少公开主张不等于较少贡献"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean records fewer reports of the six listed actions. You could have contributed through preparation, had no reason to lead, preferred a supporting role or worked in a setting where visible roles were already allocated. These possibilities differ. The questionnaire does not measure courage, competence or how much recognition someone deserves. Nor does it prove that a quieter approach was freely chosen. Retain the actual task and available options when reading the number; the checklist cannot determine the worth of either a public or a less visible contribution.",
+              "zh": "较低均分记录较少报告这六种动作。你可能通过准备工作贡献、没有带头需要、偏好支持角色，或身处可见角色已分配好的环境。这些情况不同。问卷不衡量勇气、能力或应得多少认可，也不能证明安静做事完全出于自愿。读数时应保留实际任务和可选做法；清单无法评价公开或不显眼贡献的价值。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "A visible role can coexist with careful listening",
+            "zh": "可见角色可以与认真倾听并存"
+          },
+          "paragraphs": [
+            {
+              "en": "You may readily volunteer to present a finished piece but rarely insist that your preferred approach take priority. Another person might advocate a proposal often while avoiding a public role. The same mean can conceal these differences. Look at what each item actually asks rather than imagining one uniform character behind the average. Other themes may appear in the same event: someone can speak directly, consider an argument and then change a plan. Separate means describe those selected observations without ranking the themes as stronger or weaker personalities.",
+              "zh": "你可能愿意展示完成的作品，却很少坚持自己的做法优先；另一个人可能常为提议争取，却避免公开角色。相同均分会遮住差别。应逐条看问题，不把平均值背后想成单一性格。同一件事也可能涉及其他主题：一个人可以直接发言、考虑论证，再改变安排。各均分分别描述所选观察，不把主题排成强弱人格。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate a descriptive mean, not a leadership grade",
+            "zh": "计算描述性均分，而非领导评分"
+          },
+          "paragraphs": [
+            {
+              "en": "If the six ratings are two, four, five, three, two and four, their sum is twenty. Dividing by six gives 3.3333…, displayed as 3.33. That decimal summarises the response codes and cannot certify how successfully you led or how fair your proposal was. The ordinal categories do not establish equal psychological distances. If one situation cannot be judged and receives NA, this theme’s personal sum and mean are withheld. Other fully rated themes still display their own values and every complete guide remains accessible.",
+              "zh": "六条评分2、4、5、3、2、4，总和20，除6为3.3333…，显示3.33。小数汇总回答编码，不能认证领导是否成功或提议是否公平；有序类别也不证明心理距离相等。若一个场景无法判断而选NA，本主题保留个人总和与均分不足；其他完整主题仍显示自己的数值，每份完整指南也继续可读。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "Explaining a contribution can clarify a shared record",
+            "zh": "说明贡献也可以是在澄清共同记录"
+          },
+          "paragraphs": [
+            {
+              "en": "During a project review, Ari explains which part of a result they completed because the group is preparing an accurate handover. That visible description may help everyone understand the work. In another discussion, repeatedly mentioning an achievement could distract from the decision at hand. The outward action is similar, but its purpose and effect differ. Neither example lets a checklist infer a grandiose inner belief. A useful interpretation needs the actual agreement, the content of the contribution and what happened after it was explained.",
+              "zh": "项目复盘时，阿里说明自己完成了哪一部分，因为小组正在准备准确交接；公开说明可能帮助大家理解分工。另一次讨论里，反复提成绩却可能偏离当前决定。动作相似，目的和效果不同；两种例子都不能让清单推断夸大的内心信念。有用的解释需要实际约定、贡献内容，以及说清以后发生了什么。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Write down what you want a proposal to accomplish",
+            "zh": "写清希望提议实现什么"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately choose one recent proposal and name the practical outcome you wanted. Separate that outcome from wanting your role to be seen; both may matter, but they are not the same question. For a future ordinary discussion, you could draft one sentence about the proposal and one invitation to hear another approach. You do not need to send them or adopt a quieter style. Review whether the distinction makes your intention clearer, without treating a lower or higher mean as proof of improvement.",
+              "zh": "私下选一次近期提议，写清想实现的实际结果，再把它与希望自己的角色被看见分开。两者都可能重要，却不是同一个问题。也可为以后普通讨论拟一句提议说明，再拟一句邀请其他做法的话；无需发送，也不用刻意变得安静。只核对区分后意图是否更清楚，不把均分升降当作进步证明。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the source vocabulary and the new edition clear",
+            "zh": "说明历史词汇与新版本"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted term is attributed to Smith’s personal eight-theme interpretation published in 2014. The current prompts, Chinese text and guides are original material about the past four weeks. Each theme has six direct frequency codes from one to five. Six valid ratings give a raw sum; its unrounded value divided by six supplies the displayed two-decimal mean. NA preserves insufficient information, rather than a low value. These transparent arithmetic rules do not inherit validation from the historical vocabulary and provide no norm, cut-off, clinical type or explanation of childhood development.",
+              "zh": "历史引述注明来自Smith于2014年发表的八主题个人解释。当前提问、中文和指南为本站原创，观察时段是近四周；每主题六条正向1—5频率编码，六条有效形成原始和，再用未舍入总和除6，显示两位小数。NA保留不足而非低值。透明算法不继承历史词汇的效度，不提供常模、阈值、临床类型或童年发育解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "argument",
+      "directionIds": [
+        "argument"
+      ],
+      "title": {
+        "en": "Argument-Led Assertion",
+        "zh": "用论证表达主张"
+      },
+      "headline": {
+        "en": "Notice how questions about reasons and standards shape a shared decision.",
+        "zh": "观察对理由与标准的追问怎样影响共同决定。"
+      },
+      "summary": {
+        "en": "Read six recent observations about reasoning, counterexamples and written explanations, with a worked mean that stays separate from logical ability or hidden motives.",
+        "zh": "阅读关于推理、反例和书面解释的六条近期观察，含均分算例，区分行为频率、逻辑能力与隐藏动机。"
+      },
+      "scoreReading": {
+        "en": "Six valid direct frequency ratings are needed for a personal sum and mean. The sum ranges from six to thirty and is divided by six without intermediate rounding. A higher mean describes more frequent use of the listed actions during four weeks; it does not establish whether the arguments were correct. NA withholds this theme while all full guides remain readable.",
+        "zh": "个人总和与均分需要六条有效的正向频率评分。总和6—30，除6时不先舍入。较高只表示近四周更常采取所列动作，不能证明论证正确。NA保留本主题不足，完整指南仍可读。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Argument-Led Assertion Guide",
+          "zh": "弗洛伊德历史词汇反思：用论证表达主张完整指南"
+        },
+        "description": {
+          "en": "Read six recent observations about reasoning, counterexamples and written explanations, with a worked mean that stays separate from logical ability or hidden motives.",
+          "zh": "阅读关于推理、反例和书面解释的六条近期观察，含均分算例，区分行为频率、逻辑能力与隐藏动机。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A historical quotation about analytical assertion",
+            "zh": "关于分析式主张的历史引述"
+          },
+          "paragraphs": [
+            {
+              "en": "Smith’s 2014 interpretation uses the quoted term “phallic-compensative.” Here the everyday heading is Argument-Led Assertion, and the original questions concern asking for reasons, checking standards, proposing counterexamples and using a written explanation to influence a decision. Those behaviours can be observed without deciding what a person unconsciously wants. Our prompts do not measure a hidden wish to dominate. The historical phrase identifies a reference in the discussion of personality vocabulary, rather than the result label assigned to the person answering.",
+              "zh": "Smith于2014年的解释使用历史引述“phallic-compensative”。这里的日常标题是“用论证表达主张”，原创问题涉及询问理由、核对标准、提出反例和用书面解释影响决定。这些行为可以观察，无需认定一个人潜意识里想要什么；提问不测量隐藏的支配愿望。历史词语只标明人格词汇讨论中的出处，不是给作答者派发的结果标签。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Frequent analysis can serve different decisions",
+            "zh": "较常分析可以服务不同决定"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says that you reported these forms of analytical involvement more frequently. You may have clarified a vague requirement, exposed an inconsistency or helped a group compare proposals. You might also recall a discussion where attention to a term kept everyone from reaching an otherwise workable decision. The questionnaire cannot evaluate the argument or choose the best moment to stop. Look at the claim, the relevant evidence and the practical decision that followed. Frequency alone cannot distinguish careful inquiry from an unproductive exchange.",
+              "zh": "较高均分表示较常报告这些分析式参与。可能澄清了模糊要求、发现不一致，或帮助小组比较提议；也可能有紧盯某个词而让大家迟迟无法作出可行决定的讨论。问卷不能评价论证或决定何时停止。可回看主张、相关证据和后续实际决定；频率本身不能区分认真探究与无效交锋。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Fewer reported questions do not establish less reasoning",
+            "zh": "较少报告追问不等于较少思考"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean may reflect clearer agreements, fewer disputed decisions, a different role in the group or a preference to consider reasons privately. It does not demonstrate weak logical ability or unquestioning acceptance of authority. The six prompts do not test reasoning performance. They ask about particular actions over a limited period. Someone who did not offer a counterexample might still have understood the issue well, or might not have had an opportunity to speak. Keep those possibilities open when deciding whether the checklist is useful.",
+              "zh": "较低均分可能因为约定清楚、争议决定少、角色不同，或偏好私下考虑理由；不证明逻辑能力弱或无条件接受权威。六条不测试推理表现，只问有限时段中的特定动作。没有提出反例的人仍可能理解充分，也可能没有发言机会。判断清单是否有用时，应保留这些可能性。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Questions, standards and written explanations can separate",
+            "zh": "追问、标准和书面解释可以分开看"
+          },
+          "paragraphs": [
+            {
+              "en": "You might frequently ask why a decision was made but rarely continue debating a word after the group wants to move on. Another person may communicate mainly through a written proposal. Similar means can conceal these different patterns. Consider which of the six actions happened and in what setting. A person can also combine analytical questions with direct advocacy or with seeking support. Each theme has its own selected observations; their numeric means do not compete to reveal a single dominant style or a hierarchy of intellectual strengths.",
+              "zh": "你可能常问决定为何如此，却很少在大家想继续时仍争论词义；另一人可能主要用书面提议沟通。相似均分会隐藏不同模式。可分别看六种动作中的哪些发生了、发生在哪里。一个人也可以同时追问理由、直接主张或寻求支持。各主题观察内容独立，数值不竞争揭示单一主导风格，也不排列智力强弱。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "A mean reports frequency, not proof quality",
+            "zh": "均分报告频率，不评价证明质量"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine six responses of five, four, two, four, three and three. Their sum is twenty-one, so the descriptive mean is 3.50. That value does not mean that half of the arguments were correct, nor does it estimate how persuasive you are. It summarises the response codes on their own scale. All six need valid ratings. If one receives NA, the personal sum and mean are withheld for this theme, while other fully rated themes and all eight complete guides remain available.",
+              "zh": "设想六条回答5、4、2、4、3、3，总和21，描述性均分3.50。它不表示一半论证正确，也不估算说服力，而是在自身标尺上汇总回答编码。六条都须有效；若一条选NA，本主题保留个人总和与均分不足，其他完整主题与全部八份指南仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "The same question can clarify or prolong a discussion",
+            "zh": "同一个追问可能澄清，也可能拖长讨论"
+          },
+          "paragraphs": [
+            {
+              "en": "Before an activity, Noor asks what the phrase “ready to begin” means. The question reveals that the group has been using two different starting conditions, and they agree on one. Later, repeatedly revisiting the phrase after the condition is settled may have a different effect. The surface behaviour is still asking about a term. The useful distinction is whether a live uncertainty remains and how the question affects the shared task. A checklist cannot infer envy, an inner conflict or a personal motive from that action.",
+              "zh": "活动开始前，努尔问“准备好开始”具体指什么，发现大家采用了两种不同的起始条件，之后统一了标准。条件已明确后继续反复追问，效果可能不同。表面行为仍是问词义，关键却是是否还有真实不确定性、追问怎样影响共同任务。清单不能由此推断嫉妒、内心冲突或个人动机。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Keep one question connected to its decision",
+            "zh": "让一个问题与要作的决定保持联系"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose one recent analytical question and privately write the decision it was meant to help. Note what information changed after the question was asked. For a future ordinary discussion, you could draft a concise question and a practical sign that it has been answered sufficiently. This does not mean suppressing disagreement or accepting a weak explanation. The exercise simply keeps the inquiry connected to a purpose. Review the clarity of that connection rather than trying to move a score or prove a better debating personality.",
+              "zh": "选一次近期的分析式追问，私下写清它原本想帮助哪个决定，以及问后信息改变了什么。也可为以后普通讨论拟一个简洁问题，再写一个足以说明已答清的实际标志。这个练习不要求压住分歧或接受薄弱解释，只是让探究与目的相连。可核对这种联系是否更清楚，不追求改分或证明自己有更好的辩论人格。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the new questions distinct from historical claims",
+            "zh": "区分新问题和历史主张"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted vocabulary is attributed to Smith’s 2014 personal eight-theme interpretation. Our forty-eight prompts, bilingual wording and full guides are original reflections on recent observable choices. Six direct frequency items form each theme, using one-to-five codes for the past four weeks. Only six valid ratings generate a personal sum and its unrounded mean, displayed to two decimals. NA preserves insufficient information. Neither the history of the term nor rewriting the questions establishes independent validation, an ability test, a population norm or evidence of a concealed psychological cause.",
+              "zh": "历史引述注明来自Smith于2014年的八主题个人解释。本站48条提问、双语表述与完整指南是关于近期可观察选择的原创反思；每主题六条正向频率题，用1—5编码回看近四周。六条有效才形成个人总和及未舍入均分，显示两位小数；NA保留不足。词语历史或重写题目都不构成独立效度、能力测试、人口常模或隐藏心理原因的证据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expressive",
+      "directionIds": [
+        "expressive"
+      ],
+      "title": {
+        "en": "Expressive Connection",
+        "zh": "外显地建立连接"
+      },
+      "headline": {
+        "en": "Notice how voice, stories and visible enthusiasm invite other people into a moment.",
+        "zh": "观察语气、故事和明显热情怎样邀请别人参与一个时刻。"
+      },
+      "summary": {
+        "en": "Read six recent observations about expressive conversation and attention, with a worked mean that stays separate from a clinical or gendered label.",
+        "zh": "阅读关于鲜明表达和注意互动的六条近期观察，含均分算例，并区分行为描述与临床或性别标签。"
+      },
+      "scoreReading": {
+        "en": "All six direct frequency ratings must be valid for a personal sum and mean. The sum runs from six to thirty; dividing its unrounded value by six gives a mean on one to five. Higher summarises more frequent reports of these actions during four weeks, rather than measuring how much affection you need or how others perceive you. NA withholds the theme.",
+        "zh": "六条正向频率回答都有效才有个人总和与均分。总和6—30，未舍入总和除6，均分显示在1—5标尺。较高汇总近四周较常报告的这些动作，不衡量需要多少喜爱或别人怎样看你。NA保留本主题不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Expressive Connection Guide",
+          "zh": "弗洛伊德历史词汇反思：外显地建立连接完整指南"
+        },
+        "description": {
+          "en": "Read six recent observations about expressive conversation and attention, with a worked mean that stays separate from a clinical or gendered label.",
+          "zh": "阅读关于鲜明表达和注意互动的六条近期观察，含均分算例，并区分行为描述与临床或性别标签。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A historical quotation, an ordinary communication checklist",
+            "zh": "历史引述与普通沟通清单"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted historical name associated with this guide is “classic hysteric” in Smith’s 2014 interpretation. Expressive Connection is the everyday heading for our original questions. They concern changes in voice or gesture, stories, humor, checking listeners’ reactions and openly showing enthusiasm. The prompts ask about visible communication choices during a recent period. The historical quotation is not a diagnosis or a description of someone’s gender. Read the actual actions in the items before attaching any broader meaning to the old vocabulary.",
+              "zh": "本指南关联的历史引述为Smith在2014年解释中使用的“classic hysteric”，本站原创问题的日常标题是“外显地建立连接”。条目涉及语气或手势变化、故事、幽默、留意听者反应和明显表达热情，只问近期可见的沟通选择。历史引述不是诊断，也不描述性别。应先看实际问到的动作，再理解旧词语。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read expressive behaviour with the interaction in view",
+            "zh": "结合互动看鲜明表达"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean says that you reported the six listed actions more frequently. You might have been explaining a project, entertaining friends or helping a conversation get started. You may also recall times when a vivid delivery did not leave enough space for another person’s response. The score cannot evaluate that balance or tell how the audience felt. Look at who was present, what the moment called for and whether the exchange became clearer. Noticeable expression is an action, rather than proof of a hidden emotional need.",
+              "zh": "较高均分说明较常报告这六种动作。可能在介绍项目、和朋友聊天，或帮助对话开场；也可能有表达很鲜明却没给别人留足回应空间的时候。分数不能评价这种平衡或判断听众感受。可回看参与者、当时需要什么，以及交流是否更清楚。明显表达是一种动作，不能证明隐藏的情感需要。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less visible expression can still carry connection",
+            "zh": "较少外显表达也可以有连接"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean indicates fewer reports of the particular visible behaviours in these six prompts. It does not establish a lack of warmth, imagination or interest in people. Your conversations may have used quieter signals, a different format or fewer opportunities to tell a story. The questionnaire does not measure how close your relationships are or how enjoyable an interaction was. A calm reply and an animated story can both fit a situation. Retain the actual setting instead of turning the score into a judgement of social value.",
+              "zh": "较低均分表示较少报告六条所列的明显行为，不证明缺少温暖、想象力或对人的兴趣。交流可能使用更安静的信号、不同形式，或较少有讲故事的机会。问卷不衡量关系亲近程度或互动是否愉快。平静回应与生动故事都可能适合情境，应保留实际场景，不把分数变成社交价值判断。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Expressiveness can change across settings",
+            "zh": "表达方式可以随场景变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may tell animated stories with familiar people but use a restrained manner in a practical meeting. Another person might make a presentation visually engaging while seldom volunteering a lively example in conversation. A similar mean could cover either pattern. Look at the specific items when that distinction matters. Other themes can also appear alongside expressiveness: asking for help, using an argument or protecting some private time are separate observations. None of their means wins a competition to define who you are.",
+              "zh": "有人和熟人讲故事很生动，在事务性会议里却较克制；另一人可能让展示画面鲜明，却很少主动在聊天中举生动例子。相似均分可以覆盖两种模式，需要时应分别回看条目。鲜明表达也能与求助、论证或保留私人时间并存；这些是不同观察，均分不竞争定义你是谁。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Recalculate the communication-frequency summary",
+            "zh": "复算沟通频率汇总"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine the six ratings are three, three, two, four, one and three. Their sum is sixteen, and sixteen divided by six is 2.6666…, displayed as 2.67. The number remains a descriptive mean of response codes, not a percentage of expressiveness, popularity or emotional intensity. Six valid ratings are required. If one context was unfamiliar or you prefer not to answer and choose NA, the personal sum and mean are withheld for this theme. Other complete themes and every full guide are still available.",
+              "zh": "假设六条评分3、3、2、4、1、3，总和16；16除6为2.6666…，显示2.67。它仍是回答编码的描述性均分，不是表达程度、受欢迎程度或情绪强度百分比。需要六条都有效；若一条场景陌生或不愿回答而选NA，本主题保留个人总和与均分不足，其他完整主题和全部指南仍可读。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A lively delivery may be part of an assigned role",
+            "zh": "生动表达可能来自承担的角色"
+          },
+          "paragraphs": [
+            {
+              "en": "Lee is introducing a group activity and uses an animated example so that everyone understands what to do. The role calls for visible expression, even if Lee later prefers a quiet conversation. In another setting, a similar delivery could distract from what someone is trying to say. The checklist records frequency, not whether either interaction was appropriate. A useful account needs the purpose, the audience and the effect of the exchange. Those details cannot be replaced by an assumption about attention-seeking, sexuality or a clinical condition.",
+              "zh": "小黎介绍集体活动时，用了生动例子帮助大家理解做法。这个角色需要明显表达，即使之后更偏好安静交谈。另一个场景里，相似表达可能干扰别人正在说明的事情。清单记录频率，不判断两次互动是否合适；有用解释需要目的、听众及交流效果，不能用对求关注、性或临床状况的猜测来代替。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Notice an invitation and a response",
+            "zh": "观察一次邀请和一次回应"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately recall one moment when you made an expression more vivid. Write what you hoped others would understand and what they actually did next, keeping uncertainty when you do not know. For a future ordinary interaction, you could leave a brief pause after a story or example and notice whether someone wants to respond. This is an optional communication observation, not a requirement to become quieter or more entertaining. A clearer picture of the exchange can be useful even if the next questionnaire mean is unchanged.",
+              "zh": "私下回想一次让表达更鲜明的时刻，写下希望别人理解什么，以及对方随后实际做了什么；不知道时保留不确定。也可在以后普通互动的一则故事或例子后停一小会儿，看看是否有人想回应。这是可选的沟通观察，不要求变得更安静或更有趣。即使下次均分不变，把交流看得更清楚也可以有用。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the original edition and quoted history distinct",
+            "zh": "区分原创版本与引述历史"
+          },
+          "paragraphs": [
+            {
+              "en": "The old term is attributed to Smith’s own eight-theme interpretation, published in 2014. This edition uses forty-eight newly written bilingual prompts about observable recent choices, with six direct items per theme. Frequency is rated from one to five over four weeks. All six valid codes are summed, and the unrounded sum divided by six is displayed to two decimals; NA preserves insufficient information. These display rules establish no population norm or independent validation. Neither the quoted history nor the new mean supports a clinical, sexual-development or gender classification.",
+              "zh": "旧词语注明来自Smith于2014年发表的八主题个人解释。本版使用48条新写双语提问，观察近期可见选择，每主题六条正向题；以1—5评价近四周频率。六条有效才相加，再将未舍入总和除6，显示两位小数；NA保留不足。这些显示规则不建立人口常模或独立效度，历史引述或新均分都不能支持临床、性发展或性别分类。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "private",
+      "directionIds": [
+        "private"
+      ],
+      "title": {
+        "en": "Private Imaginative Distance",
+        "zh": "保留私人的想象空间"
+      },
+      "headline": {
+        "en": "Notice how you keep time, ideas or feelings private before deciding what comes next.",
+        "zh": "观察继续下一步前，你怎样保留私人的时间、想法或感受。"
+      },
+      "summary": {
+        "en": "Read six recent-choice observations about quiet time and private ideas, with an exact example and context that keeps distance separate from disinterest.",
+        "zh": "阅读关于安静时间和私人想法的六条近期观察，含准确算例，并区分保留空间与缺少兴趣。"
+      },
+      "scoreReading": {
+        "en": "This guide summarises six direct frequency ratings from the past four weeks. A complete sum ranges from six to thirty, and its unrounded value divided by six supplies the one-to-five mean. Higher describes more frequent reports of the listed private choices. It does not count creative ideas or determine a capacity for closeness. NA withholds the personal values for this theme.",
+        "zh": "本指南汇总近四周六条正向频率评分。完整总和为6—30，未舍入总和除6，得到1—5均分。较高描述较常报告这些保留私人的选择，不统计创意数量，也不决定亲近能力。NA保留本主题个人数值不足。"
+      },
+      "seo": {
+        "title": {
+          "en": "Freudian Reflection: Private Imaginative Distance Guide",
+          "zh": "弗洛伊德历史词汇反思：保留私人的想象空间完整指南"
+        },
+        "description": {
+          "en": "Read six recent-choice observations about quiet time and private ideas, with an exact example and context that keeps distance separate from disinterest.",
+          "zh": "阅读关于安静时间和私人想法的六条近期观察，含准确算例，并区分保留空间与缺少兴趣。"
+        }
+      },
+      "sections": [
+        {
+          "id": "historical-scope",
+          "title": {
+            "en": "A quoted term, without an identity assignment",
+            "zh": "引述词语，不派身份"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted historical label is “retentive hysteric” in Smith’s 2014 interpretation. Our everyday heading is Private Imaginative Distance. The original prompts concern quiet activity after social time, developing an idea privately, holding back to interpret a discussion and keeping a feeling to yourself before responding. The items describe recent choices, not an explanation of someone’s inner life. The historical name is quoted as a reference to old vocabulary. It is not applied to the respondent as a clinical, gender or sexual identity.",
+              "zh": "历史引述是Smith于2014年解释中的“retentive hysteric”，本站日常标题为“保留私人的想象空间”。原创条目涉及相处后选择安静活动、私下展开想法、先退后理解讨论，以及回应前把感受留给自己。它们描述近期选择，不解释一个人的内心生活；历史名称仅作为旧词汇出处引述，不把它套为临床、性别或性身份。"
+            }
+          ]
+        },
+        {
+          "id": "higher-reading",
+          "title": {
+            "en": "Read private space in relation to what it serves",
+            "zh": "结合用途看私人空间"
+          },
+          "paragraphs": [
+            {
+              "en": "A higher mean indicates that you more often reported the listed private or quieter choices. You may have wanted time to develop an idea, preferred a particular working arrangement or paused before joining a new plan. You might also notice a situation where keeping something private left a practical question unclear. The result cannot decide what the space was doing for you. Look at whether the choice suited the activity and whether any shared arrangement needed clarification. Privacy and meaningful contact can both be present in a person’s ordinary life.",
+              "zh": "较高均分说明较常报告这些保留私人或较安静的选择。可能需要时间展开想法、偏好特定工作安排，或加入新计划前先停一下；也可能有把事情留在私下而让实际问题不清楚的情况。结果不能确定空间对你起了什么作用。可回看选择是否适合活动、共同安排是否需要澄清。私人空间和有意义的接触可以同时存在。"
+            }
+          ]
+        },
+        {
+          "id": "lower-reading",
+          "title": {
+            "en": "Less reported distance leaves imagination unmeasured",
+            "zh": "较少报告距离，想象力仍未被测量"
+          },
+          "paragraphs": [
+            {
+              "en": "A lower mean records fewer reports of these six actions. It does not establish less imagination, stronger intimacy or a greater wish to socialize. Your ideas may have developed through conversation, your schedule may have offered little private time or the situations in the prompts may have occurred rarely. The checklist does not choose among those accounts. It also does not measure the quality of any idea. Read the number as a limited report about actions during four weeks, keeping the surrounding opportunities and constraints in view.",
+              "zh": "较低均分只记录较少报告六种动作，不证明想象力少、亲近能力强或更想社交。想法可能在交谈中展开，日程可能少有私人时间，或条目场景近期很少发生；清单不能从中选择一种解释，也不衡量想法质量。应把数值看作近四周有限的动作报告，同时保留机会与限制。"
+            }
+          ]
+        },
+        {
+          "id": "mixed-context",
+          "title": {
+            "en": "Private ideas and quiet time need not move together",
+            "zh": "私人想法与安静时间不必一起变化"
+          },
+          "paragraphs": [
+            {
+              "en": "Someone may often write an idea privately but rarely turn down a social plan. Another person may protect quiet time while sharing new thoughts as soon as they appear. Similar means can conceal those differences. Looking at each prompt is more informative than assuming a single detached style. The same person can also be expressive in a familiar setting and private before an unfamiliar discussion. The other seven themes are kept separate; a numerical comparison cannot settle which one is your real personality or explain why the choices differed.",
+              "zh": "有人常私下写想法，却很少为独处而不参加社交安排；另一人可能保留安静时间，新想法一出现却马上分享。相近均分可以隐藏差别，逐条回看比假设单一疏离风格更有帮助。同一个人也能在熟悉场景表达鲜明，在陌生讨论前先保留自己。其他七主题分别呈现，数值比较不能决定哪一个才是真人格或解释选择为何不同。"
+            }
+          ]
+        },
+        {
+          "id": "worked-example",
+          "title": {
+            "en": "Calculate one complete set of choices",
+            "zh": "计算一组完整选择"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose the six ratings are four, four, five, three, two and four. Their sum is twenty-two; dividing by six gives 3.6666…, displayed as 3.67. This is a descriptive mean of ordered frequency codes. It is not a percentage of imagination, a measure of relationship distance or a comparison with other people. All six valid ratings are required. If an item about a private imaginative task is unfamiliar and receives NA, the personal sum and mean for this theme remain unavailable. The full guide still explains the method.",
+              "zh": "假设六条评分4、4、5、3、2、4，总和22；除6为3.6666…，显示3.67。它是有序频率编码的描述性均分，不是想象力百分比、关系距离测量或与别人的比较。六条都须有效；若有关私人想象任务的一条不熟悉而选NA，本主题个人总和与均分保持不足，完整指南仍解释方法。"
+            }
+          ]
+        },
+        {
+          "id": "counterexample",
+          "title": {
+            "en": "A private draft can prepare a later conversation",
+            "zh": "私人草稿可以为后续交流作准备"
+          },
+          "paragraphs": [
+            {
+              "en": "Sam works alone on a sketch before showing it to a group because an unfinished idea is easier to explore privately. Later Sam shares a version and asks for comments. That private stage does not prove emotional detachment. In another situation, holding back a practical detail could make a shared arrangement harder to follow. The visible action of keeping something to yourself can therefore have different roles. Understanding it requires the purpose, the timing and what happened next; the questionnaire cannot infer an identity or an inability to connect.",
+              "zh": "山姆独自画草稿后再拿给小组看，因为未完成的想法在私下更容易探索；后来他分享一版并征求意见。私下阶段不能证明情感疏离。另一个场景里，没有说明实际细节，却可能让共同安排更难执行。同样的“先留给自己”可以有不同作用，需要目的、时机和后续事实才能理解，问卷不能推断身份或无法连接。"
+            }
+          ]
+        },
+        {
+          "id": "next-step",
+          "title": {
+            "en": "Make one boundary or next step clearer to yourself",
+            "zh": "向自己说明一个边界或下一步"
+          },
+          "paragraphs": [
+            {
+              "en": "Privately choose a recent moment when you kept time or an idea to yourself. Write what you were protecting, what remained undecided and whether anything needed to be communicated for a shared task. You could draft a short description of when you might return to the topic, without sending it or being required to share private material. You may also decide that no further step is needed. The aim is clarity about the choice and its context, rather than proving that you should spend more or less time with others.",
+              "zh": "私下选一次把时间或想法留给自己的时刻，写下在保留什么、什么还未决定，以及共同任务中是否有什么需要说明。可以拟一句何时可能回到话题的描述，无需发送，也不要求分享私人内容；还可以决定不必有下一步。目标是看清选择及情境，不是证明应该更多或更少与别人相处。"
+            }
+          ]
+        },
+        {
+          "id": "source-and-method",
+          "title": {
+            "en": "Keep the original reflection within the evidence",
+            "zh": "按已有证据使用原创反思"
+          },
+          "paragraphs": [
+            {
+              "en": "The quoted label is attributed to Smith’s 2014 personal interpretation of eight historical themes. Our prompts, Chinese wording and guides are newly written and concern recent observable choices. Six direct items per theme use one-to-five frequency codes for four weeks. A personal raw sum and mean require all six valid ratings; NA preserves insufficient information. The unrounded sum is divided by six and displayed to two decimals. These conventions establish no population norm or independent validation, and they cannot infer sexuality, gender, childhood experience or a clinical state.",
+              "zh": "历史标签注明来自Smith于2014年对八个历史主题的个人解释。本站提问、中文表述和指南为新写内容，涉及近期可观察选择；每主题六条正向题，用1—5编码近四周频率。六条有效才有个人原始和与均分，NA保留不足；未舍入总和除6，显示两位小数。这些约定不提供人口常模或独立效度，不能推断性、性别、童年经历或临床状态。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scoreWitnesses": {
+    "id": "T180",
+    "perDomainStates": [
+      {
+        "rated": 0,
+        "sum": 0,
+        "codes": "nnnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 1,
+        "codes": "1nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 2,
+        "codes": "2nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 3,
+        "codes": "3nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 4,
+        "codes": "4nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 1,
+        "sum": 5,
+        "codes": "5nnnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 2,
+        "codes": "11nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 3,
+        "codes": "21nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 4,
+        "codes": "31nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 5,
+        "codes": "41nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 6,
+        "codes": "51nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 7,
+        "codes": "52nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 8,
+        "codes": "53nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 9,
+        "codes": "54nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 2,
+        "sum": 10,
+        "codes": "55nnnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 3,
+        "codes": "111nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 4,
+        "codes": "211nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 5,
+        "codes": "311nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 6,
+        "codes": "411nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 7,
+        "codes": "511nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 8,
+        "codes": "521nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 9,
+        "codes": "531nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 10,
+        "codes": "541nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 11,
+        "codes": "551nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 12,
+        "codes": "552nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 13,
+        "codes": "553nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 14,
+        "codes": "554nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 3,
+        "sum": 15,
+        "codes": "555nnn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 4,
+        "codes": "1111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 5,
+        "codes": "2111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 6,
+        "codes": "3111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 7,
+        "codes": "4111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 8,
+        "codes": "5111nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 9,
+        "codes": "5211nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 10,
+        "codes": "5311nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 11,
+        "codes": "5411nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 12,
+        "codes": "5511nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 13,
+        "codes": "5521nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 14,
+        "codes": "5531nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 15,
+        "codes": "5541nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 16,
+        "codes": "5551nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 17,
+        "codes": "5552nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 18,
+        "codes": "5553nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 19,
+        "codes": "5554nn",
+        "fullMean": null
+      },
+      {
+        "rated": 4,
+        "sum": 20,
+        "codes": "5555nn",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 5,
+        "codes": "11111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 6,
+        "codes": "21111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 7,
+        "codes": "31111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 8,
+        "codes": "41111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 9,
+        "codes": "51111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 10,
+        "codes": "52111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 11,
+        "codes": "53111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 12,
+        "codes": "54111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 13,
+        "codes": "55111n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 14,
+        "codes": "55211n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 15,
+        "codes": "55311n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 16,
+        "codes": "55411n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 17,
+        "codes": "55511n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 18,
+        "codes": "55521n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 19,
+        "codes": "55531n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 20,
+        "codes": "55541n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 21,
+        "codes": "55551n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 22,
+        "codes": "55552n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 23,
+        "codes": "55553n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 24,
+        "codes": "55554n",
+        "fullMean": null
+      },
+      {
+        "rated": 5,
+        "sum": 25,
+        "codes": "55555n",
+        "fullMean": null
+      },
+      {
+        "rated": 6,
+        "sum": 6,
+        "codes": "111111",
+        "fullMean": 1.0
+      },
+      {
+        "rated": 6,
+        "sum": 7,
+        "codes": "211111",
+        "fullMean": 1.1666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 8,
+        "codes": "311111",
+        "fullMean": 1.3333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 9,
+        "codes": "411111",
+        "fullMean": 1.5
+      },
+      {
+        "rated": 6,
+        "sum": 10,
+        "codes": "511111",
+        "fullMean": 1.6666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 11,
+        "codes": "521111",
+        "fullMean": 1.8333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 12,
+        "codes": "531111",
+        "fullMean": 2.0
+      },
+      {
+        "rated": 6,
+        "sum": 13,
+        "codes": "541111",
+        "fullMean": 2.1666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 14,
+        "codes": "551111",
+        "fullMean": 2.3333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 15,
+        "codes": "552111",
+        "fullMean": 2.5
+      },
+      {
+        "rated": 6,
+        "sum": 16,
+        "codes": "553111",
+        "fullMean": 2.6666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 17,
+        "codes": "554111",
+        "fullMean": 2.8333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 18,
+        "codes": "555111",
+        "fullMean": 3.0
+      },
+      {
+        "rated": 6,
+        "sum": 19,
+        "codes": "555211",
+        "fullMean": 3.1666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 20,
+        "codes": "555311",
+        "fullMean": 3.3333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 21,
+        "codes": "555411",
+        "fullMean": 3.5
+      },
+      {
+        "rated": 6,
+        "sum": 22,
+        "codes": "555511",
+        "fullMean": 3.6666666666666665
+      },
+      {
+        "rated": 6,
+        "sum": 23,
+        "codes": "555521",
+        "fullMean": 3.8333333333333335
+      },
+      {
+        "rated": 6,
+        "sum": 24,
+        "codes": "555531",
+        "fullMean": 4.0
+      },
+      {
+        "rated": 6,
+        "sum": 25,
+        "codes": "555541",
+        "fullMean": 4.166666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 26,
+        "codes": "555551",
+        "fullMean": 4.333333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 27,
+        "codes": "555552",
+        "fullMean": 4.5
+      },
+      {
+        "rated": 6,
+        "sum": 28,
+        "codes": "555553",
+        "fullMean": 4.666666666666667
+      },
+      {
+        "rated": 6,
+        "sum": 29,
+        "codes": "555554",
+        "fullMean": 4.833333333333333
+      },
+      {
+        "rated": 6,
+        "sum": 30,
+        "codes": "555555",
+        "fullMean": 5.0
+      }
+    ],
+    "domainIds": [
+      "support",
+      "guarded",
+      "spontaneous",
+      "structure",
+      "overt",
+      "argument",
+      "expressive",
+      "private"
+    ],
+    "domainStateComparisons": 728,
+    "singleItemVariants": 288,
+    "seededVectors": 512,
+    "workedExamples": {
+      "support": {
+        "sum": 19,
+        "mean": "3.17",
+        "codes": [
+          1,
+          2,
+          3,
+          4,
+          4,
+          5
+        ]
+      },
+      "guarded": {
+        "sum": 20,
+        "mean": "3.33",
+        "codes": [
+          4,
+          4,
+          3,
+          2,
+          2,
+          5
+        ]
+      },
+      "spontaneous": {
+        "sum": 17,
+        "mean": "2.83",
+        "codes": [
+          2,
+          3,
+          4,
+          3,
+          2,
+          3
+        ]
+      },
+      "structure": {
+        "sum": 24,
+        "mean": "4.00",
+        "codes": [
+          5,
+          5,
+          4,
+          4,
+          3,
+          3
+        ]
+      },
+      "overt": {
+        "sum": 20,
+        "mean": "3.33",
+        "codes": [
+          2,
+          4,
+          5,
+          3,
+          2,
+          4
+        ]
+      },
+      "argument": {
+        "sum": 21,
+        "mean": "3.50",
+        "codes": [
+          5,
+          4,
+          2,
+          4,
+          3,
+          3
+        ]
+      },
+      "expressive": {
+        "sum": 16,
+        "mean": "2.67",
+        "codes": [
+          3,
+          3,
+          2,
+          4,
+          1,
+          3
+        ]
+      },
+      "private": {
+        "sum": 22,
+        "mean": "3.67",
+        "codes": [
+          4,
+          4,
+          5,
+          3,
+          2,
+          4
+        ]
+      }
+    },
+    "scope": "Everyattainablerated/rawsumstateforeach6directitemtheme;not6^48jointanswerpatterns,independenceofpsychologicalconstructsorpsychometricvalidation.",
+    "runtimeCompared": false
+  },
+  "sourceURL": "https://www.idrlabs.com/articles/2014/12/a-new-rendition-of-the-freudian-personality-styles/",
+  "sourceRead": "Entirepublic2014RyanSmitharticle135renderedlines andactual48EN48ZH/5FAQeach/allmiddle8bars50percent/MultipleStylesfreebody. NoIDRbank/weights/resulttext/imageadapted.",
+  "sourceRights": "Own48bilingualprompts/presentation/guides. HistoricaltaxonomytermsquotedwithRyanSmith2014attribution;no claimoflicensetoIDRcontentorvalidationinherited. Noarticlebodyorcommissionedimagecopied.",
+  "scope": "Pastfourweeks/8themes6directfrequency1..5each/NAwithholdsonlyownmeanunless6valid/unroundedrawsumdiv6display2decimals. Nohighesttype/ranking/norm/cutoff/clinical/childhood/sexualdevelopment/genderinference."
+}

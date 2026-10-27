@@ -3878,5 +3878,34 @@
       "dispatch"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "freudian-personality",
+    "code": "FM_FREUDIAN_HISTORICAL_REFLECTION",
+    "version": "1.0.0",
+    "updated": "2026-10-27",
+    "category": "framework",
+    "title": {
+      "en": "Freudian Personality Test: Original Historical Reflection",
+      "zh": "弗洛伊德人格测试：原创历史词汇反思版"
+    },
+    "description": {
+      "en": "Explore eight quoted historical themes through 48 original prompts about recent choices. Read separate means and full guides, without assigning fixed types.",
+      "zh": "通过48条原创双语提问观察近四周的日常选择，分别阅读八主题原始和、均分或资料不足及完整指南；历史词语注明出处，不给作答者派固定类型。"
+    },
+    "minutes": 10,
+    "collection": "explore",
+    "formCode": "fm_freudian_historical_themes_48_v1",
+    "questionCount": 48,
+    "resultSlugs": [
+      "support",
+      "guarded",
+      "spontaneous",
+      "structure",
+      "overt",
+      "argument",
+      "expressive",
+      "private"
+    ]
   }
 ]
