@@ -1,3 +1,4 @@
+import { isPoliticalCoordinatesConfigurationValid } from "@/lib/questionnaires/politicalCoordinates";
 import { isDataEntryConfigurationValid } from "@/lib/questionnaires/dataEntry";
 import { isSecsConfigurationValid } from "@/lib/questionnaires/secs";
 import { isPairedDimensionsConfigurationValid } from "@/lib/questionnaires/pairedDimensions";
@@ -33,6 +34,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const query = new URL(request.url).searchParams, locale = query.get("locale") ?? "en";
   if (locale !== "en" && locale !== "zh") return new Response("Image unavailable", { status: 404 });
   const questionnaire = await loadQuestionnaire(slug);
+  if (questionnaire?.kind === "political-coordinates" && !isPoliticalCoordinatesConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "data-entry" && !isDataEntryConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "secs" && !isSecsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
   if (questionnaire?.kind === "paired-dimensions" && !isPairedDimensionsConfigurationValid(questionnaire)) return new Response("Image unavailable", { status: 404 });
@@ -46,7 +48,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const topic = quiz?.seo.topic[locale] ?? questionnaire!.title[locale];
   const title = result?.title[locale] ?? topic, zh = locale === "zh";
   const color = colors[quiz?.category ?? questionnaire?.category ?? "framework"] ?? colors.metaphor;
-  const questionnaireLabel = questionnaire?.kind === "data-entry" ? (result ? (zh ? "公开结构化录入复习指南" : "Public structured-entry revision guide") : (zh ? "原创60秒结构化录入" : "Original 60-second structured entry")) : questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "typing" ? (result ? (zh ? "公开打字练习复习指南" : "Public typing practice revision guide") : (zh ? "原创计时打字练习" : "Original timed typing practice")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
+  const questionnaireLabel = questionnaire?.kind === "political-coordinates" ? (result ? (zh ? "公开政策坐标说明" : "Public policy-coordinate guide") : (zh ? "原创政策选择版" : "Original policy-choice edition")) : questionnaire?.kind === "data-entry" ? (result ? (zh ? "公开结构化录入复习指南" : "Public structured-entry revision guide") : (zh ? "原创60秒结构化录入" : "Original 60-second structured entry")) : questionnaire?.slug === "color-season" ? (result ? (zh ? "公开配色指南" : "Public palette guide") : (zh ? "配色偏好测验" : "Palette preference quiz")) : questionnaire?.kind === "typing" ? (result ? (zh ? "公开打字练习复习指南" : "Public typing practice revision guide") : (zh ? "原创计时打字练习" : "Original timed typing practice")) : questionnaire?.kind === "ten-key" ? (result ? (zh ? "公开练习复习指南" : "Public practice revision guide") : (zh ? "原创数字录入练习" : "Original number-entry practice")) : result ? (zh ? "公开结果说明" : "Public result guide")
     : questionnaire?.kind === "secs" ? (zh ? "SECS2013美国议题" : "SECS 2013 U.S. issues")
     : questionnaire?.slug === "hexaco" ? (zh ? "preliminary IPIP240条" : "Preliminary IPIP 240 items")
     : questionnaire?.kind === "paired-dimensions" ? (zh ? "原创关系安排偏好" : "Original relationship arrangements")
