@@ -1,0 +1,1590 @@
+{
+  "id": "T148",
+  "form": "fermatmind_abstract_finite_rules_24_v1",
+  "authorship": "original FermatMind symbol exercises; no SHL/Raven/JobCannon items copied",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": {
+        "en": "Apply one unchanged operation at every arrow: ABCD → BCDA → CDAB → DABC → ?. Candidate operations: rotate left one, rotate right one, reverse, or swap the middle two. Which string follows?",
+        "zh": "每个箭头使用同一个操作：ABCD → BCDA → CDAB → DABC → ?。候选规则只限：左轮移一位、右轮移一位、倒序、交换中间两位。下一串是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ABCD",
+            "zh": "ABCD"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BCDA",
+            "zh": "BCDA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "DCBA",
+            "zh": "DCBA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "DACB",
+            "zh": "DACB"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "A",
+      "group": "series",
+      "explanation": {
+        "en": "Left rotation moves the first token to the end. It fits every shown transition and takes DABC to ABCD. Right rotation, reversal and the middle swap already fail on ABCD → BCDA; matching only a later row is insufficient.",
+        "zh": "左轮移把首符号移到末尾，满足全部相邻变化，DABC因此变为ABCD。右移、倒序和中间互换在第一步就不符合；只碰巧匹配后面一步不够。"
+      }
+    },
+    {
+      "id": "q2",
+      "prompt": {
+        "en": "One bit operation repeats: 0011 → 0110 → 1100 → 1001 → ?. Options for the rule are rotate left one, rotate right one, invert every bit, or reverse. Which comes next?",
+        "zh": "同一种二进制串操作反复执行：0011 → 0110 → 1100 → 1001 → ?。规则候选为左轮移一位、右轮移一位、逐位0/1互换、倒序。下一串是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "0110",
+            "zh": "0110"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "0011",
+            "zh": "0011"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1100",
+            "zh": "1100"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "1001",
+            "zh": "1001"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "series",
+      "explanation": {
+        "en": "Moving the first bit to the end fits all three transitions. Applying it once more to 1001 yields 0011. Inversion happens to map 0011 to 1100, but that skips the observed 0110 and is not the step rule.",
+        "zh": "首位移到末尾符合全部三次变化，再作用于1001得到0011。逐位互换虽然能把0011变1100，却跳过了实际第二项0110，不是逐步规则。"
+      }
+    },
+    {
+      "id": "q3",
+      "prompt": {
+        "en": "A token pair changes by one fixed rule: AB → BA → AB → BA → ?. Choose among repeating unchanged, swapping the two positions, replacing both by A, or replacing both by B.",
+        "zh": "一对符号按固定规则变化：AB → BA → AB → BA → ?。规则只从保持不变、两位互换、两位都换A、两位都换B中选择。下一项是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "AA",
+            "zh": "AA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BB",
+            "zh": "BB"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "BA",
+            "zh": "BA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "AB",
+            "zh": "AB"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "series",
+      "explanation": {
+        "en": "Swapping positions explains AB → BA and BA → AB, so another swap produces AB. This is a two-state cycle, not a rule that always writes BA. The unchanged and replacement rules fail on the first transition.",
+        "zh": "位置互换同时解释AB变BA和BA变AB，下一次因此为AB。这是两状态循环，不是每次都写BA。保持不变或统一替换均不符合首步。"
+      }
+    },
+    {
+      "id": "q4",
+      "prompt": {
+        "en": "Tokens use the circular alphabet A B C D E F, with F followed by A. A fixed shift gives AC → CE → EA → AC → ?. The permitted shifts are forward one, forward two, backward one, or backward two, applied to both letters.",
+        "zh": "符号采用循环字母表A B C D E F，F后回到A。固定平移得到AC → CE → EA → AC → ?。候选只限每字母前进一格、前进两格、后退一格、后退两格。下一项是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "BD",
+            "zh": "BD"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CE",
+            "zh": "CE"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "EA",
+            "zh": "EA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "FB",
+            "zh": "FB"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "series",
+      "explanation": {
+        "en": "Advancing each letter two positions maps AC to CE, CE to EA and EA back to AC, so CE follows again. Wrapping is required for E → A. Do not interpret the pairs as ordinary words or continue beyond F.",
+        "zh": "每个字母前进两格，使AC变CE、CE变EA、EA回AC，下一项又是CE。E到A须按题设回环；不能把符号当单词，也不能越出A至F。"
+      }
+    },
+    {
+      "id": "q5",
+      "prompt": {
+        "en": "A three-token row follows one fixed operation: ABC → ACB → ABC → ACB → ?. Candidate rules: swap the first two, swap the last two, rotate left, or reverse the whole row.",
+        "zh": "三符号行按同一操作变化：ABC → ACB → ABC → ACB → ?。规则候选为首两位互换、末两位互换、左轮移、全行倒序。下一项是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CAB",
+            "zh": "CAB"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ACB",
+            "zh": "ACB"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ABC",
+            "zh": "ABC"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BAC",
+            "zh": "BAC"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "C",
+      "group": "series",
+      "explanation": {
+        "en": "The first position remains A while positions two and three exchange. Swapping the last two in ACB restores ABC. A full reversal would put C first on the initial step and does not fit the evidence.",
+        "zh": "首位A保持，第二、三位互换，所以ACB再换末两位恢复ABC。全行倒序会让首步以C开头，不符合给出的变化。"
+      }
+    },
+    {
+      "id": "q6",
+      "prompt": {
+        "en": "One simultaneous substitution repeats: AABC → BBCA → CCAB → AABC → ?. Only four mappings are allowed: A→B,B→C,C→A; A→C,B→A,C→B; reverse the row; or leave it unchanged.",
+        "zh": "同一套同时替换反复进行：AABC → BBCA → CCAB → AABC → ?。候选仅四种：A换B、B换C、C换A；A换C、B换A、C换B；整串倒序；保持不变。下一串是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CCAB",
+            "zh": "CCAB"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BCAA",
+            "zh": "BCAA"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ABBC",
+            "zh": "ABBC"
+          },
+          "directionId": "series"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BBCA",
+            "zh": "BBCA"
+          },
+          "directionId": "series"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "series",
+      "explanation": {
+        "en": "The forward A–B–C substitution changes every original letter once, preserving positions and the repeated first pair. It cycles back after three steps, then produces BBCA again. Sequential find-and-replace would wrongly replace newly written letters.",
+        "zh": "按A到B到C到A的循环，对原字母同时替换一次，位置和首两位重复关系不变。三步回原串，下一项又是BBCA。不能用连续查找替换把刚写出的字母再次改掉。"
+      }
+    },
+    {
+      "id": "q7",
+      "prompt": {
+        "en": "One operation explains both ABCD → DCBA and WXYZ → ZYXW. Choose only from reverse, rotate left one, swap the outer pair, or swap the middle pair. Apply that operation to PQRS.",
+        "zh": "同一操作同时解释ABCD → DCBA和WXYZ → ZYXW。候选只限倒序、左轮移一位、交换首尾、交换中间两位。将该操作用于PQRS。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "SPQR",
+            "zh": "SPQR"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "SRQP",
+            "zh": "SRQP"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "SQRP",
+            "zh": "SQRP"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "PRQS",
+            "zh": "PRQS"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "analogies",
+      "explanation": {
+        "en": "Reversal reverses all four positions, giving SRQP. Swapping only the outer pair would yield SQRP and leave the middle order unchanged; the two demonstrations require those middle positions to reverse as well.",
+        "zh": "倒序需要四个位置全部反向，PQRS得到SRQP。仅交换首尾会得SQRP，中间顺序仍旧；两个示例都要求中间位置也反向。"
+      }
+    },
+    {
+      "id": "q8",
+      "prompt": {
+        "en": "Both ABCA → BCAA and XYYX → YYXX use one rule chosen from rotate left one, rotate right one, reverse, or duplicate the first token four times. Apply it to LMNO.",
+        "zh": "ABCA → BCAA和XYYX → YYXX使用同一规则，候选为左轮移一位、右轮移一位、倒序、首符号重复四次。LMNO经该规则后是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "OLMN",
+            "zh": "OLMN"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ONML",
+            "zh": "ONML"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "LLLL",
+            "zh": "LLLL"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "MNOL",
+            "zh": "MNOL"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "analogies",
+      "explanation": {
+        "en": "A left rotation preserves order but moves the leading token to the end. Both demonstrations fit, including the repeated tokens. The new row therefore becomes MNOL; OLMN would be a right rotation instead.",
+        "zh": "左轮移保持相对顺序，只把首符号挪到末尾。两个示例即使含重复符号也都符合，因此新串为MNOL；OLMN则是右轮移。"
+      }
+    },
+    {
+      "id": "q9",
+      "prompt": {
+        "en": "The same bit rule maps 0010 → 1101 and 1011 → 0100. It is one of invert every bit, reverse, rotate left, or rotate right. What does it do to 0111?",
+        "zh": "同一位串规则把0010变1101、1011变0100，只能从逐位互换0和1、倒序、左轮移、右轮移中选。0111变成？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1110",
+            "zh": "1110"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1000",
+            "zh": "1000"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1011",
+            "zh": "1011"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0111",
+            "zh": "0111"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "analogies",
+      "explanation": {
+        "en": "Inversion independently exchanges 0 and 1 at every position, so 0111 becomes 1000. Neither the number of ones nor the left-to-right order is preserved. A rotation can move bits but cannot change their total counts.",
+        "zh": "逐位互换0和1，0111成为1000；1的总数可变，但每一位置独立对应。轮移只能移动已有位，不能改变0、1数量，所以不符两个示例。"
+      }
+    },
+    {
+      "id": "q10",
+      "prompt": {
+        "en": "Both ABCD → DBCA and WXYZ → ZXYW follow one choice: swap outer positions, swap middle positions, reverse, or rotate right. Apply the matching rule to LMNP.",
+        "zh": "ABCD → DBCA与WXYZ → ZXYW满足同一候选：交换首尾、交换中间、倒序、右轮移。相同规则用于LMNP，结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "PNML",
+            "zh": "PNML"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "PLMN",
+            "zh": "PLMN"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "PMNL",
+            "zh": "PMNL"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "LNMP",
+            "zh": "LNMP"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "C",
+      "group": "analogies",
+      "explanation": {
+        "en": "Only the first and last positions exchange: middle tokens stay in order. LMNP therefore becomes PMNL. Full reversal gives PNML and changes the middle pair too, which the demonstrations do not allow.",
+        "zh": "只交换首尾，中间两位顺序不动，LMNP因此成为PMNL。全串倒序会得PNML，还会换中间顺序，不符合示例。"
+      }
+    },
+    {
+      "id": "q11",
+      "prompt": {
+        "en": "A three-token input becomes a four-token output: ABC → ABBC and XYZ → XYYZ. Candidate rules: repeat the middle token, repeat the first, repeat the last, or append the first. Apply the rule to PQR.",
+        "zh": "三符号输入变四符号输出：ABC → ABBC、XYZ → XYYZ。候选为重复中间符号、重复首符号、重复末符号、末尾追加首符号。PQR的结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "PQQR",
+            "zh": "PQQR"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "PPQR",
+            "zh": "PPQR"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "PQRR",
+            "zh": "PQRR"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "PQRP",
+            "zh": "PQRP"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "A",
+      "group": "analogies",
+      "explanation": {
+        "en": "Both outputs keep the first and last tokens and duplicate the middle in place. PQR becomes PQQR. Repeating a different position changes which token occurs twice; appending the first changes the final token.",
+        "zh": "两个示例都保持首尾，原位重复中间符号，所以PQR变PQQR。重复其他位置会改变哪个符号出现两次；尾部追加首符号还会改变末位。"
+      }
+    },
+    {
+      "id": "q12",
+      "prompt": {
+        "en": "Inputs are sets; order is irrelevant. A rule changes {A,C} to {B,D} and {A,B,D} to {C}. Choose from complement within {A,B,C,D}, add A, remove A, or leave unchanged. Apply it to {B,C}.",
+        "zh": "输入是集合，先后顺序不重要。规则把{A,C}变{B,D}、{A,B,D}变{C}。候选为在全集{A,B,C,D}中取补集、添加A、删除A、保持不变。{B,C}的输出是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{A,B,C}",
+            "zh": "{A,B,C}"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{B,C}",
+            "zh": "{B,C}"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{A,D}",
+            "zh": "{A,D}"
+          },
+          "directionId": "analogies"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{A,B,C,D}",
+            "zh": "{A,B,C,D}"
+          },
+          "directionId": "analogies"
+        }
+      ],
+      "correctOptionId": "C",
+      "group": "analogies",
+      "explanation": {
+        "en": "The complement contains precisely the universe tokens absent from the input. Removing B and C from the four-token universe leaves A and D. The universe must stay fixed; complement does not mean reversing a written list.",
+        "zh": "补集恰好包含全集中没在输入出现的符号。从A、B、C、D中排除B和C，剩A、D。全集必须固定，取补集不是把集合书写顺序倒过来。"
+      }
+    },
+    {
+      "id": "q13",
+      "prompt": {
+        "en": "Choose the only allowed rule fitting all labels. IN: ABBA, CDDC. OUT: ABCA, CDDD. Candidate rules: full palindrome; first equals last; exactly two different tokens; or first two equal. Which new row is IN?",
+        "zh": "从候选中选唯一符合全部标签的规则。组内：ABBA、CDDC；组外：ABCA、CDDD。候选：全串回文、首尾相同、恰有两种符号、首两位相同。哪项新串在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ABCA",
+            "zh": "ABCA"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "CDEC",
+            "zh": "CDEC"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ABCC",
+            "zh": "ABCC"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "EFFE",
+            "zh": "EFFE"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "classification",
+      "explanation": {
+        "en": "Full reversal leaves each positive row unchanged. ABCA excludes the looser first-equals-last rule; CDDD excludes the two-token rule. EFFE is a palindrome. CDEC has matching ends but is not a full palindrome.",
+        "zh": "正例整串倒序不变。反例ABCA排除只看首尾，CDDD排除只数两种符号。EFFE符合回文；CDEC虽首尾相同，却不是整串回文。"
+      }
+    },
+    {
+      "id": "q14",
+      "prompt": {
+        "en": "IN: ABAB, XYXY. OUT: ABBA, AABB. Candidate rules are positions 1=3 and 2=4 with different symbols; palindrome; any two symbols; or positions 1=2. Which row is IN?",
+        "zh": "组内：ABAB、XYXY；组外：ABBA、AABB。候选：1=3且2=4、两种符号不同；回文；任意两种符号；1=2。哪串在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "MNMM",
+            "zh": "MNMM"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "MMNN",
+            "zh": "MMNN"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "MNNM",
+            "zh": "MNNM"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "MNMN",
+            "zh": "MNMN"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "classification",
+      "explanation": {
+        "en": "The alternating relation matches both positives and rejects both negatives. MNMN has M in positions one and three and N in two and four. Merely containing two symbols cannot explain why ABBA is OUT.",
+        "zh": "交替关系符合两个正例、排除两个反例。MNMN的第一、三位为M，第二、四位为N。仅含两种符号不能解释ABBA为什么在组外。"
+      }
+    },
+    {
+      "id": "q15",
+      "prompt": {
+        "en": "IN: ABBB, CCAD. OUT: AABA, BCDB. Candidate rules: exactly one A; at least one A; first is A; or all tokens different. Which new row is IN?",
+        "zh": "组内：ABBB、CCAD；组外：AABA、BCDB。候选：恰有一个A、至少一个A、首位A、符号全部不同。哪串在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ABAC",
+            "zh": "ABAC"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "BBCD",
+            "zh": "BBCD"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "DACE",
+            "zh": "DACE"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CDEF",
+            "zh": "CDEF"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "C",
+      "group": "classification",
+      "explanation": {
+        "en": "Exactly one A fits both positives. AABA rules out merely having an A, and CCAD rules out requiring A first or all tokens different. DACE contains one A; ABAC has two and the other candidates have none.",
+        "zh": "恰有一个A符合两正例。AABA排除至少一个A；CCAD排除A必须居首和全部不同。DACE有一个A，ABAC有两个，其余没有A。"
+      }
+    },
+    {
+      "id": "q16",
+      "prompt": {
+        "en": "IN bit rows: 1100, 0101. OUT: 1110, 0000. Rules offered: exactly two ones; at least one one; first bit one; or equal outer bits. Which row is IN?",
+        "zh": "组内位串：1100、0101；组外：1110、0000。候选：恰有两个1、至少一个1、首位1、首尾相同。哪项在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "1001",
+            "zh": "1001"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "1000",
+            "zh": "1000"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "1111",
+            "zh": "1111"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "0001",
+            "zh": "0001"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "A",
+      "group": "classification",
+      "explanation": {
+        "en": "Both positives contain exactly two ones. The negative 1110 rejects the at-least-one rule, while 0101 rejects a first-bit requirement. Counting 1001 gives two ones, regardless of where they occur.",
+        "zh": "两正例都恰有两个1。反例1110排除至少一个1，正例0101排除首位必须1。1001有两个1，位置如何排列不影响本规则。"
+      }
+    },
+    {
+      "id": "q17",
+      "prompt": {
+        "en": "IN: AABC, XXYZ. OUT: ABAC, ABCC. Candidate rules: first two equal and the remaining two distinct from each other and that pair; any repeated token; palindrome; or last two equal. Which is IN?",
+        "zh": "组内：AABC、XXYZ；组外：ABAC、ABCC。候选：首两位相同、后两位彼此不同且不同于首对；存在重复；回文；末两位相同。哪项在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "PQPR",
+            "zh": "PQPR"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "PPQQ",
+            "zh": "PPQQ"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "PQRR",
+            "zh": "PQRR"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "PPRS",
+            "zh": "PPRS"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "classification",
+      "explanation": {
+        "en": "The positive structure is a repeated leading pair followed by two distinct new tokens. PPRS fits. PPQQ has a second pair rather than two different trailing tokens, and repeated tokens elsewhere do not satisfy the positional rule.",
+        "zh": "正例结构为重复首对，后接两个各不相同的新符号。PPRS符合。PPQQ末尾又是成对，而非两个不同符号；在其他位置重复也不满足位置规则。"
+      }
+    },
+    {
+      "id": "q18",
+      "prompt": {
+        "en": "IN: ABCA, DEFD. OUT: ABBA, ABCD. Choose from: outer positions equal with the middle two different from each other and the outer token; palindrome; any repeat; or all different. Which new row is IN?",
+        "zh": "组内：ABCA、DEFD；组外：ABBA、ABCD。候选：首尾相同，中间两位彼此不同且不同于首尾；回文；存在重复；全部不同。哪项在组内？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "PQQP",
+            "zh": "PQQP"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "PQRP",
+            "zh": "PQRP"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "PQRS",
+            "zh": "PQRS"
+          },
+          "directionId": "classification"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "PPQR",
+            "zh": "PPQR"
+          },
+          "directionId": "classification"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "classification",
+      "explanation": {
+        "en": "ABBA excludes the broad repeated-token rule and the palindrome rule. The full criterion requires the three symbolic roles seen in ABCA: P at both ends, with Q and R distinct inside. PQRP satisfies all conditions.",
+        "zh": "ABBA排除仅有重复和回文两种宽泛规则。完整条件要求像ABCA那样分三种符号角色：两端P，内部Q、R互不相同。PQRP同时满足。"
+      }
+    },
+    {
+      "id": "q19",
+      "prompt": {
+        "en": "Start with ABCDE. First rotate left one, then reverse the entire resulting row. Apply each operation once, in that order. What remains?",
+        "zh": "从ABCDE开始，先左轮移一位，再把所得全串倒序。每个操作只做一次，顺序不能换。结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "DCBAE",
+            "zh": "DCBAE"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "AEDCB",
+            "zh": "AEDCB"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "EDCBA",
+            "zh": "EDCBA"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BCDEA",
+            "zh": "BCDEA"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "transformations",
+      "explanation": {
+        "en": "Left rotation first yields BCDEA. Reversing that intermediate row gives AEDCB. Reversing the original before rotating would instead produce DCBAE; treating both operations as simultaneous loses the required order.",
+        "zh": "先左轮移得BCDEA，再把这个中间串倒序，得到AEDCB。先倒序原串再左移会得DCBAE；不能把有先后的操作当同时执行。"
+      }
+    },
+    {
+      "id": "q20",
+      "prompt": {
+        "en": "Start with 01001. Invert every bit simultaneously, then rotate right one. Use only these two steps. What is the result?",
+        "zh": "从01001开始，先同时将每位0与1互换，再右轮移一位，只执行这两步。结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "10110",
+            "zh": "10110"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "01011",
+            "zh": "01011"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "11010",
+            "zh": "11010"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "00101",
+            "zh": "00101"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "transformations",
+      "explanation": {
+        "en": "Inverting 01001 gives 10110. Moving the final zero to the front then gives 01011. The first option stops before the rotation; left rotation would give 01101, which is a different operation.",
+        "zh": "01001逐位互换得10110，再把末位0放到最前，得01011。10110只完成第一步；左轮移会得01101，与题定方向不同。"
+      }
+    },
+    {
+      "id": "q21",
+      "prompt": {
+        "en": "Start with ABCA. Replace original A by BC, original B by A, and original C by B, all at once. Newly written letters are not processed again. What string results?",
+        "zh": "从ABCA开始，同时把原A换成BC、原B换A、原C换B，新写出的符号不再继续替换。结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "BCABBC",
+            "zh": "BCABBC"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ABCABC",
+            "zh": "ABCABC"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "BCBCAB",
+            "zh": "BCBCAB"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "BCAABC",
+            "zh": "BCAABC"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "A",
+      "group": "transformations",
+      "explanation": {
+        "en": "Process the four original tokens separately: A gives BC, B gives A, C gives B, and A gives BC. Concatenating BC|A|B|BC yields BCABBC. Output length changes, so a position-for-position substitution assumption would fail.",
+        "zh": "分别处理四个原符号：A出BC、B出A、C出B、A出BC，拼成BC|A|B|BC，即BCABBC。输出长度会改变，不能预设一位只能变一位。"
+      }
+    },
+    {
+      "id": "q22",
+      "prompt": {
+        "en": "A row begins BCAD. If its original first token is A, reverse it; otherwise rotate left one. Then, regardless of that choice, swap the first two positions once. What is the final row?",
+        "zh": "起始串BCAD。若原首位是A则倒序，否则左轮移一位；完成后，无论走哪条分支，都再交换首两位一次。最终是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "CADB",
+            "zh": "CADB"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "ACDB",
+            "zh": "ACDB"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "DCAB",
+            "zh": "DCAB"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "CBAD",
+            "zh": "CBAD"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "B",
+      "group": "transformations",
+      "explanation": {
+        "en": "The original first token is B, so take the left-rotation branch: BCAD becomes CADB. Swapping its first two positions yields ACDB. The condition is evaluated once on the original row, not reconsidered after each step.",
+        "zh": "原首位B，因此走左移分支，BCAD变CADB，再交换首两位为ACDB。条件只在原串上判断一次，不在每步之后重新选分支。"
+      }
+    },
+    {
+      "id": "q23",
+      "prompt": {
+        "en": "A 2-by-3 grid is written by rows as ABC / DEF. Transpose it: old columns become new rows, with their order retained. Then read the new rows left to right, top to bottom. Which six-token string results?",
+        "zh": "一个2行3列网格按行写成ABC / DEF。进行转置：原列依次成为新行，各列内部顺序不变。再按新网格从上到下、每行从左到右连读，结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "ABCDEF",
+            "zh": "ABCDEF"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "FEDCBA",
+            "zh": "FEDCBA"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "ADBECF",
+            "zh": "ADBECF"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "DAEBFC",
+            "zh": "DAEBFC"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "C",
+      "group": "transformations",
+      "explanation": {
+        "en": "The original columns are AD, BE and CF. They become the three new rows AD / BE / CF, so row-wise reading gives ADBECF. Transposing changes the grid dimensions to three rows and two columns; it is neither a rotation nor a reversal.",
+        "zh": "原三列分别AD、BE、CF，转置后变为AD / BE / CF三行，按行连读得ADBECF。网格由2行3列变3行2列，既不是旋转也不是倒序。"
+      }
+    },
+    {
+      "id": "q24",
+      "prompt": {
+        "en": "Sets X={A,B,D} and Y={B,C,D}. Keep symbols present in exactly one of the two sets, not in both. Then list them in alphabet order. What is left?",
+        "zh": "集合X={A,B,D}、Y={B,C,D}。只保留恰好在一个集合出现、而非两边都有的符号，再按字母顺序列出。结果是？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "{B,D}",
+            "zh": "{B,D}"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "{A,B,C,D}",
+            "zh": "{A,B,C,D}"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "{A}",
+            "zh": "{A}"
+          },
+          "directionId": "transformations"
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "{A,C}",
+            "zh": "{A,C}"
+          },
+          "directionId": "transformations"
+        }
+      ],
+      "correctOptionId": "D",
+      "group": "transformations",
+      "explanation": {
+        "en": "B and D occur on both sides and are removed. A belongs only to X and C only to Y, leaving {A,C}. This symmetric difference differs from the intersection {B,D} and the union {A,B,C,D}; the operation is completely specified here.",
+        "zh": "B、D两边都有，删除；A只在X、C只在Y，留下{A,C}。这叫对称差，区别于交集{B,D}和并集{A,B,C,D}，本题已完整明示操作。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "q1",
+      "expected_label": "ABCD",
+      "kind": "series",
+      "input": [
+        "ABCD",
+        "BCDA",
+        "CDAB",
+        "DABC"
+      ],
+      "operators": [
+        "left",
+        "right",
+        "reverse",
+        "middle"
+      ],
+      "target": "DABC"
+    },
+    {
+      "id": "q2",
+      "expected_label": "0011",
+      "kind": "series",
+      "input": [
+        "0011",
+        "0110",
+        "1100",
+        "1001"
+      ],
+      "operators": [
+        "left",
+        "right",
+        "invert",
+        "reverse"
+      ],
+      "target": "1001"
+    },
+    {
+      "id": "q3",
+      "expected_label": "AB",
+      "kind": "series",
+      "input": [
+        "AB",
+        "BA",
+        "AB",
+        "BA"
+      ],
+      "operators": [
+        "identity",
+        "reverse",
+        "allA",
+        "allB"
+      ],
+      "target": "BA"
+    },
+    {
+      "id": "q4",
+      "expected_label": "CE",
+      "kind": "series",
+      "input": [
+        "AC",
+        "CE",
+        "EA",
+        "AC"
+      ],
+      "operators": [
+        "shift1",
+        "shift2",
+        "shift-1",
+        "shift-2"
+      ],
+      "target": "AC"
+    },
+    {
+      "id": "q5",
+      "expected_label": "ABC",
+      "kind": "series",
+      "input": [
+        "ABC",
+        "ACB",
+        "ABC",
+        "ACB"
+      ],
+      "operators": [
+        "first",
+        "last",
+        "left",
+        "reverse"
+      ],
+      "target": "ACB"
+    },
+    {
+      "id": "q6",
+      "expected_label": "BBCA",
+      "kind": "series",
+      "input": [
+        "AABC",
+        "BBCA",
+        "CCAB",
+        "AABC"
+      ],
+      "operators": [
+        "cycleABC",
+        "backABC",
+        "reverse",
+        "identity"
+      ],
+      "target": "AABC"
+    },
+    {
+      "id": "q7",
+      "expected_label": "SRQP",
+      "kind": "analogy",
+      "examples": [
+        [
+          "ABCD",
+          "DCBA"
+        ],
+        [
+          "WXYZ",
+          "ZYXW"
+        ]
+      ],
+      "operators": [
+        "reverse",
+        "left",
+        "outer",
+        "middle"
+      ],
+      "target": "PQRS"
+    },
+    {
+      "id": "q8",
+      "expected_label": "MNOL",
+      "kind": "analogy",
+      "examples": [
+        [
+          "ABCA",
+          "BCAA"
+        ],
+        [
+          "XYYX",
+          "YYXX"
+        ]
+      ],
+      "operators": [
+        "left",
+        "right",
+        "reverse",
+        "repeatFirst"
+      ],
+      "target": "LMNO"
+    },
+    {
+      "id": "q9",
+      "expected_label": "1000",
+      "kind": "analogy",
+      "examples": [
+        [
+          "0010",
+          "1101"
+        ],
+        [
+          "1011",
+          "0100"
+        ]
+      ],
+      "operators": [
+        "invert",
+        "reverse",
+        "left",
+        "right"
+      ],
+      "target": "0111"
+    },
+    {
+      "id": "q10",
+      "expected_label": "PMNL",
+      "kind": "analogy",
+      "examples": [
+        [
+          "ABCD",
+          "DBCA"
+        ],
+        [
+          "WXYZ",
+          "ZXYW"
+        ]
+      ],
+      "operators": [
+        "outer",
+        "middle",
+        "reverse",
+        "right"
+      ],
+      "target": "LMNP"
+    },
+    {
+      "id": "q11",
+      "expected_label": "PQQR",
+      "kind": "analogy",
+      "examples": [
+        [
+          "ABC",
+          "ABBC"
+        ],
+        [
+          "XYZ",
+          "XYYZ"
+        ]
+      ],
+      "operators": [
+        "doubleMiddle",
+        "doubleFirst",
+        "doubleLast",
+        "appendFirst"
+      ],
+      "target": "PQR"
+    },
+    {
+      "id": "q12",
+      "expected_label": "{A,D}",
+      "kind": "analogy",
+      "examples": [
+        [
+          "AC",
+          "BD"
+        ],
+        [
+          "ABD",
+          "C"
+        ]
+      ],
+      "operators": [
+        "complement",
+        "addA",
+        "removeA",
+        "identity"
+      ],
+      "target": "BC",
+      "display_sets": true
+    },
+    {
+      "id": "q13",
+      "expected_label": "EFFE",
+      "kind": "classification",
+      "positive": [
+        "ABBA",
+        "CDDC"
+      ],
+      "negative": [
+        "ABCA",
+        "CDDD"
+      ],
+      "predicates": [
+        "palindrome",
+        "outerEqual",
+        "twoKinds",
+        "firstEqual"
+      ],
+      "targets": [
+        "ABCA",
+        "CDEC",
+        "ABCC",
+        "EFFE"
+      ]
+    },
+    {
+      "id": "q14",
+      "expected_label": "MNMN",
+      "kind": "classification",
+      "positive": [
+        "ABAB",
+        "XYXY"
+      ],
+      "negative": [
+        "ABBA",
+        "AABB"
+      ],
+      "predicates": [
+        "alternating4",
+        "palindrome",
+        "twoKinds",
+        "firstEqual"
+      ],
+      "targets": [
+        "MNMM",
+        "MMNN",
+        "MNNM",
+        "MNMN"
+      ]
+    },
+    {
+      "id": "q15",
+      "expected_label": "DACE",
+      "kind": "classification",
+      "positive": [
+        "ABBB",
+        "CCAD"
+      ],
+      "negative": [
+        "AABA",
+        "BCDB"
+      ],
+      "predicates": [
+        "oneA",
+        "hasA",
+        "startsA",
+        "allDifferent"
+      ],
+      "targets": [
+        "ABAC",
+        "BBCD",
+        "DACE",
+        "CDEF"
+      ]
+    },
+    {
+      "id": "q16",
+      "expected_label": "1001",
+      "kind": "classification",
+      "positive": [
+        "1100",
+        "0101"
+      ],
+      "negative": [
+        "1110",
+        "0000"
+      ],
+      "predicates": [
+        "twoOnes",
+        "hasOne",
+        "startsOne",
+        "outerEqual"
+      ],
+      "targets": [
+        "1001",
+        "1000",
+        "1111",
+        "0001"
+      ]
+    },
+    {
+      "id": "q17",
+      "expected_label": "PPRS",
+      "kind": "classification",
+      "positive": [
+        "AABC",
+        "XXYZ"
+      ],
+      "negative": [
+        "ABAC",
+        "ABCC"
+      ],
+      "predicates": [
+        "leadingPairDistinct",
+        "hasRepeat",
+        "palindrome",
+        "lastEqual"
+      ],
+      "targets": [
+        "PQPR",
+        "PPQQ",
+        "PQRR",
+        "PPRS"
+      ]
+    },
+    {
+      "id": "q18",
+      "expected_label": "PQRP",
+      "kind": "classification",
+      "positive": [
+        "ABCA",
+        "DEFD"
+      ],
+      "negative": [
+        "ABBA",
+        "ABCD"
+      ],
+      "predicates": [
+        "outerPairDistinct",
+        "palindrome",
+        "hasRepeat",
+        "allDifferent"
+      ],
+      "targets": [
+        "PQQP",
+        "PQRP",
+        "PQRS",
+        "PPQR"
+      ]
+    },
+    {
+      "id": "q19",
+      "expected_label": "AEDCB",
+      "kind": "chain",
+      "start": "ABCDE",
+      "steps": [
+        "left",
+        "reverse"
+      ]
+    },
+    {
+      "id": "q20",
+      "expected_label": "01011",
+      "kind": "chain",
+      "start": "01001",
+      "steps": [
+        "invert",
+        "right"
+      ]
+    },
+    {
+      "id": "q21",
+      "expected_label": "BCABBC",
+      "kind": "expand",
+      "start": "ABCA",
+      "mapping": {
+        "A": "BC",
+        "B": "A",
+        "C": "B"
+      }
+    },
+    {
+      "id": "q22",
+      "expected_label": "ACDB",
+      "kind": "conditional",
+      "start": "BCAD",
+      "if_starts": "A",
+      "yes": "reverse",
+      "no": "left",
+      "then": "first"
+    },
+    {
+      "id": "q23",
+      "expected_label": "ADBECF",
+      "kind": "transpose",
+      "rows": [
+        "ABC",
+        "DEF"
+      ]
+    },
+    {
+      "id": "q24",
+      "expected_label": "{A,C}",
+      "kind": "xor",
+      "sets": [
+        "ABD",
+        "BCD"
+      ],
+      "display_sets": true
+    }
+  ],
+  "rule_family_boundary": "inference is unique within explicitly offered finite operators/predicates, not among all mathematically possible rules",
+  "validation": "independent computation required; no norm/reliability/ability or hiring prediction claim"
+}

@@ -1,0 +1,502 @@
+[
+  {
+    "id": "series",
+    "directionIds": [
+      "series"
+    ],
+    "title": {
+      "en": "Symbol sequence rules",
+      "zh": "符号序列规律"
+    },
+    "headline": {
+      "en": "Test one operation against every transition.",
+      "zh": "把同一操作逐步核对到底。"
+    },
+    "summary": {
+      "en": "Review rotations, repeating states and simultaneous symbol shifts with worked examples. Six-item counts describe this original practice bank, not intelligence.",
+      "zh": "用另设例子复习轮移、重复状态和同时替换。六题正确数只描述原创练习，不代表智力。"
+    },
+    "scoreReading": {
+      "en": "Six original items each contribute one correct answer. A count out of six describes this fixed bank, without an ability band, percentile or employer threshold. All six explanations and this full guide remain available at every count.",
+      "zh": "六道原创题各计一个正确答案，正确数/6只描述本固定题库，不分能力等级、百分位或招聘线。任何正确数都能读全部六题解析和这份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Symbol sequence rules | Abstract Reasoning",
+        "zh": "符号序列规律｜抽象推理练习"
+      },
+      "description": {
+        "en": "Review rotations, repeating states and simultaneous symbol shifts with worked examples. Six-item counts describe this original practice bank, not intelligence.",
+        "zh": "用另设例子复习轮移、重复状态和同时替换。六题正确数只描述原创练习，不代表智力。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "What stays constant?",
+          "zh": "先分清不变量与变化"
+        },
+        "paragraphs": [
+          {
+            "en": "A sequence question asks which operation can connect successive states. In these six items, the permitted operations are stated, so you compare a finite set rather than inventing an unlimited story. Track token order, row length and repeated positions separately. A row can change appearance while preserving the number of each token. Inversion changes bit counts, whereas rotation only changes positions. Those differences let you eliminate an operation before calculating every later step.",
+            "zh": "序列题要找能连接相邻状态的操作。本组六题明示候选规则，因此是在有限集合中比较，不是任意编规律。分别追踪符号顺序、串长和重复位置。外观改变时，各符号数量可能仍不变：位互换可改0、1数量，轮移只改位置。抓住区别可先排除一部分规则。"
+          }
+        ]
+      },
+      {
+        "id": "2-example",
+        "title": {
+          "en": "Work through a new rotation",
+          "zh": "另做一个轮移例子"
+        },
+        "paragraphs": [
+          {
+            "en": "Consider WXYZ → XYZW → YZWX. A left rotation removes the first token and appends that same token at the end, so the next row is ZWXY. Do not reverse the row while moving it. You can write position indices one to four and map the new order as two, three, four, one. Check both displayed arrows: a rule that matches the first example but contradicts the second cannot explain the supplied sequence.",
+            "zh": "另设WXYZ → XYZW → YZWX，左轮移把首符号移到末尾，下一串为ZWXY，移动不改变剩余次序。可把位置标1至4，新顺序就是2、3、4、1。两个已知箭头都要验，不能只看首步碰巧对上就接受规则。"
+          }
+        ]
+      },
+      {
+        "id": "3-cycles",
+        "title": {
+          "en": "A cycle is a state change, not a direction",
+          "zh": "循环不等于每次换方向"
+        },
+        "paragraphs": [
+          {
+            "en": "Swapping two positions twice restores the original row. Rotating a four-token row left four times also restores it, although the intermediate states differ. Seeing the first row again does not mean the operation stopped or reversed. Continue the same specified step from that repeated state. When a string has duplicate symbols, two different operations can occasionally produce the same output; use all supplied transitions to distinguish them instead of relying on one convenient pair.",
+            "zh": "互换两个位置做两次会回原串，四符号左轮移做四次也回原串，但中间状态不同。重新出现首项不代表停止或反向，应从该状态继续同一操作。含重复符号时，不同规则偶尔会产出同一个结果，更要用全部变化区分，不能只挑方便的一对。"
+          }
+        ]
+      },
+      {
+        "id": "4-mapping",
+        "title": {
+          "en": "Read circular alphabets literally",
+          "zh": "循环字母表按题设回环"
+        },
+        "paragraphs": [
+          {
+            "en": "For a fresh example, use the circular alphabet A B C D E and advance each token two positions. BD becomes DA: B moves to D, while D wraps past E to A. The alphabet and step belong to this example only. A normal alphabetical expectation or a six-symbol cycle from another question would give a different answer. Apply the mapping independently to every original position, including repeated tokens, before joining the output.",
+            "zh": "另设循环字母表A B C D E，每个字母前进两格，BD变DA：B到D，D经过E回A。字母表和步长只对当前例子有效，不能沿用另一题的六符号循环。每个原位置独立映射，重复字母也分别处理，再拼输出。"
+          }
+        ]
+      },
+      {
+        "id": "5-errors",
+        "title": {
+          "en": "Separate simultaneous substitution from rewriting",
+          "zh": "同时替换不连续追改"
+        },
+        "paragraphs": [
+          {
+            "en": "A simultaneous substitution reads the original row once. If A becomes B and B becomes C, an original A produces B, not C. Reprocessing the newly written B would apply the rule twice. Keep an original and an output column on paper when this is easy to confuse. Also distinguish moving a token from replacing it: moving preserves its identity, while replacing may alter how often another token appears. The explanations identify which operation each item permits.",
+            "zh": "同时替换只读原串一遍。若A换B、B换C，原A应输出B，不能把新B接着改C，那是做了两次。易混时可画原串栏与输出栏。还要区分移动与替换：移动不改符号身份，替换可能改变数量；解析会说明当前允许哪种。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Record the first contradictory arrow",
+          "zh": "记录规则最先在哪步失败"
+        },
+        "paragraphs": [
+          {
+            "en": "After an error, write the selected operation and find the earliest shown transition it fails to reproduce. This is more informative than simply circling the correct next row. Then make a fresh sequence using different tokens and test two plausible alternatives. Vary only one feature at a time, such as row length or rotation direction. You need not time this exercise: the published practice has no countdown and offers no speed-adjusted score or improvement guarantee.",
+            "zh": "答错后写下所选操作，找它最早无法复现哪个箭头，比只圈正确项更有用。再换符号自拟序列，比较两个看似可行的规则。一次只改串长或方向等一个因素。本练习不倒计时，也没有速度加权分或进步保证，无需为赶时间跳过核对。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Six answers are a local practice record",
+          "zh": "六题正确数的使用边界"
+        },
+        "paragraphs": [
+          {
+            "en": "These items test applying and checking the explicitly listed symbolic operations in this edition. Their uniqueness is established within those listed candidates, not among every mathematical rule imaginable for a finite sequence. A count such as four out of six is not an IQ estimate, a fluid-intelligence band or a comparison with job applicants. Reading keys can improve repeat performance through memory. Use a new example and explain each intermediate state before treating a later attempt as fresh reasoning.",
+            "zh": "题目核对本版明列的符号操作，唯一解限于所给候选，不是证明有限序列在一切数学规律下只有一个延续。4/6不是IQ、流体智力等级或求职者排名。看过答案后重做可能记住题目，可另换例子并解释中间状态，不能直接当作能力提升。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "analogies",
+    "directionIds": [
+      "analogies"
+    ],
+    "title": {
+      "en": "Relational analogies",
+      "zh": "关系类比"
+    },
+    "headline": {
+      "en": "Transfer the operation, keeping the new tokens.",
+      "zh": "迁移关系，不照抄旧符号。"
+    },
+    "summary": {
+      "en": "Compare two demonstrations, transfer the same relation, and distinguish sets from ordered strings. Includes fresh worked analogies and explicit practice limits.",
+      "zh": "比较两组示例后迁移同一关系，区分集合与有序串；提供新类比例子和练习边界。"
+    },
+    "scoreReading": {
+      "en": "Six original items each contribute one correct answer. A count out of six describes this fixed bank, without an ability band, percentile or employer threshold. All six explanations and this full guide remain available at every count.",
+      "zh": "六道原创题各计一个正确答案，正确数/6只描述本固定题库，不分能力等级、百分位或招聘线。任何正确数都能读全部六题解析和这份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Relational analogies | Abstract Reasoning",
+        "zh": "关系类比｜抽象推理练习"
+      },
+      "description": {
+        "en": "Compare two demonstrations, transfer the same relation, and distinguish sets from ordered strings. Includes fresh worked analogies and explicit practice limits.",
+        "zh": "比较两组示例后迁移同一关系，区分集合与有序串；提供新类比例子和练习边界。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "What does the arrow preserve?",
+          "zh": "箭头保留了什么"
+        },
+        "paragraphs": [
+          {
+            "en": "An analogy transfers a relation from demonstrated inputs and outputs to a new input. The answer is not the old output with familiar letters copied over. Ask whether the transformation preserves order, length, identity or membership. These six original items offer explicit candidate operations and more than one demonstration. Compare the complete input-output relationship in each. Two rows that look visually alike can still require different operations when their middle positions or repeated symbols differ.",
+            "zh": "类比要把已知输入输出之间的关系迁移到新输入，不是照抄旧答案的字母。先看顺序、长度、符号身份、集合成员哪些保留。本组六题明确候选规则并给多个示例，须比较完整对应；两行外观相似，若中间位置或重复方式不同，仍可能是不同操作。"
+          }
+        ]
+      },
+      {
+        "id": "2-positions",
+        "title": {
+          "en": "Use a fresh position map",
+          "zh": "另画位置对应"
+        },
+        "paragraphs": [
+          {
+            "en": "If PQRT becomes TRQP, full reversal maps old positions four, three, two, one into the new row. Applying that relation to UVWX produces XWVU. Swapping only the outside pair instead produces XVWU. Both operations move the ends, but only reversal also exchanges the middle. Label positions rather than relying on the first and final characters. This small check prevents a partial match from being mistaken for the whole demonstrated relation.",
+            "zh": "若PQRT变TRQP，全倒序的新位置依次来自原4、3、2、1。相同关系用于UVWX得到XWVU；仅交换首尾则是XVWU。两种都会移动两端，只有倒序也换中间。标位置而非只盯首尾，能避免把局部符合误当完整关系。"
+          }
+        ]
+      },
+      {
+        "id": "3-evidence",
+        "title": {
+          "en": "Use the second demonstration to challenge the first",
+          "zh": "第二组用来反证猜想"
+        },
+        "paragraphs": [
+          {
+            "en": "A repeated-letter input can hide a distinction. For example, reversing ABBA leaves ABBA, just as doing nothing would. A second example such as CDEF → FEDC separates reversal from identity. Do not choose whichever operation sounds most sophisticated; choose the one that satisfies every shown pair within the offered family. If two candidates still fit, the evidence is insufficient for that family. Our checked items are authored to avoid that unresolved ambiguity.",
+            "zh": "重复符号会隐藏区别，例如ABBA倒序仍为ABBA，与不操作一样。再给CDEF变FEDC，才把倒序和保持不变分开。不要选听起来更复杂的规则，而要让全部示例都成立。若仍有两个候选符合，证据就不足；本版题目经计算核对，避免保留这种未决歧义。"
+          }
+        ]
+      },
+      {
+        "id": "4-length",
+        "title": {
+          "en": "Count output roles when length changes",
+          "zh": "长度改变时数清输出角色"
+        },
+        "paragraphs": [
+          {
+            "en": "Some analogies expand a token instead of merely moving positions. In a fresh rule that repeats the last token once, KLM becomes KLMM and RST becomes RSTT. The output has four tokens because one original role supplies two adjacent copies. A rule that appends the first token would give KLMK and is different even though the length matches. Compare both which token repeats and where its copies occur, not only the size of the result.",
+            "zh": "有的类比会扩展符号，不只是挪位置。另设末符号多写一次，KLM得KLMM、RST得RSTT，原末位角色提供相邻两份。若尾部追加首符号则得KLMK，长度相同但关系不同。既要看重复谁，也要看副本在哪，不能只看四位长度。"
+          }
+        ]
+      },
+      {
+        "id": "5-sets",
+        "title": {
+          "en": "A set has membership, not row positions",
+          "zh": "集合看成员，不看书写次序"
+        },
+        "paragraphs": [
+          {
+            "en": "For complement within the fixed universe {P,Q,R,S,T}, an input {Q,S} produces {P,R,T}. Complement means everything in that universe that is absent from the input. It does not mean reversing Q and S, and it does not permit introducing U. In set items, reordered written members represent the same mathematical set. Ordered-string questions are different: PQ and QP are distinct rows. Establish which representation the prompt defines before transferring its rule.",
+            "zh": "另设全集{P,Q,R,S,T}，输入{Q,S}的补集为{P,R,T}，即全集中没出现的成员。不是把Q、S倒序，也不能加不在全集的U。集合成员换个书写顺序仍是同一集合；有序串PQ与QP则不同，迁移前先认清题目定义。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Explain why one distractor fails",
+          "zh": "解释一个干扰项为什么不符"
+        },
+        "paragraphs": [
+          {
+            "en": "Write the operation in a sentence before looking at the new alternatives. Compute the transformed input, then check the options. After review, select one incorrect option and identify the different operation it represents. This teaches the distinction rather than only a letter key. For a new exercise, replace the tokens while retaining the relation and ensure the answer still follows. The page provides all six item rationales and the complete guide without a payment or account requirement.",
+            "zh": "看新选项前先用一句话写规则，算完新输入再找对应项。复习时选一个错误选项，指出它实际执行了哪种不同操作，学到的是区别而非答案字母。换一套符号保留关系再验证。页面免费给全部六题理由和完整指南，不要求付款或账户。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "A correct analogy does not certify general reasoning",
+          "zh": "类比答对不构成通用能力认证"
+        },
+        "paragraphs": [
+          {
+            "en": "This section reports matches to six authored operations. It has no standardized abstract-reasoning norms, validated job-performance prediction or measured fairness across languages and educational backgrounds. English and Chinese explain the same symbolic stimuli, but translation alone does not establish measurement equivalence. Familiarity with letter rows and set notation can affect an attempt. Treat a missed answer as a specific relation to inspect, not evidence of fixed intelligence, and use the fully stated rule rather than an invented personal ability label.",
+            "zh": "本组只记录六种原创操作的匹配数，没有标准化抽象推理常模、工作表现预测或跨语言教育背景公平性研究。中英文解释相同符号，并不因此建立测量等价；字母串和集合记号熟悉度也会影响作答。把错题当需核对的关系，不给自己贴固定智力标签。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "classification",
+    "directionIds": [
+      "classification"
+    ],
+    "title": {
+      "en": "Classification from examples",
+      "zh": "从示例识别分类规则"
+    },
+    "headline": {
+      "en": "Use accepted and rejected examples together.",
+      "zh": "正例反例一起验，别只找共同点。"
+    },
+    "summary": {
+      "en": "Infer a candidate criterion using positive and negative rows. Review exact counts, positional roles and counterexamples without personality or ability labels.",
+      "zh": "结合正反例识别给定候选中的分类标准，复习精确数量、位置角色与反例，不分人格或能力等级。"
+    },
+    "scoreReading": {
+      "en": "Six original items each contribute one correct answer. A count out of six describes this fixed bank, without an ability band, percentile or employer threshold. All six explanations and this full guide remain available at every count.",
+      "zh": "六道原创题各计一个正确答案，正确数/6只描述本固定题库，不分能力等级、百分位或招聘线。任何正确数都能读全部六题解析和这份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Classification from examples | Abstract Reasoning",
+        "zh": "从示例识别分类规则｜抽象推理练习"
+      },
+      "description": {
+        "en": "Infer a candidate criterion using positive and negative rows. Review exact counts, positional roles and counterexamples without personality or ability labels.",
+        "zh": "结合正反例识别给定候选中的分类标准，复习精确数量、位置角色与反例，不分人格或能力等级。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "One property must explain both sides",
+          "zh": "一条性质要同时解释两边"
+        },
+        "paragraphs": [
+          {
+            "en": "A classification question marks some rows IN and others OUT. A useful rule must accept every positive and reject every negative, within the candidate criteria the prompt explicitly supplies. A shared feature of the positive rows alone is not enough. Several properties can coexist, such as containing a repeated token and being a palindrome. The negative rows show which broader properties are insufficient. Keep the labels as evidence rather than assuming that an attractive visual pattern must be intended.",
+            "zh": "分类题标出组内和组外，规则须在题定候选中接受所有正例并排除所有反例。只发现正例共有特征还不够：重复和回文可能同时存在，反例会排除过宽性质。把标签当证据，不要因某种外观规律显眼就认定它是答案。"
+          }
+        ]
+      },
+      {
+        "id": "2-counterexample",
+        "title": {
+          "en": "A fresh counterexample separates two rules",
+          "zh": "用新反例拆开两种规则"
+        },
+        "paragraphs": [
+          {
+            "en": "Suppose PQQP is IN but PQRP is OUT. Both have equal outside tokens, so matching ends cannot explain the labels. Full palindrome can: reversing PQQP preserves it, whereas reversing PQRP gives PRQP. This does not establish that every possible classification uses palindromes; it only compares the supplied candidates against these facts. For a new target, inspect the complete row rather than checking the first and final tokens and stopping early.",
+            "zh": "另设PQQP在组内、PQRP在组外，两者首尾都相同，说明只看两端不能解释标签。全回文能区分：PQQP倒序不变，PQRP倒序为PRQP。这只是在给定候选里检验，不代表所有分类题都用回文；新串须整行检查。"
+          }
+        ]
+      },
+      {
+        "id": "3-counts",
+        "title": {
+          "en": "Exactly one differs from at least one",
+          "zh": "恰有一个不等于至少一个"
+        },
+        "paragraphs": [
+          {
+            "en": "Quantifier words matter. A row with three As satisfies at least one A but fails exactly one A. If IN rows each contain a single A while an OUT row contains two, the latter is evidence against the broader criterion. Count positions, including repeated occurrences, rather than counting only the distinct symbol kinds. The question might instead ask for two different tokens, which is a separate property; do not exchange those definitions because both involve counting.",
+            "zh": "数量词必须按字面。三个A满足至少一个A，却不满足恰有一个A。正例各一个A、反例有两个A，便能排除宽泛标准。数出现次数与数符号种类不同，重复位置也要计数；题面若要两种符号，又是另一性质，不能混用。"
+          }
+        ]
+      },
+      {
+        "id": "4-positions",
+        "title": {
+          "en": "A repeated token may occupy the wrong role",
+          "zh": "重复的位置也可能不对"
+        },
+        "paragraphs": [
+          {
+            "en": "Under a leading-pair rule, XXYZ has its equal tokens at the start and two different remaining tokens. XYXZ contains the same number of Xs but puts them in different positions. A candidate criterion may also require Y and Z to differ from X and from one another. Check every clause: a row such as XXYY has a leading pair but fails that final distinctness requirement. The specific role constraints distinguish the correct target from a superficially similar one.",
+            "zh": "首对规则下，XXYZ首两位相同，后两位各异；XYXZ虽然X数量相同，却在不同位置。有的标准还要求Y、Z彼此不同且都不同于X。逐条核完，XXYY虽有首对，仍违反末两位不同；细节能区分表面相像的选项。"
+          }
+        ]
+      },
+      {
+        "id": "5-table",
+        "title": {
+          "en": "Build a small rule-by-example table",
+          "zh": "做候选与示例对照表"
+        },
+        "paragraphs": [
+          {
+            "en": "Give each candidate rule a row and each labeled example a column. Mark whether the predicted label agrees with the given one. Cross out a rule as soon as one disagreement occurs, then verify the survivor against the remaining examples. Only after that should you evaluate the answer options. This avoids fitting a rule to whichever target you already prefer. You can use a paper table; no statistical learning model or hidden classification service runs in this practice.",
+            "zh": "每个候选占一行，每个已标示例占一列，逐格记预测标签是否符合。出现一处冲突就排除，但仍须把存活规则验完剩余示例，再判选项。这样不会为了喜欢的答案倒凑规则。纸上表格即可，本练习没有隐藏统计分类模型或服务。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Construct a near-miss target",
+          "zh": "自拟一个只差一条的反例"
+        },
+        "paragraphs": [
+          {
+            "en": "After reading the key, create one new row that satisfies the criterion and one that misses just one requirement. For instance, if two inside positions must differ, make them equal while keeping the outside positions unchanged. Explain exactly which condition fails. A near miss is more useful than a completely unrelated string because it isolates the distinction you need to learn. Retaking the same six known items can reward recall, so keep new examples separate from the reported attempt.",
+            "zh": "看完答案后，自拟一串完全符合、一串只漏一条。比如要求内部两位不同，就保持首尾不变只把内部改相同，并指出违反哪项。近似反例比毫不相关的串更能定位待学区别。重做同六题可能只靠记忆，自拟例子不要混算本次正确数。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Classification criteria are local definitions",
+          "zh": "分类标准是局部定义"
+        },
+        "paragraphs": [
+          {
+            "en": "The six counts reflect how you used the explicit symbolic criteria in this edition. They are not personality categories, diagnostic findings, general-intelligence estimates or evidence of cultural neutrality. A finite collection of labeled examples cannot establish a unique rule among all imaginable functions. Our item checks establish one surviving criterion within each stated finite candidate list and one correct answer option. If a real classification task lacks that boundary, acknowledge ambiguity and seek more evidence rather than claiming certainty from a few examples.",
+            "zh": "六题正确数反映本版明示符号标准的应用，不是人格类别、诊断、一般智力估计或文化中立证明。有限标记示例不能在所有可能函数中确立唯一规则；本版核对的是题定有限候选中唯一存活标准及唯一选项。真实任务若没该边界，应承认歧义、继续找证据。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "transformations",
+    "directionIds": [
+      "transformations"
+    ],
+    "title": {
+      "en": "Ordered rule transformations",
+      "zh": "按顺序执行规则变换"
+    },
+    "headline": {
+      "en": "Preserve intermediate states and operation order.",
+      "zh": "保留中间状态，按指定次序做。"
+    },
+    "summary": {
+      "en": "Review ordered changes, conditional branches, simultaneous replacement, grid transposition and set operations, with new examples and clear score limits.",
+      "zh": "练习有序变换、条件分支、同时替换、网格转置和集合操作，并用新例子解释正确数边界。"
+    },
+    "scoreReading": {
+      "en": "Six original items each contribute one correct answer. A count out of six describes this fixed bank, without an ability band, percentile or employer threshold. All six explanations and this full guide remain available at every count.",
+      "zh": "六道原创题各计一个正确答案，正确数/6只描述本固定题库，不分能力等级、百分位或招聘线。任何正确数都能读全部六题解析和这份完整指南。"
+    },
+    "seo": {
+      "title": {
+        "en": "Ordered rule transformations | Abstract Reasoning",
+        "zh": "按顺序执行规则变换｜抽象推理练习"
+      },
+      "description": {
+        "en": "Review ordered changes, conditional branches, simultaneous replacement, grid transposition and set operations, with new examples and clear score limits.",
+        "zh": "练习有序变换、条件分支、同时替换、网格转置和集合操作，并用新例子解释正确数边界。"
+      }
+    },
+    "sections": [
+      {
+        "id": "1-scope",
+        "title": {
+          "en": "The rule is given; execution is the task",
+          "zh": "规则已给，重点是执行"
+        },
+        "paragraphs": [
+          {
+            "en": "These six items supply the transformation rather than asking you to guess an unrestricted pattern. They include ordered row operations, a conditional branch, an expanding substitution, a small grid transpose and a set difference operation. Read whether a step uses the original input or the current intermediate result. The same familiar words can produce different outputs when their order changes. A correct response keeps the representation and every explicit condition, not just the last operation mentioned.",
+            "zh": "本组六题给出操作，重点不在无边界猜规律，包括串变换顺序、条件分支、扩展替换、小网格转置及集合运算。看清每步用原输入还是当前中间结果。相同操作换顺序可能产出不同答案，要保留表示方式与全部条件，不能只做最后一句。"
+          }
+        ]
+      },
+      {
+        "id": "2-order",
+        "title": {
+          "en": "A fresh two-step calculation",
+          "zh": "另算一次两步变换"
+        },
+        "paragraphs": [
+          {
+            "en": "Start with KLMN. Rotate right once to obtain NKLM, then reverse that current row to obtain MLKN. If you reverse first, the row becomes NMLK, and rotating right then produces KNML instead. Neither sequence is more correct in isolation; the prompt specifies which order applies. Write the intermediate row after each arrow. This makes an order error visible immediately rather than leaving you to compare several final options by intuition.",
+            "zh": "另从KLMN出发，先右轮移一次得NKLM，再倒序当前串得MLKN。若先倒序成NMLK，再右移则得KNML。两种孤立看都能执行，题目次序决定用哪种。每个箭头后写中间串，可立即发现顺序错，而非靠直觉比较最终选项。"
+          }
+        ]
+      },
+      {
+        "id": "3-branch",
+        "title": {
+          "en": "Evaluate the condition at the stated moment",
+          "zh": "条件在哪一刻判断"
+        },
+        "paragraphs": [
+          {
+            "en": "If a prompt says to inspect the original first token, record that fact before changing the row. Select the matching branch once, execute it, and continue to any unconditional final step. Do not reevaluate the same condition after a rotation moves a different token to the front unless the instructions explicitly request that loop. Keep the branch decision and the resulting row on separate lines. Confusing a one-time branch with a repeated procedure can change both the path and the answer.",
+            "zh": "若要求看原首符号，就在改串前记录，选一次分支、执行后再做无条件后续步骤。轮移让新符号居首时，不应再次判断，除非题目明确要求循环。可把分支选择和结果分两行，避免把一次判断误做反复程序。"
+          }
+        ]
+      },
+      {
+        "id": "4-replace",
+        "title": {
+          "en": "Simultaneous expansion reads the original tokens",
+          "zh": "扩展替换只读原符号"
+        },
+        "paragraphs": [
+          {
+            "en": "For a fresh substitution, let P become QR, Q become P and R become Q. An original PQ gives QR followed by P, or QRP. The newly written Q and R are output, not new inputs awaiting replacement. The result can be longer than the source because a single original token expands. Use separators such as QR|P while calculating, then remove the separators from the final string. This is a fully specified rewriting exercise, not a real coding interpreter running in the page.",
+            "zh": "另设P换QR、Q换P、R换Q，原PQ产生QR再接P，合为QRP。新写出的Q、R是输出，不再作为待替换输入；一个符号展开，所以长度可变。计算时写QR|P，最后去分隔线。这是题定改写练习，页面不会实际运行代码解释器。"
+          }
+        ]
+      },
+      {
+        "id": "5-representations",
+        "title": {
+          "en": "Track grid dimensions and set membership",
+          "zh": "网格看行列，集合看归属"
+        },
+        "paragraphs": [
+          {
+            "en": "Transposing rows GH / IJ / KL creates columns-as-rows GIK / HJL, so row-wise reading gives GIKHJL. The grid changes from three-by-two to two-by-three. For a different operation on sets {P,Q} and {Q,R}, keeping members in exactly one set leaves {P,R}; the shared Q disappears. Grid order is essential, while written set order is not. Do not transfer a row-reversal habit to a set or treat a transpose as a rotation.",
+            "zh": "把三行GH / IJ / KL转置，新行为GIK / HJL，按行读GIKHJL，尺寸由3行2列变2行3列。另对集合{P,Q}与{Q,R}只留恰在一边者，得{P,R}，公共Q删除。网格顺序重要，集合书写顺序不重要，不能把倒序习惯套到集合或把转置当旋转。"
+          }
+        ]
+      },
+      {
+        "id": "6-practice",
+        "title": {
+          "en": "Check invariants before selecting an option",
+          "zh": "先查不变量再选答案"
+        },
+        "paragraphs": [
+          {
+            "en": "A rotation and reversal preserve row length and token counts. A complement or expanding replacement may not. Before choosing, check the expected output size and the allowed symbol universe, then inspect the detailed order or membership. After a mistake, locate the first intermediate state that differs from the rationale. Create a new input with distinct symbols to test the same procedure. This separates a rule-reading error from an accidental final match caused by repeated symbols.",
+            "zh": "轮移与倒序保留串长和符号数量，补集或扩展替换未必。先查输出长度、允许符号范围，再查详细次序或成员。答错后找第一个与解析不同的中间状态，再用各不相同的符号另做输入，可区分读规则错与重复符号导致的偶然终点相同。"
+          }
+        ]
+      },
+      {
+        "id": "7-limits",
+        "title": {
+          "en": "Interpret the six operation checks",
+          "zh": "六次操作核对怎样解读"
+        },
+        "paragraphs": [
+          {
+            "en": "A count here describes six authored tasks with exact local rules. It does not establish programming skill, spatial ability, working-memory capacity, IQ or success in an employer assessment. There is no countdown, population norm, clinical interpretation or certified threshold. All explanations and the public guide remain available even with no correct answers. If notation is unfamiliar, read the definitions and work slowly; the practice is designed for inspecting procedures, and its estimated duration is editorial rather than observed completion data.",
+            "zh": "本组正确数只描述六个有明确定义的原创任务，不证明编程技能、空间能力、工作记忆、IQ或雇主考试表现。没有倒计时、常模、临床解释或认证门槛。零题正确也能读全部理由与公开指南。记号不熟可慢慢按定义算；预计用时是编辑估计，不是观察所得完成数据。"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -3703,5 +3703,28 @@
       "certainty-flexibility-tie"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "abstract-reasoning",
+    "updated": "2026-10-27",
+    "category": "everyday",
+    "title": {
+      "en": "Abstract Reasoning Test",
+      "zh": "抽象推理测试"
+    },
+    "description": {
+      "en": "Try 24 original symbol tasks: sequences, analogies, classification and transformations. All answers and four full guides free. Untimed, no signup or IQ band.",
+      "zh": "做24道原创符号题，覆盖序列、类比、分类与变换；免费查看全部答案、解析和四份完整指南。不计时、无需注册，不给IQ或能力等级。"
+    },
+    "minutes": 16,
+    "collection": "explore",
+    "formCode": "fermatmind_abstract_finite_rules_24_v1",
+    "questionCount": 24,
+    "resultSlugs": [
+      "series",
+      "analogies",
+      "classification",
+      "transformations"
+    ]
   }
 ]
