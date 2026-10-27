@@ -4989,5 +4989,30 @@
       "pisces"
     ],
     "collection": "explore"
+  },
+  {
+    "slug": "intimacy-preference-test",
+    "code": "INTIMACY_PREFERENCE",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "relationships",
+    "title": {
+      "zh": "亲密偏好测试",
+      "en": "Intimacy Preferences Test"
+    },
+    "description": {
+      "zh": "用24条原创陈述回看情感分享、身体靠近与边界、共同和个人时间，以及关系对外表达。四部分分别计分，完整指南免费；只讨论成年人互动，不以分数替代同意。",
+      "en": "Explore emotional sharing, closeness, personal space and privacy with 24 original prompts. Read four complete guides free. Adult preferences do not replace consent."
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "intimacy_preference_likert_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "emotional-sharing",
+      "physical-closeness-boundaries",
+      "time-together-personal-space",
+      "relationship-visibility-privacy"
+    ]
   }
 ]

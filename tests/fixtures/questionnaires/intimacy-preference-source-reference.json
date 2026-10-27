@@ -1,0 +1,309 @@
+{
+  "code": "INTIMACY_PREFERENCE",
+  "source_files": [
+    {
+      "path": "miniprogram/assessment/intimacy_preference/product.js",
+      "bytes": 1268,
+      "sha256": "f93639c9d960651d88cd7e117b0bdf6ad27e04ba202645ddd9ab72839ab4b0dc"
+    },
+    {
+      "path": "miniprogram/assessment/intimacy_preference/item_bank.js",
+      "bytes": 16472,
+      "sha256": "4ea715da00fe6d80660d1e0dc47641d6f01742014124ecc10b51b31338afdbe5"
+    },
+    {
+      "path": "miniprogram/assessment/intimacy_preference/scoring_spec.js",
+      "bytes": 1323,
+      "sha256": "26e5b29925d4434993bc48ffec91a588de0510d1922319f06c43c9d212c9013d"
+    },
+    {
+      "path": "miniprogram/assessment/intimacy_preference/result_content.js",
+      "bytes": 16868,
+      "sha256": "01c43113dae1614b84c0b0ac7179683c6cb147ca8d8966ff727061025374deb1"
+    },
+    {
+      "path": "miniprogram/assessment/local/independent_factor_likert_scorer.js",
+      "bytes": 8307,
+      "sha256": "9e71ef2a416e6f4a4312a38757a62b2b6cdd3d3c4bf00e0778a1ce877de9b8cf"
+    },
+    {
+      "path": "miniprogram/assessment/local/scorer_helpers.js",
+      "bytes": 5915,
+      "sha256": "4fbf9a4bc5f6d66bcec588880a2f34ee239b887264b72396e1cd8118f174e0fb"
+    }
+  ],
+  "source_scoring_spec": {
+    "test_id": "INTIMACY_PREFERENCE",
+    "scoring_version": "0.1.0-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_form_code": "intimacy_preference_likert_24",
+    "status": "public_preview_independent_factor_raw_mean_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "factors": [
+      {
+        "factor_code": "EMOTIONAL_SHARING",
+        "display_name": "情感分享",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+        "display_name": "身体靠近与边界",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "TOGETHERNESS_SPACE",
+        "display_name": "共同时间与个人空间",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "RELATIONSHIP_VISIBILITY",
+        "display_name": "协商对外表达和隐私边界",
+        "scheduled_items": 6
+      }
+    ],
+    "scoring_model": {
+      "name": "independent_factor_likert_raw_mean",
+      "response_min": 1,
+      "response_max": 5,
+      "integer_only": true,
+      "items_per_factor": 6,
+      "total_score_enabled": false,
+      "ranking_enabled": false,
+      "thresholds_enabled": false,
+      "norming_enabled": false,
+      "interpretation_requires_complete": true
+    }
+  },
+  "candidate_source": {
+    "kind": "fermatmind_original_mini_intimacy_preference_24",
+    "formCode": "intimacy_preference_likert_24",
+    "itemBankVersion": "intimacy_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "four_complete6_sum_mean4dp_no_ranking_v1",
+    "resultContentVersion": "intimacy_mini_four_full8_v1",
+    "itemBankSha256": "4ea715da00fe6d80660d1e0dc47641d6f01742014124ecc10b51b31338afdbe5",
+    "resultContentSha256": "750c28c1e290d9d6f1e2b26a49669204b613918e109ca4bf2da8df4fcd2ce009",
+    "psychometricValidationCompleted": false
+  },
+  "items": [
+    {
+      "source_id": "INTIMACY_LK_001",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "在彼此都有余力时，我愿意交流当天较细微的感受。",
+        "en": "When we both have the capacity, I am willing to talk about the subtler feelings of the day."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_002",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "关系中出现担忧时，我倾向把它整理后告诉对方。",
+        "en": "When a concern arises in the relationship, I tend to sort through it before telling the other person."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_003",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "对我重要的经历，我希望伴侣理解它带来的情绪。",
+        "en": "For experiences that matter to me, I want my partner to understand the feelings they bring up."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_004",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "对方愿意倾听时，我较容易谈到自己的脆弱时刻。",
+        "en": "When the other person is willing to listen, I find it easier to talk about moments when I have felt vulnerable."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_005",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "关系气氛变化时，我愿意用语言核对彼此感受。",
+        "en": "When the atmosphere between us changes, I am willing to check in about our feelings using words."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_006",
+      "factor_code": "EMOTIONAL_SHARING",
+      "prompt": {
+        "zh": "我重视双方能明确说出需要怎样的情感支持。",
+        "en": "I value both of us being able to say clearly what kind of emotional support we need."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_007",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "在双方明确愿意时，日常身体靠近会增加我的亲近感。",
+        "en": "When we both explicitly want it, everyday physical closeness adds to my sense of connection."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_008",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "即使过去接受过某种接触，我仍希望每次都能按当下状态决定。",
+        "en": "Even if I have accepted a kind of contact before, I still want to decide each time according to how I feel then."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_009",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "我愿意主动说明哪些身体靠近现在让我舒适。",
+        "en": "I am willing to explain which kinds of physical closeness feel comfortable to me now."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_010",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "对方询问或留意我的意愿，会让我更容易放松。",
+        "en": "When the other person asks about or pays attention to what I want, I find it easier to relax."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_011",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "我希望表达暂停或不愿意时，互动能立即停止。",
+        "en": "When I say that I want to pause or do not want an interaction, I want it to stop immediately."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_012",
+      "factor_code": "PHYSICAL_CLOSENESS_BOUNDARY",
+      "prompt": {
+        "zh": "我的身体靠近偏好会随场景、状态和对象而变化。",
+        "en": "My preferences for physical closeness vary with the situation, how I feel and the person involved."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_013",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "稳定的共同时间会帮助我感到关系有连接。",
+        "en": "Regular time together helps me feel connected in a relationship."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_014",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "拥有不被打扰的个人时间会帮助我保持舒适。",
+        "en": "Having uninterrupted time to myself helps me feel comfortable."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_015",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "我希望陪伴与独处可以提前沟通，而不是彼此猜测。",
+        "en": "I want us to discuss time together and time alone in advance rather than guess what the other person wants."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_016",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "关系亲近时，我仍重视各自保留兴趣和社交。",
+        "en": "Even when a relationship is close, I value each of us keeping our own interests and social connections."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_017",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "生活节奏变化后，我愿意重新协商相处频率。",
+        "en": "After the pace of life changes, I am willing to renegotiate how often we spend time together."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_018",
+      "factor_code": "TOGETHERNESS_SPACE",
+      "prompt": {
+        "zh": "共同活动结束后，我有时需要独处来恢复精力。",
+        "en": "After a shared activity, I sometimes need time alone to restore my energy."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_019",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "是否向他人提及关系，我希望先和伴侣取得共识。",
+        "en": "Before mentioning our relationship to other people, I want to reach an agreement with my partner."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_020",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "我对关系在社交平台上的可见程度有自己的舒适范围。",
+        "en": "I have my own comfort range for how visible our relationship is on social platforms."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_021",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "在不同人群面前，我愿意分别讨论合适的关系表达方式。",
+        "en": "I am willing to discuss separately how to talk about our relationship with different groups of people."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_022",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "即使关系稳定，我也希望某些共同经历只留在双方之间。",
+        "en": "Even when the relationship is stable, I want some of our shared experiences to stay between the two of us."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_023",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "对外介绍彼此关系前，我重视双方都明确愿意。",
+        "en": "Before introducing our relationship to other people, I value both of us explicitly wanting to do so."
+      }
+    },
+    {
+      "source_id": "INTIMACY_LK_024",
+      "factor_code": "RELATIONSHIP_VISIBILITY",
+      "prompt": {
+        "zh": "当公开偏好变化时，我希望可以重新协商而不被指责。",
+        "en": "When preferences about being public change, I want us to be able to renegotiate without blame."
+      }
+    }
+  ],
+  "numeric_labels": {
+    "1": {
+      "zh": "完全不符合",
+      "en": "Does not fit at all"
+    },
+    "2": {
+      "zh": "比较不符合",
+      "en": "Mostly does not fit"
+    },
+    "3": {
+      "zh": "不确定或视情况",
+      "en": "Uncertain or depends on the situation"
+    },
+    "4": {
+      "zh": "比较符合",
+      "en": "Mostly fits"
+    },
+    "5": {
+      "zh": "非常符合",
+      "en": "Fits very well"
+    }
+  },
+  "NA_addition": {
+    "zh": "无法判断或不愿回答（不计分）",
+    "en": "Unable to judge or prefer not to answer (unscored)"
+  }
+}

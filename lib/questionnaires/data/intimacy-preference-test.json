@@ -1,0 +1,2500 @@
+{
+  "slug": "intimacy-preference-test",
+  "code": "INTIMACY_PREFERENCE",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "relationships",
+  "kind": "mini-intimacy",
+  "title": {
+    "zh": "亲密偏好测试",
+    "en": "Intimacy Preferences Test"
+  },
+  "description": {
+    "zh": "用24条原创陈述回看情感分享、身体靠近与边界、共同和个人时间，以及关系对外表达。四部分分别计分，完整指南免费；只讨论成年人互动，不以分数替代同意。",
+    "en": "Explore emotional sharing, closeness, personal space and privacy with 24 original prompts. Read four complete guides free. Adult preferences do not replace consent."
+  },
+  "seoTitle": {
+    "zh": "亲密偏好测试：情感分享、靠近与个人边界",
+    "en": "Intimacy Preferences Test: Closeness, Space and Privacy"
+  },
+  "minutes": 6,
+  "introduction": {
+    "zh": "只讨论成年人之间的互动，按目前能确认的偏好和条件回答。你可以不答任何不愿回答的题，或直接阅读四篇全文；均分不决定身体靠近、关系公开或伴侣适配。网页仅使用当前页面内存，刷新、换语或离开会清除。",
+    "en": "For interactions between adults, answer only preferences and conditions you can currently confirm. Leave any item unscored or read the four full guides directly. Means do not decide physical closeness, publicity or partner fit. This website uses page memory only; reload, language change or leaving clears answers."
+  },
+  "instructions": {
+    "zh": "按每句话与你当前偏好或条件的符合程度选择1—5；3是不确定或视情况。无法判断或不想答可选不计分。24个选择完成后，数值完整六题的部分分别显示原始和与四位小数均分；不合总分、不排名。",
+    "en": "Choose 1–5 for how each statement fits your present preferences or conditions; 3 means uncertain or depends. You may choose unscored. After all 24 choices, each six-item numeric-complete group shows its sum and four-decimal mean, without an overall total or ranking."
+  },
+  "resultHeading": {
+    "zh": "四个独立阅读的部分，下一步由你选择",
+    "en": "Four Separate Readings. Choose What Comes Next."
+  },
+  "minimumRatedItems": 6,
+  "source": {
+    "kind": "fermatmind_original_mini_intimacy_preference_24",
+    "formCode": "intimacy_preference_likert_24",
+    "itemBankVersion": "intimacy_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "four_complete6_sum_mean4dp_no_ranking_v1",
+    "resultContentVersion": "intimacy_mini_four_full8_v1",
+    "itemBankSha256": "4ea715da00fe6d80660d1e0dc47641d6f01742014124ecc10b51b31338afdbe5",
+    "resultContentSha256": "750c28c1e290d9d6f1e2b26a49669204b613918e109ca4bf2da8df4fcd2ce009",
+    "psychometricValidationCompleted": false
+  },
+  "directions": [
+    {
+      "id": "emotional-sharing",
+      "title": {
+        "zh": "情感分享",
+        "en": "Emotional sharing"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "physical-closeness-boundaries",
+      "title": {
+        "zh": "身体靠近与边界",
+        "en": "Physical closeness and boundaries"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "time-together-personal-space",
+      "title": {
+        "zh": "共同时间与个人空间",
+        "en": "Time together and personal space"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "relationship-visibility-privacy",
+      "title": {
+        "zh": "协商对外表达和隐私边界",
+        "en": "Negotiating visibility and privacy"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "INTIMACY_LK_001",
+      "prompt": {
+        "zh": "在彼此都有余力时，我愿意交流当天较细微的感受。",
+        "en": "When we both have the capacity, I am willing to talk about the subtler feelings of the day."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_002",
+      "prompt": {
+        "zh": "关系中出现担忧时，我倾向把它整理后告诉对方。",
+        "en": "When a concern arises in the relationship, I tend to sort through it before telling the other person."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_003",
+      "prompt": {
+        "zh": "对我重要的经历，我希望伴侣理解它带来的情绪。",
+        "en": "For experiences that matter to me, I want my partner to understand the feelings they bring up."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_004",
+      "prompt": {
+        "zh": "对方愿意倾听时，我较容易谈到自己的脆弱时刻。",
+        "en": "When the other person is willing to listen, I find it easier to talk about moments when I have felt vulnerable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_005",
+      "prompt": {
+        "zh": "关系气氛变化时，我愿意用语言核对彼此感受。",
+        "en": "When the atmosphere between us changes, I am willing to check in about our feelings using words."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_006",
+      "prompt": {
+        "zh": "我重视双方能明确说出需要怎样的情感支持。",
+        "en": "I value both of us being able to say clearly what kind of emotional support we need."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "emotional-sharing",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "emotional-sharing",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "emotional-sharing",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "emotional-sharing",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "emotional-sharing",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "emotional-sharing",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_007",
+      "prompt": {
+        "zh": "在双方明确愿意时，日常身体靠近会增加我的亲近感。",
+        "en": "When we both explicitly want it, everyday physical closeness adds to my sense of connection."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_008",
+      "prompt": {
+        "zh": "即使过去接受过某种接触，我仍希望每次都能按当下状态决定。",
+        "en": "Even if I have accepted a kind of contact before, I still want to decide each time according to how I feel then."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_009",
+      "prompt": {
+        "zh": "我愿意主动说明哪些身体靠近现在让我舒适。",
+        "en": "I am willing to explain which kinds of physical closeness feel comfortable to me now."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_010",
+      "prompt": {
+        "zh": "对方询问或留意我的意愿，会让我更容易放松。",
+        "en": "When the other person asks about or pays attention to what I want, I find it easier to relax."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_011",
+      "prompt": {
+        "zh": "我希望表达暂停或不愿意时，互动能立即停止。",
+        "en": "When I say that I want to pause or do not want an interaction, I want it to stop immediately."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_012",
+      "prompt": {
+        "zh": "我的身体靠近偏好会随场景、状态和对象而变化。",
+        "en": "My preferences for physical closeness vary with the situation, how I feel and the person involved."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "physical-closeness-boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_013",
+      "prompt": {
+        "zh": "稳定的共同时间会帮助我感到关系有连接。",
+        "en": "Regular time together helps me feel connected in a relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_014",
+      "prompt": {
+        "zh": "拥有不被打扰的个人时间会帮助我保持舒适。",
+        "en": "Having uninterrupted time to myself helps me feel comfortable."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_015",
+      "prompt": {
+        "zh": "我希望陪伴与独处可以提前沟通，而不是彼此猜测。",
+        "en": "I want us to discuss time together and time alone in advance rather than guess what the other person wants."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_016",
+      "prompt": {
+        "zh": "关系亲近时，我仍重视各自保留兴趣和社交。",
+        "en": "Even when a relationship is close, I value each of us keeping our own interests and social connections."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_017",
+      "prompt": {
+        "zh": "生活节奏变化后，我愿意重新协商相处频率。",
+        "en": "After the pace of life changes, I am willing to renegotiate how often we spend time together."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_018",
+      "prompt": {
+        "zh": "共同活动结束后，我有时需要独处来恢复精力。",
+        "en": "After a shared activity, I sometimes need time alone to restore my energy."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "time-together-personal-space",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "time-together-personal-space",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_019",
+      "prompt": {
+        "zh": "是否向他人提及关系，我希望先和伴侣取得共识。",
+        "en": "Before mentioning our relationship to other people, I want to reach an agreement with my partner."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_020",
+      "prompt": {
+        "zh": "我对关系在社交平台上的可见程度有自己的舒适范围。",
+        "en": "I have my own comfort range for how visible our relationship is on social platforms."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_021",
+      "prompt": {
+        "zh": "在不同人群面前，我愿意分别讨论合适的关系表达方式。",
+        "en": "I am willing to discuss separately how to talk about our relationship with different groups of people."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_022",
+      "prompt": {
+        "zh": "即使关系稳定，我也希望某些共同经历只留在双方之间。",
+        "en": "Even when the relationship is stable, I want some of our shared experiences to stay between the two of us."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_023",
+      "prompt": {
+        "zh": "对外介绍彼此关系前，我重视双方都明确愿意。",
+        "en": "Before introducing our relationship to other people, I value both of us explicitly wanting to do so."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "INTIMACY_LK_024",
+      "prompt": {
+        "zh": "当公开偏好变化时，我希望可以重新协商而不被指责。",
+        "en": "When preferences about being public change, I want us to be able to renegotiate without blame."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法判断或不愿回答（不计分）",
+            "en": "Unable to judge or prefer not to answer (unscored)"
+          },
+          "directionId": "relationship-visibility-privacy",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "emotional-sharing",
+      "title": {
+        "zh": "情感分享：说什么，也看什么时候愿意说",
+        "en": "Emotional Sharing: What You Want to Say and When"
+      },
+      "headline": {
+        "zh": "让表达需要和倾听余量一起进入对话",
+        "en": "Make Room for Both Expression and Capacity to Listen"
+      },
+      "summary": {
+        "zh": "回看语言分享感受的意愿、时机与条件。通过一次想聊却都很累的情境，区分希望被理解、愿意倾听和必须披露；六题均分不衡量情感成熟度。",
+        "en": "Review willingness, timing and conditions for sharing feelings in words. A tired-evening example separates wanting to be understood from an obligation to disclose or listen."
+      },
+      "scoreReading": {
+        "zh": "六题均分只概括你对这一组陈述的符合程度。它不能确定哪一题较符合，也不表示分享越多越好。",
+        "en": "The six-item mean summarizes agreement with this group. It does not identify an individual answer or establish that more sharing is better."
+      },
+      "seo": {
+        "title": {
+          "zh": "情感分享偏好怎么读：表达、时机与倾听余量",
+          "en": "Emotional Sharing Preferences: Timing, Words and Support"
+        },
+        "description": {
+          "zh": "想分享一件烦心事时，怎样确认彼此现在是否有余力？阅读亲密偏好情感分享部分的六题范围、准确算例、具体对话与反例，选择愿意谈的深度，不用分数证明自己或关系。",
+          "en": "Read six emotional-sharing prompts with a worked mean, a tired-evening example and optional words for checking capacity. Choose what you want to share."
+        }
+      },
+      "sections": [
+        {
+          "id": "emotional-sharing-scope",
+          "title": {
+            "zh": "这一部分实际在问什么",
+            "en": "What This Part Actually Covers"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条陈述分别涉及有余力时交流细微感受、整理后说担忧、希望对方理解经历的情绪、愿意谈脆弱时刻、用语言核对气氛，以及说清支持需要。它们包含愿望、条件和做法，不能合成一种单一的表达能力。",
+              "en": "The six statements concern sharing subtle feelings when you both have capacity, sorting through concerns before speaking, wanting emotional understanding, discussing vulnerability, checking feelings in words and naming support needs. They mix wishes, conditions and ways of communicating; they do not establish one single ability."
+            },
+            {
+              "zh": "希望被理解与当下愿不愿开口，可以同时不同。你可能很重视一件事，却想先写下来、过一晚再谈，或者暂时只说需要安静。这样的选择需要放回具体时机理解。",
+              "en": "Wanting to be understood and wanting to speak now can differ. Something may matter deeply while you prefer to write first, sleep on it or simply say you need quiet. Read these choices in their actual setting rather than treating immediate disclosure as the standard."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-score",
+          "title": {
+            "zh": "六题均分怎样得到",
+            "en": "How the Six-Item Mean Is Calculated"
+          },
+          "paragraphs": [
+            {
+              "zh": "六个1—5数值相加得6—30的原始和，再除以六，显示到四位小数。例如4、3、5、2、4、3相加21，均分3.5；总和29的均分为4.8333。这是陈述符合程度的算术概括，不是分享次数或人群排名。",
+              "en": "Add six numeric responses from 1 to 5 for a raw sum of 6–30, then divide by six and display up to four decimal places. Responses 4, 3, 5, 2, 4, 3 total 21 and average 3.5; a total of 29 averages 4.8333. This summarizes agreement, not frequency or population standing."
+            },
+            {
+              "zh": "网页允许选择无法作答或不愿回答；只要本组有一题不计分，就暂不给本组数值，不把它当成3或最低分。其他完整组仍可计算，四篇全文一直可读。原小程序要求全部24题数值完整后再作个人解释，两版完整度规则分别说明。",
+              "en": "The web edition permits an unscored response. One such answer withholds this group’s numbers rather than becoming a 3 or a low score. Other complete groups remain available, and all four guides stay readable. The original Mini requires all 24 numeric responses before personal interpretation; the two completeness policies are stated separately."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-example",
+          "title": {
+            "zh": "想聊，但现在都很累",
+            "en": "Wanting to Talk When You Are Both Tired"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想说白天一件失落的事，对方刚忙完。可以先问：“我想说一会儿感受，你现在有余力听吗？”如果对方说需要休息，就再决定等会儿谈、另约时间，或今天先不谈。提问把表达愿望与倾听条件分开。",
+              "en": "You want to describe something disappointing from the day, and your partner has just finished a demanding task. You could ask, “I would like to talk about how I felt. Do you have room to listen now?” If they need rest, you can discuss another time or choose not to talk today."
+            },
+            {
+              "zh": "如果你主要想被听见，也可以说明暂时不需要建议；如果自己还没整理好，只说“有件事让我不舒服，但我还不想展开”也有信息。对方是否理解，要靠实际回应核对，不能由你的测试均分代替。",
+              "en": "If you mainly want listening, you can say that advice is not what you need yet. If you are still sorting things out, “Something upset me, but I do not want to explain it yet” can be enough information. Understanding is checked through the actual exchange, not inferred from your mean."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-counterexample",
+          "title": {
+            "zh": "同一均分，不是同一种分享方式",
+            "en": "The Same Mean Can Describe Different Responses"
+          },
+          "paragraphs": [
+            {
+              "zh": "5、1、5、1、5、1和六个3的原始和都是18、均分都是3。前者对不同陈述的符合程度很不一样，后者都选了不确定或视情况。只有均分时，不能反推出某一题、某种经历或统一分享风格。",
+              "en": "Responses 5, 1, 5, 1, 5, 1 and six responses of 3 both total 18 and average 3. The first varies sharply across statements; the second uses “uncertain or depends” throughout. A mean alone cannot reveal a particular answer, experience or uniform sharing style."
+            },
+            {
+              "zh": "较少用语言分享，也可能是习惯其他表达、暂时没有余力或对当前情境有顾虑。你可以只核对自己愿意看的条件，不必为了得到某个数值披露脆弱经历，更不能据此认定谁冷漠或不信任伴侣。",
+              "en": "Less verbal sharing may reflect another way of expressing yourself, limited capacity or concerns about the setting. You can consider only the conditions you want to examine. There is no need to disclose vulnerable experiences for a score or infer coldness or distrust from fewer words."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-comparison",
+          "title": {
+            "zh": "与另外三个部分怎样区分",
+            "en": "How This Differs from the Other Three Parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "情感分享看语言表达的意愿与条件；身体靠近与边界看当下距离和确认；共同时间与个人空间看两种安排怎样并存；对外表达与隐私看对谁、何时和怎样提及关系。一个部分的数值不推导另一个部分。",
+              "en": "Emotional sharing concerns words and the conditions for using them. Physical closeness and boundaries concerns distance and present confirmation. Time together and personal space concerns how both can coexist. Visibility and privacy concerns who hears what, when and how. One part does not determine another."
+            },
+            {
+              "zh": "你可以想谈很多感受，同时不想靠近；也可以愿意安静陪伴，却不想把关系写上社交平台。四组数值即使相同，也只是算术结果相同，不需要排出谁最重要或拼成一个亲密类型。",
+              "en": "You might want an extended conversation without physical closeness, or enjoy quiet company without discussing the relationship online. Equal numbers across these groups are only equal arithmetic results. They do not require a ranking or a combined intimacy type."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-action",
+          "title": {
+            "zh": "一个可以不采用的对话开场",
+            "en": "An Optional Opening for a Conversation"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你本来就想谈，可以选一个不需披露细节的开场：“我有一件事想整理，希望你先听几分钟；现在方便吗？”你可以改短、改成文字或取消。对方也可以说现在不合适，双方再选择是否另约。",
+              "en": "If you already want to talk, try an opening that does not disclose details: “I have something I want to sort through. Could you listen for a few minutes—is now a workable time?” You can shorten it, use text or drop it. The other person can also say the time does not work."
+            },
+            {
+              "zh": "谈完只核对这次实际需要：“刚才你听到的重点是什么？”或者“这种回应对我有帮助，下次也可以先这样。”不必向对方展示测试，不以分数要求倾听，也不把一次对话变成关系考核。",
+              "en": "Afterwards, check the particular exchange: “What did you hear as the main point?” or “That response helped; could we begin that way another time?” You do not need to show the test, use it to demand listening or turn one conversation into an evaluation of the relationship."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-limits",
+          "title": {
+            "zh": "表达偏好不会产生披露义务",
+            "en": "A Preference Does Not Create a Duty to Disclose"
+          },
+          "paragraphs": [
+            {
+              "zh": "本部分不衡量成熟、诚实、共情、依恋或爱得多深，也不替任何一方解释不想谈的原因。你对某些陈述较符合，不表示必须每次分享；对方愿意听某件事，也不表示同意任何其他互动。",
+              "en": "This part does not measure maturity, honesty, empathy, attachment or depth of love, or explain why somebody does not want to talk. Agreement with statements does not require sharing every time. Willingness to listen to one matter is not agreement to another kind of interaction."
+            },
+            {
+              "zh": "哪些事愿意谈、对谁谈、何时停止，都可以按当下舒适与现实情况决定。你可以不公开结果、不联系任何人，或直接离开这次练习。均分不会改变这些选择。",
+              "en": "What you discuss, with whom and when to stop can follow your present comfort and circumstances. You can keep the result private, contact nobody or leave the exercise. The mean changes none of those choices."
+            }
+          ]
+        },
+        {
+          "id": "emotional-sharing-source",
+          "title": {
+            "zh": "来源、网页隐私与再次作答",
+            "en": "Source, Web Privacy and Retaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版沿用费马小程序《亲密偏好测试》的六条原创中文陈述及直接计分；英文是新工作译文，尚未建立跨语言等价。本页具体例子为网页新增解释，不表示题本完成了心理测量验证。",
+              "en": "This edition preserves the six original Chinese statements and forward scoring from FermatMind’s original Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence. These web examples add explanation; they do not establish psychometric validation."
+            },
+            {
+              "zh": "网页作答仅在当前页面内存中，刷新、换语或离开会清除，不沿用原小程序设备草稿与结果缓存。若以后重做，按当时能确认的条件回答；变化可能来自时机、对象或理解，不自动证明偏好改变。",
+              "en": "Web answers stay only in the current page’s memory and clear on reload, language change or leaving. The website does not inherit the original Mini’s device draft or result cache. When retaking, use the conditions you can confirm then; different responses need not establish a changed preference."
+            }
+          ]
+        }
+      ],
+      "directionIds": [
+        "emotional-sharing"
+      ]
+    },
+    {
+      "id": "physical-closeness-boundaries",
+      "title": {
+        "zh": "身体靠近与边界：把当下的意愿说清楚",
+        "en": "Physical Closeness and Boundaries: Confirm What Is Wanted Now"
+      },
+      "headline": {
+        "zh": "靠近与暂停，都需要留给当下决定",
+        "en": "Leave Both Closeness and Pausing Open to Present Choice"
+      },
+      "summary": {
+        "zh": "区分日常靠近、确认意愿、舒适范围与停止方式。六题多在问边界与确认，均分不能说明喜欢多少接触，更不能为任何一次互动提供许可。",
+        "en": "Separate everyday closeness, confirmation, comfort and stopping. Most of these six items concern boundaries, so the mean cannot establish how much contact you want or authorize an interaction."
+      },
+      "scoreReading": {
+        "zh": "均分只概括六个混合陈述的符合程度，不是接触偏好清单或同意分数；过去接受与当下愿意分别确认。",
+        "en": "The mean summarizes six mixed statements. It is neither a contact-preference checklist nor a consent score; past acceptance and present willingness are separate."
+      },
+      "seo": {
+        "title": {
+          "zh": "身体靠近与边界偏好：当下确认、舒适与暂停",
+          "en": "Physical Closeness Preferences: Comfort, Confirmation and Pausing"
+        },
+        "description": {
+          "zh": "日常靠近前怎样问清意愿，想暂停时又怎样表达？阅读六题范围、具体算例与一个回家问候的情境，区分靠近偏好和当下同意。分数不决定任何身体互动。",
+          "en": "Read six prompts about everyday closeness, confirmation and pausing. Explore a greeting example and a worked mean without treating a score as permission."
+        }
+      },
+      "sections": [
+        {
+          "id": "physical-closeness-boundaries-scope",
+          "title": {
+            "zh": "靠近意愿与边界表达，不是同一件事",
+            "en": "Closeness and Expressing a Boundary Are Different"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组六题包含明确愿意时的日常靠近、每次重新决定、说明舒适范围、对方留意意愿、暂停后停止，以及偏好随状态变化。只有部分陈述直接涉及靠近，更多在问怎样确认、表达和停止。",
+              "en": "These six statements cover everyday closeness when both want it, deciding again each time, explaining comfort, having wishes noticed, stopping on request and preferences varying by context. Only part of the group concerns closeness itself; much of it concerns confirmation, expression and stopping."
+            },
+            {
+              "zh": "因此，较符合这组陈述的人，可能喜欢靠近，也可能主要重视先问清和能暂停。较少符合也不能说明允许忽略边界。你需要知道的具体意愿，仍来自当时的明确交流。",
+              "en": "Someone who agrees with this group may enjoy closeness or may mainly value being asked and being able to pause. Less agreement cannot justify ignoring boundaries. The specific wishes needed for an interaction still come from clear communication at that time."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-score",
+          "title": {
+            "zh": "六题均分怎样得到",
+            "en": "How the Six-Item Mean Is Calculated"
+          },
+          "paragraphs": [
+            {
+              "zh": "六个1—5数值相加得6—30的原始和，再除以六，显示到四位小数。例如4、3、5、2、4、3相加21，均分3.5；总和29的均分为4.8333。这是陈述符合程度的算术概括，不是分享次数或人群排名。",
+              "en": "Add six numeric responses from 1 to 5 for a raw sum of 6–30, then divide by six and display up to four decimal places. Responses 4, 3, 5, 2, 4, 3 total 21 and average 3.5; a total of 29 averages 4.8333. This summarizes agreement, not frequency or population standing."
+            },
+            {
+              "zh": "网页允许选择无法作答或不愿回答；只要本组有一题不计分，就暂不给本组数值，不把它当成3或最低分。其他完整组仍可计算，四篇全文一直可读。原小程序要求全部24题数值完整后再作个人解释，两版完整度规则分别说明。",
+              "en": "The web edition permits an unscored response. One such answer withholds this group’s numbers rather than becoming a 3 or a low score. Other complete groups remain available, and all four guides stay readable. The original Mini requires all 24 numeric responses before personal interpretation; the two completeness policies are stated separately."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-example",
+          "title": {
+            "zh": "回家时的一次普通问候",
+            "en": "An Ordinary Greeting on Arriving Home"
+          },
+          "paragraphs": [
+            {
+              "zh": "你们见面时，对方问：“现在想抱一下，还是打个招呼就好？”你今天很累，只想先坐会儿，可以直接选择后者。之前愿意拥抱、关系亲近，或这次测试里某些选项很符合，都不替代今天的回答。",
+              "en": "On meeting, your partner asks, “Would you like a hug now, or just a hello?” You are tired and prefer to sit for a while, so you can choose the latter. A previous hug, an established relationship or agreement with test statements does not replace today’s answer."
+            },
+            {
+              "zh": "如果一开始愿意，后来觉得不舒服，也可以说“先停一下”。有用的安排是让暂停清楚、容易执行，而不是要求你解释一个足够好的理由。对方是否仍愿意也需要按当下重新确认。",
+              "en": "If you initially want closeness and then feel uncomfortable, you can say, “Let’s pause.” A useful arrangement makes stopping clear and easy to act on rather than requiring a good enough explanation. The other person’s present willingness also needs to be respected."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-counterexample",
+          "title": {
+            "zh": "相同均分，不说明喜欢相同接触",
+            "en": "Equal Means Do Not Identify the Same Preferences"
+          },
+          "paragraphs": [
+            {
+              "zh": "一个人可能很少想靠近，却很认同每次确认、可随时暂停；另一个人可能常喜欢靠近，却对某些表达陈述不确定。总和相同也不能把两人的接触偏好视为相同，更不能推断具体选项。",
+              "en": "One person may rarely want closeness while strongly valuing fresh confirmation and the ability to pause. Another may often enjoy closeness but be uncertain about some statements on expression. Equal sums cannot establish the same contact preferences or reveal either person’s individual answers."
+            },
+            {
+              "zh": "偏好也会随疲劳、活动地点、是否有旁人和具体对象变化。变化不需要用均分证明合理。你不必为了让答案显得一致而重复任何接触，也不用把某次拒绝解释成整个关系的结论。",
+              "en": "Preferences can vary with tiredness, location, who is present and the person involved. A mean is not needed to justify a change. You do not have to repeat contact to appear consistent or treat one refusal as a conclusion about the relationship."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-comparison",
+          "title": {
+            "zh": "与分享、时间和对外表达分开看",
+            "en": "Read This Separately from Words, Time and Visibility"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意用语言分享烦恼，不表示想通过接触获得安慰；想安静靠近，也不表示现在愿意谈心。身体距离和情感表达可以各有条件。先问对方想要怎样的回应，比从另一组分数推断更具体。",
+              "en": "Wanting to discuss a concern does not establish a wish for physical comfort, and wanting quiet closeness does not establish a wish to talk. Distance and verbal expression can have separate conditions. Asking what response is wanted is more specific than inferring it from another group’s score."
+            },
+            {
+              "zh": "有共同时间不等于其中每种互动都已同意；愿意对外介绍关系，也不表示愿意公开身体互动的细节。四个部分不拼成“更亲密”的等级，也不能相互抵销。",
+              "en": "Time together does not imply agreement to every interaction during it. Wanting to introduce a relationship does not imply wanting details of physical closeness made public. The four parts do not combine into a greater-intimacy ranking or cancel each other out."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-action",
+          "title": {
+            "zh": "先约定一种容易使用的暂停方式",
+            "en": "Choose an Easy Way to Ask for a Pause"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果双方本来就想讨论，可以各自说一种舒服的确认和暂停方式，例如直接问“现在可以吗”，或者说“停一下”。约定应当简单，不以继续接触来证明喜欢，也不把没有反抗当作明确愿意。",
+              "en": "If you both already want a discussion, name a comfortable way to check and pause, such as asking “Is this wanted now?” or saying “Pause.” Keep the arrangement simple. Continued contact is not proof of affection, and lack of resistance is not an explicit expression of willingness."
+            },
+            {
+              "zh": "你也可以只记给自己：现在愿意什么、不愿意什么、有没有想说的边界。不需要开展任何身体练习，不需要展示结果。如果你不想谈，直接跳过这一步就可以。",
+              "en": "You may instead make a private note of what you want now, what you do not want and any boundary you wish to express. No physical exercise or display of results is required. If you do not want the conversation, you can skip this step."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-limits",
+          "title": {
+            "zh": "没有任何分数能授权靠近",
+            "en": "No Score Authorizes Physical Closeness"
+          },
+          "paragraphs": [
+            {
+              "zh": "同意需要明确、自愿、具体，并可随时撤回；沉默、迟疑、僵住、过去接受或关系身份都不自动说明当下同意。你自己的结果不能要求别人配合，别人的结果也不能替代其现在的表达。",
+              "en": "Consent must be clear, voluntary, specific and withdrawable. Silence, hesitation, freezing, past acceptance or relationship status do not automatically establish present consent. Your result cannot require another person’s participation, and theirs cannot replace what they express now."
+            },
+            {
+              "zh": "本页不推断性行为偏好、性经验、性欲、性取向、创伤或是否发生过越界。它只讨论成年人之间日常互动的原陈述范围。较少靠近不等于冷淡，重视确认也不代表某种诊断。",
+              "en": "This guide does not infer sexual behaviour preferences, experience, desire, orientation, trauma or whether a boundary violation has occurred. It stays with the original statements about everyday interactions between adults. Less closeness is not coldness, and valuing confirmation is not a diagnosis."
+            }
+          ]
+        },
+        {
+          "id": "physical-closeness-boundaries-source",
+          "title": {
+            "zh": "来源、网页隐私与再次作答",
+            "en": "Source, Web Privacy and Retaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版沿用费马小程序《亲密偏好测试》的六条原创中文陈述及直接计分；英文是新工作译文，尚未建立跨语言等价。本页具体例子为网页新增解释，不表示题本完成了心理测量验证。",
+              "en": "This edition preserves the six original Chinese statements and forward scoring from FermatMind’s original Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence. These web examples add explanation; they do not establish psychometric validation."
+            },
+            {
+              "zh": "网页作答仅在当前页面内存中，刷新、换语或离开会清除，不沿用原小程序设备草稿与结果缓存。若以后重做，按当时能确认的条件回答；变化可能来自时机、对象或理解，不自动证明偏好改变。",
+              "en": "Web answers stay only in the current page’s memory and clear on reload, language change or leaving. The website does not inherit the original Mini’s device draft or result cache. When retaking, use the conditions you can confirm then; different responses need not establish a changed preference."
+            }
+          ]
+        }
+      ],
+      "directionIds": [
+        "physical-closeness-boundaries"
+      ]
+    },
+    {
+      "id": "time-together-personal-space",
+      "title": {
+        "zh": "共同时间与个人空间：两种需要怎样并存",
+        "en": "Time Together and Personal Space: How Both Can Coexist"
+      },
+      "headline": {
+        "zh": "先说具体安排，不急着选陪伴或独立的一边",
+        "en": "Discuss the Arrangement before Choosing a Side"
+      },
+      "summary": {
+        "zh": "回看稳定陪伴、独处恢复、各自兴趣与重新协商。六题同时包含共同和个人时间，均分不表示更黏人、更独立或更会平衡关系。",
+        "en": "Review regular company, time alone, separate interests and renegotiation. The six statements include both shared and personal time; the mean does not place you on a clingy–independent spectrum."
+      },
+      "scoreReading": {
+        "zh": "较符合本组六条陈述，不表示需要更多或更少陪伴；没有相处时间比例或关系平衡分数。请分别看具体安排。",
+        "en": "Agreement with this group does not establish a need for more or less company. There is no time-allocation ratio or relationship-balance score. Read the specific arrangements separately."
+      },
+      "seo": {
+        "title": {
+          "zh": "共同时间与个人空间偏好：陪伴、独处与重新协商",
+          "en": "Time Together and Personal Space: Read the Six-Item Result"
+        },
+        "description": {
+          "zh": "想一起过周末，也想留一段独处时间，是否矛盾？阅读亲密偏好的共同与个人时间部分，结合六题范围、均分算例和具体安排，分清需要、可用时间与双方自愿的约定。",
+          "en": "Explore shared time and time alone through six prompts, a worked mean and a weekend example. Discuss concrete arrangements without assigning a relationship type."
+        }
+      },
+      "sections": [
+        {
+          "id": "time-together-personal-space-scope",
+          "title": {
+            "zh": "六条陈述同时包含陪伴与独处",
+            "en": "The Six Statements Include Company and Time Alone"
+          },
+          "paragraphs": [
+            {
+              "zh": "本组覆盖稳定共同时间、独处带来的舒适、提前沟通、各自兴趣和社交、节奏变化后重新协商，以及活动后独处恢复。共同时间与个人空间没有被设置为必须二选一的两端。",
+              "en": "This group covers regular time together, comfort from time alone, discussing plans, separate interests and social connections, renegotiating after change and recovering alone after an activity. Shared time and personal space are not set up as endpoints that require choosing one over the other."
+            },
+            {
+              "zh": "你可以同时需要两者，或在不同阶段改变安排。均分较符合，可能意味着认同多种安排的重要性，却不能确定每种安排需要多少。真正的时长、频率和愿意参与的内容，需要另外说清楚。",
+              "en": "You can want both, and arrangements can change between periods of life. Greater agreement may reflect several of these statements fitting, but it cannot specify how much time is wanted. Duration, frequency and the activities each person wants still need to be discussed separately."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-score",
+          "title": {
+            "zh": "六题均分怎样得到",
+            "en": "How the Six-Item Mean Is Calculated"
+          },
+          "paragraphs": [
+            {
+              "zh": "六个1—5数值相加得6—30的原始和，再除以六，显示到四位小数。例如4、3、5、2、4、3相加21，均分3.5；总和29的均分为4.8333。这是陈述符合程度的算术概括，不是分享次数或人群排名。",
+              "en": "Add six numeric responses from 1 to 5 for a raw sum of 6–30, then divide by six and display up to four decimal places. Responses 4, 3, 5, 2, 4, 3 total 21 and average 3.5; a total of 29 averages 4.8333. This summarizes agreement, not frequency or population standing."
+            },
+            {
+              "zh": "网页允许选择无法作答或不愿回答；只要本组有一题不计分，就暂不给本组数值，不把它当成3或最低分。其他完整组仍可计算，四篇全文一直可读。原小程序要求全部24题数值完整后再作个人解释，两版完整度规则分别说明。",
+              "en": "The web edition permits an unscored response. One such answer withholds this group’s numbers rather than becoming a 3 or a low score. Other complete groups remain available, and all four guides stay readable. The original Mini requires all 24 numeric responses before personal interpretation; the two completeness policies are stated separately."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-example",
+          "title": {
+            "zh": "想一起过周末，也想留一点独处",
+            "en": "A Shared Weekend with Some Time Alone"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想周末一起吃饭，下午也想留一段时间做自己的事。可以把两项分别说出：“我想一起吃午饭，之后想自己待一会儿。”对方也许有不同安排；这时讨论的是具体时间，不是证明谁更爱谁。",
+              "en": "You would like lunch together at the weekend and some time for your own activity afterwards. You can name both: “I would like to have lunch together, and then spend a while on my own.” Your partner may have another plan. The discussion concerns the arrangement, not proof of greater love."
+            },
+            {
+              "zh": "如果双方都愿意稍后再联系，可以约一个实际可行的方式；如果尚未确定，也可以先说不确定。把可用时间和想要的时间区分，能避免把工作、照顾事务或疲劳都理解成不重视关系。",
+              "en": "If you both want to reconnect later, choose a workable way to do so. If that is undecided, say so. Separating available time from desired time can help keep work, caring responsibilities or tiredness from being automatically interpreted as a lack of regard for the relationship."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-counterexample",
+          "title": {
+            "zh": "不能从均分反推相处比例",
+            "en": "A Mean Cannot Reveal a Time Ratio"
+          },
+          "paragraphs": [
+            {
+              "zh": "同一个均分，可能来自很认同共同时间和个人时间，也可能来自对部分协商陈述不确定。它不计算一周应见几次，也不把需要独处分为回避、依赖或成熟程度。题目没有提供这样的分型依据。",
+              "en": "The same mean may arise from valuing both shared and personal time or from uncertainty about some statements on negotiation. It does not calculate how often to meet or classify time alone as avoidance, dependence or maturity. The items provide no basis for those assignments."
+            },
+            {
+              "zh": "有人因现实条件很少能见面，却非常珍惜陪伴；也有人经常同处一室，仍需要不被打扰的片刻。情境改变了可实现的安排，不必把观察到的频率当作固定偏好。",
+              "en": "Someone may rarely be able to meet while valuing company greatly. Another person may share a room often and still want uninterrupted moments. Circumstances affect what is possible; an observed frequency does not have to become a fixed preference."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-comparison",
+          "title": {
+            "zh": "与另外三个部分有什么不同",
+            "en": "How This Differs from the Other Three Parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "情感分享讨论愿不愿用语言说感受，身体靠近与边界讨论当下确认，对外表达与隐私讨论信息怎样面向他人。本组则关注共同与个人时间的安排条件。待在一起，不等于必须聊天或靠近。",
+              "en": "Emotional sharing concerns words for feelings. Physical closeness and boundaries concerns present confirmation. Visibility and privacy concerns information shared with others. This group concerns arrangements for shared and personal time. Being together does not require talking or physical closeness."
+            },
+            {
+              "zh": "你可以愿意公开关系，却想保留各自的兴趣；也可以不公开关系，同时安排稳定陪伴。四部分各自概括不同陈述，没有一个总分能说明关系投入够不够。",
+              "en": "You can want a relationship acknowledged publicly while keeping separate interests, or prefer privacy while arranging regular company. Each part summarizes different statements. There is no total that can establish whether investment in a relationship is enough."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-action",
+          "title": {
+            "zh": "用三项信息说清一个安排",
+            "en": "Describe One Arrangement with Three Pieces of Information"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果你本来想商量，可分别写下想要的共同时间、想保留的个人时间，以及目前能确定的现实条件。挑一项愿意说的内容讨论，不需要解释独处时每件事，也不要求双方给出相同答案。",
+              "en": "If you already want to discuss plans, note the shared time you would like, the personal time you would like to keep and the practical conditions you can currently confirm. Discuss one point you want to share. You do not need to account for every activity while alone or give identical answers."
+            },
+            {
+              "zh": "可以试问：“这周我们各自有哪些能确定的时间？哪部分先不安排？”若找到双方自愿的约定，再看它实际好不好用。没有合适安排时，也可保留未定，不用把测试当作要求某人改变日程的理由。",
+              "en": "You might ask, “Which times can each of us confirm this week, and what should stay open?” If you find an arrangement you both want, observe how it works. Without one, matters can remain undecided; the test is not a reason to demand a changed schedule."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-limits",
+          "title": {
+            "zh": "空间不是隐瞒，陪伴也不是义务",
+            "en": "Space Is Not Concealment; Company Is Not an Obligation"
+          },
+          "paragraphs": [
+            {
+              "zh": "需要个人时间不自动说明隐瞒、不信任或不在意；希望陪伴也不自动说明黏人。选择是否参与某项活动仍属于双方各自的决定，不能靠一个人的分数替另一个人安排。",
+              "en": "Wanting personal time does not automatically establish concealment, distrust or indifference. Wanting company does not establish clinginess. Participation in an activity remains each person’s decision; one person’s score cannot arrange the other person’s time."
+            },
+            {
+              "zh": "本部分不评估关系健康、平衡能力、依恋类型或结局。它也不能解释某个现实冲突为什么发生。你可以不展示结果，只保留对当前安排有帮助的一点观察。",
+              "en": "This part does not assess relationship health, balancing ability, attachment type or outcomes. It cannot explain why a real disagreement occurred. You can keep the result private and retain only an observation that helps you think about a current arrangement."
+            }
+          ]
+        },
+        {
+          "id": "time-together-personal-space-source",
+          "title": {
+            "zh": "来源、网页隐私与再次作答",
+            "en": "Source, Web Privacy and Retaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版沿用费马小程序《亲密偏好测试》的六条原创中文陈述及直接计分；英文是新工作译文，尚未建立跨语言等价。本页具体例子为网页新增解释，不表示题本完成了心理测量验证。",
+              "en": "This edition preserves the six original Chinese statements and forward scoring from FermatMind’s original Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence. These web examples add explanation; they do not establish psychometric validation."
+            },
+            {
+              "zh": "网页作答仅在当前页面内存中，刷新、换语或离开会清除，不沿用原小程序设备草稿与结果缓存。若以后重做，按当时能确认的条件回答；变化可能来自时机、对象或理解，不自动证明偏好改变。",
+              "en": "Web answers stay only in the current page’s memory and clear on reload, language change or leaving. The website does not inherit the original Mini’s device draft or result cache. When retaking, use the conditions you can confirm then; different responses need not establish a changed preference."
+            }
+          ]
+        }
+      ],
+      "directionIds": [
+        "time-together-personal-space"
+      ]
+    },
+    {
+      "id": "relationship-visibility-privacy",
+      "title": {
+        "zh": "对外表达与隐私：决定对谁、何时、怎样说",
+        "en": "Relationship Visibility and Privacy: Who Hears What, When and How"
+      },
+      "headline": {
+        "zh": "先协商具体表达，不把公开多少变成关系分数",
+        "en": "Agree on Specific Sharing without Scoring How Public You Are"
+      },
+      "summary": {
+        "zh": "回看提及关系前的共识、社交可见范围、不同人群和共同隐私。六题主要关注协商与边界，均分不能说明你更愿意公开，或关系对你更重要。",
+        "en": "Review agreement before mentioning a relationship, social visibility, different audiences and shared privacy. These six prompts focus on negotiation, not how public or important the relationship is."
+      },
+      "scoreReading": {
+        "zh": "均分概括对六项协商与隐私陈述的符合程度，不表示公开程度；较符合不要求披露任何关系、身份或共同经历。",
+        "en": "The mean summarizes agreement with six negotiation and privacy statements, not degree of publicity. Agreement requires no disclosure of a relationship, identity or shared experience."
+      },
+      "seo": {
+        "title": {
+          "zh": "关系对外表达与隐私偏好：可见范围与共同协商",
+          "en": "Relationship Visibility and Privacy: Discussing Boundaries"
+        },
+        "description": {
+          "zh": "合照能否发布、对谁可见、是否介绍关系，怎样分别商量？阅读六题范围、算例和具体情境，区分协商意愿与公开程度，保留共同隐私和改变安排的空间。",
+          "en": "Explore six prompts on discussing relationship visibility and privacy. Read a photo-sharing example, a worked mean and ways to keep an agreement specific."
+        }
+      },
+      "sections": [
+        {
+          "id": "relationship-visibility-privacy-scope",
+          "title": {
+            "zh": "关注的是怎样协商，不是公开多少",
+            "en": "The Focus Is Negotiation, Not Amount of Publicity"
+          },
+          "paragraphs": [
+            {
+              "zh": "六条陈述涉及提及前取得共识、社交平台舒适范围、不同人群的表达、保留共同经历、介绍前明确愿意，以及偏好改变后重新协商。它们没有把“越公开越好”设成方向。",
+              "en": "The six statements cover agreement before mentioning a relationship, comfort on social platforms, different audiences, keeping shared experiences private, willingness before introductions and renegotiation when preferences change. They do not set greater publicity as a better direction."
+            },
+            {
+              "zh": "你可能很符合这些协商陈述，同时只愿对很少的人提及关系；也可能愿意公开某个称呼，却不愿公开细节。因此应把表达的内容、听众和当下意愿分别说清，而不是从总和猜一个公开等级。",
+              "en": "You may agree with these negotiation statements while wanting very few people to hear about the relationship. You may also want a particular relationship label shared without details. Specify content, audience and present wishes separately instead of inferring a publicity level from the sum."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-score",
+          "title": {
+            "zh": "六题均分怎样得到",
+            "en": "How the Six-Item Mean Is Calculated"
+          },
+          "paragraphs": [
+            {
+              "zh": "六个1—5数值相加得6—30的原始和，再除以六，显示到四位小数。例如4、3、5、2、4、3相加21，均分3.5；总和29的均分为4.8333。这是陈述符合程度的算术概括，不是分享次数或人群排名。",
+              "en": "Add six numeric responses from 1 to 5 for a raw sum of 6–30, then divide by six and display up to four decimal places. Responses 4, 3, 5, 2, 4, 3 total 21 and average 3.5; a total of 29 averages 4.8333. This summarizes agreement, not frequency or population standing."
+            },
+            {
+              "zh": "网页允许选择无法作答或不愿回答；只要本组有一题不计分，就暂不给本组数值，不把它当成3或最低分。其他完整组仍可计算，四篇全文一直可读。原小程序要求全部24题数值完整后再作个人解释，两版完整度规则分别说明。",
+              "en": "The web edition permits an unscored response. One such answer withholds this group’s numbers rather than becoming a 3 or a low score. Other complete groups remain available, and all four guides stay readable. The original Mini requires all 24 numeric responses before personal interpretation; the two completeness policies are stated separately."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-example",
+          "title": {
+            "zh": "一张合照，包含几个不同决定",
+            "en": "One Shared Photo Contains Several Decisions"
+          },
+          "paragraphs": [
+            {
+              "zh": "你想发一张合照，可以分别确认：对方愿不愿这张照片被发出、哪些人可见、要不要写名字，以及是否提及关系。愿意留作私人照片，不表示愿意公开；愿意公开一张，也不自动覆盖之后每一张。",
+              "en": "You want to share a photo together. You can separately check whether the other person wants that photo posted, who may see it, whether names are included and whether the relationship is mentioned. A private photo is not permission to publish it, and agreement to one photo does not cover later ones."
+            },
+            {
+              "zh": "如果双方想法不同，可以先不发，或只讨论你们都愿意的具体版本。重要的信息是这次各自愿意什么，不是用某个分数论证对方应该更公开。测试结果本身也可以一直不对外分享。",
+              "en": "If your wishes differ, you can choose not to post or discuss a specific version you both want. The useful information is what each person wants for this instance, not a score used to argue for greater publicity. The test result itself can remain private throughout."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-counterexample",
+          "title": {
+            "zh": "相同均分，可以有不同可见范围",
+            "en": "Equal Means Can Accompany Different Visibility Choices"
+          },
+          "paragraphs": [
+            {
+              "zh": "两人都重视商量和保留选择，一人可能只在熟悉朋友面前介绍关系，另一人可能愿意在多个场合提及。只看均分无法分辨这些安排，也不能判断谁觉得这段关系更重要。",
+              "en": "Two people may both value discussion and choice while one mentions the relationship only to close friends and another is comfortable across several settings. Their means cannot distinguish these arrangements or establish who values a relationship more."
+            },
+            {
+              "zh": "人群、家庭、工作环境和现实安全条件可能不同。你不需要向测试说明全部原因，也不用把不愿公开解释成羞耻、隐瞒或不够投入。哪些条件需要考虑，由你按实际情况决定。",
+              "en": "Audiences, family circumstances, work environments and practical safety conditions can differ. You do not need to explain every reason to the test or interpret privacy as shame, concealment or insufficient investment. Which conditions matter remains a question for your actual circumstances."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-comparison",
+          "title": {
+            "zh": "可见范围与另外三个部分分开",
+            "en": "Visibility Is Separate from the Other Three Parts"
+          },
+          "paragraphs": [
+            {
+              "zh": "愿意在私下分享感受，不等于愿意让更多人知道关系；有稳定共同时间，也不要求把日程或照片公开。对外介绍过关系，不会代替之后任何身体靠近的当下确认。",
+              "en": "Sharing feelings in private does not establish a wish for more people to know about a relationship. Regular time together does not require public schedules or photos. An introduction to others does not replace present confirmation for any physical closeness."
+            },
+            {
+              "zh": "四组均分不是互相补偿的分数。公开部分没有一个数值能抵销需要独处、较少语言表达或想暂停的决定；其他部分也不能推导出对外披露的许可。每件具体事情分别协商。",
+              "en": "The four means do not compensate for one another. A visibility score cannot offset a wish for time alone, less verbal sharing or a pause. Other parts cannot supply permission to disclose information. Discuss each specific matter separately."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-action",
+          "title": {
+            "zh": "把表达分成三类，再留出未定项",
+            "en": "Separate Three Sharing Categories and Leave Room for Uncertainty"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果双方本来想讨论，可以分别列出“目前愿意这样表达”“每次需要先问”和“目前不想公开”的内容。只谈你们愿意处理的一项，不需要列举所有私人身份或经历。",
+              "en": "If you both already want to discuss sharing, distinguish “currently comfortable sharing this way,” “ask each time” and “not for sharing now.” Discuss only a point you want to address. There is no need to list every private identity or experience."
+            },
+            {
+              "zh": "实际表达前，再核对这次内容和听众是否在已同意范围内。如果偏好变了，可以重新谈。一次约定不是长期披露承诺，测试也不要求你为了关系证明而发布任何东西。",
+              "en": "Before sharing, check whether this content and audience are within the agreement you actually made. Preferences can be discussed again when they change. An arrangement is not a permanent disclosure promise, and the test requires no post as proof of a relationship."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-limits",
+          "title": {
+            "zh": "公开不是重要感或身份的证明",
+            "en": "Publicity Does Not Prove Importance or Identity"
+          },
+          "paragraphs": [
+            {
+              "zh": "本部分不能判断任何人的性取向、身份、关系状态、忠诚、羞耻感或真实意图，也不能要求任何人出柜或介绍伴侣。一个人的答卷不能替另一个人决定哪些内容可公开。",
+              "en": "This part cannot establish orientation, identity, relationship status, loyalty, shame or another person’s intentions. It cannot require coming out or introducing a partner. One person’s responses cannot decide what may be disclosed about another."
+            },
+            {
+              "zh": "你可以不回答某题、不展示数值、不公开关系，或停止这次练习。均分不说明这些决定是否合理，也不要求你用更多披露来解释它。需要处理的是具体信息边界，而不是达到某种公开程度。",
+              "en": "You can leave an item unscored, keep numbers private, avoid public discussion of a relationship or stop the exercise. The mean does not judge whether those choices are reasonable or demand more disclosure to explain them. The subject is a particular information boundary, not a target level of publicity."
+            }
+          ]
+        },
+        {
+          "id": "relationship-visibility-privacy-source",
+          "title": {
+            "zh": "来源、网页隐私与再次作答",
+            "en": "Source, Web Privacy and Retaking"
+          },
+          "paragraphs": [
+            {
+              "zh": "本版沿用费马小程序《亲密偏好测试》的六条原创中文陈述及直接计分；英文是新工作译文，尚未建立跨语言等价。本页具体例子为网页新增解释，不表示题本完成了心理测量验证。",
+              "en": "This edition preserves the six original Chinese statements and forward scoring from FermatMind’s original Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence. These web examples add explanation; they do not establish psychometric validation."
+            },
+            {
+              "zh": "网页作答仅在当前页面内存中，刷新、换语或离开会清除，不沿用原小程序设备草稿与结果缓存。若以后重做，按当时能确认的条件回答；变化可能来自时机、对象或理解，不自动证明偏好改变。",
+              "en": "Web answers stay only in the current page’s memory and clear on reload, language change or leaving. The website does not inherit the original Mini’s device draft or result cache. When retaking, use the conditions you can confirm then; different responses need not establish a changed preference."
+            }
+          ]
+        }
+      ],
+      "directionIds": [
+        "relationship-visibility-privacy"
+      ]
+    }
+  ],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "zh": "原题本与网页新增部分",
+        "en": "Original Items and the Web Edition"
+      },
+      "paragraphs": [
+        {
+          "zh": "本版保留费马小程序《亲密偏好测试》的24条原创中文陈述、四组六题归属和直接计分。英文为费马新工作译文，没有已建立的跨语言等价；具体例子和完整网页指南为新增解释。",
+          "en": "This edition preserves the 24 original Chinese statements, four six-item groupings and forward scoring from FermatMind’s Intimacy Preferences Mini. English is a new working translation without established cross-language equivalence; examples and full web guides add explanation."
+        },
+        {
+          "zh": "原小程序需24题数值完整才作个人解释。本网页另加不计分选项，以完整六题为一组分别提供数值；这是网页完整度规则，不能当作原题本已经验证的缺失值处理方式。",
+          "en": "The original Mini requires all 24 numeric responses before personal interpretation. This website adds an unscored option and supplies numbers separately for each complete six-item group. That is a web completeness policy, not a validated missing-data method inherited from the original bank."
+        },
+        {
+          "zh": "两版都没有总亲密度、主导类型、分档或常模。题本尚未完成信度、效度和跨语言验证；它提供原始自述与具体讨论材料，不提供伴侣匹配、关系预测或能力判断。",
+          "en": "Neither edition supplies overall intimacy, a dominant type, bands or norms. Reliability, validity and language equivalence have not been established for this bank. It supplies original self-report prompts and discussion material, not partner matching, relationship prediction or ability assessment."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "zh": "只谈成年人互动偏好，选择可随时改变",
+        "en": "Adult Interaction Preferences and Choices That Can Change"
+      },
+      "paragraphs": [
+        {
+          "zh": "本测试只讨论成年人之间的互动。按自己目前能确认的偏好或条件回答，不替任何其他人作答；不需填姓名、年龄、关系身份或私人经历。没有可参考情境、不能判断或不想回答，都可选不计分。",
+          "en": "This test concerns interactions between adults. Answer for preferences or conditions you can currently confirm, not on somebody else’s behalf. No name, age, relationship status or private history is requested. Without a relevant situation, certainty or a wish to answer, choose unscored."
+        },
+        {
+          "zh": "四个部分分别是情感分享、身体靠近与边界、共同时间与个人空间、协商对外表达和隐私边界。相处对象、环境和当前状态可能影响回答；测试不要求把这些条件解释给别人。",
+          "en": "The four parts concern emotional sharing, physical closeness and boundaries, time together and personal space, and negotiation of visibility and privacy. The person involved, environment and present circumstances may affect responses. The test does not require explaining those conditions to others."
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "zh": "每组原始和与四位小数均分",
+        "en": "A Raw Sum and Four-Decimal Mean for Each Group"
+      },
+      "paragraphs": [
+        {
+          "zh": "每题原五个数值是1完全不符合、2比较不符合、3不确定或视情况、4比较符合、5非常符合。全部直接计分，没有反向题；3是原有数值回答，不等于网页的不计分选项。",
+          "en": "The original numeric choices are 1 does not fit at all, 2 mostly does not fit, 3 uncertain or depends on the situation, 4 mostly fits and 5 fits very well. All are forward-scored. A 3 is an original numeric answer, distinct from the web edition’s unscored option."
+        },
+        {
+          "zh": "本组完整六题的数值相加，得到6—30的原始和；除以六，均分显示四位小数。例如4、3、5、2、4、3得到21，21÷6为3.5000；总和29得到4.8333。它不换算百分比或人群排名。",
+          "en": "Six complete numeric responses sum to 6–30. Divide by six and display the mean to four decimals. Responses 4, 3, 5, 2, 4, 3 total 21, so 21÷6 is 3.5000; a total of 29 produces 4.8333. These are not converted to percentages or population ranks."
+        },
+        {
+          "zh": "数值仅概括对整组混合陈述的符合程度。六个3和5、1、5、1、5、1都得到3.0000，却不能说明具体答案相同。同样，身体部分不是接触量，时间部分不是陪伴比例，对外表达部分不是公开程度。",
+          "en": "Numbers summarize agreement with a group of mixed statements. Six responses of 3 and responses 5, 1, 5, 1, 5, 1 both average 3.0000 without establishing the same individual answers. Likewise, the closeness part is not an amount of contact, time is not a togetherness ratio, and visibility is not degree of publicity."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "zh": "不计分、未作完与暂不可用怎样区分",
+        "en": "Unscored, Incomplete and Unavailable Are Different"
+      },
+      "paragraphs": [
+        {
+          "zh": "完成24个选择即可结束作答，包括全部选择不计分。本组只要有一题不计分，就暂不给原始和与均分，不补零或中点；其他数值完整组仍可读，四份公开全文不受影响。",
+          "en": "An attempt can finish after 24 choices, including an entirely unscored attempt. One unscored answer withholds that group’s sum and mean without zero or midpoint imputation. Other complete groups remain available, and all four public guides remain readable."
+        },
+        {
+          "zh": "尚未选择完时不先展示个人结果；版本或配置不匹配时停止计算，不拿旧结果替代。一般指南在这些情况下仍是通用说明，不能把它当成已经计算出的个人解释。",
+          "en": "Before all choices are made, no personal result is shown. A version or configuration mismatch stops calculation instead of substituting old results. General guides remain general explanations; they are not presented as a personal interpretation already calculated from incomplete input."
+        }
+      ]
+    },
+    {
+      "id": "boundaries",
+      "title": {
+        "zh": "数值不能替代同意、隐私或具体协商",
+        "en": "Numbers Do Not Replace Consent, Privacy or Agreement"
+      },
+      "paragraphs": [
+        {
+          "zh": "偏好不能代替任何一方当下、明确、自愿、具体且可撤回的同意。过去接受、关系身份、沉默、迟疑或没有反抗不自动说明现在愿意；任何分数都不授权身体靠近。",
+          "en": "A preference cannot replace either person’s clear, voluntary, specific and withdrawable consent now. Past acceptance, relationship status, silence, hesitation or lack of resistance do not automatically establish present willingness. No score authorizes physical closeness."
+        },
+        {
+          "zh": "身体部分多为确认与暂停陈述，不生成接触偏好清单；共同和个人时间可以同时需要；对外表达主要看协商，不要求公开得更多。每件具体互动仍按对象、场景和当下条件分别决定。",
+          "en": "Most closeness items concern confirmation and pausing, not a contact-preference checklist. Shared and personal time can both be wanted. Visibility mainly concerns negotiation, not a demand for more publicity. Decide each interaction in its own setting and present circumstances."
+        },
+        {
+          "zh": "四组不合并、不相减、不排名，不产生混合类型。数值相同只说明本次算术结果相同，不证明心理含义相同或达到完美平衡；分别计算也不等于已证明统计独立。",
+          "en": "The groups are not combined, subtracted or ranked, and produce no blended type. Equal numbers establish equal arithmetic results, not identical psychological meaning or perfect balance. Separate calculation does not establish statistical independence."
+        },
+        {
+          "zh": "结果不推断性取向、性经历、依恋类型、成熟度、关系健康或结局。你不必披露、不必联系或说服任何人，也不能用自己的或对方的结果要求配合。想在这里结束就可以。",
+          "en": "Results do not infer orientation, sexual experience, attachment, maturity, relationship health or outcomes. Disclosure, contact and persuasion are not required. Neither your result nor somebody else’s can demand participation. You may finish here."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "zh": "网页只保留当前页面内存",
+        "en": "The Website Uses Current-Page Memory Only"
+      },
+      "paragraphs": [
+        {
+          "zh": "本网页版不保存答卷草稿或最终结果，不上传逐题选择；刷新、换语或离开会清除当前回答。它与原小程序当前设备保存草稿和结果缓存的方式不同，作答前就应知道这个区别。",
+          "en": "This web edition saves neither an answer draft nor a final result and does not upload choices. Reloading, changing language or leaving clears current answers. This differs from the original Mini’s device drafts and result cache, a distinction shown before starting."
+        },
+        {
+          "zh": "复制仅提供公开测试和指南链接，不包含答案、分数、关系信息或个人描述。全部完整指南无需注册、邮箱或前置测评即可阅读；重测从空白开始，不能由上次结果补推。",
+          "en": "Copying supplies only public test and guide links, with no answers, scores, relationship information or personal description. All full guides are readable without signup, email or another assessment. Retaking starts empty rather than inferring answers from a previous result."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "zh": "这个测试在看什么？",
+        "en": "What does this test explore?"
+      },
+      "answer": {
+        "zh": "四组六题分别回看语言分享、身体靠近与边界、共同和个人时间，以及对外表达与隐私的协商。它只概括本人对陈述的符合程度。",
+        "en": "Four six-item groups explore words for feelings, closeness and boundaries, shared and personal time, and negotiation of visibility and privacy. They summarize only your own agreement with the statements."
+      }
+    },
+    {
+      "question": {
+        "zh": "为什么没有总亲密度或主导类型？",
+        "en": "Why is there no overall intimacy score or dominant type?"
+      },
+      "answer": {
+        "zh": "四组题目内容不同，没有可合并、排名或互相抵销的已验证规则。保留分组原始和与均分，更便于回到具体陈述。",
+        "en": "The groups have different content and no validated rule for combining, ranking or offsetting them. Separate raw sums and means keep interpretation close to the statements."
+      }
+    },
+    {
+      "question": {
+        "zh": "身体部分能说明喜欢哪种接触吗？",
+        "en": "Does the closeness part identify contact preferences?"
+      },
+      "answer": {
+        "zh": "不能。多数陈述在问当下确认、舒适范围和暂停方式；整组均分不能确认任一道题，更不表示同意任何接触。",
+        "en": "No. Most statements concern present confirmation, comfort and pausing. The mean cannot identify a particular answer or consent to any contact."
+      }
+    },
+    {
+      "question": {
+        "zh": "对外表达的均分越大，就越愿意公开吗？",
+        "en": "Does a larger visibility mean imply more publicity?"
+      },
+      "answer": {
+        "zh": "不能这样解释。本组主要是协商与隐私陈述；重视商量的人也可能只愿很少公开，具体听众、内容和时机需要分别确认。",
+        "en": "No. This group mainly concerns negotiation and privacy. Someone who values discussion may want little publicity; audience, content and timing need separate confirmation."
+      }
+    },
+    {
+      "question": {
+        "zh": "跳题会被算成低分吗？",
+        "en": "Does an unscored answer become a low score?"
+      },
+      "answer": {
+        "zh": "不会。本组有一题不计分就暂不给本组数值，不补零或3。全部不计分也可以完成，并读四篇完整指南。",
+        "en": "No. One unscored answer withholds that group’s numbers without filling in zero or 3. An entirely unscored attempt can finish and read all four guides."
+      }
+    },
+    {
+      "question": {
+        "zh": "两组均分一样，意味着平衡或同一种偏好吗？",
+        "en": "Do equal means establish balance or the same preference?"
+      },
+      "answer": {
+        "zh": "不。不同题目可能产生相同总和，四组内容也不同；相同数值不证明同样的答案、同样的心理含义或理想平衡。",
+        "en": "No. Different responses can share a sum, and groups have different content. Equal numbers do not establish identical answers, psychological meaning or ideal balance."
+      }
+    },
+    {
+      "question": {
+        "zh": "必须有伴侣、说明身份或披露经历才能答吗？",
+        "en": "Must I have a partner or disclose personal information?"
+      },
+      "answer": {
+        "zh": "不需填写任何关系身份或经历。只答自己能确认的成年人互动偏好；没有参考情境或不愿回答时选不计分，通用指南仍可直接阅读。",
+        "en": "No relationship status or history is requested. Answer only adult interaction preferences you can confirm. Without a reference situation or wish to answer, choose unscored or simply read the general guides."
+      }
+    },
+    {
+      "question": {
+        "zh": "网页会保存结果，分享会带出答案吗？",
+        "en": "Does the website save results or share answers?"
+      },
+      "answer": {
+        "zh": "不会保存本次答卷或结果；刷新、换语或离开会清除，重测从空白开始。复制仅含公开测试和指南链接，不含答案、分数或私人信息。",
+        "en": "No answers or result are saved. Reloading, language change or leaving clears them, and retaking starts empty. Copying includes only public test and guide links, without answers, scores or private information."
+      }
+    }
+  ]
+}
