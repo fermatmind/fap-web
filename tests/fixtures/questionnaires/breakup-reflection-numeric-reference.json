@@ -1,0 +1,330 @@
+{
+  "oracle": "Independent Python Decimal division and ROUND_HALF_UP;25reachable six-item raw sums;not5^24joint",
+  "rows": [
+    {
+      "sum": 6,
+      "witness": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.0000",
+      "mean": 1.0
+    },
+    {
+      "sum": 7,
+      "witness": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.1667",
+      "mean": 1.1667
+    },
+    {
+      "sum": 8,
+      "witness": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.3333",
+      "mean": 1.3333
+    },
+    {
+      "sum": 9,
+      "witness": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.5000",
+      "mean": 1.5
+    },
+    {
+      "sum": 10,
+      "witness": [
+        5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.6667",
+      "mean": 1.6667
+    },
+    {
+      "sum": 11,
+      "witness": [
+        5,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "1.8333",
+      "mean": 1.8333
+    },
+    {
+      "sum": 12,
+      "witness": [
+        5,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.0000",
+      "mean": 2.0
+    },
+    {
+      "sum": 13,
+      "witness": [
+        5,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.1667",
+      "mean": 2.1667
+    },
+    {
+      "sum": 14,
+      "witness": [
+        5,
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.3333",
+      "mean": 2.3333
+    },
+    {
+      "sum": 15,
+      "witness": [
+        5,
+        5,
+        2,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.5000",
+      "mean": 2.5
+    },
+    {
+      "sum": 16,
+      "witness": [
+        5,
+        5,
+        3,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.6667",
+      "mean": 2.6667
+    },
+    {
+      "sum": 17,
+      "witness": [
+        5,
+        5,
+        4,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "2.8333",
+      "mean": 2.8333
+    },
+    {
+      "sum": 18,
+      "witness": [
+        5,
+        5,
+        5,
+        1,
+        1,
+        1
+      ],
+      "display_mean": "3.0000",
+      "mean": 3.0
+    },
+    {
+      "sum": 19,
+      "witness": [
+        5,
+        5,
+        5,
+        2,
+        1,
+        1
+      ],
+      "display_mean": "3.1667",
+      "mean": 3.1667
+    },
+    {
+      "sum": 20,
+      "witness": [
+        5,
+        5,
+        5,
+        3,
+        1,
+        1
+      ],
+      "display_mean": "3.3333",
+      "mean": 3.3333
+    },
+    {
+      "sum": 21,
+      "witness": [
+        5,
+        5,
+        5,
+        4,
+        1,
+        1
+      ],
+      "display_mean": "3.5000",
+      "mean": 3.5
+    },
+    {
+      "sum": 22,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        1,
+        1
+      ],
+      "display_mean": "3.6667",
+      "mean": 3.6667
+    },
+    {
+      "sum": 23,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        2,
+        1
+      ],
+      "display_mean": "3.8333",
+      "mean": 3.8333
+    },
+    {
+      "sum": 24,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        3,
+        1
+      ],
+      "display_mean": "4.0000",
+      "mean": 4.0
+    },
+    {
+      "sum": 25,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        4,
+        1
+      ],
+      "display_mean": "4.1667",
+      "mean": 4.1667
+    },
+    {
+      "sum": 26,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        1
+      ],
+      "display_mean": "4.3333",
+      "mean": 4.3333
+    },
+    {
+      "sum": 27,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        2
+      ],
+      "display_mean": "4.5000",
+      "mean": 4.5
+    },
+    {
+      "sum": 28,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "display_mean": "4.6667",
+      "mean": 4.6667
+    },
+    {
+      "sum": 29,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "display_mean": "4.8333",
+      "mean": 4.8333
+    },
+    {
+      "sum": 30,
+      "witness": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "display_mean": "5.0000",
+      "mean": 5.0
+    }
+  ]
+}

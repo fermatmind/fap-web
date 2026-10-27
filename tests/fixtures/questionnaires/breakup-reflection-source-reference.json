@@ -1,0 +1,633 @@
+{
+  "code": "BREAKUP_REASON",
+  "source_files": [
+    {
+      "path": "miniprogram/assessment/breakup_reason/product.js",
+      "sha256": "17b1decc7a382725e84641369a3a5b03b68c3e3342f1ac61573956f48f99836f",
+      "bytes": 1301
+    },
+    {
+      "path": "miniprogram/assessment/breakup_reason/item_bank.js",
+      "sha256": "2083edcc35b00d96b1c8a1abcac6438ae36d31cc5b913749d98b764fd00e4d5e",
+      "bytes": 16141
+    },
+    {
+      "path": "miniprogram/assessment/breakup_reason/scoring_spec.js",
+      "sha256": "1ad83cd014da0295e91d0911eebf9216fdfb50a5b169abc5430524e4f06e0ee3",
+      "bytes": 1321
+    },
+    {
+      "path": "miniprogram/assessment/breakup_reason/result_content.js",
+      "sha256": "3dee75408dbd3c970b8042995ca0be9765d4a4d1d2523c5088b451770e25150e",
+      "bytes": 16013
+    },
+    {
+      "path": "miniprogram/assessment/local/independent_factor_likert_scorer.js",
+      "sha256": "9e71ef2a416e6f4a4312a38757a62b2b6cdd3d3c4bf00e0778a1ce877de9b8cf",
+      "bytes": 8307
+    },
+    {
+      "path": "miniprogram/assessment/local/scorer_helpers.js",
+      "sha256": "4fbf9a4bc5f6d66bcec588880a2f34ee239b887264b72396e1cd8118f174e0fb",
+      "bytes": 5915
+    }
+  ],
+  "source_scoring_spec": {
+    "test_id": "BREAKUP_REASON",
+    "scoring_version": "0.1.0-preview",
+    "compatible_construct_version": "0.1.0-preview",
+    "compatible_item_bank_version": "0.1.0-preview",
+    "compatible_form_code": "breakup_reason_likert_24",
+    "status": "public_preview_independent_factor_raw_mean_not_validated",
+    "public_preview": true,
+    "psychometric_validation_completed": false,
+    "factors": [
+      {
+        "factor_code": "COMMUNICATION_EROSION",
+        "display_name": "沟通逐渐失效的线索",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "NEEDS_MISMATCH",
+        "display_name": "需要与关系期待差异",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "BOUNDARY_TRUST_STRAIN",
+        "display_name": "边界或信任承压",
+        "scheduled_items": 6
+      },
+      {
+        "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+        "display_name": "外部压力与生活变化",
+        "scheduled_items": 6
+      }
+    ],
+    "scoring_model": {
+      "name": "independent_factor_likert_raw_mean",
+      "response_min": 1,
+      "response_max": 5,
+      "integer_only": true,
+      "items_per_factor": 6,
+      "total_score_enabled": false,
+      "ranking_enabled": false,
+      "thresholds_enabled": false,
+      "norming_enabled": false,
+      "interpretation_requires_complete": true
+    }
+  },
+  "items": [
+    {
+      "source_id": "BREAKUP_LK_001",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "关系结束前，我们越来越难把重要话题谈完整。",
+        "en": "Before the relationship ended, it became increasingly difficult for us to finish discussing important topics."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_002",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "一些分歧反复出现，却很少形成双方都理解的结论。",
+        "en": "Some disagreements kept returning, but we rarely reached a conclusion that both of us understood."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_003",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "我们常常猜测对方的意思，而不是直接确认。",
+        "en": "We often guessed what the other person meant instead of checking directly."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_004",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "一方表达在意时，另一方常常没有余力回应。",
+        "en": "When one of us expressed that something mattered, the other often had little capacity left to respond."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_005",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "关系后期，我们减少了对彼此近况和感受的交流。",
+        "en": "Toward the end of the relationship, we shared less about our lives and feelings."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_006",
+      "factor_code": "COMMUNICATION_EROSION",
+      "prompt": {
+        "zh": "尝试澄清误会时，对话常很快中断或偏离原题。",
+        "en": "When we tried to clear up a misunderstanding, the conversation often stopped or moved away from the issue."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_007",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "我们对联系频率的期待长期存在差异。",
+        "en": "Our expectations about how often to stay in touch differed over a long period."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_008",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "我们对承诺节奏或未来安排的期待不容易协调。",
+        "en": "It was difficult to coordinate our expectations about the pace of commitment or future arrangements."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_009",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "一方重视的支持方式，另一方常难以提供或理解。",
+        "en": "One of us often struggled to provide or understand the kind of support the other valued."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_010",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "我们对共同时间与个人空间的安排反复不一致。",
+        "en": "Our arrangements for time together and personal space repeatedly failed to line up."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_011",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "关系中哪些责任应由谁承担，我们缺少稳定共识。",
+        "en": "We lacked a stable agreement about who should take responsibility for what in the relationship."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_012",
+      "factor_code": "NEEDS_MISMATCH",
+      "prompt": {
+        "zh": "我们想从这段关系中获得的核心体验逐渐不同。",
+        "en": "The central experiences we wanted from the relationship gradually became different."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_013",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "我们对哪些信息需要坦诚沟通有不同理解。",
+        "en": "We understood differently which information needed to be discussed openly."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_014",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "已经说出的个人边界没有被稳定地记住或尊重。",
+        "en": "Personal boundaries that had been stated were not consistently remembered or respected."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_015",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "重要约定发生变化时，我们很难重新建立信任。",
+        "en": "When important agreements changed, we found it difficult to rebuild trust."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_016",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "一方说不或需要暂停时，互动仍可能继续施压。",
+        "en": "When one of us said no or needed a pause, pressure could still continue in the interaction."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_017",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "我们对隐私、社交或个人决定的边界长期有摩擦。",
+        "en": "We experienced ongoing friction around privacy, social contact or personal decisions."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_018",
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "prompt": {
+        "zh": "关系后期，彼此核对和怀疑占用了越来越多注意力。",
+        "en": "Toward the end of the relationship, checking on each other and feeling suspicious took up increasing attention."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_019",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "工作、学习或经济压力明显减少了我们可用的相处精力。",
+        "en": "Work, study or financial pressure noticeably reduced the energy we had available to spend together."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_020",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "距离、居住或作息变化让原有相处方式难以维持。",
+        "en": "Changes in distance, living arrangements or daily schedules made our earlier way of being together difficult to maintain."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_021",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "家庭责任或重要他人的意见持续影响我们的决定。",
+        "en": "Family responsibilities or the views of important people in our lives continued to affect our decisions."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_022",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "健康或照顾任务改变了双方能投入关系的资源。",
+        "en": "Health issues or caregiving tasks changed the resources each of us could put into the relationship."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_023",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "我们处在不同生活阶段，重要计划很难同时推进。",
+        "en": "We were at different stages of life, making it difficult to move important plans forward at the same time."
+      }
+    },
+    {
+      "source_id": "BREAKUP_LK_024",
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "prompt": {
+        "zh": "一次较大的现实转折使关系安排长期处于不确定中。",
+        "en": "A major change in practical circumstances left our relationship arrangements uncertain for a long time."
+      }
+    }
+  ],
+  "numeric_labels": {
+    "1": {
+      "zh": "完全不符合",
+      "en": "Does not fit at all"
+    },
+    "2": {
+      "zh": "比较不符合",
+      "en": "Mostly does not fit"
+    },
+    "3": {
+      "zh": "不确定或视情况",
+      "en": "Uncertain or depends on the situation"
+    },
+    "4": {
+      "zh": "比较符合",
+      "en": "Mostly fits"
+    },
+    "5": {
+      "zh": "非常符合",
+      "en": "Fits very well"
+    }
+  },
+  "NA_addition": {
+    "zh": "无法作答或不愿回答（不计分）",
+    "en": "Unable or prefer not to answer (unscored)"
+  },
+  "factor_fields": [
+    {
+      "factor_code": "COMMUNICATION_EROSION",
+      "fields": {
+        "display_name": {
+          "zh": "沟通逐渐失效的线索",
+          "en": "Communication becoming harder"
+        },
+        "result_headline": {
+          "zh": "回看对话是在哪一步开始难以为继",
+          "en": "Look back at where a conversation became difficult to continue"
+        },
+        "one_sentence_summary": {
+          "zh": "这组六道陈述关心的是：重要话题是不是越来越难谈完整，澄清和核对是不是越来越少。",
+          "en": "These six statements ask whether important topics became harder to discuss fully, with less clarification and checking."
+        },
+        "score_reading": {
+          "zh": "平均值表示你对这六条陈述的整体符合程度。它只用于阅读，不分高低好坏。",
+          "en": "The mean describes how well the six statements fit your recollection overall. It is a reading aid, not a good-or-bad rating."
+        },
+        "construct_definition": {
+          "zh": "观察对话是否逐渐失去把一件事谈完整、核对清楚再收尾的功能，不判断谁更会说话。",
+          "en": "Observe whether conversations gradually stopped helping you finish a topic, check understanding and bring it to a close. This does not judge who was better at speaking."
+        },
+        "item_scope": {
+          "zh": "题目覆盖这几类情况：重要话题谈不完整、分歧反复出现但缺结论、用猜测代替确认、表达在意后缺少回应余力、后期交流减少、澄清时对话中断或偏离。",
+          "en": "The items cover unfinished important topics, recurring disagreements without conclusions, guessing instead of checking, limited capacity to respond to care, less communication toward the end, and attempts to clarify that stopped or went off topic."
+        },
+        "observable_review_angles": {
+          "zh": "可以回顾的角度：哪次对话停在半途；哪个误会一直没被核对；你当时有没有机会把话说完。",
+          "en": "You might recall a conversation that stopped halfway, a misunderstanding that was never checked, or whether you had an opportunity to finish speaking."
+        },
+        "facts_to_check": {
+          "zh": "一次具体对话里双方分别说了什么；话题在哪一句停住；后来有没有人再提起。",
+          "en": "What each person actually said in one conversation; where the topic stopped; and whether anyone returned to it later."
+        },
+        "what_this_score_may_help_review": {
+          "zh": "它可能帮你整理这段关系里哪些话反复没说完，以及下一次你想更早开口谈什么。",
+          "en": "This may help you organise the topics that repeatedly remained unfinished and what you would want to raise earlier in a future relationship."
+        },
+        "what_this_score_cannot_support": {
+          "zh": "它不能说明谁更不会沟通、谁拒绝沟通，也不能证明沟通问题是关系结束的原因。",
+          "en": "It cannot establish who communicated poorly or refused to communicate, or prove that communication difficulties caused the relationship to end."
+        },
+        "context_questions": {
+          "zh": "那些没说完的话，是当时没有机会说，还是说了没有被接住？现在回看，你更想核对的是哪一句？",
+          "en": "Were the unfinished things never given room to be said, or were they said without being taken up? Looking back, which particular statement would you want to check?"
+        },
+        "low_risk_actions": {
+          "zh": "写下一次可确认的对话事实；只在愿意时与信任的人核对；不联系、不复合、不公开都可以。",
+          "en": "Write down one conversation fact you can confirm. Check it with a trusted person only if you wish. Choosing no contact, no reconciliation and no public account is also valid."
+        },
+        "safety_note": {
+          "zh": "如果说不之后，对话会升级成威胁、强迫或控制，那不属于沟通问题，请优先保障现实安全。",
+          "en": "If saying no leads to threats, coercion or control, that is beyond a communication difficulty. Prioritise practical safety."
+        },
+        "does_not_mean": {
+          "zh": [
+            "不证明沟通是唯一原因",
+            "不分配责任",
+            "暴力或控制不能算作沟通问题"
+          ],
+          "en": [
+            "Does not prove communication was the only cause",
+            "Does not allocate responsibility",
+            "Violence or control must not be treated as a communication problem"
+          ]
+        },
+        "causal_boundary": {
+          "zh": "对话变难与关系结束之间的先后与因果，本测试无法确认。",
+          "en": "This test cannot establish the order or causal connection between difficult conversations and the end of the relationship."
+        },
+        "responsibility_boundary": {
+          "zh": "分数不指向谁应该负责，也不要求你向对方解释或道歉。",
+          "en": "The score does not identify who should be responsible or require you to explain yourself or apologise to the other person."
+        },
+        "science_boundary": {
+          "zh": "这是单方回顾的因素线索，未完成心理测量验证，不能当作沟通能力评估。",
+          "en": "This is a one-sided retrospective set of clues, without completed psychometric validation. It is not an assessment of communication ability."
+        }
+      }
+    },
+    {
+      "factor_code": "NEEDS_MISMATCH",
+      "fields": {
+        "display_name": {
+          "zh": "需要与关系期待差异",
+          "en": "Different needs and relationship expectations"
+        },
+        "result_headline": {
+          "zh": "回看哪些期待一直没能对齐",
+          "en": "Look back at expectations that did not line up"
+        },
+        "one_sentence_summary": {
+          "zh": "这六道题问的是联系、支持、空间、分工和未来安排上的期待，是不是长期难以协调。",
+          "en": "These six statements concern whether expectations about contact, support, space, responsibilities and future arrangements remained difficult to coordinate."
+        },
+        "score_reading": {
+          "zh": "平均值表示这六条陈述的整体符合程度。数值本身不说明谁要得多、谁给得少。",
+          "en": "The mean describes how well the six statements fit overall. The number itself does not show who wanted too much or gave too little."
+        },
+        "construct_definition": {
+          "zh": "观察双方在联系频率、支持方式、共同与个人时间、责任分工和未来期待上是否长期不一致，不判断谁更合适。",
+          "en": "Observe persistent differences in contact frequency, support, shared and personal time, responsibilities and future expectations. This does not decide who was more suitable."
+        },
+        "item_scope": {
+          "zh": "题目覆盖联系频率期待、承诺节奏与未来安排、重视的支持方式、共同时间与个人空间、责任承担共识、想从关系获得的核心体验。",
+          "en": "The items cover expectations about contact frequency, commitment and future plans, valued kinds of support, time together and personal space, responsibility arrangements, and the central experiences wanted from the relationship."
+        },
+        "observable_review_angles": {
+          "zh": "可以回顾的角度：你们在哪一类安排上反复不一致；分歧出现后怎样处理；哪些需要从头到尾没有说出口。",
+          "en": "You might look at an arrangement that repeatedly differed, how the difference was handled, or a need that remained unspoken throughout."
+        },
+        "facts_to_check": {
+          "zh": "双方各自提出过的期待；哪些安排试过又改回；最后一次讨论这类话题是什么时候。",
+          "en": "Expectations each person actually raised; arrangements that were tried and later changed back; and the last discussion about that topic."
+        },
+        "what_this_score_may_help_review": {
+          "zh": "它可能帮你列出一份下一次想更早拿出来谈的事项清单。",
+          "en": "This may help you make a list of matters you would want to discuss earlier in a future relationship."
+        },
+        "what_this_score_cannot_support": {
+          "zh": "它不能证明双方天生不合适，也不能说你或对方自私、要求太多。",
+          "en": "It cannot prove that you were inherently incompatible or that either person was selfish or asked for too much."
+        },
+        "context_questions": {
+          "zh": "哪一项落差最常被提起？当时有没有机会把各自的需要都说完？",
+          "en": "Which difference came up most often? Was there room for each person to finish explaining what they needed?"
+        },
+        "low_risk_actions": {
+          "zh": "把一项落差分别写成双方可能的需要；把想早点讨论的事项写进清单；不需要现在联系对方。",
+          "en": "Write one difference as a possible need on each side, and add a topic you would want to discuss earlier to a private list. You do not need to contact the other person now."
+        },
+        "safety_note": {
+          "zh": "如果差异伴随着威胁或强迫，那已经不是需要协调的问题，请先保证安全。",
+          "en": "If a difference involves threats or coercion, it is no longer simply a matter of coordinating needs. Put safety first."
+        },
+        "does_not_mean": {
+          "zh": [
+            "不表示双方不适合",
+            "不判断复合",
+            "需要不同不等于谁有错"
+          ],
+          "en": [
+            "Does not mean the two people were unsuitable for each other",
+            "Does not decide whether to reconcile",
+            "Having different needs does not establish that someone was wrong"
+          ]
+        },
+        "causal_boundary": {
+          "zh": "期待差异与关系结束之间是否存在因果，本测试无法确认。",
+          "en": "This test cannot establish whether differences in expectations caused the relationship to end."
+        },
+        "responsibility_boundary": {
+          "zh": "分数不指向谁该改变；改变意愿本身也不由测试判断。",
+          "en": "The score does not say who should change. The test also cannot decide whether someone wants to change."
+        },
+        "science_boundary": {
+          "zh": "这是单方回顾的因素线索，未完成心理测量验证，不能用于预测下一段关系。",
+          "en": "This is a one-sided retrospective set of clues, without completed psychometric validation. It cannot predict a future relationship."
+        }
+      }
+    },
+    {
+      "factor_code": "BOUNDARY_TRUST_STRAIN",
+      "fields": {
+        "display_name": {
+          "zh": "边界或信任承压",
+          "en": "Pressure on boundaries or trust"
+        },
+        "result_headline": {
+          "zh": "回看边界和信任是在哪里承压",
+          "en": "Look back at where boundaries and trust came under pressure"
+        },
+        "one_sentence_summary": {
+          "zh": "这六道题问的是：说过的话和约定有没有被稳定记住，拒绝之后互动有没有被尊重。",
+          "en": "These six statements concern whether expressed words and agreements were consistently remembered and whether a refusal was respected."
+        },
+        "score_reading": {
+          "zh": "平均值只说明六条陈述的整体符合程度，不能确认任何一次具体事件是否发生。",
+          "en": "The mean describes only how well the six statements fit overall. It cannot confirm that a particular event occurred."
+        },
+        "construct_definition": {
+          "zh": "观察选择权、隐私、约定、拒绝和信任是否承受压力，不把一般摩擦与暴力控制混为一谈。",
+          "en": "Observe pressure on choice, privacy, agreements, refusals and trust, while keeping ordinary friction distinct from violence and control."
+        },
+        "item_scope": {
+          "zh": "题目覆盖坦诚范围分歧、边界未被记住或尊重、约定变化后信任难恢复、说不之后仍被施压、隐私与决定摩擦、核对与怀疑增多。",
+          "en": "The items cover different expectations of openness, forgotten or disregarded boundaries, difficulty rebuilding trust after changed agreements, continuing pressure after a refusal, friction around privacy and decisions, and increased checking and suspicion."
+        },
+        "observable_review_angles": {
+          "zh": "可以回顾：哪一次明确的拒绝没有被尊重；哪个约定后来发生变化；哪些事情需要反复核对。",
+          "en": "You might recall a clear refusal that was not respected, an agreement that later changed, or something that repeatedly needed checking."
+        },
+        "facts_to_check": {
+          "zh": "一次拒绝时对方接着做了什么；边界有没有明确说出；约定变化后有没有重新说明。",
+          "en": "What the other person did after one refusal; whether the boundary was explicitly stated; and whether a changed agreement was explained again."
+        },
+        "what_this_score_may_help_review": {
+          "zh": "它可能帮你标出以后想更早守住或说明的边界。",
+          "en": "This may help you mark a boundary that you would want to state or protect earlier in the future."
+        },
+        "what_this_score_cannot_support": {
+          "zh": "它不能确认暴力、胁迫或控制发生，不能判断谁危险，也不能计算责任比例。",
+          "en": "It cannot confirm violence, coercion or control, identify a dangerous person, or calculate shares of responsibility."
+        },
+        "context_questions": {
+          "zh": "你说不或需要暂停时，接下来发生了什么？你愿意写下来核对吗？",
+          "en": "What happened after you said no or asked for a pause? Would you want to write it down so that you can check the details?"
+        },
+        "low_risk_actions": {
+          "zh": "不要求你联系、对质、解释或复合。如存在安全威胁，安全优先：可暂停联系，向可信的人、当地紧急服务或合适的专业支持求助。",
+          "en": "You are not required to make contact, confront, explain yourself or reconcile. If there is a safety threat, put safety first: you may pause contact and seek help from a trusted person, local emergency services or appropriate professional support."
+        },
+        "safety_note": {
+          "zh": "安全说明与分数多少无关，任何分数下都成立：暴力、胁迫、跟踪、威胁、强迫和控制不是沟通不良或双方不合，不为伤害行为寻找双向原因。",
+          "en": "The safety boundary applies regardless of the score. Violence, coercion, stalking, threats, force and control are not poor communication or mutual incompatibility. Do not seek a two-sided cause for harmful acts."
+        },
+        "does_not_mean": {
+          "zh": [
+            "不确认具体伤害事件一定发生",
+            "不说明你或对方是危险人物",
+            "不表示双方共同造成暴力"
+          ],
+          "en": [
+            "Does not confirm that a specific harmful event occurred",
+            "Does not identify you or the other person as dangerous",
+            "Does not mean both people caused violence"
+          ]
+        },
+        "causal_boundary": {
+          "zh": "边界或信任承压与关系结束之间的因果，本测试无法确认。",
+          "en": "This test cannot establish a causal link between pressure on boundaries or trust and the end of the relationship."
+        },
+        "responsibility_boundary": {
+          "zh": "不分配责任比例；不把未离开、不反抗或复合解释成同意或共同责任。",
+          "en": "It does not allocate shares of responsibility. Staying, not resisting or reconciling must not be treated as consent or shared responsibility for harm."
+        },
+        "science_boundary": {
+          "zh": "安全威胁超出本测试能力；结果不能替代专业与现实支持，也不能证明或排除伤害历史。",
+          "en": "Safety threats are beyond the test. Its results cannot replace practical or professional support, or prove or rule out a history of harm."
+        }
+      }
+    },
+    {
+      "factor_code": "EXTERNAL_PRESSURE_TRANSITION",
+      "fields": {
+        "display_name": {
+          "zh": "外部压力与生活变化",
+          "en": "External pressures and life changes"
+        },
+        "result_headline": {
+          "zh": "回看时间与精力怎样被现实条件改变",
+          "en": "Look back at how practical conditions changed time and energy"
+        },
+        "one_sentence_summary": {
+          "zh": "这六道题问的是工作、学习、经济、距离、家庭和照顾这些关系之外的条件，有没有改变你们的相处方式。",
+          "en": "These six statements ask whether conditions outside the relationship, such as work, study, finances, distance, family and caregiving, changed how you spent time together."
+        },
+        "score_reading": {
+          "zh": "平均值表示六条陈述的整体符合程度，只说明你的回顾印象，不评价压力本身对错。",
+          "en": "The mean describes how well the six statements fit your retrospective impression. It does not judge a pressure as right or wrong."
+        },
+        "construct_definition": {
+          "zh": "观察关系之外的压力与生活阶段变化，是否改变双方能投入的时间、精力和选择空间。",
+          "en": "Observe whether external pressures or changes in life stage affected the time, energy and choices available to each person."
+        },
+        "item_scope": {
+          "zh": "题目覆盖工作学习经济压力、距离居住作息变化、家庭责任与重要他人意见、健康与照顾任务、生活阶段差异、重大现实转折。",
+          "en": "The items cover work, study and financial pressures; distance, housing and schedule changes; family responsibilities and significant others’ opinions; health and caregiving; different life stages; and major changes in practical circumstances."
+        },
+        "observable_review_angles": {
+          "zh": "可以回顾的角度：压力出现的先后；哪段时间相处方式变了；哪些安排因为现实条件没能维持。",
+          "en": "You might recall when a pressure began, when your way of spending time together changed, or which arrangements could no longer be maintained."
+        },
+        "facts_to_check": {
+          "zh": "压力出现和关系变化的时间先后；时间、金钱、居住、健康这些资源里哪些确实改变过。",
+          "en": "The order of pressures and changes in the relationship; and which resources, including time, money, housing or health, actually changed."
+        },
+        "what_this_score_may_help_review": {
+          "zh": "它可能帮你区分关系内部的问题和资源限制带来的影响。",
+          "en": "This may help you distinguish difficulties within a relationship from the effects of limited resources."
+        },
+        "what_this_score_cannot_support": {
+          "zh": "它不能说明外部压力必然导致分手，也不能说没有压力关系就会成功。",
+          "en": "It cannot show that external pressure inevitably caused the breakup, or that the relationship would have succeeded without that pressure."
+        },
+        "context_questions": {
+          "zh": "变化发生时，双方各自承受了什么？有哪些安排是当时真的做不到的？",
+          "en": "What was each person dealing with when the change happened? Which arrangements were genuinely not possible at that time?"
+        },
+        "low_risk_actions": {
+          "zh": "如果愿意，可以画一条只记录可确认事实的时间线，标出压力出现和关系变化的先后；不需要据此联系、解释或改变任何关系决定。",
+          "en": "If you wish, draw a timeline of facts you can confirm, marking when a pressure began and when the relationship changed. This does not require contact, explanation or a change to any relationship decision."
+        },
+        "safety_note": {
+          "zh": "外部压力不能免除任何造成伤害行为的责任；如果压力情境伴随威胁或控制，安全优先。",
+          "en": "External pressure does not excuse responsibility for harmful acts. If threats or control accompany the pressure, prioritise safety."
+        },
+        "does_not_mean": {
+          "zh": [
+            "不证明某个事件必然导致分手",
+            "不预测你的下一段关系会重复同样结局"
+          ],
+          "en": [
+            "Does not prove that an event necessarily caused the breakup",
+            "Does not predict that your next relationship will end the same way"
+          ]
+        },
+        "causal_boundary": {
+          "zh": "压力与关系结束之间的因果，本测试无法确认。",
+          "en": "This test cannot establish a causal link between pressure and the end of the relationship."
+        },
+        "responsibility_boundary": {
+          "zh": "压力是背景条件，不是责任归属的依据。",
+          "en": "Pressure describes background conditions. It is not a basis for allocating responsibility."
+        },
+        "science_boundary": {
+          "zh": "这是单方回顾的因素线索，未完成心理测量验证，不能当作现实压力评估。",
+          "en": "This is a one-sided retrospective set of clues, without completed psychometric validation. It is not an assessment of practical stress."
+        }
+      }
+    }
+  ],
+  "candidate_source": {
+    "kind": "fermatmind_original_mini_breakup_reason_24",
+    "formCode": "breakup_reason_likert_24",
+    "itemBankVersion": "breakup_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "four_complete6_sum_mean4dp_no_ranking_causality_v1",
+    "resultContentVersion": "breakup_mini_four_full8_v1",
+    "itemBankSha256": "2083edcc35b00d96b1c8a1abcac6438ae36d31cc5b913749d98b764fd00e4d5e",
+    "resultContentSha256": "3dee75408dbd3c970b8042995ca0be9765d4a4d1d2523c5088b451770e25150e",
+    "psychometricValidationCompleted": false
+  }
+}

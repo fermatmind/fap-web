@@ -4901,5 +4901,30 @@
       "imagined-scenarios-reading",
       "interest-engagement-reading"
     ]
+  },
+  {
+    "slug": "breakup-reflection-test",
+    "code": "BREAKUP_REASON",
+    "version": "1.0.0",
+    "updated": "2026-10-28",
+    "category": "relationships",
+    "title": {
+      "en": "Breakup Reflection Test",
+      "zh": "分手复盘测试"
+    },
+    "description": {
+      "en": "Review one ended relationship through 24 original statements. Read four full guides on communication, needs, boundaries and life changes, with optional skips.",
+      "zh": "回顾一段已结束的关系，通过24条原创陈述整理沟通、需要、边界与生活变化。四组独立读数和完整指南全部免费，可跳过题目。"
+    },
+    "minutes": 6,
+    "collection": "explore",
+    "formCode": "breakup_reason_likert_24",
+    "questionCount": 24,
+    "resultSlugs": [
+      "communication-review",
+      "expectations-review",
+      "boundaries-review",
+      "external-pressure-review"
+    ]
   }
 ]

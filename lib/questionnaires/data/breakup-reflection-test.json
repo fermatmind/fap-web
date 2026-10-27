@@ -1,0 +1,2529 @@
+{
+  "slug": "breakup-reflection-test",
+  "code": "BREAKUP_REASON",
+  "version": "1.0.0",
+  "updated": "2026-10-28",
+  "category": "relationships",
+  "kind": "mini-breakup",
+  "minimumRatedItems": 6,
+  "title": {
+    "en": "Breakup Reflection Test",
+    "zh": "分手复盘测试"
+  },
+  "seoTitle": {
+    "en": "Breakup Reflection Test: Four Complete Review Guides",
+    "zh": "分手复盘测试：24题与四组完整结果指南"
+  },
+  "description": {
+    "en": "Review one ended relationship through 24 original statements. Read four full guides on communication, needs, boundaries and life changes, with optional skips.",
+    "zh": "回顾一段已结束的关系，通过24条原创陈述整理沟通、需要、边界与生活变化。四组独立读数和完整指南全部免费，可跳过题目。"
+  },
+  "minutes": 6,
+  "instructions": {
+    "en": "Think only about one intimate relationship that has ended. Choose how well each statement fits what you remember before it ended. The numeric midpoint means uncertain or depends on the situation; choose unscored if you cannot or prefer not to answer. Keep the other person’s identity private.",
+    "zh": "请只回顾一段已经结束的亲密关系，选择每条陈述与关系结束前所记得经历的符合程度。数值中点表示不确定或视情况；无法或不愿回答时可以选择不计分。请保留对方的身份隐私。"
+  },
+  "introduction": {
+    "en": "Use four separate groups to revisit communication, differing needs, boundaries and outside pressures. The result offers complete explanations and optional reflection prompts for your own records. About six minutes is an editorial estimate; there is no timer.",
+    "zh": "通过四组独立内容，回看沟通、需要差异、边界与外部压力。结果提供完整解释和可选的私人复盘提示；约六分钟是编辑估计，不设计时。"
+  },
+  "resultHeading": {
+    "zh": "关系结束复盘线索",
+    "en": "Reflection clues about a relationship that ended"
+  },
+  "directions": [
+    {
+      "id": "communication",
+      "title": {
+        "zh": "沟通逐渐失效的线索",
+        "en": "Communication becoming harder"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "expectations",
+      "title": {
+        "zh": "需要与关系期待差异",
+        "en": "Different needs and relationship expectations"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "boundaries",
+      "title": {
+        "zh": "边界或信任承压",
+        "en": "Pressure on boundaries or trust"
+      },
+      "itemCount": 6
+    },
+    {
+      "id": "external-pressure",
+      "title": {
+        "zh": "外部压力与生活变化",
+        "en": "External pressures and life changes"
+      },
+      "itemCount": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "BREAKUP_LK_001",
+      "prompt": {
+        "zh": "关系结束前，我们越来越难把重要话题谈完整。",
+        "en": "Before the relationship ended, it became increasingly difficult for us to finish discussing important topics."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_002",
+      "prompt": {
+        "zh": "一些分歧反复出现，却很少形成双方都理解的结论。",
+        "en": "Some disagreements kept returning, but we rarely reached a conclusion that both of us understood."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_003",
+      "prompt": {
+        "zh": "我们常常猜测对方的意思，而不是直接确认。",
+        "en": "We often guessed what the other person meant instead of checking directly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_004",
+      "prompt": {
+        "zh": "一方表达在意时，另一方常常没有余力回应。",
+        "en": "When one of us expressed that something mattered, the other often had little capacity left to respond."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_005",
+      "prompt": {
+        "zh": "关系后期，我们减少了对彼此近况和感受的交流。",
+        "en": "Toward the end of the relationship, we shared less about our lives and feelings."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_006",
+      "prompt": {
+        "zh": "尝试澄清误会时，对话常很快中断或偏离原题。",
+        "en": "When we tried to clear up a misunderstanding, the conversation often stopped or moved away from the issue."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "communication",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "communication",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "communication",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "communication",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "communication",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "communication",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_007",
+      "prompt": {
+        "zh": "我们对联系频率的期待长期存在差异。",
+        "en": "Our expectations about how often to stay in touch differed over a long period."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_008",
+      "prompt": {
+        "zh": "我们对承诺节奏或未来安排的期待不容易协调。",
+        "en": "It was difficult to coordinate our expectations about the pace of commitment or future arrangements."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_009",
+      "prompt": {
+        "zh": "一方重视的支持方式，另一方常难以提供或理解。",
+        "en": "One of us often struggled to provide or understand the kind of support the other valued."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_010",
+      "prompt": {
+        "zh": "我们对共同时间与个人空间的安排反复不一致。",
+        "en": "Our arrangements for time together and personal space repeatedly failed to line up."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_011",
+      "prompt": {
+        "zh": "关系中哪些责任应由谁承担，我们缺少稳定共识。",
+        "en": "We lacked a stable agreement about who should take responsibility for what in the relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_012",
+      "prompt": {
+        "zh": "我们想从这段关系中获得的核心体验逐渐不同。",
+        "en": "The central experiences we wanted from the relationship gradually became different."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "expectations",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "expectations",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "expectations",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "expectations",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "expectations",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "expectations",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_013",
+      "prompt": {
+        "zh": "我们对哪些信息需要坦诚沟通有不同理解。",
+        "en": "We understood differently which information needed to be discussed openly."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_014",
+      "prompt": {
+        "zh": "已经说出的个人边界没有被稳定地记住或尊重。",
+        "en": "Personal boundaries that had been stated were not consistently remembered or respected."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_015",
+      "prompt": {
+        "zh": "重要约定发生变化时，我们很难重新建立信任。",
+        "en": "When important agreements changed, we found it difficult to rebuild trust."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_016",
+      "prompt": {
+        "zh": "一方说不或需要暂停时，互动仍可能继续施压。",
+        "en": "When one of us said no or needed a pause, pressure could still continue in the interaction."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_017",
+      "prompt": {
+        "zh": "我们对隐私、社交或个人决定的边界长期有摩擦。",
+        "en": "We experienced ongoing friction around privacy, social contact or personal decisions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_018",
+      "prompt": {
+        "zh": "关系后期，彼此核对和怀疑占用了越来越多注意力。",
+        "en": "Toward the end of the relationship, checking on each other and feeling suspicious took up increasing attention."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "boundaries",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "boundaries",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "boundaries",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "boundaries",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "boundaries",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "boundaries",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_019",
+      "prompt": {
+        "zh": "工作、学习或经济压力明显减少了我们可用的相处精力。",
+        "en": "Work, study or financial pressure noticeably reduced the energy we had available to spend together."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_020",
+      "prompt": {
+        "zh": "距离、居住或作息变化让原有相处方式难以维持。",
+        "en": "Changes in distance, living arrangements or daily schedules made our earlier way of being together difficult to maintain."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_021",
+      "prompt": {
+        "zh": "家庭责任或重要他人的意见持续影响我们的决定。",
+        "en": "Family responsibilities or the views of important people in our lives continued to affect our decisions."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_022",
+      "prompt": {
+        "zh": "健康或照顾任务改变了双方能投入关系的资源。",
+        "en": "Health issues or caregiving tasks changed the resources each of us could put into the relationship."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_023",
+      "prompt": {
+        "zh": "我们处在不同生活阶段，重要计划很难同时推进。",
+        "en": "We were at different stages of life, making it difficult to move important plans forward at the same time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    },
+    {
+      "id": "BREAKUP_LK_024",
+      "prompt": {
+        "zh": "一次较大的现实转折使关系安排长期处于不确定中。",
+        "en": "A major change in practical circumstances left our relationship arrangements uncertain for a long time."
+      },
+      "reverse": false,
+      "options": [
+        {
+          "id": "1",
+          "label": {
+            "zh": "完全不符合",
+            "en": "Does not fit at all"
+          },
+          "directionId": "external-pressure",
+          "score": 1
+        },
+        {
+          "id": "2",
+          "label": {
+            "zh": "比较不符合",
+            "en": "Mostly does not fit"
+          },
+          "directionId": "external-pressure",
+          "score": 2
+        },
+        {
+          "id": "3",
+          "label": {
+            "zh": "不确定或视情况",
+            "en": "Uncertain or depends on the situation"
+          },
+          "directionId": "external-pressure",
+          "score": 3
+        },
+        {
+          "id": "4",
+          "label": {
+            "zh": "比较符合",
+            "en": "Mostly fits"
+          },
+          "directionId": "external-pressure",
+          "score": 4
+        },
+        {
+          "id": "5",
+          "label": {
+            "zh": "非常符合",
+            "en": "Fits very well"
+          },
+          "directionId": "external-pressure",
+          "score": 5
+        },
+        {
+          "id": "na",
+          "label": {
+            "zh": "无法作答或不愿回答（不计分）",
+            "en": "Unable or prefer not to answer (unscored)"
+          },
+          "directionId": "external-pressure",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "communication-review",
+      "directionIds": [
+        "communication"
+      ],
+      "title": {
+        "en": "Unfinished Conversations After a Breakup",
+        "zh": "关系结束后的未完成对话"
+      },
+      "headline": {
+        "zh": "回看对话是在哪一步开始难以为继",
+        "en": "Look back at where a conversation became difficult to continue"
+      },
+      "summary": {
+        "zh": "这组六道陈述关心的是：重要话题是不是越来越难谈完整，澄清和核对是不是越来越少。",
+        "en": "These six statements ask whether important topics became harder to discuss fully, with less clarification and checking."
+      },
+      "scoreReading": {
+        "zh": "平均值表示你对这六条陈述的整体符合程度。它只用于阅读，不分高低好坏。",
+        "en": "The mean describes how well the six statements fit your recollection overall. It is a reading aid, not a good-or-bad rating."
+      },
+      "seo": {
+        "title": {
+          "en": "Breakup Communication Review: Unfinished Conversations",
+          "zh": "分手沟通复盘：未完成对话与六题均分解读"
+        },
+        "description": {
+          "en": "Review unfinished conversations in a past relationship. Read six-item sums, a worked mean, examples and a private fact-checking exercise in this full free guide.",
+          "zh": "回看一段已结束关系中未说完的话，核对六题原始和、均分算例、具体对话与私人事实笔记。免费阅读完整指南，不以分数判定分手原因或责任。"
+        }
+      },
+      "sections": [
+        {
+          "id": "communication-review-scope",
+          "title": {
+            "en": "What the six statements cover",
+            "zh": "六项陈述覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "观察对话是否逐渐失去把一件事谈完整、核对清楚再收尾的功能，不判断谁更会说话。",
+              "en": "Observe whether conversations gradually stopped helping you finish a topic, check understanding and bring it to a close. This does not judge who was better at speaking."
+            },
+            {
+              "zh": "题目覆盖这几类情况：重要话题谈不完整、分歧反复出现但缺结论、用猜测代替确认、表达在意后缺少回应余力、后期交流减少、澄清时对话中断或偏离。",
+              "en": "The items cover unfinished important topics, recurring disagreements without conclusions, guessing instead of checking, limited capacity to respond to care, less communication toward the end, and attempts to clarify that stopped or went off topic."
+            }
+          ]
+        },
+        {
+          "id": "communication-review-score",
+          "title": {
+            "en": "Read the arithmetic alongside the responses",
+            "zh": "把运算与逐题回答一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "For a worked example, the six responses 4, 2, 3, 5, 2 and 4 add to 20. Dividing by six gives 3.3333 after rounding to four decimals. The calculation retains the original middle choice: 3 means uncertain or depends on the situation. It does not mean a conversation was moderately harmful. Another pattern can produce the same total; return to the items and the event instead of turning 20 into a main-cause label.",
+              "zh": "算例中，六项依次选4、2、3、5、2、4，相加为20，除以六并保留四位小数为3.3333。运算保留原中点：3表示不确定或视情况，不表示一次谈话有中等程度的伤害。其他回答组合也可能得到20；应回到题目与事件，不把20变成主要原因标签。"
+            },
+            {
+              "zh": "平均值表示你对这六条陈述的整体符合程度。它只用于阅读，不分高低好坏。",
+              "en": "The mean describes how well the six statements fit your recollection overall. It is a reading aid, not a good-or-bad rating."
+            }
+          ]
+        },
+        {
+          "id": "communication-review-facts",
+          "title": {
+            "en": "Facts and questions worth separating",
+            "zh": "值得分开的事实与问题"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以回顾的角度：哪次对话停在半途；哪个误会一直没被核对；你当时有没有机会把话说完。",
+              "en": "You might recall a conversation that stopped halfway, a misunderstanding that was never checked, or whether you had an opportunity to finish speaking."
+            },
+            {
+              "zh": "一次具体对话里双方分别说了什么；话题在哪一句停住；后来有没有人再提起。",
+              "en": "What each person actually said in one conversation; where the topic stopped; and whether anyone returned to it later."
+            },
+            {
+              "zh": "那些没说完的话，是当时没有机会说，还是说了没有被接住？现在回看，你更想核对的是哪一句？",
+              "en": "Were the unfinished things never given room to be said, or were they said without being taken up? Looking back, which particular statement would you want to check?"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-example",
+          "title": {
+            "en": "A concrete retrospective example",
+            "zh": "一个具体的回顾例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Imagine two people who have already ended their relationship looking back separately on an unfinished plan. One remembers asking whether Sunday was available; the other said they needed to check a work shift. The subject never returned. A useful note distinguishes the question, the reply and the absence of a later conversation. It does not fill that gap with “they never cared” or “I ruined every conversation.”",
+              "zh": "假设一段关系已经结束，两人各自回忆一项未定的安排。一人记得问过周日有没有空，另一人说要先查工作排班，后来话题没有再提。可用的笔记把问题、当时的回答和之后没有再讨论分开，而不是用“对方从未在乎”或“我毁了每次谈话”填补空白。"
+            },
+            {
+              "en": "If you do not remember the exact words, mark them as an approximation. You can record that you remember feeling unanswered while leaving the other person’s intention unknown. A trusted person can help you separate a remembered event from an inference, if that feels useful and safe. Checking your own notes does not require reopening contact with a former partner.",
+              "zh": "若记不清原话，可以标为大意。你能记录自己记得有未获回应的感受，同时保留对方意图未知。如果合适且安全，可信任的人可以协助区分记得的事和推断。核对自己的笔记，不要求重新联系前伴侣。"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-review",
+          "title": {
+            "en": "What this can help you review",
+            "zh": "这组记录可以帮助回看什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "它可能帮你整理这段关系里哪些话反复没说完，以及下一次你想更早开口谈什么。",
+              "en": "This may help you organise the topics that repeatedly remained unfinished and what you would want to raise earlier in a future relationship."
+            },
+            {
+              "zh": "它不能说明谁更不会沟通、谁拒绝沟通，也不能证明沟通问题是关系结束的原因。",
+              "en": "It cannot establish who communicated poorly or refused to communicate, or prove that communication difficulties caused the relationship to end."
+            }
+          ]
+        },
+        {
+          "id": "communication-review-action",
+          "title": {
+            "en": "An optional next step and its safety boundary",
+            "zh": "可选下一步与安全边界"
+          },
+          "paragraphs": [
+            {
+              "zh": "写下一次可确认的对话事实；只在愿意时与信任的人核对；不联系、不复合、不公开都可以。",
+              "en": "Write down one conversation fact you can confirm. Check it with a trusted person only if you wish. Choosing no contact, no reconciliation and no public account is also valid."
+            },
+            {
+              "zh": "如果说不之后，对话会升级成威胁、强迫或控制，那不属于沟通问题，请优先保障现实安全。",
+              "en": "If saying no leads to threats, coercion or control, that is beyond a communication difficulty. Prioritise practical safety."
+            }
+          ]
+        },
+        {
+          "id": "communication-review-counterexample",
+          "title": {
+            "en": "A counterexample keeps the reading open",
+            "zh": "用反例保留其他解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Two people may speak briefly and disagree rarely, yet still have important unmet needs or a reason to end a relationship. Conversely, a long disagreement can end with clear understanding. These six statements do not evaluate every conversation, compare communication skill or establish a healthy-versus-unhealthy relationship. A low sum cannot clear harmful behaviour, and a high sum cannot establish who caused the ending.",
+              "zh": "两人可能话不多、很少争论，却仍有重要需要未被满足，或有结束关系的理由；一次很长的分歧，也可能以清楚理解收尾。这六项不评估全部对话，不比较沟通能力，不划分关系健康与否。低原始和不能排除伤害行为，高原始和也不能证明谁导致了关系结束。"
+            }
+          ]
+        },
+        {
+          "id": "communication-review-limits",
+          "title": {
+            "en": "Causality, responsibility and evidence",
+            "zh": "因果、责任与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "This test cannot establish the order or causal connection between difficult conversations and the end of the relationship. The score does not identify who should be responsible or require you to explain yourself or apologise to the other person. This is a one-sided retrospective set of clues, without completed psychometric validation. It is not an assessment of communication ability.",
+              "zh": "对话变难与关系结束之间的先后与因果，本测试无法确认。 分数不指向谁应该负责，也不要求你向对方解释或道歉。 这是单方回顾的因素线索，未完成心理测量验证，不能当作沟通能力评估。"
+            },
+            {
+              "en": "Does not prove communication was the only cause; Does not allocate responsibility; Violence or control must not be treated as a communication problem",
+              "zh": "不证明沟通是唯一原因; 不分配责任; 暴力或控制不能算作沟通问题"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expectations-review",
+      "directionIds": [
+        "expectations"
+      ],
+      "title": {
+        "en": "Needs and Expectations After a Breakup",
+        "zh": "关系结束后的需要与期待复盘"
+      },
+      "headline": {
+        "zh": "回看哪些期待一直没能对齐",
+        "en": "Look back at expectations that did not line up"
+      },
+      "summary": {
+        "zh": "这六道题问的是联系、支持、空间、分工和未来安排上的期待，是不是长期难以协调。",
+        "en": "These six statements concern whether expectations about contact, support, space, responsibilities and future arrangements remained difficult to coordinate."
+      },
+      "scoreReading": {
+        "zh": "平均值表示这六条陈述的整体符合程度。数值本身不说明谁要得多、谁给得少。",
+        "en": "The mean describes how well the six statements fit overall. The number itself does not show who wanted too much or gave too little."
+      },
+      "seo": {
+        "title": {
+          "en": "Breakup Expectations Review: Contact, Support and Space",
+          "zh": "分手需要与期待复盘：联系、支持与空间完整指南"
+        },
+        "description": {
+          "en": "Explore contact, support, space and future expectations after a relationship ends. Read six-item scoring, a concrete example and a voluntary next-time discussion list.",
+          "zh": "回看已结束关系中的联系、支持、空间与未来期待，核对六题计分和具体情境，写一份下次愿意更早讨论的清单。完整结果免费，不替双方判定适配或复合。"
+        }
+      },
+      "sections": [
+        {
+          "id": "expectations-review-scope",
+          "title": {
+            "en": "What the six statements cover",
+            "zh": "六项陈述覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "观察双方在联系频率、支持方式、共同与个人时间、责任分工和未来期待上是否长期不一致，不判断谁更合适。",
+              "en": "Observe persistent differences in contact frequency, support, shared and personal time, responsibilities and future expectations. This does not decide who was more suitable."
+            },
+            {
+              "zh": "题目覆盖联系频率期待、承诺节奏与未来安排、重视的支持方式、共同时间与个人空间、责任承担共识、想从关系获得的核心体验。",
+              "en": "The items cover expectations about contact frequency, commitment and future plans, valued kinds of support, time together and personal space, responsibility arrangements, and the central experiences wanted from the relationship."
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-score",
+          "title": {
+            "en": "Read the arithmetic alongside the responses",
+            "zh": "把运算与逐题回答一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "Six responses of 4 give a raw sum of 24 and a mean of 4.0000. That is an arithmetic summary of six self-reported fits, not 80 percent incompatibility. It cannot identify whose request should have changed. The original response 3 means uncertain or depends on the situation, so a mean of 3 is not automatically evidence of a medium difference. One added unscored choice withholds this group’s personal number without removing its general guide.",
+              "zh": "六项都选4，原始和为24，均分为4.0000。这是六次自报符合程度的运算摘要，不是80%的不适配，也不指出谁的要求应该改变。原选项3表示不确定或视情况，因此均分3不能自动说明差异中等。一项网页新增不计分会使本组个人数值暂缺，但通用指南仍可读。"
+            },
+            {
+              "zh": "平均值表示这六条陈述的整体符合程度。数值本身不说明谁要得多、谁给得少。",
+              "en": "The mean describes how well the six statements fit overall. The number itself does not show who wanted too much or gave too little."
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-facts",
+          "title": {
+            "en": "Facts and questions worth separating",
+            "zh": "值得分开的事实与问题"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以回顾的角度：你们在哪一类安排上反复不一致；分歧出现后怎样处理；哪些需要从头到尾没有说出口。",
+              "en": "You might look at an arrangement that repeatedly differed, how the difference was handled, or a need that remained unspoken throughout."
+            },
+            {
+              "zh": "双方各自提出过的期待；哪些安排试过又改回；最后一次讨论这类话题是什么时候。",
+              "en": "Expectations each person actually raised; arrangements that were tried and later changed back; and the last discussion about that topic."
+            },
+            {
+              "zh": "哪一项落差最常被提起？当时有没有机会把各自的需要都说完？",
+              "en": "Which difference came up most often? Was there room for each person to finish explaining what they needed?"
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-example",
+          "title": {
+            "en": "A concrete retrospective example",
+            "zh": "一个具体的回顾例子"
+          },
+          "paragraphs": [
+            {
+              "en": "In one retrospective example, one person remembers wanting a short call on several evenings, while the other preferred one longer conversation at the weekend. Separate three questions: was either expectation expressed, what was agreed, and what actually happened? The test cannot reconstruct an agreement neither person remembers. Noticing different wishes is a starting point for a private record, rather than a verdict about who was needy or distant.",
+              "zh": "一个回顾例子里，一人记得希望一周几晚简短通话，另一人更愿意周末长聊一次。可分开三个问题：是否说过期待、约定是什么、实际上怎样做。测试不能重建双方都记不清的约定。看见愿望不同，是私人记录的起点，不是判谁黏人或疏远。"
+            },
+            {
+              "en": "Write an expectation in a form that names the arrangement: “I hoped we would decide when we could next talk,” rather than “a good partner would always know.” A future discussion list can include contact, personal time, support and responsibilities. It is a list of topics you may choose to discuss with a willing person in the future, not a message the former partner must receive or a condition you must accept now.",
+              "zh": "可以把期待写成一项安排，例如“我希望能先定好下次什么时候聊”，而不是“好的伴侣总该知道”。以后的讨论清单可包括联系、私人时间、支持与分工。它只是一份未来可与愿意参与的人谈的话题，不是前伴侣必须收到的信息，也不是你现在必须接受的条件。"
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-review",
+          "title": {
+            "en": "What this can help you review",
+            "zh": "这组记录可以帮助回看什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "它可能帮你列出一份下一次想更早拿出来谈的事项清单。",
+              "en": "This may help you make a list of matters you would want to discuss earlier in a future relationship."
+            },
+            {
+              "zh": "它不能证明双方天生不合适，也不能说你或对方自私、要求太多。",
+              "en": "It cannot prove that you were inherently incompatible or that either person was selfish or asked for too much."
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-action",
+          "title": {
+            "en": "An optional next step and its safety boundary",
+            "zh": "可选下一步与安全边界"
+          },
+          "paragraphs": [
+            {
+              "zh": "把一项落差分别写成双方可能的需要；把想早点讨论的事项写进清单；不需要现在联系对方。",
+              "en": "Write one difference as a possible need on each side, and add a topic you would want to discuss earlier to a private list. You do not need to contact the other person now."
+            },
+            {
+              "zh": "如果差异伴随着威胁或强迫，那已经不是需要协调的问题，请先保证安全。",
+              "en": "If a difference involves threats or coercion, it is no longer simply a matter of coordinating needs. Put safety first."
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-counterexample",
+          "title": {
+            "en": "A counterexample keeps the reading open",
+            "zh": "用反例保留其他解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Agreeing about time together does not establish agreement about money or privacy, and different contact preferences do not prove an unsuitable pairing. Practical constraints can also prevent a wanted arrangement without revealing a person’s motives. The score cannot distinguish those explanations by itself. If a refusal was met with threats or force, do not recast that harmful behaviour as an ordinary difference of needs.",
+              "zh": "相处时间上有共识，不证明金钱或隐私也有共识；联系偏好不同，也不能证明双方不适合。现实限制还可能使愿意的安排难以做到，而不揭示任何人的动机。分数本身无法区分这些解释。若拒绝后遭到威胁或强迫，不要把这类伤害改写成普通需要差异。"
+            }
+          ]
+        },
+        {
+          "id": "expectations-review-limits",
+          "title": {
+            "en": "Causality, responsibility and evidence",
+            "zh": "因果、责任与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "This test cannot establish whether differences in expectations caused the relationship to end. The score does not say who should change. The test also cannot decide whether someone wants to change. This is a one-sided retrospective set of clues, without completed psychometric validation. It cannot predict a future relationship.",
+              "zh": "期待差异与关系结束之间是否存在因果，本测试无法确认。 分数不指向谁该改变；改变意愿本身也不由测试判断。 这是单方回顾的因素线索，未完成心理测量验证，不能用于预测下一段关系。"
+            },
+            {
+              "en": "Does not mean the two people were unsuitable for each other; Does not decide whether to reconcile; Having different needs does not establish that someone was wrong",
+              "zh": "不表示双方不适合; 不判断复合; 需要不同不等于谁有错"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boundaries-review",
+      "directionIds": [
+        "boundaries"
+      ],
+      "title": {
+        "en": "Boundaries and Trust After a Relationship Ends",
+        "zh": "关系结束后的边界与信任复盘"
+      },
+      "headline": {
+        "zh": "回看边界和信任是在哪里承压",
+        "en": "Look back at where boundaries and trust came under pressure"
+      },
+      "summary": {
+        "zh": "这六道题问的是：说过的话和约定有没有被稳定记住，拒绝之后互动有没有被尊重。",
+        "en": "These six statements concern whether expressed words and agreements were consistently remembered and whether a refusal was respected."
+      },
+      "scoreReading": {
+        "zh": "平均值只说明六条陈述的整体符合程度，不能确认任何一次具体事件是否发生。",
+        "en": "The mean describes only how well the six statements fit overall. It cannot confirm that a particular event occurred."
+      },
+      "seo": {
+        "title": {
+          "en": "Breakup Boundaries and Trust: A Full Reflection Guide",
+          "zh": "分手边界与信任复盘：完整读法与安全说明"
+        },
+        "description": {
+          "en": "Read a six-item boundaries-and-trust reflection with raw-score arithmetic, specific facts to note and safety guidance. No blame percentages or requirement to make contact.",
+          "zh": "阅读边界与信任六题复盘，核对原始分运算、可以记录的具体事实与安全说明。全文免费，不计算责任比例，不要求联系、对质、解释或复合。"
+        }
+      },
+      "sections": [
+        {
+          "id": "boundaries-review-scope",
+          "title": {
+            "en": "What the six statements cover",
+            "zh": "六项陈述覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "观察选择权、隐私、约定、拒绝和信任是否承受压力，不把一般摩擦与暴力控制混为一谈。",
+              "en": "Observe pressure on choice, privacy, agreements, refusals and trust, while keeping ordinary friction distinct from violence and control."
+            },
+            {
+              "zh": "题目覆盖坦诚范围分歧、边界未被记住或尊重、约定变化后信任难恢复、说不之后仍被施压、隐私与决定摩擦、核对与怀疑增多。",
+              "en": "The items cover different expectations of openness, forgotten or disregarded boundaries, difficulty rebuilding trust after changed agreements, continuing pressure after a refusal, friction around privacy and decisions, and increased checking and suspicion."
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-score",
+          "title": {
+            "en": "Read the arithmetic alongside the responses",
+            "zh": "把运算与逐题回答一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "Six responses of 2 total 12 and give a mean of 2.0000. This does not establish that the relationship was safe or rule out one harmful event. The six questions cover selected statements and your memory, rather than an investigation of the whole relationship. The original uncertain response still counts as 3 in the source arithmetic; it is not evidence that an event partially occurred. There is no safety threshold and no responsibility percentage.",
+              "zh": "六项都选2，原始和为12，均分为2.0000。这不证明关系安全，也不能排除一次伤害事件。六题覆盖的是选定陈述与你的回忆，不是对整段关系的调查。原不确定选项仍按3计入源运算，不表示某件事部分发生。这里没有安全阈值或责任百分比。"
+            },
+            {
+              "zh": "平均值只说明六条陈述的整体符合程度，不能确认任何一次具体事件是否发生。",
+              "en": "The mean describes only how well the six statements fit overall. It cannot confirm that a particular event occurred."
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-facts",
+          "title": {
+            "en": "Facts and questions worth separating",
+            "zh": "值得分开的事实与问题"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以回顾：哪一次明确的拒绝没有被尊重；哪个约定后来发生变化；哪些事情需要反复核对。",
+              "en": "You might recall a clear refusal that was not respected, an agreement that later changed, or something that repeatedly needed checking."
+            },
+            {
+              "zh": "一次拒绝时对方接着做了什么；边界有没有明确说出；约定变化后有没有重新说明。",
+              "en": "What the other person did after one refusal; whether the boundary was explicitly stated; and whether a changed agreement was explained again."
+            },
+            {
+              "zh": "你说不或需要暂停时，接下来发生了什么？你愿意写下来核对吗？",
+              "en": "What happened after you said no or asked for a pause? Would you want to write it down so that you can check the details?"
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-example",
+          "title": {
+            "en": "A concrete retrospective example",
+            "zh": "一个具体的回顾例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Suppose someone recalls asking that a photograph remain private. In a note, they may separate the stated request, what happened to the photograph, any later explanation and what remains unknown. These are different facts. A questionnaire score cannot verify an upload, establish permission or decide an intention. A person can still take a remembered refusal seriously without treating a score as proof for someone else.",
+              "zh": "假设有人记得曾要求一张合照不公开。私人笔记可分开：说过的要求、照片后来怎样、之后有没有解释，以及哪些仍未知。这是不同的事实。问卷分数不能核验发布、确认同意或判定意图。你可以认真看待记得的拒绝，而不把分数当作提供给他人的证据。"
+            },
+            {
+              "en": "If writing or storing details could increase a safety risk, skip the exercise. You do not owe a former partner access to your answers, a chance to debate your boundary or a new meeting. If you choose support, the useful starting point is the actual situation and what would help you be safe. A low, high, equal or missing score changes none of those options.",
+              "zh": "若书写或保存细节可能增加安全风险，可以跳过练习。你不需要让前伴侣查看答卷、获得争辩边界的机会，或再见一次。若选择求助，可从现实情境及怎样让自己安全说起。分数低、高、相同或暂缺，都不会改变这些选择。"
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-review",
+          "title": {
+            "en": "What this can help you review",
+            "zh": "这组记录可以帮助回看什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "它可能帮你标出以后想更早守住或说明的边界。",
+              "en": "This may help you mark a boundary that you would want to state or protect earlier in the future."
+            },
+            {
+              "zh": "它不能确认暴力、胁迫或控制发生，不能判断谁危险，也不能计算责任比例。",
+              "en": "It cannot confirm violence, coercion or control, identify a dangerous person, or calculate shares of responsibility."
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-action",
+          "title": {
+            "en": "An optional next step and its safety boundary",
+            "zh": "可选下一步与安全边界"
+          },
+          "paragraphs": [
+            {
+              "zh": "不要求你联系、对质、解释或复合。如存在安全威胁，安全优先：可暂停联系，向可信的人、当地紧急服务或合适的专业支持求助。",
+              "en": "You are not required to make contact, confront, explain yourself or reconcile. If there is a safety threat, put safety first: you may pause contact and seek help from a trusted person, local emergency services or appropriate professional support."
+            },
+            {
+              "zh": "安全说明与分数多少无关，任何分数下都成立：暴力、胁迫、跟踪、威胁、强迫和控制不是沟通不良或双方不合，不为伤害行为寻找双向原因。",
+              "en": "The safety boundary applies regardless of the score. Violence, coercion, stalking, threats, force and control are not poor communication or mutual incompatibility. Do not seek a two-sided cause for harmful acts."
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-counterexample",
+          "title": {
+            "en": "A counterexample keeps the reading open",
+            "zh": "用反例保留其他解释"
+          },
+          "paragraphs": [
+            {
+              "en": "A single breach can matter even when the other five answers receive low numbers. Repeated checking can also have more than one explanation, and this test does not diagnose either person. Do not subtract pleasant experiences from harmful acts to calculate a net relationship score. Where violence, coercion, stalking or control is present, it must not be explained as a symmetrical communication problem. Practical safety takes precedence over completing or sharing a test.",
+              "zh": "即使其余五项数值低，一次越界也可能很重要。反复核对也可能有不同解释，本测试不诊断任何一方。不要拿愉快经历抵消伤害行为来算关系净分。存在暴力、胁迫、跟踪或控制时，不应解释为双方对称的沟通问题。现实安全优先于完成或分享测试。"
+            }
+          ]
+        },
+        {
+          "id": "boundaries-review-limits",
+          "title": {
+            "en": "Causality, responsibility and evidence",
+            "zh": "因果、责任与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "This test cannot establish a causal link between pressure on boundaries or trust and the end of the relationship. It does not allocate shares of responsibility. Staying, not resisting or reconciling must not be treated as consent or shared responsibility for harm. Safety threats are beyond the test. Its results cannot replace practical or professional support, or prove or rule out a history of harm.",
+              "zh": "边界或信任承压与关系结束之间的因果，本测试无法确认。 不分配责任比例；不把未离开、不反抗或复合解释成同意或共同责任。 安全威胁超出本测试能力；结果不能替代专业与现实支持，也不能证明或排除伤害历史。"
+            },
+            {
+              "en": "Does not confirm that a specific harmful event occurred; Does not identify you or the other person as dangerous; Does not mean both people caused violence",
+              "zh": "不确认具体伤害事件一定发生; 不说明你或对方是危险人物; 不表示双方共同造成暴力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "external-pressure-review",
+      "directionIds": [
+        "external-pressure"
+      ],
+      "title": {
+        "en": "Life Pressures Around a Relationship Ending",
+        "zh": "关系结束前后的现实压力复盘"
+      },
+      "headline": {
+        "zh": "回看时间与精力怎样被现实条件改变",
+        "en": "Look back at how practical conditions changed time and energy"
+      },
+      "summary": {
+        "zh": "这六道题问的是工作、学习、经济、距离、家庭和照顾这些关系之外的条件，有没有改变你们的相处方式。",
+        "en": "These six statements ask whether conditions outside the relationship, such as work, study, finances, distance, family and caregiving, changed how you spent time together."
+      },
+      "scoreReading": {
+        "zh": "平均值表示六条陈述的整体符合程度，只说明你的回顾印象，不评价压力本身对错。",
+        "en": "The mean describes how well the six statements fit your retrospective impression. It does not judge a pressure as right or wrong."
+      },
+      "seo": {
+        "title": {
+          "en": "Breakup and Life Pressures: Timeline and Score Guide",
+          "zh": "分手与生活压力复盘：时间线、计分与完整例子"
+        },
+        "description": {
+          "en": "Review work, money, distance, health and life-stage changes around a breakup. Follow a worked six-item mean and a factual timeline without assigning cause or blame.",
+          "zh": "回看关系结束前后的工作、经济、距离、健康与生活阶段变化，核对六题均分算例并整理事实时间线。免费阅读完整指南，不据时间先后判定因果或责任。"
+        }
+      },
+      "sections": [
+        {
+          "id": "external-pressure-review-scope",
+          "title": {
+            "en": "What the six statements cover",
+            "zh": "六项陈述覆盖什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "观察关系之外的压力与生活阶段变化，是否改变双方能投入的时间、精力和选择空间。",
+              "en": "Observe whether external pressures or changes in life stage affected the time, energy and choices available to each person."
+            },
+            {
+              "zh": "题目覆盖工作学习经济压力、距离居住作息变化、家庭责任与重要他人意见、健康与照顾任务、生活阶段差异、重大现实转折。",
+              "en": "The items cover work, study and financial pressures; distance, housing and schedule changes; family responsibilities and significant others’ opinions; health and caregiving; different life stages; and major changes in practical circumstances."
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-score",
+          "title": {
+            "en": "Read the arithmetic alongside the responses",
+            "zh": "把运算与逐题回答一起读"
+          },
+          "paragraphs": [
+            {
+              "en": "The responses 5, 4, 2, 3, 4 and 1 add to 19. Dividing by six and rounding to four decimals gives 3.1667. This is not a count of stressful events or a percentage of the breakup explained by circumstances. The middle response 3 can represent uncertainty, and two patterns with the same sum may describe different memories. Read each item before deciding what can actually be placed on a timeline.",
+              "zh": "六项依次选5、4、2、3、4、1，相加为19；除以六并保留四位小数，得3.1667。这不是压力事件数量，也不是现实条件解释了多少比例的分手。中点3可能表示不确定，同一原始和也可能来自不同回忆。先逐题回看，再决定什么确实能写上时间线。"
+            },
+            {
+              "zh": "平均值表示六条陈述的整体符合程度，只说明你的回顾印象，不评价压力本身对错。",
+              "en": "The mean describes how well the six statements fit your retrospective impression. It does not judge a pressure as right or wrong."
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-facts",
+          "title": {
+            "en": "Facts and questions worth separating",
+            "zh": "值得分开的事实与问题"
+          },
+          "paragraphs": [
+            {
+              "zh": "可以回顾的角度：压力出现的先后；哪段时间相处方式变了；哪些安排因为现实条件没能维持。",
+              "en": "You might recall when a pressure began, when your way of spending time together changed, or which arrangements could no longer be maintained."
+            },
+            {
+              "zh": "压力出现和关系变化的时间先后；时间、金钱、居住、健康这些资源里哪些确实改变过。",
+              "en": "The order of pressures and changes in the relationship; and which resources, including time, money, housing or health, actually changed."
+            },
+            {
+              "zh": "变化发生时，双方各自承受了什么？有哪些安排是当时真的做不到的？",
+              "en": "What was each person dealing with when the change happened? Which arrangements were genuinely not possible at that time?"
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-example",
+          "title": {
+            "en": "A concrete retrospective example",
+            "zh": "一个具体的回顾例子"
+          },
+          "paragraphs": [
+            {
+              "en": "Consider a retrospective example in which a work schedule changed in March, travel between homes became longer in April and the relationship ended later. The ordering is something a person may be able to confirm. It does not prove the schedule change caused the ending. Add what actually changed, such as the available evening or travel cost, and keep separate any explanation that neither person confirmed.",
+              "zh": "一个回顾例子里，三月工作排班改变，四月往返住处耗时增加，之后关系结束。先后顺序可能可以确认，却不证明排班改变导致了分手。可补上实际变动，例如可见面的晚上或交通费用；没有得到确认的解释另行保留。"
+            },
+            {
+              "en": "A useful timeline can contain “I do not know” as well as dates. It can show that a planned visit was not affordable while leaving open how each person understood that limitation. You can note a resource you would want to discuss earlier in another relationship, without demanding that the former partner agree with the timeline or that you reverse an earlier decision.",
+              "zh": "有用的时间线可以写日期，也可以写“不知道”。它可能记录一次见面费用当时难以承担，同时保留各方如何理解这个限制的未知。你可以记一项以后愿意更早讨论的资源问题，不要求前伴侣同意这条时间线，也不要求推翻过去的决定。"
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-review",
+          "title": {
+            "en": "What this can help you review",
+            "zh": "这组记录可以帮助回看什么"
+          },
+          "paragraphs": [
+            {
+              "zh": "它可能帮你区分关系内部的问题和资源限制带来的影响。",
+              "en": "This may help you distinguish difficulties within a relationship from the effects of limited resources."
+            },
+            {
+              "zh": "它不能说明外部压力必然导致分手，也不能说没有压力关系就会成功。",
+              "en": "It cannot show that external pressure inevitably caused the breakup, or that the relationship would have succeeded without that pressure."
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-action",
+          "title": {
+            "en": "An optional next step and its safety boundary",
+            "zh": "可选下一步与安全边界"
+          },
+          "paragraphs": [
+            {
+              "zh": "如果愿意，可以画一条只记录可确认事实的时间线，标出压力出现和关系变化的先后；不需要据此联系、解释或改变任何关系决定。",
+              "en": "If you wish, draw a timeline of facts you can confirm, marking when a pressure began and when the relationship changed. This does not require contact, explanation or a change to any relationship decision."
+            },
+            {
+              "zh": "外部压力不能免除任何造成伤害行为的责任；如果压力情境伴随威胁或控制，安全优先。",
+              "en": "External pressure does not excuse responsibility for harmful acts. If threats or control accompany the pressure, prioritise safety."
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-counterexample",
+          "title": {
+            "en": "A counterexample keeps the reading open",
+            "zh": "用反例保留其他解释"
+          },
+          "paragraphs": [
+            {
+              "en": "Some relationships continue under major pressure, while others end when practical resources appear stable. Neither observation tells you what should have happened in your relationship. External difficulty also never excuses threats, coercion or other harmful acts. Keep an account of resources distinct from an allocation of responsibility, and stop the reflection if it becomes unhelpful or unsafe.",
+              "zh": "有些关系在重大压力下继续，有些在资源看起来稳定时结束。这些观察都不能决定你的关系当时应该怎样。外部困难也不能为威胁、胁迫或其他伤害行为免责。把资源记录与责任分配分开；反思无益或不安全时，可以停止。"
+            }
+          ]
+        },
+        {
+          "id": "external-pressure-review-limits",
+          "title": {
+            "en": "Causality, responsibility and evidence",
+            "zh": "因果、责任与证据"
+          },
+          "paragraphs": [
+            {
+              "en": "This test cannot establish a causal link between pressure and the end of the relationship. Pressure describes background conditions. It is not a basis for allocating responsibility. This is a one-sided retrospective set of clues, without completed psychometric validation. It is not an assessment of practical stress.",
+              "zh": "压力与关系结束之间的因果，本测试无法确认。 压力是背景条件，不是责任归属的依据。 这是单方回顾的因素线索，未完成心理测量验证，不能当作现实压力评估。"
+            },
+            {
+              "en": "Does not prove that an event necessarily caused the breakup; Does not predict that your next relationship will end the same way",
+              "zh": "不证明某个事件必然导致分手; 不预测你的下一段关系会重复同样结局"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "kind": "fermatmind_original_mini_breakup_reason_24",
+    "formCode": "breakup_reason_likert_24",
+    "itemBankVersion": "breakup_mini_original_0.1.0_fm_en_working_v1",
+    "scoringVersion": "four_complete6_sum_mean4dp_no_ranking_causality_v1",
+    "resultContentVersion": "breakup_mini_four_full8_v1",
+    "itemBankSha256": "2083edcc35b00d96b1c8a1abcac6438ae36d31cc5b913749d98b764fd00e4d5e",
+    "resultContentSha256": "3dee75408dbd3c970b8042995ca0be9765d4a4d1d2523c5088b451770e25150e",
+    "psychometricValidationCompleted": false
+  },
+  "references": [],
+  "guide": [
+    {
+      "id": "source",
+      "title": {
+        "en": "Original source and the web edition",
+        "zh": "原始来源与网页版本"
+      },
+      "paragraphs": [
+        {
+          "en": "The 24 Chinese statements, their four six-item groups and the five numeric anchors come from FermatMind’s original miniature-program product for reviewing a breakup. English is a new working translation. The explanatory guides add original examples while retaining the source’s four separate themes.",
+          "zh": "24条中文陈述、四组各六题归属和五个数值锚点，来自费马原小程序的关系结束复盘产品。英文为新的工作译文；完整指南保留原有四组主题，并增加原创情境例子。"
+        },
+        {
+          "zh": "本测试仅供娱乐与自我探索；尚未完成信度、效度、常模或百分位验证。",
+          "en": "This original preview is for entertainment and self-exploration. Reliability, validity, norms and percentiles have not been established."
+        },
+        {
+          "zh": "本测试未完成心理测量验证，不能当作诊断、评估或法律依据；现有题目本身不能作为效度证据。",
+          "en": "The test has not completed psychometric validation and is not a diagnostic, assessment or legal basis. Having a set of items is not itself evidence of validity."
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": {
+        "en": "Choose one relationship that has ended",
+        "zh": "只回顾一段已经结束的关系"
+      },
+      "paragraphs": [
+        {
+          "zh": "请先了解四件事：这是对一段已经结束关系的单方回顾；四个分数是独立因素，不排名，不确定主要原因；结果不能判断责任、复合或伴侣适配；暴力、胁迫、控制和安全威胁不是普通的双向不合，安全优先。",
+          "en": "First, four points: this is one person’s retrospective view of one relationship that has ended; the four scores are read separately and do not identify a main cause; the result cannot allocate responsibility or decide reconciliation or partner compatibility; violence, coercion, control and safety threats are not ordinary mutual incompatibility, and safety comes first."
+        },
+        {
+          "zh": "你看到的是你的记忆与理解；对方可能有不同感受，有些事实无法确认，保留不确定是正常的。",
+          "en": "This reflects your memory and understanding. The other person may remember or feel differently, and some facts may remain unconfirmed. It is reasonable to keep that uncertainty."
+        },
+        {
+          "zh": "回忆会受到结束后的情绪、新信息和时间影响，两次回想不一样并不奇怪。",
+          "en": "Feelings after an ending, new information and time can influence memory. Recalling a situation differently on another occasion is not unusual."
+        }
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": {
+        "en": "Four separate sums and four-decimal means",
+        "zh": "四组独立原始和与四位小数均分"
+      },
+      "paragraphs": [
+        {
+          "zh": "本次结果由四个独立因素组成，每个因素单独计算六道题的原始总和与 1–5 平均值，没有总分。",
+          "en": "The result contains four separate groups. Each adds the six numeric responses and calculates a mean from 1 to 5. There is no total score."
+        },
+        {
+          "zh": "原始总和是六道题得分相加，范围 6–30。它只在本次回答内有意义，不代表任何等级。",
+          "en": "The raw sum adds six item scores and ranges from 6 to 30. It describes only the current responses and is not a grade."
+        },
+        {
+          "zh": "平均值是把总和除以六，范围 1–5，表示你对这组六个陈述的整体符合程度，不是频率，也不是概率。",
+          "en": "The mean divides the sum by six, ranging from 1 to 5. It represents how well the six statements fit overall, rather than frequency or probability."
+        },
+        {
+          "en": "The original numeric midpoint 3 means uncertain or depends on the situation. It remains a valid score of 3. Each complete six-item group has a sum of 6–30; divide by six and round to four decimal places. For example, a sum of 20 gives 3.3333. The extra decimal places show arithmetic, not measurement precision.",
+          "zh": "原数值中点3表示不确定或视情况，仍是有效的3分。每组六项完整数字答案的原始和为6—30，除以六后保留四位小数。例如原始和20的均分为3.3333。多显示的小数位只是算术呈现，不意味着测量更精确。"
+        },
+        {
+          "zh": "四个因素各自独立阅读，像四份并列的记录，不合并、不加减、不比较强弱。",
+          "en": "Read the four groups separately, like parallel notes. They are not combined, offset against one another or compared for strength."
+        },
+        {
+          "zh": "四个分数不能互相排名。数值不同不代表某个因素更重要，不产生主要原因。",
+          "en": "The four scores cannot be ranked against each other. Different numbers do not establish that one group was more important, and no main cause is assigned."
+        },
+        {
+          "zh": "本测试没有高、中、低分界线，不划分严重、一般或轻微，请勿按分数给自己贴等级。",
+          "en": "There are no high, medium or low thresholds. The test does not label the situation severe, ordinary or mild, so do not use its numbers to assign a level."
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "title": {
+        "en": "Explicit skips and a complete attempt",
+        "zh": "明确跳过与完成作答"
+      },
+      "paragraphs": [
+        {
+          "en": "The website adds an explicit unscored option that is different from the source’s numeric midpoint. Choose an answer or this option for all 24 statements to finish. A skipped statement withholds that group’s sum and mean; a different complete group remains readable. An all-unscored attempt finishes with no personal numbers and all four full guides available.",
+          "zh": "本网页增加明确的不计分选项，与来源的数值中点不同。24项都选择答案或不计分后即可完成；任一项不计分，会暂缺所属组的原始和与均分，其他完整组仍然保留。全部选不计分也可以完成，不显示个人数值，四份完整指南照常开放。"
+        },
+        {
+          "en": "This is a stated web adaptation: the original miniature-program scorer suppresses personal interpretation when its full 24-item numeric attempt is incomplete. The website’s separate complete-group display and skipped-item completion are not a new validation of the source. An unanswered blank also remains different from an explicit skip.",
+          "zh": "这是明确的网页改编：原小程序在完整24项数字作答未齐时不输出个人因素解释。本网页对完整组分别呈现、允许带不计分项完成的规则，并不构成对来源的新验证；尚未选择也与明确不计分不同。"
+        }
+      ]
+    },
+    {
+      "id": "boundaries",
+      "title": {
+        "en": "A review cannot decide a cause or responsibility",
+        "zh": "复盘不能判定原因与责任"
+      },
+      "paragraphs": [
+        {
+          "zh": "分数描述你的回顾印象，不能证明任何事件导致关系结束。",
+          "en": "The scores describe your retrospective impression and cannot prove that an event caused the relationship to end."
+        },
+        {
+          "zh": "结果不分配责任，不判断谁对谁错，不要求你反思自己造成了什么。",
+          "en": "The result does not allocate responsibility, judge who was right or wrong, or require you to reflect on what you caused."
+        },
+        {
+          "zh": "结果不判断谁更适合你，不筛选伴侣，不预测下一段关系。",
+          "en": "The result does not decide who suits you, select a partner or predict a future relationship."
+        },
+        {
+          "zh": "结果不给你复合建议，也不要求你联系、对质、解释或挽回；是否联系由你按现实安全自行决定。",
+          "en": "The result does not advise reconciliation or require contact, confrontation, explanation or attempts to win someone back. Any decision about contact remains yours, informed by practical safety."
+        },
+        {
+          "zh": "暴力、胁迫、跟踪、威胁、强迫和控制不是沟通不良或双方不合，本测试不能处理安全风险或判断责任。如果现实中存在安全威胁，安全优先：可以暂停联系，向可信的人、当地紧急服务或合适的专业支持求助。不为伤害行为寻找双向原因，不把未离开或曾经复合解释成同意。",
+          "en": "Violence, coercion, stalking, threats, force and control are not poor communication or mutual incompatibility. This test cannot manage safety risk or allocate responsibility. If there is a practical safety threat, prioritise safety: you may pause contact and seek help from a trusted person, local emergency services or appropriate professional support. Do not seek two-sided causes for harmful acts or treat staying or reconciling as consent."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": {
+        "en": "Private progress, optional next steps and retaking",
+        "zh": "私人进度、可选下一步与重测"
+      },
+      "paragraphs": [
+        {
+          "en": "The website keeps answers and results on this page. If you explicitly choose to save progress, individual choices are stored in this browser tab’s session storage for up to 24 hours, including a refresh or language change. Completion, retaking, exit-and-clear or expiry clears that draft. No final-result cache is saved. Without opting in, a refresh loses progress.",
+          "zh": "本网页的答案与结果留在当前页面。只有主动选择保存进度，逐题选择才会在本浏览器标签页的session storage中保留最多24小时，并可在刷新或换语言后恢复；完成、重测、退出并清除或到期会清除草稿。网页不另存最终结果缓存；未选择保存时，刷新会丢失进度。"
+        },
+        {
+          "en": "The original miniature-program version used a device draft and a final-result cache. That historical storage description is not the website’s promise. Website public guide links contain no answers, group scores or partner identity, and the copy action includes only the public title and entry link.",
+          "zh": "原小程序曾使用设备草稿与最终结果缓存；这段原版存储说明不代表本网页的存储承诺。网页公开指南网址不含答案、因素分数或伴侣身份；复制功能只包含公开标题和入口链接。"
+        },
+        {
+          "zh": "如果以后重新作答，应按当时能确认的经历回答；两次结果不同可能与回忆、情境或理解变化有关，不能自动解释为关系真相已经改变。",
+          "en": "If you answer again later, use the experiences you can confirm at that time. Different results may reflect changes in memory, context or understanding, and do not automatically mean that the truth about the relationship has changed."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Will this tell me why we broke up?",
+        "zh": "它能告诉我真正的分手原因吗？"
+      },
+      "answer": {
+        "en": "The four groups organise one person’s recollection. They do not identify a main cause, assign responsibility or estimate which factor caused a share of the breakup. Specific facts and other perspectives remain outside the score.",
+        "zh": "四组内容整理一个人的回顾，不指定主要原因、不分配责任，也不估计各因素导致分手的份额。具体事实与其他视角不能由分数代替。"
+      }
+    },
+    {
+      "question": {
+        "en": "What does the numeric midpoint mean?",
+        "zh": "数值中点表示什么？"
+      },
+      "answer": {
+        "en": "The source’s value 3 means uncertain or depends on the situation. It is a valid numeric response, not a diagnosis or moderate severity. The additional unscored choice is separate and receives no numeric value.",
+        "zh": "来源的3表示不确定或视情况，是有效数字答案，不表示诊断或中等严重程度。网页另加的不计分选项单独存在，没有数值。"
+      }
+    },
+    {
+      "question": {
+        "en": "How are the four means calculated?",
+        "zh": "四个均分怎样计算？"
+      },
+      "answer": {
+        "en": "Each group contains six forward-scored statements from 1 to 5. Add all six for a raw sum of 6–30, divide by six and round to four decimal places. Groups are not combined, ranked or classified by thresholds.",
+        "zh": "每组有六条1—5正向计分陈述，相加为6—30的原始和，除以六并保留四位小数。各组不合并、不排名，也不按阈值分档。"
+      }
+    },
+    {
+      "question": {
+        "en": "Can I finish without answering a sensitive statement?",
+        "zh": "不想回答某条，也可以完成吗？"
+      },
+      "answer": {
+        "en": "You can choose the website’s unscored option for any statement. That group has no personal sum or mean, while other complete groups remain available. All-unscored attempts can finish and read all four full guides.",
+        "zh": "任何题目都可以选择网页不计分项。所属组不显示个人原始和或均分，其他完整组保留。全部不计分也可以完成并阅读四份完整指南。"
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need to contact my former partner?",
+        "zh": "需要联系前伴侣核实吗？"
+      },
+      "answer": {
+        "en": "Contact, confrontation and reconciliation are not required. You can reflect privately or stop. Violence, coercion, control and safety threats are not treated as ordinary mutual incompatibility; practical safety comes first.",
+        "zh": "不需要联系、对质或复合。可以私人回顾，也可以停止。暴力、胁迫、控制与安全威胁不被解释为普通的双方不合，现实安全始终优先。"
+      }
+    },
+    {
+      "question": {
+        "en": "Is this a validated relationship assessment?",
+        "zh": "这是经过验证的关系评估吗？"
+      },
+      "answer": {
+        "en": "This is FermatMind’s original preview with a new English working translation. Reliability, validity, norms and cutoffs have not been established. It does not diagnose, decide legal responsibility or predict compatibility.",
+        "zh": "这是费马原创预览题本及新的英文工作译文，尚未建立信度、效度、常模或分界值；不作诊断，不决定法律责任，也不预测伴侣适配。"
+      }
+    },
+    {
+      "question": {
+        "en": "What happens to my answers?",
+        "zh": "我的答案怎样保存？"
+      },
+      "answer": {
+        "en": "Answers stay in the page. Saving progress is an explicit opt-in to a 24-hour draft in this browser tab; completion, retaking or exit-and-clear removes it. Public links and copied text contain no personal answers or scores.",
+        "zh": "答案留在页面。保存进度需要主动选择，草稿在本标签页保留最多24小时；完成、重测或退出并清除会移除草稿。公开网址与复制文本不含个人答案或分数。"
+      }
+    },
+    {
+      "question": {
+        "en": "What can I do after reading?",
+        "zh": "阅读之后可以做什么？"
+      },
+      "answer": {
+        "en": "You may privately note one fact, one uncertainty and a need you would want to communicate more clearly in future. Read any of the four guides, retake or leave. None of these steps requires a particular score or sending anyone your result.",
+        "zh": "可以私人记一项事实、一个不确定处，以及未来希望更早说明的需要；也可以读任一指南、重测或结束。无需先达到某个分数，更不必向别人提交结果。"
+      }
+    }
+  ]
+}
